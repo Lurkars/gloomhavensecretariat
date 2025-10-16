@@ -95,7 +95,7 @@
   z-index: 2;
   display: flex;
   align-items: center;
-  transition: max-height 2s ease-out;
+  transition: max-height calc(var(--ghs-animation-speed) * 2000ms) ease-out;
   max-height: 100%;
   min-width: calc(var(--ghs-unit) * 7);
   max-width: calc(var(--ghs-unit) * 96);
@@ -184,7 +184,7 @@
   &.spirits {
 
     ghs-standee {
-      transition: top 500ms ease-in-out;
+      transition: top calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
 
       &.active {
         top: calc(var(--ghs-unit) * -5);
@@ -213,7 +213,7 @@
   --ghs-character-color: #000;
   border-radius: calc(var(--ghs-unit) * 0.5);
   filter: var(--ghs-filter-outline);
-  transition: background-color 150ms ease-in-out, background-image 150ms ease-in-out, background-blend-mode 150ms ease-in-out;
+  transition: background-color calc(var(--ghs-animation-speed) * 150ms) ease-in-out, background-image calc(var(--ghs-animation-speed) * 150ms) ease-in-out, background-blend-mode calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
 
   &.dimmed {
     background-color: var(--ghs-color-gray);
@@ -917,7 +917,7 @@
   .attack-modifier-button,
   .character-sheet-button,
   &::before {
-    transition: filter 150ms ease-in-out;
+    transition: filter calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
   }
 
   &.off {

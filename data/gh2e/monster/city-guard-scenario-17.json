@@ -1,0 +1,229 @@
+{
+  "name": "city-guard-scenario-17",
+  "edition": "gh2e",
+  "hidden": true,
+  "count": 6,
+  "standeeShare": "city-guard",
+  "baseStat": {
+    "type": "normal",
+    "actions": [],
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 5,
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "level": 1,
+      "health": 5,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 7,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 8,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 9,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 10,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 13,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 17,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 6,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 6,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 9,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 9,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 10,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 13,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 15,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        },
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 20,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        },
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    }
+  ]
+}

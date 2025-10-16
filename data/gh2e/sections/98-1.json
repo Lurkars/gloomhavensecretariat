@@ -1,0 +1,30 @@
+{
+  "index": "98.1",
+  "name": "Ancient Defense Network",
+  "edition": "gh2e",
+  "parent": "33",
+  "monsters": [
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

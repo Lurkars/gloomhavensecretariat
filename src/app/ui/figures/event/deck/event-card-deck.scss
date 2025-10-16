@@ -1,0 +1,265 @@
+.events-dialog {
+    position: relative;
+
+    .menu {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        max-width: calc(var(--ghs-unit) * 80 * var(--ghs-text-factor));
+
+        a,
+        label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-family: var(--ghs-font-title);
+            font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+            color: var(--ghs-color-gray);
+            text-shadow: var(--ghs-outline);
+            margin: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+
+            &.event-type {
+                font-family: var(--ghs-font-text);
+            }
+
+            &:hover {
+                color: var(--ghs-color-white);
+            }
+
+            &.active {
+                color: var(--ghs-color-white);
+            }
+
+            input[type="text"] {
+                font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+                min-width: initial;
+            }
+        }
+
+        &.resolved {
+            max-width: calc(var(--ghs-unit) * 120 * var(--ghs-text-factor));
+        }
+    }
+
+    .drop-list {
+        position: relative;
+    }
+
+    .events-container {
+        display: flex;
+        margin: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+        width: calc(var(--ghs-unit) * 78 * var(--ghs-text-factor));
+        max-height: 80vh;
+
+        .upcoming,
+        .new,
+        .drawn {
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+            width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor));
+
+            &.drawn {
+                display: none;
+            }
+
+            .title {
+                position: sticky;
+                top: 0;
+                background-image: url('~src/assets/images/dialog_background.png');
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: calc(var(--ghs-unit) * 36.5 * var(--ghs-dialog-factor));
+                min-height: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+                font-family: var(--ghs-font-text);
+                font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                color: var(--ghs-color-white);
+                z-index: 2;
+
+                a,
+                span {
+                    margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                    white-space: nowrap;
+                }
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+
+                    .ghs-svg {
+                        width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                        height: auto;
+                        filter: var(--ghs-filter-white);
+                    }
+
+                    &:hover .ghs-svg {
+                        opacity: 0.7;
+                    }
+                }
+
+                input {
+                    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                    margin-right: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                    flex-grow: 1;
+                    text-align: center;
+                }
+            }
+
+            .container {
+                position: relative;
+                width: calc(var(--ghs-unit) * 36 * var(--ghs-text-factor));
+                height: calc(var(--ghs-unit) * 54 * var(--ghs-text-factor));
+                margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+                flex-shrink: 0;
+                flex-grow: 0;
+
+                ghs-event-card {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .button {
+                    z-index: 1;
+                    position: absolute;
+                    display: flex;
+                    cursor: pointer;
+                    top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                    right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                    justify-content: center;
+                    align-items: center;
+                    width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                    color: var(--ghs-filter-white) var(--ghs-filter-shadow);
+
+                    .ghs-svg {
+                        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                    }
+
+                    &:hover .ghs-svg {
+                        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+                    }
+
+                    &.remove:hover .ghs-svg {
+                        filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
+                    }
+
+                    &.add:hover .ghs-svg {
+                        filter: var(--ghs-filter-green) var(--ghs-filter-shadow);
+                    }
+
+                    &.drag-handle {
+                        cursor: grab;
+                        right: initial;
+                        left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                    }
+
+                    &.open {
+                        cursor: nesw-resize;
+                        right: 50%;
+                        transform: translateX(50%);
+                    }
+
+                    &.reset {
+                        right: initial;
+                        left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+                        &:hover .ghs-svg {
+                            filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
+                        }
+                    }
+
+                    &.restore {
+                        top: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+                    }
+
+                    &.draw {
+                        top: initial;
+                        left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                        right: initial;
+                        bottom: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                        width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                        height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                        font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+                    }
+                }
+            }
+
+            .empty {
+                position: absolute;
+                top: calc(var(--ghs-unit) * 5.5 * var(--ghs-text-factor));
+                left: calc(var(--ghs-unit) * 0.3 * var(--ghs-text-factor));
+                display: block;
+                margin: calc(var(--ghs-unit) * 0.7 * var(--ghs-text-factor));
+                width: calc(var(--ghs-unit) * 35 * var(--ghs-text-factor));
+                height: calc(var(--ghs-unit) * 51.7 * var(--ghs-text-factor));
+                border-radius: calc(var(--ghs-unit) * 1);
+                border-style: dashed;
+                border-width: calc(var(--ghs-unit) * 0.2);
+                border-color: var(--ghs-color-white);
+            }
+
+            &.upcoming,
+            &.new {
+                .container .button {
+
+                    &.add,
+                    &.remove {
+                        width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                        height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                    }
+                }
+            }
+        }
+
+        &.resolved {
+            width: calc(var(--ghs-unit) * 117 * var(--ghs-text-factor));
+
+            .drawn {
+                display: flex;
+            }
+        }
+
+        &.fh {
+
+            .upcoming,
+            .new,
+            .drawn {
+
+                .title {
+                    background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+                }
+            }
+        }
+
+        &.modern {
+
+            .upcoming,
+            .new,
+            .drawn {
+
+                .title {
+                    background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+                }
+            }
+        }
+    }
+
+    .cdk-drag-placeholder {
+        opacity: 0.5;
+    }
+
+    .cdk-drag-animating {
+        transition: transform calc(var(--ghs-animation-speed) * 250ms) cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    .cdk-drop-list-dragging :not(.cdk-drag-placeholder) {
+        transition: transform calc(var(--ghs-animation-speed) * 250ms) cubic-bezier(0, 0, 0.2, 1);
+    }
+
+}

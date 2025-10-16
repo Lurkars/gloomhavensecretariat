@@ -1,0 +1,50 @@
+{
+  "index": "32.1",
+  "name": "Forgotten Crypt",
+  "edition": "gh2e",
+  "parent": "5",
+  "monsters": [
+    "cultist",
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "treasures": [
+        32
+      ],
+      "monster": [
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

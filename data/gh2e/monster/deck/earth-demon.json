@@ -1,0 +1,246 @@
+{
+  "name": "earth-demon",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Strong Growth",
+      "cardId": 570,
+      "initiative": 40,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%game.target.all%",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hasty Assault",
+      "cardId": 571,
+      "initiative": 42,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 572,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        }
+      ]
+    },
+    {
+      "name": "Boulder Throw",
+      "cardId": 573,
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calculated Strike",
+      "cardId": 574,
+      "initiative": 83,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        }
+      ]
+    },
+    {
+      "name": "Ground Slam",
+      "cardId": 575,
+      "initiative": 93,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "push",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reckless Charge",
+      "cardId": 576,
+      "initiative": 79,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Earthen Eruption",
+      "cardId": 577,
+      "initiative": 87,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "concatenation",
+          "value": ":2",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(2,0,target)"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "wild",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

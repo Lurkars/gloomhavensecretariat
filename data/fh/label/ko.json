@@ -812,7 +812,6 @@
     "friend-of-the-snowspeakers": "눈속삭이의 벗",
     "ice-spike": "얼음 가시",
     "into-the-forest": "숲속으로",
-    "portcullis": "",
     "red-well": "붉은 우물",
     "shard-seeker": "조각 탐색자",
     "sled": "썰매",
@@ -822,33 +821,35 @@
     "unfettered-deactivated": "자율객체 비활성화"
   },
   "character": {
-    "banner-spear": "창기수",
-    "blinkblade": {
-      "": "점멸칼날",
-      "fast": "고속",
-      "slow": "저속",
-      "time_tokens": {
-        "": "%data.characterToken.blinkblade.time%시간 토큰",
-        "hint": "라운드 시작 시 저속/고속을 선택한 후에, 자동으로 시간 토큰을 더하거나 제거함"
-      }
-    },
-    "boneshaper": {
-      "": "뼈 조각사",
-      "solid-bones": {
-        "": "Solid Bones",
-        "hint": "모든 비틀거리는 해골에 +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+    "fh": {
+      "banner-spear": "창기수",
+      "blinkblade": {
+        "": "점멸칼날",
+        "fast": "고속",
+        "slow": "저속",
+        "time_tokens": {
+          "": "%data.characterToken.blinkblade.time%시간 토큰",
+          "hint": "라운드 시작 시 저속/고속을 선택한 후에, 자동으로 시간 토큰을 더하거나 제거함"
+        }
       },
-      "unholy-prowess": {
-        "": "불경한 솜씨",
-        "hint": "모든 비틀거리는 해골에 +1%game.action.heal%."
+      "boneshaper": {
+        "": "뼈 조각사",
+        "solid-bones": {
+          "": "Solid Bones",
+          "hint": "모든 비틀거리는 해골에 +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+        },
+        "unholy-prowess": {
+          "": "불경한 솜씨",
+          "hint": "모든 비틀거리는 해골에 +1%game.action.heal%."
+        }
+      },
+      "deathwalker": "데스워커",
+      "drifter": "표류자",
+      "geminate": {
+        "": "쌍생자",
+        "melee": "근접",
+        "range": "원거리"
       }
-    },
-    "deathwalker": "데스워커",
-    "drifter": "표류자",
-    "geminate": {
-      "": "쌍생자",
-      "melee": "근접",
-      "range": "원거리"
     },
     "traits": {
       "arcane": "아케인",
@@ -2175,7 +2176,6 @@
         "85-1": "낡은 동전",
         "85-2": "살아있는 빙하",
         "85-3": "유물",
-        "86-1": "",
         "87-1": "그리고, 개울이 있었다",
         "87-2": "벨라라의 요새",
         "87-3": "웅장한 광경",

@@ -1,0 +1,63 @@
+{
+  "index": "70",
+  "name": "Underwater Lagoon",
+  "flowChartGroup": "random",
+  "edition": "gh2e",
+  "unlocks": [
+    "83"
+  ],
+  "rewards": {
+    "gold": 10,
+    "experience": 10
+  },
+  "monsters": [
+    "forest-imp",
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

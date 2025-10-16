@@ -1,0 +1,45 @@
+{
+  "index": "82",
+  "name": "Syndicate Hideout",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1,
+    "events": [
+      "city:72"
+    ]
+  },
+  "monsters": [
+    "bandit-archer"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "index": "87",
+  "name": "Sulfur Mine",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "ancient-technology"
+    ],
+    "items": [
+      "109"
+    ]
+  },
+  "monsters": [
+    "hound",
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

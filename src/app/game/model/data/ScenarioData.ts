@@ -34,6 +34,7 @@ export class ScenarioData implements Editional, Spoilable {
   random: boolean = false;
   solo: string | undefined;
   allyDeck: boolean = false;
+  eventType: string | undefined;
   lootDeckConfig: LootDeckConfig = {};
   parent: string | undefined;
   parentSections: string[][] = [];
@@ -132,6 +133,7 @@ export class ScenarioRewards {
   chooseLocation: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
+  eventDecks: string[] = [];
   removeEvents: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: number = 0;
@@ -158,6 +160,9 @@ export class ScenarioRewards {
   overlayCampaignSticker: WorldMapOverlay | undefined = undefined;
   pet: string | undefined = undefined;
   repeatScenario: boolean = false;
+  reputationFactions: string[] = [];
+  factionUnlock: string = "";
+  randomSideScenario: number = 0;
   hints: ScenarioRewardHints | undefined = undefined;
 
 }
@@ -181,6 +186,7 @@ export class ScenarioRewardHints {
   chooseLocation: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
+  eventDecks: string[] = [];
   removeEvents: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: string = "";
@@ -199,6 +205,8 @@ export class ScenarioRewardHints {
   chooseUnlockCharacter: string[] = [];
   overlaySticker: string = "";
   overlayCampaignSticker: string = "";
+  reputationFactions: string[] = [];
+  randomSideScenario: string = "";
   pet: string = "";
 }
 

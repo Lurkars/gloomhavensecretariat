@@ -1,0 +1,35 @@
+{
+  "index": "28",
+  "name": "Temple of the Seer",
+  "flowChartGroup": "hail",
+  "edition": "gh2e",
+  "monsters": [
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-construct",
+          "type": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "type": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

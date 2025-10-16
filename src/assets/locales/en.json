@@ -222,7 +222,8 @@
           "": "Open Box %game.characterIcon.{0}%",
           "itemDesign": "Gain \"%data.items.{1}-{0}%\" design (Item {0})",
           "randomScenario": "Unlock \"{1}\" %data.scenarioNumber:{0}%"
-        }
+        },
+        "unlockPQ": "Unlock Personal Quest {0}"
       },
       "resources": {
         "": "Resources",
@@ -239,6 +240,7 @@
         },
         "apply": "Apply",
         "conclusion": "Open Section %data.section:{0}%",
+        "event": "Add %game.events.type.{0}% Event {1} to the deck",
         "events": "Add City Event {0} and Road Event {0} to the deck",
         "moveSupply": "Move resources to Frosthaven supply",
         "prosperity": "+{0} prosperity"
@@ -511,10 +513,10 @@
     "action": {
       "area": "Area Effect",
       "attack": "Attack",
-      "box": "Box",
+      "box": "&#91;Box&#93;",
       "boxFhSubActions": "&#91;FH Subaction Box&#93;",
       "card": "Card",
-      "concatenation": "Concatenation",
+      "concatenation": "&#91;Concatenation&#93;",
       "concatenationSpacer": "&#91;Concatenation Spacer&#93;",
       "condition": "Condition",
       "custom": "Custom",
@@ -524,7 +526,7 @@
       "fly": "Fly",
       "forceBox": "&#91;FH Mandatory Box&#93;",
       "grant": "Grant",
-      "grid": "Grid",
+      "grid": "&#91;Grid&#93;",
       "heal": "Heal",
       "hint": "&#91;Information Board&#93;",
       "jump": "Jump",
@@ -734,6 +736,10 @@
         "": "Permanent",
         "hint": "Permanent condition"
       },
+      "plague": {
+        "": "Plague Token",
+        "hint": "No condition, but helper to track %game.conditionIcon.plague% Plague Tokens"
+      },
       "poison": {
         "": "Poison",
         "hint": "%game.conditionIcon.poison% Poison: All attackers gain +1 %game.action.attack%. Prevents healing. Remove when healed."
@@ -821,49 +827,185 @@
     },
     "enemy": "Enemy",
     "events": {
+      "accept": {
+        "": "Resolve Event",
+        "notApply": "Resolve, not Apply"
+      },
+      "applyManually": "Apply the following manually:",
       "conditions": {
-        "otherwise": "Otherwise:",
-        "payCollectiveGold": "Pay {0} Collective gold:",
-        "payCollectiveGoldConditional": "Pay {0} ({1}) or {2} ({3}) Collective gold:",
-        "reputationGT": "Reputation > {0}:",
-        "reputationLT": "Reputation < {0}:"
+        "and": "and",
+        "building": "{0}",
+        "campaignSticker": "%data.campaignSticker.{0}%",
+        "character": "{0}",
+        "loseCollectiveGold": "Lose {0} collective gold",
+        "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%",
+        "loseCollectiveResourceType": "Lose {0} collective %game.loot.{1}% resources",
+        "moraleGT": "Morale > {0}",
+        "moraleLT": "Morale < {0}",
+        "otherwise": "Otherwise",
+        "payCollectiveGold": "Pay {0} collective gold",
+        "payCollectiveGoldConditional": {
+          "connector": "or",
+          "prefix": "Pay",
+          "suffix": "collective gold"
+        },
+        "payCollectiveGoldReputationGT": "{0} (reputation > {1})",
+        "payCollectiveGoldReputationLT": "{0} (reputation < {1})",
+        "payGold": "Pay {0} gold each",
+        "reputationGT": "Reputation > {0}",
+        "reputationLT": "Reputation < {0}",
+        "season": "%party.campaign.sheet.{0}%",
+        "seasonLT": "If %party.campaign.sheet.{0}% is {1} weeks or fewer away",
+        "traits": "%game.trait% {0}"
       },
-      "option": {
-        "": "Option {0}:",
-        "1": "A",
-        "2": "B",
-        "3": "C"
+      "deck": {
+        "addCard": "Add to upcoming cards and shuffle deck",
+        "allTypes": "Show all decks",
+        "draw": "Draw Card",
+        "drawn": "Resolved ({0})",
+        "filter": "Search for Card Id",
+        "new": "Locked ({0})",
+        "removeCard": "Remove from upcoming cards",
+        "removeDrawn": "Remove from drawn cards",
+        "removeSelection": "Reset outcoume",
+        "resolved": "Show Resolved",
+        "setup": "Setup Event Decks",
+        "show": "Show Full Event Card",
+        "shuffle": "Shuffle Deck",
+        "upcoming": "In Deck ({0})"
       },
-      "rewards": {
-        "additionalGold": "Gain {0} additional gold each.",
+      "effects": {
+        "and": "and",
+        "automation": "The effect is applied automatically",
+        "battleGoal": "Gain {0} %game.checkmark% each.",
+        "campaignSticker": "Gain \"%data.campaignSticker.{0}%\" campaign sticker.",
+        "campaignStickerMap": "Place \"%data.campaignSticker.{0}%\" campaign sticker on the town map in location {1}.",
+        "campaignStickerReplace": "Place \"%data.campaignSticker.{0}%\" campaign sticker over \"%data.campaignSticker.{1}%\".",
+        "choose": {
+          "connector": "or",
+          "prefix": "Either",
+          "suffix": "."
+        },
         "collectiveGold": "Gain {0} collective gold.",
+        "collectiveGoldAdditional": "Gain {0} additional collective gold.",
+        "collectiveGoldOther": "All other characters gain {0} collective gold.",
         "collectiveItem": "Gain {2} collective \"%data.items.{1}-{0}%\" (Item {0}).",
+        "collectiveResource": "Gain {0} collective %game.resource.{1}%.",
+        "collectiveResourceType": "Gain any {0} collective %game.loot.{1}%s.",
         "consumeCollectiveItem": "Consume {0} collective %game.itemSlot:{1}% item.",
         "consumeItem": "Consume {0} %game.itemSlot:{1}% item each.",
-        "discard": "Discard {0} cards each.",
-        "event": "Add %game.events.type.{0}% Event {1} to the deck.",
+        "custom": "{0}",
+        "discard": {
+          "": "Discard {0} cards each.",
+          "alt": "All characters start the next scenario discarding %number.{0}% cards."
+        },
+        "discardOne": {
+          "": "Discard 1 card each.",
+          "alt": "All characters start the next scenario discarding one card."
+        },
+        "drawAnotherEvent": {
+          "": "Draw another %game.events.type.{0}% Event.",
+          "alt": "Resolve another %game.events.type.{0}% Event."
+        },
+        "drawEvent": "Draw a %game.events.type.{0}% Event.",
+        "event": {
+          "": "Add %game.events.type.{0}% Event {1} to the deck.",
+          "alt": "Add event {1} to the %game.events.type.{0}% deck."
+        },
+        "eventReturn": "Retrieve event {1} and return it back to the %game.events.type.{0}% deck.",
+        "eventsToTop": "Look through the %game.events.type.{0}% deck until you find {1}, {2}, or {3}, and put it on top of the deck.",
         "experience": "Gain {0} experience each.",
-        "globalAchievement": "Global Achievement: \"%data.globalAchievements.{0}%\".",
+        "globalAchievement": "Global Achievement:<br>\"%data.globalAchievements.{0}%\".",
         "gold": "Gain {0} gold each.",
+        "goldAdditional": "Gain {0} additional gold each.",
+        "inspiration": "Gain {0} inspiration.",
+        "item": {
+          "": "Gain \"%data.items.{1}-{0}%\" (Item {0}).",
+          "alt": "Gain \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+        },
+        "itemCollective": "Gain {1} collective \"%data.items.{2}-{0}%\" (Item {0}).",
         "itemDesign": "Gain \"%data.items.{1}-{0}%\" design (Item {0}).",
         "loseBattleGoal": "Lose {0} %game.checkmark% each.",
+        "loseCollectiveExperience": "Lose {0} collective experience.",
         "loseCollectiveGold": "Lose {0} collective gold.",
+        "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%.",
+        "loseCollectiveResourceAny": "Lose {0} collective resources.",
         "loseGold": "Lose {0} gold each.",
+        "loseGoldOne": "One character loses {0} gold.",
+        "loseMorale": "Lose {0} morale.",
+        "loseProsperity": "Lose {0} prosperity.",
         "loseReputation": "Lose {0} reputation.",
+        "loseResource": "Lose {0} %game.resource.{1}%.",
+        "morale": "Gain {0} morale.",
         "noEffect": "No effect.",
         "outcome": "Read outome %game.events.option.{0}%.",
-        "partyAchievement": "Party Achievement: \"%data.partyAchievements.{0}%\".",
+        "outpostAttack": "%game.valueSign:{0}% %game.action.attack%",
+        "outpostAttackTarget": {
+          "": "%game.valueSign:{0}% %game.action.attack% for %game.events.effects.outpostAttackTarget.{1}%",
+          "all": "all targets.",
+          "one": "any one target."
+        },
+        "outpostTarget": "%game.valueSign:{0}% %game.action.target%",
+        "partyAchievement": "Party Achievement:<br>\"%data.partyAchievements.{0}%\".",
         "prosperity": "Gain {0} prosperity.",
+        "randomItem": {
+          "": "Gain one Random Item.",
+          "alt": "Gain one collective random item %game.itemFh.random%."
+        },
         "randomItemDesign": "Gain Random Item Design.",
+        "randomScenario": "Gain one random side scenario.",
+        "removeEvent": {
+          "": "Remove %game.events.type.{0}% Event {1} from the game.",
+          "alt": "Remove event {1} from the %game.events.type.{0}% deck."
+        },
         "reputation": "Gain {0} reputation.",
-        "scenario": "Unlock \"{1}\" %data.scenarioNumber:{0}%.",
-        "scenarioCondition": "All start scenario with %game.condition.{0}%.",
-        "scenarioDamage": "All start scenario with {0} damage.",
-        "scenarioSingleMinus1": "One starts scenario with %game.attackmodifier.minus1% x{0}."
+        "reputationAdditional": "Gain {0} additional reputation.",
+        "resource": "Gain {0} %game.resource.{1}% each.",
+        "resourceType": "Gain any {0} %game.loot.{1}% each.",
+        "scenarioCondition": {
+          "": "All start scenario with {0}.",
+          "alt": "All characters start the next scenario with {0}."
+        },
+        "scenarioConditionOne": "One character gains %game.condition.{0}%.",
+        "scenarioDamage": {
+          "": "All start scenario with %game.damage:{0}%.",
+          "alt": "All characters start the next scenario with %game.damage:{0}%."
+        },
+        "scenarioSingleMinus1": "One starts scenario with %game.card.minus1% x{0}.",
+        "sectionOrWeek": "Add %game.section:{0}% OR {1} to the celander in one week.",
+        "sectionOrWeeks": "Add %game.section:{0}% OR {1} to the celander in %game.number.{2}% weeks.",
+        "sectionWeek": "Add %game.section:{0}% to the celander in one week.",
+        "sectionWeeks": "Add %game.section:{0}% to the celander in %game.number.{1}% weeks.",
+        "sectionWeeksSeason": "Add %game.section:{0}% to the celander in %game.number.{1}% weeks. If that week is in {2}, add it to the %game.numbered.{3}% week of the next {4} instead.",
+        "soldier": "Gain 1 soldier.",
+        "soldiers": "Gain {0} soldiers.",
+        "townGuardDeckCard": "Add one %game.townGuardAM:{0}% card to the town guard deck.",
+        "townGuardDeckCards": "Add %game.number.{1}% %game.townGuardAM:{0}% cards to the town guard deck.",
+        "unlockEnvelope": "Unlock envelope {0} if it is not unlocked.",
+        "unlockScenario": {
+          "": "Unlock \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
+          "alt": "New Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
+        },
+        "unlockScenarioGroup": "Unlock \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%).",
+        "upgradeBuilding": "Upgrade the %data.buildings.{0}% to the next level, or, if the %data.buildings.{0}%  is already level {1}, gain {2} morale instead."
+      },
+      "option": {
+        "": "Option {0}:"
+      },
+      "requirements": {
+        "": "Requirements:",
+        "partyAchievement": "%data.partyAchievements.{0}% (Party) COMPLETE",
+        "warning": "Requirments not met. Click to draw another card!"
       },
       "type": {
+        "boat": "Boat",
         "city": "City",
-        "road": "Road"
+        "rift": "Rift",
+        "road": "Road",
+        "summer-outpost": "Summer Outpost",
+        "summer-road": "Summer Road",
+        "winter-outpost": "Winter Outpost",
+        "winter-road": "Winter Road"
       }
     },
     "exhausted": "Exhausted",
@@ -970,7 +1112,7 @@
     },
     "loot": {
       "": "Loot",
-      "apply": "Add to %data.character.{0}%",
+      "apply": "Add to %data.character.{0}.{1}%",
       "arrowvine": "Arrowvine",
       "axenut": "Axenut",
       "chooseCharacter": "Select Character for +{0} {1}",
@@ -992,7 +1134,7 @@
       "flamefruit": "Flamefruit",
       "herb_resources": "herb",
       "hide": "Hide",
-      "keep": "Keep on %data.character.{0}%",
+      "keep": "Keep on %data.character.{0}.{1}%",
       "lootTreasure": {
         "": "{0} loots treasure {1}?",
         "confirm": "Confirm",
@@ -1009,7 +1151,7 @@
         "apply": "Select and Equip",
         "draw": "Random Item for %game.characterIconColored.{0}% {1}"
       },
-      "remove": "Remove from %data.character.{0}%",
+      "remove": "Remove from %data.character.{0}.{1}%",
       "rockroot": "Rockroot",
       "snowthistle": "Snowthistle",
       "special": "special",
@@ -1075,6 +1217,7 @@
       "alliesAdjacent": "%game.target% all adjacent allies",
       "alliesAdjacentAffect": "%game.affect% all adjacent allies",
       "alliesAffect": "%game.affect% all allies",
+      "alliesEnemies": "%game.target% all allies and enemies",
       "alliesRange": "%game.target% all allies within %game.action.range% {0}",
       "alliesRangeAffect": "%game.affect% all allies within %game.action.range% {0}",
       "ally": "%game.target% 1 ally",
@@ -1109,7 +1252,7 @@
       "selfOrAlly": "Self or ally",
       "targets": "All targets"
     },
-    "sufferDamage": "{0} suffers %game.damage:{1}%",
+    "sufferDamage": "{0} suffer %game.damage:{1}%",
     "summon": {
       "player2-3": "%game.monsterType.{0}% for two or three characters or %game.monsterType.{1}% for four characters",
       "player3-4": "%game.monsterType.{0}% for two or %game.monsterType.{1}% for three or four characters",
@@ -1188,6 +1331,10 @@
     "toggleAlly": {
       "off": "Switch back to <span class=\"monster-ally-off\">Enemy</span>",
       "on": "Switch to <span class=\"monster-ally-on\">Ally</span>"
+    },
+    "toggleDormant": {
+      "off": "Switch back to active entities",
+      "on": "Switch to dormant entities"
     }
   },
   "number": {
@@ -1372,6 +1519,8 @@
     "campaignMode": "Campaign Mode",
     "change": "Change party",
     "export": "Export",
+    "greatOak": "Great Oak Sanctuary",
+    "imbuement": "Imbuement",
     "import": "Import",
     "inspiration": "Inspiration",
     "location": "Location",
@@ -1391,7 +1540,19 @@
       }
     },
     "remove": "Remove party",
-    "reputation": "Reputation",
+    "reputation": {
+      "": "Reputation",
+      "additional": {
+        "": "Additional Reputation Unlocks",
+        "sectionRequires": {
+          "": "Read %game.section:{0}% when you have at least {1} %game.gh2eFaction:{2}% reputation and have completed Scenario {3}.",
+          "multiple": "Read %game.section:{0}% when you have {1} %game.gh2eFaction:{2}% reputation and have completed Scenarios {3}."
+        },
+        "special": {
+          "city-event": "Add C-{0} to the city event deck once you have at least {1} reputation with one faction."
+        }
+      }
+    },
     "sheet": "Party Sheet",
     "shop": {
       "": "Shop Price Modifier",
@@ -1530,6 +1691,7 @@
     "eventEffects": {
       "": "Event Effects",
       "campaign": "Affects campaign",
+      "drawEvent": "Draw %game.events.type.{0}% Event",
       "drawRandomItem": {
         "": "Draw Random Item Design",
         "apply": "Apply",
@@ -1563,6 +1725,11 @@
       "failure": "Failure",
       "reset": "Reset",
       "success": "Success"
+    },
+    "gh2eImbuement": {
+      "": "Appendix F: Monster Imbuement",
+      "advancedImbuement": "Advanced Imbuement",
+      "imbuement": "Imbuement"
     },
     "level": "Lvl {0}",
     "locked": "Missing Requirements",
@@ -1600,8 +1767,8 @@
       "campaignStickersCount": "'%data.campaignSticker.{0}%' (Campaign Sticker) x{2} COMPLETE (got {1})",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Campaign Sticker) INCOMPLETE",
       "cancel": "Cancel",
-      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' present",
-      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' absent",
+      "characters": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' present",
+      "charactersMissing": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' absent",
       "global": "'%data.globalAchievements.{0}%' (Global) COMPLETE",
       "globalCount": "'%data.globalAchievements.{0}%' (Global) x{2} COMPLETE (got {1})",
       "globalMissing": "'%data.globalAchievements.{0}%' (Global) INCOMPLETE",
@@ -1614,7 +1781,7 @@
         "or": "or",
         "scenario": "%data.scenarioNumber:{0}%"
       },
-      "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' Level 5 or higher",
+      "solo": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' Level 5 or higher",
       "start": "Start Scenario anyway"
     },
     "reset": "Restart Scenario",
@@ -2083,6 +2250,10 @@
       "": "Advantage/Disadvantage Rolling House Rule",
       "hint": "Instead of ignore rolling on second draw, also draw additional modifiers until non-rolling drawn."
     },
+    "animationSpeed": {
+      "": "Animation Speed",
+      "hint": "Change speed of animations"
+    },
     "animations": {
       "": "Animations",
       "hint": "Disable all animations to increase performance"
@@ -2098,8 +2269,8 @@
         "bane": "Automatic apply %game.condition.bane% damage at end of turn.",
         "regenerate": "Automatic apply %game.condition.regenerate% at start of turn.",
         "safeguard": "Automatic apply %game.condition.safeguard% on receiving next negative condition.",
-        "wound": "Automatic apply %game.condition.wound% damage at end of turn.",
-        "wound_x": "Automatic apply %game.condition.wound_x:X% damage at end of turn."
+        "wound": "Automatic apply %game.condition.wound% damage at start of turn.",
+        "wound_x": "Automatic apply %game.condition.wound_x:X% damage at start of turn."
       }
     },
     "applyLongRest": {
@@ -2340,6 +2511,18 @@
       "": "Show errata hints",
       "hint": "Display known erratas for scenarios, sections, etc. In the data itself, all these errata should be fixed, but with the hints it should be easier to understand the differences in printing."
     },
+    "events": {
+      "": "Event Cards",
+      "hint": "Support for Event Card Decks."
+    },
+    "eventsApply": {
+      "": "Apply Events automatically",
+      "hint": "Automatically apply (if possible) outcomes of event cards."
+    },
+    "eventsDraw": {
+      "": "Auto. Draw Events",
+      "hint": "Automatically draw events like Road Event at start of scenario."
+    },
     "expireConditions": {
       "": "Automatic expire conditions",
       "hint": "Corresponding conditions will automatically removed after the figures turn, for example Strengthen will be removed after turn"
@@ -2374,7 +2557,7 @@
     },
     "fhRules": "Frosthaven Rules",
     "fhSecondEdition": {
-      "": "2nd Edition",
+      "": "2nd Printing",
       "hint": "Some changes between first and second printing of Frosthaven cannot be set automatically. So please check this if you are using second printing of Frosthaven."
     },
     "fhStyle": {
@@ -2420,6 +2603,11 @@
     "ge5Player": {
       "": "≥ 5 player rules"
     },
+    "gh2eImbuement": {
+      "": "Enable Monster Imbuements",
+      "hint": "Enable option to add Monster Imbuement (Appendix F) in the Event Effect menu."
+    },
+    "gh2eRules": "Gloomhaven 2nd Edition",
     "helperDefaults": {
       "": "Apply default Helper settings"
     },
@@ -2482,6 +2670,7 @@
       },
       "it": "Italian (Italiano)",
       "ko": "Korean (한국어)",
+      "pt": "Portuguese (Portuguese)",
       "ru": "Russian (Русский)",
       "zh_Hans": "Simplified Chinese (简体中文)",
       "zh_Hant": "Traditional Chinese (繁體中文)"
@@ -2912,7 +3101,7 @@
       },
       "finishConclusion": "Finish conclusion #{0} {1} ({2})",
       "finishScenario": {
-        "battleGoal": "Set Battle Goal checkmarks for %data.character.{0}% to {1}",
+        "battleGoal": "Set Battle Goal checkmarks for %data.character.{0}.{1}% to {2}",
         "close": "Close Scenario Summary",
         "dialog": "Scenario summary for #{0} {1} ({2})",
         "failure": "Scenario #{0} {1} ({2}) failed",
@@ -2950,7 +3139,7 @@
       "monsterSetEntityActive": "Set %game.monster.{2}% standee {1} of %data.monster.{0}% active",
       "monsterUnsetEntityActive": "Set %game.monster.{2}% standee {1} of %data.monster.{0}% inactive",
       "moveResource": "Move {2} {1} from {0} to Frosthaven Supply",
-      "nextIdentity": "Set form of {0} from %data.character.{1}.{2}% to %data.character.{1}.{3}%",
+      "nextIdentity": "Set form of {0} from %data.character.{4}.{1}.{2}% to %data.character.{4}.{1}.{3}%",
       "nextRound": "Next Round",
       "objectiveContainerChangeEntityHp": "HP {2} for %game.objectiveMarker.{1}% of {0}",
       "objectiveEntityDead": "Kill %game.objectiveMarker.{1}% of {0}",
@@ -3115,7 +3304,7 @@
       "setEntitySummonState": "Set summon {3} for {1} standee {2} of {0}",
       "setExhausted": "{0} exhausted",
       "setGold": "Gold {1} for {0}",
-      "setIdentity": "Set form of {0} to %data.character.{1}.{2}%",
+      "setIdentity": "Set form of {0} to %data.character.{3}.{1}.{2}%",
       "setInitiative": "Initiative {1} for {0}",
       "setLevel": "Level {1} for {0}",
       "setNotes": "Notes \"{1}\" for {0}",

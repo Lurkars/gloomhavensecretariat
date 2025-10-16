@@ -1,0 +1,50 @@
+{
+  "index": "65",
+  "name": "Hero's Mausoleum",
+  "flowChartGroup": "personal-quests",
+  "edition": "gh2e",
+  "rewards": {
+    "experience": 10,
+    "battleGoals": 1
+  },
+  "monsters": [
+    "crystal-rot",
+    "living-corpse",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "crystal-rot",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

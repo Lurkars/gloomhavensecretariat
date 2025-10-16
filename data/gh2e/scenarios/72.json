@@ -1,0 +1,65 @@
+{
+  "index": "72",
+  "name": "Well of the Unfortunate",
+  "flowChartGroup": "random",
+  "edition": "gh2e",
+  "rewards": {
+    "gold": 15
+  },
+  "monsters": [
+    "forest-imp",
+    "vermling-priest",
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-priest",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-priest",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

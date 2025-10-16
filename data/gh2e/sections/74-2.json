@@ -1,0 +1,52 @@
+{
+  "index": "74.2",
+  "edition": "gh2e",
+  "parent": "81",
+  "marker": "1",
+  "monsters": [
+    "crystal-rot",
+    "living-bones",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "treasures": [
+        61
+      ],
+      "monster": [
+        {
+          "name": "crystal-rot",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

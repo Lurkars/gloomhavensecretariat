@@ -1,0 +1,13 @@
+{
+  "index": "27",
+  "name": "Infernal Throne",
+  "edition": "gh2e",
+  "monsters": [],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

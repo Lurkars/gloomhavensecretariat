@@ -1,11 +1,255 @@
 {
+  "battleGoals": {
+    "1301": {
+      "": "Accountant",
+      "text": "Have zero cards in your hand each time you rest."
+    },
+    "1302": {
+      "": "Acrobat",
+      "text": "Lose a card to negate suffering 5 or more damage."
+    },
+    "1303": {
+      "": "Ascetic",
+      "text": "Collect fewer loot tokens than any other character."
+    },
+    "1304": {
+      "": "Assistant",
+      "text": "Kill an enemy attacked by any of your allies earlier in the same round."
+    },
+    "1305": {
+      "": "Bastion",
+      "text": "Occupy a door hex adjacent to two or more enemies at the end of a round."
+    },
+    "1306": {
+      "": "Bully",
+      "text": "Kill an enemy that has two or more negative conditions."
+    },
+    "1307": {
+      "": "Cleaner",
+      "text": "Collect three or more loot tokens in the same turn."
+    },
+    "1308": {
+      "": "Closer",
+      "text": "Kill the last enemy to die in the scenario."
+    },
+    "1309": {
+      "": "Conservator",
+      "text": "Never perform an action with a lost icon."
+    },
+    "1310": {
+      "": "Diehard",
+      "text": "Never have your hit point value drop below half your maximum hit point value (rounded up)."
+    },
+    "1311": {
+      "": "Dynamo",
+      "text": "Kill an enemy with an attack that would have caused at least 4 more points of damage than necessary."
+    },
+    "1312": {
+      "": "Egoist",
+      "text": "Collect more loot tokens than any other character."
+    },
+    "1313": {
+      "": "Executioner",
+      "text": "Kill an undamaged enemy with a single attack action."
+    },
+    "1314": {
+      "": "Gambler",
+      "text": "Kill an enemy with an attack that has disadvantage."
+    },
+    "1315": {
+      "": "Hunter",
+      "text": "Kill one or more elite enemies, or two or more for four characters."
+    },
+    "1316": {
+      "": "Insomniac",
+      "text": "Suffer damage from an attack in the same round you long rest."
+    },
+    "1317": {
+      "": "Masochist",
+      "text": "End the scenario with a hit point value of 3 or less."
+    },
+    "1318": {
+      "": "Mugger",
+      "text": "Kill an enemy and loot the loot token it drops in the same round."
+    },
+    "1319": {
+      "": "Opener",
+      "text": "Kill the first enemy to die in the scenario."
+    },
+    "1320": {
+      "": "Optimist",
+      "text": "Remove a negative condition from yourself or an ally two or more times."
+    },
+    "1321": {
+      "": "Pacifist",
+      "text": "Kill three or fewer enemies."
+    },
+    "1322": {
+      "": "Pauper",
+      "text": "Never collect a loot token from end-of-turn looting."
+    },
+    "1323": {
+      "": "Pedestrian",
+      "text": "Never enter a hex occupied by an ally, enemy, objective, or obstacle."
+    },
+    "1324": {
+      "": "Perfectionist",
+      "text": "End the scenario with your hit point value equal to your maximum hit point value."
+    },
+    "1325": {
+      "": "Pickpocket",
+      "text": "Collect two or more loot tokens by performing a loot ability while adjacent to one or more enemies."
+    },
+    "1326": {
+      "": "Pincushion",
+      "text": "Be targeted by attacks from three or more enemies in the same round."
+    },
+    "1327": {
+      "": "Plebeian",
+      "text": "Never kill an elite enemy, named enemy or boss."
+    },
+    "1328": {
+      "": "Prohibitionist",
+      "text": "Never use a potion."
+    },
+    "1329": {
+      "": "Promoter",
+      "text": "Perform an ability targeting an ally before your first rest and in between each of your rests."
+    },
+    "1330": {
+      "": "Rambler",
+      "text": "End no more than three of your turns in the hex in which you started the turn, except when long resting."
+    },
+    "1331": {
+      "": "Ravager",
+      "text": "Perform two actions with lost icons in the same turn."
+    },
+    "1332": {
+      "": "Recluse",
+      "text": "Never end your turn adjacent to any other character (gain one additional %game.checkmark% for four characters)."
+    },
+    "1333": {
+      "": "Ritualist",
+      "text": "Kill an enemy while three or more elements are strong or waning."
+    },
+    "1334": {
+      "": "Sadist",
+      "text": "Kill five or more enemies."
+    },
+    "1335": {
+      "": "Scrambler",
+      "text": "Never long rest."
+    },
+    "1336": {
+      "": "Shirker",
+      "text": "Kill an enemy not adjacent to you while you are adjacent to another enemy."
+    },
+    "1337": {
+      "": "Sleeper",
+      "text": "Have one or more cards in your hand each time you rest."
+    },
+    "1338": {
+      "": "Sluggard",
+      "text": "Perform a long rest while at your maximum hit point value, after you have already suffered damage."
+    },
+    "1339": {
+      "": "Straggler",
+      "text": "Never short rest."
+    },
+    "1340": {
+      "": "Streamliner",
+      "text": "Have five or more total cards in your hand and discard pile at the end of the scenario."
+    },
+    "1341": {
+      "": "Tormentor",
+      "text": "Apply a different negative condition to an enemy that already has one or more negative conditions."
+    },
+    "1342": {
+      "": "Wastrel",
+      "text": "Lose a card to negate 2 or less damage from an attack."
+    },
+    "1343": {
+      "": "Weakling",
+      "text": "Become exhausted before any other character."
+    },
+    "1344": {
+      "": "Workhorse",
+      "text": "Gain 13 or more experience before any bonus scenario experience."
+    },
+    "1345": {
+      "": "Zealot",
+      "text": "Have three or fewer total cards in your hand and discard pile while also not exhausted at the end of the scenario."
+    },
+    "1346": {
+      "": "Assassin",
+      "text": "Kill an enemy before it takes its first turn."
+    },
+    "1347": {
+      "": "Daredevil",
+      "text": "Add two cards to your lost pile before your first rest."
+    },
+    "1348": {
+      "": "Dawdler",
+      "text": "Never use your lowest initiative played card as your initiative card."
+    },
+    "1349": {
+      "": "Duelist",
+      "text": "Never exit a hex adjacent to an enemy except through forced movement."
+    },
+    "1350": {
+      "": "Exterminator",
+      "text": "Kill one or more enemies of each monster type that appears in the scenario."
+    },
+    "1351": {
+      "": "Layabout",
+      "text": "Gain 7 or fewer experience before any bonus scenario experience."
+    },
+    "1352": {
+      "": "Miser",
+      "text": "Never exit a room with loot tokens in it."
+    },
+    "1353": {
+      "": "Overachiever",
+      "text": "Kill an enemy and open a door in the same turn, in either order."
+    },
+    "1354": {
+      "": "Peacemonger",
+      "text": "Never kill an enemy."
+    },
+    "1355": {
+      "": "Prepper",
+      "text": "Perform no attack abilities in the first three rounds."
+    },
+    "1356": {
+      "": "Slayer",
+      "text": "Kill two or more enemies in the same round."
+    },
+    "1357": {
+      "": "Slowpoke",
+      "text": "Move no more than two hexes on each turn."
+    },
+    "1358": {
+      "": "Specialist",
+      "text": "Never perform a basic action."
+    },
+    "1359": {
+      "": "Vanguard",
+      "text": "Never attack an enemy that has already acted in the round."
+    },
+    "1360": {
+      "": "Wallflower",
+      "text": "End each of your turns adjacent to a wall, obstacle, or objective."
+    }
+  },
   "character": {
-    "bruiser": "Bruiser",
-    "cragheart": "Cragheart",
-    "mindthief": "Mindthief",
-    "silent-knife": "Silent Knife",
-    "spellweaver": "Spellweaver",
-    "tinkerer": "Tinkerer"
+    "gh2e": {
+      "bruiser": "Bruiser",
+      "cragheart": "Cragheart",
+      "mindthief": "Mindthief",
+      "silent-knife": "Silent Knife",
+      "spellweaver": "Spellweaver",
+      "tinkerer": "Tinkerer"
+    }
   },
   "custom": {
     "gh2e": {
@@ -24,6 +268,20 @@
         "4": "Whenever a new room is revealed, control all enemies in the newly revealed room: %game.action.move% 1, this movement must end in an empty hex",
         "5": "For an entire scenario, create, destroy, or move at least one obstacle tile each round",
         "6": "In a single scenario, heal 8 or more hit points during a single round, deal 8 or more damage with a ranged attack ability, and deal 8 or more damage with a melee attack ability"
+      },
+      "flowChartGroup": {
+        "city-guards": "City Guard/The Shields",
+        "demons": "Demons/The Sect",
+        "events": "Events",
+        "hail": "Hail",
+        "intro": "Intro",
+        "merchant-guild": "Merchant's Guild",
+        "personal-quests": "Personal Quests",
+        "puzzle": "Puzzle Book",
+        "random": "Random Side Scenarios",
+        "the-gloom": "The Gloom",
+        "the-sewers": "The Sewers",
+        "the-voice": "The Voice and the Drake"
       },
       "mindthief": {
         "1": "Add +1 %game.action.attack% if the target has a negative condition",
@@ -61,7 +319,555 @@
       }
     }
   },
+  "deck": {
+    "archer": "Archer",
+    "boss": "Boss",
+    "guard": "Guard",
+    "imp": "Imp",
+    "priest": "Priest",
+    "scout": "Scout"
+  },
   "edition": {
-    "gh2e": "Gloomhaven Second Edition (%wip%)"
+    "gh2e": {
+      "": "Gloomhaven 2nd Edition",
+      "hint": "Gloomhaven 2nd Edition is currently <i>%wip%</i>. The scenario data may contain errors and be missing some special rules. All non-scenario sections are currently missing, as is some data, such as events."
+    }
+  },
+  "factions": {
+    "gh2e": {
+      "demons": "Demons",
+      "merchant-guild": "Merchant's Guild",
+      "military": "Military"
+    }
+  },
+  "globalAchievements": {
+    "activating-the-device": "Activating the Device",
+    "an-uneasy-peace": "An Uneasy Peace",
+    "ancient-technology": "Ancient Technology",
+    "city-rule-demons": "City Rule: Demons",
+    "city-rule-merchants": "City Rule: Merchants",
+    "city-rule-military": "City Rule: Military",
+    "elements-mastered": "Elements Mastered",
+    "end-of-corruption": "End of Corruption",
+    "end-of-gloom": "End of Gloom",
+    "hallowed-waters": "Hallowed Waters",
+    "into-the-depths": "Into the Depths",
+    "peace-through-bloodshed": "Peace Through Bloodshed",
+    "the-candle-extinguished": "The Candle Extinguished",
+    "the-candle-kept": "The Candle Kept",
+    "the-darkness-retreats": "The Darkness Retreats",
+    "the-drake-aided": "The Drake Aided",
+    "the-drake-slain": "The Drake Slain",
+    "the-power-of-enhancement": "The Power of Enhancement",
+    "the-voice-freed": "The Voice Freed",
+    "the-voice-silenced": "The Voice Silenced"
+  },
+  "monster": {
+    "alpha-lurker": "Alpha Lurker",
+    "ancient-artillery": "Ancient Artillery",
+    "arcane-construct": "Arcane Construct",
+    "bandit-archer": "Bandit Archer",
+    "bandit-commander": "Bandit Commander",
+    "bandit-scout": "Bandit Scout",
+    "black-imp": "Black Imp",
+    "bloated-victim": "Bloated Victim",
+    "candlekeeper-trice": "Candlekeeper Trice",
+    "cave-bear": "Cave Bear",
+    "chaos-demon": "Chaos Demon",
+    "city-archer": "City Archer",
+    "city-guard": "City Guard",
+    "corrupt-city-guard": "Corrupt City Guard",
+    "crystal-rot": "Crystal Rot",
+    "cultist": "Cultist",
+    "dark-ritual-cultist": "Dark Ritual Cultist",
+    "deep-terror": "Deep Terror",
+    "disjointed-twin": "Disjointed Twin",
+    "doomcannon": "Doomcannon",
+    "earth-demon": "Earth Demon",
+    "egg-scenario-50": "Egg 50",
+    "first-shield-harmon": "First Shield Harmon",
+    "flame-demon": "Flame Demon",
+    "forest-imp": "Forest Imp",
+    "frost-demon": "Frost Demon",
+    "giant-ooze": "Giant Ooze",
+    "giant-viper": "Giant Viper",
+    "harrower-infester": "Harrower Infester",
+    "hound": "Hound",
+    "inox-archer": "Inox Archer",
+    "inox-bodyguard": "Inox Bodyguard",
+    "inox-guard": "Inox Guard",
+    "inox-priest": "Inox Priest",
+    "jekserah": "Jekserah",
+    "living-bomb": "Living Bomb",
+    "living-bones": "Living Bones",
+    "living-corpse": "Living Corpse",
+    "living-spirit": "Living Spirit",
+    "lurker-soldier": "Lurker Soldier",
+    "merciless-taskmaster": "Merciless Taskmaster",
+    "night-demon": "Night Demon",
+    "ooze": "Ooze",
+    "rending-drake": "Rending Drake",
+    "savvas-icestorm": "Savvas Icestorm",
+    "savvas-lavaflow": "Savvas Lavaflow",
+    "spitting-drake": "Spitting Drake",
+    "spymaster-argeise": "Spymaster Argeise",
+    "stone-construct": "Stone Construct",
+    "sun-demon": "Sun Demon",
+    "the-betrayer": "The Betrayer",
+    "the-colorless": "The Colorless",
+    "the-convergence": "The Convergence",
+    "the-dark-rider": "The Dark Rider",
+    "the-elder-drake": "The Elder Drake",
+    "the-gloom": "The Gloom",
+    "the-harvester": "The Harvester",
+    "the-prime-demon": "The Prime Demon",
+    "the-sightless-eye": "The Sightless Eye",
+    "the-winged-horror": "The Winged Horror",
+    "training-dummy": "Training Dummy",
+    "training-partner": "Training Partner",
+    "tyrant-of-the-tides": "Tyrant of the Tides",
+    "usurper": "Usurper",
+    "vermling-priest": "Vermling Priest",
+    "vermling-scout": "Vermling Scout",
+    "wind-demon": "Wind Demon"
+  },
+  "personalQuest": {
+    "gh2e": {
+      "01": {
+        "": "Political Intrigue"
+      },
+      "02": {
+        "": "Inn to Hospitality"
+      },
+      "03": {
+        "": "Augmented Abilities"
+      },
+      "04": {
+        "": "The Fall of Man"
+      },
+      "05": {
+        "": "Seeker of Xorn"
+      },
+      "06": {
+        "": "Zealot of the Blood God"
+      },
+      "07": {
+        "": "A Tale to Tell"
+      },
+      "08": {
+        "": "Take Back the Trees"
+      },
+      "09": {
+        "": "Finding the Cure"
+      },
+      "10": {
+        "": "Aberrant Slayer"
+      },
+      "11": {
+        "": "Adoptive Parent"
+      },
+      "12": {
+        "": "Implement of Light"
+      },
+      "13": {
+        "": "Merchant Class"
+      },
+      "14": {
+        "": "Eternal Wanderer"
+      },
+      "15": {
+        "": "Escaping the Sin-Ra"
+      },
+      "16": {
+        "": "The Perfect Poison"
+      },
+      "17": {
+        "": "Living on the Edge"
+      },
+      "18": {
+        "": "Battle Legend"
+      },
+      "19": {
+        "": "Martial Study"
+      },
+      "20": {
+        "": "Piety in All Things"
+      },
+      "21": {
+        "": "Pursuit of Proficiency"
+      },
+      "22": {
+        "": "Trophy Hunt"
+      }
+    }
+  },
+  "scenario": {
+    "rules": {
+      "gh2e": {
+        "8": {
+          "1": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.2% opening it.",
+          "2": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.3% opening it.",
+          "3": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.4% opening it.",
+          "4": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.5% opening it."
+        }
+      }
+    },
+    "title": {
+      "gh2e": {
+        "0": "Training Course",
+        "1": "Bandit Camp",
+        "10": "Mountain Pass",
+        "100": "Silence Falls",
+        "11": "Ritual Chamber",
+        "12": "Inox Encampment",
+        "13": "Icecrag Ascent",
+        "14": "Echo Chamber",
+        "15": "Plane of Elemental Power",
+        "16": "Diamond Mine",
+        "17": "Demonic Rift",
+        "18": "Investigation",
+        "19": "Military Outpost",
+        "2": "Ruinous Crypt",
+        "20": "Gloomhaven Warehouse",
+        "21": "The Ghost Fortress",
+        "22": "Doomcannon Demolition",
+        "23A": "Gloomhaven Square A (Demon Allies)",
+        "23B": "Gloomhaven Square A (Military Allies)",
+        "24": "Gloomhaven Square B",
+        "25A": "Gloomhaven Battlements A (Merchant Allies)",
+        "25B": "Gloomhaven Battlements A (Military Allies)",
+        "26": "Gloomhaven Battlements B",
+        "27": "Infernal Throne",
+        "28": "Temple of the Seer",
+        "29": "Scorched Summit",
+        "3": "Frozen Hollow",
+        "30": "Shrine of the Depths",
+        "31": "Decrepit Wood",
+        "32": "Savvas Armory",
+        "33": "Ancient Defense Network",
+        "34": "Timeworn Tomb",
+        "35": "Realm of the Voice",
+        "36": "Abandoned Sewers",
+        "37": "Deep Ruins",
+        "38": "Drake Nest",
+        "39": "Vibrant Grotto",
+        "4": "Crypt of the Damned",
+        "40": "Wetlands Ambush",
+        "41": "Ancient Cistern",
+        "42": "Secluded Valley",
+        "43": "Chasing Secrets",
+        "44": "Temple of the Elements",
+        "45": "Plane of Night",
+        "46": "Doom Trench",
+        "47": "Slave Pens",
+        "48": "Treacherous Divide",
+        "49": "Tribal Assault",
+        "5": "Forgotten Crypt",
+        "50": "Nightmare Peak",
+        "51": "Lair of the Unseeing Eye",
+        "52": "Shadow Weald",
+        "53": "Shrine of Strength",
+        "54": "The Void",
+        "55": "The Last Stand",
+        "56": "The Gloom",
+        "57": "Crypt Basement",
+        "58": "Palace of Ice",
+        "59": "Foggy Thicket",
+        "6": "Decaying Crypt",
+        "60": "Bandit's Wood",
+        "61": "Dangerous Grove",
+        "62": "Alchemy Lab",
+        "63": "Fading Lighthouse",
+        "64": "Roots of Chaos",
+        "65": "Hero's Mausoleum",
+        "66": "A Friend in Need",
+        "67": "Temple of the Eclipse",
+        "68": "Sunken Vessel",
+        "69": "Corrupted Cove",
+        "7": "Black Barrow",
+        "70": "Underwater Lagoon",
+        "71": "Clockwork Factory",
+        "72": "Well of the Unfortunate",
+        "73": "Chained Isle",
+        "74": "Windswept Highlands",
+        "75": "Rockslide Ridge",
+        "76": "Oozing Grove",
+        "77": "Harrower Hive",
+        "78": "Vault of Secrets",
+        "79": "Lurker Assault",
+        "8": "Barrow Lair",
+        "80": "Lost Temple",
+        "81": "Overgrown Graveyard",
+        "82": "Syndicate Hideout",
+        "83": "Lost Island",
+        "84": "Wild Melee",
+        "85": "Crossroads Station",
+        "86": "Magma Pit",
+        "87": "Sulfur Mine",
+        "88": "Arcane Library",
+        "89": "Community Service",
+        "9": "Ruinous Rift",
+        "90": "Burning Mountain",
+        "91": "Shadows Within",
+        "92": "Chronal Anchor",
+        "93": "Harried Village",
+        "94": "A Watery Rescue",
+        "95": "Cargo Ship",
+        "96": "Back Alley Brawl",
+        "97": "Vermling Camp",
+        "98": "Metamorphic Fault",
+        "99": "Sintering Forge",
+        "S": "Challenger's Rift"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "gh2e": {
+        "10-2": "Merchant Reputation 16",
+        "10-3": "- Plane of Elemental Power",
+        "101-2": "Slave Pens",
+        "101-3": "Chronal Anchor",
+        "102-1": "Crypt Basement",
+        "102-5": "Well of the Unfortunate",
+        "102-6": "Slave Pens",
+        "103-1": "Chronal Anchor",
+        "103-2": "Tribal Assault",
+        "103-5": "Vermling Camp",
+        "103-6": "Shrine of Strength",
+        "104-1": "Lost Island",
+        "106-1": "Chasing Secrets",
+        "106-5": "Harrower Hive",
+        "107-1": "Clockwork Factory",
+        "107-4": "Shrine of Strength",
+        "108-1": "Crypt Basement",
+        "108-3": "Vault of Secrets",
+        "108-4": "Harrower Hive",
+        "109-1": "The Void",
+        "11-1": "Bandit Camp",
+        "110-1": "Harrower Hive",
+        "110-3": "Syndicate Hideout",
+        "111-3": "Chained Isle",
+        "112-1": "Syndicate Hideout",
+        "113-1": "Vermling Camp",
+        "113-3": "Burning Mountain",
+        "113-5": "Doom Trench",
+        "113-6": "Chained Isle",
+        "114-4": "Sunken Vessel",
+        "115-1": "Vault of Secrets",
+        "115-3": "Crypt Basement",
+        "116-1": "- Alchemy Lab",
+        "116-3": "Syndicate Hideout",
+        "117-1": "Burning Mountain",
+        "117-5": "Clockwork Factory",
+        "118-2": "Crossroads Station",
+        "119-7": "Vault of Secrets",
+        "12-2": "Gloomhaven Warehouse",
+        "120-5": "Magma Pit",
+        "121-1": "Alchemy Lab",
+        "121-3": "Well of the Unfortunate",
+        "121-4": "Dangerous Grove",
+        "123-1": "Syndicate Hideout",
+        "123-3": "Sulfur Mine",
+        "123-4": "Harried Village",
+        "124-3": "Harrower Hive",
+        "125-3": "Shadows Within",
+        "126-3": "Magma Pit",
+        "127-1": "Sulfur Mine",
+        "128-3": "Chained Isle",
+        "129-3": "Vermling Camp",
+        "13-3": "Tribal Assault",
+        "131-3": "Sulfur Mine",
+        "132-4": "Chasing Secrets",
+        "133-3": "Sulfur Mine",
+        "133-5": "Demon Reputation 12",
+        "134-3": "Chronal Anchor",
+        "136-2": "Rockslide Ridge",
+        "136-4": "Sulfur Mine",
+        "136-5": "Alchemy Lab",
+        "14-1": "- Icecrag Ascent",
+        "15-1": "Forgotten Crypt",
+        "15-2": "Barrow Lair",
+        "15-4": "Lost Island",
+        "16-1": "Ruinous Crypt",
+        "16-4": "Echo Chamber",
+        "16-5": "Prosperity 5",
+        "16-6": "Investigation",
+        "17-1": "Gloomhaven Warehouse",
+        "17-4": "Inox Encampment",
+        "18-2": "Ruinous Crypt",
+        "18-5": "Gloomhaven Warehouse",
+        "19-1": "Gloomhaven Square B",
+        "2-3": "The Last Stand",
+        "2-4": "Windswept Highlands",
+        "20-1": "Merchant Reputation 20",
+        "20-2": "- Infernal Throne",
+        "20-3": "The Ghost Fortress",
+        "21-2": "- Mountain Pass",
+        "22-2": "Temple of the Seer",
+        "22-3": "- Barrow Lair",
+        "23-1": "Frozen Hollow",
+        "24-1": "Inox Encampment",
+        "24-2": "Investigation",
+        "25-1": "Frozen Hollow",
+        "26-1": "Crypt of the Damned",
+        "26-3": "Inox Encampment",
+        "28-1": "Crypt of the Damned",
+        "28-3": "- Military Outpost",
+        "28-5": "Drake Nest",
+        "29-1": "Demon Reputation 6",
+        "29-3": "Gloomhaven Square A (Military Allies)",
+        "3-3": "Gloomhaven Square A (Demon Allies)",
+        "30-1": "Crypt of the Damned",
+        "30-2": "- Diamond Mine",
+        "30-4": "Ritual Chamber",
+        "31-1": "- Military Outpost",
+        "31-3": "Forgotten Crypt",
+        "31-4": "Abandoned Sewers",
+        "31-5": "Military Reputation 20",
+        "32-1": "Forgotten Crypt",
+        "32-2": "Lost Island",
+        "32-4": "- Gloomhaven Battlements B",
+        "33-1": "Ancient Defense Network",
+        "34-1": "Echo Chamber",
+        "34-5": "Decaying Crypt",
+        "35-3": "Icecrag Ascent",
+        "35-4": "Timeworn Tomb",
+        "36-1": "Decaying Crypt",
+        "37-1": "Forgotten Crypt",
+        "37-2": "- Doomcannon Demolition",
+        "37-4": "Inox Encampment",
+        "38-1": "Decaying Crypt",
+        "38-4": "The Ghost Fortress",
+        "39-1": "- Infernal Throne",
+        "39-2": "Vibrant Grotto",
+        "39-3": "Military Reputation 12",
+        "4-1": "The Void",
+        "40-1": "Decaying Crypt",
+        "41-1": "Decrepit Wood",
+        "41-3": "Merchant Reputation 12",
+        "42-1": "Black Barrow",
+        "42-2": "Clockwork Factory",
+        "42-5": "Investigation",
+        "43-2": "Bandit Camp",
+        "44-1": "Mountain Pass",
+        "44-2": "Echo Chamber",
+        "44-5": "Clockwork Factory",
+        "45-1": "- Military Outpost",
+        "45-2": "Black Barrow",
+        "46-1": "Wild Melee",
+        "47-2": "Ancient Cistern",
+        "47-3": "Military Reputation 6",
+        "48-1": "Echo Chamber",
+        "48-2": "Prosperity 3",
+        "48-3": "Decrepit Wood",
+        "48-5": "Drake Nest",
+        "49-1": "Merchant Reputation 6",
+        "49-3": "Barrow Lair",
+        "5-2": "Training Course",
+        "50-3": "The Ghost Fortress",
+        "50-5": "Drake Nest",
+        "51-3": "Inox Encampment",
+        "51-4": "Ritual Chamber",
+        "52-1": "Hero's Mausoleum",
+        "53-1": "Military Reputation 16",
+        "53-4": "Gloomhaven Square A (Military Allies)",
+        "54-2": "Prosperity 4",
+        "54-3": "Ancient Defense Network",
+        "55-1": "Slave Pens",
+        "55-4": "The Void",
+        "56-2": "- Bandit's Wood",
+        "58-1": "Timeworn Tomb",
+        "60-1": "Sulfur Mine",
+        "60-4": "Gloomhaven Square A (Demon Allies)",
+        "61-3": "Deep Ruins",
+        "62-1": "Barrow Lair",
+        "62-2": "- Plane of Elemental Power",
+        "62-3": "Prosperity 6",
+        "63-1": "- Infernal Throne",
+        "64-2": "The Ghost Fortress",
+        "65-1": "Hero's Mausoleum",
+        "65-2": "Savvas Armory",
+        "66-3": "Fading Lighthouse",
+        "66-4": "Drake Nest",
+        "67-1": "The Last Stand",
+        "68-1": "Wetlands Ambush",
+        "68-2": "Arcane Library",
+        "69-3": "- Investigation",
+        "7-1": "Training Course",
+        "70-1": "Decrepit Wood",
+        "70-5": "Clockwork Factory",
+        "71-1": "The Last Stand",
+        "71-4": "Savvas Armory",
+        "72-2": "The Last Stand",
+        "73-3": "Demon Reputation 16",
+        "74-4": "Harrower Hive",
+        "75-1": "Investigation",
+        "75-2": "Treacherous Divide",
+        "76-3": "Ancient Defense Network",
+        "77-2": "Demon Reputation 20",
+        "77-3": "Merchant Reputation 9",
+        "77-4": "Windswept Highlands",
+        "78-1": "Tribal Assault",
+        "78-2": "Dangerous Grove",
+        "78-3": "Demon Reputation 9",
+        "79-1": "Secluded Valley",
+        "79-4": "Alchemy Lab",
+        "8-1": "Barrow Lair",
+        "80-1": "Deep Ruins",
+        "80-2": "Underwater Lagoon",
+        "80-3": "Chasing Secrets",
+        "81-1": "Vibrant Grotto",
+        "82-3": "Ancient Defense Network",
+        "82-4": "Windswept Highlands",
+        "83-2": "Vibrant Grotto",
+        "83-3": "Military Reputation 9",
+        "84-1": "Vibrant Grotto",
+        "84-4": "Well of the Unfortunate",
+        "84-5": "Timeworn Tomb",
+        "85-1": "Bandit's Wood",
+        "86-2": "Chasing Secrets",
+        "86-3": "Chronal Anchor",
+        "86-4": "Sunken Vessel",
+        "89-1": "Wild Melee",
+        "89-4": "Fading Lighthouse",
+        "9-2": "- Gloomhaven Square B",
+        "9-4": "Temple of the Eclipse",
+        "90-3": "Sunken Vessel",
+        "91-1": "Abandoned Sewers",
+        "91-3": "Underwater Lagoon",
+        "93-3": "Plane of Night",
+        "93-4": "Deep Ruins",
+        "93-5": "The Last Stand",
+        "95-4": "Clockwork Factory",
+        "95-5": "Drake Nest",
+        "97-2": "Burning Mountain",
+        "97-4": "Ancient Defense Network",
+        "97-5": "Temple of the Elements",
+        "98-1": "Ancient Defense Network",
+        "98-2": "Temple of the Eclipse",
+        "98-3": "Shrine of Strength",
+        "randomMonsterCard-554": "Mangy",
+        "randomMonsterCard-555": "Drowned",
+        "randomMonsterCard-556": "Hopeless",
+        "randomMonsterCard-557": "Defiled",
+        "randomMonsterCard-558": "Wild",
+        "randomMonsterCard-559": "Fortified",
+        "randomMonsterCard-560": "Cutthroat",
+        "randomMonsterCard-561": "Rotting",
+        "randomMonsterCard-562": "Foggy",
+        "randomMonsterCard-563": "Crushing",
+        "randomMonsterCard-564": "Tribal",
+        "randomMonsterCard-565": "Horrific",
+        "randomMonsterCard-566": "Archaic",
+        "randomMonsterCard-567": "Scaled",
+        "randomMonsterCard-568": "Venomous",
+        "randomMonsterCard-569": "Unstable",
+        "randomMonsterCard-570": "Corrupted",
+        "randomMonsterCard-571": "Infected",
+        "randomMonsterCard-572": "Putrid",
+        "randomMonsterCard-573": "Frigid"
+      }
+    }
   }
 }

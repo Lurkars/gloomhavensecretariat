@@ -1,0 +1,10 @@
+{
+  "index": "76.4",
+  "edition": "gh2e",
+  "parent": "28",
+  "conclusion": true,
+  "rewards": {
+    "randomSideScenario": 1
+  },
+  "monsters": []
+}

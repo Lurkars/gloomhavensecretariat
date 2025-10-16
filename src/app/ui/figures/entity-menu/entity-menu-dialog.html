@@ -51,9 +51,9 @@
         <img class="icon" [src]="gameManager.toCharacter(data.figure).iconUrl" />
         <span *ngIf="gameManager.toCharacter(data.figure).title">{{gameManager.toCharacter(data.figure).title}}</span>
         <span *ngIf="gameManager.toCharacter(data.figure).title">&nbsp;(<span
-            [ghs-label]="'data.character.' + data.figure.name"></span>)</span>
+            [ghs-label]="'data.character.' + data.figure.edition + '.'+ data.figure.name"></span>)</span>
         <span *ngIf="!gameManager.toCharacter(data.figure).title"
-          [ghs-label]="'data.character.' + data.figure.name"></span>
+          [ghs-label]="'data.character.' + data.figure.edition + '.'+ data.figure.name"></span>
       </small>
 
       <span *ngIf="gameManager.toSummon(data.entity).title">{{gameManager.toSummon(data.entity).title}}&nbsp;</span>
@@ -164,7 +164,8 @@
                 <img class="ghs-svg" src="./assets/images/minus.svg">
               </ghs-pointer-input>
             </span>
-            <span class="item character-token" [ghs-label]="'data.character.token.' + token"
+            <span class="item character-token"
+              [ghs-label]="'data.character.' + gameManager.toCharacter(data.entity).edition + '.' + gameManager.toCharacter(data.entity).name + '.tokens.' + token"
               [ghs-label-attribute]="'title'">
               <span class="badge badge-left">{{gameManager.toCharacter(data.entity).tokenValues[i] +
                 characterTokenValues[i]}}</span>
@@ -484,7 +485,7 @@
     </div>
 
     <ng-container
-      *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isObjectiveEntity(data.entity) || gameManager.isObjectiveContainer(data.figure) && gameManager.toObjectiveContainer(data.figure).escort) && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
+      *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
       <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entity]="data.entity"
         [figure]="data.figure" [type]="conditionType" [empower]="hasCondition(ConditionName.empower)"
         [enfeeble]="hasCondition(ConditionName.enfeeble)"></ghs-conditions>
@@ -595,13 +596,14 @@
     </div>
   </div>
 
-  <hr class="character-special" *ngIf="data.entity && gameManager.isCharacter(data.entity) && (settingsManager.settings.characterIdentities && !!gameManager.toCharacter(data.entity).identities && gameManager.toCharacter(data.entity).identities.length > 1 || !!gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0)" />
+  <hr class="character-special"
+    *ngIf="data.entity && gameManager.isCharacter(data.entity) && (settingsManager.settings.characterIdentities && !!gameManager.toCharacter(data.entity).identities && gameManager.toCharacter(data.entity).identities.length > 1 || !!gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0)" />
 
   <div class="identities-container"
     *ngIf="data.entity && gameManager.isCharacter(data.entity) && settingsManager.settings.characterIdentities && !!gameManager.toCharacter(data.entity).identities && gameManager.toCharacter(data.entity).identities.length > 1">
     <a class="item" *ngFor="let identity of [] | ghsRange:gameManager.toCharacter(data.entity).identities.length"
       (click)="setIdentity(identity)"
-      [ghs-tooltip]="'data.character.' + gameManager.toCharacter(data.entity).name + '.' +  gameManager.toCharacter(data.entity).identities[identity]"
+      [ghs-tooltip]="'data.character.' + gameManager.toCharacter(data.entity).edition + '.' + gameManager.toCharacter(data.entity).name + '.' +  gameManager.toCharacter(data.entity).identities[identity]"
       [ngClass]="{'deactivated': gameManager.toCharacter(data.entity).identity == identity}">
       <img
         [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity).name, identity)" />
@@ -618,11 +620,13 @@
         <span class="hint-trigger special-action text-white"
           [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}" tabclick
           (click)="applySpecialAction(specialAction)">
-          <span [ghs-label]="'data.character.' + data.figure.name + '.' + specialAction.name"></span>
+          <span
+            [ghs-label]="'data.character.' + data.figure.edition + '.' + data.figure.name + '.' + specialAction.name"></span>
         </span>
         <span class="hint above center">
           <div class="text">
-            <span [ghs-label]="'data.character.' + data.figure.name + '.' + specialAction.name + '.hint'"></span>
+            <span
+              [ghs-label]="'data.character.' + data.figure.edition + '.' + data.figure.name + '.' + specialAction.name + '.hint'"></span>
           </div>
         </span>
       </div>

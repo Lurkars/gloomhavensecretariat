@@ -1,0 +1,47 @@
+{
+  "index": "58",
+  "name": "Palace of Ice",
+  "flowChartGroup": "personal-quests",
+  "edition": "gh2e",
+  "rewards": {
+    "experience": 10,
+    "battleGoals": 1,
+    "items": [
+      "147"
+    ],
+    "events": [
+      "road:39",
+      "city:66"
+    ]
+  },
+  "monsters": [
+    "cave-bear-58",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear-58",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear-58",
+          "type": "elite"
+        },
+        {
+          "name": "cave-bear-58",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

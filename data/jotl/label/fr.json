@@ -69,13 +69,15 @@
     "Whirlwind": "Tourbillon"
   },
   "character": {
-    "demolitionist": {
-      "": "Artificier",
-      "mech": "Mech Suit"
-    },
-    "hatchet": "Lanceur de hache",
-    "red-guard": "Garde Rouge",
-    "voidwarden": "Gardienne du Néant"
+    "jotl": {
+      "demolitionist": {
+        "": "Artificier",
+        "mech": "Mech Suit"
+      },
+      "hatchet": "Lanceur de hache",
+      "red-guard": "Garde Rouge",
+      "voidwarden": "Gardienne du Néant"
+    }
   },
   "custom": {
     "jotl": {

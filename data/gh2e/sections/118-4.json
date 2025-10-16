@@ -1,0 +1,29 @@
+{
+  "index": "118.4",
+  "edition": "gh2e",
+  "parent": "56",
+  "monsters": [
+    "spymaster-argeise",
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "spymaster-argeise",
+          "type": "boss"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

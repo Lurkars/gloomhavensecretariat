@@ -1,0 +1,46 @@
+{
+  "index": "39",
+  "name": "Vibrant Grotto",
+  "flowChartGroup": "hail",
+  "edition": "gh2e",
+  "unlocks": [
+    "40"
+  ],
+  "rewards": {
+    "prosperity": 1
+  },
+  "monsters": [
+    "cave-bear",
+    "forest-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

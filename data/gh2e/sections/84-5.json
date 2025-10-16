@@ -1,0 +1,44 @@
+{
+  "index": "84.5",
+  "name": "Timeworn Tomb",
+  "edition": "gh2e",
+  "parent": "34",
+  "monsters": [
+    "living-corpse",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

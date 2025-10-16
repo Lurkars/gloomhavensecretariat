@@ -1,0 +1,39 @@
+{
+  "index": "101.1",
+  "edition": "gh2e",
+  "parent": "50",
+  "marker": "2",
+  "monsters": [
+    "egg-scenario-50",
+    "the-winged-horror"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "egg-scenario-50",
+          "type": "boss"
+        },
+        {
+          "name": "egg-scenario-50",
+          "type": "boss"
+        },
+        {
+          "name": "egg-scenario-50",
+          "player3": "boss",
+          "player4": "boss"
+        },
+        {
+          "name": "egg-scenario-50",
+          "player4": "boss"
+        },
+        {
+          "name": "the-winged-horror",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

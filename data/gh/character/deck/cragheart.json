@@ -1046,6 +1046,7 @@
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",

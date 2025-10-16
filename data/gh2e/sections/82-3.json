@@ -1,0 +1,30 @@
+{
+  "index": "82.3",
+  "name": "Ancient Defense Network",
+  "edition": "gh2e",
+  "parent": "33",
+  "monsters": [
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-construct",
+          "type": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "type": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

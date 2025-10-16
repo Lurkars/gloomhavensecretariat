@@ -1,0 +1,46 @@
+{
+  "index": "84.1",
+  "name": "Vibrant Grotto",
+  "edition": "gh2e",
+  "parent": "39",
+  "monsters": [
+    "earth-demon",
+    "forest-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

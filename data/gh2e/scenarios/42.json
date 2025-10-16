@@ -1,0 +1,56 @@
+{
+  "index": "42",
+  "name": "Secluded Valley",
+  "flowChartGroup": "hail",
+  "edition": "gh2e",
+  "unlocks": [
+    "43"
+  ],
+  "forcedLinks": [
+    "43"
+  ],
+  "monsters": [
+    "cave-bear",
+    "forest-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "elite"
+        },
+        {
+          "name": "cave-bear",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

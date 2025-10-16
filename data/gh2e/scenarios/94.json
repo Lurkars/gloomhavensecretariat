@@ -1,0 +1,53 @@
+{
+  "index": "94",
+  "name": "A Watery Rescue",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "rewards": {
+    "experience": 10,
+    "items": [
+      "139"
+    ]
+  },
+  "monsters": [
+    "frost-demon",
+    "lurker-soldier",
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

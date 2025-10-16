@@ -1,0 +1,49 @@
+{
+  "index": "124.3",
+  "name": "Harrower Hive",
+  "edition": "gh2e",
+  "parent": "77",
+  "monsters": [
+    "giant-viper",
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

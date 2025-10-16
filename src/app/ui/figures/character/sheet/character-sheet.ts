@@ -53,6 +53,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
   replayable: boolean = false;
 
   fhSheet: boolean = false;
+  gh2eSheet: boolean = false;
   csSheet: boolean = false;
 
   donations: boolean = true;
@@ -71,7 +72,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
       }
       for (let i = 0; i < this.titles.length; i++) {
         if (!this.titles[i]) {
-          this.titles[i] = settingsManager.getLabel('data.character.' + this.character.name.toLowerCase());
+          this.titles[i] = settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
         }
       }
     }
@@ -83,6 +84,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
     this.character.progress.perks = this.character.progress.perks || [];
 
     this.fhSheet = gameManager.fhRules(true);
+    this.gh2eSheet = !gameManager.fhRules() && gameManager.fhRules(true);
     this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
 
     this.donations = !this.fhSheet;
@@ -168,7 +170,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
 
     if (this.titles.length > 0) {
       for (let i = 0; i < this.titles.length; i++) {
-        if (this.titles[i] == settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
+        if (this.titles[i] == settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())) {
           this.titles[i] = '';
         }
       }
@@ -179,7 +181,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
       }
     }
 
-    if (title != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
+    if (title != settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())) {
       if (this.character.title != title) {
         gameManager.stateManager.before("setTitle", gameManager.characterManager.characterName(this.character), title);
         this.character.title = title;
@@ -201,7 +203,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
 
   ngAfterViewInit(): void {
     if (this.titleInput) {
-      this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.name.toLowerCase());
+      this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
     }
   }
 
@@ -548,6 +550,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
 
   toggleFhSheet() {
     this.fhSheet = !this.fhSheet;
+    this.gh2eSheet = this.gh2eSheet ? false : !gameManager.fhRules() && gameManager.fhRules(true);
     this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
   }
 

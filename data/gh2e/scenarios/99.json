@@ -1,0 +1,82 @@
+{
+  "index": "99",
+  "name": "Sintering Forge",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "rewards": {
+    "items": [
+      "117"
+    ],
+    "events": [
+      "road:33"
+    ]
+  },
+  "monsters": [
+    "ancient-artillery",
+    "black-imp-scenario-99",
+    "chaos-demon",
+    "harrower-infester-scenario-99"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        9,
+        30
+      ],
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp-scenario-99",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp-scenario-99",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp-scenario-99",
+          "player4": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester-scenario-99",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

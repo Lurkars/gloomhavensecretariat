@@ -1,0 +1,31 @@
+{
+  "index": "123.4",
+  "name": "Harried Village",
+  "edition": "gh2e",
+  "parent": "93",
+  "monsters": [
+    "vermling-priest",
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-priest",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

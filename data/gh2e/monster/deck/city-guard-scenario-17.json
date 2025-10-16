@@ -1,0 +1,25 @@
+{
+  "name": "city-guard-scenario-17",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Nothing Special",
+      "cardId": 0,
+      "initiative": 30,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    }
+  ],
+  "standeeShare": "city-guard"
+}

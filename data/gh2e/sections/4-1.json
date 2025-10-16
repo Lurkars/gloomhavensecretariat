@@ -1,0 +1,62 @@
+{
+  "index": "4.1",
+  "name": "The Void",
+  "edition": "gh2e",
+  "parent": "54",
+  "monsters": [
+    "black-imp",
+    "chaos-demon",
+    "harrower-infester"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "type": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

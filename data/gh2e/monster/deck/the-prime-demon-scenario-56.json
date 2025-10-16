@@ -1,0 +1,28 @@
+{
+  "name": "the-prime-demon-scenario-56",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Trident",
+      "cardId": 0,
+      "initiative": 1,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,3,active)|(1,1,target)|(1,2,target)|(2,0,target)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

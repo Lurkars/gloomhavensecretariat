@@ -1,0 +1,63 @@
+{
+  "index": "40.1",
+  "name": "Decaying Crypt",
+  "edition": "gh2e",
+  "parent": "6",
+  "monsters": [
+    "crystal-rot",
+    "living-corpse",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "treasures": [
+        7
+      ],
+      "monster": [
+        {
+          "name": "crystal-rot",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

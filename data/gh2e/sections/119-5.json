@@ -1,0 +1,42 @@
+{
+  "index": "119.5",
+  "edition": "gh2e",
+  "parent": "93",
+  "monsters": [
+    "lurker-soldier",
+    "vermling-priest",
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-soldier",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-priest",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "index": "84",
+  "name": "Wild Melee",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "rewards": {
+    "experience": 15,
+    "prosperity": 1,
+    "battleGoals": 1
+  },
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "cave-bear",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player4": "elite"
+        },
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "normal"
+        }
+      ]
+    }
+  ]
+}

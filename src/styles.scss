@@ -86,6 +86,7 @@ body {
   --ghs-font-extra: var(--ghs-font-gh-extra);
   --ghs-width: 100px;
   --ghs-factor: 100;
+  --ghs-animation-speed: 1;
   --ghs-dialog-factor: 1;
   --ghs-text-factor: 1;
   --ghs-small-text-factor: 1;
@@ -457,7 +458,7 @@ a {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
+  transition: transform calc(var(--ghs-animation-speed) * 800ms) cubic-bezier(0.75, 0, 0.85, 1);
   transform-style: preserve-3d;
 
   &.flipped {
@@ -612,11 +613,11 @@ a {
 }
 
 .entity-alive {
-  animation: entity-alive-animation 1000ms ease-in-out;
+  animation: entity-alive-animation calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
 }
 
 .entity-dead {
-  animation: entity-dead-animation 1000ms ease-in-out;
+  animation: entity-dead-animation calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
 }
 
 .ghs-svg {
@@ -850,12 +851,12 @@ ghs-pointer-input {
 
   &:not(.no-open-animation) .cdk-dialog-container {
     transform-origin: center center;
-    animation: dialog-open 150ms ease-in-out;
+    animation: dialog-open calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
   }
 
   &.dialog-closing {
     .cdk-dialog-container {
-      animation: dialog-close 250ms ease-in-out;
+      animation: dialog-close calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
       opacity: 0;
       transform: translateY(calc(var(--ghs-unit) * 10));
     }
@@ -868,12 +869,12 @@ ghs-pointer-input {
 
   .cdk-dialog-container {
     transform-origin: center center;
-    animation: dialog-open 250ms ease-in-out;
+    animation: dialog-open calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
   }
 
   &.dialog-closing {
     .cdk-dialog-container {
-      animation: dialog-close 250ms ease-in-out;
+      animation: dialog-close calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
       opacity: 0;
       transform: translateY(calc(var(--ghs-unit) * 10));
     }
@@ -885,7 +886,7 @@ ghs-pointer-input {
 }
 
 .backdrop-closing {
-  animation: dialog-close-backdrop 250ms ease-in-out;
+  animation: dialog-close-backdrop calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
   opacity: 0 !important;
 }
 
@@ -905,7 +906,7 @@ ghs-pointer-input {
   cursor: pointer;
   pointer-events: initial;
   z-index: 5000;
-  animation: dialog-open 250ms ease-in-out;
+  animation: dialog-open calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
 
   img {
     filter: var(--ghs-filter-red);
@@ -922,7 +923,7 @@ ghs-pointer-input {
   }
 
   &.closing {
-    animation: dialog-close 250ms ease-in-out;
+    animation: dialog-close calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
     opacity: 0;
     transform: translateY(calc(var(--ghs-unit) * 10));
   }
@@ -976,7 +977,8 @@ label {
 }
 
 
-input[type="checkbox"] {
+input[type="checkbox"],
+.input-checkbox {
   cursor: pointer;
   appearance: none;
   position: relative;
@@ -999,13 +1001,14 @@ input[type="checkbox"] {
     height: 130%;
     transform: scale(0);
     transform-origin: bottom left;
-    transition: 120ms transform ease-in-out;
+    transition: transform calc(var(--ghs-animation-speed) * 120ms) ease-in-out;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
     color: var(--ghs-color-gray);
     background-color: var(--ghs-color-gray);
   }
 
-  &:checked::before {
+  &:checked::before,
+  &.input-checkbox.checked::before {
     transform: scale(1);
   }
 
@@ -1013,7 +1016,8 @@ input[type="checkbox"] {
     background-color: var(--ghs-color-white);
   }
 
-  &:disabled {
+  &:disabled,
+  .input-checkbox.disabled {
     cursor: initial;
     color: var(--ghs-color-darkgray);
     border-width: calc(var(--ghs-unit) * 0.4);
@@ -1052,7 +1056,7 @@ input[type="radio"] {
     height: 130%;
     transform: scale(0);
     transform-origin: bottom left;
-    transition: 120ms transform ease-in-out;
+    transition: transform calc(var(--ghs-animation-speed) * 120ms) ease-in-out;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
     color: var(--ghs-color-gray);
     background-color: var(--ghs-color-gray);
@@ -1068,12 +1072,12 @@ input[type="radio"] {
 }
 
 .error {
-  animation: shake 500ms linear;
+  animation: shake calc(var(--ghs-animation-speed) * 500ms) linear;
   color: var(--ghs-color-red) !important;
 }
 
 .warn {
-  animation: shake 250ms linear;
+  animation: shake calc(var(--ghs-animation-speed) * 250ms) linear;
   color: var(--ghs-color-yellow) !important;
 }
 
@@ -1151,12 +1155,19 @@ input[type="radio"] {
       top: initial;
       bottom: 100%;
       height: auto;
-      ;
     }
 
     &.center {
       left: 50%;
       transform: translateX(-50%);
+    }
+
+    &.middle {
+      top: -100%;
+    }
+
+    &.left {
+      transform: translateX(-100%);
     }
 
     &:hover {
@@ -1266,9 +1277,40 @@ input[type="radio"] {
       height: 1.1em;
       width: auto;
       left: 0;
-      top: 0;
+      top: -0.2em;
+    }
+  }
+
+  .placeholder-townguard-attackmodifier {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    top: 0.3em;
+    margin-bottom: 0.5em;
+
+    img {
+      position: relative;
+      height: 1.3em;
+      width: auto;
+      left: 0;
+      top: -0.2em;
+      margin: 0;
     }
 
+    .townguard-attackmodifier {
+      position: relative;
+
+      .value {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 0.85em;
+        font-family: var(--ghs-font-gh-title);
+        color: var(--ghs-color-white);
+        text-shadow: var(--ghs-outline-thin);
+        transform: translate(-50%, -70%);
+      }
+    }
   }
 
   .placeholder-character-icon {
@@ -1463,16 +1505,29 @@ input[type="radio"] {
 
     .value {
       font-size: 0.9em;
+
+      img {
+        width: 1.3em;
+        height: auto;
+        filter: var(--ghs-filter-white);
+      }
     }
   }
 
   .placeholder-section,
-  .placeholder-fh-icon {
+  .placeholder-fh-icon,
+  .placeholder-faction {
     display: inline-block;
 
     .icon {
       margin-top: -0.2em;
       vertical-align: middle;
+    }
+
+    &.placeholder-faction .icon {
+      height: 1em;
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 
@@ -1532,6 +1587,51 @@ input[type="radio"] {
     }
   }
 
+  .placerholder-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .placeholder-checkbox {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 0.75em;
+    height: 0.75em;
+    top: 0.1em;
+    border: 0.1em solid var(--ghs-color-black);
+    border-radius: 0.1em;
+    z-index: 2;
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 115%;
+      height: 115%;
+      transform: scale(0);
+      transform-origin: top left;
+      transition: transform calc(var(--ghs-animation-speed) * 120ms) ease-in-out;
+      z-index: 1;
+      background-image: url('~src/assets/images/checkmark.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: var(--ghs-filter-darkgray);
+    }
+
+    &.checked::before {
+      transform: scale(1) translate(-50%, -50%);
+    }
+
+    &.checked.check::before {
+      transform: scale(1);
+    }
+  }
+
   &.text-white {
 
     .placeholder-character-icon {
@@ -1548,6 +1648,14 @@ input[type="radio"] {
 
     .placeholder-item-fh {
       filter: invert(1);
+    }
+
+    .placeholder-checkbox {
+      border-color: var(--ghs-color-white);
+
+      &::before {
+        filter: var(--ghs-filter-white);
+      }
     }
   }
 
@@ -1577,7 +1685,7 @@ input[type="radio"] {
   border-color: var(--ghs-color-white);
   border-style: solid;
   border-width: 0.15em;
-  transition: box-shadow 100ms ease-in-out;
+  transition: box-shadow calc(var(--ghs-animation-speed) * 100ms) ease-in-out;
 }
 
 .objective-marker {
@@ -1596,7 +1704,7 @@ input[type="radio"] {
   border-color: var(--ghs-color-darkgray);
   border-style: solid;
   border-width: 0.3em;
-  transition: box-shadow 100ms ease-in-out;
+  transition: box-shadow calc(var(--ghs-animation-speed) * 100ms) ease-in-out;
   z-index: 1;
 
   &::before {

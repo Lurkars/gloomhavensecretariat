@@ -1,0 +1,26 @@
+{
+  "index": "2.4",
+  "name": "Windswept Highlands",
+  "edition": "gh2e",
+  "parent": "74",
+  "monsters": [
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "index": "567",
+  "group": "randomMonsterCard",
+  "name": "Scaled",
+  "edition": "gh2e",
+  "named": true,
+  "monsters": [
+    "giant-viper",
+    "rending-drake",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 15,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,992 @@
+[
+  {
+    "cardId": "01",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "There's a saying: \"Mess with the Sleeping Lion and you'll get the Jaws.\" Today's one of those days where you earn that drink discount.<br><br>You knock on the door of Xain, an Orchid who switched from providing assurances to providing excuses. He opens up, and you let him know it's time to settle his tab.<br><br>\"Oh, c'mon, he sent the Jaws? Right, okay... problem is, you're a day early. I've got a lot of gold coming my way, huge haul on some bets. Guaranteed money.\"<br><br>You notice some packed bags inside the doorway. Xain speaks up, \"Oh, that's nothing. Was just my plan B, no big deal. Don't need that anymore. I'm rolling in cash! Or at least, I will be tomorrow. Heck, I'd even be willing to toss you something for the delay.\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Not buying it. He pays up now.",
+        "outcomes": [
+          {
+            "narrative": "You shake Xain down for whatever he's got on him. He whines about not having the gold, but you gather enough to pay most of his debt. To make up the difference, you help yourself to a trinket on your way out. It might be useful, or you could just pawn it for drinking money.",
+            "effects": [
+              {
+                "type": "item",
+                "values": [
+                  26
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "A little trust goes a long way. Come back tomorrow.",
+        "outcomes": [
+          {
+            "narrative": "You walk into the Sleeping Lion the next day to find Xain waiting for you. He's sporting a set of thick gold rings, and an ostentatious necklace hangs low around his neck, catching the light.<br><br>\"Friends! Haha! Welcome, drinks are on me! Told you I'd be rolling in it! Oh, and a small tip for your trust...\"",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "values": [
+                  20
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "02",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "For a long while, you'd bring your laundry to the Savvas along the river by the Ward of Scales. But after your last battle with some giant vipers, the Savvas refused to take your business, afraid of where the blood ended and the poison began. Most recently, you've been bringing your laundry to a stocky Quatryl who runs an automatic washing house. He doesn't mind the condition of what you drop off or ask any questions about how they got that way.<br><br>\"Hello again!\" he shouts with a toothy smile as you walk in. But then, noticing the uncomfortable stares of his more delicate customers at the sight of the venom dripping off your armor onto the floor, he adds \"...err, for the first time. How can I help?\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Drop off your dirty clothes and armor for cleaning and mending.",
+        "outcomes": [
+          {
+            "narrative": "You hand over your clothes and armor, and the machines get to work, dipping your vestments into hot cauldrons of soapy water, wringing them out, and buffeting them with bursts of steam. The Quatryl identifies holes or rips and queues up automatic sewing arms to repair each issue. The whole process funnels into a complicated loom of wires that somehow folds your clothes into a tight package for delivery, and a chute drops the pile back to you, letting out a last toot of satisfied steam.",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Take the hint and come back later.",
+        "outcomes": [
+          {
+            "narrative": "You act confused and lost, pretend to be looking for the armory, and then come back a few hours later to see the Quatryl. \"All the money is in the fancy clothes, but all the challenge is in blood-stained armor.\" As thanks for your discretion, he offers you a gift: an item from another adventurer who never came back to claim it.",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless"
+                ]
+              },
+              {
+                "type": "item",
+                "values": [
+                  3
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "03",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "\"I'll have you know, I have the ear of Councilman Greymare! He would be quite interested to hear the outrageous prices you're charging for routine tailoring! Primitive! You—you thick-skulled barbarian!\" A short, bearded man continues shouting as he walks out of a tailor in the Mixed District. \"I'll hem my own clothes. It certainly can't be that difficult if you've made a business of it!\"<br><br>With that, he turns and promptly trips over his robes, dashing the leather-bound books he was carrying all over the cobblestone street. At least one of them looks interesting...",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Help him gather his scattered books.",
+        "outcomes": [
+          {
+            "narrative": "You hand over the last of the books as he dusts himself off. \"Hmph! Well, thank you. Ah—the Jaws. Dominic Scrim, good to make your acquaintance. I wish the rest of these mercenaries were as helpful as you lot. Maybe there are some good among you. A token of my gratitude...\"",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "values": [
+                  5
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Grab the most interesting volume in the confusion.",
+        "outcomes": [
+          {
+            "narrative": "You snatch an elegant book bound in dark leather and turn to a random page:<br><br>\"...in the darkness of his cave, insane and broken. The harbingers of the Upheaval, a great army of demons, had succeeded in bringing a once-powerful and glorious civilization to its complete and utter end...\"<br><br>Must be some fantasy novel. You drop it in an alley and move on.",
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "04",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "You're walking along the stalls of the Sinking Market when a display of exotic fruit catches your eye. The proprietor walks you through a few of the offerings: grain-cherries, blood melon—even a hard nut that can be broken open to reveal sweet milk. You start discussing which to purchase with your companions and the shopkeep's attention turns to other interested patrons.<br><br>Out of the corner of your eye, you see a young Vermling reach up to swipe some red berries from a display basket.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Alert the shopkeep.",
+        "outcomes": [
+          {
+            "narrative": "The shopkeep swats the Vermling's hand away.<br><br>\"Here, take this and get lost. And I don't want to see you around my stall for at least a week!\"<br><br>He tosses the Vermling a squishy-looking gourd, and she rushes away. The shopkeep thanks you with a bit of coin for your perceptiveness.",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "values": [
+                  5
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Let it slide. It's not your problem.",
+        "outcomes": [
+          {
+            "narrative": "The Vermling crams a handful of the berries into her mouth. Juice runs down the child's chin as she rushes away—but she makes it no more than a few steps before collapsing to the ground, gasping for air. The shopkeep immediately realizes what happened. \"Idiot! Red tin-berries are poisonous!\" He leans down, popping a green berry from his pocket into the Vermling's mouth. \"That should counteract the poison.\" After a moment, she sputters back to life and darts into the nearest sewer grate.",
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "05",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "You're walking along the river toward the barracks when a Lurker, six feet tall with terrifying snapping claws, bursts out of the water on the opposite bank. The citizenry flee for cover in a mad panic.<br><br>Suddenly, a battle cry rings out, and you see a streak of shimmering purple drop from a nearby building, tucking and rolling to an elegant stop a few feet from the trouble. A Valrath woman with flowing hair stands, a shroud covering her face.<br><br>\"Tiss! Tissss!\" she shouts, clapping a strange wooden instrument at the beast. \"Tiss!\" The Lurker pauses its assault and turns to the woman. Is this horrible monster...confused?",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Attack the Lurker while it's distracted. This may be the only chance to kill it.",
+        "outcomes": [
+          {
+            "narrative": "While the Lurker is transfixed by the woman dressed in purple and her strange noises, you leap in and slay the aquatic beast. You turn to thank the Valrath for her distraction, but her face is a mix of horror and fury. \"Why did you kill it!?\" she demands as her eyes tear up. \"It was just a child!\"<br><br>You quickly excuse yourself and continue to the barracks, leaving the woman crying over the broken shell of the Lurker.",
+            "effects": [
+              {
+                "type": "experience",
+                "values": [
+                  5
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Pull back the onlookers and allow the woman space.",
+        "outcomes": [
+          {
+            "narrative": "You hold the frightened crowd at bay and watch as the woman circles the Lurker, clapping her instrument in a hypnotic rhythm.<br><br>You almost fall into a trance yourself as you watch her work, the monster's eyes following her dance. Slowly, the pair approach the water, and with one last \"Tissss\" the Lurker recedes. The whole crowd breathes a sigh of relief, and the interloper nods her thanks before she turns and fades into the crowd.",
+            "effects": [
+              {
+                "type": "experience",
+                "values": [
+                  10
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "06",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "New wanted posters are going up around town featuring someone that looks strangely like one of your party members. You'd need to reposition their nose a bit and maybe throw a hood over their head, but you could probably collect on the fifteen-gold bounty.<br><br>After a bit of banter, you all agree that would be crazy. Even if you convinced the guards your party member was this crook and got the bounty, they'd have to escape from jail afterward. It certainly wouldn't be worth it. Just crazy-talk between good friends. Heh. No way, no how, not these buddies. Thick as—",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Call for the guards.",
+        "outcomes": [
+          {
+            "narrative": "You call for the guards and attempt to frame your friend. Unfortunately, you can't keep a straight face long enough to seal the deal. The guards chastise you for wasting their time as your friend holds a bandage over their bleeding nose.",
+            "effects": [
+              {
+                "type": "scenarioConditionOne",
+                "values": [
+                  "wound"
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Call for the guards, loudly.",
+        "outcomes": [
+          {
+            "narrative": "Despite your friend's protests, the guards arrest them. You collect the reward and make your friend pay their own bail. You'll be laughing about this prank for years. Most of you, at least.",
+            "effects": [
+              {
+                "type": "loseGoldOne",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "collectiveGoldOther",
+                "values": [
+                  15
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "07",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "You decide to spend your evening slumming it at the Brown Door, a dive bar in the Old Docks. Sitting in the back of the room you see an old man hunched over a set of glass beads. He cheerfully invites you to sit at his table, happy for the company. He pours some beads into his fist, placing the rest carefully into his breast pocket.<br><br>\"Care to guess how many beads I have in this hand here? Get it right and I'll make it worth your while. It's tougher than it looks!\"<br><br>He laughs at what you assume must have been a joke, but before you've had a chance to guess, a voice whispers into your ear: \"It's always three.\" When you turn to look, there's no one there.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Guess a number from one to five. (Say the number aloud now.)",
+        "outcomes": [
+          {
+            "condition": "if you said 3",
+            "narrative": "The old man opens his hand with a dramatic flair and a smile. \"You hear them too, don't you? First ones tonight.\" He chuckles to himself and spends the rest of the night lost in a drink, but not before tossing you your winnings.",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "values": [
+                  10
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "The old man pops open his hand to show three gleaming glass beads. He snickers, as though it was a joke you should've seen coming.",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  5
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Go looking for the voice.",
+        "outcomes": [
+          {
+            "narrative": "You can hear the faintest whispering, like a dull roar over the performer on stage. You follow it outside, down the street, and behind a warehouse. Crouched over a small globe are two Aesthers, who are startled as you walk up.<br><br>\"Oh, sorry. You could hear that?\" The Aesther taps on the glass globe. Under his breath he mumbles, \"Rotated the diamond too much...\" then stops acknowledging you entirely. You walk away with more questions than before.",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "muddle"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "08",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "A black plume of smoke twists through the air over the center of town. You follow it to find a crowd gathered along the Silent Bridge, cheering and clapping. Pushing to the front, you see two enormous mechanical butterfly wings strapped to a small Quatryl.<br><br>\"Today, the Quatryls conquer the sky!\" He pushes a button on his chest, causing the wings to start flapping and more smoke to pour out. The wings pick up speed, blasting gusts of air across the onlookers. With a wide smile, he rises up and up...before tumbling down into the river with a dramatic splash.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Dive in to help the Quatryl.",
+        "outcomes": [
+          {
+            "narrative": "You dive through the billowing smoke and into the frigid water. The Quatryl's limbs are tangled in the wreckage of his wings, but you're able to pull him free and make slow progress toward the riverbank.<br><br>His eyes open wide when he realizes who saved him. \"The Jaws? Oh, wow, I'm a big fan!\" And while you can't be sure if it was the impact or meeting you, he passes out. Nevertheless, you saved a life today.",
+            "effects": [
+              {
+                "type": "experience",
+                "values": [
+                  10
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Hold back the crowd in case the machine explodes.",
+        "outcomes": [
+          {
+            "narrative": "As the wreckage burns in the river, the inventor's limp body washes up on the river bank. The concerned crowd looks on in silence, fearing the worst.<br><br>Suddenly, the Quatryl's eyes pop open. \"IT WORKED!\" he shouts. He sits up and begins tinkering with the bits of machinery still strapped to his chest. \"I know exactly how to fix that. A few more adjustments and I'll be soaring over the Coppernecks!\"",
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "09",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "Your party is wandering in the Sinking Market when you come across a commotion just inside one of the storefronts. A dead Vermling lies on the ground, killed by a blow to the head.<br><br>The Valrath suspect says: \"The Orchid did it!\"<br><br>The Vermling suspect says: \"The Valrath is telling the truth!\"<br><br>The Inox suspect says: \"If the Valrath is lying, the Vermling is lying.\"<br><br>The Orchid suspect says: \"It wasn't the Vermling!\"<br><br>A pair of guards are scratching their heads when a portal opens a short distance away, and an Aesther in an unusual hat steps out. He looks past you and says, \"Only one of them is telling the truth.\" Before you have a chance to inquire further, he's gone.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Who is the killer? (Say the answer along now.)",
+        "outcomes": [
+          {
+            "condition": "if you said the Vermling",
+            "narrative": "The guards take away the offender, a Vermling who killed his brother for the insurance money. You make sure to put in a bad word for the lying Valrath and Orchid, too. The Inox gets little more than a gruff \"thanks\" from the guards for his insightful comment, but they're happy to hand over the reward money to you.",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "values": [
+                  15
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Who is the killer? (Say the answer along now.)",
+        "outcomes": [
+          {
+            "condition": "if you didn't say the Vermling",
+            "narrative": "Thinking about it later, you realize if the Valrath was telling the truth, then the Vermling was telling the truth. There could be only one who was truthful, so they both must have been lying. The Inox must have then been telling the truth, which means the Orchid was lying about it not being the Vermling.<br><br>In retrospect, it seems you made the wrong choice and the murderer went free.",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "10",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "\"A witch!\" an Inox dockworker slurs loudly from the corner of the Sleeping Lion. \"She came outta the sewers and turned the foreman into a—*hic*—into a fish!\" You turn back to your drink, but the man keeps shouting. \"I'll stake three days' pay for anyone who can kill her!\" Suddenly, you are interested in his ramblings.<br><br>You follow the drunk's directions which, predictably, get you hopelessly lost in the network of sewers under Gloomhaven. You're considering just tunneling to the surface when you hear scratching behind you. You draw your weapons and turn, ready for a fight. An ancient Valrath stands feebly before you, bent and wizened with age. A cord of dried fish hangs around her neck. She ignores your weapons and silently points a gnarled finger past you, down a nearby passage.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Cut her down and claim the reward.",
+        "outcomes": [
+          {
+            "narrative": "Sometimes dockworkers tell tall tales. This is not one of those times. Before you can even bring your weapon to bear, the witch is on you like a demon, clawing and biting. After a long battle you emerge victorious and limp back to the inn. The Inox is even drunker than when you left him, but he honors his bounty—which you remind him was four days' pay. As you nurse your wounds over a pint, you reflect that it's a shame dockworkers aren't better compensated.",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "values": [
+                  4
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "poison"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "She's just an old hermit in the sewer. Leave her be and follow where she pointed.",
+        "outcomes": [
+          {
+            "narrative": "You wave farewell and start down the passage, but the crone follows close behind. She wasn't pointing your way out, but instead, guiding you toward a small hovel where a cauldron bubbles over an anemic campfire. The Valrath pours each of you a cup of the most delicious fish soup you've ever tasted, and, after a pleasant time sipping in silence, you leave feeling much heartier. You wonder why the dockworker would make such unkind accusations against that poor sewer hermit.",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "11",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "Test your strength! Are you stronger than an Inox?<br><br>A man barks challenges to passersby on a street corner next to a strength-testing machine. A mallet sits at the ready for anyone brave enough to whack the base of the device and try to ring the bell at the top.<br><br>Fantastic prizes for the strongest, crushing defeat for the weakest! Just five gold per whack!",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Take a swing.",
+        "outcomes": [
+          {
+            "effects": [
+              "Each character performs an “Attack 3” action, drawing one attack modifier card, and individually reads the outcome based on the value of their swing:"
+            ]
+          },
+          {
+            "condition": "3 OR LESS",
+            "narrative": "Weakling! Don't hurt yourself.",
+            "effects": [
+              "Lose 5 gold."
+            ]
+          },
+          {
+            "condition": "4 OR 5",
+            "narrative": "Not bad! Good swing.",
+            "effects": [
+              "Gain 5 gold."
+            ]
+          },
+          {
+            "condition": "6 OR MORE",
+            "narrative": "DING! Incredible! You're stronger than an Inox!",
+            "effects": [
+              "Gain 5 gold and %game.condition.bless%."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Doesn't this Orchid know who you are? The Jaws of the Lion don't need to prove themselves to anybody—these games are only for kids anyway.",
+        "outcomes": [
+          {
+            "narrative": "You walk away, reassuring yourself you already know how strong you are. The children taunting you from the sidelines don't even hurt your feelings.",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "12",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "You're walking through the Coin District when a woman in green with thick goggles springs from a nearby window and bowls you over. Coins and expensive trinkets scatter as they spill from the robber's pockets. She brushes herself off, then notices two guards peering down the alley, their attention drawn by the commotion.<br><br>\"Hahaha! That was a good one!\" She laughs dramatically and claps you on the back, making a show of it for the guards. She winces as someone shrieks \"Thief!\" from the window. The guards break into a run toward you, and the woman mutters, \"Follow my lead, and we all get out of this. Otherwise, we're all getting sent to the Ghost Fortress, got it?\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Turn her over to the guards.",
+        "outcomes": [
+          {
+            "narrative": "You point to the thief and open your mouth, but she beats you to the punch. \"They did it! They jumped out that window and nearly trampled me to death!\" She clutches the stolen pearls around her neck. \"Please, guards, arrest them!\"<br><br>The guards ignore your confused protests and put you in iron cuffs. By the time they turn around to further question their witness, she's already gone. Even after that, it takes a little extra grease before they let you go.",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  5
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Let the thief work her charms.",
+        "outcomes": [
+          {
+            "narrative": "\"They went that way!\" The green-clad woman swoons against the building as the guards approach, pointing farther off into the dark alley. \"Please, you have to do something. I think they killed someone!\"<br><br>The guards look at each other and charge into the shadows. \"See? That wasn't so hard, was it?\" the burglar quips as she bends down to grab a fallen valuable. \"Here, for your trouble. Now, you'd better clear out before they return.\"",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "values": [
+                  10
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "13",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "You enter the Sleeping Lion to find your old friend, Xain, sitting at the bar. The barkeep is doing his best to ignore him. Xain's face lights up as you walk in.<br><br>\"Jaws! Friends! My only true companions!\" Xain cheers. \"I assume you're here to pay me my management fee?\"<br><br>You look at him quizzically. He speaks more slowly. \"My fee? For managing the reputation of the Jaws of the Lion. I know you haven't been keeping track of what people think of you, but I have. Heck, I'm the one who started calling you guys ‘The Jaws' in the first place! Branding, y'know? Surely that's worth something.\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Pay Xain for promoting your reputation around town.",
+        "outcomes": [
+          {
+            "narrative": "Xain assures you your reputation is impeccable. \"I've been talking you up quite a bit around town, and the shops have agreed to a small discount just so you're seen around their stores.\"",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  5
+                ]
+              },
+              "Until the start of the next scenario, you may purchase items from the shop for 5 gold less than their cost."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Refuse to pay Xain. If your reputation was that important, you'd track it yourself.",
+        "outcomes": [
+          {
+            "narrative": "Xain shakes his head. \"Wow, someone's really going to get a ding on their reputation. I'm marking this down.\"<br><br>He checks a box in a ledger of his, then mutters one more thing as he wanders off: \"This is going to have a real effect on you.\"",
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "14",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "Standing outside the Sanctuary of the Great Oak is a man with a powerful voice. Dressed in white vestments, he shouts to the assembled crowd.<br><br>\"It is time for tithing to the Great Oak! Donate to the preservation of its majesty, and it will bless you with prosperity never before seen!\" He passes a rough-hewn wooden bowl amongst the crowd.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Donate to the Sanctuary of the Great Oak.",
+        "outcomes": [
+          {
+            "narrative": "You push to the front, eager to set an example for the rest of the crowd. The Keeper of the Oak gazes at you approvingly as many more follow your lead.",
+            "effects": [
+              {
+                "type": "loseGold",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Plenty of other people donating. The Sanctuary will have a good week even without your contribution.",
+        "outcomes": [
+          {
+            "narrative": "The Keeper of the Oak sees you try to sneak off into the crowd without being noticed. He looks unimpressed and mutters something under his breath.",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "15",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "You enter the Sleeping Lion and find Xain, a local barmate who always seems down on his luck for one reason or another, sitting at the counter. The barkeep has just refused to bring him another drink until he pays off his tab, but Xain perks up when he sees you approach.<br><br>\"Oh, perfect, it's the Jaws! Seems like this is as good a time as any to cash in on that drink you all owe me. Whaddaya say?\"<br><br>You don't remember owing him a drink. In fact, you're pretty sure he was supposed to buy your next round after you helped clear an imp out of his garden.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "It's one drink, no need to kick the guy when he's down. Buy it for him.",
+        "outcomes": [
+          {
+            "narrative": "You cough up a few coins to spot Xain a drink, and you see a hint of relief play across his face. After a few rounds, you're having a good enough time that the difference doesn't matter anyway. The real experiences are the friends you made along the way.",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "experience",
+                "values": [
+                  5
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Remind Xain of the actual score.",
+        "outcomes": [
+          {
+            "narrative": "You list off the reasons you don't owe Xain a drink: the time you unglued him from the city walls, the time you delivered his box of vipers to the dockyard, the time he accidentally trapped a demon in his belt buckle, the time you broke up a fight between him and a rock he thought was a Savvas, the time you had to wean him off stamina potions, the time you had to wean him off major stamina potions, and the time you removed the \"harrower hive\" from his kitchen that turned out to be ants from a dropped pie. You sigh, then buy him a drink anyway.",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  5
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "16",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "A Valrath woman wearing a red cloak and flanked by two Inox bodyguards enters the Sleeping Lion. Heads turn as she approaches your table, and she settles in across from your party. The two bodyguards stand a few feet away, eyeing the rest of the patrons.<br><br>\"You may call me Jekserah. Pleased to make your acquaintance.\" Her hand, heavily adorned in gold rings, idly traces the grain of the wooden table. \"I have an important caravan coming in to town. Once it arrives, I'd like your assistance in bringing the contents to my warehouse... I require the services of the best. That is you, isn't it?\" A smile plays across her lips.<br><br>Something about the whole exchange rubs you the wrong way. What could you provide that these hulking Inox couldn't?",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Agree to help unload the caravan.",
+        "outcomes": [
+          {
+            "narrative": "You arrive at the west gate, but the caravan is nowhere to be found. Jekserah is shouting angrily at her bodyguards—apparently the shipment was stolen in transit. You inquire about payment anyway.<br><br>\"I'm not going to pay you for doing nothing!\" You press the issue, since you held up your part of the bargain. She eventually passes you a few coins, but makes it clear you won't be working together again. The feeling is mutual.",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "values": [
+                  10
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Refuse the woman. Something is off.",
+        "outcomes": [
+          {
+            "narrative": "She doesn't take kindly to being refused—it seems your response isn't something she encounters often. She stands from the table in a huff: \"You think you're the only mercenaries in this town? I'll find some other idiots to do my bidding.\"",
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "17",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "You are minding your own business in the Sleeping Lion when a rough-looking Inox sea captain rushes up to your table.<br><br>\"I've been told you're the folks to talk to if you have a problem,\" she says. \"A number of goods have gone missing from my ship at the Old Docks. I tracked the thieves to an abandoned warehouse, but I have reason to believe they may be more than I can handle.\"<br><br>You look up at the huge Inox one more time and then scratch your head. Could be a lucrative opportunity, so long as you don't get killed.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Demand payment upfront.",
+        "outcomes": [
+          {
+            "narrative": "\"Do I look like a font of money to you?\" the Inox yells incredulously. Your seat just got incredibly uncomfortable. \"Take the job or don't, but stop wasting my time!\"",
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "20"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Accept the job proposal.",
+        "outcomes": [
+          {
+            "narrative": "The Inox breathes a sign of relief, then a smile cracks across her face. \"Good to know I can count on you,\" she says. \"We outcasts have to stick together, right?\" You are about to argue with her assessment of you when she produces some extra coin as thanks.",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "20"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "18",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "You notice a well-dressed Valrath merchant entering the Sleeping Lion, looking completely out of place. He scans the room, grimacing in disgust at any number of the activities going on inside. Eventually, he spots your table and approaches.<br><br>\"I have need of your services, mercenaries,\" he says through a perfumed handkerchief. He claims there is trouble at the New Docks. It seems there have been some strange happenings no one can explain: goods moving or disappearing altogether, eerie noises, visions of horrible demons. \"I hope you are able to investigate and stop whatever forces may be conspiring to topple our economic supremacy.\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Demand payment upfront.",
+        "outcomes": [
+          {
+            "narrative": "The Valrath looks horrified by your aggressiveness, but he soon cracks under the pressure and throws some coins in your direction. \"Fine, just take care of the problem quickly!\" he demands as he runs from the establishment.",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "21"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Accept the job proposal.",
+        "outcomes": [
+          {
+            "narrative": "\"Splendid!\" the Valrath says through his handkerchief. \"It seems a little money can go a long way in this place.<br><br>\"So long as you can get over the smell,\" he adds as he turns and walks out the door.",
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "21"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "19",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "You are deep into your third drink at the Sleeping Lion when a messenger stomps in from the cold night air. You grumble a bit as the biting wind from the open door reaches your table.<br><br>The messenger appears a little lost. He is clearly looking for someone, but he isn't having much luck.<br><br>\"A Red Guard,\" he hesitantly mumbles. \"Is there a Red Guard somewhere in here?\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "See what the messenger has for you (Red Guard required).",
+        "outcomes": [
+          {
+            "narrative": "The messenger hands over a piece of paper, and the Red Guard's expression goes dark. On the parchment is nothing but a simple image of a snake coiled around a sun, but it takes a few more drinks before the Red Guard speaks again. They explain that exile from the Red Order in Jhinda typically means death, but the Red Guard fled to Gloomhaven, and now fate has caught up with them. There is a location written on the back. The Red Guard must go soon or they will be hunted.",
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "22"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Do your best to ignore the man and the wind.",
+        "outcomes": [
+          {
+            "narrative": "The messenger eventually leaves, looking even more confused than when he entered.",
+            "effects": [
+              {
+                "type": "drawAnotherEvent",
+                "values": [
+                  "city"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "20",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "You are enjoying a lunch of unidentifiable meat purchased from a Quatryl street vendor on the Silent Bridge when you run across a curious poster. It advertises there will be a large fighting competition in Gloomhaven Square in a matter of days.<br><br>At first, you discount it as not something worth your time, but perhaps you could be interested, if you have something to prove.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Sign up for the competition (Hatchet required).",
+        "outcomes": [
+          {
+            "narrative": "The Hatchet is very eager to join the competition and prove they are the greatest fighter, and so you oblige. It is an individual competition, though, so the rest of you will have to cheer from the sidelines.",
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "23"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Ignore the poster and continue enjoying your lunch.",
+        "outcomes": [
+          {
+            "narrative": "The meat is very enjoyable, though it does result in some stomach pains an hour or so later.",
+            "effects": [
+              {
+                "type": "drawAnotherEvent",
+                "values": [
+                  "city"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "21",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "Your purse is quite empty after a bad night of gambling at the Sleeping Lion. You are contemplating how best to cheat without getting caught when an intense negative feeling washes over you.<br><br>At first, you assume it is guilt, but you have your suspicions that it could be something far worse. You try to focus on the game, but something terrible keeps nagging at you.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Attempt to find the root of the negative energy (Voidwarden required).",
+        "outcomes": [
+          {
+            "narrative": "The Voidwarden exits the Sleeping Lion and holds a hand up to the sky. Very quickly, they turn to the rest of the group with a panicked expression. The Voidwarden warns that something is wrong with the Void. Whatever rests inside it is stirring, and something terrible is coming as a result.",
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "24"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Shake the nagging feeling and concentrate on the game.",
+        "outcomes": [
+          {
+            "narrative": "Eventually, your luck turns, and you are at least able to recover your lost money. You suppose the feeling wasn't so negative after all.",
+            "effects": [
+              {
+                "type": "drawAnotherEvent",
+                "values": [
+                  "city"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "22",
+    "edition": "jotl",
+    "type": "city",
+    "narrative": "You are having a nice stroll through the New Market, perusing incredibly expensive wares you could never afford, when you spot a gruff looking man wading through the crowd. He seems out of place.<br><br>If you had to guess, you'd say he was some sort of carpenter. As he approaches, you get the feeling that you know him, but you can't quite figure out why.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Greet the man (Demolitionist required).",
+        "outcomes": [
+          {
+            "narrative": "The man's face lights up as you approach. You recognize him as the Demolitionist's old boss. It turns out he's actually glad to have run across you, as he has a job that you may be uniquely suited for. He has a building in the Coin District that needs to be demolished. A wealthy merchant bought the property out from under someone else to expand his own estate. The trouble is that the previous owner is said to have cursed it in a fit of rage. Destroying it may be tricky.",
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "25"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Ignore the feeling and carry on with your business.",
+        "outcomes": [
+          {
+            "narrative": "After a little more walking, you find a truly amazing tapestry embroidered with a great battle scene between humans and Valraths, said to be recovered from an ancient storehouse in Demonsgate. It is worth more money than you've spent in your entire life.",
+            "effects": [
+              {
+                "type": "drawAnotherEvent",
+                "values": [
+                  "city"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

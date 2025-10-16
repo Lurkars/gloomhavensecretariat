@@ -1,0 +1,47 @@
+{
+  "index": "95.5",
+  "name": "Drake Nest",
+  "edition": "gh2e",
+  "parent": "38",
+  "monsters": [
+    "flame-demon",
+    "rending-drake",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "treasures": [
+        34
+      ],
+      "monster": [
+        {
+          "name": "flame-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

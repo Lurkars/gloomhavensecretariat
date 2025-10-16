@@ -1,0 +1,51 @@
+{
+  "index": "76",
+  "name": "Oozing Grove",
+  "flowChartGroup": "puzzle",
+  "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1
+  },
+  "monsters": [
+    "forest-imp",
+    "giant-viper",
+    "ooze"
+  ],
+  "objectives": [
+    {
+      "name": "Tree (15-B)",
+      "health": "Cx(3+L)"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

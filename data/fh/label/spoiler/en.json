@@ -189,69 +189,84 @@
     }
   },
   "character": {
-    "astral": "Infuser",
-    "coral": "Crashing Tide",
-    "drill": {
-      "": "Metal Mosaic",
-      "high": "High",
-      "low": "Low",
-      "over": "Over",
-      "regular": "Regular"
-    },
-    "fist": {
-      "": "Frozen Fist",
-      "gift-of-the-mountain": {
-        "": "Gift of the Mountain",
-        "hint": "At end of each of your turns, perform: %game.action.heal% 2, self"
+    "fh": {
+      "astral": "Infuser",
+      "coral": "Crashing Tide",
+      "drill": {
+        "": "Metal Mosaic",
+        "high": "High",
+        "low": "Low",
+        "over": "Over",
+        "regular": "Regular"
       },
-      "one-with-the-mountain": {
-        "": "One with the Mountain",
-        "hint": "Whenever you do not have %game.condition.regenerate%, gain %game.condition.regenerate%."
-      }
-    },
-    "kelp": {
-      "": "Deepwraith",
-      "trophy_tokens": {
-        "": "Perk 11",
-        "hint": "%data.custom.fh.kelp.4%"
-      }
-    },
-    "meteor": "Pyroclast",
-    "prism": {
-      "": "HIVE",
-      "long_rest": {
-        "": "Perk 8",
-        "hint": "%data.custom.fh.prism.8%"
+      "fist": {
+        "": "Frozen Fist",
+        "gift-of-the-mountain": {
+          "": "Gift of the Mountain",
+          "hint": "At end of each of your turns, perform: %game.action.heal% 2, self"
+        },
+        "one-with-the-mountain": {
+          "": "One with the Mountain",
+          "hint": "Whenever you do not have %game.condition.regenerate%, gain %game.condition.regenerate%."
+        }
       },
-      "prism_mode": {
-        "": "%data.characterToken.prism.mode% Mode Token",
-        "hint": "%data.characterToken.prism.mode% Mode is activated for summon, summon does not act on turn."
+      "kelp": {
+        "": "Deepwraith",
+        "tokens": {
+          "trophy": "Trophy Token"
+        },
+        "trophy_tokens": {
+          "": "Perk 11",
+          "hint": "%data.custom.fh.kelp.4%"
+        }
       },
-      "repair_mode": {
-        "": "Reconstructive Aid",
-        "hint": "%data.characterToken.prism.mode% Repair Drone Mode: At the start of each of your turns, perform: %game.action.heal% 2, self"
-      }
-    },
-    "shackles": "Pain Conduit",
-    "shards": {
-      "": "Shattersong",
-      "extra_resonance_tokens": {
-        "": "Perk 10",
-        "hint": "%data.custom.fh.shards.5%"
+      "meteor": "Pyroclast",
+      "prism": {
+        "": "HIVE",
+        "long_rest": {
+          "": "Perk 8",
+          "hint": "%data.custom.fh.prism.8%"
+        },
+        "prism_mode": {
+          "": "%data.characterToken.prism.mode% Mode Token",
+          "hint": "%data.characterToken.prism.mode% Mode is activated for summon, summon does not act on turn."
+        },
+        "repair_mode": {
+          "": "Reconstructive Aid",
+          "hint": "%data.characterToken.prism.mode% Repair Drone Mode: At the start of each of your turns, perform: %game.action.heal% 2, self"
+        },
+        "spider_mode": {
+          "": "Swarming Bulwark",
+          "hint": "%data.characterToken.prism.mode% Shield Spider Mode: At the start of each of your turns, perform: %game.condition.ward% 2, self"
+        },
+        "tokens": {
+          "mode": "Mode Token"
+        }
       },
-      "resonance_tokens": {
-        "": "%data.characterToken.shards.resonance% Resonance Tokens",
-        "hint": "At the end of each of your turns, you gain one %data.characterToken.shards.resonance%"
-      }
-    },
-    "snowflake": {
-      "": "Snowdancer",
-      "muddle-monster": {
-        "": "Perk 9",
-        "hint": "%data.custom.fh.snowflake.4%"
-      }
-    },
-    "trap": "Trapper"
+      "shackles": "Pain Conduit",
+      "shards": {
+        "": "Shattersong",
+        "extra_resonance_tokens": {
+          "": "Perk 10",
+          "hint": "%data.custom.fh.shards.5%"
+        },
+        "resonance_tokens": {
+          "": "%data.characterToken.shards.resonance% Resonance Tokens",
+          "hint": "At the end of each of your turns, you gain one %data.characterToken.shards.resonance%"
+        },
+        "tokens": {
+          "resonance": "Resonance Token"
+        }
+      },
+      "snowflake": {
+        "": "Snowdancer",
+        "muddle-monster": {
+          "": "Perk 9",
+          "hint": "%data.custom.fh.snowflake.4%"
+        }
+      },
+      "trap": "Trapper"
+    }
   },
   "custom": {
     "fh": {

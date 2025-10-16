@@ -1,0 +1,50 @@
+{
+  "index": "11.4",
+  "edition": "gh2e",
+  "parent": "95",
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "deep-terror",
+    "lurker-soldier"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

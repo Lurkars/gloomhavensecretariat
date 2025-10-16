@@ -1,0 +1,26 @@
+{
+  "index": "74.4",
+  "name": "Harrower Hive",
+  "edition": "gh2e",
+  "parent": "77",
+  "monsters": [
+    "harrower-infester"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

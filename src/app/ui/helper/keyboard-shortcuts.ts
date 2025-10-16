@@ -201,10 +201,12 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                 } else if ((!this.dialogOpen || this.allowed.indexOf('level') != -1) && this.footer && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'x' && this.footer.ghsLevel) {
                     this.footer.ghsLevel.open();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'e') {
-                    if (gameManager.game.scenario && this.header) {
-                        this.header.openEventEffects();
-                    } else if (!gameManager.game.scenario && this.footer && this.footer.ghsScenario) {
-                        this.footer.ghsScenario.open();
+                    if (settingsManager.settings.partySheet || gameManager.characterManager.characterCount(true) > 0) {
+                        if (gameManager.game.scenario && this.header) {
+                            this.header.openEventEffects();
+                        } else if (!gameManager.game.scenario && this.footer && this.footer.ghsScenario) {
+                            this.footer.ghsScenario.open();
+                        }
                     }
                 } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && this.footer && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'f') {
                     settingsManager.toggle('fullscreen');

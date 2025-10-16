@@ -1,0 +1,150 @@
+{
+  "name": "the-colorless",
+  "edition": "gh2e",
+  "deck": "boss",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "disarm",
+      "immobilize",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "curse",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "all",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "[C-1]",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx12",
+      "movement": 2,
+      "attack": "C+1"
+    },
+    {
+      "level": 1,
+      "health": "Cx15",
+      "movement": 2,
+      "attack": "C+1"
+    },
+    {
+      "level": 2,
+      "health": "Cx16",
+      "movement": 2,
+      "attack": "C+2"
+    },
+    {
+      "level": 3,
+      "health": "Cx19",
+      "movement": 3,
+      "attack": "C+2"
+    },
+    {
+      "level": 4,
+      "health": "Cx20",
+      "movement": 3,
+      "attack": "C+3"
+    },
+    {
+      "level": 5,
+      "health": "Cx23",
+      "movement": 3,
+      "attack": "C+3"
+    },
+    {
+      "level": 6,
+      "health": "Cx27",
+      "movement": 4,
+      "attack": "C+4"
+    },
+    {
+      "level": 7,
+      "health": "Cx32",
+      "movement": 4,
+      "attack": "C+5"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "index": "72.5",
+  "edition": "gh2e",
+  "parent": "85",
+  "marker": "2",
+  "monsters": [
+    "black-imp",
+    "earth-demon",
+    "harrower-infester",
+    "the-harvester"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "the-harvester",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

@@ -107,7 +107,7 @@ header {
 
     &.syncing {
       filter: var(--ghs-filter-white);
-      animation: ghs-spinning 1500ms linear infinite;
+      animation: ghs-spinning calc(var(--ghs-animation-speed) * 1500ms) linear infinite;
     }
   }
 
@@ -117,7 +117,7 @@ header {
     color: var(--ghs-color-gray);
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-small-text-factor) * var(--ghs-barsize));
     opacity: 0;
-    transition: opacity 500ms ease-in-out;
+    transition: opacity calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
 
     &.visible {
       opacity: 1;

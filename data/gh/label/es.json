@@ -98,12 +98,14 @@
     }
   },
   "character": {
-    "brute": "Salvaje",
-    "cragheart": "Corazón Hueco",
-    "mindthief": "Ladrona Mental",
-    "scoundrel": "Pícara",
-    "spellweaver": "Tejedora de Hechizos",
-    "tinkerer": "Manitas"
+    "gh": {
+      "brute": "Salvaje",
+      "cragheart": "Corazón Hueco",
+      "mindthief": "Ladrona Mental",
+      "scoundrel": "Pícara",
+      "spellweaver": "Tejedora de Hechizos",
+      "tinkerer": "Manitas"
+    }
   },
   "custom": {
     "gh": {

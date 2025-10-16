@@ -1,0 +1,64 @@
+<div class="favors-container" [ngClass]="{'disabled': disabled}">
+
+    <div class="header">
+        <span class="title" [ghs-label]="'scenario.favors'"></span>
+    </div>
+
+    <div class="header-menu">
+        <label>
+            <input tabclick type="checkbox" [checked]="gameManager.game.keepFavors" (change)="toggleKeep()">
+            <span [ghs-label]="'scenario.favors.keep' "></span>
+        </label>
+    </div>
+
+    <div class="points">
+        <div class="point spent" *ngFor="let spent of gameFavorPoints; let i = index" ghs-pointer-input
+            (singleClick)="unspentPoints(i)" (doubleClick)="unspentPoints(i, true)"><span
+                [ghs-placeholder]="'game.attackmodifier.minus' + spent"></span></div>
+        <div class="point left" *ngFor="let left of leftPoints" ghs-pointer-input (singleClick)="addSpentPoints(left)"
+            (doubleClick)="addSpentPoints(left, true)">
+            <span [ghs-placeholder]="'game.attackmodifier.minus' + left"></span>
+        </div>
+    </div>
+
+    <div class="favors">
+        <div class="favor" *ngFor="let favor of favors; let i = index"
+            [ngClass]="{'disabled': availablePoints < favor.points }">
+            <label class="text-white" [ghs-label]="'scenario.favors.label' + (favor.points > 1 ? '.multiple': '')"
+                [ghs-label-args]="[favor.edition, favor.name, ''+ favor.points]" ghs-pointer-input
+                (singleClick)="selectFavor(favor)" (doubleClick)="selectFavor(favor, true)"></label>
+            <div class="hint-container">
+                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+                <span class="hint">
+                    <div class="text">
+                        <span [ghs-label]="'game.data.favors.' + favor.edition + '.' + favor.name + '.text'"></span>
+                    </div>
+                </span>
+            </div>
+            <div class="hint-container" *ngIf="settingsManager.settings.fhTrialsApply">
+                <img src="./assets/images/automation.svg" class="hint-trigger automation ghs-svg"
+                    [ngClass]="{'none': !favor.automation, 'manual': favor.automation == 'manual'}">
+                <span class="hint">
+                    <div class="text">
+                        <span
+                            [ghs-label]="'game.data.favors.' + favor.edition + '.' + favor.name + '.automation'"></span>
+                    </div>
+                </span>
+            </div>
+            <span *ngIf="!settingsManager.settings.fhTrialsApply"></span>
+            <div class="checks">
+                <span class="check" *ngFor="let check of []|ghsRange:activeFavors[i]" ghs-pointer-input
+                    (singleClick)="unselectFavor(favor)" (doubleClick)="unselectFavor(favor, true)">
+                    <img src="./assets/images/check.svg" class="ghs-svg">
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+        <span class="spacer"></span>
+        <a class="apply" [ngClass]="{'disabled': !change}" ghs-pointer-input (singleClick)="apply()"><span
+                [ghs-label]="'scenario.favors.apply'"></span></a>
+    </div>
+</div>

@@ -57,7 +57,7 @@ export class LootDeckDialogComponent implements OnInit, OnDestroy {
     this.currentConfig();
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
-    }, !settingsManager.settings.animations ? 0 : 250);
+    }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0);
     if (this.deck.cards.length == 0) {
       this.edit = true;
       this.configuration = true;

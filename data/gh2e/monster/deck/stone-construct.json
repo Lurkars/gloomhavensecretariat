@@ -1,0 +1,181 @@
+{
+  "name": "stone-construct",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Runic Feeedback",
+      "cardId": 404,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Taxing Advance",
+      "cardId": 405,
+      "initiative": 28,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "If the Move ability was performed, Stone Construct suffers %game.damage:1%.",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Hasty Assault",
+      "cardId": 406,
+      "initiative": 51,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 407,
+      "initiative": 64,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Sacrificial Hurl",
+      "cardId": 408,
+      "initiative": 72,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "If the attack was performed, Stone Construct suffers %game.damage:1%.",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Calculated Strike",
+      "cardId": 409,
+      "initiative": 90,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Ground Pound",
+      "cardId": 410,
+      "initiative": 83,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Runic Draw",
+      "cardId": 411,
+      "initiative": 28,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "name": "doomcannon",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Long Shot",
+      "cardId": 626,
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "all in row A",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exploding Ammunition",
+      "cardId": 627,
+      "initiative": 99,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "all in row B",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exploding Ammunition",
+      "cardId": 628,
+      "initiative": 99,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "all in row B",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grenade",
+      "cardId": 629,
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "all in row A",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Massive Blast",
+      "cardId": 630,
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "all in row B",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Heavy Shot",
+      "cardId": 631,
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "all in row B",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Defensive Ordinance",
+      "cardId": 632,
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "all in row A",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Concussive Burst",
+      "cardId": 633,
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "all in row A",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+{
+  "name": "circles",
+  "icon": "gh-circles",
+  "noThumbnail": true,
+  "edition": "gh2e",
+  "unlockEvent": "road:44|road:45",
+  "retireEvent": "road:70",
+  "color": "#e570b3",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 6
+    },
+    {
+      "level": 2,
+      "health": 7
+    },
+    {
+      "level": 3,
+      "health": 8
+    },
+    {
+      "level": 4,
+      "health": 9
+    },
+    {
+      "level": 5,
+      "health": 10
+    },
+    {
+      "level": 6,
+      "health": 11
+    },
+    {
+      "level": 7,
+      "health": 12
+    },
+    {
+      "level": 8,
+      "health": 13
+    },
+    {
+      "level": 9,
+      "health": 14
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "shadow-wolf",
+      "level": 1,
+      "health": 2,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "iron-beast",
+      "level": 1,
+      "health": 7,
+      "attack": 1,
+      "movement": 2
+    },
+    {
+      "name": "thorn-shooter",
+      "level": 1,
+      "health": 3,
+      "movement": 2,
+      "range": 4
+    },
+    {
+      "name": "rift-spirit",
+      "level": 1,
+      "health": 2,
+      "movement": 2,
+      "range": 3
+    },
+    {
+      "name": "floating-jellyfish",
+      "level": 1,
+      "health": 5,
+      "attack": 3,
+      "movement": 1
+    },
+    {
+      "name": "covetous-imp",
+      "level": 2,
+      "health": 5,
+      "attack": 3,
+      "movement": 3
+    },
+    {
+      "name": "ember-sprite",
+      "level": 4,
+      "health": 3,
+      "attack": 1,
+      "movement": 3,
+      "range": 3
+    },
+    {
+      "name": "rock-colossus",
+      "level": 5,
+      "health": 12,
+      "attack": 1,
+      "movement": 2
+    },
+    {
+      "name": "slime-spirit",
+      "level": 6,
+      "health": 5,
+      "attack": 2,
+      "movement": 2
+    },
+    {
+      "name": "void-eater",
+      "level": 7,
+      "health": 6,
+      "attack": 4,
+      "movement": 3
+    },
+    {
+      "name": "fey-subjugator",
+      "level": 9,
+      "health": 4,
+      "attack": 1,
+      "movement": 2,
+      "range": 4
+    },
+    {
+      "name": "prismatic-unicorn",
+      "level": 9,
+      "health": 8,
+      "attack": 3,
+      "movement": 4
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.gh2e.circles.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "invisible",
+                "effects": [
+                  {
+                    "type": "custom",
+                    "value": "%data.custom.gh2e.circles.2%"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "curse"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "fire|air"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "fire|dark"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "air|dark"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.gh2e.circles.3%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.gh2e.circles.4%"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "%data.custom.gh2e.circles.5%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.gh2e.circles.6%",
+    "%data.custom.gh2e.circles.7%"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "index": "30.2",
+  "name": "- Diamond Mine",
+  "edition": "gh2e",
+  "parent": "16",
+  "marker": "1",
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "merciless-taskmaster",
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "merciless-taskmaster",
+          "type": "boss"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

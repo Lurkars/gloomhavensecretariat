@@ -1,0 +1,35 @@
+{
+  "index": "44.5",
+  "name": "Clockwork Factory",
+  "edition": "gh2e",
+  "parent": "71",
+  "monsters": [
+    "ancient-artillery",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

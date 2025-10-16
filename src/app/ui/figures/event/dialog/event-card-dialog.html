@@ -1,0 +1,8 @@
+<div class="event-card-dialog" ghs-pointer-input (singleClick)="close()"
+  [ngClass]="{'closed' : !opened, 'opened' : opened}">
+  <div class="event-card-container">
+    <ghs-event-card [event]="eventCard" [spoiler]="spoiler" [disabled]="!interactive" [select]="id ? id.selected : -1"
+      [subSelect]="id ? id.subSelections : []" [checks]="id ? id.checks : []"></ghs-event-card>
+  </div>
+</div>
+<div class="close-container" (click)="close()"></div>

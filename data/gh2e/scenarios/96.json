@@ -1,0 +1,47 @@
+{
+  "index": "96",
+  "name": "Back Alley Brawl",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "rewards": {
+    "gold": 10
+  },
+  "monsters": [
+    "bandit-archer",
+    "inox-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

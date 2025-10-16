@@ -145,8 +145,8 @@ export class TreasureLabelComponent implements OnInit {
                         }
                         itemNameValues.push('"' + settingsManager.getLabel('data.items.' + item.edition + '-' + item.id) + '"');
                     } else {
-                        console.warn("Invalid Item '" + itemId + "' (Edition " + itemEdition + ") on treasure" + this.index + "' for Edition " + this.edition);
-                        itemNameValues.push('<img class="icon ghs-svg" src="./assets/images/warning.svg"> %item%')
+                        console.warn("Invalid Item '" + itemId + "' (Edition " + itemEdition + ") on treasure '" + this.index + "' for Edition " + this.edition);
+                        itemNameValues.push('<img class="icon ghs-svg" src="./assets/images/warning.svg"> %item% ' + itemId);
                     }
                 })
 
@@ -168,7 +168,7 @@ export class TreasureLabelComponent implements OnInit {
                 if (scenarioData) {
                     return [this.labelPrefix + reward.type, scenarioData.index, gameManager.scenarioManager.scenarioTitle(scenarioData)];
                 } else {
-                    console.warn("Invalid Scenario '" + value + "' on treasure " + this.index + "' for Edition " + this.edition);
+                    console.warn("Invalid Scenario '" + value + "' on treasure '" + this.index + "' for Edition " + this.edition);
                     return [this.labelPrefix + reward.type, value, '<img class="icon ghs-svg" src="./assets/images/warning.svg"> %scenario%'];
                 }
             case TreasureRewardType.event:

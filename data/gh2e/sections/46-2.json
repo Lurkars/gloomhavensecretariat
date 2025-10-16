@@ -1,0 +1,30 @@
+{
+  "index": "46.2",
+  "edition": "gh2e",
+  "parent": "56",
+  "monsters": [
+    "flame-demon",
+    "sun-demon",
+    "the-prime-demon-56"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "the-prime-demon-56",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

@@ -9,7 +9,7 @@
         <div *ngIf="!mixedElement && !multipe || wildElement" class="type {{effectClasses}}"
           [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
           <img
-            [src]="'./assets/images/attackmodifier/' + (defaultType && !townGuard && !csOak && (!newStyle || attackModifier.valueType != AttackModifierValueType.plus || !attackModifier.effects || attackModifier.effects.length == 0) ? attackModifier.type : 'am-front') + '.png'" />
+            [src]="'./assets/images/attackmodifier/' + (defaultType && !townGuard && !csOak && !imbue && (!newStyle || attackModifier.valueType != AttackModifierValueType.plus || !attackModifier.effects || attackModifier.effects.length == 0) ? attackModifier.type : 'am-front') + '.png'" />
         </div>
         <ng-container *ngIf="multipe && attackModifier.effects.length > 1">
           <div *ngFor="let effect of attackModifier.effects" class="type multiple {{effect.type}} {{effect.value}}"
@@ -58,6 +58,10 @@
           <img src="./assets/images/attackmodifier/cs-oak.png" />
         </div>
 
+        <div class="type imbue" *ngIf="imbue && (!attackModifier.effects || attackModifier.effects.length == 0)">
+          <img [src]="'./assets/images/attackmodifier/' + attackModifier.valueType + attackModifier.value + '.png'" />
+        </div>
+
         <div class="type empower" *ngIf="attackModifier.type == AttackModifierType.empower">
           <img src="./assets/images/attackmodifier/empower.png" />
         </div>
@@ -69,17 +73,17 @@
         <img class="overlay custom" src="./assets/images/attackmodifier/overlays/custom.png">
         <img class="overlay custom-fh" src="./assets/images/attackmodifier/overlays/custom-fh.png">
         <img class="overlay" [ngClass]="{'side' : newStyle}"
-          *ngIf="attackModifier.effects && attackModifier.effects.length > 0 && (attackModifier.type != AttackModifierType.plus0  && attackModifier.type != AttackModifierType.plus && attackModifier.type != AttackModifierType.minus || newStyle) && attackModifier.type != AttackModifierType.empower && attackModifier.type != AttackModifierType.enfeeble"
+          *ngIf="attackModifier.effects && attackModifier.effects.length > 0 && (attackModifier.type != AttackModifierType.plus0  && attackModifier.type != AttackModifierType.plus && attackModifier.type != AttackModifierType.minus || newStyle) && attackModifier.type != AttackModifierType.empower && attackModifier.type != AttackModifierType.enfeeble  && attackModifier.type != AttackModifierType.imbue && attackModifier.type != AttackModifierType.advancedImbue"
           [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.type + '.png'" />
 
         <img class="overlay side"
-          *ngIf="attackModifier.type == AttackModifierType.empower || attackModifier.type == AttackModifierType.enfeeble"
+          *ngIf="attackModifier.type == AttackModifierType.empower || attackModifier.type == AttackModifierType.enfeeble || (attackModifier.type == AttackModifierType.imbue || attackModifier.type == AttackModifierType.advancedImbue) && attackModifier.effects && attackModifier.effects.length"
           [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.valueType + attackModifier.value + '.png'" />
 
         <img class="rolling" *ngIf="attackModifier.rolling" src="./assets/images/attackmodifier/rolling.svg" />
         <span
           *ngIf="(!characterIcon && !ally || !attackModifier.character && attackModifier.type !=
-      AttackModifierType.curse) && attackModifier.type != AttackModifierType.bless && !csOak && attackModifier.type != AttackModifierType.minus1extra"
+      AttackModifierType.curse) && attackModifier.type != AttackModifierType.bless && !csOak && !imbue && attackModifier.type != AttackModifierType.minus1extra"
           class="numeration">{{numeration}}</span>
         <span *ngIf="(characterIcon || ally) && attackModifier.type ==
         AttackModifierType.curse || attackModifier.type ==
@@ -95,6 +99,11 @@
         <span *ngIf="characterIcon && attackModifier.character" class="character-icon">
           <img [src]="characterIcon" />
         </span>
+
+        <span *ngIf="imbue" class="character-icon imbue-icon">
+          <img [src]="'./assets/images/attackmodifier/imbuement/' + attackModifier.type + '.svg'" />
+        </span>
+
         <div class="effects" *ngIf="attackModifier.effects"
           [ngClass]="{'center' : (attackModifier.type == AttackModifierType.plus0 || newStyle), 'multiple' : effects.length > 1, 'multiple-2' : effects.length == 2, 'multiple-3' : effects.length == 3, 'multiple-4' : effects.length == 4}">
           <ghs-attackmodifier-effect *ngFor="let effect of effects" [attackModifier]="attackModifier" [effect]="effect"

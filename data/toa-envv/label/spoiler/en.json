@@ -1,6 +1,8 @@
 {
   "character": {
-    "envv": "Vanquisher"
+    "toa": {
+      "envv": "Vanquisher"
+    }
   },
   "custom": {
     "perks": {

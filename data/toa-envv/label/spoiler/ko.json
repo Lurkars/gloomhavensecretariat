@@ -1,6 +1,8 @@
 {
   "character": {
-    "envv": "정복자"
+    "toa": {
+      "envv": "정복자"
+    }
   },
   "custom": {
     "perks": {

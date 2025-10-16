@@ -1,0 +1,45 @@
+{
+  "index": "14",
+  "name": "Echo Chamber",
+  "flowChartGroup": "the-voice",
+  "edition": "gh2e",
+  "unlocks": [
+    "30",
+    "31"
+  ],
+  "monsters": [
+    "ooze",
+    "rending-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

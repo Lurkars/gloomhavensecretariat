@@ -1,6 +1,6 @@
 <div class="enhancement-dialog scroll-container">
     <div class="header">
-        <div *ngIf="!gameManager.fhRules()" ghs-setting-menu="alwaysFhEnhancements"></div>
+        <div *ngIf="!gameManager.fhRules(true)" ghs-setting-menu="alwaysFhEnhancements"></div>
         <div ghs-setting-menu="temporaryEnhancements"></div>
 
         <div class="action">
@@ -41,7 +41,7 @@
                 <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
             </a>
 
-            <a *ngIf="gameManager.enhancementsManager.fh" class="persistent" (click)="toggleSpecial('persistent')"
+            <a *ngIf="gameManager.enhancementsManager.fh && !gameManager.gh2eRules()" class="persistent" (click)="toggleSpecial('persistent')"
                 [ngClass]="{'enabled' : special == 'persistent'}">
                 <img src="./assets/images/action/card/persistent.svg">
                 <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg">

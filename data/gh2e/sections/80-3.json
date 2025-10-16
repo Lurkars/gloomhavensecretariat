@@ -1,0 +1,18 @@
+{
+  "index": "80.3",
+  "name": "Chasing Secrets",
+  "edition": "gh2e",
+  "parent": "43",
+  "conclusion": true,
+  "unlocks": [
+    "44"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "the-candle-kept"
+    ],
+    "prosperity": 1,
+    "randomSideScenario": 1
+  },
+  "monsters": []
+}

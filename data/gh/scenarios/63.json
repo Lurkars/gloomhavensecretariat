@@ -10,6 +10,7 @@
     "gridLocation": "M-1"
   },
   "edition": "gh",
+  "eventType": "road",
   "random": true,
   "rewards": {
     "gold": 15

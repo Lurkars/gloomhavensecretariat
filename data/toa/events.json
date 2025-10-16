@@ -1,0 +1,1117 @@
+[
+  {
+    "cardId": "61",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "Having taken the afternoon to study literature at the University library, you're enjoying the peace and quiet when you hear a familiar voice cry out from across the room. \"Hey, it’s you! You’re the one who destroyed my Lootbot!\" You lift your head from your book to see a Quatryl rushing towards you, fists shaking in the air. \"You were supposed to retrieve it, not destroy it! I demand justice! Justice, I say, justice!\" Before you can answer, the librarian comes from behind and says in a stern voice, \"This is no place for conflict. If you don’t hush now, I’m calling security.\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Attempt to calm the angry Quatryl.",
+        "outcomes": [
+          {
+            "narrative": "You apologize to the librarian and assure her that you’ll keep the noise down before pulling the Quatryl to the side of the room. You quietly explain to him what happened during your rescue attempt and you see his eyes soften as he listens to you. \"Thank you for the explanation,\" he whispers as he wipes a tear from his face. \"I thought you destroyed it out of malice, but now I realize you saved it from doing greater harm.\"",
+            "effects": [
+              "Each character gains X experience, where X is triple their current level."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Tell the librarian to call security on the Quatryl.",
+        "outcomes": [
+          {
+            "narrative": "The Quatryl continues to shout as you motion to the librarian to call security. Two husky Inox come and drag the Quatryl away while he tearfully shouts, \"You’ll pay dearly for this! You’ll pay!\" You shrug and return to your book, hoping never to see the unfortunate Quatryl’s face again.",
+            "effects": [
+              "No effect."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "62",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "After spending a little more time than you intended celebrating your most recent victory at the tavern, you take what you thought to be a simple shortcut back to your lodging, but soon become lost in your altered state of mind. However, the sight of a corpse in an alley ahead—nothing new for Gloomhaven, admittedly—sobers you up quickly. It looks like an Inox took the same shortcut you did, but instead of just getting lost, she got a knife in the back. The assailant is nowhere in sight, and appears to have taken most of the Inox's belongings with it, leaving the corpse looking strangely vulnerable—something uncharacteristic for the hulking, warlike Inox.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Loot the corpse. Maybe something was left behind—she's not going to need it.",
+        "outcomes": [
+          {
+            "narrative": "You find a few coins hidden in her boots. \"Amateurs,\" you scoff, pocketing the gold. You leave the body to the rats and beggars that have gathered and head toward safer streets. You get a few dirty glares—probably because you got the money before they could.",
+            "effects": [
+              "Gain 10 collective GOLD.",
+              "Lose 1 reputation."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Pay your respects to the dead.",
+        "outcomes": [
+          {
+            "condition": "brute,spellweaver,scoundrel,cragheart,mindthief: Familiar with Inox death rites, you burn the body along with an object rich in memories so that her soul has a beacon to guide it. You then vow to mark your face with the ashes in battle to honor her spirit.",
+            "effects": [
+              "Place this card in any one character's play area: During your single-target attack, add +3 Attack, then remove this card."
+            ]
+          },
+          {
+            "condition": "otherwise",
+            "narrative": "You take the corpse to the Sanctuary of the Great Oak, where a priest promises to give her the Pauper's Rites.",
+            "effects": [
+              "Gain 1 reputation."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "63",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "While running an errand at the Town Records hall, you find your former companion, the Incarnate, gazing forlornly at sheets of parchment in front of them, broken quills scattered at their feet, and librarians giving them a wide berth. Knowing that Inox lore is passed down through oral tradition, this is the first time you’ve seen them attempt to read or write. After exchanging greetings, they hesitantly explain, \"I wanted to preserve our stories in ink, so that others could share our wisdom without the need of song or spirits...\" They blink slowly, and a moment later, the Ritualist sarcastically finishes the thought, \"... but some of us underestimated how difficult it would be to take up a pen instead of a blade.\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Offer to spend the day transcribing the Incarnate’s stories.",
+        "outcomes": [
+          {
+            "narrative": "Exhausted many hours later, you feel like you’ve been fighting a tribe of Inox instead of writing down their stories. The Incarnate and their spirit retinue take turns spinning tales, showing no signs of slowing. Your hand is too cramped to go on, but luckily you’ve attracted some librarians, and one of them comes to your rescue. He even invites your friend to join the library as the city’s first Inox historian. By way of thanks, the Incarnate offers you an old Inox curative.",
+            "effects": [
+              "Gain 1 reputation.",
+              "Gain 1 collective \"Dawnbloom Nectar\" (Item 117).",
+              "All start scenario with DISARM."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "They obviously need a break. Invite them to reminisce over a round of drinks.",
+        "outcomes": [
+          {
+            "narrative": "Sharing a drink with the Incarnate means sharing a drink with their ancestors as well. After they finish a cup of mead, the Ritualist demands wine, and the Conqueror resignedly drops a stack of coins on the table. Then the Reaver’s enthusiasm quickly turns the rest of the night into a drunken blur. The next morning you wake up in your room with a heartfelt (and nearly illegible) note of thanks on the table, along with what seems to be an ancient Inox hangover cure.",
+            "returnToDeck": true,
+            "effects": [
+              "Gain 1 collective \"Dawnbloom Nectar\" (Item 117).",
+              "All start scenario with POISON."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "64",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "A bedraggled Inox bursts through the door of the Sleeping Lion, her furs dripping with rain. She casts her gaze around the inn before spotting you. Eyes narrowing, she stomps through the curious crowd to your table and slams down a leather-wrapped bundle, nearly spilling your drinks. Her terse opening fills the room and does little to calm your nerves: \"I'm here for the Incarnate. She killed our patriarch. I heard I could find them with you.\" All eyes in the Lion turn toward your table expectantly. As if on cue a peal of thunder fills the silence. It's been a slow night, but it looks like things are about to liven up.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Introduce yourselves... and get ready for a fight.",
+        "outcomes": [
+          {
+            "narrative": "\"Not here to fight,\" she clarifies. \"I brought a gift from the tribe. The Unsouled deserved what he got.\" With a brisk nod, she turns and heads back into the night, leaving behind the bundle—and a bemused silence.",
+            "effects": [
+              "Gain 1 collective \"Matriarch’s Warhorn\" (Item ⌖116)."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Tell the Inox that she's got the wrong mercenaries and hope she buys your lie.",
+        "outcomes": [
+          {
+            "condition": "incarnate",
+            "narrative": "Despite your protests, the soaked Inox recognizes the Incarnate. Shaking her head in disappointment, she shoves the bundle toward them before turning and storming out as dramatically as she arrived.",
+            "effects": [
+              "Gain 1 collective \"Matriarch’s Warhorn\" (Item ⌖116)."
+            ]
+          },
+          {
+            "condition": "otherwise",
+            "narrative": "With a frustrated growl, she scoops up the bundle and trudges back out into the rain. You have plenty of problems to worry about, but a vengeful Inox isn’t one of them—at least not tonight.",
+            "returnToDeck": true,
+            "effects": [
+              "Lose 1 reputation."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "65",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "As you walk through the streets of the city, you hear a familiar voice. Deciding to follow it, you find your former companion speaking with two Savvas, whose cores glow a beautiful sky-blue. Both Savvas listen intently as the Rimehearth instructs them. Despite the earnest interest of the two students, you can tell that the Savvas are confused and are not quite following along with the Rimehearth's words. You debate with yourself whether to continue listening in hopes of gleaning wisdom from your friend, or to break the silence by sharing your favorite daring story from your adventures with the Rimehearth in the past.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Listen with the Savvas students.",
+        "outcomes": [
+          {
+            "narrative": "You listen and become emboldened by the passionate words of your friend. You quickly realize that the Rimehearth's words do not have the same impact on the Savvas students, despite their active listening. When the Rimehearth finishes, it turns to you. \"I normally charge 10 coins per lesson, but because we're friends, I'll drop that price....\"",
+            "effects": [
+              "Lose 5 gold each.",
+              "All start scenario with BLESS."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Break the silence.",
+        "outcomes": [
+          {
+            "condition": "brute,spellweaver,scoundrel,cragheart,mindthief",
+            "narrative": "Your words seem to inspire the Savvas in a way that the Rimehearth's couldn't. \"Thank you,\" he says after an exchange of money with the Savvas. \"I suppose I could split my usual teaching fee with you....\"",
+            "effects": [
+              "Gain 5 collective gold.",
+              "Gain 1 reputation."
+            ]
+          },
+          {
+            "condition": "otherwise",
+            "narrative": "The Rimehearth quickly pulls you to the side saying, \"We'll talk later—can you not see I'm busy?\"",
+            "effects": [
+              "No effect."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "66",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "It is not uncommon to see many beggars lining the streets of the rougher sides of town. It's easy to ignore the bundles of rags and dirt that constitute the destitute and poor among you, brushing off outstretched hands with nothing more than a passing glance. As you brush aside one such beggar, his hands move quickly, wrapping thick fingers around your wrist.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Attempt to break free of his grip. If he wants a fight he'll get one!",
+        "outcomes": [
+          {
+            "narrative": "You easily break the grip of the vagrant, hearing a snap as the man falls to his knees, clutching his arm. You search through the man's pockets as you look around for any of his friends, only to see the other beggars cowering away in fear.",
+            "effects": [
+              "Lose 1 reputation.",
+              "Gain 5 collective GOLD."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Cry out for help.",
+        "outcomes": [
+          {
+            "narrative": "Another beggar comes to your aid, shoving the man to the ground. With the advantage gained, you set a knee on the mans back, keeping him in place long enough for city officials to come take the assailant away. Before he can leave, you give some coins to your rescuer in thanks. \"It was nothing\", he says as he quickly pockets your offering.",
+            "effects": [
+              "Lose 5 collective GOLD.",
+              "Gain 1 reputation."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "67",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "Having returned to your favorite restaurant in the Coin District, the Salty Duck, you lean back in your chair as you swirl the wine in your glass and eagerly await the arrival of your meal. To your excitement, the waiter finally arrives with a steaming plate and places it in front of you. You’ve been craving these mouthwatering meatballs ever since you’ve had them last. As you settle the napkin on your lap, ready to indulge, you feel a tap on your shoulder and turn to see a familiar face. It’s Talo, the elderly Inox Shaman. \"I was passing by and noticed you in the window,\" she says with a smile. \"I can’t afford this restaurant myself. Would you care for me to join you?\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Offer to order Talo a dish.",
+        "outcomes": [
+          {
+            "narrative": "You offer to order Talo a dish and she beckons for the waiter to hand her a menu. To your surprise, she orders the duck, which is one of the most expensive options on the menu. She gobbles it down, splashing sauce everywhere. When she’s finished, she grabs the napkin from your lap and wipes the juice dripping from her hair. Clearly nobody’s ever taught this Inox table manners, and you would have rather shared your meal with a goat.",
+            "effects": [
+              "Lose 15 collective GOLD."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Invite Talo to join you, but inform her you're not paying for her meal.",
+        "outcomes": [
+          {
+            "narrative": "You invite Talo to join you, but make it clear that she must pay for her own meal. She sits down with a frown, and you awkwardly eat your meal as she nibbles at the complementary bread basket. As you finish your plate of meatballs, the waiter approaches your table with multiple plates of fresh food. \"Courtesy of that gentlemen over there,\" the waiter points to a table across the room. You see Councilman Ransak wink as he calls out, \"Tonight’s on me!\" With the bill paid for, you’ve saved a few coins and tonight’s going to be a good night indeed.",
+            "effects": [
+              "Gain 10 collective GOLD."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "68",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "As you enter Shiela's potion shop, you're surprised to see Talo, the elderly Inox Shaman, speaking with Shiela. Talo is clutching onto the orange rosary that is hanging on her belt and the two seem to be arguing.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Convince Shiela that she should buy what Talo is offering.",
+        "outcomes": [
+          {
+            "narrative": "You're not sure what the cost arrangements are, but you manage to persuade Shiela to take the deal. \"You won't regret it!\" Talo says as she extends her hand towards Shiela. You can see Shiela wince in pain as Talo wildly shakes her hand.",
+            "effects": [
+              "Add \"Talo’s Rosary (Item 128)\" to the city supply."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Persuade Talo to give Shiela a better deal.",
+        "outcomes": [
+          {
+            "narrative": "You agree that Shiela deserves a bigger discount. Talo is adamant at first, but you manage to persuade her and she finally agrees.",
+            "effects": [
+              "Add \"Talo’s Rosary (Item 128)\" to the city supply. One character may immediately buy one for half price."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "69",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "While wandering the coastline near the Sinking Market, you come across a lone shop away from the hustle and bustle of the main marketplace. An elderly, small-statured Orchid decorated with bright, bluish-purple crystals pulsating with energy sits behind a desk fiddling with a pair of boots. \"Welcome to my humble workshop, stranger,\" he says, looking up from his project. \"Ah, mercenaries. Just the sort I was waiting for! See, I've got a dream to open a shop in the Ward of Scales selling modified equipment. But investments are hard to come by, and I don't get many customers passing my way. Plus, my old bones are too fragile to test out these upgrades. Would you be willing to help me? Monetary donations would help me buy some land in a better location. Or, if you're interested to see my work firsthand, I could modify a pair of your boots or sell you a discounted pair.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Donate gold to the Orchid (requires 10x collective gold).",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "The Orchid's face brightens as you offer some gold. \"Wonderful! This will help my business immensely! Here, take this electro-charged powder as my thanks. It will serve you well.\"",
+            "effects": [
+              "All start scenario with one STRENGTHEN token in their active area. Each may spend their token once during the scenario to gain Advantage on all their attacks that round.",
+              "Additionally, all start scenario with BLESS."
+            ]
+          },
+          {
+            "condition": "if orchid in party",
+            "narrative": "Before you leave, the shopkeeper pulls you aside. \"And don't you worry, the Orchids may have forsaken me, but I always take care of our brothers and sisters.\"",
+            "effects": [
+              "Additionally, all start scenario with BLESS."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Give the Orchid a pair of boots to modify or purchase a discounted pair.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "\"Excellent!\" the Orchid exclaims jubilantly. \"This modification won't take long and has proven itself useful in many situations over the years.\"",
+            "effects": [
+              "You may lose 1 collective item or pay 35 collective gold to gain 1 collective \"Arcstone Greaves\" (Item 126)."
+            ]
+          },
+          {
+            "condition": "otherwise",
+            "narrative": "\"If you don't like what you see, I won't hold it against you. You can walk away with no obligation and no hard feelings.\"",
+            "effects": [
+              "No effect."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "70",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "Before setting off on your next adventure, you decide to wander the Mixed District near the water in the Ward of Scales. You never know when you might strike a deal! Since merchants often use mercenaries as hired hands, there's even a decent chance to earn some gold at the bounty office with minimal expended effort. You peruse the job listings and two options catch your eye, both with the same merchant's seal.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Guard the shipment of goods.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "The job proves relatively uneventful. As the shipment prepares for departure, a crack of lightning flashes across the sky. Before you stands the elderly Orchid merchant that you met some time ago in the Sinking Market. \"I figured my job listings might catch your attention at some point! As you can see, business is thriving and my dream came to fruition! Keep picking up these jobs and I think you'll find it worthwhile.\"",
+            "effects": [
+              "Gain 5 gold each, then gain item designs 124 - 127 and mark a checkbox below. All may buy any one of these items at a discount of 5 gold per checkmark."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Test the experimental powder.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You walk inside and are met with a hearty laugh from an elderly Orchid merchant. \"Mercenaries! I remember you from my old shop in the Sinking Market! I cannot thank you enough for taking a chance on an old Orchid like me. My business is expanding into potions, which is why I need you to test this enhancement powder. Beware, it may cause you to become light-headed.\"",
+            "effects": [
+              "Gain 5 gold each, then mark a checkbox below. One character per checkmark starts scenario with DODGE. When all checkmarks have been marked, gain 1 prosperity."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "71",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "You decide to unwind at the Brown Door, not because you particularly want to be here, but simply because they have beer available. Plus, Isaac over at the Sleeping Lion seems to be in a foul mood tonight—apparently one of you couldn’t hold their drink last time you were in town and made a rather unpleasant mess in a large plant pot. As the night progresses, you continue to joke about the culprit and spirits are high as you all laugh late into the night. Eventually, another patron who’s been listening to you for a while leans over and asks in a gruff voice, \"Alright now, ‘fess up. Who really did it?\"",
+    "options": [
+      {
+        "label": "A",
+        "outcomes": [
+          {
+            "condition": "if any one player receives the most accusations (not a tie)",
+            "narrative": "\"Ah ha!\" the patron exclaims mockingly, \"I knew it had to be you. You look like the type that can’t hold their drink!\" He then joins your table buying a round of drinks as you all continue laughing about the incident. It’s more fun than you’ve had in a while, and everyone is in high spirits—well, everyone except someone who felt like they had something to prove and ended the night with their head in a plant pot...again.",
+            "effects": [
+              "The character who received the most accusations starts scenario with MUDDLE.",
+              "All other characters start scenario with STRENGTHEN."
+            ]
+          },
+          {
+            "condition": "otherwise",
+            "narrative": "\"Ah, of course nobody owns up to it,\" the patron says condescendingly. \"Sounds about right for what I’ve heard of you lot.\"",
+            "returnToDeck": true,
+            "effects": [
+              "Lose 1 reputation."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "72",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "Strolling home in the moonlight after an evening at the Sleeping Lion, joy is in the air. That is, until you hear a call for help coming from the Silent Bridge. As you approach the bridge, it becomes apparent that the shouts are coming from below you. Looking down, the moonlight reflecting off of the water below sets a scene that is almost romantic—that is, if there wasn’t a well-dressed Valrath beaten and wrapped in thorned brambles hanging by vines from the bridge. \"Help! That mad Orchid will be back any second,\" he calls up.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Help him up. He looks wealthy and might offer a reward.",
+        "outcomes": [
+          {
+            "narrative": "You quickly drag the suspended Valrath up onto the bridge, scratching up your arms pretty badly in the process. When he gets to his feet, he scrambles and quickly runs away, without so much as a thanks. A few days later you hear talk on the street about how the owner of a local logging company single-handedly fought off crazed Thornreapers that attacked the town. Of course he did....",
+            "effects": [
+              "Lose 1 reputation.",
+              "Gain 1 prosperity."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Finish the job. Your old friend likely had a good reason to want rid of this guy.",
+        "outcomes": [
+          {
+            "narrative": "You pull him up just far enough to slit his throat before letting him go and watching his limp body fall down into the rippled reflection of the moon before silence falls across the Silent Bridge once more. You may never know exactly why the Thornreaper wanted rid of this Valrath, but for the rest of the walk home, you feel the presence of a natural magic around you—it’s as if the Thornreaper is thanking you from a distance.",
+            "returnToDeck": true,
+            "effects": [
+              "One character gains one enhancement to any Level 1/X card."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "73",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "You've spent the day visiting Talo, the elderly Inox Shaman. As you are about to leave, she pokes you with her staff and rises from her chair. \"One more thing... it's taken most of my lifetime, but I've finally harnessed the energy to manipulate the spirits of water and fire,\" Talo says as she spits on the ground and continues chewing on the leaves in her hand. \"Min' you, I can only do this on young spirits, but nonetheless, I'm goin' to pass this onto you since you decided to spend your day visiting this ol' Shaman.\" \"Choose wisely—do you wish to harness the energy of smoke and ashes, or sand and sea?\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Choose to harness the energy of smoke and ashes.",
+        "outcomes": [
+          {
+            "narrative": "You tell Talo your preference as she scribbles down an incantation on a piece of paper and shoves it into your hand. \"This'll only work once, but it'll do. Use this carefully and witness the power of smoke and ashes!\"",
+            "effects": [
+              "At start of scenario, one character performs: Summon Smoke Spirit",
+              "Retaliate 1",
+              "Range 3",
+              "Only applies before turn"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Choose to harness the energy of sand and sea.",
+        "outcomes": [
+          {
+            "narrative": "You tell Talo your preference as she scribbles down an incantation on a piece of paper and shoves it into your hand. \"This'll only work once, but it'll do. Use this carefully and witness the power of sand and sea!\"",
+            "effects": [
+              "At start of scenario, one character performs: Summon Water Spirit",
+              "Shield 2",
+              "Only applies before turn"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "74",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "As you walk through the market, you notice a crowd up ahead and hear roaring and commotion. You make your way through the crowd and see two heavily armored figures with their weapons drawn. On the left, a Valrath with a horned mask is swinging a large mace through the air. On the right, an Inox snaps a long rope of chains onto the ground as he snarls his teeth. They lunge toward each other and begin fighting as the crowd roars in excitement. As you watch with amusement, you feel a tap on your shoulder and turn to see a Vermling rubbing her hands together. \"Want to place a bet on who’s going to win?\" she smirks. \"Quick, before the city guards arrive and break up this fight.\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Wager that the Inox will win the fight.",
+        "outcomes": [
+          {
+            "condition": "if inox in party",
+            "narrative": "Familiar with the Inox’s fighting style, you bet with confidence that the Inox will win the fight. Within minutes, you witness the Inox with his chains wrapped around the Valrath’s neck and see a clear winner.",
+            "effects": [
+              "Gain 1 reputation.",
+              "Gain 10 collective GOLD."
+            ]
+          },
+          {
+            "condition": "otherwise",
+            "narrative": "You bet against the Valrath, but instantly regret the choice as he knocks the Inox unconscious, causing you to lose the bet.",
+            "effects": [
+              "Gain 10 collective GOLD."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Wager that the Valrath will win the fight.",
+        "outcomes": [
+          {
+            "condition": "if valrath in party",
+            "narrative": "Familiar with the Valrath’s fighting style, you bet with confidence that the Valrath will win the fight. Shortly after, the Valrath swings a final blow with his mace and the Inox falls unconscious to the ground.",
+            "effects": [
+              "Gain 10 collective GOLD."
+            ]
+          },
+          {
+            "condition": "otherwise",
+            "narrative": "You bet against the Inox, but instantly regret the choice as you hear the Valrath begging for mercy as the Inox tightens the shackles around his neck.",
+            "effects": [
+              "Gain 10 collective GOLD."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "75",
+    "edition": "toa",
+    "type": "city",
+    "narrative": "You've offered to help Shiela with a potion deliveries today and approach the customer's door. As the door swings open, you realize why Shiela didn't want to make this delivery herself. Standing before you is a Valrath, known for their impatience and angry demeanor. \"Hurry and give me the goods,\" he growls. You reach into your bag, but find two potion instead of one. Shiela must have accidentally placed a second one in your pouch, but she left no instructions as to which potion is for the Valrath. You don't want to upset the Valrath, but you're unsure whether they ordered the power potion or healing potion.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Give the Valrath the power potion.",
+        "outcomes": [
+          {
+            "narrative": "You hand the Valrath the power potion and his eyes light up. \"Yes, this is exactly what I ordered. I crave the power!\" You thank the Valrath for his order and swiftly return to Shiela's shop, where she informs you that the Healing Potion was a gift to you for your services.",
+            "effects": [
+              "Gain one collective \"Major Healing Potion\" (Item 27)."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Give the Valrath the healing potion.",
+        "outcomes": [
+          {
+            "narrative": "You hand the Valrath the healing potion and he crushes it in the palm of his hands. \"What use do I have for such trinkets? I demand you give me what I ordered!\" Flustered, you hand the Valrath the power potion and sulk back to report the incident to Shiela.",
+            "effects": [
+              "No effect."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "61",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "Close to the path, you encounter the smoldering remains of three of the largest, whitest Inox you’ve ever seen. Could these be—no, not this far south. Amidst the corpses, you see shrapnel scattered wildly about with several fragments large enough to identify: a gleaming orange shoulder pauldron, a faintly crackling energy shield, a mechanical hand with bolts protruding from between the fingers. Most of all, your gaze is drawn towards a spherical power core lying amidst the wreckage. It glows a pale blue and appears to briefly pulse with searing white light as you approach it. You have no doubt that this Unfettered is beyond your repair capabilities, and you have no means of safely carrying the power core. Nonetheless, you feel an irrepressible urge to inspect it more closely.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Touch the core, hoping to learn its secrets or harness its power.",
+        "outcomes": [
+          {
+            "narrative": "As soon as you touch the core, a shockwave of scalding energy radiates outwards. In that split second, you must choose whether to embrace the pain or cower from it.",
+            "effects": [
+              "Without discussion, each character must choose secretly whether to pick up a ICE token, a FIRE token, both, or neither.",
+              "When characters reveal their chosen tokens, each character gains the conditions they selected.",
+              "If at least C conditions are gained this way, all characters gain STRENGTHEN.",
+              "Otherwise, all characters gain MUDDLE."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Carefully bury the core—it seems dangerous, and it must not fall into the wrong hands.",
+        "outcomes": [
+          {
+            "narrative": "Painstakingly, you dig a hole six feet deep and carefully roll the core into the pit using a dead branch. You are tired, but you feel at peace knowing that this dangerous artifact will not soon be recovered.",
+            "effects": [
+              "All discard one card each.",
+              "During the scenario, the next two times any character loses a card, they may Recover one discarded card."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "62",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "Not far from the city, you hear a chilling wail drifting from a nearby farmstead. As you try to make out what could give voice to such dreadful sounds, its source bursts through the door in a frenzy. Surprisingly, it's a weathered old human farmer that stumbles toward the road, pulling out his hair and furiously scratching his arms between frantic, pained cries. He notices you and quickens his pace. \"You have to help,\" he implores you as he approaches, eyes wild with terror. \"I'm being haunted! There's a spirit trying to steal my soul!\" Looking around, the only obvious sign of trouble you see is the man himself, panicked beyond his wits and bearing wounds that appear self-inflicted.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Try to help the farmer with his ghost problem.",
+        "outcomes": [
+          {
+            "condition": "angry-face,music-note,spellweaver,diviner,sun",
+            "narrative": "A foreboding presence in the farmhouse presses against your will, but you're able to dispel it. The farmer gifts you some coins and a rare flower that his late wife cultivated.",
+            "effects": [
+              "Gain 10 collective GOLD.",
+              "Gain 1 collective \"Dawnbloom Nectar\" (Item 117)."
+            ]
+          },
+          {
+            "condition": "otherwise",
+            "narrative": "An apparition charges as you approach the farm. Your weapons shred it, leaving bright yellow petals in its wake. The farmer is stricken mute with grief as he sees the flowers—you quietly collect them and leave.",
+            "effects": [
+              "Gain 1 collective \"Dawnbloom Nectar\" (Item 117)."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Keep your distance—the man is clearly too mad to be trusted.",
+        "outcomes": [
+          {
+            "narrative": "You pass by quickly—you aren't being paid to deal with this man's demons, literal or metaphorical. It's not until his renewed shrieks are out of earshot that you relax.",
+            "effects": [
+              "Shuffle Road Event 64 into the top 3 cards of the deck."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "63",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "The clash of battle echoes through a small pass ahead, turning your monotonous trek into something altogether more interesting. It’s hard to tell how far ahead the fight is until you round a corner and find yourself suddenly pressed behind your old comrade, the Incarnate, locked in a furious struggle. Choking the path ahead, a slate-gray Earth Demon looms over you, its craggy fists covered in sinister obsidian thorns. It bridges the gap between narrow stone walls, preventing you from passing it. The battleground obviously doesn’t favor your companion, and it’s a testament to their lifetimes of experience that the demon is being steadily driven back.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Join the fray! You’re not going to let them have all the fun.",
+        "outcomes": [
+          {
+            "narrative": "It’s a furious struggle, but you find yourself matching the carefree grin of the Reaver on your ally’s face, and soon the demon crumbles into gravel. Your companion casually tosses you a handful of the briars that tore at you during the fight. \"Nasty stuff. Use it on someone who deserves it, and remember us when you do.\" The Reaver’s energetic gait smoothly fades into the Incarnate’s own natural stride as they disappear around the bend.",
+            "effects": [
+              "All start scenario with CURSE.",
+              "Gain 1 collective \"Graveweed Extract\" (Item 118)."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Try to manipulate the rocky terrain to your advantage.",
+        "outcomes": [
+          {
+            "condition": "brute,angry-face,spellweaver,scoundrel,cragheart",
+            "narrative": "You’re able to dislodge a boulder onto the demon’s head, and the Incarnate quickly finishes it from there. You get a solemn nod from the Conqueror and they offer you some of its thistled remains as thanks.",
+            "effects": [
+              "Gain 1 collective \"Graveweed Extract\" (Item 118)."
+            ]
+          },
+          {
+            "condition": "otherwise",
+            "narrative": "You don’t see any way to help before your ally sunders the demon into pebbles. The Incarnate scowls at you, disgruntled. \"Thanks for all the help,\" they scoff in the Ritualist’s acidic tone before turning their back on you.",
+            "returnToDeck": true,
+            "effects": [
+              "No effect."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "64",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "On the road near Gloomhaven, you crest a gentle hill and spy a familiar farmhouse. Thankfully, the mad farmer from before seems to have taken a break from his ranting. As you approach, the only figure you see is a crude new scarecrow in the desiccated field. Perhaps built to ward off his supposed evil spirit? Stifling laughter, lest you summon the mad human, you pass the gate leading to his home without incident. But as you draw close enough to inspect the scarecrow in detail, the mockery on your lips dies—the farmer’s dead eyes gaze plaintively from under a worn straw hat and crusted blood covers its all-too-human hands.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "This road is too well-travelled to leave such a dangerous spirit nearby—hunt it down.",
+        "outcomes": [
+          {
+            "condition": "music-note,angry-face,spellweaver,lightning-bolt,scoundrel,cragheart",
+            "narrative": "As its form dissipates, yellow flower petals drift through the air, as if blown in from a distant field.",
+            "effects": [
+              "Gain 1 collective \"Dawnbloom Nectar\" (Item 117)."
+            ]
+          },
+          {
+            "condition": "otherwise",
+            "narrative": "It’s grit alone that allows you to defeat it, and as the spirit fades, the crown dissipates into a spate of radiant yellow flowers.",
+            "effects": [
+              "All start scenario with 3 damage.",
+              "Gain 1 collective \"Dawnbloom Nectar\" (Item 117)."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Burn it all to ashes. You have no interest in seeing—or becoming—more scarecrows.",
+        "outcomes": [
+          {
+            "narrative": "Soon, the flames engulf the \"scarecrow\" and house, and a final despairing wail echoes chillingly across the field.",
+            "effects": [
+              "Lose 1 reputation.",
+              "Gain 1 collective \"Dawnbloom Nectar\" (Item 117)."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "65",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "As you are walking along the road, you notice a figure break off from the path and disappear into the underbrush. With your interest piqued, your party follows the lone figure, leaving the thoroughfare behind. Before long, you and your companions discover a small camp tucked away under an outcropping. Moving about the camp are a myriad of Savvas, all with different colored cores. Peering at their chest cores from afar, you notice that none of them bear the quad-core of the Elementalist. You do, however, spot a few twin-cores among them.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Organize a surprise attack against the Savvas.",
+        "outcomes": [
+          {
+            "narrative": "Your ambush makes quick work of the unsuspecting Savvas. After the battle you notice something in one of the Savvas' hands—a small core with twisting lines of azure and scarlet.",
+            "effects": [
+              "Lose 1 reputation.",
+              "Gain 1 collective \"Circlet of Elements\" (Item 075).",
+              "All start scenario with 2 damage and CHILL or WOUND."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Approach the Savvas unarmed.",
+        "outcomes": [
+          {
+            "narrative": "Before long, you learn this is a camp of your previous companion, the Rimehearth! You sit and learn about the work it is doing—teaching all kinds of Savvas a new way of life focused on balance. As you say your goodbyes, it makes an offer that only a Rimehearth and its followers could make with sincerity.",
+            "returnToDeck": true,
+            "effects": [
+              "All may gain one negative condition to generate the corresponding element."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "66",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "In your haste to reach the thirst-quenching well, you almost trample the man on the ground, leaning against it. He opens his mouth to speak, a grin apparent on his face. \"Tell me, traveler. What do you value most when heading into battle? Is it the strength of your arm and swiftness of your blade, or the keenness of your wit and soundness of your tactics?\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Tell him it is the swiftness of your blade. You can’t be hurt by enemies that are dead.",
+        "outcomes": [
+          {
+            "narrative": "The man’s grin deepens. \"Ah, I could see how you might think that.\" He explains the importance of planning your moves, and you find his argument persuasive. After listening to the man’s advice, you feel confident that you are prepared for the battle to come.",
+            "effects": [
+              "At the start of the scenario, all may look at the top card of their attack modifier deck and choose to put it on the top or bottom of their deck."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Tell him his logic is flawed. You can’t have one without the other.",
+        "outcomes": [
+          {
+            "narrative": "The traveler turns away in disappointment, muttering aloud that the know-it-all ruffians were smarter than he anticipated. Disgruntled over the encounter, he failed to remember to grab his purse before leaving the well. You look forward to treating the rest of your ruffian friends at the Sleeping Lion the next time you return.",
+            "effects": [
+              "Gain 10 collective GOLD."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "67",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "As you are about to reach your destination, you remember the incantation that Talo handed to you when you saw her last. You pull out the scroll from your pouch and read the instructions carefully. There are two shamanistic spells written out, and you recall Talo informing you that you must choose only one since the incantations can't be used simultaneously. The first, a minor spell, is a fairly standard Inox tribal blessing that is practiced by novice shamans in battle. The second has warning signs written all over. The spell is supremely powerful, but is usually practiced by experts since there are drastic consequences if it's not performed correctly.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Perform the minor spell.",
+        "outcomes": [
+          {
+            "narrative": "You follow the instructions written out for the minor spell and begin to chant the incantation. You feel a mild power rising from within you, and a small spike of adrenaline courses through your body. Feeling bolstered and refreshed, you discard the scroll and continue on your way.",
+            "effects": [
+              "All characters ignore negative scenario effects."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Perform the major spell.",
+        "outcomes": [
+          {
+            "narrative": "You follow the instructions written out under the major spell and begin to chant the incantation. You feel an uncontainable surge of power rising from within you, and feel your energy level rising to a height that you've never experienced before. Your eyes roll towards the back of your head as you shudder uncontrollably. Just as you feel as if you are about to explode, suddenly everything turns black.",
+            "effects": [
+              "One character starts scenario with BLESS, BLESS, DISARM and discards 2 cards."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "68",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "Walking up the mountainside, you pass by a group of Inox surrounding a campfire on the side of the road. You think nothing of it and continue on, but soon hear one of the Inox call out to you from behind. \"Hey, you!\" You stop and turn around, slowly reaching for your weapon as you’re unsure of their intentions. \"Don’t you remember me?\" The eldest Inox stands up, her long gray hair flowing in the wind. The shaman seems familiar, and her face grows sour as you stare blankly. \"You at least remember my name, right?\" Not wanting to embarrass her, you tell her that you could never forget her. Her name is...",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Lato.",
+        "outcomes": [
+          {
+            "narrative": "\"Lato?\" she frowns. \"Lato?! We journeyed together. I thought we were friends! I helped show you the way through those mountains and this is how you repay me? Curse you! Be on your way!\" You begin to apologize but she doesn’t seem interested in hearing it. You slowly sulk away, vowing never to forget her name again.",
+            "effects": [
+              "All start scenario with CURSE.",
+              "Add Road Event 73 to the deck."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Talo.",
+        "outcomes": [
+          {
+            "narrative": "\"Yes! I knew you’d remember me!\" she exclaims with joy. \"I’ll never forget you, old friends.\" \"Spare me a few minutes, and I will shower you with blessings for your journey.\"",
+            "effects": [
+              "All start scenario with BLESS."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "69",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "Light rain drops begin to patter along the path as you walk. You notice a breeze coming swiftly from the Southeast, the intensity of which is increasing with every step. Soon the peaceful rainfall turns into a tempest of pouring rain and howling winds. The skies were clear when you departed Gloomhaven, but now occasional lightning strikes are the only thing that give a reprieve from this storm’s darkness. Not only are you wet, but the cold is starting to chill you to the bone. Part of you wants to get out of the storm as fast as possible and make a fire to warm your body. After all, cold muscles result in slow reflexes. But the other part of you knows that your enemies are suffering under the same cold storm as you. Perhaps you should brave the wind and rain in order to sneak up on your enemies under the cover of darkness and gain the upper hand.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Seek shelter and warmth.",
+        "outcomes": [
+          {
+            "condition": "cragheart,spellweaver,triangles,lightning-bolt,three-spears",
+            "narrative": "Your elemental affinity enables you to quickly create a warm environment in which to wait out the storm. With extra rest, you are ready to take on the challenge that lies ahead.",
+            "removeFromDeck": true,
+            "effects": [
+              "All start scenario with STRENGTHEN."
+            ]
+          },
+          {
+            "condition": "otherwise",
+            "narrative": "Unable to find or create shelter or fire due to the cold and wet conditions, you trudge along the path to your destination.",
+            "removeFromDeck": true,
+            "effects": [
+              "All start scenario with MUDDLE."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Sneak up on your enemies.",
+        "outcomes": [
+          {
+            "narrative": "These are miserable conditions, but the roaring winds, pounding rainfall, and darkness afforded by the storm allow you to approach undetected.",
+            "removeFromDeck": true,
+            "effects": [
+              "Start with NIGHT and FROST in the Strong column. All ranged attacks have a max Range of 2 for the first round.",
+              "Additionally, all start scenario with STRENGTHEN."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "70",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "As you set out for your next adventure, you can't help but notice dark clouds making their way toward land from the Misty Sea behind you. No doubt they will soon be upon you, and the thought of fighting in the rain is demoralizing. Suddenly, a burst of lightning streaks overhead. You wonder to yourself in disbelief how the storm could have made it's way this far so quickly. You turn to confirm your suspicion, but the skies are still clear overhead. Instead, before you stands your old companion, the Tempest. \"Hey, come with me!\" You know better than to mistake the Tempest's blunt manners for rudeness, so you quickly lengthen your stride to keep up with their brisk pace. \"Since retiring, I've found a passion in storm-chasing. I've learned how to harness and re-purpose the raw energy of the storm, but only one element at a time. Do you prefer that I harness the lightning's power or the agility of the air?\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Harness the light.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You follow the Tempest to an open patch of land and watch in amazement as it works to contain the splintering lightning into a glowing orb. When the Tempest finishes its work, you realize that you were struck on the arm by a stray bolt of lightning, but the spectacle you just witnessed was more than worth the inconvenience.",
+            "effects": [
+              "Gain 1 ✔ each.",
+              "All start scenario with WOUND.",
+              "All gain one \"Spark of Power\" (All place one character token on this card. At any time during the scenario, remove your token to add +1 Attack ✹ to your entire attack action and ⬢.)"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Harness the air.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You follow the Tempest to an open patch of land and watch in amazement as it works to contain the blistering winds into a pulsating orb. While the Tempest was working, your attention was so fixated that you hardly felt the stones and branches bouncing off your skin. But a few cuts and bruises are worth the reward in your mind.",
+            "effects": [
+              "Gain 1 ✔ each.",
+              "All start scenario with 2 damage.",
+              "All gain one \"Spark of Agility\" (All place one character token on this card. At any time during the scenario, remove your token to gain DODGE and ⬢.)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "71",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "\"Look out!\" a voice somewhere behind you shouts as you walk along the road. You turn to see a runaway carriage barreling downhill towards you. You have no time to assess the situation further before the carriage crashes into you.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Brace yourself and attempt to stop the carriage.",
+        "outcomes": [
+          {
+            "condition": "atleast2of:brute,cragheart,spellweaver,scoundrel,mindthief",
+            "narrative": "You steady yourselves and brace for impact, which hits harder than expected. Still your combined efforts are enough to stop the carriage. Moments later, a frantic Quatryl comes running down the hill, visibly relieved. As thanks for preventing further damage to the carriage, she offers you a gift from her stock.",
+            "effects": [
+              "Gain 1 collective \"Steel Ring\" (Item 91)."
+            ]
+          },
+          {
+            "condition": "otherwise",
+            "narrative": "The carriage turns out to be even heavier than it looked....",
+            "removeFromDeck": true,
+            "effects": [
+              "All start scenario with 3 damage."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Dive for cover to the side of the road.",
+        "outcomes": [
+          {
+            "condition": "brute,cragheart,spellweaver,scoundrel,mindthief",
+            "narrative": "Your fast reflexes and agility allow you to easily avoid the carriage.",
+            "effects": [
+              "No effect to these characters."
+            ]
+          },
+          {
+            "condition": "all other characters",
+            "narrative": "You attempt to dive for cover but the carriage makes contact well before you are clear of it.",
+            "effects": [
+              "Each other character starts scenario with 3 damage."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "72",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "It's been a long day on the road, and so far, an uneventful one. However, violent barking suddenly fills the air. You find yourself ambushed by a group of cutthroats, with hounds in tow, hidden by the roadside; demanding your surrender and coin. You could fight through them, but you certainly aren't prepared for a fight. In fact, they caught you entirely off-guard. You could double back and run instead, but even if you outrun the bandits you'll still have to fend off their hounds. Either way, it looks like this is going to hurt.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Face the bandits head-on.",
+        "outcomes": [
+          {
+            "narrative": "You draw your weapons and charge!",
+            "returnToDeck": true,
+            "effects": [
+              "Each player secretly selects up to 6 ability cards, then all players reveal them simultaneously. Players in any order may perform one Attack action on each card, including basic actions and excluding Loss actions, targeting one objective with 10xC hit points. Each character will start the scenario with all selected cards in their discard pile.",
+              "IF THE OBJECTIVE IS DESTROYED: No effect.",
+              "OTHERWISE: With both sides hurting, you come to a financial agreement allowing you to pass. Lose 15 collective gold. All start scenario with 3 damage."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Turn and run, hoping the hounds’ bark is worse than their bite.",
+        "outcomes": [
+          {
+            "narrative": "You make a mad dash in the opposite direction with the hounds following close behind you. It's exhausting, and inevitably they catch you. At least they're easier to fight off than the cutthroats, and you are able to continue your journey with only a few bite wounds and all of your gold.",
+            "removeFromDeck": true,
+            "effects": [
+              "All start scenario with WOUND.",
+              "All characters discard cards with Move abilities totaling 6 movement points, including basic actions, excluding Loss actions."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "73",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "Returning to the mountainside, where you last saw the group of Inox surrounding a campfire, you prepare yourself for another encounter. You approach the area and see the same group standing in the road, blocking your path.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Talo.",
+        "outcomes": [
+          {
+            "narrative": "\"I knew you’d come around,\" her frown transforms into a slight smile. \"After all, how could you forget a name like Talo?\"<br><br>\"Proceed, dear friend. I hope we cross paths again sometime soon.\"<br><br>The Inox disassemble and she waves you forward.",
+            "effects": [
+              "No effect."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Tano.",
+        "outcomes": [
+          {
+            "narrative": "\"Again, you don’t remember me? Shame on you!\"<br><br>She lets out a sigh and lifts her hands in the air. \"May your heart burn with sorrow and your soul fill with shame! May you suffer the pain you’ve caused me tenfold! We shall cross paths again, and you WILL remember my name!\"",
+            "returnToDeck": true,
+            "effects": [
+              "All start scenario with CURSE and WOUND."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "74",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "An oversized, heavily-armored Valrath jumps out from the bushes and extends his mace in your direction. \"These roads are dangerous, and you don’t look like you can handle it alone. As a Vanquisher, I can provide such services to escort you on your journey and protect you... in exchange for a fee.\" Before you can respond, he places a hand on your shoulder and squeezes tightly. \"This isn’t a request, traveler. You’re going to take my services and pay me in full, or I vow there will be danger for you ahead.\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Accept the Valrath’s offer.",
+        "outcomes": [
+          {
+            "narrative": "You accept the Valrath’s offer and continue to your destination, finding the road uneventful. True to his word, he silently accompanies you along the way. After you hand him the gold he demanded, he decides to show you the \"dangers he spoke of.\" After swinging at you several times with his weapon, he chuckles and turns away, leaving you slightly bruised and confused.",
+            "effects": [
+              "Lose 10 collective GOLD.",
+              "All start scenario with 2 damage."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Decline the Valrath’s services.",
+        "outcomes": [
+          {
+            "narrative": "You decline the Valrath’s offer and he raises his weapon in the air and begins to swing it towards you. You manage to outmaneuver the bulky Valrath and flee, but not without taking a few hits.",
+            "effects": [
+              "All start scenario with 2 damage and WOUND."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "75",
+    "edition": "toa",
+    "type": "road",
+    "narrative": "Having finally succeeded in hunting down a small animal, you light a fire and begin to roast your hard-earned dinner for night. As the meat begins to sizzle over the fire, you hear a rustling in the bushes followed by a Valrath slowly crawling out. He looks severely injured, with blood dripping from wounds all over his body.<br><br>\"I need a meal,\" he groans as he clutches his stomach and falls to the floor. \"One last meal... spare me some food, will you?\"<br><br>The hour is late and you don’t have enough time to go hunting again. There isn’t enough food for the both of you, so you have to decide who will get to eat tonight.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Give the Valrath your food and let him enjoy one last meal.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You hand the Valrath the meat and he gobbles it up without hesitation. As he licks the last bone, he closes his eyes and grumbles under his breath. \"I won’t make it... but... Vanquishers are eternal.\"<br><br>The Valrath draw his last breath as he clutches his weapon. Your stomach grumbles loudly as you slowly pry the weapon from his cold hands, knowing he has no use for it anymore.",
+            "effects": [
+              "Gain one collective \"Crushing Mace\" (Item 106).",
+              "All start scenario with MUDDLE."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Keep the food for yourself.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You tell the Valrath that you won’t be sharing any of your food tonight but he refuses to budge. You indulge in your dinner as he watches helplessly, groaning as you chomp on the bones.<br><br>With your belly sated, you wish the Valrath the best of luck and proceed to set up camp for the night.",
+            "effects": [
+              "All start scenario with STRENGTHEN."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

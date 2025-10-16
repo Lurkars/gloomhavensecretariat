@@ -1,0 +1,58 @@
+:host {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.event-card-dialog {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  border-image: none;
+  background: none;
+  transition: transform calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
+  transform: scale(0);
+  z-index: 2;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.opened {
+    transform: scale(1);
+  }
+
+  &.closed {
+    transform: scale(0);
+    transition-delay: 800ms;
+  }
+
+  .event-card-container {
+    overflow: visible;
+    width: 100vw;
+    max-width: 600px;
+    max-height: 100vh;
+
+    ghs-event-card {
+      height: 150vw;
+      max-height: 900px;
+    }
+  }
+
+}
+
+.close-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}

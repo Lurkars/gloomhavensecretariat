@@ -1,0 +1,32 @@
+{
+  "index": "50.3",
+  "name": "The Ghost Fortress",
+  "edition": "gh2e",
+  "parent": "21",
+  "monsters": [
+    "city-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal"
+        }
+      ]
+    }
+  ]
+}

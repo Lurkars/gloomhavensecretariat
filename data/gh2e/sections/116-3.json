@@ -1,0 +1,42 @@
+{
+  "index": "116.3",
+  "name": "Syndicate Hideout",
+  "edition": "gh2e",
+  "parent": "82",
+  "monsters": [
+    "cultist-scenario-82",
+    "giant-viper"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "treasures": [
+        79
+      ],
+      "monster": [
+        {
+          "name": "cultist-scenario-82",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

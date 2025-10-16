@@ -76,7 +76,7 @@ export class HighlightConditionsComponent implements OnInit, OnDestroy {
           }
         }
         gameManager.stateManager.after();
-      }, !settingsManager.settings.animations ? 0 : 1500);
+      }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
     } else {
       gameManager.stateManager.after();
     }
@@ -122,7 +122,7 @@ export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {
         this.condition.highlight = false;
         gameManager.stateManager.saveLocal();
       }
-    }, !settingsManager.settings.animations ? 0 : 1100);
+    }, settingsManager.settings.animations ? 1100 * settingsManager.settings.animationSpeed : 0);
   }
 
 }

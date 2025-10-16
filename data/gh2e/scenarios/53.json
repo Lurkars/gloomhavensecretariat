@@ -1,0 +1,42 @@
+{
+  "index": "53",
+  "name": "Shrine of Strength",
+  "flowChartGroup": "the-gloom",
+  "edition": "gh2e",
+  "rewards": {
+    "experience": 30,
+    "battleGoals": 2
+  },
+  "monsters": [
+    "frost-demon",
+    "savvas-icestorm",
+    "stone-construct",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-icestorm",
+          "type": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

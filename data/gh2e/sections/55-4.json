@@ -1,0 +1,14 @@
+{
+  "index": "55.4",
+  "name": "The Void",
+  "edition": "gh2e",
+  "parent": "54",
+  "monsters": [],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

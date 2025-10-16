@@ -1,0 +1,51 @@
+<span class="effect"
+    [ngClass]="{'fh': edition == 'fh', 'city': eventType == 'city', 'disabled': disabled, 'selected': selected}">
+    <span *ngIf="effectString" class="text"
+        [ngClass]="{'concatenated': concatenated, 'inline': inline, 'debug': debug}">
+        <span [ngClass]="{'text-white': light}" [ghs-label]="effectString"></span>
+    </span>
+    <span *ngIf="effectObject" class="effect-object" [ngClass]="{'light': light, 'inline': inline || concatenated}">
+        <ghs-event-card-condition *ngIf="effectObject.condition" [condition]="effectObject.condition"
+            [edition]="edition" [eventType]="eventType" [light]="light"></ghs-event-card-condition>
+        <span *ngIf="effectObject.condition" class="condition-spacer">:</span>
+
+        <span *ngIf="effectObject.type && special.indexOf(effectObject.type) == -1" class="text"
+            [ngClass]="{'text-white': light, 'concatenated': concatenated}"
+            [ghs-label]="'game.events.effects.' + effectObject.type + (effectObject.alt ? '.alt': '')"
+            [ghs-label-args]="labelArgs" [slice]="concatenated ? [0,-1] : []"></span>
+
+        <span class="choose-container" *ngIf="effectObject.type == 'choose'">
+            <span [ngClass]="{'text-white': light}" [ghs-label]="'game.events.effects.choose.prefix'"></span>
+            <ng-container *ngFor="let chooseEffect of effects; let i = index;">
+                <span *ngIf="i > 0" [ngClass]="{'text-white': light}"
+                    [ghs-label]="'game.events.effects.choose.connector'"></span>
+                <ghs-event-card-effect [effect]="chooseEffect" [edition]="edition" [eventType]="eventType"
+                    [light]="light" [concatenated]="true"></ghs-event-card-effect>
+            </ng-container>
+            <span [ngClass]="{'text-white': light}" [ghs-label]="'game.events.effects.choose.suffix'"></span>
+        </span>
+
+        <span class="and-container" *ngIf="effectObject.type == 'and'">
+            <ng-container *ngFor="let andEffect of effects; let i = index;">
+                <span *ngIf="i > 0" [ngClass]="{'text-white': light}" [ghs-label]="'game.events.effects.and'"></span>
+                <ghs-event-card-effect [effect]="andEffect" [edition]="edition" [eventType]="eventType" [light]="light"
+                    [concatenated]="true"></ghs-event-card-effect>
+            </ng-container>
+        </span>
+
+        <span class="checkbox-container" *ngIf="effectObject.type == 'checkbox'">
+            <label *ngFor="let checkboxEffect of effects; let i = index;" [ngClass]="{'has-value': checkboxEffect}">
+                <span class="checkbox" [ngClass]="{'checked': checks > i, 'light': light}" ghs-pointer-input (singleClick)="check(i)"></span>
+                <ghs-event-card-effect *ngIf="checkboxEffect" [effect]="checkboxEffect" [edition]="edition"
+                    [eventType]="eventType" [light]="light" [inline]="true"></ghs-event-card-effect>
+            </label>
+        </span>
+
+        <span class="automation-icon" [ngClass]="{'light': light}"
+            *ngIf="!concatenated && settingsManager.settings.eventsApply && EventCardApplyEffects.indexOf(effectObject.type) != -1"
+            [ghs-tooltip]="'game.events.effects.automation'">
+            <img class="hint-trigger ghs-svg" src="./assets/images/automation.svg">
+        </span>
+    </span>
+
+</span>

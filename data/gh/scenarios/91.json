@@ -10,6 +10,7 @@
     "gridLocation": "E-2"
   },
   "edition": "gh",
+  "eventType": "road",
   "rewards": {
     "battleGoals": 2
   },

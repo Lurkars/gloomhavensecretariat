@@ -1,0 +1,90 @@
+{
+  "name": "the-betrayer",
+  "edition": "gh2e",
+  "deck": "boss",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "movement": 3,
+    "actions": [],
+    "immunities": [
+      "poison",
+      "disarm",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Each character shuffles one card from their hand or two cards from their discard pile into a shared face-down pile next to the map.",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "Each enemy within %game.action.range% 3 performs:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3
+            },
+            {
+              "type": "custom",
+              "value": "This movement must end as far from the Betrayer as possible.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Mind Control"
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx22",
+      "attack": "C+1"
+    },
+    {
+      "level": 1,
+      "health": "Cx26",
+      "attack": "C+1"
+    },
+    {
+      "level": 2,
+      "health": "Cx29",
+      "attack": "C+2"
+    },
+    {
+      "level": 3,
+      "health": "Cx34",
+      "attack": "C+2"
+    },
+    {
+      "level": 4,
+      "health": "Cx37",
+      "attack": "C+3"
+    },
+    {
+      "level": 5,
+      "health": "Cx42",
+      "attack": "C+3"
+    },
+    {
+      "level": 6,
+      "health": "Cx46",
+      "attack": "C+4"
+    },
+    {
+      "level": 7,
+      "health": "Cx53",
+      "attack": "C+5"
+    }
+  ]
+}

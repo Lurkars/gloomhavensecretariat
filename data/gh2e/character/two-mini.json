@@ -1,0 +1,253 @@
+{
+  "name": "two-mini",
+  "icon": "gh-two-mini",
+  "edition": "gh2e",
+  "unlockEvent": "road:52|road:53",
+  "retireEvent": "city:100|road:75",
+  "color": "#ca9789",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 6
+    },
+    {
+      "level": 2,
+      "health": 7
+    },
+    {
+      "level": 3,
+      "health": 8
+    },
+    {
+      "level": 4,
+      "health": 9
+    },
+    {
+      "level": 5,
+      "health": 10
+    },
+    {
+      "level": 6,
+      "health": 11
+    },
+    {
+      "level": 7,
+      "health": 12
+    },
+    {
+      "level": 8,
+      "health": 13
+    },
+    {
+      "level": 9,
+      "health": 14
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "two-mini",
+      "health": "8+Lx2",
+      "attack": 2,
+      "movement": 3,
+      "special": true
+    },
+    {
+      "name": "wind-idol",
+      "level": 1,
+      "health": 2,
+      "attack": 2,
+      "movement": 4
+    },
+    {
+      "name": "monolith",
+      "level": 3,
+      "health": 2
+    },
+    {
+      "name": "vital-force",
+      "level": 9,
+      "health": 3
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 2,
+                "effects": [
+                  {
+                    "type": "target",
+                    "value": "%data.action.custom.gh2e-bear-summon%"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.gh2e.two-mini.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus4"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "ice|earth"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "push",
+                "value": 2
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "safeguard",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "ally"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.gh2e.two-mini.2%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.gh2e.two-mini.3%"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "%data.custom.gh2e.two-mini.4%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.gh2e.two-mini.5%",
+    "%data.custom.gh2e.two-mini.6%"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "index": "7.2",
+  "edition": "gh2e",
+  "parent": "35",
+  "marker": "2",
+  "monsters": [
+    "deep-terror",
+    "night-demon",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Vocal Cord C",
+      "health": "LxC+2"
+    },
+    {
+      "name": "Vocal Cord D",
+      "health": "LxC+2"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

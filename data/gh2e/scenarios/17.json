@@ -1,0 +1,78 @@
+{
+  "index": "17",
+  "name": "Demonic Rift",
+  "flowChartGroup": "city-guards",
+  "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1,
+    "reputationFactions": [
+      "demons:-1",
+      "military:2"
+    ]
+  },
+  "monsters": [
+    "city-guard-scenario-17",
+    "earth-demon",
+    "night-demon",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        70
+      ],
+      "monster": [
+        {
+          "name": "city-guard-scenario-17",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

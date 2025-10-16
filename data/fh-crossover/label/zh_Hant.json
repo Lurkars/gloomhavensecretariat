@@ -1,5 +1,7 @@
 {
   "character": {
-    "diviner": "預言師"
+    "fh-crossover": {
+      "diviner": "預言師"
+    }
   }
 }

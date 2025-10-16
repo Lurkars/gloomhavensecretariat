@@ -180,13 +180,13 @@
     <span class="custom-value" [ghs-label]="action.value + ''" [relative]="relative || forceRelative" [style]="style"
       [ngClass]="{'small' : action.small,'text-white' : !textBlack && !right}"></span>
     <div class="custom-subactions" *ngIf="subActions.length > 0">
-      <ghs-action [ngClass]="'subaction-' + subAction.type"
-        *ngFor="let subAction of subActions; let index = index;" [action]="subAction"
-        [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack"
-        [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
-        (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
-        [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
-        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
+      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions; let index = index;"
+        [action]="subAction" [monster]="monster" [objective]="objective" [inline]="inline" [right]="right"
+        [textBlack]="textBlack" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
+        [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
+        [relative]="true" [statsCalculation]="statsCalculation"
+        [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
+        [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </div>
   </span>
@@ -199,13 +199,13 @@
       [ngClass]="{'small' : action.small,'text-white' : !textBlack && !right}"
       [ghs-label-args]="[ monster ? '%data.monster.' + monster.name + '%' : '', action.value]"></span>
     <div class="custom-subactions" *ngIf="subActions.length > 0">
-      <ghs-action [ngClass]="'subaction-' + subAction.type"
-        *ngFor="let subAction of subActions; let index = index" [action]="subAction"
-        [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack"
-        [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
-        (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
-        [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
-        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
+      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions; let index = index"
+        [action]="subAction" [monster]="monster" [objective]="objective" [inline]="inline" [right]="right"
+        [textBlack]="textBlack" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
+        [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
+        [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
+        [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
+        [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </div>
   </span>
@@ -214,30 +214,29 @@
     <span class="custom-value" [ghs-label]="action.value + ''" [relative]="relative || forceRelative" [style]="style"
       [ngClass]="{'small' : action.small,'text-white' : !textBlack && !right}"></span>
     <div class="custom-subactions" *ngIf="subActions.length > 0">
-      <ghs-action [ngClass]="'subaction-' + subAction.type"
-        *ngFor="let subAction of subActions; let index = index;" [action]="subAction"
-        [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack"
-        [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
-        (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
-        [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
-        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
+      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions; let index = index;"
+        [action]="subAction" [monster]="monster" [objective]="objective" [inline]="inline" [right]="right"
+        [textBlack]="textBlack" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
+        [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
+        [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
+        [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
+        [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </div>
-  </span>  
-  
+  </span>
+
   <span class="action-hint" *ngSwitchCase="ActionType.hint" [ghs-label]="action.value + ''"></span>
 
   <span class="action-grant" *ngSwitchCase="ActionType.grant">
     <span class="grant-value" [ghs-label]="action.value + ''" [relative]="relative || forceRelative" [style]="style"
       [ngClass]="{'small' : action.small,'text-white' : !textBlack && !right}"></span>
     <div class="grant-subactions" *ngIf="subActions.length > 0">
-      <ghs-action [ngClass]="'subaction-' + subAction.type"
-        *ngFor="let subAction of subActions; let index = index" [action]="subAction"
-        [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack"
-        [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
-        (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="true" [statsCalculation]="false"
-        [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [character]="character"
-        [cardId]="cardId" [style]="style">
+      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions; let index = index"
+        [action]="subAction" [monster]="monster" [objective]="objective" [inline]="inline" [right]="right"
+        [textBlack]="textBlack" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
+        [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
+        [relative]="true" [statsCalculation]="false" [index]="(actionIndex ? actionIndex + '-' : '') + index"
+        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </div>
   </span>
@@ -254,7 +253,8 @@
         [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack"
         [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
         (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
-        [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subActions[index+(hasAOE ? 1 : 0)])"
+        [statsCalculation]="statsCalculation"
+        [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subActions[index+(hasAOE ? 1 : 0)])"
         [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </ng-container>
@@ -267,13 +267,13 @@
       [index]="actionIndex" [character]="character" [cardId]="cardId" [monsterType]="monsterType"
       [character]="character" [cardId]="cardId" [style]="style"></ghs-action-summon>
     <ng-container *ngIf="subActions.length > 0">
-      <ghs-action [ngClass]="'subaction-' + subAction.type"
-        *ngFor="let subAction of subActions; let index = index" [action]="subAction"
-        [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack"
-        [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
-        (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
-        [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
-        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
+      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions; let index = index"
+        [action]="subAction" [monster]="monster" [objective]="objective" [inline]="inline" [right]="right"
+        [textBlack]="textBlack" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
+        [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
+        [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
+        [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
+        [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </ng-container>
   </span>
@@ -282,13 +282,13 @@
     <span class="custom-value" [ghs-label]="action.value + ''" [relative]="relative || forceRelative" [style]="style"
       [ngClass]="{'small' : action.small,'text-white' : !textBlack && !right}"></span>
     <ng-container *ngIf="subActions.length > 0;">
-      <ghs-action [ngClass]="'subaction-' + subAction.type"
-        *ngFor="let subAction of subActions; let index = index" [action]="subAction"
-        [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack"
-        [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
-        (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
-        [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
-        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
+      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions; let index = index"
+        [action]="subAction" [monster]="monster" [objective]="objective" [inline]="inline" [right]="right"
+        [textBlack]="textBlack" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
+        [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
+        [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
+        [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
+        [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </ng-container>
   </span>
@@ -357,7 +357,8 @@
     </span>
   </span>
 
-  <span class="action-box-container" *ngSwitchCase="ActionType.box" [ngClass]="{'small' : action.small}">
+  <span class="action-box-container" *ngSwitchCase="ActionType.box"
+    [ngClass]="{'small' : action.small, 'empty': subActions.length == 0, 'first': actionIndex == '0'}">
     <span *ngIf="action.value" class="action-box-label" [ghs-label]="'' + action.value"
       [relative]="relative || forceRelative" [style]="style"></span>
     <span class="action-box">

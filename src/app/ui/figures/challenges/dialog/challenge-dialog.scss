@@ -13,7 +13,7 @@
     max-height: 600px;
     border-image: none;
     background: none;
-    transition: transform 150ms ease-in-out;
+    transition: transform calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
     transform: scale(0);
     z-index: 2;
 

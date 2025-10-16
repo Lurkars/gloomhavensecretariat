@@ -1,0 +1,33 @@
+{
+  "index": "6.2",
+  "edition": "gh2e",
+  "parent": "66",
+  "monsters": [
+    "bandit-scout",
+    "cave-bear"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

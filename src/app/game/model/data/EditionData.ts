@@ -15,6 +15,7 @@ import { Favor, TrialCard } from "./Trials";
 
 export const GH_PROSPERITY_STEPS = [3, 8, 14, 21, 29, 38, 49, 63];
 export const FH_PROSPERITY_STEPS = [5, 14, 26, 41, 59, 80, 104, 131];
+export const GH2E_PROSPERITY_STEPS = [4, 11, 21, 32, 44, 58, 73, 88];
 
 export class EditionData implements Editional {
   // from Editional
@@ -81,6 +82,9 @@ export class EditionData implements Editional {
 
 export class CampaignData {
 
+  events: Partial<Record<string, string[]>> = {};
+
+  // FH
   campaignStickers: string[] = [];
   buildings: BuildingData[] = [];
   highMorale: string[] = [];
@@ -90,6 +94,14 @@ export class CampaignData {
   townGuardPerks: TownGuardPerk[] = [];
   weeks: Partial<Record<number, string[]>> = {};
 
+  // GH2E
+  factions: string[] = [];
+  imbuementSections: Record<number, string> = {};
+  reputationSections: ReputationSection[] = [];
+  prosperitySections: Record<number, string> = {};
+
 }
 
 export type TownGuardPerk = { "sections": string[], "perk": Perk };
+
+export type ReputationSection = { "faction": string, "value": number, "section": string, "requires"?: string[] };

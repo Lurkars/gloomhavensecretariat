@@ -59,27 +59,28 @@
         {
           "name": "snow-imp",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "snow-imp",
           "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "snow-imp",
           "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "snow-imp",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "snow-imp",
           "player4": "elite"
         }
       ]

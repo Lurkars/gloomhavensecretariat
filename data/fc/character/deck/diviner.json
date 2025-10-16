@@ -845,18 +845,18 @@
           "valueObject": {
             "name": "ghost-falcons",
             "health": "4",
-            "movement": "3",
             "attack": "2",
+            "movement": "3",
             "count": 2,
-            "action": {
-              "type": "custom",
-              "value": "%game.action.fly%"
-            },
             "enhancements": [
               "heal",
               "move",
               "attack"
-            ]
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%game.action.fly%"
+            }
           },
           "small": true
         },
@@ -1607,6 +1607,11 @@
             "attack": "2",
             "movement": "3",
             "count": 1,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
             "action": {
               "type": "condition",
               "value": "curse",
@@ -1617,12 +1622,7 @@
                   "value": "light:dark"
                 }
               ]
-            },
-            "enhancements": [
-              "heal",
-              "move",
-              "attack"
-            ]
+            }
           },
           "small": true
         },

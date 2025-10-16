@@ -1,0 +1,38 @@
+{
+  "index": "0",
+  "name": "Training Course",
+  "flowChartGroup": "intro",
+  "edition": "gh2e",
+  "initial": true,
+  "rewards": {
+    "gold": 2
+  },
+  "monsters": [
+    "training-dummy"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "training-dummy",
+          "type": "normal"
+        },
+        {
+          "name": "training-dummy",
+          "type": "normal"
+        },
+        {
+          "name": "training-dummy",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "training-dummy",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "first-shield-harmon-scenario-56",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "To Fear is to Die",
+      "cardId": 0,
+      "initiative": 1,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "If odd round:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Grant all allies: %game.action.shield% 1",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "If even round:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Grant all allies: %game.action.retaliate% 1",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

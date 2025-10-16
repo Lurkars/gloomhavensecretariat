@@ -32,6 +32,10 @@ export class ScenarioManager {
     return gameManager.scenarioData(edition).find((scenarioData) => scenarioData.index == index && scenarioData.edition == edition && scenarioData.group == group);
   }
 
+  getSection(index: string, edition: string, group: string | undefined, conlusionOnly: boolean = false): ScenarioData | undefined {
+    return gameManager.sectionData(edition).find((sectionData) => sectionData.index == index && sectionData.edition == edition && sectionData.group == group && (!conlusionOnly || sectionData.conclusion));
+  }
+
   setScenario(scenario: Scenario | undefined) {
     this.game.scenario = scenario ? new Scenario(scenario, scenario.revealedRooms, scenario.additionalSections, scenario.custom) : undefined;
     if (scenario && !scenario.custom) {
@@ -153,8 +157,21 @@ export class ScenarioManager {
             this.game.party.campaignStickers.push(...rewards.campaignSticker.map((sticker) => sticker.toLowerCase().replaceAll(' ', '-')));
           }
 
-          if (settingsManager.settings.partySheet) {
+          if (rewards.eventDecks) {
+            rewards.eventDecks.forEach((eventDeck) => {
+              const type = eventDeck.split(':')[0];
+              const events = gameManager.eventCardManager.getEventCardsForEdition(scenario.edition, type);
+              const startEvent = events.find((e) => e.cardId == eventDeck.split(':')[1].split('|')[0]);
+              const endEvent = events.find((e) => e.cardId == eventDeck.split(':')[1].split('|')[1]);
+              if (startEvent && endEvent) {
+                gameManager.eventCardManager.buildEventDeck(type, events.slice(events.indexOf(startEvent), events.indexOf(endEvent) + 1).map((e) => e.cardId));
+              } else {
+                console.warn("Could not find start and end for: " + eventDeck);
+              }
+            })
+          }
 
+          if (settingsManager.settings.partySheet) {
             if (rewards.reputation) {
               this.game.party.reputation += rewards.reputation;
               if (this.game.party.reputation > 20) {
@@ -257,10 +274,18 @@ export class ScenarioManager {
                 gameManager.game.party.pets.push(new PetIdentifier(rewards.pet, scenario.edition));
               }
             }
+
+            if (rewards.events && settingsManager.settings.events) {
+              rewards.events.forEach((event) => {
+                if (event.split(':').length > 1) {
+                  gameManager.eventCardManager.addEvent(event.split(':')[0], event.split(':')[1], true)
+                }
+              })
+            }
           }
 
-          if (settingsManager.settings.automaticUnlocking && rewards.unlockCharacter && this.game.unlockedCharacters.indexOf(rewards.unlockCharacter) == -1) {
-            this.game.unlockedCharacters.push(rewards.unlockCharacter);
+          if (settingsManager.settings.automaticUnlocking && rewards.unlockCharacter && this.game.unlockedCharacters.indexOf(scenario.edition + ':' + rewards.unlockCharacter) == -1) {
+            this.game.unlockedCharacters.push(scenario.edition + ':' + rewards.unlockCharacter);
           }
 
           if (rewards.lootDeckCards) {
@@ -292,8 +317,17 @@ export class ScenarioManager {
             this.game.party.scenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
           }
 
-          if (rewards && settingsManager.settings.partySheet && rewards.townGuardAm && rewards.townGuardAm.length > 0) {
-            const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, gameManager.campaignData());
+          if (gameManager.imbuementManager.imbuement) {
+            if (gameManager.imbuementManager.imbuement == 'advanced') {
+              this.game.party.imbuement += 2;
+            } else {
+              this.game.party.imbuement += 1;
+            }
+          }
+
+          const campaignData = gameManager.campaignData();
+          if (rewards && settingsManager.settings.partySheet && rewards.townGuardAm && rewards.townGuardAm.length > 0 && campaignData.townGuardPerks) {
+            const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, campaignData);
             gameManager.attackModifierManager.shuffleModifiers(townGuardDeck);
             townGuardDeck.active = false;
             this.game.party.townGuardDeck = townGuardDeck.toModel();
@@ -419,7 +453,7 @@ export class ScenarioManager {
     }
 
     if (settingsManager.settings.addAllMonsters) {
-      this.getMonsters(new Scenario(scenarioData)).forEach((monster) => {
+      this.getMonsters(new Scenario(scenarioData), true).forEach((monster) => {
         if (!this.game.figures.find((figure) =>
           figure instanceof MonsterData && figure.name == monster.name && figure.edition == monster.edition)) {
           gameManager.monsterManager.addMonster(monster, this.game.level);
@@ -471,6 +505,33 @@ export class ScenarioManager {
         if (figure instanceof Character && scenarioData.level) {
           gameManager.characterManager.setLevel(figure, scenarioData.level);
         }
+      })
+    }
+
+    if (settingsManager.settings.partySheet && settingsManager.settings.events && settingsManager.settings.eventsDraw && scenarioData.eventType) {
+      gameManager.game.eventDraw = scenarioData.eventType;
+    }
+
+    if (settingsManager.settings.partySheet && settingsManager.settings.events && settingsManager.settings.eventsApply && gameManager.game.party.eventCards) {
+      gameManager.game.party.eventCards.filter((e) => e.scenarioApply).forEach((e) => {
+        const eventCard = gameManager.eventCardManager.getEventCardForEdition(e.edition, e.type, e.cardId);
+        if (eventCard && e.selected != -1) {
+          const option = eventCard.options[e.selected];
+          if (option && option.outcomes) {
+            option.outcomes.forEach((outcome, i) => {
+              if (!e.subSelections || e.subSelections.length == 0 || e.subSelections.indexOf(i) != -1) {
+                gameManager.eventCardManager.applyEffects(eventCard, outcome.effects.filter((e) => typeof e !== 'string'), true);
+              }
+            })
+          }
+        }
+        e.scenarioApply = false;
+      })
+    }
+
+    if (settingsManager.settings.removeUnusedMonster) {
+      this.game.figures.filter((figure) => figure instanceof Monster && figure.off && figure.entities.length == 0 && figure.tags.indexOf('addedManually') == -1).forEach((figure) => {
+        gameManager.monsterManager.removeMonster(figure as Monster);
       })
     }
   }

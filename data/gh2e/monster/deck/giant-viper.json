@@ -1,0 +1,207 @@
+{
+  "name": "giant-viper",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Swift Fangs",
+      "cardId": 396,
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Find Cover",
+      "cardId": 397,
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "All attacks targeting Giant Viper this round gain disadvantage.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calculated Strike",
+      "cardId": 398,
+      "initiative": 58,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Toxic Frenzy",
+      "cardId": 399,
+      "initiative": 43,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Surround",
+      "cardId": 400,
+      "initiative": 32,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add +2 %game.action.attack% if the target is adjacent to any of the Giant Viper's allies",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Surround",
+      "cardId": 401,
+      "initiative": 32,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add +2 %game.action.attack% if the target is adjacent to any of the Giant Viper's allies",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Defensive Strike",
+      "cardId": 402,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Constrict",
+      "cardId": 403,
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    }
+  ]
+}

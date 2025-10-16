@@ -59,8 +59,8 @@
       "movement": 2,
       "action": {
         "type": "custom",
-        "small": true,
-        "value": "%data.custom.fh.shackles.1%"
+        "value": "%data.custom.fh.shackles.1%",
+        "small": true
       }
     },
     {
@@ -77,8 +77,8 @@
         "subActions": [
           {
             "type": "custom",
-            "small": true,
-            "value": "%game.custom.ondeath%"
+            "value": "%game.custom.ondeath%",
+            "small": true
           },
           {
             "type": "attack",
@@ -90,8 +90,8 @@
               },
               {
                 "type": "target",
-                "small": true,
-                "value": "%data.custom.fh.shackles.2%"
+                "value": "%data.custom.fh.shackles.2%",
+                "small": true
               }
             ]
           }

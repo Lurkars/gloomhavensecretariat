@@ -1,0 +1,25 @@
+{
+  "index": "107.4",
+  "name": "Shrine of Strength",
+  "edition": "gh2e",
+  "parent": "53",
+  "monsters": [
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-construct",
+          "type": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

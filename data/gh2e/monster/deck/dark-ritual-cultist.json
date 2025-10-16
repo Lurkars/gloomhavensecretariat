@@ -1,0 +1,76 @@
+{
+  "name": "dark-ritual-cultist",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Dark Ritual",
+      "cardId": 764,
+      "initiative": 63,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "living-bones",
+                "type": "normal"
+              }
+            }
+          ]
+        },
+        {
+          "type": "damage",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "stun",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dark Ritual",
+      "cardId": 765,
+      "initiative": 63,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "living-bones",
+                "type": "normal"
+              }
+            }
+          ]
+        },
+        {
+          "type": "damage",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "stun",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

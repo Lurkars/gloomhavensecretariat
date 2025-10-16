@@ -1,0 +1,49 @@
+{
+  "index": "108.1",
+  "name": "Crypt Basement",
+  "edition": "gh2e",
+  "parent": "57",
+  "monsters": [
+    "crystal-rot",
+    "giant-viper",
+    "living-corpse",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "crystal-rot",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

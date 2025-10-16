@@ -121,6 +121,6 @@ export class AttackModifierDrawComponent implements OnInit, OnDestroy, OnChanges
           this.queue = 0;
         }
       }
-    }, !settingsManager.settings.animations ? 0 : 2500);
+    }, settingsManager.settings.animations ? 2500 * settingsManager.settings.animationSpeed : 0);
   }
 }

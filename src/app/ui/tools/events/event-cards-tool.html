@@ -13,8 +13,8 @@
     <label>
       <span [ghs-label]="'game.events.type'"></span>
       <select [(ngModel)]="type" (change)="update(); updateQueryParams()">
-        <option *ngFor="let type of ['city', 'road']" [value]="type">
-          <span [ghs-label]="'game.events.type.' + type"></span>
+        <option *ngFor="let eventType of types" [value]="eventType">
+          <span [ghs-label]="'game.events.type.' + eventType"></span>
         </option>
       </select>
     </label>
@@ -22,13 +22,26 @@
       <span [ghs-label]="'game.events.select'"></span>
       <select [(ngModel)]="selected" (change)="updateQueryParams()">
         <option [value]="-1">none</option>
-        <option [value]="0">0</option>
-        <option [value]="1">1</option>
+        <option [value]="0">flip</option>
+        <option [value]="1">A.</option>
+        <option [value]="2">B.</option>
+        <option [value]="3">C.</option>
       </select>
+    </label>
+    <button (click)="changeIterator(-1)" [disabled]="iterator == -1">-</button>
+    <button (click)="changeIterator(1)">+</button>
+    <label>
+      <input type="checkbox" [(ngModel)]="spoiler">
+      <span [ghs-label]="'game.events.spoiler'"></span>
+    </label>
+    <label>
+      <input type="checkbox" [(ngModel)]="debug">
+      <span [ghs-label]="'game.events.debug'"></span>
     </label>
   </div>
 
   <div class="events">
-    <ghs-event-card [event]="event" *ngFor="let event of events" [select]="selected"></ghs-event-card>
+    <ghs-event-card [event]="event" *ngFor="let event of events" [select]="selected != -1 ? selected - 1 : -1"
+      [flipped]="selected == 0" [spoiler]="spoiler" [debug]="debug"></ghs-event-card>
   </div>
 </div>

@@ -1,0 +1,44 @@
+{
+  "index": "5.2",
+  "name": "Training Course",
+  "edition": "gh2e",
+  "parent": "0",
+  "marker": "1",
+  "monsters": [
+    "training-partner"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "training-partner",
+          "type": "normal"
+        },
+        {
+          "name": "training-partner",
+          "type": "normal"
+        },
+        {
+          "name": "training-partner",
+          "type": "normal"
+        },
+        {
+          "name": "training-partner",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "training-partner",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "training-partner",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

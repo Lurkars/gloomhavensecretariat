@@ -1,0 +1,16 @@
+{
+  "index": "27",
+  "name": "Knowledge is Power 2/4",
+  "edition": "fc",
+  "conclusion": true,
+  "rewards": {
+    "hints": {
+      "eventDecks": [
+        "Add Rift Events 11 through 15 to the deck"
+      ]
+    },
+    "eventDecks": [
+      "rift:11|15"
+    ]
+  }
+}

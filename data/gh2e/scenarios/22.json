@@ -1,0 +1,51 @@
+{
+  "index": "22",
+  "name": "Doomcannon Demolition",
+  "flowChartGroup": "merchant-guild",
+  "edition": "gh2e",
+  "rewards": {
+    "gold": 15,
+    "reputationFactions": [
+      "demons:-1",
+      "merchant-guild:2"
+    ]
+  },
+  "monsters": [
+    "flame-demon",
+    "frost-demon",
+    "living-bomb"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bomb",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

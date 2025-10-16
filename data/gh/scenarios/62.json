@@ -10,6 +10,7 @@
     "gridLocation": "O-11"
   },
   "edition": "gh",
+  "eventType": "road",
   "rewards": {
     "experience": 10,
     "custom": "%data.scenario.rewards.gh.62%",

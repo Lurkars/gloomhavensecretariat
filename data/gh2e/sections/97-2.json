@@ -1,0 +1,47 @@
+{
+  "index": "97.2",
+  "name": "Burning Mountain",
+  "edition": "gh2e",
+  "parent": "90",
+  "monsters": [
+    "earth-demon",
+    "flame-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "treasures": [
+        22
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

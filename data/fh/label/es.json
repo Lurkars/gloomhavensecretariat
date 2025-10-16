@@ -838,33 +838,35 @@
     "unfettered-deactivated": "Desencadenados desactivados"
   },
   "character": {
-    "banner-spear": "Estandarte",
-    "blinkblade": {
-      "": "Dagacentella",
-      "fast": "Rápido",
-      "slow": "Lento",
-      "time_tokens": {
-        "": "%data.characterToken.blinkblade.time% Fichas de tiempo",
-        "hint": "Añadir/eliminar de forma automática fichas de tiempo al inicio de la ronda tras definir lento/rápido"
-      }
-    },
-    "boneshaper": {
-      "": "Esculpehuesos",
-      "solid-bones": {
-        "": "Huesos sólidos",
-        "hint": "Todos los Esqueletos tambaleantes tienen +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+    "fh": {
+      "banner-spear": "Estandarte",
+      "blinkblade": {
+        "": "Dagacentella",
+        "fast": "Rápido",
+        "slow": "Lento",
+        "time_tokens": {
+          "": "%data.characterToken.blinkblade.time% Fichas de tiempo",
+          "hint": "Añadir/eliminar de forma automática fichas de tiempo al inicio de la ronda tras definir lento/rápido"
+        }
       },
-      "unholy-prowess": {
-        "": "Poderío impío",
-        "hint": "Todos los Esqueletos tambaleantes tienen +1 %game.action.heal%."
+      "boneshaper": {
+        "": "Esculpehuesos",
+        "solid-bones": {
+          "": "Huesos sólidos",
+          "hint": "Todos los Esqueletos tambaleantes tienen +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+        },
+        "unholy-prowess": {
+          "": "Poderío impío",
+          "hint": "Todos los Esqueletos tambaleantes tienen +1 %game.action.heal%."
+        }
+      },
+      "deathwalker": "Guía de ánimas",
+      "drifter": "Errante",
+      "geminate": {
+        "": "Geminado",
+        "melee": "Cuerpo a cuerpo",
+        "range": "A distancia"
       }
-    },
-    "deathwalker": "Guía de ánimas",
-    "drifter": "Errante",
-    "geminate": {
-      "": "Geminado",
-      "melee": "Cuerpo a cuerpo",
-      "range": "A distancia"
     },
     "traits": {
       "arcane": "Arcano",

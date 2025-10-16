@@ -595,12 +595,14 @@
     }
   },
   "character": {
-    "brute": "蠻子",
-    "cragheart": "裂心人",
-    "mindthief": "亂心賊",
-    "scoundrel": "兇徒",
-    "spellweaver": "織魔師",
-    "tinkerer": "修補機匠"
+    "gh": {
+      "brute": "蠻子",
+      "cragheart": "裂心人",
+      "mindthief": "亂心賊",
+      "scoundrel": "兇徒",
+      "spellweaver": "織魔師",
+      "tinkerer": "修補機匠"
+    }
   },
   "custom": {
     "gh": {

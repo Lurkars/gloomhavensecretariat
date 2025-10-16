@@ -1,0 +1,61 @@
+{
+  "index": "25.1",
+  "name": "Frozen Hollow",
+  "edition": "gh2e",
+  "parent": "3",
+  "monsters": [
+    "frost-demon",
+    "hound",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "treasures": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

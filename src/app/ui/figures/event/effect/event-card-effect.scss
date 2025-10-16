@@ -1,0 +1,176 @@
+.effect {
+
+    font-family: var(--ghs-font-text);
+    font-weight: bold;
+    opacity: 0.7;
+
+    &.selected {
+        opacity: 1;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+    }
+
+    &.city {
+        font-weight: normal;
+    }
+
+    &.fh {
+        font-size: 0.96em;
+        font-family: var(--ghs-font-fh-normal);
+
+        ghs-event-card-condition {
+            font-weight: normal;
+            font-style: italic;
+            text-transform: uppercase;
+        }
+    }
+
+    &.disabled {
+        opacity: 0.5;
+    }
+
+    .text {
+        &.concatenated {
+            display: inline;
+
+            &::first-letter {
+                text-transform: lowercase;
+            }
+        }
+
+        &.debug {
+            color: red;
+        }
+    }
+
+    .effect-object {
+        position: relative;
+        display: block;
+
+        &.inline {
+            display: inline;
+            margin-left: 0.1em;
+
+            .automation-icon {
+                position: relative;
+                top: 0.2em;
+                left: initial;
+                margin: 0 0.1em;
+                transform: none;
+            }
+        }
+
+        .automation-icon {
+            position: absolute;
+            top: 50%;
+            left: -1.1em;
+            display: inline-flex;
+            width: 0.9em;
+            height: 0.9em;
+            transform: translateY(-50%);
+
+            .ghs-svg {
+                width: 100%;
+                height: auto;
+                filter: var(--ghs-filter-black);
+                margin-left: 0;
+            }
+
+            &.light {
+                color: var(--ghs-color-white);
+
+                .ghs-svg {
+                    filter: var(--ghs-filter-white);
+                }
+            }
+        }
+
+        .condition-spacer {
+            margin-right: 0.2em;
+        }
+
+        .choose-container {
+
+            ghs-event-card-effect {
+                font-size: 0.834em;
+                margin: 0 0.2em;
+            }
+
+            &>span:last-child {
+                margin-left: -0.2em;
+            }
+        }
+
+        .and-container {
+            ghs-event-card-effect {
+                margin: 0 0.2em;
+            }
+
+            &>span:last-child {
+                margin-left: -0.2em;
+            }
+        }
+
+        .checkbox-container {
+            display: inline-flex;
+            flex-wrap: wrap;
+
+            label {
+                display: flex;
+
+                .checkbox {
+                    cursor: pointer;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 0.8em;
+                    height: 0.8em;
+                    border: 0.15em solid var(--ghs-color-black);
+                    background-color: var(--ghs-color-white);
+                    border-radius: 0.1em;
+                    box-shadow: 0.15em 0.15em var(--ghs-color-gray);
+                    z-index: 2;
+                    margin-right: 0.4em;
+
+                    &::before {
+                        content: ' ';
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        width: 115%;
+                        height: 115%;
+                        transform: scale(0);
+                        transform-origin: top left;
+                        transition: transform calc(var(--ghs-animation-speed) * 120ms) ease-in-out;
+                        z-index: 1;
+                        background-image: url('~src/assets/images/checkmark.svg');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        filter: var(--ghs-filter-darkgray);
+                    }
+
+                    &.checked::before {
+                        transform: scale(1) translate(-50%, -50%);
+                    }
+
+                    &.checked.check::before {
+                        transform: scale(1);
+                    }
+
+                    &.light {
+                        border: 0.1em solid var(--ghs-color-white);
+                        background-color: transparent;
+
+                        &::before {
+                            filter: var(--ghs-filter-white);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

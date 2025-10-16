@@ -1,0 +1,54 @@
+{
+  "index": "83.2",
+  "name": "Vibrant Grotto",
+  "edition": "gh2e",
+  "parent": "39",
+  "monsters": [
+    "cave-bear",
+    "forest-imp",
+    "inox-priest"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "elite"
+        },
+        {
+          "name": "cave-bear",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-priest",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

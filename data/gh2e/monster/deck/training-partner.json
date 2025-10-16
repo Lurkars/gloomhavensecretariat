@@ -1,0 +1,22 @@
+{
+  "name": "training-partner",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Nothing Special",
+      "cardId": 0,
+      "initiative": 50,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ]
+    }
+  ]
+}

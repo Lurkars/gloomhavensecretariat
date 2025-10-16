@@ -29,4 +29,8 @@ export class AdditionalIdentifier extends Identifier {
     this.marker = marker;
     this.tags = tags;
   }
+
+  equals(other: AdditionalIdentifier): boolean {
+    return this.edition == other.edition && this.marker == other.marker && this.name == other.name && this.type == other.type;
+  }
 }

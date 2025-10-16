@@ -1,3 +1,13 @@
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+
+  label {
+    display: flex;
+  }
+}
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -11,6 +21,7 @@
 
 .events {
   display: flex;
+  flex-wrap: wrap;
   overflow: auto;
 
   ghs-event-card {

@@ -1,0 +1,29 @@
+{
+  "index": "76.3",
+  "name": "Ancient Defense Network",
+  "edition": "gh2e",
+  "parent": "33",
+  "monsters": [
+    "cave-bear"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "elite"
+        },
+        {
+          "name": "cave-bear",
+          "player4": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -91,7 +91,8 @@
       </div>
     </div>
 
-    <div class="event-effects" *ngIf="setup || gameManager.game.round < 1">
+    <div class="event-effects"
+      *ngIf="(settingsManager.settings.partySheet || gameManager.characterManager.characterCount(true) > 0)">
       <a tabclick (click)="openEventEffects($event)"><img class="ghs-svg" src="./assets/images/event.svg"> <span
           [ghs-label]="'scenario.eventEffects'"></span></a>
     </div>

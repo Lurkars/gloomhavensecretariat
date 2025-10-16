@@ -1,0 +1,106 @@
+{
+  "name": "the-prime-demon",
+  "edition": "gh2e",
+  "deck": "boss",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "wound",
+      "poison",
+      "disarm",
+      "immobilize",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,3,active)|(1,1,target)|(1,2,target)|(2,0,target)"
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx17",
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "level": 1,
+      "health": "Cx22",
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 2,
+      "health": "Cx25",
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "level": 3,
+      "health": "Cx31",
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "level": 4,
+      "health": "Cx35",
+      "movement": 4,
+      "attack": 6
+    },
+    {
+      "level": 5,
+      "health": "Cx41",
+      "movement": 5,
+      "attack": 7
+    },
+    {
+      "level": 6,
+      "health": "Cx50",
+      "movement": 5,
+      "attack": 7
+    },
+    {
+      "level": 7,
+      "health": "Cx60",
+      "movement": 5,
+      "attack": 8
+    }
+  ]
+}

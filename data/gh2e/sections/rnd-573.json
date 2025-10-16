@@ -1,0 +1,40 @@
+{
+  "index": "573",
+  "group": "randomMonsterCard",
+  "name": "Frigid",
+  "edition": "gh2e",
+  "named": true,
+  "monsters": [
+    "frost-demon",
+    "savvas-icestorm",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 21,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-icestorm",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

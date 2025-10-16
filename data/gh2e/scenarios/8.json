@@ -1,0 +1,44 @@
+{
+  "index": "8",
+  "name": "Barrow Lair",
+  "flowChartGroup": "merchant-guild",
+  "edition": "gh2e",
+  "unlocks": [
+    "12",
+    "16"
+  ],
+  "rewards": {
+    "gold": 15,
+    "reputationFactions": [
+      "merchant-guild:1"
+    ]
+  },
+  "monsters": [
+    "bandit-archer"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

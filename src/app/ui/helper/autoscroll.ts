@@ -54,7 +54,7 @@ export class FigureAutoscrollDirective implements OnInit, OnDestroy {
             });
           }
           this.active = this.figure.active;
-        }, !settingsManager.settings.animations ? 5 : 300);
+        }, settingsManager.settings.animations ? 300 * settingsManager.settings.animationSpeed : 5);
       }
     })
   }

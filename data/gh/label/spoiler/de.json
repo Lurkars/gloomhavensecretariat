@@ -1,20 +1,22 @@
 {
   "character": {
-    "angry-face": "Schicksalsläufer",
-    "circles": "Ruferin",
-    "eclipse": "Nachtschleier",
-    "lightning": {
-      "": "Berserkerin"
-    },
-    "music-note": {
-      "": "Wahrsängerin"
-    },
-    "saw": "Knochenflicker",
-    "squidface": "Seuchenbringer",
-    "sun": "Sonnenhüterin",
-    "three-spears": "Quartiermeister",
-    "triangles": "Elementarist",
-    "two-mini": "Bestienmeister"
+    "gh": {
+      "angry-face": "Schicksalsläufer",
+      "circles": "Ruferin",
+      "eclipse": "Nachtschleier",
+      "lightning": {
+        "": "Berserkerin"
+      },
+      "music-note": {
+        "": "Wahrsängerin"
+      },
+      "saw": "Knochenflicker",
+      "squidface": "Seuchenbringer",
+      "sun": "Sonnenhüterin",
+      "three-spears": "Quartiermeister",
+      "triangles": "Elementarist",
+      "two-mini": "Bestienmeister"
+    }
   },
   "custom": {
     "gh": {

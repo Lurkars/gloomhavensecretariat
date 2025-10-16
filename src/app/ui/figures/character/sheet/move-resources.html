@@ -1,34 +1,36 @@
 <div class="move-resources-dialog">
-    <label class="title">
-        <span [ghs-label]="'character.progress.resources.move'"></span>
-        <span class="name">
-            <img class="icon character-icon" [src]="character.iconUrl" />
-            <span class="character-title"
-                [ngClass]="{'absent' : character.absent}">{{gameManager.characterManager.characterName(character,true)}}</span>
-        </span>
-    </label>
-    <div class="values">
-        <ng-container *ngFor="let type of lootTypes">
-            <ng-container class="loot" *ngIf="character.progress.loot[type]">
-                <label><img class="ghs-svg"
-                        [src]="'./assets/images/fh/loot/' + (type == LootType.special1 || type == LootType.special2 ? LootType.money : type) + '.svg'">
-                    <span [ghs-label]="'game.loot.' + type"></span></label>
-                <a class="button" [ngClass]="{'disabled' : !loot[type] || loot[type] == 0}"
-                    (click)="changeLoot(type, -1)">
-                    <img class="ghs-svg" src="./assets/images/minus.svg">
-                </a>
-                <span class="value" [ghs-label]="'game.loot.' + type" [ghs-label-attribute]="'title'">
-                    {{loot[type] || '-'}} / {{character.progress.loot[type]}}
-                </span>
-                <a class="button" [ngClass]="{'disabled' : loot[type] == character.progress.loot[type]}"
-                    (click)="changeLoot(type,  1)">
-                    <img class="ghs-svg" src="./assets/images/plus.svg">
-                </a>
+    <div class="scroll-container">
+        <label class="title">
+            <span [ghs-label]="'character.progress.resources.move'"></span>
+            <span class="name">
+                <img class="icon character-icon" [src]="character.iconUrl" />
+                <span class="character-title"
+                    [ngClass]="{'absent' : character.absent}">{{gameManager.characterManager.characterName(character,true)}}</span>
+            </span>
+        </label>
+        <div class="values">
+            <ng-container *ngFor="let type of lootTypes">
+                <ng-container class="loot" *ngIf="character.progress.loot[type]">
+                    <label><img class="ghs-svg"
+                            [src]="'./assets/images/fh/loot/' + (type == LootType.special1 || type == LootType.special2 ? LootType.money : type) + '.svg'">
+                        <span [ghs-label]="'game.loot.' + type"></span></label>
+                    <a class="button" [ngClass]="{'disabled' : !loot[type] || loot[type] == 0}"
+                        (click)="changeLoot(type, -1)">
+                        <img class="ghs-svg" src="./assets/images/minus.svg">
+                    </a>
+                    <span class="value" [ghs-label]="'game.loot.' + type" [ghs-label-attribute]="'title'">
+                        {{loot[type] || '-'}} / {{character.progress.loot[type]}}
+                    </span>
+                    <a class="button" [ngClass]="{'disabled' : loot[type] == character.progress.loot[type]}"
+                        (click)="changeLoot(type,  1)">
+                        <img class="ghs-svg" src="./assets/images/plus.svg">
+                    </a>
+                </ng-container>
             </ng-container>
-        </ng-container>
-    </div>
-    <div class="menu">
-        <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
-        <a class="apply" (click)="moveLoot()"><span [ghs-label]="'character.progress.resources.apply'"></span></a>
+        </div>
+        <div class="menu">
+            <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+            <a class="apply" (click)="moveLoot()"><span [ghs-label]="'character.progress.resources.apply'"></span></a>
+        </div>
     </div>
 </div>

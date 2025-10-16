@@ -1,0 +1,51 @@
+{
+  "index": "123.1",
+  "name": "Syndicate Hideout",
+  "edition": "gh2e",
+  "parent": "82",
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "cultist-scenario-82",
+    "giant-viper"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "cultist-scenario-82",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

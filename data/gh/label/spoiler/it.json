@@ -1,11 +1,13 @@
 {
   "character": {
-    "lightning": {
-      "blood-pact": {
-        "hint": "Subisci %game.damage:1% all'inizio di ciascuno dei tuoi turni."
-      },
-      "careless-charge": {
-        "hint": "Sei immune a tutte le condizioni negative."
+    "gh": {
+      "lightning": {
+        "blood-pact": {
+          "hint": "Subisci %game.damage:1% all'inizio di ciascuno dei tuoi turni."
+        },
+        "careless-charge": {
+          "hint": "Sei immune a tutte le condizioni negative."
+        }
       }
     }
   },

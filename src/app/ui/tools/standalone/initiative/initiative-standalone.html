@@ -11,7 +11,7 @@
                         <img class="icon" [src]="character.iconUrl" />
                         {{ gameManager.characterManager.characterName(character)}}
                         <span *ngIf="character.title">&nbsp;(<span
-                                [ghs-label]="'data.character.' + character.name"></span>)</span>
+                                [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span>)</span>
                     </span>
                     <div class="initiative"
                         [ngClass]="{'error' : statusCode != 200 && statusCode != 403, 'warn': statusCode == 403}">

@@ -1,0 +1,45 @@
+{
+  "index": "555",
+  "group": "randomMonsterCard",
+  "name": "Drowned",
+  "edition": "gh2e",
+  "named": true,
+  "monsters": [
+    "living-spirit",
+    "lurker-soldier"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

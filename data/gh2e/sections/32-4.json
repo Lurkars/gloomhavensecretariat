@@ -1,0 +1,61 @@
+{
+  "index": "32.4",
+  "name": "- Gloomhaven Battlements B",
+  "edition": "gh2e",
+  "parent": "26",
+  "marker": "1",
+  "monsters": [
+    "ancient-artillery",
+    "city-archer",
+    "city-guard",
+    "first-shield-harmon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "first-shield-harmon",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "index": "51",
+  "name": "Lair of the Unseeing Eye",
+  "flowChartGroup": "the-gloom",
+  "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "end-of-corruption"
+    ],
+    "prosperity": 1
+  },
+  "monsters": [
+    "lurker-soldier"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

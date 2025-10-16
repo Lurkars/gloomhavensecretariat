@@ -1,0 +1,39 @@
+{
+  "index": "101.3",
+  "name": "Chronal Anchor",
+  "edition": "gh2e",
+  "parent": "92",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

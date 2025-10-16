@@ -61,8 +61,8 @@
         "subActions": [
           {
             "type": "custom",
-            "small": true,
-            "value": "Perform:"
+            "value": "Perform:",
+            "small": true
           },
           {
             "type": "pull",
@@ -77,8 +77,8 @@
           },
           {
             "type": "custom",
-            "small": true,
-            "value": "at end of turn"
+            "value": "at end of turn",
+            "small": true
           }
         ]
       }
@@ -93,8 +93,8 @@
       "range": 3,
       "action": {
         "type": "custom",
-        "small": true,
-        "value": "%data.custom.fh.trap.1%"
+        "value": "%data.custom.fh.trap.1%",
+        "small": true
       }
     }
   ],

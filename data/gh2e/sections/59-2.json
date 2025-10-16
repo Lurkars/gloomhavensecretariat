@@ -1,0 +1,58 @@
+{
+  "index": "59.2",
+  "edition": "gh2e",
+  "parent": "58",
+  "marker": "1",
+  "monsters": [
+    "cave-bear-58",
+    "frost-demon",
+    "harrower-infester",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "treasures": [
+        69
+      ],
+      "monster": [
+        {
+          "name": "cave-bear-58",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

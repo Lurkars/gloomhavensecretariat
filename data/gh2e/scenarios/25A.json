@@ -1,0 +1,61 @@
+{
+  "index": "25A",
+  "name": "Gloomhaven Battlements A (Merchant Allies)",
+  "flowChartGroup": "merchant-guild",
+  "edition": "gh2e",
+  "unlocks": [
+    "27"
+  ],
+  "forcedLinks": [
+    "27"
+  ],
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "the-prime-demon",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Door",
+      "escort": true,
+      "health": "10+(2xL)"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "the-prime-demon",
+          "type": "boss"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

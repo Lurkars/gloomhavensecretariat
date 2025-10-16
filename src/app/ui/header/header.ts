@@ -8,7 +8,7 @@ import { Character } from 'src/app/game/model/Character';
 import { Element } from 'src/app/game/model/data/Element';
 import { GameClockTimestamp, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
-import { EventEffectsDialog } from '../figures/character/event-effects/event-effects';
+import { EventEffectsDialog } from '../figures/event-effects/event-effects';
 import { StablesComponent } from '../figures/party/buildings/stables/stables';
 import { GameClockDialogComponent } from './game-clock/game-clock';
 import { MainMenuComponent, SubMenu } from './menu/menu';
@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     setTimeout(() => {
       this.init = true;
-    }, !settingsManager.settings.animations ? 0 : 1500);
+    }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
 
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           setTimeout(() => {
             this.hintState = this.hintStateValue();
             this.init = true;
-          }, !settingsManager.settings.animations ? 0 : 500);
+          }, settingsManager.settings.animations ? 500 * settingsManager.settings.animationSpeed : 0);
         }
 
         this.updateClock();
@@ -119,7 +119,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   openEventEffects() {
     this.dialog.open(EventEffectsDialog, {
       panelClass: ['dialog'],
-      data: gameManager.game.round > 0 || gameManager.game.state == GameState.next
+      data: { menu: gameManager.game.round > 0 || gameManager.game.state == GameState.next }
     });
   }
 

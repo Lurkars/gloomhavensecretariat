@@ -31,7 +31,6 @@
       "reset": "Reiniciar Campaña"
     },
     "character": "Hojas de Personajes",
-    "enhancements": "",
     "items": "Visión general de cartas de Objeto",
     "map": {
       "": "Mapa Global",
@@ -82,37 +81,6 @@
     "abilities": {
       "currentDeck": "Mazo actual",
       "deckWarning": "¡No es posible seleccionar la carta porque hay demasiadas cartas en la baraja!",
-      "enhancements": {
-        "apply": "",
-        "baseCosts": "",
-        "costs": "",
-        "disabled": {
-          "enhancements": "",
-          "gold": ""
-        },
-        "enhancements": "",
-        "enhancerLevel": "",
-        "hint": {
-          "enhance": {
-            "": "",
-            "wipSpecial": ""
-          },
-          "enhanced": ""
-        },
-        "level": "",
-        "lost": "",
-        "multiTarget": "",
-        "persistent": "",
-        "temporary": "",
-        "types": {
-          "any": "",
-          "circle": "",
-          "diamond": "",
-          "diamond_plus": "",
-          "hex": "",
-          "square": ""
-        }
-      },
       "forceDeck": "Doble clic para añadir la carta al Mazo",
       "levelWarning": "¡Mazo inválido ya que algunas cartas son de nivel superior al personaje!",
       "pickCard": "Coge tu carta de nivel {0}",
@@ -256,16 +224,6 @@
     },
     "setAside": "Apartar personaje",
     "summon": {
-      "action": {
-        "": "",
-        "count": {
-          "": "",
-          "fly": ""
-        },
-        "fly": {
-          "": ""
-        }
-      },
       "level": "(Nivel {0})"
     },
     "token": "Token de Personaje",
@@ -396,20 +354,10 @@
     "action": {
       "add": "Añadir Acción",
       "addBottom": "Añadir acción inferior",
-      "addEnhancement": "",
       "addSubAction": "Añadir acción secundaria",
-      "enhancements": "",
       "remove": "Eliminar Acción",
-      "removeEnhancement": "",
       "removeSubAction": "Eliminar acción secundaria",
       "small": "Más pequeño",
-      "subActions": "",
-      "summon": {
-        "type": {
-          "monster": "",
-          "summon": ""
-        }
-      },
       "type": "Tipo de Acción",
       "value": "Valor de la acción",
       "valueType": {
@@ -512,21 +460,17 @@
       "area": "Efecto de área",
       "attack": "Ataque",
       "box": "[Caja]",
-      "boxFhSubActions": "",
       "card": "Carta",
       "concatenation": "[Concatenación]",
-      "concatenationSpacer": "",
       "condition": "Condición",
       "custom": "Personalizado",
       "damage": "Daño",
       "element": "Elemento",
       "elementHalf": "Medio elemento",
       "fly": "Vuelo",
-      "forceBox": "",
       "grant": "Conceder",
       "grid": "[Rejilla]",
       "heal": "Curación",
-      "hint": "",
       "jump": "Salta",
       "loot": "Saqueo",
       "monsterType": "Tipo de Monstruo",
@@ -750,10 +694,6 @@
         "": "Ruptura",
         "hint": "%game.conditionIcon.rupture% Ruptura: Al realizar movimiento sufre %game.damage:1%. Se elimina al curarse."
       },
-      "safeguard": {
-        "": "",
-        "hint": ""
-      },
       "strengthen": {
         "": "Fortalecimiento",
         "hint": "%game.conditionIcon.strengthen% Fortalecimiento: Ventaja en todos los ataques. Elimínalo al final del siguiente turno."
@@ -822,20 +762,13 @@
     "enemy": "Enemigo",
     "events": {
       "conditions": {
-        "otherwise": "De lo contrario:",
-        "payCollectiveGold": "Paga {0} oro Colectivo:",
-        "payCollectiveGoldConditional": "Paga {0} ({1}) o {2} ({3}) oro Colectivo:",
-        "reputationGT": "Reputación > {0}:",
-        "reputationLT": "Reputación < {0}:"
+        "otherwise": "De lo contrario",
+        "payCollectiveGold": "Paga {0} oro Colectivo",
+        "payCollectiveGoldConditional": "Paga {0} ({1}) o {2} ({3}) oro Colectivo",
+        "reputationGT": "Reputación > {0}",
+        "reputationLT": "Reputación < {0}"
       },
-      "option": {
-        "": "Opción {0}:",
-        "1": "A",
-        "2": "B",
-        "3": "C"
-      },
-      "rewards": {
-        "additionalGold": "Cada personaje obtiene {0} oro adicional.",
+      "effects": {
         "collectiveGold": "Obtén {0} oro colectivo.",
         "collectiveItem": "Obtén {2} colectivo \"%data.items.{1}-{0}%\" (Item {0}).",
         "consumeCollectiveItem": "Consume {0} objeto colectivo %game.itemSlot:{1}% .",
@@ -845,6 +778,7 @@
         "experience": "Cada personaje obtiene {0} experiencia.",
         "globalAchievement": "Logro global: \"%data.globalAchievements.{0}%\".",
         "gold": "Obtén {0} oro cada uno.",
+        "goldAdditional": "Cada personaje obtiene {0} oro adicional.",
         "itemDesign": "Obtén el diseño \"%data.items.{1}-{0}%\" (Item {0}).",
         "loseBattleGoal": "Cada personaje pierde {0} %game.checkmark%.",
         "loseCollectiveGold": "Pierde {0} oro colectivo.",
@@ -856,10 +790,16 @@
         "prosperity": "Obtén {0} prosperidad.",
         "randomItemDesign": "Obtén un Diseño de objeto aleatorio.",
         "reputation": "Obtén {0} reputación..",
-        "scenario": "Desbloquea \"{1}\" %data.scenarioNumber:{0}%.",
         "scenarioCondition": "Todos empezáis el escenario con %game.condition.{0}%.",
         "scenarioDamage": "Todos empezáis el escenario con {0} daño.",
-        "scenarioSingleMinus1": "Uno empieza el escenario con %game.attackmodifier.minus1% x{0}."
+        "scenarioSingleMinus1": "Uno empieza el escenario con %game.card.minus1% x{0}.",
+        "unlockScenario": "Desbloquea \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%."
+      },
+      "option": {
+        "": "Opción {0}:",
+        "1": "A",
+        "2": "B",
+        "3": "C"
       },
       "type": {
         "city": "Ciudad",
@@ -970,7 +910,7 @@
     },
     "loot": {
       "": "Botín",
-      "apply": "Añade a %data.character.{0}%",
+      "apply": "Añade a %data.character.{0}.{1}%",
       "arrowvine": "Enredaflecha",
       "axenut": "Bellota filosa",
       "chooseCharacter": "Selecciona persona para +{0} {1}",
@@ -992,7 +932,7 @@
       "flamefruit": "Pitallama",
       "herb_resources": "hierba",
       "hide": "Piel",
-      "keep": "Continua %data.character.{0}%",
+      "keep": "Continua %data.character.{0}.{1}%",
       "lootTreasure": {
         "": "¿{0} saquear tesoro {1}?",
         "confirm": "Confirmar",
@@ -1009,7 +949,7 @@
         "apply": "Seleccionar y equipar",
         "draw": "Objeto aleatorio para %game.characterIconColored.{0}% {1}"
       },
-      "remove": "Eliminar de %data.character.{0}%",
+      "remove": "Eliminar de %data.character.{0}.{1}%",
       "rockroot": "Raíz de roca",
       "snowthistle": "Cardo de nieve",
       "special": "Especial",
@@ -1070,17 +1010,14 @@
     "maxHealth": "Puntos de Vida Máximos",
     "solo": "Solitario",
     "specialTarget": {
-      "all": "",
       "allies": "%game.target% todos los aliados",
       "alliesAdjacent": "%game.target% todos los aliados adyacentes",
       "alliesAdjacentAffect": "%game.affect% todos los aliados adyacentes",
-      "alliesAffect": "",
       "alliesRange": "%game.target% todos los aliados a %game.action.range% {0}",
       "alliesRangeAffect": "%game.affect% todos los aliados a %game.action.range% {0}",
       "ally": "%game.target% 1 aliado",
       "allyAdjacent": "%game.target% un aliado adyacente",
       "allyAffect": "%game.affect% cualquier aliado",
-      "allyAffectAdjacent": "",
       "allyAffectRange": "%game.affect% un aliado a %game.action.range% {0}",
       "allyShort": "Aliado",
       "enemies": "%game.target% todos los enemigos",
@@ -1093,7 +1030,6 @@
       "enemiesRangeExact": "%game.target% todos los enemigos exactamente a %game.action.range% {0}",
       "enemy": "%game.target% un enemigo",
       "enemyAdjacent": "%game.target% un enemigo adyacente",
-      "enemyAllyRange": "",
       "enemyOneAll": "%game.target% un enemigo con todos los ataques",
       "enemyRange": "%game.target% un enemigo a exactamente %game.action.range% {0}",
       "figures": "%game.target% todas las figuras",
@@ -1104,7 +1040,6 @@
       "selfAllies": "Personal y todos los aliados",
       "selfAlliesAdjacentAffect": "%game.affect% Personal y todos los aliados adyacentes",
       "selfAlliesAffect": "%game.affect% personal y todos los aliados",
-      "selfAlliesAffectRange": "",
       "selfAlliesRange": "%game.target% Personal y todos los aliados a %game.action.range% {0}",
       "selfOrAlly": "Personal o aliados",
       "targets": "Todos los objetivos"
@@ -1482,41 +1417,6 @@
         "back": "Volver al modo campaña",
         "force": "Haz doble clic para forzar la visualización del diagrama de flujo completo, incluidos los spoilers."
       },
-      "legend": {
-        "": "",
-        "blocked": {
-          "": "",
-          "hint": ""
-        },
-        "locked": {
-          "": "",
-          "hint": ""
-        },
-        "not-campaign": {
-          "": "",
-          "hint": ""
-        },
-        "not-unlocked": {
-          "": "",
-          "hint": ""
-        },
-        "success": {
-          "": "",
-          "hint": ""
-        },
-        "success-blocked": {
-          "": "",
-          "hint": ""
-        },
-        "success-locked": {
-          "": "",
-          "hint": ""
-        },
-        "unplayed": {
-          "": "",
-          "hint": ""
-        }
-      },
       "setup": "Mostrar Configuración del Escenario",
       "start": "Iniciar Escenario",
       "success": "Marcar como completado",
@@ -1574,22 +1474,6 @@
     "openRoomMarker": "Abrir puerta %game.mapMarker.{1}%",
     "openRoomMarkerRef": "Abrir puerta %game.mapMarker.{1}% para loseta '{0}'",
     "openRoomRef": "Abrir puerta para loseta '{0}'",
-    "random": {
-      "": "",
-      "treasure": {
-        "createTwoElements": "",
-        "cureConditions": "",
-        "enemiesCondition": "",
-        "enemiesDamage": "",
-        "gold": "",
-        "heal": "",
-        "lootCards": "",
-        "recoverCards": "",
-        "recoverLost": "",
-        "refreshItem": "",
-        "resource": ""
-      }
-    },
     "requirements": {
       "": "Requisitos del escenario",
       "all": "Mostrar todos los requisitos (incluir los cumplidos)",
@@ -1600,8 +1484,8 @@
       "campaignStickersCount": "'%data.campaignSticker.{0}%' (Pegatina de Campaña) x{2} COMPLETADO (obtén{1})",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Pegatina de Campaña) NO COMPLETADO",
       "cancel": "Cancelar",
-      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' presente",
-      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' ausente",
+      "characters": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' presente",
+      "charactersMissing": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' ausente",
       "global": "'%data.globalAchievements.{0}%' (Global) COMPLETADO",
       "globalCount": "'%data.globalAchievements.{0}%' (Global) x{2} COMPLETADO (obtén{1})",
       "globalMissing": "'%data.globalAchievements.{0}%' (Global) NO COMPLETADO",
@@ -1614,7 +1498,7 @@
         "or": "o",
         "scenario": "%data.scenarioNumber:{0}%"
       },
-      "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' Nivel 5 o superior",
+      "solo": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' Nivel 5 o superior",
       "start": "Empezar igualmente"
     },
     "reset": "Reiniciar Escenario",
@@ -1689,7 +1573,6 @@
         "winter-road": "Elimina el evento {0} del mazo de invierno de Camino"
       },
       "removeLootDeckCard": "Elimina la carta de botín {0} del juego. No la añadas más a ningún mazo de botín de cualquier Escenario.",
-      "repeatScenario": "",
       "reputation": "{0} reputación",
       "resources": "Cada personaje obtiene {1} %game.resource.{0}%",
       "resourcesLose": "Cada personaje pierde {1} %game.resource.{0}%",
@@ -2055,10 +1938,6 @@
       "": "Usar siempre las reglas de Ventaja/desventaja de Frosthaven",
       "hint": "Usa siempre las reglas de Frosthaven para robar el Modificador de Ataque con Ventaja o Desventaja (Se activa automáticamente al jugar a Frosthaven)"
     },
-    "alwaysFhEnhancements": {
-      "": "",
-      "hint": ""
-    },
     "alwaysFhSolo": {
       "": "Usar siempre las reglas en solitario de Frosthaven",
       "hint": "Aplicar siempre las reglas de Frosthaven para calcular el nivel del juego en solitario (se activa de forma automática al jugar a Frosthaven)"
@@ -2097,7 +1976,6 @@
         "": "Las Estados que correspondan se aplican de forma automática antes y después de los turnos, por ejemplo, cuando una figura esté Herida perderá 1 punto de vida al inicio de su turno",
         "bane": "Aplica automáticamente el daño de %game.condition.bane% a finalizar el turno.",
         "regenerate": "Aplica automáticamente %game.condition.regenerate% al inicio del turno.",
-        "safeguard": "",
         "wound": "Aplica automáticamente el daño de %game.condition.wound% al finalizar el turno.",
         "wound_x": "Aplica automáticamente el daño de %game.condition.wound_x:X% al finalizar el turno."
       }
@@ -2125,10 +2003,6 @@
     "automaticAttackModifierFullscreen": {
       "": "Mazo MA pantalla completa",
       "hint": "Abre el mazo de Modificadores de Ataque (y también el Mazo de Botín) a pantalla completa en dispositivos con pequeños."
-    },
-    "automaticFirstFigure": {
-      "": "",
-      "hint": ""
     },
     "automaticGameClock": {
       "": "Reloj de juego automático",
@@ -2213,10 +2087,6 @@
       "": "Mostrar Atributos calculados",
       "hint": "Los valores de habilidad se calculan con los Atributos, por lo que en lugar de Ataque +1, se muestra Ataque 4 para un valor de Ataque de 3 en los Atributos"
     },
-    "calculateAdvantageStats": {
-      "": "",
-      "hint": ""
-    },
     "calculateShieldStats": {
       "": "Añade Escudo y Represalia a las habilidades",
       "hint": "Estadísticas por defecto de %game.action.shield% y %game.action.retaliate% son añadidas a las acciones %game.action.shield% y %game.action.retaliate% de las cartas de habilidad, para que se muestren los valores sumados completos."
@@ -2245,10 +2115,6 @@
     "characterCompact": {
       "": "Tableros de personajes compactos",
       "hint": "Mostrar tablero de personajes compactos. (actualmente no es compatible con el tema moderno)"
-    },
-    "characterFullView": {
-      "": "",
-      "hint": ""
     },
     "characterHandSize": {
       "": "Mostrar tamaño de mano y nivel",
@@ -2482,7 +2348,6 @@
       },
       "it": "Italiano",
       "ko": "Coreano (한국어)",
-      "ru": "",
       "zh_Hans": "Chino simplificado (简体中文)",
       "zh_Hant": "Chino tradicional (繁體中文)"
     },
@@ -2607,10 +2472,6 @@
       "hint": "Activa las invocaciones de los Personajes"
     },
     "synced": "¡Estos ajustes están sincronizados con el servidor!",
-    "temporaryEnhancements": {
-      "": "",
-      "hint": ""
-    },
     "theme": {
       "": "Tema",
       "bb": "Button & Bugs (%wip%)",
@@ -2848,17 +2709,6 @@
       "characterReplay": "Juega {0} otra vez para el jugador {1}",
       "characterSetAside": "Pon {0} a un lado para el jugador {1}",
       "clearDiscardedScenarioRules": "Borrar las reglas de escenario descartadas",
-      "command": {
-        "character": {
-          "initiative": ""
-        },
-        "round": {
-          "state": {
-            "draw": "",
-            "next": ""
-          }
-        }
-      },
       "craftItem": "Crea el objeto {1} (%data.edition.{2}%) para {0}",
       "declineApplyCondition": {
         "char": "Rechazar aplicar %game.condition.{1}% a {0}",
@@ -2912,7 +2762,7 @@
       },
       "finishConclusion": "Conclusión final #{0} {1} ({2})",
       "finishScenario": {
-        "battleGoal": "Marca los objetivos de batalla para %data.character.{0}% a {1}",
+        "battleGoal": "Marca los objetivos de batalla para %data.character.{0}.{1}% a {2}",
         "close": "Cerrar Resumen del escenario",
         "dialog": "Resumen del escenario para #{0} {1} ({2})",
         "failure": "Escenario #{0} {1} ({2}) fallado",
@@ -2950,7 +2800,7 @@
       "monsterSetEntityActive": "Asigna %game.monster.{2}% peana {1} de %data.monster.{0}% activo",
       "monsterUnsetEntityActive": "Asigna %game.monster.{2}% peana {1} de %data.monster.{0}% inactivo",
       "moveResource": "Mueve {2} {1} de {0} a la reserva de Frosthaven",
-      "nextIdentity": "Fija la forma {0} de %data.character.{1}.{2}% a %data.character.{1}.{3}%",
+      "nextIdentity": "Fija la forma {0} de %data.character.{4}.{1}.{2}% a %data.character.{4}.{1}.{3}%",
       "nextRound": "Siguiente Ronda",
       "objectiveContainerChangeEntityHp": "PV {2} para %game.objectiveMarker.{1}% de {0}",
       "objectiveEntityDead": "Mata %game.objectiveMarker.{1}% de {0}",
@@ -2988,10 +2838,6 @@
         "objectives": "Elimina {2}x %game.condition.{1}% de todos {0}",
         "summon": "Elimina {3}x %game.condition.{2}% de '{1}' de {0}",
         "summons": "Elimina {2}x %game.condition.{1}% de todas las {0} invocaciones"
-      },
-      "removeEntityMarker": {
-        "monster": "",
-        "objectiveContainer": ""
       },
       "removeEntityRetaliate": {
         "char": "Elimina %game.action.retaliate% de {0}",
@@ -3115,11 +2961,10 @@
       "setEntitySummonState": "Fijar invocación {3} para {1} peana {2} de {0}",
       "setExhausted": "{0} agotado",
       "setGold": "Oro {1} para {0}",
-      "setIdentity": "Fijar forma de {0} a %data.character.{1}.{2}%",
+      "setIdentity": "Fijar forma de {0} a %data.character.{3}.{1}.{2}%",
       "setInitiative": "Iniciativa {1} para {0}",
       "setLevel": "Nivel {1} para {0}",
       "setNotes": "Notas \"{1}\" para {0}",
-      "setObjectiveEntityMarker": "",
       "setObjectiveExhausted": "Objectivo {0} agotado",
       "setObjectiveInitiative": "Iniciativa {1} para el objetivo {0}",
       "setPQ": "Misión personal {1} para {0}",
@@ -3347,7 +3192,6 @@
       "toggleAbsent": "Fijar <i>Ocultar cifras ausentes</i>",
       "toggleDamageHP": "Fijar <i>%settings.damageHP%</i>",
       "toggleElements": "Fijar el estado de los elementos",
-      "toggleFullscreen": "",
       "toggleHandSize": "Fijar <i>Mostar tamaño de mano y nivel</i>",
       "togglePlayerNumber": "Fijar <i>Mostrar número de personaje</i>",
       "toggleTraits": "Fijar <i>Mostrar rasgos</i>",

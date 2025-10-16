@@ -1,0 +1,35 @@
+{
+  "index": "61.3",
+  "name": "Deep Ruins",
+  "edition": "gh2e",
+  "parent": "37",
+  "monsters": [
+    "ancient-artillery",
+    "living-bones",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

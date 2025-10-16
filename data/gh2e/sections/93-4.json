@@ -1,0 +1,33 @@
+{
+  "index": "93.4",
+  "name": "Deep Ruins",
+  "edition": "gh2e",
+  "parent": "37",
+  "monsters": [
+    "ancient-artillery",
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

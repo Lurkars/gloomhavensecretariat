@@ -1,0 +1,10 @@
+{
+  "index": "48.2",
+  "name": "Prosperity 3",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "You can now optionally use Monster Imbuement. Read the first part of Appendix F."
+  }
+}

@@ -10,6 +10,7 @@
     "gridLocation": "E-9"
   },
   "edition": "fc",
+  "eventType": "rift",
   "monsters": [
     "stone-golem"
   ],

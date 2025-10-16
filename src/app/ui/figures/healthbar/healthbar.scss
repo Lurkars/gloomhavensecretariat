@@ -7,7 +7,7 @@
   .health-bar-value {
     height: 100%;
     max-width: 1000%;
-    transition: width 0.5s;
+    transition: width calc(var(--ghs-animation-speed) * 500ms);
     background-color: var(--ghs-color-lightgreen);
   }
 

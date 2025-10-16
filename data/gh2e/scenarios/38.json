@@ -1,0 +1,31 @@
+{
+  "index": "38",
+  "name": "Drake Nest",
+  "flowChartGroup": "the-sewers",
+  "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "into-the-depths"
+    ]
+  },
+  "monsters": [
+    "flame-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

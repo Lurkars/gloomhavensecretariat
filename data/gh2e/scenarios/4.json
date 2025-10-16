@@ -1,0 +1,47 @@
+{
+  "index": "4",
+  "name": "Crypt of the Damned",
+  "flowChartGroup": "demons",
+  "edition": "gh2e",
+  "unlocks": [
+    "6",
+    "7"
+  ],
+  "rewards": {
+    "experience": 10,
+    "reputationFactions": [
+      "demons:1"
+    ]
+  },
+  "monsters": [
+    "bandit-archer",
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

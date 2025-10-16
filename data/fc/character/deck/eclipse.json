@@ -6,7 +6,7 @@
     {
       "name": "Concealed Dominance",
       "cardId": 271,
-      "replace": true,
+      "replace": false,
       "level": "X",
       "initiative": 35,
       "actions": [

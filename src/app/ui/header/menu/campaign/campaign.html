@@ -61,6 +61,11 @@
         <a tabclick (click)="openBattleGoalsSetup()" [ghs-label]="'campaign.battleGoals'"></a>
     </div>
 
+    <div class="line"
+        *ngIf="settingsManager.settings.partySheet && settingsManager.settings.events && gameManager.game.edition && !gameManager.bbRules()">
+        <a tabclick (click)="openEventDeckSetup()" [ghs-label]="'game.events.deck.setup'"></a>
+    </div>
+
     <div class="line title span"
         *ngIf="characters.length > 0 && settingsManager.settings.characterSheet && !gameManager.bbRules()">
         <label><span [ghs-label]="'campaign.character'"></span></label>

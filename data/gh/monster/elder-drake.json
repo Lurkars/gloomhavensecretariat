@@ -31,10 +31,6 @@
       ],
       [
         {
-          "type": "custom",
-          "value": "%data.custom.gh.elder-drake.1%"
-        },
-        {
           "type": "summon",
           "value": "objectiveSpawn",
           "valueObject": [
@@ -42,7 +38,7 @@
               "objective": {
                 "name": "zephyr",
                 "health": 0,
-                "initiativeShare": "elder-drake:-0.5",
+                "initiativeShare": "elder-drake:-0.1",
                 "actions": [
                   {
                     "type": "move",
@@ -57,6 +53,10 @@
               "count": 2
             }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh.elder-drake.1%"
         }
       ]
     ]

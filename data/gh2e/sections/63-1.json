@@ -1,0 +1,41 @@
+{
+  "index": "63.1",
+  "name": "- Infernal Throne",
+  "edition": "gh2e",
+  "parent": "27",
+  "marker": "1",
+  "monsters": [
+    "night-demon",
+    "the-prime-demon",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "the-prime-demon",
+          "type": "boss"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

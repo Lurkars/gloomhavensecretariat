@@ -14,7 +14,7 @@
       <span [ghs-label]="'settings.character'"></span>
       <select [(ngModel)]="characterName" (change)="update(); updateQueryParams()" multiple>
         <option *ngFor="let character of characters" [value]="character.name">
-          <span [ghs-label]="'data.character.' + character.name"></span>
+          <span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span>
         </option>
       </select>
     </label>
@@ -23,7 +23,7 @@
   <div class="characters">
     <ng-container *ngFor="let character of filteredCharacters">
       <div class="character" *ngIf="!!character && character.attackModifierDeck.cards.length > 0">
-        <h1><span [ghs-label]="'data.character.' + character.name"></span> [{{character.attackModifierDeck.cards.length}}]
+        <h1><span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span> [{{character.attackModifierDeck.cards.length}}]
         </h1>
         <ghs-attackmodifier [attackModifier]="attackModifier" [flipped]="true"
           [characterIcon]="gameManager.characterManager.characterIcon(character)"

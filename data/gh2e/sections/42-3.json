@@ -1,0 +1,46 @@
+{
+  "index": "42.3",
+  "edition": "gh2e",
+  "parent": "88",
+  "marker": "2",
+  "monsters": [
+    "arcane-construct",
+    "forest-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "treasures": [
+        51
+      ],
+      "monster": [
+        {
+          "name": "arcane-construct",
+          "type": "boss"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

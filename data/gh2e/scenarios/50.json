@@ -1,0 +1,54 @@
+{
+  "index": "50",
+  "name": "Nightmare Peak",
+  "flowChartGroup": "the-gloom",
+  "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "end-of-corruption"
+    ],
+    "prosperity": 1
+  },
+  "monsters": [
+    "frost-demon",
+    "night-demon",
+    "savvas-icestorm",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Door 1 (push 1)",
+      "health": "100",
+      "initiative": 73
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        39
+      ],
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-icestorm",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

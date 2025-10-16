@@ -1,0 +1,60 @@
+{
+  "index": "45",
+  "name": "Plane of Night",
+  "flowChartGroup": "the-gloom",
+  "edition": "gh2e",
+  "unlocks": [
+    "38",
+    "46",
+    "47",
+    "48"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "the-darkness-retreats"
+    ],
+    "envelopes": [
+      "candle"
+    ],
+    "prosperity": 1
+  },
+  "monsters": [
+    "deep-terror",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

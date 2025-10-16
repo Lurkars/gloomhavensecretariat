@@ -1,0 +1,56 @@
+{
+  "index": "88",
+  "name": "Arcane Library",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "ancient-technology"
+    ],
+    "events": [
+      "city:37"
+    ]
+  },
+  "monsters": [
+    "cave-bear",
+    "forest-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

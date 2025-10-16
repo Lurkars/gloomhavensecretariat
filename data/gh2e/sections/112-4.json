@@ -1,0 +1,55 @@
+{
+  "index": "112.4",
+  "edition": "gh2e",
+  "parent": "41",
+  "marker": "6",
+  "monsters": [
+    "black-imp",
+    "living-corpse",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

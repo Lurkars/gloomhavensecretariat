@@ -55,7 +55,7 @@ export class AttackModifierStandaloneComponent implements OnInit, OnDestroy {
                     if (!character) {
                         const characterData = gameManager.charactersData(queryParams['e']).find((characterData) => characterData.edition == queryParams['e'] && characterData.name == queryParams['c']);
                         if (characterData) {
-                            gameManager.stateManager.before("addChar", "data.character." + characterData.name);
+                            gameManager.stateManager.before("addChar", "data.character." + characterData.edition + '.' + characterData.name);
                             gameManager.characterManager.addCharacter(characterData, 1);
                             gameManager.stateManager.after();
                             character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.edition == queryParams['e'] && figure.name == queryParams['c']) as Character;
@@ -137,7 +137,7 @@ export class AttackModifierStandaloneComponent implements OnInit, OnDestroy {
             this.activeDeckIndex--;
             this.updateQueryParams();
         }
-        gameManager.stateManager.before("addChar", "data.character." + this.characters[index].name);
+        gameManager.stateManager.before("addChar", "data.character." + this.characters[index].edition + '.' + this.characters[index].name);
         gameManager.characterManager.removeCharacter(this.characters[index]);
         gameManager.stateManager.after();
     }

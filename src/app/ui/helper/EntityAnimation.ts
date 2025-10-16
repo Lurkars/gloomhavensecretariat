@@ -22,13 +22,13 @@ export class EntityAnimationDirective implements OnChanges {
           setTimeout(() => {
             this.el.nativeElement.classList.remove("entity-dead");
             gameManager.uiChange.emit();
-          }, !settingsManager.settings.animations ? 0 : 1500);
+          }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
         } else if (!change.currentValue) {
           this.el.nativeElement.classList.add("entity-alive");
           setTimeout(() => {
             this.el.nativeElement.classList.remove("entity-alive");
             gameManager.uiChange.emit();
-          }, !settingsManager.settings.animations ? 0 : 1500);
+          }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
         }
       }
     }

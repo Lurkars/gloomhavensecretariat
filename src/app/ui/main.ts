@@ -40,6 +40,7 @@ export class MainComponent implements OnInit {
   cancelLoading: boolean = false;
   welcome: boolean = false;
   welcomeOtherEditions: boolean = false;
+  welcomeEditionHint: boolean = false;
   fullviewChar: Character | undefined;
   showBackupHint: boolean = false;
 
@@ -76,6 +77,7 @@ export class MainComponent implements OnInit {
           } else if (gameManager.game.figures.length == 0) {
             this.welcome = true;
             this.welcomeOtherEditions = settingsManager.settings.editions.length < gameManager.editionData.length;
+            this.welcomeEditionHint = gameManager.game.edition && settingsManager.getLabel('data.edition.' + gameManager.game.edition + '.hint') != 'hint' || false;
           } else {
             this.fullviewChar = undefined;
             this.welcome = false;
@@ -215,6 +217,7 @@ export class MainComponent implements OnInit {
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
     document.body.style.setProperty('--ghs-global-fontsize', settingsManager.settings.globalFontsize + '');
+    document.body.style.setProperty('--ghs-animation-speed', settingsManager.settings.animationSpeed + '');
 
 
     if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock) {
@@ -341,6 +344,10 @@ export class MainComponent implements OnInit {
       }
     }
     gameManager.game.party.campaignMode = true;
+    gameManager.game.party.edition = edition;
+    this.welcomeEditionHint = edition && settingsManager.getLabel('data.edition.' + edition + '.hint') != 'hint' || false;
+    gameManager.game.party.eventDecks = {};
+    gameManager.eventCardManager.buildPartyDeckMigration(edition);
     gameManager.stateManager.after();
   }
 
@@ -348,6 +355,13 @@ export class MainComponent implements OnInit {
     gameManager.stateManager.before("cancelCampaign", 'data.edition.' + edition);
     gameManager.game.edition = undefined;
     gameManager.game.party.campaignMode = false;
+    gameManager.game.party.eventDecks = {};
+    gameManager.stateManager.after();
+  }
+
+  toggleCampaignMode() {
+    gameManager.stateManager.before(gameManager.game.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
+    gameManager.game.party.campaignMode = !gameManager.game.party.campaignMode;
     gameManager.stateManager.after();
   }
 
@@ -500,11 +514,11 @@ export class MainComponent implements OnInit {
               if (skipAnimation) {
                 containerElement.classList.remove('no-animations');
               }
-            }, !settingsManager.settings.animations || skipAnimation ? 0 : 250);
+            }, !settingsManager.settings.animations || skipAnimation ? 0 : 250 * settingsManager.settings.animationSpeed);
           } else if (skipAnimation) {
             setTimeout(() => {
               containerElement.classList.remove('no-animations');
-            }, !settingsManager.settings.animations ? 0 : 250)
+            }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0)
           }
         }
       }

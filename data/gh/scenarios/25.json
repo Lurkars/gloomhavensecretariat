@@ -10,6 +10,7 @@
     "gridLocation": "A-5"
   },
   "edition": "gh",
+  "eventType": "road",
   "unlocks": [
     "33",
     "34"
@@ -38,7 +39,7 @@
             "name": ".*"
           },
           "type": "amAdd",
-          "value": "minus1:3",
+          "value": "minus1:2",
           "scenarioEffect": true
         }
       ]

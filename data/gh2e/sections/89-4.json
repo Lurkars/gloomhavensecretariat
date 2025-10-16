@@ -1,0 +1,40 @@
+{
+  "index": "89.4",
+  "name": "Fading Lighthouse",
+  "edition": "gh2e",
+  "parent": "63",
+  "monsters": [
+    "flame-demon",
+    "giant-viper",
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

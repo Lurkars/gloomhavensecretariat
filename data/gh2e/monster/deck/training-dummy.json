@@ -1,0 +1,18 @@
+{
+  "name": "training-dummy",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Nothing",
+      "cardId": 0,
+      "initiative": 99,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Does Not Act"
+        }
+      ]
+    }
+  ]
+}

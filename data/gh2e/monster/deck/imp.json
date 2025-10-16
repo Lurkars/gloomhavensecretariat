@@ -1,0 +1,252 @@
+{
+  "name": "imp",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Phase Out",
+      "cardId": 826,
+      "initiative": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 5
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "wild"
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 827,
+      "initiative": 37,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 828,
+      "initiative": 37,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Restoration",
+      "cardId": 829,
+      "initiative": 42,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rotten Sting",
+      "cardId": 830,
+      "initiative": 43,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calculated Strike",
+      "cardId": 831,
+      "initiative": 76,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dark Charm",
+      "cardId": 832,
+      "initiative": 43,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tip the Scales",
+      "cardId": 833,
+      "initiative": 24,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

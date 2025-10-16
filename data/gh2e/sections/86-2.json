@@ -1,0 +1,59 @@
+{
+  "index": "86.2",
+  "name": "Chasing Secrets",
+  "edition": "gh2e",
+  "parent": "43",
+  "monsters": [
+    "candlekeeper-trice",
+    "city-guard",
+    "hound",
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "candlekeeper-trice",
+          "player2": "boss",
+          "player3": "boss",
+          "player4": "boss"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "index": "77.1",
+  "edition": "gh2e",
+  "parent": "43",
+  "monsters": [
+    "city-guard",
+    "stone-construct"
+  ],
+  "objectives": [
+    {
+      "name": "Bookshelf",
+      "escort": true,
+      "health": "4+LxC"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

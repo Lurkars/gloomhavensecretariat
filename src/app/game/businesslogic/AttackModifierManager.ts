@@ -1,4 +1,4 @@
-import { AttackModifier, AttackModifierDeck, AttackModifierType, AttackModifierValueType, CsOakDeckAttackModifier, GameAttackModifierDeckModel, additionalTownGuardAttackModifier, defaultAttackModifier, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
+import { AdvancedImbueAttackModifier, AttackModifier, AttackModifierDeck, AttackModifierType, AttackModifierValueType, CsOakDeckAttackModifier, GameAttackModifierDeckModel, ImbuementAttackModifier, additionalTownGuardAttackModifier, defaultAttackModifier, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Character } from "../model/Character";
 import { CharacterData } from "../model/data/CharacterData";
@@ -157,6 +157,17 @@ export class AttackModifierManager {
     attackModifierDeck.cards.splice(index, 0, attackModifier);
   }
 
+  addModifierByType(attackModifierDeck: AttackModifierDeck, type: AttackModifierType) {
+    this.addModifier(attackModifierDeck, new AttackModifier(type));
+  }
+
+  removeModifierByType(attackModifierDeck: AttackModifierDeck, type: AttackModifierType) {
+    const attackModifier = attackModifierDeck.cards.find((am) => am.type == type);
+    if (attackModifier) {
+      attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(attackModifier), 1);
+    }
+  }
+
   drawModifier(attackModifierDeck: AttackModifierDeck, state: 'advantage' | 'disadvantage' | undefined) {
     if (attackModifierDeck.bb) {
       this.drawBB(attackModifierDeck, state);
@@ -175,15 +186,17 @@ export class AttackModifierManager {
       attackModifierDeck.lastVisible = attackModifierDeck.current;
     }
     attackModifierDeck.state = undefined;
-    let currentCard = attackModifierDeck.cards[attackModifierDeck.current];
-    if (currentCard && currentCard.rolling) {
-      while (currentCard.rolling) {
-        if (attackModifierDeck.current == attackModifierDeck.cards.length - 1) {
-          return;
+    if (settingsManager.settings.amAdvantage) {
+      let currentCard = attackModifierDeck.cards[attackModifierDeck.current];
+      if (currentCard && currentCard.rolling) {
+        while (currentCard.rolling) {
+          if (attackModifierDeck.current == attackModifierDeck.cards.length - 1) {
+            return;
+          }
+          attackModifierDeck.current = attackModifierDeck.current + 1;
+          currentCard = attackModifierDeck.cards[attackModifierDeck.current];
+          this.updateLastVisible(attackModifierDeck);
         }
-        attackModifierDeck.current = attackModifierDeck.current + 1;
-        currentCard = attackModifierDeck.cards[attackModifierDeck.current];
-        this.updateLastVisible(attackModifierDeck);
       }
     }
     this.updateLastVisible(attackModifierDeck);
@@ -465,73 +478,75 @@ export class AttackModifierManager {
     attackModifierDeck.attackModifiers.push(...additionalTownGuardAttackModifier);
 
     let perkId = 0;
-    campaignData.townGuardPerks.forEach((townGuardPerk) => {
-      const perk = townGuardPerk.perk;
-      if (perk.cards) {
-        perk.cards.forEach((card, index) => {
-          if (perk.type == PerkType.add || perk.type == PerkType.replace) {
-            let am = Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier);
-            am.id = "perk" + perkId;
-            if (!this.findByAttackModifier(defaultTownGuardDeck, am) || perk.type == PerkType.add || index > 0) {
-              am.character = true;
+    if (campaignData.townGuardPerks) {
+      campaignData.townGuardPerks.forEach((townGuardPerk) => {
+        const perk = townGuardPerk.perk;
+        if (perk.cards) {
+          perk.cards.forEach((card, index) => {
+            if (perk.type == PerkType.add || perk.type == PerkType.replace) {
+              let am = Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier);
+              am.id = "perk" + perkId;
+              if (!this.findByAttackModifier(defaultTownGuardDeck, am) || perk.type == PerkType.add || index > 0) {
+                am.character = true;
+              }
+              if (!this.findByAttackModifier(attackModifierDeck.attackModifiers, am)) {
+                perkId++;
+                attackModifierDeck.attackModifiers.push(am);
+              }
             }
-            if (!this.findByAttackModifier(attackModifierDeck.attackModifiers, am)) {
-              perkId++;
-              attackModifierDeck.attackModifiers.push(am);
+          })
+        }
+      })
+
+      if (party.townGuardPerkSections) {
+        campaignData.townGuardPerks.forEach((townGuardPerk) => {
+          const perk = townGuardPerk.perk;
+          if (!perk) {
+            // error
+            return;
+          }
+          const checked = townGuardPerk.sections.filter((section) => party.townGuardPerkSections.indexOf(section) != -1).length;
+          if (perk.combined) {
+            if (checked == perk.count) {
+              this.addPerkCard(perk, attackModifierDeck, defaultTownGuardDeck);
+            }
+          } else {
+            for (let check = 0; check < checked; check++) {
+              this.addPerkCard(perk, attackModifierDeck, defaultTownGuardDeck);
             }
           }
         })
       }
-    })
 
-    if (party.townGuardPerkSections) {
-      campaignData.townGuardPerks.forEach((townGuardPerk) => {
-        const perk = townGuardPerk.perk;
-        if (!perk) {
-          // error
-          return;
+      party.scenarios.forEach((scenarioModel) => {
+        const scenarioData = gameManager.scenarioManager.scenarioDataForModel(scenarioModel);
+        if (scenarioData && scenarioData.rewards && scenarioData.rewards.townGuardAm) {
+          scenarioData.rewards.townGuardAm.forEach((id, index) => {
+            let am = attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == id);
+            if (am) {
+              attackModifierDeck.cards.push(am.clone());
+            } else {
+              console.warn("Unknown Town Guard AM:", id);
+            }
+
+          })
         }
-        const checked = townGuardPerk.sections.filter((section) => party.townGuardPerkSections.indexOf(section) != -1).length;
-        if (perk.combined) {
-          if (checked == perk.count) {
-            this.addPerkCard(perk, attackModifierDeck, defaultTownGuardDeck);
-          }
-        } else {
-          for (let check = 0; check < checked; check++) {
-            this.addPerkCard(perk, attackModifierDeck, defaultTownGuardDeck);
-          }
+      })
+
+      party.conclusions.forEach((sectionModel) => {
+        const sectionData = gameManager.scenarioManager.sectionDataForModel(sectionModel);
+        if (sectionData && sectionData.rewards && sectionData.rewards.townGuardAm) {
+          sectionData.rewards.townGuardAm.forEach((id, index) => {
+            let am = attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == id);
+            if (am) {
+              attackModifierDeck.cards.push(am.clone());
+            } else {
+              console.warn("Unknown Town Guard AM:", id);
+            }
+          })
         }
       })
     }
-
-    party.scenarios.forEach((scenarioModel) => {
-      const scenarioData = gameManager.scenarioManager.scenarioDataForModel(scenarioModel);
-      if (scenarioData && scenarioData.rewards && scenarioData.rewards.townGuardAm) {
-        scenarioData.rewards.townGuardAm.forEach((id, index) => {
-          let am = attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == id);
-          if (am) {
-            attackModifierDeck.cards.push(am.clone());
-          } else {
-            console.warn("Unknown Town Guard AM:", id);
-          }
-
-        })
-      }
-    })
-
-    party.conclusions.forEach((sectionModel) => {
-      const sectionData = gameManager.scenarioManager.sectionDataForModel(sectionModel);
-      if (sectionData && sectionData.rewards && sectionData.rewards.townGuardAm) {
-        sectionData.rewards.townGuardAm.forEach((id, index) => {
-          let am = attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == id);
-          if (am) {
-            attackModifierDeck.cards.push(am.clone());
-          } else {
-            console.warn("Unknown Town Guard AM:", id);
-          }
-        })
-      }
-    })
 
     return attackModifierDeck;
   }
@@ -651,6 +666,12 @@ export class AttackModifierManager {
       attackModifier = defaultAttackModifier.find((attackModifier) => attackModifier.id == id);
       if (!attackModifier) {
         attackModifier = CsOakDeckAttackModifier.find((attackModifier) => attackModifier.id == id);
+      }
+      if (!attackModifier) {
+        attackModifier = ImbuementAttackModifier.find((attackModifier) => attackModifier.id == id);
+      }
+      if (!attackModifier) {
+        attackModifier = AdvancedImbueAttackModifier.find((attackModifier) => attackModifier.id == id);
       }
       if (!attackModifier) {
         attackModifier = this.getAllAdditional().find((attackModifier) => attackModifier.id == id);

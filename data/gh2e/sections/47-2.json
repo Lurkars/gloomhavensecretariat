@@ -1,0 +1,46 @@
+{
+  "index": "47.2",
+  "name": "Ancient Cistern",
+  "edition": "gh2e",
+  "parent": "41",
+  "monsters": [
+    "night-demon",
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "treasures": [
+        47
+      ],
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

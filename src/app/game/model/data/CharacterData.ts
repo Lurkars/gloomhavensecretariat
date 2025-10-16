@@ -1,5 +1,6 @@
 import { AttackModifier } from "./AttackModifier";
 import { CharacterSpecialAction, CharacterStat } from "./CharacterStat";
+import { ConditionName } from "./Condition";
 import { Editional } from "./Editional";
 import { FigureError } from "./FigureError";
 import { Perk, PerkCard } from "./Perks";
@@ -45,6 +46,7 @@ export class CharacterData implements Editional, Spoilable {
   traits: string[] = [];
   availableSummons: SummonData[] = [];
   specialActions: CharacterSpecialAction[] = [];
+  specialConditions: ConditionName[] = [];
 
   icon: string = '';
   iconUrl: string = '';
@@ -106,6 +108,7 @@ export class CharacterData implements Editional, Spoilable {
       this.marker = characterData.marker || false;
       this.spoiler = characterData.spoiler || false;
       this.specialActions = characterData.specialActions || [];
+      this.specialConditions = characterData.specialConditions || [];
       this.locked = characterData.locked || false;
       this.deck = characterData.deck || "";
       this.perkWarning = characterData.perkWarning;

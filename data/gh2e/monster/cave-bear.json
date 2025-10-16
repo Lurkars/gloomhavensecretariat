@@ -1,0 +1,228 @@
+{
+  "name": "cave-bear",
+  "edition": "gh2e",
+  "count": 4,
+  "baseStat": {
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 7,
+      "movement": 3,
+      "attack": 3,
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "level": 1,
+      "health": 9,
+      "movement": 3,
+      "attack": 3,
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "level": 2,
+      "health": 11,
+      "movement": 4,
+      "attack": 3,
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "level": 3,
+      "health": 13,
+      "movement": 4,
+      "attack": 4,
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "level": 4,
+      "health": 15,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "level": 5,
+      "health": 17,
+      "movement": 5,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "level": 6,
+      "health": 21,
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "level": 7,
+      "health": 27,
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 11,
+      "movement": 3,
+      "attack": 4,
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 14,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 17,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 20,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 21,
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 24,
+      "movement": 5,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 29,
+      "movement": 5,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 37,
+      "movement": 5,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "disarm"
+      ]
+    }
+  ]
+}

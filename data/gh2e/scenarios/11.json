@@ -1,0 +1,51 @@
+{
+  "index": "11",
+  "name": "Ritual Chamber",
+  "flowChartGroup": "demons",
+  "edition": "gh2e",
+  "unlocks": [
+    "15"
+  ],
+  "rewards": {
+    "experience": 10,
+    "battleGoals": 1,
+    "reputationFactions": [
+      "demons:1"
+    ]
+  },
+  "monsters": [
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        35
+      ],
+      "monster": [
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

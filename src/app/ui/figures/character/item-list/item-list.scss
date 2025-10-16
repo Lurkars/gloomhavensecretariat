@@ -47,7 +47,7 @@
         margin-bottom: 0;
         width: calc(var(--ghs-unit) * 12 * var(--ghs-item-list-zoom));
         height: calc(var(--ghs-unit) * 18 * var(--ghs-item-list-zoom));
-        transition: all 500ms ease-in-out;
+        transition: all calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
 
         &.spent {
             transform: rotate(90deg);

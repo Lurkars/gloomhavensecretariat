@@ -1,0 +1,53 @@
+{
+  "index": "93.5",
+  "name": "The Last Stand",
+  "edition": "gh2e",
+  "parent": "55",
+  "monsters": [
+    "black-imp",
+    "chaos-demon",
+    "harrower-infester"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

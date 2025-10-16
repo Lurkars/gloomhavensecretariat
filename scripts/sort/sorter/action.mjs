@@ -1,4 +1,5 @@
 import { sortObjectKeys } from './sort-helper.mjs';
+import { sortSummon } from './summon.mjs';
 
 export const sortAction = function (action) {
 
@@ -20,6 +21,10 @@ export const sortAction = function (action) {
 
     if (action.enhancementTypes && action.enhancementTypes.length == 0) {
         delete action.enhancementTypes;
+    }
+
+    if (action.type == 'summon' && action.value == 'summonData' && action.valueObject) {
+        action.valueObject = sortSummon(action.valueObject);
     }
 
     // sort area effects by coordinates

@@ -1,16 +1,178 @@
 {
   "character": {
-    "angry-face": "Condamneur",
-    "circles": "Invocateur",
-    "eclipse": "Voilsombre",
-    "lightning": "Berserker",
-    "music-note": "Chante-Vrai",
-    "saw": "Charcuteur",
-    "squidface": "Héraut du Fléau",
-    "sun": "Gardienne du Soleil",
-    "three-spears": "Intendant",
-    "triangles": "Élémentaliste",
-    "two-mini": "Maître des Bêtes"
+    "gh": {
+      "angry-face": "Condamneur",
+      "circles": "Invocateur",
+      "eclipse": "Voilsombre",
+      "lightning": "Berserker",
+      "music-note": "Chante-Vrai",
+      "saw": "Charcuteur",
+      "squidface": "Héraut du Fléau",
+      "sun": "Gardienne du Soleil",
+      "three-spears": "Intendant",
+      "triangles": "Élémentaliste",
+      "two-mini": "Maître des Bêtes"
+    }
+  },
+  "custom": {
+    "gh": {
+      "squidface": {
+        "abilities": {
+          "289": {
+            "1": "Appliquez %game.condition.poison% à tous les adversaires et alliés dans la zone ciblée."
+          },
+          "290": {
+            "1": "Retirez -1 %game.action.range% à toutes vos attaques à distance."
+          },
+          "292": {
+            "1": "Une fois pendant chacune de vos actions d'Attaque, vous pouvez appliquer %game.condition.poison% à un allié à %game.action.range:2% (ou lui infliger 3 dégâts s'il a déjà %game.condition.poison%) pour ajouter +1 %game.action.attack% à la totalité de votre action d'Attaque."
+          },
+          "294": {
+            "1": "Gagnez %game.action.fly%"
+          },
+          "298": {
+            "1": "Durant vos six prochaines actions d'Attaque lors desquelles %game.element.air% est Fort ou Faible, vous pouvez %game.element.consume.air% pour ajouter +1 %game.action.attack% à la totalité de l'action d'Attaque."
+          },
+          "299": {
+            "1": "Toutes les attaques vous ciblant gagnent Désavantage ce round."
+          },
+          "300": {
+            "1": "Après chacune de vos actions de Déplacement, appliquez %game.condition.poison% à chaque adversaire et allié adjacent."
+          },
+          "301": {
+            "1": "Retirez %game.condition.poison% à un adversaire pour qu'il subisse 3 dégâts.",
+            "2": "Ciblez tous les adversaires adjacents à un adversaire avec %game.condition.poison%"
+          },
+          "304": {
+            "1": "Appliquez %game.condition.poison% à tous les alliés adjacents à la cible."
+          },
+          "305": {
+            "1": "Éliminez un adversaire normal avec %game.condition.poison% et à %game.action.range% 3."
+          },
+          "307": {
+            "1": "De plus, ciblez tous les adversaires sur le chemin vers votre première cible"
+          },
+          "309": {
+            "1": "Tous les adversaires avec %game.condition.poison% subissent %game.damage:1%.",
+            "2": "%game.damage:2% à la place"
+          },
+          "310": {
+            "1": "Une fois durant chacune de vos actions de Déplacement, vous pouvez subir %game.damage:1% pour infliger %game.damage:3% à une adversaire avec %game.condition.poison%.",
+            "2": "Tous les alliés avec %game.condition.poison% peuvent Récupérer %game.card.recover% jusqu'à 2 de leurs cartes défaussées.",
+            "3": "jusqu'à 3 cartes défaussées à la place"
+          },
+          "314": {
+            "1": "Si un adversaire n'inflige pas de dégâts durant son attaque à cause d'une %game.condition.curse%, cet adversaire subit %game.damage:3%."
+          },
+          "316": {
+            "1": "Durant vos six prochaines actions d'Attaque, appliquez %game.condition.curse% à un allié à %game.action.range% 2 pour gagner 2 effets %game.action.target%.",
+            "2": "Doublez la valeur de votre prochaine action d'Attaque ce round."
+          },
+          "317": {
+            "1": "Tous les adversaires avec %game.condition.poison% subissent %game.damage:2%.",
+            "2": "subissent 1 dégât supplémentaire"
+          },
+          "318": {
+            "1": "Tous les alliés avec %game.condition.poison% subissent %game.damage:2%.",
+            "2": "Pour toute paire d'alliés ayant subi des dégâts, ajoutez +1 %game.action.attack% à toutes vos attaques ce round et gagnez %game.card.experience:1%."
+          }
+        }
+      },
+      "sun": {
+        "abilities": {
+          "175": {
+            "1": "Pour les cinq prochaines attaques de mêlée vous ciblant, gagnez %game.action.retaliate:2%"
+          },
+          "177": {
+            "1": "Un allié adjacent peut Récupérer %game.card.recover% une des ses cartes perdues."
+          },
+          "178": {
+            "1": "Un allié adjacent peut Récupérer %game.card.recover% jusqu'à deux de ses cartes défaussées.",
+            "2": "jusqu'à trois cartes défaussées à la place, %game.card.experience:1%.",
+            "3": "Un allié adjacent peut effectuer"
+          },
+          "179": {
+            "1": "Vous et tous vos alliés adjacents ne subissez aucun dégât ce round."
+          },
+          "181": {
+            "1": "Un allié à %game.action.range:3% peut effectuer"
+          },
+          "184": {
+            "1": "Retirez -1 %game.action.move% à tous vos déplacements."
+          },
+          "185": {
+            "1": "Soignez tous les dégâts sur un allié adjacent.",
+            "2": "Subissez %game.damage:3%."
+          },
+          "187": {
+            "1": "À la fin de vos cinq prochains tours lors desquels %game.element.light% n'est pas Fort, générez %game.element.light%"
+          },
+          "190": {
+            "1": "Un allié adjacent peut immédiatement effectuer un tour supplémentaire en jouant deux cartes de sa main."
+          },
+          "191": {
+            "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
+          },
+          "192": {
+            "1": "Tous les alliés à %game.action.range:5% peuvent effectuer"
+          },
+          "194": {
+            "1": "Toutes les attaques vous ciblant ou ciblant tout allié à %game.action.range:4% de vous-même gagnent Désavantage ce round."
+          },
+          "195": {
+            "1": "Affectez tous les alliés franchis"
+          },
+          "196": {
+            "1": "Retirez -1 %game.action.attack% à toutes vos attaques."
+          },
+          "197": {
+            "1": "Tous les alliés ajoutent +1 %game.action.attack% à toutes leurs attaques ce round.",
+            "2": "Tous les alliés ajoutent +2 %game.action.move% à tous leurs déplacements ce round."
+          },
+          "198": {
+            "1": "Un allié adjacent peut effectuer"
+          },
+          "199": {
+            "1": "Durant n'importe lesquelles de vos actions d'Attaque, vous pouvez %game.element.consume.light% pour ajouter +2 %game.action.attack%, gagnez %game.custom.advantage% et %game.card.experience:1%"
+          },
+          "200": {
+            "1": "Un allié adjacent peut Récupérer %game.card.recover% une de ses cartes perdues.",
+            "2": "jusqu'à deux cartes perdues à la place"
+          },
+          "202": {
+            "1": "Un allié adjacent peut effectuer",
+            "2": "Éliminez une cible normale ou d'élite de l'attaque à la place, %game.card.experience:1%.",
+            "3": "Tous les alliés à %game.action.range:3% peuvent effectuer",
+            "4": "Gagnez %game.card.experience:1% pour chaque attaque effectuée."
+          },
+          "203": {
+            "1": "Pour vos quatre prochaines actions d'Attaque, ajoutez +3 %game.action.attack%, %game.condition.wound%, et gagnez %game.custom.advantage%."
+          },
+          "204": {
+            "1": "Quand un allié subit des dégâts, vous pouvez subir ces dégâts réduits de 1 à la place."
+          }
+        }
+      }
+    }
+  },
+  "events": {
+    "gh": {
+      "city": {
+        "5": {
+          "options": {
+            "1": {
+              "choice": "Allez aider à mettre en place les fondations.",
+              "outcome": "Tout en participant très activement aux festivités, vous investissez toutes vos forces à creuser les fondations du Sanctuaire. Un grand bien sera sûrement accompli ici en soignant les malades et les blessés. En attendant, après tous vos épuisants efforts, c'est vous qui risquez d'être leurs premiers patients."
+            },
+            "2": {
+              "choice": "Profitez de l'occasion pour voler quelques objets de valeur dans la zone pendant que les gens sont distraits.",
+              "outcome": "Vous vous dirigez vers le quartier est - la partie prospère de la ville - non pas pour aider à la construction des fondations mais pour dérober quelques biens des marchands trop idiots pour verrouiller leurs échoppes pendant les festivités. Vous repartez avec une coquette somme. Les gardes distraits ne sont pas des plus vigilants."
+            }
+          },
+          "text": "Après une nuit de repos, vous commencez votre journée en remarquant un grand nombre d'affiches imposantes tout autour de la ville. À la lecture de l'une d'entre elles, vous apprenez que le Sanctuaire du Grand Chêne creuse les fondations d'un nouveau bâtiment dans le quartier est de Havrenuit. Tout le monde est convié à venir apporter son aide. Cela pourrait être un événement communautaire important."
+        }
+      }
+    }
   },
   "items": {
     "gh-1": {
@@ -25,9 +187,17 @@
       "": "Deuxième Peau",
       "1": "Retirez deux %game.attackmodifier.minus1% de votre paquet de Modificateur d'Attaque."
     },
+    "gh-103": {
+      "": "Armure d'Écailles de Wyverne",
+      "1": "Vous êtes immunisé à %game.condition.poison% et à %game.condition.wound%."
+    },
     "gh-107": {
       "": "Casque à Cornes",
       "1": "Une fois par tour, après vous être déplacé d'au moins 4 hexagones pendant votre tour, ajoutez +1 %game.action.attack% à votre prochaine attaque de mêlée ce tour-ci."
+    },
+    "gh-108": {
+      "": "Heaume d'Écailles de Wyverne",
+      "1": "Quand vous subissez %game.condition.muddle%, gagnez %game.condition.strengthen% à la place."
     },
     "gh-11": {
       "": "Dague Empoisonnée",
@@ -37,19 +207,27 @@
       "": "Hache Fléau des Crânes",
       "1": "Pendant votre attaque de mêlée ciblant un Cadavre Réanimé, Esprit Réanimé ou Squelette Réanimé, ajoutez +5 %game.action.attack% à une seule attaque."
     },
+    "gh-116": {
+      "": "Fauchon Attisé",
+      "1": "Pendant votre attaque de mêlée sur une unique cible, la cible et tous les adversaires adjacents à la cible subissent 1 dégât"
+    },
     "gh-12": {
-      "": "Potion Soin Mineure",
-      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 3, self\"."
+      "": "Potion de Soin Mineure",
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 3, Sur vous-même\"."
     },
     "gh-123": {
       "": "Anneau de Crânes"
     },
+    "gh-124": {
+      "": "Compas Maudit",
+      "1": "Pendant votre tour, forcez un adversaire à %game.action.range:5% à effectuer une action de \"%game.action.move% 2\". Vous contrôlez cette action."
+    },
     "gh-13": {
-      "": "Potion Endurance Mineure",
+      "": "Potion d'Endurance Mineure",
       "1": "Pendant votre tour, Récupérez %game.card.recover% une de vos cartes défaussées."
     },
     "gh-14": {
-      "": "Potion Puissance Mineure",
+      "": "Potion de Puissance Mineure",
       "1": "Pendant votre attaque, ajoutez +1 %game.action.attack% à la totalité de votre action d'Attaque."
     },
     "gh-15": {
@@ -77,20 +255,65 @@
       "1": "Pendant votre déplacement, ajoutez %game.action.jump% à ce déplacement."
     },
     "gh-20": {
-      "": "Potion Mana Mineure",
+      "": "Potion de Mana Mineure",
       "1": "Pendant votre tour, créez un élément au choix."
     },
     "gh-21": {
       "": "Poudre Étourdissante",
       "1": "Pendant votre attaque, ajoutez %game.condition.stun% à une seule attaque."
     },
+    "gh-22": {
+      "": "Jambières Lourdes",
+      "1": "Vous êtes immunisé à tout déplacement forcé par des adversaires ou des mécanismes de scénario."
+    },
+    "gh-23": {
+      "": "Cotte de Maille",
+      "1": "Pour les trois prochaines sources de dégâts d'attaques vous ciblant, gagnez %game.action.shield% 1."
+    },
+    "gh-24": {
+      "": "Amulette de Vie",
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 1, Sur vous-même\"."
+    },
+    "gh-25": {
+      "": "Épée Dentelée",
+      "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.wound% à une seule attaque."
+    },
+    "gh-26": {
+      "": "Pique",
+      "1": "Pendant votre action d'attaque de mêlée sur une seule cible, transformez cette attaque en :"
+    },
+    "gh-27": {
+      "": "Potion de Soin Majeure",
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 5, Sur vous-même\"."
+    },
+    "gh-28": {
+      "": "Boucle d'Oreille Lunaire",
+      "1": "Pendant votre tour, Rafraîchissez %game.card.refresh% tous vos objets dépensés."
+    },
     "gh-3": {
       "": "Armure de Peaux",
       "1": "Pour les deux prochaines sources de dégâts d'attaques vous ciblant, gagnez %game.action.shield% 1."
     },
+    "gh-32": {
+      "": "Pavois",
+      "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield% 2 pour cette attaque."
+    },
+    "gh-33": {
+      "": "Bombe Explosive",
+      "1": "Pendant votre action d'attaque à distance sur une seule cible, transformez cette attaque en :"
+    },
+    "gh-34": {
+      "": "Potion d'Endurance Majeure"
+    },
     "gh-4": {
       "": "Armure de Cuir",
       "1": "Lorsque vous êtes attaqué, l'attaquant gagne Désavantage pour cette attaque."
+    },
+    "gh-41": {
+      "": "Potion de Puissance Majeure"
+    },
+    "gh-48": {
+      "": "Potion de Mana Majeure"
     },
     "gh-5": {
       "": "Cape d'Invisibilité",
@@ -104,16 +327,29 @@
       "": "Casque de fer",
       "1": "Lorsque vous êtes attaqué, traitez toute carte Modificateur d'Attaque %game.attackmodifier.double% piochée par l'adversaire comme une carte %game.attackmodifier.plus0% à la place."
     },
+    "gh-72": {
+      "": "Brodequins de Bonheur",
+      "1": "Si vous vous déplacez d'au moins 6 hexagones à votre tour, gagnez %game.card.experience:1%."
+    },
     "gh-8": {
       "": "Écu",
       "1": "Lorsque vous subissez des dégâts du fait d'une attaque, gagnez %game.action.shield% 1 pour cette attaque."
     },
     "gh-86": {
-      "": "Baguette de Séisme"
+      "": "Baguette de Séisme",
+      "1": "Pendant votre tour, créez l’élément Terre."
+    },
+    "gh-88": {
+      "": "Baguette de Ténèbres",
+      "1": "Pendant votre tour, créez l'élément Obscurité."
     },
     "gh-9": {
       "": "Arc Perforant",
       "1": "Pendant votre attaque à distance, ignorez toutes les valeurs de Bouclier pour la totalité de l'action d'Attaque."
+    },
+    "gh-98": {
+      "": "Bottes d'Écailles de Wyverne",
+      "1": "Vous n'êtes pas affecté par les terrains difficiles ou dangereux."
     }
   },
   "summon": {

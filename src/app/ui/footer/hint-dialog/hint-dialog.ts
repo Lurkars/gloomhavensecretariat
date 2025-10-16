@@ -89,7 +89,7 @@ export class HintDialogComponent {
     }
 
     missingInitiative(): boolean {
-        return gameManager.game.figures.some((figure) => settingsManager.settings.initiativeRequired && (figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent || figure instanceof ObjectiveContainer) && figure.getInitiative() < 1);
+        return gameManager.game.figures.some((figure) => settingsManager.settings.initiativeRequired && (figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent || figure instanceof ObjectiveContainer) && figure.getInitiative() <= 0);
     }
 
     active(): boolean {

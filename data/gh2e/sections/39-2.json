@@ -1,0 +1,36 @@
+{
+  "index": "39.2",
+  "name": "Vibrant Grotto",
+  "edition": "gh2e",
+  "parent": "39",
+  "monsters": [
+    "cave-bear",
+    "earth-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

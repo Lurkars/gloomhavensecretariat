@@ -1,0 +1,29 @@
+{
+  "index": "97.4",
+  "name": "Ancient Defense Network",
+  "edition": "gh2e",
+  "parent": "33",
+  "monsters": [
+    "flame-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

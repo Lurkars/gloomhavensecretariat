@@ -1,0 +1,106 @@
+{
+  "name": "jekserah-scenario-23",
+  "edition": "gh2e",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "jekserah",
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Grant the C closest allies:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": "0",
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": "1",
+              "valueType": "minus"
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Perform the following C times:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx11",
+      "movement": 3,
+      "attack": "C+1"
+    },
+    {
+      "level": 1,
+      "health": "Cx15",
+      "movement": 3,
+      "attack": "C+2"
+    },
+    {
+      "level": 2,
+      "health": "Cx17",
+      "movement": 3,
+      "attack": "C+2"
+    },
+    {
+      "level": 3,
+      "health": "Cx19",
+      "movement": 4,
+      "attack": "C+3"
+    },
+    {
+      "level": 4,
+      "health": "Cx23",
+      "movement": 4,
+      "attack": "C+3"
+    },
+    {
+      "level": 5,
+      "health": "Cx26",
+      "movement": 4,
+      "attack": "C+4"
+    },
+    {
+      "level": 6,
+      "health": "Cx32",
+      "movement": 4,
+      "attack": "C+5"
+    },
+    {
+      "level": 7,
+      "health": "Cx41",
+      "movement": 4,
+      "attack": "C+6"
+    }
+  ]
+}

@@ -98,7 +98,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
 
     model = { edition: this.edition, group: group, filterSuccess: filterSuccess, includeSpoiler: includeSpoiler, all: all, scenarios: [] };
 
-    model.scenarios = gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || gameManager.game.unlockedCharacters.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1)) && (!filterSuccess || !gameManager.scenarioManager.isSuccess(scenarioData) && !gameManager.scenarioManager.isBlocked(scenarioData))).sort(gameManager.scenarioManager.sortScenarios).map((scenarioData) => new ScenarioCache(scenarioData, gameManager.scenarioManager.isSuccess(scenarioData), gameManager.scenarioManager.isBlocked(scenarioData), gameManager.scenarioManager.isLocked(scenarioData)));
+    model.scenarios = gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || gameManager.game.unlockedCharacters.indexOf(scenarioData.edition + ':' + scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.edition + ':' + scenarioData.solo) != -1)) && (!filterSuccess || !gameManager.scenarioManager.isSuccess(scenarioData) && !gameManager.scenarioManager.isBlocked(scenarioData))).sort(gameManager.scenarioManager.sortScenarios).map((scenarioData) => new ScenarioCache(scenarioData, gameManager.scenarioManager.isSuccess(scenarioData), gameManager.scenarioManager.isBlocked(scenarioData), gameManager.scenarioManager.isLocked(scenarioData)));
 
     this.scenarioCache.push(model);
 
@@ -211,11 +211,11 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
   }
 
   hasSpoilers(group: string | undefined): boolean {
-    return this.scenarios(group, true).some((scenarioData) => scenarioData.spoiler && (!scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.name) == -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) == -1))
+    return this.scenarios(group, true).some((scenarioData) => scenarioData.spoiler && (!scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.edition + ':' + scenarioData.name) == -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.edition + ':' + scenarioData.solo) == -1))
   }
 
   notSpoiled(group: string | undefined): Spoilable[] {
-    return this.scenarios(group, true).filter((scenarioData) => scenarioData.spoiler && (gameManager.game.unlockedCharacters.indexOf(scenarioData.name) == -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) == -1)).map((scenarioData) => scenarioData.solo && new SpoilableMock(scenarioData.solo) || new SpoilableMock(scenarioData.name));
+    return this.scenarios(group, true).filter((scenarioData) => scenarioData.spoiler && (gameManager.game.unlockedCharacters.indexOf(scenarioData.edition + ':' + scenarioData.name) == -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.edition + ':' + scenarioData.solo) == -1)).map((scenarioData) => scenarioData.solo && new SpoilableMock(scenarioData.solo) || new SpoilableMock(scenarioData.name));
   }
 
   toggleCampaignMode() {

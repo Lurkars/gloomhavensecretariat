@@ -40,7 +40,7 @@
     justify-content: center;
     min-height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
     margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
-    transition: all 100ms ease-in-out;
+    transition: all calc(var(--ghs-animation-speed) * 100ms) ease-in-out;
     overflow: hidden;
     width: 100%;
 

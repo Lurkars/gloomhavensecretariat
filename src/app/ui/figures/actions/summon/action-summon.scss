@@ -26,7 +26,7 @@
 
     .spawn-highlight {
         display: inline-block;
-        animation: spawn-pulse 1200ms ease-in-out infinite;
+        animation: spawn-pulse calc(var(--ghs-animation-speed) * 1200ms) ease-in-out infinite;
 
         &:hover {
             transform: scale(1);
@@ -42,7 +42,7 @@
 
         &.action-interactive-highlight {
             cursor: zoom-out;
-            animation: spawn-pulse 1200ms ease-in-out infinite;
+            animation: spawn-pulse calc(var(--ghs-animation-speed) * 1200ms) ease-in-out infinite;
 
             &:hover {
                 transform: scale(1);

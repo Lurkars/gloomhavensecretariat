@@ -1,0 +1,1900 @@
+[
+  {
+    "cardId": "82",
+    "edition": "fc",
+    "type": "city",
+    "narrative": "Heading through the Boiler District, you approach the rundown tavern of the Crooked Bone, hoping Hail may be able to answer a question regarding your current quest. You take all the necessary precautions to avoid disrupting her and patiently wait outside.<br><br>After a few minutes, she appears beside you. \"Well, look at that! Bright-eyed adventurers showing up on my doorstep, searching for fame and fortune. It just so happens that I am running out of materials for my experiments.\"<br><br>She hands you a crumpled list while continuing to talk. \"If you would be so kind as to grab some of this while you're out, it may bring you fame or possibly fortune. Who's to say, really?\" She then disappears before you can even speak.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Retrieve some herbs and mushrooms on a quick trip outside the city.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "In short order, you forage enough to meet Hail's needs and return. She excitedly gathers the goods from you and then disappears. You wait for some time... She reappears with a look of bewilderment. \"You are still here? Very well, maybe this will qualify as a fortune.\" A bag of gold appears at your feet, and she shoos you away as you pick it up. You leave the tavern, your original question now out of mind.",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "values": [
+                  10
+                ]
+              },
+              {
+                "condition": {
+                  "type": "character",
+                  "values": [
+                    "two-mini",
+                    "angry-face",
+                    "circles",
+                    "tinkerer"
+                  ]
+                },
+                "type": "collectiveGold",
+                "values": [
+                  15
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Collect some monster entrails during your next quest.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Place this card in any one character's play ares: During scenario, if you kill 5 or more monsters, read below. Otherwise: %game.eventCard:remove%."
+          },
+          {
+            "narrative": "It takes some effort to gather all the entrails Hail needs. She gratefully collects them but stops in her tracks. \"I'm forgetting something. What was it? Oh yes, here.\" She waves a hand and disappears. You feel strange but good. So much for your question, though.",
+            "effects": [
+              "You gain one +1 enhancement to any level 1 or X card."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "83",
+    "edition": "fc",
+    "type": "city",
+    "narrative": "The countless tales told of the Diviner Cassandra weigh heavily on your mind. All the strange, new places she's visited seem to taunt you. Being stuck carrying out plain old mercenary work is somehow lacking. A wanderlust is calling you. Traveling to far away locales is always more exciting and daring.<br><br>Maybe it's time to leave Gloomhaven, to sate your thirst for exploration away from the mundane goings-on of the city. Or maybe it's only a temporary melancholy, one you can wash away with a long night of revelry and celebration of good times past.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Prepare to leave Gloomhaven.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You decide your time in Gloomhaven must soon come to an end. There have been many fine adventures, and the city has grown more than you ever expected, but your work is just about finished. There are other places to see in the world. You've heard rumors of a town to the north in need of mercenaries, so that will be your destination of travel.",
+            "effects": [
+              {
+                "type": "partyAchievement",
+                "values": [
+                  "northern-expedition"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Indulge yourself with gambling and drinks at the first available bar.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "The trip to the bar was a wonderful idea. One drink led to another, and all in all, it was a great time. Although your intoxication conflicted with your gambling, you are left with only fond memories of the night.<br><br>Still, there is some melancholy in your mind the next morning. Maybe there was a bit of truth to your musings. Only time will tell.",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  10
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "84",
+    "edition": "fc",
+    "type": "city",
+    "narrative": "The hum of activity feels both familiar and welcome as you step inside the Sleeping Lion. It has been a while since you last came here, and the signs of your battle with the demons have mostly been cleaned up.<br><br>You take your seat and start to raise your hand to order a round of drinks, but then you see a wanted poster for unknown thieves of the bar owner's strongbox, calling for any information regarding the culprits. A sinking feeling settles in your stomach as you realize that the small chest you had found during battle may not have been ownerless after all.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Return the gold you had taken for \"safekeeping\" (requires 30 collective gold).",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You approach the proprietor of the inn and explain that in the fight, you had been concerned about thieves taking advantage of the chaos to rob him, and you are here to give back his money.<br><br>He sighs in relief: \"Thank you for returning my belongings! I'm glad you weren't stealing it for your own purposes. Have a free meal!\"",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  30
+                ]
+              },
+              {
+                "type": "reputation",
+                "values": [
+                  1
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Shrug it off. Surely, no one can connect you to the crime.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "After ordering drinks and food and settling in for the evening, you see the proprietor of the inn approach you. He goes on and on about missing his strongbox and implores you over and over that if you know anything, please tell him. It's quite exhausting. At the end of the night, you tip him exorbitantly, hoping it will make him feel better, but perhaps all it does is lay bare your own guilt.",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  4
+                ]
+              },
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "requirement": {
+      "partyAchievement": "opportunists"
+    }
+  },
+  {
+    "cardId": "85",
+    "edition": "fc",
+    "type": "city",
+    "narrative": "It has been some time since your encounter with the vile cultists in the Sekhem Gardens, so you decide to visit the area to see how things are recovering.<br><br>When you arrive, you are surprised to find members of the Great Oak asking passersby for donations. It's the first time you've seen such direct solicitation, so you walk up to a Keeper of the Oak and ask him what's happened.<br><br>\"One of our number was carrying a strongbox when the recent attack occurred, and we cannot locate it. I hope whoever found it put it to good use, but we are certainly missing the funds now. Would you be willing to lend a hand?\" Remembering what happened to the cache, your guilty conscience doesn't allow you to say no.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Offer a donation to the sanctuary (requires 15 collective gold).",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You nod to the keeper, and feeling badly for his loss, you hand him whatever you can spare. While the gold isn't quite the amount you had taken, you are able to leave feeling better about yourself. But just a bit.<br><br>He is grateful and offers a small prayer to you. \"May kindness guide your ways.\"",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  15
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Offer to help raise funds.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You pause, not having much in the way of money right now, but decide to help with the collection effort. You spend hours asking the citizens of Gloomhaven to contribute. In the end, you are able to give a hefty sum to the keeper. He blesses you and thanks you for your support. You, of course, were the reason for the problem in the first place, but this hopefully made up for it.",
+            "effects": [
+              {
+                "type": "loseGold",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless:2"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "requirement": {
+      "partyAchievement": "a-strongbox"
+    }
+  },
+  {
+    "cardId": "86",
+    "edition": "fc",
+    "type": "city",
+    "narrative": "Ever since the battle on the docks, you have been carrying the Orchid scrolls around with you, unsure what to do with them. While the Orchid you met told you to rescue these items, she did not come to retrieve them after the fight, nor have you been able to locate her since.<br><br>Then one night while out drinking, you are approached by a different Orchid woman, this one immaculately dressed. \"Do you have the records?\" Hesitating, you hand the scrolls to her. \"I am very grateful to get these back and for your bravery in having recovered them so valiantly. The High Council would like to show its gratitude. Would you welcome a feast in your honor or prefer the anonymity of a gift?\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Accept the feast.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "In the evening, you are escorted to an opulent manor in the upper Coin District. Pretty sure that you will never be in a place like this again, you try to soak up as much as you can. You meet a constant stream of Orchid dignitaries who blur together until you cannot hope to remember their names. When the food comes, it is exotic and delicious. Spices that you didn't even know existed delight your palate and heighten your senses. The next morning, you feel invigorated for the journey.",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless",
+                  "strengthen"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Accept the gift.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You are pretty sure that being a guest of honor at a feast will bring unwanted attention, so you opt for the gift instead. The Orchid woman hands you a wrapped bundle. Inside, you find a double-edged dagger unlike anything you have ever seen before—subtle curves and an expert balance. In awe, you thank her profusely. She responds, \"In earlier times, it was the weapon of choice for a notorious thief. Put it to better use.\"",
+            "effects": [
+              {
+                "type": "item",
+                "values": [
+                  160
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "requirement": {
+      "partyAchievement": "custodians"
+    }
+  },
+  {
+    "cardId": "87",
+    "edition": "fc",
+    "type": "city",
+    "narrative": "Your thoughts turn to the mysterious Orchid girl and the caravan you protected in your trip to the past. She said events could not be changed and it was dangerous to try, but were your attempts to save them really for naught? These thoughts race through your head as you return to your room for the evening and find a note affixed to your door:<br><br>\"I have waited a long time to say thank you, but I hope this still finds you well. The caravan was destined to be lost, but because of you, Moonshard was not, and her company out here in the wilderness all these years has been a true blessing. Perhaps one day we will meet again, but for your own sake, I hope not.<br>— Terra",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Ask around and try to track down whoever put the note on your door.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You frantically look around for someone who may have seen who placed the note. Surely, someone saw something important, but in all your efforts, no one you find remembers anything. Desperate, you pull out the note to hopefully jog someone's memory, but as you do, it begins to crumble into dust, leaving behind no trace of the words written upon it. Dejected, you finally give up.",
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Accept the note for what it is, and be satisfied that you made a positive difference.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "There is no reason to investigate. You have all the information you need. The caravan was still destroyed, and Terra has been living in the wilderness ever since, unknown to anyone and working toward some mysterious goal. It is crazy just thinking about it, so you decide not to. You trust she is in the right place and are happy to have helped.",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "requirement": {
+      "partyAchievement": "guard-detail"
+    }
+  },
+  {
+    "cardId": "88",
+    "edition": "fc",
+    "type": "city",
+    "narrative": "This strange cipher full of odd Aesther characters has been bothering you to no end. What does it mean? Surely, you could spend some time asking around town to see if anyone has any clues or advice.<br><br>One possibility would be to ask Dominic Scrim for his expertise. In his exhaustive research of the past, he might have stumbled upon notes or books concerning this strange language.<br><br>Another possibility might be to go to the Void and inquire with the Vigil at the excavation site. It would be a harder conversation, but they must have uncovered something useful in their work.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Ask Dominic Scrim.",
+        "outcomes": [
+          {
+            "narrative": "You set out to the Town Records building with hopes that Dominic is available today."
+          },
+          {
+            "effects": [
+              {
+                "condition": "If the checkbox in outcome A is already marked",
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "condition": "Read section 45 on page 16, and mark this checkbox",
+                "type": "checkbox",
+                "values": [
+                  "."
+                ]
+              }
+            ]
+          },
+          {
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "condition": "If both checkboxes on this card are marked"
+              }
+            ]
+          },
+          {
+            "returnToDeck": true,
+            "effects": [
+              {
+                "condition": {
+                  "type": "otherwise"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Inquire with the Vigil.",
+        "outcomes": [
+          {
+            "narrative": "You set out to the excavation site at the Void. You see many Vigil guards and researchers."
+          },
+          {
+            "effects": [
+              {
+                "condition": "If the checkbox in outcome B is already marked",
+                "type": "outcome",
+                "values": [
+                  "A"
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "condition": "Read section 61 on page 21, and mark this checkbox",
+                "type": "checkbox",
+                "values": [
+                  "."
+                ]
+              }
+            ]
+          },
+          {
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "condition": "If both checkboxes on this card are marked"
+              }
+            ]
+          },
+          {
+            "returnToDeck": true,
+            "effects": [
+              {
+                "condition": {
+                  "type": "otherwise"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "89",
+    "edition": "fc",
+    "type": "city",
+    "narrative": "This strange cipher full of odd Aesther characters has been bothering you to no end. What does it mean? Surely, you could spend some time asking around town to see if anyone has any clues or advice.<br><br>One possibility would be to visit the Sinking Market. There must be some illicit source that could give you information in exchange for coin.<br><br>Another possibility might be to ask the wealthy merchants in the Coin District for a favor in return for all the work you've done for the city. They may have some connections they can tap into to find you clues to the language.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Visit the Sinking Market (requires 10 collective gold).",
+        "outcomes": [
+          {
+            "narrative": "You travel to the Sinking Market with some coins. Maybe you can find a decent informant."
+          },
+          {
+            "effects": [
+              {
+                "condition": "If the checkbox in outcome A is already marked",
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  10
+                ]
+              },
+              {
+                "condition": "Read section 78 on page 26, and mark this checkbox",
+                "type": "checkbox",
+                "values": [
+                  "."
+                ]
+              }
+            ]
+          },
+          {
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "condition": "If both checkboxes on this card are marked"
+              }
+            ]
+          },
+          {
+            "returnToDeck": true,
+            "effects": [
+              {
+                "condition": {
+                  "type": "otherwise"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Ask the wealthy merchants of the Coin District.",
+        "outcomes": [
+          {
+            "narrative": "Given your exploits, you figure the Merchant's Guild owes you a favor, so you head there."
+          },
+          {
+            "effects": [
+              {
+                "condition": "If the checkbox in outcome B is already marked",
+                "type": "outcome",
+                "values": [
+                  "A"
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "condition": "Read section 97 on page 32, and mark this checkbox",
+                "type": "checkbox",
+                "values": [
+                  "."
+                ]
+              }
+            ]
+          },
+          {
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "condition": "If both checkboxes on this card are marked"
+              }
+            ]
+          },
+          {
+            "returnToDeck": true,
+            "effects": [
+              {
+                "condition": {
+                  "type": "otherwise"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "90",
+    "edition": "fc",
+    "type": "city",
+    "narrative": "This strange cipher full of odd Aesther characters has been bothering you to no end. What does it mean? Surely, you could spend some time asking around town to see if anyone has any clues or advice.<br><br>One possibility would be to seek help from the Sanctuary of the Great Oak. Their meticulous records of the past may provide some answers to this enigma.<br><br>Another possibility might be to visit the recently renovated library in the University. It holds quite a lot of different volumes from all over the world.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Seek the help of the Oak.",
+        "outcomes": [
+          {
+            "narrative": "After all your donations to the sanctuary, you are welcomed with open arms and guided to the Head Keeper of the Oak."
+          },
+          {
+            "effects": [
+              {
+                "condition": "If the checkbox in outcome A is already marked",
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "condition": "Read section 107 on page 35, and mark this checkbox",
+                "type": "checkbox",
+                "values": [
+                  "."
+                ]
+              }
+            ]
+          },
+          {
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "condition": "If both checkboxes on this card are marked"
+              }
+            ]
+          },
+          {
+            "returnToDeck": true,
+            "effects": [
+              {
+                "condition": {
+                  "type": "otherwise"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Visit the library.",
+        "outcomes": [
+          {
+            "narrative": "You enter the library and find a knowledgeable researcher to help you look for clues."
+          },
+          {
+            "effects": [
+              {
+                "condition": "If the checkbox in outcome B is already marked",
+                "type": "outcome",
+                "values": [
+                  "A"
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "condition": "Read section 122 on page 38, and mark this checkbox",
+                "type": "checkbox",
+                "values": [
+                  "."
+                ]
+              }
+            ]
+          },
+          {
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "condition": "If both checkboxes on this card are marked"
+              }
+            ]
+          },
+          {
+            "returnToDeck": true,
+            "effects": [
+              {
+                "condition": {
+                  "type": "otherwise"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "01",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "Passing through the planar rift, you come upon a spacious plain. A road leads towards a colossal city surrounded by a great river. Enormous white walls shoot upward on all sides, with numerous towers jutting up above them, connected by sky bridges looming over the city's center. Atop the tallest tower waves a banner depicting a white teardrop cradled in a spiral of seven colors. Everything about this place gleams of dignity and power.<br><br>In the other direction, you see a mountain stretching miles into the sky like a jagged dagger stabbing through the clouds. Smoke rises from its peak. Never have you seen something of such magnitude. Its very presence calls out to the adventurer in you, daring you to conquer it.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Visit the city.",
+        "outcomes": [
+          {
+            "condition": {
+              "type": "character",
+              "values": [
+                "diviner"
+              ]
+            },
+            "narrative": "Teleporting into the city, you apply as supplicants to the royals at court and are soon escorted up to the leader's chamber in the white, centermost tower. She welcomes you with open arms, and you each share stories of a great evil in both your worlds. The similarities are striking.",
+            "removeFromDeck": true,
+            "effects": [
+              "%data.characterIcon.diviner% gains one +1 enhancement to any level 1 or X card."
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "The guards take issue with your appearance and bar your entry to the city—something about fearing foreigners.",
+            "returnToDeck": true,
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Climb the mountain.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Climbing an active volcano is no easy feat, but with great effort, you steadily ascend towards the summit. And once you reach the smoking magma pit at the top, you behold a sight that takes your breath away. You can see the whole plain below and the grand city beyond, which is dwarfed by the mountain. You feel like a god surveying creation.",
+            "effects": [
+              {
+                "type": "loseBattleGoal",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "type": "experience",
+                "values": [
+                  15
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "02",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "The dimensional portal opens up on what you can only describe as paradise. Idyllic fields spread as far as the eyes can see, in colors you never thought possible. Before you lays a winding path through a grove of trees with bright pink flowers and orange leaves. The aroma alone threatens to overwhelm you as you walk in awe of your surroundings.<br><br>Suddenly, you are interrupted by a shout. Flying down from the trees, something a third the size of a regular human, with wings sprouting from its back, lands in front of you.<br><br>\"State your name and business,\" it demands. You hesitate, not certain how to respond.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Explain that you are peaceful travelers looking for safe passage.",
+        "outcomes": [
+          {
+            "condition": {
+              "type": "reputationGT",
+              "values": [
+                13
+              ]
+            },
+            "narrative": "We could not let ones such as yourselves pass through without a feast! Come, join us! What a night to behold!",
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless:2"
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "reputationLT",
+              "values": [
+                -13
+              ]
+            },
+            "narrative": "We could never let ones so notorious as you pass through without a feast. As you revel, you greatly embellish your escapades, and they grant you a gift in return.",
+            "removeFromDeck": true,
+            "effects": [
+              "Gain any one item from the shop."
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "The envoy looks you up and down before shrugging. \"Very well, then. Be on your way.\"",
+            "returnToDeck": true,
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "State that you are veteran adventurers not to be trifled with.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Such tough ones we have here! You should join in our Tournament of Champions—a competition in various disciplines among all guests of this realm. You can compete to earn unimaginable rewards!",
+            "effects": [
+              {
+                "condition": {
+                  "type": "character",
+                  "values": [
+                    "cragheart",
+                    "diviner",
+                    "squidface",
+                    "music-note",
+                    "tinkerer"
+                  ]
+                },
+                "type": "experience",
+                "values": [
+                  25
+                ]
+              },
+              {
+                "condition": {
+                  "type": "character",
+                  "values": [
+                    "lightning",
+                    "brute",
+                    "three-spears",
+                    "saw",
+                    "scoundrel"
+                  ]
+                },
+                "type": "battleGoal",
+                "values": [
+                  2
+                ]
+              },
+              {
+                "condition": {
+                  "type": "character",
+                  "values": [
+                    "two-mini",
+                    "angry-face",
+                    "mindthief",
+                    "circles"
+                  ]
+                },
+                "type": "gold",
+                "values": [
+                  25
+                ]
+              },
+              {
+                "condition": {
+                  "type": "character",
+                  "values": [
+                    "triangles",
+                    "eclipse",
+                    "spellweaver",
+                    "tinkerer"
+                  ]
+                },
+                "type": "item",
+                "values": [
+                  48,
+                  "gh"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "03",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "You arrive in a brightly lit chamber made entirely of red crystals. Shards jut up from the ground at odd angles and hang like multifaceted stalactites from above.<br><br>In the center of the chamber, you see two large crystals, each depicting a vivid scene on their surface. In the first, a thief runs away from a store, holding a valuable gem, while the bound and gagged Quatryl owner watches helplessly. In the second, the same thief was caught in the act and now hangs in a cage of brightly colored, magical strands, the victim of a spell cast by the Quatryl.<br><br>You somehow realize that in order to escape this place, you must shatter a crystal. The one you leave intact will decide the thief's fate.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Leave the first intact.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "The jewel thief gives a knowing glance back at the shopkeeper and hurries off to the black market. Inside the shattered crystal, you find a precious gem of great worth.",
+            "effects": [
+              {
+                "type": "gold",
+                "values": [
+                  10
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Leave the second intact.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You wince as the gem thief has his life slowly drained from his body by the grip of arcane tendrils. The room explodes with magical energy as the spell dissipates.",
+            "effects": [
+              "Start scenario with any two elements in the Strong column."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "04",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "You step through the fissure into a bleak and hellish wasteland of grey gravel—no vegetation and no signs of life. The sole irregularity is a group of odd mounds jutting out of the ground in the distance. The silence is unnerving. The only sound accompanying you is your own breath and footfalls.<br><br>As you approach one of the mounds to investigate, reaching out to touch its pitted surface, it explodes in activity. An angry swarm of insects rushes forth, hissing and chittering as they coalesce into the largest Harrower you have ever seen. It faces you, then looks over its shoulder. Out of all the other mounds come more Harrowers, surrounding you threateningly. You glance left and right for a way out, but the barren landscape only mocks your desperation.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Speak to the Harrowers.",
+        "outcomes": [
+          {
+            "condition": {
+              "type": "character",
+              "values": [
+                "squidface"
+              ]
+            },
+            "narrative": "The Harrowers converse with each other a short while. Hisses and clicks are exchanged. The shifting movements of the swarm slow down, and soon the insects return to their mounds.",
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "Your words don't seem to faze the mass of writhing insects. It chatters at you intelligibly, and you try to explain that you mean no harm, but it doesn't seem to care.",
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Fight the Harrowers.",
+        "outcomes": [
+          {
+            "narrative": "Sensing the agitation in the swarm, you draw your weapons and charge into the Harrower mass, stabbing here and there, hoping to hit something vital. While you kill a few individual insects, the mass responds in kind, and you find yourself desperately fending off a flurry of attacks. After an exhausting fight, you are left with many wounds and the wisdom to never poke a Harrower's nest again.",
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "values": [
+                  3
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "poison"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "05",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "Passing the gateway, you end up in a barren void with just a few stepping stones beneath your feet. They seem to float in this nothingness without any form of suspension. Needless to say, it only adds to the ghostly atmosphere.<br><br>You step carefully across the rocks, making your way through this lightless and lifeless place until you come upon a milky onyx sphere hovering in front of you. It emits a dark energy, but there is a certain allure that attracts you—it is almost as if you could see a whole starlit sky within.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Take the cursed sphere.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Realizing the value of such a unique material, you cannot resist. A blacksmith will surely be able to craft a fine weapon from it. But as you grab the sphere to put it into your pack, you can sense the malicious energy surge inside. With great exertion, you manage to store it away, but its corrupting presence can still be felt.",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse:2"
+                ]
+              },
+              {
+                "type": "itemDesign",
+                "values": [
+                  156
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Smash the cursed sphere.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Without a second thought, you take out a weapon and strike at the sphere. You strike and strike again until it bursts into shards that scatter in all directions, producing a malicious pulse of energy. Whatever that thing may have been, you are quite sure that getting rid of it was the correct course of action.",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse"
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "06",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "Your eyes try to adjust to the blue light radiating from the translucent crystal ground you are standing on. Various plants and trees around you are composed of the same material. Once you go forward a few steps, a harmonic resonance arises within you, which sets your teeth on edge.<br><br>Two indistinguishable paths lay before you, split in opposite directions. You choose one at random and start walking. Eventually, you come to another split, then another, each twisting and turning back in on itself. The harmonic hum that began as an annoyance, progressively amplifies into something more. Coupled with this unending blue light, you feel you'll soon slip into madness. You need to find a way through before you lose yourself in this world. Or lose your mind.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Push on, trying to find a way out.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": {
+              "type": "character",
+              "values": [
+                "angry-face",
+                "spellweaver"
+              ]
+            },
+            "narrative": "As the hum attunes to the crystals of your body, it starts to guide you along the paths. Following the frequency, you soon arrive at a pond with a crystalline surface. An open portal hangs suspended in the air just above it.",
+            "returnToDeck": true,
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "This mazelike plane seems to stretch on forever. The forking paths bring you to the brink of insanity. Hours later, tired and broken, just by pure chance you find an unstable portal that exits this nightmare.",
+            "effects": [
+              {
+                "type": "discard",
+                "values": [
+                  3
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Create a portal to another dimension (requires %data.characterIcon.diviner%).",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You recognize this place as one of the many crystalline maze dimensions that were used as a prison for the souls of Xorn and all his murdered followers. You don't have the time or inclination to play these kinds of games right now. You reach out and create a new dimensional portal to a different realm. Stepping through, you leave the maze to the dead. Or the mad.",
+            "effects": [
+              {
+                "type": "drawAnotherEvent",
+                "values": [
+                  "rift"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "07",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "Falling blindly through the interdimensional void, you end up inside an active volcano on a rock path that leads through a bubbling lake of lava. Along the way, small pyres blaze high into the sky. At the end, there stands a marble sanctuary, where a massive flame sits atop an altar made of molten glass. It burns white and radiates an unbearable heat. You find it increasingly difficult to move the closer you get to it.<br><br>Out of the sweltering inferno, small creatures of fire arise and playfully cheer you on, encouraging you to venture forward. However, you also see some rocks jut out of the lava next to the path. Perhaps they could lead you away from this awful place.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Follow the tiny fire creatures to the marble shrine.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You happily oblige the request of the small spirits, who accompany you now with a pleasant tune. As you approach the sanctuary, one of the spirits transforms into the shape of a fiery woman. She smiles at you and reaches into the glowing white flame atop the altar, pulling forth various objects. With an inviting gesture, she urges you to take one of your choosing.",
+            "effects": [
+              "Gain one of the following: \"Inferno Blade\" (Item 079) \"Wand of Infernos\" (Item 085) \"Magma Waders\" (Item 099)"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Head across the rocks that lead away from the lake of fire.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You manage to hop the path of rocks to get clear of the volcano, but the small fire spirits are not happy with you leaving. They seem restless, and one of them even pursues you. The farther it ventures from the white flame, the bigger it grows. With its increased size also comes increased savagery. As you step through a nearby portal, it blossoms into a full grown flame demon.",
+            "effects": [
+              "Spawn one normal Flame Demon next to any character. It is an enemy to all figures."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "08",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "You are greeted by an ominous darkness looming around you. Only the light of your torches illuminates the area, which you soon realize is a grassy plain with a few scattered trees and a ground littered with oddly-shaped rocks.<br><br>Walking towards the nearest tree, you see signs of a struggle and splatters of blood. An injured man with a missing arm is leaning against a black rock. You rush over to find him delirious but still alive. Scattered about are the remains of other people, torn apart by some great beast. You are not sure if there is anything that can be done here.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Decide the man is a lost cause.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "The wounds appear fatal. You give him some water but don't want to waste any more resources. You move on, but as you do, the warrior surprisingly levers himself up and hollers out. You try to ignore him, but somehow he keeps after you. You are uncertain how this warrior is still alive, much less following you, but you can't seem to shake him, no matter how fast you run.",
+            "effects": [
+              "Spawn one normal Bandit Guard with 3 remaining hit points next to any character. It is an enemy to all figures."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Tend to the man's wounds.",
+        "outcomes": [
+          {
+            "condition": {
+              "type": "character",
+              "values": [
+                "saw",
+                "music-note",
+                "sun"
+              ]
+            },
+            "narrative": "You are able to sew him up and stabilize his condition. Soon after, he stands and grabs hold of a crude weapon. It appears he wants to help you.",
+            "removeFromDeck": true,
+            "effects": [
+              "Spawn one normal Bandit Guard with 5 remaining hit points next to any character. It is an ally to you and enemy to all monsters."
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "Your efforts to heal the poor soul are of no use. Shortly after attempting to treat him, he dies in your arms.",
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "09",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "Confronted with a storm of colorful lights, you are unable to make out much of your surroundings but can hear high-pitched voices chattering. As your eyes adjust, you notice a host of glowing forest imps flying in a huge wooded clearing. Luckily, they don't seem hostile, nor do they pay you much attention at all. As you walk closer, you realize they are buzzing around some kind of market.<br><br>The environment behind the stalls tends to blur into a mess of shifting colors, but everything inside, including you, stands securely on a cobblestone plaza. The colors, sounds, and smells that reach you from the various vendors are more than a little intriguing, but you should always be wary of mischief with these things.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Check out the exotic wares of the imp market.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "There is a small group of animals at the end of the market, being herded by one of the forest imps. They are great four-legged beasts with grey, stony skin and centralized horns sprouting from their nose and back. The vendor addresses you: \"Kivaks can't stay long at your side, but you can rent them if you like. And they feel no pain, so don't worry about them adventuring with you.\" One sniffs at your hand. It seems curious.",
+            "effects": [
+              "One character may pay 15 gold for a temporary Kivak summon. (HP: 5, Move: 3, Attack: 2, Range: -)"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Most of the stuff here looks dangerous. Leave the imp market.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Although they seem friendly, trading with forest imps might not be the smartest move at the moment. You decide to bid farewell to this noisy plane, but the imps have some trickery up their sleeves as a parting gift.",
+            "effects": [
+              "During scenario, if any character would gain %game.condition.muddle%, they gain %game.condition.strengthen% instead, and vice versa."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "10",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "Confronted with a storm of colorful lights, you are unable to make out much of your surroundings but can hear high-pitched voices chattering. As your eyes adjust, you notice a host of glowing forest imps flying in a huge wooded clearing. Luckily, they don't seem hostile, nor do they pay you much attention at all. As you walk closer, you realize they are buzzing around some kind of market.<br><br>The environment behind the stalls tends to blur into a mess of shifting colors, but everything inside, including you, stands securely on a cobblestone plaza. The colors, sounds, and smells that reach you from the various vendors are more than a little intriguing, but you should always be wary of mischief with these things.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Check out the exotic wares of the imp market.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "There is a vendor to your right, selling bottles in fantastical shapes and colors. After having their properties explained by a quirky imp, you narrow your choices down to three.",
+            "effects": [
+              "Each may buy one of the following:",
+              "10 gold: 'Vial of Rejuvenation' (Once, at any time during the next scenario, gain %game.condition.regenerate%).",
+              "15 gold: 'Minor Antidote' (Item 153).",
+              "40 gold: 'Vial of Knowledge' (Gain 25 experience and 1 ✔)."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Most of the stuff here looks dangerous. Leave the imp market.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Although they seem friendly, trading with forest imps might not be the smartest move at the moment. You decide to bid farewell to this noisy plane, but the imps have some trickery up their sleeves as a parting gift.",
+            "effects": [
+              "During scenario, if any character would gain %game.condition.disarm%, they gain %game.condition.immobilize% instead, and vice versa."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "11",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "After a particularly agonizing journey, you appear before the West Gate of Gloomhaven and think you must have taken a wrong turn. Gloomhaven looks a lot newer and not as fortified as you remember.<br><br>You realize you've somehow arrived in the past, just a few years after the founding of the city. You enter through the gate and are greeted by a busy Horn District. Nearly all the races are present and working together to erect buildings, pave roads, and train near the newly built barracks. A group of Orchids, Humans, and Quatryls supervise the construction while Valraths, Inox, and Savvas do most of the heavy lifting.<br><br>You wonder if you could be of any assistance, when an alarm suddenly sounds from the walls. Another day, another raid from the wild.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Hurry to the walls and help ward off the raid.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Venturing back to the gateway, you join up with the guards, who supply you with bows and arrows. Once atop the walls, you see raiders coming for the caravans and travelers heading into Gloomhaven. Your expertise keeps them safe and sound, eliciting great admiration from the guards.",
+            "effects": [
+              {
+                "type": "discard",
+                "values": [
+                  2
+                ]
+              },
+              {
+                "type": "experience",
+                "values": [
+                  10
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Inquire about the construction and how you can get involved.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Being a city in its early stages, Gloomhaven has many unfinished projects, so your offer of help is well-received. Foundations and roads need to be laid, the walls are in need of constant repairs, and new buildings are erected on a daily basis. You quickly get to work.",
+            "effects": [
+              {
+                "type": "discard",
+                "values": [
+                  2
+                ]
+              },
+              "Mark [C] checkboxes (gain the reward when the whole row is marked):",
+              {
+                "type": "checkbox",
+                "values": [
+                  "",
+                  "",
+                  "+1 prosperity"
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
+                  "",
+                  "",
+                  "",
+                  "+1 reputation, +1 prosperity"
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "+2 prosperity"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "12",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "After passing through the rift, you are greeted by many well-armed adventurers traveling in the same direction. Inquiring as to where they all come from, each answers you the same: there is a castle town not far down the road, where an endless competition among smiths is held. The king has ordered his vassals to exterminate the amassing monsters in his land and to craft the finest weapons for the task. These folks you meet talk of the many daring quests they wish to fulfill, but all fear a nearby black tower said to reach into the stars. They say this place is cursed and that no one has returned alive. Yet.<br><br>The tower sounds intriguing, but maybe you can find an exquisite weapon in town. After all, the adventures here seem to wield well-crafter gear.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Dare to conquer the fabled tower.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You decide to head for the obsidian tower. A place unconquered sounds like the challenge you've awaited. You are confident that you will reach the top and wring the secrets from it. There has to be something of value inside.",
+            "effects": [
+              {
+                "type": "unlockScenarioGroup",
+                "values": [
+                  "1",
+                  "Challenge"
+                ]
+              },
+              "Replace current scenario with this one, and play it immediately (does not require %data.characterIcon.diviner%).<br>(see page 26 of the scenario book)."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Visit the forges of the castle town.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "After a short walk to the castle town and meeting more adventuring bands with finely crafted weapons, you are soon convinced you must see the smiths' competition. You are not at all disappointed by what you find. Only the finest of weapons are displayed at the forges, and the designs for even grander weapons are sold at the market.",
+            "effects": [
+              "Each may buy one of the following: Any available one or two-hand item from the shop at a discount of 10 gold.",
+              "35 gold: Random Item Design."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "13",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "After going through an immense amount of pain, the dimensional portal leads you into a marvelous metropolis filled with technology. Human scholars debate at every corner about new applications of ongoing research, but people's attention slowly turns to you and your odd dress. You surmise that a fold between the planes has thrown you back so far in time that you now stand among the ancient human civilization.<br><br>You do not want to waste this opportunity and are already thinking of ways you could inquire about Bastian the Seeker and his dangerous research. On the other hand, maybe it is better to simply steal some technology in the hopes that it might be of importance to him. But there is so much to choose from, how could you possibly figure out which ones hold value?",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Try to barter for knowledge.",
+        "outcomes": [
+          {
+            "condition": {
+              "type": "character",
+              "values": [
+                "diviner",
+                "eclipse",
+                "saw",
+                "scoundrel",
+                "circles"
+              ]
+            },
+            "narrative": "The scholars greet you with odd expressions on their faces. Their language is somewhat foreign to you, but you are able to communicate and arrive at a deal for information on Bastian's plans, though it costs a hefty sum.",
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  20
+                ]
+              },
+              {
+                "type": "experience",
+                "values": [
+                  15
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "They are not very interested in talking to such a foreign and uncivilized group.",
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Attempt to steal a piece of technology.",
+        "outcomes": [
+          {
+            "condition": {
+              "type": "character",
+              "values": [
+                "mindthief",
+                "eclipse",
+                "scoundrel"
+              ]
+            },
+            "narrative": "Concealing yourself within the shadow of a building, you lie in wait for an opportunity. When it comes, you strike swiftly and with precision. An ancient bow is now yours.",
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "type": "item",
+                "values": [
+                  157
+                ]
+              },
+              {
+                "type": "globalAchievement",
+                "values": [
+                  "ancient-technology"
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "Your clumsy attempt is easily caught by the local guards. They beat you up and throw you out of the metropolis.",
+            "removeFromDeck": true,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "values": [
+                  2
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "14",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "Slipping through the fissure, you end up in a quaint little village with a tavern—the Light and Shadow Brewery. You hear the joyful noise of drinking and merriment and decide it might be a good opportunity to have a new experience. Inside, you are seated at the only available table and order some drinks. Many races are getting along well with each other and having a good time.<br><br>A hooded group of Aesthers near the bar seems out of place. You strain your ears to hear their whispers: \"I know a great spot we could ambush incoming travelers from, but we may need help preparing it. Maybe we could hire these mercenaries. The haul we'll get will more than pay their share!\"<br><br>One of them notices you eavesdropping and walks over. He whispers, \"Well, you interested in setting some traps with us? We'll pay you handsomely!\"",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Agree to aid the group of Aesthers.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You agree to aid the group of Aesthers with their scheme and follow them to a wooded crossroads just outside of town—the perfect place for an ambush. You work with them to set various magical traps and are thanked with a bag of coins.",
+            "effects": [
+              {
+                "type": "gold",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "event",
+                "values": [
+                  "rift",
+                  17
+                ]
+              },
+              {
+                "type": "partyAchievement",
+                "values": [
+                  "accomplices"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Play along, but sabotage their traps.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Playing along, you agree to aid the group of Aesthers with their scheme and follow them to a wooded crossroads just outside of town—the perfect place for an ambush. With great effort, you set magical traps that appear to work but are sabotaged to backfire when sprung. You are thanked with a bag of coins.",
+            "effects": [
+              {
+                "type": "gold",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "discard",
+                "values": [
+                  2
+                ]
+              },
+              {
+                "type": "event",
+                "values": [
+                  "rift",
+                  18
+                ]
+              },
+              {
+                "type": "partyAchievement",
+                "values": [
+                  "saboteurs"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "15",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "A very cold, forested region welcomes you. The weather is rather harsh, and the frostbite immediately begins setting in. Your best guess is that you've arrived in the Whitefire Wood, far northwest of Gloomhaven. Sometimes these planar rifts are incredibly curious as to where they send you.<br><br>From the songs sung by bards, you know that strange creatures live in this region. Traveling southwest into the Copperneck Mountains might give you a magnificent view of the area. However, there are said to be fields of massive crystal spikes blooming from the snow to the east. These might also be a worthwhile sight to see.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Venture southwest into the mountains.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Reaching the peak of one of the Coppernecks, you have quite the view. You see a frozen field scarred by countless blizzards and a valley covered in a deep layer of snow. You also observe two large groups of creatures battling each other on a nearby mountain. They look similar to the Inox, but they have wider builds and long, white fur.",
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Venture east into the Crystal Fields.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You quickly arrive at the Crystal Fields and it is a sight to behold. Hundreds of giant spikes of ice extend into the sky, creating a surreal and jagged landscape. You explore for a while in wonder, but there do not seem to be any signs of life. At one point, you think you see a machine moving in the distance, but after investigation, you conclude that it must have been a trick of the light.",
+            "effects": [
+              {
+                "type": "noEffect"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "16",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "After leaving the portal, you sense that something has followed you through the folds in the planes. The fissure reopens, and the familiar figure of the Husk steps forth, confirming your suspicions. Murderous intent in its eyes, it draws its flaming blades and charges.<br><br>You run as fast as you can, trying to get away. How did it find you? How did it track you through the dimensions? These questions will have to wait. The more pressing concern is what to do next?",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Run away and avoid the Husk.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "With the Husk hot on your heels, you sprint through this dimension without stopping to notice much else, trying to lose it. It is an exhausting trek, but in the end, you manage to finally shake your pursuer. You are fairly certain this is not the last time you'll be seeing it, but at least you are safe for now.",
+            "effects": [
+              {
+                "type": "discard",
+                "values": [
+                  2
+                ]
+              },
+              "Shuffle this event back into the top 3 cards of the deck."
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Lead the Husk back to the place where you first encountered it.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "As this Aesther is so bent on hunting you down, it is quite easy to lead it back to the alleys where you found it. On the way there, you manage to vent some of your frustration—dealing minor blows and guiding it through old traps.",
+            "effects": [
+              "Replace current scenario with \"The Shackles Loosen\" %data.scenarioNumber:111%, and play it immediately in campaign mode until complete, changing the scenario goal to kill the Husk. It starts with [2xC] damage."
+            ]
+          }
+        ]
+      }
+    ],
+    "requirement": {
+      "partyAchievement": "hunted-prey"
+    }
+  },
+  {
+    "cardId": "17",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "The drinks at the Light and Shadow Brewery have been on your mind lately. It would be nice to stop back in there and relax for a bit.<br><br>Stepping through the portal, you immediately recognize a familiar wooded crossroads. You are happy to note that the brewery is not far, but your happiness is short-lived. You are surprised by a bright flash of light. Blinded, you can't even make out your own hands in front of you.<br><br>A voice booms out, 'Surrender your coin or die!'",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Attempt to negotiate.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You realize this is the same group of thieves who hired you to set up this ambush in the first place. You've fallen into your own trap! You call out to the Aesthers and explain that you are the travelers who helped them before.<br><br>\"What are you nitwits doing? Now, our whole plan is ruined! We paid you for this! Reset the traps, and be on your way!\"",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "muddle"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Prepare to fight blindly.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Despite being at a disadvantage, you ready your weapons and charge into the fray. Your battle prowess shows as you cut down your enemies, but you don't come out unscathed.<br><br>Afterwards, you realize that you have slain a group of Aesthers. Actually, they look quite familiar, but that doesn't matter. What counts is the purses at their side.",
+            "effects": [
+              {
+                "type": "gold",
+                "values": [
+                  10
+                ]
+              },
+              {
+                "type": "scenarioDamage",
+                "values": [
+                  3
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "requirement": {
+      "partyAchievement": "accomplices"
+    }
+  },
+  {
+    "cardId": "18",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "The drinks at the Light and Shadow Brewery have been on your mind lately. It would be nice to stop back in there and relax for a bit.<br><br>Stepping through the portal, you immediately recognize a certain wooded crossroads. You are happy to note that the brewery is not far, but your happiness is short-lived. Your path is blocked by a grisly scene of slain Aesthers scattering the ground. Torn appendages and blood are everywhere. You remember them—it's the group who hired you to set traps near here. This confirms those traps backfired just as you planned. However, you didn't expect them to create this much carnage.<br><br>Your keen senses also notice a rip in space amidst the scene. It's a portal to another dimension.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "This portal is far too dangerous. Forget it and loot the bodies of the Aesthers.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You pay no heed to the portal, and soon, the rip in space disappears. Meanwhile, you pick clean what you can from this bloody scene and continue on your journey.",
+            "effects": [
+              {
+                "type": "gold",
+                "values": [
+                  10
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Jump through the portal while you can.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You jump through the portal and arrive in some kind of prison. Only one cell seems to be inhabited, so you approach it. Inside, you see a figure with tattered robes. His face and hands are dirty, and he looks weary, like he hasn't eaten in many days. ‘You're not that foul Aesther gang! Have you come to rescue me? I'm Straya, an enchanter from the nearby village. My captors had me enhancing all their gear! Release me, and I will happily repay you with my skills.'",
+            "effects": [
+              "Each gains one +1 enhancement to any level 1 or X card."
+            ]
+          }
+        ]
+      }
+    ],
+    "requirement": {
+      "partyAchievement": "saboteurs"
+    }
+  },
+  {
+    "cardId": "19",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "After a particularly horrific trip through a rift, you find yourself upon a hill, looking down on a pristine coastline. You could swear it is Merchant's Bay, right where Gloomhaven should be, but there is no trace of Gloomhaven or even the ancient city that came before. The dimensional folds have led you astray into ages long forgotten.<br><br>In the waning sunlight, you see a line of figures traveling together down the hill. You approach them and find a group of humans. They welcome you to their campfire and offer to share their food with you. During conversation, you learn that they are followers of a god named Eliador and are searching for knowledge in the uncharted places of the world. However, they also fear the dangerous wildlife that is prone to attack helpless travelers at night.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Convince them to leave this place by offering your own knowledge of the area.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You surmise that this place is just as dangerous now as it will be in the future, and note that the travelers are ill-equipped for that kind of trouble.<br><br>They are reluctant to leave at first, but you describe to them all the flora and fauna to be found in the various locations of the region, and they seem satisfied by this information, even going so far as to pay you for your help.",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "values": [
+                  12
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Offer them protection for the night.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "After their kind hospitality, offering them something in return seems to be the right thing to do.<br><br>As expected, wild hounds approach the campfire during the night, but you are prepared and strike before they can attack. It is an easy fight after that.<br><br>The next morning, the humans continue their journey after blessing you for your efforts.",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "20",
+    "edition": "fc",
+    "type": "rift",
+    "narrative": "After a tumultuous trip through a rift, you find yourself in the Red Desert to the south. The sun is about to rise, but the firmament is still illuminated by a multitude of constellations. Looking up, you cannot recall seeing any of them before. A fold in the planes has set you on a course into the past.<br><br>Through hearsay and folktales, you know the region is not safe. Stories of feral, desert-born Valraths are still told at the inns and pubs of Gloomhaven. However, your need for water grows stronger as the day gets hotter.<br><br>An oasis beckons in the distance, but with water comes danger. You approach with caution, but you are still surprised when Valrath warriors circle you, seemingly out of nowhere. They let you know, despite the language barrier, that this is their oasis, and you must pay to use it.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Attack the tribal Valraths.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Words are pointless in such a situation, so rather than responding, you draw weapons and attack. The Valrath warriors are every bit as fearsome as the stories describe. By the time you drive them off, you are bleeding from many wounds.<br><br>You quickly fill your waterskins at the oasis and leave before more warriors return.",
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "values": [
+                  3
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "wound"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Avoid trouble by paying the fee.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "condition": {
+              "type": "character",
+              "values": [
+                "three-spears",
+                "sun"
+              ]
+            },
+            "narrative": "A commotion starts among the tribal warriors. They unsheathe their blades and point at the Valrath in your group. They seem incredibly agitated by the sight, and there is no use finding a peaceful solution.",
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "A"
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "The negotiations are difficult, due to their inability to recognize or value your money. Your gear, on the other hand, is of great interest to them.",
+            "effects": [
+              "Collectively lose items worth at least [10xC] gold."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "82",
+    "edition": "fc",
+    "type": "road",
+    "narrative": "The road stretches out before you, endless and unremarkable. Your spirits flag and your steps drag, having traveled it so many times—from Gloomhaven, back to Gloomhaven—you've committed all its twists and turns to memory.<br><br>But something is strange today. No birds chirp. No animals cross your path. There is a hot, dry wind in the air and no clouds overhead. A sense of foreboding creeps over you.<br><br>And then, there appears a colorful, circular fissure hanging in front of you, beckoning you to step into the unknown. Beyond that whirling maelstrom is an unfamiliar world with possibilities and risks—possibly even a short cut to where you are going. You hesitate with indecision...",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Step through the portal.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "Sure, there are definite risks involved with jumping into a portal to an unknown and possibly hostile place, but they must be worth it. You just can't bear to be on the current road anymore. The unknown is far preferable to the unending drudgery before you, so you step through the portal with resolve.",
+            "effects": [
+              {
+                "type": "drawEvent",
+                "values": [
+                  "rift"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Trust that the road will provide you with enough excitement.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "narrative": "There may be good reasons to leave your current path, but you are concerned with the dangers beyond that portal. You decide it is better to get to your destination in one piece rather than not get there at all. There is enough excitement around Gloomhaven to not want to take a chance with whatever else is out there.",
+            "effects": [
+              {
+                "type": "drawAnotherEvent",
+                "values": [
+                  "road"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cardId": "83",
+    "edition": "fc",
+    "type": "road",
+    "narrative": "The road stretches out before you, endless and unremarkable. Your spirits flag and your steps drag, having traveled it so many times—from Gloomhaven, back to Gloomhaven—you've committed all its twists and turns to memory. In fact, even these thoughts feel familiar.<br><br>To get your mind off the drudgery, you begin to reflect on Cassandra, the Diviner who tore up the Sleeping Lion and went on to destroy great evil.<br><br>Without warning, a colorful, circular fissure opens before you as you walk. It beckons you to step into the unknown.",
+    "options": [
+      {
+        "label": "A",
+        "narrative": "Step through the portal.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "You find yourself in a lush meadow illuminated by soft light. Flowers and trees in full bloom surround you. This place emits an aura of safety and peace. In the midst of it, Cassandra sits atop a grey stone, gesturing you to come closer. She is almost completely transparent. \"My dear friends, a fledgling town in the north could use your help. Are you ready for a new adventure?\"",
+            "effects": [
+              {
+                "type": "partyAchievement",
+                "values": [
+                  "northern-expedition"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "narrative": "Trust that the road will provide you with enough excitement.",
+        "removeFromDeck": true,
+        "outcomes": [
+          {
+            "narrative": "There may be good reasons to leave your current path, but you are certain it is time to finally put this whole portal business to rest and move on with your life. You have made enough sacrifices.",
+            "effects": [
+              {
+                "type": "drawAnotherEvent",
+                "values": [
+                  "road"
+                ]
+              },
+              {
+                "type": "removeEvent",
+                "values": [
+                  "road",
+                  "82"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

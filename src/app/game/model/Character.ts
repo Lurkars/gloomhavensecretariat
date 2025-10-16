@@ -74,7 +74,7 @@ export class Character extends CharacterData implements Entity, Figure {
       return this.initiative < 90 ? this.initiative + 10 : 99;
     }
 
-    return this.initiative;
+    return this.initiative - 0.9;
   }
 
   constructor(character: CharacterData, level: number) {

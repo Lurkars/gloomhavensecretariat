@@ -1,0 +1,44 @@
+{
+  "index": "42.2",
+  "name": "Clockwork Factory",
+  "edition": "gh2e",
+  "parent": "71",
+  "monsters": [
+    "ancient-artillery",
+    "ooze",
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "type": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -98,12 +98,14 @@
     }
   },
   "character": {
-    "brute": "Barbar",
-    "cragheart": "Felsenherz",
-    "mindthief": "Gedankendiebin",
-    "scoundrel": "Schurkin",
-    "spellweaver": "Spruchweberin",
-    "tinkerer": "Tüftler"
+    "gh": {
+      "brute": "Barbar",
+      "cragheart": "Felsenherz",
+      "mindthief": "Gedankendiebin",
+      "scoundrel": "Schurkin",
+      "spellweaver": "Spruchweberin",
+      "tinkerer": "Tüftler"
+    }
   },
   "custom": {
     "gh": {

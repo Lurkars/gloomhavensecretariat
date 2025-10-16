@@ -1,0 +1,39 @@
+.condition {
+
+    font-family: var(--ghs-font-text);
+
+    &.fh {
+        font-family: var(--ghs-font-fh-normal);
+    }
+
+    .disabled {
+        opacity: 0.4;
+    }
+
+    .text.debug {
+        color: red;
+    }
+
+    &.narrative {
+        font-style: italic;
+        text-transform: uppercase;
+
+        .condition-character {
+            font-size: 1.1em;
+        }
+
+        .lowercase {
+            text-transform: initial;
+        }
+    }
+
+    .condition-object {
+
+        .and-container,
+        .conditional-container {
+            ghs-event-card-condition {
+                margin: 0 0.2em;
+            }
+        }
+    }
+}

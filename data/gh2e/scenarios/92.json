@@ -1,0 +1,62 @@
+{
+  "index": "92",
+  "name": "Chronal Anchor",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "rewards": {
+    "experience": 10,
+    "items": [
+      "144"
+    ]
+  },
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Temporal Matrix",
+      "escort": true,
+      "health": "3+C+2xL"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

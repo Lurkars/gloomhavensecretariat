@@ -1,0 +1,40 @@
+{
+  "index": "10.1",
+  "edition": "gh2e",
+  "parent": "27",
+  "conclusion": true,
+  "unlocks": [
+    "36"
+  ],
+  "blocks": [
+    "4",
+    "6",
+    "11",
+    "15",
+    "17",
+    "18",
+    "19",
+    "20"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "city-rule-merchants",
+      "peace-through-bloodshed"
+    ],
+    "gold": 25,
+    "events": [
+      "city:36",
+      "city:54",
+      "city:55",
+      "road:37",
+      "road:38"
+    ],
+    "factionUnlock": "merchant-guild",
+    "reputationFactions": [
+      "demons:-10",
+      "merchant-guild:2",
+      "military:-10"
+    ]
+  },
+  "monsters": []
+}

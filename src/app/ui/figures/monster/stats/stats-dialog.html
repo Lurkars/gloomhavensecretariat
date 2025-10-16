@@ -6,10 +6,15 @@
   </span>
 
   <div class="menu">
+    <a class="toggle-dormant" [ghs-label]="'monster.toggleDormant.' + (dormant? 'off' : 'on')"
+      (click)="toggleDormant()"></a>
+  </div>
+
+  <div class="menu">
     <a class="toggle-ally" [ghs-label]="'monster.toggleAlly.' + (monster.isAlly ? 'off' : 'on')"
       (click)="toggleAlly()"></a>
     <a class="toggle-allied" [ghs-label]="'monster.toggleAllied.' + (monster.isAllied ? 'off' : 'on')"
-      (click)="toggleallied()"></a>
+      (click)="toggleAllied()"></a>
   </div>
 
   <div class="stat-effect" *ngIf="monster.statEffect"

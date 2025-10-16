@@ -1,0 +1,39 @@
+{
+  "index": "110.1",
+  "name": "Harrower Hive",
+  "edition": "gh2e",
+  "parent": "77",
+  "monsters": [
+    "giant-viper",
+    "harrower-infester",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

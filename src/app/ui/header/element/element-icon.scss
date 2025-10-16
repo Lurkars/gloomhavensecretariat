@@ -11,7 +11,7 @@
   }
 
   #bg {
-    transition: clip-path 1s;
+    transition: clip-path calc(var(--ghs-animation-speed) * 1000ms);
   }
 
   &.inert {

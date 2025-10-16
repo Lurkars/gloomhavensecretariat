@@ -10,6 +10,7 @@
     "gridLocation": "N-3"
   },
   "edition": "gh",
+  "eventType": "road",
   "rewards": {
     "chooseLocation": [
       "15",

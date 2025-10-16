@@ -1,0 +1,50 @@
+{
+  "index": "83.4",
+  "edition": "gh2e",
+  "parent": "42",
+  "marker": "1",
+  "monsters": [
+    "city-guard",
+    "hound"
+  ],
+  "objectives": [
+    {
+      "name": "Wheel 1",
+      "health": "(4+L)xC"
+    },
+    {
+      "name": "Wheel 2",
+      "health": "(4+L)xC"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "treasures": [
+        16,
+        77
+      ],
+      "monster": [
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -50,7 +50,9 @@
     "You Date to Defy Me": "You Date to Defy Me"
   },
   "character": {
-    "diviner": "Diviner"
+    "fc": {
+      "diviner": "Diviner"
+    }
   },
   "custom": {
     "fc": {
@@ -277,6 +279,7 @@
   },
   "partyAchievements": {
     "a-strongbox": "A Strongbox",
+    "accomplices": "Accomplices",
     "angels-of-death": "Angels of Death",
     "beauty-in-freedom": "Beauty in Freedom",
     "custodians": "Custodians",
@@ -285,10 +288,15 @@
     "guard-detail": "Guard Detail",
     "hunted-prey": "Hunted Prey",
     "hunting-the-hunter": "Hunting the Hunter",
+    "northern-expedition": "Nothern Expedition",
     "opportunists": "Opportunists",
+    "saboteurs": "Saboteurs",
     "xangroths-aid": "Xangroth's Aid"
   },
   "scenario": {
+    "group": {
+      "Challenge": "Challenge"
+    },
     "rewards": {
       "fc": {
         "challenge1": "All characters may add one new card of their class to their active card pool. The card selected must have a level equal or less then the character's level minus 2."

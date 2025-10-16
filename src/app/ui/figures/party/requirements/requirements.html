@@ -1,6 +1,6 @@
 <div class="requirements">
   <div class="solo" *ngIf="solo">
-    <span [ghs-label]="'scenario.requirements.solo'" [ghs-label-args]="[solo]"></span>
+    <span [ghs-label]="'scenario.requirements.solo'" [ghs-label-args]="[scenarioData.edition, solo]"></span>
   </div>
   <ng-container *ngFor="let requirement of requirements; let i = index;">
     <div class="requirement">
@@ -61,11 +61,12 @@
       </div>
       <div class="characters">
         <div class="characters" *ngFor="let character of requirement.characters"
-          [ghs-label]="'scenario.requirements.characters'" [ghs-label-args]="[character]"></div>
+          [ghs-label]="'scenario.requirements.characters'" [ghs-label-args]="[scenarioData.edition, character]"></div>
       </div>
       <div class="characters">
         <div class="characters" *ngFor="let character of requirement.charactersMissing"
-          [ghs-label]="'scenario.requirements.charactersMissing'" [ghs-label-args]="[character]"></div>
+          [ghs-label]="'scenario.requirements.charactersMissing'" [ghs-label-args]="[scenarioData.edition, character]">
+        </div>
       </div>
       <div class="scenarios" *ngIf="requirement.scenarios.length">
         <div class="requires" [ghs-label]="'scenario.requirements.scenarios'"></div>

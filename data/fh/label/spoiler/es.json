@@ -3,26 +3,28 @@
     "42-temple": "Templo"
   },
   "character": {
-    "fist": {
-      "": "Puño helado",
-      "gift-of-the-mountain": {
-        "": "Don de la montaña",
-        "hint": "Al final de cada uno de tus turnos, realiza: %game.action.heal% 2, Personal"
+    "fh": {
+      "fist": {
+        "": "Puño helado",
+        "gift-of-the-mountain": {
+          "": "Don de la montaña",
+          "hint": "Al final de cada uno de tus turnos, realiza: %game.action.heal% 2, Personal"
+        },
+        "one-with-the-mountain": {
+          "": "Uno con la montaña",
+          "hint": "Siempre que no tengas %game.condition.regenerate%, obtén %game.condition.regenerate%."
+        }
       },
-      "one-with-the-mountain": {
-        "": "Uno con la montaña",
-        "hint": "Siempre que no tengas %game.condition.regenerate%, obtén %game.condition.regenerate%."
-      }
-    },
-    "meteor": "Piroclasto",
-    "snowflake": {
-      "": "Danzanieves",
-      "muddle-monster": {
-        "": "Perícia 9",
-        "hint": "%data.custom.fh.snowflake.4%"
-      }
-    },
-    "trap": "Trampero"
+      "meteor": "Piroclasto",
+      "snowflake": {
+        "": "Danzanieves",
+        "muddle-monster": {
+          "": "Perícia 9",
+          "hint": "%data.custom.fh.snowflake.4%"
+        }
+      },
+      "trap": "Trampero"
+    }
   },
   "custom": {
     "fh": {

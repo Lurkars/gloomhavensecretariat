@@ -1,0 +1,39 @@
+{
+  "index": "569",
+  "group": "randomMonsterCard",
+  "name": "Unstable",
+  "edition": "gh2e",
+  "named": true,
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "savvas-lavaflow"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 17,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

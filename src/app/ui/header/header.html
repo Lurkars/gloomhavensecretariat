@@ -75,7 +75,7 @@
     </div>
     <span class="spacer"></span>
     <div
-      *ngIf="!gameManager.bbRules() && !!gameManager.game.scenario && gameManager.characterManager.characterCount() > 0"
+      *ngIf="!gameManager.bbRules() && !!gameManager.game.scenario && (gameManager.characterManager.characterCount(true) > 0 || settingsManager.settings.partySheet)"
       class="event-effects" (click)="openEventEffects()">
       <img class="ghs-svg"
         [src]="'./assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state == GameState.next ? '-effects' : '') + '.svg'">

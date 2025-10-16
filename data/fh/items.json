@@ -3969,7 +3969,7 @@
     "cost": 50,
     "count": 2,
     "edition": "fh",
-    "slot": "head",
+    "slot": "small",
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 3,

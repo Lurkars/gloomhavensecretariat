@@ -1,0 +1,50 @@
+{
+  "index": "12.2",
+  "name": "Gloomhaven Warehouse",
+  "edition": "gh2e",
+  "parent": "20",
+  "monsters": [
+    "crystal-rot",
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "crystal-rot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

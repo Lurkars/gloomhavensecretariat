@@ -14,6 +14,7 @@ import { PartySheetDialogComponent } from "src/app/ui/figures/party/party-sheet-
 import { PartyResourcesDialogComponent } from "src/app/ui/figures/party/resources/resources";
 import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
 import { ScenarioChartDialogComponent } from "../../../figures/party/scenario-chart/scenario-chart";
+import { EventCardDeckComponent } from "src/app/ui/figures/event/deck/event-card-deck";
 
 
 @Component({
@@ -56,7 +57,7 @@ export class CampaignMenuComponent implements OnInit {
             return 0;
         });
 
-        this.conditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.hidden) == -1);
+        this.conditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.hidden) == -1 && condition.types.indexOf(ConditionType.special) == -1);
         this.amConditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.amDeck) != -1);
         this.editionConditions = gameManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
         this.worldMap = false;
@@ -153,6 +154,15 @@ export class CampaignMenuComponent implements OnInit {
             panelClass: ['dialog']
         });
         this.close.emit();
+    }
+    openEventDeckSetup() {
+      this.dialog.open(EventCardDeckComponent, {
+        panelClass: ['dialog'],
+        data: {
+          edition: gameManager.game.edition
+        }
+      });
+      this.close.emit();
     }
 
     openBattleGoalsSetup() {

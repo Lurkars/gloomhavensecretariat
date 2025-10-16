@@ -78,7 +78,7 @@
         position: relative;
         width: calc(var(--ghs-unit) * 4);
         height: calc(var(--ghs-unit) * 4);
-        transition: top 500ms ease-out, left 500ms ease-out;
+        transition: top calc(var(--ghs-animation-speed) * 500ms) ease-out, left calc(var(--ghs-animation-speed) * 500ms) ease-out;
 
         &.new::before {
           content: " ";

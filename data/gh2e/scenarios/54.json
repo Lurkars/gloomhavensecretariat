@@ -1,0 +1,89 @@
+{
+  "index": "54",
+  "name": "The Void",
+  "flowChartGroup": "the-gloom",
+  "edition": "gh2e",
+  "unlocks": [
+    "55"
+  ],
+  "forcedLinks": [
+    "55"
+  ],
+  "monsters": [
+    "black-imp",
+    "cultist-scenario-54",
+    "harrower-infester"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist-scenario-54",
+          "type": "normal"
+        },
+        {
+          "name": "cultist-scenario-54",
+          "type": "elite"
+        },
+        {
+          "name": "cultist-scenario-54",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cultist-scenario-54",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

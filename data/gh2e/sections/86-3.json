@@ -1,0 +1,37 @@
+{
+  "index": "86.3",
+  "name": "Chronal Anchor",
+  "edition": "gh2e",
+  "parent": "92",
+  "monsters": [
+    "chaos-demon",
+    "flame-demon",
+    "frost-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

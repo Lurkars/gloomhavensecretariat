@@ -1,0 +1,37 @@
+{
+  "index": "71",
+  "name": "Clockwork Factory",
+  "flowChartGroup": "random",
+  "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "ancient-technology"
+    ],
+    "experience": 10,
+    "battleGoals": 1
+  },
+  "monsters": [
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

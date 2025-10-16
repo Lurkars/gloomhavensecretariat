@@ -52,7 +52,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
     ngOnInit(): void {
         setTimeout(() => {
             this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
-        }, !settingsManager.settings.animations ? 0 : 250);
+        }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0);
         this.update();
         this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
         this.edit = !gameManager.game.scenario;

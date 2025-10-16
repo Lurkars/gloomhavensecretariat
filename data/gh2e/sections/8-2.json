@@ -1,0 +1,60 @@
+{
+  "index": "8.2",
+  "edition": "gh2e",
+  "parent": "79",
+  "marker": "1",
+  "monsters": [
+    "lurker-soldier",
+    "tyrant-of-the-tides",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "treasures": [
+        20
+      ],
+      "monster": [
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "tyrant-of-the-tides",
+          "type": "boss"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ActionHex, ActionHexFromString } from "src/app/game/model/ActionHex";
 import { ActionType } from "src/app/game/model/data/Action";
-import { AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
+import { additionalTownGuardAttackModifier, AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
 import { Condition, ConditionType } from "src/app/game/model/data/Condition";
 import { EntityValueFunction, EntityValueRegex, EntityValueRegexExtended } from "src/app/game/model/Entity";
 import { ActionTypesIcons } from "../figures/actions/action";
@@ -46,7 +46,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
           image += '<span class="value">' + value + '</span>';
         }
         image += '</span>';
-        replace = '<span class="placeholder-condition">' + (fh ? '&#8203;' : settingsManager.getLabel('game.condition.' + condition.name, [value ? value : ''])) + image + '</span>';
+        replace = '<span class="placeholder-condition' + (fh ? ' fh' : '') + '">' + (fh ? '&#8203;' : settingsManager.getLabel('game.condition.' + condition.name, [value ? value : ''])) + image + '</span>';
       } else if (type == "conditionIcon" || type == "immunityIcon") {
         let condition = new Condition(split[2]);
         image = '<span class="condition-icon' + (type == "immunityIcon" ? ' immunity' : '') + '">';
@@ -110,8 +110,12 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         image = '<img  src="./assets/images/items/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-item-slot">' + image + value + '</span>';
       } else if (prefix == "game" && type == "itemFh" && split.length == 3) {
-        const itemId: number = +split[2];
-        replace = '<span class="placeholder-item-fh">' + '<span class="value">' + (itemId < 100 ? '0' : '') + (itemId < 10 ? '0' : '') + itemId + '</span></span>';
+        if (split[2] == 'random') {
+          replace = '<span class="placeholder-item-fh"><span class="value"><img src="./assets/images/fh/loot/random_item.svg"></span></span>';
+        } else {
+          const itemId: number = +split[2];
+          replace = '<span class="placeholder-item-fh">' + '<span class="value">' + (itemId < 100 ? '0' : '') + (itemId < 10 ? '0' : '') + itemId + '</span></span>';
+        }
       } else if (type == "card" && split.length == 3) {
         let card = split[2]
         let cardValue = "";
@@ -124,6 +128,16 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "attackmodifier" && split.length == 3) {
         image = '<img  src="./assets/images' + (fh ? '/fh' : '') + '/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
+      } else if (type == "townGuardAM" && value) {
+
+        const townGuardAM = additionalTownGuardAttackModifier.find((am) => am.id == value);
+        if (townGuardAM) {
+          const effect = townGuardAM.effects.find((effect) => effect.type == 'custom' && effect.icon);
+          const effectImage = effect != undefined ? '<img  src="./assets/images/action/custom/' + effect.value + '.svg" class="icon">' : "";
+          const amImage = '<span class="townguard-attackmodifier"><img src="./assets/images/fh/attackmodifier/icons/' + townGuardAM.valueType + '.png" class="icon"><span class="value">' + (townGuardAM.value >= 0 ? '+' : '') + townGuardAM.value + '</span></span>';
+          const rollingImage = townGuardAM.rolling ? '<img  src="./assets/images/attackmodifier/rolling.svg" class="icon">' : "";
+          replace = '<span class="placeholder-townguard-attackmodifier">' + effectImage + amImage + rollingImage + '</span>';
+        }
       } else if (type == "experience") {
         image = '<img  src="./assets/images/experience.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-experience">' + image + (value ? '<span class="value">' + value + '</span>' : '') + '</span>';
@@ -207,6 +221,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "section" && value) {
         image = '<img src="./assets/images/fh/party/section.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-section">' + image + value + '</span>';
+      } else if (type == "gh2eFaction" && value) {
+        image = '<img src="./assets/images/gh2e/faction/' + value + '.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-faction">' + image + '</span>';
       } else if (type == "checkmark") {
         replace = '<span class="placeholder-checkmark"><img src="./assets/images/check.svg" class="icon ghs-svg"></span>';
       } else if (type == "itemSlot" && value) {
@@ -230,11 +247,17 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "gameIcon" && value) {
         image = '<img src="./assets/images/' + value + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-game-icon">' + image + '</span>';
-      } else if (type == "trait" && value) {
+      } else if (type == "trait") {
         image = '<img src="./assets/images/fh/character/traits/trait.svg" class="icon ghs-svg">';
-        replace = '<span class="placeholder-trait">' + image + settingsManager.getLabel('data.character.traits.' + value) + '</span>';
+        replace = '<span class="placeholder-trait">' + image + (value ? settingsManager.getLabel('data.character.traits.' + value) : '') + '</span>';
+      } else if (type == "checkbox") {
+        replace = '<span class="placeholder-checkbox"></span>';
+      } else if (type == "eventCard" && value) {
+        replace = '<span class="placeholder-action"><img src="./assets/images/eventcards/' + value + '.svg" class="icon ghs-svg"></span>';
       } else if (type == "eventCheckbox" && value) {
         replace = '<span class="event-checkbox">' + value + '</span>';
+      } else if (type == "valueSign" && value) {
+        replace = '<span class="value-sign">' + (+value > -1 ? '+' : '') + value + '</span>';
       } else if (type == "enhancement" && split.length == 3) {
         if (!fh || split[2] === 'any') {
           image = '<img class="enhancement-icon" src="./assets/images/character/abilities/enhancements/circle.svg">';
@@ -314,6 +337,7 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
   @Input('ghs-label-args-replace') argLabel: boolean = true;
   @Input('ghs-label-empty') empty: boolean = true;
   @Input('ghs-label-attribute') attribute: string = "";
+  @Input('slice') slice: number[] = [];
   @Input('relative') relative: boolean = false;
   @Input('style') style: 'gh' | 'fh' | false = false;
 
@@ -372,7 +396,14 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
       args = args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg, [], false, this.empty), [], this.relative, this.style));
     }
 
-    const value = typeof this.value === 'number' ? this.value : (this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false, this.empty), args, this.relative, this.style) || "");
+    let value = typeof this.value === 'number' ? this.value : (this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false, this.empty), args, this.relative, this.style) || "");
+
+    if (typeof value === 'string' && this.slice.length == 1) {
+      value = value.slice(this.slice[0]);
+    } else if (typeof value === 'string' && this.slice.length == 2) {
+      value = value.slice(this.slice[0], this.slice[1]);
+    }
+
     if (this.attribute) {
       this.el.nativeElement.setAttribute(this.attribute, value);
     } else {

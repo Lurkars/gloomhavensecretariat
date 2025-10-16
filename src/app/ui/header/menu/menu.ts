@@ -273,12 +273,17 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   }
 
   isUpdateAvailable(): boolean {
+    if ((window as any).electron) {
+      return (window as any).electron.updateAvailable;
+    }
     return gameManager.stateManager.hasUpdate;
   }
 
   update(force: boolean = false): void {
     if (this.isUpdateAvailable() || force) {
-      if (this.swUpdate.isEnabled) {
+      if ((window as any).electron) {
+        (window as any).electron.quitAndInstall();
+      } else if (this.swUpdate.isEnabled) {
         this.swUpdate.activateUpdate().then(() => {
           this.clearAndRefresh();
         });

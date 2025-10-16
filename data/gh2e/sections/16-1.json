@@ -1,0 +1,52 @@
+{
+  "index": "16.1",
+  "name": "Ruinous Crypt",
+  "edition": "gh2e",
+  "parent": "2",
+  "monsters": [
+    "earth-demon",
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "treasures": [
+        17
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "elite",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

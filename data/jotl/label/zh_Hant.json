@@ -312,16 +312,18 @@
     }
   },
   "character": {
-    "demolitionist": {
-      "": "爆破手",
-      "mech": {
-        "": "機械裝甲",
-        "hint": "你的最大生命值增加 5 點。治療自己 %game.action.heal% 10。"
-      }
-    },
-    "hatchet": "飛斧手",
-    "red-guard": "赤色守衛",
-    "voidwarden": "虛空守望者"
+    "jotl": {
+      "demolitionist": {
+        "": "爆破手",
+        "mech": {
+          "": "機械裝甲",
+          "hint": "你的最大生命值增加 5 點。治療自己 %game.action.heal% 10。"
+        }
+      },
+      "hatchet": "飛斧手",
+      "red-guard": "赤色守衛",
+      "voidwarden": "虛空守望者"
+    }
   },
   "custom": {
     "jotl": {

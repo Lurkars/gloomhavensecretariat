@@ -14,7 +14,15 @@
     "4"
   ],
   "rewards": {
-    "perks": 1
+    "perks": 1,
+    "hints": {
+      "eventDecks": [
+        "%data.scenario.rules.jotl.3.1%"
+      ]
+    },
+    "eventDecks": [
+      "city:01|22"
+    ]
   },
   "monsters": [
     "basic-giant-viper",

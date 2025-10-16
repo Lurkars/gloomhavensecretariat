@@ -1,0 +1,58 @@
+{
+  "index": "95",
+  "name": "Cargo Ship",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "unlocks": [
+    "96"
+  ],
+  "monsters": [
+    "bandit-scout",
+    "deep-terror",
+    "lurker-soldier"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

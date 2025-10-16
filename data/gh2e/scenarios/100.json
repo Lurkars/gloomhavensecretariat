@@ -1,0 +1,62 @@
+{
+  "index": "100",
+  "name": "Silence Falls",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1,
+    "events": [
+      "city:60"
+    ]
+  },
+  "monsters": [
+    "chaos-demon",
+    "crystal-rot",
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        15,
+        58
+      ],
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "crystal-rot",
+          "type": "elite"
+        },
+        {
+          "name": "crystal-rot",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

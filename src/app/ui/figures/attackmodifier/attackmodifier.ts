@@ -34,6 +34,7 @@ export class AttackModifierComponent implements OnInit, OnChanges, OnDestroy {
   multipe: boolean = false;
   wildElement: boolean = false;
   csOak: boolean = false;
+  imbue: boolean = false;
   mixedElement: AttackModifierEffect | undefined;
   orTypeEffect: AttackModifierEffect | undefined;
   townGuardEffectIcon: AttackModifierEffect | undefined;
@@ -67,7 +68,8 @@ export class AttackModifierComponent implements OnInit, OnChanges, OnDestroy {
   init() {
     if (this.attackModifier) {
       this.csOak = this.attackModifier.id && this.attackModifier.id.startsWith('cs-oak') || false;
-      this.newStyle = this.newStyle || this.attackModifier.type == AttackModifierType.empower || this.attackModifier.type == AttackModifierType.enfeeble;
+      this.imbue = this.attackModifier.type == AttackModifierType.imbue || this.attackModifier.type == AttackModifierType.advancedImbue;
+      this.newStyle = this.newStyle || this.attackModifier.type == AttackModifierType.empower || this.attackModifier.type == AttackModifierType.enfeeble || this.imbue;
       this.multipe = false;
       this.wildElement = false;
       this.mixedElement = undefined;

@@ -55,21 +55,21 @@ export class CharacterManager {
   }
 
   characterName(character: Character, full: boolean = false, icon: boolean = false, identity: boolean = true): string {
-    let name = settingsManager.getLabel('data.character.' + character.name);
+    let name = settingsManager.getLabel('data.character.' + character.edition + '.' + character.name);
     let hasTitle = false;
     if (identity && character.identities.length > 0 && settingsManager.settings.characterIdentities) {
       if (character.title && character.title.split('|')[character.identity] && character.title.split('|')[character.identity]) {
         name = character.title.split('|')[character.identity];
         hasTitle = true;
       } else if (settingsManager.settings.characterIdentityHint && !full) {
-        name += " (" + settingsManager.getLabel('data.character.' + character.name + '.' + character.identities[character.identity]) + ")"
+        name += " (" + settingsManager.getLabel('data.character.' + character.edition + '.' + character.name + '.' + character.identities[character.identity]) + ")"
       }
     } else if (character.title) {
       name = character.title;
       hasTitle = true;
     }
     if (full && hasTitle) {
-      name += " (" + settingsManager.getLabel('data.character.' + character.name) + ")";
+      name += " (" + settingsManager.getLabel('data.character.' + character.edition + '.' + character.name) + ")";
     }
 
     if (icon) {
@@ -106,8 +106,8 @@ export class CharacterManager {
     return './assets/images/character/thumbnail/' + characterData.edition + '-' + characterData.name + '.png';
   }
 
-  characterCount(): number {
-    if (this.game.playerCount > 0) {
+  characterCount(figuresOnly: boolean = false): number {
+    if (!figuresOnly && this.game.playerCount > 0) {
       return this.game.playerCount;
     }
 
@@ -169,6 +169,19 @@ export class CharacterManager {
 
     if (retirement && settingsManager.settings.applyRetirement) {
       gameManager.game.party.prosperity += gameManager.fhRules() ? 2 : 1;
+
+      if (settingsManager.settings.events) {
+        if (character.retireEvent) {
+          character.retireEvent.split('|').forEach((retireEvent) => {
+            if (retireEvent.split(':').length > 1) {
+              gameManager.eventCardManager.addEvent(retireEvent.split(':')[0], retireEvent.split(':')[1], true)
+            } else {
+              gameManager.eventCardManager.addEvent('city', retireEvent, true);
+              gameManager.eventCardManager.addEvent('road', retireEvent, true);
+            }
+          })
+        }
+      }
     }
 
     if (character.marker) {
@@ -478,5 +491,9 @@ export class CharacterManager {
     })
 
     return mapping;
+  }
+
+  getActiveCharacters(): Character[] {
+    return this.game.figures.filter((figure) => figure instanceof Character && gameManager.gameplayFigure(figure) && !figure.absent).map((figure) => figure as Character);
   }
 }

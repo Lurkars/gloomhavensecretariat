@@ -1,0 +1,41 @@
+{
+  "index": "68",
+  "name": "Sunken Vessel",
+  "flowChartGroup": "random",
+  "edition": "gh2e",
+  "rewards": {
+    "gold": 10
+  },
+  "monsters": [
+    "lurker-soldier"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

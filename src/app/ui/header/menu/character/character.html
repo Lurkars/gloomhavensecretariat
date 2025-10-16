@@ -6,8 +6,8 @@
         [ngClass]="{'active' : level + 1 == characterLevel}" (click)="characterLevel = level+1">{{level
         +1}}</a></span>
     <div class="line search">
-      <input [(ngModel)]="filter" (change)="update()" (keyup)="update()" type="text"
-        [ghs-label]="'character.filter'" [ghs-label-attribute]="'placeholder'">
+      <input [(ngModel)]="filter" (change)="update()" (keyup)="update()" type="text" [ghs-label]="'character.filter'"
+        [ghs-label-attribute]="'placeholder'">
       <label *ngIf="gameManager.game.edition">
         <input tabclick type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions; update()">
         <span [ghs-label]="'character.filter.allEditions'"></span>
@@ -33,7 +33,7 @@
           [ngClass]="{'disabled' : hasCharacter(characterData) && unlocked(characterData), 'spoiler' : characterData.spoiler}">
           <a tabclick (click)="addCharacter(characterData);" *ngIf="unlocked(characterData)">
             <img class="icon" [src]="characterData.iconUrl" />
-            <span [ghs-label]="'data.character.' + characterData.name"></span>
+            <span [ghs-label]="'data.character.' + characterData.edition + '.'+ characterData.name"></span>
           </a>
           <a tabclick (click)="unlock(characterData)" *ngIf="!unlocked(characterData)"
             [ngClass]="{'confirm' : confirm == characterData.name}" (mouseleave)="cancelConfirm()">

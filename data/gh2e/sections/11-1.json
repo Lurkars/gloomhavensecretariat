@@ -1,0 +1,48 @@
+{
+  "index": "11.1",
+  "name": "Bandit Camp",
+  "edition": "gh2e",
+  "parent": "1",
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

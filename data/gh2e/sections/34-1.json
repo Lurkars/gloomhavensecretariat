@@ -1,0 +1,26 @@
+{
+  "index": "34.1",
+  "name": "Echo Chamber",
+  "edition": "gh2e",
+  "parent": "14",
+  "monsters": [
+    "rending-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "rending-drake",
+          "type": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

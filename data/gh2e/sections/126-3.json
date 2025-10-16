@@ -1,0 +1,50 @@
+{
+  "index": "126.3",
+  "name": "Magma Pit",
+  "edition": "gh2e",
+  "parent": "86",
+  "monsters": [
+    "flame-demon",
+    "inox-archer",
+    "inox-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

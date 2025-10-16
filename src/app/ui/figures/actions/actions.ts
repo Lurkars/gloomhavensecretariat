@@ -38,6 +38,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
   @Input() cardId: number | undefined;
 
   divider: boolean[] = [];
+  spacing: boolean[] = [];
 
   settingsManager: SettingsManager = settingsManager;
 
@@ -91,6 +92,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
     if (!this.noDivider && this.actions) {
       this.actions.forEach((action, index) => {
         this.divider[index] = this.calcDivider(action, index);
+        this.spacing[index] = this.calcSpacing(action, index);
       })
     }
 
@@ -121,6 +123,17 @@ export class ActionsComponent implements OnInit, OnDestroy {
       return false;
     }
 
+    return true;
+  }
+
+  calcSpacing(action: Action, index: number): boolean {
+    if (index < 1 || this.inline) {
+      return false;
+    }
+
+    if (this.actions[index - 1].type == ActionType.box) {
+      return false;
+    }
     return true;
   }
 

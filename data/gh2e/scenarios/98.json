@@ -1,0 +1,40 @@
+{
+  "index": "98",
+  "name": "Metamorphic Fault",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "rewards": {
+    "experience": 10,
+    "items": [
+      "111"
+    ]
+  },
+  "monsters": [
+    "deep-terror"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -10,6 +10,7 @@
     "gridLocation": "M-6"
   },
   "edition": "gh",
+  "eventType": "road",
   "monsters": [
     "earth-demon",
     "flame-demon",

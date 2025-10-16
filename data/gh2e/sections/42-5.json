@@ -1,0 +1,41 @@
+{
+  "index": "42.5",
+  "name": "Investigation",
+  "edition": "gh2e",
+  "parent": "18",
+  "monsters": [
+    "bandit-scout",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-scout",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

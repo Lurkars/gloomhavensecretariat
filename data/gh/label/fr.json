@@ -1,64 +1,163 @@
 {
   "ability": {
+    "Accelerated End": "Fin Précipitée",
     "Aid from the Ether": "Secours de l'Éther",
+    "Airborne Toxin": "Toxine Aérienne",
+    "Angelic Ascension": "Ascension Angélique",
+    "Auto Turret": "Tourelle Automatique",
     "Avalanche": "Avalanche",
     "Backstab": "Coup en Traître",
     "Backup Ammunition": "Réserve de Munitions",
     "Balanced Measure": "Mesures Équilibrées",
+    "Baneful Hex": "Damnation Funeste",
+    "Beacon of Light": "Flambeau Lumineux",
+    "Biting Gnats": "Insectes Agressifs",
+    "Black Hole": "Trou Noir",
+    "Black Tides": "Sombres Marées",
+    "Blind Destruction": "Destruction Aveugle",
+    "Blistering Vortex": "Vortex Cinglant",
+    "Blunt Force": "Force Brute",
+    "Brain Leech": "Suceur de Cervelle",
+    "Bright Aegis": "Égide Lumineuse",
+    "Brilliant Prayer": "Prière Éclatante",
+    "Brutal Momentum": "Élan Brutal",
     "Brute Force": "Force Brute",
+    "Burning Flash": "Éclair Brûlant",
+    "Burning Oil": "Huile Brûlante",
+    "Cataclysm": "Cataclysme",
+    "Cautious Advance": "Avance Prudente",
+    "Chimeric Formula": "Formule Chimérique",
+    "Chromatic Explosion": "Explosion Chromatique",
+    "Cleansing Force": "Force Purificatrice",
+    "Clear the Way": "Voie Dégagée",
+    "Cold Fire": "Feu Glacial",
+    "Cold Front": "Front Froid",
+    "Convert the Flock": "Conversion du Troupeau",
+    "Corrupting Embrace": "Étreinte Corruptive",
     "Crackling Air": "Air Crépitant",
+    "Cranium Overload": "Surcharge Crânienne",
+    "Crank Bow": "Arc à Manivelle",
     "Crater": "Cratère",
+    "Creeping Curse": "Malédiction Rampante",
+    "Crippling Offensive": "Offensive Paralysante",
+    "Crippling Poison": "Poison Paralysant",
     "Crushing Grasp": "Poigne Écrasante",
     "Cull the Weak": "Élimination des Faibles",
+    "Curative Aerosol": "Aérosol Curatif",
+    "Dangerous Contraption": "Engin Dangereux",
+    "Dark Frenzy": "Sombre Frénésie",
+    "Daybreak": "Point du jour",
+    "Dazzling Charge": "Charge Éblouissante",
+    "Defensive Stance": "Posture Défensive",
+    "Defensive Tactics": "Tactiques Défensives",
     "Devastating Hack": "Frappe Dévastatrice",
+    "Dig Pit": "Fossé Piégé",
     "Dirt Tornado": "Tornade de Poussière",
+    "Disintegration Beam": "Rayon Désintégrateur",
+    "Disorienting Flash": "Flash Déroutant",
+    "Divine Intervention": "Intervention Divine",
+    "Domination": "Domination",
     "Duelist's Advance": "Pas de Duelliste",
     "Earthen Clod": "Motte de Terre",
+    "Elemental Aid": "Aide Élémentaire",
     "Empathetic Assault": "Assaut Empathique",
+    "Empowering Command": "Ordre Stimulant",
     "Energizing Tonic": "Tonic Énergisant",
+    "Engulfed in Flames": "Ravagé par les Flammes",
+    "Engulfing Radiance": "Radiance Submergeante",
     "Enhancement Field": "Champ d'Amélioration",
+    "Epidemic": "Épidémie",
+    "Explosive Punch": "Poing Explosif",
     "Eye for an Eye": "Œil pour Œil",
+    "Face Your End": "La Mort en Face",
     "Fatal Advance": "Avancée Fatale",
     "Fearsome Blade": "Lame Effrayante",
     "Feedback Loop": "Boucle de Rétroaction",
+    "Fetid Flurry": "Rafale Fétide",
     "Fire Orbs": "Orbes de Feu",
     "Flame Strike": "Frappe de la Flamme",
     "Flamethrower": "Lance-flammes",
     "Flanking Strike": "Frappe de Côté",
+    "Flashing Burst": "Éclat Luminescent",
     "Flintlock": "Silex",
     "Flurry of Blades": "Déluge de Lames",
     "Forceful Storm": "Tempête Puissante",
+    "Foul Wind": "Bourrasque Viciée",
     "Freezing Nova": "Nova de Glace",
+    "Frenzied Onslaught": "Assaut Frénétique",
     "Frigid Apparition": "Apparition Glaciale",
     "Frost Armor": "Armure de Givre",
+    "Frozen Mind": "Esprit Gelé",
+    "Frozen Night": "Nuit Glaciale",
+    "Gas Canister": "Cartouche de Gaz",
+    "Gathering Doom": "Approche du Chaos",
+    "Glorious Bolt": "Éclair Glorieux",
     "Gnawing Horde": "Horde de Rongeurs",
     "Grab and Go": "Pas Vu, Pas Pris",
+    "Grasping Vermin": "Vermine Tenace",
+    "Grim Bargain": "Pacte Lugubre",
     "Gruesome Advantage": "Terrible Avantage",
+    "Hammer Blow": "Coup de Marteau",
     "Hardened Spikes": "Piques Durcis",
     "Harmless Contraption": "Engin Inoffensif",
+    "Harsh Stimulants": "Stimulants Sévères",
     "Heaving Swing": "Projection",
     "Hidden Daggers": "Dagues Dissimulées",
+    "Holy Strike": "Châtiment Divin",
     "Hook Gun": "Pistolet à Grappin",
     "Hook and Chain": "Crochet et Chaîne",
+    "Hostile Takeover": "Possession Hostile",
+    "Icy Blast": "Souffle Glacé",
+    "Illuminate the Target": "Lumière sur la Cible",
     "Immovable Phalanx": "Phalange Inébranlable",
     "Impaling Eruption": "Éruption de Piques",
+    "Inferno": "Fournaise",
     "Info the Night": "Au Cœur de la Nuit",
     "Ink Bomb": "Bombe à Encre",
+    "Inspiring Sanctity": "Sainteté Inspirante",
+    "Jet Propulsion": "Propulsion par Réaction",
     "Juggernaut": "Rouleau Compresseur",
+    "Kinetic Assault": "Assaut Cinétique",
+    "King of the Hill": "Position Dominante",
+    "Lay on Hands": "Imposition des Mains",
     "Leaping Cleave": "Feinte Bondissante",
+    "Lethal Injection": "Injection Létale",
+    "Living Torch": "Torche Vivante",
+    "Long Con": "Duperie Élaborée",
+    "Lumbering Bash": "Coup Fracassant",
     "Mana Bolt": "Projectile de Mana",
+    "Many as One": "Esprit Collectif",
+    "Mass Extinction": "Extinction de Masse",
+    "Mass Hysteria": "Hystérie Collective",
     "Massive Boulder": "Rocher Massif",
+    "Meteor": "Météore",
+    "Micro Bots": "Petits Automates",
+    "Mobilizing Axiom": "Axiome Mobilisateur",
+    "Murderous Contraption": "Engin Meurtrier",
     "Nature's Lift": "Sur l'Aile de la Nature",
     "Net Shooter": "Lance-filet",
+    "Nightmarish Affliction": "Affliction Cauchemardesque",
+    "Noxious Vials": "Fioles Nocives",
     "Open Wound": "Blessure Ouverte",
     "Opposing Strike": "Force d'Opposition",
     "Overwhelming Assault": "Assaut Déferlant",
+    "Pain's End": "Fin de la Douleur",
+    "Paralyzing Bite": "Morsure Paralysante",
     "Parasitic Influence": "Influence Parasite",
+    "Path of Glory": "Sentier de la Gloire",
     "Perverse Edge": "Côté Pervers",
+    "Petrify": "Pétrification",
+    "Phantasmal Killer": "Tueur Fantasmagorique",
+    "Pilfer": "Chapardage",
     "Possession": "Possession",
     "Potent Potables": "Boissons Puissantes",
+    "Practical Plans": "Plans Pratiques",
+    "Protective Blessing": "Bénédiction Protectrice",
     "Provoking Roar": "Rugissement Provocant",
     "Proximity Mine": "Mine de Proximité",
+    "Psychic Projection": "Projection Psychique",
+    "Pulverize": "En Mille Morceaux",
+    "Purifying Aura": "Aura Purifiante",
     "Quick Hands": "Mains Vives",
     "Quietus": "Coup de Grâce",
     "Reinvigorating Elixir": "Élixir Revigorant",
@@ -66,10 +165,21 @@
     "Reviving Ether": "Éther Revigorant",
     "Reviving Shock": "Choc Revitalisant",
     "Ride the Wind": "Chevauchée sur le Vent",
+    "Righteous Strength": "Force Vertueuse",
+    "Rock Slide": "Éboulement Rocheux",
     "Rock Tunnel": "Tunnel de Roche",
+    "Rocky End": "Pointe Rocheuse",
+    "Rot Maggots": "Asticots Charognards",
     "Rumbling Advance": "Progression Grondante",
+    "Sacrifice": "Sacrifice Volontaire",
+    "Scales of Justice": "Balance de la Justice",
+    "Scattered Terror": "Terreur Diffuse",
     "Scurry": "Précipitation",
+    "Selfish Retribution": "Amende Déshonorable",
+    "Sentient Growth": "Croissance Consciente",
+    "Shared Nightmare": "Cauchemar Partagé",
     "Shield Bash": "Coup de Bouclier",
+    "Silent Scream": "Hurlement Silencieux",
     "Single Out": "Isolement",
     "Sinister Opportunity": "Sinistre Occasion",
     "Skewer": "Embroché",
@@ -77,25 +187,53 @@
     "Smoke Bomb": "Fumigène",
     "Spare Dagger": "Dague Cachée",
     "Special Mixture": "Mixture Spéciale",
+    "Spirit of Doom": "Esprit du Chaos",
+    "Spread the Plague": "Transmission du Fléau",
+    "Spreading Scourge": "Fléau Rampant",
+    "Spring the Trap": "Piège Armé",
+    "Stamina Booster": "Fortifiant",
+    "Stick to the Shadows": "La Faveur de l'Ombre",
+    "Stiletto Storm": "Tempête de Stylets",
+    "Stinging Cloud": "Nuage d'Aiguillons",
+    "Stone Fists": "Poings de Roc",
+    "Stone Pummel": "Lapidation",
+    "Storm of": "Tempête d'Élytres",
     "Stun Shot": "Tir Étourdissant",
     "Submissive Affliction": "Affliction Aggravée",
+    "Succumb for the Gift": "Offrande Irrésistible",
+    "Supportive Chant": "Chant d'Encouragement",
     "Sweeping Blow": "Balayage",
     "Swift Bow": "Arc Prompt",
+    "Tactical Order": "Ordre Tactique",
     "The Mind's Weakness": "La Faiblesse de l'Esprit",
     "Thief's Knack": "Truc de filou",
     "Throwing Knives": "Couteaux de Lancer",
+    "Tinkerer's Tools": "Outils du Bricoleur",
     "Toxic Bolt": "Carreau Toxique",
     "Trample": "Piétinement",
     "Trickster's Reversal": "Coup de Jarnac",
+    "Twin Restoration": "Reconstitution Jumelée",
+    "Under the Skin": "Sous la Peau",
     "Unstable Upheaval": "Perturbation Instable",
     "Unstoppable Chard": "Charge Irrésistible",
+    "Unwavering Mandate": "Mandat Inébranlable",
+    "Vengeance": "Vengeance",
     "Venom Shiv": "Surin Empoisonné",
+    "Vicious Blood": "Sang Vicieux",
+    "Vile Pestilence": "Pestilence Infâme",
+    "Virulent Strain": "Souche Virulente",
     "Visage of the Inevitable": "Visage de l'Inévitable",
     "Volatile Concoction": "Mélange Volatile",
     "Wall of Doom": "Mur de Chaos",
     "Warding Strength": "Force de Guet",
+    "Watch It Burn": "Contemplation des Dégâts",
+    "Weapon of Purity": "Arme de Pureté",
     "Whirlwind": "Tornade",
-    "Withering Claw": "Griffe Flétrissante"
+    "Winged Congregation": "Assemblée Ailée",
+    "Withering Claw": "Griffe Flétrissante",
+    "Wretched Creature": "Misérable Créature",
+    "Wretched Swarm": "Nuée Détestable",
+    "Zephyr Wings": "Ailes Zéphiriennes"
   },
   "battleGoals": {
     "458": {
@@ -196,12 +334,14 @@
     }
   },
   "character": {
-    "brute": "Brute",
-    "cragheart": "Cœur de Roche",
-    "mindthief": "Perce-Esprit",
-    "scoundrel": "Crapule",
-    "spellweaver": "Tisse-Sort",
-    "tinkerer": "Bricoleur"
+    "gh": {
+      "brute": "Brute",
+      "cragheart": "Cœur de Roche",
+      "mindthief": "Perce-Esprit",
+      "scoundrel": "Crapule",
+      "spellweaver": "Tisse-Sort",
+      "tinkerer": "Bricoleur"
+    }
   },
   "custom": {
     "gh": {
@@ -245,6 +385,15 @@
           },
           "23": {
             "1": "Vous pouvez traiter toutes les capacités de %game.action.move% comme des capacités d'%game.action.attack% de valeur égale."
+          },
+          "26": {
+            "1": "Ajoutez +3 %game.action.attack% à toutes vos attaques ciblant des adversaires avec %game.condition.disarm%, %game.condition.immobilize%, ou %game.condition.stun% ce round."
+          },
+          "28": {
+            "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
+          },
+          "29": {
+            "1": "Éliminez un adversaire adjacent normal ou d'élite."
           },
           "4": {
             "1": "Tout adversaire ciblant un de vos alliés adjacents avec une attaque ce round vous cible à la place avec cette attaque, quelle que soit la portée de celle-ci."
@@ -291,6 +440,7 @@
             "3": "2 dégâts à la place, %game.card.experience:1%"
           },
           "125": {
+            "1": "+1 %game.action.attack%, %game.card.experience:1%",
             "2": "Appliquez %game.condition.muddle% à tous les alliés et adversaires dans la zone ciblée."
           },
           "126": {
@@ -307,6 +457,63 @@
           },
           "129": {
             "1": "Pour vos six prochaines actions d'Attaque à distance lors desquelles %game.element.air% est Fort ou Faible, %game.element.consume.air% pour ajouter +2 %game.action.range%."
+          },
+          "130": {
+            "1": "Détruisez un obstacle adjacent.",
+            "2": "Ciblez tous les adversaires adjacents à l'obstacle détruit"
+          },
+          "131": {
+            "1": "Affectez tous les alliés dans la zone ciblée par l'attaque"
+          },
+          "132": {
+            "1": "Déplacez un obstacle adjacent de la taille d'un hexagone sur un hexagone vide à %game.action.range:4%.",
+            "2": "Ciblez tous les adversaires adjacents",
+            "3": "à l'obstacle déplacé",
+            "4": "Détruisez tous les obstacles et désarmez tous les pièges franchis."
+          },
+          "134": {
+            "1": "Créez trois obstacles de la taille d'un hexagone sur des hexagones vides à %game.action.range:4%.",
+            "2": "Tous les alliés et adversaires adjacents à au moins un obstacle créé subissent 2 dégâts.",
+            "3": "Le déplacement doit être en ligne droite."
+          },
+          "136": {
+            "1": "Éliminez un adversaire normal à %game.action.range:4%.",
+            "2": "Créez un obstacle de la taille d'un hexagone sur l'hexagone où l'adversaire a été éliminé."
+          },
+          "137": {
+            "1": "Pour vos quatre prochaines attaques de mêlée, si possible, détruisez un obstacle adjacent pour ajouter +3 %game.action.attack%."
+          },
+          "138": {
+            "1": "Créez un piège à 2 dégâts et %game.condition.stun% sur un hexagone vide adjacent."
+          },
+          "139": {
+            "1": "Appliquez %game.condition.immobilize% à tous les alliés et adversaires dans la zone ciblée."
+          },
+          "140": {
+            "1": "Créez un obstacle triangulaire de trois hexagones sure des hexagones vides à %game.action.range% 3.",
+            "2": "Ciblez tous les adversaires adjacents à l'obstacle."
+          },
+          "141": {
+            "1": "Pour chaque hexagone sur lequel vous ne pouvez pas pousser la cible du fait d'un mur ou d'un obstacle, la cible subit 2 dégâts et vous gagnez %game.card.experience:1%.",
+            "2": "Ajoutez +1 %game.action.attack% à toutes vos attaques à distance ce round.",
+            "3": "Ajoutez +2 %game.action.attack% à la place, %game.card.experience:1%."
+          },
+          "142": {
+            "1": "Détruisez tous les obstacles à %game.action.range% 2",
+            "2": "où X est le double du nombre",
+            "3": "d'hexagones que les obstacles détruits",
+            "4": "occupaient.",
+            "5": "Le déplacement doit se terminer sur un hexagone adjacent à un obstacle."
+          },
+          "143": {
+            "1": "Au début de vos 5 cinq prochains tours, effectuez un action de \"%game.action.heal:2%, %game.action.range:2%\"."
+          },
+          "144": {
+            "1": "Tous les alliés et adversaires adjacents à la cible subissent un montant de dégâts égal à celui subi par la cible.",
+            "2": "Tous les alliés et adversaires adjacents à n'importe quel hexagone sur lequel vous entrez pendant votre déplacement subissent 2 dégâts."
+          },
+          "145": {
+            "1": "Vous pouvez pousser les cibles sur des hexagones contenant des obstacles. Dans ce cas, l'obstacle est détruit, la cible subit 2 dégâts et vous gagnez %game.card.experience:1%."
           }
         }
       },
@@ -316,9 +523,17 @@
       "deep-terror": {
         "1": "Invoque une %data.monster.deep-terror% normale sur un hexagone adjacent à la cible"
       },
+      "elder-drake": {
+        "1": "Volez jusqu'au prochain perchoir de rochers"
+      },
       "flame-demon": {
         "1": "Tous les adversaires adjacents subissent %game.damage:2%.",
         "2": "Crée un piège à %game.damage:4% sur l'hexagone vide adjacent le plus proche d'un adversaire."
+      },
+      "flowChartGroup": {
+        "city-events": "Événements de Ville",
+        "personal-quests": "Quêtes Personnelles",
+        "road-events": "Événements de Route"
       },
       "giant-viper": {
         "1": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié de la %data.monster.giant-viper%.",
@@ -342,7 +557,7 @@
             "3": "Ciblant un autre adversaire. Vous contrôlez cette action."
           },
           "149": {
-            "1": "À chacune de vos attaques de mêlée :",
+            "1": "Pour vos attaques de mêlée :",
             "2": "Gagnez %game.action.shield% 1",
             "3": "Quand une autre %data.custom.gh.mindthief.augment% est jouée, défaussez cette carte.",
             "4": "Si vous terminez votre déplacement sur le même hexagone où vous l'avez commencé effectuez"
@@ -368,6 +583,54 @@
           "157": {
             "1": "Un allié adjacent peut effectuer",
             "2": "Un allié à %game.action.range:3% peut effectuer"
+          },
+          "160": {
+            "1": "Forcez un adversaire normal ou d'élite à %game.action.range:3% qui n'a pas encore agi ce round à effectuer son tour comme si tous ses adversaires étaient ses alliés et vice versa.",
+            "2": "Pour l'indiquer, placez un de vos pions Aventurier sur cet adversaire pour ce round."
+          },
+          "162": {
+            "1": "Pour vos attaques de mêlée :",
+            "2": "Quand une autre %data.custom.gh.mindthief.augment% est jouée, défaussez cette carte."
+          },
+          "163": {
+            "1": "Gagnez un pion Monnaie de plus pour chaque adversaire adjacent."
+          },
+          "164": {
+            "1": "Éliminez un adversaire normal à %game.action.range:4%.",
+            "2": "Ciblez tous les adversaires adjacents à la cible éliminée",
+            "3": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé par cette attaque."
+          },
+          "165": {
+            "1": "Vous pouvez avoir deux %data.custom.gh.mindthief.augments% actives en même temps.",
+            "2": "Si une troisième %data.custom.gh.mindthief.augment% est jouée, défaussez l'une des deux autres."
+          },
+          "166": {
+            "1": "Pour vos attaques de mêlée :",
+            "2": "Quand une autre %data.custom.gh.mindthief.augment% est jouée, défaussez cette carte.",
+            "3": "Forcez un adversaire à %game.action.range:5% à effectuer",
+            "4": "Vous contrôlez cette action."
+          },
+          "169": {
+            "1": "Pour vos attaques de mêlée :",
+            "2": "Gagnez",
+            "3": "Quand une autre %data.custom.gh.mindthief.augment% est jouée, défaussez cette carte."
+          },
+          "170": {
+            "1": "Ce round, toutes vos attaques à distance gagnent les effets de vos %data.custom.gh.mindthief.augments%."
+          },
+          "172": {
+            "1": "Un allié adjacent peut effectuer",
+            "2": "Cette attaque gagne les effets de vos %custom.augments%.",
+            "3": "Forcez un adversaire normal ou d'élite à %game.action.range:5% qui n'a pas encore agi ce round à effectuer son tour comme si tous ses adversaires étaient ses alliés et vice versa. Vous contrôlez cette action.<br><br>Pour l'indiquer, placez un de vos pions Aventurier sur cet adversaire pour ce round."
+          },
+          "173": {
+            "1": "X est la moitié du nombre de points de vie actuel du rat (arrondissez au supérieur).",
+            "2": "Tous les alliés à %game.action.range:2% ajoutent +X %game.action.attack% à toutes leurs attaques ce round, où X est le nombre d'alliés à %game.action.range:2% de vous."
+          },
+          "174": {
+            "1": "Pour vos attaques de mêlée :",
+            "2": "Éliminez une cible normale à la place",
+            "3": "Quand une autre %data.custom.gh.mindthief.augment% est jouée, défaussez cette carte."
           }
         },
         "augment": "Augmentation %game.characterIconColoredBg.mindthief%",
@@ -408,6 +671,27 @@
           "107": {
             "1": "Éliminez un adversaire adjacent normal qui n'est adjacent à aucun de ses alliés et adjacent à l'un des vôtres."
           },
+          "108": {
+            "1": "Ajoutez +2 %game.action.attack% à toutes vos attaques ciblant des adversaires avec %game.condition.poison%."
+          },
+          "110": {
+            "1": "Ajoutez +4 %game.action.attack% et gagnez %game.card.experience:2% quand la cible est adjacente à un de vos alliés."
+          },
+          "111": {
+            "1": "Désarmez un piège adjacent.",
+            "2": "Ciblez un adversaire à %game.action.range:3% pour lui infliger les effets du piège désarmé.",
+            "3": "Pour votre prochaine attaque ciblant un adversaire adjacent à aucun de ses alliés et adjacent à l'un des vôtres, doublez la valeur de l'attaque."
+          },
+          "113": {
+            "1": "Éliminez un adversaire adjacent dont le nombre de points de vie actuel est égal ou inférieur à 3."
+          },
+          "114": {
+            "1": "Forcez un adversaire normal ou d'élite adjacent qui n'a pas encore agi ce round à effectuer son tour comme si tous ses adversaires étaient ses alliés et vice versa. Vous contrôlez cette action.",
+            "2": "Pour l'indiquer, placez un de vos pions Aventurier sur cet adversaire pour ce round."
+          },
+          "115": {
+            "1": "Ajoutez %game.condition.poison% et %game.condition.wound% à toutes vos attaques."
+          },
           "88": {
             "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
             "2": "Pour vos quatre prochaines attaques ciblant des adversaires qui ne sont adjacents à aucun de leurs alliés, ajoutez +2 %game.action.attack%"
@@ -447,7 +731,7 @@
           },
           "62": {
             "1": "De plus, ciblez tous les adversaires sur le chemin vers votre première cible.",
-            "2": "Gagnez %game.card.experience:1%pour chaque adversaire ciblé."
+            "2": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
           },
           "63": {
             "1": "Récupérez %game.card.recover% toutes vos cartes perdues."
@@ -458,6 +742,45 @@
           "69": {
             "1": "Pour vos 4 prochaines attaques, ajoutez +1 %game.action.attack%.",
             "2": "Ajoutez +2 %game.action.attack% à la place."
+          },
+          "75": {
+            "1": "Affectez un allié",
+            "2": "Affectez tous les alliés à la place"
+          },
+          "76": {
+            "1": "Éliminez un adversaire normal à la place, %game.card.experience:1%",
+            "2": "Affectez un allié",
+            "3": "où X est la moitié de la valeur maximale de points de vie de cet allié (arrondissez à l'inférieur).",
+            "4": "X est la valeur maximale de points de vie de cet allié à la place."
+          },
+          "79": {
+            "1": "Pour les cinq prochaines attaques de mêlée vous ciblant, gagnez %game.action.retaliate:3%."
+          },
+          "80": {
+            "1": "Tous les adversaires adjacents à la cible subissent 2 dégâts, %game.card.experience:1%."
+          },
+          "81": {
+            "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé"
+          },
+          "82": {
+            "1": "Récupérez %game.card.recover% jusqu'à deux de vos cartes perdues."
+          },
+          "84": {
+            "1": "%game.action.loot:3% à la place, %game.card.experience:1%",
+            "2": "Vous ne pouvez pas piller plus de quatre pions Monnaie ou tuiles Trésor avec cette action."
+          },
+          "85": {
+            "1": "Pour les trois prochaines sources de dégâts d'attaques vous ciblant, ne subissez pas de dégâts et gagnez %game.action.retaliate:3%, %game.action.range:3% à la place."
+          },
+          "86": {
+            "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé",
+            "2": "Éliminez tous les adversaires normaux dans la zone ciblée.",
+            "3": "Choisissez un hexagone à %game.action.range:4%.",
+            "4": "Ciblez tous les adversaires à %game.action.range:4% de l'hexagone choisi et tirez-les vers celui-ci"
+          },
+          "87": {
+            "1": "Ciblez tous les adversaires dans la même salle que vous",
+            "2": "Tous les alliés dans la même salle que vous subissent 2 dégâts."
           }
         }
       },
@@ -489,6 +812,44 @@
           },
           "44": {
             "1": "Pour vos 4 prochaines actions de Soin, ajoutez +2 %game.action.heal%."
+          },
+          "45": {
+            "1": "Un allié à %game.action.range:3% peut Récupérer %game.card.recover% une des ses cartes perdues."
+          },
+          "47": {
+            "1": "Désarmez un piège adjacent.",
+            "2": "Créez un piège %game.condition.stun% sur un hexagone vide adjacent."
+          },
+          "51": {
+            "1": "Un allié adjacent peut Rafraîchir %game.card.refresh% un de ses objets %game.items.slots.small% consommés.",
+            "2": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
+          },
+          "52": {
+            "1": "Éliminez tous les adversaires dans la zone ciblée dont le nombre de points de vie actuel est inférieur ou égal à 5.",
+            "2": "Gagnez %game.card.experience:1% pour chaque adversaire éliminé"
+          },
+          "53": {
+            "1": "Créez un piège à 4 dégâts et %game.condition.muddle% sur un hexagone vide adjacent.",
+            "2": "À la fin de vos quatre prochains tours, un allié à %game.action.range:3% peut Récupérer %game.card.recover% une de ses cartes défaussées."
+          },
+          "54": {
+            "1": "À la fin de vos cinq prochains tours, effectuez une action d'\"%game.action.attack:2%, %game.action.range:5%\"."
+          },
+          "57": {
+            "1": "Tous les alliés invoqués se trouvant à %game.action.range:3% peuvent effectuer",
+            "2": "Vous contrôlez ces actions."
+          },
+          "58": {
+            "1": "Subissez 2 dégâts",
+            "2": "Tous les alliés adjacents ajoutent +2 %game.action.attack% à toutes leurs attaques ce round.",
+            "3": "Tous les alliés adjacents subissent 2 dégâts."
+          },
+          "59": {
+            "1": "Éliminez un adversaire adjacent normal ou d'élite."
+          },
+          "60": {
+            "1": "Un allié adjacent peut Récupérer %game.card.recover% jusqu'à deux cartes perdues, puis perdre deux cartes.",
+            "2": "Un allié à %game.action.range:3% peut Récupérer %game.card.recover% une carte perdue appartenant à un allié qui lui est adjacent."
           }
         }
       },
@@ -507,7 +868,9 @@
     "shaman": "Chaman"
   },
   "edition": {
-    "gh": "Gloomhaven"
+    "gh": {
+      "hint": "Ceci est la première édition de Gloomhaven !"
+    }
   },
   "globalAchievements": {
     "ancient-technology": "Technologie Ancienne",
@@ -581,6 +944,23 @@
     "wind-demon": "Démon du Vent",
     "winged-horror": "Horreur Ailée"
   },
+  "objective": {
+    "Altar": "Autel",
+    "Captive Orchid": "Prisonnier Orchid",
+    "Door": "Porte",
+    "Fish": "Fretin",
+    "Hail": "Tourmente",
+    "Orchid": "Orchid",
+    "Redthorn": "Rougépine",
+    "Rock Column": "Colonne de Roche",
+    "The Crystal": "Le Cristal",
+    "Totem": "Totem",
+    "Tree": "Arbre",
+    "Villager": "Villageois",
+    "Vocal Cord": "Corde Vocale",
+    "Water Pump": "Pompe à Eau",
+    "zephyr": "Zéphyr"
+  },
   "partyAchievements": {
     "a-demons-errand": "À la Botte du Démon",
     "a-map-to-treasure": "La Carte au Trésor",
@@ -611,9 +991,96 @@
     "tremors": "Séismes",
     "water-staff": "Bâton d'Eau"
   },
+  "personalQuest": {
+    "gh": {
+      "513": {
+        "": "Trouver le Remède",
+        "1": "Diablotins des Forêts tués",
+        "2": "Débloquez \"Le Bosquet Oublié\" (scénario 59) et menez-le à son terme"
+      },
+      "515": {
+        "": "Soldat de la Loi",
+        "1": "Éliminez vingt Bandits et/ou Cultistes"
+      },
+      "526": {
+        "": "Vengeance",
+        "1": "Accomplissez quatre scénarios dans Havrenuit",
+        "2": "Puis débloquez \"Enquête\" (Scénario 57) et menez-le à son terme"
+      },
+      "527": {
+        "": "Zélote du Dieu du Sang"
+      },
+      "528": {
+        "": "Graine de Héros",
+        "1": "Accomplissez quatre scénarios avec un boss"
+      },
+      "533": {
+        "": "Le Poison Parfait",
+        "1": "Mucus tués",
+        "2": "Fouineurs tués",
+        "3": "Wyvernes Cracheuses tuées"
+      }
+    }
+  },
   "scenario": {
     "group": {
       "randomMonsterCard": "Cartes de Monstres Aléatoires"
+    },
+    "rules": {
+      "gh": {
+        "19": {
+          "1": "en direction de l'autel %game.mapMarker.b%"
+        },
+        "22": {
+          "1": "Pour chaque autel qui n'est pas détruit, qu'il ait été révélé ou non, la valeur maximale de points de vie et les valeurs d'attaque de chaque démon sont augmentées de 1 et leurs valeurs de mouvement et de portée sont augmentées de 0,5 (arrondissez à l'entier supérieur). Les attaques de corps à corps ne bénéficient pas de ce bonus de portée."
+        },
+        "36": {
+          "1": "Le Démon Primordial débute le scénario avec le double des points de vie indiqués sur sa fiche de caractéristiques."
+        },
+        "38": {
+          "1": "dans la direction du Chaman situé sur la tuile D"
+        },
+        "42": {
+          "1": "Tous les monstres ajoutent +1 %game.action.attack% à toutes leurs attaques",
+          "2": "Tous les monstres gagnent Avantage pour toutes leurs attaques",
+          "3": "Chaque monstre regagne 1 point de vie au début de chacun de ses tours",
+          "4": "Chaque aventurier et invocation d'un aventurier subit 1 dégât au début de chacun de ses tours.",
+          "5": "Tous les aventuriers et invocations gagnent Désavantage pour toutes leurs attaques.",
+          "6": "Tous les aventuriers et leurs invocations retirent -1 Attaque à toutes leurs attaques."
+        },
+        "54": {
+          "1": "Tous les Ours des Cavernes ajoutent %game.condition.poison% à toutes leurs attaques."
+        },
+        "67": {
+          "1": "Le Golem de Pierre d'élite est d'un niveau supérieur de 1 à celui du scénario, jusqu'à un maximum de 7, et possède PVxA points de vie, où PV représente les points de vie habituels d'un Golem de Pierre d'élite. Il s'agit du Golem Arcanique. Il ne peut ni franchir ni entrer sur l'hexagone de la porte %game.mapMarker.2%."
+        },
+        "71": {
+          "1": "Déplacement gauche",
+          "2": "Déplacement haut",
+          "3": "Déplacement droit",
+          "4": "Déplacement bas"
+        },
+        "73": {
+          "1": "Faites rouler les rochers vers le bas."
+        },
+        "74": {
+          "1": "Ajouter une tuile Eau."
+        },
+        "78": {
+          "1": "Les deux Cultistes %game.mapMarker.b%, ainsi que la victime %game.mapMarker.a%, sont immunisés aux déplacements forcés, à %game.condition.immobilize%, et à %game.condition.stun%, et peuvent ouvrir les portes.",
+          "2": "Immunisé contre les mouvements forcés",
+          "3": "Peut ouvrir les portes"
+        },
+        "79": {
+          "1": "Déplacez-vous vers l'emplacement de départ, si vous avez été déplacé, puis effectuez une"
+        },
+        "86": {
+          "1": "vers l'extrémité des quais en %game.mapMarker.b%"
+        },
+        "89": {
+          "1": "Tous les Cultistes invoquent des Vipères Géantes d'élite au lieu de Squelettes Réanimés normaux."
+        }
+      }
     },
     "title": {
       "gh": {
@@ -711,7 +1178,34 @@
         "92": "Bagarre dans l’Arrière-cour",
         "93": "Le Vaisseau Englouti",
         "94": "Le Nid des Vermlings",
-        "95": "L'Heure du Jugement"
+        "95": "L'Heure du Jugement",
+        "randomDungeon-rnd": "Donjon Aléatoire"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "gh": {
+        "randomMonsterCard-554": "Des Galeux",
+        "randomMonsterCard-555": "Des Noyés",
+        "randomMonsterCard-556": "Du Désespoir",
+        "randomMonsterCard-557": "Des Souillés",
+        "randomMonsterCard-558": "Sauvage",
+        "randomMonsterCard-559": "Du rempart",
+        "randomMonsterCard-560": "Coupe-gorge",
+        "randomMonsterCard-561": "Morbide",
+        "randomMonsterCard-562": "Des Brumes",
+        "randomMonsterCard-563": "De l'Annihilation",
+        "randomMonsterCard-564": "Des Tribus",
+        "randomMonsterCard-565": "Épouvantable",
+        "randomMonsterCard-566": "Archaïque",
+        "randomMonsterCard-567": "Aux Écailles",
+        "randomMonsterCard-568": "Toxique",
+        "randomMonsterCard-569": "Instable",
+        "randomMonsterCard-570": "Des Corrompus",
+        "randomMonsterCard-571": "Des Infectés",
+        "randomMonsterCard-572": "Putride",
+        "randomMonsterCard-573": "De Glace"
       }
     }
   }

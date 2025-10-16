@@ -1,0 +1,56 @@
+{
+  "index": "5",
+  "name": "Forgotten Crypt",
+  "flowChartGroup": "hail",
+  "edition": "gh2e",
+  "unlocks": [
+    "7",
+    "9",
+    "10",
+    "28"
+  ],
+  "rewards": {
+    "prosperity": 1,
+    "reputationFactions": [
+      "military:1"
+    ]
+  },
+  "monsters": [
+    "cultist",
+    "living-bones"
+  ],
+  "objectives": [
+    {
+      "name": "Hail",
+      "escort": true,
+      "health": "4+(2xL)",
+      "initiative": 99
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "normal"
+        },
+        {
+          "name": "cultist",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

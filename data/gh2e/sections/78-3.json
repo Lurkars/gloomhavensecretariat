@@ -1,0 +1,14 @@
+{
+  "index": "78.3",
+  "name": "Demon Reputation 9",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "city:48",
+      "city:51",
+      "city:52"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "index": "114.4",
+  "name": "Sunken Vessel",
+  "edition": "gh2e",
+  "parent": "68",
+  "monsters": [
+    "frost-demon",
+    "living-spirit",
+    "lurker-soldier"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

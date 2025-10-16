@@ -1,0 +1,364 @@
+{
+  "name": "inox-bodyguard",
+  "edition": "gh2e",
+  "deck": "boss",
+  "boss": true,
+  "count": 2,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "disarm",
+      "poison",
+      "immobilize",
+      "stun"
+    ],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx9",
+      "movement": 2,
+      "attack": "C",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "retaliate",
+            "value": 3,
+            "valueType": "plus"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 1,
+      "health": "Cx10",
+      "movement": 2,
+      "attack": "C+1",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "retaliate",
+            "value": 3,
+            "valueType": "plus"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 2,
+      "health": "Cx12",
+      "movement": 3,
+      "attack": "C+1",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "retaliate",
+            "value": 3,
+            "valueType": "plus"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 3,
+      "health": "Cx13",
+      "movement": 3,
+      "attack": "C+2",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "retaliate",
+            "value": 4,
+            "valueType": "plus"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 4,
+      "health": "Cx16",
+      "movement": 3,
+      "attack": "C+2",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "retaliate",
+            "value": 4,
+            "valueType": "plus"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 5,
+      "health": "Cx17",
+      "movement": 3,
+      "attack": "C+3",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "retaliate",
+            "value": 5,
+            "valueType": "plus"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 6,
+      "health": "Cx21",
+      "movement": 4,
+      "attack": "C+3",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "retaliate",
+            "value": 5,
+            "valueType": "plus"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 7,
+      "health": "Cx24",
+      "movement": 4,
+      "attack": "C+4",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "retaliate",
+            "value": 6,
+            "valueType": "plus"
+          }
+        ]
+      ]
+    }
+  ]
+}

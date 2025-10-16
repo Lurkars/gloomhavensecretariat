@@ -10,7 +10,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    transition: filter 1000ms ease-in-out;
+    transition: filter calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
     transform: scale(0);
 
     .am {
@@ -42,7 +42,7 @@
 
     .am-container {
       cursor: wait !important;
-      animation: attackmodifier-draw 2500ms ease-in-out;
+      animation: attackmodifier-draw calc(var(--ghs-animation-speed) * 2500ms) ease-in-out;
       animation-iteration-count: 1;
       transform-origin: top left;
     }

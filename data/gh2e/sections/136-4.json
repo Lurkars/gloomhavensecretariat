@@ -1,0 +1,35 @@
+{
+  "index": "136.4",
+  "name": "Sulfur Mine",
+  "edition": "gh2e",
+  "parent": "87",
+  "monsters": [
+    "hound",
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

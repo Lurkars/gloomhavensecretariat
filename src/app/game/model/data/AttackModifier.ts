@@ -19,7 +19,9 @@ export enum AttackModifierType {
   invalid = "invalid",
   townguard = "townguard",
   wreck = "wreck",
-  success = "success"
+  success = "success",
+  imbue = "imbue",
+  advancedImbue = "advancedImbue"
 }
 
 export enum AttackModifierValueType {
@@ -42,7 +44,7 @@ export class AttackModifier {
   revealed: boolean = false;
   character: boolean = false;
 
-  constructor(type: AttackModifierType, value: number = 0, valueType: AttackModifierValueType = AttackModifierValueType.plus, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false, active: boolean = false) {
+  constructor(type: AttackModifierType, value: number = 0, valueType: AttackModifierValueType = AttackModifierValueType.plus, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false, active: boolean = false, shuffle: boolean | undefined = undefined) {
     this.type = type;
     this.value = value;
     this.valueType = valueType;
@@ -56,6 +58,7 @@ export class AttackModifier {
     this.effects = effects;
     this.rolling = rolling;
     this.active = active;
+    this.shuffle = shuffle || false;
     switch (type) {
       case AttackModifierType.plus0:
         this.value = 0;
@@ -86,12 +89,16 @@ export class AttackModifier {
       case AttackModifierType.null:
         this.valueType = AttackModifierValueType.multiply;
         this.value = 0;
-        this.shuffle = true;
+        if (shuffle == undefined) {
+          this.shuffle = true;
+        }
         break;
       case AttackModifierType.double:
         this.valueType = AttackModifierValueType.multiply;
         this.value = 2;
-        this.shuffle = true;
+        if (shuffle == undefined) {
+          this.shuffle = true;
+        }
         break;
       case AttackModifierType.bless:
         this.valueType = AttackModifierValueType.multiply;
@@ -258,6 +265,22 @@ export const additionalTownGuardAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.townguard, 50, AttackModifierValueType.plus, 'fh-tg-add-plus50-lurkers', [new AttackModifierEffect(AttackModifierEffectType.custom,
     'fh-lurkers', '', [], true)])
 ];
+
+export const ImbuementAttackModifier: AttackModifier[] = [
+  new AttackModifier(AttackModifierType.imbue, 1, AttackModifierValueType.plus, "gh2e-imbue-1"),
+  new AttackModifier(AttackModifierType.imbue, 1, AttackModifierValueType.plus, "gh2e-imbue-2"),
+  new AttackModifier(AttackModifierType.imbue, 1, AttackModifierValueType.plus, "gh2e-imbue-3"),
+  new AttackModifier(AttackModifierType.imbue, 0, AttackModifierValueType.plus, "gh2e-imbue-4", [new AttackModifierEffect(AttackModifierEffectType.condition, 'poison')]),
+  new AttackModifier(AttackModifierType.imbue, 2, AttackModifierValueType.plus, "gh2e-imbue-5", [new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')])
+]
+
+export const AdvancedImbueAttackModifier: AttackModifier[] = [
+  new AttackModifier(AttackModifierType.advancedImbue, 3, AttackModifierValueType.plus, "gh2e-advancedImbue-1"),
+  new AttackModifier(AttackModifierType.advancedImbue, 0, AttackModifierValueType.plus, "gh2e-advancedImbue-2", [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound')]),
+  new AttackModifier(AttackModifierType.advancedImbue, 1, AttackModifierValueType.plus, "gh2e-advancedImbue-3", [new AttackModifierEffect(AttackModifierEffectType.condition, 'curse')]),
+  new AttackModifier(AttackModifierType.advancedImbue, 1, AttackModifierValueType.plus, "gh2e-advancedImbue-4", [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'self')])]),
+  new AttackModifier(AttackModifierType.advancedImbue, 1, AttackModifierValueType.plus, "gh2e-advancedImbue-5", [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'self')])])
+]
 
 export const CsOakDeckAttackModifier: AttackModifier[] = [
   // 8x 2x

@@ -1,0 +1,45 @@
+{
+  "index": "10",
+  "name": "Mountain Pass",
+  "flowChartGroup": "city-guards",
+  "edition": "gh2e",
+  "unlocks": [
+    "13",
+    "14"
+  ],
+  "monsters": [
+    "earth-demon",
+    "inox-archer"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

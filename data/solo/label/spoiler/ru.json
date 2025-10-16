@@ -88,7 +88,7 @@
       "1": "В ваш ход получите состояние %game.condition.invisible%» и повысьте заряд <br>%game.element.dark%"
     },
     "solo-144": {
-      "1": "В ваш ход примените эффекты «%game.condition.poison%» и «%game.condition.curse%» к одному врагу в пределах дальности %game.action.range:3%."
+      "1": "В ваш ход примените эффекты «%game.condition.poison%» и «%game.condition.curse%» к одному врагу в пределах %game.action.range:3%."
     },
     "solo-145": {
       "1": "Каждый раз, когда вы проводите ближнюю атаку, имея ровно 1 ОЗ, добавляйте +2 %game.action.attack% к этой атаке."

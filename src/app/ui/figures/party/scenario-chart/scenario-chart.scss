@@ -48,6 +48,15 @@
                     color: var(--ghs-color-red);
                 }
             }
+
+            .labelBkg {
+                background: none !important;
+            }
+
+            .edge-pattern-dotted {
+                stroke-width: 3 !important;
+                stroke-dasharray: 5 !important;
+            }
         }
     }
 

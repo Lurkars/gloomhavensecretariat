@@ -1,0 +1,50 @@
+{
+  "index": "31",
+  "name": "Decrepit Wood",
+  "flowChartGroup": "the-voice",
+  "edition": "gh2e",
+  "monsters": [
+    "deep-terror",
+    "giant-viper",
+    "harrower-infester"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

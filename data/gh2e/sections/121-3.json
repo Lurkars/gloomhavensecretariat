@@ -1,0 +1,49 @@
+{
+  "index": "121.3",
+  "name": "Well of the Unfortunate",
+  "edition": "gh2e",
+  "parent": "72",
+  "monsters": [
+    "forest-imp",
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "type": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

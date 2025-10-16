@@ -1,0 +1,43 @@
+{
+  "index": "17.4",
+  "name": "Inox Encampment",
+  "edition": "gh2e",
+  "parent": "12",
+  "monsters": [
+    "inox-archer",
+    "inox-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

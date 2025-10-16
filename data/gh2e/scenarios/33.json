@@ -1,0 +1,53 @@
+{
+  "index": "33",
+  "name": "Ancient Defense Network",
+  "flowChartGroup": "the-voice",
+  "edition": "gh2e",
+  "unlocks": [
+    "34"
+  ],
+  "forcedLinks": [
+    "34"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "ancient-technology"
+    ]
+  },
+  "monsters": [
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

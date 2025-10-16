@@ -17,7 +17,7 @@
     left: 0;
     width: calc(var(--ghs-unit) * 40);
     height: calc(var(--ghs-unit) * 25.5);
-    transition: top 250ms ease-in-out;
+    transition: top calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
     z-index: 3;
   }
 

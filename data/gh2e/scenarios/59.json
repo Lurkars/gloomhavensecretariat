@@ -1,0 +1,24 @@
+{
+  "index": "59",
+  "name": "Foggy Thicket",
+  "flowChartGroup": "personal-quests",
+  "edition": "gh2e",
+  "unlocks": [
+    "60"
+  ],
+  "forcedLinks": [
+    "60"
+  ],
+  "rewards": {
+    "gold": 10,
+    "prosperity": 1
+  },
+  "monsters": [],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

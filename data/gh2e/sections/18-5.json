@@ -1,0 +1,47 @@
+{
+  "index": "18.5",
+  "name": "Gloomhaven Warehouse",
+  "edition": "gh2e",
+  "parent": "20",
+  "monsters": [
+    "crystal-rot",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "treasures": [
+        52
+      ],
+      "monster": [
+        {
+          "name": "crystal-rot",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -18,6 +18,17 @@
         "height": 160
       }
     },
-    "custom": "%data.section.rewards.fh.139-2%"
+    "custom": "%data.section.rewards.fh.139-2.1%",
+    "hints": {
+      "globalAchievements": [
+        "(read section 33 on page 12)"
+      ],
+      "eventDecks": [
+        "%data.section.rewards.fh.139-2.2%"
+      ]
+    },
+    "eventDecks": [
+      "boat:B-01|B-13"
+    ]
   }
 }

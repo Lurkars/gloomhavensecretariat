@@ -1,0 +1,244 @@
+{
+  "name": "angry-face",
+  "icon": "gh-angry-face",
+  "edition": "gh2e",
+  "unlockEvent": "city:74|city:75",
+  "retireEvent": "road:65|road:66",
+  "color": "#69cde0",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 8
+    },
+    {
+      "level": 2,
+      "health": 9
+    },
+    {
+      "level": 3,
+      "health": 11
+    },
+    {
+      "level": 4,
+      "health": 12
+    },
+    {
+      "level": 5,
+      "health": 14
+    },
+    {
+      "level": 6,
+      "health": 15
+    },
+    {
+      "level": 7,
+      "health": 17
+    },
+    {
+      "level": 8,
+      "health": 18
+    },
+    {
+      "level": 9,
+      "health": 20
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "green-snake",
+      "level": 1,
+      "health": 5,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "vicious-jackal",
+      "level": 1,
+      "health": 4,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "battle-boar",
+      "level": 1,
+      "health": 7,
+      "attack": 2,
+      "movement": 2
+    },
+    {
+      "name": "staunch-garralev",
+      "level": 3,
+      "health": 8,
+      "attack": 2,
+      "movement": 2
+    },
+    {
+      "name": "war-raptor",
+      "level": 5,
+      "health": 6,
+      "attack": 3,
+      "movement": 5
+    },
+    {
+      "name": "horned-hristek",
+      "level": 7,
+      "health": 7,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "great-archinotl",
+      "level": 9,
+      "health": 8,
+      "attack": 3,
+      "movement": 4
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.gh2e.angry-face.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.gh2e.angry-face.2%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus3"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "rolling": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.gh2e.angry-face.3%"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "%data.custom.gh2e.angry-face.4%"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "%data.custom.gh2e.angry-face.5%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.gh2e.angry-face.6%",
+    "%data.custom.gh2e.angry-face.7%"
+  ]
+}

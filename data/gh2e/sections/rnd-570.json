@@ -1,0 +1,50 @@
+{
+  "index": "570",
+  "group": "randomMonsterCard",
+  "name": "Corrupted",
+  "edition": "gh2e",
+  "named": true,
+  "monsters": [
+    "cultist",
+    "living-bones",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 18,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "normal"
+        },
+        {
+          "name": "cultist",
+          "type": "elite"
+        },
+        {
+          "name": "cultist",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

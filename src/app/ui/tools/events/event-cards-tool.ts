@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { environment } from "src/environments/environment";
 import { EventCard } from "src/app/game/model/data/EventCard";
+import { environment } from "src/environments/environment";
 
 @Component({
   standalone: false,
@@ -17,8 +17,12 @@ export class EventCardsToolComponent implements OnInit {
   settingsManager: SettingsManager = settingsManager;
   events: EventCard[] = [];
   edition: string | undefined;
+  types: string[] = [];
   type: string = "";
   selected: number = -1;
+  iterator: number = -1;
+  spoiler: boolean = false;
+  debug: boolean = true;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -39,11 +43,14 @@ export class EventCardsToolComponent implements OnInit {
           update = true;
         }
         if (queryParams['type']) {
-          this.type = typeof queryParams['type'] === 'string' ? [queryParams['type']] : queryParams['type'];
+          this.type = queryParams['type'];
           update = true;
         }
-        if (queryParams['selected']) {
-          this.selected = typeof queryParams['selected'] === 'string' ? [queryParams['selected']] : queryParams['selected'];
+        if (queryParams['selected'] != undefined) {
+          this.selected = +queryParams['selected'];
+        }
+        if (queryParams['iterator']) {
+          this.iterator = +queryParams['iterator'];
         }
         if (update) {
           this.update();
@@ -52,10 +59,20 @@ export class EventCardsToolComponent implements OnInit {
     })
   }
 
+  changeIterator(value: number) {
+    this.iterator += value;
+    this.update();
+    this.updateQueryParams();
+  }
+
   update() {
     this.events = [];
     if (this.edition) {
-      this.events = gameManager.eventCardManager.getEventCardsForEdition(this.type, this.edition);
+      this.types = gameManager.eventCardManager.getEventTypesForEdition(this.edition, false);
+      if (!this.type || this.types.indexOf(this.type) == -1) {
+        this.type = this.types[0];
+      }
+      this.events = gameManager.eventCardManager.getEventCardsForEdition(this.edition, this.type, false).filter((e, i) => this.iterator == -1 || this.iterator == i);
     }
   }
 
@@ -64,7 +81,7 @@ export class EventCardsToolComponent implements OnInit {
       [],
       {
         relativeTo: this.route,
-        queryParams: { edition: this.edition || undefined, type: this.type || undefined, selected: this.selected || undefined },
+        queryParams: { edition: this.edition || undefined, type: this.type || undefined, selected: this.selected, iterator: this.iterator != -1 ? this.iterator : undefined },
         queryParamsHandling: 'merge'
       });
   }

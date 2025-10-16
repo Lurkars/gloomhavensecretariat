@@ -59,7 +59,7 @@
       "objectiveSpawns": [
         {
           "objective": {
-            "index": 6,
+            "id": 6,
             "name": "Dark Fog"
           }
         }
@@ -83,7 +83,7 @@
       "objectiveSpawns": [
         {
           "objective": {
-            "index": 6,
+            "id": 6,
             "name": "Dark Fog"
           }
         }
@@ -107,7 +107,7 @@
       "objectiveSpawns": [
         {
           "objective": {
-            "index": 6,
+            "id": 6,
             "name": "Dark Fog"
           }
         }
@@ -131,7 +131,7 @@
       "objectiveSpawns": [
         {
           "objective": {
-            "index": 6,
+            "id": 6,
             "name": "Dark Fog"
           }
         }
@@ -155,7 +155,7 @@
       "objectiveSpawns": [
         {
           "objective": {
-            "index": 6,
+            "id": 6,
             "name": "Dark Fog"
           }
         }

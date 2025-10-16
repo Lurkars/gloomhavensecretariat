@@ -1,0 +1,112 @@
+{
+  "name": "the-dark-rider",
+  "edition": "gh2e",
+  "deck": "boss",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "wound",
+      "poison",
+      "disarm",
+      "immobilize",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "where X is equal to the number of hexes moved this turn.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx16",
+      "movement": 3,
+      "attack": "C+1"
+    },
+    {
+      "level": 1,
+      "health": "Cx20",
+      "movement": 4,
+      "attack": "C+1"
+    },
+    {
+      "level": 2,
+      "health": "Cx23",
+      "movement": 4,
+      "attack": "C+2"
+    },
+    {
+      "level": 3,
+      "health": "Cx29",
+      "movement": 4,
+      "attack": "C+2"
+    },
+    {
+      "level": 4,
+      "health": "Cx30",
+      "movement": 5,
+      "attack": "C+3"
+    },
+    {
+      "level": 5,
+      "health": "Cx36",
+      "movement": 5,
+      "attack": "C+3"
+    },
+    {
+      "level": 6,
+      "health": "Cx45",
+      "movement": 5,
+      "attack": "C+4"
+    },
+    {
+      "level": 7,
+      "health": "Cx52",
+      "movement": 6,
+      "attack": "C+4"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "index": "15.1",
+  "name": "Forgotten Crypt",
+  "edition": "gh2e",
+  "parent": "5",
+  "monsters": [
+    "living-bones",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

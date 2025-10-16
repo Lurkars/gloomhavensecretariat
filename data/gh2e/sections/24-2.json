@@ -1,0 +1,17 @@
+{
+  "index": "24.2",
+  "name": "Investigation",
+  "edition": "gh2e",
+  "parent": "18",
+  "monsters": [],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "treasures": [
+        10,
+        63
+      ]
+    }
+  ]
+}

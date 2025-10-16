@@ -1,0 +1,651 @@
+{
+  "name": "first-shield-harmon",
+  "edition": "gh2e",
+  "deck": "boss",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "movement": 2,
+    "actions": [],
+    "immunities": [
+      "disarm",
+      "stun"
+    ],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx10",
+      "attack": "C+2",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": "C",
+                "small": true
+              },
+              {
+                "type": "push",
+                "value": 2,
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "Grant all City Guards:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "move",
+                "value": "3"
+              },
+              {
+                "type": "jump",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "with First Shield Harmon as their focus.",
+            "small": true
+          }
+        ],
+        [
+          {
+            "type": "custom",
+            "value": "Grant all allies and self:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "shield",
+                "value": 1
+              },
+              {
+                "type": "retaliate",
+                "value": 1
+              },
+              {
+                "type": "condition",
+                "value": "strengthen",
+                "subActions": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 1,
+      "health": "Cx12",
+      "attack": "C+3",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": "C",
+                "small": true
+              },
+              {
+                "type": "push",
+                "value": 2,
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "Grant all City Guards:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "move",
+                "value": "3"
+              },
+              {
+                "type": "jump",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "with First Shield Harmon as their focus.",
+            "small": true
+          }
+        ],
+        [
+          {
+            "type": "custom",
+            "value": "Grant all allies and self:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "shield",
+                "value": 1
+              },
+              {
+                "type": "retaliate",
+                "value": 1
+              },
+              {
+                "type": "condition",
+                "value": "strengthen",
+                "subActions": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 2,
+      "health": "Cx14",
+      "attack": "C+3",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": "C",
+                "small": true
+              },
+              {
+                "type": "push",
+                "value": 2,
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "Grant all City Guards:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "move",
+                "value": "3"
+              },
+              {
+                "type": "jump",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "with First Shield Harmon as their focus.",
+            "small": true
+          }
+        ],
+        [
+          {
+            "type": "custom",
+            "value": "Grant all allies and self:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "shield",
+                "value": 1
+              },
+              {
+                "type": "retaliate",
+                "value": 2
+              },
+              {
+                "type": "condition",
+                "value": "strengthen",
+                "subActions": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 3,
+      "health": "Cx16",
+      "attack": "C+4",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": "C",
+                "small": true
+              },
+              {
+                "type": "push",
+                "value": 2,
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "Grant all City Guards:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "move",
+                "value": "3"
+              },
+              {
+                "type": "jump",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "with First Shield Harmon as their focus.",
+            "small": true
+          }
+        ],
+        [
+          {
+            "type": "custom",
+            "value": "Grant all allies and self:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "shield",
+                "value": 2
+              },
+              {
+                "type": "retaliate",
+                "value": 2
+              },
+              {
+                "type": "condition",
+                "value": "strengthen",
+                "subActions": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 4,
+      "health": "Cx20",
+      "attack": "C+4",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": "C",
+                "small": true
+              },
+              {
+                "type": "push",
+                "value": 2,
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "Grant all City Guards:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "move",
+                "value": "3"
+              },
+              {
+                "type": "jump",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "with First Shield Harmon as their focus.",
+            "small": true
+          }
+        ],
+        [
+          {
+            "type": "custom",
+            "value": "Grant all allies and self:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "shield",
+                "value": 2
+              },
+              {
+                "type": "retaliate",
+                "value": 2
+              },
+              {
+                "type": "condition",
+                "value": "strengthen",
+                "subActions": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 5,
+      "health": "Cx23",
+      "attack": "C+5",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": "C",
+                "small": true
+              },
+              {
+                "type": "push",
+                "value": 2,
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "Grant all City Guards:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "move",
+                "value": "3"
+              },
+              {
+                "type": "jump",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "with First Shield Harmon as their focus.",
+            "small": true
+          }
+        ],
+        [
+          {
+            "type": "custom",
+            "value": "Grant all allies and self:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "shield",
+                "value": 2
+              },
+              {
+                "type": "retaliate",
+                "value": 2
+              },
+              {
+                "type": "condition",
+                "value": "strengthen",
+                "subActions": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 6,
+      "health": "Cx28",
+      "attack": "C+6",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": "C",
+                "small": true
+              },
+              {
+                "type": "push",
+                "value": 2,
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "Grant all City Guards:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "move",
+                "value": "3"
+              },
+              {
+                "type": "jump",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "with First Shield Harmon as their focus.",
+            "small": true
+          }
+        ],
+        [
+          {
+            "type": "custom",
+            "value": "Grant all allies and self:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "shield",
+                "value": 2
+              },
+              {
+                "type": "retaliate",
+                "value": 3
+              },
+              {
+                "type": "condition",
+                "value": "strengthen",
+                "subActions": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 7,
+      "health": "Cx34",
+      "attack": "C+7",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": "C",
+                "small": true
+              },
+              {
+                "type": "push",
+                "value": 2,
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "Grant all City Guards:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "move",
+                "value": "3"
+              },
+              {
+                "type": "jump",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "with First Shield Harmon as their focus.",
+            "small": true
+          }
+        ],
+        [
+          {
+            "type": "custom",
+            "value": "Grant all allies and self:",
+            "small": true,
+            "subActions": [
+              {
+                "type": "shield",
+                "value": 3
+              },
+              {
+                "type": "retaliate",
+                "value": 3
+              },
+              {
+                "type": "condition",
+                "value": "strengthen",
+                "subActions": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  ]
+}

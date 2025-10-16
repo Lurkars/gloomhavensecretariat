@@ -1,0 +1,58 @@
+{
+  "index": "7",
+  "name": "Black Barrow",
+  "flowChartGroup": "demons",
+  "edition": "gh2e",
+  "unlocks": [
+    "8"
+  ],
+  "forcedLinks": [
+    "8"
+  ],
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

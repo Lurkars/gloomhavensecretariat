@@ -1,42 +1,653 @@
 {
   "character": {
-    "angry-face": "Doomstalker",
-    "circles": "Summoner",
-    "eclipse": "Nightshroud",
-    "lightning": {
-      "": "Berserker",
-      "blood-pact": {
-        "": "Blood Pact",
-        "hint": "Suffer %game.damage:1% at the start of each of your turns."
+    "gh": {
+      "angry-face": "Doomstalker",
+      "circles": "Summoner",
+      "eclipse": "Nightshroud",
+      "lightning": {
+        "": "Berserker",
+        "blood-pact": {
+          "": "Blood Pact",
+          "hint": "Suffer %game.damage:1% at the start of each of your turns."
+        },
+        "careless-charge": {
+          "": "Careless Charge",
+          "hint": "You are immune to all negative conditions."
+        },
+        "unbridled-power": {
+          "": "Unbridled Power",
+          "hint": "You may overheal to a maximum of 26 hit points, but your maximum hit point value."
+        }
       },
-      "careless-charge": {
-        "": "Careless Charge",
-        "hint": "You are immune to all negative conditions."
+      "music-note": {
+        "": "Soothsinger",
+        "song_active": {
+          "": "%game.characterIconColored.music-note% Song Active",
+          "hint": "Gain 1 XP at start of each of your turns."
+        }
       },
-      "unbridled-power": {
-        "": "Unbridled Power",
-        "hint": "You may overheal to a maximum of 26 hit points, but your maximum hit point value."
-      }
-    },
-    "music-note": {
-      "": "Soothsinger",
-      "song_active": {
-        "": "%game.characterIconColored.music-note% Song Active",
-        "hint": "Gain 1 XP at start of each of your turns."
-      }
-    },
-    "saw": "Sawbones",
-    "squidface": "Plagueherald",
-    "sun": "Sunkeeper",
-    "three-spears": "Quartermaster",
-    "triangles": "Elementalist",
-    "two-mini": "Beast Tyrant"
+      "saw": "Sawbones",
+      "squidface": "Plagueherald",
+      "sun": "Sunkeeper",
+      "three-spears": "Quartermaster",
+      "triangles": "Elementalist",
+      "two-mini": "Beast Tyrant"
+    }
   },
   "custom": {
     "gh": {
+      "angry-face": {
+        "abilities": {
+          "376": {
+            "1": "The next four times a %data.custom.gh.angry-face.doomed% enemy dies, perform an \"%game.action.attack:2%, %game.action.range:5%\" action.",
+            "2": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "3": "Add +2 %game.action.attack% to all your attacks targeting this enemy.",
+            "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "377": {
+            "1": "Create one 4 damage %game.condition.stun% trap in an adjacent empty hex.",
+            "2": "Gain %game.card.experience:2% when the trap is sprung by an enemy.",
+            "3": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "4": "This enemy's %game.action.attack%, %game.action.move% and %game.action.range% are all reduced by 1.",
+            "5": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "378": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "When this enemy dies, %game.action.teleport% to the hex occupied by the enemy.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "379": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "When this enemy dies, perform a \"%game.action.heal:4%, Self\" action.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "380": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "This enemy suffers 2 damage at the start of each of its turns.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "381": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "All allies add +1 %game.action.attack% to all their attacks targeting this enemy.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "382": {
+            "1": "Create one 3 damage trap in an adjacent trap in an adjacent empty hex.",
+            "2": "All enemies adjacent to this trap suffer 2 damage when the trap is sprung.",
+            "3": "Gain %game.card.experience:2% when the trap is sprung by an enemy.",
+            "4": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "5": "When this enemy dies, all enemies adjacent to the hex in wich it died suffer 3 damage.",
+            "6": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "383": {
+            "1": "The next three times a %data.custom.gh.angry-face.doomed% enemy dies within %game.action.range:2% of another enemy, transfer one %data.custom.gh.angry-face.doom% to that enemy instead of discarding it.",
+            "2": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "3": "When this enemy dies, force all enemies adjacent to the hex in wich it died to perform a \"%game.action.move:1%\" action with you controlling the actions.",
+            "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "384": {
+            "1": "Create one 2 damage %game.condition.immobilize% trap in an adjacent empty hex."
+          },
+          "387": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is %data.custom.gh.angry-face.doomed%."
+          },
+          "388": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "Each time this enemy suffers damage, perform a \"%game.action.heal:2%, Self\" action.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "389": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "All summoned allies add +2 %game.action.attack% to all their attacks targeting this enemy.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "390": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is undamaged."
+          },
+          "391": {
+            "1": "You gain Advantage on one attack each turn targeting a %data.custom.gh.angry-face.doomed% enemy.",
+            "2": "All enemies lose %game.condition.invisible% and may no longer gain %game.condition.invisible%.",
+            "3": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "4": "You and all allies gain %game.action.pierce:2% on all your attacks targeting this enemy.",
+            "5": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "392": {
+            "1": "Add +2 %game.action.attack% to all your attacks targeting %data.custom.gh.angry-face.doomed% enemies this round."
+          },
+          "393": {
+            "1": "Target all enemies within %game.action.range:3% Gain %game.card.experience:1% for each two enemies targeted.",
+            "2": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "3": "When this enemy dies, perform an \"%game.action.attack:2%, %game.action.range:3%, %game.action.target:3%\" action.",
+            "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "394": {
+            "1": "Add +3 %game.action.attack% and gain %game.card.experience:1% if the target is %data.custom.gh.angry-face.doomed%."
+          },
+          "395": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "You and all allies gain Advantage on all your attacks targeting this enemy.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "396": {
+            "1": "Create one 2 damage %game.condition.wound% trap in an adjacent empty hex.",
+            "2": "%game.condition.wound% all enemies adjacent to this trap when the trap is sprung."
+          },
+          "397": {
+            "1": "You may have two %data.custom.gh.angry-face.dooms% active on the same target.",
+            "2": "If a third %data.custom.gh.angry-face.doom% is played on the same target, discard one of the others,",
+            "3": "or if a third %data.custom.gh.angry-face.doom% is played on a different target, discard both of the others.",
+            "4": "%data.custom.gh.angry-face.doom%: Place your character token on any one normal or elite enemy.",
+            "5": "At the start of your next three turns, advance the marker on this card. After it advances three times, the kill the target and discard the card.",
+            "6": "Discard this if another %data.custom.gh.angry-face.doom% is played."
+          },
+          "398": {
+            "1": "One adjacent summoned ally performs",
+            "2": "with you controlling the actions.",
+            "3": "Target one %data.custom.gh.angry-face.doomed% enemy at any range."
+          },
+          "399": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "When this enemy dies, you and all allies perform a \"%game.action.heal:2%, Self\" action.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "401": {
+            "1": "Kill the target and gain %game.card.experience:1% if its hit point value is less than or equal to 2 after the attack.",
+            "2": "Add +3 %game.action.attack% to all yours attacks targeting %data.custom.gh.angry-face.doomed% enemies this round."
+          },
+          "402": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted.",
+            "2": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "3": "You and all allies gain %game.condition.curse% on all your attacks targeting this enemy.",
+            "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "403": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "If this enemy dies within %game.action.range:2% of another enemy, transfer this and any other %data.custom.gh.angry-face.dooms% to that enemy instead of discarding them.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "405": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "You and all allies add +X %game.action.attack% to all your attacks targeting this enemy, where X is the difference between the range of the attack and the number of hexes to the enemy.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "406": {
+            "1": "Force the target to move up to three hexes directly toward the closest hex adjacent to one of your allies.",
+            "2": "Transfer all active %data.custom.gh.angry-face.dooms% from their current target to one enemy within %game.action.range:4% of you."
+          }
+        },
+        "doom": "%data.characterColored.angry-face:Doom%%game.characterIconColoredBg.angry-face%",
+        "doomed": "%data.characterColored.angry-face:Doomed%%game.characterIconColoredBg.angry-face%",
+        "dooms": "%data.characterColored.angry-face:Dooms%%game.characterIconColoredBg.angry-face%"
+      },
       "circles": {
         "1": "when %game.action.attack% performed",
-        "2": "at end of turn"
+        "2": "at end of turn",
+        "abilities": {
+          "233": {
+            "1": "Affect self and all summoned allies."
+          },
+          "235": {
+            "1": "All attacks targeting you and all summoned allies gain Disadvantage this round."
+          },
+          "236": {
+            "1": "Recover %game.card.recover% up to four of your lost cards."
+          },
+          "237": {
+            "1": "Force one enemy within %game.action.range:4% to perform",
+            "2": "with you controlling the action"
+          },
+          "238": {
+            "1": "One adjacent summoned ally performs",
+            "2": "with you controlling the actions."
+          },
+          "239": {
+            "1": "One adjacent summoned ally performs",
+            "2": "with you controlling the actions."
+          },
+          "242": {
+            "1": "Affect all adjacent allies"
+          },
+          "243": {
+            "1": "On death:"
+          },
+          "244": {
+            "1": "Affect all adjacent summoned allies"
+          },
+          "245": {
+            "1": "On any of your Move actions, or the Move actions of any ally you have summoned, you may %game.element.consume.earth% to add +2 %game.action.move% and gain %game.card.experience:1%."
+          },
+          "247": {
+            "1": "Kill all normal adjacent enemies whose current hit point value is equal to or less than 5."
+          },
+          "250": {
+            "1": "Two summoned allies within %game.action.range:2% perform",
+            "2": "with you controlling the actions."
+          },
+          "251": {
+            "1": "One adjacent summoned ally performs",
+            "2": "with you controlling the actions.",
+            "3": "where X is the number of all summoned allies."
+          },
+          "252": {
+            "1": "Performs",
+            "2": "at end of turn"
+          },
+          "253": {
+            "1": "Affect all summoned allies"
+          },
+          "254": {
+            "1": "One adjacent summoned ally performs"
+          },
+          "255": {
+            "1": "Target all enemies adjacent to any summoned ally"
+          },
+          "257": {
+            "1": "The next three times summoned allies suffer damage, they suffer no damage instead.",
+            "2": "Remove all %game.condition.curse% cards from attack modifier deck, and then shuffle the discard pile back into the deck."
+          },
+          "258": {
+            "1": "One summoned ally within %game.action.range:3% performs",
+            "2": "with you controlling the action.",
+            "3": "%game.action.teleport% to the hex occupied by any summoned ally and simultaneously %game.action.teleport% that summoned ally to the hex occupied by you."
+          },
+          "259": {
+            "1": "Recover %game.card.recover% up to two of your lost cards."
+          },
+          "260": {
+            "1": "All summoned allies within %game.action.range:3% perform",
+            "2": "with you controlling the actions."
+          }
+        }
+      },
+      "eclipse": {
+        "abilities": {
+          "261": {
+            "1": "During your next four Attacks action while %game.condition.invisible%, perform an \"%game.action.attack: 2%, %game.action.range: 3%\" as the final part of the action."
+          },
+          "263": {
+            "1": "Double the value of all your %game.action.move% abilities played during the remainder of this turn, %game.card.experience:1%.",
+            "2": "Double the value of all your %game.action.attack% abilities played during the remainder of this turn, %game.card.experience:1%."
+          },
+          "266": {
+            "1": "Kill one normal target instead, %game.card.experience:1%."
+          },
+          "267": {
+            "1": "All attacks targeting you gain Disadvantage this round."
+          },
+          "268": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "270": {
+            "1": "Before your next four Attack actions, perform a \"%game.action.move: 2%\" action."
+          },
+          "271": {
+            "1": "%game.action.teleport% to any unoccupied hex instead."
+          },
+          "274": {
+            "1": "Add %game.condition.stun% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "275": {
+            "1": "All attacks targeting you gain Disadvantage this round."
+          },
+          "277": {
+            "1": "At the end of your next three turns where %game.element.dark% is not Strong, generate %game.element.dark%."
+          },
+          "278": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "279": {
+            "1": "+1 %game.action.attack%, %game.element.dark%, %game.card.experience:1%.",
+            "2": "During your next four Move actions while %game.condition.invisible%, perform an \"%game.action.attack: 2%, Target all adjacent enemies\" as the final part of the action."
+          },
+          "282": {
+            "1": "Kill one normal or elite target instead, %game.card.experience:1%."
+          },
+          "283": {
+            "1": "Gain Advantage on all your attacks.",
+            "2": "You can target %game.condition.invisible% enemies."
+          },
+          "284": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "286": {
+            "1": "Add %game.condition.poison%, %game.condition.muddle%, %game.condition.wound% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "287": {
+            "1": "Kill all normal targets instead, %game.card.experience:2%.",
+            "2": "Kill one adjacent normal enemy, %game.card.experience:1%."
+          },
+          "288": {
+            "1": "On your next five attacks while %game.condition.invisible%, add %game.condition.stun% to the attack."
+          }
+        }
+      },
+      "lightning": {
+        "abilities": {
+          "319": {
+            "1": "where X is the difference between your maximum hit point value and current hit point value.",
+            "2": "Gain %game.card.experience:1% for every %game.damage:5% done."
+          },
+          "320": {
+            "1": "where X is the number of cards you have lost.",
+            "2": "If you have fewer hit points than half your maximum hit point value (rounded up), perform",
+            "3": "and gain %game.card.experience:1%"
+          },
+          "321": {
+            "1": "You may suffer %game.damage:2% to add +2 %game.action.attack% and gain %game.card.experience:1%.",
+            "2": "You may suffer up to %game.damage:3%.",
+            "3": "where X is the amount of damage you suffered."
+          },
+          "322": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if your current hit point value is less than half your maximum hit point value (rounded up).",
+            "2": "On the next three sources of damage to you that would reduce you to less than 1 hit point, suffer no damage instead."
+          },
+          "323": {
+            "1": "where X is the difference between your maximum hit point value and current hit point value."
+          },
+          "324": {
+            "1": "Suffer damage equal to half of your current hit point value (rounded up).",
+            "2": "Add +1 %game.action.attack% to all your attacks.",
+            "3": "Suffer %game.damage:1% at the start of each of your turns."
+          },
+          "325": {
+            "1": "The next four times you are healed, add +2 %game.action.heal%."
+          },
+          "326": {
+            "1": "You may suffer %game.damage:2% to add %game.condition.stun% and gain %game.card.experience:1%."
+          },
+          "329": {
+            "1": "You may overheal to a maximum of 26 hit points, but your maximum hit point value remains the same for the purpose of all ability effects."
+          },
+          "330": {
+            "1": "Where X is your current hit point value.",
+            "2": "Gain %game.card.experience:1% for every %game.damage:5% done.",
+            "3": "Reduce your current hit point value to 1.<br>This is not considered damage."
+          },
+          "331": {
+            "1": "You may suffer %game.damage:2% to gain %game.action.shield% 1, %game.card.experience:1%.",
+            "2": "You may suffer %game.damage:2% to %game.condition.stun% one adjacent enemy."
+          },
+          "332": {
+            "1": "You may suffer up to %game.damage:3%.",
+            "2": "where X is the amount of damage you suffered.",
+            "3": "All melee attacks targeting you add +1 %game.action.attack%."
+          },
+          "333": {
+            "1": "Add +2 %game.action.move% if you have fewer hit points than half of your maximum hit point value (rounded up)."
+          },
+          "334": {
+            "1": "Increase the value of each of your %game.action.retaliate% abilities by 2 this round."
+          },
+          "335": {
+            "1": "Kill one adjacent normal enemy whose current hit point value is less than half the difference between your maximum hit point value and current hit point value."
+          },
+          "336": {
+            "1": "You may suffer up to %game.damage:4%.",
+            "2": "where X is the amount of damage you suffered."
+          },
+          "337": {
+            "1": "Gain Advantage on all your attacks this round.",
+            "2": "All attacks targeting you gain Disadvantage this round."
+          },
+          "338": {
+            "1": "Gain %game.action.shield% 1, %game.card.experience:1% if you have fewer hit points than half of your maximum hit point value (rounded up).",
+            "2": "Add +1 %game.action.attack% to all your attacks when you have fewer hit points than half of your maximum hit point value (rounded up)."
+          },
+          "339": {
+            "1": "Kill one adjacent normal or elite enemy.",
+            "2": "You immediately become exhausted.",
+            "3": "where X is the number of cards you have lost."
+          },
+          "341": {
+            "1": "You may suffer %game.damage:2% to ignore the target's Shield value and gain %game.card.experience:1%.",
+            "2": "If you short rest at the end of this round, gain all the benefits of a long rest."
+          },
+          "342": {
+            "1": "Target all enemies up to two hexes away instead"
+          },
+          "343": {
+            "1": "%game.condition.wound% self and all adjacent allies to add %game.action.push% 2, %game.condition.immobilize%.",
+            "2": "You are immune to all negative conditions."
+          },
+          "344": {
+            "1": "Target can no longer fly.",
+            "2": "To signify this, place a character token on the target."
+          },
+          "345": {
+            "1": "On the next five sources of damage to you, perform an \"%game.action.attack% 3\" action.",
+            "2": "Add +1 %game.action.attack% to all your attacks this round, %game.card.experience:1%."
+          },
+          "346": {
+            "1": "On the next five sources of damage to you, suffer no damage instead."
+          },
+          "347": {
+            "1": "Perform a \"%game.action.heal% 2, Self\" action for each enemy damaged.",
+            "2": "You may suffer up to %game.damage:5%.",
+            "3": "where X is the amount of damage you suffered."
+          }
+        }
+      },
+      "music-note": {
+        "abilities": {
+          "348": {
+            "1": "All allies add +1 %game.action.attack% to one of their attacks each turn."
+          },
+          "349": {
+            "1": "The next time any ally within %game.action.range:2% suffers damage this round, they suffer no damage instead."
+          },
+          "350": {
+            "1": "All allies add +1 %game.action.move% to all their Move actions, and add +1 %game.action.range% to all their ranged attacks."
+          },
+          "352": {
+            "1": "One ally within %game.action.range:3% may perform"
+          },
+          "354": {
+            "1": "Force all enemies in the<br>targeted area to perform a<br>\"%game.action.move:1%\" action with you<br>controlling the actions."
+          },
+          "356": {
+            "1": "One ally within %game.action.range:3% may perform"
+          },
+          "357": {
+            "1": "All allies add %game.condition.wound% to all their attacks."
+          },
+          "358": {
+            "1": "The next five times you %game.condition.curse% an enemy, %game.condition.curse% them an additional time."
+          },
+          "360": {
+            "1": "All allies may perform a \"%game.action.heal:1%, Self\" action at the beginning of each of their turns."
+          },
+          "362": {
+            "1": "All allies gain %game.action.retaliate:2%, %game.action.range:2%."
+          },
+          "364": {
+            "1": "All enemies gain Disadvantage on all their attacks."
+          },
+          "365": {
+            "1": "Any one ally may perform"
+          },
+          "366": {
+            "1": "You may have two %data.custom.gh.music-note.songs% active at once, but you only gain experience from one.",
+            "2": "If a third %data.custom.gh.music-note.song% is played, discard one of the others."
+          },
+          "367": {
+            "1": "All allies may perform a \"%game.action.move:1%\" action before any of their Attack actions."
+          },
+          "368": {
+            "1": "At the beginning of each of your turns, you may force one enemy within %game.action.range:5% to perform a \"%game.action.move:2%\" action with you controlling the action.",
+            "2": "Force one enemy within %game.action.range:5% to perform",
+            "3": "targeting another enemy with you controlling the action."
+          },
+          "370": {
+            "1": "At the beginning of each of your turns, %game.condition.curse% one enemy within %game.action.range:5%"
+          },
+          "371": {
+            "1": "All allies within %game.action.range:3% may perform"
+          },
+          "372": {
+            "1": "All allies may perform a \"%game.action.heal:2%, Self\" action at the beginning of each of their turns."
+          },
+          "373": {
+            "1": "One ally within %game.action.range:3% may perform",
+            "2": "Force all enemies in the<br>targeted area to perform a<br>\"%game.action.move:2%\" action with you<br>controlling the actions."
+          },
+          "374": {
+            "1": "All allies add +1 %game.action.attack% to all their attacks."
+          },
+          "375": {
+            "1": "Force all enemies moved through<br>to perform an \"%game.action.attack:3%\" action<br>targeting another enemy with you<br>controlling the actions.",
+            "2": "Two allies within %game.action.range:3% may perform"
+          }
+        },
+        "another": "When another %data.custom.gh.music-note.song%<br>is played, discard this card.",
+        "song": "%data.characterColored.music-note:Song% %game.characterIconColoredBg.music-note%",
+        "songs": "%data.characterColored.music-note:Songs% %game.characterIconColoredBg.music-note%",
+        "xp": "Gain %game.card.experience:1% at the beginining of each of your turns."
+      },
+      "saw": {
+        "abilities": {
+          "407": {
+            "1": "Give one adjacent ally one \"Medical Pack\" ability card."
+          },
+          "408": {
+            "1": "All your Heal actions this round affect you and all adjacent allies."
+          },
+          "409": {
+            "1": "All your melee aatack this round target all adjacent enemies."
+          },
+          "410": {
+            "1": "Place this card in one adjacent ally's active area and treat it as if they own the card."
+          },
+          "412": {
+            "1": "Remove all negative conditions on the healed figure.",
+            "2": "Remove all negative conditions on one adjacent ally."
+          },
+          "413": {
+            "1": "Place this card in one adjacent ally's active area, then put it into your discard pile at the end of the round."
+          },
+          "414": {
+            "1": "Give one adjacent ally one \"Large Medical Pack\" ability card.",
+            "2": "You and all allies are immune to all negative conditions this round."
+          },
+          "415": {
+            "1": "Once during each of your next four turns, perform a \"%game.action.heal:2%, %game.action.range:1%\" action."
+          },
+          "416": {
+            "1": "At the start of each of your turns, removed one negative condition from any one of your allies."
+          },
+          "417": {
+            "1": "This card cannot be lost to avoid suffering damage. When this card is discarded for any reason, return it to the Sawbones' supply."
+          },
+          "429": {
+            "1": "You and all adjacent allies may Recover %game.card.recover% up to a number of discarded cards equal to the number of allies adjacent to you.",
+            "2": "All adjacent allies may perform a \"%game.action.move:2%\" action."
+          },
+          "430": {
+            "1": "You are immune to all negative conditions."
+          },
+          "432": {
+            "1": "Give one adjacent ally one \"Medical Pack\" ability card."
+          },
+          "433": {
+            "1": "At the start of each of your turns, perform a \"%game.action.heal:1%, Self\" action."
+          },
+          "436": {
+            "1": "Kill one adjacent normal or elite enemy.",
+            "2": "%game.condition.disarm% and %game.condition.immobilize%"
+          },
+          "437": {
+            "1": "Remove all negative conditions on all adjacent allies.",
+            "2": "You are immune to all negative conditions."
+          },
+          "439": {
+            "1": "Kill one adjacent normal enemy with at least two negative condition tokens."
+          },
+          "440": {
+            "1": "Give all adjacent allies one \"Medical Pack\" ability card.",
+            "2": "Give all adjacent allies one \"Large Medical Pack\" ability card."
+          },
+          "441": {
+            "1": "Before your next six Heal actions, remove all negative conditions on the healed figure(s).",
+            "2": "Add +4 %game.action.heal% to all your Heal actions this round."
+          },
+          "442": {
+            "1": "Give one adjacent ally one \"Medical Pack\" ability card."
+          },
+          "443": {
+            "1": "Remove all negative conditions on the healed figure and give them one \"Large Medical Pack\" ability card.",
+            "2": "One adjacent ally may Recover %game.card.recover% up to two of their discarded cards."
+          },
+          "445": {
+            "1": "All your %game.action.attack% and %game.action.move% abilities may be performed as %game.action.heal% abilities of an equal value plus one.",
+            "2": "In such cases, ignore all conditions applied by the %game.action.attack% abilities."
+          },
+          "446": {
+            "1": "Kill all normal or elite<br>enemies in the targeted<br>area suffering from 10<br>or more damage.",
+            "2": "%game.condition.poison%, %game.condition.wound% and %game.condition.muddle%"
+          }
+        }
+      },
+      "squidface": {
+        "abilities": {
+          "289": {
+            "1": "%game.condition.poison% all allies and enemies in the targeted area."
+          },
+          "290": {
+            "1": "Deduct -1 %game.action.range% from all your ranged attacks."
+          },
+          "292": {
+            "1": "Once during each of your Attack actions, you may %game.condition.poison% one ally within %game.action.range:2% (or deal %game.damage:3% if the ally already has %game.condition.poison%) to add +1 %game.action.attack% to the entire Attack action."
+          },
+          "294": {
+            "1": "Gain %game.action.fly%"
+          },
+          "298": {
+            "1": "During your next six Attack actions where %game.element.air% is Strong or Waning, you may %game.element.consume.air% to add +1 %game.action.attack% to the entire Attack action."
+          },
+          "299": {
+            "1": "All attacks targeting you gain Disadvantage this round."
+          },
+          "300": {
+            "1": "After each of your Move actions, %game.condition.poison% all adjacent allies and enemies."
+          },
+          "301": {
+            "1": "Remove %game.condition.poison% from any one enemy to cause it suffer %game.damage:3%.",
+            "2": "Target all enemies adjacent to all enemies with %game.condition.poison%"
+          },
+          "304": {
+            "1": "%game.condition.poison% all allies adjacent to the target."
+          },
+          "305": {
+            "1": "Kill one normal enemy with %game.condition.poison% within %game.action.range% 3.",
+            "2": "Affect all allies with %game.condition.poison%"
+          },
+          "307": {
+            "1": "Additionally, target all enemies on the path to the primary target"
+          },
+          "309": {
+            "1": "All enemies with %game.condition.poison% suffer %game.damage:1%.",
+            "2": "%game.damage:2% instead"
+          },
+          "310": {
+            "1": "Once during each of your Move actions, you may suffer %game.damage:1% to deal %game.damage:3% to any one enemey with %game.condition.poison%.",
+            "2": "All allies with %game.condition.poison% may Recover %game.card.recover% up to two of their discarded cards.",
+            "3": "Up to three discarded cards instead"
+          },
+          "314": {
+            "1": "If %game.condition.curse% causes an enemy to deal no damage during its attack, this enemy suffers %game.damage:3%."
+          },
+          "316": {
+            "1": "During your next six Attack actions, %game.condition.curse% one ally within %game.action.range% 2 to gain two %game.action.target% effects.",
+            "2": "Double the value of your next Attack action this round."
+          },
+          "317": {
+            "1": "All enemies with %game.condition.poison% suffer %game.damage:2%.",
+            "2": "Suffer 1 additional damage"
+          },
+          "318": {
+            "1": "All allies with %game.condition.poison% suffer %game.damage:2%.",
+            "2": "For each two allies damages, add +1 %game.action.attack% to all your attacks this round and gain %game.card.experience:1%."
+          }
+        }
       },
       "sun": {
         "abilities": {
@@ -49,7 +660,7 @@
           "178": {
             "1": "One adjacent ally may Recover %game.card.recover% up to two of their discarded cards.",
             "2": "Up to three discarded cards instead, %game.card.experience:1%.",
-            "3": "One adjacent all may perform"
+            "3": "One adjacent ally may perform"
           },
           "179": {
             "1": "You and all adjacent allies suffer no damage this round."
@@ -113,150 +724,73 @@
           }
         }
       },
+      "three-spears": {
+        "abilities": {
+          "205": {
+            "1": "All allies within %game.action.range:2% Refresh %game.card.refresh% one of their spent or consume item."
+          },
+          "206": {
+            "1": "Refresh %game.card.refresh% all your consumed %game.items.slots.small% items."
+          },
+          "207": {
+            "1": "You and all allies within %game.action.range:2% add +1 %game.action.attack% to all your attacks this round."
+          },
+          "208": {
+            "1": "Once during each of your Attack actions, if you use an item, add +1 %game.action.attack% to the entire Attack action."
+          },
+          "215": {
+            "1": "Refresh %game.card.refresh% one of your consumed %game.items.slots.small% items."
+          },
+          "216": {
+            "1": "One adjacent ally may Refresh %game.card.refresh% all their spent items."
+          },
+          "217": {
+            "1": "You or one adjacent ally may Refresh %game.card.refresh% one of your spent or consumed %game.items.slots.twohand% or %game.items.slots.onehand% items.",
+            "2": "Recover %game.card.recover% up to two of your discarded cards."
+          },
+          "219": {
+            "1": "At the end of each of your turns, you may discard one card to allow an adjacent ally to Refresh %game.card.refresh% one of their consumed %game.items.slots.small% items.",
+            "2": "Recover %game.card.recover% up to two of your lost cards."
+          },
+          "221": {
+            "1": "One adjacent ally may Refresh %game.card.refresh% all their spent and consumed items."
+          },
+          "223": {
+            "1": "At the end of each round, Refresh %game.card.refresh% one of your spent items."
+          },
+          "224": {
+            "1": "You and all enemies within %game.action.range:4% suffer %game.damage:2%."
+          },
+          "225": {
+            "1": "You and all normal enemies in the targeted area suffer %game.damage:7%."
+          },
+          "226": {
+            "1": "If any adjacent ally performs a ranged attack, that ally gains ADD TARGET %game.action.target% for the attack."
+          },
+          "228": {
+            "1": "Each time you long rest, Refresh %game.card.refresh% one of your consumed items.",
+            "2": "Any one ally may Recover %game.card.recover% all their discarded cards."
+          },
+          "229": {
+            "1": "During all your attacks this round, ignore the Shield values of all your targets."
+          },
+          "230": {
+            "1": "At the end of your next five turns, perform a \"%game.action.heal:2%, Affect all adjacent allies\" action."
+          },
+          "231": {
+            "1": "Kill one adjacent normal or elite enemy."
+          },
+          "232": {
+            "1": "You and all adjacent allies may Refresh %game.card.refresh% all your consumed %game.items.slots.small% items."
+          }
+        }
+      },
       "triangles": {
         "1": "You may perform Attack actions as if you occupy the summon's hex.",
         "2": "when %game.action.attack% performed"
       },
       "two-mini": {
         "1": "All adjacent allies add +2 %game.action.attack% to all their attacks."
-      }
-    }
-  },
-  "events": {
-    "gh": {
-      "city": {
-        "1": {
-          "options": {
-            "1": {
-              "choice": "Join the fray! These insults will not go unanswered!",
-              "outcome": "Nothing like busting some drunken skulls to lift one's spirits. It turns out to be a great way to unwind. Unfortunately, the proprietor of the Sleeping Lion doesn't exactly see it that way, and he sullenly asks for compensation for the damage you caused."
-            },
-            "2": {
-              "choice": "Do your best to stop the fighting. This is a respectable establishment.",
-              "outcome": "After restraining the enraged Inox and offering to replace the drinks of a few of the more belligerent patrons, you calm the place down a bit. Some of the non-human patrons are understandably on edge, but the proprietor thanks you for your efforts and reimburses you for the drinks."
-            }
-          },
-          "text": "You decide to unwind at the Sleeping Lion, but just as you are starting to relax, a bear of a man crashes into your table, scattering your drinks across the floor.<br><br>Towering over him is a massive Inox. \"What did you say about my horns?\" the Inox shouts.<br><br>The man stands up and brushes shards of glass from his tunic. \"I said the sight of them makes me want to vomit!\"<br><br>The Inox roars and charges headlong into the man, crashing through more tables in the process. At this, the entire tavern erupts into violence. After all, when a man is deep into his drink, the last thing you want to do is knock that drink over."
-        },
-        "2": {
-          "options": {
-            "1": {
-              "choice": "Pay for the thing. You never know.",
-              "effects": {
-                "1": {
-                  "1": "You hand over the gold and take hold of the piece of garbage. Amidst troubling brown smears you see a lot of meaningless scratches likely made by rats and bugs. Oh well. Sometimes the long shot doesn't pay off.",
-                  "2": "\"Bah! You don't have enough. Come back when you do!\""
-                }
-              }
-            },
-            "2": {
-              "choice": "Refuse to pay. Never trust a Vermling.",
-              "outcome": "You laugh and gesture the Vermling away. You can recognize a low-life swindler when you see one. And that piece of garbage was just...foul."
-            }
-          },
-          "text": "As the daylight fades, you find yourselves wandering through a half-crowded market street, browsing wares.<br><br>\"Hey! Over here!\" You turn in the direction of the voice to see a filthy Vermling gesturing from a dark alley. \"Yeah, you grim-looking chaps. I have something you might be interested in.\"<br><br>The Vermling holds out a piece of metal covered in sludge. \"Found this in the sewer. Writing on it I don't understand, but I know it's valuable. You can have it for ten gold!\""
-        },
-        "3": {
-          "options": {
-            "1": {
-              "choice": "Pay for the thing. You never know.",
-              "effects": {
-                "1": {
-                  "1": "You hand over the gold and take hold of the metal. You wipe off the grime and slop to discover a foreign contraption made of large gears and many moving parts. If you can figure out what it is, this device might actually be of some worth.",
-                  "2": "\"Bah! You don't have enough. Come back when you do!\""
-                }
-              }
-            },
-            "2": {
-              "choice": "Refuse to pay. Never trust a Vermling.",
-              "outcome": "You laugh and gesture the Vermling away. You can recognize a low-life swindler when you see one. And that piece of garbage was just..foul."
-            }
-          },
-          "text": "As the daylight fades, you find yourselves wandering through a half-crowded market street, browsing wares.<br><br>\"Hey! Over here!\" You turn in the direction a of the voice to see a filthy Vermling gesturing from a dark alley \"Yeah, you grim-looking chaps. I have something you might be interested in.\"<br><br>The Vermling holds out a piece of metal covered in sludge. Found this in the sewer. Writing on it I don't understand, but I know its valuable. You can have it for ten gold!\""
-        },
-        "4": {
-          "options": {
-            "1": {
-              "choice": "Find a cat? You have more important things to do.",
-              "outcome": "You shake your head and direct the boy to go find his mother. With any luck she will knock some sense into him so that he stops troubling strangers with such trivial matters."
-            },
-            "2": {
-              "choice": "Reassure the boy and go find the cat.",
-              "outcome": "You approach the foreboding house full of heroic bravado. There's certainly nothing otherworldly about the structure, but its fallen beams and piles of rubble do make it difficult to look around. By the time you find the cat hiding under a burned-out bed frame, you are utterly exhausted. At least the boy is ecstatic his cat has been found."
-            }
-          },
-          "text": "Having recently returned from your latest adventure, you are approached by a ratty-looking boy in tears.<br><br>\"Please, sirs, could you please help me with my cat? He went over there, and I'm afraid.\" The boy points a dirty finger at a decrepit, abandoned building. \"I don't know what else to do.\""
-        },
-        "5": {
-          "options": {
-            "1": {
-              "choice": "Go help lay the foundation.",
-              "outcome": "Amidst a great deal of revelry, you put all you have into laying the foundation of the sanctuary. Surely much good will be done here healing the sick and wounded. After all your exhaustive efforts, though, you might end up being their first patients."
-            },
-            "2": {
-              "choice": "Take the opportunity to steal some valuables in the area while people are distracted.",
-              "outcome": "You head to the prosperous east side of town, not to help lay down the foundation, but to steal some goods from shopkeepers too silly to lock up their wares during the festivities. You make off with a good deal of money and the distracted guards are none the wiser."
-            }
-          },
-          "text": "After resting for the evening, you start out your day noticing a great number of prominent, commanding posters around the city. Reading one, you learn that the Sanctuary of the Great Oak is laying down the foundation for a new building on the east side of Gloomhaven. Everyone is encouraged to come and help. This could be an important community event."
-        },
-        "6": {
-          "options": {
-            "1": {
-              "choice": "Go aid in the defense of the city.",
-              "outcome": "You rush toward the West Gate, eager to fight back the invaders. As you approach, you see a mass of Vermlings climbing over the wall and attacking the guards with daggers and arrows. You yell and charge into the battle. It is a rough fight, but you emerge victorious, covered in fur and blood. The citizens of Gloomhaven remain safe, and the town is free to grow and prosper."
-            },
-            "2": {
-              "choice": "If the guards are distracted by an attacking force, now would be the perfect time to steal some valuables.",
-              "outcome": "The town erupts into chaos with panicked cries of \"Vermlings!\" — a perfect opportunity to collect some valuables. Slinking around to an abandoned shop, you find a way in and pilfer the safe. In the morning, the devastation from the assault is noticeable. Downtrodden looks greet you as you passr and you wonder if your presence was missed along the walls."
-            }
-          },
-          "text": "You awake in the middle of the night to the sound of alarms ringing in the west. You recognize them as the warning clangs of an attack on the wall.<br><br>Any force bold enough to assault the defenses of Gloomhaven can't be good, For a moment you are grateful for the prolific number of guards defending the city. But still, there is always the possibility that the guards may not be enough."
-        },
-        "7": {
-          "options": {
-            "1": {
-              "choice": "Help the captain load his ship.",
-              "outcome": "What was advertised as a few minutes turns out to be an hour or two as you lug large crates full of some foul-smelling liquid from a nearby warehouse into the hold of the ship, At least the captain is relieved that he'll be able to set sail on time, though. He gratefully pays you, but you can't help, but think that such menial labor might be beneath you."
-            },
-            "2": {
-              "choice": "Move on with your business. You don't have the time or inclination for such things.",
-              "outcome": "Unwilling to be bothered by such trivial matters, you continue on your way amidst curses from the ship's captain. \"Blast it all! You'll get nowhere in life with that sort of attitude!\""
-            }
-          },
-          "text": "Occasionally your dealings in town lead you past the bustling docks. All conversation gets drowned out by the constant din of loading and unloading cargo and crew. This makes it all the more surprising when you hear a voice above the noise directed straight at you.<br><br>\"Oi! You with the hard looks and big arms! I desperately need some help o'er here! Spare a few minutes to help make sure I get out of port on time? Otherwise I'll be stuck here until tomorrow!\""
-        },
-        "8": {
-          "options": {
-            "1": {
-              "choice": "The map does look valuable. Decide to bargain for it.",
-              "effects": {
-                "1": {
-                  "1": "After some amount of haggling back and forth, you settle on a price and pay for the map. You recognize some of the landmarks and should be able to find this place of \"untold treasure \"by hiring a ship.",
-                  "2": "Despite your valiant efforts, you cannot get the merchant to lower his price to something you can afford."
-                }
-              }
-            },
-            "2": {
-              "choice": "Refuse to deal with the merchant.",
-              "outcome": "Wary of the merchant's overly exuberant nature, you politely decline his offer and go about your intended business."
-            }
-          },
-          "text": "On a trip to the New Market, you see a curious sea chart prominently displayed in a Valrath merchants stall.<br><br>\"Ah. I see this interests you!\" he says while holding it up, taking great care not to damage it. \"I've been told this map will lead you to a location of untold riches! Wondrous beyond anything you have seen before!\"<br><br>The Valrath gestures grandly with his free hand and his smile grows wide. \"How can you say no to this? Just make me an offer!\""
-        },
-        "9": {
-          "options": {
-            "1": {
-              "choice": "Sell the goods.",
-              "outcome": "Using a few less-than-savory contacts, you're able to unload the goods for a respectable price. Who knew drunken strolls could prove so profitable?"
-            },
-            "2": {
-              "choice": "Donate the goods to the city.",
-              "outcome": "You sleep off the previous nights revelries and approach the Captain of the Guard. \"This is wonderful news! With attacks on the city becoming ever more frequent our blacksmiths are having trouble keeping up with our demands. And the food should help considerably if we ever find ourselves under siege. This is truly a big help to the city."
-            }
-          },
-          "text": "After a night of heavy drinking, you get turned around while navigating the back alleys and find yourself standing before a collapsed section of bricked road that leads down into an underground tunnel.<br><br>Fueled by curiosity and a bit of liquid courage, you descend in search of adventure. Stumbling around in the vast network of tunnels proves rather fruitless, however, until a well-concealed passage leads you to a long-forgotten stash of weaponry and dried food.<br><br>The stuff could fetch a decent price at the Sunken Market, or you could turn it over to the city guard, which is always in need arms and rations."
-        }
       }
     }
   },
@@ -279,7 +813,7 @@
     },
     "gh-102": {
       "": "Sacrificial Robes",
-      "1": "During your ranged attack, suffer 3 damage to add +1 %game.action.attack% to the entire Attack action."
+      "1": "During your ranged attack, suffer %game.damage:3% to add +1 %game.action.attack% to the entire Attack action."
     },
     "gh-103": {
       "": "Drakescale Armor",
@@ -338,11 +872,11 @@
     },
     "gh-116": {
       "": "Fueled Falchion",
-      "1": "During your single-target melee attack, the target and all enemies adjacent to the target suffer 1 damage"
+      "1": "During your single-target melee attack, the target and all enemies adjacent to the target suffer %game.damage:1%"
     },
     "gh-117": {
       "": "Bloody Axe",
-      "1": "During your melee attack, suffer 2 damage to add +1 %game.action.attack% to the entire Attack action."
+      "1": "During your melee attack, suffer %game.damage:2% to add +1 %game.action.attack% to the entire Attack action."
     },
     "gh-118": {
       "": "Staff of Elements",
@@ -622,7 +1156,7 @@
     "gh-60": {
       "": "Unstable Explosives",
       "1": "Turn a single target ranged attack into the following:",
-      "3": "All allies in the attack area suffer 3 damage."
+      "3": "All allies in the attack area suffer %game.damage:3%."
     },
     "gh-61": {
       "": "Wall Shield",

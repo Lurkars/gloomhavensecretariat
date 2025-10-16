@@ -1,0 +1,39 @@
+{
+  "index": "39.1",
+  "name": "- Infernal Throne",
+  "edition": "gh2e",
+  "parent": "27",
+  "marker": "3",
+  "monsters": [
+    "frost-demon",
+    "sun-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "treasures": [
+        5
+      ],
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

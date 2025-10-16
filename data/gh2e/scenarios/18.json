@@ -1,0 +1,22 @@
+{
+  "index": "18",
+  "name": "Investigation",
+  "flowChartGroup": "city-guards",
+  "edition": "gh2e",
+  "rewards": {
+    "gold": 15,
+    "prosperity": 1,
+    "reputationFactions": [
+      "merchant-guild:-1",
+      "military:2"
+    ]
+  },
+  "monsters": [],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

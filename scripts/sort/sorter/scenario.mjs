@@ -40,10 +40,10 @@ export const sortScenario = function (scenario) {
 
     if (scenario.rewards) {
         if (scenario.rewards.hints) {
-            scenario.rewards.hints = sortObjectKeys(scenario.rewards.hints, "globalAchievements", "partyAchievements", "lostPartyAchievements", "envelopes", "gold", "experience", "collectiveGold", "reputation", "prosperity", "perks", "battleGoals", "items", "chooseItem", "itemDesigns", "events", "custom");
+            scenario.rewards.hints = sortObjectKeys(scenario.rewards.hints, "globalAchievements", "partyAchievements", "lostPartyAchievements", "envelopes", "gold", "experience", "collectiveGold", "reputation", "prosperity", "perks", "battleGoals", "items", "chooseItem", "itemDesigns", "events", "eventDeck", "custom");
         }
 
-        scenario.rewards = sortObjectKeys(scenario.rewards, "globalAchievements", "partyAchievements", "lostPartyAchievements", "envelopes", "gold", "experience", "collectiveGold", "reputation", "prosperity", "perks", "battleGoals", "items", "chooseItem", "itemDesigns", "events", "overlayCampaignSticker", "overlaySticker", "custom", "ignoredBonus", "hints");
+        scenario.rewards = sortObjectKeys(scenario.rewards, "globalAchievements", "partyAchievements", "lostPartyAchievements", "envelopes", "gold", "experience", "collectiveGold", "reputation", "prosperity", "perks", "battleGoals", "items", "chooseItem", "itemDesigns", "events", "eventDeck", "overlayCampaignSticker", "overlaySticker", "custom", "ignoredBonus", "hints");
     }
 
     if (scenario.rules) {
@@ -75,5 +75,5 @@ export const sortScenario = function (scenario) {
         })
     }
 
-    return sortObjectKeys(scenario, 'index', 'group', 'name', 'flowChartGroup', 'errata', 'coordinates', 'edition', 'complexity', 'parent', 'parentSections', 'level', 'conclusion', 'repeatable', 'named', 'hideIndex', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'requirements', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'allied', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms', 'overlays');
+    return sortObjectKeys(scenario, 'index', 'group', 'name', 'flowChartGroup', 'errata', 'coordinates', 'edition', 'complexity', 'parent', 'parentSections', 'level', 'eventType', 'conclusion', 'repeatable', 'named', 'hideIndex', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'requirements', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'allied', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms', 'overlays');
 }

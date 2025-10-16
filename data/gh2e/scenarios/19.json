@@ -1,0 +1,60 @@
+{
+  "index": "19",
+  "name": "Military Outpost",
+  "flowChartGroup": "demons",
+  "edition": "gh2e",
+  "rewards": {
+    "experience": 25,
+    "reputationFactions": [
+      "demons:2",
+      "military:-1"
+    ]
+  },
+  "monsters": [
+    "chaos-demon",
+    "city-archer",
+    "city-guard"
+  ],
+  "objectives": [
+    {
+      "name": "Cleansing Pillar 1",
+      "health": "2+C+L"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

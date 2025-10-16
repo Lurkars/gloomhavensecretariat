@@ -1,0 +1,45 @@
+{
+  "index": "563",
+  "group": "randomMonsterCard",
+  "name": "Crushing",
+  "edition": "gh2e",
+  "named": true,
+  "monsters": [
+    "earth-demon",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 11,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

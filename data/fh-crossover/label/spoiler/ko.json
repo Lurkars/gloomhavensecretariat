@@ -1,37 +1,39 @@
 {
   "character": {
-    "angry-face": "파멸사냥꾼",
-    "circles": "소환사",
-    "eclipse": "어둠장막",
-    "envx": "칼날군단",
-    "lightning": {
-      "": "광전사",
-      "blood-pact": {
-        "": "피의 맹세",
-        "hint": "매번 본인 차례 시작 시 %game.damage:1%점을 입는다."
+    "fh-crossover": {
+      "angry-face": "파멸사냥꾼",
+      "circles": "소환사",
+      "eclipse": "어둠장막",
+      "envx": "칼날군단",
+      "lightning": {
+        "": "광전사",
+        "blood-pact": {
+          "": "피의 맹세",
+          "hint": "매번 본인 차례 시작 시 %game.damage:1%점을 입는다."
+        },
+        "careless-charge": {
+          "": "무모한 돌진",
+          "hint": "모든 부정적 상태에 면역을 가진다."
+        },
+        "unbridled-power": {
+          "": "걷잡을 수 없는 힘",
+          "hint": "초과 치료로 체력을 최대 26까지 높일 수 있다. 단, 모든 능력 효과와 관련한 최대 체력은 이전과 동일하다."
+        }
       },
-      "careless-charge": {
-        "": "무모한 돌진",
-        "hint": "모든 부정적 상태에 면역을 가진다."
+      "music-note": {
+        "": "위무음악가",
+        "song_active": {
+          "": "노래 활성화",
+          "hint": "매번 본인 차례 시작 시 경험치 1 획득."
+        }
       },
-      "unbridled-power": {
-        "": "걷잡을 수 없는 힘",
-        "hint": "초과 치료로 체력을 최대 26까지 높일 수 있다. 단, 모든 능력 효과와 관련한 최대 체력은 이전과 동일하다."
-      }
-    },
-    "music-note": {
-      "": "위무음악가",
-      "song_active": {
-        "": "노래 활성화",
-        "hint": "매번 본인 차례 시작 시 경험치 1 획득."
-      }
-    },
-    "saw": "의무관",
-    "squidface": "역병전령",
-    "sun": "태양지기",
-    "three-spears": "보급관",
-    "triangles": "원소술사",
-    "two-mini": "야수군주"
+      "saw": "의무관",
+      "squidface": "역병전령",
+      "sun": "태양지기",
+      "three-spears": "보급관",
+      "triangles": "원소술사",
+      "two-mini": "야수군주"
+    }
   },
   "custom": {
     "fh": {

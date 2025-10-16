@@ -10,7 +10,7 @@
 
 ## Introduction
 
-*Gloomhaven Secretariat* is a **companion app** for Gloomhaven-based board games. The app supports all official editions, namely **Gloomhaven**, **Frosthaven**, **Jaws of the Lion**, **Forgotten Circles** and **Button & Bugs**, the community editions **The Crimson Scales** and **Trail of Ashes** as well as **Solo** scenarios and custom content.
+*Gloomhaven Secretariat* is a **companion app** for Gloomhaven-based board games. The app supports all official editions, namely **Gloomhaven**, **Frosthaven**, **Jaws of the Lion**, **Forgotten Circles**, **Gloomhaven 2nd Edition** and **Button & Bugs**, the community editions **The Crimson Scales** and **Trail of Ashes** as well as **Solo** scenarios and custom content.
 
 *GHS* is a complete replacement for the abandoned [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) app (by [Esoteric Software®](http://esotericsoftware.com)), enhanced with more tracking and automation features. As a single-screen web application, *GHS* helps manage scenario play by tracking character and monster turns, automatically setting up monsters separately for each room or section, assisting with scenario-specific rules, attack modifiers, loot deck, and much more. *GHS* also tracks your progress on the Character, Party and Campaign sheets, allowing you to buy and equip items, loot treasures, apply all scenario rewards, register scenario unlocks and manage your outpost. For a more detailed feature list, including a comparison of some popular applications, see [Comparison of Companion Apps](./resources/app-comparison.md).
 
@@ -35,7 +35,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 
 ## Current Features
 
-- Base feature complete for GH, FH, JOTL, FC and CS (all need testing, so please [contribute](#contributing)!), for details see [Data Progression](./resources/data-progression.md)
+- Base feature complete for GH, FH, JOTL, FC and CS (all need testing, so please [contribute](#contributing)!)
 - Tracking:
   - **Initiative** sorting
   - **Health** automatic exhaust/dead, max values for each level
@@ -56,6 +56,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - **Treasures**
   - **Character Items** (must be enabled in Settings!) manage state of items during a scenario 
   - **Battle Goals** (must be enabled in Settings!)
+  - **Event Decks** (not finished, but in progress)
 - Elimination of the following physical components
   - Monster ability cards
   - Monster stat cards
@@ -67,12 +68,13 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Character boards
   - Character sheets
   - Character attack modifier deck
+  - Event decks
   - Loot deck
   - Town guard deck
   - Party/Campaign sheet
   - Item Cards
   - Battle Goals
-  - Building deck (partly!)
+  - Building deck
   - Frosthaven Decks:
     <details>
       <summary>SPOILER WARNING: Building 81</summary>
@@ -86,7 +88,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     </details>
   - World Map
 - Other features:
-  - i18n support (currently en, de, fr and ko, more translations needed. Many thanks to the contributors of french and korean)
+  - i18n support (see [translating](#translating) for details)
   - PWA for installation on all devices!
   - Synchronise state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)
   - Manage permissions for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
@@ -177,11 +179,11 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 
 ### Planned next
 
-- Support for event cards (draw, manage, apply rewards)
+- Finish Event Deck Support
 
 ### Long term plans
 
-- Support for managing character ability cards
+- Finish all character ability cards
 
 ## Install
 

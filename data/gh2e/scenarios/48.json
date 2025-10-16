@@ -1,0 +1,58 @@
+{
+  "index": "48",
+  "name": "Treacherous Divide",
+  "flowChartGroup": "the-gloom",
+  "edition": "gh2e",
+  "unlocks": [
+    "50",
+    "53"
+  ],
+  "forcedLinks": [
+    "50"
+  ],
+  "monsters": [
+    "cave-bear",
+    "cultist",
+    "frost-demon",
+    "living-bones",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        74
+      ],
+      "monster": [
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

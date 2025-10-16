@@ -56,7 +56,7 @@
       "objectiveSpawns": [
         {
           "objective": {
-            "index": 1,
+            "id": 1,
             "name": "Caravan Wagon",
             "tags": [
               "caravan-wagon"

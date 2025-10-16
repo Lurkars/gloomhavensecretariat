@@ -1,0 +1,59 @@
+{
+  "index": "12",
+  "name": "Inox Encampment",
+  "flowChartGroup": "merchant-guild",
+  "edition": "gh2e",
+  "unlocks": [
+    "29",
+    "32"
+  ],
+  "rewards": {
+    "gold": 20,
+    "reputationFactions": [
+      "merchant-guild:1"
+    ]
+  },
+  "monsters": [
+    "inox-archer",
+    "inox-guard",
+    "inox-priest"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-priest",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

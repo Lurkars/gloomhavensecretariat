@@ -10,6 +10,7 @@
     "gridLocation": "A-17"
   },
   "edition": "fc",
+  "eventType": "rift",
   "unlocks": [
     "98",
     "99",

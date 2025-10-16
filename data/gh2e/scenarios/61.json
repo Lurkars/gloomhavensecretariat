@@ -1,0 +1,45 @@
+{
+  "index": "61",
+  "name": "Dangerous Grove",
+  "flowChartGroup": "personal-quests",
+  "edition": "gh2e",
+  "unlocks": [
+    "62"
+  ],
+  "rewards": {
+    "prosperity": 1
+  },
+  "monsters": [
+    "cave-bear",
+    "forest-imp",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

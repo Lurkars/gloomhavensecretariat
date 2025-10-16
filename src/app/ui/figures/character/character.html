@@ -153,7 +153,8 @@
 
               <div class="conditions">
                 <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index;"
-                  ghs-pointer-input (doubleClick)="removeCondition(entityCondition)">
+                  ghs-pointer-input (doubleClick)="removeCondition(entityCondition)"
+                  [ngClass]="{'fh': settingsManager.settings.fhStyle}">
                   <img
                     [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
                     [style.z-index]="index * 10 + entityCondition.value" />
@@ -315,10 +316,11 @@
       <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"
         (doubleClick)="compact && openCharacterSheet()"></div>
       <ng-container *ngFor="let specialAction of specialActions; let i = index">
-        <span class="special-tag text-white" [ghs-label]="'data.character.' + character.name + '.' + specialAction.name"
+        <span class="special-tag text-white"
+          [ghs-label]="'data.character.' + character.edition + '.' + character.name + '.' + specialAction.name"
           ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeSpecialAction(specialAction.name)"
-          [ghs-tooltip]="'data.character.' + character.name + '.' + specialAction.name + '.hint'" [originY]="'top'"
-          [overlayY]="'bottom'" [originX]="'center'" [overlayX]="'center'"></span>
+          [ghs-tooltip]="'data.character.' + character.edition + '.' + character.name + '.' + specialAction.name + '.hint'"
+          [originY]="'top'" [overlayY]="'bottom'" [originX]="'center'" [overlayX]="'center'"></span>
         <span class="separator" *ngIf="i < specialActions.length - 1 && specialActions.length > 1">|</span>
       </ng-container>
     </div>

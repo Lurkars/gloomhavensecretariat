@@ -1,0 +1,45 @@
+{
+  "index": "562",
+  "group": "randomMonsterCard",
+  "name": "Foggy",
+  "edition": "gh2e",
+  "named": true,
+  "monsters": [
+    "flame-demon",
+    "frost-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 10,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

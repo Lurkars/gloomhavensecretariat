@@ -1,0 +1,59 @@
+{
+  "index": "6",
+  "name": "Decaying Crypt",
+  "flowChartGroup": "demons",
+  "edition": "gh2e",
+  "unlocks": [
+    "11"
+  ],
+  "rewards": {
+    "gold": 5,
+    "experience": 10,
+    "events": [
+      "city:51"
+    ],
+    "reputationFactions": [
+      "demons:1"
+    ]
+  },
+  "monsters": [
+    "crystal-rot",
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "crystal-rot",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

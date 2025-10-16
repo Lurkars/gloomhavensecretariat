@@ -1,0 +1,34 @@
+{
+  "index": "97.5",
+  "name": "Temple of the Elements",
+  "edition": "gh2e",
+  "parent": "44",
+  "monsters": [
+    "cultist",
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "treasures": [
+        8
+      ],
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "elite"
+        },
+        {
+          "name": "cultist",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cultist",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

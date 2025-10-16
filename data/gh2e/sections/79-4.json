@@ -1,0 +1,26 @@
+{
+  "index": "79.4",
+  "name": "Alchemy Lab",
+  "edition": "gh2e",
+  "parent": "62",
+  "monsters": [
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

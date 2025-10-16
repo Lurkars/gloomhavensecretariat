@@ -1,0 +1,58 @@
+{
+  "index": "69.3",
+  "name": "- Investigation",
+  "edition": "gh2e",
+  "parent": "18",
+  "marker": "5",
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "corrupt-city-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "corrupt-city-guard",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

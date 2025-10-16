@@ -18,13 +18,13 @@ declare global {
 export class SettingsManager {
 
   defaultLocale: string = 'en';
-  defaultEditions: string[] = ["gh", "fh", "jotl", "fc", "cs", "toa", "bb", "solo"];
+  defaultEditions: string[] = ["gh", "fh", "jotl", "fc", "cs", "toa", "bb", "gh2e", "solo"];
 
   defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/bb.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sc.json", "./assets/data/gh-solo-items.json", "./assets/data/sox.json", "./assets/data/bas.json", "./assets/data/cc.json", "./assets/data/gh2e.json", "./assets/data/ir.json", "./assets/data/r100kc.json", "./assets/data/sits.json"];
 
   settings: Settings = new Settings();
   label: any = {};
-  locales: string[] = ["en", "de", "fr", "ko", "es", "it", "zh_Hans", "zh_Hant", "ru"];
+  locales: string[] = ["en", "de", "fr", "ko", "es", "it", "zh_Hans", "zh_Hant", "ru", "pt"];
   developent: boolean = false;
   debugManager: DebugManager = debugManager;
 
@@ -185,6 +185,8 @@ export class SettingsManager {
       }
     } else if (setting === 'locale') {
       await this.updateLocale(value as string);
+    } else if (setting === 'animationSpeed') {
+      document.body.style.setProperty('--ghs-animation-speed', value + '');
     } else if (setting === 'fontsize') {
       document.body.style.setProperty('--ghs-fontsize', value + '');
     } else if (setting === 'barsize') {
@@ -408,7 +410,7 @@ export class SettingsManager {
               event.edition = value.edition;
             }
             if (!event.cardId) {
-              event.cardId = (index + 1);
+              event.cardId = '' + (index + 1);
             }
             return event;
           })
@@ -419,6 +421,9 @@ export class SettingsManager {
             }
             if (!personalQuest.cardId) {
               personalQuest.cardId = value.edition + '-' + (index + 1);
+            }
+            if (!personalQuest.requirements) {
+              personalQuest.requirements = [];
             }
             return personalQuest;
           })

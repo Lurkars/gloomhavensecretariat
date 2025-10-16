@@ -1,0 +1,215 @@
+{
+  "name": "city-archer",
+  "edition": "gh2e",
+  "deck": "archer",
+  "count": 6,
+  "baseStat": {
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 4,
+      "movement": 1,
+      "attack": 2
+    },
+    {
+      "level": 1,
+      "health": 5,
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "level": 2,
+      "health": 6,
+      "movement": 1,
+      "attack": 3
+    },
+    {
+      "level": 3,
+      "health": 6,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 8,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 8,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 10,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 11,
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 6,
+      "movement": 1,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 6,
+      "movement": 1,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 1
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 7,
+      "movement": 1,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 2
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 8,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 2
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 10,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 2
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 11,
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 14,
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 16,
+      "movement": 2,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    }
+  ]
+}

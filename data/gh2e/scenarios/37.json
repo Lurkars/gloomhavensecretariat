@@ -1,0 +1,52 @@
+{
+  "index": "37",
+  "name": "Deep Ruins",
+  "flowChartGroup": "the-sewers",
+  "edition": "gh2e",
+  "unlocks": [
+    "41"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "ancient-technology"
+    ]
+  },
+  "monsters": [
+    "ancient-artillery",
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        12,
+        40
+      ],
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

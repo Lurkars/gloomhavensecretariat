@@ -1,0 +1,34 @@
+{
+  "index": "44.2",
+  "name": "Echo Chamber",
+  "edition": "gh2e",
+  "parent": "14",
+  "monsters": [
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

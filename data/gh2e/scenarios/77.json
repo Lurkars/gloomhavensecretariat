@@ -1,0 +1,14 @@
+{
+  "index": "77",
+  "name": "Harrower Hive",
+  "flowChartGroup": "puzzle",
+  "edition": "gh2e",
+  "monsters": [],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

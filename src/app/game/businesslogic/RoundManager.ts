@@ -45,8 +45,8 @@ export class RoundManager {
       this.game.state = GameState.draw;
       gameManager.entityManager.next();
       gameManager.characterManager.next();
-      gameManager.objectiveManager.next();
       gameManager.monsterManager.next();
+      gameManager.objectiveManager.next();
       gameManager.attackModifierManager.next();
 
       if (settingsManager.settings.moveElements) {
@@ -104,8 +104,8 @@ export class RoundManager {
       this.game.state = GameState.next;
       this.game.round++;
       gameManager.characterManager.draw();
-      gameManager.objectiveManager.draw();
       gameManager.monsterManager.draw();
+      gameManager.objectiveManager.draw();
 
       if (settingsManager.settings.moveElements) {
         this.game.elementBoard.forEach((element) => {
@@ -320,6 +320,8 @@ export class RoundManager {
 
     figure.active = true;
 
+    gameManager.scenarioRulesManager.addActiveFigureRule(figure);
+
     if (figure instanceof Monster && !figure.entities.find((entity) => entity.active)) {
       figure.entities.forEach((monsterEntity) => {
         if (!figure.off && monsterEntity.summon != SummonState.new && gameManager.entityManager.isAlive(monsterEntity)) {
@@ -423,11 +425,16 @@ export class RoundManager {
         figure.experience += 1;
       }
 
-      if (figure.name == 'prism' && figure.tags.indexOf('repair_mode') != -1 && figure.tags.indexOf('roundAction-repair_mode') == -1) {
-        figure.health += 2;
-        gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.heal, 2));
-        gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
-        figure.tags.push('roundAction-repair_mode');
+      if (figure.name == 'prism') {
+        if (figure.tags.indexOf('repair_mode') != -1 && figure.tags.indexOf('roundAction-repair_mode') == -1) {
+          figure.health += 2;
+          gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.heal, 2));
+          gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
+          figure.tags.push('roundAction-repair_mode');
+        } if (figure.tags.indexOf('spider_mode') != -1 && figure.tags.indexOf('roundAction-spider_mode') == -1) {
+          gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.ward));
+          figure.tags.push('roundAction-spider_mode');
+        }
       }
     }
 
@@ -452,6 +459,9 @@ export class RoundManager {
 
   afterTurn(figure: Figure) {
     if (!figure.off) {
+
+      gameManager.scenarioRulesManager.addActiveFigureRule(figure, true);
+
       if (figure instanceof Monster) {
         figure.entities.forEach((monsterEntity) => {
           monsterEntity.active = false;
@@ -577,6 +587,7 @@ export class RoundManager {
     this.game.round = 0;
     this.game.roundResets = [];
     this.game.roundResetsHidden = [];
+    this.game.eventDraw = undefined;
     this.game.state = GameState.draw;
     this.game.elementBoard.forEach((element) => element.state = ElementState.inert);
     gameManager.attackModifierManager.fromModel(this.game.monsterAttackModifierDeck, new AttackModifierDeck().toModel());
@@ -681,8 +692,9 @@ export class RoundManager {
       }
     })
 
-    if (this.game.party.townGuardDeck) {
-      const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, gameManager.campaignData());
+    const campaignData = gameManager.campaignData();
+    if (this.game.party.townGuardDeck && campaignData.townGuardPerks) {
+      const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, campaignData);
       gameManager.attackModifierManager.shuffleModifiers(townGuardDeck);
       townGuardDeck.active = false;
       this.game.party.townGuardDeck = townGuardDeck.toModel();

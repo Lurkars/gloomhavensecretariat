@@ -1,0 +1,20 @@
+{
+  "index": "120.4",
+  "edition": "gh2e",
+  "parent": "81",
+  "monsters": [
+    "bloated-victim"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bloated-victim",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

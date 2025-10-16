@@ -22,7 +22,9 @@
     "You Date to Defy Me": "Treff mich um mir zu trotzen"
   },
   "character": {
-    "diviner": "Prophetin"
+    "fc": {
+      "diviner": "Prophetin"
+    }
   },
   "custom": {
     "fc": {

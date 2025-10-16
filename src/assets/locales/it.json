@@ -222,7 +222,8 @@
           "": "Apri la custodia %game.characterIcon.{0}%",
           "itemDesign": "Ottieni il modello di \"%data.items.{1}-{0}%\" (Oggetto{0})",
           "randomScenario": "Sblocca \"{1}\" %data.scenarioNumber:{0}%"
-        }
+        },
+        "unlockPQ": "Sblocca Missione Personale {0}"
       },
       "resources": {
         "": "Risorse",
@@ -239,6 +240,7 @@
         },
         "apply": "Applica",
         "conclusion": "Apri la sezione %data.section:{0}%",
+        "event": "Aggiungi %game.events.type.{0}% Evento {1} al mazzo",
         "events": "Aggiungi l'evento di strada {0} e l'evento di città {0} al mazzo",
         "moveSupply": "Sposta le risorse nel magazzino di Frosthaven",
         "prosperity": "+{0} prosperità"
@@ -574,7 +576,7 @@
       "perks": {
         "": "Talenti",
         "additional": "{0} e {1}",
-        "card": "carta",
+        "card": "Carta",
         "cardLabel": "{0}{1} {2}",
         "cards": {
           "": "carte",
@@ -751,8 +753,8 @@
         "hint": "%game.conditionIcon.rupture% Frattura: Ad ogni movimento subisci %game.damage:1%. Rimuovi quando guarito."
       },
       "safeguard": {
-        "": "",
-        "hint": ""
+        "": "Salvaguardia",
+        "hint": "%game.conditionIcon.safeguard% Salvaguardia: previeni la prossima condizione negativa, quindi rimuovi la carta."
       },
       "strengthen": {
         "": "Rinforzo",
@@ -821,12 +823,150 @@
     },
     "enemy": "Nemico",
     "events": {
+      "accept": {
+        "": "Risolvi Evento",
+        "notApply": "Risolvi, non applicare"
+      },
+      "applyManually": "Applicare manualmente le seguenti operazioni:",
       "conditions": {
-        "otherwise": "Altrimenti:",
-        "payCollectiveGold": "Paga {0} oro collettivo:",
-        "payCollectiveGoldConditional": "Paga {0} ({1}) o {2} ({3}) oro collettivo:",
-        "reputationGT": "Reputazione > {0}:",
-        "reputationLT": "Reputazione < {0}:"
+        "and": "e",
+        "building": "{0}",
+        "campaignSticker": "%data.campaignSticker.{0}%",
+        "character": "{0}",
+        "loseCollectiveGold": "Perdi {0} oro collettivo",
+        "loseCollectiveResource": "Perdi {0} %game.resource.{1}% collettivi",
+        "loseCollectiveResourceType": "Perdi {0} %game.loot.{1}% risorse collettive",
+        "moraleGT": "Morale > {0}",
+        "moraleLT": "Morale < {0}",
+        "otherwise": "Altrimenti",
+        "payCollectiveGold": "Paga {0} oro collettivo",
+        "payCollectiveGoldConditional": {
+          "connector": "oppure",
+          "prefix": "Paga",
+          "suffix": "oro collettivo"
+        },
+        "payCollectiveGoldReputationGT": "{0} (reputazione > {1})",
+        "payCollectiveGoldReputationLT": "{0} (reputazione < {1})",
+        "payGold": "Paga {0} oro ciascuno",
+        "reputationGT": "Reputazione > {0}",
+        "reputationLT": "Reputazione < {0}",
+        "season": "%party.campaign.sheet.{0}%",
+        "seasonLT": "Se %party.campaign.sheet.{0}% è {1} settimane o meno di distanza",
+        "traits": "%game.trait% {0}"
+      },
+      "deck": {
+        "addCard": "Aggiungi alle carte in arrivo e mescola il mazzo",
+        "allTypes": "Mostra tutti i mazzi",
+        "draw": "Pesca Carta",
+        "drawn": "Risolto ({0})",
+        "filter": "Cerca per ID della carta",
+        "new": "Bloccato ({0})",
+        "removeCard": "Rimuovi dalle prossime carte",
+        "removeDrawn": "Rimuovi dalle carte pescate",
+        "removeSelection": "Reimposta esito",
+        "resolved": "Mostra Risolto",
+        "setup": "Configura i Mazzi Evento",
+        "show": "Mostra la carta evento completa",
+        "shuffle": "Mescola il Mazzo",
+        "upcoming": "Nel mazzo ({0})"
+      },
+      "effects": {
+        "and": "e",
+        "automation": "L'effetto viene applicato automaticamente",
+        "battleGoal": "Ottieni {0} %game.checkmark% ciascuno.",
+        "campaignSticker": "Ottieni adesivo campagna \"%data.campaignSticker.{0}%\".",
+        "campaignStickerMap": "Posiziona l'adesivo della campagna \"%data.campaignSticker.{0}%\" sulla mappa della città nella posizione {1}.",
+        "campaignStickerReplace": "Posiziona l'adesivo della campagna \"%data.campaignSticker.{0}% sopra \"%data.campaignSticker.{1}%\".",
+        "choose": {
+          "connector": "oppure",
+          "prefix": "Entrambi",
+          "suffix": "."
+        },
+        "collectiveGold": "Ottieni {0} di oro collettivo.",
+        "collectiveGoldAdditional": "Ottieni {0} oro collettivo addizionale.",
+        "collectiveGoldOther": "Tutti gli altri personaggi ottengono {0} oro collettivo.",
+        "collectiveItem": "Ottieni {2}\"%data.items.{1}-{0}%\" (Oggetto {0}) collettivo.",
+        "collectiveResource": "Ottieni {0} %game.resource.{1}% collettivo.",
+        "collectiveResourceType": "Ottieni qualsiasi {0} %game.loot.{1}% collettivo.",
+        "consumeCollectiveItem": "Consuma {0} oggetto %game.itemSlot:{1}% collettivo.",
+        "consumeItem": "Ognuno consuma {0} oggetto %game.itemSlot:{1}%.",
+        "custom": "{0}",
+        "discard": {
+          "": "Ognuno scarta {0} carte.",
+          "alt": "Tutti i personaggi iniziano lo scenario successivo scartando %number.{0}% carte."
+        },
+        "discardOne": {
+          "": "Ognuno scarta 1 carta.",
+          "alt": "Tutti i personaggi iniziano lo scenario successivo scartando una carta."
+        },
+        "drawAnotherEvent": {
+          "": "Pesca un altro Evento %game.events.type.{0}%.",
+          "alt": "Risolvi un altro Evento %game.events.type.{0}%."
+        },
+        "drawEvent": "Pesca un Evento %game.events.type.{0}%.",
+        "event": {
+          "": "Aggiungi l'Evento %game.events.type.{0}% al mazzo.",
+          "alt": "Aggiungi l'evento {1} al mazzo %game.events.type.{0}%."
+        },
+        "eventFH": "Aggiungi l'Evento {1} al mazzo %game.events.type.{0}%.",
+        "eventReturn": "Recupera l'evento {1} e rimettilo nel mazzo %game.events.type.{0}%.",
+        "experience": "Ognuno ottiene {0} di esperienza.",
+        "globalAchievement": "Traguardo globale:<br>\"%data.globalAchievements.{0}%\".",
+        "gold": "Ognuno ottiene {0} di oro.",
+        "goldAdditional": "Ognuno ottiene {0} di oro aggiuntivo.",
+        "inspiration": "Ottieni {0} ispirazione.",
+        "item": {
+          "": "Ottieni \"%data.items.{1}-{0}%\" (Oggetto {0}).",
+          "alt": "Ottieni \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+        },
+        "itemCollective": "Ottieni {1} \"%data.items.{2}-{0}%\" collettivi (Oggetto {0}).",
+        "itemDesign": "Ottieni il modello \"%data.items.{1}-{0}%\" (Oggetto {0}).",
+        "loseBattleGoal": "Ognuno perde {0} %game.checkmark%.",
+        "loseCollectiveGold": "Perdi {0} oro collettivo.",
+        "loseCollectiveResource": "Perdi {0} %game.resource.{1}% collettivo.",
+        "loseCollectiveResourceAny": "Perdi {0} risorse collettive.",
+        "loseGold": "Ognuno perde {0} oro.",
+        "loseGoldOne": "Un personaggio perde {0} oro.",
+        "loseMorale": "Perdi {0} morale.",
+        "loseProsperity": "Perdi {0} prosperità.",
+        "loseReputation": "Perdi {0} reputazione.",
+        "morale": "Ottieni {0} morale.",
+        "noEffect": "Nessun effetto.",
+        "outcome": "Leggi la conclusione %game.events.option.{0}%.",
+        "outpostAttack": "%game.valueSign:{0}% %game.action.attack%",
+        "outpostTarget": "%game.valueSign:{0}% %game.action.target%",
+        "partyAchievement": "Traguardo di gruppo:<br>\"%data.partyAchievements.{0}%\".",
+        "prosperity": "Ottieni {0} prosperità.",
+        "randomItemDesign": "Ottieni un modello di oggetto casuale.",
+        "removeEvent": {
+          "": "Rimuovi %game.events.type.{0}% Evento {1} dal gioco.",
+          "alt": "Rimuovi l'evento {1} dal mazzo %game.events.type.{0}%."
+        },
+        "reputation": "Ottieni {0} reputazione.",
+        "reputationAdditional": "Ottieni {0} reputazione aggiuntiva.",
+        "resource": "Ognuno ottiene {0} %game.resource.{1}%.",
+        "resourceType": "Ognuno ottiene {0} %game.loot.{1}% qualsiasi.",
+        "scenarioCondition": {
+          "": "Tutti iniziano lo scenario con {0}.",
+          "alt": "Tutti i personaggi iniziano lo scenario successivo con {0}."
+        },
+        "scenarioConditionOne": "Un personaggio ottiene %game.condition.{0}%.",
+        "scenarioDamage": {
+          "": "Tutti iniziano lo scenario con %game.damage:{0}%.",
+          "alt": "Tutti i personaggi iniziano lo scenario successivo con %game.damage:{0}%."
+        },
+        "scenarioSingleMinus1": "Uno inizia lo scenario con %game.card.minus1% x{0}.",
+        "sectionOrWeek": "Aggiungi %game.section:{0}% OPPURE {1} al calendario in una settimana.",
+        "sectionOrWeeks": "Aggiungi %game.section:{0}% OPPURE {1} al calendario in %game.number.{2}% settimane.",
+        "sectionWeek": "Aggiungi %game.section:{0}% al calendario in una settimana.",
+        "sectionWeeks": "Aggiungi %game.section:{0}% al calendario in %game.number.{1}% settimane.",
+        "soldier": "Ottieni 1 soldato.",
+        "soldiers": "Ottieni {0} soldati.",
+        "unlockScenario": {
+          "": "Sblocca \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
+          "alt": "Nuovo Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
+        },
+        "unlockScenarioGroup": "Sblocca \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%)."
       },
       "option": {
         "": "Opzione {0}:",
@@ -834,36 +974,15 @@
         "2": "B",
         "3": "C"
       },
-      "rewards": {
-        "additionalGold": "Ciascuno ottiene {0} di oro aggiuntivo.",
-        "collectiveGold": "Ottieni {0} di oro collettivo.",
-        "collectiveItem": "Ottieni {2}\"%data.items.{1}-{0}%\" (Oggetto {0}) collettivo.",
-        "consumeCollectiveItem": "Consuma {0} oggetto %game.itemSlot:{1}% collettivo.",
-        "consumeItem": "Ognuno consuma {0} oggetto %game.itemSlot:{1}%.",
-        "discard": "Ognuno scarta {0} carte.",
-        "event": "Aggiungi l'evento %game.events.type.{0}% {1} al mazzo.",
-        "experience": "Ciascuno ottiene {0} di esperienza.",
-        "globalAchievement": "Traguardo globale: \"%data.globalAchievements.{0}%\".",
-        "gold": "Ognuno ottiene {0} di oro.",
-        "itemDesign": "Ottieni il modello \"%data.items.{1}-{0}%\" (Oggetto {0}).",
-        "loseBattleGoal": "Ognuno perde {0} %game.checkmark%.",
-        "loseCollectiveGold": "Perdi {0} oro collettivo.",
-        "loseGold": "Ognuno perde {0} oro.",
-        "loseReputation": "Perdi {0} reputazione.",
-        "noEffect": "Nessun effetto.",
-        "outcome": "Leggi la conclusione %game.events.option.{0}%.",
-        "partyAchievement": "Traguardo di gruppo: \"%data.partyAchievements.{0}%\".",
-        "prosperity": "Ottieni {0} prosperità.",
-        "randomItemDesign": "Ottieni un modello di oggetto casuale.",
-        "reputation": "Ottieni {0} reputazione.",
-        "scenario": "Sblocca \"{1}\" %data.scenarioNumber:{0}%.",
-        "scenarioCondition": "Tutti iniziano lo scenario con %game.condition.{0}%.",
-        "scenarioDamage": "Tutti iniziano lo scenario con {0} di danno.",
-        "scenarioSingleMinus1": "Uno inizia lo scenario con %game.attackmodifier.minus1% x{0}."
-      },
       "type": {
+        "boat": "Barca",
         "city": "Città",
-        "road": "Strada"
+        "rift": "Crepa",
+        "road": "Strada",
+        "summer-outpost": "Avamposto estivo",
+        "summer-road": "Strada estiva",
+        "winter-outpost": "Avamposto invernale",
+        "winter-road": "Strada invernale"
       }
     },
     "exhausted": "Esaurito",
@@ -970,7 +1089,7 @@
     },
     "loot": {
       "": "Bottino",
-      "apply": "Aggiungi a %data.character.{0}%",
+      "apply": "Aggiungi a %data.character.{0}.{1}%",
       "arrowvine": "Rampicafreccia",
       "axenut": "Ascianoce",
       "chooseCharacter": "Seleziona personaggio per +{0} {1}",
@@ -992,7 +1111,7 @@
       "flamefruit": "Fruttofiamma",
       "herb_resources": "erba",
       "hide": "Pelle",
-      "keep": "Continua con %data.character.{0}%",
+      "keep": "Continua con %data.character.{0}.{1}%",
       "lootTreasure": {
         "": "{0} saccheggia il tesoro{1}?",
         "confirm": "Conferma",
@@ -1009,7 +1128,7 @@
         "apply": "Seleziona e equipaggia",
         "draw": "Oggetto casuale per %game.characterIconColored.{0}% {1}"
       },
-      "remove": "Rimuovi da %data.character.{0}%",
+      "remove": "Rimuovi da %data.character.{0}.{1}%",
       "rockroot": "Pietraradice",
       "snowthistle": "Nevecardo",
       "special": "speciale",
@@ -1530,6 +1649,7 @@
     "eventEffects": {
       "": "Effetti dell'evento",
       "campaign": "Influisce sulla campagna",
+      "drawEvent": "Pesca Evento %game.events.type.{0}%",
       "drawRandomItem": {
         "": "Pesca un modello casuale di oggetto",
         "apply": "Applica",
@@ -1563,6 +1683,11 @@
       "failure": "Fallimento",
       "reset": "Resetta",
       "success": "Successo"
+    },
+    "gh2eImbuement": {
+      "": "Appendice F: Infusione di mostri",
+      "advancedImbuement": "Infusione avanzata",
+      "imbuement": "Infusione"
     },
     "level": "Liv {0}",
     "locked": "Requisiti mancanti",
@@ -1600,8 +1725,8 @@
       "campaignStickersCount": "'%data.campaignSticker.{0}%' (Adesivo campagna) x{2} COMPLETO (ottenuto {1})",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Adesivo campagna) INCOMPLETO",
       "cancel": "Annulla",
-      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' presente",
-      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' assente",
+      "characters": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' presente",
+      "charactersMissing": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' assente",
       "global": "'%data.globalAchievements.{0}%' (Globale) COMPLETO",
       "globalCount": "'%data.globalAchievements.{0}%' (Globale) x{2} COMPLETO (ottenuto {1})",
       "globalMissing": "'%data.globalAchievements.{0}%' (Globale) INCOMPLETO",
@@ -1614,7 +1739,7 @@
         "or": "oppure",
         "scenario": "%data.scenarioNumber:{0}%"
       },
-      "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' Livello 5 o superiore",
+      "solo": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' Livello 5 o superiore",
       "start": "Avvia comunque lo scenario"
     },
     "reset": "Ricomincia scenario",
@@ -2097,9 +2222,9 @@
         "": "Gli stati corrispondenti vengono applicati automaticamente prima e dopo il turno, ad esempio quando l'entità ha una ferita perderà 1 PV all'inizio del suo round",
         "bane": "Applica automaticamente il danno da %game.condition.bane% alla fine del turno.",
         "regenerate": "Applica automaticamente %game.condition.regenerate% all'inizio del turno.",
-        "safeguard": "",
-        "wound": "Applica automaticamente il danno da %game.condition.wound% alla fine del turno.",
-        "wound_x": "Applica automaticamente il danno da %game.condition.wound_x:X% alla fine del turno."
+        "safeguard": "Applica automaticamente %game.condition.safeguard% quando subisci la successiva condizione negativa.",
+        "wound": "Applica automaticamente il danno da %game.condition.wound% all'inizio del turno.",
+        "wound_x": "Applica automaticamente il danno da %game.condition.wound_x:X% all'inizio del turno."
       }
     },
     "applyLongRest": {
@@ -2340,6 +2465,18 @@
       "": "Mostra suggerimenti Errata",
       "hint": "Visualizza note di errata per scenari, sezioni, ecc. Nei dati stessi, tutti questi errata dovrebbero essere sistemati, ma con i suggerimenti dovrebbe essere più facile comprendere le differenze nella stampa."
     },
+    "events": {
+      "": "Carte Evento",
+      "hint": "Supporto per i mazzi di Carte Evento."
+    },
+    "eventsApply": {
+      "": "Applica eventi automaticamente",
+      "hint": "Applica automaticamente (se possibile) i risultati delle carte evento."
+    },
+    "eventsDraw": {
+      "": "Pesca Eventi automaticamente",
+      "hint": "Pesca automaticamente eventi come l'Evento Strada all'inizio dello scenario."
+    },
     "expireConditions": {
       "": "Termine stati automatico",
       "hint": "Gli stati corrispondenti verranno rimossi automaticamente dopo il turno delle unità, ad esempio Rinforzo verrà rimosso dopo il turno"
@@ -2374,7 +2511,7 @@
     },
     "fhRules": "Regole di Frosthaven",
     "fhSecondEdition": {
-      "": "2° Edizione",
+      "": "2a Stampa",
       "hint": "Alcuni cambiamenti tra la prima e la seconda stampa di Frosthaven non possono essere impostati automaticamente. Quindi, per favore, controlla se si utilizza la seconda stampa di Frosthaven."
     },
     "fhStyle": {
@@ -2420,6 +2557,11 @@
     "ge5Player": {
       "": "Regole giocatori ≥ 5"
     },
+    "gh2eImbuement": {
+      "": "Abilita le Infusioni dei Mostri",
+      "hint": "Abilita l'opzione per aggiungere l'Infusione dei Mostri (Appendice F) nel menu Effetto Evento."
+    },
+    "gh2eRules": "Gloomhaven 2a edizione",
     "helperDefaults": {
       "": "Applica impostazioni predefinite"
     },
@@ -2912,7 +3054,7 @@
       },
       "finishConclusion": "Conclusione finale #{0} {1} ({2})",
       "finishScenario": {
-        "battleGoal": "Imposta i segni di spunta dell'obiettivo di battaglia per %data.character.{0}% a {1}",
+        "battleGoal": "Imposta i segni di spunta dell'obiettivo di battaglia per %data.character.{0}.{1}% a {2}",
         "close": "Chiudi il riepilogo dello scenario",
         "dialog": "Riepilogo dello scenario per #{0} {1} ({2})",
         "failure": "Scenario #{0} {1} ({2}) fallito",
@@ -2950,7 +3092,7 @@
       "monsterSetEntityActive": "Imposta la pedina %game.monster.{2}% {1} di %data.monster.{0}% attiva",
       "monsterUnsetEntityActive": "Imposta la pedina %game.monster.{2}% {1} di %data.monster.{0}% non attiva",
       "moveResource": "Sposta {2} {1} da {0} alla riserva di Frosthaven",
-      "nextIdentity": "Imposta forma di {0} da %data.Character.{1}.{2}% a %data.Character.{1}.{3}%",
+      "nextIdentity": "Imposta forma di {0} da %data.Character.{4}.{1}.{2}% a %data.Character.{4}.{1}.{3}%",
       "nextRound": "Prossimo round",
       "objectiveContainerChangeEntityHp": "PV {2} per %game.objectiveMarker.{1}% di {0}",
       "objectiveEntityDead": "Uccidi %game.objectiveMarker.{1}% di {0}",
@@ -3115,7 +3257,7 @@
       "setEntitySummonState": "Imposta evocazione {3} per {1} pedina {2} di {0}",
       "setExhausted": "{0} esaurito",
       "setGold": "Oro {1} per {0}",
-      "setIdentity": "Imposta la forma di {0} su %data.character.{1}.{2}%",
+      "setIdentity": "Imposta la forma di {0} su %data.character.{3}.{1}.{2}%",
       "setInitiative": "Iniziativa {1} per {0}",
       "setLevel": "Livello {1} per {0}",
       "setNotes": "Note '{1}' per {0}",

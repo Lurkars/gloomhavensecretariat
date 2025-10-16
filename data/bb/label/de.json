@@ -1,9 +1,11 @@
 {
   "character": {
-    "cragheart": "Felsenherz",
-    "mindthief": "Gedankendiebin",
-    "spellweaver": "Spruchweberin",
-    "tinkerer": "Tüftler"
+    "bb": {
+      "cragheart": "Felsenherz",
+      "mindthief": "Gedankendiebin",
+      "spellweaver": "Spruchweberin",
+      "tinkerer": "Tüftler"
+    }
   },
   "monster": {
     "bandit-archer": "Banditen Schützin",

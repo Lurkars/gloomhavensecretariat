@@ -31,7 +31,9 @@
     "Void Snare": "공허 올가미"
   },
   "character": {
-    "diviner": "점술가"
+    "fc": {
+      "diviner": "점술가"
+    }
   },
   "custom": {
     "fc": {

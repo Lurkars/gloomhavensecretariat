@@ -1,0 +1,80 @@
+{
+  "index": "109.1",
+  "name": "The Void",
+  "edition": "gh2e",
+  "parent": "54",
+  "monsters": [
+    "black-imp",
+    "chaos-demon",
+    "cultist-scenario-54",
+    "harrower-infester"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "treasures": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "type": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cultist-scenario-54",
+          "type": "elite"
+        },
+        {
+          "name": "cultist-scenario-54",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cultist-scenario-54",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

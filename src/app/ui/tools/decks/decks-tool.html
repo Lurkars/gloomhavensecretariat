@@ -45,7 +45,7 @@
   <div class="decks">
     <ng-container *ngIf="characters.length > 0">
       <div class="deck" *ngFor="let character of characters; let i = index;">
-        <h2><span [ghs-label]="'data.character.' + character.name"></span> <small
+        <h2><span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span> <small
             *ngIf="character.name != deck(character).name">
             <span [ghs-label]="'data.deck.' + deck(character).name"></span>
           </small></h2>

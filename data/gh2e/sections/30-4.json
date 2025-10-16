@@ -1,0 +1,30 @@
+{
+  "index": "30.4",
+  "name": "Ritual Chamber",
+  "edition": "gh2e",
+  "parent": "11",
+  "monsters": [
+    "sun-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

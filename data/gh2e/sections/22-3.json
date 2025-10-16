@@ -1,0 +1,109 @@
+{
+  "index": "22.3",
+  "name": "- Barrow Lair",
+  "edition": "gh2e",
+  "parent": "8",
+  "marker": "1",
+  "resetRound": "visible",
+  "monsters": [
+    "bandit-archer",
+    "bandit-commander",
+    "living-corpse"
+  ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "once": true,
+      "note": "%data.scenario.rules.gh2e.8.1%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "name": "bandit-commander"
+          },
+          "type": "afterTurn"
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "once": true,
+      "note": "%data.scenario.rules.gh2e.8.2%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "name": "bandit-commander"
+          },
+          "type": "afterTurn"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "once": true,
+      "note": "%data.scenario.rules.gh2e.8.3%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "name": "bandit-commander"
+          },
+          "type": "afterTurn"
+        }
+      ]
+    },
+    {
+      "round": "R == 12",
+      "once": true,
+      "note": "%data.scenario.rules.gh2e.8.4%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "name": "bandit-commander"
+          },
+          "type": "afterTurn"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-commander",
+          "type": "boss"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

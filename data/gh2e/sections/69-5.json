@@ -1,0 +1,24 @@
+{
+  "index": "69.5",
+  "edition": "gh2e",
+  "parent": "32",
+  "monsters": [
+    "frost-demon",
+    "savvas-icestorm",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "savvas-icestorm",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

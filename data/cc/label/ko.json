@@ -1,7 +1,9 @@
 {
   "character": {
-    "core": "코어",
-    "wildborn": "와일드본"
+    "cc": {
+      "core": "코어",
+      "wildborn": "와일드본"
+    }
   },
   "edition": {
     "cc": "커스텀 콘텐츠 유니티 길드"

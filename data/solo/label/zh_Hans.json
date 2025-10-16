@@ -1,1 +1,61 @@
-{}
+{
+  "custom": {
+    "fh": {
+      "algox-snowspeaker-trap-solo": {
+        "1": "在%game.action.range:2%内的所有敌人受到 %game.damage:2%"
+      },
+      "errata": {
+        "solo28": "特殊规则：“雪语者”应改为“冰语者”"
+      },
+      "lost-in-seaweed": {
+        "1": "以%game.action.range:6%内最远的敌人为目标",
+        "2": "在一个相邻的空格子中创造一个1格的水域地形。",
+        "3": "在一个相邻的未占据的水域地形格。"
+      }
+    },
+    "gh": {
+      "city-guard-saw-solo": {
+        "1": "在回合结束时受到%game.damage:1%，直到被完全治愈"
+      },
+      "ghost-wolf": {
+        "1": "在每个回合开始时："
+      }
+    },
+    "solo": {
+      "char-am-deck": "使用角色修正牌堆"
+    },
+    "toa": {
+      "glacier-demon": {
+        "1": "如果%game.condition.wound%失去%game.action.retaliate%"
+      },
+      "inferno-demon": {
+        "1": "如果%game.action.retaliate%失去%game.action.retaliate%"
+      },
+      "okeda": {
+        "1": "在化身行动后立即行动，与该化身执行相同的上下半区行动",
+        "2": "如果该化身没有在下半区行动中移动：",
+        "3": "如果该化身没有在上半区行动中攻击："
+      }
+    }
+  },
+  "edition": {
+    "solo": "单人剧情（全部版本）"
+  },
+  "monster": {
+    "algox-icespeaker-shards-solo": "冰角族冰语者（单人）",
+    "algox-snowspeaker-trap-solo": "冰角族雪语者",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.charactergh..music-note% %solo%)",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
+    "black-imp-deathwalker-solo": "黑色小鬼（单人）",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
+    "chief-of-spikes": "尖刺酋长",
+    "city-guard-banner-spear-solo": "城市守卫（单人）",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
+    "deep-earth": "大地深处",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)"
+  }
+}

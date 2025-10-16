@@ -10,6 +10,7 @@
     "gridLocation": "I-12"
   },
   "edition": "fc",
+  "eventType": "rift",
   "requirements": [
     {
       "global": [

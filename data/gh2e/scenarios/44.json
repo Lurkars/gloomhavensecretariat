@@ -1,0 +1,43 @@
+{
+  "index": "44",
+  "name": "Temple of the Elements",
+  "flowChartGroup": "hail",
+  "edition": "gh2e",
+  "unlocks": [
+    "45"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "elements-mastered"
+    ],
+    "gold": 100,
+    "prosperity": 1,
+    "hints": {
+      "gold": "This money must immediately be spent on enhancements"
+    }
+  },
+  "monsters": [
+    "cultist",
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

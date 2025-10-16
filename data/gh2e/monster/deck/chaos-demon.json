@@ -1,0 +1,314 @@
+{
+  "name": "chaos-demon",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Chilling Breath",
+      "cardId": 538,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Heat Blast",
+      "cardId": 539,
+      "initiative": 1,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Seismic Punch",
+      "cardId": 540,
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Whirlwind",
+      "cardId": 541,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "air",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "White Claws",
+      "cardId": 542,
+      "initiative": 42,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.chaos-demon.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Black Tendrils",
+      "cardId": 543,
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Arcane Explosion",
+      "cardId": 544,
+      "initiative": 77,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            },
+            {
+              "type": "element",
+              "value": "ice"
+            },
+            {
+              "type": "element",
+              "value": "air"
+            },
+            {
+              "type": "element",
+              "value": "earth"
+            },
+            {
+              "type": "element",
+              "value": "light"
+            },
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hungry Maw",
+      "cardId": 545,
+      "initiative": 98,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "disarm",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

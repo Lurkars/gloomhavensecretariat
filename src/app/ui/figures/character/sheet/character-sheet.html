@@ -1,5 +1,5 @@
 <div class="light character-sheet" [style.--ghs-character-color]="character.color"
-  [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet, 'compact': settingsManager.settings.characterSheetCompact}">
+  [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet, 'gh2e-sheet': gh2eSheet, 'compact': settingsManager.settings.characterSheetCompact}">
   <div class="container"
     [ngClass]="{'denied' : !forceEdit && (!editable || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]) || settingsManager.settings.characterSheetLocked, 'view-only' : !forceEdit && !editable || settingsManager.settings.characterSheetLocked}">
     <div class="columns">
@@ -9,7 +9,7 @@
           <label class="headline" [ghs-label]="(character.absent ? 'character.absent' : 'character.present')"
             [ghs-label-attribute]="'title'">
             <div class="character-title">
-              <span [ghs-label]="'character.progress.title'" [ghs-label-args]="['data.character.' + character.name,
+              <span [ghs-label]="'character.progress.title'" [ghs-label-args]="['data.character.' + character.edition + '.' + character.name,
                 character.characterClass ? 'character.class.' + (character.gender ? character.gender + '.' : '') +
                 character.characterClass : '']"></span>
             </div>
@@ -83,7 +83,7 @@
         </div>
 
         <hr class="compact-separator" *ngIf="fhSheet">
-        <div class="row resources" *ngIf="fhSheet">
+        <div class="row resources" *ngIf="fhSheet && !gh2eSheet">
           <label><span [ghs-label]="'character.progress.resources'"></span>:</label>
 
           <a class="move" (click)="moveResources()"><span [ghs-label]="'character.progress.resources.move'"></span></a>
@@ -211,7 +211,7 @@
           <div class="battlegoals-grid">
             <ng-container *ngFor="let item of [] | ghsRange:18">
               <span class="checkmark" *ngIf="item % 3 == 0">
-                <img src="./assets/images/check.svg">:</span>
+                <img [src]="'./assets/images/'+ (gh2eSheet || fhSheet ? 'checkmark' : 'check') + '.svg'">:</span>
               <span class="battlegoal checkbox" [ngClass]="{'checked' : character.progress.battleGoals >= item + 1}"
                 (click)="setBattleGoals(item + 1)"></span>
             </ng-container>
@@ -267,7 +267,7 @@
 
               <span *ngIf="personalQuest" class="personal-quest-name">
                 <span [ghs-label]="'data.personalQuest.' + personalQuest.edition + '.' + personalQuest.cardId"></span>
-                <span *ngIf="personalQuest.altId">&nbsp;({{personalQuest.altId}})</span>
+                <span *ngIf="personalQuest.altId && personalQuest.altId != personalQuest.cardId">&nbsp;({{personalQuest.altId}})</span>
               </span>
             </div>
 

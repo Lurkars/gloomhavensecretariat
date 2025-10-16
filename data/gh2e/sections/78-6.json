@@ -1,0 +1,25 @@
+{
+  "index": "78.6",
+  "edition": "gh2e",
+  "parent": "32",
+  "conclusion": true,
+  "blocks": [
+    "29"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "the-drake-aided"
+    ],
+    "gold": 30,
+    "experience": 20,
+    "battleGoals": 2,
+    "events": [
+      "city:38",
+      "road:32"
+    ],
+    "reputationFactions": [
+      "military:-1"
+    ]
+  },
+  "monsters": []
+}

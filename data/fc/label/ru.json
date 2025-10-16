@@ -50,7 +50,9 @@
     "You Date to Defy Me": "Вы посмели бросить мне вызов?"
   },
   "character": {
-    "diviner": "Прорицательница"
+    "fc": {
+      "diviner": "Прорицательница"
+    }
   },
   "custom": {
     "fc": {

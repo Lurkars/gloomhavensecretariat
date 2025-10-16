@@ -1,0 +1,53 @@
+{
+  "index": "41",
+  "name": "Ancient Cistern",
+  "flowChartGroup": "the-sewers",
+  "edition": "gh2e",
+  "unlocks": [
+    "54"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "hallowed-waters"
+    ],
+    "prosperity": 2
+  },
+  "monsters": [
+    "living-corpse",
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

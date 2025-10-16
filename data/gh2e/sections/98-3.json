@@ -1,0 +1,46 @@
+{
+  "index": "98.3",
+  "name": "Shrine of Strength",
+  "edition": "gh2e",
+  "parent": "53",
+  "monsters": [
+    "frost-demon",
+    "savvas-icestorm",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-icestorm",
+          "type": "normal"
+        },
+        {
+          "name": "savvas-icestorm",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

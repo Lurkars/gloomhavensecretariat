@@ -1,0 +1,1370 @@
+[
+  {
+    "id": 1,
+    "name": "Weathered Boots",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 2,
+    "name": "Winged Shoes",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 3,
+    "name": "Hide Armor",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 4,
+    "name": "Leather Armor",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 5,
+    "name": "Scouting Lens",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 6,
+    "name": "Amulet of Life",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 7,
+    "name": "Poison Dagger",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 8,
+    "name": "Heater Shield",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 9,
+    "name": "Focusing Rod",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 10,
+    "name": "Simple Bow",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 11,
+    "name": "Healing Potion",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 12,
+    "name": "Stamina Potion",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 13,
+    "name": "Element Potion",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 14,
+    "name": "Studded Armor",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 15,
+    "name": "Comfortable Shoes",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 16,
+    "name": "Circlet of Elements",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 17,
+    "name": "Boots of Speed",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 18,
+    "name": "Heavy Bassinet",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 19,
+    "name": "Warden's Robes",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 20,
+    "name": "Hooked Chain",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 21,
+    "name": "Power Potion",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 22,
+    "name": "Iron Spear",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 23,
+    "name": "Jagged Sword",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 24,
+    "name": "Black Knife",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 25,
+    "name": "Weighted Net",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 26,
+    "name": "Eagle-Eye Goggles",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 27,
+    "name": "Iron Helmet",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 28,
+    "name": "Chainmail",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 29,
+    "name": "Nimble Legguards",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 30,
+    "name": "Armorbane Bow",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 31,
+    "name": "Staff of Summoning",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 32,
+    "name": "Black Censer",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 33,
+    "name": "Second Skin",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 34,
+    "name": "Battle Axe",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 35,
+    "name": "Tower Shield",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 36,
+    "name": "Moon Earing",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 37,
+    "name": "Major Healing Potion",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 38,
+    "name": "Heavy Greaves",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 39,
+    "name": "Ring of Skulls",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 40,
+    "name": "Shadow Amor",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 41,
+    "name": "Kinetic Treads",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 42,
+    "name": "Endurance Footwraps",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 43,
+    "name": "Hawk Helm",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 44,
+    "name": "Precision Bow",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 45,
+    "name": "Major Element Potion",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 46,
+    "name": "Light Targe",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 47,
+    "name": "Cloak of Pockets",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 48,
+    "name": "Staff of Elements",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 49,
+    "name": "Horned Helm",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 50,
+    "name": "Robes of the Oak",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 51,
+    "name": "Heavy Mace",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 52,
+    "name": "Sun Earring",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 53,
+    "name": "Major Power Potion",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 54,
+    "name": "Circlet of Sanctity",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 55,
+    "name": "Volatile Bomb",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 56,
+    "name": "Steel Sabatons",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 57,
+    "name": "Strategist's Ring",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 58,
+    "name": "Major Stamina Potion",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 59,
+    "name": "Telescopic Lens",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 60,
+    "name": "Staff of Eminence",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 61,
+    "name": "War Hammer",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 62,
+    "name": "Mask of Terror",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 63,
+    "name": "Star Earring",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 64,
+    "name": "Empowering Talisman",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 65,
+    "name": "Long Spear",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 66,
+    "name": "Cloak of Invisibility",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 67,
+    "name": "Spiked Shoes",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 68,
+    "name": "Ring of Haste",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 69,
+    "name": "Plate Mail",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 70,
+    "name": "Standard Rations",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 71,
+    "name": "Mastercraft Crossbow",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 72,
+    "name": "Commander's Cap",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 73,
+    "name": "Mantle of Summoning",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 74,
+    "name": "Concealed Dagger",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 75,
+    "name": "Opulent Hood",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 76,
+    "name": "Merchant's Insignia",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 77,
+    "name": "Robes of Evocation",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 78,
+    "name": "Reaping Scythe",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 79,
+    "name": "Doom Powder",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 80,
+    "name": "Demonic Skull",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 81,
+    "name": "Frigid Blade",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 82,
+    "name": "Storm Blade",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 83,
+    "name": "Inferno Blade",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 84,
+    "name": "Tremor Blade",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 85,
+    "name": "Brilliant Blade",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 86,
+    "name": "Night Blade",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 87,
+    "name": "Versatile Dagger",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 88,
+    "name": "Spiked Shield",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 89,
+    "name": "Swordedge Armor",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 90,
+    "name": "Blinking Cape",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 91,
+    "name": "Boots of Quickness",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 92,
+    "name": "Stun Powder",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 93,
+    "name": "Scroll of Ferocity",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 94,
+    "name": "Scroll of Healing",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 95,
+    "name": "Scroll of Shielding",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 96,
+    "name": "Scroll of Swiftness",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 97,
+    "name": "Shoes of Happiness",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 98,
+    "name": "Cloak of Phasing",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 99,
+    "name": "Unstable Explosives",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 100,
+    "name": "Charged Boots",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 101,
+    "name": "Cure Potion",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 102,
+    "name": "Steel Ring",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 103,
+    "name": "Ranger's Hood",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 104,
+    "name": "Warding Rod",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 105,
+    "name": "Lucky Eye",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 106,
+    "name": "Steam Armor",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 107,
+    "name": "Necklace of Teeth",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 108,
+    "name": "Thief's Hood",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 109,
+    "name": "Ancient Drill",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 110,
+    "name": "Fueled Falchion",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 111,
+    "name": "Skull of Hatred",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 112,
+    "name": "Curious Gear",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 113,
+    "name": "Black Card",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 114,
+    "name": "Gust Striders",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 115,
+    "name": "Rod of Transference",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 116,
+    "name": "Fated Verses",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 117,
+    "name": "Dawnblade",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 118,
+    "name": "Duskbrand",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 119,
+    "name": "Drakescale Boots",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 120,
+    "name": "Drakescale Armor",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 121,
+    "name": "Drakescale Helm",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 122,
+    "name": "Frost Beetle Lantern",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 123,
+    "name": "Storm Beetle Lantern",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 124,
+    "name": "Ignition Beetle Lantern",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 125,
+    "name": "Tremor Beetle Lantern",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 126,
+    "name": "Brilliant Beetle Lantern",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 127,
+    "name": "Twilight Beetle Lantern",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 128,
+    "name": "Pendant of Dark Pacts",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 129,
+    "name": "Helm of the Mountain",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 130,
+    "name": "Mountain Hammer",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 131,
+    "name": "Wave Crest",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 132,
+    "name": "Doomed Compass",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 133,
+    "name": "Heart of the Betrayer",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 134,
+    "name": "Power Core",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 135,
+    "name": "Resonant Crystal",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 136,
+    "name": "Helix Ring",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 137,
+    "name": "Flea-Bitten Shawl",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 138,
+    "name": "Bloody Axe",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 139,
+    "name": "Otherworldly Scepter",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 140,
+    "name": "Remote Attack Spider",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 141,
+    "name": "Remote Aid Spider",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 142,
+    "name": "Magma Waders",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 143,
+    "name": "Boots of Bracing",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 144,
+    "name": "Temporal Matrix",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 145,
+    "name": "Harrow-Hook",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 146,
+    "name": "Amberhollow",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 147,
+    "name": "Scepter of Xorn",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 148,
+    "name": "Shield of the Righteous",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 149,
+    "name": "Aesther Spyglass",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 150,
+    "name": "Experimental Armor",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 151,
+    "name": "Sword of the Sands",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  },
+  {
+    "id": 152,
+    "name": "Ruby Talisman",
+    "cost": 0,
+    "count": 2,
+    "edition": "gh2e",
+    "slot": "unknown",
+    "noArtwork": true
+  }
+]

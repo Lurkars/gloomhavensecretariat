@@ -71,7 +71,7 @@ export class CharacterRetirementDialog {
 
         if (this.personalQuest) {
             if (this.personalQuest.unlockCharacter) {
-                this.characterAlreadyUnlocked = gameManager.game.unlockedCharacters.indexOf(this.personalQuest.unlockCharacter) != -1;
+                this.characterAlreadyUnlocked = gameManager.game.unlockedCharacters.indexOf(this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter) != -1;
                 if (!this.characterAlreadyUnlocked) {
                     const unlockCharacter = gameManager.charactersData(this.personalQuest.edition).find((characterData) => this.personalQuest && characterData.edition == this.personalQuest.edition && characterData.name == this.personalQuest.unlockCharacter);
                     this.unlockEvent = unlockCharacter && unlockCharacter.unlockEvent || '';
@@ -121,8 +121,21 @@ export class CharacterRetirementDialog {
         gameManager.game.party.retirements.push(this.character.toModel());
         gameManager.characterManager.removeCharacter(this.character, true);
 
-        if (this.personalQuest && this.personalQuest.unlockCharacter && settingsManager.settings.automaticUnlocking && gameManager.game.unlockedCharacters.indexOf(this.personalQuest.unlockCharacter) == -1) {
-            gameManager.game.unlockedCharacters.push(this.personalQuest.unlockCharacter);
+        if (this.personalQuest && this.personalQuest.unlockCharacter && settingsManager.settings.automaticUnlocking && gameManager.game.unlockedCharacters.indexOf(this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter) == -1) {
+            gameManager.game.unlockedCharacters.push(this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter);
+            if (settingsManager.settings.events) {
+                const characterData = gameManager.getCharacterData(this.personalQuest.unlockCharacter);
+                if (characterData.unlockEvent) {
+                    characterData.unlockEvent.split('|').forEach((unlockEvent) => {
+                        if (unlockEvent.split(':').length > 1) {
+                            gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
+                        } else {
+                            gameManager.eventCardManager.addEvent('city', unlockEvent, true);
+                            gameManager.eventCardManager.addEvent('road', unlockEvent, true);
+                        }
+                    })
+                }
+            }
         }
 
         if (this.characterAlreadyUnlocked) {
@@ -192,8 +205,21 @@ export class CharacterRetirementDialog {
         if (this.additional) {
             gameManager.game.party.inspiration -= 15;
             gameManager.game.party.prosperity += 2;
-            if (this.additionalPQ && this.additionalPQ.unlockCharacter && settingsManager.settings.automaticUnlocking && gameManager.game.unlockedCharacters.indexOf(this.additionalPQ.unlockCharacter) == -1) {
-                gameManager.game.unlockedCharacters.push(this.additionalPQ.unlockCharacter);
+            if (this.additionalPQ && this.additionalPQ.unlockCharacter && settingsManager.settings.automaticUnlocking && gameManager.game.unlockedCharacters.indexOf(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter) == -1) {
+                gameManager.game.unlockedCharacters.push(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter);
+                if (settingsManager.settings.events) {
+                    const characterData = gameManager.getCharacterData(this.additionalPQ.unlockCharacter);
+                    if (characterData.unlockEvent) {
+                        characterData.unlockEvent.split('|').forEach((unlockEvent) => {
+                            if (unlockEvent.split(':').length > 1) {
+                                gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
+                            } else {
+                                gameManager.eventCardManager.addEvent('city', unlockEvent, true);
+                                gameManager.eventCardManager.addEvent('road', unlockEvent, true);
+                            }
+                        })
+                    }
+                }
             }
         }
 
@@ -215,12 +241,14 @@ export class CharacterRetirementDialog {
 
     buildingsEnvelopeHelper(envelope: string, both: boolean = true): BuildingData | undefined {
         const buildingData = gameManager.campaignData().buildings;
-        const buildings = envelope.split(':').map((id) => buildingData.find((buildingData) => buildingData.id === id)).filter((buildingData) => buildingData).map((buildingData) => buildingData as BuildingData);
-        if (buildings.length > 0) {
-            if (!gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == buildings[0].name) && (!this.personalQuestBuilding || this.personalQuestBuilding != buildings[0])) {
-                return buildings[0];
-            } else if (both && buildings.length > 1 && !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == buildings[1].name)) {
-                return buildings[1];
+        if (buildingData) {
+            const buildings = envelope.split(':').map((id) => buildingData.find((buildingData) => buildingData.id === id)).filter((buildingData) => buildingData).map((buildingData) => buildingData as BuildingData);
+            if (buildings.length > 0) {
+                if (!gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == buildings[0].name) && (!this.personalQuestBuilding || this.personalQuestBuilding != buildings[0])) {
+                    return buildings[0];
+                } else if (both && buildings.length > 1 && !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == buildings[1].name)) {
+                    return buildings[1];
+                }
             }
         }
 
@@ -236,7 +264,7 @@ export class CharacterRetirementDialog {
             }
 
             if (this.additionalPQ.unlockCharacter) {
-                this.additionalCharacterAlreadyUnlocked = gameManager.game.unlockedCharacters.indexOf(this.additionalPQ.unlockCharacter) != -1;
+                this.additionalCharacterAlreadyUnlocked = gameManager.game.unlockedCharacters.indexOf(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter) != -1;
                 if (!this.characterAlreadyUnlocked) {
                     const unlockCharacter = gameManager.charactersData(this.additionalPQ.edition).find((characterData) => this.additionalPQ && characterData.edition == this.additionalPQ.edition && characterData.name == this.additionalPQ.unlockCharacter);
                     this.additionalUnlockEvent = unlockCharacter && unlockCharacter.unlockEvent || '';

@@ -1,0 +1,39 @@
+{
+  "index": "7.1",
+  "name": "Training Course",
+  "edition": "gh2e",
+  "parent": "0",
+  "marker": "2",
+  "monsters": [
+    "city-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "index": "77.3",
+  "name": "Merchant Reputation 9",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "city:49",
+      "city:50"
+    ]
+  }
+}

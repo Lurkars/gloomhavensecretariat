@@ -14,6 +14,7 @@
     <div class="line" ghs-setting-menu="treasures" [requires]="['scenarioRooms']"></div>
     <div class="line" ghs-setting-menu="scenarioRules"></div>
     <div class="line" ghs-setting-menu="battleGoals"></div>
+    <div class="line" ghs-setting-menu="events" [requires]="['partySheet']"></div>
   </div>
 
   <div class="column">
@@ -245,6 +246,17 @@
   </div>
 
 
+  <div class="separator"></div>
+
+  <!-- GH2E -->
+  <ng-container *ngIf="gameManager.gh2eRules() && gameManager.imbuementManager.available">
+    <div class="line title span" ghs-setting-title-menu="gh2eRules" [sync]="true"></div>
+
+    <div class="column">
+      <div class="line" *ngIf="gameManager.imbuementManager.available" ghs-setting-menu="gh2eImbuement"></div>
+    </div>
+  </ng-container>
+
   <ng-container *ngIf="gameManager.bbRules()">
     <div class="separator"></div>
 
@@ -274,10 +286,12 @@
     </div>
     <div class="line" ghs-setting-menu="automaticUnlocking"></div>
     <div class="line" ghs-setting-menu="summons"></div>
-    <div class="line" ghs-setting-menu="lootDeck"></div>
+    <div class="line" ghs-setting-menu="eventsApply" [requires]="['events','partySheet']"></div>
+    <div class="line" ghs-setting-menu="eventsDraw" [requires]="['events','partySheet']"></div>
   </div>
 
   <div class="column">
+    <div class="line" ghs-setting-menu="lootDeck"></div>
     <div class="line" ghs-setting-menu="allyAttackModifierDeck"></div>
     <div class="line" ghs-setting-menu="monsters"></div>
     <div class="line" ghs-setting-menu="monsterAttackModifierDeck"></div>
@@ -355,6 +369,8 @@
     <div class="line" ghs-setting-menu="portraitMode"></div>
     <div class="line" ghs-setting-menu="animations"></div>
     <div class="line" ghs-setting-menu="statAnimations"></div>
+    <div class="line" ghs-setting-menu="animationSpeed" type="range" [min]="0.3" [max]="2" [requires]="['animations']">
+    </div>
     <div class="line" ghs-setting-menu="barsize" type="range" [min]="0.1" [max]="2"></div>
     <div class="line" ghs-setting-menu="fontsize" type="range" [min]="0.1" [max]="2"></div>
   </div>
@@ -382,7 +398,8 @@
     <div class="line title" ghs-setting-title-menu="locale" [sync]="true"></div>
     <div ghs-setting-menu="locale" [values]="settingsManager.locales"></div>
     <div class="line">
-      <a href="https://translate.gloomhaven-secretariat.de/" target="_blank" [ghs-tooltip]="'settings.locale.help.hint'" [originY]="'top'" [overlayY]="'bottom'">
+      <a href="https://translate.gloomhaven-secretariat.de/" target="_blank" [ghs-tooltip]="'settings.locale.help.hint'"
+        [originY]="'top'" [overlayY]="'bottom'">
         <img class="ghs-svg" src="./assets/images/hint.svg">&nbsp;
         <span [ghs-label]="'settings.locale.help'"></span>
       </a>

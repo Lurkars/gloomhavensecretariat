@@ -572,7 +572,7 @@ export class StateManager {
         gameManager.uiChange.emit();
         window.document.body.classList.remove('working');
         window.document.body.classList.remove('server-sync');
-      }, timeout);
+      }, timeout * settingsManager.settings.animationSpeed);
     } else {
       this.lastAction = "update";
       gameManager.uiChange.emit();

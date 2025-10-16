@@ -1,0 +1,40 @@
+{
+  "index": "20.3",
+  "name": "The Ghost Fortress",
+  "edition": "gh2e",
+  "parent": "21",
+  "monsters": [
+    "ancient-artillery",
+    "city-guard",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

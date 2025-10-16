@@ -1,0 +1,68 @@
+{
+  "index": "111.4",
+  "edition": "gh2e",
+  "parent": "96",
+  "marker": "1",
+  "monsters": [
+    "bandit-archer",
+    "city-archer",
+    "city-guard",
+    "earth-demon",
+    "flame-demon",
+    "inox-guard",
+    "savvas-lavaflow"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

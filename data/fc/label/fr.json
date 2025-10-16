@@ -22,7 +22,9 @@
     "You Date to Defy Me": "Vous Osez me Défier"
   },
   "character": {
-    "diviner": "Devineresse"
+    "fc": {
+      "diviner": "Devineresse"
+    }
   },
   "custom": {
     "fc": {

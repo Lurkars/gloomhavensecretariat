@@ -1,0 +1,272 @@
+{
+  "name": "crossed-swords",
+  "icon": "gh-envx",
+  "edition": "gh2e",
+  "unlockEvent": "city:54",
+  "retireEvent": "road:76|road:77",
+  "color": "#cb9070",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 8
+    },
+    {
+      "level": 2,
+      "health": 9
+    },
+    {
+      "level": 3,
+      "health": 11
+    },
+    {
+      "level": 4,
+      "health": 12
+    },
+    {
+      "level": 5,
+      "health": 14
+    },
+    {
+      "level": 6,
+      "health": 15
+    },
+    {
+      "level": 7,
+      "health": 17
+    },
+    {
+      "level": 8,
+      "health": 18
+    },
+    {
+      "level": 9,
+      "health": 20
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "soul-leeches",
+      "level": 1,
+      "health": 4,
+      "movement": 3
+    },
+    {
+      "name": "creeping-beetles",
+      "level": 1,
+      "health": 5,
+      "attack": 2,
+      "movement": 2
+    },
+    {
+      "name": "angry-wasps",
+      "level": 1,
+      "health": 3,
+      "attack": 2,
+      "movement": 4
+    },
+    {
+      "name": "steel-scarabs",
+      "level": 1,
+      "health": 4,
+      "attack": 1,
+      "movement": 2
+    },
+    {
+      "name": "bloat-maggot",
+      "level": 3,
+      "health": 3,
+      "attack": 1,
+      "movement": 3
+    },
+    {
+      "name": "lightning-moth",
+      "level": 5,
+      "health": 3,
+      "movement": 3
+    },
+    {
+      "name": "rage-hornets",
+      "level": 7,
+      "health": 5,
+      "attack": 3,
+      "movement": 3
+    },
+    {
+      "name": "rust-vermin",
+      "level": 9,
+      "health": 7,
+      "attack": 3,
+      "movement": 4
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "air|dark"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "earth|light"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.gh2e.crossed-swords.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.gh2e.crossed-swords.2%"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "%data.custom.gh2e.crossed-swords.3%"
+    },
+    {
+      "type": "custom",
+      "count": 3,
+      "combined": true,
+      "custom": "%data.custom.gh2e.crossed-swords.4%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.gh2e.crossed-swords.5%",
+    "%data.custom.gh2e.crossed-swords.6%"
+  ]
+}

@@ -35,19 +35,19 @@
   },
   "monster": {
     "deep-earth": "Недра",
-    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.diviner% %solo%)",
-    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.mindthief% %solo%)",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
     "energized-corpse": "Заряженный труп",
     "ghost-wolf": "Призрачный Волк",
-    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.angry-face% %solo%)",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
     "high-flame": "Пламя",
     "inox-necromancer": "Инокс-некромант",
     "lieutenant": "Лейтенант",
     "mountains-heart": "Сердце гор",
     "night-demon-deathwalker-solo": "Ночной демон (соло)",
     "song-of-the-deep": "Песнь Глубин",
-    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.scoundrel% %solo%)",
-    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.mindthief% %solo%)"
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)"
   },
   "scenario": {
     "group": {

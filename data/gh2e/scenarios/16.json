@@ -1,0 +1,46 @@
+{
+  "index": "16",
+  "name": "Diamond Mine",
+  "flowChartGroup": "merchant-guild",
+  "edition": "gh2e",
+  "rewards": {
+    "gold": 20,
+    "reputationFactions": [
+      "merchant-guild:1"
+    ]
+  },
+  "monsters": [
+    "bandit-scout",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-scout",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

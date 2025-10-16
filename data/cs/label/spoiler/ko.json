@@ -1,25 +1,27 @@
 {
   "character": {
-    "beetle": "호박 수호자",
-    "bleeding-claw": "파멸 아귀",
-    "chain-helmet": "사슬교도관",
-    "crescent-sun": "초롱불",
-    "flask": "화학자",
-    "galaxy": "별 투척자",
-    "ladder-axe": "화염의 기사",
-    "leaf": "순례자",
-    "skull": {
-      "": "강령술사",
-      "spirits": {
-        "": "%data.characterIconColored.skull% 영혼",
-        "hint": "차례 종료 시 각 영혼은 자동으로 피해 1을 입습니다."
-      }
-    },
-    "sprig": "늪지약초꾼",
-    "target": "포격수",
-    "tools": "발명가",
-    "tusks": "족장",
-    "vortex": "공허 계약자"
+    "cs": {
+      "beetle": "호박 수호자",
+      "bleeding-claw": "파멸 아귀",
+      "chain-helmet": "사슬교도관",
+      "crescent-sun": "초롱불",
+      "flask": "화학자",
+      "galaxy": "별 투척자",
+      "ladder-axe": "화염의 기사",
+      "leaf": "순례자",
+      "skull": {
+        "": "강령술사",
+        "spirits": {
+          "": "%data.characterIconColored.skull% 영혼",
+          "hint": "차례 종료 시 각 영혼은 자동으로 피해 1을 입습니다."
+        }
+      },
+      "sprig": "늪지약초꾼",
+      "target": "포격수",
+      "tools": "발명가",
+      "tusks": "족장",
+      "vortex": "공허 계약자"
+    }
   },
   "items": {
     "cs-1": {
@@ -61,9 +63,6 @@
     "cs-108": {
       "": "섬세한 모델",
       "1": "고철수집가 소환. 장착자는 이 소환물의 행동을 제어할 수 있다. 이 소환물이 진입한 각 칸을 노획한다."
-    },
-    "cs-11": {
-      "": ""
     },
     "cs-110": {
       "": "톱니 칼날",

@@ -1,0 +1,53 @@
+{
+  "index": "29",
+  "name": "Scorched Summit",
+  "flowChartGroup": "the-voice",
+  "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "the-drake-slain"
+    ],
+    "gold": 10,
+    "prosperity": 1,
+    "reputationFactions": [
+      "military:1"
+    ]
+  },
+  "monsters": [
+    "rending-drake",
+    "spitting-drake",
+    "the-elder-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        75
+      ],
+      "monster": [
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "the-elder-drake",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "index": "102.5",
+  "name": "Well of the Unfortunate",
+  "edition": "gh2e",
+  "parent": "72",
+  "monsters": [
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

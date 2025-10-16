@@ -1,0 +1,44 @@
+{
+  "index": "23B",
+  "name": "Gloomhaven Square A (Military Allies)",
+  "flowChartGroup": "city-guards",
+  "edition": "gh2e",
+  "unlocks": [
+    "25"
+  ],
+  "forcedLinks": [
+    "25"
+  ],
+  "monsters": [
+    "cultist",
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

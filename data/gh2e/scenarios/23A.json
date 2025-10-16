@@ -1,0 +1,70 @@
+{
+  "index": "23A",
+  "name": "Gloomhaven Square A (Demon Allies)",
+  "flowChartGroup": "demons",
+  "edition": "gh2e",
+  "unlocks": [
+    "36"
+  ],
+  "blocks": [
+    "7",
+    "8",
+    "12",
+    "16",
+    "17",
+    "18",
+    "21",
+    "22"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "city-rules-demons",
+      "peace-through-bloodshed"
+    ],
+    "experience": 20,
+    "events": [
+      "city:36",
+      "city:55",
+      "city:56",
+      "road:36"
+    ],
+    "factionUnlock": "demons",
+    "reputationFactions": [
+      "demons:2",
+      "merchant-guild:-10",
+      "military:-10"
+    ]
+  },
+  "monsters": [
+    "cultist",
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

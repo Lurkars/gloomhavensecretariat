@@ -315,7 +315,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 }
                 if (this.rewards.chooseUnlockCharacter && this.rewards.chooseUnlockCharacter.length > 0 && !this.chooseUnlockCharacter) {
                     let index = 0;
-                    while (index < this.rewards.chooseUnlockCharacter.length && gameManager.game.unlockedCharacters.indexOf(this.rewards.chooseUnlockCharacter[index]) != -1) {
+                    while (index < this.rewards.chooseUnlockCharacter.length && gameManager.game.unlockedCharacters.indexOf(this.scenario.edition + ':' + this.rewards.chooseUnlockCharacter[index]) != -1) {
                         index++;
                     }
                     if (index < this.rewards.chooseUnlockCharacter.length) {
@@ -410,7 +410,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
 
     hasRewards(): boolean {
         const rewards = this.rewards;
-        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards || rewards.removeLootDeckCards || rewards.townGuardAm || rewards.overlayCampaignSticker || rewards.overlaySticker || rewards.pet)) {
+        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards || rewards.removeLootDeckCards || rewards.townGuardAm || rewards.overlayCampaignSticker || rewards.overlaySticker || rewards.pet || rewards.eventDecks)) {
             return true;
         }
         return false;
@@ -485,7 +485,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
 
     toggleBattleGoal(event: any, index: number, value: number) {
         const character = this.characters[index];
-        gameManager.stateManager.before("finishScenario.battleGoal", character.name, value);
+        gameManager.stateManager.before("finishScenario.battleGoal", character.edition, character.name, value);
         let battleGoal: BattleGoal | undefined;
 
         if (settingsManager.settings.battleGoals) {
@@ -780,8 +780,8 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 gameManager.game.party.manualScenarios.push(new GameScenarioModel(this.chooseLocation, this.scenario.edition, this.scenario.group));
             }
 
-            if (settingsManager.settings.automaticUnlocking && this.chooseUnlockCharacter && gameManager.game.unlockedCharacters.indexOf(this.chooseUnlockCharacter) == -1) {
-                gameManager.game.unlockedCharacters.push(this.chooseUnlockCharacter);
+            if (settingsManager.settings.automaticUnlocking && this.chooseUnlockCharacter && gameManager.game.unlockedCharacters.indexOf(this.scenario.edition + ':' + this.chooseUnlockCharacter) == -1) {
+                gameManager.game.unlockedCharacters.push(this.scenario.edition + ':' + this.chooseUnlockCharacter);
             }
 
             if (this.challenges) {
@@ -856,6 +856,6 @@ export class ScenarioSummaryComponent implements OnDestroy {
     }
 
     unlocked(character: string) {
-        return gameManager.game.unlockedCharacters.indexOf(character) != -1;
+        return gameManager.game.unlockedCharacters.indexOf(this.scenario.edition + ':' + character) != -1;
     }
 }

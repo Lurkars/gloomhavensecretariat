@@ -1,0 +1,33 @@
+{
+  "index": "86.4",
+  "name": "Sunken Vessel",
+  "edition": "gh2e",
+  "parent": "68",
+  "monsters": [
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "treasures": [
+        67
+      ],
+      "monster": [
+        {
+          "name": "living-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

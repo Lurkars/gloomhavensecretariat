@@ -1,0 +1,25 @@
+{
+  "index": "128.1",
+  "edition": "gh2e",
+  "parent": "91",
+  "monsters": [
+    "flame-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

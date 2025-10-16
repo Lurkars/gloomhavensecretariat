@@ -1,0 +1,52 @@
+{
+  "index": "2",
+  "name": "Ruinous Crypt",
+  "flowChartGroup": "intro",
+  "edition": "gh2e",
+  "unlocks": [
+    "3"
+  ],
+  "rewards": {
+    "experience": 10,
+    "reputationFactions": [
+      "demons:1",
+      "military:1"
+    ]
+  },
+  "monsters": [
+    "dark-ritual-cultist",
+    "living-bones",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "dark-ritual-cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "dark-ritual-cultist",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { gameManager } from "../businesslogic/GameManager";
 import { Figure } from "./Figure";
 import { GameObjectiveEntityModel, ObjectiveEntity } from "./ObjectiveEntity";
 import { AdditionalIdentifier } from "./data/Identifier";
@@ -34,7 +35,18 @@ export class ObjectiveContainer implements Figure {
   }
 
   getInitiative(): number {
-    return this.initiative;
+    let offset = 0.9;
+    if (this.objectiveId) {
+      const objectiveModel = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(this.objectiveId);
+      if (objectiveModel && objectiveModel.initiativeShare && objectiveModel.initiativeShare.split(':').length > 1) {
+        if (this.initiative < 1) {
+          return 100;
+        }
+        offset = +objectiveModel.initiativeShare.split(':')[1];
+      }
+    }
+
+    return this.initiative + offset;
   }
 
   toModel(): GameObjectiveContainerModel {

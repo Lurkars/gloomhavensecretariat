@@ -1,0 +1,50 @@
+{
+  "index": "560",
+  "group": "randomMonsterCard",
+  "name": "Cutthroat",
+  "edition": "gh2e",
+  "named": true,
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 8,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

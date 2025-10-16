@@ -1,0 +1,41 @@
+{
+  "index": "117.1",
+  "name": "Burning Mountain",
+  "edition": "gh2e",
+  "parent": "90",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "type": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

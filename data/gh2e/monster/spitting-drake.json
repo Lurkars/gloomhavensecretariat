@@ -1,0 +1,201 @@
+{
+  "name": "spitting-drake",
+  "edition": "gh2e",
+  "count": 6,
+  "baseStat": {
+    "type": "normal",
+    "actions": [],
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 4,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": 5,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 7,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 8,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 9,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 12,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 16,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 22,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 7,
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 9,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 10,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 13,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 16,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 19,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 27,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 34,
+      "movement": 4,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    }
+  ]
+}

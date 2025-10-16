@@ -1,11 +1,13 @@
 {
   "character": {
-    "bruiser": "Bruiser",
-    "cragheart": "Cragheart",
-    "mindthief": "Mindthief",
-    "silent-knife": "Silent Knife",
-    "spellweaver": "Spellweaver",
-    "tinkerer": "Tinkerer"
+    "bb": {
+      "bruiser": "Bruiser",
+      "cragheart": "Cragheart",
+      "mindthief": "Mindthief",
+      "silent-knife": "Silent Knife",
+      "spellweaver": "Spellweaver",
+      "tinkerer": "Tinkerer"
+    }
   },
   "edition": {
     "bb": "Button & Bugs"

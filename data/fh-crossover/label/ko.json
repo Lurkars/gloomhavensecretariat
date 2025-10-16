@@ -1,22 +1,24 @@
 {
   "character": {
-    "brute": "야만인",
-    "cragheart": "바위심장",
-    "demolitionist": {
-      "": "철거전문가",
-      "mech": {
-        "": "기계 강화복",
-        "hint": "최대 체력이 5 증가합니다. %game.action.heal%10, 자신."
-      }
-    },
-    "diviner": "점술가",
-    "hatchet": "도끼투척수",
-    "mindthief": "정신도둑",
-    "red-guard": "적위병",
-    "scoundrel": "무법자",
-    "spellweaver": "주문직인",
-    "tinkerer": "땜장이",
-    "voidwarden": "공허감시자"
+    "fh-crossover": {
+      "brute": "야만인",
+      "cragheart": "바위심장",
+      "demolitionist": {
+        "": "철거전문가",
+        "mech": {
+          "": "기계 강화복",
+          "hint": "최대 체력이 5 증가합니다. %game.action.heal%10, 자신."
+        }
+      },
+      "diviner": "점술가",
+      "hatchet": "도끼투척수",
+      "mindthief": "정신도둑",
+      "red-guard": "적위병",
+      "scoundrel": "무법자",
+      "spellweaver": "주문직인",
+      "tinkerer": "땜장이",
+      "voidwarden": "공허감시자"
+    }
   },
   "custom": {
     "fh": {

@@ -1,0 +1,36 @@
+{
+  "index": "30",
+  "name": "Shrine of the Depths",
+  "flowChartGroup": "the-voice",
+  "edition": "gh2e",
+  "unlocks": [
+    "35"
+  ],
+  "monsters": [
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

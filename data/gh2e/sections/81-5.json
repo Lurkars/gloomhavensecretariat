@@ -1,0 +1,13 @@
+{
+  "index": "81.5",
+  "edition": "gh2e",
+  "parent": "32",
+  "conclusion": true,
+  "unlocks": [
+    "33"
+  ],
+  "rewards": {
+    "gold": 15
+  },
+  "monsters": []
+}

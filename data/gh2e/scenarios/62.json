@@ -1,0 +1,36 @@
+{
+  "index": "62",
+  "name": "Alchemy Lab",
+  "flowChartGroup": "personal-quests",
+  "edition": "gh2e",
+  "monsters": [],
+  "objectives": [
+    {
+      "name": "Rubble 3",
+      "health": "C+L"
+    },
+    {
+      "name": "Rubble 4",
+      "health": "C+L"
+    },
+    {
+      "name": "Robotic Lab Helper B",
+      "escort": true,
+      "health": "2",
+      "initiative": 99
+    },
+    {
+      "name": "Robotic Lab Helper C",
+      "escort": true,
+      "health": "2",
+      "initiative": 99
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

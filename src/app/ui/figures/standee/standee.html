@@ -74,7 +74,7 @@
 
     <div class="conditions">
       <span class="condition-container" *ngFor="let entityCondition of activeConditions; let index = index;"
-        [ngClass]="{'center' : (gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).summon == SummonState.false || gameManager.isSummon(entity) || gameManager.isObjectiveEntity(entity)) && ((activeConditions).length % 2) == 1 && (activeConditions).length == index + 1, 'expired' : entityCondition.expired}">
+        [ngClass]="{'center' : (gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).summon == SummonState.false || gameManager.isSummon(entity) || gameManager.isObjectiveEntity(entity)) && ((activeConditions).length % 2) == 1 && (activeConditions).length == index + 1, 'expired' : entityCondition.expired, 'fh': settingsManager.settings.fhStyle}">
         <span class="condition" ghs-pointer-input (doubleClick)="removeCondition(entityCondition)">
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"

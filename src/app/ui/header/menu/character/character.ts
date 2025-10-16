@@ -39,9 +39,9 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   getCharacterData(filter: string, edition: string): CharacterData[] {
-    return gameManager.charactersData(edition).filter((characterData) => ((!characterData.locked || this.unlocked(characterData)) && (ghsTextSearch(characterData.name, filter) || this.unlocked(characterData) && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter))) || characterData.locked && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter, true)).sort((a, b) => {
-      const aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
-      const bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+    return gameManager.charactersData(edition).filter((characterData) => ((!characterData.locked || this.unlocked(characterData)) && (ghsTextSearch(characterData.name, filter) || this.unlocked(characterData) && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.edition + '.' + characterData.name), filter))) || characterData.locked && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.edition + '.' + characterData.name), filter, true)).sort((a, b) => {
+      const aName = settingsManager.getLabel('data.character.' + a.edition + '.' + a.name).toLowerCase();
+      const bName = settingsManager.getLabel('data.character.' + b.edition + '.' + b.name).toLowerCase();
 
       if (a.spoiler && !b.spoiler) {
         return 1;
@@ -73,7 +73,7 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   unlocked(characterData: CharacterData): boolean {
-    return !characterData.spoiler || gameManager.game.unlockedCharacters.indexOf(characterData.name) != -1;
+    return !characterData.spoiler || gameManager.game.unlockedCharacters.indexOf(characterData.edition + ':' + characterData.name) != -1;
   }
 
   locked(edition: string): boolean {
@@ -81,11 +81,23 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   unlock(characterData: CharacterData) {
-    if (gameManager.game.unlockedCharacters.indexOf(characterData.name) == -1) {
+    if (gameManager.game.unlockedCharacters.indexOf(characterData.edition + ':' + characterData.name) == -1) {
       if (this.confirm == characterData.name) {
-        gameManager.stateManager.before("unlockChar", "data.character." + characterData.name);
-        gameManager.game.unlockedCharacters.push(characterData.name);
+        gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterData.name);
+        gameManager.game.unlockedCharacters.push(characterData.edition + ':' + characterData.name);
         this.newUnlocks.push(characterData.name);
+        if (settingsManager.settings.events) {
+          if (characterData.unlockEvent) {
+            characterData.unlockEvent.split('|').forEach((unlockEvent) => {
+              if (unlockEvent.split(':').length > 1) {
+                gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true)
+              } else {
+                gameManager.eventCardManager.addEvent('city', unlockEvent, true);
+                gameManager.eventCardManager.addEvent('road', unlockEvent, true);
+              }
+            })
+          }
+        }
         gameManager.stateManager.after();
       } else {
         this.confirm = characterData.name;
@@ -102,7 +114,21 @@ export class CharacterMenuComponent implements OnInit {
     if (chars.length > 0) {
       if (this.confirm == 'confirm-all-' + edition) {
         gameManager.stateManager.before("unlockAllCharacters", "data.edition." + edition);
-        gameManager.game.unlockedCharacters.push(...chars);
+        gameManager.game.unlockedCharacters.push(...chars.map((c) => edition + ':' + c));
+        if (settingsManager.settings.events) {
+          chars.map((name) => gameManager.getCharacterData(name, edition)).forEach((characterData) => {
+            if (characterData.unlockEvent) {
+              characterData.unlockEvent.split('|').forEach((unlockEvent) => {
+                if (unlockEvent.split(':').length > 1) {
+                  gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true)
+                } else {
+                  gameManager.eventCardManager.addEvent('city', unlockEvent, true);
+                  gameManager.eventCardManager.addEvent('road', unlockEvent, true);
+                }
+              })
+            }
+          })
+        }
         gameManager.stateManager.after();
       } else {
         this.confirm = 'confirm-all-' + edition;
@@ -116,7 +142,7 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   addCharacter(characterData: CharacterData) {
-    gameManager.stateManager.before("addChar", "data.character." + characterData.name);
+    gameManager.stateManager.before("addChar", "data.character." + characterData.edition + '.' + characterData.name);
     gameManager.characterManager.addCharacter(characterData, this.characterLevel);
     gameManager.stateManager.after();
     if (gameManager.bbRules()) {

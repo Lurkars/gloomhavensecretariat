@@ -1,0 +1,17 @@
+{
+  "index": "40",
+  "name": "Wetlands Ambush",
+  "flowChartGroup": "hail",
+  "edition": "gh2e",
+  "unlocks": [
+    "44"
+  ],
+  "monsters": [],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

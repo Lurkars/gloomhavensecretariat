@@ -25,6 +25,11 @@
     {
       "name": "repair_mode",
       "expire": true
+    },
+    {
+      "name": "spider_mode",
+      "level": 8,
+      "expire": true
     }
   ],
   "stats": [
@@ -95,18 +100,18 @@
         "subActions": [
           {
             "type": "custom",
-            "small": true,
-            "value": "%data.custom.fh.prism.1%"
+            "value": "%data.custom.fh.prism.1%",
+            "small": true
           },
           {
             "type": "heal",
-            "small": true,
             "value": 1,
+            "small": true,
             "subActions": [
               {
                 "type": "range",
-                "small": true,
-                "value": 3
+                "value": 3,
+                "small": true
               }
             ]
           }
@@ -144,8 +149,8 @@
         "subActions": [
           {
             "type": "custom",
-            "small": true,
-            "value": "%data.custom.fh.prism.2%"
+            "value": "%data.custom.fh.prism.2%",
+            "small": true
           }
         ]
       }
@@ -173,8 +178,8 @@
         "subActions": [
           {
             "type": "specialTarget",
-            "small": true,
-            "value": "enemiesAdjacent"
+            "value": "enemiesAdjacent",
+            "small": true
           }
         ]
       }
@@ -190,8 +195,8 @@
       "range": 2,
       "action": {
         "type": "custom",
-        "small": true,
-        "value": "%data.custom.fh.prism.3%"
+        "value": "%data.custom.fh.prism.3%",
+        "small": true
       }
     },
     {
@@ -230,8 +235,8 @@
       "movement": 3,
       "action": {
         "type": "custom",
-        "small": true,
-        "value": "%data.custom.fh.prism.4%"
+        "value": "%data.custom.fh.prism.4%",
+        "small": true
       },
       "additionalAction": {
         "type": "condition",
@@ -248,8 +253,8 @@
       "movement": 5,
       "action": {
         "type": "custom",
-        "small": true,
-        "value": "%data.custom.fh.prism.5%"
+        "value": "%data.custom.fh.prism.5%",
+        "small": true
       }
     },
     {
@@ -263,8 +268,8 @@
       "range": 4,
       "action": {
         "type": "area",
-        "small": true,
-        "value": "(0,0,target)|(0,1,target)|(1,0,target)"
+        "value": "(0,0,target)|(0,1,target)|(1,0,target)",
+        "small": true
       }
     },
     {
@@ -281,18 +286,18 @@
         "subActions": [
           {
             "type": "custom",
-            "small": true,
-            "value": "%data.custom.fh.prism.1%"
+            "value": "%data.custom.fh.prism.1%",
+            "small": true
           },
           {
             "type": "condition",
-            "small": true,
             "value": "ward",
+            "small": true,
             "subActions": [
               {
                 "type": "range",
-                "small": true,
-                "value": 4
+                "value": 4,
+                "small": true
               }
             ]
           }

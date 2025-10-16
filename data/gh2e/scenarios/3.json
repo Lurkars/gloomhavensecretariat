@@ -1,0 +1,72 @@
+{
+  "index": "3",
+  "name": "Frozen Hollow",
+  "flowChartGroup": "hail",
+  "edition": "gh2e",
+  "unlocks": [
+    "4",
+    "5"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "the-power-of-enhancement"
+    ],
+    "prosperity": 1,
+    "reputationFactions": [
+      "military:1"
+    ]
+  },
+  "monsters": [
+    "hound",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

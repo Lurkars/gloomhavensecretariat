@@ -1,0 +1,40 @@
+{
+  "index": "10.3",
+  "name": "- Plane of Elemental Power",
+  "edition": "gh2e",
+  "parent": "15",
+  "marker": "2",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "usurper"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "usurper",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

@@ -41,10 +41,6 @@ import { CharacterComponent } from './ui/figures/character/character';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet-dialog';
 import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-cards';
 import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
-import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
-import { FavorsComponent } from './ui/figures/character/event-effects/favors/favors';
-import { EventRandomItemDialogComponent } from './ui/figures/character/event-effects/random-item/random-item-dialog';
-import { EventRandomScenarioDialogComponent } from './ui/figures/character/event-effects/random-scenario/random-scenario-dialog';
 import { CharacterFullViewComponent } from './ui/figures/character/fullview/fullview';
 import { CharacterItemListComponent } from './ui/figures/character/item-list/item-list';
 import { AbilityCardsDialogComponent } from './ui/figures/character/sheet/abilities/ability-cards-dialog';
@@ -58,9 +54,17 @@ import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities
 import { AdditionalAMSelectDialogComponent } from './ui/figures/entity-menu/additional-am-select/additional-am-select';
 import { EntityMenuDialogComponent } from './ui/figures/entity-menu/entity-menu-dialog';
 import { FigureErrorsComponent, FigureErrorsDialogComponent } from './ui/figures/errors/errors';
+import { EventEffectsDialog } from './ui/figures/event-effects/event-effects';
+import { FavorsComponent } from './ui/figures/event-effects/favors/favors';
+import { EventRandomItemDialogComponent } from './ui/figures/event-effects/random-item/random-item-dialog';
+import { EventRandomScenarioDialogComponent } from './ui/figures/event-effects/random-scenario/random-scenario-dialog';
+import { EventCardAttackComponent } from './ui/figures/event/attack/event-card-attack';
+import { EventCardConditionComponent } from './ui/figures/event/condition/event-card-condition';
+import { EventCardDeckComponent } from './ui/figures/event/deck/event-card-deck';
+import { EventCardDialogComponent } from './ui/figures/event/dialog/event-card-dialog';
+import { EventCardDrawComponent } from './ui/figures/event/draw/event-card-draw';
+import { EventCardEffectComponent } from './ui/figures/event/effect/event-card-effect';
 import { EventCardComponent } from './ui/figures/event/event-card';
-import { EventConditionLabelComponent } from './ui/figures/event/label/condition-label';
-import { EventRewardLabelComponent } from './ui/figures/event/label/reward-label';
 import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { ItemsBrewDialog } from './ui/figures/items/brew/brew';
 import { CharacterItemComponent } from './ui/figures/items/character/item-character';
@@ -244,13 +248,17 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     EntityAnimationDirective,
     EntityIndexKeyComponent,
     EntityMenuDialogComponent,
+    EventCardAttackComponent,
     EventCardComponent,
+    EventCardConditionComponent,
+    EventCardDeckComponent,
+    EventCardDialogComponent,
+    EventCardDrawComponent,
+    EventCardEffectComponent,
     EventCardsToolComponent,
-    EventConditionLabelComponent,
     EventEffectsDialog,
     EventRandomItemDialogComponent,
     EventRandomScenarioDialogComponent,
-    EventRewardLabelComponent,
     FavorsComponent,
     FeedbackDialogComponent,
     FeedbackToolComponent,

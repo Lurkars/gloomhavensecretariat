@@ -52,7 +52,7 @@ export class CharacterItemComponent {
             gameManager.stateManager.after();
 
             if (settingsManager.settings.animations) {
-                setTimeout(() => { gameManager.uiChange.emit() }, 500);
+                setTimeout(() => { gameManager.uiChange.emit() }, 500 * settingsManager.settings.animationSpeed);
             }
         }
     }
@@ -94,7 +94,7 @@ export class CharacterItemComponent {
                 gameManager.stateManager.after();
 
                 if (settingsManager.settings.animations) {
-                    setTimeout(() => { gameManager.uiChange.emit() }, 500);
+                    setTimeout(() => { gameManager.uiChange.emit() }, 500 * settingsManager.settings.animationSpeed);
                 }
             }
         }
@@ -126,7 +126,7 @@ export class CharacterItemComponent {
                 gameManager.stateManager.after();
 
                 if (settingsManager.settings.animations) {
-                    setTimeout(() => { gameManager.uiChange.emit() }, 500);
+                    setTimeout(() => { gameManager.uiChange.emit() }, 500 * settingsManager.settings.animationSpeed);
                 }
             }
         }

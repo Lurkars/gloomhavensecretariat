@@ -1,0 +1,44 @@
+{
+  "index": "90",
+  "name": "Burning Mountain",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "monsters": [
+    "earth-demon",
+    "flame-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

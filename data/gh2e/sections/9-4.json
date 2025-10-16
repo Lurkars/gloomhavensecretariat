@@ -1,0 +1,35 @@
+{
+  "index": "9.4",
+  "name": "Temple of the Eclipse",
+  "edition": "gh2e",
+  "parent": "67",
+  "monsters": [
+    "night-demon",
+    "sun-demon",
+    "the-colorless"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "the-colorless",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

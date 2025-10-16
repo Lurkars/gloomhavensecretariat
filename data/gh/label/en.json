@@ -363,7 +363,7 @@
     "Rocky End": "Rocky End",
     "Rot Maggots": "Rot Maggots",
     "Rumbling Advance": "Rumbling Advance",
-    "Sacrifice": "Sacrifice",
+    "Sacrifice": "Willing Sacrifice",
     "Sap Life": "Sap Life",
     "Scales of Justice": "Scales of Justice",
     "Scattered Terror": "Scattered Terror",
@@ -418,12 +418,12 @@
     "Stone Pummel": "Stone Pummel",
     "Stone Sigil": "Stone Sigil",
     "Storm Sigil": "Storm Sigil",
-    "Storm of": "Storm of",
+    "Storm of": "Storm of Wings",
     "Strength in Numbers": "Strength in Numbers",
     "Strengthen in Agony": "Strengthen in Agony",
     "Stun Shot": "Stun Shot",
     "Submissive Affliction": "Submissive Affliction",
-    "Succumb for the Gift": "Succumb for the Gift",
+    "Succumb for the Gift": "Succumb to the Gift",
     "Supportive Chant": "Supportive Chant",
     "Surgeon's Satchel": "Surgeon's Satchel",
     "Swallowed by Fear": "Swallowed by Fear",
@@ -595,12 +595,14 @@
     }
   },
   "character": {
-    "brute": "Brute",
-    "cragheart": "Cragheart",
-    "mindthief": "Mindthief",
-    "scoundrel": "Scoundrel",
-    "spellweaver": "Spellweaver",
-    "tinkerer": "Tinkerer"
+    "gh": {
+      "brute": "Brute",
+      "cragheart": "Cragheart",
+      "mindthief": "Mindthief",
+      "scoundrel": "Scoundrel",
+      "spellweaver": "Spellweaver",
+      "tinkerer": "Tinkerer"
+    }
   },
   "custom": {
     "gh": {
@@ -1140,7 +1142,10 @@
     "shaman": "Shaman"
   },
   "edition": {
-    "gh": "Gloomhaven"
+    "gh": {
+      "": "Gloomhaven",
+      "hint": "This is the first edition of Gloomhaven!"
+    }
   },
   "globalAchievements": {
     "ancient-technology": "Ancient Technology",
@@ -1359,7 +1364,7 @@
       },
       "528": {
         "": "Goliath Toppler",
-        "1": "Completed boss sceanrios"
+        "1": "Completed boss scenarios"
       },
       "529": {
         "": "The Fall of Man",

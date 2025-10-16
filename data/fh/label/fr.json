@@ -171,7 +171,6 @@
     "Power Shot": "Tir Puissant",
     "Power Slash": "Puissante Lacération",
     "Powerful Claw": "Pince Puissante",
-    "Propulsive Tailwind": "",
     "Psych Up": "Motivation",
     "Psychic Shock": "Choc Psychique",
     "Pull of the Grave": "Attrait de la Tombe",
@@ -589,32 +588,34 @@
     "boat": "Bateau"
   },
   "character": {
-    "banner-spear": "Porte-Bannière",
-    "blinkblade": {
-      "": "Vivelame",
-      "fast": "Rapide",
-      "slow": "Lent",
-      "time_tokens": {
-        "": "Pion Temps %data.characterToken.blinkblade.time%",
-        "hint": "Ajouter/supprimer automatiquement les pions temps au début de chaque round après avoir défini lent / rapide avant"
-      }
-    },
-    "boneshaper": {
-      "": "Marionnettiste",
-      "solid-bones": {
-        "": "Os Solides",
-        "hint": "Tous les Squelettes Titubants ont +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+    "fh": {
+      "banner-spear": "Porte-Bannière",
+      "blinkblade": {
+        "": "Vivelame",
+        "fast": "Rapide",
+        "slow": "Lent",
+        "time_tokens": {
+          "": "Pion Temps %data.characterToken.blinkblade.time%",
+          "hint": "Ajouter/supprimer automatiquement les pions temps au début de chaque round après avoir défini lent / rapide avant"
+        }
       },
-      "unholy-prowess": {
-        "hint": "Tous les Squelettes Titubants ont +1 %game.action.heal%."
+      "boneshaper": {
+        "": "Marionnettiste",
+        "solid-bones": {
+          "": "Os Solides",
+          "hint": "Tous les Squelettes Titubants ont +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+        },
+        "unholy-prowess": {
+          "hint": "Tous les Squelettes Titubants ont +1 %game.action.heal%."
+        }
+      },
+      "deathwalker": "Arpenteuse des Ombres",
+      "drifter": "Vagabond",
+      "geminate": {
+        "": "Géminé",
+        "melee": "Mêlée",
+        "range": "À distance"
       }
-    },
-    "deathwalker": "Arpenteuse des Ombres",
-    "drifter": "Vagabond",
-    "geminate": {
-      "": "Géminé",
-      "melee": "Mêlée",
-      "range": "À distance"
     },
     "traits": {
       "arcane": "Mystique",

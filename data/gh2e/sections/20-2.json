@@ -1,0 +1,36 @@
+{
+  "index": "20.2",
+  "name": "- Infernal Throne",
+  "edition": "gh2e",
+  "parent": "27",
+  "marker": "2",
+  "monsters": [
+    "earth-demon",
+    "flame-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

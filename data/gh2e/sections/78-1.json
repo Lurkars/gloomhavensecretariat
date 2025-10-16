@@ -1,0 +1,39 @@
+{
+  "index": "78.1",
+  "name": "Tribal Assault",
+  "edition": "gh2e",
+  "parent": "49",
+  "monsters": [
+    "hound",
+    "inox-archer",
+    "inox-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

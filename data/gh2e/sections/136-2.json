@@ -1,0 +1,52 @@
+{
+  "index": "136.2",
+  "name": "Rockslide Ridge",
+  "edition": "gh2e",
+  "parent": "75",
+  "monsters": [
+    "inox-archer",
+    "inox-guard",
+    "inox-priest"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-priest",
+          "type": "elite"
+        },
+        {
+          "name": "inox-priest",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

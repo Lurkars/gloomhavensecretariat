@@ -1,0 +1,20 @@
+{
+  "index": "112.3",
+  "edition": "gh2e",
+  "parent": "54",
+  "monsters": [
+    "the-gloom"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "the-gloom",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

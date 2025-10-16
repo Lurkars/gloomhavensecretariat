@@ -1,0 +1,35 @@
+{
+  "index": "128.3",
+  "name": "Chained Isle",
+  "edition": "gh2e",
+  "parent": "73",
+  "monsters": [
+    "night-demon",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "treasures": [
+        37
+      ],
+      "monster": [
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

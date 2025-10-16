@@ -9,6 +9,7 @@
         height: 100%;
         border: 5% solid transparent;
         border-radius: 5%;
+        transition: transform calc(var(--ghs-animation-speed) * 500ms) cubic-bezier(0.75, 0, 0.85, 1);
 
         .card-front {
             background-size: 100% 100%;

@@ -1,0 +1,18 @@
+{
+  "index": "89.2",
+  "edition": "gh2e",
+  "parent": "34",
+  "conclusion": true,
+  "blocks": [
+    "30",
+    "35"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "the-voice-freed"
+    ],
+    "experience": 30,
+    "battleGoals": 2
+  },
+  "monsters": []
+}

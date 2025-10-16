@@ -750,10 +750,6 @@
         "": "Кровотечение",
         "hint": "%game.conditionIcon.rupture% Кровотечение: При движении получите %game.damage:1%. Уберите при лечении."
       },
-      "safeguard": {
-        "": "",
-        "hint": ""
-      },
       "strengthen": {
         "": "Усиление",
         "hint": "%game.conditionIcon.strengthen% Усиление: Преимущество для всех атак. Уберите в конце следующего хода."
@@ -822,20 +818,13 @@
     "enemy": "Враг",
     "events": {
       "conditions": {
-        "otherwise": "Иначе:",
-        "payCollectiveGold": "Заплатите в общем {0} золота:",
-        "payCollectiveGoldConditional": "Заплатите в общем {0} ({1}) или {2} ({3}) золота:",
-        "reputationGT": "Репутация > {0}:",
-        "reputationLT": "Репутация < {0}:"
+        "otherwise": "Иначе",
+        "payCollectiveGold": "Заплатите в общем {0} золота",
+        "payCollectiveGoldConditional": "Заплатите в общем {0} ({1}) или {2} ({3}) золота",
+        "reputationGT": "Репутация > {0}",
+        "reputationLT": "Репутация < {0}"
       },
-      "option": {
-        "": "Вариант {0}:",
-        "1": "А",
-        "2": "Б",
-        "3": "В"
-      },
-      "rewards": {
-        "additionalGold": "Каждый получает дополнительно по {0} золота.",
+      "effects": {
         "collectiveGold": "Получите в общем {0} золота.",
         "collectiveItem": "Получите в общем {2} \"%data.items.{1}-{0}%\" (Предмет {0}).",
         "consumeCollectiveItem": "Используйте в общем {0} %game.itemSlot:{1}% предметов.",
@@ -845,6 +834,7 @@
         "experience": "Каждый получает по {0} опыта.",
         "globalAchievement": "Глобальное достижение: «%data.globalAchievements.{0}%».",
         "gold": "Каждый получает по {0} золота.",
+        "goldAdditional": "Каждый получает дополнительно по {0} золота.",
         "itemDesign": "Получите проект «%data.items.{1}-{0}%» (предмет {0}).",
         "loseBattleGoal": "Каждый потеряйте по {0} %game.checkmark%.",
         "loseCollectiveGold": "Потеряйте в общем {0} золота.",
@@ -856,10 +846,16 @@
         "prosperity": "Получите {0} процветания.",
         "randomItemDesign": "Получите случайный проект предмета.",
         "reputation": "Получите {0} репутации.",
-        "scenario": "Разблокируйте «{1}» %data.scenarioNumber:{0}%.",
         "scenarioCondition": "Все начинают сценарий с «%game.condition.{0}%».",
         "scenarioDamage": "Все начинают сценарий с {0} урона.",
-        "scenarioSingleMinus1": "Кто-то один начинает сценарий с %game.attackmodifier.minus1% x{0}."
+        "scenarioSingleMinus1": "Кто-то один начинает сценарий с %game.card.minus1% x{0}.",
+        "unlockScenario": "Разблокируйте «%data.scenario.title.{1}.{0}%» %data.scenarioNumber:{0}%."
+      },
+      "option": {
+        "": "Вариант {0}:",
+        "1": "А",
+        "2": "Б",
+        "3": "В"
       },
       "type": {
         "city": "Городское",
@@ -970,7 +966,7 @@
     },
     "loot": {
       "": "Добыча",
-      "apply": "Добавить к %data.character.{0}%",
+      "apply": "Добавить к %data.character.{0}.{1}%",
       "arrowvine": "Стрелолианы",
       "axenut": "Орех-колун",
       "chooseCharacter": "Выберите персонажа для +{0} {1}",
@@ -992,7 +988,7 @@
       "flamefruit": "Огнефрукт",
       "herb_resources": "растение",
       "hide": "Шкура",
-      "keep": "Оставить на %data.character.{0}%",
+      "keep": "Оставить на %data.character.{0}.{1}%",
       "lootTreasure": {
         "": "{0} добывает сокровище {1}?",
         "confirm": "Подтвердить",
@@ -1009,7 +1005,7 @@
         "apply": "Выбрать и экипировать",
         "draw": "Случайный предмет для %game.characterIconColored.{0}% {1}"
       },
-      "remove": "Убрать у %data.character.{0}%",
+      "remove": "Убрать у %data.character.{0}.{1}%",
       "rockroot": "Камнекорень",
       "snowthistle": "Снегополох",
       "special": "особое",
@@ -1600,8 +1596,8 @@
       "campaignStickersCount": "«%data.campaignSticker.{0}%» (Наклейки кампании) x{2} ВЫПОЛНЕНО (сейчас {1})",
       "campaignStickersMissing": "«%data.campaignSticker.{0}%» (Наклейки кампании) НЕ ВЫПОЛНЕНО",
       "cancel": "Отменить",
-      "characters": "%data.characterIconColored.{0}% «%data.character.{0}%» присутствует",
-      "charactersMissing": "%data.characterIconColored.{0}% «%data.character.{0}%» отсутствует",
+      "characters": "%data.characterIconColored.{1}% «%data.character.{0}.{1}%» присутствует",
+      "charactersMissing": "%data.characterIconColored.{1}% «%data.character.{0}.{1}%» отсутствует",
       "global": "«%data.globalAchievements.{0}%» (Глобальные) ВЫПОЛНЕНО",
       "globalCount": "«%data.globalAchievements.{0}%» (Глобальные) x{2} ВЫПОЛНЕНО (сейчас {1})",
       "globalMissing": "«%data.globalAchievements.{0}%» (Глобальные) НЕ ВЫПОЛНЕНО",
@@ -1614,7 +1610,7 @@
         "or": "или",
         "scenario": "%data.scenarioNumber:{0}%"
       },
-      "solo": "%data.characterIconColored.{0}% «%data.character.{0}%» уровня 5 или выше",
+      "solo": "%data.characterIconColored.{1}% «%data.character.{0}.{1}%» уровня 5 или выше",
       "start": "Всё равно начать сценарий"
     },
     "reset": "Начать сценарий заново",
@@ -2097,7 +2093,6 @@
         "": "Соответствующие состояния автоматически применяются до и после хода, например, если у существа есть ранение, оно потеряет 1 ОЗ в начале своего хода",
         "bane": "Автоматически наносит урон от «%game.condition.bane%» в конце хода.",
         "regenerate": "Автоматически применяет «%game.condition.regenerate%» в начале хода.",
-        "safeguard": "",
         "wound": "Автоматически наносит урон от «%game.condition.wound%» в конце хода.",
         "wound_x": "Автоматически наносит урон от «%game.condition.wound_x:X%» в конце хода."
       }
@@ -2912,7 +2907,7 @@
       },
       "finishConclusion": "Завершён с заключением №{0} {1} ({2})",
       "finishScenario": {
-        "battleGoal": "Установлены флажки за боевые задачи у %data.character.{0}% на {1}",
+        "battleGoal": "Установлены флажки за боевые задачи у %data.character.{0}.{1}% на {2}",
         "close": "Закрыты итоги сценария",
         "dialog": "Итоги сценария №{0} {1} ({2})",
         "failure": "Сценарий №{0} {1} ({2}) провален",
@@ -2950,7 +2945,7 @@
       "monsterSetEntityActive": "Активирована фигурка %game.monster.{2}% {1} %data.monster.{0}%",
       "monsterUnsetEntityActive": "Деактивирована фигурка %game.monster.{2}% {1} %data.monster.{0}%",
       "moveResource": "{2} {1} перемещены из {0} в запасы Frosthaven",
-      "nextIdentity": "Изменена форма {0} с %data.character.{1}.{2}% на %data.character.{1}.{3}%",
+      "nextIdentity": "Изменена форма {0} с %data.character.{4}.{1}.{2}% на %data.character.{4}.{1}.{3}%",
       "nextRound": "Следующий раунд",
       "objectiveContainerChangeEntityHp": "{2} ОЗ у %game.objectiveMarker.{1}% {0}",
       "objectiveEntityDead": "Убит %game.objectiveMarker.{1}% {0}",
@@ -3115,7 +3110,7 @@
       "setEntitySummonState": "Призванный {3} у фигурки {1} {2} у {0}",
       "setExhausted": "{0} изнурён",
       "setGold": "{1} золота для {0}",
-      "setIdentity": "Выбрана форма {0} у %data.character.{1}.{2}%",
+      "setIdentity": "Выбрана форма {0} у %data.character.{3}.{1}.{2}%",
       "setInitiative": "Инициатива {1} у {0}",
       "setLevel": "Уровень {1} у {0}",
       "setNotes": "Заметки «{1}» у {0}",

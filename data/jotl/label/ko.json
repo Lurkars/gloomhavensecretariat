@@ -5,13 +5,15 @@
     "Screaming Shot": "포효의 일격"
   },
   "character": {
-    "demolitionist": {
-      "": "철거전문가",
-      "mech": "기계 강화복"
-    },
-    "hatchet": "도끼투척수",
-    "red-guard": "적위병",
-    "voidwarden": "공허감시자"
+    "jotl": {
+      "demolitionist": {
+        "": "철거전문가",
+        "mech": "기계 강화복"
+      },
+      "hatchet": "도끼투척수",
+      "red-guard": "적위병",
+      "voidwarden": "공허감시자"
+    }
   },
   "custom": {
     "jotl": {

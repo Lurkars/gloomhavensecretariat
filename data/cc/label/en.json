@@ -1,8 +1,10 @@
 {
   "character": {
-    "core": "CORE",
-    "wildborn": "Wildborn",
-    "woebound": "Woebound"
+    "fh": {
+      "core": "CORE",
+      "wildborn": "Wildborn",
+      "woebound": "Woebound"
+    }
   },
   "custom": {
     "perks": {

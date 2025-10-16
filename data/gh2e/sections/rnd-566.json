@@ -1,0 +1,41 @@
+{
+  "index": "566",
+  "group": "randomMonsterCard",
+  "name": "Archaic",
+  "edition": "gh2e",
+  "named": true,
+  "monsters": [
+    "ancient-artillery",
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 14,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "type": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "index": "37.2",
+  "name": "- Doomcannon Demolition",
+  "edition": "gh2e",
+  "parent": "22",
+  "marker": "1",
+  "monsters": [
+    "doomcannon",
+    "flame-demon",
+    "frost-demon",
+    "sun-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "doomcannon",
+          "type": "boss"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

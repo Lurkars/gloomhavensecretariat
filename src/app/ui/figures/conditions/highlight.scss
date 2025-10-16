@@ -32,7 +32,7 @@
     }
 
     &.animation {
-      animation: condition-highlight 1s ease-in-out;
+      animation: condition-highlight calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
     }
 
     &.apply {
@@ -83,7 +83,7 @@
       margin-top: calc(var(--ghs-unit) * 0.8 * var(--ghs-text-factor));
 
       &.animation {
-        animation: hide-animation 0.95s ease-in-out;
+        animation: hide-animation calc(var(--ghs-animation-speed) * 950ms) ease-in-out;
       }
 
       img {
@@ -92,7 +92,7 @@
       }
 
       &:hover {
-        transition: all 100ms;
+        transition: all calc(var(--ghs-animation-speed) * 100ms);
         transform: scale(1.2);
       }
     }

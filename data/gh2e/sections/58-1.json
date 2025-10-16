@@ -1,0 +1,35 @@
+{
+  "index": "58.1",
+  "name": "Timeworn Tomb",
+  "edition": "gh2e",
+  "parent": "34",
+  "monsters": [
+    "living-spirit",
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "treasures": [
+        60
+      ],
+      "monster": [
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

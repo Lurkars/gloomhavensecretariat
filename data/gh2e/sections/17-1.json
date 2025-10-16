@@ -1,0 +1,25 @@
+{
+  "index": "17.1",
+  "name": "Gloomhaven Warehouse",
+  "edition": "gh2e",
+  "parent": "20",
+  "monsters": [
+    "inox-bodyguard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-bodyguard",
+          "type": "boss"
+        },
+        {
+          "name": "inox-bodyguard",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

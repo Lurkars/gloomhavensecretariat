@@ -1,0 +1,44 @@
+{
+  "index": "103.6",
+  "name": "Shrine of Strength",
+  "edition": "gh2e",
+  "parent": "53",
+  "monsters": [
+    "harrower-infester",
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}
