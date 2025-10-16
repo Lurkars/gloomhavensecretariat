@@ -2,6 +2,7 @@
   "name": "two-mini",
   "icon": "gh-two-mini",
   "edition": "gh2e",
+  "handSize": 10,
   "unlockEvent": "road:52|road:53",
   "retireEvent": "city:100|road:75",
   "color": "#ca9789",

@@ -1,8 +1,11 @@
 {
   "name": "circles",
+  "characterClass": "aesther",
+  "gender": "f",
   "icon": "gh-circles",
   "noThumbnail": true,
   "edition": "gh2e",
+  "handSize": 12,
   "unlockEvent": "road:44|road:45",
   "retireEvent": "road:70",
   "color": "#e570b3",

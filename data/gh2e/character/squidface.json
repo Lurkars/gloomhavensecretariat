@@ -1,8 +1,10 @@
 {
   "name": "squidface",
+  "characterClass": "harrower",
   "icon": "gh-squidface",
   "edition": "gh2e",
-  "unlockEvent": "city:76|city:76",
+  "handSize": 10,
+  "unlockEvent": "city:76|city:77",
   "retireEvent": "city:89|road:72",
   "color": "#72e0be",
   "spoiler": true,
