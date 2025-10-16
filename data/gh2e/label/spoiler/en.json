@@ -50,7 +50,7 @@
         "4": "Once each scenario, during your turn, %game.action.teleport% one of your summons to an empty hex ajdacent to you",
         "5": "Once each scenario, during ordering of initiative, after all ability cards have been revealed, all your summons gain %game.condition.invisible%",
         "6": "Perform 3 different summon actions before your first rest and keep those cards in your active area for the entire scenario",
-        "7": "Perform 6 different summon abilities from your ability cards over the coruse of the first rounds of 6 scenarios"
+        "7": "Perform 6 different summon abilities from your ability cards over the course of the first rounds of 6 scenarios"
       },
       "crossed-swords": {
         "1": "Add +1 %game.action.attack% for each card with a %game.card.lost% in %game.characterIcon.envx%'s active area",

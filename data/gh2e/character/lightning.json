@@ -1,7 +1,10 @@
 {
   "name": "lightning",
+  "characterClass": "inox",
+  "gender": "f",
   "icon": "gh-lightning",
   "edition": "gh2e",
+  "handSize": 9,
   "unlockEvent": "city:73|road:40",
   "retireEvent": "road:63|road:64",
   "color": "#d75f49",
