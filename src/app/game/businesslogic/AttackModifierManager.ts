@@ -76,12 +76,12 @@ export class AttackModifierManager {
     if (character.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type == type)) {
       character.additionalModifier.forEach((card, index) => {
         if (card.attackModifier && card.attackModifier.type == type) {
-          let am = Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier);
+          let am = Object.assign(new AttackModifier(card.attackModifier.type), card.attackModifier);
           am.id = "additional-" + character.name + index;
           am.character = true;
           const existing: number = all ? 0 : this.countUpcomingAdditional(character, type);
           for (let i = 0; i < card.count - existing; i++) {
-            additional.push(Object.assign(new AttackModifier(am.type), am));
+            additional.push(am);
           }
         }
       })
@@ -96,11 +96,11 @@ export class AttackModifierManager {
       if (character.additionalModifier.find((perk) => perk.attackModifier)) {
         character.additionalModifier.forEach((card, index) => {
           if (card.attackModifier) {
-            let am = Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier);
+            let am = Object.assign(new AttackModifier(card.attackModifier.type), card.attackModifier);
             am.id = "additional-" + character.name + index;
             am.character = true;
             for (let i = 0; i < card.count; i++) {
-              additional.push(Object.assign(new AttackModifier(am.type), am));
+              additional.push(am);
             }
           }
         })
@@ -386,7 +386,7 @@ export class AttackModifierManager {
       if (perk.cards) {
         perk.cards.forEach((card, index) => {
           if (perk.type == PerkType.add || perk.type == PerkType.replace) {
-            let am = Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier);
+            let am = Object.assign(new AttackModifier(card.attackModifier.type), card.attackModifier);
             am.id = "perk" + perkId;
             am.shuffle = card.attackModifier.shuffle || false;
             if (!this.findByAttackModifier(defaultAttackModifier, am) || perk.type == PerkType.add || index > 0) {
@@ -584,7 +584,7 @@ export class AttackModifierManager {
         if (perk.cards) {
           perk.cards.forEach((card, index) => {
             if (perk.type == PerkType.add || perk.type == PerkType.replace && index >= this.replaceCount(perk)) {
-              attackModifiers.push(Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier));
+              attackModifiers.push(Object.assign(new AttackModifier(card.attackModifier.type), card.attackModifier));
             }
           })
         }
@@ -609,18 +609,18 @@ export class AttackModifierManager {
 
   findByAttackModifier(attackModifiers: AttackModifier[], attackModifier: AttackModifier, ignoreCharacter: boolean = false): AttackModifier | undefined {
     return attackModifiers.find((other) => {
-      let am = Object.assign(new AttackModifier(attackModifier.type, attackModifier.value, attackModifier.valueType), attackModifier);
+      let am = Object.assign(new AttackModifier(attackModifier.type), attackModifier);
       am.id = "";
       am.revealed = false;
       am.shuffle = attackModifier.shuffle || false;
-      let clone = Object.assign(new AttackModifier(other.type, other.value, other.valueType), other);
+      let clone = Object.assign(new AttackModifier(other.type), other);
       clone.id = "";
       clone.revealed = false;
       clone.shuffle = other.shuffle || false;
       if (ignoreCharacter && clone.character) {
         clone.character = false;
       }
-      return Object.assign(new AttackModifier(am.type), clone);
+      return JSON.stringify(am) == JSON.stringify(clone);
     });
   }
 
@@ -629,7 +629,7 @@ export class AttackModifierManager {
       for (let cardCount = 0; cardCount < card.count; cardCount++) {
         const toAdd = this.findByAttackModifier(attackModifierDeck.attackModifiers, card.attackModifier);
         if (toAdd) {
-          let attackModifier = Object.assign(new AttackModifier(toAdd.type, toAdd.value, toAdd.valueType), toAdd);
+          let attackModifier = Object.assign(new AttackModifier(toAdd.type), toAdd);
           attackModifierDeck.cards.push(attackModifier);
         } else {
           console.warn("Did not found AM to add: ", card.attackModifier, attackModifierDeck);
