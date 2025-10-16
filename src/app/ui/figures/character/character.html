@@ -9,7 +9,7 @@
   </span>
   @if (summonCount) {
   <div class="summons">
-    @for (summon of summons; track summon.name + summon.color + summon.number) {
+    @for (summon of summons | trackUUUID; track summon._trackUUID;) {
     <ghs-standee [figure]="character" [entity]="summon">
     </ghs-standee>
     }
@@ -104,7 +104,7 @@
               <ghs-action [action]="character.shield" [style]="'fh'"></ghs-action>
             </span>
             }
-            @for (retaliate of character.retaliate; track retaliate.type + $index; let i = $index) {
+            @for (retaliate of character.retaliate | trackUUUID; track retaliate._trackUUID; let i = $index) {
             <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeRetaliate(i)">
               <ghs-action [action]="retaliate" [style]="'fh'"></ghs-action>
             </span>
@@ -118,7 +118,8 @@
               <ghs-action [action]="character.shieldPersistent" [style]="'fh'"></ghs-action>
             </span>
             }
-            @for (retaliatePersistent of character.retaliatePersistent; track retaliatePersistent.type + $index; let i = $index) {
+            @for (retaliatePersistent of character.retaliatePersistent | trackUUUID; track
+            retaliatePersistent._trackUUID; let i = $index) {
             <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()"
               (doubleClick)="removeRetaliatePersistent(i)">
               <span class="action-overlay">
@@ -183,7 +184,8 @@
               }
             </div>
             <div class="conditions">
-              @for (entityCondition of activeConditions; track entityCondition.name + entityCondition.value; let index = $index) {
+              @for (entityCondition of activeConditions | trackUUUID; track entityCondition._trackUUID; let index =
+              $index) {
               <span class="condition" ghs-pointer-input (doubleClick)="removeCondition(entityCondition)"
                 [ngClass]="{'fh': settingsManager.settings.fhStyle}">
                 <img
@@ -409,7 +411,7 @@
   </span>
   @if (skullSpiritCount) {
   <div class="summons">
-    @for (summon of skullSpirits; track summon.name + summon.color + summon.number) {
+    @for (summon of skullSpirits | trackUUUID; track summon._trackUUID;) {
     <ghs-standee [ngClass]="{'active': summon.active}" [figure]="character" [entity]="summon">
     </ghs-standee>
     }

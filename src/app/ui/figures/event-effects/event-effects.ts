@@ -126,7 +126,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
     this.eventTypes = Object.keys(gameManager.game.party.eventDecks);
     if (gameManager.game.edition == 'fh') {
-      if (Math.max(gameManager.game.party.weeks - 1, 0) % 20 < 10) {
+      if (Math.max(gameManager.game.party.weeks, 0) % 20 < 10) {
         this.eventTypes = this.eventTypes.filter((type) => !type.startsWith('winter-'));
       } else {
         this.eventTypes = this.eventTypes.filter((type) => !type.startsWith('summer-'));

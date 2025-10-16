@@ -286,7 +286,7 @@ export class ScenarioManager {
                   } else if (calendarSection.split('-')[1].length > 1) {
                     const season = calendarSection.split('-')[1].split(':')[0];
                     const seasonWeek = +calendarSection.split('-')[1].split(':')[1];
-                    week = Math.max(gameManager.game.party.weeks - 1, 0) - (Math.max(gameManager.game.party.weeks - 1, 0) % 20) + (season == 'summer' ? 20 : 10) + seasonWeek;
+                    week = Math.max(gameManager.game.party.weeks, 0) - (Math.max(gameManager.game.party.weeks, 0) % 20) + (season == 'summer' ? 20 : 10) + seasonWeek;
                   }
 
                   if (week != -1) {
@@ -539,7 +539,7 @@ export class ScenarioManager {
       let type = scenarioData.eventType;
 
       if (scenarioData.edition == 'fh' && (type == 'road' || type == 'outpost')) {
-        type = ((Math.max(gameManager.game.party.weeks - 1, 0) % 20 < 10) ? 'summer-' : 'winter-') + type;
+        type = ((Math.max(gameManager.game.party.weeks, 0) % 20 < 10) ? 'summer-' : 'winter-') + type;
       }
 
       gameManager.game.eventDraw = type;

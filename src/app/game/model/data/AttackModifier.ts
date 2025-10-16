@@ -206,21 +206,34 @@ export const defaultAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.minus1extra)
 ];
 
-export const defaultAttackModifierCards: string[] = [
+export const defaultAttackModifierCards: AttackModifier[] = [
   // 6x +0
-  AttackModifierType.plus0, AttackModifierType.plus0, AttackModifierType.plus0, AttackModifierType.plus0, AttackModifierType.plus0, AttackModifierType.plus0,
+  new AttackModifier(AttackModifierType.plus0),
+  new AttackModifier(AttackModifierType.plus0),
+  new AttackModifier(AttackModifierType.plus0),
+  new AttackModifier(AttackModifierType.plus0),
+  new AttackModifier(AttackModifierType.plus0),
+  new AttackModifier(AttackModifierType.plus0),
   // 5x +1
-  AttackModifierType.plus1, AttackModifierType.plus1, AttackModifierType.plus1, AttackModifierType.plus1, AttackModifierType.plus1,
+  new AttackModifier(AttackModifierType.plus1),
+  new AttackModifier(AttackModifierType.plus1),
+  new AttackModifier(AttackModifierType.plus1),
+  new AttackModifier(AttackModifierType.plus1),
+  new AttackModifier(AttackModifierType.plus1),
   // 5x -1
-  AttackModifierType.minus1, AttackModifierType.minus1, AttackModifierType.minus1, AttackModifierType.minus1, AttackModifierType.minus1,
+  new AttackModifier(AttackModifierType.minus1),
+  new AttackModifier(AttackModifierType.minus1),
+  new AttackModifier(AttackModifierType.minus1),
+  new AttackModifier(AttackModifierType.minus1),
+  new AttackModifier(AttackModifierType.minus1),
   // 1x +2
-  AttackModifierType.plus2,
+  new AttackModifier(AttackModifierType.plus2),
   // 1x -2
-  AttackModifierType.minus2,
+  new AttackModifier(AttackModifierType.minus2),
   // 1x x2
-  AttackModifierType.double,
+  new AttackModifier(AttackModifierType.double),
   // 1x x0
-  AttackModifierType.null
+  new AttackModifier(AttackModifierType.null)
 ];
 
 export const defaultTownGuardAttackModifier: AttackModifier[] = [
@@ -355,9 +368,9 @@ export class AttackModifierDeck {
 
   constructor(attackModifiers: AttackModifier[] | undefined = undefined, bb: boolean = false) {
     this.bb = bb;
-    this.attackModifiers = attackModifiers ? JSON.parse(JSON.stringify(attackModifiers.filter((am, index, self) => this.bb || self.indexOf(am) == index))) : JSON.parse(JSON.stringify(defaultAttackModifier));
+    this.attackModifiers = (attackModifiers ? attackModifiers.filter((am, index, self) => this.bb || self.indexOf(am) == index) : defaultAttackModifier).map((am) => Object.assign(new AttackModifier(am.type), am));
     this.current = -1;
-    this.cards = attackModifiers ? JSON.parse(JSON.stringify(attackModifiers)) : defaultAttackModifierCards.map((id) => defaultAttackModifier.find((attackModifier) => attackModifier.id == id) || new AttackModifier(AttackModifierType.invalid, 0, AttackModifierValueType.default, id));
+    this.cards = (attackModifiers || defaultAttackModifierCards).map((am) => Object.assign(new AttackModifier(am.type), am));
   }
 
   toModel(): GameAttackModifierDeckModel {

@@ -75,7 +75,7 @@
     }
   </div>
   @if (!deck.bb) {
-  @for (attackModifier of deck.cards; track attackModifier.id + $index; let index = $index) {
+  @for (attackModifier of deck.cards | trackUUUID; track attackModifier._trackUUID;; let index = $index) {
   @if (index <= current + 1 && (index>= lastVisible || attackModifier.active && deck.discarded.indexOf(index) == -1)) {
     <div class="am-container"
       [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"
@@ -93,7 +93,7 @@
     }
     }
     @if (deck.bb) {
-    @for (attackModifier of deck.cards; track attackModifier.id + $index;; let index = $index) {
+    @for (attackModifier of deck.cards | trackUUUID; track attackModifier._trackUUID; let index = $index) {
     @if (index == current) {
     <div class="am-container current animate" [style.z-index]="deck.cards.length + 2"
       [ngClass]="{'bottom' : bottom,  'disabled' : disabled}" [ghs-label]="'game.cards.openDialog'"
@@ -105,7 +105,7 @@
     </div>
     }
     }
-    @for (attackModifier of deck.cards; track attackModifier.id + $index;; let index = $index) {
+    @for (attackModifier of deck.cards | trackUUUID; track attackModifier._trackUUID; let index = $index) {
     @if (deck.state && current >= 0 && lastVisible >= 0 && index == lastVisible) {
     <div class="am-container discarded animate" [style.z-index]="deck.cards.length + 1"
       [ngClass]="{'bottom' : bottom,  'disabled' : disabled}" [ghs-label]="'game.cards.openDialog'"

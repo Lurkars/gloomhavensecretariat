@@ -93,7 +93,7 @@
       }
       @if (!edit && !townGuard && (empowerChars.length || enfeebleChars.length)) {
       <div class="additional-modifier">
-        @for (empowerChar of empowerChars; track empowerChar; let i = $index) {
+        @for (empowerChar of empowerChars; track empowerChar.edition + '-' + empowerChar.name; let i = $index) {
         <span class="item">
           <a class="button"
             [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower, 'additional-' + empowerChar.name) == 0}"
@@ -115,7 +115,7 @@
           </a>
         </span>
         }
-        @for (enfeebleChar of enfeebleChars; track enfeebleChar; let i = $index) {
+        @for (enfeebleChar of enfeebleChars; track enfeebleChar.edition + '-' + enfeebleChar.name; let i = $index) {
         <span class="item">
           <a class="button" (click)="changeEnfeeble(i,-1)"
             [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble, 'additional-' + enfeebleChar.name) == 0}">
@@ -177,7 +177,7 @@
           }
         </div>
         <div class="attack-modifier-list">
-          @for (am of factionAttackModifier; track am.id) {
+          @for (am of factionAttackModifier | trackUUUID; track am._trackUUID;) {
           <div class="am" [ngClass]="{'active': hasFactionModifier(am), 'disabled': anyHasFactionModifier(am)}"
             ghs-pointer-input (singleClick)="toggleFactionAm(am)" (doubleClick)="toggleFactionAm(am,true)">
             <ghs-attackmodifier [attackModifier]="am" [flipped]="true" [newStyle]="true"></ghs-attackmodifier>
@@ -197,7 +197,7 @@
         @if (upcomingCards.length == 0) {
         <div class="empty"></div>
         }
-        @for (attackModifier of upcomingCards; track attackModifier.id + $index; let index = $index) {
+        @for (attackModifier of upcomingCards | trackUUUID; track attackModifier._trackUUID; let index = $index) {
         <div class="attack-modifier-container" cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
             [reveal]="true" [flipped]="reveal == 2 || attackModifier.revealed" [newStyle]="newStyle"
@@ -218,7 +218,7 @@
         [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDiscarded($event)"
         [cdkDropListAutoScrollStep]="20">
         <div class="empty"></div>
-        @for (attackModifier of discardedCards; track attackModifier.id + $index; let index = $index) {
+        @for (attackModifier of discardedCards | trackUUUID; track attackModifier._trackUUID; let index = $index) {
         <div class="attack-modifier-container" cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
             [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally" [townGuard]="townGuard"
@@ -235,7 +235,7 @@
       </div>
       @if (edit && deletedCards.length) {
       <div class="deleted">
-        @for (attackModifier of deletedCards; track attackModifier.id + $index; let index = $index) {
+        @for (attackModifier of deletedCards | trackUUUID; track attackModifier._trackUUID; let index = $index) {
         <div class="attack-modifier-container" cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
             [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally"
@@ -264,7 +264,7 @@
       <div class="header">
         <img class="ghs-svg" src="./assets/images/bb/attackmodifier/2.svg">
       </div>
-      @for (attackModifier of deck.cards; track attackModifier.id + $index) {
+      @for (attackModifier of deck.cards | trackUUUID; track attackModifier._trackUUID;) {
       <div class="attack-modifier-container">
         <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
           [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally"

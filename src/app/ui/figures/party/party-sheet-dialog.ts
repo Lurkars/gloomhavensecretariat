@@ -879,7 +879,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     });
 
     this.items = this.itemIdentifier.map((identifier) => gameManager.itemManager.getItem(identifier.name, identifier.edition, true));
-    this.summer = Math.max(this.party.weeks - 1, 0) % 20 < 10;
+    this.summer = Math.max(this.party.weeks, 0) % 20 < 10;
 
     if (campaign) {
       if (campaign.lowMorale && campaign.lowMorale.length) {

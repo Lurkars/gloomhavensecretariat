@@ -211,7 +211,7 @@
           }
           <div class="list ignore-denied"
             [ngClass]="{'denied' : !editable || settingsManager.settings.characterSheetLocked || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'view-only' : !editable|| settingsManager.settings.characterSheetLocked}">
-            @for (perk of character.perks; track perk.type + $index; let i = $index) {
+            @for (perk of character.perks | trackUUUID; track perk._trackUUID;; let i = $index) {
             <div class="perk">
               <div class="checkboxes" [ngClass]="{'combined' : perk.combined}">
                 @for (count of []|ghsRange:perk.count; track count) {
@@ -343,7 +343,7 @@
           }
           @if (!!personalQuest) {
           <div class="requirements">
-            @for (requirement of personalQuest.requirements; track requirement; let i = $index) {
+            @for (requirement of personalQuest.requirements | trackUUUID; track requirement._trackUUID; let i = $index) {
             <div class="requirement"
               [ngClass]="{'disabled' : requirement.requires && requirement.requires.length > 0 && !personalQuestRequirementUnlocked(i)}">
               <span class="requirement-name">

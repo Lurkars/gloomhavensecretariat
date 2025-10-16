@@ -483,7 +483,7 @@ export class EventCardManager {
               case EventCardEffectType.sectionWeekSeasonFinal: {
                 const section = effect.values[0] as string;
                 const season = effect.values[1] as string;
-                const isSummer = Math.max(this.game.party.weeks - 1, 0) % 20 < 10;
+                const isSummer = Math.max(this.game.party.weeks, 0) % 20 < 10;
                 let week = 0;
                 if (isSummer) {
                   week = Math.floor(this.game.party.weeks / 10) + (season == 'summer' ? 3 : 2);
@@ -497,9 +497,9 @@ export class EventCardManager {
                 const section = effect.values[0] as string;
                 const season = effect.values[2] as string;
                 let week = this.game.party.weeks + (effect.values[1] ? +effect.values[1] : 1);
-                const summer = Math.max(week - 1, 0) % 20 < 10;
+                const summer = Math.max(week, 0) % 20 < 10;
                 if (summer && season == 'summer' || !summer && season == 'winter') {
-                  week = week - (Math.max(week - 1, 0) % 20) + (+effect.values[3]) + 19;
+                  week = week - (Math.max(week, 0) % 20) + (+effect.values[3]) + 20;
                 }
                 this.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
                 break;
@@ -653,12 +653,12 @@ export class EventCardManager {
       case EventCardConditionType.reputationLT:
         return condition.values && typeof condition.values[0] === 'number' && this.game.party.reputation < condition.values[0];
       case EventCardConditionType.season:
-        return Math.max(this.game.party.weeks - 1, 0) % 20 < 10 ? condition.values[0] == 'summer' : condition.values[0] == 'winter';
+        return Math.max(this.game.party.weeks, 0) % 20 < 10 ? condition.values[0] == 'summer' : condition.values[0] == 'winter';
       case EventCardConditionType.seasonLT:
         if (condition.values[0] == 'summer') {
-          return Math.max(this.game.party.weeks + (+condition.values[1]) - 1, 0) % 20 < 10;
+          return Math.max(this.game.party.weeks + (+condition.values[1]), 0) % 20 < 10;
         } else if (condition.values[0] == 'winter') {
-          return Math.max(this.game.party.weeks + (+condition.values[1]) - 1, 0) % 20 >= 10;
+          return Math.max(this.game.party.weeks + (+condition.values[1]), 0) % 20 >= 10;
         }
         return false;
       case EventCardConditionType.traits:

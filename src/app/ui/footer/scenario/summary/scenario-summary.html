@@ -1126,14 +1126,14 @@
           <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.next'"
               [ghs-label-args]="[(gameManager.game.party.weeks + 1)]"></span></span>
         </div>
-        @if (gameManager.game.party.weeks % 20 < 10 && (gameManager.game.party.weeks - 1) % 20>= 10) {
-          <div class="item summer">
-            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.summer'"></span></span>
+        @if (gameManager.game.party.weeks % 20 < 10 && (gameManager.game.party.weeks + 1) % 20>= 10) {
+          <div class="item winter">
+            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.winter'"></span></span>
           </div>
           }
-          @if (gameManager.game.party.weeks % 20 >= 10 && (gameManager.game.party.weeks - 1) % 20 < 10) { <div
-            class="item winter">
-            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.winter'"></span></span>
+          @if (gameManager.game.party.weeks % 20 >= 10 && (gameManager.game.party.weeks + 1) % 20 < 10) { <div
+            class="item summer">
+            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.summer'"></span></span>
       </div>
       }
       @if (weekSections().length) {

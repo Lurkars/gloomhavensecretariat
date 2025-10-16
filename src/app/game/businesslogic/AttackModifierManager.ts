@@ -81,7 +81,7 @@ export class AttackModifierManager {
           am.character = true;
           const existing: number = all ? 0 : this.countUpcomingAdditional(character, type);
           for (let i = 0; i < card.count - existing; i++) {
-            additional.push(JSON.parse(JSON.stringify(am)));
+            additional.push(Object.assign(new AttackModifier(am.type), am));
           }
         }
       })
@@ -100,7 +100,7 @@ export class AttackModifierManager {
             am.id = "additional-" + character.name + index;
             am.character = true;
             for (let i = 0; i < card.count; i++) {
-              additional.push(JSON.parse(JSON.stringify(am)));
+              additional.push(Object.assign(new AttackModifier(am.type), am));
             }
           }
         })
@@ -620,8 +620,7 @@ export class AttackModifierManager {
       if (ignoreCharacter && clone.character) {
         clone.character = false;
       }
-
-      return JSON.stringify(am) == JSON.stringify(clone);
+      return Object.assign(new AttackModifier(am.type), clone);
     });
   }
 
@@ -696,7 +695,7 @@ export class AttackModifierManager {
         return undefined;
       }
     }
-    return JSON.parse(JSON.stringify(attackModifier));
+    return Object.assign(new AttackModifier(attackModifier.type), attackModifier);
   }
 
   findForChallenge(id: string): AttackModifier | undefined {

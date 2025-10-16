@@ -3,7 +3,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { InViewportModule } from 'ng-in-viewport';
 
@@ -162,6 +161,7 @@ import { PointerInputDirective } from './ui/helper/pointer-input';
 import { TabClickDirective } from './ui/helper/tabclick';
 import { TextShrinkDirective } from './ui/helper/textshrink';
 import { GhsTooltipComponent, GhsTooltipDirective } from './ui/helper/tooltip/tooltip';
+import { TrackUUIDPipe } from './ui/helper/trackUUID';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { MainComponent } from './ui/main';
 import { AttackModifierToolComponent } from './ui/tools/attackmodifier/attackmodifier-tool';
@@ -362,6 +362,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     SummonSheetComponent,
     TabClickDirective,
     TextShrinkDirective,
+    TrackUUIDPipe,
     TreasureLabelComponent,
     TreasuresDialogComponent,
     TreasuresToolComponent,
@@ -374,7 +375,6 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     DragDropModule,
