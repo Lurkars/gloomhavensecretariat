@@ -1,0 +1,137 @@
+{
+  "name": "lifespeaker",
+  "edition": "ccug",
+  "handSize": 10,
+  "color": "#fbb769",
+  "stats": [
+    {
+      "level": 1,
+      "health": 6
+    },
+    {
+      "level": 2,
+      "health": 7
+    },
+    {
+      "level": 3,
+      "health": 8
+    },
+    {
+      "level": 4,
+      "health": 9
+    },
+    {
+      "level": 5,
+      "health": 10
+    },
+    {
+      "level": 6,
+      "health": 11
+    },
+    {
+      "level": 7,
+      "health": 12
+    },
+    {
+      "level": 8,
+      "health": 13
+    },
+    {
+      "level": 9,
+      "health": 14
+    }
+  ],
+  "perks": [
+    {
+      "type": "remove",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.2%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.3%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.4%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.5%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.6%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.7%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.8%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.9%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.10%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.11%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.12%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.13%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.14%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.15%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.16%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.perks.lifespeaker.15%",
+    "%data.custom.perks.lifespeaker.16%"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "character": {
+    "mp": {
+      "anaphi": "Anaphi",
+      "cassandra": "Cassandra",
+      "hail": "Hail",
+      "satha": "Satha"
+    }
+  },
+  "custom": {
+    "perks": {}
+  },
+  "edition": {
+    "mp": "Mercenary Packs"
+  }
+}

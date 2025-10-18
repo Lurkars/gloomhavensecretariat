@@ -1,0 +1,275 @@
+{
+  "name": "dome",
+  "edition": "ccug",
+  "handSize": 10,
+  "color": "#95b7e1",
+  "stats": [
+    {
+      "level": 1,
+      "health": 6
+    },
+    {
+      "level": 2,
+      "health": 7
+    },
+    {
+      "level": 3,
+      "health": 8
+    },
+    {
+      "level": 4,
+      "health": 9
+    },
+    {
+      "level": 5,
+      "health": 10
+    },
+    {
+      "level": 6,
+      "health": 11
+    },
+    {
+      "level": 7,
+      "health": 12
+    },
+    {
+      "level": 8,
+      "health": 13
+    },
+    {
+      "level": 9,
+      "health": 14
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "strengthen"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "strengthen"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.dome.3%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.dome.4%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.dome.5%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.dome.6%"
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "pierce",
+                "value": "3"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "pierce",
+                "value": "3"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.dome.8%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.dome.9%"
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "element",
+                "value": "light"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "element",
+                "value": "light"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "regenerate"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "regenerate"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.dome.14%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.dome.15%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.dome.16%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.perks.dome.15%",
+    "%data.custom.perks.dome.16%"
+  ]
+}

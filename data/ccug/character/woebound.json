@@ -1,0 +1,134 @@
+{
+  "name": "woebound",
+  "edition": "ccug",
+  "handSize": 10,
+  "color": "#b18dbd",
+  "stats": [
+    {
+      "level": 1,
+      "health": 8
+    },
+    {
+      "level": 2,
+      "health": 9
+    },
+    {
+      "level": 3,
+      "health": 11
+    },
+    {
+      "level": 4,
+      "health": 12
+    },
+    {
+      "level": 5,
+      "health": 14
+    },
+    {
+      "level": 6,
+      "health": 15
+    },
+    {
+      "level": 7,
+      "health": 17
+    },
+    {
+      "level": 8,
+      "health": 18
+    },
+    {
+      "level": 9,
+      "health": 20
+    }
+  ],
+  "perks": [
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.1%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.2%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.3%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.4%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.5%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.6%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.7%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.8%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.9%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.10%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.11%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.12%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.13%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.14%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.15%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.16%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.woebound.17%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.perks.woebound.17%"
+  ]
+}

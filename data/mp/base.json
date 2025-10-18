@@ -1,0 +1,11 @@
+{
+    "edition": "mp",
+    "additional": true,
+    "extensions": [
+        "cs",
+        "fc",
+        "fh",
+        "gh",
+        "gh2e"
+    ]
+}

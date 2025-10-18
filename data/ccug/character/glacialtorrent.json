@@ -1,0 +1,220 @@
+{
+  "name": "glacialtorrent",
+  "edition": "ccug",
+  "handSize": 10,
+  "color": "#89d9e8",
+  "stats": [
+    {
+      "level": 1,
+      "health": 8
+    },
+    {
+      "level": 2,
+      "health": 9
+    },
+    {
+      "level": 3,
+      "health": 11
+    },
+    {
+      "level": 4,
+      "health": 12
+    },
+    {
+      "level": 5,
+      "health": 14
+    },
+    {
+      "level": 6,
+      "health": 15
+    },
+    {
+      "level": 7,
+      "health": 17
+    },
+    {
+      "level": 8,
+      "health": 18
+    },
+    {
+      "level": 9,
+      "health": 20
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "brittle"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.glacialtorrent.2%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.glacialtorrent.3%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.glacialtorrent.4%"
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "push",
+                "value": "2"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "push",
+                "value": "2"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.glacialtorrent.6%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.glacialtorrent.7%"
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus3"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.glacialtorrent.11%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.glacialtorrent.12%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.glacialtorrent.13%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.glacialtorrent.14%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.glacialtorrent.15%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.glacialtorrent.16%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.perks.glacialtorrent.16%"
+  ]
+}

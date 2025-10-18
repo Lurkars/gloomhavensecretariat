@@ -1,0 +1,224 @@
+{
+  "name": "echowight",
+  "edition": "ccug",
+  "handSize": 10,
+  "color": "#b3d3e2",
+  "stats": [
+    {
+      "level": 1,
+      "health": 6
+    },
+    {
+      "level": 2,
+      "health": 7
+    },
+    {
+      "level": 3,
+      "health": 8
+    },
+    {
+      "level": 4,
+      "health": 9
+    },
+    {
+      "level": 5,
+      "health": 10
+    },
+    {
+      "level": 6,
+      "health": 11
+    },
+    {
+      "level": 7,
+      "health": 12
+    },
+    {
+      "level": 8,
+      "health": 13
+    },
+    {
+      "level": 9,
+      "health": 14
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.echowight.2%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.echowight.3%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.echowight.4%"
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "curse"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "curse"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "air"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "air"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.echowight.9%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.echowight.10%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.echowight.11%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.echowight.12%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.echowight.13%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.echowight.14%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.echowight.15%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.echowight.16%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.echowight.17%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.perks.echowight.16%",
+    "%data.custom.perks.echowight.17%"
+  ]
+}

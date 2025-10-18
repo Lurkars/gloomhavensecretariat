@@ -1,0 +1,294 @@
+{
+  "name": "veilpiercer",
+  "edition": "ccug",
+  "handSize": 10,
+  "color": "#bcae93",
+  "stats": [
+    {
+      "level": 1,
+      "health": 8
+    },
+    {
+      "level": 2,
+      "health": 9
+    },
+    {
+      "level": 3,
+      "health": 11
+    },
+    {
+      "level": 4,
+      "health": 12
+    },
+    {
+      "level": 5,
+      "health": 14
+    },
+    {
+      "level": 6,
+      "health": 15
+    },
+    {
+      "level": 7,
+      "health": 17
+    },
+    {
+      "level": 8,
+      "health": 18
+    },
+    {
+      "level": 9,
+      "health": 20
+    }
+  ],
+  "perks": [
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.veilpiercer.1%"
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.veilpiercer.5%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.veilpiercer.6%"
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "pierce",
+                "value": "2"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "pierce",
+                "value": "2"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.veilpiercer.11%"
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "curse"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "rolling": true,
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "curse"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.veilpiercer.14%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.veilpiercer.15%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.veilpiercer.16%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.veilpiercer.17%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.perks.veilpiercer.16%",
+    "%data.custom.perks.veilpiercer.17%"
+  ]
+}

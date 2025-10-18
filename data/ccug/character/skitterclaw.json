@@ -1,0 +1,237 @@
+{
+  "name": "skitterclaw",
+  "edition": "ccug",
+  "handSize": 10,
+  "color": "#af7b51",
+  "stats": [
+    {
+      "level": 1,
+      "health": 6
+    },
+    {
+      "level": 2,
+      "health": 7
+    },
+    {
+      "level": 3,
+      "health": 8
+    },
+    {
+      "level": 4,
+      "health": 9
+    },
+    {
+      "level": 5,
+      "health": 10
+    },
+    {
+      "level": 6,
+      "health": 11
+    },
+    {
+      "level": 7,
+      "health": 12
+    },
+    {
+      "level": 8,
+      "health": 13
+    },
+    {
+      "level": 9,
+      "health": 14
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "immobilize"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "immobilize"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.skitterclaw.4%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.skitterclaw.5%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.skitterclaw.6%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.skitterclaw.7%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.skitterclaw.8%"
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "target",
+                    "value": "ally"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "target",
+                    "value": "ally"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.skitterclaw.11%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.skitterclaw.12%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.skitterclaw.13%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.skitterclaw.14%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.skitterclaw.15%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.skitterclaw.16%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.perks.skitterclaw.15%",
+    "%data.custom.perks.skitterclaw.16%"
+  ]
+}
