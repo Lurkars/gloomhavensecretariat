@@ -523,6 +523,7 @@
       "damage": "伤害",
       "element": "元素",
       "elementHalf": "元素衰退",
+      "extra": "&#91;FH Helper for Subactions&#93;",
       "fly": "飞行",
       "forceBox": "&#91;FH Mandatory Box&#93;",
       "grant": "赋予",
@@ -1100,6 +1101,7 @@
         "": "搜索…",
         "affordable": "仅显示买得起的物品",
         "all": "查看所有物品",
+        "owned": "仅限已拥有的道具",
         "sorted": "已整理"
       },
       "remove": "移除 '{0}'",
@@ -1468,7 +1470,8 @@
             "": "修理建筑",
             "action": "修理建筑",
             "costs": "任意 {0}",
-            "hint": "修理建筑 (双击以强制修理)"
+            "hint": "修理建筑 (双击以强制修理)",
+            "morale": "-1士气"
           },
           "rewards": {
             "action": "等级 {0}",
@@ -1483,7 +1486,8 @@
           },
           "selectResources": {
             "": "选择资源",
-            "confirm": "确认"
+            "confirm": "确认",
+            "morale": "-1士气"
           },
           "state": {
             "damaged": "损坏的",
@@ -1557,10 +1561,12 @@
       "advantage": "消耗士兵来获得优势！",
       "buildings": {
         "damage": "损坏建筑",
+        "damaged": "损坏的建筑",
         "repair": "修理建筑",
-        "wreck": "损毁建筑"
+        "wreck": "损毁建筑",
+        "wrecked": "损毁的建筑"
       },
-      "defense": "总防御值：",
+      "defense": "基础防御值：",
       "disadvantage": "因兵营损毁而处于劣势！",
       "filter": {
         "desc": "按从大到小",
@@ -1575,6 +1581,12 @@
       "map": "打开世界地图",
       "next": "下一个目标",
       "other": "其他建筑",
+      "result": {
+        "damage": "建筑损坏。<br>以防御值{0}在对抗%game.action.attack% {2}中失败！",
+        "success": "以防御值{0}在对抗%game.action.attack% {2}中成功！",
+        "successfull": "防御成功！",
+        "wreck": "建筑损毁！"
+      },
       "sheet": "打开团队记录表",
       "targets": "目标建筑"
     },
@@ -1870,6 +1882,7 @@
         "winter-road": "添加事件{0}到冬季道路牌库"
       },
       "experience": "每人{0}点经验",
+      "factionUnlock": "%data.gh2eFaction:{0}%声望现在可以升至12以上。",
       "globalAchievements": "世界成就",
       "gold": "每人{0}金币",
       "inspiration": "{0}点激励",
