@@ -151,10 +151,14 @@ export class AttackModifierManager {
     return count;
   }
 
-  addModifier(attackModifierDeck: AttackModifierDeck, attackModifier: AttackModifier, index: number = -1) {
-    if (index < 0 || index > attackModifierDeck.cards.length) {
+  addModifier(attackModifierDeck: AttackModifierDeck, am: AttackModifier, index: number = -1, shuffle: boolean = true) {
+    const attackModifier = Object.assign(new AttackModifier(am.type), am);
+    if (shuffle && index < 0 || index > attackModifierDeck.cards.length) {
       index = Math.floor(Math.random() * (attackModifierDeck.cards.length - attackModifierDeck.current)) + attackModifierDeck.current + 1;
       this.shuffleModifiers(attackModifierDeck, true);
+    }
+    if (index == -1) {
+      index = attackModifierDeck.cards.length;
     }
     attackModifierDeck.cards.splice(index, 0, attackModifier);
   }

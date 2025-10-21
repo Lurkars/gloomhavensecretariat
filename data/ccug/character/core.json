@@ -1,7 +1,8 @@
 {
   "name": "core",
+  "characterClass": "unfettered",
   "edition": "ccug",
-  "handSize": 10,
+  "handSize": 9,
   "color": "#d76a0c",
   "stats": [
     {
@@ -61,6 +62,230 @@
       ]
     },
     {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              },
+              {
+                "type": "required",
+                "effects": [
+                  {
+                    "type": "condition",
+                    "value": "wound",
+                    "effects": [
+                      {
+                        "type": "specialTarget",
+                        "value": "self"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              },
+              {
+                "type": "condition",
+                "value": "poison",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "immobilize"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.core.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "range",
+                    "value": 1
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "ward",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              },
+              {
+                "type": "condition",
+                "value": "regenerate",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "brittle"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus3",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "brittle",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "remove",
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
       "type": "custom",
       "count": 1,
       "custom": "%data.custom.perks.core.2%"
@@ -74,196 +299,10 @@
       "type": "custom",
       "count": 1,
       "custom": "%data.custom.perks.core.4%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.core.5%"
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "immobilize"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "immobilize"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.core.8%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.core.9%"
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "rolling": true,
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "heal",
-                "value": 1,
-                "effects": [
-                  {
-                    "type": "range",
-                    "value": "1"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "rolling": true,
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "heal",
-                "value": 1,
-                "effects": [
-                  {
-                    "type": "range",
-                    "value": "1"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "rolling": true,
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "heal",
-                "value": 1,
-                "effects": [
-                  {
-                    "type": "range",
-                    "value": "1"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "rolling": true,
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "heal",
-                "value": 1,
-                "effects": [
-                  {
-                    "type": "range",
-                    "value": "1"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.core.12%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.core.13%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.core.14%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.core.15%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.core.16%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.core.17%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.core.18%"
     }
   ],
   "masteries": [
-    "%data.custom.perks.core.17%",
-    "%data.custom.perks.core.18%"
+    "%data.custom.perks.core.5%",
+    "%data.custom.perks.core.6%"
   ]
 }

@@ -48,17 +48,17 @@ export class ImbuementManager {
         this.imbuement = false;
     }
 
-    enable(attackModifierDeck: AttackModifierDeck) {
+    enable(attackModifierDeck: AttackModifierDeck, shuffle: boolean = true) {
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
         ImbuementAttackModifier.forEach((am) => {
-            gameManager.attackModifierManager.addModifier(attackModifierDeck, am);
+            gameManager.attackModifierManager.addModifier(attackModifierDeck, am, -1, shuffle);
         })
         this.imbuement = true;
     }
 
-    advanced(attackModifierDeck: AttackModifierDeck) {
+    advanced(attackModifierDeck: AttackModifierDeck, shuffle: boolean = true) {
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus2);
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
@@ -66,10 +66,10 @@ export class ImbuementManager {
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.plus0);
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.plus0);
         ImbuementAttackModifier.forEach((am) => {
-            gameManager.attackModifierManager.addModifier(attackModifierDeck, am);
+            gameManager.attackModifierManager.addModifier(attackModifierDeck, am, -1, shuffle);
         })
         AdvancedImbueAttackModifier.forEach((am) => {
-            gameManager.attackModifierManager.addModifier(attackModifierDeck, am);
+            gameManager.attackModifierManager.addModifier(attackModifierDeck, am, -1, shuffle);
         })
         this.imbuement = 'advanced';
     }

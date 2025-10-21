@@ -191,6 +191,12 @@ export class GameManager {
       })
     }
 
+    this.editionData.filter((ed) => ed.edition != edition && ed.extends && ed.extends.indexOf(edition) != -1).forEach((editionData) => {
+      if (extensions.indexOf(editionData.edition) == -1) {
+        extensions.push(editionData.edition);
+      }
+    })
+
     if (all) {
       this.editionMappingAll[edition] = extensions;
     } else {

@@ -43,6 +43,7 @@ export class EditionData implements Editional {
   logoUrl: string = "";
   additional: boolean = false;
   extensions: string[] = [];
+  extends: string[] = [];
   newAmStyle: boolean = false;
   campaign: CampaignData | undefined;
   treasures: string[] = [];

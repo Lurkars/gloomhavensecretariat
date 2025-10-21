@@ -1,5 +1,6 @@
 {
   "name": "wildborn",
+  "characterClass": "orchid",
   "edition": "ccug",
   "handSize": 10,
   "color": "#b18dbd",
@@ -43,22 +44,41 @@
   ],
   "perks": [
     {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.wildborn.1%"
-    },
-    {
       "type": "replace",
       "count": 1,
       "cards": [
         {
           "count": 1,
           "attackModifier": {
-            "type": "minus1"
+            "type": "minus2"
           }
         },
         {
           "count": 1,
+          "attackModifier": {
+            "type": "minus1",
+            "effects": [
+              {
+                "type": "changeType",
+                "value": "plus1",
+                "effects": [
+                  {
+                    "type": "custom",
+                    "value": "%data.custom.perks.wildborn.1%"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
           "attackModifier": {
             "type": "minus1"
           }
@@ -79,46 +99,10 @@
     },
     {
       "type": "replace",
-      "count": 1,
+      "count": 2,
       "cards": [
         {
-          "count": 1,
-          "attackModifier": {
-            "type": "minus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "minus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "minus1",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "poison"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        },
-        {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
             "type": "plus0"
           }
@@ -139,124 +123,107 @@
     },
     {
       "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "ward",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
       "count": 1,
       "cards": [
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0"
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.wildborn.2%"
+              }
+            ]
           }
-        },
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0"
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "condition",
+                    "value": "ward"
+                  },
+                  {
+                    "type": "range",
+                    "value": "2"
+                  }
+                ]
+              }
+            ]
           }
-        },
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 3,
+      "cards": [
         {
           "count": 1,
           "attackModifier": {
             "type": "plus1",
+            "active": true,
             "effects": [
               {
-                "type": "pierce",
-                "value": "3"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2"
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2"
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "ward"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "ward"
+                "type": "custom",
+                "hint": "%data.custom.perks.wildborn.3%",
+                "value": "%data.custom.perks.wildborn.4%"
               }
             ]
           }
@@ -266,51 +233,29 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "%data.custom.perks.wildborn.10%"
+      "custom": "%data.custom.perks.wildborn.5%"
+    },
+    {
+      "type": "remove",
+      "count": 1,
+      "custom": "%data.custom.perks.wildborn.6%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "%data.custom.perks.wildborn.11%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.wildborn.12%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.wildborn.13%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.wildborn.14%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.wildborn.15%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.wildborn.16%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.wildborn.17%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.wildborn.18%"
+      "custom": "%data.custom.perks.wildborn.7%"
     }
   ],
   "masteries": [
-    "%data.custom.perks.wildborn.17%",
-    "%data.custom.perks.wildborn.18%"
+    "%data.custom.perks.wildborn.8%",
+    "%data.custom.perks.wildborn.9%"
   ]
 }

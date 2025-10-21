@@ -28,7 +28,7 @@ export class TrackUUIDPipe implements PipeTransform {
             const uuid = uuidv4() + '-' + index;
             Object.defineProperty(item, '_trackUUID', {
                 value: uuid,
-                writable: false,
+                writable: true,
                 enumerable: false,
                 configurable: false
             });
