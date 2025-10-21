@@ -364,7 +364,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
 
       this.type = Object.values(AttackModifierType)[index];
 
-      if ([AttackModifierType.plus, AttackModifierType.plus3, AttackModifierType.plus4, AttackModifierType.plusX, AttackModifierType.invalid, AttackModifierType.minus, AttackModifierType.minus1extra, AttackModifierType.empower, AttackModifierType.enfeeble, AttackModifierType.townguard, AttackModifierType.success, AttackModifierType.wreck].indexOf(this.type) != -1) {
+      if ([AttackModifierType.plus, AttackModifierType.plus3, AttackModifierType.plus4, AttackModifierType.plusX, AttackModifierType.invalid, AttackModifierType.minus, AttackModifierType.minus1extra, AttackModifierType.empower, AttackModifierType.enfeeble, AttackModifierType.townguard, AttackModifierType.success, AttackModifierType.wreck, AttackModifierType.imbue, AttackModifierType.advancedImbue].indexOf(this.type) != -1) {
         this.changeType(prev);
       }
     }
