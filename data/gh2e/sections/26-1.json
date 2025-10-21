@@ -28,11 +28,17 @@
         },
         {
           "name": "cultist",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal"
         },
         {
           "name": "cultist",
-          "type": "normal"
+          "player2": "normal"
+        },
+        {
+          "name": "cultist",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "cultist",
@@ -41,8 +47,11 @@
         },
         {
           "name": "cultist",
-          "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
+        },
+        {
+          "name": "cultist",
+          "player4": "normal"
         }
       ]
     }
