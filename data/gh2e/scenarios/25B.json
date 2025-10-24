@@ -19,7 +19,6 @@
   "objectives": [
     {
       "name": "Door",
-      "escort": true,
       "health": "10+(2xL)"
     }
   ],
@@ -55,6 +54,9 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

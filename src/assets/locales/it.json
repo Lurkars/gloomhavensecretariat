@@ -303,7 +303,7 @@
             "status": "Backup automatico non riuscito con il codice di risposta '{0}'. Dai un'occhiata alla console del browser per maggiori dettagli.",
             "unknown": "Backup automatico non riuscito per causa sconosciuta. Si prega di dare un'occhiata alla console del browser per maggiori dettagli."
           },
-          "hint": "Invece di scaricare il file di backup automatico, imposta un URL per caricare i dati. {FILENAME} può essere utilizzato come segnaposto per il nome file. (Ciò richiede le impostazioni corrette CORS per funzionare!)"
+          "hint": "Invece di scaricare il file di backup automatico, imposta una URL per caricare i dati. (Ciò richiede impostazioni corrette CORS sulla URL per funzionare!). {FILENAME} o {WINDOWS_FILENAME} possono essere utilizzati come segnaposto per il nome file."
         },
         "uploadUrlAuthorization": {
           "": "Intestazione di autorizzazione",
@@ -491,11 +491,11 @@
         "addSpecial": "Aggiungi speciale",
         "allLevel": "Tutti i livelli",
         "applyAll": "Applica a tutti i livelli",
-        "boss": "E' il Boss",
+        "boss": "È il Boss",
         "count": "Numero delle pedine",
         "deck": "Nome del mazzo delle Capacità",
         "flying": "Sta volando",
-        "hidden": "E' nascosto",
+        "hidden": "È nascosto",
         "json": {
           "": "Statistiche dei mostri in formato JSON",
           "download": "Scarica statistiche dei mostri come file JSON"
@@ -523,6 +523,7 @@
       "damage": "Danno",
       "element": "Elemento",
       "elementHalf": "Mezzo elemento",
+      "extra": "&#91;FH Helper per Sottoazioni&#93;",
       "fly": "Volo",
       "forceBox": "&#91;Box obbligatorio FH&#93;",
       "grant": "Accordo",
@@ -736,6 +737,10 @@
         "": "Permanente",
         "hint": "Condizione permanente"
       },
+      "plague": {
+        "": "Gettone Peste",
+        "hint": "Nessuno stato, ma aiuto per tracciare %game.conditionIcon.plague% Gettoni Peste"
+      },
       "poison": {
         "": "Veleno",
         "hint": "%game.conditionIcon.poison% Veleno: Tutti gli attaccanti ottengono +1 %game.action.attack%. Impedisce la guarigione. Rimuovi quando guarito."
@@ -836,6 +841,8 @@
         "loseCollectiveGold": "Perdi {0} oro collettivo",
         "loseCollectiveResource": "Perdi {0} %game.resource.{1}% collettivi",
         "loseCollectiveResourceType": "Perdi {0} %game.loot.{1}% risorse collettive",
+        "loseResource": "Perdi {0} %game.resource.{1}%",
+        "loseResourceType": "Ciascuno perde{ 0} %game.loot.{1}% risorsa",
         "moraleGT": "Morale > {0}",
         "moraleLT": "Morale < {0}",
         "otherwise": "Altrimenti",
@@ -871,6 +878,7 @@
         "upcoming": "Nel mazzo ({0})"
       },
       "effects": {
+        "additionally": "In più",
         "and": "e",
         "automation": "L'effetto viene applicato automaticamente",
         "battleGoal": "Ottieni {0} %game.checkmark% ciascuno.",
@@ -910,6 +918,7 @@
         },
         "eventFH": "Aggiungi l'Evento {1} al mazzo %game.events.type.{0}%.",
         "eventReturn": "Recupera l'evento {1} e rimettilo nel mazzo %game.events.type.{0}%.",
+        "eventsToTop": "Sbircia nel mazzo %game.events.type.{0}% fino a che non trovi {1}, {2}, o {3} e lo metti in cima al mazzo.",
         "experience": "Ognuno ottiene {0} di esperienza.",
         "globalAchievement": "Traguardo globale:<br>\"%data.globalAchievements.{0}%\".",
         "gold": "Ognuno ottiene {0} di oro.",
@@ -922,22 +931,39 @@
         "itemCollective": "Ottieni {1} \"%data.items.{2}-{0}%\" collettivi (Oggetto {0}).",
         "itemDesign": "Ottieni il modello \"%data.items.{1}-{0}%\" (Oggetto {0}).",
         "loseBattleGoal": "Ognuno perde {0} %game.checkmark%.",
+        "loseCollectiveExperience": "Perdi {0} esperienza collettiva.",
         "loseCollectiveGold": "Perdi {0} oro collettivo.",
         "loseCollectiveResource": "Perdi {0} %game.resource.{1}% collettivo.",
         "loseCollectiveResourceAny": "Perdi {0} risorse collettive.",
+        "loseCollectiveResourceType": "Perdi {0} %game.loot.{1}% risorse collettive.",
+        "loseExperience": "Ciascuno perde {0} esperienza.",
         "loseGold": "Ognuno perde {0} oro.",
         "loseGoldOne": "Un personaggio perde {0} oro.",
         "loseMorale": "Perdi {0} morale.",
         "loseProsperity": "Perdi {0} prosperità.",
         "loseReputation": "Perdi {0} reputazione.",
+        "loseResource": "Perdi {0} %game.resource.{1}%.",
         "morale": "Ottieni {0} morale.",
         "noEffect": "Nessun effetto.",
         "outcome": "Leggi la conclusione %game.events.option.{0}%.",
+        "outcomeSelect": "Seleziona una conclusione, %game.events.option.{0}% o %game.events.option.{1}%, da leggere.",
+        "outcomes": "Leggi entrambe le conclusioni %game.events.option.{0}% e %game.events.option.{1}%.",
         "outpostAttack": "%game.valueSign:{0}% %game.action.attack%",
+        "outpostAttackTarget": {
+          "": "%game.valueSign:{0}% %game.action.attack% per %game.events.effects.outpostAttackTarget.{1}%",
+          "all": "tutti i bersagli.",
+          "one": "qualsiasi bersaglio."
+        },
         "outpostTarget": "%game.valueSign:{0}% %game.action.target%",
         "partyAchievement": "Traguardo di gruppo:<br>\"%data.partyAchievements.{0}%\".",
         "prosperity": "Ottieni {0} prosperità.",
+        "randomItem": {
+          "": "Ottieni un Oggetto Casuale.",
+          "alt": "Ottieni un oggetto casuale collettivo %game.itemFh.random%."
+        },
+        "randomItemBlueprint": "Ottieni un progetto oggetto casuale %game.itemFh.random%.",
         "randomItemDesign": "Ottieni un modello di oggetto casuale.",
+        "randomScenario": "Ottieni uno scenario secondario casuale.",
         "removeEvent": {
           "": "Rimuovi %game.events.type.{0}% Evento {1} dal gioco.",
           "alt": "Rimuovi l'evento {1} dal mazzo %game.events.type.{0}%."
@@ -960,19 +986,29 @@
         "sectionOrWeeks": "Aggiungi %game.section:{0}% OPPURE {1} al calendario in %game.number.{2}% settimane.",
         "sectionWeek": "Aggiungi %game.section:{0}% al calendario in una settimana.",
         "sectionWeeks": "Aggiungi %game.section:{0}% al calendario in %game.number.{1}% settimane.",
+        "sectionWeeksSeason": "Aggiungi %game.section:{0}% al calendario tra %game.number.{1}% settimane. Se quella settimana è tra {2},aggiungilo invece alla %game.numbered.{3}% settimana del prossimo {4}.",
         "soldier": "Ottieni 1 soldato.",
         "soldiers": "Ottieni {0} soldati.",
+        "townGuardDeckCard": "Aggiungi una carta %game.townGuardAM:{0}% al mazzo della guardia cittadina.",
+        "townGuardDeckCards": "Aggiungi %game.number.{1}% %game.townGuardAM:{0}% carte al mazzo della guardia cittadina.",
+        "unlockEnvelope": "Sblocca la busta {0} se non è sbloccata.",
         "unlockScenario": {
           "": "Sblocca \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
           "alt": "Nuovo Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
         },
-        "unlockScenarioGroup": "Sblocca \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%)."
+        "unlockScenarioGroup": "Sblocca \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%).",
+        "upgradeBuilding": "Aggiorna il %data.buildings.{0}% al livello successivo, oppure, se il %data.buildings.{0}% è già di livello {1}, ottieni invece {2} morale."
       },
       "option": {
         "": "Opzione {0}:",
         "1": "A",
         "2": "B",
         "3": "C"
+      },
+      "requirements": {
+        "": "Requisiti:",
+        "partyAchievement": "%data.partyAchievements.{0}% (Gruppo) COMPLETO",
+        "warning": "Requisiti non soddisfatti. Clicca per pescare un'altra carta!"
       },
       "type": {
         "boat": "Barca",
@@ -1190,10 +1226,12 @@
     "solo": "In solitario",
     "specialTarget": {
       "all": "%game.target% tutti",
+      "allCharacters": "%game.target% tutti i personaggi",
       "allies": "%game.target% tutti gli alleati",
       "alliesAdjacent": "%game.target% tutti gli alleati adiacenti",
       "alliesAdjacentAffect": "%game.affect% tutti gli alleati adiacenti",
       "alliesAffect": "%game.affect% tutti gli alleati",
+      "alliesEnemies": "%game.target% tutti gli alleati e i nemici",
       "alliesRange": "%game.target% tutti gli alleati entro %game.action.range% {0}",
       "alliesRangeAffect": "%game.affect% tutti gli alleati entro %game.action.range% {0}",
       "ally": "%game.target% 1 alleato",
@@ -1228,7 +1266,7 @@
       "selfOrAlly": "Se stesso o un alleato",
       "targets": "Tutti i bersagli"
     },
-    "sufferDamage": "{0} subisce %game.damage:{1}%",
+    "sufferDamage": "{0} subisci %game.damage:{1}%",
     "summon": {
       "player2-3": "%game.monsterType.{0}% per due o tre personaggi o %game.monsterType.{1}% per quattro personaggi",
       "player3-4": "%game.monsterType.{0}% per due o %game.monsterType.{1}% per tre o quattro personaggi",
@@ -1307,6 +1345,10 @@
     "toggleAlly": {
       "off": "Torna a <span class=\"monster-ally-off\">Nemico</span>",
       "on": "Passa a<span class=\"monster-ally-on\">Alleato</span>"
+    },
+    "toggleDormant": {
+      "off": "Tornare alle entità attive",
+      "on": "Passare alle entità inattive"
     }
   },
   "number": {
@@ -1491,6 +1533,8 @@
     "campaignMode": "Modalità campagna",
     "change": "Cambia gruppo",
     "export": "Esporta",
+    "greatOak": "Santuario della Grande Quercia",
+    "imbuement": "Infusione",
     "import": "Importa",
     "inspiration": "Ispirazione",
     "location": "Luogo",
@@ -1510,7 +1554,19 @@
       }
     },
     "remove": "Rimuovi gruppo",
-    "reputation": "Reputazione",
+    "reputation": {
+      "": "Reputazione",
+      "additional": {
+        "": "Sblocchi di reputazione aggiuntivi",
+        "sectionRequires": {
+          "": "Leggi %game.section:{0}% quando hai almeno {1} %game.gh2eFaction:{2}% reputazione e hai completato lo Scenario {3}.",
+          "multiple": "Leggi %game.section:{0}% quando hai {1} %game.gh2eFaction:{2}% reputazione e hai completato gli Scenari {3}."
+        },
+        "special": {
+          "city-event": "Aggiungi C-{0} al mazzo evento cittadino una volta che hai almeno {1} reputazione con una fazione."
+        }
+      }
+    },
     "sheet": "Scheda gruppo",
     "shop": {
       "": "Modificatore di prezzo",
@@ -1583,6 +1639,7 @@
       "continueDraw": "Continua con un pescaggio",
       "continueNext": "Continua con il prossimo round",
       "empty": "Aggiungi mostri e personaggi prima del round.",
+      "eventDraw": "Pesca una carta evento %game.events.type.{0}%.",
       "failed": "Tutti i personaggi sembrano esausti. Vuoi riavviare lo scenario?",
       "finish": "Non sono rimasti mostri. Hai finito con successo lo scenario?",
       "initiativeRoundConfirm": "Tutte le iniziative sono impostate. Inizia il prossimo round?",
@@ -1816,6 +1873,7 @@
       "removeLootDeckCard": "Rimuovi la carta bottino {0} dal gioco. Non aggiungerlo più al mazzo di bottino di nessuno scenario.",
       "repeatScenario": "Lo scenario può essere rigiocato!",
       "reputation": "{0} reputazione",
+      "reputationFactions": "Ottieni {1} reputazione con %game.gh2eFaction:{0}%",
       "resources": "Ciascuno ottiene {1} %game.resource.{0}%",
       "resourcesLose": "Ciascuno perde {1} %game.resource.{0}%",
       "townGuardAm": "Aggiungi una carta %game.townGuardAm.{1}:{0}% al mazzo della guardia cittadina.",
@@ -2208,6 +2266,10 @@
       "": "Regole personalizzate di tiro vantaggio/svantaggio",
       "hint": "Invece di ignorare il risultato al secondo pescaggio, pesca più carte fino a quando una è estratta senza un modificatore aggiuntivo."
     },
+    "animationSpeed": {
+      "": "Velocità di animazione",
+      "hint": "Modifica la velocità delle animazioni"
+    },
     "animations": {
       "": "Animazioni",
       "hint": "Disabilita tutte le animazioni per aumentare le prestazioni"
@@ -2477,6 +2539,10 @@
       "": "Pesca Eventi automaticamente",
       "hint": "Pesca automaticamente eventi come l'Evento Strada all'inizio dello scenario."
     },
+    "eventsDrawReminder": {
+      "": "Promemoria pesca Eventi",
+      "hint": "Mostra un promemoria prima del primo round per pescare un evento."
+    },
     "expireConditions": {
       "": "Termine stati automatico",
       "hint": "Gli stati corrispondenti verranno rimossi automaticamente dopo il turno delle unità, ad esempio Rinforzo verrà rimosso dopo il turno"
@@ -2624,6 +2690,7 @@
       },
       "it": "Italiano",
       "ko": "Coreano (한국어)",
+      "pt": "Portoghese (Portuguese)",
       "ru": "Russo (Русский)",
       "zh_Hans": "Cinese semplificato (简体中文)",
       "zh_Hant": "Cinese tradizionale (繁體中文)"

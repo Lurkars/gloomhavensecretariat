@@ -11,6 +11,7 @@
   },
   "edition": "fh",
   "complexity": 3,
+  "eventType": "road",
   "monsters": [
     "vermling-priest",
     "vermling-scout"

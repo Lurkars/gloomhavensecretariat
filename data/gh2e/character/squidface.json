@@ -181,7 +181,7 @@
         {
           "count": 3,
           "attackModifier": {
-            "type": "plus1",
+            "type": "plus0",
             "rolling": true,
             "effects": [
               {

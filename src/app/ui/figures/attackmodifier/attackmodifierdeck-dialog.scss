@@ -105,6 +105,118 @@
       }
     }
 
+
+    .factions-modifier {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .factions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .faction {
+          cursor: pointer;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+          width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+          opacity: 0.5;
+
+          .ghs-svg {
+            width: 90%;
+            height: auto;
+            filter: var(--ghs-filter-white);
+          }
+
+          &.active {
+            opacity: 1;
+          }
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+
+      .attack-modifier-list {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .am {
+          position: relative;
+          cursor: pointer;
+          display: block;
+          width: calc(var(--ghs-unit) * 13.5 * var(--ghs-dialog-factor));
+          height: calc(var(--ghs-unit) * 9 * var(--ghs-dialog-factor));
+          margin: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+          filter: grayscale(0.8);
+
+          &:hover {
+            filter: grayscale(0.4);
+
+            ghs-attackmodifier {
+              border-color: var(--ghs-color-darkgray);
+              top: 0%;
+              left: 0%;
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          &.disabled {
+            cursor: not-allowed;
+            filter: grayscale(1);
+            opacity: 0.7;
+
+            ghs-attackmodifier {
+              top: 7%;
+              left: 7%;
+              width: 86%;
+              height: 86%;
+            }
+
+            &:hover ghs-attackmodifier {
+              top: 5%;
+              left: 5%;
+              width: 90%;
+              height: 90%;
+            }
+          }
+
+          &.active {
+            filter: none;
+            opacity: 1;
+
+            ghs-attackmodifier {
+              border-color: var(--ghs-color-gray);
+              top: 0%;
+              left: 0%;
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          ghs-attackmodifier {
+            position: absolute;
+            display: flex;
+            top: 5%;
+            left: 5%;
+            width: 90%;
+            height: 90%;
+            border: calc(var(--ghs-unit) * 0.15 * var(--ghs-dialog-factor)) solid transparent;
+            border-radius: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+          }
+        }
+      }
+    }
+
     input[type="checkbox"] {
       cursor: pointer;
       appearance: none;

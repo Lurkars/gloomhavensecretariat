@@ -39,7 +39,7 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
         next: () => {
           this.available = gameManager.battleGoalManager.getUnrevealedBattleGoals().length;
           this.redrawAvailable = gameManager.battleGoalManager.getUnrevealedBattleGoals(this.character).length;
-          if (this.redrawAvailable > (gameManager.fhRules() || settingsManager.settings.battleGoalsFh ? 2 : 1) && data.draw) {
+          if (this.redrawAvailable > (gameManager.fhRules(true) || settingsManager.settings.battleGoalsFh ? 2 : 1) && data.draw) {
             this.drawCards();
           }
           else {
@@ -85,7 +85,7 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
       gameManager.battleGoalManager.drawBattleGoal(this.character);
       if (!gameManager.trialsManager.apply || !gameManager.trialsManager.activeTrial('fh', 360)) {
         gameManager.battleGoalManager.drawBattleGoal(this.character);
-        if (gameManager.fhRules() || settingsManager.settings.battleGoalsFh) {
+        if (gameManager.fhRules(true) || settingsManager.settings.battleGoalsFh) {
           gameManager.battleGoalManager.drawBattleGoal(this.character);
         }
       }
@@ -136,7 +136,7 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
       panelClass: ['dialog']
     }).closed.subscribe({
       next: () => {
-        if (gameManager.battleGoalManager.getBattleGoals().length < (gameManager.fhRules() || settingsManager.settings.battleGoalsFh ? 3 : 2)) {
+        if (gameManager.battleGoalManager.getBattleGoals().length < (gameManager.fhRules(true) || settingsManager.settings.battleGoalsFh ? 3 : 2)) {
           this.close();
         } else {
           this.update();

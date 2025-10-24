@@ -8,13 +8,11 @@
   "standeeShare": "stone-construct",
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "immobilize",
       "disarm",
       "stun"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

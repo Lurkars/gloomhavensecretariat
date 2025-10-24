@@ -17,7 +17,7 @@
     "install": "Installer en tant qu'application",
     "loading": {
       "": "Chargement…",
-      "cancel": "Annuler le chargement?"
+      "cancel": "Annuler le chargement ?"
     }
   },
   "campaign": {
@@ -42,14 +42,14 @@
     "sheet": "Feuille de gestion de campagne globale",
     "trials": {
       "": "Essais",
-      "automation": "L'effet de cette carte est automatiquement appliqué!"
+      "automation": "L'effet de cette carte est automatiquement appliqué !"
     }
   },
   "cancel": "Annuler",
   "challenges": {
     "": "Défis",
     "automation": {
-      "hint": "L'effet de cette carte est automatiquement appliqué!"
+      "hint": "L'effet de cette carte est automatiquement appliqué !"
     },
     "deck": {
       "clear": {
@@ -189,7 +189,7 @@
     "progress": {
       "": "Feuille de personnage",
       "donate": "Faire une donation",
-      "donations": "Donations au Sanctuaire du Grand Chêne: {0}",
+      "donations": "Donations au Sanctuaire du Grand Chêne : {0}",
       "export": "Exporter",
       "fh": {
         "disable": "Aller à la feuille de personnage de Gloomhaven",
@@ -222,7 +222,8 @@
           "": "Ouvrir la boîte %game.characterIcon.{0}%",
           "itemDesign": "Gagner le modèle \"%data.items.{1}-{0}%\" (Item {0})",
           "randomScenario": "Débloquer \"{1}\" %data.scenarioNumber:{0}%"
-        }
+        },
+        "unlockPQ": "Débloquer la Quête Personnelle {0}"
       },
       "resources": {
         "": "Ressources",
@@ -271,12 +272,12 @@
     "token": "Jeton de Personnage",
     "traits": "Caractéristiques",
     "unlock": {
-      "": "Débloquer?",
-      "confirm": "Débloquer!"
+      "": "Débloquer ?",
+      "confirm": "Débloquer !"
     },
     "unlockAll": {
-      "": "Débloquer tout le monde?",
-      "confirm": "Débloquer tout le monde!"
+      "": "Tout débloquer ?",
+      "confirm": "Tout débloquer !"
     }
   },
   "close": "Fermer",
@@ -301,11 +302,11 @@
             "status": "La sauvegarde automatique a échoué avec le code de réponse '{0}'. Consultez la console du navigateur pour plus de détails.",
             "unknown": "La sauvegarde automatique a échoué pour une raison inconnue. Veuillez consulter la console du navigateur pour plus de détails."
           },
-          "hint": "Au lieu de télécharger le fichier de sauvegarde automatique, définir une URL pour télécharger les données. {FILENAME} peut être utilisé comme paramètre pour le nom de fichier. (Pour que cela fonctionne, il faut que les paramètres CORS soient corrects)."
+          "hint": "Au lieu de télécharger le fichier de sauvegarde automatique, définir une URL pour télécharger les données. {FILENAME} peut être utilisé comme paramètre pour le nom de fichier. (Pour que cela fonctionne, il faut que les paramètres CORS soient corrects !)"
         },
         "uploadUrlAuthorization": {
           "": "En-tête d'autorisation",
-          "hint": "Utilisé comme en-tête \"Authorization\" pour les demandes de téléchargement."
+          "hint": "Utilisé comme en-tête \"Authorization\" pour les demandes de téléchargement"
         },
         "uploadUrlFileUpload": {
           "": "Télécharger comme fichier",
@@ -353,7 +354,7 @@
     "importDataDump": "Importation de données",
     "importFile": {
       "": "Importer le Fichier",
-      "hint": "Importez n’importe quel fichier exporté comme Jeu, Sauvegarde, Sauvegarde de données ou Paramètres. Confirmez l’importation avec un deuxième clic!"
+      "hint": "Importez n’importe quel fichier exporté comme Jeu, Sauvegarde, Sauvegarde de données ou Paramètres. Confirmez l’importation avec un deuxième clic !"
     },
     "importGame": "Importer une partie depuis un fichier",
     "importSettings": "Importer les paramètres depuis un fichier",
@@ -375,11 +376,11 @@
       "clockOut": "Quitter l’horloge du jeu",
       "current": "Actuel: {0}",
       "off": "L’horloge du jeu a été mise en pause ! Double-cliquez pour démarrer.",
-      "paused": "L’horloge du jeu a été mise en pause ! Double-cliquez pour démarrer.<br>Total: {0}",
-      "running": "Horloge du jeu en cours ! Double-cliquez pour arrêter.<br>Actuel: {1}",
-      "runningTotal": "Horloge du jeu en cours ! Double-cliquez pour arrêter.<br>Actuel: {1}<br>Total: {0}",
+      "paused": "L’horloge du jeu a été mise en pause ! Double-cliquez pour démarrer.<br>Total : {0}",
+      "running": "Horloge du jeu en cours ! Double-cliquez pour arrêter.<br>Actuel : {1}",
+      "runningTotal": "Horloge du jeu en cours ! Double-cliquez pour arrêter.<br>Actuel : {1}<br>Total : {0}",
       "timestamp": "Exécuter de {0} à {1}",
-      "total": "Total: {0}"
+      "total": "Total : {0}"
     },
     "hours": "{2} heures, {1} minutes et {0} secondes",
     "minutes": "{1} minutes et {0} secondes",
@@ -392,7 +393,7 @@
     "conditions": "Conditions disponibles"
   },
   "editor": {
-    "": "Editeur [Spoiler!]",
+    "": "Editeur [Spoiler !]",
     "action": {
       "add": "Ajouter une action",
       "addBottom": "Ajouter une action de fond",
@@ -537,7 +538,7 @@
       "special": "Spécial",
       "specialTarget": "Cible spéciale",
       "sufferDamage": "Subir des Dommages",
-      "summon": "Invoquez",
+      "summon": "Invoque",
       "target": "Cible",
       "targets": "Cibles",
       "teleport": "Téléporte",
@@ -709,55 +710,58 @@
       },
       "impair": {
         "": "Affaiblir",
-        "hint": "%game.conditionIcon.impair% Incapacité: Ne peut pas utiliser d'objets. Retiré à la fin du tour suivant."
+        "hint": "%game.conditionIcon.impair% Incapacité : Ne peut pas utiliser d'objets. Retiré à la fin du tour suivant."
       },
       "infect": {
         "": "Infection",
-        "hint": "%game.conditionIcon.infect% Infection: Ne peut pas gagner de bouclier. Retiré en cas de guérison."
+        "hint": "%game.conditionIcon.infect% Infection : Ne peut pas gagner de bouclier. Retiré en cas de guérison."
       },
       "invisible": {
         "": "Invisibilité",
-        "hint": "%game.conditionIcon.invisible% Invisibilité: Ne peut être ciblé. Retiré à la fin du prochain tour."
+        "hint": "%game.conditionIcon.invisible% Invisibilité : Ne peut être ciblé. Retiré à la fin du prochain tour."
       },
       "muddle": {
         "": "Confusion",
-        "hint": "%game.conditionIcon.muddle% Confusion: Désavantage sur toutes les attaques. Suppression à la fin du tour suivant."
+        "hint": "%game.conditionIcon.muddle% Confusion : Désavantage sur toutes les attaques. Suppression à la fin du tour suivant."
       },
       "permanent": {
         "": "Permanent",
         "hint": "Condition permanente"
       },
+      "plague": {
+        "": "Jeton Peste"
+      },
       "poison": {
         "": "Empoisonnement",
-        "hint": "%game.conditionIcon.poison% Empoisonnement: Tous les attaquants gagnent +1 %game.action.attack%. Empêche la guérison. S'enlève une fois guéri."
+        "hint": "%game.conditionIcon.poison% Empoisonnement : Tous les attaquants gagnent +1 %game.action.attack%. Empêche la guérison. S'enlève une fois guéri."
       },
       "poison_x": {
         "": "Empoisonnement {0}",
-        "hint": "%game.conditionIcon.poison_x:X% Empoisonnement X: Tous les attaquants gagnent +X %game.action.attack%. Empêche la guérison. S'enlève une fois guéri."
+        "hint": "%game.conditionIcon.poison_x:X% Empoisonnement X : Tous les attaquants gagnent +X %game.action.attack%. Empêche la guérison. S'enlève une fois guéri."
       },
       "regenerate": {
         "": "Régénération",
-        "hint": "%game.conditionIcon.regenerate% Régénération: %game.action.heal% 1 au début du tour. Supprimer en cas de dégâts."
+        "hint": "%game.conditionIcon.regenerate% Régénération : %game.action.heal% 1 au début du tour. Supprimer en cas de dégâts."
       },
       "rupture": {
         "": "Rupture",
-        "hint": "%game.conditionIcon.rupture% Rupture: A chaque déplacement, subit %game.damage:1%. Enlever en cas de guérison."
+        "hint": "%game.conditionIcon.rupture% Rupture : À chaque déplacement, subit %game.damage:1%. Enlever en cas de guérison."
       },
       "strengthen": {
         "": "Renforcement",
-        "hint": "%game.conditionIcon.strengthen% Renforcement: avantage pour toutes les attaques. Retirer à la fin du prochain tour."
+        "hint": "%game.conditionIcon.strengthen% Renforcement : Avantage pour toutes les attaques. Retirer à la fin du prochain tour."
       },
       "stun": {
         "": "Étourdissement",
-        "hint": "%game.conditionIcon.stun% Étourdissement: Impossible d'exécuter des capacités, d'utiliser ou de déclencher des objets. Retiré à la fin du tour suivant."
+        "hint": "%game.conditionIcon.stun% Étourdissement : Impossible d'exécuter des capacités, d'utiliser ou de déclencher des objets. Retiré à la fin du tour suivant."
       },
       "ward": {
         "": "Protection",
-        "hint": "%game.conditionIcon.ward% Protection: divise par deux (arrondir à l'inférieur) la prochaine source de %game.damage%, puis la supprime."
+        "hint": "%game.conditionIcon.ward% Protection : Divise par deux (arrondir à l'inférieur) la prochaine source de %game.damage%, puis la supprime."
       },
       "wound": {
         "": "Blessure",
-        "hint": "%game.conditionIcon.wound% Blessure: Subit %game.damage:1% au début de chaque tour. Disparaît lorsque vous êtes guéri."
+        "hint": "%game.conditionIcon.wound% Blessure : Subit %game.damage:1% au début de chaque tour. Disparaît lorsque vous êtes guéri."
       },
       "wound_x": {
         "": "Blessure {0}",
@@ -778,7 +782,7 @@
         "minCeil": "(arrondi vers le haut), mais au moins %game.number.{0}%",
         "minFloor": "(arrondi vers le bas), mais au moins de %game.number.{0}%"
       },
-      "ondeath": "Lors de la mort:",
+      "ondeath": "Lors de la mort :",
       "perks": {
         "addTarget": "Ajouter une cible",
         "addTargets": "Ajouter {0} cibles",
@@ -811,11 +815,39 @@
     "enemy": "Ennemi",
     "events": {
       "conditions": {
+        "and": "et",
+        "building": "{0}",
+        "campaignSticker": "%data.campaignSticker.{0}%",
+        "character": "{0}",
+        "loseCollectiveGold": "Perdez collectivement {0} Or",
+        "loseCollectiveResource": "Perdez collectivement {0} %game.resource.{1}%",
+        "loseCollectiveResourceType": "Perdez collectivement {0} ressources %game.loot.{1}%",
+        "moraleGT": "Moral > {0}",
+        "moraleLT": "Moral < {0}",
         "otherwise": "Dans le cas contraire",
         "payCollectiveGold": "Payer chacun {0} Or",
-        "payCollectiveGoldConditional": "Payer chacun {0} ({1}) ou {2} ({3}) Or",
+        "payCollectiveGoldConditional": {
+          "connector": "ou",
+          "prefix": "Payez",
+          "suffix": "Or collectif"
+        },
+        "payCollectiveGoldReputationGT": "{0} (réputation > {1})",
+        "payCollectiveGoldReputationLT": "{0} (réputation < {1})",
+        "payGold": "Payez chacun {0} Or",
         "reputationGT": "Réputation > {0}",
-        "reputationLT": "Réputation < {0}"
+        "reputationLT": "Réputation < {0}",
+        "season": "%party.campaign.sheet.{0}%",
+        "seasonLT": "Si %party.campaign.sheet.{0}% est dans {1} semaines ou moins",
+        "traits": "%game.trait% {0}"
+      },
+      "deck": {
+        "addCard": "Ajouter aux cartes à venir et mélanger le jeu",
+        "allTypes": "Afficher tous les decks",
+        "draw": "Piocher une carte",
+        "drawn": "Résolu ({0})",
+        "new": "Verrouillé ({0})",
+        "removeCard": "Supprimer des cartes à venir",
+        "removeDrawn": "Retirer des cartes piochées"
       },
       "effects": {
         "collectiveGold": "Gagner chacun {0} or.",
@@ -825,7 +857,7 @@
         "discard": "Défaussez {0} cartes chacun.",
         "event": "Ajouter %game.events.type.{0}% événement {1} à la pioche.",
         "experience": "Gagnez {0} d'expérience à chaque fois.",
-        "globalAchievement": "Haut Fait Global: \"%data.globalAchievements.{0}%\".",
+        "globalAchievement": "Haut Fait Global :<br>\"%data.globalAchievements.{0}%\".",
         "gold": "Gagnez {0} or chacun.",
         "goldAdditional": "Gagnez {0} or supplémentaire chacun.",
         "loseBattleGoal": "Perdre {0} %game.checkmark% chaque fois.",
@@ -834,7 +866,7 @@
         "loseReputation": "Perdre {0} réputation.",
         "noEffect": "Aucun effet.",
         "outcome": "Lire la sortie %game.events.option.{0}%.",
-        "partyAchievement": "Haut Fait de Compagnie : \"%data.partyAchievements.{0}%\".",
+        "partyAchievement": "Haut Fait de Compagnie :<br>\"%data.partyAchievements.{0}%\".",
         "prosperity": "Gagnez {0} de prospérité.",
         "randomItemDesign": "Gagner un Modèle d’Objet Aléatoire.",
         "reputation": "Gagnez {0} de réputation.",
@@ -861,7 +893,7 @@
       "error": {
         "deck": {
           "": "Paquet manquant",
-          "hint": "Aucun paquet de capacité trouvé pour %{0}% '%data.{0}.{1}%'! Merci de vérifier les données de (Edition: %data.edition.{2}%)."
+          "hint": "Aucun paquet de capacité trouvé pour %{0}% '%data.{0}.{1}%' ! Merci de vérifier les données de (Édition : %data.edition.{2}%)."
         },
         "monsterEdition": {
           "": "Édition du monstre manquante",
@@ -869,15 +901,15 @@
         },
         "monsterType": {
           "": "Type de monstre manquant",
-          "hint": "Monstre de type {3} non trouvé pour '%data.{0}.{1}%'! Merci de vérifier les données de (Edition: %data.edition.{2}%)."
+          "hint": "Monstre de type {3} non trouvé pour '%data.{0}.{1}%' ! Merci de vérifier les données de (Édition : %data.edition.{2}%)."
         },
         "stat": {
           "": "Stat manquante",
-          "hint": "Stats de {3} niveau {4} manquante pour %{0}% '%data.{0}.{1}%'! Merci de vérifier les données de (Edition: %data.edition.{2}%)."
+          "hint": "Stats de {3} niveau {4} manquante pour %{0}% '%data.{0}.{1}%' ! Merci de vérifier les données de (Édition : %data.edition.{2}%)."
         },
         "unknown": {
           "": "Portrait inconnue",
-          "hint": "Pas de donnée trouvées pour %{0}% '%data.{0}.{1}%'! Merci de vérifier les données de (Edition: %data.edition.{2}%)."
+          "hint": "Pas de donnée trouvées pour %{0}% '%data.{0}.{1}%' ! Merci de vérifier les données de (Édition : %data.edition.{2}%)."
         }
       },
       "longRest": "Effectuer un repos long",
@@ -982,7 +1014,7 @@
       "hide": "Peau",
       "keep": "Continuer %data.character.{0}.{1}%",
       "lootTreasure": {
-        "": "{0} pille le trésor {1}?",
+        "": "{0} pille le trésor {1} ?",
         "confirm": "Confirmer",
         "looted": "{0} butins :",
         "selectCharacter": "Sélectionner le personnage pour le trésor {0}",
@@ -1324,7 +1356,7 @@
         "enable": "Aller à la feuille de campagne de Frosthaven",
         "name": "Nom de la Compagnie",
         "nextWeek": "Semaine prochaine (nouveau calendrier)",
-        "soldierLevel": "Lvl",
+        "soldierLevel": "Niv.",
         "soldiers": "Soldats",
         "summer": "Été",
         "supply": {
@@ -1422,7 +1454,7 @@
     },
     "monsters": {
       "": "Tous les monstres",
-      "hint": "Mettre à jour et modifier tous les monstres."
+      "hint": "Mettre à jour et modifier tous les monstres"
     },
     "party": {
       "": "Groupe",
@@ -1447,13 +1479,13 @@
       "confirmFailed": "Finir le scénario en échec",
       "confirmFinish": "Finir le scénario avec succès",
       "confirmReset": "Redémarrer le scénario",
-      "confirmTurns": "Confirmer sans terminer les tours!",
+      "confirmTurns": "Confirmer sans terminer les tours !",
       "continueDraw": "Continuer avec la pioche",
       "continueNext": "Continuer avec le prochain round",
       "empty": "Il faut d'abord ajouter des monstres et/ou des personnages.",
       "failed": "Tous les personnages sont épuisés. Voulez-vous redémarrer le scénario ?",
       "finish": "Il n'y a plus de monstres. Avez-vous accompli l'objectif du scénario ?",
-      "initiativeRoundConfirm": "Toutes les initiatives sont établies. Commencer le prochain tour?",
+      "initiativeRoundConfirm": "Toutes les initiatives sont établies. Commencer le prochain tour ?",
       "missingInitiative": "L'initiative des joueurs doit être définie en cliquant sur le portrait des unités !"
     },
     "next": "Round suivant"
@@ -1532,7 +1564,7 @@
       "progress": "Affecte la progression du personnage"
     },
     "favors": {
-      "": "Annexe F: Faveurs",
+      "": "Annexe F : Faveurs",
       "apply": "Appliquer",
       "keep": "Gardez des Faveurs pour chaque scénario",
       "label": {
@@ -1604,7 +1636,7 @@
         "next": "Le calendrier passe automatiquement à la semaine {0}",
         "section": "Ouvrir %data.section:{0}% (appliqué automatiquement)",
         "summer": "Nouvelle saison : Été <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
-        "winter": "Nouvelle saison: Hiver <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
+        "winter": "Nouvelle saison : Hiver <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
       },
       "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> chacun",
       "bonus": "Bonus",
@@ -1751,7 +1783,7 @@
       "add": "Ouvrir la section {1} ?",
       "addIndex": "Ouvrir la section {1}#{0} ?",
       "addMarker": "Ouvrir la section %game.mapMarker.{1}% ?",
-      "addMarkerIndex": "Ouvrir la section #{0} %game.mapMarker.{1}%?",
+      "addMarkerIndex": "Ouvrir la section #{0} %game.mapMarker.{1}% ?",
       "cancel": "Annuler",
       "conclusion": {
         "": "Terminer le scénario avec {0}",
@@ -1824,7 +1856,7 @@
       "restartLoseLoot": "Redémarrer le scénario (perdre des ressources)",
       "rewards": {
         "": "Récompenses du scénario",
-        "collectiveGold": "collectif %game.resource.gold%.",
+        "collectiveGold": "collectif %game.resource.gold%",
         "collectiveResource": "collectif %game.resource.{0}%",
         "experience": "Récompense XP",
         "gold": "Récompense or"
@@ -1891,7 +1923,7 @@
     "reconnect": "Reconnecter",
     "settings": {
       "": "Synchroniser les paramètres",
-      "hint": "Cette option permet de synchroniser non seulement le jeu, mais aussi les paramètres de tous les clients. Il est certain que tous les paramètres ne seront pas synchronisés, comme certaines options pour les visuels ou l'interface."
+      "hint": "Cette option permet de synchroniser non seulement le jeu, mais aussi les paramètres de tous les clients. Il est certain que tous les paramètres <b>ne seront pas</b> synchronisés, comme certaines options pour les visuels ou l'interface."
     },
     "undefined": "Connexion non specifiée",
     "url": "Hébergeur",
@@ -2751,7 +2783,7 @@
       "resetScenario": "Redémarrer le scénario #{0} {1} ({2})",
       "restoreDefaultAbilities": "Restaurer les capacités pas déaut de {0}",
       "sellItem": "Vendre objet {1} (%data.edition.{2}%) pour {0}",
-      "serverSync": "Serveur: {0}",
+      "serverSync": "Serveur : {0}",
       "serverSyncEmpty": "Synchronisation du serveur",
       "setAbsent": "{0} absent",
       "setActive": "Démarrer le tour pour {0}",

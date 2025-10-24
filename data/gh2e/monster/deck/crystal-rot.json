@@ -133,7 +133,7 @@
                 {
                   "type": "target",
                   "value": 1,
-                  "valueType": "plus",
+                  "valueType": "add",
                   "small": true
                 }
               ]
@@ -186,7 +186,7 @@
                 {
                   "type": "target",
                   "value": 1,
-                  "valueType": "plus",
+                  "valueType": "add",
                   "small": true
                 }
               ]
@@ -240,7 +240,7 @@
           "valueType": "plus",
           "subActions": [
             {
-              "type": "target",
+              "type": "range",
               "value": 3,
               "small": true
             }
@@ -268,7 +268,7 @@
           "valueType": "plus",
           "subActions": [
             {
-              "type": "target",
+              "type": "range",
               "value": 3,
               "small": true
             }
@@ -276,7 +276,7 @@
         },
         {
           "type": "custom",
-          "value": "Add %game.condition.disarm% if there are no Living Corpses, or Living Spirits within %game.action.range% 3.",
+          "value": "%data.custom.gh2e.crystal-rot.1%",
           "small": true
         }
       ]

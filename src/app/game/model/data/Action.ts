@@ -38,6 +38,7 @@ export enum ActionType {
   damage = "damage",
   element = "element",
   elementHalf = "elementHalf",
+  extra = "extra",
   fly = "fly",
   forceBox = "forceBox",
   grant = "grant",
@@ -54,6 +55,7 @@ export enum ActionType {
   push = "push",
   range = "range",
   retaliate = "retaliate",
+  round = "round",
   shield = "shield",
   spawn = "spawn",
   special = "special",
@@ -77,6 +79,7 @@ export enum ActionValueType {
 
 export enum ActionSpecialTarget {
   all = "all",
+  allCharacters = "allCharacters",
   allies = "allies",
   alliesAdjacent = "alliesAdjacent",
   alliesAdjacentAffect = "alliesAdjacentAffect",

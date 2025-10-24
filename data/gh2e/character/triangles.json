@@ -6,6 +6,12 @@
   "retireEvent": "road:67|road:68",
   "color": "#dcdcdc",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "element_waning",
+      "perk": 12
+    }
+  ],
   "stats": [
     {
       "level": 1,

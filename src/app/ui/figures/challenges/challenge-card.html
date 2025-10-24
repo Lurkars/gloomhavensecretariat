@@ -1,34 +1,34 @@
 <div class="challenge" #container>
-    <div class="card" [ngClass]="{'flipped' : flipped || revealed, 'no-animations' : !animate}"
-        [style.fontSize]="container.offsetWidth * 0.1 + 'px'" card-reveal [disabled]="!reveal"
-        (change)="onChange($event)">
-        <div class="card-back">
-            <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
-        </div>
-        <div class="card-front">
-            <ng-container *ngIf="!!challenge">
-                <div class="title">
-                    <div class="automation">
-                        <img *ngIf="challenge.automation && settingsManager.settings.fhChallengesApply"
-                            [ghs-tooltip]="'challenges.automation.hint'" class="ghs-svg"
-                            src="./assets/images/automation.svg">
-                    </div>
-                    <p class="placeholder"
-                        [ghs-label]="'data.challenges.' + challenge.edition + '.' +  challenge.cardId"></p>
-                    <div class="hint">
-                        <img *ngIf="challenge.automation == 'partial' && settingsManager.settings.fhChallengesApply"
-                            [ghs-tooltip]="'data.challenges.' + challenge.edition + '.' +  challenge.cardId + '.hint'"
-                            class="ghs-svg" src="./assets/images/warning.svg">
-                    </div>
-                </div>
-                <div class="text">
-                    <p class="placeholder"
-                        [ghs-label]="'data.challenges.' + challenge.edition + '.' +  challenge.cardId + '.text'"></p>
-                </div>
-                <div class="card-id">
-                    <span *ngIf="challenge.cardId < 10">0</span>{{challenge.cardId}}
-                </div>
-            </ng-container>
-        </div>
+  <div class="card" [ngClass]="{'flipped' : flipped || revealed, 'no-animations' : !animate}"
+    [style.fontSize]="container.offsetWidth * 0.1 + 'px'" card-reveal [disabled]="!reveal" (change)="onChange($event)">
+    <div class="card-back">
+      <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
     </div>
+    <div class="card-front">
+      @if (!!challenge) {
+      <div class="title">
+        <div class="automation">
+          @if (challenge.automation && settingsManager.settings.fhChallengesApply) {
+          <img [ghs-tooltip]="'challenges.automation.hint'" class="ghs-svg" src="./assets/images/automation.svg">
+          }
+        </div>
+        <p class="placeholder" [ghs-label]="'data.challenges.' + challenge.edition + '.' +  challenge.cardId"></p>
+        <div class="hint">
+          @if (challenge.automation == 'partial' && settingsManager.settings.fhChallengesApply) {
+          <img [ghs-tooltip]="'data.challenges.' + challenge.edition + '.' +  challenge.cardId + '.hint'"
+            class="ghs-svg" src="./assets/images/warning.svg">
+          }
+        </div>
+      </div>
+      <div class="text">
+        <p class="placeholder" [ghs-label]="'data.challenges.' + challenge.edition + '.' +  challenge.cardId + '.text'">
+        </p>
+      </div>
+      <div class="card-id">
+        @if (challenge.cardId < 10) { <span>0</span>
+          }{{challenge.cardId}}
+      </div>
+      }
+    </div>
+  </div>
 </div>

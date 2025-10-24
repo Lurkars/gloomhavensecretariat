@@ -76,7 +76,7 @@ export class EditorActionComponent implements OnInit {
       }
     } else if (this.action.type == ActionType.summon && this.action.valueObject) {
       try {
-        this.summon = Object.assign(new SummonData('', '', '', 0, 0, 0, 0, false), this.action.valueObject);
+        this.summon = Object.assign(new SummonData(), this.action.valueObject);
       } catch (e) {
         this.summon = undefined;
         const summonValue = (this.action.value + '').split(':');
@@ -329,7 +329,7 @@ export class EditorActionComponent implements OnInit {
       this.summon = undefined;
       this.changeSummonMonster();
     } else if (event.target.value == 'summon') {
-      this.summon = new SummonData("", "", "", 0, 0, 0, 0, false);
+      this.summon = new SummonData();
       this.action.value = 'summonData';
       this.action.valueObject = this.summon;
     }

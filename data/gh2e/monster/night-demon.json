@@ -7,23 +7,9 @@
     "actions": [
       {
         "type": "custom",
-        "value": "^^All attacks"
-      },
-      {
-        "type": "custom",
-        "value": "^^targeting Night"
-      },
-      {
-        "type": "custom",
-        "value": "^^Demon gain"
-      },
-      {
-        "type": "custom",
-        "value": "^^disadvantage"
+        "value": "%game.custom.disadvantage%"
       }
-    ],
-    "immunities": [],
-    "special": []
+    ]
   },
   "stats": [
     {

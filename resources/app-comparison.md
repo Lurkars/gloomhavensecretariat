@@ -29,8 +29,8 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Ally Attack Modifier Deck                                                       | ✅            | ✅         | ✅        | ✅        | ⛔       |
 | Scenario Setup (Monster, Objectives, Escorts)                                   | ✅            | ✅         | ✅        | ✅        | ✅       |
 | Separate Rooms/Sections                                                         | ✅            | ✅         | ✅        | ✅        | ⛔       |
-| Character Attack Modifier Deck                                                  | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
-| Character Perks                                                                 | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
+| Character Attack Modifier Deck                                                  | ✅            | ✅         | ⛔        | ✅        | ⛔       |
+| Character Perks                                                                 | ✅            | ✅         | ⛔        | ✅        | ⛔       |
 | Character Scenario XP                                                           | ✅            | ✅         | ✅        | ✅        | ✅       |
 | Character Scenario Gold                                                         | ✅            | ⛔         | ✅        | ✅        | ✅       |
 | Character Progress (XP, Gold/Resources, Items, Perks etc.)                      | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
@@ -93,6 +93,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Support Frosthaven Building 81 Mechanics                                        | ✅[^1]        | ⛔         | ⛔        | ✅        | ⛔       |
 | Support Frosthaven Building 90 Mechanics                                        | ✅[^1]        | ⛔         | ⛔        | ✅        | ⛔       |
 | Support for Gloomhaven 2nd Edition Appendix F                                   | ✅[^1]        | ✅         | ⛔        | ⛔        | ⛔       |
+| Support for GH2E Faction Envelope Content                                       | ✅            | ✅         | ⛔        | ⛔        | ⛔       |
 | Automatic Standees                                                              | ✅            | ✅         | ✅        | ✅        | ⛔       |
 | Assign Standee Numbers                                                          | ✅            | ✅         | ✅        | ✅        | ✅       |
 | Sort Standees                                                                   | ✅            | ✅         | ✅        | ✅        | ✅       |
@@ -139,9 +140,9 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 
 [^1.3]: Manually save/load states for multiple parties
 
-[^1.4]: All titles and initiatives implemented but most ability data still missing
+[^1.4]: Some ability data still missing (mostly FH, community editions, all of GH2E)
 
-[^1.5]: Still a lot in progress here and all data must be validated, but basic support ready, mostly FH data incomplete
+[^1.5]: data must be validated, GH2E and community editions missing
 
 [^2.1]: Some special rules data not complete, but fully playable
 
@@ -151,7 +152,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 
 [^3.1]: Need to be enabled in **Data Management** Menu, afterwards added in **Battle Goals Setup**
 
-[^3.2]: Work in Progress, by now only all data/features in XHA covered, scenario data may contain errors and be missing some special rules, all non-scenario sections missing, as is some data, such as events
+[^3.2]: Work in Progress, scenario data may contain errors and be missing some special rules, some sections missing, as is some data, such as events and items
 
 [^3.3]: Some mechanics that are anyway used sparingly in the game may be ignored by the app
 

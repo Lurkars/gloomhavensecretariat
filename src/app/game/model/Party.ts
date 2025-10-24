@@ -172,6 +172,13 @@ export class Party {
     if (this.campaignMode && settingsManager.settings.events) {
       gameManager.eventCardManager.buildPartyDeckMigration(this.edition || gameManager.currentEdition());
     }
+
+    this.eventCards.forEach((value) => {
+      if (Object.keys(value).indexOf('attack') == -1) {
+        const eventCard = gameManager.eventCardManager.getEventCardForEdition(value.edition, value.type, value.cardId);
+        value.attack = eventCard && eventCard.options && eventCard.options.some((option) => option.outcomes && option.outcomes.some((outcome) => outcome.attack)) || false;
+      }
+    })
   }
 
 }

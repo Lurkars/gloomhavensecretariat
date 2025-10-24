@@ -4,9 +4,7 @@
   "boss": true,
   "count": 1,
   "baseStat": {
-    "type": "boss",
-    "immunities": [],
-    "special": []
+    "type": "boss"
   },
   "stats": [
     {

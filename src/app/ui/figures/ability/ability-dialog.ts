@@ -14,7 +14,8 @@ import { Monster } from 'src/app/game/model/Monster';
 })
 export class AbilityDialogComponent implements OnInit {
 
-  ability: Ability;
+  ability: Ability | undefined;
+  secondAbility: Ability | undefined;
   monster: Monster | undefined;
   character: Character | undefined;
   relative: boolean;
@@ -24,12 +25,24 @@ export class AbilityDialogComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
 
-  constructor(@Inject(DIALOG_DATA) data: { ability: Ability, monster: Monster, character: Character, relative: boolean, interactive: boolean }, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) data: { ability: Ability | undefined, monster: | undefined, character: Character | undefined, relative: boolean, interactive: boolean }, private dialogRef: DialogRef) {
     this.ability = data.ability;
     this.monster = data.monster || undefined;
     this.character = data.character || undefined;
     this.relative = data.relative;
     this.interactiveAbilities = data.interactive;
+
+    if (!!this.monster && !this.ability) {
+      this.ability = gameManager.monsterManager.getAbility(this.monster);
+      if (gameManager.monsterManager.hasBottomActions(this.monster)) {
+        this.secondAbility = this.ability;
+        this.ability = gameManager.monsterManager.getAbility(this.monster, true);
+      }
+    }
+
+    if (!this.ability) {
+      this.dialogRef.close();
+    }
   }
 
   ngOnInit(): void {

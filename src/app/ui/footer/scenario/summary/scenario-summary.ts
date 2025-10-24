@@ -236,18 +236,12 @@ export class ScenarioSummaryComponent implements OnDestroy {
         this.rewards = undefined;
         this.townGuardAMs = [];
         if ((gameManager.game.party.campaignMode || forceCampaign) && this.success) {
-            if (this.conclusion) {
-                this.rewards = this.conclusion.rewards;
+            if (this.scenario.rewards) {
+                this.rewards = Object.assign(new ScenarioRewards, this.scenario.rewards);
             }
-
-            if (!this.rewards) {
-                this.rewards = this.scenario.rewards;
-            }
-
-            this.rewards = this.scenario.rewards;
             if (this.conclusion && this.conclusion.rewards) {
                 if (!this.rewards) {
-                    this.rewards = this.conclusion.rewards;
+                    this.rewards = Object.assign(new ScenarioRewards, this.conclusion.rewards);
                 } else {
                     Object.assign(this.rewards, this.conclusion.rewards)
                 }
@@ -373,6 +367,19 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 if (this.rewards.townGuardAm) {
                     this.townGuardAMs = this.rewards.townGuardAm.map((id) => additionalTownGuardAttackModifier.find((am) => am.id == id) as AttackModifier);
                 }
+
+                if (this.rewards.valueMapping) {
+                    Object.keys(this.rewards.valueMapping).forEach((key) => {
+                        if (this.rewards && this.rewards.valueMapping && this.rewards.valueMapping[key]) {
+                            const rule = this.rewards.valueMapping[key];
+                            const value = gameManager.scenarioRulesManager.presentEntitiesByFigureRule(rule, undefined).length;
+                            const rewardKey = rule.value as keyof ScenarioRewards;
+                            if (this.rewards && typeof this.rewards[rewardKey] === 'string') {
+                                (this.rewards[rewardKey] as string) = this.rewards[rewardKey].replaceAll(key, '' + value);
+                            }
+                        }
+                    })
+                }
             }
 
             if (gameManager.challengesManager.enabled) {
@@ -410,7 +417,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
 
     hasRewards(): boolean {
         const rewards = this.rewards;
-        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards || rewards.removeLootDeckCards || rewards.townGuardAm || rewards.overlayCampaignSticker || rewards.overlaySticker || rewards.pet || rewards.eventDecks)) {
+        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards || rewards.removeLootDeckCards || rewards.townGuardAm || rewards.overlayCampaignSticker || rewards.overlaySticker || rewards.pet || rewards.eventDecks || rewards.reputationFactions || rewards.factionUnlock)) {
             return true;
         }
         return false;
@@ -825,10 +832,10 @@ export class ScenarioSummaryComponent implements OnDestroy {
             if (!forcedLink && (gameManager.scenarioManager.isBlocked(linkedScenarioData) || gameManager.scenarioManager.isLocked(linkedScenarioData))) {
                 this.dialog.open(ScenarioRequirementsDialogComponent, {
                     panelClass: ['dialog'],
-                    data: { scenarioData: linkedScenarioData }
+                    data: { scenarioData: linkedScenarioData, linked: true }
                 })
             } else {
-                gameManager.scenarioManager.setScenario(new Scenario(linkedScenarioData));
+                gameManager.scenarioManager.setScenario(new Scenario(linkedScenarioData), true);
             }
         } else {
             gameManager.game.figures.forEach((figure) => {

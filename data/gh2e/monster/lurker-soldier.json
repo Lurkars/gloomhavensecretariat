@@ -1,13 +1,9 @@
 {
   "name": "lurker-soldier",
   "edition": "gh2e",
-  "deck": "lurker",
   "count": 6,
   "baseStat": {
-    "type": "normal",
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "normal"
   },
   "stats": [
     {

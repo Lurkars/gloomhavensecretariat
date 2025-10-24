@@ -27,6 +27,7 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
   @Input() relative: boolean = false;
   @Input() interactiveAbilities: boolean = false;
   @Input() statsCalculation: boolean = true;
+  @Input() activeActions: 'top' | 'bottom' | false = false;
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;

@@ -66,16 +66,36 @@
             color: var(--ghs-color-yellow);
         }
 
-        ghs-character-item {
+        .item {
             position: relative;
             margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
-            transition: all calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
 
-            &.spent {
-                transform: rotate(90deg);
-                margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 7.25 * var(--ghs-dialog-factor));
+            .open-item {
+                position: absolute;
+                top: calc(var(--ghs-unit) * 0.75 * var(--ghs-dialog-factor));
+                left: calc(var(--ghs-unit) * 0.75 * var(--ghs-dialog-factor));
+                width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                height: auto;
+                filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                cursor: zoom-in;
+                z-index: 2;
+            }
+
+
+            ghs-character-item {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                transition: all calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
+                z-index: 1;
+
+                &.spent {
+                    transform: rotate(90deg);
+                    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 7.25 * var(--ghs-dialog-factor));
+                }
             }
         }
 

@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Drain Speed",
-      "cardId": 762,
+      "cardId": 656,
       "initiative": 8,
       "actions": [
         {
@@ -33,7 +33,7 @@
     },
     {
       "name": "Drain Strength",
-      "cardId": 763,
+      "cardId": 657,
       "initiative": 8,
       "actions": [
         {
@@ -62,7 +62,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 764,
+      "cardId": 658,
       "initiative": 62,
       "actions": [
         {
@@ -86,7 +86,7 @@
     },
     {
       "name": "Tend to the Clan",
-      "cardId": 765,
+      "cardId": 659,
       "initiative": 23,
       "shuffle": true,
       "actions": [
@@ -110,7 +110,7 @@
     },
     {
       "name": "Tend to the Clan",
-      "cardId": 766,
+      "cardId": 660,
       "initiative": 23,
       "shuffle": true,
       "actions": [
@@ -134,7 +134,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 767,
+      "cardId": 661,
       "initiative": 74,
       "actions": [
         {
@@ -158,7 +158,7 @@
     },
     {
       "name": "Divine Energy",
-      "cardId": 768,
+      "cardId": 662,
       "initiative": 89,
       "actions": [
         {
@@ -197,7 +197,7 @@
     },
     {
       "name": "Angry Hex",
-      "cardId": 769,
+      "cardId": 663,
       "initiative": 9,
       "actions": [
         {

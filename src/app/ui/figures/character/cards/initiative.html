@@ -7,8 +7,11 @@
     (change)="updateInitiative($event)" (focus)="initiativeInput.select()" type="number" (blur)="disableReveal()"
     [min]="gameManager.game.state == GameState.draw ? 0 : 1" max="99" maxlength="2"
     [id]="'initiative-input-' + tabindex()">
-  <span class="hidden-initiative" *ngIf="figure.initiative > 0 && initiativeHidden() && !reveal" (click)="enableReveal($event)">??</span>
+  @if (figure.initiative > 0 && initiativeHidden() && !reveal) {
+  <span class="hidden-initiative" (click)="enableReveal($event)">??</span>
+  }
+  @if (!!character && !initiativeHidden() && character.longRest) {
   <img class="ghs-svg long-rest" [ghs-label]="'game.figure.longRestOff'" [ghs-label-attribute]="'title'"
-    *ngIf="!!character && !initiativeHidden() && character.longRest" src="./assets/images/long-rest.svg"
-    (click)="longRestOff($event)" />
+    src="./assets/images/long-rest.svg" (click)="longRestOff($event)" />
+  }
 </div>

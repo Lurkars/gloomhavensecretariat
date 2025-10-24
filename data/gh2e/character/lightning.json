@@ -9,6 +9,12 @@
   "retireEvent": "road:63|road:64",
   "color": "#d75f49",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "long_rest_heal",
+      "perk": 9
+    }
+  ],
   "stats": [
     {
       "level": 1,

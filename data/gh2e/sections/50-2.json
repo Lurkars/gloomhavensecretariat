@@ -21,6 +21,9 @@
       "city-rule-military",
       "peace-through-bloodshed"
     ],
+    "envelopes": [
+      "%data.gh2eFaction:military%"
+    ],
     "prosperity": 1,
     "events": [
       "city:36",

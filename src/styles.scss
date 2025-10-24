@@ -1286,7 +1286,6 @@ input[type="radio"] {
     align-items: center;
     position: relative;
     top: 0.3em;
-    margin-bottom: 0.5em;
 
     img {
       position: relative;
@@ -1484,6 +1483,28 @@ input[type="radio"] {
   .placeholder-checkmark {
     .ghs-svg {
       margin-top: -0.3em;
+    }
+  }
+
+  .placeholder-resource {
+    display: inline-block;
+    height: 1em;
+
+    .icon.ghs-svg {
+      width: 1.35em;
+      height: auto;
+      margin-top: -0.15em;
+    }
+  }
+
+  .placeholder-custom-action {
+    display: inline-block;
+    height: 1em;
+
+    .icon.ghs-svg {
+      height: 1.35em;
+      width: auto;
+      margin-top: -0.15em;
     }
   }
 

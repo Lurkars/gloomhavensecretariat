@@ -7,10 +7,7 @@
   "count": 6,
   "standeeShare": "lurker-soldier",
   "baseStat": {
-    "type": "boss",
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "boss"
   },
   "stats": [
     {

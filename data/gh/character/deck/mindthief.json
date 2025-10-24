@@ -157,7 +157,7 @@
                 },
                 {
                   "type": "card",
-                  "value": "persistent"
+                  "value": "round"
                 }
               ]
             }
@@ -202,6 +202,11 @@
             "circle"
           ],
           "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            },
             {
               "type": "custom",
               "value": "%data.custom.gh.mindthief.abilities.149.4%",
@@ -496,6 +501,7 @@
             {
               "type": "range",
               "value": 2,
+              "small": true,
               "enhancementTypes": [
                 "diamond"
               ]
@@ -662,7 +668,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemyAdjacent"
+              "value": "enemyAdjacent",
+              "small": true
             }
           ]
         },
@@ -738,7 +745,8 @@
                     },
                     {
                       "type": "card",
-                      "value": "experience:1"
+                      "value": "experience:1",
+                      "small": true
                     }
                   ]
                 }
@@ -1384,6 +1392,10 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ]
     },
@@ -1484,8 +1496,7 @@
             }
           ]
         }
-      ],
-      "revealed": true
+      ]
     },
     {
       "name": "Vicious Blood",
@@ -1621,7 +1632,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -1660,6 +1672,7 @@
             {
               "type": "target",
               "value": 2,
+              "small": true,
               "enhancementTypes": [
                 "diamond"
               ]
@@ -1817,8 +1830,7 @@
             ],
             "action": {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.173.1%",
-              "small": true
+              "value": "%data.custom.gh.mindthief.abilities.173.1%"
             }
           },
           "small": true
@@ -1909,7 +1921,7 @@
             },
             {
               "type": "card",
-              "value": "experience:2"
+              "value": "experience:1"
             }
           ]
         },

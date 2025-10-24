@@ -54,6 +54,9 @@
           "name": "ooze",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

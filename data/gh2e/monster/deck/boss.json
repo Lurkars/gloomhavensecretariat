@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Accelerated Power",
-      "cardId": 874,
+      "cardId": 744,
       "initiative": 11,
       "actions": [
         {
@@ -15,7 +15,7 @@
     },
     {
       "name": "Accelerated Power",
-      "cardId": 875,
+      "cardId": 745,
       "initiative": 14,
       "actions": [
         {
@@ -26,7 +26,7 @@
     },
     {
       "name": "Accelerated Power",
-      "cardId": 876,
+      "cardId": 746,
       "initiative": 17,
       "shuffle": true,
       "actions": [
@@ -38,7 +38,7 @@
     },
     {
       "name": "Lingering Strength",
-      "cardId": 877,
+      "cardId": 747,
       "initiative": 85,
       "shuffle": true,
       "actions": [
@@ -50,7 +50,7 @@
     },
     {
       "name": "Lingering Strength",
-      "cardId": 878,
+      "cardId": 748,
       "initiative": 79,
       "actions": [
         {
@@ -61,7 +61,7 @@
     },
     {
       "name": "Lingering Strength",
-      "cardId": 879,
+      "cardId": 749,
       "initiative": 73,
       "actions": [
         {
@@ -72,7 +72,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 880,
+      "cardId": 750,
       "initiative": 36,
       "actions": [
         {
@@ -89,7 +89,7 @@
     },
     {
       "name": "Twin Shots",
-      "cardId": 881,
+      "cardId": 751,
       "initiative": 52,
       "actions": [
         {

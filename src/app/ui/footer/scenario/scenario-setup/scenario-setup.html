@@ -1,58 +1,79 @@
 <div class="setup">
 
-    <span class="title" *ngIf="title">
-        <span><span [ghs-label]="'scenario.setup'"></span></span>
-    </span>
+  @if (title) {
+  <span class="title">
+    <span><span [ghs-label]="'scenario.setup'"></span></span>
+  </span>
+  }
 
-    <div class="setup-container">
-        <label class="checkbox" *ngIf="details">
-            <input tabclick type="checkbox" [(ngModel)]="detailed"><span [ghs-label]="'scenario.setup.detailed'"></span>
-        </label>
+  <div class="setup-container">
+    @if (details) {
+    <label class="checkbox">
+      <input tabclick type="checkbox" [(ngModel)]="detailed"><span [ghs-label]="'scenario.setup.detailed'"></span>
+    </label>
+    }
 
-        <label class="checkbox" *ngIf="hasSpoiler || spoiler">
-            <input tabclick type="checkbox" [(ngModel)]="spoiler" (change)="updateMonster()"><span
-                [ghs-label]="'scenario.setup.spoiler'"></span>
-        </label>
+    @if (hasSpoiler || spoiler) {
+    <label class="checkbox">
+      <input tabclick type="checkbox" [(ngModel)]="spoiler" (change)="updateMonster()"><span
+        [ghs-label]="'scenario.setup.spoiler'"></span>
+    </label>
+    }
+  </div>
+
+  <div class="setup-container" [ngClass]="{'detailed' : detailed}">
+    @if (lootConfig.length > 0) {
+    <div class="loot-config">
+      <div class="title" [ghs-label]="'game.loot'"></div>
+      @for (loot of lootConfig; track loot.type) {
+      <div class="loot">
+        @if (loot.type != 'random_item') {
+        <span class="spacer"></span>
+        }
+        @if (loot.type == 'random_item') {
+        <span tabclick class="checkbox" [ngClass]="{'checked' : lootRandomItem}"></span>
+        }
+        <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +loot.type + '.svg'">
+        <span class="sign">x</span>{{loot.value}}
+      </div>
+      }
     </div>
-
-    <div class="setup-container" [ngClass]="{'detailed' : detailed}">
-        <div class="loot-config" *ngIf="lootConfig.length > 0">
-            <div class="title" [ghs-label]="'game.loot'"></div>
-            <div class="loot" *ngFor="let loot of lootConfig">
-                <span class="spacer" *ngIf="loot.type != 'random_item'"></span>
-                <span tabclick class="checkbox" *ngIf="loot.type == 'random_item'"
-                    [ngClass]="{'checked' : lootRandomItem}"></span>
-                <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +loot.type + '.svg'">
-                <span class="sign">x</span>{{loot.value}}
+    }
+    <div class="monsters">
+      @for (monster of monsters; track monster.edition + '-' + monster.name) {
+      <div tabclick class="monster" (click)="openStats(monster)">
+        <div class="image">
+          <div class="outer-border">
+            <div class="inner-border">
+              <div class="image-container">
+                @if (!monster.noThumbnail && settingsManager.settings.artwork) {
+                <img [src]="gameManager.monsterManager.monsterThumbnail(monster)">
+                }
+                @if (monster.noThumbnail || !settingsManager.settings.artwork) {
+                <span class="letter">
+                  @for (namePart of (settingsManager.getLabel('data.monster.' + monster.name).split(' ')); track
+                  namePart) {
+                  <span>{{namePart[0]}}</span>
+                  }
+                </span>
+                }
+              </div>
             </div>
+          </div>
+          @if (monster.boss || monster.tags.indexOf('boss') != -1) {
+          <span class="boss"><img src="./assets/images/monster/enemy.png" /></span>
+          }
+          @if (monster.standeeShare || monster.statEffect) {
+          <span class="custom">*</span>
+          }
         </div>
-        <div class="monsters">
-            <div tabclick class="monster" *ngFor="let monster of monsters" (click)="openStats(monster)">
-                <div class="image">
-                    <div class="outer-border">
-                        <div class="inner-border">
-                            <div class="image-container">
-                                <img *ngIf="!monster.noThumbnail && settingsManager.settings.artwork"
-                                    [src]="gameManager.monsterManager.monsterThumbnail(monster)">
-                                <span *ngIf="monster.noThumbnail || !settingsManager.settings.artwork"
-                                    class="letter">
-                                    <span
-                                        *ngFor="let namePart of (settingsManager.getLabel('data.monster.' + monster.name).split(' '))">{{namePart[0]}}</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="boss" *ngIf="monster.boss || monster.tags.indexOf('boss') != -1"><img
-                            src="./assets/images/monster/enemy.png" /></span>
-                    <span class="custom" *ngIf="monster.standeeShare || monster.statEffect">*</span>
-                </div>
-                <div class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></div>
-
-                <ng-container *ngIf="detailed">
-                    <ghs-monster-stats [monster]="monster" [forceStats]="true" [noClick]="true"
-                        [disablePoup]="true"></ghs-monster-stats>
-                </ng-container>
-            </div>
-        </div>
+        <div class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></div>
+        @if (detailed) {
+        <ghs-monster-stats [monster]="monster" [forceStats]="true" [noClick]="true"
+          [disablePoup]="true"></ghs-monster-stats>
+        }
+      </div>
+      }
     </div>
+  </div>
 </div>

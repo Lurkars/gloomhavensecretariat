@@ -10,7 +10,7 @@ import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { Scenario } from "../model/Scenario";
 import { Summon, SummonState } from "../model/Summon";
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/data/Condition";
-import { ElementState } from "../model/data/Element";
+import { Element, ElementState } from "../model/data/Element";
 import { ItemFlags } from "../model/data/ItemData";
 import { LootDeck } from "../model/data/Loot";
 import { ScenarioData } from "../model/data/ScenarioData";
@@ -56,7 +56,10 @@ export class RoundManager {
               element.state = ElementState.inert;
             } else {
               if (element.state == ElementState.strong || element.state == ElementState.new) {
-                element.state = ElementState.waning;
+                // GH2E Triangles Perk 12
+                if ([Element.fire, Element.ice, Element.air, Element.earth].indexOf(element.type) == -1 || !this.game.figures.find((figure) => figure instanceof Character && figure.name == 'triangles' && figure.tags.find((tag) => tag === 'element_waning'))) {
+                  element.state = ElementState.waning;
+                }
               } else if (element.state == ElementState.waning) {
                 element.state = ElementState.inert;
               }
@@ -442,7 +445,9 @@ export class RoundManager {
       if (figure.health < figure.maxHealth || figure.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1 && !entityCondition.permanent)) {
         let heal = 2;
 
-        if (figure.name == 'lightning' && figure.edition == 'fh-crossover' && figure.progress.perks[9]) {
+        if (figure.name == 'lightning' && figure.edition == 'fh-crossover' && figure.tags.find((tag) => tag === 'rapid_recovery')) {
+          heal += 1;
+        } else if (figure.name == 'lightning' && figure.edition == 'gh2e' && figure.tags.find((tag) => tag === 'long_rest_heal')) {
           heal += 1;
         }
 
@@ -619,6 +624,13 @@ export class RoundManager {
       figure.off = false;
       if (figure instanceof Character) {
         if (figure.name == 'demolitionist' && figure.tags.find((tag) => tag === 'mech')) {
+          const stat = figure.stats.find((stat) => stat.level == figure.level);
+          if (stat) {
+            figure.maxHealth = stat.health;
+          }
+        }
+
+        if (figure.name == 'astral' && figure.tags.find((tag) => tag === 'veil-of-protection')) {
           const stat = figure.stats.find((stat) => stat.level == figure.level);
           if (stat) {
             figure.maxHealth = stat.health;

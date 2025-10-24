@@ -5,31 +5,39 @@
     <label>
       <span [ghs-label]="'settings.edition'"></span>
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
-        <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+        @for (edition of gameManager.editions(true); track edition) {
+        <option [value]="edition">
           <span [ghs-label]="'data.edition.' + edition"></span>
         </option>
+        }
       </select>
     </label>
     <label>
       <span [ghs-label]="'settings.character'"></span>
       <select [(ngModel)]="characterName" (change)="update(); updateQueryParams()" multiple>
-        <option *ngFor="let character of characters" [value]="character.name">
+        @for (character of characters; track character.edition + '-' + character.name) {
+        <option [value]="character.name">
           <span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span>
         </option>
+        }
       </select>
     </label>
   </div>
 
   <div class="characters">
-    <ng-container *ngFor="let character of filteredCharacters">
-      <div class="character" *ngIf="!!character && character.attackModifierDeck.cards.length > 0">
-        <h1><span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span> [{{character.attackModifierDeck.cards.length}}]
-        </h1>
-        <ghs-attackmodifier [attackModifier]="attackModifier" [flipped]="true"
-          [characterIcon]="gameManager.characterManager.characterIcon(character)"
-          *ngFor="let attackModifier of character.attackModifierDeck.cards"
-          [newStyle]="settingsManager.settings.fhStyle || gameManager.newAmStyle(character.edition)"></ghs-attackmodifier>
-      </div>
-    </ng-container>
+    @for (character of filteredCharacters; track character.edition + '-' + character.name) {
+    @if (!!character && character.attackModifierDeck.cards.length > 0) {
+    <div class="character">
+      <h1><span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span>
+        [{{character.attackModifierDeck.cards.length}}]
+      </h1>
+      @for (attackModifier of character.attackModifierDeck.cards; track attackModifier) {
+      <ghs-attackmodifier [attackModifier]="attackModifier" [flipped]="true"
+        [characterIcon]="gameManager.characterManager.characterIcon(character)"
+        [newStyle]="settingsManager.settings.fhStyle || gameManager.newAmStyle(character.edition)"></ghs-attackmodifier>
+      }
+    </div>
+    }
+    }
   </div>
 </div>

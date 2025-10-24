@@ -6,11 +6,9 @@
   "standeeShare": "living-corpse",
   "baseStat": {
     "type": "normal",
-    "actions": [],
     "immunities": [
       "poison"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

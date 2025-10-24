@@ -1,7 +1,13 @@
 <div class="menu-container monster-add">
   <div class="line filter-monster-menu"
-    [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+    [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'all-editions': gameManager.game.edition}">
     <input [(ngModel)]="filter" type="text" [ghs-label]="'monster.filter'" [ghs-label-attribute]="'placeholder'">
+    @if (gameManager.game.edition) {
+    <label>
+      <input tabclick type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions;">
+      <span [ghs-label]="'character.filter.allEditions'"></span>
+    </label>
+    }
     <label [ngClass]="{'disabled' : !hasBossMonster()}">
       <input tabclick type="checkbox" [checked]="settingsManager.settings.showBossMonster"
         (change)="settingsManager.toggle('showBossMonster')">
@@ -14,34 +20,50 @@
     </label>
   </div>
   <div class="columns">
-    <ng-container *ngFor="let edition of gameManager.currentEditions()">
-      <div class="column spoilers bosses" *ngIf="monsterData(edition, filter).length > 0">
-        <div class="line title sticky"
-          [ngClass]="{'hide-title' : gameManager.currentEditions().length == 1, 'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
-          <label><span [ghs-label]="'data.edition.' + edition"></span></label>
-        </div>
-        <div class="line" *ngFor="let monsterData of monsterData(edition, filter)"
-          [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss, 'hidden-monster' : monsterData.hidden}">
-          <a tabclick (click)="addMonster(monsterData);" *ngIf="isSpoiled(monsterData)">
-            <span class="boss-icon" *ngIf="monsterData.boss"><img src="./assets/images/monster/enemy.png" /></span>
-            <span [ghs-label]="'data.monster.' + monsterData.name"></span>
-            <img class="ghs-svg hidden-icon" *ngIf="monsterData.hidden" src="./assets/images/hidden.svg" />
-          </a>
-          <a tabclick (click)="settingsManager.addSpoiler(monsterData.name);" *ngIf="!isSpoiled(monsterData)">
-            <span class="name"><span [ghs-label]="'spoiler.placeholder'"></span></span>
-            <span class="add"><span [ghs-label]="'spoiler.add'"></span></span>
-          </a>
-        </div>
+    @for (edition of (allEditions ? gameManager.editions(true,true) : gameManager.currentEditions()); track edition) {
+    @if (monsterData(edition, filter).length > 0) {
+    <div class="column spoilers bosses">
+      <div class="line title sticky"
+        [ngClass]="{'hide-title' : !allEditions && gameManager.currentEditions().length == 1, 'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+        <label><span [ghs-label]="'data.edition.' + edition"></span></label>
       </div>
-    </ng-container>
-    <div class="column" *ngIf="filter && noResults()">
+      @for (monsterData of monsterData(edition, filter); track monsterData.edition + '-' + monsterData.name) {
+      <div class="line"
+        [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss, 'hidden-monster' : monsterData.hidden}">
+        @if (isSpoiled(monsterData)) {
+        <a tabclick (click)="addMonster(monsterData);">
+          @if (monsterData.boss) {
+          <span class="boss-icon"><img src="./assets/images/monster/enemy.png" /></span>
+          }
+          <span [ghs-label]="'data.monster.' + monsterData.name"></span>
+          @if (monsterData.hidden) {
+          <img class="ghs-svg hidden-icon" src="./assets/images/hidden.svg" />
+          }
+        </a>
+        }
+        @if (!isSpoiled(monsterData)) {
+        <a tabclick (click)="settingsManager.addSpoiler(monsterData.name);">
+          <span class="name"><span [ghs-label]="'spoiler.placeholder'"></span></span>
+          <span class="add"><span [ghs-label]="'spoiler.add'"></span></span>
+        </a>
+        }
+      </div>
+      }
+    </div>
+    }
+    }
+    @if (filter && noResults()) {
+    <div class="column">
       <div class="line">
         <label><span [ghs-label]="'monster.filter.noResult'"></span></label>
       </div>
     </div>
+    }
   </div>
-  <div class="line" *ngIf="hasSpoilers(monsterData())">
+  @if (hasSpoilers(monsterData())) {
+  <div class="line">
     <a tabclick (click)="settingsManager.addSpoilers(notSpoiled(monsterData()))"><span
         [ghs-label]="'spoiler.all'"></span></a>
   </div>
+  }
 </div>

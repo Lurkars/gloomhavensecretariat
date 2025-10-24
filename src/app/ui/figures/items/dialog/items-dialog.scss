@@ -265,6 +265,17 @@
             width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
 
+            .open-item {
+                position: absolute;
+                top: calc(var(--ghs-unit) * 0.75 * var(--ghs-dialog-factor));
+                left: calc(var(--ghs-unit) * 0.75 * var(--ghs-dialog-factor));
+                width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                height: auto;
+                filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                cursor: zoom-in;
+                z-index: 4;
+            }
+
             ghs-item {
                 position: absolute;
                 top: 0;
@@ -274,6 +285,7 @@
                 border-radius: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
                 overflow: hidden;
                 cursor: pointer;
+                z-index: 1;
 
                 &.disabled {
                     cursor: initial;
@@ -314,6 +326,7 @@
                 font-family: var(--ghs-font-title);
                 font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
                 color: var(--ghs-color-darkgray);
+                z-index: 2;
             }
 
 
@@ -337,6 +350,8 @@
                 &:hover .ghs-svg {
                     filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
                 }
+
+                z-index: 3;
             }
 
             .button-equip {
@@ -351,6 +366,7 @@
                 width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
                 height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
                 opacity: 0.6;
+                z-index: 4;
 
                 .ghs-svg {
                     width: 100%;

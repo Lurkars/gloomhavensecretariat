@@ -7,12 +7,7 @@
   "hidden": true,
   "count": 10,
   "baseStat": {
-    "type": "boss",
-    "movement": 0,
-    "attack": 0,
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "boss"
   },
   "stats": [
     {

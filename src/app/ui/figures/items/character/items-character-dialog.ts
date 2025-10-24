@@ -8,9 +8,10 @@ import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 import { ItemData, ItemFlags, ItemSlot } from "src/app/game/model/data/ItemData";
 import { ItemsDialogComponent } from "../dialog/items-dialog";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { ItemDialogComponent } from "../dialog/item-dialog";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-items-character-dialog',
     templateUrl: './items-character-dialog.html',
     styleUrls: ['./items-character-dialog.scss']
@@ -78,6 +79,13 @@ export class ItemsCharacterDialogComponent {
         this.dialog.open(ItemsDialogComponent, {
             panelClass: ['dialog'],
             data: { edition: gameManager.game.edition, select: this.character, affordable: true }
+        })
+    }
+
+    openItemDialog(item: ItemData) {
+        this.dialog.open(ItemDialogComponent, {
+            panelClass: ['fullscreen-panel'],
+            data: { item: item, character: this.character, setup: this.setup }
         })
     }
 

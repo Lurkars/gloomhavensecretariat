@@ -1,20 +1,25 @@
 <p><span [ghs-label]="'game.loot.chooseCharacter'"
-        [ghs-label-args]="['' +gameManager.lootManager.getValue(loot), 'game.loot.' + loot.type]"></span></p>
+    [ghs-label-args]="['' +gameManager.lootManager.getValue(loot), 'game.loot.' + loot.type]"></span></p>
 <div class="characters">
-    <div class="character" *ngFor="let character of characters" (click)="toggleSelect(character.name)"
-        [ngClass]="{'selected' : character.name == selected}">
-        <img class="icon" [src]="character.iconUrl" />
-        <span>{{gameManager.characterManager.characterName(character, true)}}</span>
-    </div>
+  @for (character of characters; track character.edition + '-' + character.name) {
+  <div class="character" (click)="toggleSelect(character.name)" [ngClass]="{'selected' : character.name == selected}">
+    <img class="icon" [src]="character.iconUrl" />
+    <span>{{gameManager.characterManager.characterName(character, true)}}</span>
+  </div>
+  }
 </div>
 
 <div class="menu">
-    <a (click)="close()" *ngIf="selected || data.selected"
-        [ngClass]="{'disabled' : !selected && (!edit || !data.selected), 'remove': edit && !selected && data.selected}"><span
-            [ghs-label]="edit && !selected && data.selected ? 'game.loot.remove' : (!edit || !data.selected || selected != data.selected ? 'game.loot.apply' : 'game.loot.keep')"
-            [ghs-label-args]="[edition, selected || data.selected || '']"></span>
-    </a>
-    <a (click)="close()" *ngIf="!selected && !data.selected" class="cancel">
-        <span [ghs-label]="'cancel'"></span>
-    </a>
+  @if (selected || data.selected) {
+  <a (click)="close()"
+    [ngClass]="{'disabled' : !selected && (!edit || !data.selected), 'remove': edit && !selected && data.selected}"><span
+      [ghs-label]="edit && !selected && data.selected ? 'game.loot.remove' : (!edit || !data.selected || selected != data.selected ? 'game.loot.apply' : 'game.loot.keep')"
+      [ghs-label-args]="[edition, selected || data.selected || '']"></span>
+  </a>
+  }
+  @if (!selected && !data.selected) {
+  <a (click)="close()" class="cancel">
+    <span [ghs-label]="'cancel'"></span>
+  </a>
+  }
 </div>

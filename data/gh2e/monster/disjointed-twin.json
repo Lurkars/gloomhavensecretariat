@@ -7,10 +7,7 @@
   "count": 4,
   "standeeShare": "savvas-lavaflow",
   "baseStat": {
-    "type": "boss",
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "boss"
   },
   "stats": [
     {

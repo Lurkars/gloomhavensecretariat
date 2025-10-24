@@ -7,16 +7,12 @@
   "standeeShare": "first-shield-harmon",
   "baseStat": {
     "type": "boss",
-    "movement": 0,
-    "attack": 0,
     "actions": [
       {
         "type": "shield",
         "value": 1
       }
-    ],
-    "immunities": [],
-    "special": []
+    ]
   },
   "stats": [
     {

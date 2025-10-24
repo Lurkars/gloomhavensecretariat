@@ -10,7 +10,6 @@
     "type": "boss",
     "health": "Incarnate",
     "movement": 2,
-    "attack": 0,
     "actions": [
       {
         "type": "custom",
@@ -28,8 +27,7 @@
     "immunities": [
       "disarm",
       "stun"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

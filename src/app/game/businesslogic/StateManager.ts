@@ -604,7 +604,11 @@ export class StateManager {
           try {
             this.backupError = undefined;
             let xhr = new XMLHttpRequest();
-            xhr.open(settingsManager.settings.autoBackupUrl.method, settingsManager.settings.autoBackupUrl.url.replaceAll('{FILENAME}', filename), true, settingsManager.settings.autoBackupUrl.username, settingsManager.settings.autoBackupUrl.password);
+            let url = settingsManager.settings.autoBackupUrl.url;
+            url = url.replaceAll('{FILENAME}', filename);
+            const windowsFilename = filename.replace(/[\\/:*?"<>|]/g, '_');
+            url = url.replaceAll('{WINDOWS_FILENAME}', windowsFilename);
+            xhr.open(settingsManager.settings.autoBackupUrl.method, url, true, settingsManager.settings.autoBackupUrl.username, settingsManager.settings.autoBackupUrl.password);
 
             let data: string | FormData = JSON.stringify(datadump);
             if (settingsManager.settings.autoBackupUrl.fileUpload) {

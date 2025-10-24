@@ -26,19 +26,6 @@
     z-index: 0;
   }
 
-  &::after {
-    content: ' ';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url('~src/assets/images/monster/stats/standard_repeat.png');
-    background-position: top;
-    background-size: 100% auto;
-    background-repeat: repeat-y;
-    border-radius: 1em;
-    z-index: -1;
-  }
-
   .name-container {
     position: absolute;
     top: 0.4em;
@@ -362,10 +349,6 @@
 
   &.bb::before {
     background-image: url('~src/assets/images/bb/monster/stats/bb-standard.png');
-  }
-
-  &.boss::after {
-    background-image: url('~src/assets/images/monster/stats/boss_repeat.png');
   }
 
   .extra {

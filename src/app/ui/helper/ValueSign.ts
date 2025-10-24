@@ -12,6 +12,7 @@ export class ValueSignDirective implements OnChanges {
   @Input('empty') empty: boolean = true;
   @Input('hideEmpty') hideEmpty: boolean = false;
   @Input('reverse') reverse: boolean = false;
+  @Input('invert') invert: boolean = false;
   @Input('container') container: boolean = false;
 
   constructor(private el: ElementRef) {
@@ -31,9 +32,9 @@ export class ValueSignDirective implements OnChanges {
     if (this.value == 0 && this.hideEmpty) {
       this.el.nativeElement.classList.add('hide-zero-value');
     } else if (this.colored) {
-      if (this.value > 0) {
+      if (!this.invert && this.value > 0 || this.invert && this.value < 0) {
         this.el.nativeElement.classList.add('positive-value');
-      } else if (this.value < 0) {
+      } else if (!this.invert && this.value < 0 || this.invert && this.value > 0) {
         this.el.nativeElement.classList.add('negative-value');
       }
     }

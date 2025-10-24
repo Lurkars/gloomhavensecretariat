@@ -12,6 +12,7 @@ export class ObjectiveData {
   allyDeck: boolean = false;
   tags: string[] = [];
   initiativeShare : string | undefined;
+  trackDamage: boolean = false;
 
   constructor(name: string, health: number | string, escort: boolean = false, id: number = -1, marker: string = "", tags: string[] = [], initiative: number | undefined = undefined) {
     this.name = name;

@@ -1,226 +1,211 @@
 <div class="container" [style.--ghs-ability-color]="abilityColor">
-    <ghs-header [standalone]="true" *ngIf="standalone"></ghs-header>
+  @if (standalone) {
+  <ghs-header [standalone]="true"></ghs-header>
+  }
 
-    <div class="columns">
-        <div class="input">
-            <div class="deck">
-                <h2><span [ghs-label]="'editor.deck'"></span></h2>
-                <div class="base-data dialog">
-                    <div class="dialog-container">
-                        <label><span [ghs-label]="'editor.deck.name'"></span></label>
-                        <input [(ngModel)]="deckData.name" [ghs-label]="'editor.deck.name'"
-                            [ghs-label-attribute]="'placeholder'" (change)="deckDataToJson()"
-                            (keyup)="deckDataToJson()">
+  <div class="columns">
+    <div class="input">
+      <div class="deck">
+        <h2><span [ghs-label]="'editor.deck'"></span></h2>
+        <div class="base-data dialog">
+          <div class="dialog-container">
+            <label><span [ghs-label]="'editor.deck.name'"></span></label>
+            <input [(ngModel)]="deckData.name" [ghs-label]="'editor.deck.name'" [ghs-label-attribute]="'placeholder'"
+              (change)="deckDataToJson()" (keyup)="deckDataToJson()">
 
-                        <label><span [ghs-label]="'editor.deck.edition'"></span></label>
-                        <input [(ngModel)]="deckData.edition" [ghs-label]="'editor.deck.edition'"
-                            [ghs-label-attribute]="'placeholder'" (change)="deckDataToJson()"
-                            (keyup)="deckDataToJson()">
-                        <ng-container *ngIf="!character && !monster">
-                            <label><span [ghs-label]="'editor.deck.character'"></span></label>
-                            <input type="checkbox" [(ngModel)]="deckData.character" (change)="deckDataToJson()">
-                            <ng-container *ngIf="deckData.character">
-                                <label><span [ghs-label]="'editor.character.data.color'"></span></label>
-                                <input [(ngModel)]="abilityColor" type="color"
-                                    [ghs-label]="'editor.character.data.color'" [ghs-label-attribute]="'placeholder'">
-                            </ng-container>
-                        </ng-container>
-                    </div>
+            <label><span [ghs-label]="'editor.deck.edition'"></span></label>
+            <input [(ngModel)]="deckData.edition" [ghs-label]="'editor.deck.edition'"
+              [ghs-label-attribute]="'placeholder'" (change)="deckDataToJson()" (keyup)="deckDataToJson()">
+            @if (!character && !monster) {
+            <label><span [ghs-label]="'editor.deck.character'"></span></label>
+            <input type="checkbox" [(ngModel)]="deckData.character" (change)="deckDataToJson()">
+            @if (deckData.character) {
+            <label><span [ghs-label]="'editor.character.data.color'"></span></label>
+            <input [(ngModel)]="abilityColor" type="color" [ghs-label]="'editor.character.data.color'"
+              [ghs-label-attribute]="'placeholder'">
+            }
+            }
+          </div>
+        </div>
+
+        @for (ability of deckData.abilities; track ability.cardId) {
+        <div class="abilities-container">
+          <div class="ability-input">
+            <div class="ability-edit" #card [style.fontSize]=" card.offsetWidth * 0.04 + 'px'"
+              [style.--ghs-ability-color]="getCharacter() && getCharacter()?.color"
+              [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0, 'character-actions' : deckData.character, 'fh': settingsManager.settings.fhStyle}">
+              <input class="name" [(ngModel)]="ability.name" (change)="deckDataToJson()"
+                [ghs-label]="ability.name || 'editor.deck.abilityName'" [ghs-label-attribute]="'placeholder'"
+                (keyup)="deckDataToJson()">
+              <span class="level">
+                @if (deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0) {
+                <input class="text" [ngModel]="ability.level" (ngModelChange)="ability.level=valueChange($event)"
+                  (change)="deckDataToJson()">
+                }
+              </span>
+              <input class="initiative" min="0" max="100" type="number"
+                [value]="ability.initiative && (ability.initiative < 10 ? '0' : '') + ability.initiative"
+                (change)="changeInitiative($event, ability)">
+              <div class="actions-container">
+                <div class="actions" cdkDropList (cdkDropListDropped)="dropAction(ability.actions, $event)">
+                  @for (action of ability.actions; track action; let index = $index) {
+                  <div class="action-container" cdkDrag>
+                    @if (divider(ability.actions,index)) {
+                    <div class="divider"></div>
+                    }
+                    <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
+                    <ghs-action (click)="editAbilityAction(ability, action)" [action]="action" [relative]="true"
+                      [character]="getCharacter()" [cardId]="ability.cardId">
+                    </ghs-action>
+                  </div>
+                  }
                 </div>
-
-                <div class="abilities-container" *ngFor="let ability of deckData.abilities">
-                    <div class="ability-input">
-                        <div class="ability-edit" #card [style.fontSize]=" card.offsetWidth * 0.04 + 'px'"
-                            [style.--ghs-ability-color]="getCharacter() && getCharacter()?.color"
-                            [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0, 'character-actions' : deckData.character, 'fh': settingsManager.settings.fhStyle}">
-                            <input class="name" [(ngModel)]="ability.name" (change)="deckDataToJson()"
-                                [ghs-label]="ability.name || 'editor.deck.abilityName'"
-                                [ghs-label-attribute]="'placeholder'" (keyup)="deckDataToJson()">
-
-                            <span class="level">
-                                <input class="text" [ngModel]="ability.level"
-                                    (ngModelChange)="ability.level=valueChange($event)" (change)="deckDataToJson()"
-                                    *ngIf="deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0">
-                            </span>
-
-                            <input class="initiative" min="0" max="100" type="number"
-                                [value]="ability.initiative && (ability.initiative < 10 ? '0' : '') + ability.initiative"
-                                (change)="changeInitiative($event, ability)">
-
-                            <div class="actions-container">
-                                <div class="actions" cdkDropList
-                                    (cdkDropListDropped)="dropAction(ability.actions, $event)">
-                                    <div class="action-container"
-                                        *ngFor="let action of ability.actions; let index = index;" cdkDrag>
-                                        <div class="divider" *ngIf="divider(ability.actions,index)"></div>
-                                        <span class="handle" cdkDragHandle><img class="ghs-icon"
-                                                src="./assets/images/menu.svg"></span>
-                                        <ghs-action (click)="editAbilityAction(ability, action)" [action]="action"
-                                            [relative]="true" [character]="getCharacter()" [cardId]="ability.cardId">
-                                        </ghs-action>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="required-container"
-                                *ngIf="deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0">
-
-                                <div class="xp">
-                                    <input type="number" [ngModel]="ability.xp" min="0"
-                                        (ngModelChange)="ability.xp=+$event" (change)="deckDataToJson()">
-                                </div>
-
-                                <a class="lost" (click)="ability.lost=!ability.lost;deckDataToJson();"
-                                    [ngClass]="{'enabled' : ability.lost }">
-                                    <img src="./assets/images/action/card/lost.svg">
-                                    <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
-                                </a>
-
-                                <a class="round" (click)="ability.round=!ability.round;deckDataToJson();"
-                                    [ngClass]="{'enabled' : ability.round}">
-                                    <img src="./assets/images/action/card/round.svg">
-                                    <img class="overlay" src="./assets/images/action/card/overlay/round.svg">
-                                </a>
-
-                                <a class="loss" (click)="ability.loss=!ability.loss;deckDataToJson();"
-                                    [ngClass]="{'enabled' : ability.loss}">
-                                    <img src="./assets/images/action/card/loss.svg">
-                                    <img class="overlay" src="./assets/images/action/card/overlay/loss.svg">
-                                </a>
-
-
-                                <a class="persistent" (click)="ability.persistent=!ability.persistent;deckDataToJson();"
-                                    [ngClass]="{'enabled' : ability.persistent}">
-                                    <img src="./assets/images/action/card/persistent.svg">
-                                    <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg">
-                                </a>
-
-                                <a class="shuffle" *ngIf="!deckData.character"
-                                    (click)="ability.shuffle=!ability.shuffle;deckDataToJson();"
-                                    [ngClass]="{'enabled' : ability.shuffle }">
-                                    <img src="./assets/images/shuffle.svg">
-                                </a>
-                            </div>
-
-
-                            <div class="actions-container bottom"
-                                *ngIf="deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0">
-                                <div class="actions" cdkDropList
-                                    (cdkDropListDropped)="dropAction(ability.bottomActions, $event)">
-                                    <div class="action-container"
-                                        *ngFor="let action of ability.bottomActions; let index = index;" cdkDrag>
-                                        <div class="divider" *ngIf="divider(ability.bottomActions,index)"></div>
-                                        <span class="handle" cdkDragHandle><img class="ghs-icon"
-                                                src="./assets/images/menu.svg"></span>
-                                        <ghs-action (click)="editAbilityActionBottom(ability, action)" [action]="action"
-                                            [relative]="true" [character]="getCharacter()" [cardId]="ability.cardId">
-                                        </ghs-action>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="required-container bottom"
-                                *ngIf="deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0">
-
-                                <div class="xp">
-                                    <input type="number" [ngModel]="ability.bottomXp" min="0"
-                                        (ngModelChange)="ability.bottomXp=+$event" (change)="deckDataToJson()">
-                                </div>
-
-                                <a class="lost" (click)="ability.bottomLost=!ability.bottomLost;deckDataToJson();"
-                                    [ngClass]="{'enabled' : ability.bottomLost }">
-                                    <img src="./assets/images/action/card/lost.svg">
-                                    <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
-                                </a>
-
-                                <a class="round" (click)="ability.bottomRound=!ability.bottomRound;deckDataToJson();"
-                                    [ngClass]="{'enabled' : ability.bottomRound}">
-                                    <img src="./assets/images/action/card/round.svg">
-                                    <img class="overlay" src="./assets/images/action/card/overlay/round.svg">
-                                </a>
-
-                                <a class="loss" (click)="ability.bottomLoss=!ability.bottomLoss;deckDataToJson();"
-                                    [ngClass]="{'enabled' : ability.bottomLoss}">
-                                    <img src="./assets/images/action/card/loss.svg">
-                                    <img class="overlay" src="./assets/images/action/card/overlay/loss.svg">
-                                </a>
-
-
-                                <a class="persistent"
-                                    (click)="ability.bottomPersistent=!ability.bottomPersistent;deckDataToJson();"
-                                    [ngClass]="{'enabled' : ability.bottomPersistent}">
-                                    <img src="./assets/images/action/card/persistent.svg">
-                                    <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg">
-                                </a>
-
-                                <a class="shuffle" *ngIf="!deckData.character"
-                                    (click)="ability.bottomShuffle=!ability.bottomShuffle;deckDataToJson();"
-                                    [ngClass]="{'enabled' : ability.bottomShuffle }">
-                                    <img src="./assets/images/shuffle.svg">
-                                </a>
-                            </div>
-
-                            <input class="card-id" type="number"
-                                [value]="ability.cardId && (ability.cardId < 100 ? '0' : '') + (ability.cardId < 10 ? '0' : '') + ability.cardId"
-                                (change)="changeCardId($event, ability)">
-
-                            <a class="remove" (click)="removeAbility(ability)"><img class="ghs-icon"
-                                    src="./assets/images/minus.svg"></a>
-                        </div>
-
-                        <div class="buttons"
-                            [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0}">
-                            <a class="button add" (click)="addAbilityAction(ability)"><img class="ghs-icon"
-                                    src="./assets/images/plus.svg">
-                                <span [ghs-label]="'editor.action.add'"></span></a>
-
-                            <a class="button add bottom" (click)="addAbilityActionBottom(ability)"><img class="ghs-icon"
-                                    src="./assets/images/plus.svg">
-                                <span [ghs-label]="'editor.action.addBottom'"></span></a>
-                        </div>
-
-                        <ghs-ability
-                            [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0}"
-                            [character]="getCharacter()" [monster]="monster" [relative]="true" [flipped]="true"
-                            [statsCalculation]="false">
-                        </ghs-ability>
-                    </div>
-
-                    <ghs-ability
-                        [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0}"
-                        [ability]="ability" [abilities]="deckData.abilities" [character]="getCharacter()"
-                        [monster]="monster" [relative]="true" [flipped]="true" [statsCalculation]="false">
-                    </ghs-ability>
+              </div>
+              @if (deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0) {
+              <div class="required-container">
+                <div class="xp">
+                  <input type="number" [ngModel]="ability.xp" min="0" (ngModelChange)="ability.xp=+$event"
+                    (change)="deckDataToJson()">
                 </div>
-
-                <a class="button" (click)="addAbility()"><img class="ghs-icon" src="./assets/images/plus.svg">
-                    <span [ghs-label]="'editor.deck.addAbility'"></span></a>
-
+                <a class="lost" (click)="ability.lost=!ability.lost;deckDataToJson();"
+                  [ngClass]="{'enabled' : ability.lost }">
+                  <img src="./assets/images/action/card/lost.svg">
+                  <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
+                </a>
+                <a class="round" (click)="ability.round=!ability.round;deckDataToJson();"
+                  [ngClass]="{'enabled' : ability.round}">
+                  <img src="./assets/images/action/card/round.svg">
+                  <img class="overlay" src="./assets/images/action/card/overlay/round.svg">
+                </a>
+                <a class="loss" (click)="ability.loss=!ability.loss;deckDataToJson();"
+                  [ngClass]="{'enabled' : ability.loss}">
+                  <img src="./assets/images/action/card/loss.svg">
+                  <img class="overlay" src="./assets/images/action/card/overlay/loss.svg">
+                </a>
+                <a class="persistent" (click)="ability.persistent=!ability.persistent;deckDataToJson();"
+                  [ngClass]="{'enabled' : ability.persistent}">
+                  <img src="./assets/images/action/card/persistent.svg">
+                  <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg">
+                </a>
+                @if (!deckData.character) {
+                <a class="shuffle" (click)="ability.shuffle=!ability.shuffle;deckDataToJson();"
+                  [ngClass]="{'enabled' : ability.shuffle }">
+                  <img src="./assets/images/shuffle.svg">
+                </a>
+                }
+              </div>
+              }
+              @if (deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0) {
+              <div class="actions-container bottom">
+                <div class="actions" cdkDropList (cdkDropListDropped)="dropAction(ability.bottomActions, $event)">
+                  @for (action of ability.bottomActions; track action; let index = $index) {
+                  <div class="action-container" cdkDrag>
+                    @if (divider(ability.bottomActions,index)) {
+                    <div class="divider"></div>
+                    }
+                    <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
+                    <ghs-action (click)="editAbilityActionBottom(ability, action)" [action]="action" [relative]="true"
+                      [character]="getCharacter()" [cardId]="ability.cardId">
+                    </ghs-action>
+                  </div>
+                  }
+                </div>
+              </div>
+              }
+              @if (deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0) {
+              <div class="required-container bottom">
+                <div class="xp">
+                  <input type="number" [ngModel]="ability.bottomXp" min="0" (ngModelChange)="ability.bottomXp=+$event"
+                    (change)="deckDataToJson()">
+                </div>
+                <a class="lost" (click)="ability.bottomLost=!ability.bottomLost;deckDataToJson();"
+                  [ngClass]="{'enabled' : ability.bottomLost }">
+                  <img src="./assets/images/action/card/lost.svg">
+                  <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
+                </a>
+                <a class="round" (click)="ability.bottomRound=!ability.bottomRound;deckDataToJson();"
+                  [ngClass]="{'enabled' : ability.bottomRound}">
+                  <img src="./assets/images/action/card/round.svg">
+                  <img class="overlay" src="./assets/images/action/card/overlay/round.svg">
+                </a>
+                <a class="loss" (click)="ability.bottomLoss=!ability.bottomLoss;deckDataToJson();"
+                  [ngClass]="{'enabled' : ability.bottomLoss}">
+                  <img src="./assets/images/action/card/loss.svg">
+                  <img class="overlay" src="./assets/images/action/card/overlay/loss.svg">
+                </a>
+                <a class="persistent" (click)="ability.bottomPersistent=!ability.bottomPersistent;deckDataToJson();"
+                  [ngClass]="{'enabled' : ability.bottomPersistent}">
+                  <img src="./assets/images/action/card/persistent.svg">
+                  <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg">
+                </a>
+                @if (!deckData.character) {
+                <a class="shuffle" (click)="ability.bottomShuffle=!ability.bottomShuffle;deckDataToJson();"
+                  [ngClass]="{'enabled' : ability.bottomShuffle }">
+                  <img src="./assets/images/shuffle.svg">
+                </a>
+                }
+              </div>
+              }
+              <input class="card-id" type="number"
+                [value]="ability.cardId && (ability.cardId < 100 ? '0' : '') + (ability.cardId < 10 ? '0' : '') + ability.cardId"
+                (change)="changeCardId($event, ability)">
+              <a class="remove" (click)="removeAbility(ability)"><img class="ghs-icon"
+                  src="./assets/images/minus.svg"></a>
             </div>
+            <div class="buttons"
+              [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0}">
+              <a class="button add" (click)="addAbilityAction(ability)"><img class="ghs-icon"
+                  src="./assets/images/plus.svg">
+                <span [ghs-label]="'editor.action.add'"></span></a>
+              <a class="button add bottom" (click)="addAbilityActionBottom(ability)"><img class="ghs-icon"
+                  src="./assets/images/plus.svg">
+                <span [ghs-label]="'editor.action.addBottom'"></span></a>
+            </div>
+            <ghs-ability
+              [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0}"
+              [character]="getCharacter()" [monster]="monster" [relative]="true" [flipped]="true"
+              [statsCalculation]="false">
+            </ghs-ability>
+          </div>
+          <ghs-ability
+            [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0}"
+            [ability]="ability" [abilities]="deckData.abilities" [character]="getCharacter()" [monster]="monster"
+            [relative]="true" [flipped]="true" [statsCalculation]="false">
+          </ghs-ability>
         </div>
+        }
 
-        <div class="output">
-            <h2><span [ghs-label]="'editor.deck.json'"></span>
+        <a class="button" (click)="addAbility()"><img class="ghs-icon" src="./assets/images/plus.svg">
+          <span [ghs-label]="'editor.deck.addAbility'"></span></a>
 
-                <select (change)="loadDeckData($event)">
-                    <option [value]="-1">&lt;<span [ghs-label]="'editor.deck.new'"></span>&gt;</option>
-                    <option [value]="index" *ngFor="let dd of decksData; let index = index;"
-                        [selected]="dd.edition == deckData.edition && dd.name == deckData.name">
-                        {{dd.name}} (<span [ghs-label]="'data.edition.' + dd.edition"></span>)
-                    </option>
-                </select>
-                <select [(ngModel)]="edition" (change)="updateQueryParams()">
-                    <option></option>
-                    <option *ngFor="let edition of editions" [value]="edition">
-                        <span [ghs-label]="'data.edition.' + edition"></span>
-                    </option>
-                </select>
-            </h2>
-            <div> {{deckError}} </div>
-            <textarea #inputDeckData></textarea>
-            <a class="button" [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputDeckData.value)"
-                [download]="deckData.name + '.json'"><img class="ghs-icon" src="./assets/images/export.svg">
-                <span [ghs-label]="'editor.deck.json.download'"></span></a>
-        </div>
+      </div>
     </div>
+
+    <div class="output">
+      <h2><span [ghs-label]="'editor.deck.json'"></span>
+
+        <select (change)="loadDeckData($event)">
+          <option [value]="-1">&lt;<span [ghs-label]="'editor.deck.new'"></span>&gt;</option>
+          @for (dd of decksData; track dd; let index = $index) {
+          <option [value]="index" [selected]="dd.edition == deckData.edition && dd.name == deckData.name">
+            {{dd.name}} (<span [ghs-label]="'data.edition.' + dd.edition"></span>)
+          </option>
+          }
+        </select>
+        <select [(ngModel)]="edition" (change)="updateQueryParams()">
+          <option></option>
+          @for (edition of editions; track edition) {
+          <option [value]="edition">
+            <span [ghs-label]="'data.edition.' + edition"></span>
+          </option>
+          }
+        </select>
+      </h2>
+      <div> {{deckError}} </div>
+      <textarea #inputDeckData></textarea>
+      <a class="button" [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputDeckData.value)"
+        [download]="deckData.name + '.json'"><img class="ghs-icon" src="./assets/images/export.svg">
+        <span [ghs-label]="'editor.deck.json.download'"></span></a>
+    </div>
+  </div>
 </div>

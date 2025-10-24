@@ -6,8 +6,6 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "movement": 0,
-    "actions": [],
     "immunities": [
       "wound",
       "poison",

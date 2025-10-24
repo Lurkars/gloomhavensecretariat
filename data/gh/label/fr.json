@@ -160,6 +160,7 @@
     "Purifying Aura": "Aura Purifiante",
     "Quick Hands": "Mains Vives",
     "Quietus": "Coup de Grâce",
+    "Rampage": "Carnage",
     "Reinvigorating Elixir": "Élixir Revigorant",
     "Restorative Mist": "Brume Reconstituante",
     "Reviving Ether": "Éther Revigorant",
@@ -521,7 +522,7 @@
         "1": "X = Nombre d'hexagones du déplacement"
       },
       "deep-terror": {
-        "1": "Invoque une %data.monster.deep-terror% normale sur un hexagone adjacent à la cible"
+        "1": "sur un hexagone adjacent à la cible"
       },
       "elder-drake": {
         "1": "Volez jusqu'au prochain perchoir de rochers"
@@ -620,7 +621,7 @@
           },
           "172": {
             "1": "Un allié adjacent peut effectuer",
-            "2": "Cette attaque gagne les effets de vos %custom.augments%.",
+            "2": "Cette attaque gagne les effets de vos %data.custom.gh.mindthief.augments%.",
             "3": "Forcez un adversaire normal ou d'élite à %game.action.range:5% qui n'a pas encore agi ce round à effectuer son tour comme si tous ses adversaires étaient ses alliés et vice versa. Vous contrôlez cette action.<br><br>Pour l'indiquer, placez un de vos pions Aventurier sur cet adversaire pour ce round."
           },
           "173": {

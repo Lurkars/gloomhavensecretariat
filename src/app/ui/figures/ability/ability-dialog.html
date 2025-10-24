@@ -1,9 +1,20 @@
 <div class="ability-dialog" ghs-pointer-input (singleClick)="close()"
   [ngClass]="{'closed' : !opened, 'opened' : opened}">
+  @if (!!ability) {
   <div class="ability-container"
-    [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 || false}">
+    [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 || false, 'second-ability': !!secondAbility}">
     <ghs-ability [ability]="ability" [monster]="monster" [character]="character" [flipped]="opened"
-      [relative]="relative" [interactiveAbilities]="interactiveAbilities"></ghs-ability>
+      [relative]="relative" [interactiveAbilities]="interactiveAbilities"
+      [activeActions]="!!monster && monster.firstActiveAction ? (monster.firstActiveAction == 'bottom' ? 'bottom': 'top') : false"></ghs-ability>
   </div>
+  }
+  @if (!!secondAbility) {
+  <div class="ability-container"
+    [ngClass]="{'bottom-actions' : secondAbility && secondAbility.bottomActions && secondAbility.bottomActions.length > 0 || false, 'second-ability': !!secondAbility}">
+    <ghs-ability [ability]="secondAbility" [monster]="monster" [character]="character" [flipped]="opened"
+      [relative]="relative" [interactiveAbilities]="interactiveAbilities"
+      [activeActions]="!!monster && monster.firstActiveAction ? (monster.firstActiveAction == 'bottom' ? 'top': 'bottom') : false"></ghs-ability>
+  </div>
+  }
 </div>
 <div class="close-container" (click)="close()"></div>

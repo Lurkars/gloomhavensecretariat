@@ -1,0 +1,10 @@
+{
+  "index": "34.3",
+  "name": "Imbuement 20",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "Each character may immediately gain one free %game.condition.muddle% enhancement on one single-target ability (folliwing normal enhancement restrictions)."
+  }
+}

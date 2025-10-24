@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Cruel Bow",
-      "cardId": 770,
+      "cardId": 664,
       "initiative": 29,
       "shuffle": true,
       "actions": [
@@ -34,7 +34,7 @@
     },
     {
       "name": "Hasty Assault",
-      "cardId": 771,
+      "cardId": 665,
       "initiative": 40,
       "actions": [
         {
@@ -51,7 +51,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 772,
+      "cardId": 666,
       "initiative": 53,
       "actions": [
         {
@@ -68,7 +68,7 @@
     },
     {
       "name": "Rancid Arrow",
-      "cardId": 773,
+      "cardId": 667,
       "initiative": 54,
       "actions": [
         {
@@ -97,7 +97,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 774,
+      "cardId": 668,
       "initiative": 69,
       "actions": [
         {
@@ -114,7 +114,7 @@
     },
     {
       "name": "Noxious Blade",
-      "cardId": 775,
+      "cardId": 669,
       "initiative": 92,
       "actions": [
         {
@@ -133,7 +133,7 @@
     },
     {
       "name": "Rapid Bolts",
-      "cardId": 776,
+      "cardId": 670,
       "initiative": 79,
       "actions": [
         {
@@ -157,7 +157,7 @@
     },
     {
       "name": "Greed",
-      "cardId": 777,
+      "cardId": 671,
       "initiative": 35,
       "shuffle": true,
       "actions": [

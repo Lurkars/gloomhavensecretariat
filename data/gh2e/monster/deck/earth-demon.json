@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Strong Growth",
-      "cardId": 570,
+      "cardId": 576,
       "initiative": 40,
       "shuffle": true,
       "actions": [
@@ -46,7 +46,7 @@
     },
     {
       "name": "Hasty Assault",
-      "cardId": 571,
+      "cardId": 577,
       "initiative": 42,
       "shuffle": true,
       "actions": [
@@ -64,7 +64,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 572,
+      "cardId": 578,
       "initiative": 62,
       "actions": [
         {
@@ -85,7 +85,7 @@
     },
     {
       "name": "Boulder Throw",
-      "cardId": 573,
+      "cardId": 579,
       "initiative": 71,
       "actions": [
         {
@@ -117,7 +117,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 574,
+      "cardId": 580,
       "initiative": 83,
       "actions": [
         {
@@ -138,7 +138,7 @@
     },
     {
       "name": "Ground Slam",
-      "cardId": 575,
+      "cardId": 581,
       "initiative": 93,
       "actions": [
         {
@@ -174,7 +174,7 @@
     },
     {
       "name": "Reckless Charge",
-      "cardId": 576,
+      "cardId": 582,
       "initiative": 79,
       "actions": [
         {
@@ -206,7 +206,7 @@
     },
     {
       "name": "Earthen Eruption",
-      "cardId": 577,
+      "cardId": 583,
       "initiative": 87,
       "actions": [
         {

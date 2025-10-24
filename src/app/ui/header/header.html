@@ -5,98 +5,120 @@
       <img class="ghs-svg" src="./assets/images/menu.svg">
     </a>
   </div>
-  <ng-container *ngIf="!standalone || connection">
-    <img *ngIf="gameManager.stateManager.serverError" src="./assets/images/warning.svg"
-      [ghs-tooltip]="gameManager.stateManager.serverError" class="ghs-svg server-connection closed"
-      [ghs-label]="'server.error'" [ghs-label-attribute]="'title'">
-    <ng-container [ngSwitch]="gameManager.stateManager.wsState()">
-      <a (click)="openMenu(SubMenu.server)" [ghs-label]="'server.connected'" [ghs-label-attribute]="'title'"
-        *ngSwitchCase="WebSocket.OPEN" class="server-connection-status">
-        <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection connected"
-          [ghs-label]="'server.connected'" [ghs-label-attribute]="'title'">
-      </a>
-      <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection connecting"
-        *ngSwitchCase="WebSocket.CONNECTING" [ghs-label]="'server.connecting'" [ghs-label-attribute]="'title'">
-      <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closing"
-        *ngSwitchCase="WebSocket.CLOSING" [ghs-label]="'server.closing'" [ghs-label-attribute]="'title'">
-      <a (click)="settingsManager.settings.serverAutoconnect ? gameManager.stateManager.connect() : openMenu(SubMenu.server)"
-        [ghs-label]="'server.reconnected'" [ghs-label-attribute]="'title'" *ngSwitchCase="WebSocket.CLOSED"
-        class="server-connection-status">
-        <img src="./assets/images/warning.svg" class="ghs-svg server-connection closed" [ghs-label]="'server.closed'"
-          [ghs-label-attribute]="'title'">
-        <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closed"
-          [ghs-label]="'server.closed'" [ghs-label-attribute]="'title'">
-      </a>
-      <a (click)="settingsManager.settings.serverAutoconnect ? gameManager.stateManager.connect() : openMenu(SubMenu.server)"
-        [ghs-label]="'server.reconnected'" [ghs-label-attribute]="'title'" *ngSwitchCase="-1"
-        class="server-connection-status">
-        <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection disconnected"
-          [ghs-label]="'server.disconnected'" [ghs-label-attribute]="'title'">
-      </a>
-    </ng-container>
-  </ng-container>
+  @if (!standalone || connection) {
+  @if (gameManager.stateManager.serverError) {
+  <img src="./assets/images/warning.svg" [ghs-tooltip]="gameManager.stateManager.serverError"
+    class="ghs-svg server-connection closed" [ghs-label]="'server.error'" [ghs-label-attribute]="'title'">
+  }
+  @switch (gameManager.stateManager.wsState()) {
+  @case (WebSocket.OPEN) {
+  <a (click)="openMenu(SubMenu.server)" [ghs-label]="'server.connected'" [ghs-label-attribute]="'title'"
+    class="server-connection-status">
+    <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection connected"
+      [ghs-label]="'server.connected'" [ghs-label-attribute]="'title'">
+  </a>
+  }
+  @case (WebSocket.CONNECTING) {
+  <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection connecting"
+    [ghs-label]="'server.connecting'" [ghs-label-attribute]="'title'">
+  }
+  @case (WebSocket.CLOSING) {
+  <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closing"
+    [ghs-label]="'server.closing'" [ghs-label-attribute]="'title'">
+  }
+  @case (WebSocket.CLOSED) {
+  <a (click)="settingsManager.settings.serverAutoconnect ? gameManager.stateManager.connect() : openMenu(SubMenu.server)"
+    [ghs-label]="'server.reconnected'" [ghs-label-attribute]="'title'" class="server-connection-status">
+    <img src="./assets/images/warning.svg" class="ghs-svg server-connection closed" [ghs-label]="'server.closed'"
+      [ghs-label-attribute]="'title'">
+    <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closed"
+      [ghs-label]="'server.closed'" [ghs-label-attribute]="'title'">
+  </a>
+  }
+  @case (-1) {
+  <a (click)="settingsManager.settings.serverAutoconnect ? gameManager.stateManager.connect() : openMenu(SubMenu.server)"
+    [ghs-label]="'server.reconnected'" [ghs-label-attribute]="'title'" class="server-connection-status">
+    <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection disconnected"
+      [ghs-label]="'server.disconnected'" [ghs-label-attribute]="'title'">
+  </a>
+  }
+  }
+  }
 
-  <ng-container *ngIf="!standalone">
-    <img src="./assets/images/shuffle.svg" class="server-connection syncing" *ngIf="syncing()">
-    <span class="game-server"
-      *ngIf="!syncing() && gameManager.stateManager.wsState() != -99 && gameManager.game.server">°</span>
-
-    <div class="hints" *ngIf="settingsManager.settings.hints" [ngClass]="{'visible' : init}">
-      <ng-container [ngSwitch]="hintState">
-        <ng-container *ngSwitchCase="'characters'">
-          <a class="menu-hint" (click)="openMenu(SubMenu.character_add)">
-            <span
-              [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}"
-              [ghs-label]="'hints.addCharacters'">
-            </span>
-          </a>
-        </ng-container>
-        <ng-container *ngSwitchCase="'scenario'">
-          <a class="menu-hint"
-            [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-            <span (click)="openMenu(SubMenu.scenario)" [ghs-label]="'hints.setScenario'"></span>
-          </a>
-          <span [ghs-label]="'or'"></span>
-          <a class="menu-hint"
-            [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">
-            <span (click)="openMenu(SubMenu.monster_add)" [ghs-label]="'hints.addMonsters'"></span>
-          </a>
-        </ng-container>
-        <ng-container *ngSwitchCase="'monsters'">
-          <a class="menu-hint" (click)="openMenu(SubMenu.monster_add)">
-            <span
-              [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}"
-              [ghs-label]="'hints.addMonsters'">
-            </span>
-          </a>
-        </ng-container>
-        <ng-container *ngSwitchDefault><span [ghs-label]="'hints.' + hintState"></span></ng-container>
-      </ng-container>
-    </div>
-    <span class="spacer"></span>
-    <div
-      *ngIf="!gameManager.bbRules() && !!gameManager.game.scenario && (gameManager.characterManager.characterCount(true) > 0 || settingsManager.settings.partySheet)"
-      class="event-effects" (click)="openEventEffects()">
-      <img class="ghs-svg"
-        [src]="'./assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state == GameState.next ? '-effects' : '') + '.svg'">
-    </div>
-    <ghs-party-sheet #partySheet
-      *ngIf="!gameManager.bbRules() && settingsManager.settings.partySheet"></ghs-party-sheet>
-    <div *ngIf="gameManager.buildingsManager.petsEnabled" class="pets" (click)="openPets()">
-      <img class="ghs-svg" src="./assets/images/fh/catching.svg">
-    </div>
-    <div *ngIf="settingsManager.settings.gameClock" class="game-clock" ghs-pointer-input
-      (singleClick)="openGameClockDialog()" (doubleClick)="toggleGameClock()"
-      [ghs-tooltip]="'duration.gameClock.' + (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut ? (currentGameClock == overallGameClock ?  'running' : 'runningTotal') : (overallGameClock ? 'paused': 'off'))"
-      [ghs-label-args]="[overallGameClock ? (overallGameClock | ghsDurationLabel): '', currentGameClock ? (currentGameClock | ghsDurationLabel) : '']"
-      [overlayX]="'center'">
-      <img class="ghs-svg"
-        [src]="'./assets/images/'+ (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut ? 'clock-out': 'clock-in') + '.svg'">
-    </div>
-    <span class="spacer"></span>
-    <div class="elements"
-      [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.elements}">
-      <ghs-element *ngFor="let element of gameManager.game.elementBoard" [element]="element"></ghs-element>
-    </div>
-  </ng-container>
+  @if (!standalone) {
+  @if (syncing()) {
+  <img src="./assets/images/shuffle.svg" class="server-connection syncing">
+  }
+  @if (!syncing() && gameManager.stateManager.wsState() != -99 && gameManager.game.server) {
+  <span class="game-server">°</span>
+  }
+  @if (settingsManager.settings.hints) {
+  <div class="hints" [ngClass]="{'visible' : init}">
+    @switch (hintState) {
+    @case ('characters') {
+    <a class="menu-hint" (click)="openMenu(SubMenu.character_add)">
+      <span
+        [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}"
+        [ghs-label]="'hints.addCharacters'">
+      </span>
+    </a>
+    }
+    @case ('scenario') {
+    <a class="menu-hint"
+      [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
+      <span (click)="openMenu(SubMenu.scenario)" [ghs-label]="'hints.setScenario'"></span>
+    </a>
+    <span [ghs-label]="'or'"></span>
+    <a class="menu-hint"
+      [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">
+      <span (click)="openMenu(SubMenu.monster_add)" [ghs-label]="'hints.addMonsters'"></span>
+    </a>
+    }
+    @case ('monsters') {
+    <a class="menu-hint" (click)="openMenu(SubMenu.monster_add)">
+      <span
+        [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}"
+        [ghs-label]="'hints.addMonsters'">
+      </span>
+    </a>
+    }
+    @default {
+    <span [ghs-label]="'hints.' + hintState"></span>
+    }
+    }
+  </div>
+  }
+  <span class="spacer"></span>
+  @if (!gameManager.bbRules() && !!gameManager.game.scenario && (gameManager.characterManager.characterCount(true) > 0
+  || settingsManager.settings.partySheet)) {
+  <div class="event-effects" (click)="openEventEffects()">
+    <img class="ghs-svg"
+      [src]="'./assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state == GameState.next ? '-effects' : '') + '.svg'">
+  </div>
+  }
+  @if (!gameManager.bbRules() && settingsManager.settings.partySheet) {
+  <ghs-party-sheet #partySheet></ghs-party-sheet>
+  }
+  @if (gameManager.buildingsManager.petsEnabled) {
+  <div class="pets" (click)="openPets()">
+    <img class="ghs-svg" src="./assets/images/fh/catching.svg">
+  </div>
+  }
+  @if (settingsManager.settings.gameClock) {
+  <div class="game-clock" ghs-pointer-input (singleClick)="openGameClockDialog()" (doubleClick)="toggleGameClock()"
+    [ghs-tooltip]="'duration.gameClock.' + (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut ? (currentGameClock == overallGameClock ?  'running' : 'runningTotal') : (overallGameClock ? 'paused': 'off'))"
+    [ghs-label-args]="[overallGameClock ? (overallGameClock | ghsDurationLabel): '', currentGameClock ? (currentGameClock | ghsDurationLabel) : '']"
+    [overlayX]="'center'">
+    <img class="ghs-svg"
+      [src]="'./assets/images/'+ (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut ? 'clock-out': 'clock-in') + '.svg'">
+  </div>
+  }
+  <span class="spacer"></span>
+  <div class="elements"
+    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.elements}">
+    @for (element of gameManager.game.elementBoard; track element.type) {
+    <ghs-element [element]="element"></ghs-element>
+    }
+  </div>
+  }
 </header>

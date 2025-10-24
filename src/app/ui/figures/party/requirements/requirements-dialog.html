@@ -9,9 +9,11 @@
 
   <ghs-requirements [scenarioData]="data.scenarioData"></ghs-requirements>
 
-  <div class="buttons" *ngIf="!data.hideMenu">
+  @if (!data.hideMenu) {
+  <div class="buttons">
     <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.requirements.cancel'"></span></a>
     <a class="start" (click)="startScenario()"><span [ghs-label]="'scenario.requirements.start'"></span></a>
   </div>
+  }
 
 </div>

@@ -6,9 +6,9 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EventCard, EventCardIdentifier } from "src/app/game/model/data/EventCard";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { EventEffectsDialog } from "../../event-effects/event-effects";
 import { EventCardDialogComponent } from "../dialog/event-card-dialog";
 import { EventCardDrawComponent } from "../draw/event-card-draw";
-import { EventEffectsDialog } from "../../event-effects/event-effects";
 
 @Component({
     standalone: false,
@@ -103,7 +103,7 @@ export class EventCardDeckComponent {
 
         if (eventCard) {
             gameManager.stateManager.before("events.deck.markDrawn", eventCard.type, eventCard.cardId);
-            gameManager.game.party.eventCards.splice(event.currentIndex, 0, new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, -1, []));
+            gameManager.game.party.eventCards.splice(event.currentIndex, 0, new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, -1, [], [], false, false));
             gameManager.stateManager.after();
         }
     }

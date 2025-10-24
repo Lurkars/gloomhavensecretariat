@@ -15,7 +15,7 @@ import { Building } from "../buildings";
 
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-buildings-upgrade-dialog',
     templateUrl: 'upgrade-dialog.html',
     styleUrls: ['./upgrade-dialog.scss']
@@ -150,9 +150,11 @@ export class BuildingUpgradeDialog implements OnInit {
         }
     }
 
-    confirm() {
+    confirm(morale: boolean = false) {
         if (this.force) {
             ghsDialogClosingHelper(this.dialogRef, true);
+        } else if (morale) {
+            ghsDialogClosingHelper(this.dialogRef, new SelectResourceResult(this.characters, this.characterSpent, this.fhSupportSpent, 1));
         } else if (this.paidResources >= this.requiredResources - (this.discount ? 1 : 0) && (!this.costs.gold || this.costs.gold == this.spent.gold)) {
             ghsDialogClosingHelper(this.dialogRef, new SelectResourceResult(this.characters, this.characterSpent, this.fhSupportSpent));
         }

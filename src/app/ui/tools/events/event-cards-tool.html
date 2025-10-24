@@ -5,17 +5,21 @@
     <label>
       <span [ghs-label]="'settings.edition'"></span>
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
-        <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+        @for (edition of gameManager.editions(true); track edition) {
+        <option [value]="edition">
           <span [ghs-label]="'data.edition.' + edition"></span>
         </option>
+        }
       </select>
     </label>
     <label>
       <span [ghs-label]="'game.events.type'"></span>
       <select [(ngModel)]="type" (change)="update(); updateQueryParams()">
-        <option *ngFor="let eventType of types" [value]="eventType">
+        @for (eventType of types; track eventType) {
+        <option [value]="eventType">
           <span [ghs-label]="'game.events.type.' + eventType"></span>
         </option>
+        }
       </select>
     </label>
     <label>
@@ -41,7 +45,9 @@
   </div>
 
   <div class="events">
-    <ghs-event-card [event]="event" *ngFor="let event of events" [select]="selected != -1 ? selected - 1 : -1"
-      [flipped]="selected == 0" [spoiler]="spoiler" [debug]="debug"></ghs-event-card>
+    @for (event of events; track event.edition + '-' + event.cardId) {
+    <ghs-event-card [event]="event" [select]="selected != -1 ? selected - 1 : -1" [flipped]="selected == 0"
+      [spoiler]="spoiler" [debug]="debug"></ghs-event-card>
+    }
   </div>
 </div>

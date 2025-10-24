@@ -1,49 +1,53 @@
 <div [style.--condition-columns]="columns" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
 
   <div class="condition-container">
-    <ng-container *ngFor="let condition of conditions; let i = index">
-      <a class="item"
-        [ngClass]="{'disabled': !hasCondition(condition) && (!immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name) || isImmune(condition.name,true))}">
+    @for (condition of conditions; track condition.name; let i = $index) {
+    <a class="item"
+      [ngClass]="{'disabled': !hasCondition(condition) && (!immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name) || isImmune(condition.name,true))}">
+      @if (condition.types.indexOf(ConditionType.stack) != -1 || condition.types.indexOf(ConditionType.upgrade) != -1) {
+      <img tabclick (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
+        src="./assets/images/left.svg" />
+      }
+      <span class="condition" tabclick (click)="toggleCondition(condition)"
+        [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
+        [originY]="'top'" [overlayY]="'bottom'"
+        [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'immunity' : isImmune(condition.name)}">
         <img
-          *ngIf="condition.types.indexOf(ConditionType.stack) != -1 || condition.types.indexOf(ConditionType.upgrade) != -1"
-          tabclick (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
-          src="./assets/images/left.svg" />
-        <span class="condition" tabclick (click)="toggleCondition(condition)"
-          [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
-          [originY]="'top'" [overlayY]="'bottom'"
-          [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'immunity' : isImmune(condition.name)}">
-          <img
-            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-          <span
-            *ngIf="condition.types.indexOf(ConditionType.stack) != -1 || condition.types.indexOf(ConditionType.upgrade) != -1"
-            [ngClass]="{'stack' : condition.types.indexOf(ConditionType.stack) != -1}"
-            class="value">{{getValue(condition)}}</span>
-        </span>
-        <span *ngIf="isPermanent(condition.name)" class="condition permanent permanent-overlay"></span>
+          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+        @if (condition.types.indexOf(ConditionType.stack) != -1 || condition.types.indexOf(ConditionType.upgrade) != -1)
+        {
+        <span [ngClass]="{'stack' : condition.types.indexOf(ConditionType.stack) != -1}"
+          class="value">{{getValue(condition)}}</span>
+        }
+      </span>
+      @if (isPermanent(condition.name)) {
+      <span class="condition permanent permanent-overlay"></span>
+      }
+      @if (condition.types.indexOf(ConditionType.stack) != -1 || condition.types.indexOf(ConditionType.upgrade) != -1) {
+      <img tabclick (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
+      }
+    </a>
+    @if (conditionSeparator.indexOf(i) != -1) {
+    <div class="separator"></div>
+    }
+    }
+
+    @if (conditions.length) {
+    <div class="separator"></div>
+    <a class="item">
+      <span class="condition toggle" [ngClass]="{'active': permanentEnabled}" tabclick
+        (click)="togglePermanentEnabled()" [ghs-tooltip]="'game.condition.permanent.hint'" [originX]="'center'"
+        [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'">
+        <img src="./assets/images/condition/permanent.svg" />
+      </span>
+    </a>
+    <a class="item">
+      <span class="condition toggle" [ngClass]="{'active': immunityEnabled}" tabclick (click)="toggleImmunityEnabled()"
+        [ghs-tooltip]="'game.condition.immune.hint'" [originX]="'center'" [overlayX]="'center'" [originY]="'top'"
+        [overlayY]="'bottom'">
         <img
-          *ngIf="condition.types.indexOf(ConditionType.stack) != -1 || condition.types.indexOf(ConditionType.upgrade) != -1"
-          tabclick (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
-      </a>
-      <div class="separator" *ngIf="conditionSeparator.indexOf(i) != -1"></div>
-    </ng-container>
-
-    <ng-container *ngIf="conditions.length">
-      <div class="separator"></div>
-
-      <a class="item">
-        <span class="condition toggle" [ngClass]="{'active': permanentEnabled}" tabclick
-          (click)="togglePermanentEnabled()" [ghs-tooltip]="'game.condition.permanent.hint'" [originX]="'center'"
-          [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'">
-          <img src="./assets/images/condition/permanent.svg" />
-        </span>
-      </a>
-      <a class="item">
-        <span class="condition toggle" [ngClass]="{'active': immunityEnabled}" tabclick
-          (click)="toggleImmunityEnabled()" [ghs-tooltip]="'game.condition.immune.hint'" [originX]="'center'"
-          [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'">
-          <img
-            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh/condition/immune.svg' : '/condition/immunity.svg')" /></span>
-      </a>
-    </ng-container>
+          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh/condition/immune.svg' : '/condition/immunity.svg')" /></span>
+    </a>
+    }
   </div>
 </div>

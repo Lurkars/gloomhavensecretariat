@@ -1,16 +1,22 @@
-<span class="attack">
-    <div class="main">
-        <span class="attack-value"><img src="./assets/images/fh/action/attack.svg">{{attack.attackValue}}</span>
-        <span class="target-number"><img src="./assets/images/fh/action/target.svg">{{attack.targetNumber}}</span>
-    </div>
-    <span *ngIf="attack.targetDescription" class="target-description" [ngClass]="{'text-white': light}"
-        [ghs-label]="attack.targetDescription"></span>
-    <span class="text" [ngClass]="{'text-white': light}">
-        <span *ngIf="attack.narrative" class="text" [ngClass]="{'text-white': light}"
-            [ghs-label]="attack.narrative"></span>
-    </span>
-    <div class="effects" *ngIf="attack.effects">
-        <ghs-event-card-effect *ngFor="let effect of attack.effects;" [effect]="effect" [edition]="edition"
-            [eventType]="eventType" [light]="light" [debug]="debug"></ghs-event-card-effect>
-    </div>
+<span class="attack" [ngClass]="{'selected': selected}" ghs-pointer-input (doubleClick)="toggleSelected()">
+  <div class="main" [ngClass]="{'light': light}">
+    <span class="attack-value"><img src="./assets/images/fh/action/attack.svg">{{attack.attackValue}}</span>
+    <span class="target-number"><img src="./assets/images/fh/action/target.svg">{{attack.targetNumber}}</span>
+  </div>
+  @if (targetDescription && attack.targetDescription) {
+  <span class="target-description" [ngClass]="{'text-white': light}" [ghs-label]="attack.targetDescription"></span>
+  }
+  <span class="text" [ngClass]="{'text-white': light}">
+    @if (narrative && attack.narrative) {
+    <span class="text" [ngClass]="{'text-white': light}" [ghs-label]="attack.narrative"></span>
+    }
+  </span>
+  @if (effects && attack.effects) {
+  <div class="effects">
+    @for (effect of attack.effects; track effect) {
+    <ghs-event-card-effect [effect]="effect" [edition]="edition" [eventType]="eventType" [light]="light"
+      [selected]="true" [debug]="debug"></ghs-event-card-effect>
+    }
+  </div>
+  }
 </span>

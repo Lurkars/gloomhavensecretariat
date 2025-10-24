@@ -6,10 +6,7 @@
   "count": 4,
   "standeeShare": "harrower-infester",
   "baseStat": {
-    "type": "normal",
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "normal"
   },
   "stats": [
     {

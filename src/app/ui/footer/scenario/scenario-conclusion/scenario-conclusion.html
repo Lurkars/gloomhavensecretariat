@@ -1,19 +1,21 @@
 <div class="section-popup">
 
-    <div class="header">
-        <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
-        <span [ghs-label]="'scenario.section.conclusion.select'"></span>
-    </div>
+  <div class="header">
+    <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
+    <span [ghs-label]="'scenario.section.conclusion.select'"></span>
+  </div>
 
-    <div class="conclusions">
-        <span class="placeholder text-white conclusion" *ngFor="let sectionData of data.conclusions"
-            [ghs-label]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' :  '') + (sectionData.named ? '.named' : '')"
-            [ghs-label-args]="['%data.section:' + sectionData.index + '%', sectionData.named ? gameManager.scenarioManager.scenarioTitle(sectionData,true) : '']"
-            (click)="close(sectionData)">
-        </span>
-    </div>
+  <div class="conclusions">
+    @for (sectionData of data.conclusions; track sectionData.edition + '-' + sectionData.index) {
+    <span class="placeholder text-white conclusion"
+      [ghs-label]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' :  '') + (sectionData.named ? '.named' : '')"
+      [ghs-label-args]="['%data.section:' + sectionData.index + '%', sectionData.named ? gameManager.scenarioManager.scenarioTitle(sectionData,true) : '']"
+      (click)="close(sectionData)">
+    </span>
+    }
+  </div>
 
-    <div class="buttons">
-        <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.section.cancel'"></span></a>
-    </div>
+  <div class="buttons">
+    <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.section.cancel'"></span></a>
+  </div>
 </div>

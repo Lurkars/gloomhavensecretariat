@@ -6,15 +6,13 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "poison",
       "disarm",
       "immobilize",
       "stun",
       "curse"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

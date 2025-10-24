@@ -29,9 +29,10 @@ export class EventCardIdentifier {
     subSelections: number[];
     checks: number[];
     scenarioApply: boolean;
+    attack: boolean;
 
     constructor(cardId: string, edition: string, type: string, selected: number,
-        subSelections: number[] = [], checks: number[] = [], scenarioApply: boolean = false) {
+        subSelections: number[], checks: number[], attack: boolean, scenarioApply: boolean) {
         this.cardId = cardId;
         this.edition = edition;
         this.type = type;
@@ -39,6 +40,7 @@ export class EventCardIdentifier {
         this.subSelections = subSelections;
         this.checks = checks;
         this.scenarioApply = scenarioApply;
+        this.attack = attack;
     }
 }
 
@@ -76,6 +78,8 @@ export enum EventCardConditionType {
     class = "class",
     loseCollectiveResource = "loseCollectiveResource",
     loseCollectiveResourceType = "loseCollectiveResourceType",
+    loseResource = "loseResource",
+    loseResourceType = "loseResourceType",
     moraleGT = "moraleGT",
     moraleLT = "moraleLT",
     otherwise = "otherwise",
@@ -93,6 +97,7 @@ export enum EventCardConditionType {
 }
 
 export enum EventCardEffectType {
+    additionally = "additionally",
     and = "and",
     battleGoal = "battleGoal",
     campaignSticker = "campaignSticker",
@@ -130,6 +135,7 @@ export enum EventCardEffectType {
     loseCollectiveResource = "loseCollectiveResource",
     loseCollectiveResourceAny = "loseCollectiveResourceAny",
     loseCollectiveResourceType = "loseCollectiveResourceType",
+    loseExperience = "loseExperience",
     loseGold = "loseGold",
     loseGoldOne = "loseGoldOne",
     loseMorale = "loseMorale",
@@ -139,9 +145,12 @@ export enum EventCardEffectType {
     morale = "morale",
     noEffect = "noEffect",
     outcome = "outcome",
+    outcomes = "outcomes",
+    outcomeSelect = "outcomeSelect",
     outpostAttack = "outpostAttack",
     outpostTarget = "outpostTarget",
     randomItem = "randomItem",
+    randomItemBlueprint = "randomItemBlueprint",
     randomItemDesign = "randomItemDesign",
     randomScenario = "randomScenario",
     removeEvent = "removeEvent",
@@ -156,15 +165,20 @@ export enum EventCardEffectType {
     scenarioSingleMinus1 = "scenarioSingleMinus1",
     sectionWeek = "sectionWeek",
     sectionWeeks = "sectionWeeks",
+    sectionWeekSeasonFinal = "sectionWeekSeasonFinal",
     sectionWeeksSeason = "sectionWeeksSeason",
+    skipThreat = "skipThreat",
     soldier = "soldier",
     soldiers = "soldiers",
     townGuardDeckCard = "townGuardDeckCard",
+    townGuardDeckCardRemove = "townGuardDeckCardRemove",
+    townGuardDeckCardRemovePermanently = "townGuardDeckCardRemovePermanently",
     townGuardDeckCards = "townGuardDeckCards",
     unlockEnvelope = "unlockEnvelope",
     unlockScenario = "unlockScenario",
     unlockScenarioGroup = "unlockScenarioGroup",
-    upgradeBuilding = "upgradeBuilding"
+    upgradeBuilding = "upgradeBuilding",
+    wreckBuilding = "wreckBuilding"
 }
 
 export class EventCardEffect {
@@ -192,7 +206,7 @@ export class EventCardAttack {
     narrative: string;
     effects: string[];
 
-    constructor(attackValue: number, targetNumber: number, targetDescription: string, narrative: string, effects: string[]) {
+    constructor(attackValue: string | number, targetNumber: string | number, targetDescription: string, narrative: string, effects: string[]) {
         this.attackValue = attackValue;
         this.targetNumber = targetNumber;
         this.targetDescription = targetDescription;

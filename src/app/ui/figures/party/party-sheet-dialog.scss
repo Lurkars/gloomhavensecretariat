@@ -774,25 +774,32 @@
 
             .supply {
               cursor: help;
+              min-width: calc(var(--ghs-unit) * 24 * var(--ghs-dialog-factor));
             }
 
             .move-resources {
               display: flex;
+              height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
 
               .label {
                 font-family: var(--ghs-font-text);
                 font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                white-space: nowrap;
               }
 
-              .character {
+              .characters {
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                cursor: pointer;
 
-                img {
-                  width: auto;
-                  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                .character {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  cursor: pointer;
+
+                  img {
+                    width: auto;
+                    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                  }
                 }
               }
             }
@@ -1523,7 +1530,16 @@
                   }
                 }
 
-                &:hover,
+                &.locked {
+                  opacity: 0.7;
+                  
+                  .key,
+                  .value {
+                    cursor: not-allowed;
+                  }
+                }
+
+                &:hover:not(.locked),
                 .value.checked {
 
                   &.checked::before,
@@ -1688,6 +1704,15 @@
                 height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
                 box-shadow: none;
                 z-index: 1;
+
+                .click {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  z-index: 1;
+                }
               }
 
               &.section {
@@ -1722,6 +1747,7 @@
                     align-items: center;
                     font-family: var(--ghs-font-fh-text);
                     font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
+                    z-index: 2;
 
                     &::before {
                       content: " ";

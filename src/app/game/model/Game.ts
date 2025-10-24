@@ -279,7 +279,7 @@ export class Game {
       }
       return c;
     })
-    
+
     this.party.migrate();
 
     this.challengeDeck = this.challengeDeck || new ChallengeDeck();
@@ -394,8 +394,8 @@ export class GameModel {
     roundResetsHidden: number[] = [],
     playSeconds: number = 0,
     totalSeconds: number = 0,
-    monsterAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards, [], true),
-    allyAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards, [], true),
+    monsterAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards.map((am) => am.id), [], true),
+    allyAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards.map((am) => am.id), [], true),
     elementBoard: ElementModel[] = [],
     solo: boolean = false,
     party: Party = new Party(),

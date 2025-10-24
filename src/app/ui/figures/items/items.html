@@ -1,54 +1,71 @@
 <div class="items">
-    <label><span [ghs-label]="'game.items'"></span>:</label>
-    <div class="item-list">
-        <div class="item-entry" *ngFor="let item of items; let index = index;">
-            <span class="icon item-dialog"  ghs-pointer-input (singleClick)="openItem(item)">
-                <img *ngIf="item.slot" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
-                <span *ngIf="!item.slot" class="item placeholder" [ghs-label]="'%game.itemFh.' + item.id + '%'"></span>
-            </span>
-            <span class="id item-dialog" ghs-pointer-input (singleClick)="openItem(item)">{{item.id}}.</span>
-            <span class="name"
-                [ngClass]="{'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0}"
-                ghs-pointer-input (singleClick)="toggleEquippedItem(item)"
-                (doubleClick)="toggleEquippedItem(item,true)">
-                <span [ghs-label]="'data.items.' + item.edition + '-' + item.id"></span>
-                <span *ngIf="item.edition != itemEdition">&nbsp;(<span [ghs-label]="'data.edition.' +
+  <label><span [ghs-label]="'game.items'"></span>:</label>
+  <div class="item-list">
+    @for (item of items; track item.edition + '-' + item.id; let index = $index) {
+    <div class="item-entry">
+      <span class="icon item-dialog" ghs-pointer-input (singleClick)="openItem(item)">
+        @if (item.slot) {
+        <img [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
+        }
+        @if (!item.slot) {
+        <span class="item placeholder" [ghs-label]="'%game.itemFh.' + item.id + '%'"></span>
+        }
+      </span>
+      <span class="id item-dialog" ghs-pointer-input (singleClick)="openItem(item)">{{item.id}}.</span>
+      <span class="name"
+        [ngClass]="{'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0}"
+        ghs-pointer-input (singleClick)="toggleEquippedItem(item)" (doubleClick)="toggleEquippedItem(item,true)">
+        <span [ghs-label]="'data.items.' + item.edition + '-' + item.id"></span>
+        @if (item.edition != itemEdition) {
+        <span>&nbsp;(<span [ghs-label]="'data.edition.' +
                     item.edition"></span>)</span>
-            </span>
-            <span class="spacer"></span>
-            <span class="equipped" *ngIf="isEquipped(item)">
-                <img src="./assets/images/check.svg">
-            </span>
-            <div class="effect hint-container" *ngIf="gameManager.characterManager.itemEffect(item)">
-                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" [ghs-tooltip]="'game.items.effect'"
-                    [hint]="true">
-            </div>
-            <span class="minus-one" *ngIf="isEquipped(item) && item.minusOne"
-                [ngClass]="{'ignore' : gameManager.characterManager.ignoreNegativeItemEffects(character)}">
-                <img src="./assets/images/action/card/minus1.svg">
-                x{{item.minusOne}}
-            </span>
-            <a class="button distill" *ngIf="gameManager.itemManager.canDistill(item)" (click)="distillItem(item)"
-                [ghs-tooltip]="'game.items.distilling'" [ghs-label-args]="['data.items.' + item.edition + '-' + item.id]">
-                <img src="./assets/images/fh/brewing.svg">
-            </a>
-            <a class="button loot" (click)="sellItem(item)" [ghs-tooltip]="'game.items.sell'"
-                [ghs-label-args]="['data.items.' + item.edition + '-' + item.id, gameManager.itemManager.itemSellValue(item)]">
-                <img src="./assets/images/loot.svg">
-                {{gameManager.itemManager.itemSellValue(item)}}
-            </a>
-            <a class="button remove" (click)="removeItem(item)" [ghs-tooltip]="'game.items.remove'"
-                [ghs-label-args]="['data.items.' + item.edition + '-' + item.id]">
-                <img src="./assets/images/close.svg">
-            </a>
-        </div>
+        }
+      </span>
+      <span class="spacer"></span>
+      @if (isEquipped(item)) {
+      <span class="equipped">
+        <img src="./assets/images/check.svg">
+      </span>
+      }
+      @if (gameManager.characterManager.itemEffect(item)) {
+      <div class="effect hint-container">
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" [ghs-tooltip]="'game.items.effect'"
+          [hint]="true">
+      </div>
+      }
+      @if (isEquipped(item) && item.minusOne) {
+      <span class="minus-one"
+        [ngClass]="{'ignore' : gameManager.characterManager.ignoreNegativeItemEffects(character)}">
+        <img src="./assets/images/action/card/minus1.svg">
+        x{{item.minusOne}}
+      </span>
+      }
+      @if (gameManager.itemManager.canDistill(item)) {
+      <a class="button distill" (click)="distillItem(item)" [ghs-tooltip]="'game.items.distilling'"
+        [ghs-label-args]="['data.items.' + item.edition + '-' + item.id]">
+        <img src="./assets/images/fh/brewing.svg">
+      </a>
+      }
+      <a class="button loot" (click)="sellItem(item)" [ghs-tooltip]="'game.items.sell'"
+        [ghs-label-args]="['data.items.' + item.edition + '-' + item.id, gameManager.itemManager.itemSellValue(item)]">
+        <img src="./assets/images/loot.svg">
+        {{gameManager.itemManager.itemSellValue(item)}}
+      </a>
+      <a class="button remove" (click)="removeItem(item)" [ghs-tooltip]="'game.items.remove'"
+        [ghs-label-args]="['data.items.' + item.edition + '-' + item.id]">
+        <img src="./assets/images/close.svg">
+      </a>
     </div>
-    <div class="item-form">
-        <a class="shop" (click)="itemDialog()"><img src="./assets/images/items/item.svg"><span
-                [ghs-label]="'game.items.character.shop'"></span></a>
+    }
+  </div>
+  <div class="item-form">
+    <a class="shop" (click)="itemDialog()"><img src="./assets/images/items/item.svg"><span
+        [ghs-label]="'game.items.character.shop'"></span></a>
 
-        <a *ngIf="brewing" ghs-pointer-input (singleClick)="brewDialog()" (doubleClick)="brewDialog(true)"
-            [ngClass]="{'disabled': gameManager.itemManager.brewingDisabled()}"><img
-                src="./assets/images/fh/brewing.svg"><span [ghs-label]="'game.items.brewing'"></span></a>
-    </div>
+    @if (brewing) {
+    <a ghs-pointer-input (singleClick)="brewDialog()" (doubleClick)="brewDialog(true)"
+      [ngClass]="{'disabled': gameManager.itemManager.brewingDisabled()}"><img
+        src="./assets/images/fh/brewing.svg"><span [ghs-label]="'game.items.brewing'"></span></a>
+    }
+  </div>
 </div>

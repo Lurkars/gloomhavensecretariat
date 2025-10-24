@@ -369,6 +369,10 @@
       "": "Hartlederrüstung",
       "1": "Bei den nächsten 2 Angriffen, die dich anvisieren, erhält der Angreifer Nachteil."
     },
+    "fh-171": {
+      "": "Erfrischendes Amulett",
+      "1": "Wann immer du eine Karte verlierst, um %game.damage% zu negieren, %game.card.recover% maximal eine Karte von deinem Abwurfstapel und erhalte %game.condition.regenerate%."
+    },
     "fh-173": {
       "": "Bunter Mantel",
       "1": "%game.element.wild%, wenn du angegriffen wirst."
@@ -404,6 +408,10 @@
     "fh-21": {
       "": "Kettenhaube",
       "1": "Erhalte %game.action.shield:1%, während du an mindestens 3 Gegner angrenzt."
+    },
+    "fh-212": {
+      "": "Elementarstein",
+      "1": "Wähle nach dem Bestimmen der Initiative ein Element. Es kann in dieser Runde von keinem Monster mehr angereichert oder verbraucht werden. "
     },
     "fh-22": {
       "": "Schwere Kettenrüstung",

@@ -1,0 +1,7 @@
+{
+    "edition": "ccug",
+    "extends": [
+        "fh",
+        "gh2e"
+    ]
+}

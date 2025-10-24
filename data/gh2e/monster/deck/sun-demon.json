@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Ray of Warmth",
-      "cardId": 586,
+      "cardId": 592,
       "initiative": 17,
       "shuffle": true,
       "actions": [
@@ -35,7 +35,7 @@
     },
     {
       "name": "Brilliant Aura",
-      "cardId": 587,
+      "cardId": 593,
       "initiative": 36,
       "actions": [
         {
@@ -63,7 +63,7 @@
     },
     {
       "name": "Brilliant Aura",
-      "cardId": 588,
+      "cardId": 594,
       "initiative": 36,
       "actions": [
         {
@@ -91,7 +91,7 @@
     },
     {
       "name": "Star Strike",
-      "cardId": 589,
+      "cardId": 595,
       "initiative": 68,
       "actions": [
         {
@@ -112,7 +112,7 @@
     },
     {
       "name": "Vicious Opportunity",
-      "cardId": 590,
+      "cardId": 596,
       "initiative": 73,
       "shuffle": true,
       "actions": [
@@ -148,7 +148,7 @@
     },
     {
       "name": "Supernova",
-      "cardId": 591,
+      "cardId": 597,
       "initiative": 95,
       "actions": [
         {
@@ -184,7 +184,7 @@
     },
     {
       "name": "Glowing Sweep",
-      "cardId": 592,
+      "cardId": 598,
       "initiative": 88,
       "actions": [
         {
@@ -215,7 +215,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "self"
+                  "value": "self",
+                  "small": true
                 }
               ]
             }
@@ -225,7 +226,7 @@
     },
     {
       "name": "Shining Orb",
-      "cardId": 593,
+      "cardId": 599,
       "initiative": 50,
       "actions": [
         {

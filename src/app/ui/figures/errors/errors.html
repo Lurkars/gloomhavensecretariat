@@ -1,5 +1,7 @@
 <div (click)="open($event)" class="button" [style.display]="figure.errors && figure.errors.length > 0 ? '' : 'none'">
-  <a *ngIf="!!figure.errors && figure.errors.length > 0">
+  @if (!!figure.errors && figure.errors.length > 0) {
+  <a>
     <img class="ghs-svg" src="./assets/images/warning.svg">
   </a>
+  }
 </div>

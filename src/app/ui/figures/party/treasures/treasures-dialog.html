@@ -1,44 +1,57 @@
 <div class="treasures-dialog">
-    <div class="header">
-        <div class="title">
-            <img class="icon" src="./assets/images/scenario/treasure.svg">
-            <span [ghs-label]="'party.campaign.treasures'"></span>
-        </div>
-        <label *ngIf="!data.scenario">
-            <input type="checkbox" [(ngModel)]="batchSelect" (change)="update()">
-            <span [ghs-label]="'party.campaign.treasures.batchSelect'"></span>
-        </label>
+  <div class="header">
+    <div class="title">
+      <img class="icon" src="./assets/images/scenario/treasure.svg">
+      <span [ghs-label]="'party.campaign.treasures'"></span>
     </div>
+    @if (!data.scenario) {
+    <label>
+      <input type="checkbox" [(ngModel)]="batchSelect" (change)="update()">
+      <span [ghs-label]="'party.campaign.treasures.batchSelect'"></span>
+    </label>
+    }
+  </div>
 
-    <div class="scenarios">
-        <div class="scenario" *ngFor="let scenario of scenarios">
-            <div class="title">
-                <span class="text-white" [ghs-label]="'%data.scenarioNumber:' + scenario.index + '%'"></span>
-                <span class="text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
-            </div>
-            <div class="treasures">
-                <div class="hint-container" *ngFor="let treasure of treasures[scenario.index];">
-                    <div class="treasure hint-trigger"
-                        [ngClass]="{'looted': looted.indexOf(treasure) != -1, 'highlight' : selected.indexOf(treasure) != -1}"
-                        (click)="toggleTreasure(treasure)">
-                        <span *ngIf="treasure < 10">0</span>{{treasure}}
-                        <img class="overlay check" src="./assets/images/check.svg">
-                        <img class="overlay uncheck" src="./assets/images/close.svg">
-                    </div>
-                    <span class="hint center" *ngIf="looted.indexOf(treasure) != -1">
-                        <ghs-treasure-label class="text placeholder text-white" [edition]="scenario.edition"
-                            [index]="treasure"></ghs-treasure-label>
-                    </span>
-                </div>
-            </div>
+  <div class="scenarios">
+    @for (scenario of scenarios; track scenario.edition + '-' + scenario.index) {
+    <div class="scenario">
+      <div class="title">
+        <span class="text-white" [ghs-label]="'%data.scenarioNumber:' + scenario.index + '%'"></span>
+        <span class="text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
+      </div>
+      <div class="treasures">
+        @for (treasure of treasures[scenario.index]; track treasure) {
+        <div class="hint-container">
+          <div class="treasure hint-trigger"
+            [ngClass]="{'looted': looted.indexOf(treasure) != -1, 'highlight' : selected.indexOf(treasure) != -1}"
+            (click)="toggleTreasure(treasure)">
+            @if (treasure < 10) { <span>0</span>
+              }{{treasure}}
+              <img class="overlay check" src="./assets/images/check.svg">
+              <img class="overlay uncheck" src="./assets/images/close.svg">
+          </div>
+          @if (looted.indexOf(treasure) != -1) {
+          <span class="hint center">
+            <ghs-treasure-label class="text placeholder text-white" [edition]="scenario.edition"
+              [index]="treasure"></ghs-treasure-label>
+          </span>
+          }
         </div>
+        }
+      </div>
     </div>
+    }
+  </div>
 
-    <div class="buttons">
-        <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
-        <a class="loot" *ngIf="data.scenario" [ngClass]="{'disabled' : selected.length == 0}"
-            (click)="toggleTreasure(selected[0], true)"><span [ghs-label]="'party.campaign.treasures.loot'"></span></a>
-        <a class="apply" *ngIf="batchSelect || data.scenario" [ngClass]="{'disabled' : selected.length == 0}"
-            (click)="apply()"><span [ghs-label]="'party.campaign.treasures.applySelect'"></span></a>
-    </div>
+  <div class="buttons">
+    <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+    @if (data.scenario) {
+    <a class="loot" [ngClass]="{'disabled' : selected.length == 0}" (click)="toggleTreasure(selected[0], true)"><span
+        [ghs-label]="'party.campaign.treasures.loot'"></span></a>
+    }
+    @if (batchSelect || data.scenario) {
+    <a class="apply" [ngClass]="{'disabled' : selected.length == 0}" (click)="apply()"><span
+        [ghs-label]="'party.campaign.treasures.applySelect'"></span></a>
+    }
+  </div>
 </div>

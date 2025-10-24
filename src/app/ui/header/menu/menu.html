@@ -1,95 +1,99 @@
-<div class="scroll-container" [ngSwitch]="active">
-  <div *ngSwitchCase="SubMenu.main" class="menu-container main two-column">
+<div class="scroll-container">
+  @switch (active) {
+  @case (SubMenu.main) {
+  <div class="menu-container main two-column">
     <div class="line state-container span">
-      <span class="warning" (click)="gameManager.stateManager.gameOffsetWarning = false"
-        *ngIf="undoOffset && gameManager.stateManager.gameOffsetWarning"> <img src="./assets/images/warning.svg">
+      @if (undoOffset && gameManager.stateManager.gameOffsetWarning) {
+      <span class="warning" (click)="gameManager.stateManager.gameOffsetWarning = false"> <img
+          src="./assets/images/warning.svg">
         <span [ghs-label]="'state.missing'" [ghs-label-args]="[undoOffset]"></span></span>
+      }
       <a tabclick class="state undo"
         [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning) || gameManager.stateManager.undos.length == 0}"
         (click)="gameManager.stateManager.undo()">
         <span class="undo-text">
           <span [ghs-label]="'state.undo'"></span>
         </span>
-        <span class="info text-white" *ngIf="undoInfo.length > 0" [ghs-label]="'state.info.' + undoInfo[0]"
+        @if (undoInfo.length > 0) {
+        <span class="info text-white" [ghs-label]="'state.info.' + undoInfo[0]"
           [ghs-label-args]="(undoInfo | slice:1:undoInfo.length)" [ghs-label-empty]="true"></span>
+        }
       </a>
-
       <span tabclick class="undo-dialog" (click)="openUndoDialog($event)"><img class="ghs-svg"
           src="./assets/images/long-rest.svg"></span>
-
       <a tabclick class="state redo"
         [ngClass]="{'disabled' :!gameManager.stateManager.redoPermission  || gameManager.stateManager.redos.length == 0}"
         (click)="gameManager.stateManager.redo()">
         <span [ghs-label]="'state.redo'"></span>
-        <span class="info text-white" *ngIf="redoInfo.length > 0" [ghs-label]="'state.info.' + redoInfo[0]"
+        @if (redoInfo.length > 0) {
+        <span class="info text-white" [ghs-label]="'state.info.' + redoInfo[0]"
           [ghs-label-args]="(redoInfo | slice:1:redoInfo.length)" [ghs-label-empty]="true"></span>
+        }
       </a>
     </div>
-
     <div class="separator"></div>
-
-    <ng-container *ngIf="!standalone">
-      <div class="line"
-        [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-        <a tabclick (click)="setActive(SubMenu.scenario)"><span [ghs-label]="'scenario.set'"></span></a>
-      </div>
-      <div class="line"
-        [ngClass]="{'disabled' : !hasSections(), 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-        <a tabclick (click)="setActive(SubMenu.section)"><span [ghs-label]="'section'"></span></a>
-      </div>
-      <div class="line"
-        [ngClass]="{'disabled' : hasAllMonster(), 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">
-        <a tabclick (click)="setActive(SubMenu.monster_add)"><span [ghs-label]="'monster.add'"></span></a>
-      </div>
-      <div class="line"
-        [ngClass]="{'disabled' : monsters().length == 0, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">
-        <a tabclick (click)="setActive(SubMenu.monster_remove)"><span [ghs-label]="'monster.remove'"></span></a>
-      </div>
-
-      <div class="separator"></div>
-
-      <div class="line"
-        [ngClass]="{'disabled' : characters().length > 0 && gameManager.bbRules() && settingsManager.settings.bbChars, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-        <a tabclick (click)="setActive(SubMenu.character_add)"><span [ghs-label]="'character.add'"></span></a>
-      </div>
-      <div class="line"
-        [ngClass]="{'disabled' : characters().length == 0,'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-        <a tabclick (click)="setActive(SubMenu.character_remove)"><span [ghs-label]="'character.remove'"></span></a>
-      </div>
-      <div class="line"
-        [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-        <a tabclick (click)="setActive(SubMenu.objective_add)"><span [ghs-label]="'objective.add'"></span></a>
-      </div>
-      <div class="line"
-        [ngClass]="{'disabled' : objectives().length == 0, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-        <a tabclick (click)="setActive(SubMenu.objective_remove)"><span [ghs-label]="'objective.remove'"></span></a>
-      </div>
-
-      <div class="separator"></div>
-
-      <div class="line span">
-        <a tabclick (click)="setActive(SubMenu.campaign)"><span [ghs-label]="'campaign'"></span></a>
-      </div>
-
-      <div class="separator"></div>
-    </ng-container>
-
+    @if (!standalone) {
+    <div class="line"
+      [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
+      <a tabclick (click)="setActive(SubMenu.scenario)"><span [ghs-label]="'scenario.set'"></span></a>
+    </div>
+    <div class="line"
+      [ngClass]="{'disabled' : !hasSections(), 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
+      <a tabclick (click)="setActive(SubMenu.section)"><span [ghs-label]="'section'"></span></a>
+    </div>
+    <div class="line"
+      [ngClass]="{'disabled' : hasAllMonster(), 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">
+      <a tabclick (click)="setActive(SubMenu.monster_add)"><span [ghs-label]="'monster.add'"></span></a>
+    </div>
+    <div class="line"
+      [ngClass]="{'disabled' : monsters().length == 0, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">
+      <a tabclick (click)="setActive(SubMenu.monster_remove)"><span [ghs-label]="'monster.remove'"></span></a>
+    </div>
+    <div class="separator"></div>
+    <div class="line"
+      [ngClass]="{'disabled' : characters().length > 0 && gameManager.bbRules() && settingsManager.settings.bbChars, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
+      <a tabclick (click)="setActive(SubMenu.character_add)"><span [ghs-label]="'character.add'"></span></a>
+    </div>
+    <div class="line"
+      [ngClass]="{'disabled' : characters().length == 0,'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
+      <a tabclick (click)="setActive(SubMenu.character_remove)"><span [ghs-label]="'character.remove'"></span></a>
+    </div>
+    <div class="line"
+      [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
+      <a tabclick (click)="setActive(SubMenu.objective_add)"><span [ghs-label]="'objective.add'"></span></a>
+    </div>
+    <div class="line"
+      [ngClass]="{'disabled' : objectives().length == 0, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
+      <a tabclick (click)="setActive(SubMenu.objective_remove)"><span [ghs-label]="'objective.remove'"></span></a>
+    </div>
+    <div class="separator"></div>
+    <div class="line span">
+      <a tabclick (click)="setActive(SubMenu.campaign)"><span [ghs-label]="'campaign'"></span></a>
+    </div>
+    <div class="separator"></div>
+    }
     <div class="line">
       <a tabclick (click)="setActive(SubMenu.settings)"><span [ghs-label]="'settings'"></span></a>
     </div>
     <div class="line">
       <a tabclick (click)="setActive(SubMenu.datamanagement)"><span [ghs-label]="'datamanagement'"></span></a>
     </div>
-
     <div class="separator"></div>
     <div class="line">
-      <a tabclick (click)="setActive(SubMenu.server)" [ngSwitch]="gameManager.stateManager.wsState()">
-        <span *ngSwitchCase="WebSocket.OPEN"><span [ghs-label]="'server.menu.connected'"></span></span>
-        <span *ngSwitchCase="WebSocket.CONNECTING"><span [ghs-label]="'server.connecting'"></span></span>
-        <span *ngSwitchDefault><span [ghs-label]="'server.menu.connect'"></span></span>
+      <a tabclick (click)="setActive(SubMenu.server)">
+        @switch (gameManager.stateManager.wsState()) {
+        @case (WebSocket.OPEN) {
+        <span><span [ghs-label]="'server.menu.connected'"></span></span>
+        }
+        @case (WebSocket.CONNECTING) {
+        <span><span [ghs-label]="'server.connecting'"></span></span>
+        }
+        @default {
+        <span><span [ghs-label]="'server.menu.connect'"></span></span>
+        }
+        }
       </a>
     </div>
-
     <div class="separator"></div>
     <div class="line">
       <a tabclick (click)="setActive(SubMenu.about)"><span [ghs-label]="'about'"></span></a>
@@ -97,61 +101,68 @@
     <div class="line">
       <a href="https://help.gloomhaven-secretariat.de" target="_blank"><span [ghs-label]="'help'"></span></a>
     </div>
-
     <div class="separator"></div>
-
-    <div class="line" *ngIf="gameManager.stateManager.installPrompt">
+    @if (gameManager.stateManager.installPrompt) {
+    <div class="line">
       <a class="install" (click)="gameManager.stateManager.install()"> <img class="ghs-svg"
           src="./assets/images/install.svg"> <span [ghs-label]="'app.install'"></span></a>
     </div>
-
+    }
     <div class="line">
       <a tabclick (click)="feedbackDialog()"><img class="ghs-svg" src="./assets/images/hint.svg">&nbsp;
         <span [ghs-label]="'tools.feedback'"></span>
       </a>
     </div>
-
     <div class="line">
       <a tabclick (click)="keyboardShourtcutsDialog()" [ghs-tooltip]="'tools.keyboard'"><img class="ghs-svg"
           src="./assets/images/keyboard.svg">
       </a>
     </div>
-
-    <div class="line" *ngIf="standalone">
+    @if (standalone) {
+    <div class="line">
       <a tabclick [routerLink]="'/'" (click)="close()"><img class="ghs-svg" src="./assets/images/left.svg">&nbsp;
         <span [ghs-label]="'tools.backToGhs'"></span>
       </a>
     </div>
-
-    <div class="line separator" *ngIf="isUpdateAvailable()">
+    }
+    @if (isUpdateAvailable()) {
+    <div class="line separator">
       <a tabclick (click)="update()">&lt;<span [ghs-label]="'update'"></span>(!)&gt;</a>
     </div>
+    }
   </div>
-
-  <ghs-scenario-menu *ngSwitchCase="SubMenu.scenario" (close)="close()"></ghs-scenario-menu>
-
-  <ghs-section-menu *ngSwitchCase="SubMenu.section"></ghs-section-menu>
-
-  <ghs-character-menu *ngSwitchCase="SubMenu.character_add" (close)="close()">
-  </ghs-character-menu>
-
-  <ghs-campaign-menu *ngSwitchCase="SubMenu.campaign" (close)="close()"></ghs-campaign-menu>
-
-  <div *ngSwitchCase="SubMenu.character_remove" class="menu-container character-remove">
+  }
+  @case (SubMenu.scenario) {
+  <ghs-scenario-menu (close)="close()"></ghs-scenario-menu>
+  }
+  @case (SubMenu.section) {
+  <ghs-section-menu></ghs-section-menu>
+  }
+  @case (SubMenu.character_add) {
+  <ghs-character-menu (close)="close()"></ghs-character-menu>
+  }
+  @case (SubMenu.campaign) {
+  <ghs-campaign-menu (close)="close()"></ghs-campaign-menu>
+  }
+  @case (SubMenu.character_remove) {
+  <div class="menu-container character-remove">
     <div class="line">
       <a (click)="removeAllCharacters()">
         &lt;<span [ghs-label]="'character.removeAll'"></span>&gt;
       </a>
     </div>
-    <div class="line" *ngFor="let character of characters()">
+    @for (character of characters(); track character.edition + '-' + character.name) {
+    <div class="line">
       <a (click)="removeCharacter(character);">
         <img class="icon" [src]="character.iconUrl" />
         <span>{{gameManager.characterManager.characterName(character, true)}}</span>
       </a>
     </div>
+    }
   </div>
-
-  <div *ngSwitchCase="SubMenu.objective_add" class="menu-container objective-add">
+  }
+  @case (SubMenu.objective_add) {
+  <div class="menu-container objective-add">
     <div class="line">
       <a (click)="addObjectiveContainer()">
         <img class="icon" src="./assets/images/objective/objective.svg" />
@@ -165,64 +176,97 @@
       </a>
     </div>
   </div>
-
-  <div *ngSwitchCase="SubMenu.objective_remove" class="menu-container objective-remove">
+  }
+  @case (SubMenu.objective_remove) {
+  <div class="menu-container objective-remove">
     <div class="line">
       <a (click)="removeAllObjectives()">
         &lt;<span [ghs-label]="'objective.removeAll'"></span>&gt;
       </a>
     </div>
-    <div class="line" *ngFor="let objective of objectives()">
+    @for (objective of objectives(); track objective.uuid) {
+    <div class="line">
       <a (click)="removeObjective(objective);">
-        <img class="icon" src="./assets/images/objective/objective.svg" *ngIf="!objective.escort" />
-        <img class="icon" src="./assets/images/objective/escort.svg" *ngIf="objective.escort" />
-        <span *ngIf="objective.title">{{objective.title}}</span>
-        <span *ngIf="!objective.title && objective.name" [ghs-label]="'data.objective.' + objective.name"></span>
-        <span *ngIf="objective.title || objective.name">(</span>
+        @if (!objective.escort) {
+        <img class="icon" src="./assets/images/objective/objective.svg" />
+        }
+        @if (objective.escort) {
+        <img class="icon" src="./assets/images/objective/escort.svg" />
+        }
+        @if (objective.title) {
+        <span>{{objective.title}}</span>
+        }
+        @if (!objective.title && objective.name) {
+        <span [ghs-label]="'data.objective.' + objective.name"></span>
+        }
+        @if (objective.title || objective.name) {
+        <span>(</span>
+        }
         <span [ghs-label]="(objective.escort ? 'escort' : 'objective')"></span>
-        <span *ngIf="objective.name">)</span>
+        @if (objective.name) {
+        <span>)</span>
+        }
       </a>
     </div>
+    }
   </div>
-
-  <ghs-monster-menu *ngSwitchCase="SubMenu.monster_add"></ghs-monster-menu>
-
-  <div *ngSwitchCase="SubMenu.monster_remove" class="menu-container monster-remove">
+  }
+  @case (SubMenu.monster_add) {
+  <ghs-monster-menu></ghs-monster-menu>
+  }
+  @case (SubMenu.monster_remove) {
+  <div class="menu-container monster-remove">
     <div class="line">
       <a (click)="removeAllMonsters()">
         &lt;<span [ghs-label]="'monster.removeAll'"></span>&gt;
       </a>
     </div>
-    <div class="line" *ngFor="let monster of monsters()">
+    @for (monster of monsters(); track monster.edition + '-' + monster.name) {
+    <div class="line">
       <a (click)="removeMonster(monster);">
-        <span [ghs-label]="'data.monster.' + monster.name"></span> <span class="count"
-          *ngIf="gameManager.entityManager.entities(monster).length > 0">&nbsp;({{gameManager.entityManager.entities(monster).length}})</span><span
-          class="edition" *ngIf="gameManager.getEdition(monster)">&nbsp;[<span [ghs-label]="'data.edition.' +
+        <span [ghs-label]="'data.monster.' + monster.name"></span> @if
+        (gameManager.entityManager.entities(monster).length > 0) {
+        <span class="count">&nbsp;({{gameManager.entityManager.entities(monster).length}})</span>
+        }@if (gameManager.getEdition(monster)) {
+        <span class="edition">&nbsp;[<span [ghs-label]="'data.edition.' +
           gameManager.getEdition(monster)"></span>]</span>
+        }
       </a>
     </div>
-    <div class="line" *ngIf="hasUnusedMonster()">
+    }
+    @if (hasUnusedMonster()) {
+    <div class="line">
       <a (click)="removeAllMonsters(true)">
         &lt;<span [ghs-label]="'monster.removeUnused'"></span>&gt;
       </a>
     </div>
+    }
   </div>
-
-  <ghs-settings-menu *ngSwitchCase="SubMenu.settings" (setMenu)="setActive($event)"></ghs-settings-menu>
-
-  <ghs-debug-menu *ngSwitchCase="SubMenu.debug" (close)="close()"></ghs-debug-menu>
-
-  <ghs-server-menu *ngSwitchCase="SubMenu.server"></ghs-server-menu>
-
-  <ghs-datamanagement-menu *ngSwitchCase="SubMenu.datamanagement"></ghs-datamanagement-menu>
-
-  <ghs-datamanagement-menu *ngSwitchCase="SubMenu.editions" [editionsOnly]="true"></ghs-datamanagement-menu>
-
-  <ghs-about-menu *ngSwitchCase="SubMenu.about"></ghs-about-menu>
-
+  }
+  @case (SubMenu.settings) {
+  <ghs-settings-menu (setMenu)="setActive($event)"></ghs-settings-menu>
+  }
+  @case (SubMenu.debug) {
+  <ghs-debug-menu (close)="close()"></ghs-debug-menu>
+  }
+  @case (SubMenu.server) {
+  <ghs-server-menu></ghs-server-menu>
+  }
+  @case (SubMenu.datamanagement) {
+  <ghs-datamanagement-menu></ghs-datamanagement-menu>
+  }
+  @case (SubMenu.editions) {
+  <ghs-datamanagement-menu [editionsOnly]="true"></ghs-datamanagement-menu>
+  }
+  @case (SubMenu.about) {
+  <ghs-about-menu></ghs-about-menu>
+  }
+  }
 </div>
 
-<div class="back" *ngIf="active != SubMenu.main" tabclick (click)="setActive(SubMenu.main)"
-  [ghs-label]="'menu.backToMain'" [ghs-label-attribute]="'title'">
+@if (active != SubMenu.main) {
+<div class="back" tabclick (click)="setActive(SubMenu.main)" [ghs-label]="'menu.backToMain'"
+  [ghs-label-attribute]="'title'">
   <img class="ghs-svg" src="./assets/images/left.svg">
 </div>
+}

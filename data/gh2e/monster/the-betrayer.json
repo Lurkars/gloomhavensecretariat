@@ -7,7 +7,6 @@
   "baseStat": {
     "type": "boss",
     "movement": 3,
-    "actions": [],
     "immunities": [
       "poison",
       "disarm",

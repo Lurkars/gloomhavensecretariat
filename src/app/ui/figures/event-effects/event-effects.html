@@ -4,65 +4,86 @@
       <img class="ghs-svg" [src]="'./assets/images/event' + (menu ? '-effects' : '') + '.svg'"> <span [ghs-label]="'scenario.eventEffects' + (menu ? '.hint' : 
     '')"></span>
     </div>
-    <div class="text" *ngIf="!menu && characters.length">
+    @if (!menu && characters.length) {
+    <div class="text">
       <span [ghs-label]="'scenario.eventEffects.hint'"></span>
     </div>
+    }
 
-    <div *ngIf="characters.length" class="characters"
+    @if (characters.length) {
+    <div class="characters"
       [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.characters || !gameManager.stateManager.permissions.party)}">
-      <div class="character-container" *ngFor="let character of characters">
+      @for (character of characters; track character.edition + '-' + character.name) {
+      <div class="character-container">
         <a class="character" tabclick ghs-pointer-input (singleClick)="toggleCharacter(character)"
           (doubleClick)="openCharacterSheet(character)"
           [ngClass]="{'inactive' : activeCharacters.indexOf(character) == -1}">
           <img class="icon" [src]="character.iconUrl">
-          <img class="absent" src="./assets/images/status/absent.svg" *ngIf="character.absent">
+          @if (character.absent) {
+          <img class="absent" src="./assets/images/status/absent.svg">
+          }
         </a>
-        <ng-container *ngIf="!gameManager.roundManager.firstRound">
-          <a class="summon" *ngFor="let summon of character.summons" tabclick (click)="toggleSummon(summon)"
-            [ngClass]="{'inactive' : activeSummons.indexOf(summon) == -1, 'thumbnail' : settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)}">
-            <span class="summon-state" [ngClass]="{'fh': summon.color == SummonColor.fh}">
-              <img *ngIf="summon.color != SummonColor.fh" src="./assets/images/summons/{{summon.color}}.png">
-              <span class="summon-number">
-                <span *ngIf="summon.number == 0">-</span>
-                <span *ngIf="summon.number > 0">{{summon.number}}</span></span>
-            </span>
-
-            <div class="background-image"
-              *ngIf="settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)"
-              [style.background-image]="summon.thumbnailUrl ? 'url(' +  summon.thumbnailUrl + ')' : 'url(./assets/images/summons/thumbnail/' + summon.thumbnail + '.png)'">
-            </div>
-          </a>
-        </ng-container>
+        @if (!gameManager.roundManager.firstRound) {
+        @for (summon of character.summons; track summon.name + summon.color + summon.number) {
+        <a class="summon" tabclick (click)="toggleSummon(summon)"
+          [ngClass]="{'inactive' : activeSummons.indexOf(summon) == -1, 'thumbnail' : settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)}">
+          <span class="summon-state" [ngClass]="{'fh': summon.color == SummonColor.fh}">
+            @if (summon.color != SummonColor.fh) {
+            <img src="./assets/images/summons/{{summon.color}}.png">
+            }
+            <span class="summon-number">
+              @if (summon.number == 0) {
+              <span>-</span>
+              }
+              @if (summon.number > 0) {
+              <span>{{summon.number}}</span>
+              }</span>
+          </span>
+          @if (settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)) {
+          <div class="background-image"
+            [style.background-image]="summon.thumbnailUrl ? 'url(' +  summon.thumbnailUrl + ')' : 'url(./assets/images/summons/thumbnail/' + summon.thumbnail + '.png)'">
+          </div>
+          }
+        </a>
+        }
+        }
       </div>
-
-      <a class="favors" *ngIf="gameManager.trialsManager.favorsEnabled" (click)="openFavors()">
+      }
+      @if (gameManager.trialsManager.favorsEnabled) {
+      <a class="favors" (click)="openFavors()">
         <span [ghs-label]="'scenario.favors'"></span>
       </a>
-
-      <div class="imbuement" *ngIf="gameManager.imbuementManager.enabled">
+      }
+      @if (gameManager.imbuementManager.enabled) {
+      <div class="imbuement">
         <span class="title" [ghs-label]="'scenario.gh2eImbuement'"></span>
         <div class="checkboxes">
-          <label (click)="toggleImbuement()" *ngIf="gameManager.imbuementManager.imbuement != 'advanced'">
+          @if (gameManager.imbuementManager.imbuement != 'advanced') {
+          <label (click)="toggleImbuement()">
             <span class="input-checkbox"
               [ngClass]="{'checked' : gameManager.imbuementManager.imbuement == true}"></span>
             <span [ghs-label]="'scenario.gh2eImbuement.imbuement'"></span>
           </label>
-          <label (click)="toggleImbuement(true)"
-            *ngIf="gameManager.imbuementManager.available == 'advanced' && gameManager.imbuementManager.imbuement != true">
+          }
+          @if (gameManager.imbuementManager.available == 'advanced' && gameManager.imbuementManager.imbuement != true) {
+          <label (click)="toggleImbuement(true)">
             <span class="input-checkbox"
               [ngClass]="{'checked' : gameManager.imbuementManager.imbuement == 'advanced'}"></span>
             <span [ghs-label]="'scenario.gh2eImbuement.advancedImbuement'"></span>
           </label>
+          }
         </div>
       </div>
+      }
     </div>
+    }
   </div>
 
   <div class="scroll-container container"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.characters || !gameManager.stateManager.permissions.party)}">
 
-    <div class="entity-container" *ngIf="!!gameManager.game.scenario && characters.length">
-
+    @if (!!gameManager.game.scenario && characters.length) {
+    <div class="entity-container">
       <span class="item">
         <ghs-pointer-input class="button" tabclick (singleClick)="changeHealth(-1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/minus.svg">
@@ -79,7 +100,6 @@
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-pointer-input>
         </span>
-
         <span class="item">
           <ghs-pointer-input class="button" tabclick (singleClick)="changeBless(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
@@ -96,7 +116,6 @@
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-pointer-input>
         </span>
-
         <span class="item">
           <ghs-pointer-input class="button" tabclick (singleClick)="changeCurse(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
@@ -114,14 +133,16 @@
           </ghs-pointer-input>
         </span>
     </div>
+    }
 
+    @if (!!gameManager.game.scenario && characters.length) {
     <ghs-conditions [entities]="activeCharacters" [entityConditions]="entityConditions" [immunities]="newImmunities"
-      [type]="'character'" (conditionChange)="changeConditions($event)"
-      *ngIf="!!gameManager.game.scenario && characters.length"></ghs-conditions>
+      [type]="'character'" (conditionChange)="changeConditions($event)"></ghs-conditions>
+    }
 
-    <div class="entity-container" *ngIf="characters.length">
+    @if (characters.length) {
+    <div class="entity-container">
       <span class="progress"><span [ghs-label]="'scenario.eventEffects.progress'"></span></span>
-
       <span class="item">
         <ghs-pointer-input class="button" tabclick (singleClick)="changeExperience(-1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/minus.svg">
@@ -138,7 +159,6 @@
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-pointer-input>
         </span>
-
         <span class="item">
           <ghs-pointer-input class="button" tabclick (singleClick)="changeGold(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
@@ -156,7 +176,6 @@
               <img class="ghs-svg" src="./assets/images/plus.svg">
             </ghs-pointer-input>
           </span>
-
           <span class="item">
             <ghs-pointer-input class="button" tabclick (singleClick)="changeBattleGoals(-1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/minus.svg">
@@ -173,142 +192,163 @@
                 <img class="ghs-svg" src="./assets/images/plus.svg">
               </ghs-pointer-input>
             </span>
-
-            <ng-container *ngFor="let type of lootColumns">
+            @for (type of lootColumns; track type) {
+            <span class="item">
+              <ghs-pointer-input class="button" tabclick (singleClick)="changeLoot(type, -1)" [repeat]="true">
+                <img class="ghs-svg" src="./assets/images/minus.svg">
+              </ghs-pointer-input>
+            </span>
+            <span class="item" [ghs-label]="'game.loot.' + type" [ghs-label-attribute]="'title'">
+              <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + type + '.svg'">
+              <span class="badge"
+                [ngClass]="{'negative-value' : minLoot(type) < 0, 'positive-value' : maxLoot(type) > 0}">{{(minLoot(type)
+                < 0 ? minLoot(type) : maxLoot(type)) | ghsValueSign}}</span>
+              </span>
               <span class="item">
-                <ghs-pointer-input class="button" tabclick (singleClick)="changeLoot(type, -1)" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/minus.svg">
+                <ghs-pointer-input class="button" tabclick (singleClick)="changeLoot(type, 1)" [repeat]="true">
+                  <img class="ghs-svg" src="./assets/images/plus.svg">
                 </ghs-pointer-input>
               </span>
-              <span class="item" [ghs-label]="'game.loot.' + type" [ghs-label-attribute]="'title'">
-                <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + type + '.svg'">
-                <span class="badge"
-                  [ngClass]="{'negative-value' : minLoot(type) < 0, 'positive-value' : maxLoot(type) > 0}">{{(minLoot(type)
-                  < 0 ? minLoot(type) : maxLoot(type)) | ghsValueSign}}</span>
-                </span>
-                <span class="item">
-                  <ghs-pointer-input class="button" tabclick (singleClick)="changeLoot(type, 1)" [repeat]="true">
-                    <img class="ghs-svg" src="./assets/images/plus.svg">
-                  </ghs-pointer-input>
-                </span>
-
-            </ng-container>
+              }
     </div>
+    }
 
-    <div class="entity-container campaign" *ngIf="settingsManager.settings.partySheet">
+    @if (settingsManager.settings.partySheet) {
+    <div class="entity-container campaign">
       <span class="progress"><span [ghs-label]="'scenario.eventEffects.campaign'"></span></span>
-
-      <ng-container *ngIf="settingsManager.settings.events">
-        <span class="event-deck-container" *ngFor="let type of eventTypes">
-          <a class="action" tabclick (click)="drawEvent(type)" [ghs-label]="'scenario.eventEffects.drawEvent'"
-            [ghs-label-args]="[type]"
-            [ngClass]="{'disabled' : !gameManager.game.party.eventDecks[type] || gameManager.game.party.eventDecks[type]?.length == 0}"></a>
-
-          <img (click)="setupEvents(type)" class="ghs-svg" src="./assets/images/settings.svg"
-            [ghs-tooltip]="'game.events.deck.setup'">
-        </span>
-      </ng-container>
-
-      <ng-container *ngIf="gameManager.roundManager.firstRound">
-        <span class="item">
-          <ghs-pointer-input class="button" tabclick (singleClick)="changeProsperity(-1)" [repeat]="true">
-            <img class="ghs-svg" src="./assets/images/minus.svg">
-          </ghs-pointer-input>
-        </span>
-        <span class="item" [ghs-label]="'party.prosperity'" [ghs-label-attribute]="'title'">
-          <img *ngIf="gameManager.fhRules()" class="ghs-svg" src="./assets/images/fh/prosperity.svg" />
-          <span [ghs-label]="'party.prosperity'"></span>
-          <span class="badge"
-            [ngClass]="{'negative-value' : prosperity < 0, 'positive-value' : prosperity > 0}">{{prosperity |
-            ghsValueSign}}</span>
-        </span>
-        <span class="item">
-          <ghs-pointer-input class="button" tabclick (singleClick)="changeProsperity(1)" [repeat]="true">
-            <img class="ghs-svg" src="./assets/images/plus.svg">
-          </ghs-pointer-input>
-        </span>
-
-        <ng-container *ngIf="!gameManager.fhRules()">
-          <span class="item">
-            <ghs-pointer-input class="button" tabclick (singleClick)="changeReputation(-1)" [repeat]="true"
-              [ngClass]="{'disabled' : gameManager.game.party.reputation + reputation <= -20}">
-              <img class="ghs-svg" src="./assets/images/minus.svg">
-            </ghs-pointer-input>
-          </span>
-          <span class="item" [ghs-label]="'party.reputation'" [ghs-label-attribute]="'title'">
-            <span [ghs-label]="'party.reputation'"></span>
-            <span class="badge"
-              [ngClass]="{'negative-value' : reputation < 0, 'positive-value' : reputation > 0}">{{reputation |
-              ghsValueSign}}</span>
-          </span>
-          <span class="item">
-            <ghs-pointer-input class="button" tabclick (singleClick)="changeReputation(1)" [repeat]="true"
-              [ngClass]="{'disabled' : gameManager.game.party.reputation + reputation >= 20}">
-              <img class="ghs-svg" src="./assets/images/plus.svg">
-            </ghs-pointer-input>
-          </span>
-        </ng-container>
-
-        <ng-container *ngIf="gameManager.fhRules()">
-          <span class="item">
-            <ghs-pointer-input class="button" tabclick (singleClick)="changeMorale(-1)" [repeat]="true"
-              [ngClass]="{'disabled' : gameManager.game.party.morale + morale <=0}">
-              <img class="ghs-svg" src="./assets/images/minus.svg">
-            </ghs-pointer-input>
-          </span>
-          <span class="item" [ghs-label]="'party.morale'" [ghs-label-attribute]="'title'">
-            <span [ghs-label]="'party.morale'"></span>
-            <span class="badge" [ngClass]="{'negative-value' : morale < 0, 'positive-value' : morale > 0}">{{morale |
-              ghsValueSign}}</span>
-          </span>
-          <span class="item">
-            <ghs-pointer-input class="button" tabclick (singleClick)="changeMorale(1)" [repeat]="true"
-              [ngClass]="{'disabled' : gameManager.game.party.morale + morale >= 20}">
-              <img class="ghs-svg" src="./assets/images/plus.svg">
-            </ghs-pointer-input>
-          </span>
-        </ng-container>
-
-        <ng-container *ngIf="gameManager.fhRules()">
-          <span class="item">
-            <ghs-pointer-input class="button" tabclick (singleClick)="changeInspiration(-1)" [repeat]="true"
-              [ngClass]="{'disabled' : gameManager.game.party.inspiration + inspiration <=0}">
-              <img class="ghs-svg" src="./assets/images/minus.svg">
-            </ghs-pointer-input>
-          </span>
-          <span class="item" [ghs-label]="'party.inspiration'" [ghs-label-attribute]="'title'">
-            <span [ghs-label]="'party.inspiration'"></span>
-            <span class="badge"
-              [ngClass]="{'negative-value' : inspiration < 0, 'positive-value' : inspiration > 0}">{{inspiration |
-              ghsValueSign}}</span>
-          </span>
-          <span class="item">
-            <ghs-pointer-input class="button" tabclick (singleClick)="changeInspiration(1)" [repeat]="true"
-              [ngClass]="{'disabled' : gameManager.game.party.inspiration + inspiration >= 20}">
-              <img class="ghs-svg" src="./assets/images/plus.svg">
-            </ghs-pointer-input>
-          </span>
-        </ng-container>
-      </ng-container>
-
+      @if (settingsManager.settings.events) {
+      @for (type of eventTypes; track type) {
+      <span class="event-deck-container">
+        <a class="action" tabclick (click)="drawEvent(type)" [ghs-label]="'scenario.eventEffects.drawEvent'"
+          [ghs-label-args]="[type]"
+          [ngClass]="{'disabled' : !gameManager.game.party.eventDecks[type] || gameManager.game.party.eventDecks[type].length == 0}"></a>
+        <img (click)="setupEvents(type)" class="ghs-svg" src="./assets/images/settings.svg"
+          [ghs-tooltip]="'game.events.deck.setup'">
+      </span>
+      }
+      @if (gameManager.fhRules() && !eventAttack) {
+      <span class="action" tabclick (click)="openOutpostAttack()"
+        [ghs-label]="'scenario.eventEffects.outpostAttack'"></span>
+      }
+      }
+      @if (gameManager.roundManager.firstRound) {
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeProsperity(-1)" [repeat]="true">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item" [ghs-label]="'party.prosperity'" [ghs-label-attribute]="'title'">
+        @if (gameManager.fhRules()) {
+        <img class="ghs-svg" src="./assets/images/fh/prosperity.svg" />
+        }
+        <span [ghs-label]="'party.prosperity'"></span>
+        <span class="badge"
+          [ngClass]="{'negative-value' : prosperity < 0, 'positive-value' : prosperity > 0}">{{prosperity |
+          ghsValueSign}}</span>
+      </span>
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeProsperity(1)" [repeat]="true">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+      @if (!gameManager.fhRules()) {
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeReputation(-1)" [repeat]="true"
+          [ngClass]="{'disabled' : gameManager.game.party.reputation + reputation <= -20}">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item" [ghs-label]="'party.reputation'" [ghs-label-attribute]="'title'">
+        <span [ghs-label]="'party.reputation'"></span>
+        <span class="badge"
+          [ngClass]="{'negative-value' : reputation < 0, 'positive-value' : reputation > 0}">{{reputation |
+          ghsValueSign}}</span>
+      </span>
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeReputation(1)" [repeat]="true"
+          [ngClass]="{'disabled' : gameManager.game.party.reputation + reputation >= 20}">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+      }
+      @if (gameManager.fhRules()) {
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeMorale(-1)" [repeat]="true"
+          [ngClass]="{'disabled' : gameManager.game.party.morale + morale <=0}">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item" [ghs-label]="'party.morale'" [ghs-label-attribute]="'title'">
+        <span [ghs-label]="'party.morale'"></span>
+        <span class="badge" [ngClass]="{'negative-value' : morale < 0, 'positive-value' : morale > 0}">{{morale |
+          ghsValueSign}}</span>
+      </span>
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeMorale(1)" [repeat]="true"
+          [ngClass]="{'disabled' : gameManager.game.party.morale + morale >= 20}">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+      }
+      @if (gameManager.fhRules()) {
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeInspiration(-1)" [repeat]="true"
+          [ngClass]="{'disabled' : gameManager.game.party.inspiration + inspiration <=0}">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item" [ghs-label]="'party.inspiration'" [ghs-label-attribute]="'title'">
+        <span [ghs-label]="'party.inspiration'"></span>
+        <span class="badge"
+          [ngClass]="{'negative-value' : inspiration < 0, 'positive-value' : inspiration > 0}">{{inspiration |
+          ghsValueSign}}</span>
+      </span>
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeInspiration(1)" [repeat]="true"
+          [ngClass]="{'disabled' : gameManager.game.party.inspiration + inspiration >= 20}">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+      }
+      }
       <span class="action" tabclick (click)="drawRandomItem()"
         [ghs-label]="'scenario.eventEffects.drawRandomItem'"></span>
-
-      <span class="action" tabclick (click)="drawRandomItem(true)" *ngIf="gameManager.fhRules()"
+      @if (gameManager.fhRules()) {
+      <span class="action" tabclick (click)="drawRandomItem(true)"
         [ghs-label]="'scenario.eventEffects.drawRandomItem.blueprint'"></span>
-
+      }
       <span class="action" tabclick (click)="drawRandomScenario(gameManager.fhRules())"
         [ghs-label]="'scenario.eventEffects.drawRandomScenario'"></span>
     </div>
+    }
 
-    <div class="entity-container event-outcomes" *ngIf="eventEffectsManual.length || eventConditionManual.length">
+    @if (eventEffectsManual.length || eventConditionManual.length || !!eventAttack || eventOutpostAttackEffects.length)
+    {
+    <div class="entity-container event-outcomes">
+      @if (eventEffectsManual.length || eventConditionManual.length) {
       <span class="title" [ghs-label]="'game.events.applyManually'"></span>
-      <ghs-event-card-condition *ngFor="let condition of eventConditionManual" [condition]="condition" [light]="true"
-        [selected]="true"></ghs-event-card-condition>
-      <ghs-event-card-effect *ngFor="let effect of eventEffectsManual" [effect]="effect" [light]="true"
-        [selected]="true"></ghs-event-card-effect>
-
+      }
+      @for (condition of eventConditionManual; track condition) {
+      <ghs-event-card-condition [condition]="condition" [light]="true" [selected]="true"></ghs-event-card-condition>
+      }
+      @for (effect of eventEffectsManual; track (typeof effect === 'object' ? effect.type : effect) + $index) {
+      <ghs-event-card-effect [effect]="effect" [light]="true" [selected]="true"></ghs-event-card-effect>
+      }
+      @if (!!eventAttack) {
+      <span class="title outpost" [ghs-label]="'game.events.outpostAttack'"></span>
+      }
+      @if (eventOutpostAttackEffects.length) {
+      <span class="title" [ghs-label]="'game.events.outpostAttack.effects'"></span>
+      }
+      @for (effect of eventOutpostAttackEffects; track (typeof effect === 'object' ? effect.type : effect) + $index) {
+      <ghs-event-card-effect [effect]="effect" [light]="true" [selected]="true"></ghs-event-card-effect>
+      }
+      @if (!!eventAttack) {
+      <ghs-event-card-attack [attack]="eventAttack" [light]="true" [selected]="true" [narrative]="false"
+        [effects]="false" [disabled]="true" (click)="openOutpostAttack()"></ghs-event-card-attack>
+      }
       <a class="action" (click)="openPartySheet()" [ghs-label]="'campaign.party'"></a>
     </div>
+    }
   </div>
 </div>

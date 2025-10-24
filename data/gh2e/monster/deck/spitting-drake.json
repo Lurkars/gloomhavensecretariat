@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Hasty Assault",
-      "cardId": 858,
+      "cardId": 728,
       "initiative": 32,
       "actions": [
         {
@@ -28,7 +28,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 859,
+      "cardId": 729,
       "initiative": 52,
       "actions": [
         {
@@ -52,7 +52,7 @@
     },
     {
       "name": "Splashing Bile",
-      "cardId": 860,
+      "cardId": 730,
       "initiative": 57,
       "shuffle": true,
       "actions": [
@@ -81,7 +81,7 @@
     },
     {
       "name": "Venom Glands",
-      "cardId": 861,
+      "cardId": 731,
       "initiative": 27,
       "actions": [
         {
@@ -110,7 +110,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 862,
+      "cardId": 732,
       "initiative": 87,
       "actions": [
         {
@@ -134,7 +134,7 @@
     },
     {
       "name": "Subduing Spit",
-      "cardId": 863,
+      "cardId": 733,
       "initiative": 89,
       "actions": [
         {
@@ -158,7 +158,7 @@
     },
     {
       "name": "Empowering Rest",
-      "cardId": 864,
+      "cardId": 734,
       "initiative": 6,
       "actions": [
         {
@@ -185,7 +185,7 @@
     },
     {
       "name": "Explosive Vomit",
-      "cardId": 865,
+      "cardId": 735,
       "initiative": 89,
       "shuffle": true,
       "actions": [

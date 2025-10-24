@@ -191,6 +191,12 @@ export class GameManager {
       })
     }
 
+    this.editionData.filter((ed) => ed.edition != edition && ed.extends && ed.extends.indexOf(edition) != -1).forEach((editionData) => {
+      if (extensions.indexOf(editionData.edition) == -1) {
+        extensions.push(editionData.edition);
+      }
+    })
+
     if (all) {
       this.editionMappingAll[edition] = extensions;
     } else {
@@ -332,7 +338,7 @@ export class GameManager {
       this.game.figures.filter((figure) => figure instanceof Character && figure.specialConditions && figure.specialConditions.length && !figure.absent && gameManager.gameplayFigure(figure)).forEach((figure) => (figure as Character).specialConditions.forEach((name) => conditions.push(new Condition(name))));
     }
 
-    return conditions.filter((c, i, s) => s.indexOf(c) == i);
+    return conditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) == i);
   }
 
   figureConditions(figure: Figure, entity: Entity | undefined = undefined): ConditionName[] {
@@ -1067,6 +1073,19 @@ export class GameManager {
     })
 
     return gameClock.sort((a, b) => b.clockIn - a.clockIn);
+  }
+
+  gh2eFactionUnlocks(): string[] {
+    return this.game.party.conclusions.map((c) => gameManager.scenarioManager.sectionDataForModel(c)).filter((sectionData) => {
+      if (sectionData) {
+        return sectionData.rewards && sectionData.rewards.factionUnlock;
+      }
+      return false;
+    }).map((sectionData) => sectionData && sectionData.rewards && sectionData.rewards.factionUnlock || '');
+  }
+
+  gh2eFactionUnlock(faction: string): boolean {
+    return this.gh2eFactionUnlocks().indexOf(faction) != -1;
   }
 
 }

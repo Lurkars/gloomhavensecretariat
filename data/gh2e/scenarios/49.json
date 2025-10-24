@@ -62,6 +62,9 @@
           "name": "inox-guard",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

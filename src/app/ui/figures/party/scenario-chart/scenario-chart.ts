@@ -3,14 +3,13 @@ import { AfterViewInit, Component, HostListener, Inject, OnInit, ViewEncapsulati
 
 import { Overlay } from "@angular/cdk/overlay";
 import L, { LatLngBoundsLiteral } from 'leaflet';
-import mermaid from 'mermaid';
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { PartySheetDialogComponent } from "src/app/ui/figures/party/party-sheet-dialog";
 import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
 import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 import { ScenarioChartPopupDialog } from "./popup/scenario-chart-popup";
-import { Subscription } from "rxjs";
 
 @Component({
     standalone: false,
@@ -30,6 +29,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     campaignMode: boolean = true;
     legend: boolean = false;
     chart!: L.Map;
+    private mermaid: any = null;
 
     gameManager: GameManager = gameManager;
 
@@ -39,25 +39,40 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         this.campaignMode = gameManager.game.party.campaignMode;
     }
 
-    ngOnInit(): void {
-        mermaid.initialize({
-            flowchart: {
-                useMaxWidth: true,
-                htmlLabels: true,
-                curve: "linear"
-            },
-            theme: "base",
-            themeVariables: {
-                fontSize: "calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor))",
-                fontFamily: "var(--ghs-font-text)",
-                darkMode: true,
-                primaryColor: "#202830",
-                secondaryColor: "transparent",
-                tertiaryColor: "#52565f",
-                tertiaryBorderColor: "#202830",
-                tertiaryTextColor: "#eeeeee"
-            }
-        });
+    async ngOnInit(): Promise<void> {
+        // Lazy load mermaid only when needed
+        if (!this.mermaid) {
+            const mermaidModule = await import('mermaid');
+            this.mermaid = mermaidModule.default;
+            
+            this.mermaid.initialize({
+                startOnLoad: false,
+                flowchart: {
+                    useMaxWidth: true,
+                    htmlLabels: true,
+                    curve: "linear",
+                    subGraphTitleMargin: {
+                        bottom: 10
+                    }
+                },
+                theme: "base",
+                themeVariables: {
+                    fontSize: "calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor))",
+                    fontFamily: "var(--ghs-font-text)",
+                    darkMode: true,
+                    primaryColor: "#202830",
+                    secondaryColor: "transparent",
+                    tertiaryColor: "#52565f",
+                    tertiaryBorderColor: "#202830",
+                    tertiaryTextColor: "#eeeeee"
+                },
+                wrap: false,
+                // Disable unused diagram types to reduce bundle size
+                securityLevel: 'loose',
+                logLevel: 5
+            });
+        }
+        
         this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.updateMap() });
         this.update();
     }
@@ -73,7 +88,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     update() {
         this.flow = [
             "flowchart LR",
-            "classDef default stroke-width:4;",
+            "classDef default stroke-width:4, r:32px;",
             "classDef success stroke:#7da82a;",
             "classDef unplayed stroke:#56c8ef;",
             "classDef blocked stroke:#e2421f;",
@@ -106,7 +121,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
         scenarios.forEach((scenarioData) => {
 
-            let state = this.campaignMode ? ":::unplayed" : "";
+            let state = ":::unplayed";
             const success = this.campaignMode && gameManager.scenarioManager.isSuccess(scenarioData);
 
             if (success) {
@@ -141,7 +156,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 }
             }
 
-            this.flow.push("\t" + scenarioData.index + "((" + (pad + scenarioData.index).slice(-pad.length) + "))" + state);
+            const index = scenarioData.index.match(/\d+/g) ? (pad + scenarioData.index).slice(-pad.length) : scenarioData.index;
+            this.flow.push("\t" + scenarioData.index + "((" + index + "))" + state);
         });
 
         if (subgraph) {
@@ -278,8 +294,13 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     }
 
     async ngAfterViewInit() {
+        // Ensure mermaid is loaded before rendering
+        if (!this.mermaid) {
+            const mermaidModule = await import('mermaid');
+            this.mermaid = mermaidModule.default;
+        }
 
-        const { svg, bindFunctions } = await mermaid.render('graphDiv', this.flowString);
+        const { svg, bindFunctions } = await this.mermaid.render('graphDiv', this.flowString);
         var parser = new DOMParser();
         var svgElement = parser.parseFromString(svg, "image/svg+xml").lastChild as SVGElement;
 
@@ -316,27 +337,33 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
         const overlay = L.svgOverlay(svgElement, [[height + offsetY, offsetX], [offsetY, width + offsetX]], { interactive: true });
 
-        svgElement.addEventListener('click', (event) => {
-            const element = event.target as HTMLElement;
+        svgElement.addEventListener('pointerdown', (event) => {
+            let element = (event.target as HTMLElement);
+            if (element.tagName.toUpperCase() == 'P' && element.parentElement) {
+                element = element.parentElement;
+            }
             if (element && element.classList.contains('nodeLabel')) {
                 let parent = element.parentElement;
                 while (parent && !parent.classList.contains('node')) {
                     parent = parent.parentElement;
                 }
-                if (parent && 'id' in parent.dataset) {
-                    const scenarioData = gameManager.scenarioData(this.edition).find((scenarioData) => parent && scenarioData.group == this.group && scenarioData.index == parent.dataset['id']);
-                    if (scenarioData) {
-                        this.dialog.open(ScenarioChartPopupDialog, {
-                            panelClass: ['dialog'],
-                            data: scenarioData,
-                            positionStrategy: this.overlay.position().flexibleConnectedTo(element).withPositions(ghsDefaultDialogPositions())
-                        }).closed.subscribe({
-                            next: (result) => {
-                                if (result) {
-                                    this.dialogRef.close();
+                if (parent && 'id' in parent) {
+                    const scenarioId = parent.id.split('-').length > 1 ? parent.id.split('-')[1] : '';
+                    if (scenarioId) {
+                        const scenarioData = gameManager.scenarioData(this.edition).find((scenarioData) => parent && scenarioData.group == this.group && scenarioData.index == scenarioId);
+                        if (scenarioData) {
+                            this.dialog.open(ScenarioChartPopupDialog, {
+                                panelClass: ['dialog'],
+                                data: scenarioData,
+                                positionStrategy: this.overlay.position().flexibleConnectedTo(element).withPositions(ghsDefaultDialogPositions())
+                            }).closed.subscribe({
+                                next: (result) => {
+                                    if (result) {
+                                        this.dialogRef.close();
+                                    }
                                 }
-                            }
-                        })
+                            })
+                        }
                     }
                 }
             }

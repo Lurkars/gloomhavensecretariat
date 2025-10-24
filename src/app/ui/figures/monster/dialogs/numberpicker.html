@@ -1,6 +1,10 @@
 <a #button ghs-pointer-input (singleClick)="open()" class="button active-outline {{type}}"
   [ngClass]="{'disabled' : settingsManager.settings.standees && (nonDead >= count || usedStandees >= maxStandees) }"
   [ghs-label]="'monster.addEntity.' + type" [ghs-label-attribute]="'title'">
-  <img *ngIf="settingsManager.settings.standees || !hasEntity()" class="ghs-svg" src="./assets/images/plus.svg">
-  <img *ngIf="!settingsManager.settings.standees && hasEntity()" class="ghs-svg" src="./assets/images/minus.svg">
+  @if (settingsManager.settings.standees || !hasEntity()) {
+  <img class="ghs-svg" src="./assets/images/plus.svg">
+  }
+  @if (!settingsManager.settings.standees && hasEntity()) {
+  <img class="ghs-svg" src="./assets/images/minus.svg">
+  }
 </a>

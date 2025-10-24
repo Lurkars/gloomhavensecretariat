@@ -7,11 +7,7 @@
   "count": 10,
   "standeeShare": "ooze",
   "baseStat": {
-    "type": "boss",
-    "movement": 0,
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "boss"
   },
   "stats": [
     {

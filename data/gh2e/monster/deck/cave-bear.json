@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Hasty Assault",
-      "cardId": 834,
+      "cardId": 704,
       "initiative": 13,
       "shuffle": true,
       "actions": [
@@ -22,7 +22,7 @@
     },
     {
       "name": "Low Slash",
-      "cardId": 835,
+      "cardId": 705,
       "initiative": 14,
       "actions": [
         {
@@ -45,7 +45,7 @@
     },
     {
       "name": "Full Force",
-      "cardId": 836,
+      "cardId": 706,
       "initiative": 29,
       "actions": [
         {
@@ -63,7 +63,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 837,
+      "cardId": 707,
       "initiative": 41,
       "actions": [
         {
@@ -80,7 +80,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 838,
+      "cardId": 708,
       "initiative": 60,
       "actions": [
         {
@@ -97,7 +97,7 @@
     },
     {
       "name": "Rampage",
-      "cardId": 839,
+      "cardId": 709,
       "initiative": 80,
       "shuffle": true,
       "actions": [
@@ -120,7 +120,7 @@
     },
     {
       "name": "Claw Swipes",
-      "cardId": 840,
+      "cardId": 710,
       "initiative": 61,
       "actions": [
         {
@@ -135,7 +135,8 @@
           "subActions": [
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -143,7 +144,7 @@
     },
     {
       "name": "Hibernate",
-      "cardId": 841,
+      "cardId": 711,
       "initiative": 3,
       "actions": [
         {

@@ -52,6 +52,8 @@ export class AttackModifier {
       this.id = id;
     } else if (type == AttackModifierType.townguard) {
       this.id = 'tg-' + valueType + value;
+    } else if (type == AttackModifierType.wreck || type == AttackModifierType.success) {
+      this.id = 'tg-' + type;
     } else {
       this.id = (type != AttackModifierType.plus && type != AttackModifierType.minus) ? type : (type + value);
     }
@@ -171,6 +173,26 @@ export class AttackModifierEffect {
   }
 }
 
+export class AttackResult {
+  index: number;
+  chooseOffset: number;
+  state: 'advantage' | 'disadvantage' | undefined;
+  attack: string | number;
+  stringified: string;
+  result: number;
+  effects: AttackModifierEffect[];
+
+  constructor(index: number, chooseOffset: number, state: 'advantage' | 'disadvantage' | undefined, attack: string | number, stringified: string, result: number, effects: AttackModifierEffect[]) {
+    this.index = index;
+    this.chooseOffset = chooseOffset;
+    this.state = state;
+    this.attack = attack;
+    this.stringified = stringified;
+    this.result = result;
+    this.effects = effects;
+  }
+}
+
 export const defaultAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.plus0),
   new AttackModifier(AttackModifierType.plus1),
@@ -184,21 +206,34 @@ export const defaultAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.minus1extra)
 ];
 
-export const defaultAttackModifierCards: string[] = [
+export const defaultAttackModifierCards: AttackModifier[] = [
   // 6x +0
-  AttackModifierType.plus0, AttackModifierType.plus0, AttackModifierType.plus0, AttackModifierType.plus0, AttackModifierType.plus0, AttackModifierType.plus0,
+  new AttackModifier(AttackModifierType.plus0),
+  new AttackModifier(AttackModifierType.plus0),
+  new AttackModifier(AttackModifierType.plus0),
+  new AttackModifier(AttackModifierType.plus0),
+  new AttackModifier(AttackModifierType.plus0),
+  new AttackModifier(AttackModifierType.plus0),
   // 5x +1
-  AttackModifierType.plus1, AttackModifierType.plus1, AttackModifierType.plus1, AttackModifierType.plus1, AttackModifierType.plus1,
+  new AttackModifier(AttackModifierType.plus1),
+  new AttackModifier(AttackModifierType.plus1),
+  new AttackModifier(AttackModifierType.plus1),
+  new AttackModifier(AttackModifierType.plus1),
+  new AttackModifier(AttackModifierType.plus1),
   // 5x -1
-  AttackModifierType.minus1, AttackModifierType.minus1, AttackModifierType.minus1, AttackModifierType.minus1, AttackModifierType.minus1,
+  new AttackModifier(AttackModifierType.minus1),
+  new AttackModifier(AttackModifierType.minus1),
+  new AttackModifier(AttackModifierType.minus1),
+  new AttackModifier(AttackModifierType.minus1),
+  new AttackModifier(AttackModifierType.minus1),
   // 1x +2
-  AttackModifierType.plus2,
+  new AttackModifier(AttackModifierType.plus2),
   // 1x -2
-  AttackModifierType.minus2,
+  new AttackModifier(AttackModifierType.minus2),
   // 1x x2
-  AttackModifierType.double,
+  new AttackModifier(AttackModifierType.double),
   // 1x x0
-  AttackModifierType.null
+  new AttackModifier(AttackModifierType.null)
 ];
 
 export const defaultTownGuardAttackModifier: AttackModifier[] = [
@@ -303,6 +338,23 @@ export const CsOakDeckAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-542', [new AttackModifierEffect(AttackModifierEffectType.pierce, '3')], true)
 ];
 
+export const Gh2ESealedDeckAttackModifier: AttackModifier[] = [
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-military-1', [new AttackModifierEffect(AttackModifierEffectType.condition, 'strengthen', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'ally')])]
+  ),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-military-2', [new AttackModifierEffect(AttackModifierEffectType.shield, '1')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-military-3', [new AttackModifierEffect(AttackModifierEffectType.push, '2')], true),
+  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'gh2e-military-4', [new AttackModifierEffect(AttackModifierEffectType.custom, '%data.custom.gh2e.am.military-4%')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-merchant-guild-1', [new AttackModifierEffect(AttackModifierEffectType.condition, 'curse')]),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-merchant-guild-2', [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound')]),
+  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'gh2e-merchant-guild-3', [new AttackModifierEffect(AttackModifierEffectType.heal, '2')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-merchant-guild-4', [new AttackModifierEffect(AttackModifierEffectType.custom, '%data.custom.gh2e.am.merchant-guild-4%')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-demons-1', [new AttackModifierEffect(AttackModifierEffectType.element, 'wild')]),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-demons-2', [new AttackModifierEffect(AttackModifierEffectType.retaliate, '1')], true),
+  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'gh2e-demons-3', [new AttackModifierEffect(AttackModifierEffectType.condition, 'ward', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'ally')])], true),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-demons-4', [new AttackModifierEffect(AttackModifierEffectType.custom, '%data.custom.gh2e.am.demons-4%')], true)
+
+]
+
 export class AttackModifierDeck {
 
   attackModifiers: AttackModifier[];
@@ -316,9 +368,9 @@ export class AttackModifierDeck {
 
   constructor(attackModifiers: AttackModifier[] | undefined = undefined, bb: boolean = false) {
     this.bb = bb;
-    this.attackModifiers = attackModifiers ? JSON.parse(JSON.stringify(attackModifiers.filter((am, index, self) => this.bb || self.indexOf(am) == index))) : JSON.parse(JSON.stringify(defaultAttackModifier));
+    this.attackModifiers = (attackModifiers ? attackModifiers.filter((am, index, self) => this.bb || self.indexOf(am) == index) : defaultAttackModifier).map((am) => Object.assign(new AttackModifier(am.type), am));
     this.current = -1;
-    this.cards = attackModifiers ? JSON.parse(JSON.stringify(attackModifiers)) : defaultAttackModifierCards.map((id) => defaultAttackModifier.find((attackModifier) => attackModifier.id == id) || new AttackModifier(AttackModifierType.invalid, 0, AttackModifierValueType.default, id));
+    this.cards = (attackModifiers || defaultAttackModifierCards).map((am) => Object.assign(new AttackModifier(am.type), am));
   }
 
   toModel(): GameAttackModifierDeckModel {

@@ -5,8 +5,7 @@
   "count": 6,
   "standeeShare": "vermling-raider",
   "baseStat": {
-    "type": "normal",
-    "movement": 0
+    "type": "normal"
   },
   "stats": [
     {

@@ -5,10 +5,7 @@
   "count": 4,
   "standeeShare": "savvas-icestorm",
   "baseStat": {
-    "type": "normal",
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "normal"
   },
   "stats": [
     {

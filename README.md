@@ -56,7 +56,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - **Treasures**
   - **Character Items** (must be enabled in Settings!) manage state of items during a scenario 
   - **Battle Goals** (must be enabled in Settings!)
-  - **Event Decks** (not finished, but in progress)
+  - **Event Decks** (must be enabled in Settings!)
 - Elimination of the following physical components
   - Monster ability cards
   - Monster stat cards
@@ -96,6 +96,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Load custom JSON edition data for custom content!
   - Edit monster attack modifier and monster ability decks (support for Diviner class mechanics): reveal cards, remove cards, rearrange cards
   - Support for Frosthaven loot deck (including enhancements) and town guard deck
+  - Support for Frosthaven Outpost Attacks
   - Support for Frosthaven Building 81 and 90 Mechanics including automation (if possible)
   - special ability automation for some characters
     <details>
@@ -128,6 +129,13 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
       > Toggle Mode Token for summons (inactive if Mode Token set)
 
       > Repair Drone Mode: Heal 2 self at start of turn
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-astral.svg" height="20px" style="filter:grayscale(1);"></summary>
+
+      > Imbue with Life: Whenever you do not have Disarm, gain Disarm
+
+      > Veil of Protection: Your current and maximum hitpoint values are increased by 3 (also applied to summons)
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-shards.svg" height="20px" style="filter:grayscale(1);"></summary>

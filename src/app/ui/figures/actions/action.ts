@@ -61,6 +61,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
 
   additionalSubActions: Action[] = [];
   elementActions: Action[] = [];
+  fhExtraActions: Action[] = [];
 
   ActionType = ActionType;
   ActionValueType = ActionValueType;
@@ -72,6 +73,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
   forceRelative: boolean = false;
 
   level: number = 0;
+  round: string = "";
 
   ngOnInit(): void {
     this.update();
@@ -151,6 +153,8 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.enhancementContainer) {
       this.enhancmenetElementReplace();
     }
+
+    this.round = gameManager.game.round % 2 == 0 ? 'even' : 'odd';
   }
 
   hasEntities(type: MonsterType | string | undefined = undefined): boolean {
@@ -347,6 +351,17 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
         }
       });
       this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.element && action.type != ActionType.elementHalf);
+    }
+    this.fhExtraActions = [];
+    if (settingsManager.settings.fhStyle && [ActionType.boxFhSubActions, ActionType.extra].indexOf(this.action.type) == -1) {
+      this.action.subActions.forEach((action) => {
+        if (action.type == ActionType.boxFhSubActions) {
+          this.fhExtraActions.push(action);
+        } else if (action.type == ActionType.extra) {
+          this.fhExtraActions.push(...action.subActions);
+        }
+      });
+      this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.boxFhSubActions && action.type != ActionType.extra);
     }
 
     this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.nonCalc);
@@ -619,7 +634,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
     return this.interactiveActions.find((interactiveAction) => interactiveAction.index == this.actionIndex) != undefined || false;
   }
 
-  toggleHighlight(event: MouseEvent | TouchEvent) {
+  toggleHighlight(event: PointerEvent) {
     if (this.isInteractiveApplicableAction) {
       if (this.highlightAction()) {
         this.interactiveActions = this.interactiveActions.filter((interactiveAction) => !interactiveAction.index.startsWith(this.actionIndex));

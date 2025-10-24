@@ -121,11 +121,11 @@ export class EntityManager {
       maxHealth = Math.max(maxHealth, 26);
     }
 
-    if (entity.health > maxHealth) {
+    if (maxHealth > 0 && entity.health > maxHealth) {
       entity.health = maxHealth;
     }
 
-    if (entity.health <= 0 && !entity.entityConditions.find((condition) => settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && condition.highlight && condition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) == -1 && settingsManager.settings.activeApplyConditionsAuto.indexOf(condition.name) == -1)) {
+    if (maxHealth > 0 && entity.health <= 0 && !entity.entityConditions.find((condition) => settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && condition.highlight && condition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) == -1 && settingsManager.settings.activeApplyConditionsAuto.indexOf(condition.name) == -1)) {
       if ((entity instanceof Character) && (!entity.off || !entity.exhausted)) {
         entity.off = true;
         entity.exhausted = true;
@@ -135,6 +135,8 @@ export class EntityManager {
           gameManager.uiChange.emit();
         }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
       }
+    } else if (entity.health < 0) {
+      entity.health = 0;
     }
 
     if (entity.health > 0) {
@@ -283,6 +285,35 @@ export class EntityManager {
           brittle.expired = true;
           ward.expired = true
         }
+      }
+    }
+
+    if (value < 0 && !damageOnly && settingsManager.settings.calculateAdvantageStats && settingsManager.settings.animations && this.game.figures.find((figure) => figure instanceof Character && figure.active) && figure instanceof Monster && entity instanceof MonsterEntity) {
+      const character = this.game.figures.find((figure) => figure instanceof Character && figure.active) as Character;
+      const existingMuddle = character.entityConditions.find((e) => e.name == ConditionName.muddle && !e.expired);
+      const existingStrengthen = character.entityConditions.find((e) => e.name == ConditionName.strengthen && !e.expired);
+      if (existingMuddle || gameManager.monsterManager.getStat(figure, entity.type).actions && gameManager.monsterManager.getStat(figure, entity.type).actions.find((action) => action.value == '%game.custom.disadvantage%')) {
+        if (!existingStrengthen) {
+          const muddle = existingMuddle ? existingMuddle : new EntityCondition(ConditionName.muddle);
+          muddle.highlight = true;
+          if (!existingMuddle) {
+            muddle.types.push(ConditionType.hidden);
+            character.entityConditions.push(muddle);
+          }
+          setTimeout(() => {
+            muddle.highlight = false;
+            if (!existingMuddle) {
+              character.entityConditions.splice(character.entityConditions.indexOf(muddle), 1);
+            }
+            gameManager.uiChange.emit();
+          }, 1000 * settingsManager.settings.animationSpeed);
+        }
+      } else if (existingStrengthen && !existingMuddle) {
+        existingStrengthen.highlight = true;
+        setTimeout(() => {
+          existingStrengthen.highlight = false;
+          gameManager.uiChange.emit();
+        }, 1000 * settingsManager.settings.animationSpeed);
       }
     }
   }

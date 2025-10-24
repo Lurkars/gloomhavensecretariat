@@ -20,61 +20,49 @@ export class PointerInputService {
   behindActive: PointerInputDirective | undefined;
 
   currentZoom: number = 0;
+  currentPinchZoom: boolean = false;
   zoomDiff: number = -1;
+
+  // Track active pointers for multi-touch
+  private activePointers: Map<number, PointerEvent> = new Map();
 
   constructor() {
     this.currentZoom = settingsManager.settings.zoom;
 
-    window.addEventListener('mousedown', (event: MouseEvent) => {
-      this.active = this.find(event.target as HTMLElement);
-      if (this.active) {
-        if (this.active.clickBehind) {
-          this.active = this.find(this.active.elementRef.nativeElement.parentElement);
-          if (!this.active) {
-            const elements = document.elementsFromPoint(event.clientX, event.clientY);
-            for (let i = 0; i < elements.length; i++) {
-              const element = elements[i];
-              if (element != event.target) {
-                this.active = this.directives.find((directive) => element && directive.elementRef.nativeElement == element);
-                if (this.active) {
-                  break;
-                }
-              }
-            }
-          }
-        }
+    // Pointer Events
+    window.addEventListener('pointerdown', (event: PointerEvent) => {
+      this.activePointers.set(event.pointerId, event);
 
-        if (this.active) {
-          this.active.pointerdown(event);
-          event.preventDefault();
-          event.stopPropagation();
-        }
+      // Multi-touch: handle pinch-zoom
+      if (settingsManager.settings.pinchZoom && this.countActiveTouches() === 2) {
+        this.zoomDiff = this.getTouchDistance();
+        this.currentPinchZoom = true;
       }
-    });
 
-    window.addEventListener('touchstart', (event: TouchEvent) => {
-      if (event.touches.length == 1) {
+      // Only handle primary pointer for normal interactions
+      if (event.isPrimary) {
         this.active = this.find(event.target as HTMLElement);
         if (this.active) {
           if (this.active.clickBehind) {
             this.behindActive = this.find(this.active.elementRef.nativeElement.parentElement);
             if (!this.behindActive) {
-              const elements = document.elementsFromPoint(event.touches[0].clientX, event.touches[0].clientY);
+              const elements = document.elementsFromPoint(event.clientX, event.clientY);
               for (let i = 0; i < elements.length; i++) {
                 const element = elements[i];
                 if (element != event.target) {
                   this.behindActive = this.directives.find((directive) => element && directive.elementRef.nativeElement == element);
                   if (this.behindActive) {
-                    this.behindActive.pointerdown(event);
                     break;
                   }
                 }
               }
             }
           }
-
-          if (this.active) {
-            this.active.pointerdown(event);
+          if (this.behindActive && this.active.clickBehind) {
+            this.behindActive.pointerdown(event);
+          }
+          this.active.pointerdown(event);
+          if (!this.active.isDragElement) {
             event.preventDefault();
             event.stopPropagation();
           }
@@ -82,16 +70,14 @@ export class PointerInputService {
       }
     });
 
-    window.addEventListener('mousemove', (event: MouseEvent) => {
-      if (this.active) {
-        this.active.pointermove(event);
-        window.document.body.classList.add('dragging');
-        window.document.body.classList.add('no-pointer');
+    window.addEventListener('pointermove', (event: PointerEvent) => {
+      if (settingsManager.settings.pinchZoom && this.activePointers.size >= 2) {
+        this.activePointers.set(event.pointerId, event);
+        this.handlePinchZoom();
+        this.currentPinchZoom = true;
+        return;
       }
-    }, { passive: true });
-
-    window.addEventListener('touchmove', (event: TouchEvent) => {
-      if (event.touches.length == 1 && this.active) {
+      if (this.active && event.isPrimary) {
         this.active.pointermove(event);
         window.document.body.classList.add('dragging');
         window.document.body.classList.add('no-pointer');
@@ -99,54 +85,49 @@ export class PointerInputService {
           this.behindActive.cancel();
           this.behindActive = undefined;
         }
-      } else {
-        this.cancel();
-        this.touchmove(event);
       }
     }, { passive: true });
 
-    window.addEventListener('mouseup', (event: MouseEvent) => {
-      if (this.active) {
-        this.active.pointerup(event);
-        this.active = undefined;
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      window.document.body.classList.remove('dragging');
-      window.document.body.classList.remove('no-pointer');
-    });
+    window.addEventListener('pointerup', (event: PointerEvent) => {
+      this.activePointers.delete(event.pointerId);
 
-    window.addEventListener('touchend', (event: TouchEvent) => {
-      if (this.active) {
+      if (this.active && event.isPrimary) {
         this.active.pointerup(event);
-        this.active = undefined;
-        if (this.behindActive) {
-          this.behindActive.pointerup(event);
-          this.behindActive = undefined;
-        }
-        event.preventDefault();
-        event.stopPropagation();
-      } else {
-        this.touchend(event);
-      }
-      window.document.body.classList.remove('dragging');
-      window.document.body.classList.remove('no-pointer');
-    });
-
-    window.addEventListener('touchcancel', (event: TouchEvent) => {
-      if (this.active) {
-        this.active.pointerup(event);
-        if (this.behindActive) {
-          this.behindActive.pointerup(event);
-          this.behindActive = undefined;
-        }
-        if (!this.active.clickBehind) {
+        if (!this.active.isDragElement) {
           event.preventDefault();
           event.stopPropagation();
         }
         this.active = undefined;
-      } else {
-        this.touchend(event);
+      }
+      if (this.behindActive && event.isPrimary) {
+        this.behindActive.pointerup(event);
+        this.behindActive = undefined;
+      }
+      if (settingsManager.settings.pinchZoom && this.activePointers.size < 2 && this.zoomDiff > -1 && settingsManager.settings.zoom != this.currentZoom) {
+        this.zoomDiff = -1;
+        settingsManager.setZoom(this.currentZoom);
+      }
+      if (this.activePointers.size === 0) {
+        this.currentPinchZoom = false;
+      }
+      window.document.body.classList.remove('dragging');
+      window.document.body.classList.remove('no-pointer');
+    });
+
+    window.addEventListener('pointercancel', (event: PointerEvent) => {
+      this.activePointers.delete(event.pointerId);
+
+      if (this.active && event.isPrimary) {
+        this.active.pointerup(event);
+        if (this.behindActive) {
+          this.behindActive.pointerup(event);
+          this.behindActive = undefined;
+        }
+        if (!this.active.clickBehind && !this.active.isDragElement) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        this.active = undefined;
       }
       window.document.body.classList.remove('dragging');
       window.document.body.classList.remove('no-pointer');
@@ -156,13 +137,13 @@ export class PointerInputService {
       if (settingsManager.settings.keyboardShortcuts && this.active && event.key === 'Shift') {
         this.active.fast = true;
       }
-    })
+    });
 
     window.addEventListener('keyup', (event: KeyboardEvent) => {
       if (settingsManager.settings.keyboardShortcuts && this.active && event.key === 'Shift') {
         this.active.fast = false;
       }
-    })
+    });
   }
 
   zoom(value: number) {
@@ -175,24 +156,33 @@ export class PointerInputService {
     }
   }
 
-  touchmove(event: TouchEvent) {
-    if (settingsManager.settings.pinchZoom) {
-      if (event.touches.length === 2) {
-        const curDiff = Math.abs(event.touches[0].clientX - event.touches[1].clientX);
-        if (this.zoomDiff > 0) {
-          this.zoom(Math.ceil((this.zoomDiff - curDiff) * 0.25));
-        }
-        this.zoomDiff = curDiff;
-      }
-    }
+  // Helper: count active touch pointers
+  private countActiveTouches(): number {
+    let count = 0;
+    this.activePointers.forEach(ev => {
+      if (ev.pointerType === 'touch') count++;
+    });
+    return count;
   }
 
-  touchend(event: TouchEvent) {
-    if (settingsManager.settings.pinchZoom) {
-      if (event.touches.length < 2 && this.zoomDiff > -1 && settingsManager.settings.zoom != this.currentZoom) {
-        this.zoomDiff = -1;
-        settingsManager.setZoom(this.currentZoom);
+  // Helper: get distance between two active touch pointers
+  private getTouchDistance(): number {
+    const touches = Array.from(this.activePointers.values()).filter(ev => ev.pointerType === 'touch');
+    if (touches.length < 2) return 0;
+    const [a, b] = touches;
+    return Math.abs(a.clientX - b.clientX);
+  }
+
+  // Handle pinch-zoom gesture
+  private handlePinchZoom() {
+    if (!settingsManager.settings.pinchZoom) return;
+    const touches = Array.from(this.activePointers.values()).filter(ev => ev.pointerType === 'touch');
+    if (touches.length === 2) {
+      const curDiff = Math.abs(touches[0].clientX - touches[1].clientX);
+      if (this.zoomDiff > 0) {
+        this.zoom(Math.ceil((this.zoomDiff - curDiff) * 0.25));
       }
+      this.zoomDiff = curDiff;
     }
   }
 
@@ -201,7 +191,6 @@ export class PointerInputService {
       this.active.cancel();
       this.active = undefined;
     }
-
     if (this.behindActive) {
       this.behindActive.cancel();
       this.behindActive = undefined;
@@ -267,10 +256,17 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   fast: boolean = false;
   fastOffset: number = 0;
   lastX: number = 0;
+  isDragElement: boolean = false;
 
   constructor(public elementRef: ElementRef, private service: PointerInputService) {
     this.value = -1;
     this.elementRef.nativeElement.style['touch-action'] = 'pan-y';
+    this.isDragElement = elementRef.nativeElement.hasAttribute('cdkdrag') ||
+      elementRef.nativeElement.hasAttribute('cdkdraghandle') ||
+      elementRef.nativeElement.classList.contains('cdk-drag') ||
+      elementRef.nativeElement.classList.contains('cdk-drag-handle') ||
+      elementRef.nativeElement.classList.contains('cdk-drag-preview') ||
+      elementRef.nativeElement.classList.contains('cdk-drag-placeholder');
   }
 
   ngOnInit(): void {
@@ -281,30 +277,29 @@ export class PointerInputDirective implements OnInit, OnDestroy {
     this.service.unregister(this);
   }
 
-  pointerdown(event: TouchEvent | MouseEvent) {
-    if (!(event instanceof MouseEvent) || !event.button) {
-      this.down = true;
-      this.startX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
-      this.startY = event instanceof MouseEvent ? event.clientY : event.touches[0].clientY;
-      if (!this.move && this.repeat && !this.doubleClick.observed) {
-        this.repeats = -1;
-        this.repeatTimeout(event);
-      } else if (this.forcePress || settingsManager.settings.pressDoubleClick && !this.forceDoubleClick && this.doubleClick.observed && !this.move && !(event instanceof MouseEvent)) {
-        this.timeout = setTimeout(() => {
-          if ((event instanceof MouseEvent) || !this.onRelease) {
-            this.doubleClick.emit(event);
-          }
-          this.timeout = null;
-          this.clicks = 2;
-        }, longPressTreshhold);
-      }
+  pointerdown(event: PointerEvent) {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    this.down = true;
+    this.startX = event.clientX;
+    this.startY = event.clientY;
+    if (!this.move && this.repeat && !this.doubleClick.observed) {
+      this.repeats = -1;
+      this.repeatTimeout(event);
+    } else if (this.forcePress || settingsManager.settings.pressDoubleClick && !this.forceDoubleClick && this.doubleClick.observed && !this.move && event.pointerType === 'touch') {
+      this.timeout = setTimeout(() => {
+        if (event.pointerType === 'mouse' || !this.onRelease) {
+          this.doubleClick.emit(event);
+        }
+        this.timeout = null;
+        this.clicks = 2;
+      }, longPressTreshhold);
     }
   }
 
-  pointermove(event: TouchEvent | MouseEvent) {
+  pointermove(event: PointerEvent) {
     if (this.down) {
-      const x = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
-      const y = event instanceof MouseEvent ? event.clientY : event.touches[0].clientY;
+      const x = event.clientX;
+      const y = event.clientY;
       if (!this.move && Math.max(Math.abs(this.startX - x), Math.abs(this.startY - y)) > moveTreshhold) {
         this.panstart(event);
       } else if (this.move) {
@@ -313,13 +308,19 @@ export class PointerInputDirective implements OnInit, OnDestroy {
     }
   }
 
-  pointerup(event: TouchEvent | MouseEvent) {
+  pointerup(event: PointerEvent) {
     if (this.down) {
       this.down = false;
       this.startX = 0;
       this.startY = 0;
-      if (!this.move) {
-        if (!this.forcePress && (event instanceof MouseEvent || !settingsManager.settings.pressDoubleClick || this.forceDoubleClick)) {
+      if (this.service.currentPinchZoom) {
+        this.clicks = 0;
+        if (this.timeout) {
+          clearTimeout(this.timeout);
+          this.timeout = null;
+        }
+      } else if (!this.move) {
+        if (!this.forcePress && (event.pointerType === 'mouse' || !settingsManager.settings.pressDoubleClick || this.forceDoubleClick)) {
           this.clicks++;
           if (this.timeout) {
             clearTimeout(this.timeout);
@@ -337,7 +338,7 @@ export class PointerInputDirective implements OnInit, OnDestroy {
               this.timeout = null;
             }, this.doubleClick.observed ? doubleClickTreshhold : 0)
           }
-        } else if (!(event instanceof MouseEvent) && this.onRelease && this.clicks == 2) {
+        } else if (event.pointerType === 'touch' && this.onRelease && this.clicks == 2) {
           this.doubleClick.emit(event);
           this.clicks = 0;
         } else {
@@ -353,27 +354,25 @@ export class PointerInputDirective implements OnInit, OnDestroy {
       } else {
         this.clicks = 0;
       }
-
       this.panend(event);
     }
   }
 
-  panstart(event: TouchEvent | MouseEvent) {
+  panstart(event: PointerEvent) {
     if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
       this.elementRef.nativeElement.classList.add('dragging');
     }
     this.move = true;
-
     if (this.timeout) {
       clearTimeout(this.timeout);
       this.timeout = null;
     }
   }
 
-  panmove(event: TouchEvent | MouseEvent) {
+  panmove(event: PointerEvent) {
     if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
       const rect = this.elementRef.nativeElement.getBoundingClientRect();
-      const x = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
+      const x = event.clientX;
       if (this.screenWidth) {
         if (document.body.clientWidth > dragWidthThreshold) {
           this.value = Math.min(99, Math.max(0, x * (dragWidthThreshold / document.body.clientWidth) / document.body.clientWidth * 100));
@@ -398,34 +397,26 @@ export class PointerInputDirective implements OnInit, OnDestroy {
     }
   }
 
-  panend(event: TouchEvent | MouseEvent) {
-    if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
-      if (this.value >= 0 || this.relative) {
-        this.dragEnd.emit(this.value);
-        this.elementRef.nativeElement.classList.remove('dragging');
-        this.value = -1;
-        this.relativeValue = -1;
-        this.fast = false;
-        this.fastOffset = 0;
-      }
-      this.repeats = -1;
-      this.startX = -1;
-      this.startY = -1;
-      this.move = false;
+  panend(event: PointerEvent) {
+    if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed) && (this.value >= 0 || this.relative)) {
+      this.dragEnd.emit(this.value);
     }
+    this.reset();
   }
 
   cancel() {
     this.down = false;
+    this.clicks = 0;
     if (this.timeout) {
       clearTimeout(this.timeout);
       this.timeout = null;
     }
-
     this.dragCancel.emit(this.value);
+    this.reset();
+  }
 
+  reset() {
     this.repeats = -1;
-    this.clicks = 0;
     this.startX = -1;
     this.startY = -1;
     this.move = false;
@@ -436,10 +427,9 @@ export class PointerInputDirective implements OnInit, OnDestroy {
     this.elementRef.nativeElement.classList.remove('dragging');
   }
 
-  repeatTimeout(event: TouchEvent | MouseEvent) {
+  repeatTimeout(event: PointerEvent) {
     if (this.down && !this.move) {
       this.singleClick.emit(event);
-
       if (this.repeats == -1) {
         this.repeats = holdTreshhold;
       } else {

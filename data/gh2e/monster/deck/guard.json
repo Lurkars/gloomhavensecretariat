@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Parry and Thrust",
-      "cardId": 746,
+      "cardId": 640,
       "initiative": 15,
       "shuffle": true,
       "actions": [
@@ -20,7 +20,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 747,
+      "cardId": 641,
       "initiative": 70,
       "actions": [
         {
@@ -37,7 +37,7 @@
     },
     {
       "name": "Throwing Axe",
-      "cardId": 748,
+      "cardId": 642,
       "initiative": 35,
       "actions": [
         {
@@ -61,7 +61,7 @@
     },
     {
       "name": "Venom Shiv",
-      "cardId": 749,
+      "cardId": 643,
       "initiative": 15,
       "actions": [
         {
@@ -84,7 +84,7 @@
     },
     {
       "name": "Hasty Assault",
-      "cardId": 750,
+      "cardId": 644,
       "initiative": 30,
       "actions": [
         {
@@ -101,7 +101,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 751,
+      "cardId": 645,
       "initiative": 50,
       "actions": [
         {
@@ -118,7 +118,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 752,
+      "cardId": 646,
       "initiative": 50,
       "actions": [
         {
@@ -135,7 +135,7 @@
     },
     {
       "name": "Psych Up",
-      "cardId": 753,
+      "cardId": 647,
       "initiative": 55,
       "shuffle": true,
       "actions": [

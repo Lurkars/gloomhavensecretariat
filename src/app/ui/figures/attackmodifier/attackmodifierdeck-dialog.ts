@@ -6,7 +6,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
-import { AttackModifier, AttackModifierDeck, AttackModifierType, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
+import { AttackModifier, AttackModifierDeck, AttackModifierType, Gh2ESealedDeckAttackModifier, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { ConditionName } from "src/app/game/model/data/Condition";
 import { AttackModiferDeckChange } from "./attackmodifierdeck";
 
@@ -49,6 +49,8 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
 
   empowerChars: Character[] = [];
   enfeebleChars: Character[] = [];
+  activeFaction: string | undefined;
+  factionAttackModifier: AttackModifier[] = [];
 
   constructor(@Inject(DIALOG_DATA) data: { deck: AttackModifierDeck, character: Character, ally: boolean, numeration: string, newStyle: boolean, townGuard: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
     this.deck = data.deck;
@@ -69,6 +71,12 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
       this.deck = this.character.attackModifierDeck;
       this.numeration = "" + this.character.number;
       this.characterIcon = this.character.iconUrl;
+      gameManager.gh2eFactionUnlocks().forEach((faction) => {
+        if (this.deck.cards.some((am) => am.id && am.id.indexOf(faction) != -1)) {
+          this.toggleFaction(faction);
+          return;
+        }
+      })
     }
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
@@ -159,9 +167,9 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
     } else if (!gameManager.bbRules()) {
       this.deck = new AttackModifierDeck();
       if (gameManager.imbuementManager.imbuement == true) {
-        gameManager.imbuementManager.enable(this.deck);
+        gameManager.imbuementManager.enable(this.deck, false);
       } else if (gameManager.imbuementManager.imbuement == 'advanced') {
-        gameManager.imbuementManager.advanced(this.deck);
+        gameManager.imbuementManager.advanced(this.deck, false);
       }
     } else {
       const editionData = gameManager.editionData.find((editionData) => editionData.edition == 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length);
@@ -356,7 +364,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
 
       this.type = Object.values(AttackModifierType)[index];
 
-      if ([AttackModifierType.plus, AttackModifierType.plus3, AttackModifierType.plus4, AttackModifierType.plusX, AttackModifierType.invalid, AttackModifierType.minus, AttackModifierType.minus1extra, AttackModifierType.empower, AttackModifierType.enfeeble, AttackModifierType.townguard, AttackModifierType.success, AttackModifierType.wreck].indexOf(this.type) != -1) {
+      if ([AttackModifierType.plus, AttackModifierType.plus3, AttackModifierType.plus4, AttackModifierType.plusX, AttackModifierType.invalid, AttackModifierType.minus, AttackModifierType.minus1extra, AttackModifierType.empower, AttackModifierType.enfeeble, AttackModifierType.townguard, AttackModifierType.success, AttackModifierType.wreck, AttackModifierType.imbue, AttackModifierType.advancedImbue].indexOf(this.type) != -1) {
         this.changeType(prev);
       }
     }
@@ -381,7 +389,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
         }
       } else {
         for (let i = 0; i < value * -1; i++) {
-          const empower = this.deck.cards.find((am, index) => this.empowerChars[index] && index > this.deck.current && am.type == AttackModifierType.empower && am.id && am.id.startsWith("additional-" + this.empowerChars[index].name));
+          const empower = this.deck.cards.find((am, i) => this.empowerChars[index] && i > this.deck.current && am.type == AttackModifierType.empower && am.id && am.id.startsWith("additional-" + this.empowerChars[index].name));
           if (empower) {
             this.deck.cards.splice(this.deck.cards.indexOf(empower), 1);
           }
@@ -402,7 +410,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
         }
       } else {
         for (let i = 0; i < value * -1; i++) {
-          const enfeeble = this.deck.cards.find((am, index) => this.empowerChars[index] && index > this.deck.current && am.type == AttackModifierType.enfeeble && am.id && am.id.startsWith("additional-" + this.empowerChars[index].name));
+          const enfeeble = this.deck.cards.find((am, i) => this.empowerChars[index] && i > this.deck.current && am.type == AttackModifierType.enfeeble && am.id && am.id.startsWith("additional-" + this.empowerChars[index].name));
           if (enfeeble) {
             this.deck.cards.splice(this.deck.cards.indexOf(enfeeble), 1);
           }
@@ -411,6 +419,39 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
       this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeEnfeeble" : "addEnfeeble"));
       this.update();
     }
+  }
+
+  toggleFaction(faction: string) {
+    this.factionAttackModifier = [];
+    if (this.activeFaction == faction) {
+      this.activeFaction = undefined;
+    } else {
+      this.activeFaction = faction;
+      this.factionAttackModifier = Gh2ESealedDeckAttackModifier.filter((am) => am.id && am.id.startsWith('gh2e-' + faction));
+    }
+  }
+
+  toggleFactionAm(attackModifier: AttackModifier, force: boolean = false) {
+    if (this.hasFactionModifier(attackModifier)) {
+      this.before.emit(new AttackModiferDeckChange(this.deck, 'removeFactionModifier', attackModifier.id));
+      this.deck.cards = this.deck.cards.filter((am) => am.id != attackModifier.id);
+      this.after.emit(new AttackModiferDeckChange(this.deck, 'removeFactionModifier', attackModifier.id));
+    } else if (!this.anyHasFactionModifier(attackModifier) || force) {
+      this.before.emit(new AttackModiferDeckChange(this.deck, 'addFactionModifier', attackModifier.id));
+      if (!force) {
+        this.deck.cards = this.deck.cards.filter((am) => !am.id || gameManager.gh2eFactionUnlocks().every((faction) => am.id.indexOf(faction) == -1));
+      }
+      this.deck.cards.push(Object.assign(new AttackModifier(attackModifier.type), attackModifier));
+      this.after.emit(new AttackModiferDeckChange(this.deck, 'addFactionModifier', attackModifier.id));
+    }
+  }
+
+  hasFactionModifier(attackModifier: AttackModifier): boolean {
+    return this.deck.cards.some((am) => am.id == attackModifier.id);
+  }
+
+  anyHasFactionModifier(attackModifier: AttackModifier): boolean {
+    return gameManager.game.figures.some((figure) => figure instanceof Character && (figure.edition != this.character.edition || figure.name != this.character.name) && figure.attackModifierDeck.cards.some((am) => am.id == attackModifier.id));
   }
 }
 

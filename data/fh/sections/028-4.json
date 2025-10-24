@@ -1,0 +1,14 @@
+{
+  "index": "28.4",
+  "name": "Crain's Expedition",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "custom": "Add a %game.resource.plus1% sticker to one %game.resource.metal% loot card (the card gives one extra  %game.resource.metal% when resolved).",
+    "randomItemBlueprint": 1,
+    "townGuardAm": [
+      "tg-success",
+      "tg-plus20"
+    ]
+  }
+}

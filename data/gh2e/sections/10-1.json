@@ -21,6 +21,9 @@
       "city-rule-merchants",
       "peace-through-bloodshed"
     ],
+    "envelopes": [
+      "%data.gh2eFaction:merchant-guild%"
+    ],
     "gold": 25,
     "events": [
       "city:36",

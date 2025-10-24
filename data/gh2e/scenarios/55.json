@@ -81,6 +81,10 @@
           "name": "harrower-infester",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        2
       ]
     }
   ]

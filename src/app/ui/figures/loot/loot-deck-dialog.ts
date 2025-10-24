@@ -63,11 +63,6 @@ export class LootDeckDialogComponent implements OnInit, OnDestroy {
       this.configuration = true;
     }
 
-    if (!gameManager.game.scenario) {
-      this.enhancements = true;
-      this.configuration = false;
-    }
-
     this.dialogRef.closed.subscribe({
       next: () => {
         let deck = new LootDeck();

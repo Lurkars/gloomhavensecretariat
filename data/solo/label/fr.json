@@ -57,6 +57,27 @@
     "Unnatural Insults": "Insultes Anormales",
     "group": {
       "solo": "Scénarios solo"
+    },
+    "title": {
+      "gh": {
+        "solo-1": "Retour au Tertre Noir",
+        "solo-10": "Récolte Nocturne",
+        "solo-11": "La Crypte Pesteuse",
+        "solo-12": "Insultes Anormales",
+        "solo-13": "La Bataille des Bardes",
+        "solo-14": "Chasse Perverse",
+        "solo-15": "Conséquences",
+        "solo-16": "Les Secrets Élémentaires",
+        "solo-17": "L'Ours en Cage",
+        "solo-2": "Une Intrusion Malvenue",
+        "solo-3": "Le Laboratoire Corrompu",
+        "solo-4": "Casse à l'Armurerie",
+        "solo-5": "Une Défense de Pierre",
+        "solo-6": "La Libération des Rongeurs",
+        "solo-7": "L'Escorte de la Caravane",
+        "solo-8": "Frais de Stockage",
+        "solo-9": "La Dimension des Bêtes Sauvages"
+      }
     }
   }
 }

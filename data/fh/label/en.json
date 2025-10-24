@@ -43,7 +43,6 @@
     "Black Scythe": "Black Scythe",
     "Black Tendrils": "Black Tendrils",
     "Black Thorns": "Black Thorns",
-    "Blast": "Blast",
     "Blast of Air": "Blast of Air",
     "Blinding Vortex": "Blinding Vortex",
     "Blistering Assault": "Blistering Assault",
@@ -114,10 +113,10 @@
     "Coalescing Darkness": "Coalescing Darkness",
     "Code Geminate": "Code Geminate",
     "Coiled Limbs": "Coiled Limbs",
-    "Cold": "Cold",
     "Cold Boulder": "Cold Boulder",
     "Cold Claws": "Cold Claws",
     "Cold Snap": "Cold Snap",
+    "Cold Therapy": "Cold Therapy",
     "Cold Winds": "Cold Winds",
     "Combined Effort": "Combined Effort",
     "Command the Wretched": "Command the Wretched",
@@ -155,18 +154,17 @@
     "Dangerous Cargo": "Dangerous Cargo",
     "Dangerous Fury": "Dangerous Fury",
     "Dangerous Ground": "Dangerous Ground",
-    "Dark": "Dark",
     "Dark Charm": "Dark Charm",
+    "Dark Tidings": "Dark Tidings",
     "Dark fog": "Dark fog",
     "Darken the Skies": "Darken the Skies",
-    "Dature's Breath": "Dature's Breath",
     "Dead Bolt": "Dead Bolt",
     "Deadly Shot": "Deadly Shot",
     "Death Spiral": "Death Spiral",
     "Death on All Sides": "Death on All Sides",
     "Death's Embrace": "Death's Embrace",
     "Decaying Will": "Decaying Will",
-    "Deep": "Deep",
+    "Deep Fury": "Deep Fury",
     "Deepening Despair": "Deepening Despair",
     "Defensive Blades": "Defensive Blades",
     "Defensive Claws": "Defensive Claws",
@@ -177,7 +175,6 @@
     "Desperate Herd": "Desperate Herd",
     "Desperate Throw": "Desperate Throw",
     "Destructive Fury": "Destructive Fury",
-    "Det Dispersal": "Det Dispersal",
     "Devastating Shout": "Devastating Shout",
     "Devastating Tackle": "Devastating Tackle",
     "Diamondization": "Diamondization",
@@ -263,6 +260,7 @@
     "Firefly Swarm": "Firefly Swarm",
     "Firestorm": "Firestorm",
     "Fish Net": "Fish Net",
+    "Flailing Tendrils": "Flailing Tendrils",
     "Flame Jets": "Flame Jets",
     "Flashing Flurry": "Flashing Flurry",
     "Flee": "Flee",
@@ -295,9 +293,9 @@
     "Frigid Growth": "Frigid Growth",
     "Frost Breath": "Frost Breath",
     "Frost Eruption": "Frost Eruption",
-    "Frozen": "Frozen",
     "Frozen Brand": "Frozen Brand",
     "Frozen Debris": "Frozen Debris",
+    "Frozen Over": "Frozen Over",
     "Frozen Shards": "Frozen Shards",
     "Frozen Shell": "Frozen Shell",
     "Frozen Spike": "Frozen Spike",
@@ -369,6 +367,7 @@
     "Hungry Maw": "Hungry Maw",
     "Hunter Killer": "Hunter Killer",
     "Ice Barrier": "Ice Barrier",
+    "Ice Blast": "Ice Blast",
     "Ice Uppercut": "Ice Uppercut",
     "Ice Wall": "Ice Wall",
     "Icebound Quills": "Icebound Quills",
@@ -443,6 +442,8 @@
     "Mortar Shell": "Mortar Shell",
     "Mortar Shells": "Mortar Shells",
     "Mother of All Traps": "Mother of All Traps",
+    "Nature's Breath": "Nature's Breath",
+    "Net Dispersal": "Net Dispersal",
     "No Escape": "No Escape",
     "No Remorse": "No Remorse",
     "Nothing": "Nothing",
@@ -452,6 +453,7 @@
     "Obsidian Spear": "Obsidian Spear",
     "One with the Earth": "One with the Earth",
     "One with the Mountain": "One with the Mountain",
+    "Onyx Shards": "Onyx Shards",
     "Oscillating Entity": "Oscillating Entity",
     "Overdrive": "Overdrive",
     "Overwhelming Wave": "Overwhelming Wave",
@@ -506,7 +508,7 @@
     "Putrid Cloud": "Putrid Cloud",
     "Pyrotechnics": "Pyrotechnics",
     "Quantum Uncertainty": "Quantum Uncertainty",
-    "Quenched": "Quenched",
+    "Quenched Rage": "Quenched Rage",
     "Radiation": "Radiation",
     "Raging Blaze": "Raging Blaze",
     "Rain of Fire": "Rain of Fire",
@@ -521,9 +523,9 @@
     "Reaper Function": "Reaper Function",
     "Reassemble": "Reassemble",
     "Recall": "Recall",
-    "Reckless": "Reckless",
     "Reckless Augmentation": "Reckless Augmentation",
     "Reckless Charge": "Reckless Charge",
+    "Reckless Jab": "Reckless Jab",
     "Reconstructive Aid": "Reconstructive Aid",
     "Recursion": "Recursion",
     "Recycled Limbs": "Recycled Limbs",
@@ -532,7 +534,7 @@
     "Regroup": "Regroup",
     "Reinforced Riposte": "Reinforced Riposte",
     "Reject the Gift": "Reject the Gift",
-    "Release Value": "Release Value",
+    "Release Valve": "Release Valve",
     "Relentless": "Relentless",
     "Remote Control": "Remote Control",
     "Remote Impact": "Remote Impact",
@@ -578,12 +580,11 @@
     "Self-Destruct": "Self-Destruct",
     "Selfless Offering": "Selfless Offering",
     "Set Trap": "Set Trap",
-    "Set for the": "Set for the",
-    "Shadow": "Shadow",
+    "Set for the Charge": "Set for the Charge",
+    "Shadow Step": "Shadow Step",
     "Shape the Path": "Shape the Path",
     "Shard Launch": "Shard Launch",
     "Shard Strike": "Shard Strike",
-    "Shards": "Shards",
     "Shared Affliction": "Shared Affliction",
     "Sharp Chitin": "Sharp Chitin",
     "Sharp Fangs": "Sharp Fangs",
@@ -621,7 +622,7 @@
     "Sonic Shock": "Sonic Shock",
     "Soul Claim": "Soul Claim",
     "Soul Hunger": "Soul Hunger",
-    "Sound": "Sound",
+    "Sound Therapy": "Sound Therapy",
     "Spike Pit": "Spike Pit",
     "Spike Strip": "Spike Strip",
     "Spiked Mandibles": "Spiked Mandibles",
@@ -670,7 +671,6 @@
     "Taunting Howl": "Taunting Howl",
     "Temporal Displacement": "Temporal Displacement",
     "Tend to the Clan": "Tend to the Clan",
-    "Tendrils": "Tendrils",
     "Terrible Growth": "Terrible Growth",
     "Terrifying Growl": "Terrifying Growl",
     "Thawed Strike": "Thawed Strike",
@@ -1397,7 +1397,99 @@
         "3": "You may bring one additional %game.items.slots.onehand% item into each scenario",
         "4": "At the end of each scenario you may discard up to two loot cards, except Random Item, to draw that many new loot cards",
         "5": "End a scenario with your character tokens on the last slots of four persistent abilities",
-        "6": "Never perform a move ability or attack with a value less then 4, and perform at least one move or attack ability each round"
+        "6": "Never perform a move ability or attack with a value less then 4, and perform at least one move or attack ability each round",
+        "abilities": {
+          "1": {
+            "1": "On your next six melee attacks, add +2%game.action.attack%.",
+            "2": "Move the character token on one of your persistent abilities backwards one slot."
+          },
+          "11": {
+            "1": "If you killed an enemy with the attack ability, move the character token on one of your persistent abilities backwards one slot."
+          },
+          "13": {
+            "1": "Before applying any other bonuses, move the character token on one of your persistent abilities forward one slot: +2%game.action.range%.",
+            "2": "Whenever you kill an enemy, move the character token on one of your persistent abilities backwards one slot."
+          },
+          "16": {
+            "1": "On your next six melee attacks targeting an enemy adjacent to any other enemy, one enemy adjacent to the target suffers %game.action.damage%2."
+          },
+          "18": {
+            "2": "On your next six ranged attack abilities, add +1%game.action.target%."
+          },
+          "19": {
+            "2": "Move the character token on two of your persistent abilities backwards one slot."
+          },
+          "2": {
+            "1": "Move the character token on one of your persistent abilities backwards one slot.",
+            "2": "On your next six move abilities, add +2%game.action.move%."
+          },
+          "20": {
+            "1": "Move the character token on one of your persistent abilities backwards one slot.",
+            "2": "On the next six sources of %game.action.damage% from attacks targeting you, gain %game.action.shield:2%."
+          },
+          "21": {
+            "1": "If you killed an enemy with the attack ability, move the character token on one of your persistent abilities backwards one slot.",
+            "2": "If you killed an enemy this round, move the character token on one of your persistent abilities backwards one slot."
+          },
+          "22": {
+            "1": "On your next six heals targeting figures without %game.condition.ward%, add %game.condition.ward%.",
+            "2": "where X is twice the number of tokens and tiles looted."
+          },
+          "23": {
+            "1": "Before applying any other bonuses, move the character token on one of your persistent abilities forward one slot: %game.condition.wound%",
+            "2": "If you are adjacent to at least two enemies, move the character token on one of your persistent abilities backwards one slot."
+          },
+          "24": {
+            "1": "On your next six attacks targeting enemies with %game.action.shield%, add %game.action.pierce:3%.",
+            "2": "Gain advantage on all your attacks this round."
+          },
+          "25": {
+            "1": "where X is the amount of %game.action.damage% suffered by targets of the attack ability.",
+            "2": "Whenever an adjacent enemy dies this round, move the character token on one of your persistent abilities backwards one slot."
+          },
+          "26": {
+            "1": "Immediately after your next six heal abilities, perform %game.action.move:3% %game.action.jump%.",
+            "2": "For each ally moved through during the move ability, move the character token on one of your persistent abilities backwards one slot."
+          },
+          "27": {
+            "2": "Move the character token on three of your persistent abilities backwards one slot."
+          },
+          "28": {
+            "1": "%game.action.target% all enemies within 2 hexes",
+            "2": "For each enemy targeted with the attack ability, Move the character token on one of your persistent abilities backwards one slot.",
+            "3": "On the next six instances of an enemy entering a hex adjacent to you, that enemy suffers %game.action.damage%3"
+          },
+          "29": {
+            "1": "Before applying any other bonuses, move the character token on one of your persistent abilities forward one slot: %game.condition.immobilize%"
+          },
+          "3": {
+            "1": "All your ranged attacks have +1%game.action.range%. On your next six ranged attacks, add +1%game.action.attack%.",
+            "2": "Move the character token on one of your persistent abilities backwards one slot."
+          },
+          "30": {
+            "1": "On your next four sources of 4 or less %game.action.damage% you suffer, negate the %game.action.damage%",
+            "2": "Before applying any other bonuses, move the character token on one of your persistent abilities forward one slot: +1%game.action.target%."
+          },
+          "31": {
+            "1": "%game.action.target% all allies adjacent to at least one enemy targeted with the attack ability",
+            "2": "where X is the number of hexes you moved during the move ability."
+          },
+          "4": {
+            "1": "Move the character token on one of your persistent abilities backwards one slot.",
+            "2": "On your next six heals, add +2%game.action.heal%."
+          },
+          "5": {
+            "1": "Move the character token on two of your persistent abilities backwards one slot.",
+            "2": "On the next six attacks targeting you performed by enemies within %game.action.range%2, gain %game.action.retaliate:2% %game.action.range%2."
+          },
+          "6": {
+            "1": "Move the character token on two of your persistent abilities backwards one slot.",
+            "2": "On the next six sources of %game.action.damage% from attacks targeting you, gain %game.action.shield:1%."
+          },
+          "8": {
+            "2": "If you are adjacent to exactly one enemy, move the character token on one of your persistent abilities backwards one slot."
+          }
+        }
       },
       "elder-ooze": {
         "1": "The target loses one item.",
@@ -1862,7 +1954,7 @@
     "rewards": {
       "fh": {
         "000": "You should now be ready to take on scenario 1 on the following page in the Scenario Book. Do not perform an Outpost Phase until you have completed scenario 1.",
-        "001": "<b>%wip%!</b> manually apply:<br>Gain 2+X morale, where X is the number of City Guards still on the map.",
+        "001": "(Gain 2+X morale, where X is the number of City Guards still on the map.)",
         "022": "Lose 1 collective %game.resource.lumber% for each set of five hexes with water tiles on tile 7-G",
         "033": "Gain 5 experience for each unrevealed dowsing rune",
         "041": "Read %data.section:36.7% now",
@@ -2386,6 +2478,7 @@
         "178-2": "Hall of Revelry Built",
         "178-3": "Job Posting",
         "178-4": "Deadly Pastimes",
+        "179-1": "Crain's Expedition",
         "179-2": "The Eternal Crave",
         "179-6": "%game.characterIconColored.shackles% Retires",
         "18-1": "Underground Station",
@@ -2466,6 +2559,7 @@
         "27-2": "Derelict Elevator",
         "28-2": "Algox Offensive",
         "28-3": "Flotsam",
+        "28-4": "Crain's Expedition",
         "29-1": "Old Coin",
         "29-2": "The Tempus Forge",
         "29-3": "Aesther Outpost",

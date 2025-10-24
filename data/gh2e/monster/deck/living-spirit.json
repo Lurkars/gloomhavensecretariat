@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Sap Strength",
-      "cardId": 658,
+      "cardId": 608,
       "initiative": 22,
       "shuffle": true,
       "actions": [
@@ -34,7 +34,7 @@
     },
     {
       "name": "Booming Scream",
-      "cardId": 659,
+      "cardId": 609,
       "initiative": 33,
       "shuffle": true,
       "actions": [
@@ -64,7 +64,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 660,
+      "cardId": 610,
       "initiative": 48,
       "actions": [
         {
@@ -88,7 +88,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 661,
+      "cardId": 611,
       "initiative": 48,
       "actions": [
         {
@@ -112,7 +112,7 @@
     },
     {
       "name": "Coupled Chain",
-      "cardId": 662,
+      "cardId": 612,
       "initiative": 61,
       "actions": [
         {
@@ -136,7 +136,7 @@
     },
     {
       "name": "Leech Warmth",
-      "cardId": 663,
+      "cardId": 613,
       "initiative": 75,
       "actions": [
         {
@@ -175,7 +175,7 @@
     },
     {
       "name": "Angry Howl",
-      "cardId": 664,
+      "cardId": 614,
       "initiative": 55,
       "actions": [
         {
@@ -207,7 +207,7 @@
     },
     {
       "name": "Icy Glare",
-      "cardId": 665,
+      "cardId": 615,
       "initiative": 67,
       "actions": [
         {

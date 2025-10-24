@@ -1,66 +1,89 @@
 <div class="scenario-chart-popup scroll-container">
-    <div class="header">
-        <span class="subtitle" *ngIf="scenario.flowChartGroup"
-            [ghs-label]="'data.custom.' + scenario.edition + '.flowChartGroup.' + scenario.flowChartGroup"></span>
-        <span class="title">
-            <span class="number text-white" [ghs-label]="'%game.scenarioNumber:' + scenario.index+ '%'"></span>
-            <span class="name text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData)"></span>
-        </span>
-    </div>
-
-    <div class="spoiler-block visible" *ngIf="hasRequirements">
-        <label [ghs-label]="'scenario.requirements'"></label>
-        <ghs-requirements [scenarioData]="scenarioData" [all]="true" [allToggle]="false"></ghs-requirements>
-        <div class="background"></div>
-    </div>
-
-    <div class="spoiler-block" [ngClass]="{'visible': showSetup}">
-        <ghs-scenario-setup [scenario]="scenario" [details]="false" [title]="false"
-            [spoiler]="gameManager.scenarioManager.isSuccess(scenario)"></ghs-scenario-setup>
-
-        <div class="background" (click)="showSetup = true">
-            <label *ngIf="!showSetup" [ghs-label]="'scenario.chart.setup'"></label>
-        </div>
-    </div>
-
-    <div class="spoiler-block" [ngClass]="{'visible': showTreasures}">
-        <div class="treasures">
-            <div class="hint-container" *ngFor="let treasure of treasures;">
-                <div class="treasure hint-trigger" (click)="openTreasureDialog(+treasure.split(':')[0])"
-                    [ngClass]="{'looted' : lootedTreasures.indexOf(+treasure.split(':')[0]) != -1}">
-                    <span *ngIf="('' + treasure).startsWith('G') || +(''+treasure).split(':')[0] >= 0">
-                        <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 10 && +treasure >= 0">0</span>
-                        {{('' + treasure).startsWith('G-') ? 'G' : (''+treasure).split(':')[0]}}
-                    </span>
-                    <span *ngIf="!('' + treasure).startsWith('G') && +(''+treasure).split(':')[0] < 0">???</span>
-                    <img class="overlay check" src="./assets/images/check.svg">
-                </div>
-                <span class="hint above center">
-                    <ghs-treasure-label class="text placeholder text-white" *ngIf="!('' + treasure).startsWith('G-')"
-                        [edition]="scenario.edition" [index]="+(''
-                +treasure).split(':')[0] -1"
-                        [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"></ghs-treasure-label></span>
-            </div>
-        </div>
-
-        <label *ngIf="showTreasures && treasures.length == 0" [ghs-label]="'scenario.chart.treasures.empty'"></label>
-
-        <div class="background" (click)="showTreasures = true">
-            <label *ngIf="!showTreasures" [ghs-label]="'scenario.chart.treasures'"></label>
-        </div>
-    </div>
-
-    <span *ngIf="predecessors.length" class="predecessors">
-        <ng-container *ngFor="let predecessor of predecessors; let i = index">
-            <img *ngIf="i > 0 && i < predecessors.length" class="ghs-svg" src="./assets/images/arrow-up.svg">
-            <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + predecessor.index + '%'"></span>
-        </ng-container>
+  <div class="header">
+    @if (scenario.flowChartGroup) {
+    <span class="subtitle"
+      [ghs-label]="'data.custom.' + scenario.edition + '.flowChartGroup.' + scenario.flowChartGroup"></span>
+    }
+    <span class="title">
+      <span class="number text-white" [ghs-label]="'%game.scenarioNumber:' + scenario.index+ '%'"></span>
+      <span class="name text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData)"></span>
     </span>
+  </div>
 
-    <div class="buttons">
-        <a class="play"
-            [ngClass]="{'casual': !gameManager.game.party.campaignMode, 'success': gameManager.scenarioManager.isSuccess(scenario), 'locked': gameManager.scenarioManager.isLocked(scenario), 'blocked': gameManager.scenarioManager.isBlocked(scenario)}"
-            (click)="setScenario()" [ghs-label]="'scenario.chart.start'"></a>
-        <a *ngIf="!isSuccess" class="success" (click)="addSuccess()" [ghs-label]="'scenario.chart.success'"></a>
+  @if (hasRequirements) {
+  <div class="spoiler-block visible">
+    <label [ghs-label]="'scenario.requirements'"></label>
+    <ghs-requirements [scenarioData]="scenarioData" [all]="true" [allToggle]="false"></ghs-requirements>
+    <div class="background"></div>
+  </div>
+  }
+
+  <div class="spoiler-block" [ngClass]="{'visible': showSetup}">
+    <ghs-scenario-setup [scenario]="scenario" [details]="false" [title]="false"
+      [spoiler]="gameManager.scenarioManager.isSuccess(scenario)"></ghs-scenario-setup>
+
+    <div class="background" (click)="showSetup = true">
+      @if (!showSetup) {
+      <label [ghs-label]="'scenario.chart.setup'"></label>
+      }
     </div>
+  </div>
+
+  <div class="spoiler-block" [ngClass]="{'visible': showTreasures}">
+    <div class="treasures">
+      @for (treasure of treasures; track treasure) {
+      <div class="hint-container">
+        <div class="treasure hint-trigger" (click)="openTreasureDialog(+treasure.split(':')[0])"
+          [ngClass]="{'looted' : lootedTreasures.indexOf(+treasure.split(':')[0]) != -1}">
+          @if (('' + treasure).startsWith('G') || +(''+treasure).split(':')[0] >= 0) {
+          <span>
+            @if (!('' + treasure).startsWith('G') && +treasure < 10 && +treasure>= 0) {
+              <span>0</span>
+              }
+              {{('' + treasure).startsWith('G-') ? 'G' : (''+treasure).split(':')[0]}}
+          </span>
+          }
+          @if (!('' + treasure).startsWith('G') && +(''+treasure).split(':')[0] < 0) { <span>???</span>
+            }
+            <img class="overlay check" src="./assets/images/check.svg">
+        </div>
+        <span class="hint above center">
+          @if (!('' + treasure).startsWith('G-')) {
+          <ghs-treasure-label class="text placeholder text-white" [edition]="scenario.edition" [index]="+(''
+                +treasure).split(':')[0] -1"
+            [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"></ghs-treasure-label>
+          }</span>
+      </div>
+      }
+    </div>
+
+    @if (showTreasures && treasures.length == 0) {
+    <label [ghs-label]="'scenario.chart.treasures.empty'"></label>
+    }
+
+    <div class="background" (click)="showTreasures = true">
+      @if (!showTreasures) {
+      <label [ghs-label]="'scenario.chart.treasures'"></label>
+      }
+    </div>
+  </div>
+
+  @if (predecessors.length) {
+  <span class="predecessors">
+    @for (predecessor of predecessors; track predecessor.edition + predecessor.index; let i = $index) {
+    @if (i > 0 && i < predecessors.length) { <img class="ghs-svg" src="./assets/images/arrow-up.svg">
+      }
+      <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + predecessor.index + '%'"></span>
+      }
+  </span>
+  }
+
+  <div class="buttons">
+    <a class="play"
+      [ngClass]="{'casual': !gameManager.game.party.campaignMode, 'success': gameManager.scenarioManager.isSuccess(scenario), 'locked': gameManager.scenarioManager.isLocked(scenario), 'blocked': gameManager.scenarioManager.isBlocked(scenario)}"
+      (click)="setScenario()" [ghs-label]="'scenario.chart.start'"></a>
+    @if (!isSuccess) {
+    <a class="success" (click)="addSuccess()" [ghs-label]="'scenario.chart.success'"></a>
+    }
+  </div>
 </div>

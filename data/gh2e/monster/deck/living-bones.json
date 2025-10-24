@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Calculated Strike",
-      "cardId": 666,
+      "cardId": 616,
       "initiative": 64,
       "actions": [
         {
@@ -21,7 +21,7 @@
     },
     {
       "name": "Drain Life",
-      "cardId": 667,
+      "cardId": 617,
       "initiative": 20,
       "shuffle": true,
       "actions": [
@@ -50,7 +50,7 @@
     },
     {
       "name": "Hasty Assault",
-      "cardId": 668,
+      "cardId": 618,
       "initiative": 25,
       "actions": [
         {
@@ -67,7 +67,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 669,
+      "cardId": 619,
       "initiative": 45,
       "actions": [
         {
@@ -84,7 +84,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 670,
+      "cardId": 620,
       "initiative": 45,
       "actions": [
         {
@@ -101,7 +101,7 @@
     },
     {
       "name": "Power Slash",
-      "cardId": 671,
+      "cardId": 621,
       "initiative": 81,
       "actions": [
         {
@@ -113,7 +113,7 @@
     },
     {
       "name": "Focused Stabs",
-      "cardId": 672,
+      "cardId": 622,
       "initiative": 74,
       "actions": [
         {
@@ -137,7 +137,7 @@
     },
     {
       "name": "Eternal Life",
-      "cardId": 673,
+      "cardId": 623,
       "initiative": 12,
       "shuffle": true,
       "actions": [

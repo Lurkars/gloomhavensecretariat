@@ -1,0 +1,10 @@
+{
+  "index": "2.5",
+  "name": "Imbuement 50",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "Add a note to each character sheet:<br>when the character retires, the next character gains 100g that must be immediately spent on enhancements."
+  }
+}

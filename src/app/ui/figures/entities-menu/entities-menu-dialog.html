@@ -1,40 +1,61 @@
 <div class="entity-menu-dialog scroll-container">
 
-  <div class="name" *ngIf="!!monster">
-    <img *ngIf="!monster.noThumbnail && settingsManager.settings.artwork" class="standee"
-      [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
+  @if (!!monster) {
+  <div class="name">
+    @if (!monster.noThumbnail && settingsManager.settings.artwork) {
+    <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
+    }
     <span [ghs-label]="'data.monster.' + monster.name"></span>&nbsp;
-    <span class="ally" *ngIf="monster.isAlly"><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
-    <span class="allied" *ngIf="monster.isAllied"><span [ghs-label]="'game.allied'"></span>&nbsp;</span>
-    <span class="monster-type" *ngIf="data.type" [ghs-label]="'(%game.monsterType.' +  data.type + '%)'"></span>
+    @if (monster.isAlly) {
+    <span class="ally"><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
+    }
+    @if (monster.isAllied) {
+    <span class="allied"><span [ghs-label]="'game.allied'"></span>&nbsp;</span>
+    }
+    @if (data.type) {
+    <span class="monster-type" [ghs-label]="'(%game.monsterType.' +  data.type + '%)'"></span>
+    }
   </div>
+  }
 
-  <span class="name" *ngIf="!!character">
+  @if (!!character) {
+  <span class="name">
     <img class="icon character-icon" [src]="character.iconUrl" />
     <span>{{gameManager.characterManager.characterName(character,true)}}</span>
   </span>
+  }
 
   <div class="entities">
-    <ng-container *ngFor="let entity of allEntities">
-      <div class="entity {{gameManager.toMonsterEntity(entity).type}}" *ngIf="!!monster" tabclick
-        (click)="toggleEntity(entity)" [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">{{entity.number}}</div>
-      <div class="entity" *ngIf="!!character" tabclick (click)="toggleEntity(entity)"
-        [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">
-        <span class="summon-image"
-          [ngClass]="{'active' : gameManager.toSummon(entity).state == SummonState.true, 'new' : gameManager.toSummon(entity).state == SummonState.new, 'center' : (gameManager.toSummon(entity).entityConditions.length % 2) == 0}">
-          <img src="./assets/images/summons/{{gameManager.toSummon(entity).color}}.png">
-          <span class="summon-number">
-            <span *ngIf="gameManager.toSummon(entity).number == 0">-</span>
-            <span *ngIf="gameManager.toSummon(entity).number > 0">{{gameManager.toSummon(entity).number}}</span></span>
-        </span>
-      </div>
-      <div class="entity" *ngIf="!!objective" tabclick (click)="toggleEntity(entity)"
-        [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">
-        <span class="objective-marker">
-          {{gameManager.toObjectiveEntity(entity).number}}
-        </span>
-      </div>
-    </ng-container>
+    @for (entity of allEntities; track entity.number) {
+    @if (!!monster) {
+    <div class="entity {{gameManager.toMonsterEntity(entity).type}}" tabclick (click)="toggleEntity(entity)"
+      [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">{{entity.number}}</div>
+    }
+    @if (!!character) {
+    <div class="entity" tabclick (click)="toggleEntity(entity)"
+      [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">
+      <span class="summon-image"
+        [ngClass]="{'active' : gameManager.toSummon(entity).state == SummonState.true, 'new' : gameManager.toSummon(entity).state == SummonState.new, 'center' : (gameManager.toSummon(entity).entityConditions.length % 2) == 0}">
+        <img src="./assets/images/summons/{{gameManager.toSummon(entity).color}}.png">
+        <span class="summon-number">
+          @if (gameManager.toSummon(entity).number == 0) {
+          <span>-</span>
+          }
+          @if (gameManager.toSummon(entity).number > 0) {
+          <span>{{gameManager.toSummon(entity).number}}</span>
+          }</span>
+      </span>
+    </div>
+    }
+    @if (!!objective) {
+    <div class="entity" tabclick (click)="toggleEntity(entity)"
+      [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">
+      <span class="objective-marker">
+        {{gameManager.toObjectiveEntity(entity).number}}
+      </span>
+    </div>
+    }
+    }
   </div>
 
   <div class="entity-container">
@@ -55,15 +76,20 @@
     </span>
   </div>
 
-  <ghs-conditions *ngIf="!!monster" [entityConditions]="entityConditions" [immunities]="entityImmunities"
-    [entities]="entities" [figure]="monster" [type]="'monster'" [columns]="4"></ghs-conditions>
+  @if (!!monster) {
+  <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities"
+    [figure]="monster" [type]="'monster'" [columns]="4"></ghs-conditions>
+  }
 
-  <ghs-conditions *ngIf="!!character" [entityConditions]="entityConditions" [immunities]="entityImmunities"
-    [entities]="entities" [figure]="character" [type]="'monster'" [columns]="4"></ghs-conditions>
+  @if (!!character) {
+  <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities"
+    [figure]="character" [type]="'monster'" [columns]="4"></ghs-conditions>
+  }
 
-  <ghs-conditions *ngIf="!!objective" [entityConditions]="entityConditions"
-    [immunities]="entityImmunities" [entities]="entities" [figure]="objective" [type]="objective.escort ? 'character' : 'objective'"
-    [columns]="4"></ghs-conditions>
+  @if (!!objective) {
+  <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities"
+    [figure]="objective" [type]="objective.escort ? 'character' : 'objective'" [columns]="4"></ghs-conditions>
+  }
 
   <div class="entity-container">
     <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
@@ -85,9 +111,11 @@
     </span>
   </div>
 
-  <span class="toggle-type" tabclick (click)="toggleType()" *ngIf="!!monster">
+  @if (!!monster) {
+  <span class="toggle-type" tabclick (click)="toggleType()">
     <span [ghs-label]="'%game.monsterType.normal%'"></span>
     <img class="ghs-svg" src="./assets/images/switch.svg" />
     <span [ghs-label]="'%game.monsterType.elite%'"></span>
   </span>
+  }
 </div>

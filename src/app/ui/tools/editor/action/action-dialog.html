@@ -1,9 +1,11 @@
 <div class="scroll-container">
-    <ghs-action (click)="relative = !relative" [action]="data.action" [relative]="relative"
-        *ngIf="noPreview.indexOf(data.action.type) == -1" [character]="data.character" [cardId]="data.cardId">
-    </ghs-action>
-    <ghs-editor-action [(action)]="data.action" [character]="data.character" [cardId]="data.cardId"></ghs-editor-action>
+  @if (noPreview.indexOf(data.action.type) == -1) {
+  <ghs-action (click)="relative = !relative" [action]="data.action" [relative]="relative" [character]="data.character"
+    [cardId]="data.cardId">
+  </ghs-action>
+  }
+  <ghs-editor-action [(action)]="data.action" [character]="data.character" [cardId]="data.cardId"></ghs-editor-action>
 
-    <a (click)="deleteAction()"><img class="ghs-icon" src="./assets/images/minus.svg">
-        <span [ghs-label]="'editor.action.remove'"></span></a>
+  <a (click)="deleteAction()"><img class="ghs-icon" src="./assets/images/minus.svg">
+    <span [ghs-label]="'editor.action.remove'"></span></a>
 </div>

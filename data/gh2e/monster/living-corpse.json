@@ -4,11 +4,9 @@
   "count": 6,
   "baseStat": {
     "type": "normal",
-    "actions": [],
     "immunities": [
       "poison"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

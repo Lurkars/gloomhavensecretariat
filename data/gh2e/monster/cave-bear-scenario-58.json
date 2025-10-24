@@ -7,12 +7,10 @@
   "standeeShare": "cave-bear",
   "baseStat": {
     "type": "normal",
-    "actions": [],
     "immunities": [
       "disarm",
       "poison"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

@@ -7,10 +7,7 @@
   "standeeShare": "inox-guard",
   "standeeShareEdition": "gh",
   "baseStat": {
-    "type": "normal",
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "normal"
   },
   "stats": [
     {

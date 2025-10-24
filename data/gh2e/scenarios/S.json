@@ -2,6 +2,7 @@
   "index": "S",
   "name": "Challenger's Rift",
   "edition": "gh2e",
+  "repeatable": true,
   "monsters": [
     "chaos-demon",
     "forest-imp",

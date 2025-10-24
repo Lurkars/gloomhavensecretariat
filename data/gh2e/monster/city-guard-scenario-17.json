@@ -5,10 +5,7 @@
   "count": 6,
   "standeeShare": "city-guard",
   "baseStat": {
-    "type": "normal",
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "normal"
   },
   "stats": [
     {

@@ -1,0 +1,41 @@
+{
+  "index": "57.3",
+  "edition": "gh2e",
+  "parent": "23A",
+  "conclusion": true,
+  "unlocks": [
+    "36"
+  ],
+  "blocks": [
+    "7",
+    "8",
+    "12",
+    "16",
+    "17",
+    "18",
+    "21",
+    "22"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "city-rules-demons",
+      "peace-through-bloodshed"
+    ],
+    "envelopes": [
+      "%data.gh2eFaction:demons%"
+    ],
+    "experience": 30,
+    "events": [
+      "city:36",
+      "city:55",
+      "city:56",
+      "road:36"
+    ],
+    "factionUnlock": "demons",
+    "reputationFactions": [
+      "demons:2",
+      "merchant-guild:-10",
+      "military:-10"
+    ]
+  }
+}

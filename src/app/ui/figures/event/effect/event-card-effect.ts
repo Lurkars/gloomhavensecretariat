@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { EventCardApplyEffects } from "src/app/game/businesslogic/EventCardManager";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EventCardEffect, EventCardEffectType } from "src/app/game/model/data/EventCard";
@@ -30,11 +29,11 @@ export class EventCardEffectComponent implements OnInit {
     labelArgs: (string | number)[] = [];
     effects: (string | EventCardEffect)[] = [];
     disabled: boolean = false;
+    applicable: boolean = false;
 
     settingsManager: SettingsManager = settingsManager;
-    EventCardApplyEffects = EventCardApplyEffects;
 
-    special: EventCardEffectType[] = [EventCardEffectType.and, EventCardEffectType.checkbox, EventCardEffectType.choose];
+    special: EventCardEffectType[] = [EventCardEffectType.additionally, EventCardEffectType.and, EventCardEffectType.checkbox, EventCardEffectType.choose];
 
     ngOnInit(): void {
         if (typeof this.effect === 'string') {
@@ -43,6 +42,11 @@ export class EventCardEffectComponent implements OnInit {
             this.effectObject = this.effect;
             this.labelArgs = this.effectObject.values ? this.effectObject.values.filter((v) => typeof v === 'number' || typeof v === 'string') : [];
             this.effects = this.effectObject.values ? this.effectObject.values.filter((v) => typeof v !== 'number') : [];
+            this.applicable = gameManager.eventCardManager.applicableEffect(this.effectObject);
+
+            if (this.effectObject.type == EventCardEffectType.and || this.effectObject.type == EventCardEffectType.additionally) {
+                this.applicable = this.effects.some((e) => typeof e === 'object' && gameManager.eventCardManager.applicableEffect(e));
+            }
 
             this.disabled = this.effectObject.condition && !gameManager.eventCardManager.resolvableCondition(this.effectObject.condition) || false;
 

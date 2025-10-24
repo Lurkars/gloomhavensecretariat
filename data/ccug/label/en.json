@@ -1,0 +1,55 @@
+{
+  "character": {
+    "ccug": {
+      "alchemancer": "Alchemancer",
+      "core": "C.O.R.E",
+      "dome": "D.O.M.E.",
+      "echowight": "Echowight",
+      "frostborn": "Frostborn",
+      "glacial-torrent": "Glacial Torrent",
+      "jester-twins": "Jester Twins",
+      "lifespeaker": "Lifespeaker",
+      "lightracer": "Lightracer",
+      "rootwhisperer": "Rootwhisperer",
+      "skitterclaw": "Skitterclaw",
+      "wildborn": "Wildborn",
+      "woebound": "Woebound",
+      "veilpiercer": "Veilpiercer",
+      "vimthreader": "Vimthreader"
+    }
+  },
+  "custom": {
+    "perks": {
+      "core": {
+        "1": "Add +1 %game.action.attack% for each condition you have",
+        "2": "At the start of each scenario you may perform \"%game.condition.strengthen%, %game.condition.wound%, Self\" or \"%game.condition.ward%, %game.condition.immobilize%, Self\"",
+        "3": "Once each scenario, avoid an Overdrive exhaustion check",
+        "4": "Once each scenario, during your turn, remove any number of negative conditions you have",
+        "5": "Kill the last enemy to die in the scenario and finish with nine ability cards in your lost pile",
+        "6": "Trigger an ongoing effect on Chaotic Recursion six or more times in one round"
+      },
+      "wildborn": {
+        "1": "instead if you suffer %game.damage:2%",
+        "2": "Add +1 %game.action.attack% per collected %data.action.custom.ccug-essence%",
+        "3": "Place this card in your active area. On your next commanded attack, discard this card to add +2 %game.action.attack%",
+        "4": "On your next commanded attack, discard this card to add +2 %game.action.attack%",
+        "5": "%game.custom.perks.ignoreNegativeScenario% and treat all %data.action.custom.ccug-essence% as Stable during one round each scenario",
+        "6": "Whenever you or one of your allies would suffer exactly %game.damage:2%, that figure may lose %game.condition.ward% to suffer no %game.damage% instead",
+        "7": "At the start of each scenario, you may %game.element.wild%",
+        "8": "Play at least 8 %game.card.lost% actions without exhausting",
+        "9": "Stabilize 4 different %data.action.custom.ccug-essence% during your first rest over the course of any 4 scenarios"
+      },
+      "woebound": {
+        "1": "where X is the number elements you have consumed this turn",
+        "2": "Whenever you consume an element as a mandatory part of an action, you may generate that same element",
+        "3": "At the start of each scenario, %game.element.wild%",
+        "4": "Whenever you long rest, %game.element.wild%",
+        "5": "Consume at least three elements on each of your turns after the first round, without exhausting",
+        "6": "Have %game.action.shield% 2 on each attack targeting you that would cause you to suffer damage, and be attacked at least 15 times."
+      }
+    }
+  },
+  "edition": {
+    "ccug": "Custom Content Unity Guild"
+  }
+}

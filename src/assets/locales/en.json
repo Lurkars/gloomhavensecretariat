@@ -303,7 +303,7 @@
             "status": "Automatic Backup failed with response code '{0}'. Take a look at the browser console for more details.",
             "unknown": "Automatic Backup failed due to unknown reason. Please take a look at the browser console for more details."
           },
-          "hint": "Instead of downloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename. (This requires proper CORS settings to work!)"
+          "hint": "Instead of downloading the automatic backup file, set an URL to upload the data to (This requires proper CORS settings on the URL to work!). {FILENAME} or {WINDOWS_FILENAME} can be used as placeholder for filename."
         },
         "uploadUrlAuthorization": {
           "": "Authorization Header",
@@ -523,6 +523,7 @@
       "damage": "Damage",
       "element": "Element",
       "elementHalf": "Element Half",
+      "extra": "&#91;FH Helper for Subactions&#93;",
       "fly": "Fly",
       "forceBox": "&#91;FH Mandatory Box&#93;",
       "grant": "Grant",
@@ -840,6 +841,8 @@
         "loseCollectiveGold": "Lose {0} collective gold",
         "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%",
         "loseCollectiveResourceType": "Lose {0} collective %game.loot.{1}% resources",
+        "loseResource": "Lose {0} %game.resource.{1}%",
+        "loseResourceType": "Lose {0} %game.loot.{1}% resource each",
         "moraleGT": "Morale > {0}",
         "moraleLT": "Morale < {0}",
         "otherwise": "Otherwise",
@@ -875,6 +878,7 @@
         "upcoming": "In Deck ({0})"
       },
       "effects": {
+        "additionally": "Additionally",
         "and": "and",
         "automation": "The effect is applied automatically",
         "battleGoal": "Gain {0} %game.checkmark% each.",
@@ -930,6 +934,8 @@
         "loseCollectiveGold": "Lose {0} collective gold.",
         "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%.",
         "loseCollectiveResourceAny": "Lose {0} collective resources.",
+        "loseCollectiveResourceType": "Lose {0} collective %game.loot.{1}% resources.",
+        "loseExperience": "Lose {0} experience each.",
         "loseGold": "Lose {0} gold each.",
         "loseGoldOne": "One character loses {0} gold.",
         "loseMorale": "Lose {0} morale.",
@@ -938,7 +944,9 @@
         "loseResource": "Lose {0} %game.resource.{1}%.",
         "morale": "Gain {0} morale.",
         "noEffect": "No effect.",
-        "outcome": "Read outome %game.events.option.{0}%.",
+        "outcome": "Read outcome %game.events.option.{0}%.",
+        "outcomeSelect": "Select one outcome, %game.events.option.{0}% or %game.events.option.{1}%, to read.",
+        "outcomes": "Read both outcomes %game.events.option.{0}% and %game.events.option.{1}%.",
         "outpostAttack": "%game.valueSign:{0}% %game.action.attack%",
         "outpostAttackTarget": {
           "": "%game.valueSign:{0}% %game.action.attack% for %game.events.effects.outpostAttackTarget.{1}%",
@@ -952,6 +960,7 @@
           "": "Gain one Random Item.",
           "alt": "Gain one collective random item %game.itemFh.random%."
         },
+        "randomItemBlueprint": "Gain one random item blueprint %game.itemFh.random%.",
         "randomItemDesign": "Gain Random Item Design.",
         "randomScenario": "Gain one random side scenario.",
         "removeEvent": {
@@ -972,14 +981,18 @@
           "alt": "All characters start the next scenario with %game.damage:{0}%."
         },
         "scenarioSingleMinus1": "One starts scenario with %game.card.minus1% x{0}.",
-        "sectionOrWeek": "Add %game.section:{0}% OR {1} to the celander in one week.",
-        "sectionOrWeeks": "Add %game.section:{0}% OR {1} to the celander in %game.number.{2}% weeks.",
-        "sectionWeek": "Add %game.section:{0}% to the celander in one week.",
-        "sectionWeeks": "Add %game.section:{0}% to the celander in %game.number.{1}% weeks.",
-        "sectionWeeksSeason": "Add %game.section:{0}% to the celander in %game.number.{1}% weeks. If that week is in {2}, add it to the %game.numbered.{3}% week of the next {4} instead.",
+        "sectionOrWeek": "Add %game.section:{0}% OR {1} to the calendar in one week.",
+        "sectionOrWeeks": "Add %game.section:{0}% OR {1} to the calendar in %game.number.{2}% weeks.",
+        "sectionWeek": "Add %game.section:{0}% to the calendar in one week.",
+        "sectionWeekSeasonFinal": "Add %game.section:{0}% to the calendar in to the final week in the next {1}.",
+        "sectionWeeks": "Add %game.section:{0}% to the calendar in %game.number.{1}% weeks.",
+        "sectionWeeksSeason": "Add %game.section:{0}% to the calendar in %game.number.{1}% weeks. If that week is in {2}, add it to the %game.numbered.{3}% week of the next {4} instead.",
+        "skipThreat": "Do not resolve the below threat.",
         "soldier": "Gain 1 soldier.",
         "soldiers": "Gain {0} soldiers.",
         "townGuardDeckCard": "Add one %game.townGuardAM:{0}% card to the town guard deck.",
+        "townGuardDeckCardRemove": "Remove one %game.townGuardAM:{0}% card from the town guard deck.",
+        "townGuardDeckCardRemovePermanently": "Permanently remove one %game.townGuardAM:{0}% card from the town guard deck.",
         "townGuardDeckCards": "Add %game.number.{1}% %game.townGuardAM:{0}% cards to the town guard deck.",
         "unlockEnvelope": "Unlock envelope {0} if it is not unlocked.",
         "unlockScenario": {
@@ -987,10 +1000,15 @@
           "alt": "New Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
         },
         "unlockScenarioGroup": "Unlock \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%).",
-        "upgradeBuilding": "Upgrade the %data.buildings.{0}% to the next level, or, if the %data.buildings.{0}%  is already level {1}, gain {2} morale instead."
+        "upgradeBuilding": "Upgrade the %data.buildings.{0}% to the next level, or, if the %data.buildings.{0}% is already level {1}, gain {2} morale instead.",
+        "wreckBuilding": "Wreck the %data.buildings.{0}%."
       },
       "option": {
         "": "Option {0}:"
+      },
+      "outpostAttack": {
+        "": "Outpost Attack",
+        "effects": "Following will be applied to the Outpost Attack"
       },
       "requirements": {
         "": "Requirements:",
@@ -1079,6 +1097,7 @@
         "": "Search…",
         "affordable": "Only affordable Items",
         "all": "Show all items",
+        "owned": "Only owned Items",
         "sorted": "Sorted"
       },
       "remove": "Remove '{0}'",
@@ -1213,6 +1232,7 @@
     "solo": "Solo",
     "specialTarget": {
       "all": "%game.target% all",
+      "allCharacters": "%game.target% all characters",
       "allies": "%game.target% all allies",
       "alliesAdjacent": "%game.target% all adjacent allies",
       "alliesAdjacentAffect": "%game.affect% all adjacent allies",
@@ -1446,7 +1466,8 @@
             "": "Repair building",
             "action": "Repair building",
             "costs": "Any {0}",
-            "hint": "Repair building (force with double click)"
+            "hint": "Repair building (force with double click)",
+            "morale": "-1 Morale"
           },
           "rewards": {
             "action": "Level {0}",
@@ -1461,7 +1482,8 @@
           },
           "selectResources": {
             "": "Select Resources",
-            "confirm": "Confirm"
+            "confirm": "Confirm",
+            "morale": "-1 Morale"
           },
           "state": {
             "damaged": "damaged",
@@ -1531,6 +1553,36 @@
       "hint": "Creation of new campaign is disabled during a scenario. Finish or cancel current scenario to create a new campaign."
     },
     "notes": "Notes",
+    "outpostAttack": {
+      "advantage": "Gain advantage for this attack for losing soliders!",
+      "buildings": {
+        "damaged": "Damaged Building",
+        "wrecked": "Wrecked Building"
+      },
+      "defense": "Base Defense:",
+      "disadvantage": "Gain disadvantage because the Barracks are wrecked!",
+      "filter": {
+        "desc": "Descending Order",
+        "even": "Even",
+        "lowerBoundary": "Lower Boundary",
+        "odd": "Odd",
+        "parity": "Parity",
+        "randomize": "Randomize",
+        "upperBoundary": "Upper Boundary"
+      },
+      "finish": "Finish",
+      "map": "Open Global Map",
+      "next": "Next Target",
+      "other": "Other Buildings",
+      "result": {
+        "damage": "Building is damaged.<br>Failed with {0} Defense against %game.action.attack% {2}!",
+        "success": "Success with {0} defense against %game.action.attack% {2}!",
+        "successfull": "Defense was successfull!",
+        "wreck": "Building is wrecked!"
+      },
+      "sheet": "Open Party Sheet",
+      "targets": "Targeted Buildings"
+    },
     "prosperity": {
       "": "Prosperity",
       "reset": "Reset Prosperity",
@@ -1625,6 +1677,7 @@
       "continueDraw": "Continue with Draw",
       "continueNext": "Continue with next Round",
       "empty": "Please add monsters and characters before round.",
+      "eventDraw": "Draw a %game.events.type.{0}% event card.",
       "failed": "All characters seems exhausted. Do you want to restart the scenario?",
       "finish": "There are no monsters left. Did you successfully finish the scenario?",
       "initiativeRoundConfirm": "All initiatives are set. Start next round?",
@@ -1704,6 +1757,7 @@
         "section": "Open %data.section:{0}%, unlocks {2}"
       },
       "hint": "Apply to all selected figures",
+      "outpostAttack": "Outpost Attack",
       "progress": "Affects character progress"
     },
     "favors": {
@@ -1821,6 +1875,7 @@
         "winter-road": "Add event {0} to the winter road deck"
       },
       "experience": "{0} experience each",
+      "factionUnlock": "%data.gh2eFaction:{0}% reputation can now be increased above 12.",
       "globalAchievements": "Global Achievements",
       "gold": "{0} gold each",
       "inspiration": "{0} inspiration",
@@ -1858,6 +1913,7 @@
       "removeLootDeckCard": "Remove loot card {0} from the game. No longer add it to any scenario's loot deck.",
       "repeatScenario": "Scenario can be replayed!",
       "reputation": "{0} reputation",
+      "reputationFactions": "Gain {1} %game.gh2eFaction:{0}% reputation",
       "resources": "Gain {1} %game.resource.{0}% each",
       "resourcesLose": "Lose {1} %game.resource.{0}% each",
       "townGuardAm": "Add one %game.townGuardAm.{1}:{0}% card to the town guard deck.",
@@ -1894,6 +1950,7 @@
         "loseCondition": "{0} lose %game.condition.{1}%",
         "permanentCondition": "{0} gain permanent %game.condition.{1}%",
         "remove": "Remove {0}",
+        "removeAbility": "Remove ability card '{1}' of {0}",
         "scenarioEffect": "as scenario effect",
         "setAbility": "Set active ability card of {0} to '{1}'",
         "setHp": "{0} HP to {2}",
@@ -2522,6 +2579,10 @@
     "eventsDraw": {
       "": "Auto. Draw Events",
       "hint": "Automatically draw events like Road Event at start of scenario."
+    },
+    "eventsDrawReminder": {
+      "": "Draw Events Reminder",
+      "hint": "Show a reminder before first round to draw an event."
     },
     "expireConditions": {
       "": "Automatic expire conditions",

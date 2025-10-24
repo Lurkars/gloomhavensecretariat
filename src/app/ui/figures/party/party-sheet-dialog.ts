@@ -50,6 +50,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   imbuementSections: Record<number, string> = {};
 
   factions: string[] = [];
+  factionUnlocks: string[] = [];
   reputationSections: ReputationSection[] = [];
   reputationSectionsMapped: Record<string, ReputationSection[]> = {};
 
@@ -355,7 +356,11 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  setFactionReputation(faction: string, value: number) {
+  setFactionReputation(faction: string, value: number, force: boolean = false) {
+    if (!force && value > 12 && this.factionUnlocks.indexOf(faction) == -1) {
+      return;
+    }
+
     if (this.party.factionReputation[faction] != value) {
       gameManager.stateManager.before("setFactionReputation", faction, value);
       if (value > 20) {
@@ -561,6 +566,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     gameManager.stateManager.before("setPartyImbuement", "" + value);
     this.party.imbuement = value;
     gameManager.stateManager.after();
+
+    Object.keys(this.imbuementSections).reverse().forEach((imbuement) => {
+      if (value >= +imbuement && !this.party.conclusions.find((s) => s.edition == gameManager.game.edition && s.index == this.imbuementSections[+imbuement])) {
+        this.unlockConclusion(this.imbuementSections[+imbuement], true);
+      }
+    })
   }
 
   exportParty() {
@@ -780,6 +791,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
           this.party.factionReputation[faction] = 0;
         }
       })
+
+      this.factionUnlocks = gameManager.gh2eFactionUnlocks();
     }
 
     if (campaign.reputationSections) {
@@ -866,7 +879,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     });
 
     this.items = this.itemIdentifier.map((identifier) => gameManager.itemManager.getItem(identifier.name, identifier.edition, true));
-    this.summer = Math.max(this.party.weeks - 1, 0) % 20 < 10;
+    this.summer = Math.max(this.party.weeks, 0) % 20 < 10;
 
     if (campaign) {
       if (campaign.lowMorale && campaign.lowMorale.length) {
@@ -1275,7 +1288,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         const characterGold = characters.map((character) => character.progress.gold).reduce((a, b) => a + b);
         const characterResourses = characters.map((character) => (character.progress.loot.hide || 0) + (character.progress.loot.lumber || 0) + (character.progress.loot.metal || 0)).reduce((a, b) => a + b);
         const supplyResources = (this.party.loot.hide || 0) + (this.party.loot.lumber || 0) + (this.party.loot.metal || 0);
-        if (characterGold > 3 && (characterResourses + supplyResources) > 1) {
+        if (characterGold > 3 && (characterResourses + supplyResources) > 0) {
           return true;
         }
       }

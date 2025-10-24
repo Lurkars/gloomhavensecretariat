@@ -606,7 +606,8 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.13.1%"
+          "value": "%data.custom.gh.brute.abilities.13.1%",
+          "small": true
         },
         {
           "type": "card",
@@ -623,7 +624,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.14.1%"
+          "value": "%data.custom.gh.brute.abilities.14.1%",
+          "small": true
         },
         {
           "type": "card",
@@ -987,7 +989,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.22.1%"
+          "value": "%data.custom.gh.brute.abilities.22.1%",
+          "small": true
         },
         {
           "type": "card",
@@ -1004,7 +1007,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.22.2%"
+          "value": "%data.custom.gh.brute.abilities.22.2%",
+          "small": true
         },
         {
           "type": "card",
@@ -1048,7 +1052,8 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.23.1%"
+          "value": "%data.custom.gh.brute.abilities.23.1%",
+          "small": true
         },
         {
           "type": "card",
@@ -1392,7 +1397,8 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.29.1%"
+          "value": "%data.custom.gh.brute.abilities.29.1%",
+          "small": true
         },
         {
           "type": "card",

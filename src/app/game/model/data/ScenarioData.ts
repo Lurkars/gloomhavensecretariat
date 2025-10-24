@@ -4,7 +4,7 @@ import { Identifier } from "./Identifier";
 import { LootDeckConfig, LootType } from "./Loot";
 import { ObjectiveData } from "./ObjectiveData";
 import { RoomData } from "./RoomData";
-import { ScenarioRule } from "./ScenarioRule";
+import { ScenarioFigureRule, ScenarioRule } from "./ScenarioRule";
 import { Spoilable } from "./Spoilable";
 import { WorldMapCoordinates, WorldMapOverlay } from "./WorldMap";
 
@@ -164,6 +164,7 @@ export class ScenarioRewards {
   factionUnlock: string = "";
   randomSideScenario: number = 0;
   hints: ScenarioRewardHints | undefined = undefined;
+  valueMapping: Record<string, ScenarioFigureRule> | undefined = undefined;
 
 }
 

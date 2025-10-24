@@ -17,7 +17,19 @@
     "3"
   ],
   "rewards": {
-    "custom": "%data.scenario.rewards.fh.001%"
+    "custom": "%data.scenario.rewards.fh.001%",
+    "morale": "2+X",
+    "valueMapping": {
+      "X": {
+        "identifier": {
+          "type": "monster",
+          "edition": "fh",
+          "name": "city-guard"
+        },
+        "type": "present",
+        "value": "morale"
+      }
+    }
   },
   "monsters": [
     "algox-archer",

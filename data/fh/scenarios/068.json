@@ -11,6 +11,7 @@
   },
   "edition": "fh",
   "complexity": 2,
+  "eventType": "road",
   "rewards": {
     "custom": "%data.scenario.rewards.fh.068%",
     "calendarSection": [

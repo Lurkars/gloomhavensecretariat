@@ -18,7 +18,53 @@
       "name": "Hail",
       "escort": true,
       "health": "4+(2xL)",
-      "initiative": 99
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "round",
+          "value": "odd",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "allies",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "round",
+          "value": "even",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemies",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "rooms": [

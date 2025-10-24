@@ -8,7 +8,8 @@
           [ngClass]="{'selected': currentEdition == ''}"></span>
         <span class="size">({{gameManager.battleGoalManager.getBattleGoals().length}})</span>
       </div>
-      <div class="edition" *ngFor="let edition of editions">
+      @for (edition of editions; track edition) {
+      <div class="edition">
         <span class="name" [ghs-label]="'game.battleGoals.edition'" [ghs-label-args]="[edition]"
           (click)="selectEdition(edition)" [ngClass]="{'selected': edition == currentEdition}"></span>
         <span class="size">({{gameManager.battleGoalManager.getBattleGoalsForEdition(edition).length}})</span>
@@ -16,15 +17,20 @@
           [checked]="gameManager.game.battleGoalEditions.indexOf(edition) != -1 || gameManager.editionRules(edition, false)"
           [disabled]="gameManager.editionRules(edition, false)" (change)="toggleEdition(edition)">
       </div>
+      }
     </div>
 
     <div class="battle-goals">
-      <span *ngIf="battleGoals.length == 0" class="warning" [ghs-label]="'game.battleGoals.setup.empty'"></span>
-      <ghs-battlegoal class="battlegoal" *ngFor="let battlegoal of battleGoals" [battleGoal]="battlegoal"
-        [flipped]="true" [disabled]="!selected(battlegoal) && !filtered(battlegoal) || selectedAlias(battlegoal)"
-        [reveal]="false" [selected]="!this.selectedAlias(battlegoal) && selected(battlegoal)"
-        [filtered]="filtered(battlegoal)" [ngClass]="{'disabled' : battlegoal.alias && selectedAlias(battlegoal)}"
+      @if (battleGoals.length == 0) {
+      <span class="warning" [ghs-label]="'game.battleGoals.setup.empty'"></span>
+      }
+      @for (battlegoal of battleGoals; track battlegoal.cardId) {
+      <ghs-battlegoal class="battlegoal" [battleGoal]="battlegoal" [flipped]="true"
+        [disabled]="!selected(battlegoal) && !filtered(battlegoal) || selectedAlias(battlegoal)" [reveal]="false"
+        [selected]="!this.selectedAlias(battlegoal) && selected(battlegoal)" [filtered]="filtered(battlegoal)"
+        [ngClass]="{'disabled' : battlegoal.alias && selectedAlias(battlegoal)}"
         (click)="toggleFilter(battlegoal)"></ghs-battlegoal>
+      }
     </div>
   </div>
 </div>

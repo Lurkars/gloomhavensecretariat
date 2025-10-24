@@ -1,4 +1,80 @@
 {
+  "ability": {
+    "Accelerated Power": "Potere Accelerato",
+    "Angry Hex": "Sortilegio Collerico",
+    "Calculated Strike": "Colpo Calcolato",
+    "Close In": "Accorciare le Distanze",
+    "Cruel Bow": "Arco Crudele",
+    "Divine Energy": "Energia Divina",
+    "Drain Speed": "Prosciugare Velocità",
+    "Drain Strength": "Prosciugare Forza",
+    "Greed": "Avidità",
+    "Hasty Assault": "Assalto Affrettato",
+    "Lingering Strength": "Forza Persistente",
+    "Nothing Special": "Niente di Speciale",
+    "Noxious Blade": "Lama Tossica",
+    "Parry and Thrust": "Parata e Affondo",
+    "Power Shot": "Tiro Possente",
+    "Psych Up": "Fomentarsi",
+    "Rancid Arrow": "Freccia Rancida",
+    "Rapid Bolts": "Dardi Rapidi",
+    "Set Trap": "Piazzare Trappola",
+    "Shoot Foot": "Colpo al Piede",
+    "Tend to the Clan": "Badare al Clan",
+    "Throwing Axe": "Ascia da Lancio",
+    "Twin Bolts": "Dardi Gemelli",
+    "Twin Shots": "Colpi Gemelli",
+    "Venom Shiv": "Coltello Avvelenato"
+  },
+  "buildings": {
+    "alchemist": {
+      "": "Laboratorio dell'Alchimista"
+    },
+    "barracks": {
+      "": "Caserma"
+    },
+    "boat": {
+      "": "Barca"
+    },
+    "climbing-gear": {
+      "": "Attrezzatura da Scalatore"
+    },
+    "craftsman": {
+      "": "Bottega dell'Artigiano"
+    },
+    "hunting-lodge": {
+      "": "Baita di Caccia"
+    },
+    "logging-camp": {
+      "": "Campo del Taglialegna"
+    },
+    "sled": {
+      "": "Slitta"
+    },
+    "wall-j": {
+      "": "Mura J"
+    },
+    "wall-k": {
+      "": "Mura K"
+    },
+    "wall-l": {
+      "": "Mura L"
+    },
+    "wall-m": {
+      "": "Mura M"
+    },
+    "wall-n": {
+      "": "Mura N"
+    },
+    "workshop": {
+      "": "Officina"
+    }
+  },
+  "campaignSticker": {
+    "boat": "Barca",
+    "climbing-gear": "Attrezzatura da Scalatore",
+    "sled": "Slitta"
+  },
   "character": {
     "fh": {
       "banner-spear": "Alfiere",
@@ -8,7 +84,9 @@
       "boneshaper": {
         "": "Plasmaossa"
       },
-      "deathwalker": "Viandante della Morte",
+      "deathwalker": {
+        "": "Viandante della Morte"
+      },
       "drifter": "Ramingo",
       "geminate": {
         "": "Geminato"
@@ -16,18 +94,70 @@
     }
   },
   "monster": {
+    "abael-herder": "Abael Mandriano",
+    "abael-scout": "Abael Esploratore",
+    "algox-archer": "Algox Arciere",
+    "algox-guard": "Algox Guardia",
+    "algox-icespeaker": "Algox Portavoce del Ghiaccio",
+    "algox-priest": "Algox Sacerdote",
+    "algox-scout": "Algox Esploratore",
+    "algox-snowspeaker": "Algox Portavoce della Neve",
+    "algox-stormcaller": "Algox Invocatempeste",
     "ancient-artillery": "Artiglieria Antica",
+    "black-imp": "Imp Nero",
+    "burrowing-blade": "Lama Scavatrice",
+    "chaos-demon": "Demone del Caos",
     "city-guard": "Guardia Cittadina",
     "earth-demon": "Demone della Terra",
+    "elder-ooze": "Melma Antica",
+    "fish-king": "Re dei Pesci",
     "flame-demon": "Demone della Fiamma",
-    "forest-imp": "Imp della Foresta",
+    "flaming-bladespinner": "Vorticalame Fiammeggiante",
+    "forest-imp": "Imp delle Foreste",
+    "fracture-of-the-deep": "Frattura delle Profondità",
+    "frost-demon": "Demone del Gelo",
+    "frozen-corpse": "Cadavere Ghiacciato",
+    "frozen-fist": "Pugno Gelido",
+    "harbinger-of-shadow": "Araldo dell'Ombra",
+    "harbinger-of-shadow-1": "Araldo dell'Ombra %game.mapMarker.1%",
+    "harbinger-of-shadow-2": "Araldo dell'Ombra %game.mapMarker.2%",
     "harrower-infester": "Harrower Infestatore",
+    "hound": "Mastino",
+    "ice-wraith": "Spettro del Ghiaccio",
+    "lightning-eel": "Anguilla Folgorante",
     "living-bones": "Ossa Viventi",
+    "living-doom": "Condanna Vivente",
+    "living-spirit": "Spirito Vivente",
+    "lord-of-chaos": "Signore del Caos",
+    "lurker-clawcrusher": "Osservatore Schiacciachela",
+    "lurker-mindsnipper": "Osservatore Falciamente",
+    "lurker-soldier": "Osservatore Soldato",
+    "lurker-wavethrower": "Osservatore Lanciaonde",
+    "night-demon": "Demone della Notte",
     "ooze": "Melma",
+    "orphan": "Orfano",
+    "piranha-pig": "Porcopiranha",
+    "polar-bear": "Orso Polare",
+    "prince-of-frost": "Principe del Gelo",
+    "program-director": "Direttore del Programma",
+    "render": "Dilaniatore",
     "rending-drake": "Draco Dilaniatore",
+    "robotic-boltshooter": "Sparadardi Robotico",
+    "ruined-machine": "Macchinario in Rovina",
+    "savvas-icestorm": "Savvas Tempesta Glaciale",
     "savvas-lavaflow": "Savvas Lava Colante",
+    "seeker-of-the-abyss": "Cercatore dell'Abisso",
+    "shrike-fiend": "Immondo Stridente",
+    "snow-imp": "Imp delle Nevi",
+    "snowdancer": "Danzatore della Neve",
     "spitting-drake": "Draco Sputante",
+    "steel-automaton": "Automa d'Acciaio",
     "sun-demon": "Demone del Sole",
+    "the-collector": "Il Collezionista",
+    "the-relic": "La Reliquia",
+    "vermling-priest": "Vermling Sacerdote",
+    "vermling-scout": "Vermling Esploratore",
+    "vestige-of-the-imprisoned-god": "Vestigia del Dio Imprigionato",
     "wind-demon": "Demone del Vento"
   }
 }

@@ -1,50 +1,53 @@
 <span class="feedback-dialog scroll-container">
-    <a (click)="form = 'issue'" [ngClass]="{'active' : form == 'issue'}"><span
-            [ghs-label]="'tools.feedback.reportIssue'"></span></a>
+  <a (click)="form = 'issue'" [ngClass]="{'active' : form == 'issue'}"><span
+      [ghs-label]="'tools.feedback.reportIssue'"></span></a>
 
-    <div *ngIf="automaticText" class="hint">
-        <p [ghs-label]="'tools.feedback.reportIssue.errorHint'"></p>
-        <div class="settings">
-            <a (click)="ignoreError()"><span [ghs-label]="'tools.feedback.reportIssue.errorIgnore'"></span></a>
-            <div ghs-setting-menu="feedbackErrors"></div>
-        </div>
+  @if (automaticText) {
+  <div class="hint">
+    <p [ghs-label]="'tools.feedback.reportIssue.errorHint'"></p>
+    <div class="settings">
+      <a (click)="ignoreError()"><span [ghs-label]="'tools.feedback.reportIssue.errorIgnore'"></span></a>
+      <div ghs-setting-menu="feedbackErrors"></div>
     </div>
+  </div>
+  }
 
-    <div class="form issue-form" *ngIf="form == 'issue'">
-        <label><span [ghs-label]="'tools.feedback.reportIssue.type'"></span></label>
-        <select [(ngModel)]="issueType">
-            <option *ngFor="let type of issueTypes" [value]="type"><span
-                    [ghs-label]="'tools.feedback.reportIssue.type.' + type"></span>
-            </option>
-        </select>
-
-        <p class="hint" [ghs-label]="'tools.feedback.reportIssue.type.' + issueType + '.hint'"></p>
-        <p class="hint" [ghs-label]="'tools.feedback.reportIssue.specify'"></p>
-
-        <label [ghs-label]="'tools.feedback.reportIssue.text'"></label>
-        <textarea [(ngModel)]="issuerText"></textarea>
-        <p class="hint">Please write in English or German / Bitte in Englisch oder Deutsch verfassen!</p>
-
-        <label [ghs-label]="'tools.feedback.reportIssue.automaticText'"></label>
-        <textarea *ngIf="automaticText" [disabled]="true" [(ngModel)]="automaticText"></textarea>
-
-        <div class="buttons">
-            <a class="button" (click)="downloadDataDump()"><span
-                    [ghs-label]="'tools.feedback.reportIssue.download'"></span></a>
-
-            <a class="button" [ngClass]="{'disabled' : !issuerText && !automaticText}"
-                [href]="issueMail(issueType, issuerText)">
-                <span [ghs-label]="'tools.feedback.reportIssue.send'"></span>
-            </a>
-        </div>
-
-        <p class="warning" [ghs-label]="'tools.feedback.reportIssue.mail'"></p>
+  @if (form == 'issue') {
+  <div class="form issue-form">
+    <label><span [ghs-label]="'tools.feedback.reportIssue.type'"></span></label>
+    <select [(ngModel)]="issueType">
+      @for (type of issueTypes; track type) {
+      <option [value]="type"><span [ghs-label]="'tools.feedback.reportIssue.type.' + type"></span>
+      </option>
+      }
+    </select>
+    <p class="hint" [ghs-label]="'tools.feedback.reportIssue.type.' + issueType + '.hint'"></p>
+    <p class="hint" [ghs-label]="'tools.feedback.reportIssue.specify'"></p>
+    <label [ghs-label]="'tools.feedback.reportIssue.text'"></label>
+    <textarea [(ngModel)]="issuerText"></textarea>
+    <p class="hint">Please write in English or German / Bitte in Englisch oder Deutsch verfassen!</p>
+    <label [ghs-label]="'tools.feedback.reportIssue.automaticText'"></label>
+    @if (automaticText) {
+    <textarea [disabled]="true" [(ngModel)]="automaticText"></textarea>
+    }
+    <div class="buttons">
+      <a class="button" (click)="downloadDataDump()"><span
+          [ghs-label]="'tools.feedback.reportIssue.download'"></span></a>
+      <a class="button" [ngClass]="{'disabled' : !issuerText && !automaticText}"
+        [href]="issueMail(issueType, issuerText)">
+        <span [ghs-label]="'tools.feedback.reportIssue.send'"></span>
+      </a>
     </div>
+    <p class="warning" [ghs-label]="'tools.feedback.reportIssue.mail'"></p>
+  </div>
+  }
 
-    <!--
-    <a *ngIf="form == 'issue'" (click)="form = 'scenario'"><span [ghs-label]="'tools.feedback.submitScenario'"></span></a>
-    -->
+  <!--
+@if (form == 'issue') {
+  <a (click)="form = 'scenario'"><span [ghs-label]="'tools.feedback.submitScenario'"></span></a>
+}
+-->
 
-    <a href="https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose" target="_blank"><span
-            [ghs-label]="'tools.feedback.githubIssue'"></span></a>
+  <a href="https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose" target="_blank"><span
+      [ghs-label]="'tools.feedback.githubIssue'"></span></a>
 </span>

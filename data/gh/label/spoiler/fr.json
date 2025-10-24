@@ -183,6 +183,10 @@
       "": "Marteau de Guerre",
       "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.stun% à la totalité de l'action d'Attaque."
     },
+    "gh-100": {
+      "": "Robes d'Invocation",
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 2, ciblez un allié invoqué\"."
+    },
     "gh-101": {
       "": "Deuxième Peau",
       "1": "Retirez deux %game.attackmodifier.minus1% de votre paquet de Modificateur d'Attaque."
@@ -202,6 +206,10 @@
     "gh-11": {
       "": "Dague Empoisonnée",
       "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.poison% à une seule attaque."
+    },
+    "gh-112": {
+      "": "Ancienne Chignole",
+      "1": "Pendant votre attaque de mêlée, ajoutez +2 %game.action.attack% et %game.action.pierce% 2 à la totalité de l'action d'Attaque"
     },
     "gh-113": {
       "": "Hache Fléau des Crânes",
@@ -225,6 +233,11 @@
     "gh-13": {
       "": "Potion d'Endurance Mineure",
       "1": "Pendant votre tour, Récupérez %game.card.recover% une de vos cartes défaussées."
+    },
+    "gh-130": {
+      "": "Anneau Spiralé",
+      "1": "Pendant votre tour,",
+      "3": "pour effectuer une action de \"%game.action.heal% 25, Sur vous-même\""
     },
     "gh-14": {
       "": "Potion de Puissance Mineure",
@@ -335,6 +348,10 @@
       "": "Écu",
       "1": "Lorsque vous subissez des dégâts du fait d'une attaque, gagnez %game.action.shield% 1 pour cette attaque."
     },
+    "gh-80": {
+      "": "Lame Sismique",
+      "1": "Pendant votre attaque de mêlée, %game.element.consume.earth% pour ajouter +2 %game.action.attack% à une seule attaque."
+    },
     "gh-86": {
       "": "Baguette de Séisme",
       "1": "Pendant votre tour, créez l’élément Terre."
@@ -346,6 +363,10 @@
     "gh-9": {
       "": "Arc Perforant",
       "1": "Pendant votre attaque à distance, ignorez toutes les valeurs de Bouclier pour la totalité de l'action d'Attaque."
+    },
+    "gh-97": {
+      "": "Guêtres d’Endurance",
+      "1": "Si vous vous déplacez d'au moins 4 hexagones lors de votre tour, effectuez une action \"\"%game.action.heal% 1, Sur vous-même\"\"."
     },
     "gh-98": {
       "": "Bottes d'Écailles de Wyverne",

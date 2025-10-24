@@ -18,7 +18,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/gloomhavensecretariat",
             "index": "src/index.html",
@@ -26,6 +26,9 @@
             "polyfills": [
               "zone.js"
             ],
+            "customWebpackConfig": {
+              "path": "./webpack.config.js"
+            },
             "allowedCommonJsDependencies": [
               "autocompleter",
               "leaflet",
@@ -73,7 +76,11 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": true
+              },
               "outputHashing": "all",
               "sourceMap": {
                 "scripts": true,
@@ -82,13 +89,15 @@
               },
               "namedChunks": false,
               "extractLicenses": false,
-              "vendorChunk": false,
+              "vendorChunk": true,
+              "commonChunk": true,
               "buildOptimizer": true
             },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
+              "commonChunk": false,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
@@ -97,7 +106,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "gloomhavensecretariat:build:production"

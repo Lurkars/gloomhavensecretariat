@@ -4,6 +4,7 @@ export class BuildingModel {
     name: string;
     level: number;
     state: "normal" | "damaged" | "wrecked";
+    attacked: true | undefined;
 
     constructor(name: string = "", level: number = 1, state: "normal" | "damaged" | "wrecked" = "normal") {
         this.name = name;

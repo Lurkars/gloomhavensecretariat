@@ -56,12 +56,12 @@ export class ScenarioRequirementsDialogComponent {
 
     gameManager: GameManager = gameManager;
 
-    constructor(@Inject(DIALOG_DATA) public data: { scenarioData: ScenarioData, hideMenu: boolean }, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public data: { scenarioData: ScenarioData, linked: boolean, hideMenu: boolean }, private dialogRef: DialogRef) {
     }
 
     startScenario() {
         gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(this.data.scenarioData)));
-        gameManager.scenarioManager.setScenario(new Scenario(this.data.scenarioData));
+        gameManager.scenarioManager.setScenario(new Scenario(this.data.scenarioData), this.data.linked || false);
         gameManager.stateManager.after();
         ghsDialogClosingHelper(this.dialogRef, true);
     }

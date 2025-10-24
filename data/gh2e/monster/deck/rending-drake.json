@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Hasty Assault",
-      "cardId": 850,
+      "cardId": 720,
       "initiative": 12,
       "actions": [
         {
@@ -21,7 +21,7 @@
     },
     {
       "name": "Swift Claws",
-      "cardId": 851,
+      "cardId": 721,
       "initiative": 13,
       "shuffle": true,
       "actions": [
@@ -44,7 +44,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 852,
+      "cardId": 722,
       "initiative": 25,
       "actions": [
         {
@@ -61,7 +61,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 853,
+      "cardId": 723,
       "initiative": 39,
       "actions": [
         {
@@ -78,7 +78,7 @@
     },
     {
       "name": "Venom Glands",
-      "cardId": 854,
+      "cardId": 724,
       "initiative": 54,
       "actions": [
         {
@@ -112,7 +112,7 @@
     },
     {
       "name": "Dangerous Fury",
-      "cardId": 855,
+      "cardId": 725,
       "initiative": 59,
       "actions": [
         {
@@ -136,7 +136,7 @@
     },
     {
       "name": "Unending Frenzy",
-      "cardId": 856,
+      "cardId": 726,
       "initiative": 72,
       "shuffle": true,
       "actions": [
@@ -159,7 +159,7 @@
     },
     {
       "name": "Empowering Rest",
-      "cardId": 857,
+      "cardId": 727,
       "initiative": 6,
       "actions": [
         {

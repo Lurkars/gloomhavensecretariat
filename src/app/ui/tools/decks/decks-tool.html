@@ -4,9 +4,11 @@
     <label>
       <span [ghs-label]="'settings.edition'"></span>
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
-        <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+        @for (edition of gameManager.editions(true); track edition) {
+        <option [value]="edition">
           <span [ghs-label]="'data.edition.' + edition"></span>
         </option>
+        }
       </select>
     </label>
     <label>
@@ -18,23 +20,31 @@
         (change)="settingsManager.toggle('calculate');update();">
       <span [ghs-label]="'settings.calc'"></span>
     </label>
-    <label *ngIf="settingsManager.settings.calculate">
+    @if (settingsManager.settings.calculate) {
+    <label>
       <input type="checkbox" [checked]="settingsManager.settings.calculateStats"
         (change)="settingsManager.toggle('calculateStats');update();">
       <span [ghs-label]="'settings.calcStats'"></span>
     </label>
-    <label *ngIf="settingsManager.settings.calculate && !character">
+    }
+    @if (settingsManager.settings.calculate && !character) {
+    <label>
       <input type="checkbox" [(ngModel)]="entity" (change)="update();updateQueryParams();">
       <span [ghs-label]="'tools.decks.entity'"></span>
     </label>
-    <label *ngIf="settingsManager.settings.calculate && !character">
+    }
+    @if (settingsManager.settings.calculate && !character) {
+    <label>
       <input type="checkbox" [(ngModel)]="elite" (change)="update()">
       <span [ghs-label]="'tools.decks.elite'"></span>
     </label>
-    <label *ngIf="settingsManager.settings.calculate">
+    }
+    @if (settingsManager.settings.calculate) {
+    <label>
       <input type="number" min="0" max="7" [(ngModel)]="level" (change)="update()">
       <span [ghs-label]="'tools.decks.level'"></span>
     </label>
+    }
     <label>
       <input type="checkbox" [checked]="settingsManager.settings.fhStyle"
         (change)="settingsManager.toggle('fhStyle'); gameManager.uiChange.emit()">
@@ -43,27 +53,39 @@
   </div>
 
   <div class="decks">
-    <ng-container *ngIf="characters.length > 0">
-      <div class="deck" *ngFor="let character of characters; let i = index;">
-        <h2><span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span> <small
-            *ngIf="character.name != deck(character).name">
-            <span [ghs-label]="'data.deck.' + deck(character).name"></span>
-          </small></h2>
-        <ghs-ability class="bottom-actions" *ngFor="let ability of deck(character).abilities" [ability]="ability"
-          [abilities]="deck(character).abilities" [character]="characters[i]" [flipped]="true">
-        </ghs-ability>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="monsters.length > 0">
-      <div class="deck" *ngFor="let monster of monsters; let i = index;">
-        <h2><span [ghs-label]="'data.monster.' + monster.name"></span> <small
-            *ngIf="monster.name != deck(monster).name">
-            <span [ghs-label]="'data.deck.' + deck(monster).name"></span>
-          </small></h2>
-        <ghs-ability *ngFor="let ability of deck(monster).abilities" [ability]="ability"
-          [abilities]="deck(monster).abilities" [monster]="monsters[i]" [flipped]="true"
-          [ngClass]="{'bottom-actions' : ability.bottomActions && ability.bottomActions.length > 0}"></ghs-ability>
-      </div>
-    </ng-container>
+    @if (characters.length > 0) {
+    @for (character of characters; track character.edition + '-' + character.name; let i = $index) {
+    <div class="deck">
+      <h2><span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span> @if (character.name
+        != deck(character).name) {
+        <small>
+          <span [ghs-label]="'data.deck.' + deck(character).name"></span>
+        </small>
+        }
+      </h2>
+      @for (ability of deck(character).abilities; track ability.cardId) {
+      <ghs-ability class="bottom-actions" [ability]="ability" [abilities]="deck(character).abilities"
+        [character]="characters[i]" [flipped]="true">
+      </ghs-ability>
+      }
+    </div>
+    }
+    }
+    @if (monsters.length > 0) {
+    @for (monster of monsters; track monster.edition + '-' + monster.name; let i = $index) {
+    <div class="deck">
+      <h2><span [ghs-label]="'data.monster.' + monster.name"></span> @if (monster.name != deck(monster).name) {
+        <small>
+          <span [ghs-label]="'data.deck.' + deck(monster).name"></span>
+        </small>
+        }
+      </h2>
+      @for (ability of deck(monster).abilities; track ability.cardId) {
+      <ghs-ability [ability]="ability" [abilities]="deck(monster).abilities" [monster]="monsters[i]" [flipped]="true"
+        [ngClass]="{'bottom-actions' : ability.bottomActions && ability.bottomActions.length > 0}"></ghs-ability>
+      }
+    </div>
+    }
+    }
   </div>
 </div>

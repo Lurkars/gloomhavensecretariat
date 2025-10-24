@@ -9,7 +9,7 @@ import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
-import { ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
+import { ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
@@ -597,6 +597,22 @@ export class CharacterComponent implements OnInit, OnDestroy {
             }
           }
         })
+      }
+    }
+
+    if (this.character.name == 'astral') {
+      if (specialAction == 'veil-of-protection') {
+        this.character.health -= 3;
+        this.character.maxHealth -= 3;
+        
+        this.character.summons.forEach((summon) => {
+          summon.health -= 3;
+          summon.maxHealth -= 3;
+        })
+      }
+
+      if (specialAction == 'imbue-with-life') {
+        this.character.entityConditions = this.character.entityConditions.filter((entityCondition) => entityCondition.name != ConditionName.disarm || !entityCondition.permanent)
       }
     }
 

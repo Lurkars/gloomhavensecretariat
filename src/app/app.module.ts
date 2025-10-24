@@ -3,7 +3,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { InViewportModule } from 'ng-in-viewport';
 
@@ -56,6 +55,7 @@ import { EntityMenuDialogComponent } from './ui/figures/entity-menu/entity-menu-
 import { FigureErrorsComponent, FigureErrorsDialogComponent } from './ui/figures/errors/errors';
 import { EventEffectsDialog } from './ui/figures/event-effects/event-effects';
 import { FavorsComponent } from './ui/figures/event-effects/favors/favors';
+import { OutpostAttackComponent } from './ui/figures/event-effects/outpost-attack/outpost-attack';
 import { EventRandomItemDialogComponent } from './ui/figures/event-effects/random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './ui/figures/event-effects/random-scenario/random-scenario-dialog';
 import { EventCardAttackComponent } from './ui/figures/event/attack/event-card-attack';
@@ -92,6 +92,7 @@ import { MonsterStatsDialogComponent } from './ui/figures/monster/stats/stats-di
 import { ObjectiveContainerComponent } from './ui/figures/objective-container/objective-container';
 import { PartyBuildingsComponent } from './ui/figures/party/buildings/buildings';
 import { GardenComponent } from './ui/figures/party/buildings/garden/garden';
+import { BuildingsListComponent } from './ui/figures/party/buildings/list/buildings-list';
 import { PetCardComponent } from './ui/figures/party/buildings/stables/pet-card/pet-card';
 import { StablesComponent } from './ui/figures/party/buildings/stables/stables';
 import { BuildingUpgradeDialog } from './ui/figures/party/buildings/upgrade-dialog/upgrade-dialog';
@@ -160,6 +161,7 @@ import { PointerInputDirective } from './ui/helper/pointer-input';
 import { TabClickDirective } from './ui/helper/tabclick';
 import { TextShrinkDirective } from './ui/helper/textshrink';
 import { GhsTooltipComponent, GhsTooltipDirective } from './ui/helper/tooltip/tooltip';
+import { TrackUUIDPipe } from './ui/helper/trackUUID';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { MainComponent } from './ui/main';
 import { AttackModifierToolComponent } from './ui/tools/attackmodifier/attackmodifier-tool';
@@ -207,6 +209,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     AutoscrollDirective,
     BattleGoalComponent,
     BattleGoalSetupDialog,
+    BuildingsListComponent,
     BuildingUpgradeDialog,
     CampaignMenuComponent,
     CardRevealDirective,
@@ -319,6 +322,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     MonsterStatsComponent,
     MonsterStatsDialogComponent,
     ObjectiveContainerComponent,
+    OutpostAttackComponent,
     PartyBuildingsComponent,
     PartyResourcesDialogComponent,
     PartySheetComponent,
@@ -358,6 +362,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     SummonSheetComponent,
     TabClickDirective,
     TextShrinkDirective,
+    TrackUUIDPipe,
     TreasureLabelComponent,
     TreasuresDialogComponent,
     TreasuresToolComponent,
@@ -370,7 +375,6 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     DragDropModule,

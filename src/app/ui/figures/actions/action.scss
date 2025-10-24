@@ -179,10 +179,6 @@
         justify-content: center;
         align-items: center;
       }
-
-      .value {
-        white-space: nowrap;
-      }
     }
   }
 
@@ -346,23 +342,45 @@
 
       &.slot,
       &.slotStart,
+      &.slotStartXp,
       &.slotEnd,
-      &.slotXp {
+      &.slotXp,
+      &.slotXpFh {
         height: 2em;
+        margin: 0.2em 0.05em;
 
-        .overlay {
-          background-color: var(--ghs-ability-color);
-          mask-position: top left;
-          mask-size: 100% 100%;
-          mask-repeat: no-repeat;
+        &.slot,
+        &.slotStart,
+        &.slotStartXp,
+        &.slotXp,
+        &.slotXpFh {
+          .overlay {
+            background-color: var(--ghs-ability-color);
+            mask-position: top left;
+            mask-size: 100% 100%;
+            mask-repeat: no-repeat;
+          }
         }
 
         .value {
+          font-family: var(--ghs-font-gh-title);
           left: 42%;
         }
 
-        &+.slot,
-        &+.slotXp {
+        &.slotXpFh,
+        &.slotStartXp {
+          height: 2.2em;
+          margin-top: 0em;
+
+          .value {
+            top: 17%;
+            font-size: 0.6em;
+            left: 84%;
+          }
+        }
+
+        &+.slotXpFh,
+        &+.slotStartXp {
           margin-left: -0.1em;
         }
       }
@@ -1253,10 +1271,12 @@
       }
     }
 
-    .element-actions {
+    .element-actions,
+    .fh-extra-subactions {
       flex-basis: 100%;
 
-      >.subaction-element>.action>.action-element {
+      >.subaction-element>.action>.action-element,
+      >.subaction-boxFhSubActions>.action>.action-box-fh-subactions-container {
 
         margin-top: 0.5em;
 
@@ -1273,6 +1293,18 @@
           background-clip: padding-box;
           clip-path: polygon(48% 100%, 52% 100%, 52% 15%, 100% 15%, 100% 0%, 0% 0%, 0% 15%, 48.5% 15%);
           z-index: -1;
+        }
+      }
+
+      .action-box-fh-subactions-container {
+        flex-basis: 80%;
+
+        .action-box,
+        .action-box::after {
+          border-top-left-radius: 1em;
+          border-top-right-radius: 1em;
+          border-bottom-left-radius: 1em;
+          border-bottom-right-radius: 1em;
         }
       }
     }

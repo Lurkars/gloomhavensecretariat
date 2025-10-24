@@ -1,71 +1,94 @@
-<div class="summon-container" *ngIf="hasSummon"
-    [ngClass]="{'action' : summon.action,  'additional' : summon.additionalAction || additional, 'item': item, 'fh' : fhStyle}">
-    <span *ngIf="!!summonData && summonData.thumbnail" class="thumbnail">
-        <img *ngIf="!fhStyle"
-            [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'">
-        <span *ngIf="fhStyle" class="thumbnail-border">
-            <img
-                [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'">
-        </span>
+@if (hasSummon) {
+<div class="summon-container"
+  [ngClass]="{'action' : summon.action,  'additional' : summon.additionalAction || additional, 'item': item, 'fh' : fhStyle}">
+  @if (!!summonData && summonData.thumbnail) {
+  <span class="thumbnail">
+    @if (!fhStyle) {
+    <img
+      [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'">
+    }
+    @if (fhStyle) {
+    <span class="thumbnail-border">
+      <img
+        [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'">
     </span>
-    <span class="name">
-        <ng-container *ngIf="!summonData">
-            <span class="summon-label" *ngIf="!!action"><span [ghs-label]="'game.action.summon'"
-                    [style]="style"></span>&nbsp;</span>
-            <span *ngIf="summon.title" [ngClass]="{'text-white' : !right}">{{summon.title}}</span>
-            <span *ngIf="!summon.title" [ghs-label]="'data.summon.' + summon.name" [style]="style"
-                [ngClass]="{'text-white' : !right}"></span>
-            <span *ngIf="summon.flying" class="flying"><img
-                    [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
-        </ng-container>
-        <span class="summon-label text-white" *ngIf="!!summonData"
-            [ghs-label]="'character.summon.action' + (summonData.count && summonData.count > 1 ? '.count': '') + (summonData.flying ? '.fly' : '')"
-            [ghs-label-args]="[summonData.name,summonData.count,summonData.flying]"></span>
+    }
+  </span>
+  }
+  <span class="name">
+    @if (!summonData) {
+    @if (!!action) {
+    <span class="summon-label"><span [ghs-label]="'game.action.summon'" [style]="style"></span>&nbsp;</span>
+    }
+    @if (summon.title) {
+    <span [ngClass]="{'text-white' : !right}">{{summon.title}}</span>
+    }
+    @if (!summon.title) {
+    <span [ghs-label]="'data.summon.' + summon.name" [style]="style" [ngClass]="{'text-white' : !right}"></span>
+    }
+    @if (summon.flying) {
+    <span class="flying"><img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
+    }
+    }
+    @if (!!summonData) {
+    <span class="summon-label text-white"
+      [ghs-label]="'character.summon.action' + (summonData.count && summonData.count > 1 ? '.count': '') + (summonData.flying ? '.fly' : '')"
+      [ghs-label-args]="[summonData.name,summonData.count,summonData.flying]"></span>
+    }
+  </span>
+  <div class="grid">
+    <span class="item health">
+      <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/heal.svg'" />
+      <span>:</span>
+      <span [value-calc]="summon.maxHealth" [empty]="true"></span>
+      @if (!!summonData && summonData.enhancements && summonData.enhancements.indexOf('heal') != -1) {
+      <ghs-action-enhancements class="enhance" [action]="enhancementActions[0]" [index]="actionIndex"
+        [character]="character" [cardId]="cardId" [slot]="0" [summon]="summonData"></ghs-action-enhancements>
+      }
     </span>
-    <div class="grid">
-        <span class="item health">
-            <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/heal.svg'" />
-            <span>:</span>
-            <span [value-calc]="summon.maxHealth" [empty]="true"></span>
-            <ghs-action-enhancements
-                *ngIf="!!summonData && summonData.enhancements && summonData.enhancements.indexOf('heal') != -1"
-                class="enhance" [action]="enhancementActions[0]" [index]="actionIndex" [character]="character"
-                [cardId]="cardId" [slot]="0" [summon]="summonData"></ghs-action-enhancements>
-        </span>
-        <span class="item move">
-            <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/move.svg'" />
-            <span>:</span>
-            <span [value-calc]="summon.movement" [empty]="true"></span>
-            <ghs-action-enhancements
-                *ngIf="!!summonData && summonData.enhancements && summonData.enhancements.indexOf('move') != -1"
-                class="enhance" [action]="enhancementActions[2]" [index]="actionIndex" [character]="character"
-                [cardId]="cardId" [slot]="2" [summon]="summonData"></ghs-action-enhancements>
-        </span>
-        <span class="action" [ngClass]="{'xs': summon.action && summon.action.type == 'custom'}">
-            <ghs-action *ngIf="summon.action" [action]="summon.action"></ghs-action>
-        </span>
-        <span class="item attack">
-            <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/attack.svg'" />
-            <span>:</span>
-            <span *ngIf="summon.attack != 0" [ghs-label]="'' + summon.attack" [style]="style"></span>
-            <span *ngIf="summon.attack == 0">-</span>
-            <ghs-action-enhancements
-                *ngIf="!!summonData && summonData.enhancements && summonData.enhancements.indexOf('attack') != -1"
-                class="enhance" [action]="enhancementActions[1]" [index]="actionIndex" [character]="character"
-                [cardId]="cardId" [slot]="1" [summon]="summonData"></ghs-action-enhancements>
-        </span>
-        <span class="item range">
-            <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/range.svg'" />
-            <span>:</span>
-            <span [value-calc]="summon.range" [empty]="true"></span>
-            <ghs-action-enhancements
-                *ngIf="!!summonData && summonData.enhancements && summonData.enhancements.indexOf('range') != -1"
-                class="enhance" [action]="enhancementActions[3]" [index]="actionIndex" [character]="character"
-                [cardId]="cardId" [slot]="3" [summon]="summonData"></ghs-action-enhancements>
-        </span>
-        <span class="additionalAction" *ngIf="summon.additionalAction"
-            [ngClass]="{'xs': summon.additionalAction && summon.additionalAction.type == 'custom'}">
-            <ghs-action [action]="summon.additionalAction"></ghs-action>
-        </span>
-    </div>
+    <span class="item move">
+      <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/move.svg'" />
+      <span>:</span>
+      <span [value-calc]="summon.movement" [empty]="true"></span>
+      @if (!!summonData && summonData.enhancements && summonData.enhancements.indexOf('move') != -1) {
+      <ghs-action-enhancements class="enhance" [action]="enhancementActions[2]" [index]="actionIndex"
+        [character]="character" [cardId]="cardId" [slot]="2" [summon]="summonData"></ghs-action-enhancements>
+      }
+    </span>
+    <span class="action" [ngClass]="{'xs': summon.action && summon.action.type == 'custom'}">
+      @if (summon.action) {
+      <ghs-action [action]="summon.action"></ghs-action>
+      }
+    </span>
+    <span class="item attack">
+      <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/attack.svg'" />
+      <span>:</span>
+      @if (summon.attack != 0) {
+      <span [ghs-label]="'' + summon.attack" [style]="style"></span>
+      }
+      @if (summon.attack == 0) {
+      <span>-</span>
+      }
+      @if (!!summonData && summonData.enhancements && summonData.enhancements.indexOf('attack') != -1) {
+      <ghs-action-enhancements class="enhance" [action]="enhancementActions[1]" [index]="actionIndex"
+        [character]="character" [cardId]="cardId" [slot]="1" [summon]="summonData"></ghs-action-enhancements>
+      }
+    </span>
+    <span class="item range">
+      <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/range.svg'" />
+      <span>:</span>
+      <span [value-calc]="summon.range" [empty]="true"></span>
+      @if (!!summonData && summonData.enhancements && summonData.enhancements.indexOf('range') != -1) {
+      <ghs-action-enhancements class="enhance" [action]="enhancementActions[3]" [index]="actionIndex"
+        [character]="character" [cardId]="cardId" [slot]="3" [summon]="summonData"></ghs-action-enhancements>
+      }
+    </span>
+    @if (summon.additionalAction) {
+    <span class="additionalAction"
+      [ngClass]="{'xs': summon.additionalAction && summon.additionalAction.type == 'custom'}">
+      <ghs-action [action]="summon.additionalAction"></ghs-action>
+    </span>
+    }
+  </div>
 </div>
+}

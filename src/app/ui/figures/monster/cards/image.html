@@ -2,14 +2,17 @@
   [ngClass]="{'disabled' : gameManager.game.state == GameState.draw || monster.entities.length == 0, 'full-ability': settingsManager.settings.showFullAbilityCard, 'modern': settingsManager.settings.theme == 'modern'}"
   [ghs-label]="gameManager.game.state == GameState.next ? (monster.active ? 'game.figure.endTurn' : 'game.figure.startTurn') : ''"
   [ghs-label-attribute]="'title'">
-  <img *ngIf="!monster.noThumbnail && settingsManager.settings.artwork"
-    [ngClass]="{'active-border' : monster.active}" [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
-  <span *ngIf="monster.noThumbnail || !settingsManager.settings.artwork" class="no-artwork"
-    [ngClass]="{'active-border' : monster.active, 'off' : monster.off}">
+  @if (!monster.noThumbnail && settingsManager.settings.artwork) {
+  <img [ngClass]="{'active-border' : monster.active}" [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
+  }
+  @if (monster.noThumbnail || !settingsManager.settings.artwork) {
+  <span class="no-artwork" [ngClass]="{'active-border' : monster.active, 'off' : monster.off}">
     <span class="letter">
-      <span
-        *ngFor="let namePart of (settingsManager.getLabel('data.monster.' + monster.name).split(' '))">{{namePart[0]}}</span>
+      @for (namePart of (settingsManager.getLabel('data.monster.' + monster.name).split(' ')); track namePart) {
+      <span>{{namePart[0]}}</span>
+      }
     </span>
     <span class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></span>
   </span>
+  }
 </div>

@@ -133,7 +133,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
     return this.interactiveAbilities && this.monster && this.monster.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || this.objective && this.objective.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || false;
   }
 
-  toggleHighlight(event: MouseEvent | TouchEvent) {
+  toggleHighlight(event: PointerEvent) {
     if (this.isInteractiveApplicableAction()) {
       if (this.highlightAction()) {
         this.interactiveActions = this.interactiveActions.filter((interactiveAction) => interactiveAction.index != this.actionIndex);

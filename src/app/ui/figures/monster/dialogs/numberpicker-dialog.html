@@ -1,42 +1,54 @@
 <div class="title">
   <span class="monster">
-    <div class="standee" *ngIf="automatic">
+    @if (automatic) {
+    <div class="standee">
       <div class="background-image-container">
         <div class="background-image"
           [style.background-image]="monster.noThumbnail  || !settingsManager.settings.artwork ? '' : 'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'">
         </div>
       </div>
     </div>
+    }
     <span [ghs-label]="'data.monster.' + monster.name"></span>
   </span>
   <span [ngClass]="{'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }">
-    <span *ngIf="(!change || !entity) && (!entities || entities.length == 0)"
-      [ghs-label]="(monster.isAlly ? 'game.ally.addEntity.': 'monster.addEntity.') + type"></span>
-    <span *ngIf="change && !!entity" [ghs-label]="'monster.changeStandee'"
-      [ghs-label-args]="[entity.type, entity.number]"></span>
-    <span *ngIf="!!entities && entities.length > 0" [ghs-label]="'monster.setStandees'"
-      [ghs-label-args]="[type, entitiesLeft()]"></span>
+    @if ((!change || !entity) && (!entities || entities.length == 0)) {
+    <span [ghs-label]="(monster.isAlly ? 'game.ally.addEntity.': 'monster.addEntity.') + type"></span>
+    }
+    @if (change && !!entity) {
+    <span [ghs-label]="'monster.changeStandee'" [ghs-label-args]="[entity.type, entity.number]"></span>
+    }
+    @if (!!entities && entities.length > 0) {
+    <span [ghs-label]="'monster.setStandees'" [ghs-label-args]="[type, entitiesLeft()]"></span>
+    }
   </span>
 </div>
 
 <div class="number-container"
   [ngClass]="{'extended' : max == 4, 'small' : (automatic || change || entities && entities.length > 0) && max > 4 && max < 10}">
-  <div *ngFor="let number of range" class="number-button"
+  @for (number of range; track number) {
+  <div class="number-button"
     [ngClass]="{'disabled' : hasNumber(number) && (!change || !entity), 'existing' : hasNumber(number) , 'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }"
     tabclick (click)="pickNumber(number)">
     <span class="number" [ngClass]="monster.bb ? 'bb-' + number : ''">{{number}}</span>
   </div>
-  <div *ngIf="!change && !automatic && (!entities || entities.length == 0) && !monster.bb" class="summon-button"
-    tabclick (click)="summon = !summon" [ngClass]="{'active' : summon }">
+  }
+  @if (!change && !automatic && (!entities || entities.length == 0) && !monster.bb) {
+  <div class="summon-button" tabclick (click)="summon = !summon" [ngClass]="{'active' : summon }">
     <img class="summon" src="./assets/images/summons/{{monster.summonColor}}.png">
   </div>
+  }
 </div>
 
-<div class="change-type" *ngIf="change && !!entity && entity.type != MonsterType.boss">
+@if (change && !!entity && entity.type != MonsterType.boss) {
+<div class="change-type">
   <a tabclick (click)="toggleMonsterType()"><span [ghs-label]="'monster.changeType'"
       [ghs-label-args]="[(entity.type == MonsterType.normal ? entity.type  :  MonsterType.elite),(entity.type == MonsterType.normal ?  MonsterType.elite: MonsterType.normal)]"></span></a>
 </div>
+}
 
-<div class="cancel" *ngIf="automatic">
+@if (automatic) {
+<div class="cancel">
   <a tabclick (click)="close()"><span [ghs-label]="'monster.cancelNumberpicker'"></span></a>
 </div>
+}

@@ -253,6 +253,13 @@
   },
   "custom": {
     "gh2e": {
+      "ancient-artillery": {
+        "1": "Focus on the enemy<br>farthest away within %game.action.range:7%",
+        "2": "All enemies adjacent to<br>the target suffer %game.damage:2%."
+      },
+      "archer": {
+        "1": "Create one %game.damage:3% trap in an adjacent<br>empty hex closest to an enemy."
+      },
       "bruiser": {
         "1": "Add this card to your active area. On the next attack targeting you performed by an adjacent enemy, discard this card to gain %game.action.retaliate% 2 for the attack",
         "2": "Once each scenario, during your turn, you may perform: %game.action.loot%1, if this ability loots at least one money token, you may %game.card.recover% one %game.itemSlot:body% item",
@@ -261,6 +268,9 @@
         "5": "In 3 different scenarios, kill an enemy that you Pushed or Pulled that round",
         "6": "In a single scenario, across 3 consecutive rounds, play 6 different ability cards and cause enemies to suffer 7 or more damage during each of those rounds"
       },
+      "chaos-demon": {
+        "1": "%game.custom.advantage%"
+      },
       "cragheart": {
         "1": "Create one 1-hex obstacle tile in an empty hex adjacent to the target",
         "2": "Once each scenario, during your turn, you may destroy one 1-hex obstacle withing %game.action.range:5% to %game.action.teleport% to the hex it occupied",
@@ -268,6 +278,22 @@
         "4": "Whenever a new room is revealed, control all enemies in the newly revealed room: %game.action.move% 1, this movement must end in an empty hex",
         "5": "For an entire scenario, create, destroy, or move at least one obstacle tile each round",
         "6": "In a single scenario, heal 8 or more hit points during a single round, deal 8 or more damage with a ranged attack ability, and deal 8 or more damage with a melee attack ability"
+      },
+      "crystal-rot": {
+        "1": "Add %game.condition.disarm% if there are no Living Bones, Living Corpses or Living Spirits within %game.action.range% 3."
+      },
+      "cultist": {
+        "1": "If Cultist dies this round, first remove all negative conditions and perform:",
+        "2": "where X is the amount of damage suffered by the target of the attack ability."
+      },
+      "deep-terror": {
+        "1": "If the attack ability was performed",
+        "2": "in an empty hex adjacent to the target<br>of the attack ability"
+      },
+      "flame-demon": {
+        "1": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
+        "2": "%game.damage:1%",
+        "3": "All adjacent<br>enemies suffer %game.damage:2%"
       },
       "flowChartGroup": {
         "city-guards": "City Guard/The Shields",
@@ -283,6 +309,24 @@
         "the-sewers": "The Sewers",
         "the-voice": "The Voice and the Drake"
       },
+      "frost-demon": {
+        "1": "%game.damage:1%"
+      },
+      "giant-viper": {
+        "1": "All attacks targeting Giant Viper this round gain disadvantage.",
+        "2": "Add +2 %game.action.attack% if the target is adjacent to any of the Giant Viper's allies"
+      },
+      "hound": {
+        "1": "Add +2 %game.action.attack% if the target is adjacent<br>to any of the Hound's allies."
+      },
+      "living-corpse": {
+        "1": "If the move ability was performed, Living Corpse suffers %game.damage:1%.",
+        "2": "If the attack ability was performed, Living Corpse suffers %game.damage:1%.",
+        "3": "If Living Corpse dies this round, all figures adjacent to the hex it occupied suffer %game.damage:1% and gain %game.condition.poison%."
+      },
+      "lurker": {
+        "1": "2 enemies within 2 hexes"
+      },
       "mindthief": {
         "1": "Add +1 %game.action.attack% if the target has a negative condition",
         "2": "Where X is half the Rat King's current hit point value (rounded up).",
@@ -293,6 +337,20 @@
         "7": "At the end of each of your rests, you may %game.elementHalf.consume:ice|dark% to control one enemy withing %game.action.range:5%: %game.action.attack% 1",
         "8": "In a single scenario, kill 5 or more enemies with control abilities",
         "9": "In a single scenario, trigger the on-attack effect from four different Augments at least 3 times each"
+      },
+      "night-demon": {
+        "1": "All adjacent allies and<br>enemies suffer %game.damage:1%.",
+        "2": "%game.custom.disadvantage%"
+      },
+      "ooze": {
+        "1": "with H equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values)."
+      },
+      "savvas-icestorm": {
+        "1": "Grant all allies within %game.action.range:2% and self:"
+      },
+      "savvas-lavaflow": {
+        "1": "All allies and enemies adjacent<br>to the target suffer %game.damage:2%",
+        "2": "All enemies within %game.action.range:4% suffer %game.damage:2%."
       },
       "silent-knife": {
         "1": "Gain one money token if this attack targeted an adjacent enemy",
@@ -309,6 +367,10 @@
         "4": "At the end of each of your turns during which you performed an action with %game.card.lost%, gain %game.condition.bless%",
         "5": "In a single scenario, consume both %game.element.fire% and %game.element.ice% during the same turn 6 times",
         "6": "In a single scenario, perform 4 different %game.card.lost% actions twice each"
+      },
+      "stone-construct": {
+        "1": "If the move ability was performed, Stone Construct suffers %game.damage:1%.",
+        "2": "If the attack ability was performed, Stone Construct suffers %game.damage:1%."
       },
       "tinkerer": {
         "1": "Once each scenario, one adjacent ally may use one of your <i>potion</i> %game.itemSlot:small% items during their turn without it becoming %game.card.lost%",
@@ -330,7 +392,7 @@
   "edition": {
     "gh2e": {
       "": "Gloomhaven 2nd Edition",
-      "hint": "Gloomhaven 2nd Edition is currently <i>%wip%</i>. The scenario data may contain errors and be missing some special rules. All non-scenario sections are currently missing, as is some data, such as events."
+      "hint": "Gloomhaven 2nd Edition is currently <i>%wip%</i>. The scenario data may contain errors and be missing some special rules. Most non-scenario sections are currently missing, as is some data, such as items and events."
     }
   },
   "factions": {
@@ -504,6 +566,9 @@
   "scenario": {
     "rules": {
       "gh2e": {
+        "10": {
+          "1": "Each Character occupying tile 01-D, 02-H, or any corridor tiles connecting those two tiles suffers hazardous terrain damage."
+        },
         "8": {
           "1": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.2% opening it.",
           "2": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.3% opening it.",
@@ -629,6 +694,7 @@
         "101-2": "Slave Pens",
         "101-3": "Chronal Anchor",
         "102-1": "Crypt Basement",
+        "102-2": "Imbuement 30",
         "102-5": "Well of the Unfortunate",
         "102-6": "Slave Pens",
         "103-1": "Chronal Anchor",
@@ -661,6 +727,7 @@
         "117-1": "Burning Mountain",
         "117-5": "Clockwork Factory",
         "118-2": "Crossroads Station",
+        "119-3": "Imbuement 60",
         "119-7": "Vault of Secrets",
         "12-2": "Gloomhaven Warehouse",
         "120-5": "Magma Pit",
@@ -675,13 +742,16 @@
         "126-3": "Magma Pit",
         "127-1": "Sulfur Mine",
         "128-3": "Chained Isle",
+        "128-5": "Imbuement 80",
         "129-3": "Vermling Camp",
         "13-3": "Tribal Assault",
         "131-3": "Sulfur Mine",
         "132-4": "Chasing Secrets",
+        "133-2": "Imbuement 10",
         "133-3": "Sulfur Mine",
         "133-5": "Demon Reputation 12",
         "134-3": "Chronal Anchor",
+        "135-6": "Imbuement 70",
         "136-2": "Rockslide Ridge",
         "136-4": "Sulfur Mine",
         "136-5": "Alchemy Lab",
@@ -700,6 +770,7 @@
         "19-1": "Gloomhaven Square B",
         "2-3": "The Last Stand",
         "2-4": "Windswept Highlands",
+        "2-5": "Imbuement 50",
         "20-1": "Merchant Reputation 20",
         "20-2": "- Infernal Throne",
         "20-3": "The Ghost Fortress",
@@ -730,6 +801,7 @@
         "32-4": "- Gloomhaven Battlements B",
         "33-1": "Ancient Defense Network",
         "34-1": "Echo Chamber",
+        "34-3": "Imbuement 20",
         "34-5": "Decaying Crypt",
         "35-3": "Icecrag Ascent",
         "35-4": "Timeworn Tomb",
@@ -766,6 +838,7 @@
         "49-3": "Barrow Lair",
         "5-2": "Training Course",
         "50-3": "The Ghost Fortress",
+        "50-4": "Imbuement 40",
         "50-5": "Drake Nest",
         "51-3": "Inox Encampment",
         "51-4": "Ritual Chamber",

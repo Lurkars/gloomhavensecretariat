@@ -9,7 +9,7 @@ import { Summon, SummonColor, SummonState } from "../model/Summon";
 import { Action, ActionType } from "../model/data/Action";
 import { CharacterData } from "../model/data/CharacterData";
 import { CharacterStat } from "../model/data/CharacterStat";
-import { Condition, ConditionName } from "../model/data/Condition";
+import { Condition, ConditionName, EntityConditionState } from "../model/data/Condition";
 import { Enhancement } from "../model/data/Enhancement";
 import { ItemData } from "../model/data/ItemData";
 import { PersonalQuest } from "../model/data/PersonalQuest";
@@ -168,7 +168,7 @@ export class CharacterManager {
     this.game.figures.splice(index, 1);
 
     if (retirement && settingsManager.settings.applyRetirement) {
-      gameManager.game.party.prosperity += gameManager.fhRules() ? 2 : 1;
+      gameManager.game.party.prosperity += gameManager.fhRules(true) ? 2 : 1;
 
       if (settingsManager.settings.events) {
         if (character.retireEvent) {
@@ -231,10 +231,24 @@ export class CharacterManager {
         }
       }
     }
+
+    if (character.name == 'astral' && character.tags.indexOf('veil-of-protection') != -1) {
+      summon.health += 3;
+      summon.maxHealth += 3;
+    }
   }
 
   removeSummon(character: Character, summon: Summon) {
     character.summons.splice(character.summons.indexOf(summon), 1);
+
+    if (character.name == 'astral' && character.tags.indexOf('imbue-with-life') != -1 && summon.name == 'animated-claymore') {
+      let disarm = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
+      character.tags = character.tags.filter((tag) => tag != 'imbue-with-life');
+      if (disarm) {
+        disarm.permanent = false;
+        disarm.state = EntityConditionState.expire;
+      }
+    }
   }
 
   addXP(character: Character, value: number, levelUp: boolean = true) {
@@ -275,6 +289,10 @@ export class CharacterManager {
 
     if (character.name == 'shackles' && character.edition == 'fh' && character.progress.perks[11] == 2) {
       character.maxHealth += 5;
+    }
+
+    if (character.name == 'astral' && character.tags.indexOf('veil-of-protection') != -1) {
+      character.maxHealth += 3;
     }
 
     if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '3')) {

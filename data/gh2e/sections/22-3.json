@@ -8,7 +8,7 @@
   "monsters": [
     "bandit-archer",
     "bandit-commander",
-    "living-corpse"
+    "living-bones"
   ],
   "rules": [
     {
@@ -91,16 +91,16 @@
           "type": "boss"
         },
         {
-          "name": "living-corpse",
+          "name": "living-bones",
           "type": "elite"
         },
         {
-          "name": "living-corpse",
+          "name": "living-bones",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "living-corpse",
+          "name": "living-bones",
           "player4": "normal"
         }
       ]

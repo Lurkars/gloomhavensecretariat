@@ -12,6 +12,7 @@
   },
   "edition": "fh",
   "complexity": 1,
+  "eventType": "road",
   "rewards": {
     "morale": 1,
     "randomItemBlueprint": 1,

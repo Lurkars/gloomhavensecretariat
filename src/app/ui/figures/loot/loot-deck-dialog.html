@@ -1,113 +1,138 @@
 <div class="loot-deck-dialog">
   <div class="scroll-container">
     <div class="menu" #menu>
-      <ng-container *ngIf="deck.cards.length > 0">
-        <a (click)="reveal = (reveal + 1) % 3"><span [ghs-label]="reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
+      @if (deck.cards.length > 0) {
+      <a (click)="reveal = (reveal + 1) % 3"><span [ghs-label]="reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
           'game.cards.revealAll' : 'game.cards.revealAllConfirm')"></span></a>
-        <a ghs-pointer-input (singleClick)="shuffle()" (doubleClick)="shuffle(true)"
-          [ghs-tooltip]="'game.cards.shuffle.upcomingHint'" [overlayX]="'center'"><span
-            [ghs-label]="'game.cards.shuffle'"></span></a>
-        <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit"><span
-            [ghs-label]="'game.cards.edit'"></span></label>
-        <a class="toggle-config" *ngIf="edit" (click)="configuration = !configuration; enhancements = false"><img
-            class="ghs-svg" src="./assets/images/settings.svg">
-          <span [ghs-label]="'game.loot.config.' + (configuration ? 'hide' :
+      <a ghs-pointer-input (singleClick)="shuffle()" (doubleClick)="shuffle(true)"
+        [ghs-tooltip]="'game.cards.shuffle.upcomingHint'" [overlayX]="'center'"><span
+          [ghs-label]="'game.cards.shuffle'"></span></a>
+      <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit"><span
+          [ghs-label]="'game.cards.edit'"></span></label>
+      @if (edit) {
+      <a class="toggle-config" (click)="configuration = !configuration; enhancements = false"><img class="ghs-svg"
+          src="./assets/images/settings.svg">
+        <span [ghs-label]="'game.loot.config.' + (configuration ? 'hide' :
           'show')"></span></a>
-      </ng-container>
-      <a class="toggle-enhancements" (click)="toggleEnhancements()"
-        [ngClass]="{'disabled': !gameManager.game.scenario}"><img class="ghs-svg"
+      }
+      }
+      <a class="toggle-enhancements" (click)="toggleEnhancements()"><img class="ghs-svg"
           [src]="'./assets/images/fh/loot/' + (enhancements ?  'money' : 'plus1') + '.svg'">
         <span
           [ghs-label]="('game.loot.' + (enhancements && gameManager.game.scenario ? 'deck' : 'enhancements'))"></span></a>
 
-      <ng-container *ngIf="enhancements">
-        <label>
-          <input type="checkbox" (click)="toggleSpecial(LootType.special1)"
-            [checked]="gameManager.game.lootDeckFixed.indexOf(LootType.special1) != -1">
-          <span [ghs-label]="'game.loot.toggleSpecial'" [ghs-label-args]="[LootType.special1]"></span>
-        </label>
-        <label>
-          <input type="checkbox" (click)="toggleSpecial(LootType.special2)"
-            [checked]="gameManager.game.lootDeckFixed.indexOf(LootType.special2) != -1">
-          <span [ghs-label]="'game.loot.toggleSpecial'" [ghs-label-args]="[LootType.special2]"></span>
-        </label>
-      </ng-container>
+      @if (enhancements) {
+      <label>
+        <input type="checkbox" (click)="toggleSpecial(LootType.special1)"
+          [checked]="gameManager.game.lootDeckFixed.indexOf(LootType.special1) != -1">
+        <span [ghs-label]="'game.loot.toggleSpecial'" [ghs-label-args]="[LootType.special1]"></span>
+      </label>
+      <label>
+        <input type="checkbox" (click)="toggleSpecial(LootType.special2)"
+          [checked]="gameManager.game.lootDeckFixed.indexOf(LootType.special2) != -1">
+        <span [ghs-label]="'game.loot.toggleSpecial'" [ghs-label-args]="[LootType.special2]"></span>
+      </label>
+      }
     </div>
-    <div class="config" *ngIf="configuration">
+    @if (configuration) {
+    <div class="config">
       <label class="title"><span [ghs-label]="'game.loot.config'"></span></label>
       <div class="values">
-        <ng-container *ngFor="let type of types">
-          <label><img class="ghs-svg"
-              [src]="'./assets/images/fh/loot/' + (type == LootType.special1 || type == LootType.special2 ? LootType.money : type) + '.svg'">
-            <span [ghs-label]="'game.loot.' + type"></span></label>
-          <a class="button"
-            [ngClass]="{'disabled' : !lootDeckConfig[type] || type == LootType.random_item && gameManager.lootManager.randomItemLooted()}"
-            (click)="changeType(type, -1)">
-            <img class="ghs-svg" src="./assets/images/minus.svg">
-          </a>
-          <span class="value" [ghs-label]="'game.loot.' + type" [ghs-label-attribute]="'title'">
-            {{lootDeckConfig[type] && 'x' + lootDeckConfig[type] || '-'}}
-          </span>
-          <a class="button"
-            [ngClass]="{'disabled' : lootDeckConfig[type] == maxValue(type) || type == LootType.random_item && gameManager.lootManager.randomItemLooted()}"
-            (click)="changeType(type,  1)">
-            <img class="ghs-svg" src="./assets/images/plus.svg">
-          </a>
-        </ng-container>
+        @for (type of types; track type) {
+        <label><img class="ghs-svg"
+            [src]="'./assets/images/fh/loot/' + (type == LootType.special1 || type == LootType.special2 ? LootType.money : type) + '.svg'">
+          <span [ghs-label]="'game.loot.' + type"></span></label>
+        <a class="button"
+          [ngClass]="{'disabled' : !lootDeckConfig[type] || type == LootType.random_item && gameManager.lootManager.randomItemLooted()}"
+          (click)="changeType(type, -1)">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </a>
+        <span class="value" [ghs-label]="'game.loot.' + type" [ghs-label-attribute]="'title'">
+          {{lootDeckConfig[type] && 'x' + lootDeckConfig[type] || '-'}}
+        </span>
+        <a class="button"
+          [ngClass]="{'disabled' : lootDeckConfig[type] == maxValue(type) || type == LootType.random_item && gameManager.lootManager.randomItemLooted()}"
+          (click)="changeType(type,  1)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </a>
+        }
       </div>
       <div class="config-menu">
-        <a (click)="currentConfig()" *ngIf="deck.cards.length > 0"><span
-            [ghs-label]="'game.loot.config.discard'"></span></a>
+        @if (deck.cards.length > 0) {
+        <a (click)="currentConfig()"><span [ghs-label]="'game.loot.config.discard'"></span></a>
+        }
         <a (click)="applyConfig()">
           <span [ghs-label]="('game.loot.config.' + (deck.cards.length == 0 ? 'create': 'apply'))"></span>
         </a>
       </div>
     </div>
+    }
 
-    <div class="enhancements" *ngIf="enhancements">
-      <div class="loot-container" *ngFor="let loot of enhancementDeck">
+    @if (enhancements) {
+    <div class="enhancements">
+      @for (loot of enhancementDeck; track loot.cardId) {
+      <div class="loot-container">
         <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true" [highlight]="false" [apply]="apply">
         </ghs-loot>
         <a class="button-enhance" (click)="enhanceCard(loot)" [ghs-label]="'game.loot.enhancements.add'"
           [ghs-label-attribute]="'title'">
           <img class="ghs-svg" src="./assets/images/fh/loot/plus1.svg">
         </a>
-        <div class="remove-enhancements" *ngIf="loot.enhancements > 0">
-          <img *ngFor="let i of [] | ghsRange:loot.enhancements" class="ghs-svg" (click)="unenhanceCard(loot)"
-            src="./assets/images/fh/loot/plus1.svg" [ghs-label]="'game.loot.enhancements.remove'"
-            [ghs-label-attribute]="'title'">
+        @if (loot.enhancements > 0) {
+        <div class="remove-enhancements">
+          @for (i of [] | ghsRange:loot.enhancements; track i) {
+          <img class="ghs-svg" (click)="unenhanceCard(loot)" src="./assets/images/fh/loot/plus1.svg"
+            [ghs-label]="'game.loot.enhancements.remove'" [ghs-label-attribute]="'title'">
+          }
         </div>
+        }
       </div>
+      }
     </div>
+    }
 
-    <div class="loot-deck-container" *ngIf="!configuration && !enhancements" [style.maxHeight]="maxHeight">
+    @if (!configuration && !enhancements) {
+    <div class="loot-deck-container" [style.maxHeight]="maxHeight">
       <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
         [cdkDropListConnectedTo]="discardedList" (cdkDropListDropped)="dropUpcoming($event)"
         [cdkDropListAutoScrollStep]="20">
-        <div class="empty" *ngIf="upcomingCards.length == 0"></div>
-        <div class="loot-container" *ngFor="let loot of upcomingCards let index = index" cdkDrag>
+        @if (upcomingCards.length == 0) {
+        <div class="empty"></div>
+        }
+        @for (loot of upcomingCards; track loot.cardId; let index = $index) {
+        <div class="loot-container" cdkDrag>
           <ghs-loot class="drag-hidden" [loot]="loot" [reveal]="true" [flipped]="reveal == 2"
             [index]="deck.current + index +1" [character]="getCharacter(deck.current + index +1)" [apply]="apply">
           </ghs-loot>
-          <a class="button-remove" *ngIf="edit" (click)="remove(index + deck.current + 1)">
+          @if (edit) {
+          <a class="button-remove" (click)="remove(index + deck.current + 1)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
-          <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
+          }
+          @if (edit) {
+          <div cdkDragHandle class="drag-handle"></div>
+          }
         </div>
+        }
       </div>
-
       <div class="discarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #discardedList="cdkDropList"
         [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDiscarded($event)"
         [cdkDropListAutoScrollStep]="20">
         <div class="empty"></div>
-
-        <div class="loot-container" *ngFor="let loot of discardedCards; let index = index" cdkDrag>
+        @for (loot of discardedCards; track loot.cardId; let index = $index) {
+        <div class="loot-container" cdkDrag>
           <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true" [index]="deck.current - index"
             [character]="getCharacter(deck.current - index)" [edit]="edit" [looted]="true" [apply]="apply"></ghs-loot>
-          <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)">
+          @if (edit) {
+          <a class="button-remove" (click)="remove(deck.current - index)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
-          <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
+          }
+          @if (edit) {
+          <div cdkDragHandle class="drag-handle"></div>
+          }
         </div>
+        }
       </div>
     </div>
+    }
   </div>
 </div>

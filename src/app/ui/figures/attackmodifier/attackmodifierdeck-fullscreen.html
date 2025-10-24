@@ -1,26 +1,38 @@
 <div class="attack-modifiers-fullscreen">
   <div class="header">
     <div class="title">
-      <ng-container *ngIf="!!character">
-        <img class="icon" [src]="character.iconUrl" />
-        {{gameManager.characterManager.characterName(character, true)}}
-        &nbsp;
-      </ng-container>
+      @if (!!character) {
+      <img class="icon" [src]="character.iconUrl" />
+      {{gameManager.characterManager.characterName(character, true)}}
+      &nbsp;
+      }
 
-      <ng-container *ngIf="!character && !townGuard">
-        <img *ngIf="numeration == 'm'" class="icon" src="./assets/images/monster/enemy.png" />
-        <span *ngIf="numeration == 'm'"><span [ghs-label]="'monster'"></span>&nbsp;</span>
-        <span *ngIf="numeration == 'A'"><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
-      </ng-container>
-      <span *ngIf="!townGuard" [ghs-label]="'game.attackModifiers'"></span>
-      <span *ngIf="townGuard" [ghs-label]="'party.campaign.townGuardDeck'"></span>
-      <span *ngIf="!character && numeration != 'm' && numeration != 'A'">&nbsp;{{numeration}}</span>
+      @if (!character && !townGuard) {
+      @if (numeration == 'm') {
+      <img class="icon" src="./assets/images/monster/enemy.png" />
+      }
+      @if (numeration == 'm') {
+      <span><span [ghs-label]="'monster'"></span>&nbsp;</span>
+      }
+      @if (numeration == 'A') {
+      <span><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
+      }
+      }
+      @if (!townGuard) {
+      <span [ghs-label]="'game.attackModifiers'"></span>
+      }
+      @if (townGuard) {
+      <span [ghs-label]="'party.campaign.townGuardDeck'"></span>
+      }
+      @if (!character && numeration != 'm' && numeration != 'A') {
+      <span>&nbsp;{{numeration}}</span>
+      }
     </div>
   </div>
   <div class="attack-modifierdeck-container" [ngClass]="{'vertical'  : vertical()}">
     <ghs-attackmodifier-deck [deck]="deck" [character]="character" [ally]="ally" [numeration]="numeration"
-      [fullscreen]="false" [vertical]="vertical()" [townGuard]="townGuard" [initTimeout]="1" (before)="beforeAttackModifierDeck($event)"
-      (after)="afterAttackModifierDeck($event)">
+      [fullscreen]="false" [vertical]="vertical()" [townGuard]="townGuard" [initTimeout]="1"
+      (before)="beforeAttackModifierDeck($event)" (after)="afterAttackModifierDeck($event)">
     </ghs-attackmodifier-deck>
     <div class="close-container" (click)="close()"></div>
   </div>

@@ -77,7 +77,7 @@ export class InteractiveActionsComponent implements OnInit, OnDestroy {
         }
     }
 
-    applyInteractiveActions(event: MouseEvent | TouchEvent, selectElement: boolean = false) {
+    applyInteractiveActions(event: PointerEvent, selectElement: boolean = false) {
         if (!selectElement && this.chooseElementAction && gameManager.actionsManager.getValues(this.chooseElementAction.action).filter((value) => value == Element.wild).length != this.chooseElementValues.length) {
             this.chooseElementAction = undefined;
             this.chooseElementValues = [];
@@ -203,7 +203,7 @@ export class InteractiveActionsComponent implements OnInit, OnDestroy {
         return gameManager.game.elementBoard.filter((element) => element.state != ElementState.new && element.state != ElementState.strong && element.state != ElementState.always && this.chooseElementValues.indexOf(element.type) == -1 && (!this.chooseElementAction || gameManager.actionsManager.getValues(this.chooseElementAction.action).indexOf(element.type) == -1)).map((element) => element.type);
     }
 
-    selectWildElement(event: MouseEvent | TouchEvent, element: Element) {
+    selectWildElement(event: PointerEvent, element: Element) {
         this.chooseElementValues.push(element);
         this.applyInteractiveActions(event, true);
         event.preventDefault();

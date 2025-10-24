@@ -117,6 +117,8 @@ export class ConditionsComponent implements OnInit, OnDestroy {
     negativeConditions.push(...gameManager.conditionsForTypes('standard', 'negative', this.type));
     negativeConditions.push(...gameManager.conditionsForTypes('upgrade', 'negative', this.type));
     negativeConditions.push(...gameManager.conditionsForTypes('stack', 'negative', this.type));
+    negativeConditions = negativeConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) == i);
+
     if (negativeConditions.length) {
       this.conditions.push(...negativeConditions);
     }
@@ -124,6 +126,7 @@ export class ConditionsComponent implements OnInit, OnDestroy {
     positiveConditions.push(...gameManager.conditionsForTypes('standard', 'positive', this.type));
     positiveConditions.push(...gameManager.conditionsForTypes('upgrade', 'positive', this.type));
     positiveConditions.push(...gameManager.conditionsForTypes('stack', 'positive', this.type));
+    positiveConditions = positiveConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) == i);
 
     if (positiveConditions.length) {
       this.conditionSeparator.push(this.conditions.length - 1);
@@ -134,6 +137,7 @@ export class ConditionsComponent implements OnInit, OnDestroy {
     neutralConditions.push(...gameManager.conditionsForTypes('standard', 'neutral', this.type));
     neutralConditions.push(...gameManager.conditionsForTypes('upgrade', 'neutral', this.type));
     neutralConditions.push(...gameManager.conditionsForTypes('stack', 'neutral', this.type));
+    neutralConditions = neutralConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) == i);
 
     if (neutralConditions.length) {
       this.conditionSeparator.push(this.conditions.length - 1);

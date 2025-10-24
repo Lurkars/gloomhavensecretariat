@@ -8,13 +8,6 @@
     "savvas-icestorm",
     "wind-demon"
   ],
-  "objectives": [
-    {
-      "name": "Door 2 (push 2)",
-      "health": "100",
-      "initiative": 73
-    }
-  ],
   "rooms": [
     {
       "roomNumber": 2,
@@ -43,6 +36,9 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

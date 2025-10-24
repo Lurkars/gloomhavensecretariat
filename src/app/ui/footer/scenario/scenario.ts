@@ -41,17 +41,13 @@ export class ScenarioComponent implements OnInit, OnDestroy {
               success: gameManager.game.finish.success
             }
           })
-        } else if (gameManager.game.eventDraw && !this.dialog.openDialogs.find((dialogRef) => dialogRef.componentInstance && dialogRef.componentInstance instanceof EventCardDrawComponent)) {
-          let type = gameManager.game.eventDraw;
-          if (gameManager.game.edition == 'fh' && (type == 'road' || type == 'outpost')) {
-            type = ((Math.max(gameManager.game.party.weeks - 1, 0) % 20 < 10) ? 'summer-' : 'winter-') + type;
-          }
+        } else if (gameManager.game.eventDraw && settingsManager.settings.eventsDraw && !this.dialog.openDialogs.find((dialogRef) => dialogRef.componentInstance && dialogRef.componentInstance instanceof EventCardDrawComponent)) {
           this.dialog.open(EventCardDrawComponent, {
             panelClass: ['dialog'],
             disableClose: true,
             data: {
               edition: gameManager.game.edition || gameManager.currentEdition(),
-              type: type
+              type: gameManager.game.eventDraw
             }
           }).closed.subscribe({
             next: (results: any) => {

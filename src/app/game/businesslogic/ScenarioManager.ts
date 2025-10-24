@@ -36,7 +36,7 @@ export class ScenarioManager {
     return gameManager.sectionData(edition).find((sectionData) => sectionData.index == index && sectionData.edition == edition && sectionData.group == group && (!conlusionOnly || sectionData.conclusion));
   }
 
-  setScenario(scenario: Scenario | undefined) {
+  setScenario(scenario: Scenario | undefined, linked: boolean = false) {
     this.game.scenario = scenario ? new Scenario(scenario, scenario.revealedRooms, scenario.additionalSections, scenario.custom) : undefined;
     if (scenario && !scenario.custom) {
       const scenarioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == scenario.index && scenarioData.edition == scenario.edition && scenarioData.group == scenario.group);
@@ -45,7 +45,7 @@ export class ScenarioManager {
         return;
       }
       gameManager.roundManager.resetScenario();
-      this.applyScenarioData(scenarioData);
+      this.applyScenarioData(scenarioData, false, linked);
 
       if (settingsManager.settings.scenarioRules) {
         gameManager.scenarioRulesManager.addScenarioRules(true);
@@ -60,10 +60,10 @@ export class ScenarioManager {
   finishScenario(scenario: Scenario | undefined, success: boolean = true, conclusionSection: ScenarioData | undefined, restart: boolean = false, linked: boolean = false, characterProgress: boolean = true, gainRewards: boolean = true, internal: boolean = false) {
     gameManager.game.finish = undefined;
     if (scenario) {
-      let rewards: ScenarioRewards | undefined = scenario.rewards || undefined;
+      let rewards: ScenarioRewards | undefined = scenario.rewards ? Object.assign(new ScenarioRewards(), scenario.rewards) : undefined;
       if (conclusionSection && conclusionSection.rewards) {
         if (!rewards) {
-          rewards = conclusionSection.rewards;
+          rewards = Object.assign(new ScenarioRewards(), conclusionSection.rewards);
         } else {
           Object.assign(rewards, conclusionSection.rewards);
         }
@@ -100,6 +100,20 @@ export class ScenarioManager {
 
       if (success) {
         if (rewards && gainRewards) {
+
+          if (rewards.valueMapping) {
+            Object.keys(rewards.valueMapping).forEach((key) => {
+              if (rewards && rewards.valueMapping && rewards.valueMapping[key]) {
+                const rule = rewards.valueMapping[key];
+                const value = gameManager.scenarioRulesManager.presentEntitiesByFigureRule(rule, undefined).length;
+                const rewardKey = rule.value as keyof ScenarioRewards;
+                if (rewards && typeof rewards[rewardKey] === 'string') {
+                  (rewards[rewardKey] as string) = rewards[rewardKey].replaceAll(key, '' + value);
+                }
+              }
+            })
+          }
+
           if (!internal && settingsManager.settings.characterSheet) {
             this.game.figures.forEach((figure) => {
               if (rewards && figure instanceof Character && !figure.absent && settingsManager.settings.scenarioRewards) {
@@ -181,6 +195,19 @@ export class ScenarioManager {
               }
             }
 
+            if (rewards.reputationFactions) {
+              rewards.reputationFactions.forEach((reputationFaction) => {
+                const faction = reputationFaction.split(':')[0];
+                const value = +reputationFaction.split(':')[1];
+                this.game.party.factionReputation[faction] = (this.game.party.factionReputation[faction] || 0) + value;
+                if (this.game.party.factionReputation[faction] > 20) {
+                  this.game.party.factionReputation[faction] = 20;
+                } else if (this.game.party.factionReputation[faction] < -10) {
+                  this.game.party.factionReputation[faction] = -10;
+                }
+              })
+            }
+
             if (rewards.prosperity) {
               this.game.party.prosperity += rewards.prosperity;
               if (this.game.party.prosperity > (gameManager.fhRules() ? 132 : 64)) {
@@ -259,7 +286,7 @@ export class ScenarioManager {
                   } else if (calendarSection.split('-')[1].length > 1) {
                     const season = calendarSection.split('-')[1].split(':')[0];
                     const seasonWeek = +calendarSection.split('-')[1].split(':')[1];
-                    week = Math.max(gameManager.game.party.weeks - 1, 0) - (Math.max(gameManager.game.party.weeks - 1, 0) % 20) + (season == 'summer' ? 20 : 10) + seasonWeek;
+                    week = Math.max(gameManager.game.party.weeks, 0) - (Math.max(gameManager.game.party.weeks, 0) % 20) + (season == 'summer' ? 20 : 10) + seasonWeek;
                   }
 
                   if (week != -1) {
@@ -393,7 +420,7 @@ export class ScenarioManager {
     }
   }
 
-  applyScenarioData(scenarioData: ScenarioData, section: boolean = false) {
+  applyScenarioData(scenarioData: ScenarioData, section: boolean = false, linked: boolean = false) {
     gameManager.stateManager.standeeDialogCanceled = true;
     if (!settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length == 0) {
       if (scenarioData.monsters) {
@@ -508,8 +535,14 @@ export class ScenarioManager {
       })
     }
 
-    if (settingsManager.settings.partySheet && settingsManager.settings.events && settingsManager.settings.eventsDraw && scenarioData.eventType) {
-      gameManager.game.eventDraw = scenarioData.eventType;
+    if (settingsManager.settings.partySheet && settingsManager.settings.events && scenarioData.eventType && !linked) {
+      let type = scenarioData.eventType;
+
+      if (scenarioData.edition == 'fh' && (type == 'road' || type == 'outpost')) {
+        type = ((Math.max(gameManager.game.party.weeks, 0) % 20 < 10) ? 'summer-' : 'winter-') + type;
+      }
+
+      gameManager.game.eventDraw = type;
     }
 
     if (settingsManager.settings.partySheet && settingsManager.settings.events && settingsManager.settings.eventsApply && gameManager.game.party.eventCards) {
@@ -519,10 +552,20 @@ export class ScenarioManager {
           const option = eventCard.options[e.selected];
           if (option && option.outcomes) {
             option.outcomes.forEach((outcome, i) => {
-              if (!e.subSelections || e.subSelections.length == 0 || e.subSelections.indexOf(i) != -1) {
+              if (outcome.effects && (!e.subSelections || e.subSelections.length == 0 || e.subSelections.indexOf(i) != -1)) {
                 gameManager.eventCardManager.applyEffects(eventCard, outcome.effects.filter((e) => typeof e !== 'string'), true);
               }
             })
+          }
+
+          if (e.attack) {
+            const attackOption = eventCard.options.find((option) => !!option.outcomes && option.outcomes.some((outcome) => !!outcome.attack && !!outcome.attack.effects));
+            if (attackOption) {
+              const outcome = attackOption.outcomes.find((outcome) => !!outcome.attack && !!outcome.attack.effects);
+              if (outcome && outcome.attack) {
+                gameManager.eventCardManager.applyEffects(eventCard, outcome.attack.effects.filter((e) => typeof e !== 'string'), true);
+              }
+            }
           }
         }
         e.scenarioApply = false;
@@ -640,6 +683,18 @@ export class ScenarioManager {
               for (let i = 0; i < count; i++) {
                 gameManager.objectiveManager.addObjectiveEntity(objectiveContainer);
               }
+            }
+          }
+        } else if (typeof index == 'string' && index.indexOf('-') != -1) {
+          let split = index.split('-');
+          const id = +(split[0]);
+          const marker = split[1];
+          if (id > 0 && marker) {
+            const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": id - 1 };
+            const objective = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(objectiveIdentifier);
+            if (objective) {
+              const objectiveContainer = gameManager.objectiveManager.addObjective(objective, undefined, objectiveIdentifier);
+              gameManager.objectiveManager.addObjectiveEntity(objectiveContainer, undefined, undefined, marker);
             }
           }
         }

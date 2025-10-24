@@ -107,7 +107,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
       return false;
     }
 
-    if (action.type == ActionType.card || action.type == ActionType.hint) {
+    if (action.type == ActionType.card || action.type == ActionType.hint || action.type == ActionType.round) {
       return false;
     }
 
@@ -131,9 +131,14 @@ export class ActionsComponent implements OnInit, OnDestroy {
       return false;
     }
 
-    if (this.actions[index - 1].type == ActionType.box) {
+    if (this.actions[index - 1].type == ActionType.box || this.actions[index - 1].type == ActionType.round) {
       return false;
     }
+
+    if (action.type == ActionType.concatenation && action.subActions.every((subAction) => [ActionType.card, ActionType.concatenationSpacer].indexOf(subAction.type) != -1)) {
+      return false;
+    }
+
     return true;
   }
 
