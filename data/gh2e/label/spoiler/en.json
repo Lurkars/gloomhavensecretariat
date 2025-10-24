@@ -103,9 +103,9 @@
         "2": "Give the target or one enemy within %game.action.range% 2 of the target %game.condition.poison%",
         "3": "You have %game.action.fly%",
         "4": "Whenever you heal from a long rest, you may remove %game.condition.poison% from on ally to add +1 %game.action.heal%",
-        "5": "Once each scenario, when an anemy that has a %data.action.custom.gh2e-plaque% would die, you first control that enemy and have it perform the abilities on its ability card, adding %data.action.custom.gh2e-plaque% to all its attack, then it dies",
+        "5": "Once each scenario, when an enemy that has a %data.action.custom.gh2e-plaque% would die, you first control that enemy and have it perform the abilities on its ability card, adding %data.action.custom.gh2e-plaque% to all its attack, then it dies",
         "6": "In a single turn, kill 3 or more enemies without drawing an attack modifier card",
-        "7": "In a single scenario, either apply or remove %game.condition.poison% form an ally or enemy each round"
+        "7": "In a single scenario, either apply or remove %game.condition.poison% from an ally or enemy each round"
       },
       "sun": {
         "1": "You or an adjacent ally may %game.card.recover% on level 1 card from the discard pile",
@@ -137,7 +137,7 @@
         "2": "Whenever %data.action.custom.gh2e-bear-summon% is attacked, treat and %game.attackmodifier.double% attack modifier card the enemy draws as %game.attackmodifier.plus0% instead",
         "3": "Once each scenario, during your turn, %data.action.custom.gh2e-command%: %game.action.move% 4.<br>If %data.action.custom.gh2e-bear-summon% exits a hex adjacent to you during this movement, you may %game.action.teleport% to an empty hex adjacent to %data.action.custom.gh2e-bear-summon% at the end of the movement",
         "4": "At the start or end of each of your long rests, you may %game.elementHalf:air|earth% and reduce your current hit point value by X (X must be at least 1) to %data.action.custom.gh2e-command%: %game.action.heal% X, self",
-        "5": "In a single scenario, infuse or consuem %game.element.air% or %game.element.earth% during each of your turns",
+        "5": "In a single scenario, infuse or consume %game.element.air% or %game.element.earth% during each of your turns",
         "6": "In a single scenario, kill 4 or more enemies with %data.action.custom.gh2e-command% attacks of 7 or greater (after all bonuses, before attack modifiers)"
       }
     }

@@ -273,7 +273,7 @@
       },
       "cragheart": {
         "1": "Create one 1-hex obstacle tile in an empty hex adjacent to the target",
-        "2": "Once each scenario, during your turn, you may destroy one 1-hex obstacle withing %game.action.range:5% to %game.action.teleport% to the hex it occupied",
+        "2": "Once each scenario, during your turn, you may destroy one 1-hex obstacle within %game.action.range:5% to %game.action.teleport% to the hex it occupied",
         "3": "At the end of each of your rests, you may destroy one 1-hex obstacle within %game.action.range:5% to %game.element.earth%",
         "4": "Whenever a new room is revealed, control all enemies in the newly revealed room: %game.action.move% 1, this movement must end in an empty hex",
         "5": "For an entire scenario, create, destroy, or move at least one obstacle tile each round",
@@ -334,7 +334,7 @@
         "4": "Add +1 %game.action.attack% for each negative condition the target has",
         "5": "Whenever you control the attack of an enemy, you may have the enemy use your attack modifier deck",
         "6": "You are considered to be last in initiative order when determining monster focus",
-        "7": "At the end of each of your rests, you may %game.elementHalf.consume:ice|dark% to control one enemy withing %game.action.range:5%: %game.action.attack% 1",
+        "7": "At the end of each of your rests, you may %game.elementHalf.consume:ice|dark% to control one enemy within %game.action.range:5%: %game.action.attack% 1",
         "8": "In a single scenario, kill 5 or more enemies with control abilities",
         "9": "In a single scenario, trigger the on-attack effect from four different Augments at least 3 times each"
       },
@@ -376,7 +376,7 @@
         "1": "Once each scenario, one adjacent ally may use one of your <i>potion</i> %game.itemSlot:small% items during their turn without it becoming %game.card.lost%",
         "2": "Whenever you perform an action with %game.card.lost%, you may %game.element.wild%",
         "3": "Whenever you long rest, you may perform: %game.action.heal% 2, %game.action.range:3%",
-        "4": "For an entire scenario, during each of your turns, give an enemy a negative condition, give an ally a positive condition, heal an ally or grant an ally shield",
+        "4": "For an entire scenario, during each of your turns, give an enemy a negative condition, give an ally a positive condition, heal an ally, or grant an ally shield",
         "5": "Perform 11 different %game.card.lost% actions"
       }
     }
