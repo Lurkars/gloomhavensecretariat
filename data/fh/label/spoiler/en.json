@@ -773,7 +773,7 @@
     },
     "fh-177": {
       "": "Boots of Transference",
-      "1": "When you spring a trap by entering its hex, you may apply its effects to a figure withing %game.action.range:3% instead of yourself."
+      "1": "When you spring a trap by entering its hex, you may apply its effects to a figure within %game.action.range:3% instead of yourself."
     },
     "fh-178": {
       "": "Tranquil Shoes",
@@ -833,7 +833,7 @@
     },
     "fh-190": {
       "": "White Card",
-      "1": "During your turn, place a character token on one normal or elite enemy withing %game.action.range:3%. This enemy adds -1 %game.action.attack% to all its attacks."
+      "1": "During your turn, place a character token on one normal or elite enemy within %game.action.range:3%. This enemy adds -1 %game.action.attack% to all its attacks."
     },
     "fh-191": {
       "": "Corrupted Scroll",
@@ -841,11 +841,11 @@
     },
     "fh-192": {
       "": "Enticing Bell",
-      "1": "At the end of your turn, designate one enemy withing %game.action.range:3%. You are its primary focus and it does not avoid negative hexes when determining movement this round. "
+      "1": "At the end of your turn, designate one enemy within %game.action.range:3%. You are its primary focus and it does not avoid negative hexes when determining movement this round. "
     },
     "fh-193": {
       "": "Mind Thieving Helmet",
-      "1": "During your turn, control one enemy withing %game.action.range:3%:"
+      "1": "During your turn, control one enemy within %game.action.range:3%:"
     },
     "fh-194": {
       "": "Temporal Amulet",
@@ -930,7 +930,7 @@
     },
     "fh-211": {
       "": "Boom Barrel",
-      "1": "During your turn, designate one adjacent hex. At the end of your turn, all figures withing %game.action.range:2% of the designated hex suffer %game.damage% 1."
+      "1": "During your turn, designate one adjacent hex. At the end of your turn, all figures within %game.action.range:2% of the designated hex suffer %game.damage% 1."
     },
     "fh-212": {
       "": "Elemental Stone",
@@ -1007,11 +1007,11 @@
     },
     "fh-228": {
       "": "Extendable Pole",
-      "1": "During your turn, open one unlocked door while withing %game.action.range:2%."
+      "1": "During your turn, open one unlocked door while within %game.action.range:2%."
     },
     "fh-229": {
       "": "Exquisite Map",
-      "1": "During your turn grant one ally withing %game.action.range:3%:"
+      "1": "During your turn grant one ally within %game.action.range:3%:"
     },
     "fh-23": {
       "": "Sturdy Greaves",
@@ -1047,7 +1047,7 @@
     },
     "fh-237": {
       "": "Mesmerizing Seashell",
-      "1": "During your turn, choose one of six directions. You and all figures withing %game.action.range:2% are forced to simultaneously move 2 hexes in the chosen direction."
+      "1": "During your turn, choose one of six directions. You and all figures within %game.action.range:2% are forced to simultaneously move 2 hexes in the chosen direction."
     },
     "fh-238": {
       "": "Cracked Idol",
@@ -1325,7 +1325,7 @@
     },
     "fh-77": {
       "": "Chaos Cannon",
-      "1": "During you turn, replace one 1-hex obstacle, hazardous terrain, difficult terrain, or icy terrain tile in an unoccupied hex withing %game.action.range:2% with a different type of tile listed above."
+      "1": "During you turn, replace one 1-hex obstacle, hazardous terrain, difficult terrain, or icy terrain tile in an unoccupied hex within %game.action.range:2% with a different type of tile listed above."
     },
     "fh-78": {
       "": "Balanced Scales",
@@ -1414,7 +1414,7 @@
     },
     "fh-97": {
       "": "Explosive Vial",
-      "1": "During your turn, one enemy withing %game.action.range:2% suffers %game.damage% 2."
+      "1": "During your turn, one enemy within %game.action.range:2% suffers %game.damage% 2."
     },
     "fh-98": {
       "": "Unhealthy Mixture",

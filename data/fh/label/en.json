@@ -1309,7 +1309,7 @@
         "1": "All allies within %game.range:2% add +1 %game.action.attack% to one of their attacks each turn.",
         "10": "Attack at least three enemies with each of three different area of effect attack abilities",
         "11": "Perform a Banner summon ability on your first turn, keep the banner alive and within %game.action.range:3% of you for the entire scenario",
-        "2": "At the start of their turns, grant allies withing %game.range:3%:",
+        "2": "At the start of their turns, grant allies within %game.range:3%:",
         "3": "All adjacent allies gain %game.shield% 1.",
         "4": "Negate the first source of %game.damage% to an adjacent ally each round",
         "5": "All enemies within %game.action.range%4 suffer %game.damage:1% at the start of their turns.",
