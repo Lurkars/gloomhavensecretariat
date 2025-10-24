@@ -216,7 +216,9 @@
           "building": "Schaltet Gebäude '%data.buildings.{1}%' ({0}) frei",
           "inspiration": "Erhälte +1 Inspiration",
           "itemBlueprint": "Erhalte Gegenstandsplan \"%data.items.{1}-{0}%\" (Gegenstand {0})",
-          "randomScenario": "%data.section:{0}% öffnen, %data.scenarioNumber:{1}% freischalten"
+          "itemBlueprintInfo": "Erhalte einen zufälligen Gegenstandsplan.",
+          "randomScenario": "%data.section:{0}% öffnen, %data.scenarioNumber:{1}% freischalten",
+          "randomScenarioInfo": "Erhalte ein zufälliges Nebenszenario."
         },
         "unlockCharacter": {
           "": "Schachtel %game.characterIcon.{0}% öffnen",
@@ -577,6 +579,7 @@
       "perks": {
         "": "Verbesserungen",
         "additional": "{0} und {1}",
+        "additionalTwo": "{0}, {1} und {2}",
         "card": "Karte",
         "cardLabel": "{0}{1} {2}",
         "cards": {

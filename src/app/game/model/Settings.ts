@@ -106,6 +106,8 @@ export class Settings {
   disableWakeLock: boolean = false;
   dragFigures: boolean = true;
   dragValues: boolean = true;
+  drawRandomItem: boolean = true;
+  drawRandomScenario: boolean = true;
   editionDataUrls: string[] = [];
   editions: string[] = [];
   eliteFirst: boolean = true;
@@ -159,7 +161,6 @@ export class Settings {
   removeUnusedMonster: boolean = false;
   scenarioNumberInput: boolean = false;
   scenarioRewards: boolean = true;
-  scenarioRewardsItems: boolean = true;
   scenarioRooms: boolean = true;
   scenarioRules: boolean = true;
   scenarioRulesAutoapply: boolean = false;

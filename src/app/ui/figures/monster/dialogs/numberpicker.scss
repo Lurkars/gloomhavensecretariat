@@ -4,20 +4,18 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-size: calc(var(--ghs-unit) * 8 * var(--ghs-text-factor));
-  line-height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
   color: var(--ghs-color-gray);
   filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
   text-shadow: var(--ghs-outline);
   font-weight: bold;
-  width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-  height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+  width: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
+  height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
   text-align: center;
   stroke: var(--ghs-color-black);
   stroke-width: calc(var(--ghs-unit) * 2);
 
   .ghs-svg {
-    width: 100%;
+    width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
     height: auto;
   }
 

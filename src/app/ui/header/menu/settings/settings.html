@@ -31,10 +31,9 @@
     <div class="line" ghs-setting-menu="initiativeRequired"></div>
     <div class="line" ghs-setting-menu="hideAbsent"></div>
     <div class="line" ghs-setting-menu="treasuresLoot" [requires]="['scenarioRooms', 'treasures']"></div>
-    <div class="line" ghs-setting-menu="treasuresLootItem" [requires]="['scenarioRooms', 'treasures', 'treasuresLoot']">
+    <div class="line" ghs-setting-menu="drawRandomItem">
     </div>
-    <div class="line" ghs-setting-menu="treasuresLootScenario"
-      [requires]="['scenarioRooms', 'treasures', 'treasuresLoot']">
+    <div class="line" ghs-setting-menu="drawRandomScenario">
     </div>
     <div class="line" ghs-setting-menu="applyLongRest"></div>
     <div class="line" ghs-setting-menu="applyRetirement" [requires]="['characterSheet']"></div>
@@ -49,8 +48,6 @@
     <div class="line" ghs-setting-menu="characterIdentities"></div>
     <div class="line" ghs-setting-menu="characterIdentityHint" [requires]="['characterIdentities']"></div>
     <div class="line" ghs-setting-menu="scenarioRewards"></div>
-    <div class="line" ghs-setting-menu="scenarioRewardsItems" [requires]="['scenarioRewards']">
-    </div>
     <div class="line" ghs-setting-menu="battleGoalsReminder" [requires]="['battleGoals']"></div>
     <div class="line" ghs-setting-menu="battleGoalsCharacter" [requires]="['battleGoals']"></div>
     <div class="line" ghs-setting-menu="characterHandSize"></div>

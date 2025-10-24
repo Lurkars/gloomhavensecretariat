@@ -67,20 +67,26 @@
       }
     </div>
     }
-    @if (!!envelopeSection) {
+    @if (!!envelopeSection && envelopeSection != true) {
     <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.randomScenario'"
       [ghs-label-args]="[envelopeSection.index, envelopeSection.unlocks && envelopeSection.unlocks[0]]">
     </div>
+    }
+    @if (envelopeSection == true) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.randomScenarioInfo'"></div>
     }
     @if (envelopeAlreadyUnlocked && !envelopeSection) {
     <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">
     </div>
     }
-    @if (!!envelopeItemBlueprint) {
+    @if (!!envelopeItemBlueprint && envelopeItemBlueprint != true) {
     <div class="text-white link" (click)="itemDialog(envelopeItemBlueprint)"
       [ghs-label]="'character.progress.personalQuest.openEnvelope.itemBlueprint'"
       [ghs-label-args]="[envelopeItemBlueprint.id, envelopeItemBlueprint.edition]">
     </div>
+    }
+    @if (envelopeItemBlueprint == true) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.itemBlueprintInfo'"></div>
     }
     @if (personalQuest.unlockPQ) {
     <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockPQ'"
@@ -168,20 +174,26 @@
       }
     </div>
     }
-    @if (!!additionalEnvelopeSection) {
+    @if (!!additionalEnvelopeSection && additionalEnvelopeSection != true) {
     <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.randomScenario'"
       [ghs-label-args]="[additionalEnvelopeSection.index, additionalEnvelopeSection.unlocks && additionalEnvelopeSection.unlocks[0]]">
     </div>
+    }
+    @if (additionalEnvelopeSection == true) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.randomScenarioInfo'"></div>
     }
     @if (additionalEnvelopeAlreadyUnlocked && !additionalEnvelopeSection) {
     <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">
     </div>
     }
-    @if (!!additionalEnvelopeItemBlueprint) {
+    @if (!!additionalEnvelopeItemBlueprint && additionalEnvelopeItemBlueprint != true) {
     <div class="text-white link" (click)="itemDialog(additionalEnvelopeItemBlueprint)"
       [ghs-label]="'character.progress.personalQuest.openEnvelope.itemBlueprint'"
       [ghs-label-args]="[additionalEnvelopeItemBlueprint.id, additionalEnvelopeItemBlueprint.edition]">
     </div>
+    }
+    @if (additionalEnvelopeItemBlueprint == true) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.itemBlueprintInfo'"></div>
     }
     @if (additionalEnvelopeAlreadyUnlocked && !additionalEnvelopeItemBlueprint) {
     <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">

@@ -257,7 +257,7 @@ export class LootManager {
         }
         break;
       case TreasureRewardType.randomScenario:
-        if (settingsManager.settings.treasuresLootScenario) {
+        if (settingsManager.settings.drawRandomScenario) {
           let scenarioData = gameManager.scenarioManager.drawRandomScenario(edition);
           if (scenarioData) {
             gameManager.game.party.manualScenarios.push(new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group));
@@ -266,7 +266,7 @@ export class LootManager {
         }
         break;
       case TreasureRewardType.randomScenarioFh:
-        if (settingsManager.settings.treasuresLootScenario) {
+        if (settingsManager.settings.drawRandomScenario) {
           let sectionData = gameManager.scenarioManager.drawRandomScenarioSection(edition);
           if (sectionData) {
             gameManager.game.party.conclusions.push(new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group));
@@ -277,7 +277,7 @@ export class LootManager {
       case TreasureRewardType.randomItem:
       case TreasureRewardType.randomItemDesign:
       case TreasureRewardType.randomItemBlueprint:
-        if (settingsManager.settings.treasuresLootItem) {
+        if (settingsManager.settings.drawRandomItem) {
           let from = -1;
           let to = -1;
           if (typeof reward.value === 'string' && reward.value.indexOf('-') != -1) {

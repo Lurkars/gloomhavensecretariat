@@ -16,7 +16,7 @@ import { MonsterNumberPickerDialog } from './figures/monster/dialogs/numberpicke
 import { FooterComponent } from './footer/footer';
 import { SubMenu } from './header/menu/menu';
 import { ConfirmDialogComponent } from './helper/confirm/confirm';
-import { PointerInputService } from './helper/pointer-input';
+import { PointerInputService } from './helper/pointer-input-service';
 
 @Component({
   standalone: false,

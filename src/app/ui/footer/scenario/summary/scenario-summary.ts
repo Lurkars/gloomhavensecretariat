@@ -324,7 +324,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                     });
                 }
 
-                if (settingsManager.settings.scenarioRewardsItems && this.rewards.randomItemBlueprint && this.randomItemBlueprints.length < this.rewards.randomItemBlueprint) {
+                if (settingsManager.settings.drawRandomItem && this.rewards.randomItemBlueprint && this.randomItemBlueprints.length < this.rewards.randomItemBlueprint) {
                     for (let i = this.randomItemBlueprints.length; i < this.rewards.randomItemBlueprint; i++) {
                         let itemData = gameManager.itemManager.drawRandomItem(this.scenario.edition, true);
                         let item: Identifier | undefined = itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined;
@@ -332,7 +332,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                     }
                 }
 
-                if (settingsManager.settings.scenarioRewardsItems && this.rewards.randomItem) {
+                if (settingsManager.settings.drawRandomItem && this.rewards.randomItem) {
                     if (!this.randomItem) {
                         const from = +this.rewards.randomItem.split('-')[0];
                         const to = +this.rewards.randomItem.split('-')[1];
@@ -344,7 +344,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                     }
                 }
 
-                if (settingsManager.settings.scenarioRewardsItems && this.rewards.randomItems) {
+                if (settingsManager.settings.drawRandomItem && this.rewards.randomItems) {
                     if (this.randomItems.length < this.characters.length && this.rewards.randomItems.split('-').length > 1) {
                         const from = +this.rewards.randomItems.split('-')[0];
                         const to = +this.rewards.randomItems.split('-')[1];
