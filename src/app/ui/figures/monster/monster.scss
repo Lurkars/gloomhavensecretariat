@@ -49,14 +49,14 @@
 
       &.normal,
       &.boss {
-        bottom: calc(var(--ghs-unit) * 1);
-        left: calc(var(--ghs-unit) * 1);
+        bottom: 0;
+        left: 0;
       }
 
       &.elite {
-        bottom: calc(var(--ghs-unit) * 1);
+        bottom: 0;
         left: initial;
-        right: calc(var(--ghs-unit) * 1);
+        right: 0;
       }
     }
   }

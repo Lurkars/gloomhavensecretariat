@@ -148,6 +148,14 @@ export class SettingsManager {
       settings.combineSummonAction = true;
     }
 
+    if (!settings.treasuresLootItem) {
+      settings.drawRandomItem = false;
+    }
+
+    if (!settings.treasuresLootScenario) {
+      settings.drawRandomScenario = false;
+    }
+
     this.sortSpoilers();
   }
 

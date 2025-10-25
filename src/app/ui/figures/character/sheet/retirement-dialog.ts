@@ -13,8 +13,8 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameScenarioModel } from "src/app/game/model/Scenario";
 import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
-import { CharacterMoveResourcesDialog } from "./move-resources";
 import { ItemDialogComponent } from "../../items/dialog/item-dialog";
+import { CharacterMoveResourcesDialog } from "./move-resources";
 
 @Component({
     standalone: false,
@@ -36,8 +36,8 @@ export class CharacterRetirementDialog {
     characterScenario: ScenarioData | undefined;
     characterItemDesign: ItemData | undefined;
     envelopeAlreadyUnlocked: boolean = false;
-    envelopeSection: ScenarioData | undefined;
-    envelopeItemBlueprint: ItemData | undefined;
+    envelopeSection: ScenarioData | true | undefined;
+    envelopeItemBlueprint: ItemData | true | undefined;
 
     additional: boolean = false;
     additionalPQ: PersonalQuest | undefined;
@@ -47,8 +47,8 @@ export class CharacterRetirementDialog {
     additionalCharacterScenario: ScenarioData | undefined;
     additionalCharacterItemDesign: ItemData | undefined;
     additionalEnvelopeAlreadyUnlocked: boolean = false;
-    additionalEnvelopeSection: ScenarioData | undefined;
-    additionalEnvelopeItemBlueprint: ItemData | undefined;
+    additionalEnvelopeSection: ScenarioData | true | undefined;
+    additionalEnvelopeItemBlueprint: ItemData | true | undefined;
 
     hasResources: boolean = false;
 
@@ -84,8 +84,8 @@ export class CharacterRetirementDialog {
             if (this.personalQuest.openEnvelope && gameManager.fhRules()) {
                 this.envelopeAlreadyUnlocked = !this.buildingsEnvelopeHelper(this.personalQuest.openEnvelope, false) && !this.buildingsEnvelopeHelper(this.personalQuest.openEnvelope);
                 if (this.envelopeAlreadyUnlocked) {
-                    this.envelopeSection = gameManager.scenarioManager.drawRandomScenarioSection(gameManager.currentEdition());
-                    this.envelopeItemBlueprint = gameManager.itemManager.drawRandomItem(gameManager.currentEdition(), true);
+                    this.envelopeSection = settingsManager.settings.drawRandomScenario ? gameManager.scenarioManager.drawRandomScenarioSection(gameManager.currentEdition()) : true;
+                    this.envelopeItemBlueprint = settingsManager.settings.drawRandomItem ? gameManager.itemManager.drawRandomItem(gameManager.currentEdition(), true) : true;
                 }
             }
         }
@@ -161,11 +161,11 @@ export class CharacterRetirementDialog {
         }
 
         if (this.envelopeAlreadyUnlocked) {
-            if (this.envelopeSection) {
+            if (this.envelopeSection && this.envelopeSection != true) {
                 gameManager.game.party.conclusions.push(new GameScenarioModel('' + this.envelopeSection.index, this.envelopeSection.edition, this.envelopeSection.group));
                 if (this.envelopeSection.unlocks) {
                     this.envelopeSection.unlocks.forEach((unlock) => {
-                        if (this.envelopeSection) {
+                        if (this.envelopeSection && this.envelopeSection != true) {
                             gameManager.game.party.manualScenarios.push(new GameScenarioModel(unlock, this.envelopeSection.edition));
                         }
                     })
@@ -174,7 +174,7 @@ export class CharacterRetirementDialog {
                 gameManager.game.party.inspiration += 1;
             }
 
-            if (this.envelopeItemBlueprint) {
+            if (this.envelopeItemBlueprint && this.envelopeItemBlueprint != true) {
                 gameManager.game.party.unlockedItems.push(new CountIdentifier('' + this.envelopeItemBlueprint.id, this.envelopeItemBlueprint.edition));
             } else {
                 gameManager.game.party.inspiration += 1;
@@ -182,12 +182,12 @@ export class CharacterRetirementDialog {
         }
 
         if (this.additionalEnvelopeAlreadyUnlocked) {
-            if (this.additionalEnvelopeSection) {
+            if (this.additionalEnvelopeSection && this.additionalEnvelopeSection != true) {
                 gameManager.game.party.conclusions.push(new GameScenarioModel('' + this.additionalEnvelopeSection.index, this.additionalEnvelopeSection.edition, this.additionalEnvelopeSection.group));
                 if (this.additionalEnvelopeSection.unlocks) {
                     this.additionalEnvelopeSection.unlocks.forEach((unlock) => {
-                        if (this.envelopeSection) {
-                            gameManager.game.party.manualScenarios.push(new GameScenarioModel(unlock, this.envelopeSection.edition));
+                        if (this.additionalEnvelopeSection && this.additionalEnvelopeSection != true) {
+                            gameManager.game.party.manualScenarios.push(new GameScenarioModel(unlock, this.additionalEnvelopeSection.edition));
                         }
                     })
                 }
@@ -195,7 +195,7 @@ export class CharacterRetirementDialog {
                 gameManager.game.party.inspiration += 1;
             }
 
-            if (this.additionalEnvelopeItemBlueprint) {
+            if (this.additionalEnvelopeItemBlueprint && this.additionalEnvelopeItemBlueprint != true) {
                 gameManager.game.party.unlockedItems.push(new CountIdentifier('' + this.additionalEnvelopeItemBlueprint.id, this.additionalEnvelopeItemBlueprint.edition));
             } else {
                 gameManager.game.party.inspiration += 1;
@@ -278,8 +278,8 @@ export class CharacterRetirementDialog {
                 this.additionalEnvelopeAlreadyUnlocked = !this.buildingsEnvelopeHelper(this.additionalPQ.openEnvelope, false) && !this.buildingsEnvelopeHelper(this.additionalPQ.openEnvelope);
 
                 if (this.additionalEnvelopeAlreadyUnlocked) {
-                    this.additionalEnvelopeSection = gameManager.scenarioManager.drawRandomScenarioSection(gameManager.currentEdition());
-                    this.additionalEnvelopeItemBlueprint = gameManager.itemManager.drawRandomItem(gameManager.currentEdition(), true);
+                    this.additionalEnvelopeSection = settingsManager.settings.drawRandomScenario ? gameManager.scenarioManager.drawRandomScenarioSection(gameManager.currentEdition()) : true;
+                    this.additionalEnvelopeItemBlueprint = settingsManager.settings.drawRandomItem ? gameManager.itemManager.drawRandomItem(gameManager.currentEdition(), true) : true;
                 }
             }
         }

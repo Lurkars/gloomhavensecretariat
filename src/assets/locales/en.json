@@ -216,7 +216,9 @@
           "building": "Unlocks building '%data.buildings.{1}%' ({0})",
           "inspiration": "Gain +1 Inspiration",
           "itemBlueprint": "Gain \"%data.items.{1}-{0}%\" blueprint (Item {0})",
-          "randomScenario": "Open %data.section:{0}%, unlock %data.scenarioNumber:{1}%"
+          "itemBlueprintInfo": "Gain one random item blueprint.",
+          "randomScenario": "Open %data.section:{0}%, unlock %data.scenarioNumber:{1}%",
+          "randomScenarioInfo": "Gain one random side scenario."
         },
         "unlockCharacter": {
           "": "Open Box %game.characterIcon.{0}%",
@@ -577,6 +579,7 @@
       "perks": {
         "": "Perks",
         "additional": "{0} and {1}",
+        "additionalTwo": "{0}, {1} and {2}",
         "card": "Card",
         "cardLabel": "{0}{1} {2}",
         "cards": {
@@ -2559,6 +2562,14 @@
     "dragValues": {
       "": "Drag Initiative/HP/XP/Loot",
       "hint": "Drag support for changing values. To change initiative drag over the character portrait. For hit points, experience and loot drag over the values"
+    },
+    "drawRandomItem": {
+      "": "Draw Random Item rewards",
+      "hint": "Automatically draw a Random Item card."
+    },
+    "drawRandomScenario": {
+      "": "Draw Random Scenario rewards",
+      "hint": "Automatically draw a Random Scenario."
     },
     "eliteFirst": {
       "": "Elite standees first",

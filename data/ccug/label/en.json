@@ -10,6 +10,7 @@
       "jester-twins": "Jester Twins",
       "lifespeaker": "Lifespeaker",
       "lightracer": "Lightracer",
+      "reeftender": "Reeftender",
       "rootwhisperer": "Rootwhisperer",
       "skitterclaw": "Skitterclaw",
       "wildborn": "Wildborn",
@@ -20,6 +21,16 @@
   },
   "custom": {
     "perks": {
+      "alchemancer": {
+        "1": "+2 %game.action.attack%",
+        "2": "Add a %data.action.custom.ccug-vial-token% to an active %data.action.custom.ccug-experiment%",
+        "3": "If you drew this as part of a %data.action.custom.ccug-experiment% ability, %game.attackmodifier.plus2% instead",
+        "4": "Whenever you rest, %game.element.consume.wild% to %game.element.wild%",
+        "5": "Whenever you consume a potion %game.itemSlot:small%, you may place one %data.action.custom.ccug-vial-token% on an active %data.action.custom.ccug-experiment% card",
+        "6": "At the end of each of your turns during which you performed no attacks and you are not perfoming a long rest, %game.element.fire%, %game.element.ice%, or %game.element.earth%",
+        "7": "Activate 12 %data.action.custom.ccug-experiment% abilities with at least two %data.action.custom.ccug-vial-token% used for bonuses during a single scenario",
+        "8": "Consume six elements in one turn twice during a single scenario"
+      },
       "core": {
         "1": "Add +1 %game.action.attack% for each condition you have",
         "2": "At the start of each scenario you may perform \"%game.condition.strengthen%, %game.condition.wound%, Self\" or \"%game.condition.ward%, %game.condition.immobilize%, Self\"",
@@ -28,6 +39,16 @@
         "5": "Kill the last enemy to die in the scenario and finish with nine ability cards in your lost pile",
         "6": "Trigger an ongoing effect on Chaotic Recursion six or more times in one round"
       },
+      "dome": {},
+      "echowight": {},
+      "frostborn": {},
+      "glacial-torrent": {},
+      "jester-twins": {},
+      "lifespeaker": {},
+      "lightracer": {},
+      "reeftender": {},
+      "rootwhisperer": {},
+      "skitterclaw": {},
       "wildborn": {
         "1": "instead if you suffer %game.damage:2%",
         "2": "Add +1 %game.action.attack% per collected %data.action.custom.ccug-essence%",
@@ -46,7 +67,9 @@
         "4": "Whenever you long rest, %game.element.wild%",
         "5": "Consume at least three elements on each of your turns after the first round, without exhausting",
         "6": "Have %game.action.shield% 2 on each attack targeting you that would cause you to suffer damage, and be attacked at least 15 times."
-      }
+      },
+      "veilpiercer": {},
+      "vimthreader": {}
     }
   },
   "edition": {

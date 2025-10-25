@@ -299,6 +299,8 @@ export class SettingsMenuComponent {
     settingsManager.settings.combineSummonAction = true;
     settingsManager.settings.dragFigures = true;
     settingsManager.settings.dragValues = true;
+    settingsManager.settings.drawRandomItem = true;
+    settingsManager.settings.drawRandomScenario = true;
     settingsManager.settings.eliteFirst = true;
     settingsManager.settings.errata = true;
     settingsManager.settings.expireConditions = true;
@@ -321,7 +323,6 @@ export class SettingsMenuComponent {
     settingsManager.settings.randomStandees = true;
     settingsManager.settings.removeUnusedMonster = true;
     settingsManager.settings.scenarioRewards = true;
-    settingsManager.settings.scenarioRewardsItems = true;
     settingsManager.settings.scenarioRooms = true;
     settingsManager.settings.scenarioRules = true;
     settingsManager.settings.showExpandedAbilityCard = true;
@@ -335,8 +336,6 @@ export class SettingsMenuComponent {
     settingsManager.settings.tooltips = true;
     settingsManager.settings.treasures = true;
     settingsManager.settings.treasuresLoot = true;
-    settingsManager.settings.treasuresLootItem = true;
-    settingsManager.settings.treasuresLootScenario = true;
     settingsManager.settings.turnConfirmation = false;
     settingsManager.settings.unlockEnvelopeBuildings = true;
   }

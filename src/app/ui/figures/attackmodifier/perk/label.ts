@@ -59,10 +59,16 @@ export class PerkLabelComponent {
                 }
             } if (cardLabel.length < 2) {
                 label = cardLabel;
-            } else {
+            } else if (cardLabel.length < 3) {
                 cardLabel.forEach((value, index, self) => {
                     if (index % 2 == 0 && index < self.length - 1) {
                         label.push(settingsManager.getLabel('game.attackModifiers.perks.additional', [value, cardLabel[index + 1]]));
+                    }
+                });
+            } else if (cardLabel.length < 4) {
+                cardLabel.forEach((value, index, self) => {
+                    if (index % 2 == 0 && index < self.length - 2) {
+                        label.push(settingsManager.getLabel('game.attackModifiers.perks.additionalTwo', [value, cardLabel[index + 1], cardLabel[index + 2]]));
                     }
                 });
             }
