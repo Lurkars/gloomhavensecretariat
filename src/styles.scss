@@ -744,6 +744,7 @@ ghs-pointer-input {
 
 .cdk-drag-preview {
   cursor: grabbing;
+  overflow: visible;
 
   &.drag-hidden {
     opacity: 0;

@@ -78,7 +78,7 @@ export class PointerInputService {
         this.currentPinchZoom = true;
         return;
       }
-      if (this.active && event.isPrimary) {
+      if (this.active && event.isPrimary && !this.active.isDragElement) {
         this.active.pointermove(event);
         window.document.body.classList.add('dragging');
         window.document.body.classList.add('no-pointer');
