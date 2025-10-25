@@ -94,11 +94,11 @@
         "8": "在单一剧本中，只要场上有受伤的怪物就不能攻击未受伤的敌人，并执行至少10次攻击"
       },
       "squidface": {
-        "1": "目标或目标%game.action.range% 2内的一个敌人获得%data.action.custom.gh2e-plaque%",
+        "1": "目标或目标%game.action.range% 2内的一个敌人获得%game.condition.plague%",
         "2": "目标或目标%game.action.range% 2内的一个敌人获得%game.condition.poison%",
         "3": "你获得%game.action.fly%",
         "4": "每当你获得充分休息的治疗时，你可以移除一个盟友的%game.condition.poison%来增加+1 %game.action.heal%",
-        "5": "每个剧本限一次，每当一个带有%data.action.custom.gh2e-plaque%的敌人将要死亡时，你先控制那个敌人执行其怪物能力卡牌上的行动，并为其所有攻击附加%data.action.custom.gh2e-plaque%，然后该敌人死亡",
+        "5": "每个剧本限一次，每当一个带有%game.condition.plague%的敌人将要死亡时，你先控制那个敌人执行其怪物能力卡牌上的行动，并为其所有攻击附加%game.condition.plague%，然后该敌人死亡",
         "6": "在单一轮次中，未抽取攻击修正卡牌的情况下消灭至少3个敌人",
         "7": "在单一剧本中，每轮都对一个敌人或盟友施加或移除%game.condition.poison%"
       },
