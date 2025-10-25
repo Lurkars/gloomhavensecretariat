@@ -121,8 +121,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "%data.custom.perks.toolstwo.1%",
-                "hint": "%data.custom.perks.toolstwo.2%"
+                "value": "%data.custom.perks.toolstwo.1%"
               }
             ]
           }
@@ -140,8 +139,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "%data.custom.perks.toolstwo.1%",
-                "hint": "%data.custom.perks.toolstwo.2%"
+                "value": "%data.custom.perks.toolstwo.1%"
               }
             ]
           }
@@ -153,8 +151,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "%data.custom.perks.toolstwo.1%",
-                "hint": "%data.custom.perks.toolstwo.2%"
+                "value": "%data.custom.perks.toolstwo.1%"
               }
             ]
           }
@@ -172,8 +169,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "%data.custom.perks.toolstwo.1%",
-                "hint": "%data.custom.perks.toolstwo.2%"
+                "value": "%data.custom.perks.toolstwo.1%"
               }
             ]
           }
@@ -189,8 +185,7 @@
                 "effects": [
                   {
                     "type": "custom",
-                    "value": "%data.custom.perks.toolstwo.1%",
-                    "hint": "%data.custom.perks.toolstwo.2%"
+                    "value": "%data.custom.perks.toolstwo.1%"
                   }
                 ]
               }
@@ -263,8 +258,7 @@
                 "effects": [
                   {
                     "type": "custom",
-                    "value": "%data.custom.perks.toolstwo.2%",
-                    "hint": "%data.custom.perks.toolstwo.2%"
+                    "value": "%data.custom.perks.toolstwo.2%"
                   }
                 ]
               }
