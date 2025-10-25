@@ -99,11 +99,11 @@
         "8": "In a single scneario, never attack an undamaged enemy while there are any damaged monsters alive, and perform at least 10 attacks"
       },
       "squidface": {
-        "1": "Give the target or one enemy within %game.action.range% 2 of the target %data.action.custom.gh2e-plaque%",
+        "1": "Give the target or one enemy within %game.action.range% 2 of the target %game.condition.plague%",
         "2": "Give the target or one enemy within %game.action.range% 2 of the target %game.condition.poison%",
         "3": "You have %game.action.fly%",
         "4": "Whenever you heal from a long rest, you may remove %game.condition.poison% from on ally to add +1 %game.action.heal%",
-        "5": "Once each scenario, when an enemy that has a %data.action.custom.gh2e-plaque% would die, you first control that enemy and have it perform the abilities on its ability card, adding %data.action.custom.gh2e-plaque% to all its attack, then it dies",
+        "5": "Once each scenario, when an enemy that has a %game.condition.plague% would die, you first control that enemy and have it perform the abilities on its ability card, adding %game.condition.plague% to all its attack, then it dies",
         "6": "In a single turn, kill 3 or more enemies without drawing an attack modifier card",
         "7": "In a single scenario, either apply or remove %game.condition.poison% from an ally or enemy each round"
       },
