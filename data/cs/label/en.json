@@ -643,6 +643,14 @@
         "2": "if projectile %data.action.custom.cs-projectile%",
         "3": "toward the target"
       },
+      "toolstwo": {
+        "1": "Gain 1 %data.action.custom.cs-tool%",
+        "2": "if drawn by summon",
+        "3": "Create one %game.action.damage% 2 trap in an empty hex adjacent to the target",
+        "4": "At the start of each scenario, you may lose one %game.items.slots.head%, %game.items.slots.legs%, %game.items.slots.onehand%, or %game.items.slots.twohand% item for no effect to gain 2 %data.action.custom.cs-tool%",
+        "5": "Wenever you short rest, you may %game.action.card.recover% on spent %game.items.slots.head%, %game.items.slots.legs%, %game.items.slots.onehand%, or %game.items.slots.twohand% item",
+        "6": "Wenever you long rest, you may spend 1 %data.action.custom.cs-tool% to %game.action.card.recover% one lost %game.items.slots.head%, %game.items.slots.legs%, %game.items.slots.onehand%, or %game.items.slots.twohand% item"
+      },
       "tusks": {
         "1": "Affect all summoned allies owned",
         "2": "where X is the number of summoned allies you own",
