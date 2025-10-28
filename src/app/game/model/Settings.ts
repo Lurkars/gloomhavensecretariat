@@ -176,6 +176,7 @@ export class Settings {
   showBossMonster: boolean = true;
   showAllSections = false;
   showExpandedAbilityCard: boolean = false;
+  showExpandedStatCard: boolean = false;
   showFullAbilityCard: boolean = false;
   showHiddenMonster: boolean = false;
   showOnlyUnfinishedScenarios = false;

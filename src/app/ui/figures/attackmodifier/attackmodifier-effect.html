@@ -63,10 +63,17 @@
       @if (effect.value) {
       <span class="value">{{+effect.value | ghsValueSign}}</span>
       }
-      @if (getTarget()) {
+      @if (getTarget() && getTarget().startsWith('game.specialTarget')) {
       <span class="target-value-container {{'target-' + getTarget().replace('game.specialTarget.','')}}">
         <span class="target-value text-white" [ghs-label]="getTarget().split(':')[0]"
           [ghs-label-args]="getTarget().split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
+      </span>
+      }
+      @if (getTarget() && !getTarget().startsWith('game.specialTarget')) {
+      <span class="target-value-container">
+        <img [src]="'./assets/images/action/target.svg'" />
+        <span class="target-value text-white" [ghs-label]="getTarget()" [ghs-label-args]="[]"
+          [style]="newStyle ? 'fh' : false"></span>
       </span>
       }
       @if (getRange()) {

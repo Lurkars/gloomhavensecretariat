@@ -38,6 +38,10 @@
       height: calc(var(--ghs-unit) * 24);
     }
 
+    &.full-stats {
+      height: 100%;
+    }
+
     ghs-monster-stats {
       width: 100%;
       height: 100%;

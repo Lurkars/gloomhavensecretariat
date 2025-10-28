@@ -668,6 +668,7 @@
       "revealAllConfirm": "Reveal All!",
       "shuffle": {
         "": "Shuffle",
+        "allHint": "Double click to shuffle all cards!",
         "upcomingHint": "Double click to shuffle only upcoming cards!"
       }
     },
@@ -2834,6 +2835,10 @@
     "showExpandedAbilityCard": {
       "": "Show expanded ability cards",
       "hint": "Show all abilities on ability cards at once (automatically also show card title)."
+    },
+    "showExpandedStatCard": {
+      "": "Show expanded stat cards",
+      "hint": "Extand the stat cards to show all content."
     },
     "showFullAbilityCard": {
       "": "Show ability card title",

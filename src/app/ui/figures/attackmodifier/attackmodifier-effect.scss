@@ -82,6 +82,14 @@
     left: 50%;
     transform: translateX(-50%);
 
+    img {
+      position: relative !important;
+      left: initial !important;
+      top: initial !important;
+      width: 20% !important;
+      filter: var(--ghs-filter-white);
+    }
+
     .target-value {
       display: inline;
       text-align: center;
