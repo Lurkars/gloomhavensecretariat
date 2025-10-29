@@ -53,7 +53,7 @@ export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.edition = this.item.edition;
             }
 
-            if (this.item.edition == 'fh') {
+            if (this.item.edition == 'fh' || this.item.edition == 'gh2e') {
                 this.fhStyle = true;
             }
 
