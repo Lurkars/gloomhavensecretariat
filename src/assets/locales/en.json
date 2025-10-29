@@ -1261,6 +1261,7 @@
       "enemy": "%game.target% one enemy",
       "enemyAdjacent": "%game.target% one adjacent enemy",
       "enemyAllyRange": "%game.target% one enemy or %game.affect% one ally within %game.action.range% {0}",
+      "enemyAttacked": "%game.target% the enemy that<br>attacked you",
       "enemyOneAll": "%game.target% one enemy with all attacks",
       "enemyRange": "%game.target% one enemy at exactly %game.action.range% {0}",
       "figures": "%game.target% all figures",
@@ -1274,7 +1275,8 @@
       "selfAlliesAffectRange": "%game.affect% self and all allies within %game.action.range% {0}",
       "selfAlliesRange": "%game.target% self and all allies within %game.action.range% {0}",
       "selfOrAlly": "Self or ally",
-      "targets": "All targets"
+      "targets": "All targets",
+      "targetAttackAbility": "%game.target% 1 target of the attack<br>ability at any %game.action.range%, %game.action.pierce:1%"
     },
     "sufferDamage": "{0} suffer %game.damage:{1}%",
     "summon": {
