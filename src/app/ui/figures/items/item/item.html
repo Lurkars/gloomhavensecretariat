@@ -51,6 +51,11 @@
         <span class="placeholder text-white" [ghs-label]="'%game.card.flip%'"></span>
       </div>
       }
+      @if (item.slot) {
+      <div class="slot">
+        <img class="ghs-svg" [src]="'./assets/images/items/slots/' + item.slot + '.svg'">
+      </div>
+      }
       <div class="id">
         @if (edition) {
         <span class="edition">{{edition}}&nbsp;</span>
