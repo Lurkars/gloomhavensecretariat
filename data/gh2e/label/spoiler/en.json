@@ -521,7 +521,8 @@
     },
     "gh2e-44": {
       "": "Precision Bow",
-      "1": "After your ranged attack ability, perform:"
+      "1": "After your ranged attack ability, perform:",
+      "2": "%game.action.target% 1 target of the attack<br>ability at any %game.action.range%, %game.action.pierce% 1"
     },
     "gh2e-45": {
       "": "Major Element Potion",

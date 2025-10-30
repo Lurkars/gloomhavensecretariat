@@ -960,7 +960,7 @@
         "subActions": [
           {
             "type": "specialTarget",
-            "value": "targetAttackAbility",
+            "value": "%data.items.gh2e-44.2%",
             "small": true
           }
         ]
