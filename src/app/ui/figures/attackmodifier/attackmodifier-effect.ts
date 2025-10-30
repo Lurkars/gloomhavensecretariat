@@ -50,6 +50,10 @@ export class AttackModifierEffectComponent implements AfterViewInit, OnDestroy {
       if (specialTarget) {
         return 'game.specialTarget.' + specialTarget.value;
       }
+      const targetValue = this.effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.target)
+      if (targetValue) {
+        return targetValue.value;
+      }
       const customValue = this.effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.custom)
       if (customValue) {
         return customValue.value;

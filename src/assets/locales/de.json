@@ -668,6 +668,7 @@
       "revealAllConfirm": "Alle Aufdecken!",
       "shuffle": {
         "": "Mischen",
+        "allHint": "Doppelklick um alle Karten zu mischen!",
         "upcomingHint": "Doppelklick um nur nicht gezogene Karten zu mischen!"
       }
     },
@@ -2829,6 +2830,10 @@
     "showExpandedAbilityCard": {
       "": "Alle Fertigkeiten auf Fertigkeitskarten anzeigen",
       "hint": "Zeigt die alle Fertigkeiten einer Fertigkeitskarten auf einmal (inklusive Titel) an."
+    },
+    "showExpandedStatCard": {
+      "": "Wertekarten vollständig anzeigen",
+      "hint": "Zeige die komplette Wertekarten auf einmal an."
     },
     "showFullAbilityCard": {
       "": "Titel von Fertigkeitskarten anzeigen",

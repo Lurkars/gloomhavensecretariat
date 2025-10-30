@@ -10,8 +10,8 @@
       <a (click)="drawCard()" [ngClass]="{'disabled': drawDisabled}"><span [ghs-label]="'game.cards.draw'"></span></a>
       }
       @if (edit) {
-      <a ghs-pointer-input (singleClick)="shuffle()" (doubleClick)="shuffle(true)"
-        [ghs-tooltip]="'game.cards.shuffle.upcomingHint'" [overlayX]="'center'"><span
+      <a ghs-pointer-input (singleClick)="shuffle(true)" (doubleClick)="shuffle()"
+        [ghs-tooltip]="'game.cards.shuffle.allHint'" [overlayX]="'center'"><span
           [ghs-label]="'game.cards.shuffle'"></span></a>
       }
       <a ghs-pointer-input (singleClick)="clear()" (doubleClick)="clear(false)"
