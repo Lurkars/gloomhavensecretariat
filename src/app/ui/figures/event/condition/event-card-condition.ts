@@ -73,8 +73,8 @@ export class EventCardConditionComponent implements OnInit {
                     }
 
                     return '%data.character.traits.' + trait + '%';
-                }).forEach((building, index, values) => {
-                    concat += building;
+                }).forEach((trait, index, values) => {
+                    concat += trait;
                     if (values.length > 1) {
                         if (index < values.length - 2) {
                             concat += ', ';

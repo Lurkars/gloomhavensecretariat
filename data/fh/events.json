@@ -568,14 +568,9 @@
             "narrative": "You discuss briefly, referencing the stars, the waves, and a host of other invisible elements surrounding your two craft. After a moment she smiles. \"That's it! It's the perfect way to avoid Now and arrive Then. Thank you!\" She heads back into the hatch, and the craft disappears in a pop of shimmering gold light.",
             "effects": [
               {
-                "condition": {
-                  "type": "traits",
-                  "values": [
-                    "aesther"
-                  ]
-                },
-                "type": "experience",
+                "type": "traitExperience",
                 "values": [
+                  "aesther",
                   10
                 ]
               }
@@ -1069,29 +1064,17 @@
             "narrative": "You rush up to the cannons just as another crack of lightning floods your vision—it's a direct hit.",
             "effects": [
               {
-                "condition": {
-                  "type": "traits",
-                  "values": [
-                    "armored"
-                  ]
-                },
-                "type": "scenarioCondition",
-                "alt": true,
+                "type": "traitScenarioCondition",
                 "values": [
+                  "armored",
                   "wound"
                 ]
               },
               {
-                "condition": {
-                  "type": "traits",
-                  "values": [
-                    "armored"
-                  ]
-                },
-                "type": "scenarioDamage",
-                "alt": true,
+                "type": "traitScenarioDamage",
                 "values": [
-                  2
+                  "armored",
+                  3
                 ]
               }
             ]
@@ -7419,7 +7402,20 @@
             },
             "narrative": "You provide some healthy members from your own being into the Harrower, and after several minutes of struggle it gathers itself up and thanks you.",
             "effects": [
-              "All %game.trait:harrower% characters start the next scenario with %game.damage:3% and %game.condition.muddle%.",
+              {
+                "type": "traitScenarioDamage",
+                "values": [
+                  "harrower",
+                  3
+                ]
+              },
+              {
+                "type": "traitScenarioCondition",
+                "values": [
+                  "harrower",
+                  "muddle"
+                ]
+              },
               {
                 "type": "inspiration",
                 "values": [
@@ -16378,7 +16374,14 @@
             },
             "narrative": "You catch a whiff of the meal they're cooking and recognize it immediately! It's Black Imp stew—your mother used to make it for the whole nest when you were young.",
             "effects": [
-              "All %game.trait:vermling% characters start the next scenario with %game.condition.ward% and %game.condition.bless%."
+              {
+                "type": "traitScenarioCondition",
+                "values": [
+                  "vermling",
+                  "ward",
+                  "bless"
+                ]
+              }
             ]
           },
           {

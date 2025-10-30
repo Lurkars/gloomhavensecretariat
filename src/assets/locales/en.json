@@ -998,6 +998,9 @@
         "townGuardDeckCardRemove": "Remove one %game.townGuardAM:{0}% card from the town guard deck.",
         "townGuardDeckCardRemovePermanently": "Permanently remove one %game.townGuardAM:{0}% card from the town guard deck.",
         "townGuardDeckCards": "Add %game.number.{1}% %game.townGuardAM:{0}% cards to the town guard deck.",
+        "traitExperience": "All %game.trait:{0}% gain {1} experience each.",
+        "traitScenarioCondition": "All %game.trait:{0}% characters start the next scenario with {1}.",
+        "traitScenarioDamage": "All %game.trait:{0}% characters start the next scenario with %game.damage:{1}%.",
         "unlockEnvelope": "Unlock envelope {0} if it is not unlocked.",
         "unlockScenario": {
           "": "Unlock \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",

@@ -3,7 +3,7 @@
   <div class="card vertical reverse item"
     [ngClass]="{'flipped': flipped, 'random': item.random, 'fh': fhStyle, 'craft' : craft, 'bb': bb}"
     [style.fontSize]="fontsize" card-reveal
-    [disabled]="!reveal || item.actionsBack && item.actionsBack.length > 0 || false" (change)="emitRevealed($event)">
+    [disabled]="!reveal" (change)="emitRevealed($event)">
     @if (!item.actionsBack || item.actionsBack.length == 0) {
     <div class="card-back back">
       <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
@@ -18,6 +18,7 @@
     }
     @if (!!item.actionsBack && item.actionsBack.length > 0) {
     <div class="card-back front">
+      <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
       @if (!item.noArtwork) {
       <img class="artwork"
         [src]="'./assets/artwork/items/' + item.edition + '-' + (idNumber && +item.id < 100 ? '0' : '') + (idNumber && +item.id < 10 ? '0' : '') + item.id + (item.backArtwork ? '-back' : '') + '.png'">
