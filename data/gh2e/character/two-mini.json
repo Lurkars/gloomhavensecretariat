@@ -48,6 +48,7 @@
   "availableSummons": [
     {
       "name": "two-mini",
+      "thumbnail": true,
       "health": "8+Lx2",
       "attack": 2,
       "movement": 3,
