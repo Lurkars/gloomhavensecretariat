@@ -216,7 +216,9 @@
           "building": "解锁建筑物 '%data.buildings.{1}%' ({0})",
           "inspiration": "获得+1激励值",
           "itemBlueprint": "获得 \"%data.items.{1}-{0}%\" 设计图 (Item {0})",
-          "randomScenario": "查看 %data.section:{0}%, 解锁 %data.scenarioNumber:{1}%"
+          "itemBlueprintInfo": "获得一个随机物品蓝图。",
+          "randomScenario": "查看 %data.section:{0}%, 解锁 %data.scenarioNumber:{1}%",
+          "randomScenarioInfo": "解锁一个随机支线剧本。"
         },
         "unlockCharacter": {
           "": "打开角色盒子 %game.characterIcon.{0}%",
@@ -577,6 +579,7 @@
       "perks": {
         "": "专长",
         "additional": "{0} 和 {1}",
+        "additionalTwo": "0}, {1} 和 {2}",
         "card": "卡牌",
         "cardLabel": "{0}{1} {2}",
         "cards": {
@@ -2566,6 +2569,14 @@
     "dragValues": {
       "": "拖动时序值/ 生命值 / 经验值 /拾取物",
       "hint": "支持拖动更改数值.要更改时序值,请拖动角色肖像.对于生命值,经验值和拾取物直接在数值上拖动"
+    },
+    "drawRandomItem": {
+      "": "抽取随机道具奖励",
+      "hint": "自动抽取一个随机道具卡牌。"
+    },
+    "drawRandomScenario": {
+      "": "抽取一个随机支线剧本",
+      "hint": "自动抽取一个随机支线剧本。"
     },
     "eliteFirst": {
       "": "精英立牌优先",
