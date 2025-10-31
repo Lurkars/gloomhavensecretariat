@@ -2,6 +2,10 @@
   "index": "13",
   "name": "Icecrag Ascent",
   "edition": "gh2e",
+  "unlocks": [
+    "29",
+    "32"
+  ],
   "monsters": [
     "hound"
   ],

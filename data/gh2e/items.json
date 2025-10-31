@@ -1626,6 +1626,7 @@
     "count": 2,
     "edition": "gh2e",
     "slot": "body",
+    "spent": true,
     "actions": [
       {
         "type": "custom",
@@ -1641,7 +1642,6 @@
         "value": "round"
       }
     ],
-    "spend": true,
     "noArtwork": true
   },
   {
@@ -2250,6 +2250,7 @@
     "count": 1,
     "edition": "gh2e",
     "slot": "head",
+    "spent": true,
     "actions": [
       {
         "type": "custom",
@@ -2257,7 +2258,6 @@
         "small": true
       }
     ],
-    "spend": true,
     "noArtwork": true
   },
   {

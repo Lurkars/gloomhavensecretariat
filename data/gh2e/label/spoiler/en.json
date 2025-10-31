@@ -365,7 +365,7 @@
     },
     "gh2e-147": {
       "": "Scepter of Xorn",
-      "1": "During a turn, if you do not have %game.condition.poison%, gain %game.condition.poison% to perform:"
+      "1": "During your turn, if you do not have %game.condition.poison%, gain %game.condition.poison% to perform:"
     },
     "gh2e-148": {
       "": "Shield of the Righteous",
@@ -455,7 +455,7 @@
     },
     "gh2e-3": {
       "": "Hide Armor",
-      "1": "On the next two sou1es of %game.damage% from attacks targeting you, gain %game.action.shield:1% for the attacks"
+      "1": "On the next two sources of %game.damage% from attacks targeting you, gain %game.action.shield:1% for the attacks."
     },
     "gh2e-30": {
       "": "Armorbane Bow",
@@ -546,7 +546,7 @@
     },
     "gh2e-5": {
       "": "Scouting Lens",
-      "1": "During your attack ability, add %game.action.pierce% 1 to one attack"
+      "1": "During your attack ability, add %game.action.pierce% 1 to one attack."
     },
     "gh2e-50": {
       "": "Robes of the Oak",
