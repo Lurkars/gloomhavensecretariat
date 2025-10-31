@@ -50,9 +50,13 @@ export class EventCardEffectComponent implements OnInit {
 
             this.disabled = this.effectObject.condition && !gameManager.eventCardManager.resolvableCondition(this.effectObject.condition) || false;
 
-            if (this.effectObject.type == EventCardEffectType.scenarioCondition) {
+            if (this.effectObject.type == EventCardEffectType.scenarioCondition || this.effectObject.type == EventCardEffectType.traitScenarioCondition) {
                 let concat = "";
-                this.effectObject.values.filter((v) => typeof v === 'string').map((condition) => {
+                let values = this.effectObject.values;
+                if (this.effectObject.type == EventCardEffectType.traitScenarioCondition) {
+                    values = values.slice(1);
+                }
+                values.filter((v) => typeof v === 'string').map((condition) => {
                     const values = condition.split(':');
                     if (values.length == 2) {
                         return '%game.condition.' + values[0] + '% x' + values[1];
@@ -69,6 +73,9 @@ export class EventCardEffectComponent implements OnInit {
                     }
                 })
                 this.labelArgs = [concat];
+                if (this.effectObject.type == EventCardEffectType.traitScenarioCondition && typeof this.effectObject.values[0] === 'string') {
+                    this.labelArgs.unshift(this.effectObject.values[0]);
+                }
             }
 
             this.labelArgs.push(this.edition);

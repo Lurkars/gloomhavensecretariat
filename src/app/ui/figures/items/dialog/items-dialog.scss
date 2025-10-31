@@ -336,7 +336,7 @@
                 display: flex;
                 cursor: pointer;
                 top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-                left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
                 justify-content: center;
                 align-items: center;
                 width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));

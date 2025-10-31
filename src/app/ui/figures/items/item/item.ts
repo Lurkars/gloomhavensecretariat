@@ -53,7 +53,7 @@ export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.edition = this.item.edition;
             }
 
-            if (this.item.edition == 'fh') {
+            if (this.item.edition == 'fh' || this.item.edition == 'gh2e') {
                 this.fhStyle = true;
             }
 
@@ -71,7 +71,7 @@ export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
             this.applySlots(this.item.slots, this.slots);
             if (this.item.slotsBack) {
                 this.item.actionsBack = this.item.actionsBack || [];
-                this.applySlots(this.item.slotsBack, this.slots);
+                this.applySlots(this.item.slotsBack, this.slotsBack);
             }
 
             if (this.item.summon && !this.item.actions.find((action) => action.type == ActionType.summon && action.value == 'summonDataItem')) {

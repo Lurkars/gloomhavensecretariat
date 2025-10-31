@@ -998,6 +998,9 @@
         "townGuardDeckCardRemove": "Entferne eine %game.townGuardAM:{0}% Karte aus dem Stadtwachendeck.",
         "townGuardDeckCardRemovePermanently": "Entferne dauerhaft eine %game.townGuardAM:{0}% Karte aus dem Stadtwachendeck.",
         "townGuardDeckCards": "Füge %game.number.{1}% %game.townGuardAM:{0}% Karten zum Stadtwachendeck hinzu.",
+        "traitExperience": "Alle %game.trait:{0}% Charaktere erhalten jeweils {1} Erfahrung.",
+        "traitScenarioCondition": "Alle %game.trait:{0}% Charaktere beginnen das nächste Szenario mit {1}.",
+        "traitScenarioDamage": "Alle %game.trait:{0}% Charaktere beginnen das nächste Szenario mit %game.damage:{0}%..",
         "unlockEnvelope": "Öffne Umschlag {0}, falls diese noch ungeöffnet ist.",
         "unlockScenario": {
           "": "\\\"%data.scenario.title.{1}.{0}%\\\" %data.scenarioNumber:{0}% freischalten.",
