@@ -2271,7 +2271,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%data.items.gh2e-100.1%",
+        "value": "%data.items.gh2e-104.1%",
         "small": true
       },
       {
