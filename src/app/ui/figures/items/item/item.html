@@ -49,7 +49,7 @@
       }
       @if (!!item.actionsBack && item.actionsBack.length > 0) {
       <div class="flip" ghs-pointer-input (singleClick)="flipped = !flipped">
-        <span class="placeholder text-white" [ghs-label]="'%game.card.flip%'"></span>
+        <span class="placeholder text-white" [ghs-label]="'%game.card.flip-item%'"></span>
       </div>
       }
       @if (item.slot) {
@@ -148,7 +148,7 @@
       @if (!!item.actionsBack && item.actionsBack.length > 0) {
       <div class="flip" [ngClass]="{'interactive' : clickedFlip.observed, 'usable' : usable}" ghs-pointer-input
         (singleClick)="flipped = !flipped; clickedFlip.emit()" (doubleClick)="clickedFlip.emit(true)">
-        <span class="placeholder text-white" [ghs-label]="'%game.card.flip%'"></span>
+        <span class="placeholder text-white" [ghs-label]="'%game.card.flip-item%'"></span>
       </div>
       }
       @if (item.persistent) {

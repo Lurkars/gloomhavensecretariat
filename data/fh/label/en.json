@@ -1062,7 +1062,8 @@
         "state": {
           "both": "Harvest Garden and plant herbs",
           "harvest": "Garden is flipped, only harvesting this week",
-          "plant": "Plant Herbs"
+          "plant": "Plant Herbs",
+          "toggle": "Flip Garden Card"
         }
       }
     },
@@ -1081,9 +1082,9 @@
     "hunting-lodge": {
       "": "Hunting Lodge",
       "1": "Collectively buy up to 1 %game.resource.hide% for 2 gold",
-      "2": "Collectively buy up to 2 %game.resource.hide% for 2 gold",
-      "3": "Collectively buy up to 3 %game.resource.hide% for 2 gold",
-      "4": "Collectively buy up to 4 %game.resource.hide% for 2 gold"
+      "2": "Collectively buy up to 2 %game.resource.hide% for 2 gold each",
+      "3": "Collectively buy up to 3 %game.resource.hide% for 2 gold each",
+      "4": "Collectively buy up to 4 %game.resource.hide% for 2 gold each"
     },
     "inn": {
       "": "Inn",
@@ -1102,9 +1103,9 @@
     "logging-camp": {
       "": "Logging Camp",
       "1": "Collectively buy up to 1 %game.resource.lumber% for 2 gold",
-      "2": "Collectively buy up to 2 %game.resource.lumber% for 2 gold",
-      "3": "Collectively buy up to 3 %game.resource.lumber% for 2 gold",
-      "4": "Collectively buy up to 4 %game.resource.lumber% for 2 gold"
+      "2": "Collectively buy up to 2 %game.resource.lumber% for 2 gold each",
+      "3": "Collectively buy up to 3 %game.resource.lumber% for 2 gold each",
+      "4": "Collectively buy up to 4 %game.resource.lumber% for 2 gold each"
     },
     "lumber-depot": {
       "": "Lumber Depot",
@@ -1121,9 +1122,9 @@
     "mining-camp": {
       "": "Mining Camp",
       "1": "Collectively buy up to 1 %game.resource.metal% for 2 gold",
-      "2": "Collectively buy up to 2 %game.resource.metal% for 2 gold",
-      "3": "Collectively buy up to 3 %game.resource.metal% for 2 gold",
-      "4": "Collectively buy up to 4 %game.resource.metal% for 2 gold"
+      "2": "Collectively buy up to 2 %game.resource.metal% for 2 gold each",
+      "3": "Collectively buy up to 3 %game.resource.metal% for 2 gold each",
+      "4": "Collectively buy up to 4 %game.resource.metal% for 2 gold each"
     },
     "sled": {
       "": "Sled"

@@ -4,6 +4,7 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GardenModel } from "src/app/game/model/Building";
 import { Character } from "src/app/game/model/Character";
+import { Action, ActionType } from "src/app/game/model/data/Action";
 import { herbResourceLootTypes, LootType } from "src/app/game/model/data/Loot";
 
 @Component({
@@ -26,6 +27,8 @@ export class GardenComponent implements OnInit, OnDestroy {
     characters: Character[] = [];
     currentSource: number = -1;
     harvested: boolean = false;
+
+    flipAction = new Action(ActionType.card, "flip");
 
     settingsManager: SettingsManager = settingsManager;
 

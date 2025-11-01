@@ -21,11 +21,30 @@
             justify-content: center;
             align-items: center;
 
+            .state {
+                font-size: 1.3em;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
             .hint-container {
 
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
+                ghs-action {
+                    cursor: pointer;
+                    font-size: 1.6em;
+                    margin-right: 0.5em;
+
+                    &.disabled {
+                        cursor: initial;
+                        filter: grayscale(0.5);
+                    }
+                }
 
                 label {
                     display: flex;

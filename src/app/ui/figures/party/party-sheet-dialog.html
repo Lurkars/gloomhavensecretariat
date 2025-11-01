@@ -978,7 +978,7 @@
         </div>
         }
         <div class="row">
-          @if (gameManager.editionRules('gh')) {
+          @if (gameManager.editionRules('gh') || gameManager.gh2eRules()) {
           <div class="achievements">
             <label><span [ghs-label]="'party.campaign.achievements'"></span>:</label>
             <div class="achievements-container">

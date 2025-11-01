@@ -355,7 +355,7 @@
     position: relative;
     margin-top: 3em;
     padding-bottom: 0.4em;
-    width: 7.5em;
+    width: 7em;
     display: flex;
     flex-direction: column;
     font-size: 1.6em;
@@ -364,7 +364,7 @@
     overflow: auto;
 
     &.normal {
-      left: 0;
+      left: 0.5em;
       text-align: right;
 
       .condition {
@@ -377,7 +377,7 @@
     }
 
     &.elite {
-      left: 5.6em;
+      left: 6.2em;
       color: var(--ghs-color-white);
     }
 
