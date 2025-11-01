@@ -3,10 +3,6 @@
   "name": "Inox Encampment",
   "flowChartGroup": "merchant-guild",
   "edition": "gh2e",
-  "unlocks": [
-    "29",
-    "32"
-  ],
   "rewards": {
     "gold": 20,
     "reputationFactions": [

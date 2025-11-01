@@ -8,31 +8,27 @@
     "actions": [
       {
         "type": "custom",
-        "value": "^^Living Bones"
+        "value": "Living Bones,"
       },
       {
         "type": "custom",
-        "value": "^^Living Corpses"
+        "value": "Living Corpses,"
       },
       {
         "type": "custom",
-        "value": "^^and Living Spirits"
-      },
-      {
-        "type": "range",
-        "value": "^^within3gain"
+        "value": "and Living Spirits"
       },
       {
         "type": "custom",
-        "value": "^^advantage on"
+        "value": "within %game.action.range% 3 gain"
       },
       {
         "type": "custom",
-        "value": "^^all their"
+        "value": "advantage on all"
       },
       {
         "type": "custom",
-        "value": "^^attacks"
+        "value": "of their attacks"
       }
     ]
   },

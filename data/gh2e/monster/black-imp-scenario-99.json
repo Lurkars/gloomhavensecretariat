@@ -136,19 +136,19 @@
       "actions": [
         {
           "type": "custom",
-          "value": "^^All attacks"
+          "value": "All attacks"
         },
         {
           "type": "custom",
-          "value": "^^targeting"
+          "value": "targeting"
         },
         {
           "type": "custom",
-          "value": "^^Black Imp gain"
+          "value": "Black Imp gain"
         },
         {
           "type": "custom",
-          "value": "^^disadvantage"
+          "value": "disadvantage"
         },
         {
           "type": "condition",
@@ -164,19 +164,19 @@
       "actions": [
         {
           "type": "custom",
-          "value": "^^All attacks"
+          "value": "All attacks"
         },
         {
           "type": "custom",
-          "value": "^^targeting"
+          "value": "targeting"
         },
         {
           "type": "custom",
-          "value": "^^Black Imp gain"
+          "value": "Black Imp gain"
         },
         {
           "type": "custom",
-          "value": "^^disadvantage"
+          "value": "disadvantage"
         },
         {
           "type": "condition",
@@ -192,19 +192,19 @@
       "actions": [
         {
           "type": "custom",
-          "value": "^^All attacks"
+          "value": "All attacks"
         },
         {
           "type": "custom",
-          "value": "^^targeting"
+          "value": "targeting"
         },
         {
           "type": "custom",
-          "value": "^^Black Imp gain"
+          "value": "Black Imp gain"
         },
         {
           "type": "custom",
-          "value": "^^disadvantage"
+          "value": "disadvantage"
         },
         {
           "type": "condition",
@@ -220,19 +220,19 @@
       "actions": [
         {
           "type": "custom",
-          "value": "^^All attacks"
+          "value": "All attacks"
         },
         {
           "type": "custom",
-          "value": "^^targeting"
+          "value": "targeting"
         },
         {
           "type": "custom",
-          "value": "^^Black Imp gain"
+          "value": "Black Imp gain"
         },
         {
           "type": "custom",
-          "value": "^^disadvantage"
+          "value": "disadvantage"
         },
         {
           "type": "condition",
@@ -248,19 +248,19 @@
       "actions": [
         {
           "type": "custom",
-          "value": "^^All attacks"
+          "value": "All attacks"
         },
         {
           "type": "custom",
-          "value": "^^targeting"
+          "value": "targeting"
         },
         {
           "type": "custom",
-          "value": "^^Black Imp gain"
+          "value": "Black Imp gain"
         },
         {
           "type": "custom",
-          "value": "^^disadvantage"
+          "value": "disadvantage"
         },
         {
           "type": "condition",

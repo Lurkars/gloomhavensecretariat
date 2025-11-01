@@ -47,7 +47,7 @@
         "1": "After the attack ability, grant one of your summons: %game.action.teleport% 2",
         "2": "%game.action.target% 1 of your summons",
         "3": "At the beginning of each round in which you long rest, all your summons gain %game.action.shield% 1 for the round",
-        "4": "Once each scenario, during your turn, %game.action.teleport% one of your summons to an empty hex ajdacent to you",
+        "4": "Once each scenario, during your turn, %game.action.teleport% one of your summons to an empty hex adjacent to you",
         "5": "Once each scenario, during ordering of initiative, after all ability cards have been revealed, all your summons gain %game.condition.invisible%",
         "6": "Perform 3 different summon actions before your first rest and keep those cards in your active area for the entire scenario",
         "7": "Perform 6 different summon abilities from your ability cards over the course of the first rounds of 6 scenarios"
@@ -85,11 +85,11 @@
         "3": "At the end of each scenario, each character in that scenario gains %game.card.experience:8% if you completed your battle goal",
         "4": "Whenever you perform a %data.action.custom.gh2e-song%, if you have any unused Notes, gain one Note of your choice in addition to any other Note gained that round",
         "5": "During ordering of initiative in rounds in which you declare a long rest, gain one Note of your choice, and each of your allies may decrease their initiative by 10",
-        "6": "In a single scenario, perform 7 differen %data.action.custom.gh2e-song% actions",
+        "6": "In a single scenario, perform 7 different %data.action.custom.gh2e-song% actions",
         "7": "In a single scenario, create 20 or more Notes and use each Note you create in a %data.action.custom.gh2e-song%"
       },
       "saw": {
-        "1": "Give on adjacent ally or self one medical pack",
+        "1": "Give one adjacent ally or self one medical pack",
         "2": "You may gain %game.condition.disarm% to add %game.condition.stun%",
         "3": "Add +1 %game.action.attack% if an ally has an active %data.action.custom.gh2e-prescription%",
         "4": "Add +1 %game.action.heal% to all heal abilities on \"Medical Pack\" ability cards",
@@ -117,7 +117,7 @@
       },
       "three-spears": {
         "1": "Gain 10 %data.action.custom.gh2e-supplies%",
-        "2": "Gain the <i>Bardbed Strip</i> or <i>Iron Plate</i> item",
+        "2": "Gain the <i>Barbed Strip</i> or <i>Iron Plate</i> item",
         "3": "Gain the <i>Scroll of Relocation</i> or <i>Sharpened Dirk</i> item",
         "4": "You may bring one additional %game.itemSlot:small% item into each scenario",
         "5": "Your party may purchase items from each faction as though the items' costs were five gold less and your reputation with that faction was two greater",
@@ -130,7 +130,7 @@
         "2": "Whenever you long rest, %game.element.consume.wild%: %game.element.wild%",
         "3": "%game.element.fire%,%game.element.ice%,%game.element.air%, and %game.element.earth% do not wane at the end of each round",
         "4": "In a single scenario, consume 4 or more elements in a single turn 5 times",
-        "5": "Once in 3 different scenarios, have all 6 elements strong or aning at the same time"
+        "5": "Once in 3 different scenarios, have all 6 elements strong or waning at the same time"
       },
       "two-mini": {
         "1": "Add +1 %game.action.attack% if the Wildfury and %data.action.custom.gh2e-bear-summon% are within %game.action.range% 4 of each other",
@@ -198,7 +198,7 @@
     },
     "gh2e-110": {
       "": "Fueled Falchion",
-      "1": "During your turn, add +1 %game.action.attack% to your nex melee attack. If %game.element.fire% is strong or waning, all enemies adjacent to the target of that attack suffer %game.damage% 1."
+      "1": "During your turn, add +1 %game.action.attack% to your next melee attack. If %game.element.fire% is strong or waning, all enemies adjacent to the target of that attack suffer %game.damage% 1."
     },
     "gh2e-111": {
       "": "Skull of Hatred",
@@ -365,7 +365,7 @@
     },
     "gh2e-147": {
       "": "Scepter of Xorn",
-      "1": "During a turn, if you do not have %game.condition.poison%, gain %game.condition.poison% to perform:"
+      "1": "During your turn, if you do not have %game.condition.poison%, gain %game.condition.poison% to perform:"
     },
     "gh2e-148": {
       "": "Shield of the Righteous",
@@ -455,7 +455,7 @@
     },
     "gh2e-3": {
       "": "Hide Armor",
-      "1": "On the next two sou1es of %game.damage% from attacks targeting you, gain %game.action.shield:1% for the attacks"
+      "1": "On the next two sources of %game.damage% from attacks targeting you, gain %game.action.shield:1% for the attacks."
     },
     "gh2e-30": {
       "": "Armorbane Bow",
@@ -546,7 +546,7 @@
     },
     "gh2e-5": {
       "": "Scouting Lens",
-      "1": "During your attack ability, add %game.action.pierce% 1 to one attack"
+      "1": "During your attack ability, add %game.action.pierce% 1 to one attack."
     },
     "gh2e-50": {
       "": "Robes of the Oak",
@@ -654,7 +654,7 @@
     },
     "gh2e-73": {
       "": "Mantle of Summoning",
-      "1": "During your turn, grant on of your summons:"
+      "1": "During your turn, grant one of your summons:"
     },
     "gh2e-74": {
       "": "Concealed Dagger",
