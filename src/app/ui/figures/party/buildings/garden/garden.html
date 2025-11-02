@@ -7,6 +7,9 @@
         [ghs-label]="level < 3 ? (!garden.flipped ? 'data.buildings.garden.plots.state.plant' : 'data.buildings.garden.plots.state.harvest') : 'data.buildings.garden.plots.state.both'">
       </div>
       <div class="hint-container">
+        <ghs-action class="flip" [ngClass]="{'disabled': disabled}" [action]="flipAction" ghs-pointer-input
+          (singleClick)="flipGarden()" (doubleClick)="flipGarden(true)"
+          [ghs-tooltip]="'data.buildings.garden.plots.state.toggle'"></ghs-action>
         <label [ngClass]="{'disabled': !settingsManager.settings.automaticPassTime}">
           <input type="checkbox" (change)="toggleAutomation()"
             [checked]="garden.automated && settingsManager.settings.automaticPassTime"

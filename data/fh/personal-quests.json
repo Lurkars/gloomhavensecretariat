@@ -280,7 +280,7 @@
             {
                 "name": "%data.personalQuest.fh.545.1%",
                 "counter": 1,
-                "autotrack": "item:39"
+                "autotrack": "itemBlueprint:39"
             },
             {
                 "name": "%data.personalQuest.fh.545.2%",
