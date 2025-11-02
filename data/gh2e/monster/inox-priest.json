@@ -8,11 +8,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Adds %game.condition.safeguard%"
-      },
-      {
-        "type": "custom",
-        "value": "to all its heals"
+        "value": "Adds %game.condition.safeguard% to all its heals"
       }
     ]
   },
