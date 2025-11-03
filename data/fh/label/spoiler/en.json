@@ -1281,7 +1281,7 @@
     "fh-67": {
       "": "Converging Lenses",
       "1": "When you are attacked, add +1 %game.action.attack% to attack to instead of drawing an attack modifier card and flip this card over.",
-      "2": "During you attack ability add +1 %game.action.attack% to one attack instead of drawing an attack modifier card and flip this card over."
+      "2": "During your attack ability, add +1 %game.action.attack% to one attack instead of drawing an attack modifier card and flip this card over."
     },
     "fh-68": {
       "": "Scaled Armor",
@@ -1305,7 +1305,7 @@
     },
     "fh-72": {
       "": "Oak Staff",
-      "1": "During you turn, %game.element.consume.light% to perform:"
+      "1": "During your turn, %game.element.consume.light% to perform:"
     },
     "fh-73": {
       "": "Energizing Baton",
@@ -1325,7 +1325,7 @@
     },
     "fh-77": {
       "": "Chaos Cannon",
-      "1": "During you turn, replace one 1-hex obstacle, hazardous terrain, difficult terrain, or icy terrain tile in an unoccupied hex within %game.action.range:2% with a different type of tile listed above."
+      "1": "During your turn, replace one 1-hex obstacle, hazardous terrain, difficult terrain, or icy terrain tile in an unoccupied hex within %game.action.range:2% with a different type of tile listed above."
     },
     "fh-78": {
       "": "Balanced Scales",
@@ -1334,7 +1334,7 @@
     },
     "fh-79": {
       "": "Roasted Fowl",
-      "1": "During you turn, add +1 %game.action.attack% to all your attacks and perform:"
+      "1": "During your turn, add +1 %game.action.attack% to all your attacks and perform:"
     },
     "fh-8": {
       "": "Crude Spear",
@@ -1382,7 +1382,7 @@
     },
     "fh-9": {
       "": "Protective Scepter",
-      "1": "During you turn, grant one ally within %game.action.range:2%:"
+      "1": "During your turn, grant one ally within %game.action.range:2%:"
     },
     "fh-90": {
       "": "Muscle Potion",

@@ -243,7 +243,7 @@
     },
     "cs-58": {
       "": "Dizzying Tincture",
-      "1": "During you Attack ability, add %game.condition.disarm% to one attack."
+      "1": "During your Attack ability, add %game.condition.disarm% to one attack."
     },
     "cs-59": {
       "": "Drake's Blood",
@@ -351,7 +351,7 @@
     },
     "cs-82": {
       "": "Scroll of Command",
-      "1": "During you turn one ally within %game.action.range:3% may perform one of the following: %game.action.attack% 3 | %game.action.move% 3 | %game.action.heal% 3, Self."
+      "1": "During your turn, one ally within %game.action.range:3% may perform one of the following: %game.action.attack% 3 | %game.action.move% 3 | %game.action.heal% 3, Self."
     },
     "cs-83": {
       "": "Sphere of Currents",

@@ -136,7 +136,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All attacks targeting Black Imp gain disadvantage"
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",
@@ -152,7 +152,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All attacks targeting Black Imp gain disadvantage"
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",
@@ -168,7 +168,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All attacks targeting Black Imp gain disadvantage"
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",
@@ -184,7 +184,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All attacks targeting Black Imp gain disadvantage"
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",
@@ -200,7 +200,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All attacks targeting Black Imp gain disadvantage"
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",

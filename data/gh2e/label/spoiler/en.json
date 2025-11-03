@@ -166,7 +166,7 @@
     },
     "gh2e-103": {
       "": "Ranger's Hood",
-      "1": "During one of you summon's attack abilities, before drawing attack modifier cards, reveal the top two cards of your attack modifier deck. You may put any of them on the bottom of your deck."
+      "1": "During one of your summon's attack abilities, before drawing attack modifier cards, reveal the top two cards of your attack modifier deck. You may put any of them on the bottom of your deck."
     },
     "gh2e-104": {
       "": "Warding Rod",
@@ -605,7 +605,7 @@
     },
     "gh2e-62": {
       "": "Mask of Terror",
-      "1": "During you melee attack, add %game.action.push:1%."
+      "1": "During your melee attack, add %game.action.push:1%."
     },
     "gh2e-63": {
       "": "Star Earring",
@@ -645,7 +645,7 @@
     },
     "gh2e-71": {
       "": "Mastercraft Crossbow",
-      "1": "During you ranged attack ability, add %game.condition.wound% to one attack. One enemy adjacent to that target and further from you than that target suffers %game.damage:2%."
+      "1": "During your ranged attack ability, add %game.condition.wound% to one attack. One enemy adjacent to that target and further from you than that target suffers %game.damage:2%."
     },
     "gh2e-72": {
       "": "Commander's Cap",
@@ -658,12 +658,12 @@
     },
     "gh2e-74": {
       "": "Concealed Dagger",
-      "1": "During you turn, place a character token on one adjacent enemy. At the start of each of the enemy's turns, they suffer %game.damage:1%. When that enemy dies, flip this card over.",
+      "1": "During your turn, place a character token on one adjacent enemy. At the start of each of the enemy's turns, they suffer %game.damage:1%. When that enemy dies, flip this card over.",
       "2": "Place the character token in the hex in which the enemy died. You may loot that token to flip this card over."
     },
     "gh2e-75": {
       "": "Opulent Hood",
-      "1": "During you turn, grant one adjacent ally:"
+      "1": "During your turn, grant one adjacent ally:"
     },
     "gh2e-76": {
       "": "Merchant's Insignia",
@@ -732,7 +732,7 @@
     },
     "gh2e-90": {
       "": "Blinking Cape",
-      "1": "During you turn, perform:",
+      "1": "During your turn, perform:",
       "2": "This teleport must end in a hex adjacent to an enemy."
     },
     "gh2e-91": {
@@ -745,11 +745,11 @@
     },
     "gh2e-93": {
       "": "Scroll of Ferocity",
-      "1": "During you turn, grant one ally within %game.action.range:5%:"
+      "1": "During your turn, grant one ally within %game.action.range:5%:"
     },
     "gh2e-94": {
       "": "Scroll of Healing",
-      "1": "During you turn, perform:"
+      "1": "During your turn, perform:"
     },
     "gh2e-95": {
       "": "Scroll of Shielding",
