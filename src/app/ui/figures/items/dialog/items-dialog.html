@@ -149,7 +149,7 @@
       <a class="secondary" (click)="addItem(selected, true)" [ghs-label]="'game.items.add'"
         [ghs-label-args]="selected ? ['data.items.' + selected.edition + '-' + selected.id ] : []"></a>
       }
-      @if (!selected || (selected.cost || selected.resources) && !gameManager.itemManager.owned(selected, character)) {
+      @if (!selected || (selected.cost || selected.resources || selected.requiredItems) && !gameManager.itemManager.owned(selected, character)) {
       <a class="primary"
         [ngClass]="{'disabled' : !selected || !gameManager.itemManager.canBuy(selected, character) && !gameManager.itemManager.canCraft(selected, character)}"
         (click)="selected ? (selected.cost ? buyItem(selected): craftItem(selected)) : false"
