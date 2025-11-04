@@ -288,8 +288,7 @@
       "1": "During your turn, %game.element.wild%."
     },
     "gh2e-130": {
-      "": "Mountain Hammer",
-      "1": ""
+      "": "Mountain Hammer"
     },
     "gh2e-131": {
       "": "Wave Crest",
@@ -305,8 +304,7 @@
       "1": "When you would be attacked by an adjacent normal enemy, instead control that enemy:"
     },
     "gh2e-134": {
-      "": "Power Core",
-      "1": ""
+      "": "Power Core"
     },
     "gh2e-135": {
       "": "Resonant Crystal",
@@ -495,8 +493,7 @@
       "1": "During your move ability, add +1 %game.action.move%. After the move ability, perform:"
     },
     "gh2e-39": {
-      "": "Ring of Skulls",
-      "1": ""
+      "": "Ring of Skulls"
     },
     "gh2e-4": {
       "": "Leather Armor",
