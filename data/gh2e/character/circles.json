@@ -118,7 +118,7 @@
     {
       "name": "covetous-imp",
       "thumbnail": true,
-      "level": 2,
+      "level": 3,
       "health": 5,
       "attack": 3,
       "movement": 3
