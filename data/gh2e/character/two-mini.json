@@ -107,8 +107,8 @@
                 "value": 2,
                 "effects": [
                   {
-                    "type": "target",
-                    "value": "%data.action.custom.gh2e-bear-summon%"
+                    "type": "specialTarget",
+                    "value": "%game.action.target% %data.action.custom.gh2e-bear-summon%"
                   }
                 ]
               }
@@ -235,7 +235,7 @@
                 "effects": [
                   {
                     "type": "specialTarget",
-                    "value": "ally"
+                    "value": "allyShort"
                   }
                 ]
               }
