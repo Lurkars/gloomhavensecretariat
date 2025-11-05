@@ -8,7 +8,64 @@
     }
   },
   "custom": {
-    "perks": {}
+    "perks": {
+      "anaphi": {
+        "3": "Add +1%game.action.attack% when drawn by a summon",
+        "9": "Whenever you long rest, you may %game.elementHalf:air|dark%",
+        "10": "Once each scenario, during your turn, all enemies adjacent to a wall suffer %game.action.damage% 1",
+        "11": "At the start of the first round of each scenario, after all ability cards have been revealed, control one enemy within %game.action.range% 5: %game.action.move% 2"
+      },
+      "cassandra": {
+        "4": "Add +1 %game.action.attack% if the top card of the monster attack modifier deck is revealed",
+        "6": "Place this card in your active area. When you next place a Rift, discard this card to place another Rift within %game.action.range% 1 of it",
+        "8": "Whenever you long rest, you may read one unread Section from the current scenario's \"Section Links\"",
+        "9": "Whenever you place a Rift, you may perform \"%game.action.pull% 1, %game.action.target% 1 ally or enemy, %game.action.range% 1\" as if you occupied a hex containing a Rift",
+        "10": "Whenever a deck is shuffled, you may set aside all revealed cards from that deck and place them back on top after shuffling"
+      },
+      "hail": {
+        "10": "Whenever you short rest, you may choose which card to lose",
+        "11": "Your and your allies' enhancements cost five gold less and whenever an ally enhances a card, you gain five gold",
+        "12": "Add one +1 \"Hail gains 1 Resolve\" card to the monster attack modifier deck"
+      },
+      "satha": {
+        "6": "Grant one ally within %game.action.range% 3: %game.action.attack% 2 %game.action.range% 3 or %game.action.attack% 3",
+        "7": "Grant one ally within %game.action.range% 3: %game.action.move% 2",
+        "9": "%game.custom.perks.ignoreNegativeItemFh% and whenever you would gain %game.condition.stun%, prevent the condition",
+        "10": "Whenever you long rest, perform: %game.condition.strengthen%, %game.action.target% 1 ally, %game.action.range% 3",
+        "11": "All initiative values may be discussed freely and precisely",
+        "12": "The first time each scenario that you or an ally exhaust, perform: %game.action.heal% 3, %game.action.target% all, %game.condition.ward%, %game.condition.strengthen%"
+      }
+    },
+    "mastery": {
+      "anaphi": {
+        "1": "Have 3 different summons kill 3 enemies each",
+        "2": "In each of 3 scenarios, perform 8 attacks targeting enemies that have negative conditions"
+      },
+      "cassandra": {
+        "1": "For an entire scenario, reveal at least one card from an attack modifier deck or monster ability card deck each round",
+        "2": "Target 6 figures with an ability that targets figures occupying hexes containing Rifts"
+      },
+      "hail": {
+        "1": "For an entire scenario, gain at least 1 Resolve each round",
+        "2": "In a single scenario, across three consecutive rounds, spend at least 3 Resolve each round"
+      },
+      "satha": {
+        "1": "For an entire scenario, have at least one ally perform a move or attack ability during each of your turns except when performing a long rest",
+        "2": "For an entire scenario, never have an ally be a target of an attack"
+      }
+    },
+    "summon": {
+      "anaphi": {
+        "1": "At end of turn, grant one adjacent ally: %game.action.attack% 3"
+      }
+    }
+  },
+    "summon": {
+      "sewer-monstrosity": "Sewer Monstrosity",
+      "duskrat-swarm": "Duskrat Swarm",
+      "harrowers-grasp": "Harrower's Grasp",
+      "rosie": "Rosie",
+      "rat-queen": "Rat Queen"
   },
   "edition": {
     "mp": "Mercenary Packs"

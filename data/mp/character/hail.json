@@ -1,5 +1,6 @@
 {
   "name": "hail",
+  "noThumbnail": true,
   "edition": "mp",
   "handSize": 10,
   "color": "#b06871",
@@ -61,18 +62,32 @@
       ]
     },
     {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.hail.2%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.hail.3%"
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%game.condition.wound% or %game.condition.immobilize%"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "type": "replace",
-      "count": 1,
+      "count": 2,
       "cards": [
         {
           "count": 1,
@@ -96,12 +111,12 @@
     },
     {
       "type": "replace",
-      "count": 1,
+      "count": 2,
       "cards": [
         {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
-            "type": "minus1"
+            "type": "plus0"
           }
         },
         {
@@ -110,8 +125,8 @@
             "type": "plus1",
             "effects": [
               {
-                "type": "element",
-                "value": "wild"
+                "type": "custom",
+                "value": "%game.condition.poison% or %game.condition.muddle%"
               }
             ]
           }
@@ -119,18 +134,8 @@
       ]
     },
     {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.hail.6%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.hail.7%"
-    },
-    {
       "type": "replace",
-      "count": 1,
+      "count": 2,
       "cards": [
         {
           "count": 1,
@@ -150,7 +155,7 @@
                 "effects": [
                   {
                     "type": "target",
-                    "value": "ally"
+                    "value": "1 ally"
                   }
                 ]
               }
@@ -164,56 +169,13 @@
       "count": 1,
       "cards": [
         {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "rolling": true,
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "heal",
-                "value": 1,
-                "effects": [
-                  {
-                    "type": "target",
-                    "value": "ally"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
             "type": "plus1"
           }
         },
         {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2"
-          }
-        },
-        {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
             "type": "plus2"
           }
@@ -234,10 +196,53 @@
     },
     {
       "type": "add",
-      "count": 1,
+      "count": 2,
       "cards": [
         {
           "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus3",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "safeguard",
+                "effects": [
+                  {
+                    "type": "target",
+                    "value": "1 ally"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 2,
           "attackModifier": {
             "type": "plus1"
           }
@@ -245,51 +250,18 @@
       ]
     },
     {
-      "type": "add",
+      "type": "custom",
       "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus3"
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus3"
-          }
-        }
-      ]
+      "custom": "%data.custom.perks.hail.10%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "%data.custom.perks.hail.15%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.hail.16%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.hail.17%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.hail.18%"
+      "custom": "%data.custom.perks.hail.11%"
     }
   ],
   "masteries": [
-    "%data.custom.perks.hail.18%"
+    "%data.custom.mastery.hail.1%",
+    "%data.custom.mastery.hail.2%"
   ]
 }

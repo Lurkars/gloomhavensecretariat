@@ -1,5 +1,6 @@
 {
   "name": "anaphi",
+  "noThumbnail": true,
   "edition": "mp",
   "handSize": 10,
   "color": "#b83dba",
@@ -41,6 +42,55 @@
       "health": 20
     }
   ],
+  "availableSummons": [
+    {
+      "name": "sewer-monstrosity",
+      "level": 1,
+      "health": 4,
+      "attack": 3,
+      "movement": 2
+    },
+    {
+      "name": "duskrat-swarm",
+      "level": 1,
+      "health": 7,
+      "attack": 1,
+      "movement": 2
+    },
+    {
+      "name": "harrowers-grasp",
+      "level": 1,
+      "health": 2,
+      "attack": 1,
+      "movement": 2,
+      "range": 3,
+      "action": {
+        "type": "fly",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "muddle"
+      }
+    },
+    {
+      "name": "rosie",
+      "level": 5,
+      "health": 3,
+      "attack": 3,
+      "movement": 3
+    },
+    {
+      "name": "rat-queen",
+      "level": 9,
+      "health": 7,
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.summon.anaphi.1%"
+      }
+    }
+  ],
   "perks": [
     {
       "type": "replace",
@@ -62,7 +112,7 @@
     },
     {
       "type": "replace",
-      "count": 1,
+      "count": 3,
       "cards": [
         {
           "count": 1,
@@ -86,61 +136,27 @@
     },
     {
       "type": "replace",
-      "count": 1,
+      "count": 2,
       "cards": [
         {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
-            "type": "minus1"
+            "type": "plus0"
           }
         },
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0",
+            "type": "plus1",
             "effects": [
               {
-                "type": "condition",
-                "value": "poison"
+                "type": "custom",
+                "value": "%data.custom.perks.anaphi.3%"
               }
             ]
           }
         }
       ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "minus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "poison"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.anaphi.5%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.anaphi.6%"
     },
     {
       "type": "replace",
@@ -155,146 +171,120 @@
         {
           "count": 1,
           "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "invisible",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "air|dark"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "strengthen",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "1 of your summons"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "remove",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
             "type": "plus0"
           }
         }
       ]
     },
     {
-      "type": "replace",
+      "type": "custom",
       "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2",
-            "effects": [
-              {
-                "type": "element",
-                "value": "air"
-              },
-              {
-                "type": "element",
-                "value": "dark"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2",
-            "effects": [
-              {
-                "type": "element",
-                "value": "air"
-              },
-              {
-                "type": "element",
-                "value": "dark"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2",
-            "effects": [
-              {
-                "type": "element",
-                "value": "air"
-              },
-              {
-                "type": "element",
-                "value": "dark"
-              }
-            ]
-          }
-        }
-      ]
+      "custom": "%data.custom.perks.anaphi.9%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "%data.custom.perks.anaphi.13%"
+      "custom": "%data.custom.perks.anaphi.10%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "%data.custom.perks.anaphi.14%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.anaphi.15%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.anaphi.16%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.anaphi.17%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.anaphi.18%"
+      "custom": "%data.custom.perks.anaphi.11%"
     }
   ],
   "masteries": [
-    "%data.custom.perks.anaphi.17%",
-    "%data.custom.perks.anaphi.18%"
+    "%data.custom.mastery.anaphi.1%",
+    "%data.custom.mastery.anaphi.2%"
   ]
 }
