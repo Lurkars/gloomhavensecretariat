@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 33.685023 40.76"
+   viewBox="0 0 39.999999 40.000002"
    version="1.1"
    id="svg23"
    sodipodi:docname="fh-kelp.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   width="33.685024"
-   height="40.759998"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   width="40"
+   height="40"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -20,11 +20,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="25.115076"
-     inkscape:cx="16.822565"
-     inkscape:cy="20.366253"
-     inkscape:window-width="1846"
-     inkscape:window-height="1016"
+     inkscape:zoom="8.622224"
+     inkscape:cx="-19.484532"
+     inkscape:cy="29.168808"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -33,7 +33,9 @@
      lock-margins="true"
      fit-margin-top="3"
      fit-margin-right="3"
-     fit-margin-bottom="3" />
+     fit-margin-bottom="3"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs7">
     <style
@@ -54,7 +56,7 @@
      id="Layer_2"
      data-name="Layer 2"
      style="fill:#987bab;fill-opacity:1"
-     transform="translate(3,3)">
+     transform="translate(5.6523839,3.0276357)">
     <g
        id="Layer_1-2"
        data-name="Layer 1"
