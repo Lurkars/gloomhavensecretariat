@@ -74,6 +74,7 @@
     },
     {
       "name": "rosie",
+      "thumbnail": true,
       "level": 5,
       "health": 3,
       "attack": 3,
