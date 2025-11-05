@@ -1,11 +1,7 @@
 {
     "edition": "mp",
-    "additional": true,
-    "extensions": [
-        "cs",
-        "fc",
+    "extends": [
         "fh",
-        "gh",
         "gh2e"
     ]
 }

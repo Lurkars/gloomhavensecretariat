@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 28.41 42.39"
+   viewBox="0 0 40 40.000001"
    version="1.1"
    id="svg10"
    sodipodi:docname="fh-prism.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   width="28.41"
-   height="42.389999"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   width="40"
+   height="40"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -22,11 +22,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="23.990108"
-     inkscape:cx="14.19335"
-     inkscape:cy="21.154553"
-     inkscape:window-width="1846"
-     inkscape:window-height="1016"
+     inkscape:zoom="9.9283728"
+     inkscape:cx="-10.575751"
+     inkscape:cy="23.417735"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -35,22 +35,24 @@
      fit-margin-top="3"
      fit-margin-left="3"
      fit-margin-right="3"
-     fit-margin-bottom="3" />
+     fit-margin-bottom="3"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <g
      id="Layer_2"
      data-name="Layer 2"
      style="fill:#d7ad47;fill-opacity:1"
-     transform="translate(3,3)">
+     transform="matrix(1.0465775,0,0,1.0465775,8.4964741,1.1700491)">
     <g
        id="Layer_1-2"
        data-name="Layer 1"
        style="fill:#d7ad47;fill-opacity:1">
       <polygon
-         points="6.46,27.04 4.48,26.16 7.7,31.76 "
+         points="7.7,31.76 6.46,27.04 4.48,26.16 "
          id="polygon2"
          style="fill:#d7ad47;fill-opacity:1" />
       <polygon
-         points="15.95,27.04 14.7,31.76 17.93,26.16 "
+         points="17.93,26.16 15.95,27.04 14.7,31.76 "
          id="polygon4"
          style="fill:#d7ad47;fill-opacity:1" />
       <path

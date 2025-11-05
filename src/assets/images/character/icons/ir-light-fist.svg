@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 37.75 36.517146"
+   viewBox="0 0 38 37.999999"
    version="1.1"
    id="svg15"
    sodipodi:docname="ir-light-fist.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   width="37.75"
-   height="36.517147"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   width="38"
+   height="38"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -20,11 +20,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="2.5274492"
-     inkscape:cx="-0.98913954"
-     inkscape:cy="-0.59348373"
-     inkscape:window-width="1850"
-     inkscape:window-height="1016"
+     inkscape:zoom="6.0035428"
+     inkscape:cx="25.818089"
+     inkscape:cy="-8.7448365"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -33,7 +33,9 @@
      lock-margins="true"
      fit-margin-top="3"
      fit-margin-right="3"
-     fit-margin-bottom="3" />
+     fit-margin-bottom="3"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs7">
     <style
@@ -58,17 +60,17 @@
     </clipPath>
   </defs>
   <path
-     style="fill:#ffffff;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-     d="M 17.621946,19.595589 30.214929,8.2202906 33.912997,14.549625 Z"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 17.839266,20.194073 30.432249,8.8187748 34.130317,15.148109 Z"
      id="path2453" />
   <path
-     style="fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
-     d="m 3.3547672,13.347395 -0.6954887,1.846716 10.5480525,3.80355 0.926739,-1.844977 z"
+     style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 3.5720868,13.945879 -0.6954887,1.846716 10.5480529,3.80355 0.926739,-1.844977 z"
      id="path2352" />
   <g
      id="g850"
      clip-path="url(#clipPath854)"
-     transform="matrix(0.07620846,0,0,-0.07620846,6.9478305,30.586003)"
+     transform="matrix(0.07620846,0,0,-0.07620846,7.1651501,31.184487)"
      style="fill:#231f20;fill-opacity:1">
     <g
        id="g856"
