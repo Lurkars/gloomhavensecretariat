@@ -56,20 +56,33 @@
     },
     {
       "name": "wind-idol",
+      "thumbnail": true,
       "level": 1,
-      "health": 2,
-      "attack": 2,
-      "movement": 4
+      "health": 1,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.two-mini.7%"
+      }
     },
     {
       "name": "monolith",
+      "thumbnail": true,
       "level": 3,
-      "health": 2
+      "health": 2,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.two-mini.8%"
+      }
     },
     {
       "name": "vital-force",
+      "thumbnail": true,
       "level": 9,
-      "health": 3
+      "health": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.two-mini.8%"
+      }
     }
   ],
   "perks": [
@@ -94,8 +107,8 @@
                 "value": 2,
                 "effects": [
                   {
-                    "type": "target",
-                    "value": "%data.action.custom.gh2e-bear-summon%"
+                    "type": "specialTarget",
+                    "value": "%game.action.target% %data.action.custom.gh2e-bear-summon%"
                   }
                 ]
               }
@@ -181,7 +194,7 @@
             "effects": [
               {
                 "type": "elementHalf",
-                "value": "ice|earth"
+                "value": "air|earth"
               }
             ]
           }
@@ -222,7 +235,7 @@
                 "effects": [
                   {
                     "type": "specialTarget",
-                    "value": "ally"
+                    "value": "allyShort"
                   }
                 ]
               }
