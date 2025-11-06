@@ -19,6 +19,10 @@ export class AttackModifierEffectComponent implements AfterViewInit, OnDestroy {
   @Input() townGuard: boolean = false;
   @Input() length: number = 1;
 
+  targetValue: number = 0;
+  targetString: string = "";
+  rangeValue: string | number = "";
+
   settingsManager: SettingsManager = settingsManager;
 
   AttackModifierType = AttackModifierType;
@@ -28,8 +32,8 @@ export class AttackModifierEffectComponent implements AfterViewInit, OnDestroy {
   constructor(public elementRef: ElementRef) { }
 
   ngAfterViewInit(): void {
-    this.adjustFontSize();
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.adjustFontSize() });
+    this.update();
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
   }
 
   uiChangeSubscription: Subscription | undefined;
@@ -40,11 +44,20 @@ export class AttackModifierEffectComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  adjustFontSize() {
+  update() {
     this.elementRef.nativeElement.style.fontSize = (this.elementRef.nativeElement.offsetWidth * 0.2) + 'px';
+    this.targetValue = 0;
+    this.targetString = ""
+    const target = this.getTarget();
+    if (typeof target === 'string') {
+      this.targetString = target;
+    } else {
+      this.targetValue = target;
+    }
+    this.rangeValue = this.getRange();
   }
 
-  getTarget(): string {
+  getTarget(): string | number {
     if (this.effect.effects) {
       const specialTarget = this.effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.specialTarget);
       if (specialTarget) {

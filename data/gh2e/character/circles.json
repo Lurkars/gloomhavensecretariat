@@ -50,70 +50,130 @@
   "availableSummons": [
     {
       "name": "shadow-wolf",
+      "thumbnail": true,
       "level": 1,
       "health": 2,
       "attack": 2,
-      "movement": 3
+      "movement": 3,
+      "count": 2,
+      "action": {
+        "type": "pierce",
+        "value": "1"
+      }
     },
     {
       "name": "iron-beast",
+      "thumbnail": true,
       "level": 1,
       "health": 7,
       "attack": 1,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "shield",
+        "value": "1"
+      },
+      "additionalAction": {
+        "type": "retaliate",
+        "value": "1"
+      }
     },
     {
       "name": "thorn-shooter",
+      "thumbnail": true,
       "level": 1,
       "health": 3,
+      "attack": "%game.condition.poison%",
       "movement": 2,
       "range": 4
     },
     {
       "name": "rift-spirit",
+      "thumbnail": true,
       "level": 1,
       "health": 2,
+      "attack": "%game.condition.muddle%",
       "movement": 2,
-      "range": 3
+      "range": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.circles.8%",
+        "small": true
+      }
     },
     {
       "name": "floating-jellyfish",
+      "thumbnail": true,
       "level": 1,
       "health": 5,
       "attack": 3,
-      "movement": 1
+      "movement": 1,
+      "action": {
+        "type": "fly",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.circles.9%",
+        "small": true
+      }
     },
     {
       "name": "covetous-imp",
-      "level": 2,
+      "thumbnail": true,
+      "level": 3,
       "health": 5,
       "attack": 3,
       "movement": 3
     },
     {
       "name": "ember-sprite",
+      "thumbnail": true,
       "level": 4,
       "health": 3,
       "attack": 1,
       "movement": 3,
-      "range": 3
+      "range": 3,
+      "action": {
+        "type": "fly",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.circles.10%",
+        "small": true
+      }
     },
     {
       "name": "rock-colossus",
+      "thumbnail": true,
       "level": 5,
       "health": 12,
       "attack": 1,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "condition",
+        "value": "muddle"
+      },
+      "additionalAction": {
+        "type": "retaliate",
+        "value": "2"
+      }
     },
     {
       "name": "slime-spirit",
+      "thumbnail": true,
       "level": 6,
       "health": 5,
       "attack": 2,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "condition",
+        "value": "poison"
+      }
     },
     {
       "name": "void-eater",
+      "thumbnail": true,
       "level": 7,
       "health": 6,
       "attack": 4,
@@ -121,18 +181,33 @@
     },
     {
       "name": "fey-subjugator",
+      "thumbnail": true,
       "level": 9,
       "health": 4,
       "attack": 1,
       "movement": 2,
-      "range": 4
+      "range": 4,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
     },
     {
       "name": "prismatic-unicorn",
+      "thumbnail": true,
       "level": 9,
       "health": 8,
       "attack": 3,
-      "movement": 4
+      "movement": 4,
+      "action": {
+        "type": "pierce",
+        "value": "2"
+      },
+      "additionalAction": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.circles.11%",
+        "small": true
+      }
     }
   ],
   "perks": [

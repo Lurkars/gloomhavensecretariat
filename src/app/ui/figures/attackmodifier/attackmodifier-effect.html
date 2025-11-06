@@ -4,20 +4,26 @@
   <span class="effect">
     @switch (effect.type) {
     @case (AttackModifierEffectType.condition) {
-    <img class="full" [ngClass]="{'target' : getTarget() || getRange()}"
+    <img class="full" [ngClass]="{'target' : targetString || targetValue || rangeValue}"
       [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '')  + 'condition/' + effect.value.split(':')[0] + '.svg'" />
     @if (effect.value.split(':').length > 1) {
     <span class="value">{{effect.value.split(':')[1]}}</span>
     }
-    @if (getTarget()) {
-    <span class="target-value-container {{'target-' + getTarget().replace('game.specialTarget.','')}}">
-      <span class="target-value text-white" [ghs-label]="getTarget().split(':')[0]"
-        [ghs-label-args]="getTarget().split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
+    @if (targetString) {
+    <span class="target-value-container {{'target-' + targetString.replace('game.specialTarget.','')}}">
+      <span class="target-value text-white" [ghs-label]="targetString.split(':')[0]"
+        [ghs-label-args]="targetString.split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
     </span>
     }
-    @if (getRange()) {
+    @if (targetValue) {
+    <span class="target-value-container">
+      <img class="full" [src]="'./assets/images/action/target.svg'" />
+      {{targetValue}}
+    </span>
+    }
+    @if (rangeValue) {
     <span class="target-value-container range">
-      <span class="target-value text-white" [ghs-label]="getRange()" [style]="newStyle ? 'fh' : false"></span>
+      <span class="target-value text-white" [ghs-label]="rangeValue" [style]="newStyle ? 'fh' : false"></span>
     </span>
     }
     }
@@ -58,27 +64,33 @@
     }
     @case (AttackModifierEffectType.heal) {
     <div class="effect-container heal-container" [style.border-width]="(offsetWidth * 0.020)  + 'px'"
-      [ngClass]="{'target' : getTarget() || getRange(), 'sub-effects' : subEffects().length > 0}">
+      [ngClass]="{'target' : targetString || targetValue || rangeValue, 'sub-effects' : subEffects().length > 0}">
       <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}" [src]="'./assets/images/action/' + effect.type + '.svg'" />
       @if (effect.value) {
       <span class="value">{{+effect.value | ghsValueSign}}</span>
       }
-      @if (getTarget() && getTarget().startsWith('game.specialTarget')) {
-      <span class="target-value-container {{'target-' + getTarget().replace('game.specialTarget.','')}}">
-        <span class="target-value text-white" [ghs-label]="getTarget().split(':')[0]"
-          [ghs-label-args]="getTarget().split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
+      @if (targetString && targetString.startsWith('game.specialTarget')) {
+      <span class="target-value-container {{'target-' + targetString.replace('game.specialTarget.','')}}">
+        <span class="target-value text-white" [ghs-label]="targetString.split(':')[0]"
+          [ghs-label-args]="targetString.split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
       </span>
       }
-      @if (getTarget() && !getTarget().startsWith('game.specialTarget')) {
+      @if (targetString && !targetString.startsWith('game.specialTarget')) {
       <span class="target-value-container">
         <img [src]="'./assets/images/action/target.svg'" />
-        <span class="target-value text-white" [ghs-label]="getTarget()" [ghs-label-args]="[]"
+        <span class="target-value text-white" [ghs-label]="targetString" [ghs-label-args]="[]"
           [style]="newStyle ? 'fh' : false"></span>
       </span>
       }
-      @if (getRange()) {
+      @if (targetValue) {
+      <span class="target-value-container">
+        <img class="full" [src]="'./assets/images/action/target.svg'" />
+        {{targetValue}}
+      </span>
+      }
+      @if (rangeValue) {
       <span class="target-value-container range">
-        <span class="target-value text-white" [ghs-label]="getRange()" [style]="newStyle ? 'fh' : false"></span>
+        <span class="target-value text-white" [ghs-label]="rangeValue" [style]="newStyle ? 'fh' : false"></span>
       </span>
       }
       <div class="sub-effects">
@@ -92,21 +104,27 @@
     }
     @case (AttackModifierEffectType.shield) {
     <div class="effect-container shield-container" [style.border-width]="(offsetWidth * 0.020)  + 'px'"
-      [ngClass]="{'target' : getTarget() || getRange()}">
+      [ngClass]="{'target' : targetString || targetValue || rangeValue}">
       <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}"
         [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg'" />
       @if (effect.value) {
       <span class="value">{{+effect.value}}</span>
       }
-      @if (getTarget()) {
-      <span class="target-value-container {{'target-' + getTarget().replace('game.specialTarget.','')}}">
-        <span class="target-value text-white" [ghs-label]="getTarget().split(':')[0]"
-          [ghs-label-args]="getTarget().split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
+      @if (targetString) {
+      <span class="target-value-container {{'target-' + targetString.replace('game.specialTarget.','')}}">
+        <span class="target-value text-white" [ghs-label]="targetString.split(':')[0]"
+          [ghs-label-args]="targetString.split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
       </span>
       }
-      @if (getRange()) {
+      @if (targetValue) {
+      <span class="target-value-container">
+        <img class="full" [src]="'./assets/images/action/target.svg'" />
+        {{targetValue}}
+      </span>
+      }
+      @if (rangeValue) {
       <span class="target-value-container range">
-        <span class="target-value text-white" [ghs-label]="getRange()" [style]="newStyle ? 'fh' : false"></span>
+        <span class="target-value text-white" [ghs-label]="rangeValue" [style]="newStyle ? 'fh' : false"></span>
       </span>
       }
       <div class="sub-effects">
@@ -119,21 +137,27 @@
     }
     @case (AttackModifierEffectType.retaliate) {
     <div class="effect-container retaliate-container" [style.border-width]="(offsetWidth * 0.020)  + 'px'"
-      [ngClass]="{'target' : getTarget() || getRange()}">
+      [ngClass]="{'target' : targetString || targetValue || rangeValue}">
       <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}"
         [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg'" />
       @if (effect.value) {
       <span class="value">{{+effect.value}}</span>
       }
-      @if (getTarget()) {
-      <span class="target-value-container {{'target-' + getTarget().replace('game.specialTarget.','')}}">
-        <span class="target-value text-white" [ghs-label]="getTarget().split(':')[0]"
-          [ghs-label-args]="getTarget().split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
+      @if (targetString) {
+      <span class="target-value-container {{'target-' + targetString.replace('game.specialTarget.','')}}">
+        <span class="target-value text-white" [ghs-label]="targetString.split(':')[0]"
+          [ghs-label-args]="targetString.split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
       </span>
       }
-      @if (getRange()) {
+      @if (targetValue) {
+      <span class="target-value-container">
+        <img class="full" [src]="'./assets/images/action/target.svg'" />
+        {{targetValue}}
+      </span>
+      }
+      @if (rangeValue) {
       <span class="target-value-container range">
-        <span class="target-value text-white" [ghs-label]="getRange()" [style]="newStyle ? 'fh' : false"></span>
+        <span class="target-value text-white" [ghs-label]="rangeValue" [style]="newStyle ? 'fh' : false"></span>
       </span>
       }
       <div class="sub-effects">

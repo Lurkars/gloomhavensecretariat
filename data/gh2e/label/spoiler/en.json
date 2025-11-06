@@ -50,7 +50,11 @@
         "4": "Once each scenario, during your turn, %game.action.teleport% one of your summons to an empty hex adjacent to you",
         "5": "Once each scenario, during ordering of initiative, after all ability cards have been revealed, all your summons gain %game.condition.invisible%",
         "6": "Perform 3 different summon actions before your first rest and keep those cards in your active area for the entire scenario",
-        "7": "Perform 6 different summon abilities from your ability cards over the course of the first rounds of 6 scenarios"
+        "7": "Perform 6 different summon abilities from your ability cards over the course of the first rounds of 6 scenarios",
+        "8": "At end of turn, grant one ally within %game.action.range% 3: %game.action.shield% 1",
+        "9": "+3 %game.action.move% if %game.element.air% is strong or waning.",
+        "10": "All allies within %game.action.range% 3 gain %game.action.retaliate% 1 %game.action.range% 3 while %game.element.fire% is strong or waning.",
+        "11": "At end of turn, %game.element.fire%, %game.element.air%, or %game.element.dark%."
       },
       "crossed-swords": {
         "1": "Add +1 %game.action.attack% for each card with a %game.card.lost% in %game.characterIcon.envx%'s active area",
@@ -130,7 +134,9 @@
         "2": "Whenever you long rest, %game.element.consume.wild%: %game.element.wild%",
         "3": "%game.element.fire%,%game.element.ice%,%game.element.air%, and %game.element.earth% do not wane at the end of each round",
         "4": "In a single scenario, consume 4 or more elements in a single turn 5 times",
-        "5": "Once in 3 different scenarios, have all 6 elements strong or waning at the same time"
+        "5": "Once in 3 different scenarios, have all 6 elements strong or waning at the same time",
+        "6": "Add +1 %game.action.attack% for each element that is strong or waning.",
+        "7": "After each attack, %game.element.wild%."
       },
       "two-mini": {
         "1": "Add +1 %game.action.attack% if the Wildfury and %data.action.custom.gh2e-bear-summon% are within %game.action.range% 4 of each other",
@@ -138,7 +144,10 @@
         "3": "Once each scenario, during your turn, %data.action.custom.gh2e-command%: %game.action.move% 4.<br>If %data.action.custom.gh2e-bear-summon% exits a hex adjacent to you during this movement, you may %game.action.teleport% to an empty hex adjacent to %data.action.custom.gh2e-bear-summon% at the end of the movement",
         "4": "At the start or end of each of your long rests, you may %game.elementHalf:air|earth% and reduce your current hit point value by X (X must be at least 1) to %data.action.custom.gh2e-command%: %game.action.heal% X, self",
         "5": "In a single scenario, infuse or consume %game.element.air% or %game.element.earth% during each of your turns",
-        "6": "In a single scenario, kill 4 or more enemies with %data.action.custom.gh2e-command% attacks of 7 or greater (after all bonuses, before attack modifiers)"
+        "6": "In a single scenario, kill 4 or more enemies with %data.action.custom.gh2e-command% attacks of 7 or greater (after all bonuses, before attack modifiers)",
+        "7": "All allies within %game.action.range% 3 add %game.action.pierce% 1 to all their attacks.",
+        "8": "All allies within %game.action.range% 3 gain %game.action.shield% 1.",
+        "9": "All allies within %game.action.range% 3 add +2 %game.action.attack% to their first attack each round."
       }
     }
   },
@@ -249,7 +258,6 @@
       "": "Drakescale Helm",
       "1": "During your turn, perform:",
       "2": "If you brought Drakescale Boots and Drakescale Armor, add +1 %game.action.target%."
-
     },
     "gh2e-122": {
       "": "Frost Beetle Lantern",
@@ -289,8 +297,7 @@
       "1": "During your turn, %game.element.wild%."
     },
     "gh2e-130": {
-      "": "Mountain Hammer",
-      "1": ""
+      "": "Mountain Hammer"
     },
     "gh2e-131": {
       "": "Wave Crest",
@@ -306,8 +313,7 @@
       "1": "When you would be attacked by an adjacent normal enemy, instead control that enemy:"
     },
     "gh2e-134": {
-      "": "Power Core",
-      "1": ""
+      "": "Power Core"
     },
     "gh2e-135": {
       "": "Resonant Crystal",
@@ -496,8 +502,7 @@
       "1": "During your move ability, add +1 %game.action.move%. After the move ability, perform:"
     },
     "gh2e-39": {
-      "": "Ring of Skulls",
-      "1": ""
+      "": "Ring of Skulls"
     },
     "gh2e-4": {
       "": "Leather Armor",

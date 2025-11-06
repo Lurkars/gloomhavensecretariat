@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="32.529881mm"
-   height="33.16761mm"
-   viewBox="0 0 32.529881 33.16761"
+   width="33mm"
+   height="33mm"
+   viewBox="0 0 33 33"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="cc-wildborn.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -29,14 +29,16 @@
      fit-margin-right="4"
      fit-margin-bottom="4"
      inkscape:zoom="3.9408307"
-     inkscape:cx="69.401611"
-     inkscape:cy="80.56677"
-     inkscape:window-width="1850"
-     inkscape:window-height="1016"
+     inkscape:cx="66.737198"
+     inkscape:cy="81.074277"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs2" />
   <g

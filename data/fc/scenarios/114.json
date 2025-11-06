@@ -13,6 +13,13 @@
   "unlocks": [
     "115"
   ],
+  "requirements": [
+    {
+      "global": [
+        "a-peril-averted:2"
+      ]
+    }
+  ],
   "monsters": [
     "aesther-ashblade",
     "aesther-scout",
