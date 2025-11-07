@@ -3,6 +3,7 @@
   "name": "Inox Encampment",
   "edition": "gh2e",
   "parent": "12",
+  "marker": "1",
   "monsters": [
     "inox-archer",
     "inox-guard"
@@ -30,12 +31,12 @@
         },
         {
           "name": "inox-guard",
-          "player3": "elite",
-          "player4": "elite"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "inox-guard",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     }

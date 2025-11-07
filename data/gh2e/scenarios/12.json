@@ -21,12 +21,14 @@
       "monster": [
         {
           "name": "inox-archer",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "inox-archer",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "inox-guard",
