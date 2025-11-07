@@ -3,6 +3,7 @@
   "name": "Ruinous Crypt",
   "edition": "gh2e",
   "parent": "2",
+  "marker": "1",
   "monsters": [
     "earth-demon",
     "living-bones"
