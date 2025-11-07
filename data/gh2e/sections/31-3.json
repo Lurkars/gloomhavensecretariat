@@ -3,6 +3,7 @@
   "name": "Forgotten Crypt",
   "edition": "gh2e",
   "parent": "5",
+  "marker": "3",
   "monsters": [
     "living-corpse",
     "living-spirit"

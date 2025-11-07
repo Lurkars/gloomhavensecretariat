@@ -3,6 +3,7 @@
   "name": "Forgotten Crypt",
   "edition": "gh2e",
   "parent": "5",
+  "marker": "4",
   "monsters": [
     "cultist",
     "living-bones",
@@ -21,6 +22,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player4": "normal"
         },
         {
           "name": "living-bones",
