@@ -10,6 +10,9 @@
     "merciless-taskmaster",
     "vermling-scout"
   ],
+  "allies": [
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 2,
@@ -31,12 +34,14 @@
         },
         {
           "name": "bandit-scout",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "bandit-scout",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "merciless-taskmaster",
