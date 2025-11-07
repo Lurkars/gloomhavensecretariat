@@ -33,6 +33,10 @@
           "player4": "elite"
         },
         {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
           "name": "inox-archer",
           "type": "normal"
         },
