@@ -184,9 +184,9 @@ export class MainComponent implements OnInit {
       gameManager.stateManager.installPrompt = null;
     });
 
-    window.addEventListener('beforeunload', async () => {
-      if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock && !gameManager.stateManager.storageBlocked) {
-        await this.automaticClockOut();
+    window.addEventListener('visibilitychange', async () => {
+      if (document.visibilityState === 'hidden' && settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock && !gameManager.stateManager.storageBlocked) {
+        await this.automaticClockOut()
       }
     });
 

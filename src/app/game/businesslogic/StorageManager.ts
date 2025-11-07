@@ -214,13 +214,39 @@ export class StorageManager {
   async writeArray(store: string, objects: any[]): Promise<void> {
     return new Promise(async (resolve, reject) => {
       if (this.db) {
-        await this.clear(store).catch((e) => console.error(e));
+        try {
+          // Use a single transaction to make clear+write atomic
+          const transaction = this.db.transaction(store, "readwrite");
+          const objectStore = transaction.objectStore(store);
+          
+          // Clear all existing data
+          await new Promise<void>((resolveInner, rejectInner) => {
+            const clearRequest = objectStore.clear();
+            clearRequest.onsuccess = () => resolveInner();
+            clearRequest.onerror = () => rejectInner(clearRequest.error);
+          });
 
-        for (let index = 0; index < objects.length; index++) {
-          const object = objects[index];
-          await this.write(store, undefined, object).catch(() => reject());
-        };
-        resolve();
+          // Write all new objects in the same transaction
+          for (let index = 0; index < objects.length; index++) {
+            await new Promise<void>((resolveInner, rejectInner) => {
+              const putRequest = objectStore.put(objects[index]);
+              putRequest.onsuccess = () => resolveInner();
+              putRequest.onerror = () => rejectInner(putRequest.error);
+            });
+          }
+          
+          // Wait for transaction to complete
+          await new Promise<void>((resolveInner, rejectInner) => {
+            transaction.oncomplete = () => resolveInner();
+            transaction.onerror = () => rejectInner(transaction.error);
+            transaction.onabort = () => rejectInner(new Error('Transaction aborted'));
+          });
+          
+          resolve();
+        } catch (e) {
+          console.error(`Failed to writeArray to ${store}:`, e);
+          reject(e);
+        }
       } else {
         try {
           localStorage.setItem("ghs-" + store, JSON.stringify(objects));

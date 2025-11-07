@@ -118,10 +118,16 @@ export class StateManager {
   async saveStorage() {
     if (!this.storageBlocked) {
       this.storageBlocked = true;
-      await storageManager.writeArray('undo', this.undos);
-      await storageManager.writeArray('redo', this.redos);
-      await storageManager.writeArray('undo-infos', this.undoInfos);
-      this.storageBlocked = false;
+      try {
+        await storageManager.writeArray('undo', this.undos);
+        await storageManager.writeArray('redo', this.redos);
+        await storageManager.writeArray('undo-infos', this.undoInfos);
+      } catch (error) {
+        console.error("Failed to save undo/redo storage:", error);
+        throw error;
+      } finally {
+        this.storageBlocked = false;
+      }
     }
   }
 
