@@ -96,7 +96,8 @@
       "range": 3,
       "action": {
         "type": "custom",
-        "value": "%data.custom.gh2e.circles.8%"
+        "value": "%data.custom.gh2e.circles.8%",
+        "small": true
       }
     },
     {
@@ -112,7 +113,8 @@
       },
       "additionalAction": {
         "type": "custom",
-        "value": "%data.custom.gh2e.circles.9%"
+        "value": "%data.custom.gh2e.circles.9%",
+        "small": true
       }
     },
     {
@@ -137,7 +139,8 @@
       },
       "additionalAction": {
         "type": "custom",
-        "value": "%data.custom.gh2e.circles.10%"
+        "value": "%data.custom.gh2e.circles.10%",
+        "small": true
       }
     },
     {
@@ -202,7 +205,8 @@
       },
       "additionalAction": {
         "type": "custom",
-        "value": "%data.custom.gh2e.circles.11%"
+        "value": "%data.custom.gh2e.circles.11%",
+        "small": true
       }
     }
   ],

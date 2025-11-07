@@ -38,7 +38,8 @@
         },
         {
           "name": "city-guard",
-          "type": "normal"
+          "player2": "normal",
+          "player4": "normal"
         },
         {
           "name": "city-guard",
@@ -47,6 +48,7 @@
         },
         {
           "name": "city-guard",
+          "player3": "normal",
           "player4": "normal"
         }
       ]

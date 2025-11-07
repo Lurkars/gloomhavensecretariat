@@ -3,6 +3,7 @@
   "name": "Barrow Lair",
   "edition": "gh2e",
   "parent": "8",
+  "marker": "5",
   "monsters": [
     "living-bones",
     "living-corpse"

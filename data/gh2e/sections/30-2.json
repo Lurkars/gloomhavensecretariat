@@ -1,6 +1,6 @@
 {
   "index": "30.2",
-  "name": "- Diamond Mine",
+  "name": "Diamond Mine",
   "edition": "gh2e",
   "parent": "16",
   "marker": "1",
@@ -8,6 +8,9 @@
     "bandit-archer",
     "bandit-scout",
     "merciless-taskmaster",
+    "vermling-scout"
+  ],
+  "allies": [
     "vermling-scout"
   ],
   "rooms": [
@@ -31,12 +34,14 @@
         },
         {
           "name": "bandit-scout",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "bandit-scout",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "merciless-taskmaster",

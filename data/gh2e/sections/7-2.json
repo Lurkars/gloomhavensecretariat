@@ -10,12 +10,24 @@
   ],
   "objectives": [
     {
-      "name": "Vocal Cord C",
-      "health": "LxC+2"
+      "name": "Vocal Chord C",
+      "health": "LxC+2",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "All characters add -1 %game.action.attack% to all their attacks."
+        }
+      ]
     },
     {
-      "name": "Vocal Cord D",
-      "health": "LxC+2"
+      "name": "Vocal Chord D",
+      "health": "LxC+2",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "All monsters add +1 %game.action.attack% to all their attacks."
+        }
+      ]
     }
   ],
   "rooms": [
@@ -25,11 +37,13 @@
       "monster": [
         {
           "name": "deep-terror",
-          "type": "normal"
+          "type": "elite"
         },
         {
           "name": "deep-terror",
-          "type": "elite"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "deep-terror",
@@ -37,7 +51,7 @@
         },
         {
           "name": "deep-terror",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "night-demon",

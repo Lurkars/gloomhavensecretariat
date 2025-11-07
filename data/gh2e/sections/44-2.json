@@ -3,6 +3,7 @@
   "name": "Echo Chamber",
   "edition": "gh2e",
   "parent": "14",
+  "marker": "3",
   "monsters": [
     "ooze"
   ],

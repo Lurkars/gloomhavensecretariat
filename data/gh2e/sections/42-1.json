@@ -3,6 +3,7 @@
   "name": "Black Barrow",
   "edition": "gh2e",
   "parent": "7",
+  "marker": "1",
   "monsters": [
     "bandit-archer",
     "bandit-scout"

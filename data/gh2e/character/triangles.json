@@ -53,16 +53,33 @@
   "availableSummons": [
     {
       "name": "chromatic-construct",
+      "thumbnail": true,
       "level": 7,
       "health": 7,
-      "movement": 3
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.triangles.6%",
+        "small": true
+      }
     },
     {
       "name": "elemental-conduit",
+      "thumbnail": true,
       "level": 9,
       "health": 3,
       "attack": 2,
-      "movement": 3
+      "movement": 3,
+      "range": 3,
+      "action": {
+        "type": "fly",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.triangles.7%",
+        "small": true
+      }
     }
   ],
   "perks": [

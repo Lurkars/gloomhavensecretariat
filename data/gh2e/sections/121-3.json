@@ -3,6 +3,7 @@
   "name": "Well of the Unfortunate",
   "edition": "gh2e",
   "parent": "72",
+  "marker": "2",
   "monsters": [
     "forest-imp",
     "stone-construct"
@@ -24,11 +25,15 @@
           "name": "forest-imp",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "forest-imp",
           "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "elite"
         },
         {
           "name": "stone-construct",

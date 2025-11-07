@@ -13,6 +13,23 @@
     "living-bones",
     "living-spirit"
   ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:1",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -41,6 +58,10 @@
           "player4": "elite"
         },
         {
+          "name": "living-bones",
+          "player4": "normal"
+        },
+        {
           "name": "living-spirit",
           "type": "normal"
         },
@@ -49,6 +70,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
         }
       ]
     }

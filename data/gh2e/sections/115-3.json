@@ -3,6 +3,7 @@
   "name": "Crypt Basement",
   "edition": "gh2e",
   "parent": "57",
+  "marker": "1",
   "monsters": [
     "crystal-rot",
     "living-corpse",
@@ -22,7 +23,9 @@
         },
         {
           "name": "living-corpse",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "living-corpse",
@@ -32,7 +35,7 @@
         },
         {
           "name": "living-corpse",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "living-spirit",

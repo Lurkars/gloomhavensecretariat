@@ -15,7 +15,7 @@
     ]
   },
   "monsters": [
-    "cave-bear-58",
+    "cave-bear-scenario-58",
     "living-spirit"
   ],
   "rooms": [
@@ -24,17 +24,19 @@
       "initial": true,
       "monster": [
         {
-          "name": "cave-bear-58",
-          "type": "normal"
-        },
-        {
-          "name": "cave-bear-58",
+          "name": "cave-bear-scenario-58",
           "type": "elite"
         },
         {
-          "name": "cave-bear-58",
+          "name": "cave-bear-scenario-58",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "cave-bear-scenario-58",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "living-spirit",

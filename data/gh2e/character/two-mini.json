@@ -61,7 +61,8 @@
       "health": 1,
       "action": {
         "type": "custom",
-        "value": "%data.custom.gh2e.two-mini.7%"
+        "value": "%data.custom.gh2e.two-mini.7%",
+        "small": true
       }
     },
     {
@@ -81,7 +82,8 @@
       "health": 3,
       "action": {
         "type": "custom",
-        "value": "%data.custom.gh2e.two-mini.8%"
+        "value": "%data.custom.gh2e.two-mini.9%",
+        "small": true
       }
     }
   ],

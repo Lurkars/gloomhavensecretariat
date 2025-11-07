@@ -3,6 +3,7 @@
   "name": "Frozen Hollow",
   "edition": "gh2e",
   "parent": "3",
+  "marker": "1",
   "monsters": [
     "frost-demon",
     "living-spirit"
@@ -18,7 +19,9 @@
         },
         {
           "name": "frost-demon",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "frost-demon",
@@ -28,12 +31,14 @@
         },
         {
           "name": "frost-demon",
-          "player3": "elite",
+          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "living-spirit",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "living-spirit",
@@ -42,7 +47,7 @@
         },
         {
           "name": "living-spirit",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     }

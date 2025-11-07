@@ -134,7 +134,9 @@
         "2": "Whenever you long rest, %game.element.consume.wild%: %game.element.wild%",
         "3": "%game.element.fire%,%game.element.ice%,%game.element.air%, and %game.element.earth% do not wane at the end of each round",
         "4": "In a single scenario, consume 4 or more elements in a single turn 5 times",
-        "5": "Once in 3 different scenarios, have all 6 elements strong or waning at the same time"
+        "5": "Once in 3 different scenarios, have all 6 elements strong or waning at the same time",
+        "6": "Add +1 %game.action.attack% for each element that is strong or waning.",
+        "7": "After each attack, %game.element.wild%."
       },
       "two-mini": {
         "1": "Add +1 %game.action.attack% if the Wildfury and %data.action.custom.gh2e-bear-summon% are within %game.action.range% 4 of each other",

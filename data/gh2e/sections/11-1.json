@@ -3,6 +3,7 @@
   "name": "Bandit Camp",
   "edition": "gh2e",
   "parent": "1",
+  "marker": "1",
   "monsters": [
     "bandit-archer",
     "bandit-scout"
