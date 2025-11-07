@@ -3,6 +3,7 @@
   "name": "Echo Chamber",
   "edition": "gh2e",
   "parent": "14",
+  "marker": "2",
   "monsters": [
     "living-spirit",
     "ooze",
@@ -27,17 +28,23 @@
           "player4": "elite"
         },
         {
-          "name": "ooze",
-          "type": "normal"
+          "name": "living-spirit",
+          "player4": "normal"
         },
         {
           "name": "ooze",
+          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "ooze",
+          "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
         },
         {
           "name": "rending-drake",
