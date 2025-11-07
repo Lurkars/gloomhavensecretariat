@@ -11,8 +11,18 @@
   ],
   "objectives": [
     {
-      "name": "Vocal Cord B",
-      "health": "LxC+4"
+      "name": "Vocal Chord B",
+      "health": "LxC+4",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "All characters add -1 %game.action.move% to all their move abilities."
+        },
+        {
+          "type": "custom",
+          "value": "All monsters add +1 %game.action.move% to all their move abilities."
+        }
+      ]
     }
   ],
   "rooms": [
@@ -30,12 +40,14 @@
         },
         {
           "name": "deep-terror",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "deep-terror",
-          "player3": "elite",
-          "player4": "elite"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "living-spirit",

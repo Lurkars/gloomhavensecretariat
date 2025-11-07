@@ -19,8 +19,44 @@
   ],
   "objectives": [
     {
-      "name": "Vocal Cord A",
-      "health": "LxC+4"
+      "name": "Vocal Chord A",
+      "health": "LxC+4",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "All characters suffer %game.action.damage% 1 at the start of their turns."
+        },
+        {
+          "type": "custom",
+          "value": "All monsters perform %game.action.heal% 1 at the start of their turns."
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:1",
+          "scenarioEffect": true
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        }
+      ]
     }
   ],
   "rooms": [
@@ -39,8 +75,8 @@
           "player4": "elite"
         },
         {
-          "name": "night-demon",
-          "type": "normal"
+          "name": "living-spirit",
+          "player4": "normal"
         },
         {
           "name": "night-demon",
@@ -55,7 +91,7 @@
         {
           "name": "night-demon",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         }
       ],
       "objectives": [

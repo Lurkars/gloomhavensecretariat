@@ -32,7 +32,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "towards alter %game.mapMarker.b%, opening doors and springing traps if necessary",
+              "value": "towards altar %game.mapMarker.b%, opening doors and springing traps if necessary",
               "small": true
             }
           ]
