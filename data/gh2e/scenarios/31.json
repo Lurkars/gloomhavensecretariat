@@ -25,20 +25,25 @@
         },
         {
           "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "giant-viper",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "giant-viper",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "harrower-infester",
