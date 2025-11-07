@@ -11,6 +11,23 @@
     "inox-guard",
     "vermling-scout"
   ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "wound",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -52,7 +69,15 @@
         },
         {
           "name": "vermling-scout",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "vermling-scout",
@@ -61,12 +86,7 @@
         },
         {
           "name": "vermling-scout",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     }
