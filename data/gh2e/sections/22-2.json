@@ -3,6 +3,7 @@
   "name": "Temple of the Seer",
   "edition": "gh2e",
   "parent": "28",
+  "marker": "1",
   "monsters": [
     "cave-bear",
     "living-spirit",
@@ -35,29 +36,37 @@
         },
         {
           "name": "living-spirit",
-          "type": "normal"
-        },
-        {
-          "name": "living-spirit",
           "type": "elite"
         },
         {
           "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "spitting-drake",
-          "type": "normal"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "spitting-drake",
-          "type": "elite"
-        },
-        {
-          "name": "spitting-drake",
-          "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     }

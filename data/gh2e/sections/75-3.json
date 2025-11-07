@@ -4,7 +4,6 @@
   "parent": "28",
   "conclusion": true,
   "unlocks": [
-    "42",
     "53"
   ],
   "monsters": []

@@ -3,6 +3,10 @@
   "name": "Temple of the Seer",
   "flowChartGroup": "hail",
   "edition": "gh2e",
+  "unlocks": [
+    "39",
+    "42"
+  ],
   "monsters": [
     "stone-construct"
   ],
@@ -13,21 +17,25 @@
       "monster": [
         {
           "name": "stone-construct",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "stone-construct",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "stone-construct",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "stone-construct",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     }
