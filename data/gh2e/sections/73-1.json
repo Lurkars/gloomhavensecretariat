@@ -14,15 +14,13 @@
       "monster": [
         {
           "name": "deep-terror",
-          "type": "normal"
-        },
-        {
-          "name": "deep-terror",
-          "type": "normal"
-        },
-        {
-          "name": "deep-terror",
           "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "deep-terror",
@@ -38,23 +36,28 @@
         },
         {
           "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "deep-terror",
-          "player4": "elite"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
-          "name": "lurker-soldier",
-          "type": "normal"
-        },
-        {
-          "name": "lurker-soldier",
-          "type": "normal"
+          "name": "deep-terror",
+          "player4": "normal"
         },
         {
           "name": "lurker-soldier",
           "type": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "lurker-soldier",
@@ -64,12 +67,18 @@
         },
         {
           "name": "lurker-soldier",
+          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "lurker-soldier",
-          "player4": "elite"
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "player4": "normal"
         }
       ]
     }
