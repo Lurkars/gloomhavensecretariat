@@ -6,6 +6,9 @@
     "bandit-scout",
     "cave-bear"
   ],
+  "allies": [
+    "cave-bear"
+  ],
   "rooms": [
     {
       "roomNumber": 2,
