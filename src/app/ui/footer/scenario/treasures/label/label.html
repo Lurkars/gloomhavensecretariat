@@ -1,6 +1,6 @@
 @if (!!treasure) {
 <span class="treasure-label">
-  @for (reward of treasure.rewards; track reward; let index = $index) {
+  @for (reward of treasure.rewards | trackUUID; track reward._trackUUID; let index = $index) {
   <span class="label" [ghs-label]="rewardLabel[index][0]" [ghs-label-args]="rewardLabel[index].slice(1)"></span>
   @if (!!rewardResults && !!rewardResults[index] && rewardResults[index].length > 0) {
   <span class="result" [ghs-label]="rewardLabel[index][0] + '.result'" [ghs-label-args]="rewardResults[index]"></span>
@@ -10,7 +10,7 @@
 }
 @if (!!itemCards && items.length > 0) {
 <div class="items">
-  @for (item of items; track item.edition + '-' + item.id) {
+  @for (item of items | trackUUID; track item._trackUUID) {
   <ghs-item (click)="openItemDialog(item)" [item]="item" [flipped]="true"
     [editionLabel]="gameManager.game.edition || ''"></ghs-item>
   }

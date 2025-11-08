@@ -13,7 +13,7 @@
     </label>
 
     <div class="table" [style.--ghs-summary-columns]="2 + brewing">
-      @for (i of []|ghsRange:brewing; track i) {
+      @for (i of [] | ghsRange:brewing; track i) {
       <span class="head-col first">{{i+1}}.</span>
       }
       <span class="first">
@@ -120,7 +120,7 @@
       <span class="placeholder text-white item" [ghs-label]="'game.items.brewing.selectCharacter'"></span>
     </div>
     <div class="characters">
-      @for (char of otherCharacters; track char.edition + '-' + char.name) {
+      @for (char of otherCharacters| trackUUID; track char._trackUUID) {
       <div class="character" (click)="otherCharacter = char" [ngClass]="{'selected' : otherCharacter == char}">
         <img class="icon" [src]="char.iconUrl" />
         <span class="name">

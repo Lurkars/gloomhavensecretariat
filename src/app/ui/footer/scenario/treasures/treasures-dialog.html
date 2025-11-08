@@ -19,7 +19,7 @@
   </div>
 
   <div class="characters">
-    @for (char of characters; track char.edition + '-' + char.name) {
+    @for (char of characters | trackUUID; track char._trackUUID) {
     <div class="character" (click)="toggleCharacter(char)"
       [ngClass]="{'selected' : character == char , 'disabled' : treasures.length == looted.length}">
       <img class="icon" [src]="char.iconUrl" />

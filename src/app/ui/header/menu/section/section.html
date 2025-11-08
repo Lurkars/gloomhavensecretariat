@@ -22,7 +22,7 @@
   }
   @if (sections(group).length > 0) {
   <div class="line sections">
-    @for (section of sections(group); track section.edition + '-' + section.index) {
+    @for (section of sections(group) | trackUUID; track section._trackUUID) {
     <span tabclick class="section"
       [ngClass]="{'disabled' : section.isLocked , 'available': settingsManager.settings.showAllSections && section.parent && !!gameManager.game.scenario && section.parent == gameManager.game.scenario.index && section.group == gameManager.game.scenario.group && section.edition == gameManager.game.scenario.edition}"
       [ghs-tooltip]="'scenario.tooltip'" [ghs-label-args]="[gameManager.scenarioManager.scenarioTitle(section,true)]"

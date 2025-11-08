@@ -95,7 +95,7 @@
                 <div class="notes" [ghs-label]="statsForType(MonsterType.normal,level).note"></div>
                 <div class="additional" cdkDropList
                   (cdkDropListDropped)="dropMonsterAction(MonsterType.normal,level,$event)">
-                  @for (action of statsForType(MonsterType.normal,level).actions; track action) {
+                  @for (action of statsForType(MonsterType.normal,level).actions | trackUUID; track action._trackUUID) {
                   <div class="monster-action" cdkDrag>
                     <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
                     <ghs-action (click)="editMonsterAction(MonsterType.normal, action,level)" [action]="action"
@@ -112,7 +112,7 @@
                 <div class="notes" [ghs-label]="statsForType(MonsterType.elite,level).note"></div>
                 <div class="additional" cdkDropList
                   (cdkDropListDropped)="dropMonsterAction(MonsterType.elite,level,$event)">
-                  @for (action of statsForType(MonsterType.elite,level).actions; track action) {
+                  @for (action of statsForType(MonsterType.elite,level).actions | trackUUID; track action._trackUUID) {
                   <div class="monster-action" cdkDrag>
                     <ghs-action (click)="editMonsterAction(MonsterType.elite, action,level)" [action]="action"
                       [monster]="getMonsterForLevel(level)" [inline]="true" [hexSize]="0.5" [relative]="true">
@@ -131,7 +131,7 @@
                 <div class="notes" [ghs-label]="statsForType(MonsterType.boss,level).note"></div>
                 <div class="additional" cdkDropList
                   (cdkDropListDropped)="dropMonsterAction(MonsterType.boss,level,$event)">
-                  @for (action of statsForType(MonsterType.boss,level).actions; track action) {
+                  @for (action of statsForType(MonsterType.boss,level).actions | trackUUID; track action._trackUUID) {
                   <div class="monster-action" cdkDrag>
                     <ghs-action (click)="editMonsterAction(MonsterType.boss, action,level)" [action]="action"
                       [monster]="getMonsterForLevel(level)" [inline]="true" [hexSize]="0.5" [relative]="true">
@@ -144,11 +144,11 @@
                     <span [ghs-label]="'editor.action.add'"></span></a>
                 </div>
                 <div class="specials">
-                  @for (special of statsForType(MonsterType.boss,level).special; track special; let index = $index) {
+                  @for (special of statsForType(MonsterType.boss,level).special | trackUUID; track special._trackUUID; let index = $index) {
                   <div class="special">
                     <span class="index">{{index+1}}:</span>
                     <div class="actions">
-                      @for (action of statsForType(MonsterType.boss,level).special[index]; track action) {
+                      @for (action of statsForType(MonsterType.boss,level).special[index] | trackUUID; track action._trackUUID) {
                       <ghs-action (click)="editSpecialAction(MonsterType.boss,index, action,level)" [action]="action"
                         [monster]="getMonsterForLevel(level)" [inline]="true" [hexSize]="0.5" [relative]="true">
                       </ghs-action>
@@ -187,7 +187,7 @@
 
           <select (change)="loadMonsterData($event)">
             <option [value]="-1">&lt;<span [ghs-label]="'editor.monster.new'"></span>&gt;</option>
-            @for (md of monstersData; track md.edition + '-' + md.name; let index = $index) {
+            @for (md of monstersData | trackUUID; track md._trackUUID; let index = $index) {
             <option [value]="index" [selected]="md.edition == monsterData.edition && md.name == monsterData.name">
               <span [ghs-label]="'data.monster.' + md.name"></span> (<span
                 [ghs-label]="'data.edition.' + md.edition"></span>)

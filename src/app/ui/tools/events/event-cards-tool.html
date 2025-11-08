@@ -45,7 +45,7 @@
   </div>
 
   <div class="events">
-    @for (event of events; track event.edition + '-' + event.cardId) {
+    @for (event of events | trackUUID; track event._trackUUID) {
     <ghs-event-card [event]="event" [select]="selected != -1 ? selected - 1 : -1" [flipped]="selected == 0"
       [spoiler]="spoiler" [debug]="debug"></ghs-event-card>
     }

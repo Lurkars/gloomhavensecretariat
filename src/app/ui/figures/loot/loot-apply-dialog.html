@@ -1,7 +1,7 @@
 <p><span [ghs-label]="'game.loot.chooseCharacter'"
     [ghs-label-args]="['' +gameManager.lootManager.getValue(loot), 'game.loot.' + loot.type]"></span></p>
 <div class="characters">
-  @for (character of characters; track character.edition + '-' + character.name) {
+  @for (character of characters| trackUUID; track character._trackUUID) {
   <div class="character" (click)="toggleSelect(character.name)" [ngClass]="{'selected' : character.name == selected}">
     <img class="icon" [src]="character.iconUrl" />
     <span>{{gameManager.characterManager.characterName(character, true)}}</span>

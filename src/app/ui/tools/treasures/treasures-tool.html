@@ -16,7 +16,7 @@
 
   @if (edition) {
   <div class="treasures">
-    @for (treasure of treasures; track treasure) {
+    @for (treasure of treasures | trackUUID; track treasure._trackUUID) {
     <div class="treasure">
       <span class="index">{{treasure.index}}</span>
       <ghs-treasure-label class="placeholder text-white" [treasure]="treasure" [edition]="edition"></ghs-treasure-label>

@@ -1,6 +1,6 @@
 <div class="figure-errors-dialog">
   <div class="figure-errors">
-    @for (error of (figure.errors || []); track error) {
+    @for (error of (figure.errors || []) | trackUUID; track error._trackUUID) {
     <div class="figure-error">
       <span class="error"><span [ghs-label]="'game.figure.error.' + error.type"></span></span>
       <span class="hint" [ghs-label]="'game.figure.error.' + error.type + '.hint'" [ghs-label-args]="error.args"

@@ -98,7 +98,7 @@
   @if (!levelDialog && (!gameManager.isCharacter(data.figure) || !gameManager.toCharacter(data.figure).absent)) {
   <div class="status-container">
     <div class="entity-container">
-      @for (actionHint of actionHints; track actionHint.type + $index) {
+      @for (actionHint of actionHints | trackUUID; track actionHint._trackUUID) {
       <div class="action-hint">
         <ghs-action [action]="actionHint" [highlight]="settingsManager.settings.statAnimations"></ghs-action>
       </div>
@@ -560,7 +560,7 @@
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
       </span>
-      @for (realiate of entityRetaliate; track realiate.type + $index; let i = $index) {
+      @for (realiate of entityRetaliate | trackUUID; track realiate._trackUUID; let i = $index) {
       <span class="item column">
         <ghs-pointer-input class="button" tabclick (singleClick)="changeRetaliate(i,-1,0)"
           [ngClass]="{'disabled' : !realiate.value}">
@@ -608,7 +608,7 @@
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
       </span>
-      @for (realiatePermanent of entityRetaliatePersistent; track realiatePermanent; let i = $index) {
+      @for (realiatePermanent of entityRetaliatePersistent | trackUUID; track realiatePermanent._trackUUID; let i = $index) {
       <span class="item column">
         <ghs-pointer-input class="button" tabclick (singleClick)="changeRetaliatePersistent(i,-1,0)"
           [ngClass]="{'disabled' : !realiatePermanent.value}">
@@ -668,7 +668,7 @@
   !!gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length >
   0) {
   <div class="special-actions">
-    @for (specialAction of gameManager.toCharacter(data.figure).specialActions; track specialAction.name) {
+    @for (specialAction of gameManager.toCharacter(data.figure).specialActions | trackUUID; track specialAction._trackUUID) {
     @if ((!specialAction.level || specialAction.level <= data.figure.level) && (!specialAction.perk ||
       gameManager.isCharacter(data.entity) &&
       gameManager.toCharacter(data.figure).progress.perks[specialAction.perk-1]==gameManager.toCharacter(data.figure).perks[specialAction.perk-1].count)

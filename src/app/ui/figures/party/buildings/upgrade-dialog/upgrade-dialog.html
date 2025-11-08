@@ -114,7 +114,7 @@
       }
     </span>
     <span class="first"><span [ghs-label]="'party.campaign.sheet.supply'"></span></span>
-    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span class="first">
       <img class="icon character-icon" [src]="character.iconUrl" />
       <span class="name" [ngClass]="{'absent' : character.absent}">
@@ -129,7 +129,7 @@
         {{costs.gold}}</span>
     </span>
     <span class="calc-col"> - </span>
-    @for (character of characters; track character.edition + '-' + character.name; let i = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
     <span class="calc-col">
       @if (character.progress.gold) {
       <a class="button" [ngClass]="{'disabled' : characterSpent[i].gold == 0 }"
@@ -179,7 +179,7 @@
       <span>-</span>
       }
     </span>
-    @for (character of characters; track character.edition + '-' + character.name; let i = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
     <span class="calc-col">
       @if (character.progress.loot['lumber']) {
       <a class="button" [ngClass]="{'disabled' : characterSpent[i].lumber == 0 }"
@@ -229,7 +229,7 @@
       <span>-</span>
       }
     </span>
-    @for (character of characters; track character.edition + '-' + character.name; let i = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
     <span class="calc-col">
       @if (character.progress.loot['metal']) {
       <a class="button" [ngClass]="{'disabled' : characterSpent[i].metal == 0 }"
@@ -279,7 +279,7 @@
       <span>-</span>
       }
     </span>
-    @for (character of characters; track character.edition + '-' + character.name; let i = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
     <span class="calc-col">
       @if (character.progress.loot['hide']) {
       <a class="button" [ngClass]="{'disabled' : characterSpent[i].hide == 0 }"

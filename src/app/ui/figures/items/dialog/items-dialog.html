@@ -179,7 +179,7 @@
     }
 
     <div class="item-list">
-      @for (itemData of items; track itemData.edition + '-' + itemData.id; let i = $index) {
+      @for (itemData of items | trackUUID; track itemData._trackUUID; let i = $index) {
       <div class="item">
         <img class="open-item" src="./assets/images/fullscreen.svg" ghs-pointer-input
           (singleClick)="openItemDialog(itemData)">
@@ -207,7 +207,7 @@
         }
       </div>
       }
-      @for (unlock of unlocks; track unlock.edition + '-' + unlock.id) {
+      @for (unlock of unlocks | trackUUID; track unlock._trackUUID) {
       <div class="item">
         <ghs-item [item]="unlock" [reveal]="true" [flipped]="unlocked(unlock)"
           (revealed)="unlockItemReveal(unlock, $event)" [editionLabel]="currentEdition"></ghs-item>

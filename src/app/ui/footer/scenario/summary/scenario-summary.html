@@ -35,7 +35,7 @@
     !conclusionOnly && !rewardsOnly && !gameManager.bbRules()) {
     <div class="table" [style.--ghs-summary-columns]="1 + characters.length">
       <span class="head-col first"><span [ghs-label]="'scenario.summary.name'"></span></span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="first">
         <img class="icon character-icon" (click)="openCharacterSheet(character)" [src]="character.iconUrl" />
         <span class="name" [ngClass]="{'absent' : character.absent}">
@@ -51,7 +51,7 @@
       </span>
       }
       <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.loot'"></span></span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         @if (!gameManager.game.lootDeck.cards.length) {
         <span>{{character.loot | ghsValueSign}}</span>
@@ -65,7 +65,7 @@
       <span class="head-col calc-col">
         <span [ghs-label]="'scenario.summary.rewards.gold'"></span>
       </span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         {{rewards.gold | ghsValueSign}}
       </span>
@@ -74,7 +74,7 @@
       @if (success && !!rewards && rewards.collectiveGold) {
       <span class="head-col"><span class="text-white"
           [ghs-label]="'scenario.summary.rewards.collectiveGold'"></span></span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         <input type="number" min="0" [max]="collectiveGold[index] + availableCollectiveGold()"
           [value]="collectiveGold[index]" (change)="changeCollectiveGold($event, index)">
@@ -85,7 +85,7 @@
       @for (value of rewards.collectiveResources; track value) {
       <span class="head-col"><span class="text-white" [ghs-label]="'scenario.summary.rewards.collectiveResource'"
           [ghs-label-args]="[value.type]"></span></span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         <input type="number" min="0"
           [max]="(collectiveResources[index] && collectiveResources[index][value.type] || 0) + availableCollectiveResource(value.type)"
@@ -104,7 +104,7 @@
           'wealth')}}x)</span>
         }
       </span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         @if (character.loot) {
         <span class="gold">{{(character.loot*gameManager.trialsManager.activeFavor('fh', 'wealth')) |
@@ -134,7 +134,7 @@
         {{lootedGold}}/{{totalGold}}
         }
       </span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       @if (!character.absent) {
       <span>
         <span class="gold">{{(success && rewards && rewards.gold ? rewards.gold : 0) + (collectiveGold[index] ?
@@ -160,7 +160,7 @@
         <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'">
         {{lootColumnsLooted[i]}}/{{lootColumnsTotal[i]}}
       </span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       @if (!character.absent) {
       <span>
         <span class="loot">{{lootValue(character, lootType) | ghsValueSign}}</span>
@@ -176,7 +176,7 @@
       }
       }
       <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpGained'"></span></span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         {{character.experience | ghsValueSign}}
       </span>
@@ -184,7 +184,7 @@
       @if (success &&
       (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1)) {
       <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpBonus'"></span></span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         @if (!character.absent) {
         <span>{{gameManager.levelManager.experience()
@@ -197,7 +197,7 @@
       }
       @if (success && rewards && rewards.experience) {
       <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.rewards.experience'"></span></span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         {{rewards.experience | ghsValueSign}}
       </span>
@@ -206,7 +206,7 @@
       }
       @if (success && challenges > 0) {
       <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpChallenges'"></span></span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         @if (!character.absent) {
         <span>{{(2*challenges) | ghsValueSign}}</span>
@@ -226,7 +226,7 @@
           'knowledge')}}x)</span>
         }
       </span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         @if (battleGoals[index]) {
         <span class="xp">{{(3*gameManager.trialsManager.activeFavor('fh', 'knowledge')) | ghsValueSign}}</span>
@@ -246,7 +246,7 @@
       }
       }
       <span class="head-col"><span [ghs-label]="'scenario.summary.xp'"></span></span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       @if (!character.absent) {
       <span>
         @if (success) {
@@ -282,7 +282,7 @@
       }
       @if (gameManager.scenarioManager.getTreasures(scenario,gameManager.game.sections).length > 0) {
       <span class="head-col"><span [ghs-label]="'scenario.summary.treasures'"></span></span>
-      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="treasures">
         @for (treasure of character.treasures || []; track treasure) {
         <div class="hint-container">
@@ -308,10 +308,10 @@
     </span>
     }
     }
-    @for (itemData of rewardItems; track itemData.edition + '-' + itemData.id; let itemIndex = $index) {
+    @for (itemData of rewardItems | trackUUID; track itemData._trackUUID; let itemIndex = $index) {
     <span (click)="openItemDialog(itemData)" class="head-col"><span [ghs-label]="'scenario.summary.item'"
         [ghs-label-args]="[itemData.name]"></span></span>
-    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span>
       @if (items[index] && items[index].indexOf(itemIndex) != -1) {
       <ghs-item (click)="openItemDialog(itemData)" [item]="itemData" [flipped]="true"></ghs-item>
@@ -325,7 +325,7 @@
     @if (!!randomItem) {
     <span class="head-col"><span [ghs-label]="'scenario.summary.randomItem'"
         [ghs-label-args]="[randomItem.name]"></span></span>
-    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span>
       @if (randomItemIndex == index) {
       <ghs-item (click)="openItemDialog(randomItem)" [item]="randomItem" [flipped]="true"></ghs-item>
@@ -337,17 +337,17 @@
     }
     @if (!!randomItems && randomItems.length > 0) {
     <span class="head-col"><span [ghs-label]="'scenario.summary.randomItems'"></span></span>
-    @for (itemData of randomItems; track itemData ? itemData.edition + '-' + itemData.id : itemData) {
+    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span>
-      @if (!!itemData) {
-      <ghs-item (click)="openItemDialog(itemData)" [item]="itemData" [flipped]="true"></ghs-item>
+      @if (!!randomItems[index]) {
+      <ghs-item (click)="openItemDialog(randomItems[index])" [item]="randomItems[index]" [flipped]="true"></ghs-item>
       }
     </span>
     }
     }
     @if (success) {
     <span class="head-col"><span [ghs-label]="'game.battleGoals'"></span></span>
-    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span>
       <span class="battlegoals">
         @if (settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 &&
@@ -360,7 +360,7 @@
         @if (settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 &&
         character == trial349) {
         <div class="battlegoal-list">
-          @for (battleGoal of character.battleGoals; track battleGoal.edition + '-' + battleGoal.name) {
+          @for (battleGoal of character.battleGoals | trackUUID; track battleGoal._trackUUID) {
           <span class="battlegoal" (click)="openBattleGoals(character)">
             <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
           </span>
@@ -370,8 +370,7 @@
         @if (settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 2 &&
         character == trial356) {
         <div class="battlegoal-list">
-          @for (battleGoal of character.battleGoals.slice(0,character.battleGoals.length - 2); track battleGoal.edition
-          + '-' + battleGoal.name) {
+          @for (battleGoal of character.battleGoals.slice(0,character.battleGoals.length - 2) | trackUUID; track battleGoal._trackUUID) {
           <span class="battlegoal" (click)="openBattleGoals(character)">
             <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
           </span>
@@ -407,7 +406,7 @@
     }
     @if (success && gameManager.trialsManager.trialsEnabled) {
     <span class="head-col"><span [ghs-label]="'character.progress.trial'"></span></span>
-    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span>
       <span class="trials">
         @if (character.progress.trial) {
@@ -431,7 +430,7 @@
     }
     @if (stats) {
     <span class="head-col"><span [ghs-label]="'scenario.stats.damage'"></span></span>
-    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span class="scenario-stats">
       <span class="text-white" [ghs-label]="'scenario.stats.dealtDamage'"
         [ghs-label-args]="[character.scenarioStats.dealtDamage]" [style]="'fh'"
@@ -445,7 +444,7 @@
     </span>
     }
     <span class="head-col"><span [ghs-label]="'scenario.stats.heal'"></span></span>
-    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span class="scenario-stats">
       <span class="text-white" [ghs-label]="'scenario.stats.heals'" [ghs-label-args]="[character.scenarioStats.heals]"
         [style]="'fh'" [ghs-tooltip]="'scenario.stats.heals.hint'"></span>
@@ -455,7 +454,7 @@
     </span>
     }
     <span class="head-col"><span [ghs-label]="'scenario.stats.kills'"></span></span>
-    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span class="scenario-stats">
       @if (character.scenarioStats.normalKills) {
       <span class="text-white" [ghs-label]="'scenario.stats.normalKills'"
@@ -475,7 +474,7 @@
     </span>
     }
     <span class="head-col"><span [ghs-label]="'scenario.stats.max'"></span></span>
-    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span class="scenario-stats">
       <span class="text-white" [ghs-label]="'scenario.stats.maxDealtDamage'"
         [ghs-label-args]="[character.scenarioStats.maxDealtDamage]" [style]="'fh'"
@@ -687,7 +686,7 @@
     <div class="reward achievements">
       <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
       <div class="list">
-        @for (calendarSection of rewards.calendarSectionManual; track calendarSection; let i = $index) {
+        @for (calendarSection of rewards.calendarSectionManual | trackUUID; track calendarSection._trackUUID; let i = $index) {
         <div class="item achievement">
           <span class="placeholder text-white" [ghs-label]="calendarSection.hint"></span>
           <input type="number" min="-1" [value]="calendarSectionManual[i] || -1"
@@ -738,7 +737,7 @@
         }
         @if (!!rewards.resources && rewards.resources.length) {
         <div class="item resources">
-          @for (item of rewards.resources; track item.type; let i = $index) {
+          @for (item of rewards.resources | trackUUID; track item._trackUUID; let i = $index) {
           @if (item.value) {
           <span class="placeholder text-white"
             [ghs-label]="'scenario.rewards.resources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
@@ -752,7 +751,7 @@
         }
         @if (!!rewards.collectiveResources && rewards.collectiveResources.length) {
         <div class="item collective-resources">
-          @for (item of rewards.collectiveResources; track item.type; let i = $index) {
+          @for (item of rewards.collectiveResources | trackUUID; track item._trackUUID; let i = $index) {
           @if (item.value) {
           <span class="placeholder text-white"
             [ghs-label]="'scenario.rewards.collectiveResources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
@@ -1059,7 +1058,7 @@
         }
         @if (!!townGuardAMs && townGuardAMs.length > 0) {
         <div class="item town-guard-am">
-          @for (townGuardAm of townGuardAMs; track townGuardAm.id) {
+          @for (townGuardAm of townGuardAMs | trackUUID; track townGuardAm._trackUUID) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.townGuardAm'"
             [ghs-label-args]="[townGuardAm.value, townGuardAm.valueType]"></span>
           }
@@ -1138,7 +1137,7 @@
       }
       @if (weekSections().length) {
       <div class="item week-sections">
-        @for (weekSection of weekSections(); track weekSection) {
+        @for (weekSection of weekSections() | trackUUID; track weekSection._trackUUID) {
         <span class="week-section text-white" (click)="showWeekConclusion(weekSection)"
           [ghs-label]="'scenario.rewards.addWeek.section'" [ghs-label-args]="[weekSection.index]"></span>
         }

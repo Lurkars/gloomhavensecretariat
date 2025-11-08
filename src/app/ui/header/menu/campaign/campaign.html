@@ -91,7 +91,7 @@
   }
 
   @if (settingsManager.settings.characterSheet && !gameManager.bbRules()) {
-  @for (character of characters; track character.edition + '-' + character.name) {
+  @for (character of characters | trackUUID; track character._trackUUID) {
   <div class="line">
     <a tabclick (click)="openCharacterSheet(character);">
       <img class="icon" [src]="character.iconUrl" />
@@ -117,7 +117,7 @@
   </div>
   <div class="line">
     <div class="conditions">
-      @for (condition of conditions; track condition.name) {
+      @for (condition of conditions | trackUUID; track condition._trackUUID) {
       <span class="item"
         [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
         <span class="condition" tabclick (click)="toggleCondition(condition.name)"
@@ -133,7 +133,7 @@
   </div>
   <div class="line">
     <div class="conditions">
-      @for (condition of amConditions; track condition.name) {
+      @for (condition of amConditions | trackUUID; track condition._trackUUID) {
       <span class="item"
         [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
         <span class="condition" tabclick (click)="toggleCondition(condition.name)"
@@ -161,7 +161,7 @@
       }
     </div>
   </div>
-  @for (party of gameManager.game.parties; track party) {
+  @for (party of gameManager.game.parties | trackUUID; track party._trackUUID) {
   <div class="line">
     @if (gameManager.game.party != party) {
     <label

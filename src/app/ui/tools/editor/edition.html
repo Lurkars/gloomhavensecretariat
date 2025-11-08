@@ -15,7 +15,7 @@
 
             <label><span [ghs-label]="'editor.edition.extensions'"></span></label>
             <select [(ngModel)]="editionData.extensions" multiple (change)="editionDataToJson()">
-              @for (editionData of gameManager.editionData; track editionData.edition) {
+              @for (editionData of gameManager.editionData | trackUUID; track editionData._trackUUID) {
               <option [value]="editionData.edition">
                 <span [ghs-label]="'data.edition.' + editionData.edition"></span>
                 [{{editionData.edition}}]
@@ -47,7 +47,7 @@
         <h2><span [ghs-label]="'editor.edition.character'"></span></h2>
 
         <div class="file-list characters">
-          @for (characterData of editionData.characters; track characterData.edition + '-' + characterData.name; let index = $index) {
+          @for (characterData of editionData.characters | trackUUID; track characterData._trackUUID; let index = $index) {
           <span class="file" [ghs-label]="'editor.edition.character.remove'" [ghs-label-attribute]="'title'"
             (click)="removeCharacter(index)">
             <span [ghs-label]="'data.character.' + characterData.edition + '.' + characterData.name"></span>
@@ -63,7 +63,7 @@
         <h2><span [ghs-label]="'editor.edition.monster'"></span></h2>
 
         <div class="file-list monsters">
-          @for (monsterData of editionData.monsters; track monsterData.edition + '-' + monsterData.name; let index = $index) {
+          @for (monsterData of editionData.monsters | trackUUID; track monsterData._trackUUID; let index = $index) {
           <span class="file" [ghs-label]="'editor.edition.monster.remove'" [ghs-label-attribute]="'title'"
             (click)="removeMonster(index)">
             <span [ghs-label]="'data.monster.' + monsterData.name"></span>
@@ -79,7 +79,7 @@
         <h2><span [ghs-label]="'editor.edition.decks'"></span></h2>
 
         <div class="file-list decks">
-          @for (deckData of editionData.decks; track deckData.edition + '-' + deckData.name; let index = $index) {
+          @for (deckData of editionData.decks | trackUUID; track deckData._trackUUID; let index = $index) {
           <span class="file" [ghs-label]="'editor.edition.decks.remove'" [ghs-label-attribute]="'title'"
             (click)="removeDeck(index)">
             <span [ghs-label]="'data.deck.' + deckData.name"></span>
@@ -95,7 +95,7 @@
 
         <select (change)="loadEditionData($event)">
           <option [value]="-1">&lt;<span [ghs-label]="'editor.edition.new'"></span>&gt;</option>
-          @for (editionData of gameManager.editionData; track editionData.edition; let index = $index) {
+          @for (editionData of gameManager.editionData | trackUUID; track editionData._trackUUID; let index = $index) {
           <option [value]="index">
             <span [ghs-label]="'data.edition.' + editionData.edition"></span> [{{editionData.edition}}]
           </option>

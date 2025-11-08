@@ -4,7 +4,7 @@
     <span [ghs-label]="'scenario.requirements.solo'" [ghs-label-args]="[scenarioData.edition, solo]"></span>
   </div>
   }
-  @for (requirement of requirements; track requirement; let i = $index) {
+  @for (requirement of requirements | trackUUID; track requirement._trackUUID; let i = $index) {
   <div class="requirement">
     <div class="party">
       @for (achievement of requirement.partyAchievements; track achievement) {
@@ -43,39 +43,41 @@
       }
     </div>
     <div class="campaign-stickers">
-      @for (achievement of requirement.campaignStickers; track achievement) {
-      <div class="achievement" [ghs-label]="'scenario.requirements.campaignStickers'" [ghs-label-args]="[achievement]">
+      @for (campaignSticker of requirement.campaignStickers; track campaignSticker) {
+      <div class="achievement" [ghs-label]="'scenario.requirements.campaignStickers'"
+        [ghs-label-args]="[campaignSticker]">
       </div>
       }
     </div>
     <div class="campaign-stickers">
-      @for (achievement of requirement.campaignStickersCount; track achievement) {
+      @for (campaignStickerCount of requirement.campaignStickersCount | trackUUID; track
+      campaignStickerCount._trackUUID) {
       <div class="achievement" [ghs-label]="'scenario.requirements.campaignStickersCount'"
-        [ghs-label-args]="[achievement.name, (achievement.required - achievement.count), achievement.required]">
+        [ghs-label-args]="[campaignStickerCount.name, (campaignStickerCount.required - campaignStickerCount.count), campaignStickerCount.required]">
       </div>
       }
     </div>
     <div class="campaign-stickers">
-      @for (achievement of requirement.campaignStickersMissing; track achievement) {
+      @for (campaignSticker of requirement.campaignStickersMissing; track campaignSticker) {
       <div class="achievement" [ghs-label]="'scenario.requirements.campaignStickersMissing'"
-        [ghs-label-args]="[achievement]"></div>
+        [ghs-label-args]="[campaignSticker]"></div>
       }
     </div>
     <div class="buildings">
-      @for (achievement of requirement.buildings; track achievement) {
-      <div class="achievement" [ghs-label]="'scenario.requirements.buildings'" [ghs-label-args]="[achievement]"></div>
+      @for (building of requirement.buildings; track building) {
+      <div class="achievement" [ghs-label]="'scenario.requirements.buildings'" [ghs-label-args]="[building]"></div>
       }
     </div>
     <div class="buildings">
-      @for (achievement of requirement.buildingsLevel; track achievement) {
+      @for (buildingLevel of requirement.buildingsLevel | trackUUID; track buildingLevel._trackUUID) {
       <div class="achievement" [ghs-label]="'scenario.requirements.buildingsLevel'"
-        [ghs-label-args]="[achievement.name, achievement.level]">
+        [ghs-label-args]="[buildingLevel.name, buildingLevel.level]">
       </div>
       }
     </div>
     <div class="buildings">
-      @for (achievement of requirement.buildingsMissing; track achievement) {
-      <div class="achievement" [ghs-label]="'scenario.requirements.buildingsMissing'" [ghs-label-args]="[achievement]">
+      @for (building of requirement.buildingsMissing; track building) {
+      <div class="achievement" [ghs-label]="'scenario.requirements.buildingsMissing'" [ghs-label-args]="[building]">
       </div>
       }
     </div>

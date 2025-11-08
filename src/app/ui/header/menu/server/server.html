@@ -51,7 +51,7 @@
         <select tabclick (change)="selectServer($event)">
           <option><span [ghs-label]="('server.list.' + (selectedServerIndex == -1 ? 'select' : 'deselect'))"></span>
           </option>
-          @for (server of publicServer; track server; let i = $index) {
+          @for (server of publicServer | trackUUID; track server._trackUUID; let i = $index) {
           <option [value]="i" [selected]="selectedServerIndex == i">
             {{server.url}}
           </option>
@@ -273,7 +273,7 @@
     </div>
     @if (!permissions.characters) {
     <div class="line characters">
-      @for (character of characters(); track character.edition + '-' + character.name) {
+      @for (character of characters() | trackUUID; track character._trackUUID) {
       <label [ngClass]="{'disabled' : gameManager.stateManager.permissions}">
         <input tabclick type="checkbox" [checked]="hasCharacter(character)" (change)="toggleCharacter(character)">
         {{gameManager.characterManager.characterName(character, true)}}
@@ -300,7 +300,7 @@
     </div>
     @if (!permissions.monsters) {
     <div class="line monsters">
-      @for (monster of monsters(); track monster.edition + '-' + monster.name) {
+      @for (monster of monsters() | trackUUID; track monster._trackUUID) {
       <label [ngClass]="{'disabled' : gameManager.stateManager.permissions}">
         <input tabclick type="checkbox" [checked]="hasMonster(monster)" (change)="toggleMonster(monster)">
         <span [ghs-label]="'data.monster.' + monster.name"></span>

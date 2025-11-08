@@ -25,7 +25,7 @@
     <div class="empty"><span [ghs-label]="'data.buildings.stables.pets.empty'"></span></div>
     }
 
-    @for (pet of pets; track pet) {
+    @for (pet of pets | trackUUID; track pet._trackUUID) {
     <div class="pet">
       @if (pet.card) {
       <ghs-pet-card [petCard]="pet.card" [flipped]="pet.model != undefined" [reveal]="pet.model == undefined"

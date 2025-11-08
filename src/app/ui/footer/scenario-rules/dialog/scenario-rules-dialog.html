@@ -3,14 +3,14 @@
   <h2 [ghs-label]="'scenario.rules.show.applied'"></h2>
   }
   <div class="applied">
-    @for (ruleModel of appliedScenarioRules; track ruleModel) {
+    @for (ruleModel of appliedScenarioRules | trackUUID; track ruleModel._trackUUID) {
     <ghs-scenario-rule [rule]="ruleModel.rule" [identifier]="ruleModel.identifier"
       (click)="discardScenarioRule(ruleModel)"></ghs-scenario-rule>
     }
   </div>
   <h2 [ghs-label]="'scenario.rules.show.discarded'"></h2>
   <div class="discarded">
-    @for (ruleModel of discardedScenarioRules; track ruleModel) {
+    @for (ruleModel of discardedScenarioRules | trackUUID; track ruleModel._trackUUID) {
     <ghs-scenario-rule [rule]="ruleModel.rule" [identifier]="ruleModel.identifier"></ghs-scenario-rule>
     }
   </div>

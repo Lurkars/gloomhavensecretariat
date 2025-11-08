@@ -70,7 +70,7 @@
 
   @if (predecessors.length) {
   <span class="predecessors">
-    @for (predecessor of predecessors; track predecessor.edition + predecessor.index; let i = $index) {
+    @for (predecessor of predecessors | trackUUID; track predecessor._trackUUID; let i = $index) {
     @if (i > 0 && i < predecessors.length) { <img class="ghs-svg" src="./assets/images/arrow-up.svg">
       }
       <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + predecessor.index + '%'"></span>

@@ -43,7 +43,7 @@
         <span [ghs-label]="'party.campaign.sheet.supply'"></span>:&nbsp;
         <span class="value">{{currentResources[characters.length]}}</span>
       </a>
-      @for (character of characters; track character.edition + '-' + character.name; let i = $index) {
+      @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
       <a class="source" (click)="selectSource(i)"
         [ngClass]="{'active': currentSource == i, 'disabled' : !currentResources[i]}">
         <img class="character-icon" [src]="character.iconUrl" />

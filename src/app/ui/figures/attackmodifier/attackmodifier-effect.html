@@ -30,7 +30,7 @@
     @case (AttackModifierEffectType.element) {
     <img class="full" [ngClass]="{'sub-effects' : effect.effects && effect.effects.length}"
       [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg'" />
-    @for (subEffect of effect.effects | trackUUUID; track subEffect._trackUUID;) {
+    @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID;) {
     <div class="sub-effects">
       <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
         [newStyle]="newStyle"></ghs-attackmodifier-effect>
@@ -55,7 +55,7 @@
         [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg'">
     </span>
     <span class="divider">:</span>
-    @for (subEffect of effect.effects | trackUUUID; track subEffect._trackUUID;) {
+    @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID;) {
     <div class="sub-effects">
       <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
         [newStyle]="newStyle"></ghs-attackmodifier-effect>
@@ -95,7 +95,7 @@
       }
       <div class="sub-effects">
         <span class="divider">,</span>
-        @for (subEffect of subEffects() | trackUUUID; track subEffect._trackUUID;) {
+        @for (subEffect of subEffects() | trackUUID; track subEffect._trackUUID;) {
         <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
           [newStyle]="newStyle"></ghs-attackmodifier-effect>
         }
@@ -128,7 +128,7 @@
       </span>
       }
       <div class="sub-effects">
-        @for (subEffect of subEffects() | trackUUUID; track subEffect._trackUUID;) {
+        @for (subEffect of subEffects() | trackUUID; track subEffect._trackUUID;) {
         <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
           [newStyle]="newStyle"></ghs-attackmodifier-effect>
         }
@@ -161,7 +161,7 @@
       </span>
       }
       <div class="sub-effects">
-        @for (subEffect of subEffects() | trackUUUID; track subEffect._trackUUID;) {
+        @for (subEffect of subEffects() | trackUUID; track subEffect._trackUUID;) {
         <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
           [newStyle]="newStyle"></ghs-attackmodifier-effect>
         }
@@ -172,7 +172,7 @@
     <img class="full" [src]="'./assets/images/attackmodifier/target.svg'" />
     @if (effect.effects) {
     <div class="sub-effects">
-      @for (subEffect of effect.effects | trackUUUID; track subEffect._trackUUID;) {
+      @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID;) {
       <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
         [newStyle]="newStyle"></ghs-attackmodifier-effect>
       }
@@ -183,7 +183,7 @@
     <ghs-action-hex [value]="effect.value"></ghs-action-hex>
     @if (effect.effects) {
     <div class="sub-effects">
-      @for (subEffect of effect.effects | trackUUUID; track subEffect._trackUUID;) {
+      @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID;) {
       <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
         [newStyle]="newStyle"></ghs-attackmodifier-effect>
       }
@@ -197,7 +197,7 @@
     </span>
     @if (effect.effects) {
     <div class="sub-effects">
-      @for (subEffect of effect.effects | trackUUUID; track subEffect._trackUUID;) {
+      @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID;) {
       <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
         [newStyle]="newStyle"></ghs-attackmodifier-effect>
       }
@@ -213,7 +213,7 @@
       <span class="label"><span [ghs-label]="'game.attackModifiers.effects.refreshSpentItem'"></span></span>
       @if (effect.effects) {
       <div class="sub-effects">
-        @for (subEffect of effect.effects | trackUUUID; track subEffect._trackUUID;) {
+        @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID;) {
         <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
           [newStyle]="newStyle"></ghs-attackmodifier-effect>
         }
@@ -228,7 +228,7 @@
     </span>
     @if (effect.effects) {
     <div class="sub-effects">
-      @for (subEffect of effect.effects | trackUUUID; track subEffect._trackUUID;) {
+      @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID;) {
       <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
         [newStyle]="newStyle"></ghs-attackmodifier-effect>
       }
@@ -249,7 +249,7 @@
     }
     @if (effect.effects) {
     <div class="sub-effects">
-      @for (subEffect of effect.effects | trackUUUID; track subEffect._trackUUID;) {
+      @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID;) {
       <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
         [newStyle]="newStyle"></ghs-attackmodifier-effect>
       }
@@ -258,7 +258,7 @@
     }
     @case (AttackModifierEffectType.or) {
     <span class="or-label" [ngClass]="{'new-style' : newStyle}"><span [ghs-label]="'or'"></span></span>
-    @for (subEffect of effect.effects | trackUUUID; track subEffect._trackUUID;) {
+    @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID;) {
     <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
       [newStyle]="newStyle"></ghs-attackmodifier-effect>
     }
@@ -267,7 +267,7 @@
     <img class="overlay" [src]="'./assets/images/attackmodifier/overlays/replace/' +effect.value + '.png'" />
     @if (effect.effects) {
     <div class="sub-effects">
-      @for (subEffect of effect.effects | trackUUUID; track subEffect._trackUUID;) {
+      @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID;) {
       <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
         [newStyle]="newStyle"></ghs-attackmodifier-effect>
       }
@@ -283,7 +283,7 @@
       <span class="label">!</span>
       }
       <div class="sub-effects">
-        @for (subEffect of effect.effects | trackUUUID; track subEffect._trackUUID;) {
+        @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID;) {
         <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
           [newStyle]="newStyle"></ghs-attackmodifier-effect>
         }

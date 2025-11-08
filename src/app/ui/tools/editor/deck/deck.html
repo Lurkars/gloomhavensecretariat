@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        @for (ability of deckData.abilities; track ability.cardId) {
+        @for (ability of deckData.abilities | trackUUID; track ability._trackUUID) {
         <div class="abilities-container">
           <div class="ability-input">
             <div class="ability-edit" #card [style.fontSize]=" card.offsetWidth * 0.04 + 'px'"
@@ -48,7 +48,7 @@
                 (change)="changeInitiative($event, ability)">
               <div class="actions-container">
                 <div class="actions" cdkDropList (cdkDropListDropped)="dropAction(ability.actions, $event)">
-                  @for (action of ability.actions; track action; let index = $index) {
+                  @for (action of ability.actions | trackUUID; track action._trackUUID; let index = $index) {
                   <div class="action-container" cdkDrag>
                     @if (divider(ability.actions,index)) {
                     <div class="divider"></div>
@@ -98,7 +98,7 @@
               @if (deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0) {
               <div class="actions-container bottom">
                 <div class="actions" cdkDropList (cdkDropListDropped)="dropAction(ability.bottomActions, $event)">
-                  @for (action of ability.bottomActions; track action; let index = $index) {
+                  @for (action of ability.bottomActions | trackUUID; track action._trackUUID; let index = $index) {
                   <div class="action-container" cdkDrag>
                     @if (divider(ability.bottomActions,index)) {
                     <div class="divider"></div>
@@ -186,7 +186,7 @@
 
         <select (change)="loadDeckData($event)">
           <option [value]="-1">&lt;<span [ghs-label]="'editor.deck.new'"></span>&gt;</option>
-          @for (dd of decksData; track dd; let index = $index) {
+          @for (dd of decksData | trackUUID; track dd._trackUUID; let index = $index) {
           <option [value]="index" [selected]="dd.edition == deckData.edition && dd.name == deckData.name">
             {{dd.name}} (<span [ghs-label]="'data.edition.' + dd.edition"></span>)
           </option>

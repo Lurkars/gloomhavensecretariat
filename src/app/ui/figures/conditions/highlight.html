@@ -1,6 +1,6 @@
 @if (highlightedConditions.length > 0) {
 <div class="highlight-conditions">
-  @for (entityCondition of highlightedConditions; track entityCondition.name + entityCondition.value) {
+  @for (entityCondition of highlightedConditions | trackUUID; track entityCondition._trackUUID) {
   <span class="condition" [conditionHighlight]="entityCondition"
     [ngClass]="{'apply' : settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && !entityCondition.expired && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) == -1 && entityCondition.types.indexOf(ConditionType.apply) != -1, 'double': entityCondition.types.indexOf(ConditionType.double) != -1}">
     @if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions &&

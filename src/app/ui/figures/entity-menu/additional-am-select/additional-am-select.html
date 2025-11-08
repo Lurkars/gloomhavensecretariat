@@ -1,7 +1,7 @@
 <p><span [ghs-label]="'game.attackModifiers.additional.dialog'" [ghs-label-args]="[type]"></span></p>
 
 <div class="characters">
-  @for (character of characters; track character.edition + '-' + character.name; let i = $index) {
+  @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
   <div class="character" (click)="toggleSelect(i)" [ngClass]="{'selected' : selected == i}">
     <img class="icon" [src]="character.iconUrl" />
     <span class="name">

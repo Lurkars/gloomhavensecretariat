@@ -10,15 +10,13 @@ declare global {
 export { };
 
 @Pipe({
-    name: 'trackUUUID',
+    name: 'trackUUID',
     standalone: false,
     pure: true
 })
 export class TrackUUIDPipe implements PipeTransform {
 
     transform<T extends object>(items: T[], nestedArrayKeys?: string[]): T[] {
-        if (!items) return items;
-
         items.forEach((item, index) => this.createUUID(item, index, nestedArrayKeys));
         return items;
     }

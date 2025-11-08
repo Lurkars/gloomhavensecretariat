@@ -19,7 +19,7 @@ export class GhsValueSignPipe implements PipeTransform {
   name: 'ghsRange'
 })
 export class GhsRangePipe implements PipeTransform {
-  transform(items: any[], quantity: number, reverse: boolean = false): any {
+  transform(items: any[], quantity: number, reverse: boolean = false): number[] {
     items.length = 0;
     for (let i = 0; i < quantity; i++) {
       items.push(reverse ? quantity - i - 1 : i);

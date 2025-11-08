@@ -16,7 +16,7 @@
 
   @if (edition) {
   <div class="sections">
-    @for (section of sections; track section.edition + '-' + section.index) {
+    @for (section of sections | trackUUID; track section._trackUUID) {
     <div class="section">
       <ghs-random-monster-card [section]="section" [flipped]="true"></ghs-random-monster-card>
     </div>

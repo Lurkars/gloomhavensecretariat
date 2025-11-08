@@ -6,7 +6,7 @@
       <img [src]="character.iconUrl" />
     </span>
     <div class="summons">
-      @for (summon of character.summons | trackUUUID; track summon._trackUUID;) {
+      @for (summon of character.summons | trackUUID; track summon._trackUUID;) {
       <ghs-standee [figure]="character" [entity]="summon">
       </ghs-standee>
       }
@@ -34,7 +34,7 @@
 
     <div class="row">
       <div class="conditions">
-        @for (entityCondition of activeConditions | trackUUUID; track entityCondition._trackUUID;) {
+        @for (entityCondition of activeConditions | trackUUID; track entityCondition._trackUUID;) {
         <span class="condition">
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"

@@ -54,7 +54,7 @@
 
   <div class="decks">
     @if (characters.length > 0) {
-    @for (character of characters; track character.edition + '-' + character.name; let i = $index) {
+    @for (character of characters | trackUUID; track character._trackUUID; let i = $index) {
     <div class="deck">
       <h2><span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span> @if (character.name
         != deck(character).name) {
@@ -63,7 +63,7 @@
         </small>
         }
       </h2>
-      @for (ability of deck(character).abilities; track ability.cardId) {
+      @for (ability of deck(character).abilities | trackUUID; track ability._trackUUID) {
       <ghs-ability class="bottom-actions" [ability]="ability" [abilities]="deck(character).abilities"
         [character]="characters[i]" [flipped]="true">
       </ghs-ability>
@@ -72,7 +72,7 @@
     }
     }
     @if (monsters.length > 0) {
-    @for (monster of monsters; track monster.edition + '-' + monster.name; let i = $index) {
+    @for (monster of monsters | trackUUID; track monster._trackUUID; let i = $index) {
     <div class="deck">
       <h2><span [ghs-label]="'data.monster.' + monster.name"></span> @if (monster.name != deck(monster).name) {
         <small>
@@ -80,7 +80,7 @@
         </small>
         }
       </h2>
-      @for (ability of deck(monster).abilities; track ability.cardId) {
+      @for (ability of deck(monster).abilities | trackUUID; track ability._trackUUID) {
       <ghs-ability [ability]="ability" [abilities]="deck(monster).abilities" [monster]="monsters[i]" [flipped]="true"
         [ngClass]="{'bottom-actions' : ability.bottomActions && ability.bottomActions.length > 0}"></ghs-ability>
       }

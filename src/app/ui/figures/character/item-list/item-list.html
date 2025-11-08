@@ -8,7 +8,7 @@
   </div>
   }
 
-  @for (itemData of items | trackUUUID; track itemData._trackUUID;) {
+  @for (itemData of items | trackUUID; track itemData._trackUUID;) {
   <div class="item-container" [ngClass]="{'spent' : !setup && countFlag(itemData,ItemFlags.spent)}">
     <ghs-character-item [character]="character" [item]="itemData" [setup]="setup"></ghs-character-item>
     <a class="open-dialog" (click)="openItemDialog(itemData)"></a>

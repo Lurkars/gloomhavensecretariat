@@ -38,7 +38,7 @@
         </a>
       </div>
       }
-      @for (characterData of (characterData[edition] || []); track characterData.edition + '-' + characterData.name) {
+      @for (characterData of (characterData[edition] || []) | trackUUID; track characterData._trackUUID) {
       <div class="line"
         [ngClass]="{'disabled' : hasCharacter(characterData) && unlocked(characterData), 'spoiler' : characterData.spoiler}">
         @if (unlocked(characterData)) {

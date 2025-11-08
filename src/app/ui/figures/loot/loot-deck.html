@@ -22,7 +22,7 @@
     }
   </div>
 
-  @for (card of deck.cards; track card.cardId + '-' + $index; let index = $index) {
+  @for (card of deck.cards | trackUUID; track card._trackUUID; let index = $index) {
   @if (index > current - 3) {
   <div class="loot-container" (click)="clickCard(index, $event)"
     [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"

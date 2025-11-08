@@ -10,7 +10,7 @@
             </label>
           </th>
           <th><span [ghs-label]="'party.campaign.sheet.supply'"></span></th>
-          @for (character of characters; track character.edition + '-' + character.name) {
+          @for (character of characters| trackUUID; track character._trackUUID) {
           <th>
             <span class="character">
               <img class="icon character-icon" [src]="character.iconUrl" />
@@ -30,7 +30,7 @@
           <th [ghs-tooltip]="'character.progress.gold'"><img class="ghs-svg" [src]="'./assets/images/loot.svg'">
           </th>
           <td><span class="loot">-</span></td>
-          @for (character of characters; track character.edition + '-' + character.name) {
+          @for (character of characters| trackUUID; track character._trackUUID) {
           <td>
             @if (!edit) {
             <span class="loot">{{character.progress.gold || '-'}}</span>
@@ -48,7 +48,7 @@
           <th [ghs-tooltip]="'game.experience'"><img class="ghs-svg" [src]="'./assets/images/experience.svg'">
           </th>
           <td><span class="loot">-</span></td>
-          @for (character of characters; track character.edition + '-' + character.name) {
+          @for (character of characters| trackUUID; track character._trackUUID) {
           <td>
             @if (!edit) {
             <span class="loot">{{character.progress.experience || '-'}}</span>
@@ -76,7 +76,7 @@
               (change)="changeLoot(undefined, lootType, $event)">
             }
           </td>
-          @for (character of characters; track character.edition + '-' + character.name) {
+          @for (character of characters| trackUUID; track character._trackUUID) {
           <td>
             @if (!edit) {
             <span class="loot">{{(character.progress.loot[lootType] || '-')}}</span>

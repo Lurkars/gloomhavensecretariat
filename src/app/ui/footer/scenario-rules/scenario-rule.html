@@ -4,7 +4,7 @@
   }
   @if (gameManager.scenarioRulesManager.spawns(rule).length > 0) {
   <div class="spawns">
-    @for (spawn of gameManager.scenarioRulesManager.spawns(rule); track spawn; let i = $index) {
+    @for (spawn of gameManager.scenarioRulesManager.spawns(rule) | trackUUID; track spawn._trackUUID; let i = $index) {
     @if (i > 0) {
     <span class="and" [ghs-label]="'and'"></span>
     }
@@ -18,7 +18,7 @@
   }
   @if (!!rule.objectiveSpawns && rule.objectiveSpawns.length > 0) {
   <div class="objective-spawns">
-    @for (spawn of rule.objectiveSpawns; track spawn; let i = $index) {
+    @for (spawn of rule.objectiveSpawns | trackUUID; track spawn._trackUUID; let i = $index) {
     @if (i > 0) {
     <span class="and" [ghs-label]="'and'"></span>
     }
@@ -48,7 +48,7 @@
   }
   @if (rooms().length > 0) {
   <div class="sections rooms">
-    @for (roomData of rooms(); track roomData.roomNumber; let i = $index) {
+    @for (roomData of rooms() | trackUUID; track roomData._trackUUID; let i = $index) {
     <span class="section room">
       <img class="ghs-svg" src="./assets/images/scenario/door.svg">
       <span class="text-white"
@@ -60,7 +60,7 @@
   }
   @if (sections().length > 0) {
   <div class="sections">
-    @for (sectionData of sections(); track sectionData.edition + '-' + sectionData.index; let i = $index) {
+    @for (sectionData of sections() | trackUUID; track sectionData._trackUUID; let i = $index) {
     @if (i > 0) {
     <span class="and">,</span>
     }
@@ -81,7 +81,7 @@
   }
   @if (figureRules().length > 0) {
   <div class="figures">
-    @for (figureRule of figureRules(); track figureRule) {
+    @for (figureRule of figureRules() | trackUUID; track figureRule._trackUUID) {
     <span class="figure">
       <span class="text-white" [ghs-label]="'scenario.rules.figures.' + figureRule.type"
         [ghs-label-args]="[figureNames(figureRule), figureRule.value || '', (settingsManager.settings.calculate && (figureRule.type == 'damage' && figureRule.value && figureRule.value.indexOf('H') == -1 || (figureRule.type == 'setHp' || figureRule.type == 'heal') && figureRule.value && figureRule.value.indexOf('H') == -1)) ? EntityValueFunction(figureRule.value || '') : (figureRule.value || ''), (figureRule.type == 'amAdd' || figureRule.type == 'amRemove') ? figureRule.value.split(':')[0] : '', (figureRule.type == 'amAdd' || figureRule.type == 'amRemove' || figureRule.type == 'transfer' && figureRule.value && figureRule.value.split(':').length > 1) ? figureRule.value.split(':')[1] : '', figureRule.type == 'transferEntities' && figureRule.identifier && figureRule.identifier.number ? figureRule.identifier.number : '']"></span>
@@ -115,7 +115,7 @@
   }
   @if (!!rule.statEffects && rule.statEffects.length) {
   <div class="stat-effects">
-    @for (statEffectRule of rule.statEffects; track statEffectRule) {
+    @for (statEffectRule of rule.statEffects | trackUUID; track statEffectRule._trackUUID) {
     <div class="text text-white" [ghs-label]="statEffectRule.note">
     </div>
     }

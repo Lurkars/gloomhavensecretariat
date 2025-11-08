@@ -6,7 +6,7 @@
     </div>
     @if (character.lootCards) {
     <div class="loot-cards">
-      @for (loot of lootCards | trackUUUID; track loot._trackUUID;) {
+      @for (loot of lootCards | trackUUID; track loot._trackUUID;) {
       <div class="loot-container" (click)="randomItem(loot) && randomItemDialog(loot)"
         [ngClass]="{'random-item': randomItem(loot)}">
         <ghs-loot [loot]="loot" [flipped]="true" [disableFlip]="true"></ghs-loot>

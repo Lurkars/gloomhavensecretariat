@@ -18,13 +18,13 @@ import { CharacterSpecialAction } from "src/app/game/model/data/CharacterStat";
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
 import { ItemFlags } from "src/app/game/model/data/ItemData";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
+import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 import { PetIdentifier } from "src/app/game/model/data/PetCard";
 import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsModulo, ghsValueSign } from "../../helper/Static";
 import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
 import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialog";
 import { AdditionalAMSelectDialogComponent } from "./additional-am-select/additional-am-select";
-import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 
 @Component({
   standalone: false,
@@ -1059,7 +1059,6 @@ export class EntityMenuDialogComponent {
           }
           this.entityImmunities = this.data.entity.immunities;
         }
-
         if (this.data.entity.name == 'fist' && specialTagsToAdd.indexOf('one-with-the-mountain') != -1) {
           let regenerate = this.data.entity.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.regenerate);
           if (regenerate) {
@@ -1257,6 +1256,11 @@ export class EntityMenuDialogComponent {
 
         if (specialTagsToAdd.length) {
           gameManager.stateManager.before("addSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name);
+
+          if (this.data.figure instanceof Character && this.data.figure.name == 'prism' && specialTagsToAdd.indexOf('prism_mode') != -1) {
+            this.data.figure.summons.forEach((summon) => summon.tags = summon.tags.filter((tag) => tag != 'prism_mode'));
+          }
+
           this.data.entity.tags.push(...specialTagsToAdd);
           gameManager.stateManager.after();
         }
@@ -1293,7 +1297,7 @@ export class EntityMenuDialogComponent {
       if (this.health != 0) {
         gameManager.stateManager.before("changeObjectiveEntityHP", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', this.data.entity.number, ghsValueSign(this.health));
         gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
-        if ((!this.objectiveData || !this.objectiveData.trackDamage) &&  this.data.entity.health <= 0) {
+        if ((!this.objectiveData || !this.objectiveData.trackDamage) && this.data.entity.health <= 0) {
           gameManager.objectiveManager.removeObjectiveEntity(this.data.figure, this.data.entity);
         }
         gameManager.stateManager.after();

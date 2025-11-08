@@ -43,7 +43,7 @@
               <label><span [ghs-label]="'editor.character.data.hp'"></span></label>
               <div class="hp-container">
                 <select [(ngModel)]="hpIndex" (change)="changeHpIndex()">
-                  @for (index of []| ghsRange:4; track index) {
+                  @for (index of [] | ghsRange:4; track index) {
                   <option [value]="index-1">
                     <span [ghs-label]="'editor.character.data.hp.' + (index-1)"></span>
                   </option>
@@ -71,7 +71,7 @@
 
           <select (change)="loadCharacterData($event)">
             <option [value]="-1">&lt;<span [ghs-label]="'editor.character.new'"></span>&gt;</option>
-            @for (cD of charactersData; track cD.edition + '-' + cD.name; let index = $index) {
+            @for (cD of charactersData | trackUUID; track cD._trackUUID; let index = $index) {
             <option [value]="index" [selected]="cD.edition == characterData.edition && cD.name == characterData.name">
               @if (isSpoiled(cD)) {
               <span [ghs-label]="'data.character.' + cD.edition + '.' + cD.name"></span>

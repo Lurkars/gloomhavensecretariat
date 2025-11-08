@@ -130,7 +130,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (building of buildings; track building.data.name; let i = $index) {
+      @for (building of buildings | trackUUID; track building._trackUUID; let i = $index) {
       <tr cdkDrag
         [ngClass]="{'disabled': building.model.attacked || typeof attack.targetNumber === 'number' && i >= attacks + attack.targetNumber}">
         <td class="drag-handle" cdkDragHandle>
@@ -178,7 +178,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (building of disabledBuildings; track building.data.name) {
+      @for (building of disabledBuildings | trackUUID; track building._trackUUID) {
       <tr cdkDrag>
         <td class="drag-handle" cdkDragHandle>
           <a class="button">

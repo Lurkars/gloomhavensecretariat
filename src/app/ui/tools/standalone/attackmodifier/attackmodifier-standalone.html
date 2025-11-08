@@ -5,7 +5,7 @@
     <span class="deck" (click)="selectMonsterDeck()" [ngClass]="{'active': activeDeckIndex == -1}">m</span>
     <span class="deck" (click)="selectAllyDeck()" [ngClass]="{'active': activeDeckIndex == 0}">A</span>
 
-    @for (character of characters; track character.edition + '-' + character.name; let i = $index) {
+    @for (character of characters | trackUUID; track character._trackUUID; let i = $index) {
     <span class="deck" [ngClass]="{'active': activeDeckIndex == i +1}" ghs-pointer-input
       (singleClick)="selectCharacterDeck(i)" (doubleClick)="removeCharacter(i)"><img [src]="character.iconUrl"></span>
     }
