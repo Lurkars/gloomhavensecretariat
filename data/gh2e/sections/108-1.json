@@ -3,6 +3,7 @@
   "name": "Crypt Basement",
   "edition": "gh2e",
   "parent": "57",
+  "marker": "2",
   "monsters": [
     "crystal-rot",
     "giant-viper",

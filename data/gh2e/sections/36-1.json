@@ -3,6 +3,7 @@
   "name": "Decaying Crypt",
   "edition": "gh2e",
   "parent": "6",
+  "marker": "2",
   "monsters": [
     "living-bones",
     "living-spirit"
@@ -35,7 +36,9 @@
         },
         {
           "name": "living-spirit",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "living-spirit",
@@ -44,7 +47,7 @@
         },
         {
           "name": "living-spirit",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     }

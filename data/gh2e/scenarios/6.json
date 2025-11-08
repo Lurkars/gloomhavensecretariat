@@ -21,6 +21,23 @@
     "living-bones",
     "living-corpse"
   ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:2",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -37,21 +54,27 @@
         {
           "name": "living-bones",
           "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
           "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
+          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "living-corpse",
+          "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
         }
       ]
     }

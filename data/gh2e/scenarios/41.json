@@ -16,6 +16,23 @@
     "living-corpse",
     "ooze"
   ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:2",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

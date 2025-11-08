@@ -3,6 +3,7 @@
   "name": "Frozen Hollow",
   "edition": "gh2e",
   "parent": "3",
+  "marker": "2",
   "monsters": [
     "frost-demon",
     "hound",

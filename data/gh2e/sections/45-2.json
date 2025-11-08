@@ -3,6 +3,7 @@
   "name": "Black Barrow",
   "edition": "gh2e",
   "parent": "7",
+  "marker": "2",
   "monsters": [
     "bandit-archer",
     "living-bones"
@@ -17,16 +18,22 @@
       "monster": [
         {
           "name": "bandit-archer",
-          "type": "normal"
-        },
-        {
-          "name": "bandit-archer",
           "type": "elite"
         },
         {
           "name": "bandit-archer",
+          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
         },
         {
           "name": "living-bones",
@@ -36,12 +43,20 @@
           "name": "living-bones",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "living-bones",
           "player2": "normal",
           "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
           "player4": "elite"
         }
       ]

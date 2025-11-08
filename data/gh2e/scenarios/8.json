@@ -10,11 +10,28 @@
   "rewards": {
     "gold": 15,
     "reputationFactions": [
-      "merchant-guild:1"
+      "merchant-guild:2"
     ]
   },
   "monsters": [
     "bandit-archer"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:2",
+          "scenarioEffect": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {

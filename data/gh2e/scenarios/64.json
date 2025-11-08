@@ -12,6 +12,32 @@
     "the-convergence",
     "wind-demon"
   ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "wound",
+          "scenarioEffect": true
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "the-convergence"
+          },
+          "type": "gainCondition",
+          "value": "stun",
+          "scenarioEffect": false
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -33,12 +59,14 @@
         },
         {
           "name": "flame-demon",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "flame-demon",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "frost-demon",
@@ -49,6 +77,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
         },
         {
           "name": "night-demon",
@@ -69,6 +101,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player4": "normal"
         },
         {
           "name": "the-convergence",
@@ -76,12 +112,14 @@
         },
         {
           "name": "wind-demon",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "wind-demon",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     }

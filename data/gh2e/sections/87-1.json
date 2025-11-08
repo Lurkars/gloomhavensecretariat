@@ -23,20 +23,11 @@
         {
           "name": "bandit-archer",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-archer",
           "player4": "elite"
         },
         {
-          "name": "bandit-scout",
-          "type": "normal"
+          "name": "bandit-archer",
+          "player4": "normal"
         },
         {
           "name": "bandit-scout",
@@ -44,8 +35,14 @@
         },
         {
           "name": "bandit-scout",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "hound",

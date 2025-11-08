@@ -11,6 +11,23 @@
     "living-bones",
     "living-spirit"
   ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:1",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

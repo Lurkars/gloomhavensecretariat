@@ -3,6 +3,7 @@
   "name": "Burning Mountain",
   "edition": "gh2e",
   "parent": "90",
+  "marker": "2",
   "monsters": [
     "earth-demon",
     "flame-demon",
