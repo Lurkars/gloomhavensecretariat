@@ -25,7 +25,7 @@
       }
     </div>
     <div class="scroll-container summons">
-      @for (summonData of summonData | trackUUUID; track summonData._trackUUID; let i = $index) {
+      @for (summonData of summonData | trackUUID; track summonData._trackUUID; let i = $index) {
       @if (showAll || summonNumbers[i] != -1) {
       <span class="summon" (click)="addSummon(summonData)"
         [ngClass]="{'disabled' : summonNumbers[i] == -1 || !available(summonData,summonNumber || summonNumbers[i])}">

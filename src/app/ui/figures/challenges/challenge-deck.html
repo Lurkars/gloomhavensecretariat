@@ -22,7 +22,7 @@
     }
   </div>
 
-  @for (card of deck.cards | trackUUUID; track card._trackUUID; let index = $index) {
+  @for (card of deck.cards | trackUUID; track card._trackUUID; let index = $index) {
   @if (index > current - 3 && index > deck.finished) {
   <div class="challenge-container" ghs-pointer-input (singleClick)="clickCard(index, $event)"
     (doubleClick)="doubleClickCard(index, $event)"

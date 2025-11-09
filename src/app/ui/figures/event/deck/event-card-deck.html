@@ -42,7 +42,7 @@
         @if (upcomingCards.length == 0) {
         <div class="empty"></div>
         }
-        @for (event of upcomingCards; track event.edition + '-' + event.cardId; let index = $index) {
+        @for (event of upcomingCards | trackUUID; track event._trackUUID; let index = $index) {
         @if (!filter || event.cardId.indexOf(filter) != -1) {
         <div class="container drag-hidden" cdkDrag>
           <ghs-event-card [event]="event" [spoiler]="true"></ghs-event-card>
@@ -72,7 +72,7 @@
         @if (newCards.length == 0) {
         <div class="empty"></div>
         }
-        @for (event of newCards; track event.edition + '-' + event.cardId; let index = $index) {
+        @for (event of newCards | trackUUID; track event._trackUUID; let index = $index) {
         @if (!filter || event.cardId.indexOf(filter) != -1) {
         <div class="container drag-hidden" cdkDrag>
           <ghs-event-card [event]="event" [spoiler]="true"></ghs-event-card>
@@ -101,7 +101,7 @@
         @if (drawnCards.length == 0) {
         <div class="empty"></div>
         }
-        @for (model of drawnCards; track model.identifier.edition + '-' + model.identifier.cardId; let index = $index) {
+        @for (model of drawnCards | trackUUID; track model._trackUUID; let index = $index) {
         @if (!filter || model.identifier.cardId.indexOf(filter) != -1) {
         <div class="container" drag-hidden cdkDrag>
           <ghs-event-card [event]="model.card" [select]="model.identifier.selected"

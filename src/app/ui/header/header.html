@@ -116,7 +116,7 @@
   <span class="spacer"></span>
   <div class="elements"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.elements}">
-    @for (element of gameManager.game.elementBoard; track element.type) {
+    @for (element of gameManager.game.elementBoard | trackUUID; track element._trackUUID) {
     <ghs-element [element]="element"></ghs-element>
     }
   </div>

@@ -24,7 +24,7 @@
       @if (battleGoals.length == 0) {
       <span class="warning" [ghs-label]="'game.battleGoals.setup.empty'"></span>
       }
-      @for (battlegoal of battleGoals; track battlegoal.cardId) {
+      @for (battlegoal of battleGoals | trackUUID; track battlegoal._trackUUID) {
       <ghs-battlegoal class="battlegoal" [battleGoal]="battlegoal" [flipped]="true"
         [disabled]="!selected(battlegoal) && !filtered(battlegoal) || selectedAlias(battlegoal)" [reveal]="false"
         [selected]="!this.selectedAlias(battlegoal) && selected(battlegoal)" [filtered]="filtered(battlegoal)"

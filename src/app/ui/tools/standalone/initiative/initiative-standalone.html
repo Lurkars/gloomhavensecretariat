@@ -80,7 +80,7 @@
     }
 
     <div class="characters">
-      @for (c of characters; track c.edition + '-' + c.name; let i = $index) {
+      @for (c of characters | trackUUID; track c._trackUUID; let i = $index) {
       <span class="character" [ngClass]="{'active': character == c}" (click)="selectCharacter(c)"><img
           [src]="c.iconUrl"></span>
       }

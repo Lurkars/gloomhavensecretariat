@@ -93,7 +93,7 @@
   <div class="bb">
     <span class="title"><img class="ghs-svg" src="./assets/images/bb/monster.svg"><span
         [ghs-label]="'game.level.bb.monsterDifficulty'"></span>:</span>
-    @for (level of []|ghsRange:5; track level) {
+    @for (level of [] | ghsRange:5; track level) {
     <span class="level" [ngClass]="{'current': gameManager.game.levelAdjustment + 2 == level }"
       (click)="setBbMonsterDifficutly(level)">
       <span class="scenario-level"

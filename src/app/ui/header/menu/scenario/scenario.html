@@ -61,7 +61,7 @@
   }
   <div class="line scenarios">
     @for (scenario of scenarios(group, gameManager.game.party.campaignMode &&
-    settingsManager.settings.showOnlyUnfinishedScenarios) | ghsScenarioSearch:search.value; track scenario.edition + '-' + scenario.index) {
+    settingsManager.settings.showOnlyUnfinishedScenarios) | ghsScenarioSearch:search.value | trackUUID; track scenario._trackUUID) {
     <span tabclick (click)="setScenario(scenario)" class="scenario"
       [ngClass]="{'current' : gameManager.scenarioManager.isCurrent(scenario), 'blocked' : scenario.isBlocked , 'locked' : scenario.isLocked}"
       [ghs-tooltip]="'scenario.tooltip' + (scenario.isBlocked ? '.blocked' : (scenario.isLocked ? '.locked' : ''))"
@@ -74,10 +74,10 @@
       }
       @if (scenario.complexity) {
       <span class="complexity">
-        @for (i of []|ghsRange:scenario.complexity; track i) {
+        @for (i of [] | ghsRange:scenario.complexity; track i) {
         <img src="./assets/images/scenario/complexity-full.svg" />
         }
-        @for (i of []|ghsRange:(3 - scenario.complexity); track i) {
+        @for (i of [] | ghsRange:(3 - scenario.complexity); track i) {
         <img src="./assets/images/scenario/complexity.svg" />
         }
       </span>

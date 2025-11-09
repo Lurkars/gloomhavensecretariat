@@ -66,7 +66,7 @@
               <ghs-action [action]="entity.shield" [style]="'fh'"></ghs-action>
             </span>
             }
-            @for (retaliate of entity.retaliate; track retaliate; let i = $index) {
+            @for (retaliate of entity.retaliate | trackUUID; track retaliate._trackUUID; let i = $index) {
             <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeRetaliate(i)">
               <ghs-action [action]="retaliate" [style]="'fh'"></ghs-action>
             </span>
@@ -80,7 +80,8 @@
               <ghs-action [action]="entity.shieldPersistent" [style]="'fh'"></ghs-action>
             </span>
             }
-            @for (retaliatePersistent of entity.retaliatePersistent; track retaliatePersistent; let i = $index) {
+            @for (retaliatePersistent of entity.retaliatePersistent | trackUUID; track retaliatePersistent._trackUUID;
+            let i = $index) {
             <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()"
               (doubleClick)="removeRetaliatePersistent(i)">
               <span class="action-overlay">
@@ -131,7 +132,7 @@
             }
           </div>
           <div class="conditions">
-            @for (entityCondition of activeConditions; track entityCondition.name + entityCondition.value; let index =
+            @for (entityCondition of activeConditions | trackUUID; track entityCondition._trackUUID; let index =
             $index) {
             <span class="condition" ghs-pointer-input (doubleClick)="removeCondition(entityCondition)"
               [ngClass]="{'fh': settingsManager.settings.fhStyle}">
@@ -242,7 +243,7 @@
   </span>
   @if (nonDead > 1) {
   <div class="entities">
-    @for (entity of objective.entities; track entity.number) {
+    @for (entity of objective.entities | trackUUID; track entity._trackUUID) {
     <ghs-standee [figure]="objective" [entity]="entity">
     </ghs-standee>
     }

@@ -23,7 +23,7 @@
         <span class="costs"><span [ghs-label]="'party.campaign.sheet.buildings.costs'"></span></span>
         <span class="action"><span [ghs-label]="'party.campaign.sheet.buildings.action'"></span></span>
     </div>
-    @for (building of buildings; track building.data.name; let index = $index) {
+    @for (building of buildings | trackUUID; track building._trackUUID; let index = $index) {
     <div class="building" [ngClass]="{'buildable' : !building.model.level}">
         <span class="name" [ngClass]="{'disabled': !building.model.level || !building.data.repair}" ghs-pointer-input
             (singleClick)="toggleState(building)" (doubleClick)="toggleState(building, true )">

@@ -27,7 +27,7 @@
         [ngClass]="{'hide-title' : !allEditions && gameManager.currentEditions().length == 1, 'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
         <label><span [ghs-label]="'data.edition.' + edition"></span></label>
       </div>
-      @for (monsterData of monsterData(edition, filter); track monsterData.edition + '-' + monsterData.name) {
+      @for (monsterData of monsterData(edition, filter) | trackUUID; track monsterData._trackUUID) {
       <div class="line"
         [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss, 'hidden-monster' : monsterData.hidden}">
         @if (isSpoiled(monsterData)) {

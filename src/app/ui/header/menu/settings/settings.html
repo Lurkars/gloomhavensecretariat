@@ -117,7 +117,7 @@
     <div class="column">
       <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
         <div class="condition-list">
-          @for (condition of applyConditionsExcludes; track condition.name; let i = $index) {
+          @for (condition of applyConditionsExcludes | trackUUID; track condition._trackUUID; let i = $index) {
           <div class="hint-container">
             <div tabclick class="condition"
               [ngClass]="{'immunity': settingsManager.settings.applyConditionsExcludes.indexOf(condition.name) != -1}"
@@ -147,7 +147,7 @@
     <div class="column">
       <div class="line">
         <div class="condition-list">
-          @for (condition of activeApplyConditionsExcludes; track condition.name; let i = $index) {
+          @for (condition of activeApplyConditionsExcludes | trackUUID; track condition._trackUUID; let i = $index) {
           <div class="hint-container">
             <div tabclick class="condition"
               [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1, 'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}"
@@ -181,7 +181,7 @@
           </span>
         </div>
         <div class="condition-list">
-          @for (condition of activeApplyConditionsAuto; track condition.name; let i = $index) {
+          @for (condition of activeApplyConditionsAuto | trackUUID; track condition._trackUUID; let i = $index) {
           @if (settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) == -1) {
           <div class="hint-container">
             <div tabclick class="condition"

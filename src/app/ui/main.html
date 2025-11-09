@@ -42,7 +42,7 @@
     <div class="container-row bordered">
       <p [ghs-label]="'welcome.chooseEdition'"></p>
       <div class="editions">
-        @for (editionData of gameManager.editionsData(); track editionData.edition) {
+        @for (editionData of gameManager.editionsData() | trackUUID; track editionData._trackUUID) {
         <a tabclick class="edition" (click)="startCampaign(editionData.edition)">
           @if (editionData.logoUrl) {
           <img [src]="editionData.logoUrl" [ghs-tooltip]="'data.edition.' + editionData.edition">
@@ -134,7 +134,7 @@
   <div class="figures" cdkDropListGroup
     [ngClass]="{'loot-deck' : footer.lootDeckEnabeld, 'ally-deck' :  footer.hasAllyAttackModifierDeck, 'drag-disabled': !settingsManager.settings.dragFigures, 'backup-hint-spacer' : showBackupHint}"
     (scroll)="onFigureScroll($event)">
-    @for (figure of figures; track figure.edition + '-' + figure.name; let i = $index) {
+    @for (figure of figures | trackUUID; track figure._trackUUID; let i = $index) {
     <div class="figure" [figure-autoscroll]="figure"
       [block]="i == this.lastScroll || i == this.lastScrollColumn ? 'end' : 'center'" [cdkDropListData]="i" cdkDropList
       (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20" (cdkDropListEntered)="entered($event)"

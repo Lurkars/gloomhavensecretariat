@@ -45,7 +45,7 @@
         @if (upcomingCards.length == 0) {
         <div class="empty"></div>
         }
-        @for (card of upcomingCards; track card.cardId; let index = $index) {
+        @for (card of upcomingCards | trackUUID; track card._trackUUID; let index = $index) {
         <div class="challenge-container" cdkDrag>
           <ghs-challenge-card class="drag-hidden" [challenge]="card" [reveal]="true" [flipped]="reveal == 2">
           </ghs-challenge-card>
@@ -65,7 +65,7 @@
         (cdkDropListDropped)="dropDiscarded($event)" [cdkDropListAutoScrollStep]="20" [ngClass]="{'edit': edit}">
         <div class="title" [ghs-label]="'challenges.deck.current'"></div>
         <div class="empty"></div>
-        @for (card of discardedCards; track card.cardId; let index = $index) {
+        @for (card of discardedCards | trackUUID; track card._trackUUID; let index = $index) {
         <div class="challenge-container" cdkDrag
           [ngClass]="{'active': !edit && !!gameManager.game.scenario && gameManager.roundManager.firstRound && gameManager.game.state == GameState.draw, 'keep': !disabled && deck.keep.indexOf(deck.current - index) != -1}">
           <ghs-challenge-card class="drag-hidden" [challenge]="card"
@@ -88,7 +88,7 @@
         (cdkDropListDropped)="dropFinished($event)" [cdkDropListAutoScrollStep]="20" [ngClass]="{'edit': edit}">
         <div class="title" [ghs-label]="'challenges.deck.finished'"></div>
         <div class="empty"></div>
-        @for (card of finishedCards; track card.cardId; let index = $index) {
+        @for (card of finishedCards | trackUUID; track card._trackUUID; let index = $index) {
         <div class="challenge-container" cdkDrag>
           <ghs-challenge-card class="drag-hidden" [challenge]="card" [flipped]="true"></ghs-challenge-card>
           @if (edit) {
@@ -105,7 +105,7 @@
       @if (edit && removedCards.length) {
       <div class="removed edit">
         <div class="title" [ghs-label]="'challenges.deck.removed'"></div>
-        @for (card of removedCards; track card.cardId; let index = $index) {
+        @for (card of removedCards | trackUUID; track card._trackUUID; let index = $index) {
         <div class="challenge-container" cdkDrag>
           <ghs-challenge-card class="drag-hidden" [challenge]="card" [flipped]="true"></ghs-challenge-card>
           <a class="button-restore" (click)="restoreCard(index)">

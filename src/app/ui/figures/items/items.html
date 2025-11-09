@@ -1,7 +1,7 @@
 <div class="items">
   <label><span [ghs-label]="'game.items'"></span>:</label>
   <div class="item-list">
-    @for (item of items; track item.edition + '-' + item.id; let index = $index) {
+    @for (item of items | trackUUID; track item._trackUUID; let index = $index) {
     <div class="item-entry">
       <span class="icon item-dialog" ghs-pointer-input (singleClick)="openItem(item)">
         @if (item.slot) {

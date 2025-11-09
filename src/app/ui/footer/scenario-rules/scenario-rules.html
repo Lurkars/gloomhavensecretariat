@@ -1,6 +1,6 @@
 <div class="rules-dialog"
   [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-  @for (ruleModel of gameManager.game.scenarioRules; track ruleModel; let index = $index) {
+  @for (ruleModel of gameManager.game.scenarioRules | trackUUID; track ruleModel._trackUUID; let index = $index) {
   @if (visible(index)) {
   <div class="rule-dialog dialog" #ruleElement>
     <div class="dialog-container">

@@ -13,7 +13,7 @@
     @if (characters.length) {
     <div class="characters"
       [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.characters || !gameManager.stateManager.permissions.party)}">
-      @for (character of characters; track character.edition + '-' + character.name) {
+      @for (character of characters| trackUUID; track character._trackUUID) {
       <div class="character-container">
         <a class="character" tabclick ghs-pointer-input (singleClick)="toggleCharacter(character)"
           (doubleClick)="openCharacterSheet(character)"
@@ -24,7 +24,7 @@
           }
         </a>
         @if (!gameManager.roundManager.firstRound) {
-        @for (summon of character.summons; track summon.name + summon.color + summon.number) {
+        @for (summon of character.summons | trackUUID; track summon._trackUUID) {
         <a class="summon" tabclick (click)="toggleSummon(summon)"
           [ngClass]="{'inactive' : activeSummons.indexOf(summon) == -1, 'thumbnail' : settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)}">
           <span class="summon-state" [ngClass]="{'fh': summon.color == SummonColor.fh}">
@@ -328,7 +328,7 @@
       @if (eventEffectsManual.length || eventConditionManual.length) {
       <span class="title" [ghs-label]="'game.events.applyManually'"></span>
       }
-      @for (condition of eventConditionManual; track condition) {
+      @for (condition of eventConditionManual | trackUUID; track condition._trackUUID) {
       <ghs-event-card-condition [condition]="condition" [light]="true" [selected]="true"></ghs-event-card-condition>
       }
       @for (effect of eventEffectsManual; track (typeof effect === 'object' ? effect.type : effect) + $index) {

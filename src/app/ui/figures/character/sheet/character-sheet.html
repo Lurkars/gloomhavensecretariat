@@ -211,10 +211,10 @@
           }
           <div class="list ignore-denied"
             [ngClass]="{'denied' : !editable || settingsManager.settings.characterSheetLocked || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'view-only' : !editable|| settingsManager.settings.characterSheetLocked}">
-            @for (perk of character.perks | trackUUUID; track perk._trackUUID;; let i = $index) {
+            @for (perk of character.perks | trackUUID; track perk._trackUUID;; let i = $index) {
             <div class="perk">
               <div class="checkboxes" [ngClass]="{'combined' : perk.combined}">
-                @for (count of []|ghsRange:perk.count; track count) {
+                @for (count of [] | ghsRange:perk.count; track count) {
                 <span class="checkbox"
                   [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : !forceEdit && (gameManager.game.state != GameState.draw || gameManager.game.round > 0) || character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1}"
                   ghs-pointer-input (singleClick)="addPerk(i, count+1)"
@@ -343,7 +343,8 @@
           }
           @if (!!personalQuest) {
           <div class="requirements">
-            @for (requirement of personalQuest.requirements | trackUUUID; track requirement._trackUUID; let i = $index) {
+            @for (requirement of personalQuest.requirements | trackUUID; track requirement._trackUUID; let i = $index)
+            {
             <div class="requirement"
               [ngClass]="{'disabled' : requirement.requires && requirement.requires.length > 0 && !personalQuestRequirementUnlocked(i)}">
               <span class="requirement-name">
@@ -354,7 +355,7 @@
                 }
               </span>
               <span class="counter">
-                @if (EntityValueFunction(requirement.counter) < 11) { @for (counter of []|
+                @if (EntityValueFunction(requirement.counter) < 11) { @for (counter of [] |
                   ghsRange:EntityValueFunction(requirement.counter); track counter) { <span class="checkbox"
                   [ngClass]="{'checked' : character.progress.personalQuestProgress[i] > counter}"
                   (click)="setPersonalQuestProgress(i,counter+1)"

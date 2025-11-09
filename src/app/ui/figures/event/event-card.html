@@ -9,7 +9,7 @@
         <div class="content">
           <div class="text placeholder" [ghs-label]="event.narrative"></div>
           <div class="options">
-            @for (option of event.options; track (option.label || '') + $index; let i = $index) {
+            @for (option of event.options | trackUUID; track option._trackUUID; let i = $index) {
             @if (option.narrative) {
             <div class="option" ghs-pointer-input (singleClick)="selectOption(i, false, $event)"
               [ngClass]="{'single': event.options.length == 1 || !option.label}">
@@ -49,11 +49,11 @@
       [style.background-image]="showDebug && event ? 'url(\'./assets/artwork/events/debug/' + event.edition + '/' + event.type + '/' + event.cardId + '-front.png\')' : ''">
       @if (!!event) {
       <div class="options" [ngClass]="{'no-label': noLabel}">
-        @for (option of event.options; track (option.label || '') + $index; let i = $index) {
+        @for (option of event.options | trackUUID; track option._trackUUID; let i = $index) {
         <div class="option {{'option-' + (option.label || 'no-label')}} {{'option-bg-' + (event.options.length - i)}}"
           [ngClass]="{'selected' : !option.label || selected == i || selected == -1 && flipped, 'single': event.options.length == 1, 'no-label': !option.label, 'attack': attackIndex == i}"
           ghs-pointer-input (doubleClick)="selectOption(selected == i ? -1 : i, false, $event)">
-          @for (outcome of option.outcomes; track $index; let outcomeIndex = $index) {
+          @for (outcome of option.outcomes | trackUUID; track outcome._trackUUID; let outcomeIndex = $index) {
           <div class="outcome"
             [ngClass]="{'selected': subSelections.indexOf(outcomeIndex) != -1 || selected == -1 && flipped || !option.label && outcome.attack, 'disabled' : resolvable[i] && resolvable[i][outcomeIndex] == false && subSelections.indexOf(outcomeIndex) == -1 && selected != -1, 'expand-to-bottom': outcomeIndex == option.outcomes.length -1 && (option.returnToDeck || option.removeFromDeck), 'margin': outcome.condition || outcome.narrative}"
             ghs-pointer-input (singleClick)="selectSub(i, outcomeIndex, $event)"

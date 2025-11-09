@@ -15,7 +15,7 @@
     <label>
       <span [ghs-label]="'settings.character'"></span>
       <select [(ngModel)]="characterName" (change)="update(); updateQueryParams()" multiple>
-        @for (character of characters; track character.edition + '-' + character.name) {
+        @for (character of characters | trackUUID; track character._trackUUID) {
         <option [value]="character.name">
           <span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span>
         </option>
@@ -25,13 +25,13 @@
   </div>
 
   <div class="characters">
-    @for (character of filteredCharacters; track character.edition + '-' + character.name) {
+    @for (character of filteredCharacters | trackUUID; track character._trackUUID) {
     @if (!!character && character.attackModifierDeck.cards.length > 0) {
     <div class="character">
       <h1><span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span>
         [{{character.attackModifierDeck.cards.length}}]
       </h1>
-      @for (attackModifier of character.attackModifierDeck.cards; track attackModifier) {
+      @for (attackModifier of character.attackModifierDeck.cards | trackUUID; track attackModifier._trackUUID) {
       <ghs-attackmodifier [attackModifier]="attackModifier" [flipped]="true"
         [characterIcon]="gameManager.characterManager.characterIcon(character)"
         [newStyle]="settingsManager.settings.fhStyle || gameManager.newAmStyle(character.edition)"></ghs-attackmodifier>

@@ -34,7 +34,7 @@
         @if (upcomingCards.length == 0) {
         <div class="empty"></div>
         }
-        @for (ability of upcomingCards; track ability.cardId; let index = $index) {
+        @for (ability of upcomingCards | trackUUID; track ability._trackUUID; let index = $index) {
         <div class="container drag-hidden" cdkDrag
           [ngClass]="{'expanded-ability': settingsManager.settings.showExpandedAbilityCard && (reveal == 2 || ability.revealed), 'bottom-actions' : gameManager.hasBottomAbility(ability), 'drawn' : index < gameManager.monsterManager.drawnAbilities(monster) - monster.ability - 1}">
           <ghs-ability [ability]="ability" [monster]="monster"
@@ -56,7 +56,7 @@
         [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDiscarded($event)"
         [cdkDropListAutoScrollStep]="20">
         <div class="empty"></div>
-        @for (ability of discardedCards; track ability.cardId; let index = $index) {
+        @for (ability of discardedCards | trackUUID; track ability._trackUUID; let index = $index) {
         <div class="container drag-hidden" cdkDrag
           [ngClass]="{'expanded-ability': settingsManager.settings.showExpandedAbilityCard, 'bottom-actions' : gameManager.hasBottomAbility(ability)}">
           <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true">
@@ -74,7 +74,7 @@
 
       @if (edit && deletedCards.length) {
       <div class="deleted drop-list">
-        @for (ability of deletedCards; track ability.cardId; let index = $index) {
+        @for (ability of deletedCards | trackUUID; track ability._trackUUID; let index = $index) {
         <div class="container"
           [ngClass]="{'expanded-ability': settingsManager.settings.showExpandedAbilityCard, 'bottom-actions' : gameManager.hasBottomAbility(ability)}">
           <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true">

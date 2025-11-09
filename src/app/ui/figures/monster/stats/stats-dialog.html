@@ -125,7 +125,7 @@
 
   <div class="stats-container">
 
-    @for (m of monsters; track m.edition + '-' + m.name) {
+    @for (m of monsters | trackUUID; track m._trackUUID) {
     <div class="stats">
       <ghs-monster-stats [monster]="m" [forceStats]="true" [noClick]="true">
       </ghs-monster-stats>

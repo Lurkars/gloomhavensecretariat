@@ -18,7 +18,7 @@
       <span [ghs-label]="'duration.gameClock.total'" [ghs-label-args]="[total | ghsDurationLabel]"></span>
     </div>
     }
-    @for (timestamp of gameClock; track timestamp; let i = $index) {
+    @for (timestamp of gameClock | trackUUID; track timestamp._trackUUID; let i = $index) {
     <div class="timestamp" ghs-pointer-input (doubleClick)="merge(i)">
       @if (timestamp.clockOut) {
       <span [ghs-label]="'duration.gameClock.timestamp'"

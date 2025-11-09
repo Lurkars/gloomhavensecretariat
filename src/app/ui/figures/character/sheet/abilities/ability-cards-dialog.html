@@ -53,7 +53,7 @@
         <ghs-ability [character]="character"></ghs-ability>
       </div>
       }
-      @for (ability of visibleAbilities | trackUUUID; track ability._trackUUID;) {
+      @for (ability of visibleAbilities | trackUUID; track ability._trackUUID;) {
       <div class="container ability"
         [ngClass]="{'pick': levelToPick, 'in-deck': ability.level == 1 || ability.level == 'X' || character.progress.deck.indexOf(abilities.indexOf(ability)) != -1,'always': ability.level == 1 || ability.level == 'X',  'disabled': character.progress.deck.indexOf(abilities.indexOf(ability)) == -1 && (levelToPick < +ability.level || cardsToPick < 1)}">
         <ghs-ability [ability]="ability" [character]="character" [flipped]="true" ghs-pointer-input
@@ -71,7 +71,7 @@
     }
     @if (smallAbilities.length) {
     <div class="abilities">
-      @for (ability of smallAbilities; track ability.cardId) {
+      @for (ability of smallAbilities | trackUUID; track ability._trackUUID) {
       <div class="container small ability" (click)="openDialog(ability)">
         <ghs-ability [ability]=" ability" [character]="character" [flipped]="true"></ghs-ability>
       </div>

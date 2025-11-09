@@ -64,7 +64,7 @@
     }
   </div>
   <div class="entities">
-    @for (entity of sortedEntites; track entity.number) {
+    @for (entity of sortedEntites | trackUUID; track entity._trackUUID) {
     <ghs-standee [figure]="monster" [entity]="entity">
     </ghs-standee>
     }

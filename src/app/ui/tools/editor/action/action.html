@@ -255,7 +255,7 @@
       </a>
     </div>
 
-    @for (subAction of action.subActions; track subAction.type + $index; let i = $index) {
+    @for (subAction of action.subActions | trackUUID; track subAction._trackUUID; let i = $index) {
     <div class="subaction" cdkDrag>
       <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
       <ghs-editor-action [action]="action.subActions[i]" [subactionIndex]="i"

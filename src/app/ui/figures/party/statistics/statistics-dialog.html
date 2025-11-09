@@ -8,7 +8,7 @@
       <thead>
         <tr>
           <th><span [ghs-label]="'scenario.stats'"></span></th>
-          @for (character of characters; track character.edition + '-' + character.name) {
+          @for (character of characters| trackUUID; track character._trackUUID) {
           <th>
             <span class="character">
               <img class="icon character-icon" [src]="character.iconUrl" />
@@ -28,7 +28,7 @@
       <tbody>
         <tr>
           <th><span [ghs-label]="'scenario.stats.scenarios'"></span></th>
-          @for (character of characters; track character.edition + '-' + character.name; let i = $index) {
+          @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
           <td>
             @if (scenarios[i] && scenarios[i].length > 2) {
             <span>{{scenarios[i][0]}}</span>
@@ -47,7 +47,7 @@
         </tr>
         <tr>
           <th><span [ghs-label]="'scenario.stats.damage'"></span></th>
-          @for (character of characters; track character.edition + '-' + character.name) {
+          @for (character of characters| trackUUID; track character._trackUUID) {
           <td>
             <span [ghs-label]="'scenario.stats.dealtDamage'" [ghs-label-args]="[character.scenarioStats.dealtDamage]"
               [style]="'fh'" [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"></span>
@@ -71,7 +71,7 @@
         </tr>
         <tr>
           <th><span [ghs-label]="'scenario.stats.heal'"></span></th>
-          @for (character of characters; track character.edition + '-' + character.name) {
+          @for (character of characters| trackUUID; track character._trackUUID) {
           <td>
             <span [ghs-label]="'scenario.stats.heals'" [ghs-label-args]="[character.scenarioStats.heals]" [style]="'fh'"
               [ghs-tooltip]="'scenario.stats.heals.hint'"></span>
@@ -90,7 +90,7 @@
         </tr>
         <tr>
           <th><span [ghs-label]="'scenario.stats.kills'"></span></th>
-          @for (character of characters; track character.edition + '-' + character.name) {
+          @for (character of characters| trackUUID; track character._trackUUID) {
           <td>
             @if (character.scenarioStats.normalKills) {
             <span class="text-black" [ghs-label]="'scenario.stats.normalKills'"
@@ -126,7 +126,7 @@
         </tr>
         <tr>
           <th><span [ghs-label]="'scenario.stats.max'"></span></th>
-          @for (character of characters; track character.edition + '-' + character.name) {
+          @for (character of characters| trackUUID; track character._trackUUID) {
           <td>
             <span [ghs-label]="'scenario.stats.maxDealtDamage'"
               [ghs-label-args]="[character.scenarioStats.maxDealtDamage]" [style]="'fh'"
@@ -146,7 +146,7 @@
         </tr>
         <tr>
           <th><span [ghs-label]="'scenario.stats.progress'"></span></th>
-          @for (character of characters; track character.edition + '-' + character.name) {
+          @for (character of characters| trackUUID; track character._trackUUID) {
           <td>
             <span [ghs-label]="'scenario.stats.gold'" [ghs-label-args]="[character.scenarioStats.gold]" [style]="'fh'"
               [ghs-tooltip]="'scenario.stats.gold.hint'"></span>

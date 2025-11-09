@@ -1,7 +1,7 @@
 <div [style.--condition-columns]="columns" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
 
   <div class="condition-container">
-    @for (condition of conditions; track condition.name; let i = $index) {
+    @for (condition of conditions | trackUUID; track condition._trackUUID; let i = $index) {
     <a class="item"
       [ngClass]="{'disabled': !hasCondition(condition) && (!immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name) || isImmune(condition.name,true))}">
       @if (condition.types.indexOf(ConditionType.stack) != -1 || condition.types.indexOf(ConditionType.upgrade) != -1) {

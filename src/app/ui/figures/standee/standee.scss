@@ -322,6 +322,11 @@
           height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
         }
       }
+
+      .special-action-marker {
+        margin-top: calc(var(--ghs-unit) * 0.3 * var(--ghs-text-factor));
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+      }
     }
 
     ghs-highlight-conditions {

@@ -1,5 +1,5 @@
 <div class="attack-modifier-draw" [ngClass]="{'character' : character}">
-  @for (attackModifier of deck.cards| trackUUUID; track attackModifier._trackUUID; let index = $index) {
+  @for (attackModifier of deck.cards | trackUUID; track attackModifier._trackUUID; let index = $index) {
   @if (index == current) {
   <div class="am-container">
     <ghs-attackmodifier class="am" [attackModifier]="attackModifier" [numeration]="numeration"

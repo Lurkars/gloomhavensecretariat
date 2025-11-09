@@ -70,7 +70,7 @@
 
     @if (enhancements) {
     <div class="enhancements">
-      @for (loot of enhancementDeck; track loot.cardId) {
+      @for (loot of enhancementDeck | trackUUID; track loot._trackUUID) {
       <div class="loot-container">
         <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true" [highlight]="false" [apply]="apply">
         </ghs-loot>
@@ -99,7 +99,7 @@
         @if (upcomingCards.length == 0) {
         <div class="empty"></div>
         }
-        @for (loot of upcomingCards; track loot.cardId; let index = $index) {
+        @for (loot of upcomingCards | trackUUID; track loot._trackUUID; let index = $index) {
         <div class="loot-container" cdkDrag>
           <ghs-loot class="drag-hidden" [loot]="loot" [reveal]="true" [flipped]="reveal == 2"
             [index]="deck.current + index +1" [character]="getCharacter(deck.current + index +1)" [apply]="apply">
@@ -118,7 +118,7 @@
         [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDiscarded($event)"
         [cdkDropListAutoScrollStep]="20">
         <div class="empty"></div>
-        @for (loot of discardedCards; track loot.cardId; let index = $index) {
+        @for (loot of discardedCards | trackUUID; track loot._trackUUID; let index = $index) {
         <div class="loot-container" cdkDrag>
           <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true" [index]="deck.current - index"
             [character]="getCharacter(deck.current - index)" [edit]="edit" [looted]="true" [apply]="apply"></ghs-loot>

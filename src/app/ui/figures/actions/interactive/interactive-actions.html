@@ -4,7 +4,7 @@
   <span
     [ghs-label]="interactiveActions.length ? 'monster.applyInteractiveActions' : 'monster.skipInteractiveActions'"></span>
   <span class="entity-numbers">
-    @for (entity of interactiveActionEntities| trackUUUID; track entity._trackUUID; let i = $index) {
+    @for (entity of interactiveActionEntities | trackUUID; track entity._trackUUID; let i = $index) {
     <span class="entity">
       @if (i > 0) {
       <span>,</span>

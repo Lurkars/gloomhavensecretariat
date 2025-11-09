@@ -26,7 +26,7 @@
   }
 
   <div class="entities">
-    @for (entity of allEntities; track entity.number) {
+    @for (entity of allEntities | trackUUID; track entity._trackUUID) {
     @if (!!monster) {
     <div class="entity {{gameManager.toMonsterEntity(entity).type}}" tabclick (click)="toggleEntity(entity)"
       [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">{{entity.number}}</div>

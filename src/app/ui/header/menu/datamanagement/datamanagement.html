@@ -251,7 +251,7 @@
         </span>
       </div>
       <div class="line editions" cdkDropList (cdkDropListDropped)="drop($event)">
-        @for (editionData of gameManager.editionData; track editionData.edition) {
+        @for (editionData of gameManager.editionData | trackUUID; track editionData._trackUUID) {
         <a class="edition" cdkDrag>
           <label
             [ghs-label]="(settingsManager.settings.editions.indexOf(editionData.edition) != -1 ? 'datamanagement.editionDataUrls.disable' : 'datamanagement.editionDataUrls.enable')"

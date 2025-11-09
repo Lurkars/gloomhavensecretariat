@@ -42,7 +42,7 @@
       }
     </div>
     <div class="container">
-      @for (ability of gameManager.abilities(monster); track ability.cardId; let index = $index) {
+      @for (ability of gameManager.abilities(monster) | trackUUID; track ability._trackUUID; let index = $index) {
       <div class="ability" [ngClass]="{'bottom-actions' : gameManager.hasBottomAbility(ability)}" ghs-pointer-input
         (singleClick)="close()" (doubleClick)="openAbility(ability)">
         <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true" [reveal]="true" [relative]="true"

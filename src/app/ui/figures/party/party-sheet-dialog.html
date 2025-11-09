@@ -16,7 +16,7 @@
               @if (gameManager.game.parties.length > 1 && !gameManager.game.scenario) {
               <select class="select-party" (change)="selectParty($event)" [ghs-label]="'party.change'"
                 [ghs-label-attribute]="'title'">
-                @for (p of gameManager.game.parties; track p) {
+                @for (p of gameManager.game.parties | trackUUID; track p._trackUUID) {
                 <option [selected]="p.id == party.id" [disabled]="p.id == party.id" value="{{p.id}}">
                   @if (p.name) {
                   <span>{{p.name}}</span>
@@ -215,7 +215,7 @@
           @if (gameManager.game.parties.length > 1 && !gameManager.game.scenario) {
           <select class="select-party" (change)="selectParty($event)" [ghs-label]="'party.change'"
             [ghs-label-attribute]="'title'">
-            @for (p of gameManager.game.parties; track p) {
+            @for (p of gameManager.game.parties | trackUUID; track p._trackUUID) {
             <option [selected]="p.id == party.id" [disabled]="p.id == party.id" value="{{p.id}}">
               @if (p.name) {
               <span>{{p.name}}</span>
@@ -248,7 +248,7 @@
             <div class="move-resources">
               <span class="label"><span [ghs-label]="'character.progress.resources.move'"></span>:</span>
               <div class="characters">
-                @for (character of characters; track character.edition + '-' + character.name) {
+                @for (character of characters| trackUUID; track character._trackUUID) {
                 <span class="character" (click)="moveResources(character)"><img [src]="character.iconUrl"></span>
                 }
               </div>
@@ -397,7 +397,7 @@
             }
           </div>
           <div class="perk-list">
-            @for (townGuardPerk of gameManager.campaignData().townGuardPerks; track townGuardPerk) {
+            @for (townGuardPerk of gameManager.campaignData().townGuardPerks | trackUUID; track townGuardPerk._trackUUID) {
             <div class="perk">
               <div class="sections">
                 @for (section of townGuardPerk.sections; track section) {
@@ -485,7 +485,7 @@
           @if (gameManager.game.parties.length > 1 && !gameManager.game.scenario) {
           <select class="select-party" (change)="selectParty($event)" [ghs-label]="'party.change'"
             [ghs-label-attribute]="'title'">
-            @for (p of gameManager.game.parties; track p) {
+            @for (p of gameManager.game.parties | trackUUID; track p._trackUUID) {
             <option [selected]="p.id == party.id" [disabled]="p.id == party.id" value="{{p.id}}">
               @if (p.name) {
               <span>{{p.name}}</span>
@@ -552,7 +552,7 @@
         <div class="additional-factions">
           <label><span [ghs-label]="'party.reputation.additional'"></span></label>
           <div class="faction-reputation">
-            @for (reputationSection of reputationSections; track reputationSection) {
+            @for (reputationSection of reputationSections | trackUUID; track reputationSection._trackUUID) {
             @if (reputationSection.faction == 'special') {
             <div class="section">
               <span class="checkbox"
@@ -569,7 +569,7 @@
             <div class="header">
               <img [src]="'./assets/images/gh2e/faction/' + faction + '.svg'">
             </div>
-            @for (reputationSection of reputationSections; track reputationSection) {
+            @for (reputationSection of reputationSections | trackUUID; track reputationSection._trackUUID) {
             @if (reputationSection.faction == faction && reputationSection.requires &&
             reputationSection.requires.length) {
             <div class="section">
@@ -652,7 +652,7 @@
               <div class="level">1</div>
               <div class="checkbox checked disabled"></div>
             </div>
-            @for (check of []|ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); track check; let index = $index) {
+            @for (check of [] | ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); track check; let index = $index) {
             <div class="tick"
               [ngClass]="{'large' : prosperitySteps.indexOf(index) != -1, 'section': prosperitySections[index], 'break': check == 33}">
               @if (prosperitySteps.indexOf(index) != -1) {
@@ -736,7 +736,7 @@
             <span class="span"><span [ghs-label]="'data.edition.' + edition"></span></span>
           </div>
           }
-          @for (scenarioData of scenarios[edition]; track scenarioData) {
+          @for (scenarioData of scenarios[edition] | trackUUID; track scenarioData._trackUUID) {
           <div class="scenario">
             <span>
               @if (!scenarioData.solo) {
@@ -844,8 +844,7 @@
             <div class="scenario header">
               <span class="span"><span [ghs-label]="'party.campaign.scenarios.conclusions'"></span></span>
             </div>
-            @for (scenarioData of conclusions[edition]; track scenarioData.edition + '-' + scenarioData.index +
-            (scenarioData.group ? '-' + scenarioData.group : '')) {
+            @for (scenarioData of conclusions[edition] | trackUUID; track scenarioData._trackUUID) {
             <div class="scenario">
               <span>
                 #@if (maxScenario(conclusions[edition]) > 2 && scenarioData.index.length < 3) { <span>0</span>
@@ -917,7 +916,7 @@
             }
           </div>
           <div class="checklist">
-            @for (check of []|ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); track check; let index = $index) {
+            @for (check of [] | ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); track check; let index = $index) {
             <div class="tick"
               [autoscroll]="gameManager.prosperityTicks() == index +1 || gameManager.prosperityTicks() == 0 && index == 0"
               [ngClass]="{'large' : prosperitySteps.indexOf(index) != -1, 'section': prosperitySections[index]}">
@@ -941,7 +940,7 @@
         <div class="row donations">
           <label><span [ghs-label]="'party.campaign.donations'"></span>:</label>
           <div class="checklist">
-            @for (check of []|ghsRange:10; track check) {
+            @for (check of [] | ghsRange:10; track check) {
             <div class="tick">
               <div class="donation">
                 <div class="checkbox" (click)="setDonations(check+1)" [ngClass]="{'checked': party.donations > check}">
@@ -962,9 +961,9 @@
           </label>
           @if (party.envelopeB) {
           <div class="lines">
-            @for (line of []|ghsRange:5; track line) {
+            @for (line of [] | ghsRange:5; track line) {
             <div class="line">
-              @for (item of []|ghsRange:18; track item) {
+              @for (item of [] | ghsRange:18; track item) {
               <div class="item">
                 <span class="checkpoint" (click)="setDonations(10 + item + line * 18 + 1)"
                   [ngClass]="{'checked' : party.donations > (10 + item + line * 18), 'prosperity' : (10 + item + line * 18) < 40 ? (10 + item + line * 18) % 5 == 4 : (10 + item + line * 18) % 10 == 9}"></span>
@@ -1028,7 +1027,7 @@
               </select>
             </div>
             <div class="item-list">
-              @for (item of items; track item ? item.edition + '-' + item.id : item; let i = $index) {
+              @for (item of items | trackUUID; track item._trackUUID; let i = $index) {
               <label class="item" [ngClass]="{'edition' : !partyEdition || !itemEdition}">
                 @if (!!item) {
                 <span class="item-index open-item" (click)="openItem(item)">
@@ -1074,7 +1073,7 @@
               </select>
             </div>
             <div class="treasure-list">
-              @for (treasure of treasures(); track treasure) {
+              @for (treasure of treasures() | trackUUID; track treasure._trackUUID) {
               <label class="treasure" [ngClass]="{'edition' : !treasureEdition}">
                 <span class="treasure-index">
                   <img class="icon" src="./assets/images/scenario/treasure.svg">
@@ -1107,7 +1106,7 @@
                 <input type="text" [value]="party.players[index]" (change)="changePlayer($event, index)">
                 @if (availableCharacters[index]) {
                 <div class="available-characters">
-                  @for (characterModel of availableCharacters[index]; track characterModel) {
+                  @for (characterModel of availableCharacters[index] | trackUUID; track characterModel._trackUUID) {
                   <a class="available-character" ghs-pointer-input (singleClick)="openCharacterSheet(characterModel)"
                     (doubleClick)="replayCharacter(characterModel)" [ghs-tooltip]="'character.replay.hint'">
                     <img
@@ -1159,7 +1158,7 @@
               }
               <span></span>
             </div>
-            @for (characterModel of party.retirements; track characterModel) {
+            @for (characterModel of party.retirements | trackUUID; track characterModel._trackUUID) {
             <div class="character">
               <span>
                 #<input [value]="characterModel.number" type="number" min="1"

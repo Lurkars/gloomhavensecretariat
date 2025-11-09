@@ -3,7 +3,7 @@
     <div class="header" [ghs-label]="character.battleGoal ? 'game.battleGoals.chosen' : 'game.battleGoals.choose'"
       [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"></div>
     <div class="battle-goals">
-      @for (battleGoal of battleGoals; track battleGoal.cardId; let index = $index) {
+      @for (battleGoal of battleGoals | trackUUID; track battleGoal._trackUUID; let index = $index) {
       <ghs-battlegoal ghs-pointer-input (singleClick)="select(index)" (doubleClick)="select(index,true)"
         [battleGoal]="battleGoal"
         [flipped]="gameManager.roundManager.firstRound || selected == index || !character.battleGoal || revealed.indexOf(index) != -1 || trial349 || trial356 && battleGoals.length > 3 && index < battleGoals.length - 2 || cardOnly"

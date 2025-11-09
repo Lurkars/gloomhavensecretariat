@@ -13,7 +13,7 @@
   </div>
 
   <div class="scenarios">
-    @for (scenario of scenarios; track scenario.edition + '-' + scenario.index) {
+    @for (scenario of scenarios | trackUUID; track scenario._trackUUID) {
     <div class="scenario">
       <div class="title">
         <span class="text-white" [ghs-label]="'%data.scenarioNumber:' + scenario.index + '%'"></span>

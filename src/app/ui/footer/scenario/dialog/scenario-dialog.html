@@ -34,7 +34,7 @@
         }
 
         <div class="sections">
-          @for (roomData of openRooms; track roomData.roomNumber) {
+          @for (roomData of openRooms | trackUUID; track roomData._trackUUID) {
           <span class="section room">
             <img class="ghs-svg" src="./assets/images/scenario/door-open.svg">
             {{roomData.ref}}
@@ -44,7 +44,7 @@
           </span>
           }
 
-          @for (section of gameManager.game.sections; track section.edition + '-' + section.index) {
+          @for (section of gameManager.game.sections | trackUUID; track section._trackUUID) {
           <span class="section" [ngClass]="{'random-monster-card': section.group == 'randomMonsterCard'}"
             (click)="openRandomMonsterCard(section)">
             #{{section.index}}
@@ -61,14 +61,14 @@
         </div>
 
         <div class="open-sections">
-          @for (roomData of closedRooms; track roomData.roomNumber) {
+          @for (roomData of closedRooms | trackUUID; track roomData._trackUUID) {
           <span tabclick class="section room available" (click)="openRoom(roomData)">
             <img class="ghs-svg" src="./assets/images/scenario/door.svg">
             <span [ghs-label]="roomData.marker ? 'scenario.openRoomMarkerRef' : 'scenario.openRoomRef'"
               [ghs-label-args]="[roomData.ref, roomData.marker || '']"></span>
           </span>
           }
-          @for (section of availableSections; track section.edition + '-' + section.index) {
+          @for (section of availableSections | trackUUID; track section._trackUUID) {
           <span tabclick class="section available" (click)="addSection(section)">
             @if (!section.conclusion) {
             <img class="ghs-svg" src="./assets/images/lock.svg">

@@ -64,7 +64,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   conclusions: Record<string, ScenarioData[]> = {};
   characters: Character[] = [];
   worldMap: boolean = false;
-  items: (ItemData | undefined)[] = [];
+  items: ItemData[] = [];
   itemIdentifier: CountIdentifier[] = [];
   itemEdition: string = "";
   treasureEdition: string = "";
@@ -878,7 +878,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       return +a.name - +b.name;
     });
 
-    this.items = this.itemIdentifier.map((identifier) => gameManager.itemManager.getItem(identifier.name, identifier.edition, true));
+    this.items = this.itemIdentifier.map((identifier) => gameManager.itemManager.getItem(identifier.name, identifier.edition, true)).filter((i) => !!i);
     this.summer = Math.max(this.party.weeks, 0) % 20 < 10;
 
     if (campaign) {

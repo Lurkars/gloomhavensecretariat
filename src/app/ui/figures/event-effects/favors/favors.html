@@ -26,7 +26,7 @@
   </div>
 
   <div class="favors">
-    @for (favor of favors; track favor; let i = $index) {
+    @for (favor of favors | trackUUID; track favor._trackUUID; let i = $index) {
     <div class="favor" [ngClass]="{'disabled': availablePoints < favor.points }">
       <label class="text-white" [ghs-label]="'scenario.favors.label' + (favor.points > 1 ? '.multiple': '')"
         [ghs-label-args]="[favor.edition, favor.name, ''+ favor.points]" ghs-pointer-input
@@ -54,7 +54,7 @@
       <span></span>
       }
       <div class="checks">
-        @for (check of []|ghsRange:activeFavors[i]; track check) {
+        @for (check of [] | ghsRange:activeFavors[i]; track check) {
         <span class="check" ghs-pointer-input (singleClick)="unselectFavor(favor)"
           (doubleClick)="unselectFavor(favor, true)">
           <img src="./assets/images/check.svg" class="ghs-svg">

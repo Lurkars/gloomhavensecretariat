@@ -6,7 +6,7 @@
   </div>
 
   <div class="conclusions">
-    @for (sectionData of data.conclusions; track sectionData.edition + '-' + sectionData.index) {
+    @for (sectionData of data.conclusions | trackUUID; track sectionData._trackUUID) {
     <span class="placeholder text-white conclusion"
       [ghs-label]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' :  '') + (sectionData.named ? '.named' : '')"
       [ghs-label-args]="['%data.section:' + sectionData.index + '%', sectionData.named ? gameManager.scenarioManager.scenarioTitle(sectionData,true) : '']"

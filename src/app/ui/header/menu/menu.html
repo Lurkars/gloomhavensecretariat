@@ -151,7 +151,7 @@
         &lt;<span [ghs-label]="'character.removeAll'"></span>&gt;
       </a>
     </div>
-    @for (character of characters(); track character.edition + '-' + character.name) {
+    @for (character of characters()| trackUUID; track character._trackUUID) {
     <div class="line">
       <a (click)="removeCharacter(character);">
         <img class="icon" [src]="character.iconUrl" />
@@ -184,7 +184,7 @@
         &lt;<span [ghs-label]="'objective.removeAll'"></span>&gt;
       </a>
     </div>
-    @for (objective of objectives(); track objective.uuid) {
+    @for (objective of objectives() | trackUUID; track objective._trackUUID) {
     <div class="line">
       <a (click)="removeObjective(objective);">
         @if (!objective.escort) {
@@ -221,7 +221,7 @@
         &lt;<span [ghs-label]="'monster.removeAll'"></span>&gt;
       </a>
     </div>
-    @for (monster of monsters(); track monster.edition + '-' + monster.name) {
+    @for (monster of monsters() | trackUUID; track monster._trackUUID) {
     <div class="line">
       <a (click)="removeMonster(monster);">
         <span [ghs-label]="'data.monster.' + monster.name"></span> @if
