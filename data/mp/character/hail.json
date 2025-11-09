@@ -1,6 +1,9 @@
 {
   "name": "hail",
   "edition": "mp",
+  "tokens": [
+    "resolve"
+  ],
   "handSize": 10,
   "color": "#b06871",
   "stats": [
