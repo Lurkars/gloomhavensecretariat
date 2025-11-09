@@ -17,15 +17,15 @@
       },
       "cassandra": {
         "4": "Add +1 %game.action.attack% if the top card of the monster attack modifier deck is revealed",
-        "6": "Place this card in your active area. When you next place a Rift, discard this card to place another Rift within %game.action.range% 1 of it",
+        "6": "Place this card in your active area. When you next place a %data.action.custom.mp-rift%, discard this card to place another %data.action.custom.mp-rift% within %game.action.range% 1 of it",
         "8": "Whenever you long rest, you may read one unread Section from the current scenario's \"Section Links\"",
-        "9": "Whenever you place a Rift, you may perform \"%game.action.pull% 1, %game.action.target% 1 ally or enemy, %game.action.range% 1\" as if you occupied a hex containing a Rift",
+        "9": "Whenever you place a %data.action.custom.mp-rift%, you may perform \"%game.action.pull% 1, %game.action.target% 1 ally or enemy, %game.action.range% 1\" as if you occupied a hex containing a %data.action.custom.mp-rift%",
         "10": "Whenever a deck is shuffled, you may set aside all revealed cards from that deck and place them back on top after shuffling"
       },
       "hail": {
         "10": "Whenever you short rest, you may choose which card to lose",
         "11": "Your and your allies' enhancements cost five gold less and whenever an ally enhances a card, you gain five gold",
-        "12": "Add one +1 \"Hail gains 1 Resolve\" card to the monster attack modifier deck"
+        "12": "Add one +1 \"%game.characterIcon.hail% gains 1 %data.action.custom.mp-resolve%\" card to the monster attack modifier deck"
       },
       "satha": {
         "6": "Grant one ally within %game.action.range% 3: %game.action.attack% 2 %game.action.range% 3 or %game.action.attack% 3",
@@ -43,11 +43,11 @@
       },
       "cassandra": {
         "1": "For an entire scenario, reveal at least one card from an attack modifier deck or monster ability card deck each round",
-        "2": "Target 6 figures with an ability that targets figures occupying hexes containing Rifts"
+        "2": "Target 6 figures with an ability that targets figures occupying hexes containing %data.action.custom.mp-rift%"
       },
       "hail": {
-        "1": "For an entire scenario, gain at least 1 Resolve each round",
-        "2": "In a single scenario, across three consecutive rounds, spend at least 3 Resolve each round"
+        "1": "For an entire scenario, gain at least 1 %data.action.custom.mp-resolve% each round",
+        "2": "In a single scenario, across three consecutive rounds, spend at least 3 %data.action.custom.mp-resolve% each round"
       },
       "satha": {
         "1": "For an entire scenario, have at least one ally perform a move or attack ability during each of your turns except when performing a long rest",

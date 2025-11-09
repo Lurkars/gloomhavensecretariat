@@ -213,8 +213,8 @@
                 "value": "safeguard",
                 "effects": [
                   {
-                    "type": "target",
-                    "value": "1 ally"
+                    "type": "specialTarget",
+                    "value": "allyShort"
                   }
                 ]
               }
