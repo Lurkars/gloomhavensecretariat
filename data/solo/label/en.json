@@ -72,6 +72,7 @@
     "plea-for-help-without-answer": "Plea for Help Without Answer",
     "shape-blocks-out-the-sun": "Shape Blocks Out the Sun",
     "song-of-the-deep": "Song of the Deep",
+    "stone-construct-tinkerer-solo": "%data.monster.stone-construct%",
     "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
     "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)"
   },
