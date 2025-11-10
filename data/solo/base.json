@@ -3,6 +3,7 @@
   "additional": true,
   "extensions": [
     "gh",
+    "gh2e",
     "fh",
     "gh-envx",
     "fc",
