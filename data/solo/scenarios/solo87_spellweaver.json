@@ -1,0 +1,38 @@
+{
+  "index": "87",
+  "group": "solo",
+  "name": "Corrupted Apothecary",
+  "edition": "gh2e",
+  "initial": true,
+  "solo": "spellweaver",
+  "rewards": {
+    "items": [
+      "155"
+    ]
+  },
+  "monsters": [
+    "giant-viper",
+    "hound",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}
