@@ -1,0 +1,42 @@
+{
+  "index": "88",
+  "group": "solo",
+  "name": "Material Concerns",
+  "edition": "gh2e",
+  "initial": true,
+  "solo": "silent-knife",
+  "rewards": {
+    "items": [
+      "156"
+    ]
+  },
+  "monsters": [
+    "cultist",
+    "living-bones",
+    "living-corpse",
+    "shyreth"
+  ],
+  "allies": [
+    "syreth"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

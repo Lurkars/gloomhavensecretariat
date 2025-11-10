@@ -71,6 +71,7 @@
     "night-demon-deathwalker-solo": "Night Demon (Solo)",
     "plea-for-help-without-answer": "Plea for Help Without Answer",
     "shape-blocks-out-the-sun": "Shape Blocks Out the Sun",
+    "shyreth": "Shyreth",
     "song-of-the-deep": "Song of the Deep",
     "stone-construct-tinkerer-solo": "%data.monster.stone-construct%",
     "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
@@ -146,7 +147,10 @@
         "solo-9": "Plane of Wild Beasts"
       },
       "gh2e": {
-        "solo-85": "A Night Out"
+        "solo-85": "A Night Out",
+        "solo-86": "An Unfortunate Intrusion",
+        "solo-87": "Corrupted Apothecary",
+        "solo-88": "Material Concerns"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -237,7 +241,13 @@
       },
       "gh2e": {
         "solo-85-1": "A Night Out",
-        "solo-85-2": "A Night Out"
+        "solo-85-2": "A Night Out",
+        "solo-86-1": "An Unfortunate Intrusion",
+        "solo-86-2": "An Unfortunate Intrusion",
+        "solo-87-1": "Corrupted Apothecary",
+        "solo-87-2": "Corrupted Apothecary",
+        "solo-88-1": "Material Concerns",
+        "solo-88-2": "Material Concerns"
       },
       "toa": {
         "solo-36B": "Unsouled",
