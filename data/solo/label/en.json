@@ -21,6 +21,11 @@
         "1": "At start of each round:"
       }
     },
+    "gh2e": {
+      "city-guard-sun2-solo": {
+        "1": "Acts immediately after %game.characterIcon.sun%."
+      }
+    },
     "solo": {
       "char-am-deck": "Uses character AM deck"
     },
@@ -45,7 +50,7 @@
     "abael-warlord": "Abael Warlord",
     "algox-icespeaker-shards-solo": "Algox Icespeaker (Solo)",
     "algox-snowspeaker-trap-solo": "Algox Snowspeaker (Solo)",
-    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.charactergh..music-note% %solo%)",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
     "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
     "black-imp-deathwalker-solo": "Black Imp (Solo)",
     "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
@@ -76,7 +81,8 @@
     "stone-construct-tinkerer-solo": "%data.monster.stone-construct%",
     "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
     "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)",
-    "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%"
+    "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%",
+    "city-guard-sun2-solo": "%data.monster.city-guard%"
   },
   "scenario": {
     "group": {
@@ -153,7 +159,8 @@
         "solo-87": "Corrupted Apothecary",
         "solo-88": "Material Concerns",
         "solo-89": "Stone Defense",
-        "solo-90": "Vermling Liberation"
+        "solo-90": "Vermling Liberation",
+        "solo-91": "Caravan Escort"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -252,7 +259,9 @@
         "solo-88-1": "Material Concerns",
         "solo-88-2": "Material Concerns",
         "solo-90-1": "Vermling Liberation",
-        "solo-90-2": "Vermling Liberation"
+        "solo-90-2": "Vermling Liberation",
+        "solo-91-1": "Caravan Escort",
+        "solo-91-2": "Caravan Escort"
       },
       "toa": {
         "solo-36B": "Unsouled",

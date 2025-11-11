@@ -1,0 +1,23 @@
+{
+  "index": "91-1",
+  "group": "solo",
+  "name": "Caravan Escort",
+  "edition": "gh2e",
+  "parent": "91",
+  "monsters": [
+    "crystal-rot",
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "crystal-rot",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

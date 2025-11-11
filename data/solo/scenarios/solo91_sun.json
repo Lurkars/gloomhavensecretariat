@@ -1,0 +1,74 @@
+{
+  "index": "91",
+  "group": "solo",
+  "name": "Caravan Escort",
+  "edition": "gh2e",
+  "initial": true,
+  "solo": "sun",
+  "rewards": {
+    "items": [
+      "159"
+    ]
+  },
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "city-guard-sun2-solo"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard-sun2-solo",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun2-solo",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun2-solo",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun2-solo",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun2-solo",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun2-solo",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}
