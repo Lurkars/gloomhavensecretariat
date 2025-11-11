@@ -1,0 +1,20 @@
+{
+  "index": "92",
+  "group": "solo",
+  "name": "Storage Fees",
+  "edition": "gh2e",
+  "initial": true,
+  "solo": "three-spears",
+  "rewards": {
+    "items": [
+      "160"
+    ]
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

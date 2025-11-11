@@ -44,14 +44,8 @@
             "name": "inox-guard",
             "type": "normal"
           },
-          "marker": "d"
-        },
-        {
-          "monster": {
-            "name": "inox-guard",
-            "type": "normal"
-          },
-          "marker": "d"
+          "marker": "d",
+          "count": 2
         }
       ]
     }

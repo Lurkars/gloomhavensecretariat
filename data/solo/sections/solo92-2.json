@@ -1,0 +1,44 @@
+{
+  "index": "92-2",
+  "group": "solo",
+  "name": "Storage Fees",
+  "edition": "gh2e",
+  "parent": "92",
+  "monsters": [
+    "crystal-rot",
+    "living-bones",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "crystal-rot",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "index": "92-3",
+  "group": "solo",
+  "name": "Storage Fees",
+  "edition": "gh2e",
+  "parent": "92",
+  "monsters": [
+    "inox-archer",
+    "inox-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

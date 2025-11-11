@@ -24,7 +24,7 @@
   ],
   "rules": [
     {
-      "round": "R == 3",
+      "round": "R == 3 || R == 6 || R == 9",
       "start": true,
       "spawns": [
         {
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "round": "R == 4",
+      "round": "R == 4 || R == 7 || R == 10",
       "start": true,
       "spawns": [
         {
@@ -57,99 +57,7 @@
       ]
     },
     {
-      "round": "R == 5",
-      "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "cave-bear",
-            "type": "normal"
-          },
-          "marker": "d"
-        }
-      ]
-    },
-    {
-      "round": "R == 6",
-      "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "rending-drake",
-            "type": "normal"
-          },
-          "marker": "a"
-        }
-      ]
-    },
-    {
-      "round": "R == 7",
-      "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "black-imp",
-            "type": "normal"
-          },
-          "marker": "b"
-        },
-        {
-          "monster": {
-            "name": "black-imp",
-            "type": "normal"
-          },
-          "marker": "c"
-        }
-      ]
-    },
-    {
-      "round": "R == 8",
-      "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "cave-bear",
-            "type": "normal"
-          },
-          "marker": "d"
-        }
-      ]
-    },
-    {
-      "round": "R == 9",
-      "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "rending-drake",
-            "type": "normal"
-          },
-          "marker": "a"
-        }
-      ]
-    },
-    {
-      "round": "R == 10",
-      "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "black-imp",
-            "type": "normal"
-          },
-          "marker": "b"
-        },
-        {
-          "monster": {
-            "name": "black-imp",
-            "type": "normal"
-          },
-          "marker": "c"
-        }
-      ]
-    },
-    {
-      "round": "R == 11",
+      "round": "R == 5 || R == 8 || R == 11",
       "start": true,
       "spawns": [
         {

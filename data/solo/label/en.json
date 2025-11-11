@@ -160,7 +160,8 @@
         "solo-88": "Material Concerns",
         "solo-89": "Stone Defense",
         "solo-90": "Vermling Liberation",
-        "solo-91": "Caravan Escort"
+        "solo-91": "Caravan Escort",
+        "solo-92": "Storage Fees"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -261,7 +262,10 @@
         "solo-90-1": "Vermling Liberation",
         "solo-90-2": "Vermling Liberation",
         "solo-91-1": "Caravan Escort",
-        "solo-91-2": "Caravan Escort"
+        "solo-91-2": "Caravan Escort",
+        "solo-92-1": "Storage Fees",
+        "solo-92-2": "Storage Fees",
+        "solo-92-3": "Storage Fees"
       },
       "toa": {
         "solo-36B": "Unsouled",
