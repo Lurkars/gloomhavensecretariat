@@ -54,11 +54,13 @@
     "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
     "black-imp-deathwalker-solo": "Black Imp (Solo)",
     "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
+    "cave-bear-circles2-solo": "%data.monster.cave-bear%",
     "chief-of-spikes": "Chief of Spikes",
     "city-guard-banner-spear-solo": "City Guard (Solo)",
     "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
     "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
     "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-sun2-solo": "%data.monster.city-guard%",
     "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
     "deep-earth": "Deep Earth",
     "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)",
@@ -81,8 +83,7 @@
     "stone-construct-tinkerer-solo": "%data.monster.stone-construct%",
     "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
     "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)",
-    "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%",
-    "city-guard-sun2-solo": "%data.monster.city-guard%"
+    "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%"
   },
   "scenario": {
     "group": {
@@ -161,7 +162,8 @@
         "solo-89": "Stone Defense",
         "solo-90": "Vermling Liberation",
         "solo-91": "Caravan Escort",
-        "solo-92": "Storage Fees"
+        "solo-92": "Storage Fees",
+        "solo-93": "Plane of Wild Beasts"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -265,7 +267,8 @@
         "solo-91-2": "Caravan Escort",
         "solo-92-1": "Storage Fees",
         "solo-92-2": "Storage Fees",
-        "solo-92-3": "Storage Fees"
+        "solo-92-3": "Storage Fees",
+        "solo-93-1": "Plane of Wild Beasts"
       },
       "toa": {
         "solo-36B": "Unsouled",

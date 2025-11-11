@@ -1,0 +1,92 @@
+{
+  "index": "93",
+  "group": "solo",
+  "name": "Plane of Wild Beasts",
+  "edition": "gh2e",
+  "initial": true,
+  "solo": "circles",
+  "rewards": {
+    "items": [
+      "161"
+    ]
+  },
+  "monsters": [
+    "hound",
+    "spitting-drake"
+  ],
+  "rules": [
+    {
+      "round": "R == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "spitting-drake",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "spitting-drake",
+            "type": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "spitting-drake",
+            "type": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

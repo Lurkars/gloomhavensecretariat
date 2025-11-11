@@ -2,6 +2,7 @@
   "name": "shyreth",
   "edition": "gh2e",
   "deck": "shyreth",
+  "hidden": true,
   "count": 6,
   "standeeShare": "bandit-scout",
   "baseStat": {

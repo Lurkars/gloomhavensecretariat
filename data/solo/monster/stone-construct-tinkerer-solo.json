@@ -2,6 +2,7 @@
   "name": "stone-construct-tinkerer-solo",
   "edition": "gh2e",
   "deck": "stone-construct",
+  "hidden": true,
   "count": 4,
   "standeeShare": "stone-construct",
   "baseStat": {

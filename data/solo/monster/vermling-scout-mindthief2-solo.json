@@ -2,6 +2,7 @@
   "name": "vermling-scout-mindthief2-solo",
   "edition": "gh2e",
   "deck": "vermling-scout-mindthief2-solo",
+  "hidden": true,
   "count": 10,
   "standeeShare": "vermling-scout",
   "baseStat": {

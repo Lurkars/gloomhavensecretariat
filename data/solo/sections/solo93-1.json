@@ -1,0 +1,22 @@
+{
+  "index": "93-1",
+  "group": "solo",
+  "name": "Plane of Wild Beasts",
+  "edition": "gh2e",
+  "parent": "93",
+  "monsters": [
+    "cave-bear-circles2-solo"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear-circles2-solo",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

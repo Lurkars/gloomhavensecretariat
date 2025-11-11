@@ -2,6 +2,7 @@
   "name": "city-guard-sun2-solo",
   "edition": "gh2e",
   "deck": "city-guard-sun2-solo",
+  "hidden": true,
   "count": 6,
   "standeeShare": "city-guard",
   "baseStat": {
