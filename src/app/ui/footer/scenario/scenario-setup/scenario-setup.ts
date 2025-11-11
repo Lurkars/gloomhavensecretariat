@@ -6,8 +6,8 @@ import { Monster } from "src/app/game/model/Monster";
 import { Scenario } from "src/app/game/model/Scenario";
 import { LootType } from "src/app/game/model/data/Loot";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
-import { StatsListComponent } from "../dialog/stats-list/stats-list";
 import { StatEffectRule } from "src/app/game/model/data/ScenarioRule";
+import { StatsListComponent } from "../dialog/stats-list/stats-list";
 
 @Component({
     standalone: false,
@@ -120,7 +120,6 @@ export class ScenarioSetupComponent implements OnInit {
     }
 
     openStats(monster: Monster) {
-        gameManager.monsterManager.resetMonsterAbilities(monster);
         this.dialog.open(StatsListComponent, { panelClass: ['dialog'], data: { monster: monster, statEffectNote: monster.statEffect ? monster.statEffect.note : '' } });
     }
 }
