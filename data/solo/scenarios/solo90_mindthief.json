@@ -1,17 +1,18 @@
 {
-  "index": "87",
+  "index": "90",
   "group": "solo",
-  "name": "Corrupted Apothecary",
+  "name": "Vermling Liberation",
   "edition": "gh2e",
   "initial": true,
-  "solo": "spellweaver",
+  "solo": "mindthief",
   "rewards": {
     "items": [
-      "155"
+      "158"
     ]
   },
   "monsters": [
-    "giant-viper"
+    "giant-viper",
+    "harrower-infester"
   ],
   "rooms": [
     {
@@ -27,8 +28,8 @@
           "type": "normal"
         },
         {
-          "name": "giant-viper",
-          "type": "elite"
+          "name": "harrower-infester",
+          "type": "normal"
         }
       ]
     }

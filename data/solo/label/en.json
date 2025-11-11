@@ -75,7 +75,8 @@
     "song-of-the-deep": "Song of the Deep",
     "stone-construct-tinkerer-solo": "%data.monster.stone-construct%",
     "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
-    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)"
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)",
+    "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%"
   },
   "scenario": {
     "group": {
@@ -151,7 +152,8 @@
         "solo-86": "An Unfortunate Intrusion",
         "solo-87": "Corrupted Apothecary",
         "solo-88": "Material Concerns",
-        "solo-89": "Stone Defense"
+        "solo-89": "Stone Defense",
+        "solo-90": "Vermling Liberation"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -248,7 +250,9 @@
         "solo-87-1": "Corrupted Apothecary",
         "solo-87-2": "Corrupted Apothecary",
         "solo-88-1": "Material Concerns",
-        "solo-88-2": "Material Concerns"
+        "solo-88-2": "Material Concerns",
+        "solo-90-1": "Vermling Liberation",
+        "solo-90-2": "Vermling Liberation"
       },
       "toa": {
         "solo-36B": "Unsouled",

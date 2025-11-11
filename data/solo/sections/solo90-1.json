@@ -1,34 +1,35 @@
 {
-  "index": "87",
+  "index": "90-1",
   "group": "solo",
-  "name": "Corrupted Apothecary",
+  "name": "Vermling Liberation",
   "edition": "gh2e",
-  "initial": true,
-  "solo": "spellweaver",
-  "rewards": {
-    "items": [
-      "155"
-    ]
-  },
+  "parent": "90",
+  "marker": "1",
   "monsters": [
-    "giant-viper"
+    "earth-demon",
+    "giant-viper",
+    "ooze"
   ],
   "rooms": [
     {
-      "roomNumber": 1,
+      "roomNumber": 2,
       "initial": true,
       "monster": [
         {
-          "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "giant-viper",
+          "name": "earth-demon",
           "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
         }
       ]
     }

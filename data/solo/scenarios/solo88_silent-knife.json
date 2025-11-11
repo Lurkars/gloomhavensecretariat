@@ -11,13 +11,7 @@
     ]
   },
   "monsters": [
-    "cultist",
-    "living-bones",
-    "living-corpse",
-    "shyreth"
-  ],
-  "allies": [
-    "syreth"
+    "living-bones"
   ],
   "rooms": [
     {
