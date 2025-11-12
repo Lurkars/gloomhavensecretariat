@@ -1,0 +1,37 @@
+{
+  "index": "96",
+  "group": "solo",
+  "name": "Unnatural Insults",
+  "edition": "gh2e",
+  "initial": true,
+  "solo": "lightning",
+  "rewards": {
+    "items": [
+      "164"
+    ]
+  },
+  "monsters": [
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}
