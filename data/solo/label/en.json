@@ -56,7 +56,9 @@
     "algox-icespeaker-shards-solo": "Algox Icespeaker (Solo)",
     "algox-snowspeaker-trap-solo": "Algox Snowspeaker (Solo)",
     "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
+    "bandit-archer-music-note2-solo": "%data.monster.bandit-archer%",
     "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
+    "bandit-scout-music-note2-solo": "%data.monster.bandit-scout%",
     "black-imp-deathwalker-solo": "Black Imp (Solo)",
     "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
     "cave-bear-circles2-solo": "%data.monster.cave-bear%",
@@ -172,7 +174,8 @@
         "solo-93": "Plane of Wild Beasts",
         "solo-94": "Harvesting the Night",
         "solo-95": "Plagued Crypt",
-        "solo-96": "Unnatural Insults"
+        "solo-96": "Unnatural Insults",
+        "solo-97": "Battle of the Bards"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -283,7 +286,9 @@
         "solo-95-1": "Plagued Crypt",
         "solo-95-2": "Plagued Crypt",
         "solo-96-1": "Unnatural Insults",
-        "solo-96-2": "Unnatural Insults"
+        "solo-96-2": "Unnatural Insults",
+        "solo-97-1": "Battle of the Bards",
+        "solo-97-2": "Battle of the Bards"
       },
       "toa": {
         "solo-36B": "Unsouled",
