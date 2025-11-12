@@ -4,6 +4,7 @@
   "abilities": [
     {
       "initiative": 29,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",

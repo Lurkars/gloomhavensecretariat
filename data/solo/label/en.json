@@ -24,6 +24,11 @@
     "gh2e": {
       "city-guard-sun2-solo": {
         "1": "Acts immediately after %game.characterIcon.sun%."
+      },
+      "living-spirit-squidface-solo": {
+        "1": "Base armor is 0 while %data.monster.living-spirit-squidface-solo% does not have %game.condition.poison%",
+        "2": "%data.monster.living-spirit-squidface-solo%s without %game.condition.poison% do not act.",
+        "3": "%game.characterIcon.squidface% may have the %data.monster.living-spirit-squidface-solo% lose %game.condition.poison% to add %game.condition.poison%."
       }
     },
     "solo": {
@@ -73,6 +78,7 @@
     "incarnation-of-ancestors": "Incarnation of Ancestors",
     "inox-necromancer": "Inox Necromancer",
     "lieutenant": "Lieutenant",
+    "living-spirit-squidface-solo": "%data.monster.living-spirit%",
     "lost-in-seaweed": "Lost in Seaweed",
     "mountains-heart": "Mountain's Heart",
     "night-demon-deathwalker-solo": "Night Demon (Solo)",
@@ -164,7 +170,8 @@
         "solo-91": "Caravan Escort",
         "solo-92": "Storage Fees",
         "solo-93": "Plane of Wild Beasts",
-        "solo-94": "Harvesting the Night"
+        "solo-94": "Harvesting the Night",
+        "solo-95": "Plagued Crypt"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -271,7 +278,9 @@
         "solo-92-3": "Storage Fees",
         "solo-93-1": "Plane of Wild Beasts",
         "solo-94-1": "Harvesting the Night",
-        "solo-94-2": "Harvesting the Night"
+        "solo-94-2": "Harvesting the Night",
+        "solo-95-1": "Plagued Crypt",
+        "solo-95-2": "Plagued Crypt"
       },
       "toa": {
         "solo-36B": "Unsouled",

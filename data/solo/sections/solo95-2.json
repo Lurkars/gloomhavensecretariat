@@ -1,0 +1,46 @@
+{
+  "index": "95-2",
+  "group": "solo",
+  "name": "Plagued Crypt",
+  "edition": "gh2e",
+  "parent": "95",
+  "parentSections": [
+    [
+      "95-1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "harrower-infester",
+    "living-bones",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

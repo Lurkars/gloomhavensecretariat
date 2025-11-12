@@ -1,0 +1,45 @@
+{
+  "name": "living-spirit-squidface-solo",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "initiative": 22,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.living-spirit-squidface-solo.2%",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.living-spirit-squidface-solo.3%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

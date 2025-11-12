@@ -1,0 +1,67 @@
+{
+  "index": "95",
+  "group": "solo",
+  "name": "Plagued Crypt",
+  "edition": "gh2e",
+  "initial": true,
+  "solo": "squidface",
+  "rewards": {
+    "items": [
+      "163"
+    ]
+  },
+  "monsters": [
+    "living-spirit-squidface-solo"
+  ],
+  "allies": [
+    "living-spirit-squidface-solo"
+  ],
+  "rules": [
+    {
+      "round": "R == 2",
+      "start": true,
+      "sections": [
+        "95-1"
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "sections": [
+        "95-2"
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit-squidface-solo",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit-squidface-solo",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit-squidface-solo",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit-squidface-solo",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit-squidface-solo",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit-squidface-solo",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}
