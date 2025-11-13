@@ -42,6 +42,37 @@
           "section": false
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "fire",
+          "state": "strong"
+        },
+        {
+          "type": "ice",
+          "state": "strong"
+        },
+        {
+          "type": "air",
+          "state": "strong"
+        },
+        {
+          "type": "earth",
+          "state": "strong"
+        },
+        {
+          "type": "light",
+          "state": "strong"
+        },
+        {
+          "type": "dark",
+          "state": "strong"
+        }
+      ]
     }
   ],
   "rooms": [
