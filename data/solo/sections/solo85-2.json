@@ -1,0 +1,36 @@
+{
+  "index": "85-2",
+  "group": "solo",
+  "name": "A Night Out",
+  "edition": "gh2e",
+  "parent": "85",
+  "parentSections": [
+    [
+      "85-1"
+    ]
+  ],
+  "marker": "a",
+  "monsters": [
+    "bandit-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

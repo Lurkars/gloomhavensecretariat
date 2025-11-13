@@ -21,6 +21,23 @@
         "1": "At start of each round:"
       }
     },
+    "gh2e": {
+      "city-guard-saw2-solo": {
+        "1": "When given a medical pack, perform:",
+        "2": "Remove %data.monster.city-guard-saw2-solo% from the map after being healed fully or given a medical pack."
+      },
+      "city-guard-sun2-solo": {
+        "1": "Acts immediately after %game.characterIcon.sun%."
+      },
+      "living-spirit-squidface-solo": {
+        "1": "Base armor is 0 while %data.monster.living-spirit-squidface-solo% does not have %game.condition.poison%",
+        "2": "%data.monster.living-spirit-squidface-solo%s without %game.condition.poison% do not act.",
+        "3": "%game.characterIcon.squidface% may have the %data.monster.living-spirit-squidface-solo% lose %game.condition.poison% to add %game.condition.poison%."
+      },
+      "hawthorne": {
+        "1": "Adds +1 %game.action.attack% to all attacks while undamaged"
+      }
+    },
     "solo": {
       "char-am-deck": "Uses character AM deck"
     },
@@ -45,35 +62,46 @@
     "abael-warlord": "Abael Warlord",
     "algox-icespeaker-shards-solo": "Algox Icespeaker (Solo)",
     "algox-snowspeaker-trap-solo": "Algox Snowspeaker (Solo)",
-    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.charactergh..music-note% %solo%)",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
+    "bandit-archer-music-note2-solo": "%data.monster.bandit-archer%",
     "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
+    "bandit-scout-music-note2-solo": "%data.monster.bandit-scout%",
     "black-imp-deathwalker-solo": "Black Imp (Solo)",
     "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
+    "cave-bear-circles2-solo": "%data.monster.cave-bear%",
     "chief-of-spikes": "Chief of Spikes",
     "city-guard-banner-spear-solo": "City Guard (Solo)",
     "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-saw2-solo": "%data.monster.city-guard%",
     "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
     "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-sun2-solo": "%data.monster.city-guard%",
     "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
     "deep-earth": "Deep Earth",
+    "deep-earth-gh2e": "Deep Earth",
     "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)",
     "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
     "energized-corpse": "Energized Corpse",
     "ghost-wolf": "Ghost Wolf",
     "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
+    "hawthorne": "Hawthorne",
     "high-flame": "High Flame",
     "hollow-scholar": "Hollow Scholar",
     "incarnation-of-ancestors": "Incarnation of Ancestors",
     "inox-necromancer": "Inox Necromancer",
     "lieutenant": "Lieutenant",
+    "living-spirit-squidface-solo": "%data.monster.living-spirit%",
     "lost-in-seaweed": "Lost in Seaweed",
     "mountains-heart": "Mountain's Heart",
     "night-demon-deathwalker-solo": "Night Demon (Solo)",
     "plea-for-help-without-answer": "Plea for Help Without Answer",
     "shape-blocks-out-the-sun": "Shape Blocks Out the Sun",
+    "shyreth": "Shyreth",
     "song-of-the-deep": "Song of the Deep",
+    "stone-construct-tinkerer-solo": "%data.monster.stone-construct%",
     "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
-    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)"
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)",
+    "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%"
   },
   "scenario": {
     "group": {
@@ -143,6 +171,26 @@
         "solo-7": "Caravan Escort",
         "solo-8": "Storage Fees",
         "solo-9": "Plane of Wild Beasts"
+      },
+      "gh2e": {
+        "solo-85": "A Night Out",
+        "solo-86": "An Unfortunate Intrusion",
+        "solo-87": "Corrupted Apothecary",
+        "solo-88": "Material Concerns",
+        "solo-89": "Stone Defense",
+        "solo-90": "Vermling Liberation",
+        "solo-91": "Caravan Escort",
+        "solo-92": "Storage Fees",
+        "solo-93": "Plane of Wild Beasts",
+        "solo-94": "Harvesting the Night",
+        "solo-95": "Plagued Crypt",
+        "solo-96": "Unnatural Insults",
+        "solo-97": "Battle of the Bards",
+        "solo-98": "Corrupted Hunt",
+        "solo-99": "Aftermath",
+        "solo-100": "Elemental Secrets",
+        "solo-101": "The Caged Bear",
+        "solo-102": "The Sands of Time"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -230,6 +278,46 @@
         "solo-A1b": "Battle of the Bards",
         "solo-G2b": "Battle of the Bards",
         "solo-I1a": "Battle of the Bards"
+      },
+      "gh2e": {
+        "solo-85-1": "A Night Out",
+        "solo-85-2": "A Night Out",
+        "solo-86-1": "An Unfortunate Intrusion",
+        "solo-86-2": "An Unfortunate Intrusion",
+        "solo-87-1": "Corrupted Apothecary",
+        "solo-87-2": "Corrupted Apothecary",
+        "solo-88-1": "Material Concerns",
+        "solo-88-2": "Material Concerns",
+        "solo-90-1": "Vermling Liberation",
+        "solo-90-2": "Vermling Liberation",
+        "solo-91-1": "Caravan Escort",
+        "solo-91-2": "Caravan Escort",
+        "solo-92-1": "Storage Fees",
+        "solo-92-2": "Storage Fees",
+        "solo-92-3": "Storage Fees",
+        "solo-93-1": "Plane of Wild Beasts",
+        "solo-94-1": "Harvesting the Night",
+        "solo-94-2": "Harvesting the Night",
+        "solo-95-1": "Plagued Crypt",
+        "solo-95-2": "Plagued Crypt",
+        "solo-96-1": "Unnatural Insults",
+        "solo-96-2": "Unnatural Insults",
+        "solo-97-1": "Battle of the Bards",
+        "solo-97-2": "Battle of the Bards",
+        "solo-98-1": "Corrupted Hunt",
+        "solo-98-2": "Corrupted Hunt",
+        "solo-98-3": "Corrupted Hunt",
+        "solo-98-4": "Corrupted Hunt",
+        "solo-99-1": "Aftermath",
+        "solo-100-1": "Elemental Secrets",
+        "solo-100-2": "Elemental Secrets",
+        "solo-100-3": "Elemental Secrets",
+        "solo-100-4": "Elemental Secrets",
+        "solo-101-1": "The Caged Bear",
+        "solo-101-2": "The Caged Bear",
+        "solo-101-3": "The Caged Bear",
+        "solo-102-1": "The Sands of Time",
+        "solo-102-2": "The Sands of Time"
       },
       "toa": {
         "solo-36B": "Unsouled",

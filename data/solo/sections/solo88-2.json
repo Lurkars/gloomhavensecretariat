@@ -1,0 +1,38 @@
+{
+  "index": "88-2",
+  "group": "solo",
+  "name": "Material Concerns",
+  "edition": "gh2e",
+  "parent": "88",
+  "parentSections": [
+    [
+      "88-1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "cultist",
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

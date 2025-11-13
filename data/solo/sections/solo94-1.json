@@ -1,0 +1,41 @@
+{
+  "index": "94-1",
+  "group": "solo",
+  "name": "Harvesting the Night",
+  "edition": "gh2e",
+  "parent": "94",
+  "marker": "1",
+  "monsters": [
+    "deep-terror",
+    "forest-imp",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

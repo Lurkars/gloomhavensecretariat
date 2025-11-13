@@ -1,0 +1,47 @@
+{
+  "index": "94",
+  "group": "solo",
+  "name": "Harvesting the Night",
+  "edition": "gh2e",
+  "spoiler": true,
+  "initial": true,
+  "solo": "eclipse",
+  "rewards": {
+    "items": [
+      "162"
+    ]
+  },
+  "monsters": [
+    "deep-terror",
+    "earth-demon",
+    "forest-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

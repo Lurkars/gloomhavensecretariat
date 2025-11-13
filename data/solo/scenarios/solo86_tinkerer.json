@@ -1,0 +1,69 @@
+{
+  "index": "86",
+  "group": "solo",
+  "name": "An Unfortunate Intrusion",
+  "edition": "gh2e",
+  "initial": true,
+  "solo": "tinkerer",
+  "rewards": {
+    "items": [
+      "154"
+    ]
+  },
+  "monsters": [
+    "ancient-artillery",
+    "stone-construct-tinkerer-solo",
+    "vermling-priest",
+    "vermling-scout"
+  ],
+  "allies": [
+    "ancient-artillery",
+    "stone-construct-tinkerer-solo"
+  ],
+  "objectives": [
+    {
+      "name": "Stone Pillar",
+      "health": "5+L"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-priest",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-priest",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}
