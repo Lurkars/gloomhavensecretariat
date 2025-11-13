@@ -1,0 +1,92 @@
+{
+  "index": "99-1",
+  "group": "solo",
+  "name": "Aftermath",
+  "edition": "gh2e",
+  "parent": "99",
+  "marker": "1",
+  "monsters": [
+    "black-imp",
+    "city-guard-saw2-solo",
+    "deep-terror",
+    "earth-demon"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "city-guard-saw2-solo",
+            "tags": [
+              "16b"
+            ]
+          },
+          "type": "damage",
+          "value": 4,
+          "scenarioEffect": false
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard-saw2-solo",
+          "type": "normal",
+          "tags": [
+            "16b"
+          ]
+        },
+        {
+          "name": "city-guard-saw2-solo",
+          "type": "normal",
+          "tags": [
+            "16b"
+          ]
+        },
+        {
+          "name": "city-guard-saw2-solo",
+          "type": "normal",
+          "tags": [
+            "16b"
+          ]
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

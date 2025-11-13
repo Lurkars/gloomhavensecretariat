@@ -13,6 +13,24 @@
   "monsters": [
     "spitting-drake"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "spitting-drake"
+          },
+          "type": "permanentCondition",
+          "value": "wound",
+          "scenarioEffect": false
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 5,

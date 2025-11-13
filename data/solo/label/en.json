@@ -22,6 +22,10 @@
       }
     },
     "gh2e": {
+      "city-guard-saw2-solo": {
+        "1": "When given a medical pack, perform:",
+        "2": "Remove %data.monster.city-guard-saw2-solo% from the map after being healed fully or given a medical pack."
+      },
       "city-guard-sun2-solo": {
         "1": "Acts immediately after %game.characterIcon.sun%."
       },
@@ -29,6 +33,9 @@
         "1": "Base armor is 0 while %data.monster.living-spirit-squidface-solo% does not have %game.condition.poison%",
         "2": "%data.monster.living-spirit-squidface-solo%s without %game.condition.poison% do not act.",
         "3": "%game.characterIcon.squidface% may have the %data.monster.living-spirit-squidface-solo% lose %game.condition.poison% to add %game.condition.poison%."
+      },
+      "hawthorne": {
+        "1": "Adds +1 %game.action.attack% to all attacks while undamaged"
       }
     },
     "solo": {
@@ -65,6 +72,7 @@
     "chief-of-spikes": "Chief of Spikes",
     "city-guard-banner-spear-solo": "City Guard (Solo)",
     "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-saw2-solo": "%data.monster.city-guard%",
     "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
     "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
     "city-guard-sun2-solo": "%data.monster.city-guard%",
@@ -76,6 +84,7 @@
     "energized-corpse": "Energized Corpse",
     "ghost-wolf": "Ghost Wolf",
     "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
+    "hawthorne": "Hawthorne",
     "high-flame": "High Flame",
     "hollow-scholar": "Hollow Scholar",
     "incarnation-of-ancestors": "Incarnation of Ancestors",
