@@ -1147,7 +1147,7 @@
     },
     "fh-37": {
       "": "Ghost Cloak",
-      "1": "During your turn suffer %game.damage% 3 to perform $invisible$ self"
+      "1": "During your turn, suffer %game.damage% 3 to perform:"
     },
     "fh-38": {
       "": "Duelists Shoes",

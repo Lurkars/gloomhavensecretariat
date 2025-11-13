@@ -17,6 +17,13 @@
           "edition": "gh2e",
           "scenario": "100",
           "group": "solo",
+          "index": 0,
+          "section": false
+        },
+        {
+          "edition": "gh2e",
+          "scenario": "100",
+          "group": "solo",
           "index": 1,
           "section": false
         },
@@ -32,13 +39,6 @@
           "scenario": "100",
           "group": "solo",
           "index": 3,
-          "section": false
-        },
-        {
-          "edition": "gh2e",
-          "scenario": "100",
-          "group": "solo",
-          "index": 4,
           "section": false
         }
       ]

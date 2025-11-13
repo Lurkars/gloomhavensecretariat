@@ -944,7 +944,7 @@
     },
     "fh-37": {
       "": "Cape Fantôme",
-      "1": "Pendant votre tour, subissez %game.damage% 3 pour effectuer $invisible$ sur vous-même"
+      "1": "Pendant votre tour, subissez %game.damage% 3 pour effectuer:"
     },
     "fh-38": {
       "": "Poulaines de Duelliste",

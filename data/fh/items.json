@@ -827,6 +827,17 @@
         "type": "custom",
         "value": "%data.items.fh-37.1%",
         "small": true
+      },
+      {
+        "type": "condition",
+        "value": "invisible",
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
       }
     ],
     "effects": [

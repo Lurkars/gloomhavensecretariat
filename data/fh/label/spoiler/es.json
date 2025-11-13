@@ -310,7 +310,7 @@
     },
     "fh-37": {
       "": "Capa fantasmal",
-      "1": "Durante tu turno, sufre %game.damage% 3 para realizar: $invisible$ Personal"
+      "1": "Durante tu turno, sufre %game.damage% 3 para realizar:"
     },
     "fh-38": {
       "": "Zapatos de duelista",

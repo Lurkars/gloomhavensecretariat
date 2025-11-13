@@ -24,6 +24,7 @@ export class ScenarioRule {
   spawns: MonsterSpawnData[] = [];
   objectiveSpawns: ObjectiveSpawnData[] = [];
   elements: ElementModel[] = [];
+  elementTrigger: ElementModel[] = [];
   disableRules: ScenarioRuleIdentifier[] = [];
   treasures: number | string | ('G' | number)[] = [];
   randomDungeon: RandomDungeonRule | undefined;

@@ -19,6 +19,7 @@ import { ScenarioData } from "../model/data/ScenarioData";
 import { MonsterSpawnData, ScenarioFigureRule, ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
+import { Element } from "../model/data/Element";
 
 export class ScenarioRulesManager {
 
@@ -291,6 +292,12 @@ export class ScenarioRulesManager {
             active = false;
           }
         }
+      }
+
+      if (rule.elementTrigger && rule.elementTrigger.length) {
+        active = rule.elementTrigger.every((elementModel) =>
+          elementModel.type == Element.wild && !!this.game.elementBoard.find((element) => element.state == elementModel.state) || !!this.game.elementBoard.find((element) => element.type == elementModel.type && element.state == elementModel.state)
+        )
       }
     }
 
