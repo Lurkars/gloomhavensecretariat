@@ -1,6 +1,7 @@
 {
   "name": "spitting-drake",
   "edition": "gh2e",
+  "flying": true,
   "count": 6,
   "baseStat": {
     "type": "normal"
