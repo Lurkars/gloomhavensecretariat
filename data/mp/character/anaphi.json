@@ -1,7 +1,12 @@
 {
   "name": "anaphi",
   "edition": "mp",
-  "handSize": 10,
+  "handSize": 11,
+  "traits": [
+    "nimble",
+    "resourceful",
+    "outcast"
+  ],
   "color": "#b83dba",
   "stats": [
     {

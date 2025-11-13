@@ -6,6 +6,11 @@
   "edition": "gh2e",
   "handSize": 10,
   "retireEvent": "city:82|road:56",
+  "traits": [
+    "intimidating",
+    "strong",
+    "armored"
+  ],
   "color": "#35acd5",
   "stats": [
     {
