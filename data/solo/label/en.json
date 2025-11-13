@@ -189,7 +189,8 @@
         "solo-98": "Corrupted Hunt",
         "solo-99": "Aftermath",
         "solo-100": "Elemental Secrets",
-        "solo-101": "The Caged Bear"
+        "solo-101": "The Caged Bear",
+        "solo-102": "The Sands of Time"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -314,7 +315,9 @@
         "solo-100-4": "Elemental Secrets",
         "solo-101-1": "The Caged Bear",
         "solo-101-2": "The Caged Bear",
-        "solo-101-3": "The Caged Bear"
+        "solo-101-3": "The Caged Bear",
+        "solo-102-1": "The Sands of Time",
+        "solo-102-2": "The Sands of Time"
       },
       "toa": {
         "solo-36B": "Unsouled",

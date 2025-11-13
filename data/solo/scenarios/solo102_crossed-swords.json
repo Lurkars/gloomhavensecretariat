@@ -1,0 +1,48 @@
+{
+  "index": "102",
+  "group": "solo",
+  "name": "The Sands of Time",
+  "edition": "gh2e",
+  "initial": true,
+  "solo": "crossed-swords",
+  "rewards": {
+    "items": [
+      "170"
+    ]
+  },
+  "monsters": [
+    "giant-viper"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

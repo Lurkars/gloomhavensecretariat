@@ -1,0 +1,36 @@
+{
+  "index": "102-1",
+  "group": "solo",
+  "name": "The Sands of Time",
+  "edition": "gh2e",
+  "parent": "102",
+  "marker": "1",
+  "monsters": [
+    "living-bones",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}
