@@ -3,6 +3,7 @@
   "name": "Dangerous Grove",
   "edition": "gh2e",
   "parent": "61",
+  "marker": "1",
   "monsters": [
     "cave-bear",
     "forest-imp",
@@ -21,11 +22,8 @@
         },
         {
           "name": "cave-bear",
-          "player3": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "type": "normal"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "forest-imp",
@@ -37,8 +35,14 @@
         },
         {
           "name": "forest-imp",
+          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "forest-imp",
@@ -59,6 +63,7 @@
         },
         {
           "name": "hound",
+          "player3": "elite",
           "player4": "elite"
         }
       ]

@@ -43,6 +43,10 @@
           "player4": "elite"
         },
         {
+          "name": "cave-bear",
+          "player4": "normal"
+        },
+        {
           "name": "forest-imp",
           "type": "normal"
         },
@@ -51,6 +55,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
         },
         {
           "name": "hound",

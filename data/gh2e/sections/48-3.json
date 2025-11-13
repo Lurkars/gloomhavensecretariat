@@ -3,6 +3,7 @@
   "name": "Decrepit Wood",
   "edition": "gh2e",
   "parent": "31",
+  "marker": "2",
   "monsters": [
     "black-imp",
     "harrower-infester"
