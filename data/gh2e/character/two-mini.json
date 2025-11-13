@@ -1,10 +1,16 @@
 {
   "name": "two-mini",
+  "characterClass": "vermling",
   "icon": "gh-two-mini",
   "edition": "gh2e",
   "handSize": 10,
   "unlockEvent": "road:52|road:53",
   "retireEvent": "city:100|road:75",
+  "traits": [
+    "armored",
+    "outcast",
+    "strong"
+  ],
   "color": "#ca9789",
   "spoiler": true,
   "stats": [

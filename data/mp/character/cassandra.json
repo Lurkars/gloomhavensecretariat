@@ -1,7 +1,13 @@
 {
   "name": "cassandra",
+  "characterClass": "aesther",
   "edition": "mp",
   "handSize": 10,
+  "traits": [
+    "arcane",
+    "outcast",
+    "resourceful"
+  ],
   "color": "#c8e3ea",
   "stats": [
     {

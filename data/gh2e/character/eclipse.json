@@ -1,9 +1,16 @@
 {
   "name": "eclipse",
+  "characterClass": "aesther",
   "icon": "gh-eclipse",
   "edition": "gh2e",
+  "handSize": 9,
   "unlockEvent": "road:46|city:81",
   "retireEvent": "city:88|road:71",
+  "traits": [
+    "chaotic",
+    "intimidating",
+    "nimble"
+  ],
   "color": "#6e77ba",
   "spoiler": true,
   "stats": [

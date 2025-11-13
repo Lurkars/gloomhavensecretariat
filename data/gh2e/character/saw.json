@@ -1,9 +1,16 @@
 {
   "name": "saw",
+  "characterClass": "human",
   "icon": "gh-saw",
   "edition": "gh2e",
+  "handSize": 10,
   "unlockEvent": "road:48|city:79",
   "retireEvent": "city:92|city:93",
+  "traits": [
+    "educated",
+    "persuasive",
+    "resourceful"
+  ],
   "color": "#e3dfcf",
   "spoiler": true,
   "stats": [

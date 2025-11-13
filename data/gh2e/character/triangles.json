@@ -1,9 +1,16 @@
 {
   "name": "triangles",
+  "characterClass": "savvas",
   "icon": "gh-triangles",
   "edition": "gh2e",
+  "handSize": 12,
   "unlockEvent": "road:42|road:43",
   "retireEvent": "road:67|road:68",
+  "traits": [
+    "arcane",
+    "educated",
+    "intimidating"
+  ],
   "color": "#dcdcdc",
   "spoiler": true,
   "specialActions": [

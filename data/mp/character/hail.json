@@ -1,10 +1,16 @@
 {
   "name": "hail",
+  "characterClass": "aesther",
   "edition": "mp",
   "tokens": [
     "resolve"
   ],
-  "handSize": 10,
+  "handSize": 9,
+  "traits": [
+    "chaotic",
+    "educated",
+    "resourceful"
+  ],
   "color": "#b06871",
   "stats": [
     {

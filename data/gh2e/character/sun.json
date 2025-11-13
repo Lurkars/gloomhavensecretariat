@@ -1,9 +1,16 @@
 {
   "name": "sun",
+  "characterClass": "valrath",
   "icon": "gh-sun",
   "edition": "gh2e",
+  "handSize": 11,
   "unlockEvent": "road:50|road:51",
   "retireEvent": "city:96|city:97",
+  "traits": [
+    "armored",
+    "educated",
+    "persuasive"
+  ],
   "color": "#fce434",
   "spoiler": true,
   "stats": [

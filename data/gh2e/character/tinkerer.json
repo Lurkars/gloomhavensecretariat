@@ -6,6 +6,11 @@
   "edition": "gh2e",
   "handSize": 12,
   "retireEvent": "city:98|city:99",
+  "traits": [
+    "educated",
+    "nimble",
+    "resourceful"
+  ],
   "color": "#d1c3a2",
   "stats": [
     {

@@ -6,6 +6,11 @@
   "handSize": 10,
   "unlockEvent": "city:76|city:77",
   "retireEvent": "city:89|road:72",
+  "traits": [
+    "arcane",
+    "intimidating",
+    "outcast"
+  ],
   "color": "#72e0be",
   "spoiler": true,
   "stats": [

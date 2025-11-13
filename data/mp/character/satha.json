@@ -1,7 +1,13 @@
 {
   "name": "satha",
+  "characterClass": "human",
   "edition": "mp",
   "handSize": 10,
+  "traits": [
+    "armored",
+    "intimidating",
+    "persuasive"
+  ],
   "color": "#00a8f3",
   "stats": [
     {

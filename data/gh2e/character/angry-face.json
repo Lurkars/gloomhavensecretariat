@@ -1,9 +1,17 @@
 {
   "name": "angry-face",
+  "characterClass": "orchid",
+  "gender": "m",
   "icon": "gh-angry-face",
   "edition": "gh2e",
+  "handSize": 11,
   "unlockEvent": "city:74|city:75",
   "retireEvent": "road:65|road:66",
+  "traits": [
+    "chaotic",
+    "intimidating",
+    "nimble"
+  ],
   "color": "#69cde0",
   "spoiler": true,
   "stats": [

@@ -6,6 +6,11 @@
   "edition": "gh2e",
   "handSize": 9,
   "retireEvent": "road:58|road:59",
+  "traits": [
+    "chaotic",
+    "nimble",
+    "resourceful"
+  ],
   "color": "#9ecf5f",
   "stats": [
     {

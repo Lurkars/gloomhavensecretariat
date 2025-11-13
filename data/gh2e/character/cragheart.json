@@ -5,6 +5,11 @@
   "edition": "gh2e",
   "handSize": 11,
   "retireEvent": "city:83|city:84",
+  "traits": [
+    "arcane",
+    "outcast",
+    "strong"
+  ],
   "color": "#828b3b",
   "stats": [
     {
