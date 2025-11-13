@@ -1,0 +1,23 @@
+{
+  "index": "98-2",
+  "group": "solo",
+  "name": "Corrupted Hunt",
+  "edition": "gh2e",
+  "parent": "98",
+  "marker": "2",
+  "monsters": [
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

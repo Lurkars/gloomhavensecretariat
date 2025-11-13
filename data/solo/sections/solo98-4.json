@@ -1,0 +1,28 @@
+{
+  "index": "98-4",
+  "group": "solo",
+  "name": "Corrupted Hunt",
+  "edition": "gh2e",
+  "parent": "98",
+  "parentSections": [
+    [
+      "98-2"
+    ]
+  ],
+  "marker": "4",
+  "monsters": [
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "spitting-drake",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

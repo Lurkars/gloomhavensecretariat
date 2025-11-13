@@ -70,6 +70,7 @@
     "city-guard-sun2-solo": "%data.monster.city-guard%",
     "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
     "deep-earth": "Deep Earth",
+    "deep-earth-gh2e": "Deep Earth",
     "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)",
     "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
     "energized-corpse": "Energized Corpse",
@@ -175,7 +176,8 @@
         "solo-94": "Harvesting the Night",
         "solo-95": "Plagued Crypt",
         "solo-96": "Unnatural Insults",
-        "solo-97": "Battle of the Bards"
+        "solo-97": "Battle of the Bards",
+        "solo-98": "Corrupted Hunt"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -288,7 +290,11 @@
         "solo-96-1": "Unnatural Insults",
         "solo-96-2": "Unnatural Insults",
         "solo-97-1": "Battle of the Bards",
-        "solo-97-2": "Battle of the Bards"
+        "solo-97-2": "Battle of the Bards",
+        "solo-98-1": "Corrupted Hunt",
+        "solo-98-2": "Corrupted Hunt",
+        "solo-98-3": "Corrupted Hunt",
+        "solo-98-4": "Corrupted Hunt"
       },
       "toa": {
         "solo-36B": "Unsouled",
