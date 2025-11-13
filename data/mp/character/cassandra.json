@@ -1,5 +1,6 @@
 {
   "name": "cassandra",
+  "characterClass": "aesther",
   "edition": "mp",
   "handSize": 10,
   "traits": [

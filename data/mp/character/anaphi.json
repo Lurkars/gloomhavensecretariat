@@ -1,5 +1,6 @@
 {
   "name": "anaphi",
+  "characterClass": "vermling",
   "edition": "mp",
   "handSize": 11,
   "traits": [

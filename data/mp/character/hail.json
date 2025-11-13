@@ -1,5 +1,6 @@
 {
   "name": "hail",
+  "characterClass": "aesther",
   "edition": "mp",
   "tokens": [
     "resolve"

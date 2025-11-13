@@ -1,5 +1,6 @@
 {
   "name": "satha",
+  "characterClass": "human",
   "edition": "mp",
   "handSize": 10,
   "traits": [
