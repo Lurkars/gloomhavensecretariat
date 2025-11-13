@@ -383,7 +383,8 @@
     },
     "gh2e-162": {
       "": "The Night's Caress",
-      "1": "When you lose %game.condition.invisible%, flip this card over and perform:"
+      "1": "When you lose %game.condition.invisible%, flip this card over and perform:",
+      "2": "When you gain %game.condition.invisible%, flip this card over and look at the top card of your attack modifier deck. You may put that card on the bottom of your deck."
     },
     "gh2e-163": {
       "": "Pendant of the Plague",

@@ -1317,24 +1317,8 @@
     "actionsBack": [
       {
         "type": "custom",
-        "value": "Lulu hasn't implemented this yet because she's an idiot!",
+        "value": "%data.items.gh2e-162.2%",
         "small": true
-      },
-      {
-        "type": "attack",
-        "value": 420,
-        "subActions": [
-          {
-            "type": "target",
-            "value": 69,
-            "small": true
-          },
-          {
-            "type": "range",
-            "value": 1337,
-            "small": true
-          }
-        ]
       }
     ],
     "noArtwork": true
