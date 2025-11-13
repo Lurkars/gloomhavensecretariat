@@ -7,6 +7,11 @@
   "handSize": 9,
   "unlockEvent": "city:73|road:40",
   "retireEvent": "road:63|road:64",
+  "traits": [
+    "chaotic",
+    "intimidating",
+    "strong"
+  ],
   "color": "#d75f49",
   "spoiler": true,
   "specialActions": [

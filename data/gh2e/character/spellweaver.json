@@ -6,6 +6,11 @@
   "edition": "gh2e",
   "handSize": 8,
   "retireEvent": "city:95|road:62",
+  "traits": [
+    "arcane",
+    "educated",
+    "resourceful"
+  ],
   "color": "#b28ac2",
   "stats": [
     {

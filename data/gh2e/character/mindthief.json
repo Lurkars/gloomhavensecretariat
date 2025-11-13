@@ -6,6 +6,11 @@
   "edition": "gh2e",
   "handSize": 10,
   "retireEvent": "city:86|road:61",
+  "traits": [
+    "nimble",
+    "outcast",
+    "persuasive"
+  ],
   "color": "#6279a5",
   "stats": [
     {

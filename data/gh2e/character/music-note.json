@@ -1,9 +1,16 @@
 {
   "name": "music-note",
+  "characterClass": "quatryl",
   "icon": "gh-music-note",
   "edition": "gh2e",
+  "handSize": 11,
   "unlockEvent": "road:49|city:80",
   "retireEvent": "city:94|road:74",
+  "traits": [
+    "educated",
+    "nimble",
+    "persuasive"
+  ],
   "color": "#e3726b",
   "spoiler": true,
   "stats": [

@@ -1,9 +1,16 @@
 {
   "name": "crossed-swords",
+  "characterClass": "harrower",
   "icon": "gh-envx",
   "edition": "gh2e",
+  "handSize": 11,
   "unlockEvent": "road:54",
   "retireEvent": "road:76|road:77",
+  "traits": [
+    "armored",
+    "chaotic",
+    "outcast"
+  ],
   "color": "#cb9070",
   "spoiler": true,
   "stats": [
