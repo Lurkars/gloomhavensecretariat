@@ -3,6 +3,7 @@
   "edition": "gh2e",
   "deck": "boss",
   "boss": true,
+  "flying": true,
   "count": 1,
   "baseStat": {
     "type": "boss",

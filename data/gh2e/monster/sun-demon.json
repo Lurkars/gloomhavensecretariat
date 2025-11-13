@@ -1,6 +1,7 @@
 {
   "name": "sun-demon",
   "edition": "gh2e",
+  "flying": true,
   "count": 6,
   "baseStat": {
     "type": "normal"

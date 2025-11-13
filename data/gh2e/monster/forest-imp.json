@@ -2,6 +2,7 @@
   "name": "forest-imp",
   "edition": "gh2e",
   "deck": "imp",
+  "flying": true,
   "count": 10,
   "baseStat": {
     "type": "normal"
