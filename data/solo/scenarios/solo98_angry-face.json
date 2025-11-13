@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Corrupted Hunt",
   "edition": "gh2e",
+  "spoiler": true,
   "initial": true,
   "solo": "angry-face",
   "rewards": {

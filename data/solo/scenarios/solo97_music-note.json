@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Battle of the Bards",
   "edition": "gh2e",
+  "spoiler": true,
   "initial": true,
   "solo": "music-note",
   "rewards": {

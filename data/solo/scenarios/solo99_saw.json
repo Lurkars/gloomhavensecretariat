@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Aftermath",
   "edition": "gh2e",
+  "spoiler": true,
   "initial": true,
   "solo": "saw",
   "rewards": {

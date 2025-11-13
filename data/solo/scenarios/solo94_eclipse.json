@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Harvesting the Night",
   "edition": "gh2e",
+  "spoiler": true,
   "initial": true,
   "solo": "eclipse",
   "rewards": {

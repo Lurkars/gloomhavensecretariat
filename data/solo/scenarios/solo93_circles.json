@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Plane of Wild Beasts",
   "edition": "gh2e",
+  "spoiler": true,
   "initial": true,
   "solo": "circles",
   "rewards": {

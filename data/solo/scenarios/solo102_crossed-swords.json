@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "The Sands of Time",
   "edition": "gh2e",
+  "spoiler": true,
   "initial": true,
   "solo": "crossed-swords",
   "rewards": {

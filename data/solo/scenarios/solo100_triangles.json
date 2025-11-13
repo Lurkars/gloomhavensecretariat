@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Elemental Secrets",
   "edition": "gh2e",
+  "spoiler": true,
   "initial": true,
   "solo": "triangles",
   "rewards": {

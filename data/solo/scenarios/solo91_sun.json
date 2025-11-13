@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Caravan Escort",
   "edition": "gh2e",
+  "spoiler": true,
   "initial": true,
   "solo": "sun",
   "rewards": {
