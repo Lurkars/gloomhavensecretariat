@@ -18,7 +18,7 @@
       "cassandra": {
         "4": "Add +1 %game.action.attack% if the top card of the monster attack modifier deck is revealed",
         "6": "Place this card in your active area. When you next place a %data.action.custom.mp-rift%, discard this card to place another %data.action.custom.mp-rift% within %game.action.range% 1 of it",
-        "8": "Whenever you long rest, you may read one unread Section from the current scenario's \"Section Links\"",
+        "8": "Whenever you long rest, you may read one unread %data.action.custom.section% from the current scenario's \"Section Links\"",
         "9": "Whenever you place a %data.action.custom.mp-rift%, you may perform \"%game.action.pull% 1, %game.action.target% 1 ally or enemy, %game.action.range% 1\" as if you occupied a hex containing a %data.action.custom.mp-rift%",
         "10": "Whenever a deck is shuffled, you may set aside all revealed cards from that deck and place them back on top after shuffling"
       },

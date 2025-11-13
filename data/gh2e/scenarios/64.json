@@ -70,6 +70,10 @@
         },
         {
           "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
@@ -87,6 +91,10 @@
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
         },
         {
           "name": "sun-demon",
