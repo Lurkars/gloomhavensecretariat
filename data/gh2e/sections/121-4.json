@@ -59,6 +59,10 @@
         },
         {
           "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
           "player4": "elite"
         }
       ]

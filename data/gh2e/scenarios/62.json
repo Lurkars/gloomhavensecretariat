@@ -6,24 +6,26 @@
   "monsters": [],
   "objectives": [
     {
-      "name": "Rubble 3",
+      "name": "Rubble",
+      "marker": "3",
       "health": "C+L"
     },
     {
-      "name": "Rubble 4",
+      "name": "Rubble",
+      "marker": "4",
       "health": "C+L"
     },
     {
-      "name": "Robotic Lab Helper B",
+      "name": "Robotic Lab Helper",
       "escort": true,
       "health": "2",
-      "initiative": 99
-    },
-    {
-      "name": "Robotic Lab Helper C",
-      "escort": true,
-      "health": "2",
-      "initiative": 99
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        }
+      ]
     }
   ],
   "rooms": [
@@ -33,8 +35,7 @@
       "objectives": [
         1,
         2,
-        3,
-        4
+        "3:4-C"
       ]
     }
   ]

@@ -3,6 +3,7 @@
   "name": "Decrepit Wood",
   "edition": "gh2e",
   "parent": "31",
+  "marker": "1",
   "monsters": [
     "deep-terror",
     "giant-viper"
@@ -49,6 +50,7 @@
         },
         {
           "name": "giant-viper",
+          "player3": "elite",
           "player4": "elite"
         }
       ]
