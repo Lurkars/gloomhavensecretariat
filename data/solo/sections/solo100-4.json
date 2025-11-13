@@ -1,0 +1,59 @@
+{
+  "index": "100-4",
+  "group": "solo",
+  "name": "Elemental Secrets",
+  "edition": "gh2e",
+  "parent": "100",
+  "marker": "4",
+  "monsters": [
+    "chaos-demon"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "gh2e",
+          "scenario": "100",
+          "group": "solo",
+          "index": 1,
+          "section": false
+        },
+        {
+          "edition": "gh2e",
+          "scenario": "100",
+          "group": "solo",
+          "index": 2,
+          "section": false
+        },
+        {
+          "edition": "gh2e",
+          "scenario": "100",
+          "group": "solo",
+          "index": 3,
+          "section": false
+        },
+        {
+          "edition": "gh2e",
+          "scenario": "100",
+          "group": "solo",
+          "index": 4,
+          "section": false
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -186,7 +186,9 @@
         "solo-95": "Plagued Crypt",
         "solo-96": "Unnatural Insults",
         "solo-97": "Battle of the Bards",
-        "solo-98": "Corrupted Hunt"
+        "solo-98": "Corrupted Hunt",
+        "solo-99": "Aftermath",
+        "solo-100": "Elemental Secrets"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -303,7 +305,12 @@
         "solo-98-1": "Corrupted Hunt",
         "solo-98-2": "Corrupted Hunt",
         "solo-98-3": "Corrupted Hunt",
-        "solo-98-4": "Corrupted Hunt"
+        "solo-98-4": "Corrupted Hunt",
+        "solo-99-1": "Aftermath",
+        "solo-100-1": "Elemental Secrets",
+        "solo-100-2": "Elemental Secrets",
+        "solo-100-3": "Elemental Secrets",
+        "solo-100-4": "Elemental Secrets"
       },
       "toa": {
         "solo-36B": "Unsouled",

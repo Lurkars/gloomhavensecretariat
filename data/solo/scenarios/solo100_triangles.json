@@ -1,0 +1,75 @@
+{
+  "index": "100",
+  "group": "solo",
+  "name": "Elemental Secrets",
+  "edition": "gh2e",
+  "initial": true,
+  "solo": "triangles",
+  "rewards": {
+    "items": [
+      "168"
+    ]
+  },
+  "monsters": [
+    "flame-demon",
+    "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "R % 4 == 1",
+      "start": true,
+      "elements": [
+        {
+          "type": "fire",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 2",
+      "start": true,
+      "elements": [
+        {
+          "type": "ice",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 3",
+      "start": true,
+      "elements": [
+        {
+          "type": "air",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 0",
+      "start": true,
+      "elements": [
+        {
+          "type": "earth",
+          "state": "strong"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}
