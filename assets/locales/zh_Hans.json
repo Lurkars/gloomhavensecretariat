@@ -668,6 +668,7 @@
       "revealAllConfirm": "全部揭示！",
       "shuffle": {
         "": "混洗",
+        "allHint": "双击混洗所有卡牌！",
         "upcomingHint": "双击以混洗未抽取的卡牌！"
       }
     },
@@ -998,6 +999,9 @@
         "townGuardDeckCardRemove": "从城镇守卫牌库中移除一张 %game.townGuardAM:{0}% 卡牌。",
         "townGuardDeckCardRemovePermanently": "永久移除城镇守卫牌库中的一张 %game.townGuardAM:{0}% 卡牌。",
         "townGuardDeckCards": "添加%game.number.{1}%张%game.townGuardAM:{0}% 卡牌至城镇守卫修正牌堆。",
+        "traitExperience": "所有%game.trait:{0}%各获得{1}经验。",
+        "traitScenarioCondition": "所有%game.trait:{0}%角色在下个剧本开始时带有{1}。",
+        "traitScenarioDamage": "所有%game.trait:{0}%角色在下个剧本开始时带有%game.damage:{1}%。",
         "unlockEnvelope": "如果信封{0}没有被打开，则打开它。",
         "unlockScenario": {
           "": "解锁\"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%。",
@@ -1264,6 +1268,7 @@
       "enemy": "%game.target% 1名敌人",
       "enemyAdjacent": "%game.target% 1名相邻敌人",
       "enemyAllyRange": "%game.action.range% {0}内的%game.target% 一个敌人或%game.affect%一个盟友",
+      "enemyAttacked": "%game.target%攻击你的敌人",
       "enemyOneAll": "%game.target% 1名敌人，执行所有攻击次数",
       "enemyRange": "%game.target% 1名正好在 %game.action.range% {0}范围的敌人",
       "figures": "%game.target% 所有个体",
@@ -2841,6 +2846,10 @@
     "showExpandedAbilityCard": {
       "": "显示扩展能力卡牌",
       "hint": "一次性显示能力卡牌上的所有能力(自动显示卡牌标题)."
+    },
+    "showExpandedStatCard": {
+      "": "显示扩展统计卡",
+      "hint": "扩展统计卡以显示所有内容。"
     },
     "showFullAbilityCard": {
       "": "显示能力卡牌标题",
