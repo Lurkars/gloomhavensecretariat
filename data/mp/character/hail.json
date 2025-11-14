@@ -85,8 +85,18 @@
             "type": "plus0",
             "effects": [
               {
-                "type": "custom",
-                "value": "%game.condition.wound% or %game.condition.immobilize%"
+                "type": "or",
+                "value": "",
+                "effects": [
+                  {
+                    "type": "condition",
+                    "value": "wound"
+                  },
+                  {
+                    "type": "condition",
+                    "value": "immobilize"
+                  }
+                ]
               }
             ]
           }
@@ -133,8 +143,18 @@
             "type": "plus1",
             "effects": [
               {
-                "type": "custom",
-                "value": "%game.condition.poison% or %game.condition.muddle%"
+                "type": "or",
+                "value": "",
+                "effects": [
+                  {
+                    "type": "condition",
+                    "value": "poison"
+                  },
+                  {
+                    "type": "condition",
+                    "value": "muddle"
+                  }
+                ]
               }
             ]
           }
