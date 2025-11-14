@@ -36,6 +36,7 @@
       },
       "angry-face": {
         "1": "%game.characterIcon.angry-face% performs: %game.action.attack% 2, %game.action.range% 5",
+        "10": "After moving for the first time each round, add +2 %game.action.attack% to all attacks for the round.",
         "2": "Grant on of your summons adjacent to the target: %game.action.attack% +0",
         "3": "At the start of each scenario reveal the top card of each monster ability card deck in the scenario",
         "4": "Whenever you long rest, after you %game.card.recover% your cards from your discard pile, you may play one card from your hand to perform a Doom action of the card",
@@ -43,8 +44,7 @@
         "6": "Kill 20 Doomed enemies",
         "7": "In a single round, you and one of your summons must perform a combined total of 6 or more attack abilities",
         "8": "Unaffected by difficult terrain.",
-        "9": "When attacking, ignore %game.action.retaliate%.",
-        "10": "After moving for the first time each round, add +2 %game.action.attack% to all attacks for the round."
+        "9": "When attacking, ignore %game.action.retaliate%."
       },
       "circles": {
         "1": "After the attack ability, grant one of your summons: %game.action.teleport% 2",
@@ -61,6 +61,11 @@
       },
       "crossed-swords": {
         "1": "Add +1 %game.action.attack% for each card with a %game.card.lost% in %game.characterIcon.envx%'s active area",
+        "10": "All adjacent allies gain %game.action.shield:1%.",
+        "11": "All adjacent enemies add -1 %game.action.attack% to all their attacks.",
+        "12": "All adjacent summons add +1 %game.action.attack% to all their attacks.",
+        "13": "Add +2 %game.action.attack% if the target is adjacent to any of your allies.",
+        "14": "Add %game.condition.disarm% if the target has any negative conditions.",
         "2": "Whenever you long rest, you may %game.action.teleport% to a hex occupied by one of your summons and simultaneously %game.action.teleport% that summon to the hex you occupied",
         "3": "Once each scenario, when you perform an action with %game.card.lost%, you may immediately play one card from your hand to perform an action with %game.card.lost% of the card",
         "4": "You may additionally bring four %game.itemSlot:onehand% items, two %game.itemSlot:twohand% items, or two %game.itemSlot:onehand% items and one %game.itemSlot:twohand% item into each scenario.",
@@ -68,12 +73,7 @@
         "6": "Gain this mastery when you feel you deserve it",
         "7": "X is the number of adjacent figures.",
         "8": "At end of turn, grant all adjacent allies: %game.action.move:1%",
-        "9": "At end of turn, all adjacent allies and enemies suffer %game.action.damage:2%.",
-        "10": "All adjacent allies gain %game.action.shield:1%.",
-        "11": "All adjacent enemies add -1 %game.action.attack% to all their attacks.",
-        "12": "All adjacent summons add +1 %game.action.attack% to all their attacks.",
-        "13": "Add +2 %game.action.attack% if the target is adjacent to any of your allies.",
-        "14": "Add %game.condition.disarm% if the target has any negative conditions."
+        "9": "At end of turn, all adjacent allies and enemies suffer %game.action.damage:2%."
       },
       "eclipse": {
         "1": "After the attack ability, grant one adjacent ally or self: %game.action.teleport% 2",
