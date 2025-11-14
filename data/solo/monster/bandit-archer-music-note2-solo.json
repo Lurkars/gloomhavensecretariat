@@ -2,6 +2,7 @@
   "name": "bandit-archer-music-note2-solo",
   "edition": "gh2e",
   "deck": "bandit-archer-music-note2-solo",
+  "hidden": true,
   "count": 6,
   "standeeShare": "bandit-archer",
   "baseStat": {
