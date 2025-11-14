@@ -2884,6 +2884,12 @@
         "small": true
       }
     ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "ward"
+      }
+    ],
     "noArtwork": true
   },
   {
@@ -3239,6 +3245,12 @@
         "small": true
       }
     ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "immobilize"
+      }
+    ],
     "noArtwork": true
   },
   {
@@ -3385,6 +3397,12 @@
         ]
       }
     ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "poison"
+      }
+    ],
     "loss": true,
     "noArtwork": true
   },
@@ -3401,6 +3419,12 @@
         "type": "custom",
         "value": "%data.items.gh2e-148.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "element",
+        "value": "light"
       }
     ],
     "noArtwork": true

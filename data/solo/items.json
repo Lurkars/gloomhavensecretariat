@@ -1201,6 +1201,12 @@
         "value": "earth"
       }
     ],
+    "effects": [
+      {
+        "type": "element",
+        "value": "earth"
+      }
+    ],
     "noArtwork": true
   },
   {
@@ -1245,6 +1251,12 @@
           }
         ]
       },
+      {
+        "type": "element",
+        "value": "light"
+      }
+    ],
+    "effects": [
       {
         "type": "element",
         "value": "light"
