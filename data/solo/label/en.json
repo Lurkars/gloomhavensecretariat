@@ -29,13 +29,13 @@
       "city-guard-sun2-solo": {
         "1": "Acts immediately after %game.characterIcon.sun%."
       },
+      "hawthorne": {
+        "1": "Adds +1 %game.action.attack% to all attacks while undamaged"
+      },
       "living-spirit-squidface-solo": {
         "1": "Base armor is 0 while %data.monster.living-spirit-squidface-solo% does not have %game.condition.poison%",
         "2": "%data.monster.living-spirit-squidface-solo%s without %game.condition.poison% do not act.",
         "3": "%game.characterIcon.squidface% may have the %data.monster.living-spirit-squidface-solo% lose %game.condition.poison% to add %game.condition.poison%."
-      },
-      "hawthorne": {
-        "1": "Adds +1 %game.action.attack% to all attacks while undamaged"
       }
     },
     "solo": {
@@ -173,6 +173,9 @@
         "solo-9": "Plane of Wild Beasts"
       },
       "gh2e": {
+        "solo-100": "Elemental Secrets",
+        "solo-101": "The Caged Bear",
+        "solo-102": "The Sands of Time",
         "solo-85": "A Night Out",
         "solo-86": "An Unfortunate Intrusion",
         "solo-87": "Corrupted Apothecary",
@@ -187,10 +190,7 @@
         "solo-96": "Unnatural Insults",
         "solo-97": "Battle of the Bards",
         "solo-98": "Corrupted Hunt",
-        "solo-99": "Aftermath",
-        "solo-100": "Elemental Secrets",
-        "solo-101": "The Caged Bear",
-        "solo-102": "The Sands of Time"
+        "solo-99": "Aftermath"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -280,6 +280,15 @@
         "solo-I1a": "Battle of the Bards"
       },
       "gh2e": {
+        "solo-100-1": "Elemental Secrets",
+        "solo-100-2": "Elemental Secrets",
+        "solo-100-3": "Elemental Secrets",
+        "solo-100-4": "Elemental Secrets",
+        "solo-101-1": "The Caged Bear",
+        "solo-101-2": "The Caged Bear",
+        "solo-101-3": "The Caged Bear",
+        "solo-102-1": "The Sands of Time",
+        "solo-102-2": "The Sands of Time",
         "solo-85-1": "A Night Out",
         "solo-85-2": "A Night Out",
         "solo-86-1": "An Unfortunate Intrusion",
@@ -308,16 +317,7 @@
         "solo-98-2": "Corrupted Hunt",
         "solo-98-3": "Corrupted Hunt",
         "solo-98-4": "Corrupted Hunt",
-        "solo-99-1": "Aftermath",
-        "solo-100-1": "Elemental Secrets",
-        "solo-100-2": "Elemental Secrets",
-        "solo-100-3": "Elemental Secrets",
-        "solo-100-4": "Elemental Secrets",
-        "solo-101-1": "The Caged Bear",
-        "solo-101-2": "The Caged Bear",
-        "solo-101-3": "The Caged Bear",
-        "solo-102-1": "The Sands of Time",
-        "solo-102-2": "The Sands of Time"
+        "solo-99-1": "Aftermath"
       },
       "toa": {
         "solo-36B": "Unsouled",
