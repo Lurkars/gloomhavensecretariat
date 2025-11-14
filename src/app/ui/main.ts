@@ -400,6 +400,10 @@ export class MainComponent implements OnInit {
   }
 
   calcColumnsHelper(elementHeights: number[], containerHeight: number, containerWidth: number, columnWidth: number): number[][] {
+    if (!elementHeights || elementHeights.length === 0) {
+      return [];
+    }
+
     const totalHeight = elementHeights.reduce((a, b) => a + b, 0);
     const numColumns = Math.floor(containerWidth / columnWidth);
     const targetHeight = Math.max(totalHeight / numColumns, settingsManager.settings.columnsForce ? 0 : containerHeight);

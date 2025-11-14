@@ -20,11 +20,11 @@ export class GhsValueSignPipe implements PipeTransform {
 })
 export class GhsRangePipe implements PipeTransform {
   transform(items: any[], quantity: number, reverse: boolean = false): number[] {
-    items.length = 0;
+    let result: number[] = [];
     for (let i = 0; i < quantity; i++) {
-      items.push(reverse ? quantity - i - 1 : i);
+      result.push(reverse ? quantity - i - 1 : i);
     }
-    return items;
+    return result;
   }
 }
 
@@ -75,33 +75,36 @@ export class GhsDurationLabelPipe implements PipeTransform {
 })
 export class GhsScenarioSearch implements PipeTransform {
   transform(items: ScenarioCache[], search: string): ScenarioCache[] {
-    return items.filter((scenarioData) => {
-      if (!search || search == '') {
-        return true;
-      }
-      search = search.toLowerCase();
-      let index = scenarioData.index.toLowerCase()
-
-      let zeros = 0;
-
-      while (search.startsWith('0')) {
-        zeros++;
-        search = search.replace('0', '');
-      }
-
-      for (let i = 0; i < zeros; i++) {
-        search = '0' + search;
-        if (index.length < search.length) {
-          index = '0' + index;
+    if (!!items && items.length !== 0) {
+      return items.filter((scenarioData) => {
+        if (!search || search == '') {
+          return true;
         }
-      }
+        search = search.toLowerCase();
+        let index = scenarioData.index.toLowerCase()
 
-      if (index.includes(search)) {
-        return true;
-      }
+        let zeros = 0;
 
-      return settingsManager.getLabel(scenarioData.name).toLowerCase().includes(search)
-    });
+        while (search.startsWith('0')) {
+          zeros++;
+          search = search.replace('0', '');
+        }
+
+        for (let i = 0; i < zeros; i++) {
+          search = '0' + search;
+          if (index.length < search.length) {
+            index = '0' + index;
+          }
+        }
+
+        if (index.includes(search)) {
+          return true;
+        }
+
+        return settingsManager.getLabel(scenarioData.name).toLowerCase().includes(search)
+      });
+    }
+    return [];
   }
 }
 
