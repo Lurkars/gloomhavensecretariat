@@ -41,7 +41,10 @@
         "4": "Whenever you long rest, after you %game.card.recover% your cards from your discard pile, you may play one card from your hand to perform a Doom action of the card",
         "5": "On each of your summons' turns, you may have them skip their turn and instead perform %game.action.move% +0 treating you as their focus",
         "6": "Kill 20 Doomed enemies",
-        "7": "In a single round, you and one of your summons must perform a combined total of 6 or more attack abilities"
+        "7": "In a single round, you and one of your summons must perform a combined total of 6 or more attack abilities",
+        "8": "Unaffected by difficult terrain.",
+        "9": "When attacking, ignore %game.action.retaliate%.",
+        "10": "After moving for the first time each round, add +2 %game.action.attack% to all attacks for the round."
       },
       "circles": {
         "1": "After the attack ability, grant one of your summons: %game.action.teleport% 2",
@@ -62,7 +65,15 @@
         "3": "Once each scenario, when you perform an action with %game.card.lost%, you may immediately play one card from your hand to perform an action with %game.card.lost% of the card",
         "4": "You may additionally bring four %game.itemSlot:onehand% items, two %game.itemSlot:twohand% items, or two %game.itemSlot:onehand% items and one %game.itemSlot:twohand% item into each scenario.",
         "5": "Perform 6 different %game.card.persistent%%game.card.lost% abilities with no more than 3 of the 6 being summon abilities",
-        "6": "Gain this mastery when you feel you deserve it"
+        "6": "Gain this mastery when you feel you deserve it",
+        "7": "X is the number of adjacent figures.",
+        "8": "At end of turn, grant all adjacent allies: %game.action.move:1%",
+        "9": "At end of turn, all adjacent allies and enemies suffer %game.action.damage:2%.",
+        "10": "All adjacent allies gain %game.action.shield:1%.",
+        "11": "All adjacent enemies add -1 %game.action.attack% to all their attacks.",
+        "12": "All adjacent summons add +1 %game.action.attack% to all their attacks.",
+        "13": "Add +2 %game.action.attack% if the target is adjacent to any of your allies.",
+        "14": "Add %game.condition.disarm% if the target has any negative conditions."
       },
       "eclipse": {
         "1": "After the attack ability, grant one adjacent ally or self: %game.action.teleport% 2",
@@ -781,7 +792,7 @@
     "angry-wasps": "Angry Wasps",
     "battle-boar": "Battle Boar",
     "battle-bot": "Battle Bot",
-    "bloat-maggot": "Bloat Maggot",
+    "bloat-maggot": "Bloat Maggots",
     "chromatic-construct": "Chromatic Construct",
     "covetous-imp": "Covetous Imp",
     "creeping-beetles": "Creeping Beetles",

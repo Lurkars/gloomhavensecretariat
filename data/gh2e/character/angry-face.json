@@ -55,48 +55,86 @@
   "availableSummons": [
     {
       "name": "green-snake",
+      "thumbnail": true,
       "level": 1,
       "health": 5,
       "attack": 2,
-      "movement": 3
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.angry-face.8%",
+        "small": true
+      }
     },
     {
       "name": "vicious-jackal",
+      "thumbnail": true,
       "level": 1,
       "health": 4,
       "attack": 2,
-      "movement": 3
+      "movement": 3,
+      "action": {
+        "type": "retaliate",
+        "value": 1
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "wound"
+      }
     },
     {
       "name": "battle-boar",
+      "thumbnail": true,
       "level": 1,
       "health": 7,
       "attack": 2,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.angry-face.9%",
+        "small": true
+      }
     },
     {
       "name": "staunch-garralev",
+      "thumbnail": true,
       "level": 3,
       "health": 8,
       "attack": 2,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "pierce",
+        "value": 3
+      }
     },
     {
       "name": "war-raptor",
+      "thumbnail": true,
       "level": 5,
       "health": 6,
       "attack": 3,
-      "movement": 5
+      "movement": 5,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
     },
     {
       "name": "horned-hristek",
+      "thumbnail": true,
       "level": 7,
       "health": 7,
       "attack": 2,
-      "movement": 3
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.angry-face.10%",
+        "small": true
+      }
     },
     {
       "name": "great-archinotl",
+      "thumbnail": true,
       "level": 9,
       "health": 8,
       "attack": 3,
