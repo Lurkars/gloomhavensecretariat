@@ -1258,6 +1258,24 @@ export class EntityMenuDialogComponent {
           gameManager.stateManager.before("addSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name);
 
           if (this.data.figure instanceof Character && this.data.figure.name == 'prism' && specialTagsToAdd.indexOf('prism_mode') != -1) {
+            if (this.data.figure.summons.length > 1) {
+              (this.data.figure as Character).health -= this.data.entity.maxHealth - this.data.entity.health;
+              gameManager.entityManager.checkHealth(this.data.figure as Character, this.data.figure);
+              this.data.entity.health = this.data.entity.maxHealth;
+
+              this.data.entity.entityConditions.forEach((summonCondition) => {
+                let figureCondition = (this.data.figure as Character).entityConditions.find((fc) => fc.name == summonCondition.name);
+                if (!figureCondition) {
+                  if (!gameManager.entityManager.isImmune(this.data.figure as Character, this.data.figure, summonCondition.name)) {
+                    (this.data.figure as Character).entityConditions.push(new EntityCondition(summonCondition.name, summonCondition.value));
+                  }
+                } else {
+                  figureCondition.state = EntityConditionState.new;
+                }
+              });
+              this.data.entity.entityConditions = [];
+            }
+
             this.data.figure.summons.forEach((summon) => summon.tags = summon.tags.filter((tag) => tag != 'prism_mode'));
           }
 
