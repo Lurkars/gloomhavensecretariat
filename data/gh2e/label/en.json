@@ -249,6 +249,19 @@
       "silent-knife": "Silent Knife",
       "spellweaver": "Spellweaver",
       "tinkerer": "Tinkerer"
+    },
+    "traits": {
+      "arcane": "Arcane",
+      "armored": "Armored",
+      "chaotic": "Chaotic",
+      "educated": "Educated",
+      "intimidating": "Intimidating",
+      "night": "Night",
+      "nimble": "Nimble",
+      "outcast": "Outcast",
+      "persuasive": "Persuasive",
+      "resourceful": "Resourceful",
+      "strong": "Strong"
     }
   },
   "custom": {
@@ -828,8 +841,8 @@
         "45-1": "Military Outpost",
         "45-2": "Black Barrow",
         "46-1": "Wild Melee",
+        "46-3": "Military Reputation 6",
         "47-2": "Ancient Cistern",
-        "47-3": "Military Reputation 6",
         "48-1": "Echo Chamber",
         "48-2": "Prosperity 3",
         "48-3": "Decrepit Wood",

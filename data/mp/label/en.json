@@ -5,6 +5,19 @@
       "cassandra": "Cassandra",
       "hail": "Hail",
       "satha": "Satha"
+    },
+    "traits": {
+      "arcane": "Arcane",
+      "armored": "Armored",
+      "chaotic": "Chaotic",
+      "educated": "Educated",
+      "intimidating": "Intimidating",
+      "night": "Night",
+      "nimble": "Nimble",
+      "outcast": "Outcast",
+      "persuasive": "Persuasive",
+      "resourceful": "Resourceful",
+      "strong": "Strong"
     }
   },
   "custom": {

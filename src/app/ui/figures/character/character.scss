@@ -792,13 +792,14 @@
 
   .character-traits {
     position: absolute;
-    left: calc(var(--ghs-unit) * 24.5);
+    left: calc(var(--ghs-unit) * 32.5);
     top: calc(var(--ghs-unit) * 0.5);
     width: calc(var(--ghs-unit) * 33);
     height: calc(var(--ghs-unit) * 2.64);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    z-index: 0;
 
     &::before {
       content: ' ';
@@ -1007,6 +1008,20 @@
           margin-top: calc(var(--ghs-unit) * 1);
           margin-left: initial;
         }
+
+        .bar-container {
+          margin-top: calc(var(--ghs-unit) * 1.5);
+          max-width: calc(var(--ghs-unit) * 40);
+
+          .title-bar {
+            flex-wrap: wrap;
+          }
+        }
+
+        .conditions {
+          height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+          flex-wrap: wrap;
+        }
       }
 
       .character-sheet-button {
@@ -1031,6 +1046,16 @@
       .player-number {
         top: calc(var(--ghs-unit) * 4.8);
         left: calc(var(--ghs-unit) * -6.7);
+      }
+
+      .character-traits {
+        left: calc(var(--ghs-unit) * 14);
+      }
+
+      .special-actions {
+        left: calc(var(--ghs-unit) * -2.5 * var(--ghs-text-factor));
+        width: calc(var(--ghs-unit) * 56 * var(--ghs-text-factor));
+        bottom: calc(var(--ghs-unit) * -1);
       }
     }
   }
@@ -1086,6 +1111,10 @@
           flex-direction: row;
           justify-content: flex-start;
           align-items: center;
+
+          .title-bar {
+            flex-wrap: initial;
+          }
         }
 
         .title {
@@ -1139,10 +1168,6 @@
         left: initial;
       }
 
-      .character-traits {
-        left: calc(var(--ghs-unit) * 11);
-      }
-
       .player-number {
         top: calc(var(--ghs-unit) * 3.3);
         left: calc(var(--ghs-unit) * 1.7);
@@ -1157,8 +1182,9 @@
       }
 
       .special-actions {
-        left: calc(var(--ghs-unit) * 10);
-        width: calc(var(--ghs-unit) * 70);
+        left: calc(var(--ghs-unit) * 11);
+        bottom: 0;
+        width: calc(var(--ghs-unit) * 71);
         justify-content: flex-start;
       }
     }
@@ -1190,6 +1216,10 @@
       .stats {
         margin-left: calc(var(--ghs-unit) * 1.5);
 
+        .col-1 {
+          max-width: calc(var(--ghs-unit) * 35);
+        }
+
         .loot-cards-button,
         .attack-modifier-button,
         .attack-modifier-draw,
@@ -1205,6 +1235,11 @@
           top: 0;
           right: calc(var(--ghs-unit) * 6);
           bottom: 0;
+          z-index: 2;
+        }
+
+        .character-traits {
+          left: calc(var(--ghs-unit) * 11);
         }
       }
 
