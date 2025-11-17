@@ -2,6 +2,7 @@
   "name": "hawthorne",
   "edition": "gh2e",
   "deck": "hawthorne",
+  "hidden": true,
   "count": 6,
   "standeeShare": "inox-guard",
   "baseStat": {
