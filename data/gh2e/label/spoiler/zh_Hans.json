@@ -29,17 +29,27 @@
   },
   "custom": {
     "gh2e": {
+      "am": {
+        "demons-4": "查看怪物能力卡牌堆顶部的那张卡牌",
+        "merchant-guild-4": "本次攻击能力后，赋予一名盟友：%game.action.move%2",
+        "military-4": "在与目标相邻的一个空格中创造一个%game.damage:2%的陷阱"
+      },
       "angry-face": {
         "1": "%game.characterIcon.angry-face%执行：%game.action.attack%2, %game.action.range%5",
+        "10": "在每轮首次移动后，为本轮中的所有攻击增加+2%game.action.attack%。",
         "2": "赋予你的一个与目标相邻的召唤物：%game.action.attack% +0",
         "3": "每个剧本开始时，翻开剧本中每一种怪物能力牌堆最上方的卡牌",
         "4": "每当你充分休息时，在你从弃牌堆%game.card.recover%卡牌后，你可以从手牌中打出一张卡牌来执行其上的一个末日行动",
         "5": "在每一个你召唤物的回合中，你可以令他们跳过回合，以你为焦点来执行%game.action.move% +0",
         "6": "消灭20个带有末日印记的敌人",
-        "7": "在单一轮次中，你和你的一个召唤物合计执行至少6次攻击能力"
+        "7": "在单一轮次中，你和你的一个召唤物合计执行至少6次攻击能力",
+        "8": "不受困难地形影响。",
+        "9": "攻击时，忽略%game.action.retaliate%。"
       },
       "circles": {
         "1": "在攻击能力后，赋予你的一个召唤物： %game.action.teleport% 2",
+        "10": "当%game.element.fire%处于强烈或衰退时，%game.action.range%3内的所有盟友获得%game.action.retaliate%1 %game.action.range%3。",
+        "11": "你的回合结束时，%game.element.fire%, %game.element.air%, 或%game.element.dark%。",
         "2": "%game.action.target%一个你的召唤物",
         "3": "你每次长休时，在该轮次开始时，你的所有召唤物获得%game.action.shield% 1",
         "4": "每个剧本限一次，在你的回合中，将你的一个召唤物%game.action.teleport%至你相邻的空格",
