@@ -176,10 +176,6 @@
         "solo-100": "Elemental Secrets",
         "solo-101": "The Caged Bear",
         "solo-102": "The Sands of Time",
-        "solo-103": "A Harrowing Deal",
-        "solo-104": "Horns in the Night",
-        "solo-105": "Escape from Corruption",
-        "solo-106": "Major Annoyance",
         "solo-85": "A Night Out",
         "solo-86": "An Unfortunate Intrusion",
         "solo-87": "Corrupted Apothecary",
@@ -195,6 +191,12 @@
         "solo-97": "Battle of the Bards",
         "solo-98": "Corrupted Hunt",
         "solo-99": "Aftermath"
+      },
+      "mp": {
+        "solo-103": "A Harrowing Deal",
+        "solo-104": "Horns in the Night",
+        "solo-105": "Escape from Corruption",
+        "solo-106": "Major Annoyance"
       },
       "toa": {
         "solo-79": "Unsouled",
