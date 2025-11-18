@@ -1592,6 +1592,24 @@
         "small": true
       }
     ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "%data.items.mp-99993.2%",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 2,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
+      }
+    ],
     "noArtwork": true
   },
   {

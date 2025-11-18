@@ -237,7 +237,8 @@
     },
     "mp-99992": {
       "": "Crest of Frosthaven",
-      "1": "Not implemented yet!!"
+      "1": "Whenever you long rest, %game.element.ice% and flip this card over.",
+      "2": "Whenever an ally rests, you may flip this card over to grant them:"
     },
     "mp-99993": {
       "": "Basin of Prophecy",
@@ -245,7 +246,7 @@
     },
     "mp-99994": {
       "": "No Nonsense Boots",
-      "1": "During your turn, if you have spent 3 or more %data.action.custom.mp-resolve% this turn, flip this card over.",
+      "1": "At the end of your turn, if you have spent 3 or more %data.action.custom.mp-resolve% this turn, flip this card over.",
       "2": "During your turn, if you have an active %data.action.custom.mp-irritation% %data.characterColored.hail:Irritation%, you may move that card to your pool to play a different card from your pool and perform its %data.action.custom.mp-irritation% %data.characterColored.hail:Irritation% action, then flip this card over."
     },
     "solo-103": {
