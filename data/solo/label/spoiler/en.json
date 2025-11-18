@@ -230,6 +230,24 @@
       "": "Crawling Carapace",
       "1": "On the first source of %game.action.damage% from an attack you or one of your summons would suffer each round, the attacked figure gains %game.action.shield:1% for the attack."
     },
+    "mp-99991": {
+      "": "Ribbon of Friendship",
+      "1": "Immediately after you perform an %data.action.custom.gh2e-augment% %data.characterColored.anaphi:Augment% ability, perform:",
+      "2": "You may perform this ability as if you occupied the same hex as one of your summons."
+    },
+    "mp-99992": {
+      "": "Crest of Frosthaven",
+      "1": "Not implemented yet!!"
+    },
+    "mp-99993": {
+      "": "Basin of Prophecy",
+      "1": "Add +1 %data.action.custom.mp-divination% to all %data.action.custom.mp-divination%."
+    },
+    "mp-99994": {
+      "": "No Nonsense Boots",
+      "1": "During your turn, if you have spent 3 or more %data.action.custom.mp-resolve% this turn, flip this card over.",
+      "2": "During your turn, if you have an active %data.action.custom.mp-irritation% %data.characterColored.hail:Irritation%, you may move that card to your pool to play a different card from your pool and perform its %data.action.custom.mp-irritation% %data.characterColored.hail:Irritation% action, then flip this card over."
+    },
     "solo-103": {
       "1": "The next two times an enemy suffers damage from attacking you, that enemy gains %game.condition.immobilize%."
     },
