@@ -1,0 +1,28 @@
+{
+  "index": "103",
+  "group": "solo",
+  "name": "A Harrowing Deal",
+  "edition": "mp",
+  "initial": true,
+  "solo": "anaphi",
+  "rewards": {
+    "items": [
+      "UPDATE-ME"
+    ]
+  },
+  "monsters": [
+    "UPDATE-ME"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "UPDATE-ME",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

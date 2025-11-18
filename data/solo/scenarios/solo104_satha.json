@@ -1,0 +1,28 @@
+{
+  "index": "104",
+  "group": "solo",
+  "name": "Horns in the Night",
+  "edition": "mp",
+  "initial": true,
+  "solo": "satha",
+  "rewards": {
+    "items": [
+      "UPDATE-ME"
+    ]
+  },
+  "monsters": [
+    "UPDATE-ME"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "UPDATE-ME",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

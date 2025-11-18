@@ -1,0 +1,28 @@
+{
+  "index": "106",
+  "group": "solo",
+  "name": "Major Annoyance",
+  "edition": "mp",
+  "initial": true,
+  "solo": "hail",
+  "rewards": {
+    "items": [
+      "UPDATE-ME"
+    ]
+  },
+  "monsters": [
+    "UPDATE-ME"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "UPDATE-ME",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}
