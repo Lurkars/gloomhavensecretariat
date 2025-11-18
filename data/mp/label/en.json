@@ -84,5 +84,21 @@
   },
   "edition": {
     "mp": "Mercenary Packs"
+  },
+  "monster": {
+    "algox-archer": "Algox Archer",
+    "algox-icespeaker": "Algox Icespeaker",
+    "algox-scout": "Algox Scout",
+    "black-imp": "Black Imp",
+    "chaos-demon": "Chaos Demon",
+    "city-guard": "City Guard",
+    "earth-demon": "Earth Demon",
+    "flame-demon": "Flame Demon",
+    "frost-demon": "Frost Demon",
+    "harrower-infester": "Harrower Infester",
+    "hound": "Hound",
+    "inox-archer": "Inox Archer",
+    "living-corpse": "Living Corpse",
+    "wind-demon": "Wind Demon"
   }
 }

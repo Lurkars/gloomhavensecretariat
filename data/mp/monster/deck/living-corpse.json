@@ -1,0 +1,192 @@
+{
+  "name": "living-corpse",
+  "edition": "mp",
+  "abilities": [
+    {
+      "name": "Rotting Embrace",
+      "cardId": 444,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "concatenation",
+          "value": "and:2",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle"
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            },
+            {
+              "type": "specialTarget",
+              "value": "enemyAdjacent",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.jotl.living-corpse.1%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hasty Assault",
+      "cardId": 445,
+      "initiative": 47,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 446,
+      "initiative": 68,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 447,
+      "initiative": 68,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Calculated Strike",
+      "cardId": 448,
+      "initiative": 81,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Reckless Charge",
+      "cardId": 449,
+      "initiative": 91,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.jotl.living-corpse.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Release Gas",
+      "cardId": 450,
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        }
+      ]
+    },
+    {
+      "name": "Violent Slam",
+      "cardId": 451,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.living-corpse.3%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

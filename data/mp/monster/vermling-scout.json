@@ -1,0 +1,114 @@
+{
+  "name": "vermling-scout",
+  "edition": "mp",
+  "count": 10,
+  "baseStat": {
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 2,
+      "movement": 3,
+      "attack": 1
+    },
+    {
+      "level": 1,
+      "health": 3,
+      "movement": 3,
+      "attack": 1
+    },
+    {
+      "level": 2,
+      "health": 3,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 3,
+      "health": 5,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 4,
+      "health": 6,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 5,
+      "health": 8,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 6,
+      "health": 10,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 7,
+      "health": 13,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 4,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 5,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 5,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 7,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 8,
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 11,
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 13,
+      "movement": 5,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 17,
+      "movement": 5,
+      "attack": 4
+    }
+  ]
+}
