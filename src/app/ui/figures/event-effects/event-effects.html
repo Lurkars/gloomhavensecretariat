@@ -10,7 +10,6 @@
     </div>
     }
 
-    @if (characters.length) {
     <div class="characters"
       [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.characters || !gameManager.stateManager.permissions.party)}">
       @for (character of characters| trackUUID; track character._trackUUID) {
@@ -76,7 +75,6 @@
       </div>
       }
     </div>
-    }
   </div>
 
   <div class="scroll-container container"

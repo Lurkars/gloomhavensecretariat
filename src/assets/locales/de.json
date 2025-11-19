@@ -2297,6 +2297,10 @@
       "": "Immer Frosthaven Solo Regeln",
       "hint": "Immer Frosthaven Regel für Solo Levelberechnung anwenden (Für Frosthaven automatisch immer aktiviert)"
     },
+    "alwaysGh2eImbuement": {
+      "": "Monster Durchtränkung immer aktiv",
+      "hint": "Aktiviere alle Optionen für Monster Durchtränkung (Anhang F) im Ereigniseffekte Menü für alle Editionen."
+    },
     "alwaysHazardousTerrain": {
       "": "Immer Gefährliches Gelände",
       "hint": "Immer Frosthaven Regel für Gefährliches Gelände Berechnung anwenden (Für Frosthaven automatisch immer aktiviert)"

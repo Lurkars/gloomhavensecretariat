@@ -18,6 +18,7 @@ export class Settings {
   alwaysFhAdvantage: boolean = false;
   alwaysFhEnhancements: boolean = false;
   alwaysFhSolo: boolean = false;
+  alwaysGh2eImbuement: boolean = false;
   alwaysHazardousTerrain: boolean = false;
   alwaysLootApplyDialog = false;
   alwaysLootDeck: boolean = false;

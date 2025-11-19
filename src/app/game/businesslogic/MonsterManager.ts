@@ -238,12 +238,15 @@ export class MonsterManager {
 
   addMonsterByName(name: string, edition: string): Monster | undefined {
     let level = gameManager.game.level;
-    if (name.indexOf(':') != -1) {
+    if (name.split(':').length > 1) {
       level = eval(gameManager.game.level + name.split(':')[1]);
       if (level < 0) {
         level = 0;
       } else if (level > 7) {
         level = 7;
+      }
+      if (name.split(':').length > 2) {
+        edition = name.split(':')[2];
       }
       name = name.split(':')[0];
     }

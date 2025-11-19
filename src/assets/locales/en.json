@@ -2295,6 +2295,10 @@
       "": "Always Frosthaven Solo Rules",
       "hint": "Always apply Frosthaven rules for Solo level calculation (Automatic enabled when playing Frosthaven)"
     },
+    "alwaysGh2eImbuement": {
+      "": "Always Monster Imbuements",
+      "hint": "Enable all options to add Monster Imbuement (Appendix F) in the Event Effect menu for all editions."
+    },
     "alwaysHazardousTerrain": {
       "": "Always Hazardous Terrain",
       "hint": "Always apply Frosthaven rules for Hazardous Terrain calculation (Automatic enabled when playing Frosthaven)"

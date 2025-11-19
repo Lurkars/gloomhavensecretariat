@@ -266,15 +266,14 @@
   </div>
 
   <!-- GH2E -->
-  @if (gameManager.gh2eRules() && gameManager.imbuementManager.available) {
   <div class="separator"></div>
   <div class="line title span" ghs-setting-title-menu="gh2eRules" [sync]="true"></div>
   <div class="column">
-    @if (gameManager.imbuementManager.available) {
-    <div class="line" ghs-setting-menu="gh2eImbuement"></div>
+    @if (gameManager.gh2eRules() && gameManager.imbuementManager.available) {
+    <div class="line" [disabled]="settingsManager.settings.alwaysGh2eImbuement" ghs-setting-menu="gh2eImbuement"></div>
     }
+    <div class="line" ghs-setting-menu="alwaysGh2eImbuement"></div>
   </div>
-  }
 
   @if (gameManager.bbRules()) {
   <div class="separator"></div>
