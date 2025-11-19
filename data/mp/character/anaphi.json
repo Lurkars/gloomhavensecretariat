@@ -50,6 +50,7 @@
   "availableSummons": [
     {
       "name": "sewer-monstrosity",
+      "thumbnail": true,
       "level": 1,
       "health": 4,
       "attack": 3,
@@ -57,6 +58,7 @@
     },
     {
       "name": "duskrat-swarm",
+      "thumbnail": true,
       "level": 1,
       "health": 7,
       "attack": 1,
@@ -64,6 +66,7 @@
     },
     {
       "name": "harrowers-grasp",
+      "thumbnail": true,
       "level": 1,
       "health": 2,
       "attack": 1,
@@ -88,6 +91,7 @@
     },
     {
       "name": "rat-queen",
+      "thumbnail": true,
       "level": 9,
       "health": 7,
       "movement": 3,
