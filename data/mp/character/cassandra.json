@@ -50,6 +50,7 @@
   "availableSummons": [
     {
       "name": "ghost-falcons",
+      "thumbnail": true,
       "level": 6,
       "health": 4,
       "attack": 2,
@@ -66,6 +67,7 @@
     },
     {
       "name": "twilight-archon",
+      "thumbnail": true,
       "level": 9,
       "health": 5,
       "attack": 2,
