@@ -82,9 +82,9 @@ export class ScenarioManager {
       if (!internal && characterProgress && settingsManager.settings.characterSheet) {
         this.game.figures.forEach((figure) => {
           if (figure instanceof Character && !figure.absent) {
-            const scnearioXP: number = success && (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0;
+            const scenarioXP: number = success && (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0;
 
-            gameManager.characterManager.addXP(figure, scnearioXP + figure.experience, !restart && !linked);
+            gameManager.characterManager.addXP(figure, scenarioXP + figure.experience, !restart && !linked);
 
             if ((!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('gold') == -1)) {
               figure.progress.gold += figure.loot * gameManager.levelManager.loot();
