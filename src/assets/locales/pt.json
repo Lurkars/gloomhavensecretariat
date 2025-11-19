@@ -1,1 +1,65 @@
-{}
+{
+  "about": {
+    "": "Sobre",
+    "ip": "Gloomhaven e todo conteúdo, imagens, e texto são propriedade de {0}.",
+    "license": "Licença: {0}.",
+    "sourceCode": "Código Fonte",
+    "support": "Apoie o desenvolvedor",
+    "version": {
+      "latest": "Mais recente",
+      "unknown": "Não foi possível buscar a versão mais recente",
+      "update": "Versão mais recente <a target=\"_blank\" href=\"{1}\">{0}</a>"
+    }
+  },
+  "and": "e",
+  "app": {
+    "install": "Instalar como App",
+    "loading": {
+      "": "Carregando…",
+      "cancel": "Cancelar carregamento?"
+    }
+  },
+  "campaign": {
+    "": "Gerenciamento de Campanha/Personagem",
+    "campaignManagement": {
+      "": "Gerenciar Campanha",
+      "add": "Adicionar Campanha",
+      "hint": "Não é possível mudar a campanha atual ou criar uma nova campanha durante um cenário. Finalize ou cancele o cenário atual para mudar a campanha atual ou criar uma nova campanha.",
+      "name": "Nome da Campanha {0}",
+      "reset": "Reiniciar Campanha"
+    },
+    "character": "Fichas de Personagem",
+    "party": "Ficha de Grupo/Campanha",
+    "resources": "Tabela de Recursos",
+    "sheet": "Ficha de Gestão da Campanha Global",
+    "trials": {
+      "automation": "O efeito dessa carta é aplicado automaticamente!"
+    }
+  },
+  "cancel": "Cancelar",
+  "challenges": {
+    "automation": {
+      "hint": "O efeito dessa carta é aplicado automaticamente!"
+    },
+    "deck": {
+      "current": "Atual"
+    }
+  },
+  "state": {
+    "currentGame": "Atual",
+    "info": {
+      "addBuilding": "Desbloquear edifício '%data.buildings.{1}%' ({0})",
+      "addCampaignSticker": "Adicionar Adesivo de Campanha {0}",
+      "addChar": "Adicionar personagem {0}",
+      "addGlobalAchievement": "Adicionar conquista global '%data.globalAchievements.{0}%'",
+      "addManualScenario": "Desbloquear cenário #{0} {1} ({2})",
+      "addObjective": {
+        "": "Adicionar Objetivo",
+        "entity": "Adicionar %game.objectiveMarker.{0}% a {1}"
+      },
+      "addParty": "Criar novo grupo '{0}'",
+      "addPartyAchievement": "Adicionar conquista de grupo '%data.partyAchievements.{0}%'",
+      "addPartyWeekSection": "Adicionar seção {2} à semana {1}"
+    }
+  }
+}
