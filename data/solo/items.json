@@ -1526,7 +1526,7 @@
     "noArtwork": true
   },
   {
-    "id": 99991,
+    "id": "AN",
     "name": "Ribbon of Friendship",
     "cost": 50,
     "count": 1,
@@ -1537,7 +1537,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%data.items.mp-99991.1%",
+        "value": "%data.items.mp-AN.1%",
         "small": true
       },
       {
@@ -1553,14 +1553,14 @@
       },
       {
         "type": "custom",
-        "value": "%data.items.mp-99991.2%",
+        "value": "%data.items.mp-AN.2%",
         "small": true
       }
     ],
     "noArtwork": true
   },
   {
-    "id": 99992,
+    "id": "ST",
     "name": "Crest of Frosthaven",
     "cost": 50,
     "count": 1,
@@ -1571,31 +1571,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%data.items.mp-99992.1%",
-        "small": true
-      }
-    ],
-    "noArtwork": true
-  },
-  {
-    "id": 99993,
-    "name": "Basin of Prophecy",
-    "cost": 50,
-    "count": 1,
-    "edition": "mp",
-    "solo": "cassandra",
-    "slot": "onehand",
-    "actions": [
-      {
-        "type": "custom",
-        "value": "%data.items.mp-99993.1%",
+        "value": "%data.items.mp-ST.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "%data.items.mp-99993.2%",
+        "value": "%data.items.mp-ST.2%",
         "small": true
       },
       {
@@ -1613,7 +1596,52 @@
     "noArtwork": true
   },
   {
-    "id": 99994,
+    "id": "CS1",
+    "name": "Basin of Prophecy",
+    "cost": 50,
+    "count": 1,
+    "edition": "mp",
+    "solo": "cassandra",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.mp-CS1.1%",
+        "small": true
+      }
+    ],
+    "noArtwork": true
+  },
+  {
+    "id": "CS2",
+    "name": "Basin of Prophecy",
+    "cost": 50,
+    "count": 1,
+    "edition": "mp",
+    "solo": "cassandra",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.mp-CS2.1%",
+        "small": true
+      },
+      {
+        "type": "attack",
+        "value": 1,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "%data.items.mp-CS2.2%",
+            "small": true
+          }
+        ]
+      }
+    ],
+    "noArtwork": true
+  },
+  {
+    "id": "HL",
     "name": "No Nonsense Boots",
     "cost": 50,
     "count": 1,
@@ -1623,14 +1651,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%data.items.mp-99994.1%",
+        "value": "%data.items.mp-HL.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "%data.items.mp-99994.2%",
+        "value": "%data.items.mp-HL.2%",
         "small": true
       }
     ],

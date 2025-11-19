@@ -3,5 +3,6 @@
     "extends": [
         "fh",
         "gh2e"
-    ]
+    ],
+    "newAmStyle": true
 }
