@@ -11,7 +11,7 @@
     ]
   },
   "monsters": [
-    "UPDATE-ME"
+    "bug-body"
   ],
   "rooms": [
     {
@@ -19,8 +19,8 @@
       "initial": true,
       "monster": [
         {
-          "name": "UPDATE-ME",
-          "type": "normal"
+          "name": "bug-body",
+          "type": "boss"
         }
       ]
     }

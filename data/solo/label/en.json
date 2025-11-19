@@ -67,6 +67,7 @@
     "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
     "bandit-scout-music-note2-solo": "%data.monster.bandit-scout%",
     "black-imp-deathwalker-solo": "Black Imp (Solo)",
+    "bug-body": "Bug-Body",
     "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
     "cave-bear-circles2-solo": "%data.monster.cave-bear%",
     "chief-of-spikes": "Chief of Spikes",
