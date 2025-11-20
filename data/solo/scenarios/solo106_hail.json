@@ -11,7 +11,63 @@
     ]
   },
   "monsters": [
-    "UPDATE-ME"
+    "flame-demon::gh2e",
+    "frost-demon::gh2e",
+    "wind-demon::gh2e"
+  ],
+  "objectives": [
+    {
+      "name": "Shielded Research Construct",
+      "escort": true,
+      "health": "6+Lx2",
+      "initiative": 1,
+      "marker": "1"
+    },
+    {
+      "name": "Laboratory Defense Cannon",
+      "escort": true,
+      "health": "5+L",
+      "initiative": 1,
+      "marker": "2"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "start": true,
+      "sections": [
+        "106-1"
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "flame-demon::gh2e",
+            "type": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon::gh2e",
+            "type": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "sections": [
+        "106-2"
+      ]
+    }
   ],
   "rooms": [
     {
@@ -19,9 +75,21 @@
       "initial": true,
       "monster": [
         {
-          "name": "UPDATE-ME",
+          "name": "flame-demon::gh2e",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon::gh2e",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon::gh2e",
           "type": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        2
       ]
     }
   ]

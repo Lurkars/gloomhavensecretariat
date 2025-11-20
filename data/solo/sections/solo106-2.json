@@ -1,0 +1,38 @@
+{
+  "index": "106-2",
+  "group": "solo",
+  "name": "Major Annoyance",
+  "edition": "mp",
+  "parent": "106",
+  "marker": "4",
+  "monsters": [
+    "earth-demon::gh2e",
+    "flame-demon::gh2e",
+    "frost-demon::gh2e",
+    "wind-demon::gh2e"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon::gh2e",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon::gh2e",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon::gh2e",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon::gh2e",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}
