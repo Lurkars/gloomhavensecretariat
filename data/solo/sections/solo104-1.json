@@ -11,6 +11,9 @@
     "algox-scout::fh",
     "city-guard::fh"
   ],
+  "allies": [
+    "city-guard"
+  ],
   "rules": [
     {
       "round": "true",
