@@ -326,7 +326,7 @@ export class ScenarioManager {
           }
         }
 
-        if (gameManager.characterManager.characterCount() < 4 && !internal && !scenario.solo && gainRewards && (
+        if (gameManager.characterManager.characterCount() < 4 && !internal && (!scenario.solo || scenario.spotlight) && gainRewards && (
           (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('inspiration') == -1))) {
           this.game.party.inspiration += 4 - gameManager.characterManager.characterCount();
         }
@@ -488,7 +488,7 @@ export class ScenarioManager {
       })
     }
 
-    if (scenarioData.solo) {
+    if (scenarioData.solo && !scenarioData.spotlight) {
       gameManager.game.figures.forEach((figure) => {
         if (figure instanceof Character) {
           if ((figure.name != scenarioData.solo || figure.edition != scenarioData.edition)) {
