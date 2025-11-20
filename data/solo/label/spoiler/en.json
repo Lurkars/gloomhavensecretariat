@@ -247,7 +247,7 @@
     "mp-CSB": {
       "": "Basin of Prophecy (B)",
       "1": "During your turn, perform:",
-      "2": "1 enemy occupying a hex containing a %data.action.custom.mp-rift%, %game.action.pierce:2%, %data.action.custom.mp-divination% 3"
+      "2": "1 enemy occupying a hex containing a %data.action.custom.mp-rift%"
     },
     "mp-HL": {
       "": "No Nonsense Boots",

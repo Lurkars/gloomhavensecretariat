@@ -1,5 +1,6 @@
 {
     "edition": "mp",
+    "additional": true,
     "extends": [
         "fh",
         "gh2e"

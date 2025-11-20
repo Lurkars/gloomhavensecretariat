@@ -1635,6 +1635,16 @@
             "type": "specialTarget",
             "value": "%data.items.mp-CSB.2%",
             "small": true
+          },
+          {
+            "type": "pierce",
+            "value": 2,
+            "small": true
+          },
+          {
+            "type": "custom",
+            "value": "%data.action.custom.mp-divination% 3",
+            "small": true
           }
         ]
       }
