@@ -235,7 +235,7 @@
       "1": "Immediately after you perform an %data.action.custom.gh2e-augment% %data.characterColored.anaphi:Augment% ability, perform:",
       "2": "You may perform this ability as if you occupied the same hex as one of your summons."
     },
-    "mp-ST": {
+    "mp-SA": {
       "": "Crest of Frosthaven",
       "1": "Whenever you long rest, %game.element.ice% and flip this card over.",
       "2": "Whenever an ally rests, you may flip this card over to grant them:"

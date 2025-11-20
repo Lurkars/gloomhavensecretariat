@@ -1570,14 +1570,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%data.items.mp-ST.1%",
+        "value": "%data.items.mp-SA.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "%data.items.mp-ST.2%",
+        "value": "%data.items.mp-SA.2%",
         "small": true
       },
       {
