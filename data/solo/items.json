@@ -1567,7 +1567,6 @@
     "edition": "mp",
     "solo": "satha",
     "slot": "onehand",
-    "spent": true,
     "actions": [
       {
         "type": "custom",
