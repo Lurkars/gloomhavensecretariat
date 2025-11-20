@@ -240,14 +240,14 @@
       "1": "Whenever you long rest, %game.element.ice% and flip this card over.",
       "2": "Whenever an ally rests, you may flip this card over to grant them:"
     },
-    "mp-CS1": {
-      "": "Basin of Prophecy",
+    "mp-CSA": {
+      "": "Basin of Prophecy (A)",
       "1": "Add +1 %data.action.custom.mp-divination% to all %data.action.custom.mp-divination%."
     },
-    "mp-CS2": {
-      "": "Basin of Prophecy",
+    "mp-CSB": {
+      "": "Basin of Prophecy (B)",
       "1": "During your turn, perform:",
-      "2": "1 enemy occupying a hex containing a %data.action.custom.mp-rift%, %game.action.pierce% 2, %data.action.custom.mp-divination% 3"
+      "2": "1 enemy occupying a hex containing a %data.action.custom.mp-rift%, %game.action.pierce:2%, %data.action.custom.mp-divination% 3"
     },
     "mp-HL": {
       "": "No Nonsense Boots",

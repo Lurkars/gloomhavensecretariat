@@ -1560,7 +1560,7 @@
     "noArtwork": true
   },
   {
-    "id": "ST",
+    "id": "SA",
     "name": "Crest of Frosthaven",
     "cost": 50,
     "count": 1,
@@ -1596,8 +1596,8 @@
     "noArtwork": true
   },
   {
-    "id": "CS1",
-    "name": "Basin of Prophecy",
+    "id": "CSA",
+    "name": "Basin of Prophecy (A)",
     "cost": 50,
     "count": 1,
     "edition": "mp",
@@ -1606,24 +1606,25 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%data.items.mp-CS1.1%",
+        "value": "%data.items.mp-CSA.1%",
         "small": true
       }
     ],
     "noArtwork": true
   },
   {
-    "id": "CS2",
-    "name": "Basin of Prophecy",
+    "id": "CSB",
+    "name": "Basin of Prophecy (B)",
     "cost": 50,
     "count": 1,
     "edition": "mp",
     "solo": "cassandra",
     "slot": "onehand",
+    "spent": true,
     "actions": [
       {
         "type": "custom",
-        "value": "%data.items.mp-CS2.1%",
+        "value": "%data.items.mp-CSB.1%",
         "small": true
       },
       {
@@ -1632,7 +1633,7 @@
         "subActions": [
           {
             "type": "specialTarget",
-            "value": "%data.items.mp-CS2.2%",
+            "value": "%data.items.mp-CSB.2%",
             "small": true
           }
         ]
