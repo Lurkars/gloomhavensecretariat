@@ -1531,6 +1531,10 @@
                 "solo": {
                     "type": "string"
                 },
+                "spotlight": {
+                    "default": false,
+                    "type": "boolean"
+                },
                 "spoiler": {
                     "default": false,
                     "type": "boolean"
