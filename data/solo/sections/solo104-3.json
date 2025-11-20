@@ -1,0 +1,50 @@
+{
+  "index": "104-3",
+  "group": "solo",
+  "name": "Horns in the Night",
+  "edition": "mp",
+  "parent": "104",
+  "parentSections": [
+    [
+      "104-2"
+    ]
+  ],
+  "marker": "3",
+  "resetRound": "hidden",
+  "monsters": [
+    "algox-archer::fh",
+    "algox-icespeaker::fh",
+    "algox-scout::fh"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-scout::fh",
+            "type": "elite"
+          },
+          "marker": "a",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "round": "R == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-archer::fh",
+            "type": "elite"
+          },
+          "marker": "a",
+          "count": 2
+        }
+      ]
+    }
+  ]
+}

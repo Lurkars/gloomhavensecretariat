@@ -11,7 +11,12 @@
     ]
   },
   "monsters": [
-    "UPDATE-ME"
+    "algox-archer::fh",
+    "algox-scout::fh",
+    "city-guard::fh"
+  ],
+  "allies": [
+    "city-guard::fh"
   ],
   "rooms": [
     {
@@ -19,7 +24,23 @@
       "initial": true,
       "monster": [
         {
-          "name": "UPDATE-ME",
+          "name": "algox-archer::fh",
+          "type": "normal"
+        },
+        {
+          "name": "algox-scout::fh",
+          "type": "normal"
+        },
+        {
+          "name": "algox-scout::fh",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard::fh",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard::fh",
           "type": "normal"
         }
       ]
