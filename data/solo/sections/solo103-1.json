@@ -1,0 +1,61 @@
+{
+  "index": "103-1",
+  "group": "solo",
+  "name": "A Harrowing Deal",
+  "edition": "mp",
+  "parent": "103",
+  "marker": "1",
+  "monsters": [
+    "bug-body",
+    "vermling-raider::jotl",
+    "vermling-scout::jotl"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bug-body",
+          "type": "boss"
+        },
+        {
+          "name": "vermling-raider::jotl",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-raider::jotl",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-raider::jotl",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout::jotl",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout::jotl",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout::jotl",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout::jotl",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

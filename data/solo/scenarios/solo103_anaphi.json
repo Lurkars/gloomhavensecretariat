@@ -11,7 +11,9 @@
     ]
   },
   "monsters": [
-    "bug-body"
+    "bug-body",
+    "vermling-raider::jotl",
+    "vermling-scout::jotl"
   ],
   "rooms": [
     {
@@ -21,6 +23,19 @@
         {
           "name": "bug-body",
           "type": "boss"
+        },
+        {
+          "name": "vermling-raider::jotl",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-raider::jotl",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout::jotl",
+          "type": "elite"
         }
       ]
     }
