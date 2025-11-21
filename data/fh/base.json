@@ -25,5 +25,6 @@
     "fh-crossover"
   ],
   "newAmStyle": true,
+  "newItemStyle": true,
   "logoUrl": "./assets/images/logos/fh.png"
 }

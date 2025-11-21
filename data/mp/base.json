@@ -1,6 +1,7 @@
 {
     "edition": "mp",
     "additional": true,
+    "newItemStyle": true,
     "extends": [
         "fh",
         "gh2e"

@@ -53,7 +53,7 @@ export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.edition = this.item.edition;
             }
 
-            if (this.item.edition == 'fh' || this.item.edition == 'gh2e' || this.item.edition == 'mp') {
+            if (gameManager.newItemStyle(this.item.edition)) {
                 this.fhStyle = true;
             }
 

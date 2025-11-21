@@ -232,6 +232,15 @@ export class GameManager {
     this.editionScenarioMappingAll = {};
   }
 
+  newItemStyle(edition: string): boolean {
+    const editionData = this.editionData.find((editionData) => editionData.edition == edition);
+    if (editionData && (editionData.newItemStyle || editionData.extensions && editionData.extensions.some((edition) => this.newItemStyle(edition)))) {
+      return true;
+    }
+
+    return false;
+  }
+
   newAmStyle(edition: string): boolean {
     const editionData = this.editionData.find((editionData) => editionData.edition == edition);
     if (editionData && (editionData.newAmStyle || editionData.extensions && editionData.extensions.some((edition) => this.newAmStyle(edition)))) {
