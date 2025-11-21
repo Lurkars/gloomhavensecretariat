@@ -4,6 +4,7 @@
     "newItemStyle": true,
     "extends": [
         "fh",
-        "gh2e"
+        "gh2e",
+        "jotl"
     ]
 }
