@@ -137,6 +137,8 @@ export class CharacterManager {
       if (character.progress.gold == 0) {
         if (gameManager.fhRules()) {
           character.progress.gold = 10 * gameManager.prosperityLevel() + 20;
+        } else if (gameManager.gh2eRules()) {
+          character.progress.gold = 10 * gameManager.prosperityLevel() + 15;
         } else if (!gameManager.editionRules('jotl')) {
           character.progress.gold = 15 * (character.level + 1);
         }

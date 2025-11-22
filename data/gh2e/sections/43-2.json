@@ -31,21 +31,15 @@
         },
         {
           "name": "bandit-scout",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "bandit-scout",
           "player2": "normal",
           "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-scout",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-scout",
-          "player4": "normal"
+          "player4": "elite"
         }
       ]
     }
