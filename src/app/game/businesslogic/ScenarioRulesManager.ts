@@ -60,7 +60,7 @@ export class ScenarioRulesManager {
     const scenario = this.game.scenario;
     if (scenario && scenario.rules) {
       scenario.rules.filter((rule) => this.game.round > 0 && rule.always || rule.alwaysApply || rule.alwaysApplyTurn).forEach((rule) => {
-        if (rule.alwaysApply && settingsManager.settings.scenarioRulesAutoapply && this.scnearioRuleActive(rule, scenario.rules.indexOf(rule), false)) {
+        if (rule.alwaysApply && settingsManager.settings.scenarioRulesAutoapply && this.scenarioRuleActive(rule, scenario.rules.indexOf(rule), false)) {
           this.applyRule(rule, { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "index": scenario.rules.indexOf(rule), "section": false });
         } else if (!this.game.discardedScenarioRules.find((identifier) => identifier.edition == scenario.edition && identifier.scenario == scenario.index && identifier.group == scenario.group && identifier.index == scenario.rules.indexOf(rule) && !identifier.section)) {
           this.addScenarioRule(scenario, rule, scenario.rules.indexOf(rule), false);
@@ -72,7 +72,7 @@ export class ScenarioRulesManager {
       this.game.sections.forEach((section) => {
         if (section.rules) {
           section.rules.filter((rule) => this.game.round > 0 && rule.always || rule.alwaysApply || rule.alwaysApplyTurn).forEach((rule) => {
-            if (rule.alwaysApply && settingsManager.settings.scenarioRulesAutoapply && this.scnearioRuleActive(rule, section.rules.indexOf(rule), true)) {
+            if (rule.alwaysApply && settingsManager.settings.scenarioRulesAutoapply && this.scenarioRuleActive(rule, section.rules.indexOf(rule), true)) {
               this.applyRule(rule, { "edition": section.edition, "scenario": section.index, "group": section.group, "index": section.rules.indexOf(rule), "section": true });
               gameManager.game.scenarioRules.splice(gameManager.game.scenarioRules.length - 1, 1);
             } else if (!this.game.discardedScenarioRules.find((identifier) => identifier.edition == section.edition && identifier.scenario == section.index && identifier.group == section.group && identifier.index == section.rules.indexOf(rule) && identifier.section)) {
@@ -109,7 +109,7 @@ export class ScenarioRulesManager {
     }
 
     rules.forEach((ruleModel) => {
-      if (this.scnearioRuleActive(ruleModel.rule, ruleModel.identifier.index, ruleModel.identifier.section)) {
+      if (this.scenarioRuleActive(ruleModel.rule, ruleModel.identifier.index, ruleModel.identifier.section)) {
         this.applyRule(ruleModel.rule, ruleModel.identifier);
       }
     })
@@ -173,7 +173,7 @@ export class ScenarioRulesManager {
     this.game.scenarioRules = this.game.scenarioRules.filter((ruleModel, index, self) => !self.find((disableRule) => disableRule.rule.disableRules && disableRule.rule.disableRules.some((value) => value.edition == ruleModel.identifier.edition && value.group == ruleModel.identifier.group && (value.index == ruleModel.identifier.index || value.index == -1) && value.scenario == ruleModel.identifier.scenario && value.section == ruleModel.identifier.section)));
   }
 
-  scnearioRuleActive(rule: ScenarioRule, index: number, section: boolean, initial: boolean = false): boolean {
+  scenarioRuleActive(rule: ScenarioRule, index: number, section: boolean, initial: boolean = false): boolean {
     let round = rule.round || 'false';
     let active: boolean = false;
 
@@ -305,7 +305,7 @@ export class ScenarioRulesManager {
   }
 
   addScenarioRule(scenarioData: ScenarioData, rule: ScenarioRule, index: number, section: boolean, initial: boolean = false) {
-    const add = this.scnearioRuleActive(rule, index, section, initial);
+    const add = this.scenarioRuleActive(rule, index, section, initial);
 
     const identifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "index": index, "section": section };
 
