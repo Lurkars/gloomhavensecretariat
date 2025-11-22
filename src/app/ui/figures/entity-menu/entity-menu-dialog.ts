@@ -136,11 +136,24 @@ export class EntityMenuDialogComponent {
       this.actionHints = gameManager.actionsManager.calcActionHints(this.data.figure, this.data.entity).map((actionHint) => new Action(actionHint.type, actionHint.value, ActionValueType.fixed, actionHint.range ? [new Action(ActionType.range, actionHint.range, ActionValueType.fixed, [], true)] : []));
     }
 
-    if (this.data.figure instanceof Character && this.data.figure.specialActions) {
+    if (this.data.figure instanceof Character && this.data.figure.specialActions && this.data.entity) {
+      const entity = this.data.entity;
       this.data.figure.specialActions.forEach((specialAction) => {
-        if (this.data.entity instanceof Character && !specialAction.summon && this.data.entity.tags.indexOf(specialAction.name) != -1) {
-          this.specialTags.push(specialAction.name);
-        } else if (this.data.entity instanceof Summon && specialAction.summon && this.data.entity.tags.indexOf(specialAction.name) != -1) {
+        // Special handling for delayed_malady which stores rounds as suffix
+        const hasTag = specialAction.name == 'delayed_malady'
+          ? entity.tags.find(tag => tag.startsWith('delayed_malady'))
+          : entity.tags.indexOf(specialAction.name) != -1;
+
+        if (entity instanceof Character && !specialAction.summon && hasTag) {
+          if (specialAction.name == 'delayed_malady') {
+            const tagWithRounds = entity.tags.find(tag => tag.startsWith('delayed_malady'));
+            if (tagWithRounds) {
+              this.specialTags.push(tagWithRounds);
+            }
+          } else {
+            this.specialTags.push(specialAction.name);
+          }
+        } else if (entity instanceof Summon && specialAction.summon && hasTag) {
           this.specialTags.push(specialAction.name);
         }
       })
@@ -813,13 +826,48 @@ export class EntityMenuDialogComponent {
     }
   }
 
+  isSpecialActionActive(specialActionName: string): boolean {
+    if (specialActionName === 'delayed_malady') {
+      return this.specialTags.some(tag => tag.startsWith('delayed_malady'));
+    }
+    return this.specialTags.indexOf(specialActionName) !== -1;
+  }
+
   applySpecialAction(specialAction: CharacterSpecialAction) {
     if (!specialAction.noTag) {
-      if (this.specialTags.indexOf(specialAction.name) == -1) {
-        this.specialTags.push(specialAction.name);
+      if (specialAction.name === 'delayed_malady') {
+        const existingTag = this.specialTags.find(tag => tag.startsWith('delayed_malady'));
+        if (!existingTag) {
+          this.specialTags.push('delayed_malady:5');
+        } else {
+          this.specialTags.splice(this.specialTags.indexOf(existingTag), 1);
+        }
       } else {
-        this.specialTags.splice(this.specialTags.indexOf(specialAction.name), 1);
+        const tagIndex = this.specialTags.indexOf(specialAction.name);
+        if (tagIndex === -1) {
+          this.specialTags.push(specialAction.name);
+        } else {
+          this.specialTags.splice(tagIndex, 1);
+        }
       }
+    }
+  }
+
+  changeDelayedMaladyCounter(value: number, event: Event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    const existingTag = this.specialTags.find(tag => tag.startsWith('delayed_malady:'));
+    if (!existingTag) {
+      return;
+    }
+
+    const currentRounds = parseInt(existingTag.split(':')[1], 10);
+    const newRounds = currentRounds + value;
+
+    if (newRounds >= 1) {
+      const tagIndex = this.specialTags.indexOf(existingTag);
+      this.specialTags[tagIndex] = `delayed_malady:${newRounds}`;
     }
   }
 
@@ -990,7 +1038,19 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.after();
       }
 
-      const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialActions && this.data.figure.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
+      const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => {
+        if (this.data.figure instanceof Character && this.data.figure.specialActions) {
+          const matchingAction = this.data.figure.specialActions.find((specialAction) => {
+            // Handle delayed_malady with round suffix
+            if (specialAction.name == 'delayed_malady' && specialTag.startsWith('delayed_malady')) {
+              return true;
+            }
+            return specialAction.name == specialTag;
+          });
+          return matchingAction != undefined && this.specialTags.indexOf(specialTag) == -1;
+        }
+        return false;
+      });
 
       if (specialTagsToTemove.length) {
         gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.data.entity), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','));
@@ -1244,7 +1304,19 @@ export class EntityMenuDialogComponent {
           gameManager.stateManager.after();
         }
 
-        const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialActions && this.data.figure.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
+        const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => {
+        if (this.data.figure instanceof Character && this.data.figure.specialActions) {
+          const matchingAction = this.data.figure.specialActions.find((specialAction) => {
+            // Handle delayed_malady with round suffix
+            if (specialAction.name == 'delayed_malady' && specialTag.startsWith('delayed_malady')) {
+              return true;
+            }
+            return specialAction.name == specialTag;
+          });
+          return matchingAction != undefined && this.specialTags.indexOf(specialTag) == -1;
+        }
+        return false;
+      });
 
         if (specialTagsToTemove.length) {
           gameManager.stateManager.before("removeSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name);

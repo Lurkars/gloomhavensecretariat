@@ -908,6 +908,31 @@
     .separator {
       margin: 0 calc(var(--ghs-unit) * 0.2 * var(--ghs-text-factor));
     }
+
+    .delayed-malady-counter {
+      display: inline-flex;
+      align-items: center;
+      gap: calc(var(--ghs-unit) * 0.5);
+
+      .counter-button {
+        cursor: pointer;
+        padding: calc(var(--ghs-unit) * 0.5) calc(var(--ghs-unit) * 1);
+        font-weight: bold;
+        user-select: none;
+        min-width: calc(var(--ghs-unit) * 3);
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: calc(var(--ghs-unit) * 0.5);
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        &:active {
+          background-color: rgba(255, 255, 255, 0.4);
+        }
+      }
+    }
   }
 
   .title,

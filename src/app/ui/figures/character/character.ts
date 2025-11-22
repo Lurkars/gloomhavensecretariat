@@ -109,7 +109,12 @@ export class CharacterComponent implements OnInit, OnDestroy {
     this.short = (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern';
     this.shortMenu = false;
     this.bb = gameManager.bbRules() || this.character.bb;
-    this.specialActions = this.character.specialActions.filter((specialAction) => this.character.tags.indexOf(specialAction.name) != -1);
+    this.specialActions = this.character.specialActions.filter((specialAction) => {
+      if (specialAction.name === 'delayed_malady') {
+        return this.character.tags.some(tag => tag.startsWith('delayed_malady:'));
+      }
+      return this.character.tags.indexOf(specialAction.name) !== -1;
+    });
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
@@ -575,9 +580,33 @@ export class CharacterComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
+  changeDelayedMaladyCounter(value: number, event: Event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    const existingTag = this.character.tags.find(tag => tag.startsWith('delayed_malady:'));
+    if (!existingTag) {
+      return;
+    }
+
+    const currentRounds = parseInt(existingTag.split(':')[1], 10);
+    const newRounds = currentRounds + value;
+
+    if (newRounds >= 1) {
+      gameManager.stateManager.before("updateSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.edition + '.' + this.character.name + '.delayed_malady%');
+      const tagIndex = this.character.tags.indexOf(existingTag);
+      this.character.tags[tagIndex] = `delayed_malady:${newRounds}`;
+      gameManager.stateManager.after();
+    }
+  }
+
   removeSpecialAction(specialAction: string) {
     gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction + '%');
-    this.character.tags = this.character.tags.filter((specialTag) => specialTag != specialAction);
+    if (specialAction === 'delayed_malady') {
+      this.character.tags = this.character.tags.filter((specialTag) => !specialTag.startsWith('delayed_malady'));
+    } else {
+      this.character.tags = this.character.tags.filter((specialTag) => specialTag !== specialAction);
+    }
 
     if (this.character.name == 'lightning' && specialAction == 'careless-charge') {
       this.character.immunities = [];

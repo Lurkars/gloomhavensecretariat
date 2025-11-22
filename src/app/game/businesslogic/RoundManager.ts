@@ -106,6 +106,14 @@ export class RoundManager {
       }
       this.game.state = GameState.next;
       this.game.round++;
+
+      // Clear roundAction tags at the start of each new round
+      this.game.figures.forEach((figure) => {
+        if (figure instanceof Character || figure instanceof Monster) {
+          figure.tags = figure.tags.filter((tag) => !tag.startsWith('roundAction-'));
+        }
+      });
+
       gameManager.characterManager.draw();
       gameManager.monsterManager.draw();
       gameManager.objectiveManager.draw();
@@ -526,6 +534,24 @@ export class RoundManager {
 
       if (figure instanceof Character && figure.name == 'shards' && figure.tags.indexOf('resonance_tokens') != -1 && figure.tokenValues[0] < 5) {
         figure.tokenValues[0] += 1;
+      }
+
+      if (figure instanceof Character) {
+        const delayedMaladyTag = figure.tags.find(tag => tag.startsWith('delayed_malady:'));
+        const alreadyProcessed = figure.tags.indexOf('roundAction-delayed_malady') !== -1;
+
+        if (delayedMaladyTag && !alreadyProcessed) {
+          const rounds = parseInt(delayedMaladyTag.split(':')[1], 10);
+
+          if (rounds <= 1) {
+            figure.tags = figure.tags.filter(tag => !tag.startsWith('delayed_malady'));
+          } else {
+            const tagIndex = figure.tags.indexOf(delayedMaladyTag);
+            figure.tags[tagIndex] = `delayed_malady:${rounds - 1}`;
+          }
+
+          figure.tags.push('roundAction-delayed_malady');
+        }
       }
 
       if (figure instanceof Character) {

@@ -253,7 +253,13 @@
           "mode": "Mode Token"
         }
       },
-      "shackles": "Pain Conduit",
+      "shackles": {
+        "": "Pain Conduit",
+        "delayed_malady": {
+          "": "Delayed Malady",
+          "hint": "During this and the next four rounds, you are unaffected by Negative conditions you have and they cannot be removed"
+        }
+      },
       "shards": {
         "": "Shattersong",
         "extra_resonance_tokens": {
