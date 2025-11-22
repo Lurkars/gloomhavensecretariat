@@ -653,9 +653,15 @@ export class EntityManager {
 
     if (regenerateCondition) {
       const maxHealth = EntityValueFunction(entity.maxHealth);
-      const heal = entity.entityConditions.every((entityCondition) => entityCondition.expired || entityCondition.types.indexOf(ConditionType.preventHeal) == -1 || this.isImmune(entity, figure, entityCondition.name)) && entity.health < maxHealth;
-
       const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+
+      const heal = entity.entityConditions.every((entityCondition) => {
+        const isPreventHeal = entityCondition.types.indexOf(ConditionType.preventHeal) != -1;
+        const isNegative = entityCondition.types.indexOf(ConditionType.negative) !== -1;
+        const isBlockedByDelayedMalady = hasDelayedMalady && isNegative;
+
+        return entityCondition.expired || !isPreventHeal || isBlockedByDelayedMalady || this.isImmune(entity, figure, entityCondition.name);
+      }) && entity.health < maxHealth;
 
       if (!hasDelayedMalady) {
         entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1 && !entityCondition.permanent).forEach((entityCondition) => {
@@ -741,13 +747,18 @@ export class EntityManager {
   }
 
   unapplyConditionsTurn(entity: Entity, figure: Figure) {
+    const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+
     entity.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.turn && entityCondition.types.indexOf(ConditionType.turn) != -1 && settingsManager.settings.applyConditionsExcludes.indexOf(entityCondition.name) == -1).forEach((entityCondition) => {
       if (entityCondition.expired) {
         entityCondition.expired = false;
       } else {
         entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.normal;
-        if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
+        const isNegativeCondition = entityCondition.types.indexOf(ConditionType.negative) !== -1;
+        const skipNegativeRestore = hasDelayedMalady && isNegativeCondition;
+
+        if ((entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) && !skipNegativeRestore) {
           entity.health = entity.health + entityCondition.value;
           this.checkHealth(entity, figure);
         }
