@@ -389,18 +389,14 @@
         ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeSpecialAction(specialAction.name)"
         [ghs-tooltip]="'data.character.' + character.edition + '.' + character.name + '.' + specialAction.name + '.hint'"
         [originY]="'top'" [overlayY]="'bottom'" [originX]="'center'" [overlayX]="'center'">
-        @if (specialAction.name == 'delayed_malady') {
-          @for (tag of character.tags; track tag) {
-            @if (tag.startsWith('delayed_malady:')) {
-              <span class="delayed-malady-counter">
-                &nbsp;(
-                <span class="counter-button" (click)="changeDelayedMaladyCounter(-1, $event)">-</span>
-                {{ tag.split(':')[1] }}
-                <span class="counter-button" (click)="changeDelayedMaladyCounter(1, $event)">+</span>
-                )
-              </span>
-            }
-          }
+        @if (specialAction.counter) {
+          <span class="special-action-counter">
+            &nbsp;(
+            <span class="counter-button" (click)="changeSpecialActionCounter(specialAction, -1, $event)">-</span>
+            {{ getSpecialActionCounterValue(specialAction) }}
+            <span class="counter-button" (click)="changeSpecialActionCounter(specialAction, 1, $event)">+</span>
+            )
+          </span>
         }
       </span>
       @if (i < specialActions.length - 1 && specialActions.length> 1) {

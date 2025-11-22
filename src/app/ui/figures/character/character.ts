@@ -10,6 +10,7 @@ import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
 import { ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
+import { SpecialActionHelper } from 'src/app/game/model/data/SpecialActionHelper';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
@@ -580,24 +581,26 @@ export class CharacterComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
-  changeDelayedMaladyCounter(value: number, event: Event) {
+  changeSpecialActionCounter(specialAction: CharacterSpecialAction, delta: number, event: Event) {
     event.stopPropagation();
     event.preventDefault();
 
-    const existingTag = this.character.tags.find(tag => tag.startsWith('delayed_malady:'));
-    if (!existingTag) {
+    const currentValue = SpecialActionHelper.getCounterValue(this.character.tags, specialAction.name);
+    if (currentValue === null) {
       return;
     }
 
-    const currentRounds = parseInt(existingTag.split(':')[1], 10);
-    const newRounds = currentRounds + value;
-
-    if (newRounds >= 1) {
-      gameManager.stateManager.before("updateSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.edition + '.' + this.character.name + '.delayed_malady%');
-      const tagIndex = this.character.tags.indexOf(existingTag);
-      this.character.tags[tagIndex] = `delayed_malady:${newRounds}`;
+    gameManager.stateManager.before("updateSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction.name + '%');
+    const newValue = SpecialActionHelper.changeCounter(this.character.tags, specialAction, delta);
+    if (newValue !== null) {
+      gameManager.stateManager.after();
+    } else {
       gameManager.stateManager.after();
     }
+  }
+
+  getSpecialActionCounterValue(specialAction: CharacterSpecialAction): number | null {
+    return SpecialActionHelper.getCounterValue(this.character.tags, specialAction.name);
   }
 
   removeSpecialAction(specialAction: string) {

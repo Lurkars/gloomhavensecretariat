@@ -12,7 +12,13 @@
   "spoiler": true,
   "specialActions": [
     {
-      "name": "delayed_malady"
+      "name": "delayed_malady",
+      "counter": {
+        "initial": 5,
+        "min": 1,
+        "decrementOnRound": true,
+        "removeOnZero": true
+      }
     }
   ],
   "stats": [

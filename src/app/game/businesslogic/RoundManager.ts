@@ -14,6 +14,7 @@ import { Element, ElementState } from "../model/data/Element";
 import { ItemFlags } from "../model/data/ItemData";
 import { LootDeck } from "../model/data/Loot";
 import { ScenarioData } from "../model/data/ScenarioData";
+import { SpecialActionHelper } from "../model/data/SpecialActionHelper";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -536,20 +537,20 @@ export class RoundManager {
       }
 
       if (figure instanceof Character) {
-        const delayedMaladyTag = figure.tags.find(tag => tag.startsWith('delayed_malady:'));
-        const alreadyProcessed = figure.tags.indexOf('roundAction-delayed_malady') !== -1;
+        for (const specialAction of figure.specialActions) {
+          if (SpecialActionHelper.hasCounter(specialAction)) {
+            const config = SpecialActionHelper.getCounterConfig(specialAction);
 
-        if (delayedMaladyTag && !alreadyProcessed) {
-          const rounds = parseInt(delayedMaladyTag.split(':')[1], 10);
+            if (config.decrementOnRound) {
+              const alreadyProcessed = figure.tags.indexOf(`roundAction-${specialAction.name}`) !== -1;
+              const hasCounter = SpecialActionHelper.getCounterValue(figure.tags, specialAction.name) !== null;
 
-          if (rounds <= 1) {
-            figure.tags = figure.tags.filter(tag => !tag.startsWith('delayed_malady'));
-          } else {
-            const tagIndex = figure.tags.indexOf(delayedMaladyTag);
-            figure.tags[tagIndex] = `delayed_malady:${rounds - 1}`;
+              if (hasCounter && !alreadyProcessed) {
+                SpecialActionHelper.decrementCounter(figure.tags, specialAction);
+                figure.tags.push(`roundAction-${specialAction.name}`);
+              }
+            }
           }
-
-          figure.tags.push('roundAction-delayed_malady');
         }
       }
 

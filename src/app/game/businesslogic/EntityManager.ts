@@ -1,6 +1,7 @@
 import { Character } from "../model/Character";
 import { ActionType } from "../model/data/Action";
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/data/Condition";
+import { SpecialActionHelper } from "../model/data/SpecialActionHelper";
 import { Entity, EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
@@ -181,7 +182,7 @@ export class EntityManager {
       }
 
       if (entity.health + value > entity.health) {
-        const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+        const hasDelayedMalady = SpecialActionHelper.hasActionProtection(entity, 'delayed_malady');
         const clearHeal = entity.entityConditions.find((condition) => {
           const isNegative = condition.types.indexOf(ConditionType.negative) !== -1;
           const isBlockedByDelayedMalady = hasDelayedMalady && isNegative;
@@ -207,7 +208,7 @@ export class EntityManager {
 
   sufferDamageHighlightConditions(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
     if (settingsManager.settings.applyConditions) {
-      const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+      const hasDelayedMalady = SpecialActionHelper.hasActionProtection(entity, 'delayed_malady');
 
       if (value < 0 && !damageOnly) {
         let shieldValue = 0;
@@ -436,7 +437,7 @@ export class EntityManager {
   }
 
   removeCondition(entity: Entity, figure: Figure, condition: Condition, permanent: boolean = false) {
-    const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+    const hasDelayedMalady = SpecialActionHelper.hasActionProtection(entity, 'delayed_malady');
     const isNegativeCondition = condition.types.indexOf(ConditionType.negative) !== -1;
 
     if (hasDelayedMalady && isNegativeCondition) {
@@ -455,7 +456,7 @@ export class EntityManager {
     const condition = entity.entityConditions.find((entityCondition) => entityCondition.name == name && !entityCondition.expired && (entityCondition.types.indexOf(ConditionType.apply) != -1 || entityCondition.types.indexOf(ConditionType.highlightOnly) != -1));
 
     if (condition) {
-      const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+      const hasDelayedMalady = SpecialActionHelper.hasActionProtection(entity, 'delayed_malady');
       const isNegativeCondition = condition.types.indexOf(ConditionType.negative) !== -1;
 
       if (hasDelayedMalady && isNegativeCondition) {
@@ -541,7 +542,7 @@ export class EntityManager {
           entity.health -= condition.value;
         }
 
-        const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+        const hasDelayedMalady = SpecialActionHelper.hasActionProtection(entity, 'delayed_malady');
 
         if (!hasDelayedMalady) {
           let clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.permanent && !condition.expired);
@@ -614,7 +615,7 @@ export class EntityManager {
   }
 
   expireConditions(entity: Entity, figure: Figure) {
-    const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+    const hasDelayedMalady = SpecialActionHelper.hasActionProtection(entity, 'delayed_malady');
     let negativeCondition = false;
 
     entity.entityConditions.forEach((entityCondition) => {
@@ -655,7 +656,7 @@ export class EntityManager {
 
     if (regenerateCondition) {
       const maxHealth = EntityValueFunction(entity.maxHealth);
-      const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+      const hasDelayedMalady = SpecialActionHelper.hasActionProtection(entity, 'delayed_malady');
 
       const heal = entity.entityConditions.every((entityCondition) => {
         const isPreventHeal = entityCondition.types.indexOf(ConditionType.preventHeal) != -1;
@@ -703,7 +704,7 @@ export class EntityManager {
 
     entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.state == EntityConditionState.normal && entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
       if (!this.isImmune(entity, figure, entityCondition.name) && settingsManager.settings.applyConditionsExcludes.indexOf(entityCondition.name) == -1) {
-        const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+        const hasDelayedMalady = SpecialActionHelper.hasActionProtection(entity, 'delayed_malady');
         const skipNegativeEffect = hasDelayedMalady && entityCondition.types.indexOf(ConditionType.negative) !== -1;
 
         entityCondition.lastState = entityCondition.state;
@@ -749,7 +750,7 @@ export class EntityManager {
   }
 
   unapplyConditionsTurn(entity: Entity, figure: Figure) {
-    const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+    const hasDelayedMalady = SpecialActionHelper.hasActionProtection(entity, 'delayed_malady');
 
     entity.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.turn && entityCondition.types.indexOf(ConditionType.turn) != -1 && settingsManager.settings.applyConditionsExcludes.indexOf(entityCondition.name) == -1).forEach((entityCondition) => {
       if (entityCondition.expired) {
@@ -792,7 +793,7 @@ export class EntityManager {
   applyConditionsAfter(entity: Entity, figure: Figure) {
     entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
       if (!this.isImmune(entity, figure, entityCondition.name) && settingsManager.settings.applyConditionsExcludes.indexOf(entityCondition.name) == -1) {
-        const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+        const hasDelayedMalady = SpecialActionHelper.hasActionProtection(entity, 'delayed_malady');
         const skipNegativeEffect = hasDelayedMalady && entityCondition.types.indexOf(ConditionType.negative) !== -1;
 
         if (entityCondition.state == EntityConditionState.turn) {

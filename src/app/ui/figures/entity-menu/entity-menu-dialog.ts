@@ -16,6 +16,7 @@ import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Act
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { CharacterSpecialAction } from "src/app/game/model/data/CharacterStat";
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
+import { SpecialActionHelper } from "src/app/game/model/data/SpecialActionHelper";
 import { ItemFlags } from "src/app/game/model/data/ItemData";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
@@ -825,19 +826,19 @@ export class EntityMenuDialogComponent {
     }
   }
 
-  isSpecialActionActive(specialActionName: string): boolean {
-    if (specialActionName === 'delayed_malady') {
-      return this.specialTags.some(tag => tag.startsWith('delayed_malady'));
+  isSpecialActionActive(specialAction: CharacterSpecialAction): boolean {
+    if (SpecialActionHelper.hasCounter(specialAction)) {
+      return this.specialTags.some(tag => tag.startsWith(`${specialAction.name}:`));
     }
-    return this.specialTags.indexOf(specialActionName) !== -1;
+    return this.specialTags.indexOf(specialAction.name) !== -1;
   }
 
   applySpecialAction(specialAction: CharacterSpecialAction) {
     if (!specialAction.noTag) {
-      if (specialAction.name === 'delayed_malady') {
-        const existingTag = this.specialTags.find(tag => tag.startsWith('delayed_malady'));
+      if (SpecialActionHelper.hasCounter(specialAction)) {
+        const existingTag = this.specialTags.find(tag => tag.startsWith(`${specialAction.name}:`));
         if (!existingTag) {
-          this.specialTags.push('delayed_malady:5');
+          this.specialTags.push(SpecialActionHelper.createCounterTag(specialAction));
         } else {
           this.specialTags.splice(this.specialTags.indexOf(existingTag), 1);
         }
@@ -852,22 +853,18 @@ export class EntityMenuDialogComponent {
     }
   }
 
-  changeDelayedMaladyCounter(value: number, event: Event) {
+  changeSpecialActionCounter(specialAction: CharacterSpecialAction, delta: number, event: Event) {
     event.stopPropagation();
     event.preventDefault();
 
-    const existingTag = this.specialTags.find(tag => tag.startsWith('delayed_malady:'));
-    if (!existingTag) {
+    const newValue = SpecialActionHelper.changeCounter(this.specialTags, specialAction, delta);
+    if (newValue === null) {
       return;
     }
+  }
 
-    const currentRounds = parseInt(existingTag.split(':')[1], 10);
-    const newRounds = currentRounds + value;
-
-    if (newRounds >= 1) {
-      const tagIndex = this.specialTags.indexOf(existingTag);
-      this.specialTags[tagIndex] = `delayed_malady:${newRounds}`;
-    }
+  getSpecialActionCounterValue(specialAction: CharacterSpecialAction): number | null {
+    return SpecialActionHelper.getCounterValue(this.specialTags, specialAction.name);
   }
 
   changeShield(value: number) {
