@@ -111,10 +111,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
     this.shortMenu = false;
     this.bb = gameManager.bbRules() || this.character.bb;
     this.specialActions = this.character.specialActions.filter((specialAction) => {
-      if (specialAction.name === 'delayed_malady') {
-        return this.character.tags.some(tag => tag.startsWith('delayed_malady:'));
-      }
-      return this.character.tags.indexOf(specialAction.name) !== -1;
+      return SpecialActionHelper.hasActiveSpecialAction(this.character, specialAction.name);
     });
   }
 
@@ -591,12 +588,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
 
     gameManager.stateManager.before("updateSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction.name + '%');
-    const newValue = SpecialActionHelper.changeCounter(this.character.tags, specialAction, delta);
-    if (newValue !== null) {
-      gameManager.stateManager.after();
-    } else {
-      gameManager.stateManager.after();
-    }
+    SpecialActionHelper.changeCounter(this.character.tags, specialAction, delta);
+    gameManager.stateManager.after();
   }
 
   getSpecialActionCounterValue(specialAction: CharacterSpecialAction): number | null {
@@ -605,8 +598,10 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   removeSpecialAction(specialAction: string) {
     gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction + '%');
-    if (specialAction === 'delayed_malady') {
-      this.character.tags = this.character.tags.filter((specialTag) => !specialTag.startsWith('delayed_malady'));
+
+    const action = this.character.specialActions.find(a => a.name === specialAction);
+    if (action && SpecialActionHelper.hasCounter(action)) {
+      this.character.tags = this.character.tags.filter((specialTag) => !specialTag.startsWith(`${specialAction}:`));
     } else {
       this.character.tags = this.character.tags.filter((specialTag) => specialTag !== specialAction);
     }

@@ -140,15 +140,15 @@ export class EntityMenuDialogComponent {
     if (this.data.figure instanceof Character && this.data.figure.specialActions && this.data.entity) {
       const entity = this.data.entity;
       this.data.figure.specialActions.forEach((specialAction) => {
-        const hasTag = specialAction.name == 'delayed_malady'
-          ? entity.tags.find(tag => tag.startsWith('delayed_malady'))
+        const hasTag = SpecialActionHelper.hasCounter(specialAction)
+          ? entity.tags.some(tag => tag.startsWith(`${specialAction.name}:`))
           : entity.tags.indexOf(specialAction.name) != -1;
 
         if (entity instanceof Character && !specialAction.summon && hasTag) {
-          if (specialAction.name == 'delayed_malady') {
-            const tagWithRounds = entity.tags.find(tag => tag.startsWith('delayed_malady'));
-            if (tagWithRounds) {
-              this.specialTags.push(tagWithRounds);
+          if (SpecialActionHelper.hasCounter(specialAction)) {
+            const tagWithValue = entity.tags.find(tag => tag.startsWith(`${specialAction.name}:`));
+            if (tagWithValue) {
+              this.specialTags.push(tagWithValue);
             }
           } else {
             this.specialTags.push(specialAction.name);
@@ -1037,7 +1037,7 @@ export class EntityMenuDialogComponent {
       const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => {
         if (this.data.figure instanceof Character && this.data.figure.specialActions) {
           const matchingAction = this.data.figure.specialActions.find((specialAction) => {
-            if (specialAction.name == 'delayed_malady' && specialTag.startsWith('delayed_malady')) {
+            if (SpecialActionHelper.hasCounter(specialAction) && specialTag.startsWith(`${specialAction.name}:`)) {
               return true;
             }
             return specialAction.name == specialTag;
@@ -1300,17 +1300,17 @@ export class EntityMenuDialogComponent {
         }
 
         const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => {
-        if (this.data.figure instanceof Character && this.data.figure.specialActions) {
-          const matchingAction = this.data.figure.specialActions.find((specialAction) => {
-            if (specialAction.name == 'delayed_malady' && specialTag.startsWith('delayed_malady')) {
-              return true;
-            }
-            return specialAction.name == specialTag;
-          });
-          return matchingAction != undefined && this.specialTags.indexOf(specialTag) == -1;
-        }
-        return false;
-      });
+          if (this.data.figure instanceof Character && this.data.figure.specialActions) {
+            const matchingAction = this.data.figure.specialActions.find((specialAction) => {
+              if (SpecialActionHelper.hasCounter(specialAction) && specialTag.startsWith(`${specialAction.name}:`)) {
+                return true;
+              }
+              return specialAction.name == specialTag;
+            });
+            return matchingAction != undefined && this.specialTags.indexOf(specialTag) == -1;
+          }
+          return false;
+        });
 
         if (specialTagsToTemove.length) {
           gameManager.stateManager.before("removeSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name);

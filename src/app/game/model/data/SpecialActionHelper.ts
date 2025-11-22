@@ -54,12 +54,12 @@ export class SpecialActionHelper {
     return `${action.name}:${config.initial}`;
   }
 
-  static hasActionProtection(entity: Entity, actionName: string): boolean {
+  static hasActiveSpecialAction(entity: Entity, actionName: string): boolean {
     if (!(entity instanceof Character)) {
       return false;
     }
 
-    return entity.tags.some((tag: string) => tag === actionName || tag.startsWith(`${actionName}:`));
+    return entity.tags.some(tag => tag === actionName || tag.startsWith(`${actionName}:`));
   }
 
   static decrementCounter(tags: string[], action: CharacterSpecialAction): boolean {
@@ -111,7 +111,7 @@ export class SpecialActionHelper {
 
     newValue = Math.max(config.min, Math.min(config.max, newValue));
 
-    if (newValue === 0 && config.removeOnZero || newValue < config.min) {
+    if (newValue === 0 && config.removeOnZero) {
       const index = tags.findIndex(t => t.startsWith(`${action.name}:`));
       if (index !== -1) {
         tags.splice(index, 1);
