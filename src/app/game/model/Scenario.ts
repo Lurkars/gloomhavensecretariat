@@ -9,6 +9,7 @@ export class Scenario extends ScenarioData {
   constructor(scenarioData: ScenarioData, revealedRooms: number[] = [], additionalSections: string[] = [], custom: boolean = false) {
     super(scenarioData);
     this.solo = scenarioData.solo;
+    this.spotlight = scenarioData.spotlight;
     this.revealedRooms = JSON.parse(JSON.stringify(revealedRooms));
     this.additionalSections = JSON.parse(JSON.stringify(additionalSections));
     if (scenarioData.rooms) {

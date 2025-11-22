@@ -67,6 +67,7 @@
     "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
     "bandit-scout-music-note2-solo": "%data.monster.bandit-scout%",
     "black-imp-deathwalker-solo": "Black Imp (Solo)",
+    "bug-body": "Bug-Body",
     "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
     "cave-bear-circles2-solo": "%data.monster.cave-bear%",
     "chief-of-spikes": "Chief of Spikes",
@@ -191,6 +192,12 @@
         "solo-97": "Battle of the Bards",
         "solo-98": "Corrupted Hunt",
         "solo-99": "Aftermath"
+      },
+      "mp": {
+        "solo-103": "A Harrowing Deal",
+        "solo-104": "Horns in the Night",
+        "solo-105": "Escape from Corruption",
+        "solo-106": "Major Annoyance"
       },
       "toa": {
         "solo-79": "Unsouled",
@@ -318,6 +325,16 @@
         "solo-98-3": "Corrupted Hunt",
         "solo-98-4": "Corrupted Hunt",
         "solo-99-1": "Aftermath"
+      },
+      "mp": {
+        "solo-103-1": "A Harrowing Deal",
+        "solo-103-2": "A Harrowing Deal",
+        "solo-104-1": "Horns in the Night",
+        "solo-104-2": "Horns in the Night",
+        "solo-104-3": "Horns in the Night",
+        "solo-105-1": "Escape from Corruption",
+        "solo-106-1": "Major Annoyance",
+        "solo-106-2": "Major Annoyance"
       },
       "toa": {
         "solo-36B": "Unsouled",

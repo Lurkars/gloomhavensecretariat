@@ -1,0 +1,21 @@
+{
+  "index": "105",
+  "group": "solo",
+  "name": "Escape from Corruption",
+  "edition": "mp",
+  "initial": true,
+  "solo": "cassandra",
+  "rewards": {
+    "items": [
+      "CSA",
+      "CSB"
+    ]
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

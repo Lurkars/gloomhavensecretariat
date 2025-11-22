@@ -9,6 +9,7 @@
       "91-1"
     ]
   ],
+  "resetRound": "visible",
   "monsters": [
     "inox-archer",
     "inox-guard"

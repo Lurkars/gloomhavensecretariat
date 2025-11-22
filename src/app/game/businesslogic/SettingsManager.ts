@@ -396,6 +396,7 @@ export class SettingsManager {
           value.additional = value.additional || false;
           value.extensions = value.extensions || [];
           value.newAmStyle = value.newAmStyle || false;
+          value.newItemStyle = value.newItemStyle || false;
           value.treasures = value.treasures || [];
           value.treasureOffset = value.treasureOffset || 0;
 

@@ -326,7 +326,7 @@ export class ScenarioManager {
           }
         }
 
-        if (gameManager.characterManager.characterCount() < 4 && !internal && !scenario.solo && gainRewards && (
+        if (gameManager.characterManager.characterCount() < 4 && !internal && (!scenario.solo || scenario.spotlight) && gainRewards && (
           (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('inspiration') == -1))) {
           this.game.party.inspiration += 4 - gameManager.characterManager.characterCount();
         }
@@ -489,15 +489,17 @@ export class ScenarioManager {
     }
 
     if (scenarioData.solo) {
-      gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character) {
-          if ((figure.name != scenarioData.solo || figure.edition != scenarioData.edition)) {
-            figure.absent = true;
-          } else {
-            figure.absent = false;
+      if (!scenarioData.spotlight) {
+        gameManager.game.figures.forEach((figure) => {
+          if (figure instanceof Character) {
+            if ((figure.name != scenarioData.solo || figure.edition != scenarioData.edition)) {
+              figure.absent = true;
+            } else {
+              figure.absent = false;
+            }
           }
-        }
-      });
+        });
+      }
 
       if (!gameManager.game.figures.some((figure) => figure instanceof Character && figure.name == scenarioData.solo && figure.edition == scenarioData.edition)) {
         const characterData = gameManager.charactersData().find((characterData) => characterData.name == scenarioData.solo && characterData.edition == scenarioData.edition);

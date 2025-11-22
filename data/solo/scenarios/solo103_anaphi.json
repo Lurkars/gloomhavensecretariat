@@ -1,0 +1,44 @@
+{
+  "index": "103",
+  "group": "solo",
+  "name": "A Harrowing Deal",
+  "edition": "mp",
+  "initial": true,
+  "solo": "anaphi",
+  "rewards": {
+    "items": [
+      "AN"
+    ]
+  },
+  "monsters": [
+    "bug-body",
+    "vermling-raider::jotl",
+    "vermling-scout::jotl"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bug-body",
+          "type": "boss"
+        },
+        {
+          "name": "vermling-raider::jotl",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-raider::jotl",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout::jotl",
+          "type": "elite"
+        }
+      ]
+    }
+  ],
+  "spotlight": true
+}

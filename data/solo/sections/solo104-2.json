@@ -1,0 +1,83 @@
+{
+  "index": "104-2",
+  "group": "solo",
+  "name": "Horns in the Night",
+  "edition": "mp",
+  "parent": "104",
+  "parentSections": [
+    [
+      "104-1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "algox-archer::fh",
+    "algox-icespeaker::fh",
+    "algox-scout::fh",
+    "city-guard::fh"
+  ],
+  "allies": [
+    "city-guard"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "city-guard",
+            "tags": [
+              "13E"
+            ]
+          },
+          "type": "gainCondition",
+          "value": "invisible"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-scout::fh",
+            "type": "normal"
+          },
+          "marker": "b",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer::fh",
+          "type": "normal"
+        },
+        {
+          "name": "algox-icespeaker::fh",
+          "type": "elite"
+        },
+        {
+          "name": "algox-scout::fh",
+          "type": "normal"
+        },
+        {
+          "name": "algox-scout::fh",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard::fh",
+          "type": "normal",
+          "tags": [
+            "13E"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -661,6 +661,10 @@
                     "default": false,
                     "type": "boolean"
                 },
+                "newItemStyle": {
+                    "default": false,
+                    "type": "boolean"
+                },
                 "scenarios": {
                     "items": {
                         "$ref": "#/definitions/ScenarioData"
@@ -1530,6 +1534,10 @@
                 },
                 "solo": {
                     "type": "string"
+                },
+                "spotlight": {
+                    "default": false,
+                    "type": "boolean"
                 },
                 "spoiler": {
                     "default": false,

@@ -45,6 +45,7 @@ export class EditionData implements Editional {
   extensions: string[] = [];
   extends: string[] = [];
   newAmStyle: boolean = false;
+  newItemStyle: boolean = false;
   campaign: CampaignData | undefined;
   treasures: string[] = [];
   treasureOffset: number = 0;

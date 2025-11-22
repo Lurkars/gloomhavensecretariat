@@ -49,6 +49,7 @@ export class ScenarioData implements Editional, Spoilable {
   complexity: number = 0;
   level: number | undefined;
   overlays: ScenarioOverlay[] = [];
+  spotlight: boolean = false;
 
   // from Editional
   edition: string = "";
@@ -97,6 +98,7 @@ export class ScenarioData implements Editional, Spoilable {
       this.complexity = scenarioData.complexity;
       this.level = scenarioData.level;
       this.overlays = scenarioData.overlays;
+      this.spotlight = scenarioData.spotlight;
     }
   }
 }
