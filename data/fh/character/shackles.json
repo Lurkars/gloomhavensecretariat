@@ -10,6 +10,11 @@
   ],
   "color": "#7476a7",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "delayed_malady"
+    }
+  ],
   "stats": [
     {
       "level": 1,

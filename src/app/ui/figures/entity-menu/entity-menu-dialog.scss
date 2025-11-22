@@ -651,6 +651,31 @@
           transform: scale(1);
         }
       }
+
+      .delayed-malady-counter {
+        display: inline-flex;
+        align-items: center;
+        gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+        .counter-button {
+          cursor: pointer;
+          padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+          font-weight: bold;
+          user-select: none;
+          min-width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+          text-align: center;
+          background-color: rgba(255, 255, 255, 0.2);
+          border-radius: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+          }
+
+          &:active {
+            background-color: rgba(255, 255, 255, 0.4);
+          }
+        }
+      }
     }
   }
 

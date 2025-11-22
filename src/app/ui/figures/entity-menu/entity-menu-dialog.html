@@ -676,10 +676,23 @@
       specialAction.summon)) { <div class="hint-container">
       <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
       <span class="hint-trigger special-action text-white"
-        [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}" tabclick
+        [ngClass]="{'active-tag' : isSpecialActionActive(specialAction.name)}" tabclick
         (click)="applySpecialAction(specialAction)">
         <span
           [ghs-label]="'data.character.' + data.figure.edition + '.' + data.figure.name + '.' + specialAction.name"></span>
+        @if (specialAction.name == 'delayed_malady' && isSpecialActionActive(specialAction.name)) {
+          @for (tag of specialTags; track tag) {
+            @if (tag.startsWith('delayed_malady:')) {
+              <span class="delayed-malady-counter">
+                &nbsp;(
+                <span class="counter-button" (click)="changeDelayedMaladyCounter(-1, $event)">-</span>
+                {{ tag.split(':')[1] }}
+                <span class="counter-button" (click)="changeDelayedMaladyCounter(1, $event)">+</span>
+                )
+              </span>
+            }
+          }
+        }
       </span>
       <span class="hint above center">
         <div class="text">
