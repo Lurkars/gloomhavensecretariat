@@ -107,7 +107,6 @@ export class RoundManager {
       this.game.state = GameState.next;
       this.game.round++;
 
-      // Clear roundAction tags at the start of each new round
       this.game.figures.forEach((figure) => {
         if (figure instanceof Character || figure instanceof Monster) {
           figure.tags = figure.tags.filter((tag) => !tag.startsWith('roundAction-'));

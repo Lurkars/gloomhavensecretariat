@@ -139,7 +139,6 @@ export class EntityMenuDialogComponent {
     if (this.data.figure instanceof Character && this.data.figure.specialActions && this.data.entity) {
       const entity = this.data.entity;
       this.data.figure.specialActions.forEach((specialAction) => {
-        // Special handling for delayed_malady which stores rounds as suffix
         const hasTag = specialAction.name == 'delayed_malady'
           ? entity.tags.find(tag => tag.startsWith('delayed_malady'))
           : entity.tags.indexOf(specialAction.name) != -1;
@@ -1041,7 +1040,6 @@ export class EntityMenuDialogComponent {
       const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => {
         if (this.data.figure instanceof Character && this.data.figure.specialActions) {
           const matchingAction = this.data.figure.specialActions.find((specialAction) => {
-            // Handle delayed_malady with round suffix
             if (specialAction.name == 'delayed_malady' && specialTag.startsWith('delayed_malady')) {
               return true;
             }
@@ -1307,7 +1305,6 @@ export class EntityMenuDialogComponent {
         const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => {
         if (this.data.figure instanceof Character && this.data.figure.specialActions) {
           const matchingAction = this.data.figure.specialActions.find((specialAction) => {
-            // Handle delayed_malady with round suffix
             if (specialAction.name == 'delayed_malady' && specialTag.startsWith('delayed_malady')) {
               return true;
             }

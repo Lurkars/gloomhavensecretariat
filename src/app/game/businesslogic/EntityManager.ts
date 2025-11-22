@@ -181,7 +181,12 @@ export class EntityManager {
       }
 
       if (entity.health + value > entity.health) {
-        const clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.expired && !this.isImmune(entity, figure, condition.name));
+        const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+        const clearHeal = entity.entityConditions.find((condition) => {
+          const isNegative = condition.types.indexOf(ConditionType.negative) !== -1;
+          const isBlockedByDelayedMalady = hasDelayedMalady && isNegative;
+          return condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.expired && !this.isImmune(entity, figure, condition.name) && !isBlockedByDelayedMalady;
+        });
         let heal = entity.entityConditions.find((condition) => condition.name == ConditionName.heal);
         if ((clearHeal) && (!heal || heal.expired || !heal.highlight)) {
           if (!heal) {
@@ -202,6 +207,8 @@ export class EntityManager {
 
   sufferDamageHighlightConditions(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
     if (settingsManager.settings.applyConditions) {
+      const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+
       if (value < 0 && !damageOnly) {
         let shieldValue = 0;
         [ConditionName.retaliate, ConditionName.shield].forEach((shieldRetaliateCondition) => {
@@ -241,7 +248,7 @@ export class EntityManager {
         })
 
         entity.entityConditions.filter((entityCondition) => entityCondition.name == ConditionName.poison || entityCondition.name == ConditionName.poison_x).forEach((entityCondition) => {
-          if (value < 0 && !entityCondition.expired && entityCondition.state != EntityConditionState.new && (entity.health + value > -shieldValue) && !this.isImmune(entity, figure, entityCondition.name)) {
+          if (value < 0 && !entityCondition.expired && entityCondition.state != EntityConditionState.new && (entity.health + value > -shieldValue) && !this.isImmune(entity, figure, entityCondition.name) && !hasDelayedMalady) {
             entityCondition.highlight = true;
           } else {
             entityCondition.highlight = false;
@@ -266,7 +273,7 @@ export class EntityManager {
         ward.highlight = false;
       }
 
-      if (brittle && !ward && value < 0 && (entity.health + value > 0)) {
+      if (brittle && !ward && value < 0 && (entity.health + value > 0) && !hasDelayedMalady) {
         brittle.value = value * -1;
         brittle.highlight = true;
 
@@ -608,28 +615,23 @@ export class EntityManager {
 
   expireConditions(entity: Entity, figure: Figure) {
     const hasDelayedMalady = entity instanceof Character && entity.tags.some(tag => tag.startsWith('delayed_malady:'));
+    let negativeCondition = false;
 
     entity.entityConditions.forEach((entityCondition) => {
+      const isNegative = entityCondition.types.indexOf(ConditionType.negative) !== -1;
+
       if (entityCondition.name == ConditionName.chill) {
-        const isNegative = entityCondition.types.indexOf(ConditionType.negative) !== -1;
         if (entityCondition.value == 1 && !entityCondition.permanent && !(hasDelayedMalady && isNegative)) {
           entityCondition.expired = true;
         } else {
           entityCondition.value--;
         }
       }
-    })
 
-    let negativeCondition = false;
-
-    entity.entityConditions.forEach((entityCondition) => {
       if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
-        const isNegative = entityCondition.types.indexOf(ConditionType.negative) !== -1;
         if (entityCondition.state == EntityConditionState.expire && !entityCondition.permanent && !(hasDelayedMalady && isNegative)) {
           entityCondition.expired = true;
-          if (isNegative) {
-            negativeCondition = true;
-          }
+          negativeCondition = negativeCondition || isNegative;
         }
       }
     })
