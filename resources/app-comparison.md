@@ -55,6 +55,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Jaws Of The Lion                                                                | ✅            | ✅         | ⛔        | ✅        | ✅       |
 | Frosthaven                                                                      | ✅            | ✅         | ✅        | ✅        | ⛔       |
 | Gloomhaven 2nd Edition                                                          | ✅❗[^3.2]     | ✅❗[^3.3]  | ⛔        | ✅❗[^3.4] | ⛔       |
+| Mercenary Packs                                                                 | ✅ [^3]       | ✅         | ⛔        | ✅        | ⛔       |
 | Button & Bugs                                                                   | ✅            | ✅[^2.2]   | ⛔        | ⛔        | ⛔       |
 | The Crimson Scales                                                              | ✅[^2.1]      | ✅         | ⛔        | ✅        | ⛔       |
 | Trail Of Ashes                                                                  | ✅[^2.1]      | ✅         | ⛔        | ✅        | ⛔       |
