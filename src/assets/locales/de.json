@@ -1252,9 +1252,9 @@
       "alliesRangeAffect": "%game.affect% alle Verbündeten in %game.action.range% {0} an",
       "ally": "%game.target% 1 Verbündeten",
       "allyAdjacent": "%game.target% einen angrenzenden Verbündeten an",
-      "allyAffect": "%game.affect% irgendeinen Verbündeten an",
-      "allyAffectAdjacent": "%game.affect% einen angrenzenden Verbündeten an",
-      "allyAffectRange": "%game.affect% einen Verbündeten in %game.action.range% {0}an",
+      "allyAffect": "%game.affect% irgendeinen Verbündeten",
+      "allyAffectAdjacent": "%game.affect% einen angrenzenden Verbündeten",
+      "allyAffectRange": "%game.affect% einen Verbündeten in %game.action.range% {0}",
       "allyShort": "Verbündeter",
       "enemies": "%game.target% alle Gegner an",
       "enemiesAdjacent": "%game.target% alle angrenzenden Gegner",
@@ -1267,6 +1267,7 @@
       "enemy": "%game.target% einen Gegner an",
       "enemyAdjacent": "%game.target% einen angrenzenden Gegner an",
       "enemyAllyRange": "%game.target% einen Gegner oder %game.affect% einen Verbündeten in %game.action.range% {0} an",
+      "enemyAttacked": "%game.target% der Gegner der dich angegriffen hat",
       "enemyOneAll": "%game.target% 1 Gegner mit allen Angriffen",
       "enemyRange": "%game.target% einen Gegner genau in %game.action.range% {0} an",
       "figures": "%game.target% alle Figuren an",
@@ -2573,6 +2574,14 @@
     "dragValues": {
       "": "Initiative/TP/XP/Beute ziehen",
       "hint": "Cursor Ziehen(Wischen) um Werte zu ändern. Um die Initiative zu ändern, ziehe über das Charakter Portrait. Für Trefferpunkte, Erfahrung und Beute über die entsprechenden Werte"
+    },
+    "drawRandomItem": {
+      "": "Ziehe eine zufällige Gegenstandsbelohnung",
+      "hint": "Ziehe automatisch eine zufällige Gegenstandskarte."
+    },
+    "drawRandomScenario": {
+      "": "Ziehe eine zufällige Szenariobelohnung.",
+      "hint": "Ziehe automatisch ein zufälliges Szenario."
     },
     "eliteFirst": {
       "": "Elite Aufsteller zuerst",
