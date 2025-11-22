@@ -13,6 +13,7 @@
   "specialActions": [
     {
       "name": "delayed_malady",
+      "expire": true,
       "counter": {
         "initial": 5,
         "min": 1,

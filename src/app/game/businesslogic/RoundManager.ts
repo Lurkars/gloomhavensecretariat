@@ -688,7 +688,17 @@ export class RoundManager {
           figure.progress.gold = 0;
         }
 
-        figure.tags = figure.tags.filter((tag) => tag != 'new-character' && !figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.expire));
+        figure.tags = figure.tags.filter((tag) => {
+          if (tag === 'new-character') return false;
+
+          if (tag.startsWith('roundAction-')) return false;
+
+          const matchingAction = figure.specialActions.find((specialAction) => {
+            return (specialAction.name === tag || tag.startsWith(`${specialAction.name}:`)) && specialAction.expire;
+          });
+
+          return !matchingAction;
+        });
 
         if (figure.defaultIdentity != undefined) {
           figure.identity = figure.defaultIdentity;

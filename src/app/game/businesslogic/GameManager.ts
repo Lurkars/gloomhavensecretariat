@@ -786,19 +786,7 @@ export class GameManager {
 
   additionalIdentifier(figure: Figure, entity: Entity | undefined = undefined): AdditionalIdentifier {
     if (figure instanceof Character) {
-      // Exclude transient special action tags (with counters) and round action markers from entity counting
-      const persistentTags = figure.tags.filter(tag => {
-        // Exclude roundAction- markers
-        if (tag.startsWith('roundAction-')) {
-          return false;
-        }
-        // Exclude special action tags with counter values (e.g., "delayed_malady:4")
-        if (figure.specialActions.some(action => tag.startsWith(`${action.name}:`))) {
-          return false;
-        }
-        return true;
-      });
-      return new AdditionalIdentifier(figure.name, figure.edition, "character", undefined, persistentTags);
+      return new AdditionalIdentifier(figure.name, figure.edition, "character", undefined, figure.tags);
     } else if (figure instanceof Monster) {
       if (entity instanceof MonsterEntity) {
         return new AdditionalIdentifier(figure.name, figure.edition, "monster", entity.marker, entity.tags);
@@ -847,21 +835,6 @@ export class GameManager {
   }
 
   checkEntitiesKilled() {
-    // Clean up old character counters that have tags (from before the fix)
-    // Keep only counters with empty/no tags for characters
-    const oldCountersRemoved = this.game.entitiesCounter.filter(c =>
-      c.identifier.type === 'character' && c.identifier.tags && c.identifier.tags.length > 0
-    );
-
-    if (oldCountersRemoved.length > 0) {
-      console.log(`Removing ${oldCountersRemoved.length} old character counters with tags:`,
-        oldCountersRemoved.map(c => ({name: c.identifier.name, tags: c.identifier.tags})));
-
-      this.game.entitiesCounter = this.game.entitiesCounter.filter(c =>
-        c.identifier.type !== 'character' || !c.identifier.tags || c.identifier.tags.length === 0
-      );
-    }
-
     this.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
         if (!this.entityCounter(this.additionalIdentifier(figure))) {
