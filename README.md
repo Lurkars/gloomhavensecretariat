@@ -157,7 +157,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-lightning.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Blood Pact: Summer 1 damage at the start of each of your turns 
+      > Blood Pact: Suffer 1 damage at the start of each of your turns 
 
       > Unbridled Power: Enable overhealing up to 26 HP
       

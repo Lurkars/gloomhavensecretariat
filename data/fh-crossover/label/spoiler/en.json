@@ -17,7 +17,7 @@
         },
         "unbridled-power": {
           "": "Unbridled Power",
-          "hint": "You may overheal to a maximum of 26 hit points, but your maximum hit point value."
+          "hint": "You may overheal to a maximum of 26 hit points, but your maximum hit point value remains the same for the purpose of all ability effects."
         }
       },
       "music-note": {

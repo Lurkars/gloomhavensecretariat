@@ -10,6 +10,10 @@
         "long_rest_heal": {
           "": "Perk 9",
           "hint": "%data.custom.gh2e.lightning.3%"
+        },
+        "blood-pact": {
+          "": "Blood Pact",
+          "hint": "Suffer %game.damage:1% at the start of each of your turns."
         }
       },
       "music-note": "Soothsinger",

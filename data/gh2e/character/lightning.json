@@ -18,6 +18,10 @@
     {
       "name": "long_rest_heal",
       "perk": 9
+    },
+    {
+      "name": "blood-pact",
+      "expire": true
     }
   ],
   "stats": [
