@@ -13,7 +13,7 @@
         },
         "blood-pact": {
           "": "Blood Pact",
-          "hint": "Suffer %game.damage:1% at the start of each of your turns."
+          "hint": "At the start of each of your turns, if your current hit point value is greater than 1, suffer %game.damage:1%."
         }
       },
       "music-note": "Soothsinger",
