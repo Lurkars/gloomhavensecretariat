@@ -7,7 +7,7 @@
   "monsters": [
     "crystal-rot",
     "living-corpse",
-    "living-spirit"
+    "living-bones"
   ],
   "rooms": [
     {
@@ -38,16 +38,16 @@
           "player4": "normal"
         },
         {
-          "name": "living-spirit",
+          "name": "living-bones",
           "type": "normal"
         },
         {
-          "name": "living-spirit",
+          "name": "living-bones",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "living-spirit",
+          "name": "living-bones",
           "player3": "normal",
           "player4": "elite"
         }
