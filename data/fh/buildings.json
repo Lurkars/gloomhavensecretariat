@@ -75,7 +75,8 @@
                 "prosperity": 1
             },
             {
-                "prosperity": 1
+                "prosperity": 1,
+                "loseMorale": 1
             }
         ],
         "prosperityUnlock": true,
