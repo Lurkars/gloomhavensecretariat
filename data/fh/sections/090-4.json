@@ -54,12 +54,14 @@
       "monster": [
         {
           "name": "harrower-infester",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "harrower-infester",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "shrike-fiend",

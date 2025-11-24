@@ -6,8 +6,8 @@
   "marker": "1",
   "monsters": [
     "crystal-rot",
-    "living-corpse",
-    "living-bones"
+    "living-bones",
+    "living-corpse"
   ],
   "rooms": [
     {
@@ -20,6 +20,20 @@
         {
           "name": "crystal-rot",
           "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "living-corpse",
@@ -36,20 +50,6 @@
         {
           "name": "living-corpse",
           "player4": "normal"
-        },
-        {
-          "name": "living-bones",
-          "type": "normal"
-        },
-        {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "elite"
         }
       ]
     }

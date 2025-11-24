@@ -54,7 +54,10 @@ export class EventCardComponent implements OnInit, OnChanges {
                 }
             })
             this.noLabel = this.event.options.every((o) => !o.label);
-
+            const model = gameManager.game.party.eventCards.find((id => this.event && id.cardId == this.event.cardId && id.type == this.event.type && id.edition == this.event.edition));
+            if (model) {
+                this.checks = model.checks;
+            }
         }
         this.spoilerFree = this.spoiler;
         this.selected = this.select;
@@ -149,6 +152,13 @@ export class EventCardComponent implements OnInit, OnChanges {
         }
         if (event) {
             event.preventDefault();
+        }
+    }
+
+    onCheck(index: number, checks: number) {
+        this.checks[index] = checks;
+        if (this.event) {
+            this.onSelect.emit(new EventCardIdentifier(this.event.cardId, this.event.edition, this.event.type, this.selected, this.subSelections, this.checks, this.attack, false));
         }
     }
 

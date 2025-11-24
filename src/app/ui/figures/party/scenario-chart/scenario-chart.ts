@@ -44,7 +44,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         if (!this.mermaid) {
             const mermaidModule = await import('mermaid');
             this.mermaid = mermaidModule.default;
-            
+
             this.mermaid.initialize({
                 startOnLoad: false,
                 flowchart: {
@@ -72,7 +72,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 logLevel: 5
             });
         }
-        
+
         this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.updateMap() });
         this.update();
     }
@@ -338,6 +338,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         const overlay = L.svgOverlay(svgElement, [[height + offsetY, offsetX], [offsetY, width + offsetX]], { interactive: true });
 
         svgElement.addEventListener('pointerdown', (event) => {
+            if (event.pointerType === 'mouse' && event.button !== 0) return;
             let element = (event.target as HTMLElement);
             if (element.tagName.toUpperCase() == 'P' && element.parentElement) {
                 element = element.parentElement;

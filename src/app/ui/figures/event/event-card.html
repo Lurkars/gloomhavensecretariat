@@ -78,7 +78,8 @@
               <ghs-event-card-effect [effect]="effect" [edition]="event.edition" [eventType]="event.type"
                 [light]="light"
                 [selected]="selected == -1 && flipped || selected == i && subSelections.indexOf(outcomeIndex) != -1"
-                [inline]="outcome.inlineEffects || false" [debug]="debug"></ghs-event-card-effect>
+                [inline]="outcome.inlineEffects || false" [checks]="checks[i] || 0" (onCheck)="onCheck(i,$event)"
+                [debug]="debug"></ghs-event-card-effect>
               }
             </div>
             }

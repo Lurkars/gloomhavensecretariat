@@ -65,8 +65,11 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
     if (gameManager.game.edition) {
       this.editions = [gameManager.game.edition, ...gameManager.editionExtensions(gameManager.game.edition), ...gameManager.editionScenarioExtensions(gameManager.game.edition)];
     } else {
-      this.editions = gameManager.editionData.filter((editionData) => editionData.scenarios && editionData.scenarios.filter((scenarioData) => scenarioData.edition == editionData.edition && settingsManager.settings.editions.indexOf(scenarioData.edition) != -1).length > 0).map((editionData) => editionData.edition);
+      this.editions = gameManager.editionData.map((editionData) => editionData.edition);
     }
+
+    this.editions = this.editions.filter((edition) => gameManager.scenarioManager.scenarioData(edition).length > 0 && settingsManager.settings.editions.indexOf(edition) != -1);
+
     this.hasRandom = this.edition && gameManager.sectionData(this.edition).find((sectionData) => sectionData.group == 'randomMonsterCard') != undefined || false;
   }
 
