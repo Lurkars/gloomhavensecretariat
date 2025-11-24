@@ -376,7 +376,9 @@ export class RoundManager {
           });
 
           if (figure.name == 'lightning' && figure.tags.indexOf('blood-pact') != -1) {
-            figure.health -= 1;
+            if (!(figure.edition == 'gh2e' && figure.health <= 1)) {
+              figure.health -= 1;
+            }
             gameManager.entityManager.checkHealth(figure, figure);
           }
         }
@@ -392,7 +394,9 @@ export class RoundManager {
         })
 
         if (figure.name == 'lightning' && figure.tags.indexOf('blood-pact') != -1) {
-          figure.health -= 1;
+          if (!(figure.edition == 'gh2e' && figure.health <= 1)) {
+            figure.health -= 1;
+          }
           gameManager.entityManager.checkHealth(figure, figure);
         }
       }
