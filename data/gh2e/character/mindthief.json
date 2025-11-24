@@ -164,7 +164,7 @@
         {
           "count": 2,
           "attackModifier": {
-            "type": "plus0",
+            "type": "plus1",
             "effects": [
               {
                 "type": "condition",
