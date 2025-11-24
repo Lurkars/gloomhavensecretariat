@@ -251,10 +251,10 @@
     "remove": "캐릭터 제거",
     "removeAll": "전부 제거",
     "replay": {
-      "": "은퇴 취소",
+      "": "캐릭터 다시 플레이하기",
       "hint": "두 번 클릭하여 캐릭터를 다시 플레이"
     },
-    "setAside": "캐릭터를 치워두기로 설정",
+    "setAside": "캐릭터 치워두기",
     "summon": {
       "action": {
         "": "%game.action.summon% %data.summon.{0}%",
