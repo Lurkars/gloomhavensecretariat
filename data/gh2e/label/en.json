@@ -1,242 +1,242 @@
 {
   "battleGoals": {
-    "1301": {
+    "1016": {
       "": "Accountant",
       "text": "Have zero cards in your hand each time you rest."
     },
-    "1302": {
+    "1017": {
       "": "Acrobat",
       "text": "Lose a card to negate suffering 5 or more damage."
     },
-    "1303": {
+    "1018": {
       "": "Ascetic",
       "text": "Collect fewer loot tokens than any other character."
     },
-    "1304": {
+    "1019": {
       "": "Assistant",
       "text": "Kill an enemy attacked by any of your allies earlier in the same round."
     },
-    "1305": {
+    "1020": {
       "": "Bastion",
       "text": "Occupy a door hex adjacent to two or more enemies at the end of a round."
     },
-    "1306": {
+    "1021": {
       "": "Bully",
       "text": "Kill an enemy that has two or more negative conditions."
     },
-    "1307": {
+    "1022": {
       "": "Cleaner",
       "text": "Collect three or more loot tokens in the same turn."
     },
-    "1308": {
+    "1023": {
       "": "Closer",
       "text": "Kill the last enemy to die in the scenario."
     },
-    "1309": {
+    "1024": {
       "": "Conservator",
       "text": "Never perform an action with a lost icon."
     },
-    "1310": {
+    "1025": {
       "": "Diehard",
       "text": "Never have your hit point value drop below half your maximum hit point value (rounded up)."
     },
-    "1311": {
+    "1026": {
       "": "Dynamo",
       "text": "Kill an enemy with an attack that would have caused at least 4 more points of damage than necessary."
     },
-    "1312": {
+    "1027": {
       "": "Egoist",
       "text": "Collect more loot tokens than any other character."
     },
-    "1313": {
+    "1028": {
       "": "Executioner",
       "text": "Kill an undamaged enemy with a single attack action."
     },
-    "1314": {
+    "1029": {
       "": "Gambler",
       "text": "Kill an enemy with an attack that has disadvantage."
     },
-    "1315": {
+    "1030": {
       "": "Hunter",
       "text": "Kill one or more elite enemies, or two or more for four characters."
     },
-    "1316": {
+    "1031": {
       "": "Insomniac",
       "text": "Suffer damage from an attack in the same round you long rest."
     },
-    "1317": {
+    "1032": {
       "": "Masochist",
       "text": "End the scenario with a hit point value of 3 or less."
     },
-    "1318": {
+    "1033": {
       "": "Mugger",
       "text": "Kill an enemy and loot the loot token it drops in the same round."
     },
-    "1319": {
+    "1034": {
       "": "Opener",
       "text": "Kill the first enemy to die in the scenario."
     },
-    "1320": {
+    "1035": {
       "": "Optimist",
       "text": "Remove a negative condition from yourself or an ally two or more times."
     },
-    "1321": {
+    "1036": {
       "": "Pacifist",
       "text": "Kill three or fewer enemies."
     },
-    "1322": {
+    "1037": {
       "": "Pauper",
       "text": "Never collect a loot token from end-of-turn looting."
     },
-    "1323": {
+    "1038": {
       "": "Pedestrian",
       "text": "Never enter a hex occupied by an ally, enemy, objective, or obstacle."
     },
-    "1324": {
+    "1039": {
       "": "Perfectionist",
       "text": "End the scenario with your hit point value equal to your maximum hit point value."
     },
-    "1325": {
+    "1040": {
       "": "Pickpocket",
       "text": "Collect two or more loot tokens by performing a loot ability while adjacent to one or more enemies."
     },
-    "1326": {
+    "1041": {
       "": "Pincushion",
       "text": "Be targeted by attacks from three or more enemies in the same round."
     },
-    "1327": {
+    "1042": {
       "": "Plebeian",
       "text": "Never kill an elite enemy, named enemy or boss."
     },
-    "1328": {
+    "1043": {
       "": "Prohibitionist",
       "text": "Never use a potion."
     },
-    "1329": {
+    "1044": {
       "": "Promoter",
       "text": "Perform an ability targeting an ally before your first rest and in between each of your rests."
     },
-    "1330": {
+    "1045": {
       "": "Rambler",
       "text": "End no more than three of your turns in the hex in which you started the turn, except when long resting."
     },
-    "1331": {
+    "1046": {
       "": "Ravager",
       "text": "Perform two actions with lost icons in the same turn."
     },
-    "1332": {
+    "1047": {
       "": "Recluse",
       "text": "Never end your turn adjacent to any other character (gain one additional %game.checkmark% for four characters)."
     },
-    "1333": {
+    "1048": {
       "": "Ritualist",
       "text": "Kill an enemy while three or more elements are strong or waning."
     },
-    "1334": {
+    "1049": {
       "": "Sadist",
       "text": "Kill five or more enemies."
     },
-    "1335": {
+    "1050": {
       "": "Scrambler",
       "text": "Never long rest."
     },
-    "1336": {
+    "1051": {
       "": "Shirker",
       "text": "Kill an enemy not adjacent to you while you are adjacent to another enemy."
     },
-    "1337": {
+    "1052": {
       "": "Sleeper",
       "text": "Have one or more cards in your hand each time you rest."
     },
-    "1338": {
+    "1053": {
       "": "Sluggard",
       "text": "Perform a long rest while at your maximum hit point value, after you have already suffered damage."
     },
-    "1339": {
+    "1054": {
       "": "Straggler",
       "text": "Never short rest."
     },
-    "1340": {
+    "1055": {
       "": "Streamliner",
       "text": "Have five or more total cards in your hand and discard pile at the end of the scenario."
     },
-    "1341": {
+    "1056": {
       "": "Tormentor",
       "text": "Apply a different negative condition to an enemy that already has one or more negative conditions."
     },
-    "1342": {
+    "1057": {
       "": "Wastrel",
       "text": "Lose a card to negate 2 or less damage from an attack."
     },
-    "1343": {
+    "1058": {
       "": "Weakling",
       "text": "Become exhausted before any other character."
     },
-    "1344": {
+    "1059": {
       "": "Workhorse",
       "text": "Gain 13 or more experience before any bonus scenario experience."
     },
-    "1345": {
+    "1060": {
       "": "Zealot",
       "text": "Have three or fewer total cards in your hand and discard pile while also not exhausted at the end of the scenario."
     },
-    "1346": {
+    "1061": {
       "": "Assassin",
       "text": "Kill an enemy before it takes its first turn."
     },
-    "1347": {
+    "1062": {
       "": "Daredevil",
       "text": "Add two cards to your lost pile before your first rest."
     },
-    "1348": {
+    "1063": {
       "": "Dawdler",
       "text": "Never use your lowest initiative played card as your initiative card."
     },
-    "1349": {
+    "1064": {
       "": "Duelist",
       "text": "Never exit a hex adjacent to an enemy except through forced movement."
     },
-    "1350": {
+    "1065": {
       "": "Exterminator",
       "text": "Kill one or more enemies of each monster type that appears in the scenario."
     },
-    "1351": {
+    "1066": {
       "": "Layabout",
       "text": "Gain 7 or fewer experience before any bonus scenario experience."
     },
-    "1352": {
+    "1067": {
       "": "Miser",
       "text": "Never exit a room with loot tokens in it."
     },
-    "1353": {
+    "1068": {
       "": "Overachiever",
       "text": "Kill an enemy and open a door in the same turn, in either order."
     },
-    "1354": {
+    "1069": {
       "": "Peacemonger",
       "text": "Never kill an enemy."
     },
-    "1355": {
+    "1070": {
       "": "Prepper",
       "text": "Perform no attack abilities in the first three rounds."
     },
-    "1356": {
+    "1071": {
       "": "Slayer",
       "text": "Kill two or more enemies in the same round."
     },
-    "1357": {
+    "1072": {
       "": "Slowpoke",
       "text": "Move no more than two hexes on each turn."
     },
-    "1358": {
+    "1073": {
       "": "Specialist",
       "text": "Never perform a basic action."
     },
-    "1359": {
+    "1074": {
       "": "Vanguard",
       "text": "Never attack an enemy that has already acted in the round."
     },
-    "1360": {
+    "1075": {
       "": "Wallflower",
       "text": "End each of your turns adjacent to a wall, obstacle, or objective."
     }
