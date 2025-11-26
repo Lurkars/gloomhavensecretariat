@@ -14,7 +14,32 @@
     ]
   },
   "monsters": [
-    "living-corpse"
+    "cultist",
+    "living-corpse:+1"
+  ],
+  "rules": [
+    {
+      "round": "R == 2 || R == 5 || R == 8 || R == 11",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "cultist",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "cultist",
+            "player4": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -25,24 +50,24 @@
       ],
       "monster": [
         {
-          "name": "living-corpse",
+          "name": "living-corpse:+1",
           "type": "normal"
         },
         {
-          "name": "living-corpse",
+          "name": "living-corpse:+1",
           "type": "normal"
         },
         {
-          "name": "living-corpse",
+          "name": "living-corpse:+1",
           "type": "elite"
         },
         {
-          "name": "living-corpse",
+          "name": "living-corpse:+1",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "living-corpse",
+          "name": "living-corpse:+1",
           "player4": "elite"
         }
       ]
