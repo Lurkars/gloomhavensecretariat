@@ -3,6 +3,7 @@
   "name": "Savvas Armory",
   "edition": "gh2e",
   "parent": "32",
+  "marker": "2",
   "monsters": [
     "earth-demon",
     "flame-demon",
