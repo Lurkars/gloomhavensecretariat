@@ -3,6 +3,7 @@
   "name": "Ritual Chamber",
   "edition": "gh2e",
   "parent": "11",
+  "marker": "1",
   "monsters": [
     "night-demon"
   ],

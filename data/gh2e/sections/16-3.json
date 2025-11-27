@@ -1,0 +1,10 @@
+{
+  "index": "16.3",
+  "edition": "gh2e",
+  "parent": "32",
+  "conclusion": true,
+  "rewards": {
+    "gold": 15
+  },
+  "monsters": []
+}

@@ -5,6 +5,20 @@
   "monsters": [
     "bloated-victim"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "gh2e",
+          "scenario": "74.2",
+          "index": 0,
+          "section": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 3,

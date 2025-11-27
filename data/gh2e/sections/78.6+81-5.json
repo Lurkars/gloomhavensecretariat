@@ -1,8 +1,11 @@
 {
-  "index": "78.6",
+  "index": "78.6 and 81.5",
   "edition": "gh2e",
   "parent": "32",
   "conclusion": true,
+  "unlocks": [
+    "33"
+  ],
   "blocks": [
     "29"
   ],
