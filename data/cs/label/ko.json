@@ -1,5 +1,6 @@
 {
   "ability": {
+    "Absolute Magnitude": "Absolute Magnitude",
     "Absorbing Light": "빛을 흡수하다",
     "Acquire Funding": "자금 조달",
     "Advanced Research": "고급 연구",
@@ -14,7 +15,6 @@
     "Anti-Venom": "Anti-Venom",
     "Antibiotic Boost": "Antibiotic Boost",
     "Anticoagulant": "Anticoagulant",
-    "Absolute Magnitude": "Absolute Magnitude",
     "Aspiration": "Aspiration",
     "Assimilate Adoersaries": "Assimilate Adoersaries",
     "Astronomical Strike": "Astronomical Strike",
@@ -422,6 +422,14 @@
     "Wistling Winds": "Wistling Winds",
     "Withering Deluge": "Withering Deluge",
     "Wrapped in Metal": "Wrapped in Metal"
+  },
+  "custom": {
+    "cs": {
+      "flowChartGroup": {
+        "city-events": "도시 이벤트",
+        "road-events": "여로 이벤트"
+      }
+    }
   },
   "edition": {
     "cs": "크림슨 스케일"
