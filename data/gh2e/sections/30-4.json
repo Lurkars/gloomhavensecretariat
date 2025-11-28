@@ -3,6 +3,7 @@
   "name": "Ritual Chamber",
   "edition": "gh2e",
   "parent": "11",
+  "marker": "2",
   "monsters": [
     "sun-demon"
   ],
@@ -23,6 +24,10 @@
           "name": "sun-demon",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player4": "normal"
         }
       ]
     }
