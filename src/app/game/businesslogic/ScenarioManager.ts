@@ -818,21 +818,11 @@ export class ScenarioManager {
   }
 
   isBlocked(scenarioData: ScenarioData): boolean {
-    let blocked = false;
+    const finishedScenarios = this.game.party.scenarios.filter((model) => model.edition == scenarioData.edition && model.group == scenarioData.group).map((model) => this.getScenario(model.index, model.edition, model.group));
 
-    let finishedScenarios = gameManager.scenarioData().filter((other) => (scenarioData.edition == other.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(other.edition) != -1) && other.group == scenarioData.group && other.blocks && other.blocks.indexOf(scenarioData.index) != -1 && this.isSuccess(other));
+    const finishedConclusions = this.game.party.conclusions.filter((model) => model.edition == scenarioData.edition && model.group == scenarioData.group).map((model) => this.getSection(model.index, model.edition, model.group, true));
 
-    if (finishedScenarios.length > 1) {
-      finishedScenarios.filter((model) => model.group == scenarioData.group);
-    }
-
-    if (finishedScenarios.length > 1) {
-      finishedScenarios.filter((model) => model.edition == scenarioData.edition);
-    }
-
-    blocked = finishedScenarios.length > 0;
-
-    return blocked && this.game.party.campaignMode;
+    return finishedScenarios.some((other) => other && other.blocks && other.blocks.indexOf(scenarioData.index) != -1 && this.isSuccess(other)) || finishedConclusions.some((other) => other && other.blocks && other.blocks.indexOf(scenarioData.index) != -1);
   }
 
   isLocked(scenarioData: ScenarioData): boolean {

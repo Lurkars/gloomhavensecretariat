@@ -58,7 +58,7 @@ export class BuildingUpgradeDialog implements OnInit {
             let discountFree = this.discount;
 
             // lumber
-            this.fhSupportSpent.lumber = this.costs.lumber - (discountFree ? 1 : 0);
+            this.fhSupportSpent.lumber = Math.max(0, this.costs.lumber - (discountFree ? 1 : 0));
             discountFree = false;
             if (this.fhSupportSpent.lumber > (gameManager.game.party.loot[LootType.lumber] || 0)) {
                 this.fhSupportSpent.lumber = (gameManager.game.party.loot[LootType.lumber] || 0);
@@ -68,7 +68,7 @@ export class BuildingUpgradeDialog implements OnInit {
             this.paidResources += this.fhSupportSpent.lumber;
 
             // metal
-            this.fhSupportSpent.metal = this.costs.metal - (discountFree ? 1 : 0);
+            this.fhSupportSpent.metal = Math.max(0, this.costs.metal - (discountFree ? 1 : 0));
             discountFree = false;
             if (this.fhSupportSpent.metal > (gameManager.game.party.loot[LootType.metal] || 0)) {
                 this.fhSupportSpent.metal = (gameManager.game.party.loot[LootType.metal] || 0);
@@ -78,7 +78,7 @@ export class BuildingUpgradeDialog implements OnInit {
             this.paidResources += this.fhSupportSpent.metal;
 
             // hide
-            this.fhSupportSpent.hide = this.costs.hide - (discountFree ? 1 : 0);
+            this.fhSupportSpent.hide = Math.max(0, this.costs.hide - (discountFree ? 1 : 0));
             discountFree = false;
             if (this.fhSupportSpent.hide > (gameManager.game.party.loot[LootType.hide] || 0)) {
                 this.fhSupportSpent.hide = (gameManager.game.party.loot[LootType.hide] || 0);
