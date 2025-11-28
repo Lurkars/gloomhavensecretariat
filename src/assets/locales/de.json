@@ -2691,6 +2691,10 @@
       "": "Monster Durchtränkung",
       "hint": "Aktiviere die Option um Monster Durchtränkung (Anhang F) im Ereigniseffekte Menü."
     },
+    "gh2eImbuementKeep": {
+      "": "Behalte Monster Durchtränkung",
+      "hint": "Aktiviere automatisch die letzte Monster Durchtränkung für alle Szenarien."
+    },
     "gh2eRules": "Glommhaven 2te Edition",
     "helperDefaults": {
       "": "Orig. Helper Einstellungen anwenden"

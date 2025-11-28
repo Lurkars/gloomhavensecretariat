@@ -23,9 +23,11 @@ export class ImbuementManager {
 
         this.enabled = settingsManager.settings.alwaysGh2eImbuement || this.available && settingsManager.settings.gh2eImbuement;
 
-        this.imbuement = gameManager.game.monsterAttackModifierDeck.cards.find((am) => am.type == AttackModifierType.imbue) != undefined;
-        if (this.imbuement && gameManager.game.monsterAttackModifierDeck.cards.find((am) => am.type == AttackModifierType.advancedImbue) != undefined) {
-            this.imbuement = 'advanced';
+        if (!settingsManager.settings.gh2eImbuementKeep || !this.imbuement) {
+            this.imbuement = gameManager.game.monsterAttackModifierDeck.cards.find((am) => am.type == AttackModifierType.imbue) != undefined;
+            if (this.imbuement && gameManager.game.monsterAttackModifierDeck.cards.find((am) => am.type == AttackModifierType.advancedImbue) != undefined) {
+                this.imbuement = 'advanced';
+            }
         }
     }
 
@@ -49,6 +51,9 @@ export class ImbuementManager {
     }
 
     enable(attackModifierDeck: AttackModifierDeck, shuffle: boolean = true) {
+        if (settingsManager.settings.gh2eImbuementKeep) {
+            this.imbuement = true;
+        }
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
@@ -59,6 +64,9 @@ export class ImbuementManager {
     }
 
     advanced(attackModifierDeck: AttackModifierDeck, shuffle: boolean = true) {
+        if (settingsManager.settings.gh2eImbuementKeep) {
+            this.imbuement = 'advanced';
+        }
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus2);
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);

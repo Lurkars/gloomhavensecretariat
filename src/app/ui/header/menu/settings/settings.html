@@ -274,6 +274,12 @@
     }
     <div class="line" ghs-setting-menu="alwaysGh2eImbuement"></div>
   </div>
+  <div class="column">
+    @if (settingsManager.settings.alwaysGh2eImbuement || gameManager.gh2eRules() &&
+    gameManager.imbuementManager.available) {
+    <div class="line" ghs-setting-menu="gh2eImbuementKeep"></div>
+    }
+  </div>
 
   @if (gameManager.bbRules()) {
   <div class="separator"></div>

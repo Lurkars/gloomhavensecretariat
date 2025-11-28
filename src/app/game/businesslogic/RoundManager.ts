@@ -600,6 +600,15 @@ export class RoundManager {
     this.game.state = GameState.draw;
     this.game.elementBoard.forEach((element) => element.state = ElementState.inert);
     gameManager.attackModifierManager.fromModel(this.game.monsterAttackModifierDeck, new AttackModifierDeck().toModel());
+
+    if (settingsManager.settings.gh2eImbuementKeep) {
+      if (gameManager.imbuementManager.imbuement == 'advanced') {
+        gameManager.imbuementManager.advanced(this.game.monsterAttackModifierDeck);
+      } else if (gameManager.imbuementManager.imbuement) {
+        gameManager.imbuementManager.enable(this.game.monsterAttackModifierDeck);
+      }
+    }
+
     gameManager.attackModifierManager.fromModel(this.game.allyAttackModifierDeck, new AttackModifierDeck().toModel());
 
     if (gameManager.bbRules()) {
