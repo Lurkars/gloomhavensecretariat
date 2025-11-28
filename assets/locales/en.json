@@ -2688,6 +2688,10 @@
       "": "Enable Monster Imbuements",
       "hint": "Enable option to add Monster Imbuement (Appendix F) in the Event Effect menu."
     },
+    "gh2eImbuementKeep": {
+      "": "Keep Monster Imbuements",
+      "hint": "Always apply the last Monster Imbuent setting to all scenarios."
+    },
     "gh2eRules": "Gloomhaven 2nd Edition",
     "helperDefaults": {
       "": "Apply default Helper settings"

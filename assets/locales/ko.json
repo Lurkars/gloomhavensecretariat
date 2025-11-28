@@ -239,6 +239,7 @@
         },
         "apply": "적용",
         "conclusion": "%data.section:{0}% 섹션 열기",
+        "event": "%game.events.type.{0}% 이벤트 {1}번을 덱에 추가",
         "events": "도시 이벤트 {0}번 및 여로 이벤트 {0}번을 덱에 추가",
         "moveSupply": "프로스트헤이븐 창고로 자원 이동",
         "prosperity": "번영도 +{0}점"
@@ -254,7 +255,7 @@
       "": "캐릭터 다시 플레이하기",
       "hint": "두 번 클릭하여 캐릭터를 다시 플레이"
     },
-    "setAside": "캐릭터 치워두기",
+    "setAside": "캐릭터 저장하고 치워두기",
     "summon": {
       "action": {
         "": "%game.action.summon% %data.summon.{0}%",
@@ -811,6 +812,10 @@
     },
     "enemy": "적",
     "events": {
+      "accept": {
+        "": "이벤트 해결",
+        "notApply": "결과 무시하고 해결"
+      },
       "conditions": {
         "otherwise": "그 외의 경우",
         "payCollectiveGold": "파티에서 합하여 금화 총 {0}개를 모아서 지불",
@@ -818,7 +823,17 @@
         "reputationGT": "평판 > {0}",
         "reputationLT": "평판 < {0}"
       },
+      "deck": {
+        "draw": "카드 뽑기",
+        "drawn": "해결됨 ({0})",
+        "filter": "카드 번호로 검색",
+        "new": "잠김 ({0})",
+        "setup": "이벤트 덱 설정",
+        "upcoming": "덱 구성 ({0})"
+      },
       "effects": {
+        "campaignStickerMap": "\"%data.campaignSticker.{0}%\" 캠페인 스티커를 마을 지도의 {1} 장소에 붙임.",
+        "campaignStickerReplace": "\"%data.campaignSticker.{0}%\" 캠페인 스티커를 \"%data.campaignSticker.{1}%\" 위에 붙임.",
         "collectiveGold": "파티에서 합하여 금화를 총 {0}개 획득.",
         "collectiveItem": "파티에서 합하여 \"%data.items.{1}-{0}%\" (아이템 {0}) 총 {2}개 획득.",
         "consumeCollectiveItem": "파티에서 합하여 %game.itemSlot:{1}% 아이템 총 {0}개 소비.",
@@ -833,6 +848,7 @@
         "loseBattleGoal": "각자 %game.checkmark% {0}개 잃음.",
         "loseCollectiveGold": "파티에서 합하여 금화를 총 {0}개 잃음.",
         "loseGold": "각자 금화 {0}개 잃음.",
+        "loseProsperity": "번영도 {0}점 잃음.",
         "loseReputation": "평판 {0}점 잃음.",
         "noEffect": "효과 없음.",
         "outcome": "%game.events.option.{0}% 결과 읽기.",
@@ -933,7 +949,7 @@
       "sell": "금화 {1}개로 '{0}' 팔기",
       "shop": {
         "": "아이템 카드",
-        "buyingDisabled": "아이템을 구매할 수 없습니다. 먼저%data.buildings.trading-post%를 재건해야 합니다",
+        "buyingDisabled": "아이템을 구매할 수 없습니다. 먼저 '%data.buildings.trading-post%'를 재건해야 합니다",
         "character": "%game.characterIconColored.{0}% {1}의 아이템 상점",
         "craftingDisabled": "아이템을 제작할 수 없습니다. 먼저%data.buildings.craftsman%를 재건해야 합니다"
       },
@@ -1358,6 +1374,14 @@
       "hint": "시나리오 중에는 새 파티 생성이 비활성화됩니다. 새 파티를 생성하려면 현재 시나리오를 완료하거나 취소하세요."
     },
     "notes": "메모",
+    "prosperity": {
+      "": "번영도",
+      "reset": "번영도 초기화",
+      "wrap": {
+        "expand": "확장",
+        "shrink": "축약"
+      }
+    },
     "remove": "파티 제거하기",
     "reputation": "평판",
     "sheet": "파티 기록지",
@@ -1458,6 +1482,7 @@
     "eventEffects": {
       "": "이벤트 효과",
       "campaign": "캠페인 효과",
+      "drawEvent": "%game.events.type.{0}% 이벤트 뽑기",
       "drawRandomItem": {
         "": "무작위 아이템 도안 뽑기",
         "apply": "적용",
@@ -1570,18 +1595,19 @@
       "globalAchievements": "전역 업적",
       "gold": "각 금화 {0}개",
       "inspiration": "영감 {0}",
-      "item": "\"{1}\" (아이템 {0}번)",
+      "item": "\"{1}'' ({0}번 아이템)",
       "itemBlueprint": "\"{1}\" %game.itemFh.{0}% 제작 아이템 도안 획득",
       "itemBlueprintRange": "입수 가능한 아이템 공급처에 %game.itemFh.{0}% ~ %game.itemFh.{1}% 아이템 추가.",
-      "itemDesign": "\"{1}\" 도안 (아이템 {0}번)",
+      "itemDesign": "\"{1}\" 도안 ({0}번 아이템)",
       "itemDesignEdition": "\"{1}\" 도안 (아이템 {0} %data.edition.{2}%)",
       "itemDesignRange": "아이템 도안 {0}번 추가",
-      "items": "{2} \"{1}\" (아이템 {0}번)",
+      "items": "{2} \"{1}\" ({0}번 아이템)",
       "location": "새로운 장소",
       "locations": "새로운 장소",
       "lootDeckCard": "모든 시나리오 전리품 덱에 일반 전리품 분배 외에 {0} 전리품 카드를 추가합니다.",
       "lostPartyAchievements": "파티 업적 상실",
       "morale": "사기 {0}점",
+      "overlayCampaignSticker": "\"%data.campaignSticker.{0}%\" 캠페인 스티커를 마을 지도의 {1} 장소에 붙임",
       "partyAchievements": "파티 업적",
       "perks": "각 특혜 {0}개 획득",
       "prosperity": "번영도 {0}",
@@ -1941,8 +1967,8 @@
       "hint": "프로스트헤이븐의 위험지형 피해 값을 적용합니다."
     },
     "alwaysLootApplyDialog": {
-      "": "항상 노획 대화 상자를 표시",
-      "hint": "활성 캐릭터를 사용하는 대신 뽑은 노획 카드에서 캐릭터를 선택하는 대화 상자를 항상 표시합니다."
+      "": "항상 노획 설정창 표시",
+      "hint": "뽑은 노획 카드의 적용 대상을 활성 캐릭터 대신 캐릭터를 선택하는 설정창을 항상 표시합니다."
     },
     "alwaysLootDeck": {
       "": "항상 노획 덱을 사용",
@@ -1956,13 +1982,17 @@
       "": "이익/불이익 굴림 보정 하우스룰",
       "hint": "두 번째 뽑기에서 굴림 보정을 무시하는 대신에, 굴림 보정이 나오지 않을 때까지 추가 보정 카드를 뽑습니다."
     },
+    "animationSpeed": {
+      "": "애니메이션 속도",
+      "hint": "애니메이션의 속도 설정하기"
+    },
     "animations": {
       "": "애니메이션 효과",
       "hint": "성능 향상을 위해 모든 애니메이션 효과 비활성화"
     },
     "applyBuildingRewards": {
       "": "건설 보너스 적용",
-      "hint": "건물을 건설하거나 향상할 때, 해당 보너스를 적용하고 섹션 대화 상자가 있으면 엽니다."
+      "hint": "건물을 건설하거나 향상할 때, 해당 보너스를 적용하고 섹션 알림창이 있으면 엽니다."
     },
     "applyConditions": {
       "": "상태이상 자동으로 적용",
@@ -1988,7 +2018,7 @@
     },
     "applyRetirement": {
       "": "은퇴 보너스 적용",
-      "hint": "은퇴 시, 은퇴 보너스를 적용하는 대화 상자를 엽니다. 은퇴는 캐릭터 시트에서 개인 퀘스트를 확인하여 수행합니다."
+      "hint": "은퇴 시, 은퇴 보너스를 적용하는 알림창을 엽니다. 은퇴는 캐릭터 시트에서 개인 퀘스트를 확인하여 수행합니다."
     },
     "artwork": {
       "": "아트워크",
@@ -2015,8 +2045,8 @@
       "hint": "자동으로 몬스터 말을 추가합니다."
     },
     "automaticStandeesDialog": {
-      "": "자동 몬스터 말 대화 상자",
-      "hint": "모든 신규 몬스터 말에 대해 몬스터 말 번호 대화 상자를 자동으로 엽니다."
+      "": "자동 몬스터 말 설정창",
+      "hint": "모든 신규 몬스터 말의 몬스터 말 번호 설정창을 자동으로 엽니다."
     },
     "automaticTheme": {
       "": "자동 테마",
@@ -2142,8 +2172,8 @@
       "hint": "플레이어 번호 순서로 각 라운드 사이에 캐릭터를 정렬합니다."
     },
     "characterTraits": {
-      "": "특혜 표시",
-      "hint": "캐릭터 보드의 특혜를 표시합니다."
+      "": "특성 표시",
+      "hint": "캐릭터 보드의 특성을 표시합니다."
     },
     "columns": {
       "": "세로 열로 배치하기",
@@ -2179,6 +2209,14 @@
       "": "주도권/체력/경험치/노획 드래그",
       "hint": "드래그 방식으로 값 변경이 가능합니다. 주도권은 캐릭터 초상화에서, 체력/경험치/노획은 해당 값 위에서 변경이 가능합니다."
     },
+    "drawRandomItem": {
+      "": "무작위 아이템 보상 뽑기",
+      "hint": "자동적으로 무작위 아이템 카드를 뽑습니다."
+    },
+    "drawRandomScenario": {
+      "": "무작위 시나리오 보상 뽑기",
+      "hint": "자동적으로 무작위 시나리오를 뽑습니다."
+    },
     "eliteFirst": {
       "": "정예 몬스터 말 우선",
       "hint": "몬스터 말을 정렬할 때, 정예 몬스터 말을 우선으로 보여줍니다."
@@ -2197,7 +2235,7 @@
     "feedbackErrors": {
       "": "피드백 자동화",
       "clear": "자동 오류 피드백 제거",
-      "hint": "대화상자로 오류창을 보여줍니다."
+      "hint": "피드백 알림창을 통해 자동으로 오류 보고를 합니다."
     },
     "fhChallenges": {
       "": "도전 지원",
@@ -2470,7 +2508,7 @@
     },
     "treasures": {
       "": "방 보물 표시기",
-      "hint": "해당 방이 공개되면 시나리오에서 사용할 수 있는 보물을 표시하고 보물을 여는 대화 상자를 추가합니다."
+      "hint": "해당 방이 공개되면 시나리오에서 사용할 수 있는 보물을 표시하고 보물을 여는 설정창을 추가합니다."
     },
     "treasuresLoot": {
       "": "보물 보상 적용하기",
@@ -2642,7 +2680,9 @@
       "equipItem": "{0}의 아이템 {1} (%data.edition.{2}%) 장비",
       "eventEffect": {
         "drawRandomItem": "무작위 아이템 도안 뽑기 {0} \"{2}\" (%data.edition.{1}%)",
-        "drawRandomItemBlueprint": "무작위 제작 아이템 도안 뽑습니다 {0} \"{2}\" (%data.edition.{1}%)"
+        "drawRandomItemBlueprint": "무작위 제작 아이템 도안 뽑습니다 {0} \"{2}\" (%data.edition.{1}%)",
+        "drawRandomScenario": "랜덤 시나리오 {2} %data.scenarioNumber:{0}% 뽑음",
+        "prosperity": "번영도 {0}"
       },
       "finishScenario": {
         "battleGoal": "%data.character.{0}.{1}%의 전투 목표 {2} 설정",
