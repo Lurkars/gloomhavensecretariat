@@ -249,6 +249,19 @@
       "silent-knife": "凶徒",
       "spellweaver": "织魔师",
       "tinkerer": "机匠"
+    },
+    "traits": {
+      "arcane": "奥术",
+      "armored": "重甲",
+      "chaotic": "混乱",
+      "educated": "博学",
+      "intimidating": "威吓",
+      "night": "黑夜",
+      "nimble": "灵敏",
+      "outcast": "流亡",
+      "persuasive": "说服",
+      "resourceful": "应变",
+      "strong": "强壮"
     }
   },
   "custom": {
@@ -828,6 +841,7 @@
         "45-1": "叛军哨所",
         "45-2": "黑土墓冢",
         "46-1": "无序荒野",
+        "46-3": "军方声望6",
         "47-2": "远古蓄水池",
         "47-3": "军方声望6",
         "48-1": "回音密室",

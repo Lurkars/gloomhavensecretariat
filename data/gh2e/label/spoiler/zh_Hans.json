@@ -7,6 +7,10 @@
       "eclipse": "胧夜客",
       "lightning": {
         "": "狂战士",
+        "blood-pact": {
+          "": "血之契约",
+          "hint": "在你的回合开始时，如果你的当前生命值高于1点，承受%game.damage:1%。"
+        },
         "long_rest_heal": {
           "": "Perk 9",
           "hint": "%data.custom.gh2e.lightning.3%"
@@ -55,15 +59,25 @@
         "4": "每个剧本限一次，在你的回合中，将你的一个召唤物%game.action.teleport%至你相邻的空格",
         "5": "每个剧本限一次，在所有能力卡牌翻开后的确定先攻顺序期间，你的所有召唤物获得%game.condition.invisible%",
         "6": "在你首次休息之前，执行3个不同的召唤能力，并保持对应的卡牌在激活区域直至剧本结束",
-        "7": "在6个剧本的首轮中，执行6个不同的召唤能力"
+        "7": "在6个剧本的首轮中，执行6个不同的召唤能力",
+        "8": "回合结束时，赋予一名%game.action.range%3内的盟友%game.action.shield%1",
+        "9": "如果%game.element.air%处于强烈或衰退状态，+3%game.action.move%。"
       },
       "crossed-swords": {
         "1": "%game.characterIcon.envx%的激活区域每有一张%game.card.lost%卡牌，增加+1%game.action.attack%",
+        "10": "所有相邻盟友获得%game.action.shield:1%。",
+        "11": "为所有相邻敌人的攻击附加 -1%game.action.attack%。",
+        "12": "为所有相邻召唤物的攻击附加+1%game.action.attack%。",
+        "13": "如果目标与你的盟友相邻，附加+2%game.action.attack%。",
+        "14": "如果目标带有任何负面状态，附加%game.condition.disarm%。",
         "2": "每当你充分休息时，你可以%game.action.teleport%至你的一个召唤物占据的格子，并同时%game.action.teleport%该召唤物至你之前占据的格子",
         "3": "每个剧本限一次，当你执行一个%game.card.lost%行动时，你可以立刻打出一张手牌并执行该卡牌上的一个%game.card.lost%行动",
         "4": "每个剧本中，你可以额外携带4个%game.itemSlot:onehand%道具，或者2个%game.itemSlot:twohand%道具，或者2个%game.itemSlot:onehand%道具和1个%game.itemSlot:twohand%道具。",
         "5": "执行6个不同的%game.card.persistent%%game.card.lost%能力，其中，召唤能力不得超过3个",
-        "6": "当你觉得自己够格时，直接获得本巅峰战绩"
+        "6": "当你觉得自己够格时，直接获得本巅峰战绩",
+        "7": "其中，X为相邻个体的数量。",
+        "8": "回合结束时，赋予所有相邻的盟友：%game.action.move:1%",
+        "9": "回合结束时，所有相邻的盟友与敌人承受%game.action.damage:2%。"
       },
       "eclipse": {
         "1": "在攻击能力后，赋予一个相邻的盟友或者自身：%game.action.teleport% 2",
@@ -135,7 +149,9 @@
         "2": "每当你充分休息时，%game.element.consume.wild%: %game.element.wild%",
         "3": "每个轮次结束时，%game.element.fire%,%game.element.ice%,%game.element.air%, 和%game.element.earth%不再衰退",
         "4": "在单一剧本中，在同一轮次中消耗至少4个元素5次",
-        "5": "在3个不同剧本中，存在6个元素同时处于强烈或衰退的时刻"
+        "5": "在3个不同剧本中，存在6个元素同时处于强烈或衰退的时刻",
+        "6": "每有一个处于强烈或衰退状态的元素，附加+1%game.action.attack%。",
+        "7": "每次攻击后，%game.element.wild%。"
       },
       "two-mini": {
         "1": "如果兽王与%data.action.custom.gh2e-bear-summon%在彼此%game.action.range%4内，增加+1 %game.action.attack%",

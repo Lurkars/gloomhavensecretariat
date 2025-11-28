@@ -46,7 +46,7 @@
     },
     "jotl-2": {
       "": "철투구",
-      "1": "공격을 받을 때, consider any 적이 뽑는 %game.attackmodifier.double% 공격 보정 카드를 모두 %game.attackmodifier.plus0% 카드로 간주."
+      "1": "공격을 받을 때, 적이 뽑는 %game.attackmodifier.double% 공격 보정 카드를 모두 %game.attackmodifier.plus0% 카드로 간주."
     },
     "jotl-20": {
       "": "기절 가루",
