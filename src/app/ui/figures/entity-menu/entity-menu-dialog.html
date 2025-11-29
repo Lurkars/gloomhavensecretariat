@@ -676,10 +676,19 @@
       specialAction.summon)) { <div class="hint-container">
       <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
       <span class="hint-trigger special-action text-white"
-        [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}" tabclick
+        [ngClass]="{'active-tag' : isSpecialActionActive(specialAction)}" tabclick
         (click)="applySpecialAction(specialAction)">
         <span
           [ghs-label]="'data.character.' + data.figure.edition + '.' + data.figure.name + '.' + specialAction.name"></span>
+        @if (specialAction.counter && isSpecialActionActive(specialAction)) {
+          <span class="special-action-counter">
+            &nbsp;(
+            <span class="counter-button" (click)="changeSpecialActionCounter(specialAction, -1, $event)">-</span>
+            {{ getSpecialActionCounterValue(specialAction) }}
+            <span class="counter-button" (click)="changeSpecialActionCounter(specialAction, 1, $event)">+</span>
+            )
+          </span>
+        }
       </span>
       <span class="hint above center">
         <div class="text">

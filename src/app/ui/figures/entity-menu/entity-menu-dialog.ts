@@ -16,6 +16,7 @@ import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Act
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { CharacterSpecialAction } from "src/app/game/model/data/CharacterStat";
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
+import { SpecialActionHelper } from "src/app/game/model/data/SpecialActionHelper";
 import { ItemFlags } from "src/app/game/model/data/ItemData";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
@@ -136,11 +137,23 @@ export class EntityMenuDialogComponent {
       this.actionHints = gameManager.actionsManager.calcActionHints(this.data.figure, this.data.entity).map((actionHint) => new Action(actionHint.type, actionHint.value, ActionValueType.fixed, actionHint.range ? [new Action(ActionType.range, actionHint.range, ActionValueType.fixed, [], true)] : []));
     }
 
-    if (this.data.figure instanceof Character && this.data.figure.specialActions) {
+    if (this.data.figure instanceof Character && this.data.figure.specialActions && this.data.entity) {
+      const entity = this.data.entity;
       this.data.figure.specialActions.forEach((specialAction) => {
-        if (this.data.entity instanceof Character && !specialAction.summon && this.data.entity.tags.indexOf(specialAction.name) != -1) {
-          this.specialTags.push(specialAction.name);
-        } else if (this.data.entity instanceof Summon && specialAction.summon && this.data.entity.tags.indexOf(specialAction.name) != -1) {
+        const hasTag = SpecialActionHelper.hasCounter(specialAction)
+          ? entity.tags.some(tag => tag.startsWith(`${specialAction.name}:`))
+          : entity.tags.indexOf(specialAction.name) != -1;
+
+        if (entity instanceof Character && !specialAction.summon && hasTag) {
+          if (SpecialActionHelper.hasCounter(specialAction)) {
+            const tagWithValue = entity.tags.find(tag => tag.startsWith(`${specialAction.name}:`));
+            if (tagWithValue) {
+              this.specialTags.push(tagWithValue);
+            }
+          } else {
+            this.specialTags.push(specialAction.name);
+          }
+        } else if (entity instanceof Summon && specialAction.summon && hasTag) {
           this.specialTags.push(specialAction.name);
         }
       })
@@ -813,14 +826,45 @@ export class EntityMenuDialogComponent {
     }
   }
 
+  isSpecialActionActive(specialAction: CharacterSpecialAction): boolean {
+    if (SpecialActionHelper.hasCounter(specialAction)) {
+      return this.specialTags.some(tag => tag.startsWith(`${specialAction.name}:`));
+    }
+    return this.specialTags.indexOf(specialAction.name) !== -1;
+  }
+
   applySpecialAction(specialAction: CharacterSpecialAction) {
     if (!specialAction.noTag) {
-      if (this.specialTags.indexOf(specialAction.name) == -1) {
-        this.specialTags.push(specialAction.name);
+      if (SpecialActionHelper.hasCounter(specialAction)) {
+        const existingTag = this.specialTags.find(tag => tag.startsWith(`${specialAction.name}:`));
+        if (!existingTag) {
+          this.specialTags.push(SpecialActionHelper.createCounterTag(specialAction));
+        } else {
+          this.specialTags.splice(this.specialTags.indexOf(existingTag), 1);
+        }
       } else {
-        this.specialTags.splice(this.specialTags.indexOf(specialAction.name), 1);
+        const tagIndex = this.specialTags.indexOf(specialAction.name);
+        if (tagIndex === -1) {
+          this.specialTags.push(specialAction.name);
+        } else {
+          this.specialTags.splice(tagIndex, 1);
+        }
       }
     }
+  }
+
+  changeSpecialActionCounter(specialAction: CharacterSpecialAction, delta: number, event: Event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    const newValue = SpecialActionHelper.changeCounter(this.specialTags, specialAction, delta);
+    if (newValue === null) {
+      return;
+    }
+  }
+
+  getSpecialActionCounterValue(specialAction: CharacterSpecialAction): number | null {
+    return SpecialActionHelper.getCounterValue(this.specialTags, specialAction.name);
   }
 
   changeShield(value: number) {
@@ -990,7 +1034,18 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.after();
       }
 
-      const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialActions && this.data.figure.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
+      const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => {
+        if (this.data.figure instanceof Character && this.data.figure.specialActions) {
+          const matchingAction = this.data.figure.specialActions.find((specialAction) => {
+            if (SpecialActionHelper.hasCounter(specialAction) && specialTag.startsWith(`${specialAction.name}:`)) {
+              return true;
+            }
+            return specialAction.name == specialTag;
+          });
+          return matchingAction != undefined && this.specialTags.indexOf(specialTag) == -1;
+        }
+        return false;
+      });
 
       if (specialTagsToTemove.length) {
         gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.data.entity), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','));
@@ -1244,7 +1299,18 @@ export class EntityMenuDialogComponent {
           gameManager.stateManager.after();
         }
 
-        const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialActions && this.data.figure.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
+        const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => {
+          if (this.data.figure instanceof Character && this.data.figure.specialActions) {
+            const matchingAction = this.data.figure.specialActions.find((specialAction) => {
+              if (SpecialActionHelper.hasCounter(specialAction) && specialTag.startsWith(`${specialAction.name}:`)) {
+                return true;
+              }
+              return specialAction.name == specialTag;
+            });
+            return matchingAction != undefined && this.specialTags.indexOf(specialTag) == -1;
+          }
+          return false;
+        });
 
         if (specialTagsToTemove.length) {
           gameManager.stateManager.before("removeSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name);

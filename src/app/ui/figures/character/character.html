@@ -388,7 +388,17 @@
         [ghs-label]="'data.character.' + character.edition + '.' + character.name + '.' + specialAction.name"
         ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeSpecialAction(specialAction.name)"
         [ghs-tooltip]="'data.character.' + character.edition + '.' + character.name + '.' + specialAction.name + '.hint'"
-        [originY]="'top'" [overlayY]="'bottom'" [originX]="'center'" [overlayX]="'center'"></span>
+        [originY]="'top'" [overlayY]="'bottom'" [originX]="'center'" [overlayX]="'center'">
+        @if (specialAction.counter) {
+          <span class="special-action-counter">
+            &nbsp;(
+            <span class="counter-button" (click)="changeSpecialActionCounter(specialAction, -1, $event)">-</span>
+            {{ getSpecialActionCounterValue(specialAction) }}
+            <span class="counter-button" (click)="changeSpecialActionCounter(specialAction, 1, $event)">+</span>
+            )
+          </span>
+        }
+      </span>
       @if (i < specialActions.length - 1 && specialActions.length> 1) {
         <span class="separator">|</span>
         }
