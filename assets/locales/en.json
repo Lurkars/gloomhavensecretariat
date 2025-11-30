@@ -596,6 +596,7 @@
           "refreshItemFh": "%game.card.recover% one item",
           "refreshSpentItem": "Refresh a spent item"
         },
+        "monsterDeck": "to the monster attack modifier deck",
         "type": {
           "add": "add {0}",
           "remove": "remove {0}",
