@@ -168,6 +168,7 @@
     {
       "type": "replace",
       "count": 2,
+      "replaceCount": 2,
       "cards": [
         {
           "count": 1,

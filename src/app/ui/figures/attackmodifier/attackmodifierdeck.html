@@ -75,7 +75,7 @@
     }
   </div>
   @if (!deck.bb) {
-  @for (attackModifier of deck.cards | trackUUID; track attackModifier._trackUUID;; let index = $index) {
+  @for (attackModifier of deck.cards | trackUUID; track attackModifier._trackUUID; let index = $index) {
   @if (index <= current + 1 && (index>= lastVisible || attackModifier.active && deck.discarded.indexOf(index) == -1)) {
     <div class="am-container"
       [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"

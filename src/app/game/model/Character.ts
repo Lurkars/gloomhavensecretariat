@@ -203,7 +203,7 @@ export class Character extends CharacterData implements Entity, Figure {
     if (model.attackModifierDeck) {
       gameManager.attackModifierManager.fromModel(attackModifierDeck, model.attackModifierDeck);
     }
-    this.mergeAttackModifierDeck(attackModifierDeck);
+    gameManager.attackModifierManager.mergeAttackModifierDeck(this.attackModifierDeck, attackModifierDeck);
     if (model.attackModifierDeckVisible) {
       this.attackModifierDeckVisible = true;
     }
@@ -232,46 +232,6 @@ export class Character extends CharacterData implements Entity, Figure {
     if (model.fullView) {
       this.fullview = model.fullView;
     }
-  }
-
-
-  mergeAttackModifierDeck(attackModifierDeck: AttackModifierDeck): boolean {
-    let changed = false;
-    if (!this.attackModifierDeck) {
-      this.attackModifierDeck = new AttackModifierDeck();
-      changed = true;
-    }
-
-    if (attackModifierDeck.discarded.length != this.attackModifierDeck.discarded.length || !attackModifierDeck.discarded.every((value, index) => this.attackModifierDeck.discarded.indexOf(value) == index)) {
-      this.attackModifierDeck.discarded = attackModifierDeck.discarded;
-      changed = true;
-    }
-
-    if (this.attackModifierDeck.current != attackModifierDeck.current) {
-      this.attackModifierDeck.current = attackModifierDeck.current;
-      changed = true;
-    }
-
-    if (this.attackModifierDeck.lastVisible != attackModifierDeck.lastVisible) {
-      this.attackModifierDeck.lastVisible = attackModifierDeck.lastVisible;
-      changed = true;
-    }
-
-    if (this.attackModifierDeck.state != attackModifierDeck.state) {
-      this.attackModifierDeck.state = attackModifierDeck.state;
-      changed = true;
-    }
-
-    if (this.attackModifierDeck.attackModifiers.length != attackModifierDeck.attackModifiers.length || !this.attackModifierDeck.attackModifiers.map((card) => card.id).every((cardId, index) => attackModifierDeck.attackModifiers[index].id == cardId)) {
-      this.attackModifierDeck.attackModifiers = attackModifierDeck.attackModifiers;
-      changed = true;
-    }
-    if (this.attackModifierDeck.cards.length != attackModifierDeck.cards.length || !this.attackModifierDeck.cards.map((card) => card.id).every((cardId, index) => attackModifierDeck.cards[index].id == cardId)) {
-      this.attackModifierDeck.cards = attackModifierDeck.cards;
-      changed = true;
-    }
-
-    return changed;
   }
 
 }

@@ -38,7 +38,7 @@
       "hail": {
         "10": "Whenever you short rest, you may choose which card to lose",
         "11": "Your and your allies' enhancements cost five gold less and whenever an ally enhances a card, you gain five gold",
-        "12": "Add one %game.attackmodifier.plus1% \"%game.characterIcon.hail% gains 1 %data.action.custom.mp-resolve%\" card to the monster attack modifier deck"
+        "12": "%game.characterIcon.hail% gains 1 %data.action.custom.mp-resolve%"
       },
       "satha": {
         "6": "Grant one ally within %game.action.range% 3: %game.action.attack% 2 %game.action.range% 3 or %game.action.attack% 3",

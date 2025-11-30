@@ -7,6 +7,8 @@ export class Perk {
   combined: boolean = false;
   custom: string = "";
   cards: PerkCard[] = [];
+  replaceCount: number | undefined;
+  monsterDeck: boolean = false;
 }
 
 export class PerkCard {

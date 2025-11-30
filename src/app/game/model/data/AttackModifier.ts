@@ -368,9 +368,9 @@ export class AttackModifierDeck {
 
   constructor(attackModifiers: AttackModifier[] | undefined = undefined, bb: boolean = false) {
     this.bb = bb;
-    this.attackModifiers = (attackModifiers ? attackModifiers.filter((am, index, self) => this.bb || self.indexOf(am) == index) : defaultAttackModifier).map((am) => Object.assign(new AttackModifier(am.type), am));
+    this.attackModifiers = (attackModifiers ? attackModifiers.filter((am, index, self) => this.bb || self.indexOf(am) == index) : defaultAttackModifier).map((am) => am.clone());
     this.current = -1;
-    this.cards = (attackModifiers || defaultAttackModifierCards).map((am) => Object.assign(new AttackModifier(am.type), am));
+    this.cards = (attackModifiers || defaultAttackModifierCards).map((am) => am.clone());
   }
 
   toModel(): GameAttackModifierDeckModel {

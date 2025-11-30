@@ -160,7 +160,8 @@ export class AttackModifierManager {
     if (index == -1) {
       index = attackModifierDeck.cards.length;
     }
-    attackModifierDeck.cards.splice(index, 0, attackModifier);
+
+    attackModifierDeck.cards = [...attackModifierDeck.cards.slice(0, index), attackModifier, ...attackModifierDeck.cards.slice(index)];
   }
 
   addModifierByType(attackModifierDeck: AttackModifierDeck, type: AttackModifierType) {
@@ -365,6 +366,25 @@ export class AttackModifierManager {
     }
   }
 
+  buildMonsterAttackModifierDeck(ally: boolean = false): AttackModifierDeck {
+    let attackModifierDeck = new AttackModifierDeck();
+    if (!ally) {
+      if (settingsManager.settings.gh2eImbuementKeep) {
+        if (gameManager.imbuementManager.imbuement == 'advanced') {
+          gameManager.imbuementManager.advanced(attackModifierDeck, false);
+        } else if (gameManager.imbuementManager.imbuement) {
+          gameManager.imbuementManager.enable(attackModifierDeck, false);
+        }
+      }
+
+      this.game.figures.forEach((figure) => {
+        if (figure instanceof Character && figure.perks && figure.perks.find((perk) => perk.monsterDeck)) {
+          gameManager.attackModifierManager.applyCharacterPerks(figure, attackModifierDeck, true);
+        }
+      })
+    }
+    return attackModifierDeck;
+  }
 
   buildCharacterAttackModifierDeck(character: Character): AttackModifierDeck {
     if (character.bb && character.amTables && character.amTables.length >= character.level && character.amTables[character.level - 1]) {
@@ -384,10 +404,14 @@ export class AttackModifierManager {
     }
 
     let attackModifierDeck = new AttackModifierDeck();
+    this.applyCharacterPerks(character, attackModifierDeck);
+    return attackModifierDeck;
+  }
 
+  applyCharacterPerks(character: Character, attackModifierDeck: AttackModifierDeck, monsterDeck: boolean = false) {
     let perkId = 0;
     character.perks.forEach((perk) => {
-      if (perk.cards) {
+      if (!!perk.monsterDeck == monsterDeck && perk.cards) {
         perk.cards.forEach((card, index) => {
           if (perk.type == PerkType.add || perk.type == PerkType.replace) {
             let am = Object.assign(new AttackModifier(card.attackModifier.type), card.attackModifier);
@@ -412,72 +436,74 @@ export class AttackModifierManager {
           // error
           return;
         }
-        if (perk.combined) {
-          if (checked == perk.count) {
-            this.addPerkCard(perk, attackModifierDeck, defaultAttackModifier);
-          }
-        } else {
-          for (let check = 0; check < checked; check++) {
-            this.addPerkCard(perk, attackModifierDeck, defaultAttackModifier);
+        if (!!perk.monsterDeck == monsterDeck) {
+          if (perk.combined) {
+            if (checked == perk.count) {
+              this.addPerkCard(perk, attackModifierDeck, defaultAttackModifier);
+            }
+          } else {
+            for (let check = 0; check < checked; check++) {
+              this.addPerkCard(perk, attackModifierDeck, defaultAttackModifier);
+            }
           }
         }
       })
     }
 
-    if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && character.progress.trial && character.progress.trial.edition == 'fh' && character.progress.trial.name == '348') {
-      attackModifierDeck = new AttackModifierDeck();
-      attackModifierDeck.cards = attackModifierDeck.cards.filter((am) => [AttackModifierType.double, AttackModifierType.plus1, AttackModifierType.plus2].indexOf(am.type) == -1);
-    }
+    if (!monsterDeck) {
+      if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && character.progress.trial && character.progress.trial.edition == 'fh' && character.progress.trial.name == '348') {
+        attackModifierDeck = new AttackModifierDeck();
+        attackModifierDeck.cards = attackModifierDeck.cards.filter((am) => [AttackModifierType.double, AttackModifierType.plus1, AttackModifierType.plus2].indexOf(am.type) == -1);
+      }
 
-    if (!gameManager.characterManager.ignoreNegativeItemEffects(character)) {
-      for (let itemIdentifier of character.progress.equippedItems) {
-        const itemData = gameManager.itemManager.getItem(itemIdentifier.name, itemIdentifier.edition, true);
-        if (itemData && itemData.minusOne) {
-          for (let i = 0; i < itemData.minusOne; i++) {
-            this.addModifier(attackModifierDeck, new AttackModifier(AttackModifierType.minus1));
+      if (!gameManager.characterManager.ignoreNegativeItemEffects(character)) {
+        for (let itemIdentifier of character.progress.equippedItems) {
+          const itemData = gameManager.itemManager.getItem(itemIdentifier.name, itemIdentifier.edition, true);
+          if (itemData && itemData.minusOne) {
+            for (let i = 0; i < itemData.minusOne; i++) {
+              this.addModifier(attackModifierDeck, new AttackModifier(AttackModifierType.minus1));
+            }
           }
         }
       }
-    }
 
-    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '101')) {
-      let minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
-      if (minus1) {
-        attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus1), 1);
-        minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
+      if (character.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '101')) {
+        let minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
+        if (minus1) {
+          attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus1), 1);
+          minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
+          if (minus1) {
+            attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus1), 1);
+          }
+        }
+      }
+
+      if (character.progress.equippedItems.find((identifier) => identifier.edition == 'toa' && identifier.name == '107')) {
+        const minus2 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus2);
+        if (minus2) {
+          attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus2), 1);
+        }
+      }
+
+      if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '11')) {
+        const minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
+        if (minus1) {
+          attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus1), 1);
+        }
+      }
+
+      if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '41')) {
+        const plus0 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.plus0);
+        if (plus0) {
+          attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(plus0), 1);
+        }
+
+        const minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
         if (minus1) {
           attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus1), 1);
         }
       }
     }
-
-    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'toa' && identifier.name == '107')) {
-      const minus2 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus2);
-      if (minus2) {
-        attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus2), 1);
-      }
-    }
-
-    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '11')) {
-      const minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
-      if (minus1) {
-        attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus1), 1);
-      }
-    }
-
-    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '41')) {
-      const plus0 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.plus0);
-      if (plus0) {
-        attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(plus0), 1);
-      }
-
-      const minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
-      if (minus1) {
-        attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus1), 1);
-      }
-    }
-
-    return attackModifierDeck;
   }
 
   buildTownGuardAttackModifierDeck(party: Party, campaignData: CampaignData): AttackModifierDeck {
@@ -532,7 +558,7 @@ export class AttackModifierManager {
           scenarioData.rewards.townGuardAm.forEach((id, index) => {
             let am = attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == id);
             if (am) {
-              attackModifierDeck.cards.push(am.clone());
+              attackModifierDeck.cards = [...attackModifierDeck.cards, am.clone()]
             } else {
               console.warn("Unknown Town Guard AM:", id);
             }
@@ -547,7 +573,7 @@ export class AttackModifierManager {
           sectionData.rewards.townGuardAm.forEach((id, index) => {
             let am = attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == id);
             if (am) {
-              attackModifierDeck.cards.push(am.clone());
+              attackModifierDeck.cards = [...attackModifierDeck.cards, am.clone()]
             } else {
               console.warn("Unknown Town Guard AM:", id);
             }
@@ -598,6 +624,10 @@ export class AttackModifierManager {
   }
 
   replaceCount(perk: Perk): number {
+    if (perk.replaceCount) {
+      return perk.replaceCount;
+    }
+
     let count: number = 0;
     if (perk.type == PerkType.replace) {
       count = 1;
@@ -634,7 +664,7 @@ export class AttackModifierManager {
         const toAdd = this.findByAttackModifier(attackModifierDeck.attackModifiers, card.attackModifier);
         if (toAdd) {
           let attackModifier = Object.assign(new AttackModifier(toAdd.type), toAdd);
-          attackModifierDeck.cards.push(attackModifier);
+          attackModifierDeck.cards = [...attackModifierDeck.cards, attackModifier];
         } else {
           console.warn("Did not found AM to add: ", card.attackModifier, attackModifierDeck);
         }
@@ -717,6 +747,45 @@ export class AttackModifierManager {
       }
     }
     return undefined;
+  }
+
+  mergeAttackModifierDeck(sourceDeck: AttackModifierDeck, attackModifierDeck: AttackModifierDeck): boolean {
+    let changed = false;
+    if (!sourceDeck) {
+      sourceDeck = new AttackModifierDeck();
+      changed = true;
+    }
+
+    if (attackModifierDeck.discarded.length != sourceDeck.discarded.length || !attackModifierDeck.discarded.every((value, index) => sourceDeck.discarded.indexOf(value) == index)) {
+      sourceDeck.discarded = attackModifierDeck.discarded;
+      changed = true;
+    }
+
+    if (sourceDeck.current != attackModifierDeck.current) {
+      sourceDeck.current = attackModifierDeck.current;
+      changed = true;
+    }
+
+    if (sourceDeck.lastVisible != attackModifierDeck.lastVisible) {
+      sourceDeck.lastVisible = attackModifierDeck.lastVisible;
+      changed = true;
+    }
+
+    if (sourceDeck.state != attackModifierDeck.state) {
+      sourceDeck.state = attackModifierDeck.state;
+      changed = true;
+    }
+
+    if (sourceDeck.attackModifiers.length != attackModifierDeck.attackModifiers.length || !sourceDeck.attackModifiers.map((card) => card.id).every((cardId, index) => attackModifierDeck.attackModifiers[index].id == cardId)) {
+      sourceDeck.attackModifiers = attackModifierDeck.attackModifiers;
+      changed = true;
+    }
+    if (sourceDeck.cards.length != attackModifierDeck.cards.length || !sourceDeck.cards.map((card) => card.id).every((cardId, index) => attackModifierDeck.cards[index].id == cardId)) {
+      sourceDeck.cards = attackModifierDeck.cards;
+      changed = true;
+    }
+
+    return changed;
   }
 
   fromModel(attackModifierDeck: AttackModifierDeck, model: GameAttackModifierDeckModel) {

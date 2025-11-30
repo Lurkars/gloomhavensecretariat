@@ -74,7 +74,7 @@ export class Party {
   garden: GardenModel | undefined;
 
   // GH2E
-  factionReputation: Partial<Record<string, number>> = {};;
+  factionReputation: Partial<Record<string, number>> = {};
   imbuement: number = 0;
 
 

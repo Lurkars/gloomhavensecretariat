@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy } from "@angular/core";
+import { Component, ElementRef, Input, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -10,7 +10,7 @@ import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackM
   templateUrl: './attackmodifier-effect.html',
   styleUrls: ['./attackmodifier-effect.scss']
 })
-export class AttackModifierEffectComponent implements AfterViewInit, OnDestroy {
+export class AttackModifierEffectComponent implements OnInit, OnDestroy {
 
   @Input() offsetWidth!: number;
   @Input() attackModifier!: AttackModifier;
@@ -22,6 +22,7 @@ export class AttackModifierEffectComponent implements AfterViewInit, OnDestroy {
   targetValue: number = 0;
   targetString: string = "";
   rangeValue: string | number = "";
+  targetClass: boolean = false;
 
   settingsManager: SettingsManager = settingsManager;
 
@@ -31,7 +32,7 @@ export class AttackModifierEffectComponent implements AfterViewInit, OnDestroy {
 
   constructor(public elementRef: ElementRef) { }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.update();
     this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
   }
@@ -55,6 +56,7 @@ export class AttackModifierEffectComponent implements AfterViewInit, OnDestroy {
       this.targetValue = target;
     }
     this.rangeValue = this.getRange();
+    this.targetClass = !!this.targetString || !!this.targetValue || !!this.rangeValue
   }
 
   getTarget(): string | number {

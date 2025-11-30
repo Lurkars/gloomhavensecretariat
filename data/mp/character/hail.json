@@ -277,9 +277,23 @@
       "custom": "%data.custom.perks.hail.11%"
     },
     {
-      "type": "custom",
+      "type": "add",
       "count": 1,
-      "custom": "%data.custom.perks.hail.12%"
+      "monsterDeck": true,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.hail.12%"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "masteries": [

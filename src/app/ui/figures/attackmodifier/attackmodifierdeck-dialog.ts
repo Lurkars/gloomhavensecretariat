@@ -159,18 +159,13 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
   restoreDefault(): void {
     this.before.emit(new AttackModiferDeckChange(this.deck, "restoreDefault"));
     if (this.character) {
-      this.character.mergeAttackModifierDeck(gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character));
+      gameManager.attackModifierManager.mergeAttackModifierDeck(this.character.attackModifierDeck, gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character));
       gameManager.attackModifierManager.fromModel(this.deck, this.character.attackModifierDeck.toModel())
     } else if (this.townGuard) {
       this.deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(gameManager.game.party, gameManager.campaignData());
       gameManager.game.party.townGuardDeck = this.deck.toModel();
     } else if (!gameManager.bbRules()) {
-      this.deck = new AttackModifierDeck();
-      if (gameManager.imbuementManager.imbuement == true) {
-        gameManager.imbuementManager.enable(this.deck, false);
-      } else if (gameManager.imbuementManager.imbuement == 'advanced') {
-        gameManager.imbuementManager.advanced(this.deck, false);
-      }
+      this.deck = gameManager.attackModifierManager.buildMonsterAttackModifierDeck(this.ally);
     } else {
       const editionData = gameManager.editionData.find((editionData) => editionData.edition == 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length);
       if (editionData) {
@@ -441,7 +436,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
       if (!force) {
         this.deck.cards = this.deck.cards.filter((am) => !am.id || gameManager.gh2eFactionUnlocks().every((faction) => am.id.indexOf(faction) == -1));
       }
-      this.deck.cards.push(Object.assign(new AttackModifier(attackModifier.type), attackModifier));
+      this.deck.cards = [...this.deck.cards, attackModifier.clone()]
       this.after.emit(new AttackModiferDeckChange(this.deck, 'addFactionModifier', attackModifier.id));
     }
   }

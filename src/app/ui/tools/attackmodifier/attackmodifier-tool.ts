@@ -73,7 +73,7 @@ export class AttackModifierToolComponent implements OnInit {
                   perkId++;
                 }
                 for (let i = 0; i < card.count * perk.count; i++) {
-                  character.attackModifierDeck.cards.push(am);
+                  character.attackModifierDeck.cards = [...character.attackModifierDeck.cards, am];
                 }
               }
             }

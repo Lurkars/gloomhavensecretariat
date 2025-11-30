@@ -464,16 +464,23 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
       } else {
         this.character.progress.perks[index] = value;
       }
-      this.character.mergeAttackModifierDeck(gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character));
-      gameManager.attackModifierManager.shuffleModifiers(this.character.attackModifierDeck);
 
-      if (this.character.name == 'shackles' && this.character.edition == 'fh' && index == 11) {
-        if (this.character.progress.perks[index] == 2) {
-          this.character.maxHealth += 5;
-        } else if (lowerShacklesHP) {
-          this.character.maxHealth -= 5;
+      const perk = this.character.perks[index];
+      if (perk.monsterDeck) {
+        gameManager.game.monsterAttackModifierDeck = gameManager.attackModifierManager.buildMonsterAttackModifierDeck();
+        gameManager.attackModifierManager.shuffleModifiers(gameManager.game.monsterAttackModifierDeck);
+      } else {
+        gameManager.attackModifierManager.mergeAttackModifierDeck(this.character.attackModifierDeck, gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character));
+        gameManager.attackModifierManager.shuffleModifiers(this.character.attackModifierDeck);
+
+        if (this.character.name == 'shackles' && this.character.edition == 'fh' && index == 11) {
+          if (this.character.progress.perks[index] == 2) {
+            this.character.maxHealth += 5;
+          } else if (lowerShacklesHP) {
+            this.character.maxHealth -= 5;
+          }
+          this.character.health = this.character.maxHealth;
         }
-        this.character.health = this.character.maxHealth;
       }
 
       gameManager.stateManager.after();

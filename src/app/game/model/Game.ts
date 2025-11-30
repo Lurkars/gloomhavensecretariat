@@ -178,6 +178,11 @@ export class Game {
       this.totalSeconds = model.totalSeconds;
     }
     this.monsterAttackModifierDeck = this.monsterAttackModifierDeck || new AttackModifierDeck();
+    this.figures.forEach((figure) => {
+      if (figure instanceof Character && figure.perks && figure.perks.find((perk) => perk.monsterDeck)) {
+        gameManager.attackModifierManager.applyCharacterPerks(figure, this.monsterAttackModifierDeck, true);
+      }
+    })
     if (model.monsterAttackModifierDeck && model.monsterAttackModifierDeck.cards && model.monsterAttackModifierDeck.cards.length > 0) {
       gameManager.attackModifierManager.fromModel(this.monsterAttackModifierDeck, model.monsterAttackModifierDeck);
     }

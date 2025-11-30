@@ -62,7 +62,7 @@ export class ChallengesManager {
                 if (!keep || deck.keep.indexOf(i) == -1) {
                     const cards = deck.cards.splice(i, 1);
                     if (cards.length) {
-                        deck.cards.push(cards[0]);
+                        deck.cards = [...deck.cards, cards[0]];
                     }
                 }
             }
@@ -155,7 +155,7 @@ export class ChallengesManager {
                         })
                         for (let i = 0; i < 5; i++) {
                             let am = attackModifiers.splice(Math.floor(Math.random() * attackModifiers.length), 1)[0];
-                            this.game.monsterAttackModifierDeck.cards.push(am);
+                            this.game.monsterAttackModifierDeck.cards = [...this.game.monsterAttackModifierDeck.cards, am.clone()]
                         }
                         gameManager.attackModifierManager.shuffleModifiers(this.game.monsterAttackModifierDeck);
                     }

@@ -166,7 +166,7 @@ export class PerkLabelComponent {
                 }
             case AttackModifierEffectType.target:
                 if (settingsManager.settings.fhStyle) {
-                    const value = isNaN(+effect.value) ? effect.value : '+' +effect.value;
+                    const value = isNaN(+effect.value) ? effect.value : '+' + effect.value;
                     html += '<span class="placeholder attack-modifier-effect target">' + value + '<img class="action-icon" src="./assets/images/fh/attackmodifier/target.svg"></span>';
                 } else {
                     html += '<span class="placeholder attack-modifier-effect target">' + settingsManager.getLabel((+effect.value) <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [effect.value + ""]) + '<img class="action-icon" src="./assets/images/attackmodifier/target.svg"></span>';

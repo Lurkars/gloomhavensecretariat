@@ -532,7 +532,7 @@ export class EventCardManager {
                 if (this.game.party.townGuardDeck) {
                   const count = effect.values[1] ? +effect.values[1] : 1;
                   for (let i = 0; i < count; i++) {
-                    this.game.party.townGuardDeck.cards.push(effect.values[0] as string);
+                    this.game.party.townGuardDeck.cards = [...this.game.party.townGuardDeck.cards, effect.values[0] as string];
                     this.game.party.townGuardDeck.current = -1;
                     ghsShuffleArray(this.game.party.townGuardDeck.cards);
                   }

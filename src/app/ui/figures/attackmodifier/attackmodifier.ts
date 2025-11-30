@@ -45,12 +45,12 @@ export class AttackModifierComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnInit(): void {
     this.animate = !this.disableFlip;
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.adjustFontSize() });
     this.init();
   }
 
   ngAfterViewInit(): void {
     this.adjustFontSize();
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.adjustFontSize() });
   }
 
   uiChangeSubscription: Subscription | undefined;

@@ -4,7 +4,7 @@
   <span class="effect">
     @switch (effect.type) {
     @case (AttackModifierEffectType.condition) {
-    <img class="full" [ngClass]="{'target' : targetString || targetValue || rangeValue}"
+    <img class="full" [ngClass]="{'target' : targetClass}"
       [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '')  + 'condition/' + effect.value.split(':')[0] + '.svg'" />
     @if (effect.value.split(':').length > 1) {
     <span class="value">{{effect.value.split(':')[1]}}</span>
@@ -64,7 +64,7 @@
     }
     @case (AttackModifierEffectType.heal) {
     <div class="effect-container heal-container" [style.border-width]="(offsetWidth * 0.020)  + 'px'"
-      [ngClass]="{'target' : targetString || targetValue || rangeValue, 'sub-effects' : subEffects().length > 0}">
+      [ngClass]="{'target' : targetClass, 'sub-effects' : subEffects().length > 0}">
       <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}" [src]="'./assets/images/action/' + effect.type + '.svg'" />
       @if (effect.value) {
       <span class="value">{{+effect.value | ghsValueSign}}</span>
@@ -104,7 +104,7 @@
     }
     @case (AttackModifierEffectType.shield) {
     <div class="effect-container shield-container" [style.border-width]="(offsetWidth * 0.020)  + 'px'"
-      [ngClass]="{'target' : targetString || targetValue || rangeValue}">
+      [ngClass]="{'target' : targetClass}">
       <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}"
         [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg'" />
       @if (effect.value) {
@@ -137,7 +137,7 @@
     }
     @case (AttackModifierEffectType.retaliate) {
     <div class="effect-container retaliate-container" [style.border-width]="(offsetWidth * 0.020)  + 'px'"
-      [ngClass]="{'target' : targetString || targetValue || rangeValue}">
+      [ngClass]="{'target' : targetClass}">
       <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}"
         [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg'" />
       @if (effect.value) {

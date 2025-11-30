@@ -159,7 +159,6 @@ import { GhsLabelDirective, GhsLabelElementDirective, GhsPlaceholderDirective } 
 import { GhsNumberInput } from './ui/helper/number-input/number-input';
 import { PointerInputDirective } from './ui/helper/pointer-input';
 import { TabClickDirective } from './ui/helper/tabclick';
-import { TextShrinkDirective } from './ui/helper/textshrink';
 import { GhsTooltipComponent, GhsTooltipDirective } from './ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from './ui/helper/trackUUID';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
@@ -361,7 +360,6 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     StatsListComponent,
     SummonSheetComponent,
     TabClickDirective,
-    TextShrinkDirective,
     TrackUUIDPipe,
     TreasureLabelComponent,
     TreasuresDialogComponent,

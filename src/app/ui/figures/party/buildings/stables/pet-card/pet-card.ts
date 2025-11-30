@@ -26,7 +26,7 @@ export class PetCardComponent implements OnInit, AfterViewInit, OnDestroy {
     ngOnInit(): void {
         this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
-                this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';;
+                this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';
             }
         })
     }
