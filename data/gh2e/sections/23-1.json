@@ -31,8 +31,8 @@
         },
         {
           "name": "frost-demon",
-          "player3": "normal",
-          "player4": "elite"
+          "player3": "elite",
+          "player4": "normal"
         },
         {
           "name": "living-spirit",
