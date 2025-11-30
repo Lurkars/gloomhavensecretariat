@@ -5,7 +5,7 @@
   "icon": "gh-mindthief",
   "edition": "gh2e",
   "handSize": 10,
-  "retireEvent": "city:86|road:61",
+  "retireEvent": "city:86|city:87|road:61",
   "traits": [
     "nimble",
     "outcast",

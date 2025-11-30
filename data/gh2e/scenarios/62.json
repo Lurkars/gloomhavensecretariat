@@ -3,6 +3,9 @@
   "name": "Alchemy Lab",
   "flowChartGroup": "personal-quests",
   "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1
+  },
   "monsters": [],
   "objectives": [
     {
