@@ -14,7 +14,7 @@
     "special": [
       [
         {
-          "type": "custom",
+          "type": "grant",
           "value": "Vermling Scouts perform:",
           "small": true,
           "subActions": [

@@ -5,6 +5,7 @@
   "tokens": [
     "resolve"
   ],
+  "primaryToken": 0,
   "handSize": 9,
   "traits": [
     "chaotic",

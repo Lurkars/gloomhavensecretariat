@@ -3,6 +3,10 @@
   "characterClass": "valrath",
   "icon": "gh-three-spears",
   "edition": "gh2e",
+  "tokens": [
+    "supplies"
+  ],
+  "primaryToken": 0,
   "handSize": 11,
   "unlockEvent": "road:47|city:78",
   "retireEvent": "city:91|road:73",

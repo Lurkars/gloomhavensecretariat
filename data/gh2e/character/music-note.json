@@ -3,6 +3,10 @@
   "characterClass": "quatryl",
   "icon": "gh-music-note",
   "edition": "gh2e",
+  "tokens": [
+    "high-note",
+    "low-note"
+  ],
   "handSize": 11,
   "unlockEvent": "road:49|city:80",
   "retireEvent": "city:94|road:74",
