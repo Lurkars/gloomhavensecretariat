@@ -25,7 +25,7 @@
         "1": "+2 %game.action.attack%",
         "2": "Add a %data.action.custom.ccug-vial-token% to an active %data.action.custom.ccug-experiment%",
         "3": "If you drew this as part of a %data.action.custom.ccug-experiment% ability, %game.attackmodifier.plus2% instead",
-        "4": "Whenever you rest, %game.element.consume.wild% to %game.element.wild%",
+        "4": "Whenever you rest, you may %game.element.consume.wild%: %game.element.wild%",
         "5": "Whenever you consume a potion %game.itemSlot:small%, you may place one %data.action.custom.ccug-vial-token% on an active %data.action.custom.ccug-experiment% card",
         "6": "At the end of each of your turns during which you performed no attacks and you are not perfoming a long rest, %game.element.fire%, %game.element.ice%, or %game.element.earth%",
         "7": "Activate 12 %data.action.custom.ccug-experiment% abilities with at least two %data.action.custom.ccug-vial-token% used for bonuses during a single scenario",
