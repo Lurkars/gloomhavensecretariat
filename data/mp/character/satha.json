@@ -241,6 +241,7 @@
     {
       "type": "custom",
       "count": 1,
+      "immunity": "stun",
       "custom": "%game.custom.perks.ignoreNegativeItemFh% %data.custom.perks.satha.9%"
     },
     {

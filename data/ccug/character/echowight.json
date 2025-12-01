@@ -175,9 +175,9 @@
       "cards": [
         {
           "count": 2,
-          "rolling": true,
           "attackModifier": {
             "type": "plus0",
+            "rolling": true,
             "effects": [
               {
                 "type": "heal",

@@ -241,6 +241,7 @@
     {
       "type": "custom",
       "count": 1,
+      "immunity": "immobilize",
       "custom": "%data.custom.fh.blinkblade.7%"
     }
   ],

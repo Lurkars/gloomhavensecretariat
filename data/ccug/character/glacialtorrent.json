@@ -42,5 +42,189 @@
       "health": 20
     }
   ],
-  "perkWarning": true
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "brittle"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.action.custom.ccug-glacier-plus% 1"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "push",
+                "value": 2
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.glacial-torrent.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "ice"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus3"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              },
+              {
+                "type": "condition",
+                "value": "ward",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "immunity": "brittle",
+      "custom": "%game.custom.perks.ignoreNegativeItemFh% %data.custom.perks.glacial-torrent.2%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.glacial-torrent.3%"
+    },
+    {
+      "type": "custom",
+      "count": 3,
+      "combined": true,
+      "custom": "%data.custom.perks.glacial-torrent.4%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.perks.glacial-torrent.5%",
+    "%data.custom.perks.glacial-torrent.6%"
+  ]
 }

@@ -483,6 +483,7 @@
     {
       "type": "custom",
       "count": 1,
+      "immunity": "wound",
       "custom": "%data.custom.fh.prism.10%"
     }
   ],

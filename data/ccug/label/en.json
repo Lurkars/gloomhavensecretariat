@@ -58,8 +58,17 @@
         "7": "Have at least one enemy adjacent to %data.action.custom.ccug-fog% at the end of every turn there are enemies present on the map",
         "8": "Perform 7 different abilities that place %data.action.custom.ccug-fog% on your first turn"
       },
-      "frostborn": {},
-      "glacial-torrent": {},
+      "frostborn": {
+        "1": "Ignore difficult and hazardous terrain during move actions"
+      },
+      "glacial-torrent": {
+        "1": "Create one 1-hex icy terrain tile in a featureless hex adjacent to the target",
+        "2": "and, whenever you would gain %game.condition.brittle%, prevent the condition",
+        "3": "Whenever one of your ally's heals would cause your hit point value to increase beyond your maximum hit point value, gain that much %data.action.custom.ccug-glacier%",
+        "4": "Whenever you end your turn adjacent to icy terrain, perform %game.action.heal:1%, self",
+        "5": "Perform 6 different %game.characterIcon.glacial-torrent% abilities from your ability cards over the course of the first rounds of 6 scenarios",
+        "6": "At the start of each of your rests, have at least 3 %game.characterIcon.glacial-torrent% cards in your active area"
+      },
       "jester-twins": {},
       "lifespeaker": {},
       "lightracer": {},

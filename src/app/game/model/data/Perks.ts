@@ -6,6 +6,7 @@ export class Perk {
   count: number = 0;
   combined: boolean = false;
   custom: string = "";
+  immunity: string | undefined;
   cards: PerkCard[] = [];
   replaceCount: number | undefined;
   monsterDeck: boolean = false;
