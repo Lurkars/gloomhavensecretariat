@@ -42,9 +42,9 @@
       "dome": {
         "1": "Grant the ally with %data.action.custom.ccug-dome%: %game.action.attack% 2",
         "2": "Place this card in your active area. On your next attack granting ability, discard this card to add +2%game.action.attack%",
-        "3": "Your summons gain %game.action.retaliate%1.<br>Whenever one of your summons dies, perform %data.action.custom.ccug-dome-plus% 3",
-        "4": "At the end of each of your rests, perform %data.action.custom.ccug-dome-plus% 1 and %data.action.custom.ccug-dome% %game.action.range%4",
-        "5": "Once each scenario, at the end of an ally's turn, perform %data.action.custom.ccug-dome-plus% 5 and %data.action.custom.ccug-dome%, %game.action.target% that ally",
+        "3": "Your summons gain %game.action.retaliate%1.<br>Whenever one of your summons dies, perform: %data.action.custom.ccug-dome-plus% 3",
+        "4": "At the end of each of your rests, perform: %data.action.custom.ccug-dome-plus% 1 and %data.action.custom.ccug-dome% %game.action.range%4",
+        "5": "Once each scenario, at the end of an ally's turn, perform: %data.action.custom.ccug-dome-plus% 5 and %data.action.custom.ccug-dome%, %game.action.target% that ally",
         "6": "Only declare rests while your helper bot is adjacent to a figure, but not adjacent to you.",
         "7": "Never end your turn with 0 or 1 barrier, and absorb (partially or fully) at least 10 attacks with your barrier."
       },
