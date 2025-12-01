@@ -216,7 +216,9 @@
           "building": "Sblocca l'edificio '%data.buildings.{1}%' ({0})",
           "inspiration": "Ottieni +1 ispirazione",
           "itemBlueprint": "Ottieni il progetto di \"%data.items.{1}-{0}%\" (Oggetto {0})",
-          "randomScenario": "Apri %data.section:{0}%, sblocca %data.scenarioNumber:{1}%"
+          "itemBlueprintInfo": "Ottieni un progetto di oggetto casuale.",
+          "randomScenario": "Apri %data.section:{0}%, sblocca %data.scenarioNumber:{1}%",
+          "randomScenarioInfo": "Ottieni uno scenario secondario casuale."
         },
         "unlockCharacter": {
           "": "Apri la custodia %game.characterIcon.{0}%",
@@ -577,6 +579,7 @@
       "perks": {
         "": "Talenti",
         "additional": "{0} e {1}",
+        "additionalTwo": "{0}, {1} e {2}",
         "card": "Carta",
         "cardLabel": "{0}{1} {2}",
         "cards": {
@@ -665,6 +668,7 @@
       "revealAllConfirm": "Rivela tutto!",
       "shuffle": {
         "": "Mescola",
+        "allHint": "Doppio clic per mescolare tutte le carte!",
         "upcomingHint": "Doppio clic per mischiare solo le prossime carte!"
       }
     },
@@ -985,25 +989,37 @@
         "sectionOrWeek": "Aggiungi %game.section:{0}% OPPURE {1} al calendario in una settimana.",
         "sectionOrWeeks": "Aggiungi %game.section:{0}% OPPURE {1} al calendario in %game.number.{2}% settimane.",
         "sectionWeek": "Aggiungi %game.section:{0}% al calendario in una settimana.",
-        "sectionWeeks": "Aggiungi %game.section:{0}% al calendario in %game.number.{1}% settimane.",
+        "sectionWeekSeasonFinal": "Aggiungi %game.section:{0}% al calendario fino all'ultima settimana della prossima {1}.",
+        "sectionWeeks": "Aggiungi %game.section:{0}% al calendario tra %game.number.{1}% settimane.",
         "sectionWeeksSeason": "Aggiungi %game.section:{0}% al calendario tra %game.number.{1}% settimane. Se quella settimana è tra {2},aggiungilo invece alla %game.numbered.{3}% settimana del prossimo {4}.",
+        "skipThreat": "Non risolvere la minaccia sottostante.",
         "soldier": "Ottieni 1 soldato.",
         "soldiers": "Ottieni {0} soldati.",
         "townGuardDeckCard": "Aggiungi una carta %game.townGuardAM:{0}% al mazzo della guardia cittadina.",
+        "townGuardDeckCardRemove": "Rimuovi una carta %game.townGuardAM:{0}% dal mazzo della guardia cittadina.",
+        "townGuardDeckCardRemovePermanently": "Rimuovi permanentemente una carta %game.townGuardAM:{0}% dal mazzo della guardia cittadina.",
         "townGuardDeckCards": "Aggiungi %game.number.{1}% %game.townGuardAM:{0}% carte al mazzo della guardia cittadina.",
+        "traitExperience": "Tutti %game.trait:{0}% guadagnano {1} esperienza ciascuno.",
+        "traitScenarioCondition": "Tutti i personaggi %game.trait:{0}% iniziano lo scenario successivo con {1}.",
+        "traitScenarioDamage": "Tutti i personaggi %game.trait:{0}% iniziano lo scenario successivo con %game.damage:{1}%.",
         "unlockEnvelope": "Sblocca la busta {0} se non è sbloccata.",
         "unlockScenario": {
           "": "Sblocca \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
           "alt": "Nuovo Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
         },
         "unlockScenarioGroup": "Sblocca \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%).",
-        "upgradeBuilding": "Aggiorna il %data.buildings.{0}% al livello successivo, oppure, se il %data.buildings.{0}% è già di livello {1}, ottieni invece {2} morale."
+        "upgradeBuilding": "Aggiorna il %data.buildings.{0}% al livello successivo, oppure, se il %data.buildings.{0}% è già di livello {1}, ottieni invece {2} morale.",
+        "wreckBuilding": "Distruggi i %data.buildings.{0}%."
       },
       "option": {
         "": "Opzione {0}:",
         "1": "A",
         "2": "B",
         "3": "C"
+      },
+      "outpostAttack": {
+        "": "Attacco all'Avamposto",
+        "effects": "Il seguente sarà applicato all'Attacco all'Avamposto"
       },
       "requirements": {
         "": "Requisiti:",
@@ -1092,6 +1108,7 @@
         "": "Cerca…",
         "affordable": "Solo articoli acquistabili",
         "all": "Mostra tutti gli oggetti",
+        "owned": "Solo oggetti posseduti",
         "sorted": "Ordinati"
       },
       "remove": "Rimuovi '{0}'",
@@ -1251,6 +1268,7 @@
       "enemy": "%game.target% un nemico",
       "enemyAdjacent": "%game.target% un nemico adiacente",
       "enemyAllyRange": "%game.target% un nemico o %game.affect% un alleato entro %game.action.range% {0}",
+      "enemyAttacked": "%game.target% il nemico che<br>ti ha attaccato",
       "enemyOneAll": "%game.target% un nemico con tutti gli attacchi",
       "enemyRange": "%game.target% un nemico esattamente a %game.action.range% {0}",
       "figures": "%game.target% tutte le unità",
@@ -1460,7 +1478,8 @@
             "": "Ripara edificio",
             "action": "Ripara edificio",
             "costs": "Ogni {0}",
-            "hint": "Ripara edificio (forza con doppio clic)"
+            "hint": "Ripara edificio (forza con doppio clic)",
+            "morale": "-1 di Morale"
           },
           "rewards": {
             "action": "Livello {0}",
@@ -1475,7 +1494,8 @@
           },
           "selectResources": {
             "": "Seleziona risorse",
-            "confirm": "Conferma"
+            "confirm": "Conferma",
+            "morale": "-1 di Morale"
           },
           "state": {
             "damaged": "danneggiato",
@@ -1545,6 +1565,36 @@
       "hint": "La creazione di una nuova campagna è disabilitata durante uno scenario. Termina o annulla lo scenario corrente per creare una nuova campagna."
     },
     "notes": "Note",
+    "outpostAttack": {
+      "advantage": "Ottieni vantaggio per questo attacco per aver perso soldati!",
+      "buildings": {
+        "damaged": "Edificio danneggiato",
+        "wrecked": "Edificio distrutto"
+      },
+      "defense": "Difesa della base:",
+      "disadvantage": "Ottieni svantaggio perché le caserme sono distrutte!",
+      "filter": {
+        "desc": "Ordine decrescente",
+        "even": "Pari",
+        "lowerBoundary": "Confine inferiore",
+        "odd": "Dispari",
+        "parity": "Parità",
+        "randomize": "Rendi casuale",
+        "upperBoundary": "Confine superiore"
+      },
+      "finish": "Termina",
+      "map": "Apri la Mappa Globale",
+      "next": "Prossimo obiettivo",
+      "other": "Altri edifici",
+      "result": {
+        "damage": "L'edificio è danneggiato.<br>Fallito con {0} Difesa contro %game.action.attack% {2}!",
+        "success": "Successo con {0} difesa contro %game.action.attack% {2}!",
+        "successfull": "La difesa è stata un successo!",
+        "wreck": "L'edificio è distrutto!"
+      },
+      "sheet": "Apri Scheda di Gruppo",
+      "targets": "Edifici Bersagliati"
+    },
     "prosperity": {
       "": "Prosperità",
       "reset": "Resetta prosperità",
@@ -1719,6 +1769,7 @@
         "section": "Aprire %data.section:{0}%, sblocca {2}"
       },
       "hint": "Applica a tutte le figure selezionate",
+      "outpostAttack": "Attacco all'Avamposto",
       "progress": "Colpisce il progresso del personaggio"
     },
     "favors": {
@@ -1836,6 +1887,7 @@
         "winter-road": "Aggiungi l'evento {0} al mazzo strada invernale"
       },
       "experience": "{0} esperienza ciascuno",
+      "factionUnlock": "%data.gh2eFaction:{0}% la reputazione ora può essere aumentata oltre 12.",
       "globalAchievements": "Traguardi globali",
       "gold": "{0} oro ciascuno",
       "inspiration": "{0} ispirazione",
@@ -1910,6 +1962,7 @@
         "loseCondition": "{0} perdi %game.condition.{1}%",
         "permanentCondition": "{0} ottieni %game.condition.{1}% permanente",
         "remove": "Rimuovi {0}",
+        "removeAbility": "Rimuovi la carta abilità '{1}' di {0}",
         "scenarioEffect": "come effetto dello scenario",
         "setAbility": "Imposta la carta capacità attiva da {0} a '{1}'",
         "setHp": "{0} PV a {2}",
@@ -2246,6 +2299,10 @@
       "": "Usa sempre le regole in solitario di Frosthaven",
       "hint": "Applicare sempre le regole di Frosthaven per il calcolo del livello in solitario (abilitato automaticamente quando si gioca a Frosthaven)"
     },
+    "alwaysGh2eImbuement": {
+      "": "Infusione dei Mostri sempre attiva",
+      "hint": "Abilita tutte le opzioni per aggiungere l'infusione dei Mostri (Appendice F) nel menu Effetto Evento per tutte le edizioni."
+    },
     "alwaysHazardousTerrain": {
       "": "Sempre terreno pericoloso",
       "hint": "Applicare sempre le regole di Frosthaven per il calcolo del terreno pericoloso (abilitato automaticamente quando si gioca a Frosthaven)"
@@ -2519,6 +2576,14 @@
       "": "Trascina iniziativa/PV/Esp/bottino",
       "hint": "Supporto al trascinamento per la modifica dei valori. Per cambiare l'iniziativa trascina sul ritratto del personaggio. Per i punti ferita, l'esperienza e il bottino trascina sopra i valori"
     },
+    "drawRandomItem": {
+      "": "Pesca ricompense Oggetto Casuale",
+      "hint": "Pesca automaticamente una carta Oggetto Casuale."
+    },
+    "drawRandomScenario": {
+      "": "Pesca ricompense di scenario casuale",
+      "hint": "Pesca automaticamente uno scenario casuale."
+    },
     "eliteFirst": {
       "": "Prima le pedine elite",
       "hint": "Mostra prima le pedine elite quando si ordinano le pedine"
@@ -2782,6 +2847,10 @@
     "showExpandedAbilityCard": {
       "": "Mostra carte capacità ampliate",
       "hint": "Mostra tutte le capacità sulle carte capacità contemporaneamente (mostra automaticamente anche il titolo della carta)."
+    },
+    "showExpandedStatCard": {
+      "": "Mostra le schede statistiche espanse",
+      "hint": "Estendi le schede statistiche per mostrare tutto il contenuto."
     },
     "showFullAbilityCard": {
       "": "Mostra il titolo della carta capacità",

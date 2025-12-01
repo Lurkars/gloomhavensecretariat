@@ -7,6 +7,12 @@
       "tinkerer": "Inventore"
     }
   },
+  "edition": {
+    "gh2e": {
+      "": "Gloomhaven 2ª Edizione",
+      "hint": "Gloomhaven 2ª Edizione è attualmente <i>%wip%</i>. I dati dello scenario possono contenere errori e mancare di alcune regole speciali. La maggior parte delle sezioni non relative a scenari è attualmente mancante, così come alcuni dati tipo oggetti ed eventi."
+    }
+  },
   "monster": {
     "black-imp": "Imp Nero",
     "chaos-demon": "Demone del Caos",

@@ -817,6 +817,8 @@
         "notApply": "결과 무시하고 해결"
       },
       "conditions": {
+        "moraleGT": "사기 > {0}",
+        "moraleLT": "사기 < {0}",
         "otherwise": "그 외의 경우",
         "payCollectiveGold": "파티에서 합하여 금화 총 {0}개를 모아서 지불",
         "payCollectiveGoldConditional": "{0} ({1}) 또는 금화 총 {2} ({3})개를 모아서 지불",
@@ -824,10 +826,12 @@
         "reputationLT": "평판 < {0}"
       },
       "deck": {
+        "allTypes": "모든 덱 보기",
         "draw": "카드 뽑기",
         "drawn": "해결됨 ({0})",
         "filter": "카드 번호로 검색",
         "new": "잠김 ({0})",
+        "resolved": "해결된 이벤트 보기",
         "setup": "이벤트 덱 설정",
         "upcoming": "덱 구성 ({0})"
       },
@@ -848,10 +852,16 @@
         "loseBattleGoal": "각자 %game.checkmark% {0}개 잃음.",
         "loseCollectiveGold": "파티에서 합하여 금화를 총 {0}개 잃음.",
         "loseGold": "각자 금화 {0}개 잃음.",
+        "loseMorale": "사기 {0}점 하락.",
         "loseProsperity": "번영도 {0}점 잃음.",
         "loseReputation": "평판 {0}점 잃음.",
+        "morale": "사기 {0}점 상승.",
         "noEffect": "효과 없음.",
         "outcome": "%game.events.option.{0}% 결과 읽기.",
+        "outpostAttackTarget": {
+          "all": "모든 대상.",
+          "one": "아무 대상 하나."
+        },
         "partyAchievement": "파티 업적: “%data.partyAchievements.{0}%”.",
         "prosperity": "번영도 {0}점 획득.",
         "randomItemDesign": "무작위 아이템 도안 획득.",
@@ -867,9 +877,16 @@
         "2": "2번",
         "3": "3번"
       },
+      "outpostAttack": {
+        "": "전초기지 공격"
+      },
       "type": {
         "city": "도시",
-        "road": "여로"
+        "road": "여로",
+        "summer-outpost": "여름 전초기지",
+        "summer-road": "여름 여로",
+        "winter-outpost": "겨울 전초기지",
+        "winter-road": "겨울 여로"
       }
     },
     "exhausted": "탈진",
@@ -1079,23 +1096,23 @@
       "all": "%game.target%모두",
       "allies": "%game.target%모든 아군",
       "alliesAdjacent": "%game.target%인접한 모든 아군",
-      "alliesAdjacentAffect": "%game.affect%인접한 모든 아군에게 영향",
+      "alliesAdjacentAffect": "인접한 모든 아군에게 영향",
       "alliesAffect": "%game.affect%모든 아군",
       "alliesRange": "%game.target% %game.action.range% {0}내의 모든 아군",
-      "alliesRangeAffect": "%game.action.range% {0}내의 모든 아군에게 영향",
+      "alliesRangeAffect": "%game.action.range% {0} 내에 모든 아군에게 영향",
       "ally": "%game.target% 아군 하나",
       "allyAdjacent": "%game.target% 인접한 아군 하나",
-      "allyAffect": "%game.affect% 아군 하나에게 영향",
+      "allyAffect": "아군 하나에게 영향",
       "allyAffectAdjacent": "%game.affect%인접한 아군 하나",
-      "allyAffectRange": "%game.affect% %game.action.range% {0} 내의 아군 하나에게 영향",
+      "allyAffectRange": "%game.action.range% {0} 내에 아군 하나에게 영향",
       "allyShort": "아군",
       "enemies": "%game.target% 모든 적",
       "enemiesAdjacent": "%game.target% 인접한 모든 적",
       "enemiesMovedThrough": "%game.target% 이동 경로에 있는 모든 적",
       "enemiesMovedThroughAdjacent": "%game.target%이동 경로에 있는 칸을 점유하거나 인접하고 있는 모든 적 대상",
       "enemiesRange": "%game.target% %game.action.range% {0} 내의 모든 적",
-      "enemiesRangeAffect": "%game.affect% %game.action.range% {0}내의 모든 적에게 영향",
-      "enemiesRangeAffectExact": "%game.affect% 정확히 %game.action.range% {0}인 모든 적에게 영향",
+      "enemiesRangeAffect": "%game.action.range% {0} 내에 모든 적에게 영향",
+      "enemiesRangeAffectExact": "정확히 %game.action.range% {0}인 모든 적에게 영향",
       "enemiesRangeExact": "%game.target% 정확히 %game.action.range% {0}인 모든 적",
       "enemy": "%game.target% 적 하나 대상",
       "enemyAdjacent": "%game.target% 인접한 적 하나 대상",
@@ -1108,10 +1125,10 @@
       "focusEnemyFarthest": "가장 멀리 있는 적에 주목.",
       "self": "자신",
       "selfAllies": "자신 및 모든 아군",
-      "selfAlliesAdjacentAffect": "%game.affect% 자신 및 인접한 모든 아군에게 영향",
-      "selfAlliesAffect": "%game.affect% 자신 및 모든 아군에게 영향",
-      "selfAlliesAffectRange": "%game.affect%자신 및%game.action.range% {0}내의 모든 아군",
-      "selfAlliesRange": "%game.target% 자신 및 %game.action.range% {0} 내에 있는 모든 아군에게 영향",
+      "selfAlliesAdjacentAffect": "자신 및 인접한 모든 아군에게 영향",
+      "selfAlliesAffect": "자신 및 모든 아군에게 영향",
+      "selfAlliesAffectRange": "자신 및 %game.action.range% {0} 내에 있는 모든 아군에게 영향",
+      "selfAlliesRange": "자신 및 %game.action.range% {0} 내에 있는 모든 아군에게 영향",
       "selfOrAlly": "자신 또는 아군",
       "targets": "모든 대상"
     },
@@ -1185,6 +1202,10 @@
     "statEffect": {
       "": "다음 변경점에 대한 특별 규칙 적용:",
       "deck": "수정된 능력 사용:<br>\"{0}\""
+    },
+    "toggleAlly": {
+      "off": "<span class=\"monster-ally-off\">적</span>으로 전환",
+      "on": "<span class=\"monster-ally-on\">아군</span>으로 전환"
     }
   },
   "number": {
@@ -1296,7 +1317,8 @@
             "": "건물 수리",
             "action": "건물 수리",
             "costs": "아무 {0}",
-            "hint": "건물 수리 (더블 클릭으로 강제 실행)"
+            "hint": "건물 수리 (더블 클릭으로 강제 실행)",
+            "morale": "사기 -1점"
           },
           "rewards": {
             "action": "Lv {0}",
@@ -1309,7 +1331,8 @@
           },
           "selectResources": {
             "": "자원 선택",
-            "confirm": "확인하기"
+            "confirm": "확인하기",
+            "morale": "사기 -1점"
           },
           "state": {
             "damaged": "피해",
@@ -1374,6 +1397,36 @@
       "hint": "시나리오 중에는 새 파티 생성이 비활성화됩니다. 새 파티를 생성하려면 현재 시나리오를 완료하거나 취소하세요."
     },
     "notes": "메모",
+    "outpostAttack": {
+      "advantage": "병사를 소모해서 이익 상태가 되었습니다!",
+      "buildings": {
+        "damaged": "손상된 건물",
+        "wrecked": "박살난 건물"
+      },
+      "defense": "기본 방어:",
+      "disadvantage": "병영이 박살나서 불이익 상태가 되었습니다!",
+      "filter": {
+        "desc": "내림차순",
+        "even": "짝수",
+        "lowerBoundary": "하한값",
+        "odd": "홀수",
+        "parity": "홀짝",
+        "randomize": "무작위",
+        "upperBoundary": "상한값"
+      },
+      "finish": "완료",
+      "map": "지도 열기",
+      "next": "다음 대상",
+      "other": "나머지 건물",
+      "result": {
+        "damage": "건물이 손상당했습니다.<br>%game.action.attack% {2}에 {0} 방어로 대응해 실패했습니다!",
+        "success": "%game.action.attack% {2}에 {0} 방어로 대응해 성공했습니다!",
+        "successfull": "방어에 성공했습니다!",
+        "wreck": "건물이 박살났습니다!"
+      },
+      "sheet": "파티 기록지 열기",
+      "targets": "대상 건물"
+    },
     "prosperity": {
       "": "번영도",
       "reset": "번영도 초기화",
@@ -1495,6 +1548,7 @@
         "section": "%data.section:{0}% 열기, {2} 해금"
       },
       "hint": "선택된 모든 캐릭터에게 적용",
+      "outpostAttack": "전초기지 공격",
       "progress": "캐릭터 진행 사항에 영향"
     },
     "favors": {
@@ -1565,7 +1619,7 @@
         "summer": "새로운 계절: 여름 <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
         "winter": "새로운 계절: 겨울 <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
       },
-      "battleGoals": "{0} 각각 <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+      "battleGoals": "각자 <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> {0}개 획득",
       "bonus": "보너스",
       "calendarSection": {
         "": "섹션 연결",
@@ -1591,9 +1645,9 @@
         "winter-outpost": "이벤트 {0}번을 겨울 전초기지 덱에 추가",
         "winter-road": "이벤트 {0}번을 겨울 여로 덱에 추가"
       },
-      "experience": "각 경험치 {0}점",
+      "experience": "각자 경험치 {0}점 획득",
       "globalAchievements": "전역 업적",
-      "gold": "각 금화 {0}개",
+      "gold": "각자 금화 {0}개 획득",
       "inspiration": "영감 {0}",
       "item": "\"{1}'' ({0}번 아이템)",
       "itemBlueprint": "\"{1}\" %game.itemFh.{0}% 제작 아이템 도안 획득",
@@ -1609,7 +1663,7 @@
       "morale": "사기 {0}점",
       "overlayCampaignSticker": "\"%data.campaignSticker.{0}%\" 캠페인 스티커를 마을 지도의 {1} 장소에 붙임",
       "partyAchievements": "파티 업적",
-      "perks": "각 특혜 {0}개 획득",
+      "perks": "각자 <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> {0}개 획득",
       "prosperity": "번영도 {0}",
       "randomItemBlueprint": "무작위 제작 아이템 도안 하나 획득",
       "randomItemBlueprints": "입수 가능한 아이템 공급처에 %game.itemFh.{0}% ~ %game.itemFh.{1}% 추가.",
@@ -1619,10 +1673,10 @@
         "city": "덱에서 {0} 도시 이벤트 제거",
         "rift": "덱에서 {0} Rift 이벤트 제거",
         "road": "덱에서 {0} 여로 이벤트 제거",
-        "summer-outpost": "Summer outpost 덱에서 {0} 이벤트 제거",
-        "summer-road": "Summer 여로 덱에서 {0} 이벤트 제거",
-        "winter-outpost": "Winter outpost 덱에서 {0} 이벤트 제거",
-        "winter-road": "Winter 여로 덱에서 {0} 이벤트 제거"
+        "summer-outpost": "여름 전초기지 덱에서 {0} 이벤트 제거",
+        "summer-road": "여름 여로 덱에서 {0} 이벤트 제거",
+        "winter-outpost": "겨울 전초기지 덱에서 {0} 이벤트 제거",
+        "winter-road": "겨울 여로 덱에서 {0} 이벤트 제거"
       },
       "removeLootDeckCard": "게임에서 {0} 전리품 카드 제거. 어떠한 시나리오의 전리품 덱에도 추가하지 않음.",
       "reputation": "평판 {0}",
@@ -1971,7 +2025,7 @@
       "hint": "뽑은 노획 카드의 적용 대상을 활성 캐릭터 대신 캐릭터를 선택하는 설정창을 항상 표시합니다."
     },
     "alwaysLootDeck": {
-      "": "항상 노획 덱을 사용",
+      "": "항상 노획 덱 사용",
       "hint": "모든 시나리오에서 노획 덱을 사용합니다."
     },
     "amAdvantage": {
@@ -2037,7 +2091,7 @@
       "hint": "또한 게임 시간 기록을 창에 포커스 상태일 때만 자동으로 시작하고, 포커스를 잃을 때는 자동으로 중지합니다."
     },
     "automaticPassTime": {
-      "": "달력 시간을 자동 넘김",
+      "": "자동으로 달력 시간 경과",
       "hint": "시나리오 종료 시 달력에서 자동으로 1주의 시간이 흐릅니다. 이번 주 달력 섹션의 효과도 자동으로 추가합니다."
     },
     "automaticStandees": {
@@ -2682,6 +2736,7 @@
         "drawRandomItem": "무작위 아이템 도안 뽑기 {0} \"{2}\" (%data.edition.{1}%)",
         "drawRandomItemBlueprint": "무작위 제작 아이템 도안 뽑습니다 {0} \"{2}\" (%data.edition.{1}%)",
         "drawRandomScenario": "랜덤 시나리오 {2} %data.scenarioNumber:{0}% 뽑음",
+        "morale": "사기 {0}점",
         "prosperity": "번영도 {0}"
       },
       "finishScenario": {

@@ -845,7 +845,12 @@
           "hint": "모든 비틀거리는 해골에 +1%game.action.heal%."
         }
       },
-      "deathwalker": "데스워커",
+      "deathwalker": {
+        "": "죽음보행자",
+        "tokens": {
+          "shadow": "그림자 토큰"
+        }
+      },
       "drifter": "표류자",
       "geminate": {
         "": "쌍생자",
@@ -970,7 +975,7 @@
         "1": "차례를 수행하지 않음."
       },
       "deathwalker": {
-        "1": "자신이 긴 휴식을 취할 때마다, %data.action.custom.fh-shadow%하나를 세 칸까지 이동시킬 수 있음",
+        "1": "자신이 긴 휴식을 취할 때마다, %data.action.custom.fh-shadow% 하나를 세 칸까지 이동시킬 수 있음",
         "2": "자신이 짧은 휴식을 취할 때마다, %game.element.consume.dark% 를 하여 %game.condition.muddle%, %game.condition.curse%, %game.action.range:2%를 수행할 수 있으며, 이 능력은 자신이 %data.action.custom.fh-shadow% 가 있는 칸 하나를 점유하고 있는 것처럼 수행",
         "3": "자신이 %data.action.custom.fh-shadow% 가 있는 칸을 점유하고 있는 동안, 자신을 대상으로 하는 모든 공격이 불이익을 받음",
         "4": "한 라운드에 %data.action.custom.fh-shadow% 7개 제거",
