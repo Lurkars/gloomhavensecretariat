@@ -69,7 +69,15 @@
         "5": "Perform 6 different %game.characterIcon.glacial-torrent% abilities from your ability cards over the course of the first rounds of 6 scenarios",
         "6": "At the start of each of your rests, have at least 3 %game.characterIcon.glacial-torrent% cards in your active area"
       },
-      "jester-twins": {},
+      "jester-twins": {
+        "1": "Place this card in your active area. The next time you force an enemy to move, discard this card and that enemy suffers %game.damage:2%",
+        "2": "If you are not %data.action.custom.ccug-stacked% after this attack ability, %game.action.teleport% the other %game.characterIcon.jester-twins% to your hex and become %data.action.custom.ccug-stacked%",
+        "3": "If you are not %data.action.custom.ccug-stacked%, you may end your movement in a hex occupied by an ally to become %data.action.custom.ccug-stacked% on top of the ally",
+        "4": "You may bring one additional %game.itemSlot:twohand% item into each scenario",
+        "5": "Your forced movement can move allies through enemies, and enemies through allies",
+        "6": "Unstack on your first turn and never become %data.action.custom.ccug-stacked%",
+        "7": "One %game.characterIcon.jester-twins% never suffers damage, and be targeted by at least six attacks"
+      },
       "lifespeaker": {},
       "lightracer": {},
       "reeftender": {},
