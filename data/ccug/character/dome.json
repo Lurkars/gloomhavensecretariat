@@ -65,7 +65,7 @@
                 "effects": [
                   {
                     "type": "specialTarget",
-                    "value": "ally"
+                    "value": "allyShort"
                   }
                 ]
               }
@@ -160,7 +160,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "%data.action.custom.ccug-dome-plus%"
+                "value": "%data.action.custom.ccug-dome-plus% 1"
               }
             ]
           }

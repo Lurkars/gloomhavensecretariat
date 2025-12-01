@@ -352,12 +352,13 @@ export class EntityManager {
         immunities.push(ConditionName.disarm, ConditionName.stun, ConditionName.muddle);
       }
 
-      if (entity.name == 'blinkblade' && entity.edition == 'fh' && entity.progress.perks[10]) {
-        immunities.push(ConditionName.immobilize);
-      } else if (entity.name == 'coral' && entity.edition == 'fh' && entity.progress.perks[7]) {
-        immunities.push(ConditionName.impair);
-      } else if (entity.name == 'prism' && entity.edition == 'fh' && entity.progress.perks[9]) {
-        immunities.push(ConditionName.wound);
+      if (entity.perks) {
+        entity.perks.forEach((perk) => {
+          let index = entity.perks.indexOf(perk);
+          if (perk.immunity && ((perk.combined && entity.progress.perks[index] >= perk.count) || (!perk.combined && entity.progress.perks[index] >= 1))) {
+            immunities.push(perk.immunity as ConditionName);
+          }
+        });
       }
 
       immune = immunities.indexOf(conditionName) != -1;

@@ -1241,6 +1241,10 @@
                     "default": "",
                     "type": "string"
                 },
+                "immunity": {
+                    "default": "",
+                    "type": "string"
+                },
                 "type": {
                     "$ref": "#/definitions/PerkType"
                 }

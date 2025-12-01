@@ -25,7 +25,7 @@
         "1": "+2 %game.action.attack%",
         "2": "Add a %data.action.custom.ccug-vial-token% to an active %data.action.custom.ccug-experiment%",
         "3": "If you drew this as part of a %data.action.custom.ccug-experiment% ability, %game.attackmodifier.plus2% instead",
-        "4": "Whenever you rest, %game.element.consume.wild% to %game.element.wild%",
+        "4": "Whenever you rest, you may %game.element.consume.wild%: %game.element.wild%",
         "5": "Whenever you consume a potion %game.itemSlot:small%, you may place one %data.action.custom.ccug-vial-token% on an active %data.action.custom.ccug-experiment% card",
         "6": "At the end of each of your turns during which you performed no attacks and you are not perfoming a long rest, %game.element.fire%, %game.element.ice%, or %game.element.earth%",
         "7": "Activate 12 %data.action.custom.ccug-experiment% abilities with at least two %data.action.custom.ccug-vial-token% used for bonuses during a single scenario",
@@ -42,16 +42,42 @@
       "dome": {
         "1": "Grant the ally with %data.action.custom.ccug-dome%: %game.action.attack% 2",
         "2": "Place this card in your active area. On your next attack granting ability, discard this card to add +2%game.action.attack%",
-        "3": "Your summons gain %game.action.retaliate%1.<br>Whenever one of your summons dies, perform %data.action.custom.ccug-dome-plus% 3",
-        "4": "At the end of each of your rests, perform %data.action.custom.ccug-dome-plus% 1 and %data.action.custom.ccug-dome% %game.action.range%4",
-        "5": "Once each scenario, at the end of an ally's turn, perform %data.action.custom.ccug-dome-plus% 5 and %data.action.custom.ccug-dome%, %game.action.target% that ally",
+        "3": "Your summons gain %game.action.retaliate%1.<br>Whenever one of your summons dies, perform: %data.action.custom.ccug-dome-plus% 3",
+        "4": "At the end of each of your rests, perform: %data.action.custom.ccug-dome-plus% 1 and %data.action.custom.ccug-dome% %game.action.range:4%",
+        "5": "Once each scenario, at the end of an ally's turn, perform: %data.action.custom.ccug-dome-plus% 5 and %data.action.custom.ccug-dome%, %game.action.target% that ally",
         "6": "Only declare rests while your helper bot is adjacent to a figure, but not adjacent to you.",
         "7": "Never end your turn with 0 or 1 barrier, and absorb (partially or fully) at least 10 attacks with your barrier."
       },
-      "echowight": {},
-      "frostborn": {},
-      "glacial-torrent": {},
-      "jester-twins": {},
+      "echowight": {
+        "1": "One enemy adjacent to %data.action.custom.ccug-fog% suffers %game.damage:1%",
+        "2": "+1%game.action.attack% for each %data.action.custom.ccug-fog% adjacent to the target",
+        "3": "Place one %data.action.custom.ccug-fog% in a hex adjacent to the target",
+        "4": "At the end of your turn, if you are adjacent to %data.action.custom.ccug-fog% and have not moved this turn, you may perform: %game.action.move% 1",
+        "5": "Once per round, when a door is opened, you may relocate a %data.action.custom.ccug-fog% to a hex within %game.action.range:1% of the opened door",
+        "6": "Enemies gain -1 %game.action.retaliate% for each adjacent %data.action.custom.ccug-fog%",
+        "7": "Have at least one enemy adjacent to %data.action.custom.ccug-fog% at the end of every turn there are enemies present on the map",
+        "8": "Perform 7 different abilities that place %data.action.custom.ccug-fog% on your first turn"
+      },
+      "frostborn": {
+        "1": "Ignore difficult and hazardous terrain during move actions"
+      },
+      "glacial-torrent": {
+        "1": "Create one 1-hex icy terrain tile in a featureless hex adjacent to the target",
+        "2": "and, whenever you would gain %game.condition.brittle%, prevent the condition",
+        "3": "Whenever one of your ally's heals would cause your hit point value to increase beyond your maximum hit point value, gain that much %data.action.custom.ccug-glacier%",
+        "4": "Whenever you end your turn adjacent to icy terrain, perform %game.action.heal:1%, self",
+        "5": "Perform 6 different %game.characterIcon.glacial-torrent% abilities from your ability cards over the course of the first rounds of 6 scenarios",
+        "6": "At the start of each of your rests, have at least 3 %game.characterIcon.glacial-torrent% cards in your active area"
+      },
+      "jester-twins": {
+        "1": "Place this card in your active area. The next time you force an enemy to move, discard this card and that enemy suffers %game.damage:2%",
+        "2": "If you are not %data.action.custom.ccug-stacked% after this attack ability, %game.action.teleport% the other %game.characterIcon.jester-twins% to your hex and become %data.action.custom.ccug-stacked%",
+        "3": "If you are not %data.action.custom.ccug-stacked%, you may end your movement in a hex occupied by an ally to become %data.action.custom.ccug-stacked% on top of the ally",
+        "4": "You may bring one additional %game.itemSlot:twohand% item into each scenario",
+        "5": "Your forced movement can move allies through enemies, and enemies through allies",
+        "6": "Unstack on your first turn and never become %data.action.custom.ccug-stacked%",
+        "7": "One %game.characterIcon.jester-twins% never suffers damage, and be targeted by at least six attacks"
+      },
       "lifespeaker": {},
       "lightracer": {},
       "reeftender": {},
