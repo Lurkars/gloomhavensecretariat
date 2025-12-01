@@ -241,7 +241,7 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "%data.custom.perks.satha.9%"
+      "custom": "%game.custom.perks.ignoreNegativeItemFh% %data.custom.perks.satha.9%"
     },
     {
       "type": "custom",

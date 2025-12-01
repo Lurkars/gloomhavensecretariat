@@ -43,7 +43,7 @@
       "satha": {
         "6": "Grant one ally within %game.action.range% 3: %game.action.attack% 2 %game.action.range% 3 or %game.action.attack% 3",
         "7": "Grant one ally within %game.action.range% 3: %game.action.move% 2",
-        "9": "%game.custom.perks.ignoreNegativeItemFh% and whenever you would gain %game.condition.stun%, prevent the condition",
+        "9": "and whenever you would gain %game.condition.stun%, prevent the condition",
         "10": "Whenever you long rest, perform: %game.condition.strengthen%, %game.action.target% 1 ally, %game.action.range% 3",
         "11": "All initiative values may be discussed freely and precisely",
         "12": "The first time each scenario that you or an ally exhaust, perform: %game.action.heal% 3, %game.action.target% all, %game.condition.ward%, %game.condition.strengthen%"

@@ -156,7 +156,7 @@
                 "effects": [
                   {
                     "type": "specialTarget",
-                    "value": "ally"
+                    "value": "allyShort"
                   }
                 ]
               }
