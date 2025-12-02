@@ -42,6 +42,39 @@
       "health": 14
     }
   ],
+  "availableSummons": [
+    {
+      "name": "ice-roc",
+      "level": 4,
+      "health": 7,
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "fly",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "chill"
+      }
+    },
+    {
+      "name": "living-blizzard",
+      "level": 9,
+      "health": 1,
+      "attack": 1,
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "%game.action.fly%, %game.condition.invisible%"
+      },
+      "additionalAction": {
+        "type": "custom",
+        "value": "%game.condition.chill%, %data.custom.perks.frostborn.2%",
+        "small": true
+      }
+    }
+  ],
   "perks": [
     {
       "type": "remove",

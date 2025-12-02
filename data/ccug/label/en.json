@@ -56,10 +56,14 @@
         "5": "Once per round, when a door is opened, you may relocate a %data.action.custom.ccug-fog% to a hex within %game.action.range:1% of the opened door",
         "6": "Enemies gain -1 %game.action.retaliate% for each adjacent %data.action.custom.ccug-fog%",
         "7": "Have at least one enemy adjacent to %data.action.custom.ccug-fog% at the end of every turn there are enemies present on the map",
-        "8": "Perform 7 different abilities that place %data.action.custom.ccug-fog% on your first turn"
+        "8": "Perform 7 different abilities that place %data.action.custom.ccug-fog% on your first turn",
+        "9": "If %game.element.air% is strong or waning, place one %data.action.custom.ccug-fog% in or adjacent to the target's hex.",
+        "10": "Gain %game.action.shield:1% while adjacent to %data.action.custom.ccug-fog%.",
+        "11": "When attacking, ignore %game.action.retaliate%."
       },
       "frostborn": {
-        "1": "Ignore difficult and hazardous terrain during move actions"
+        "1": "Ignore difficult and hazardous terrain during move actions",
+        "2": "target all adjacent enemies.<br>This summon cannot suffer damage in any way."
       },
       "glacial-torrent": {
         "1": "Create one 1-hex icy terrain tile in a featureless hex adjacent to the target",
@@ -78,8 +82,25 @@
         "6": "Unstack on your first turn and never become %data.action.custom.ccug-stacked%",
         "7": "One %game.characterIcon.jester-twins% never suffers damage, and be targeted by at least six attacks"
       },
-      "lifespeaker": {},
-      "lightracer": {},
+      "lifespeaker": {
+        "1": "Place this card in your active area. The next time you trigger an element consumption effect, discard this card to gain the effect an additional time",
+        "2": "Add +2 %game.action.attack% and suffer %game.damage:1% if %game.characterIcon.lifespeaker% has at least 2 %data.action.custom.ccug-icon%",
+        "3": "and, at the start of each of your turns, any number of times, perform: -1 %data.action.custom.ccug-icon%: Move the character token on one of your persistent abilities backwards one slot.",
+        "4": "Once each scenario, you may gain up to three %game.condition.enfeeble% cards to gain the same number of %data.action.custom.ccug-icon%",
+        "5": "Whenever an enemy draws an %game.condition.enfeeble% card, that enemy reduces the value of their attack by 1 and suffers %game.damage:1% after the attack.",
+        "6": "In a single turn, gain 7 element consumption effects",
+        "7": "In a single scenario, consume 2 or more elements with 7 different actions",
+        "8": "Treat all %game.attackmodifier.minus1% attack modifier cards drawn as %game.attackmodifier.plus0% instead.",
+        "9": "Treat all %game.condition.enfeeble% cards drawn as %game.attackmodifier.plus3% instead."
+      },
+      "lightracer": {
+        "1": "You may discard a Speed card to add +1 %game.action.attack% and %game.condition.muddle%",
+        "2": "and when you suffer damage during your turn, you may ignore %game.condition.ward%",
+        "3": "Whenever you draw a %game.condition.bless%, perform %game.condition.ward% %game.action.target% 1 ally. If that ally already had %game.condition.ward%, %game.action.heal:1% that ally",
+        "4": "Once each scenario, you may use all of your played cards for their standard action and ignore damage from Speeds that turn",
+        "5": "Play 8 unique Speed actions during your first turn across multiple scenarios.",
+        "6": "For an entire scenario, have at least 2 Speed cards in your active area at the end of each of your turns."
+      },
       "reeftender": {},
       "rootwhisperer": {},
       "skitterclaw": {},
@@ -108,5 +129,23 @@
   },
   "edition": {
     "ccug": "Custom Content Unity Guild"
+  },
+  "summon": {
+    "perpetual-enginebot": "Perpetual Enginebot",
+    "radioactive-homunculus": "Radioactive Homunculus",
+    "helper-bot": "Helper Bot",
+    "robotic-detritus": "Robotic Detritus",
+    "automated-mech-suit": "Automated Mech Suit",
+    "ethereal-opening": "Ethereal Opening",
+    "ghostly-armor": "Ghostly Armor",
+    "fogbound-terror": "Fogbound Terror",
+    "shrouded-stalker": "Shrouded Stalker",
+    "screeching-banshee": "Screeching Banshee",
+    "harbinger": "Harbinger",
+    "ice-roc": "Ice Roc",
+    "living-blizzard": "Living Blizzard",
+    "pakhs-prowess": "Pakh's Prowess",
+    "makolus-fervor": "Makolu's Fervor",
+    "otarks-rage": "Otark's Rage"
   }
 }

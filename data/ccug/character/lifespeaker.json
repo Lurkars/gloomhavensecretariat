@@ -42,5 +42,198 @@
       "health": 14
     }
   ],
-  "perkWarning": true
+  "availableSummons": [
+    {
+      "name": "pakhs-prowess",
+      "level": 1,
+      "health": 7,
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.perks.lifespeaker.8%",
+        "small": true
+      }
+    },
+    {
+      "name": "makolus-fervor",
+      "level": 6,
+      "health": 5,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "jump",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "custom",
+        "value": "%data.custom.perks.lifespeaker.9%",
+        "small": true
+      }
+    },
+    {
+      "name": "otarks-rage",
+      "level": 8,
+      "health": 9,
+      "attack": 3,
+      "movement": 3
+    }
+  ],
+  "perks": [
+    {
+      "type": "remove",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "enfeeble"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "replaceCount": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "pierce",
+                "value": 1
+              },
+              {
+                "type": "push",
+                "value": 1
+              },
+              {
+                "type": "condition",
+                "value": "regenerate",
+                "effects": [
+                  {
+                    "type": "range",
+                    "value": 2
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.lifespeaker.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.lifespeaker.2%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreScenario%, %data.custom.perks.lifespeaker.3%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.lifespeaker.4%"
+    },
+    {
+      "type": "custom",
+      "count": 3,
+      "combined": true,
+      "custom": "%data.custom.perks.lifespeaker.5%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.perks.lifespeaker.6%",
+    "%data.custom.perks.lifespeaker.7%"
+  ],
+  "additionalModifier": [
+    {
+      "count": 10,
+      "attackModifier": {
+        "type": "enfeeble",
+        "value": 1,
+        "valueType": "minus",
+        "effects": [
+          {
+            "type": "element",
+            "value": "wild"
+          }
+        ]
+      }
+    }
+  ]
 }
