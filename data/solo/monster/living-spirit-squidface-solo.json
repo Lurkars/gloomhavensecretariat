@@ -3,6 +3,7 @@
   "edition": "gh2e",
   "deck": "living-spirit-squidface-solo",
   "flying": true,
+  "hidden": true,
   "count": 6,
   "standeeShare": "living-spirit",
   "baseStat": {
