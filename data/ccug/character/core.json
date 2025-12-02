@@ -3,6 +3,11 @@
   "characterClass": "unfettered",
   "edition": "ccug",
   "handSize": 9,
+  "traits": [
+    "armored",
+    "chaotic",
+    "resourceful"
+  ],
   "color": "#d76a0c",
   "stats": [
     {

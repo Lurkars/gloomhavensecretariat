@@ -3,6 +3,11 @@
   "characterClass": "lurker",
   "edition": "ccug",
   "handSize": 11,
+  "traits": [
+    "armored",
+    "intimidating",
+    "strong"
+  ],
   "color": "#33accd",
   "stats": [
     {

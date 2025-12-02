@@ -3,6 +3,11 @@
   "characterClass": "aesther",
   "edition": "ccug",
   "handSize": 11,
+  "traits": [
+    "arcane",
+    "chaotic",
+    "outcast"
+  ],
   "color": "#b3d3e2",
   "stats": [
     {

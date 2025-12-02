@@ -3,6 +3,11 @@
   "characterClass": "unfettered",
   "edition": "ccug",
   "handSize": 11,
+  "traits": [
+    "armored",
+    "nimble",
+    "resourceful"
+  ],
   "color": "#95b7e1",
   "stats": [
     {

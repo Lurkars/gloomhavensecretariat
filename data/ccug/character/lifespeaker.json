@@ -3,6 +3,11 @@
   "characterClass": "human",
   "edition": "ccug",
   "handSize": 10,
+  "traits": [
+    "arcane",
+    "chaotic",
+    "resourceful"
+  ],
   "color": "#fbb769",
   "stats": [
     {

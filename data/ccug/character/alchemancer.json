@@ -3,6 +3,11 @@
   "characterClass": "quatryl",
   "edition": "ccug",
   "handSize": 10,
+  "traits": [
+    "arcane",
+    "educated",
+    "resourceful"
+  ],
   "color": "#3fd49b",
   "stats": [
     {
