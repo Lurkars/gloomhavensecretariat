@@ -174,7 +174,8 @@
     },
     {
       "type": "custom",
-      "count": 1,
+      "count": 3,
+      "combined": true,
       "custom": "%data.custom.perks.lifespeaker.5%"
     }
   ],

@@ -87,7 +87,14 @@
         "6": "In a single turn, gain 7 element consumption effects",
         "7": "In a single scenario, consume 2 or more elements with 7 different actions"
       },
-      "lightracer": {},
+      "lightracer": {
+        "1": "You may discard a Speed card to add +1 %game.action.attack% and %game.condition.muddle%",
+        "2": "and when you suffer damage during your turn, you may ignore %game.condition.ward%",
+        "3": "Whenever you draw a %game.condition.bless%, perform %game.condition.ward% %game.action.target% 1 ally. If that ally already had %game.condition.ward%, %game.action.heal:1% that ally",
+        "4": "Once each scenario, you may use all of your played cards for their standard action and ignore damage from Speeds that turn",
+        "5": "Play 8 unique Speed actions during your first turn across multiple scenarios.",
+        "6": "For an entire scenario, have at least 2 Speed cards in your active area at the end of each of your turns."
+      },
       "reeftender": {},
       "rootwhisperer": {},
       "skitterclaw": {},
