@@ -159,7 +159,10 @@
         "3": "每个剧本限一次，在你的回合期间，%data.action.custom.gh2e-command%: %game.action.move% 4<br>如果%data.action.custom.gh2e-bear-summon%在该移动能力期间离开你的相邻格，你可以在该移动能力结束后%game.action.teleport%至%data.action.custom.gh2e-bear-summon%的一个相邻空格中",
         "4": "在你每次充分休息之前或之后，你可以%game.elementHalf:air|earth%并降低你的当前生命值X(X至少为1)，来执行%data.action.custom.gh2e-command%: %game.action.heal% X,自身",
         "5": "在单一剧本中，你的每轮都灌注或消耗%game.element.air%或%game.element.earth%",
-        "6": "在单一剧本中，以%data.action.custom.gh2e-command%攻击值至少为7的攻击(结算所有奖励后、抽取修正前)消灭至少4个敌人"
+        "6": "在单一剧本中，以%data.action.custom.gh2e-command%攻击值至少为7的攻击(结算所有奖励后、抽取修正前)消灭至少4个敌人",
+        "7": "%game.action.range%3内的所有盟友为他们的所有攻击附加%game.action.pierce%1。",
+        "8": "%game.action.range%3内的所有盟友获得%game.action.shield%1。",
+        "9": "%game.action.range%3内的所有盟友为他们每轮的首次攻击附加+2%game.action.attack%。"
       }
     }
   },
