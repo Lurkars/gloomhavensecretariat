@@ -126,7 +126,18 @@
         "9": "After ending a %game.action.move% or %game.action.teleport% adjacent to %game.characterIcon.reeftender%, gain %game.condition.invisible%."
       },
       "rootwhisperer": {},
-      "skitterclaw": {},
+      "skitterclaw": {
+        "1": "After the attack ability, grant one of your summons: %game.action.move:2%",
+        "2": "If the target is Latched, %game.attackmodifier.plus2% instead",
+        "3": "All Latched enemies suffer %game.damage:1%",
+        "4": "You may summon %data.action.custom.ccug-critter% summons in adjacent occupied hexes",
+        "5": "Once per scenario, when you or an ally would suffer %game.damage% from an attack, remove a Latched summon from the attacker or the target to negate the damage instead",
+        "6": "At the start of each scenario, you may play a card from your hand to perform a summon action of the card",
+        "7": "Have at least one Latched summon on four different enemies",
+        "8": "Have your summons perform twelve attacks in one round",
+        "9": "All attacks targeting the Latched enemy add %game.action.pierce:1%.",
+        "10": "+1 %game.action.attack% for each Latched summon on self."
+      },
       "wildborn": {
         "1": "instead if you suffer %game.damage:2%",
         "2": "Add +1 %game.action.attack% per collected %data.action.custom.ccug-essence%",
@@ -182,6 +193,17 @@
     "clever-octopus": "Clever Octopus",
     "sabretooth-sea-lion": "Sabretooth Sea Lion",
     "reefborne-huntress": "Reefborne Huntress",
-    "living-ballista": "Living Ballista"
+    "living-ballista": "Living Ballista",
+    "tree-runner": "Tree Runner",
+    "forest-mirage": "Forest Mirage",
+    "labour-of-earth-movers": "Labour of Earth Movers",
+    "spiny-mischief": "Spiny Mischief",
+    "riverbank-warden": "Riverbank Warden",
+    "striped-night-dweller": "Striped Night Dweller",
+    "twin-tails": "Twin Tails",
+    "flock-of-meadow-darts": "Flock of Meadow Darts",
+    "ratatoskr": "Ratatoskr",
+    "golden-colony": "Golden Colony",
+    "endless-dray": "Endless Dray"
   }
 }
