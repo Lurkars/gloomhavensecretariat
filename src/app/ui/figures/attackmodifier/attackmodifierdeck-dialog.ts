@@ -254,7 +254,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
 
   addModifier() {
     this.before.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifiers.types." + this.tgAM.type));
-    let attackModifier = this.tgAM.clone();
+    let attackModifier = Object.assign(new AttackModifier(this.tgAM.type), this.tgAM);
     attackModifier.revealed = true;
     if (!this.deck.attackModifiers.find((am) => am.id == attackModifier.id)) {
       this.deck.attackModifiers.push(attackModifier);
@@ -266,7 +266,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
 
   addModifierShuffle() {
     this.before.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifiers.types." + this.tgAM.type));
-    let attackModifier = this.tgAM.clone();
+    let attackModifier = Object.assign(new AttackModifier(this.tgAM.type), this.tgAM);
     this.deck.cards.splice(this.deck.current + 1 + Math.random() * (this.deck.cards.length - this.deck.current), 0, attackModifier);
     if (!this.deck.attackModifiers.find((am) => am.id == attackModifier.id)) {
       this.deck.attackModifiers.push(attackModifier);
@@ -436,7 +436,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
       if (!force) {
         this.deck.cards = this.deck.cards.filter((am) => !am.id || gameManager.gh2eFactionUnlocks().every((faction) => am.id.indexOf(faction) == -1));
       }
-      this.deck.cards = [...this.deck.cards, attackModifier.clone()]
+      this.deck.cards = [...this.deck.cards, Object.assign(new AttackModifier(attackModifier.type), attackModifier)];
       this.after.emit(new AttackModiferDeckChange(this.deck, 'addFactionModifier', attackModifier.id));
     }
   }

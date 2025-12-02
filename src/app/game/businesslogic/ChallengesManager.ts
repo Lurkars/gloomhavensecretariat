@@ -155,7 +155,7 @@ export class ChallengesManager {
                         })
                         for (let i = 0; i < 5; i++) {
                             let am = attackModifiers.splice(Math.floor(Math.random() * attackModifiers.length), 1)[0];
-                            this.game.monsterAttackModifierDeck.cards = [...this.game.monsterAttackModifierDeck.cards, am.clone()]
+                            this.game.monsterAttackModifierDeck.cards = [...this.game.monsterAttackModifierDeck.cards, Object.assign(new AttackModifier(am.type), am)]
                         }
                         gameManager.attackModifierManager.shuffleModifiers(this.game.monsterAttackModifierDeck);
                     }

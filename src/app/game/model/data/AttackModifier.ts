@@ -123,10 +123,6 @@ export class AttackModifier {
         break;
     }
   }
-
-  clone(): AttackModifier {
-    return new AttackModifier(this.type, this.value, this.valueType, this.id, this.effects ? JSON.parse(JSON.stringify(this.effects)) : [], this.rolling, this.active);
-  }
 }
 
 export enum AttackModifierEffectType {
@@ -368,9 +364,9 @@ export class AttackModifierDeck {
 
   constructor(attackModifiers: AttackModifier[] | undefined = undefined, bb: boolean = false) {
     this.bb = bb;
-    this.attackModifiers = (attackModifiers ? attackModifiers.filter((am, index, self) => this.bb || self.indexOf(am) == index) : defaultAttackModifier).map((am) => am.clone());
+    this.attackModifiers = (attackModifiers ? attackModifiers.filter((am, index, self) => this.bb || self.indexOf(am) == index) : defaultAttackModifier).map((am) => Object.assign(new AttackModifier(am.type), am));
     this.current = -1;
-    this.cards = (attackModifiers || defaultAttackModifierCards).map((am) => am.clone());
+    this.cards = (attackModifiers || defaultAttackModifierCards).map((am) => Object.assign(new AttackModifier(am.type), am));
   }
 
   toModel(): GameAttackModifierDeckModel {

@@ -507,7 +507,7 @@ export class AttackModifierManager {
   }
 
   buildTownGuardAttackModifierDeck(party: Party, campaignData: CampaignData): AttackModifierDeck {
-    const defaultTownGuardDeck = defaultTownGuardAttackModifier.map((am) => am.clone());
+    const defaultTownGuardDeck = defaultTownGuardAttackModifier.map((am) => Object.assign(new AttackModifier(am.type), am));
     const attackModifierDeck = new AttackModifierDeck(defaultTownGuardDeck);
     attackModifierDeck.attackModifiers.push(...additionalTownGuardAttackModifier);
 
@@ -558,7 +558,7 @@ export class AttackModifierManager {
           scenarioData.rewards.townGuardAm.forEach((id, index) => {
             let am = attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == id);
             if (am) {
-              attackModifierDeck.cards = [...attackModifierDeck.cards, am.clone()]
+              attackModifierDeck.cards = [...attackModifierDeck.cards, Object.assign(new AttackModifier(am.type), am)]
             } else {
               console.warn("Unknown Town Guard AM:", id);
             }
@@ -573,7 +573,7 @@ export class AttackModifierManager {
           sectionData.rewards.townGuardAm.forEach((id, index) => {
             let am = attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == id);
             if (am) {
-              attackModifierDeck.cards = [...attackModifierDeck.cards, am.clone()]
+              attackModifierDeck.cards = [...attackModifierDeck.cards, Object.assign(new AttackModifier(am.type), am)]
             } else {
               console.warn("Unknown Town Guard AM:", id);
             }
