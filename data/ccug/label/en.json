@@ -157,7 +157,14 @@
         "5": "Consume at least three elements on each of your turns after the first round, without exhausting",
         "6": "Have %game.action.shield% 2 on each attack targeting you that would cause you to suffer damage, and be attacked at least 15 times."
       },
-      "veilpiercer": {},
+      "veilpiercer": {
+        "1": "The target and all enemies adjacent to it suffer %game.damage:1%",
+        "2": "Unlock <b>The Astral Plane</b>, and start each scenario with %game.condition.invisible%",
+        "3": "Whenever you long rest, you may perform \"%game.action.teleport% 2\"",
+        "4": "Once each scenario, during your turn, place one %data.action.custom.ccug-veil% in a hex within %game.action.range:4%",
+        "5": "Complete 5 Plane cards in a single scenario",
+        "6": "Never attack an enemy adjacent to you or be attacked by an enemy adjacent to you in a single scenario"
+      },
       "vimthreader": {}
     }
   },
