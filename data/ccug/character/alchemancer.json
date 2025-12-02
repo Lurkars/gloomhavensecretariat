@@ -42,6 +42,30 @@
       "health": 14
     }
   ],
+  "availableSummons": [
+    {
+      "name": "perpetual-enginebot",
+      "level": 1,
+      "health": 5,
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "shield",
+        "value": 1
+      },
+      "additionalAction": {
+        "type": "element",
+        "value": "wild"
+      }
+    },
+    {
+      "name": "radioactive-homunculus",
+      "level": 5,
+      "health": 6,
+      "attack": 2,
+      "movement": 3
+    }
+  ],
   "perks": [
     {
       "type": "replace",

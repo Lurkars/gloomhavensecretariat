@@ -42,6 +42,86 @@
       "health": 14
     }
   ],
+  "availableSummons": [
+    {
+      "name": "ethereal-opening",
+      "level": 1,
+      "health": 1,
+      "attack": "%game.condition.muddle%",
+      "range": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.perks.echowight.9%",
+        "small": true
+      }
+    },
+    {
+      "name": "ghostly-armor",
+      "level": 1,
+      "health": 7,
+      "attack": 1,
+      "movement": 2,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.perks.echowight.10%",
+        "small": true
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "muddle"
+      }
+    },
+    {
+      "name": "fogbound-terror",
+      "level": 1,
+      "health": 5,
+      "attack": 3,
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.perks.echowight.11%",
+        "small": true
+      },
+      "additionalAction": {
+        "type": "jump",
+        "value": ""
+      }
+    },
+    {
+      "name": "shrouded-stalker",
+      "level": 4,
+      "health": 4,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "condition",
+        "value": "wound"
+      },
+      "additionalAction": {
+        "type": "jump",
+        "value": ""
+      }
+    },
+    {
+      "name": "screeching-banshee",
+      "level": 6,
+      "health": 7,
+      "attack": 2,
+      "movement": 4,
+      "action": {
+        "type": "area",
+        "value": "(0,1,active)|(1,0,target)|(1,1,target)",
+        "small": true
+      }
+    },
+    {
+      "name": "harbinger",
+      "level": 9,
+      "health": 9,
+      "attack": 4,
+      "movement": 3
+    }
+  ],
   "perks": [
     {
       "type": "replace",

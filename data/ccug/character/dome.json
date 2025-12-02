@@ -42,6 +42,45 @@
       "health": 14
     }
   ],
+  "availableSummons": [
+    {
+      "name": "helper-bot",
+      "level": 1,
+      "health": 1,
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "%game.custom.disadvantage%",
+        "small": true
+      }
+    },
+    {
+      "name": "robotic-detritus",
+      "level": 5,
+      "health": 4,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "pierce",
+        "value": "1"
+      }
+    },
+    {
+      "name": "automated-mech-suit",
+      "level": 9,
+      "health": 10,
+      "attack": 3,
+      "movement": 2,
+      "action": {
+        "type": "shield",
+        "value": "1"
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "muddle"
+      }
+    }
+  ],
   "perks": [
     {
       "type": "replace",

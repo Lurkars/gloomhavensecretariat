@@ -42,6 +42,43 @@
       "health": 14
     }
   ],
+  "availableSummons": [
+    {
+      "name": "pakhs-prowess",
+      "level": 1,
+      "health": 7,
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.perks.lifespeaker.8%",
+        "small": true
+      }
+    },
+    {
+      "name": "makolus-fervor",
+      "level": 6,
+      "health": 5,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "jump",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "custom",
+        "value": "%data.custom.perks.lifespeaker.9%",
+        "small": true
+      }
+    },
+    {
+      "name": "otarks-rage",
+      "level": 8,
+      "health": 9,
+      "attack": 3,
+      "movement": 3
+    }
+  ],
   "perks": [
     {
       "type": "remove",
