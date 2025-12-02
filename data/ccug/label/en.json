@@ -78,7 +78,15 @@
         "6": "Unstack on your first turn and never become %data.action.custom.ccug-stacked%",
         "7": "One %game.characterIcon.jester-twins% never suffers damage, and be targeted by at least six attacks"
       },
-      "lifespeaker": {},
+      "lifespeaker": {
+        "1": "Place this card in your active area. The next time you trigger an element consumption effect, discard this card to gain the effect an additional time",
+        "2": "Add +2 %game.action.attack% and suffer %game.damage:1% if %game.characterIcon.lifespeaker% has at least 2 %data.action.custom.ccug-icon%",
+        "3": "and, at the start of each of your turns, any number of times, perform: -1 %data.action.custom.ccug-icon%: Move the character token on one of your persistent abilities backwards one slot.",
+        "4": "Once each scenario, you may gain up to three %game.condition.enfeeble% cards to gain the same number of %data.action.custom.ccug-icon%",
+        "5": "Whenever an enemy draws an %game.condition.enfeeble% card, that enemy reduces the value of their attack by 1 and suffers %game.damage:1% after the attack.",
+        "6": "In a single turn, gain 7 element consumption effects",
+        "7": "In a single scenario, consume 2 or more elements with 7 different actions"
+      },
       "lightracer": {},
       "reeftender": {},
       "rootwhisperer": {},
