@@ -101,7 +101,17 @@
         "5": "Play 8 unique Speed actions during your first turn across multiple scenarios.",
         "6": "For an entire scenario, have at least 2 Speed cards in your active area at the end of each of your turns."
       },
-      "reeftender": {},
+      "reeftender": {
+        "1": "After this attack ability, %game.action.teleport% one of your summons to an unoccupied hex adjacent to %game.characterIcon.reeftender%",
+        "2": "Whenever you declare a long rest, you may move one of your summons to your discard pile to perform %game.condition.ward%, self",
+        "3": "Once each scenario, when your summon would suffer %game.damage%, negate the %game.damage%, %game.action.teleport% to the hex occupied by that summon, and place that summon in an empty hex closest to you",
+        "4": "Your summons gain advantage on all attacks performed while adjacent to you",
+        "5": "Play four summons before your first rest and keep them alive the entire scenario.",
+        "6": "Move a summon to your discard pile when they die ten times in one scenario.",
+        "7": "At end of turn, perform:",
+        "8": "On death, leave this card in your active area.",
+        "9": "After ending a %game.action.move% or %game.action.teleport% adjacent to %game.characterIcon.reeftender%, gain %game.condition.invisible%."
+      },
       "rootwhisperer": {},
       "skitterclaw": {},
       "wildborn": {
@@ -146,6 +156,18 @@
     "living-blizzard": "Living Blizzard",
     "pakhs-prowess": "Pakh's Prowess",
     "makolus-fervor": "Makolu's Fervor",
-    "otarks-rage": "Otark's Rage"
+    "otarks-rage": "Otark's Rage",
+    "shrieking-gull": "Shrieking Gull",
+    "spiny-urchin": "Spiny Urchin",
+    "armored-puffer": "Armored Puffer",
+    "furious-crab": "Furious Crab",
+    "soothing-star": "Soothing Star",
+    "spitting-clam": "Spitting Clam",
+    "hydra-serpent": "Hydra Serpent",
+    "venomous-tigerfish": "Venomous Tigerfish",
+    "holy-man-o-war": "Holy Man-O-War",
+    "clever-octopus": "Clever Octopus",
+    "sabretooth-sea-lion": "Sabretooth Sea Lion",
+    "reefborne-huntress": "Reefborne Huntress"
   }
 }
