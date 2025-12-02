@@ -596,6 +596,7 @@
           "refreshItemFh": "%game.card.recover%一件物品",
           "refreshSpentItem": "刷新一件横置物品"
         },
+        "monsterDeck": "至怪物攻击修正卡堆",
         "type": {
           "add": "添加 {0}",
           "remove": "移除 {0}",
@@ -2694,6 +2695,10 @@
     "gh2eImbuement": {
       "": "启用怪物注魔",
       "hint": "在事件效果菜单中启用可增加怪物注魔（附录F）的选项。"
+    },
+    "gh2eImbuementKeep": {
+      "": "保持怪物注魔",
+      "hint": "总是将当前解锁的最高级怪物注魔应用至剧本。"
     },
     "gh2eRules": "幽港迷城第二版",
     "helperDefaults": {
