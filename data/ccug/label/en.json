@@ -165,7 +165,14 @@
         "5": "Complete 5 Plane cards in a single scenario",
         "6": "Never attack an enemy adjacent to you or be attacked by an enemy adjacent to you in a single scenario"
       },
-      "vimthreader": {}
+      "vimthreader": {
+        "1": "If the target has an attribute, add %game.condition.wound%, %game.condition.poison%, %game.condition.muddle%",
+        "2": "Whenever you short rest, one adjacent enemy suffers %game.damage:1%, and you perform \"%game.action.heal:1%, self\"",
+        "3": "At the start of each scenario, you may suffer %game.damage:1% to grant all allies and self %game.action.move:3%",
+        "4": "Once each scenario, remove all negative conditions you have. One adjacent enemy suffers %game.damage% equal to the number of conditions removed",
+        "5": "For an entire scenario, perform a heal ability and cause a figure to suffer %game.damage% each round",
+        "6": "Gain the attributes of 12 different monster types"
+      }
     }
   },
   "edition": {
@@ -211,6 +218,8 @@
     "flock-of-meadow-darts": "Flock of Meadow Darts",
     "ratatoskr": "Ratatoskr",
     "golden-colony": "Golden Colony",
-    "endless-dray": "Endless Dray"
+    "endless-dray": "Endless Dray",
+    "wild-boar": "Wild Boar",
+    "bloodthirsty-swarm": "Bloodthirsty Swarm"
   }
 }
