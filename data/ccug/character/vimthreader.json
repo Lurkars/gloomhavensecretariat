@@ -287,5 +287,48 @@
   "masteries": [
     "%data.custom.perks.vimthreader.5%",
     "%data.custom.perks.vimthreader.6%"
+  ],
+  "additionalModifier": [
+    {
+      "count": 10,
+      "attackModifier": {
+        "type": "empower",
+        "value": 1,
+        "valueType": "plus",
+        "rolling": true,
+        "effects": [
+          {
+            "type": "heal",
+            "value": 1,
+            "effects": [
+              {
+                "type": "specialTarget",
+                "value": "self"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "count": 10,
+      "attackModifier": {
+        "type": "enfeeble",
+        "value": 1,
+        "valueType": "minus",
+        "effects": [
+          {
+            "type": "damage",
+            "value": 1,
+            "effects": [
+              {
+                "type": "specialTarget",
+                "value": "self"
+              }
+            ]
+          }
+        ]
+      }
+    }
   ]
 }
