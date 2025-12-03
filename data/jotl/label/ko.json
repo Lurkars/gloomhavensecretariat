@@ -194,7 +194,7 @@
           },
           "161": {
             "1": "<small>%game.action.range:4% 내에 있는 적 하나가 카드 사용자의 조종에 따라 다음을 수행하도록 한다.</small>",
-            "2": "\"\"",
+            "2": "<span style=\"font-size:0px;\"></span>",
             "3": "<small>카드 사용자가 해당 적에게 인접한 다른 적 하나를 이 공격의 대상으로 선택한다.</small>",
             "4": "위 능력을 수행한 적 %game.condition.stun%"
           },
