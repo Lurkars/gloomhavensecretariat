@@ -23,12 +23,17 @@ export class BattleGoalComponent implements OnChanges {
     @Input() disabled: boolean = false;
     @Input() filtered: boolean = false;
     @Input() reveal: boolean = false;
+    
+    winterIcon: boolean = false;
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes['identifier'] && changes['identifier'].previousValue != changes['identifier'].currentValue) {
             if (!this.battleGoal && this.identifier) {
                 this.battleGoal = gameManager.battleGoalManager.getBattleGoal(this.identifier);
             }
+        }
+        if (this.battleGoal && this.battleGoal.edition == 'fh') {
+            this.winterIcon = true;
         }
     }
 

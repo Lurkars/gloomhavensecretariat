@@ -2,301 +2,541 @@
     {
         "cardId": "1016",
         "name": "Accountant",
+        "alias": {
+            "name": "Accountant",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1017",
         "name": "Acrobat",
+        "alias": {
+            "name": "Acrobat",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1018",
         "name": "Ascetic",
+        "alias": {
+            "name": "Ascetic",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1061",
         "name": "Assassin",
+        "alias": {
+            "name": "Assassin",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1019",
         "name": "Assistant",
+        "alias": {
+            "name": "Assistant",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1020",
         "name": "Bastion",
+        "alias": {
+            "name": "Bastion",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1021",
         "name": "Bully",
+        "alias": {
+            "name": "Bully",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1022",
         "name": "Cleaner",
+        "alias": {
+            "name": "Cleaner",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1023",
         "name": "Closer",
+        "alias": {
+            "name": "Closer",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1024",
         "name": "Conservator",
+        "alias": {
+            "name": "Conservator",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1062",
         "name": "Daredevil",
+        "alias": {
+            "name": "Daredevil",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1063",
         "name": "Dawdler",
+        "alias": {
+            "name": "Dawdler",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1025",
         "name": "Diehard",
+        "alias": {
+            "name": "Diehard",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1064",
         "name": "Duelist",
+        "alias": {
+            "name": "Duelist",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1026",
         "name": "Dynamo",
+        "alias": {
+            "name": "Dynamo",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1027",
         "name": "Egoist",
+        "alias": {
+            "name": "Egoist",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1028",
         "name": "Executioner",
+        "alias": {
+            "name": "Executioner",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1065",
         "name": "Exterminator",
+        "alias": {
+            "name": "Exterminator",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1029",
         "name": "Gambler",
+        "alias": {
+            "name": "Gambler",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1030",
         "name": "Hunter",
+        "alias": {
+            "name": "Hunter",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1031",
         "name": "Insomniac",
+        "alias": {
+            "name": "Insomniac",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1066",
         "name": "Layabout",
+        "alias": {
+            "name": "Layabout",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1032",
         "name": "Masochist",
+        "alias": {
+            "name": "Masochist",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1067",
         "name": "Miser",
+        "alias": {
+            "name": "Miser",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1033",
         "name": "Mugger",
+        "alias": {
+            "name": "Mugger",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1034",
         "name": "Opener",
+        "alias": {
+            "name": "Opener",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1035",
         "name": "Optimist",
+        "alias": {
+            "name": "Optimist",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1068",
         "name": "Overachiever",
+        "alias": {
+            "name": "Overachiever",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1036",
         "name": "Pacifist",
+        "alias": {
+            "name": "Pacifist",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1037",
         "name": "Pauper",
+        "alias": {
+            "name": "Pauper",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1069",
         "name": "Peacemonger",
+        "alias": {
+            "name": "Peacemonger",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1038",
         "name": "Pedestrian",
+        "alias": {
+            "name": "Pedestrian",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1039",
         "name": "Perfectionist",
+        "alias": {
+            "name": "Perfectionist",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1040",
         "name": "Pickpocket",
+        "alias": {
+            "name": "Pickpocket",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1041",
         "name": "Pincushion",
+        "alias": {
+            "name": "Pincushion",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1042",
         "name": "Plebeian",
+        "alias": {
+            "name": "Plebeian",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1070",
         "name": "Prepper",
+        "alias": {
+            "name": "Prepper",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1043",
         "name": "Prohibitionist",
+        "alias": {
+            "name": "Prohibitionist",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1044",
         "name": "Promoter",
+        "alias": {
+            "name": "Promoter",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1045",
         "name": "Rambler",
+        "alias": {
+            "name": "Rambler",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1046",
         "name": "Ravager",
+        "alias": {
+            "name": "Ravager",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1047",
         "name": "Recluse",
+        "alias": {
+            "name": "Recluse",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1048",
         "name": "Ritualist",
+        "alias": {
+            "name": "Ritualist",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1049",
         "name": "Sadist",
+        "alias": {
+            "name": "Sadist",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1050",
         "name": "Scrambler",
+        "alias": {
+            "name": "Scrambler",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1051",
         "name": "Shirker",
+        "alias": {
+            "name": "Shirker",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1071",
         "name": "Slayer",
+        "alias": {
+            "name": "Slayer",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1052",
         "name": "Sleeper",
+        "alias": {
+            "name": "Sleeper",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1072",
         "name": "Slowpoke",
+        "alias": {
+            "name": "Slowpoke",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1053",
         "name": "Sluggard",
+        "alias": {
+            "name": "Sluggard",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1073",
         "name": "Specialist",
+        "alias": {
+            "name": "Specialist",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1054",
         "name": "Straggler",
+        "alias": {
+            "name": "Straggler",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1055",
         "name": "Streamliner",
+        "alias": {
+            "name": "Streamliner",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1056",
         "name": "Tormentor",
+        "alias": {
+            "name": "Tormentor",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1074",
         "name": "Vanguard",
+        "alias": {
+            "name": "Vanguard",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1075",
         "name": "Wallflower",
+        "alias": {
+            "name": "Wallflower",
+            "edition": "fh"
+        },
         "checks": 2
     },
     {
         "cardId": "1057",
         "name": "Wastrel",
+        "alias": {
+            "name": "Wastrel",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1058",
         "name": "Weakling",
+        "alias": {
+            "name": "Weakling",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1059",
         "name": "Workhorse",
+        "alias": {
+            "name": "Workhorse",
+            "edition": "fh"
+        },
         "checks": 1
     },
     {
         "cardId": "1060",
         "name": "Zealot",
+        "alias": {
+            "name": "Zealot",
+            "edition": "fh"
+        },
         "checks": 1
     }
 ]

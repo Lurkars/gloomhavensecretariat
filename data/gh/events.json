@@ -6945,7 +6945,7 @@
     "cardId": "36",
     "edition": "gh",
     "type": "road",
-    "narrative": "Up ahead, you see the path you are on leads into a dark and unfamiliar wood. It gives you an eerie feeling.\n\nAs you step closer, you can feel your skin crawl and it forces you to pause, you can't help, but think that this wood might best be avoided.",
+    "narrative": "Up ahead, you see the path you are on leads into a dark and unfamiliar wood. It gives you an eerie feeling.<br><br>As you step closer, you can feel your skin crawl and it forces you to pause, you can't help, but think that this wood might best be avoided.",
     "options": [
       {
         "label": "A",

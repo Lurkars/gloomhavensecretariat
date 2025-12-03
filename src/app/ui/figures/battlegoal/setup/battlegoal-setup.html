@@ -28,7 +28,7 @@
       <ghs-battlegoal class="battlegoal" [battleGoal]="battlegoal" [flipped]="true"
         [disabled]="!selected(battlegoal) && !filtered(battlegoal) || selectedAlias(battlegoal)" [reveal]="false"
         [selected]="!this.selectedAlias(battlegoal) && selected(battlegoal)" [filtered]="filtered(battlegoal)"
-        [ngClass]="{'disabled' : battlegoal.alias && selectedAlias(battlegoal)}"
+        [ngClass]="{'disabled' : selectedAlias(battlegoal)}"
         (click)="toggleFilter(battlegoal)"></ghs-battlegoal>
       }
     </div>

@@ -17,7 +17,19 @@ export class BattleGoalManager {
   }
 
   getBattleGoals(filtered: boolean = true, aliases: boolean = false): BattleGoal[] {
-    return gameManager.editionData.filter((editionData) => settingsManager.settings.editions.indexOf(editionData.edition) != -1 && (gameManager.game.edition && gameManager.editionRules(editionData.edition) || gameManager.game.battleGoalEditions.indexOf(editionData.edition) != -1)).flatMap((editionData) => editionData.battleGoals.filter((battleGoal) => !filtered || !this.game.filteredBattleGoals || this.game.filteredBattleGoals.length == 0 || !this.game.filteredBattleGoals.find((identifier) => battleGoal.edition == identifier.edition && battleGoal.name == identifier.name))).filter((battleGoal, index, self) => aliases || !battleGoal.alias || !self.find((other) => battleGoal.alias && other.edition == battleGoal.alias.edition && other.name == battleGoal.alias.name));
+    const edition = gameManager.game.edition;
+    return gameManager.editionData.filter((editionData) => settingsManager.settings.editions.indexOf(editionData.edition) != -1 && (gameManager.game.edition && gameManager.editionRules(editionData.edition) || gameManager.game.battleGoalEditions.indexOf(editionData.edition) != -1)).flatMap((editionData) => editionData.battleGoals.filter((battleGoal) => !filtered || !this.game.filteredBattleGoals || this.game.filteredBattleGoals.length == 0 || !this.game.filteredBattleGoals.find((identifier) => battleGoal.edition == identifier.edition && battleGoal.name == identifier.name))).filter((battleGoal, index, self) => aliases || !battleGoal.alias && (!edition || battleGoal.edition == edition) || !self.find((other) => battleGoal.alias && other.edition == battleGoal.alias.edition && other.name == battleGoal.alias.name && (!edition || battleGoal.edition != edition) || other.edition == edition && other.alias && battleGoal.edition == other.alias.edition && battleGoal.name == other.alias.name)).sort((a, b) => {
+      if (a.edition == b.edition) {
+        return a.cardId < b.cardId ? -1 : 1;
+      } else if (edition) {
+        if (a.edition == edition) {
+          return -1;
+        } else if (b.edition == edition) {
+          return 1;
+        }
+      }
+      return a.edition < b.edition ? -1 : 1;
+    });
   }
 
   getUnrevealedBattleGoals(characterFilter: Character | undefined = undefined): BattleGoal[] {

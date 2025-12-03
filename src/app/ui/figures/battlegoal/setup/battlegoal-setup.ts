@@ -26,7 +26,8 @@ export class BattleGoalSetupDialog {
   }
 
   selectedAlias(battleGoal: BattleGoal): boolean {
-    return battleGoal.alias && gameManager.battleGoalManager.getBattleGoals().find((other) => battleGoal.alias && other.edition == battleGoal.alias.edition && other.name == battleGoal.alias.name) != undefined || false;
+    const edition = gameManager.game.edition;
+    return battleGoal.alias && (!edition || battleGoal.edition != edition) && gameManager.battleGoalManager.getBattleGoals(true, true).find((other) => battleGoal.alias && other.edition == battleGoal.alias.edition && other.name == battleGoal.alias.name) != undefined || edition && battleGoal.edition != edition && gameManager.battleGoalManager.getBattleGoals(true, true).find((other) => other.edition == edition && other.alias && battleGoal.edition == other.alias.edition && battleGoal.name == other.alias.name) != undefined || false;
   }
 
   selectEdition(edition: string = "") {
@@ -38,7 +39,7 @@ export class BattleGoalSetupDialog {
     if (this.currentEdition) {
       this.battleGoals = gameManager.battleGoalManager.getBattleGoalsForEdition(this.currentEdition);
     } else {
-      this.battleGoals = gameManager.battleGoalManager.getBattleGoals(false,true);
+      this.battleGoals = gameManager.battleGoalManager.getBattleGoals(false, true);
     }
   }
 
