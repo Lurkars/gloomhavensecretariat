@@ -10,6 +10,7 @@
       "jester-twins": "Jester Twins",
       "lifespeaker": "Lifespeaker",
       "lightracer": "Lightracer",
+      "progenitor": "Progenitor",
       "reeftender": "Reeftender",
       "rootwhisperer": "Rootwhisperer",
       "skitterclaw": "Skitterclaw",
@@ -113,6 +114,16 @@
         "4": "Once each scenario, you may use all of your played cards for their standard action and ignore damage from Speeds that turn",
         "5": "Play 8 unique Speed actions during your first turn across multiple scenarios.",
         "6": "For an entire scenario, have at least 2 Speed cards in your active area at the end of each of your turns."
+      },
+      "progenitor": {
+        "1": "Add %game.condition.stun% and %game.condition.wound% if this attack is Ponderous",
+        "2": "Add %game.attackmodifier.plus1% instead if this attack is Ponderous",
+        "3": "Place this card in your active area. %game.action.shield:1%. At the start of your next turn, discard this card and %game.action.move:1%",
+        "4": "You are considered to be first in initiative order to determine focus while Ancient Carapace is not spent",
+        "5": "Once each scenario, perform the Ponderous abilities of a card as you play it",
+        "6": "Ignore the effects of %game.condition.immobilize%, %game.condition.disarm%, %game.condition.impair%, %game.condition.stun%, and %game.condition.muddle% during the start of your turn",
+        "7": "Declare a long rest and then kill two or more enemies and loot one or more tokens or tiles during that round",
+        "8": "Move your character token to the first slot of Anicent Carapace six times using %game.condition.regenerate%"
       },
       "reeftender": {
         "1": "After this attack ability, %game.action.teleport% one of your summons to an unoccupied hex adjacent to %game.characterIcon.reeftender%",
