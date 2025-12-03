@@ -3,6 +3,11 @@
   "characterClass": "aesther",
   "edition": "ccug",
   "handSize": 11,
+  "traits": [
+    "arcane",
+    "chaotic",
+    "outcast"
+  ],
   "color": "#b3d3e2",
   "stats": [
     {
@@ -45,6 +50,7 @@
   "availableSummons": [
     {
       "name": "ethereal-opening",
+      "thumbnail": true,
       "level": 1,
       "health": 1,
       "attack": "%game.condition.muddle%",
@@ -57,6 +63,7 @@
     },
     {
       "name": "ghostly-armor",
+      "thumbnail": true,
       "level": 1,
       "health": 7,
       "attack": 1,
@@ -73,6 +80,7 @@
     },
     {
       "name": "fogbound-terror",
+      "thumbnail": true,
       "level": 1,
       "health": 5,
       "attack": 3,
@@ -89,6 +97,7 @@
     },
     {
       "name": "shrouded-stalker",
+      "thumbnail": true,
       "level": 4,
       "health": 4,
       "attack": 2,
@@ -104,6 +113,7 @@
     },
     {
       "name": "screeching-banshee",
+      "thumbnail": true,
       "level": 6,
       "health": 7,
       "attack": 2,
@@ -116,6 +126,7 @@
     },
     {
       "name": "harbinger",
+      "thumbnail": true,
       "level": 9,
       "health": 9,
       "attack": 4,

@@ -42,6 +42,16 @@
       "health": 14
     }
   ],
+  "availableSummons": [
+    {
+      "name": "being-of-pure-energy",
+      "thumbnail": true,
+      "level": 9,
+      "health": 6,
+      "attack": 3,
+      "movement": 2
+    }
+  ],
   "perks": [
     {
       "type": "replace",

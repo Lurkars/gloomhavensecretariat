@@ -3,6 +3,11 @@
   "characterClass": "human",
   "edition": "ccug",
   "handSize": 10,
+  "traits": [
+    "arcane",
+    "chaotic",
+    "resourceful"
+  ],
   "color": "#fbb769",
   "stats": [
     {
@@ -45,6 +50,7 @@
   "availableSummons": [
     {
       "name": "pakhs-prowess",
+      "thumbnail": true,
       "level": 1,
       "health": 7,
       "attack": 2,
@@ -57,6 +63,7 @@
     },
     {
       "name": "makolus-fervor",
+      "thumbnail": true,
       "level": 6,
       "health": 5,
       "attack": 2,
@@ -73,6 +80,7 @@
     },
     {
       "name": "otarks-rage",
+      "thumbnail": true,
       "level": 8,
       "health": 9,
       "attack": 3,

@@ -3,6 +3,11 @@
   "characterClass": "unfettered",
   "edition": "ccug",
   "handSize": 11,
+  "traits": [
+    "armored",
+    "nimble",
+    "resourceful"
+  ],
   "color": "#95b7e1",
   "stats": [
     {
@@ -45,6 +50,7 @@
   "availableSummons": [
     {
       "name": "helper-bot",
+      "thumbnail": true,
       "level": 1,
       "health": 1,
       "movement": 3,
@@ -56,6 +62,7 @@
     },
     {
       "name": "robotic-detritus",
+      "thumbnail": true,
       "level": 5,
       "health": 4,
       "attack": 2,
@@ -67,6 +74,7 @@
     },
     {
       "name": "automated-mech-suit",
+      "thumbnail": true,
       "level": 9,
       "health": 10,
       "attack": 3,

@@ -15,6 +15,9 @@
     "city-archer",
     "city-guard"
   ],
+  "allies": [
+    "chaos-demon"
+  ],
   "objectives": [
     {
       "name": "Cleansing Pillar 1",

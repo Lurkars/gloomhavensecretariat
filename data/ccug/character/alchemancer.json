@@ -3,6 +3,11 @@
   "characterClass": "quatryl",
   "edition": "ccug",
   "handSize": 10,
+  "traits": [
+    "arcane",
+    "educated",
+    "resourceful"
+  ],
   "color": "#3fd49b",
   "stats": [
     {
@@ -45,6 +50,7 @@
   "availableSummons": [
     {
       "name": "perpetual-enginebot",
+      "thumbnail": true,
       "level": 1,
       "health": 5,
       "attack": 2,
@@ -60,6 +66,7 @@
     },
     {
       "name": "radioactive-homunculus",
+      "thumbnail": true,
       "level": 5,
       "health": 6,
       "attack": 2,

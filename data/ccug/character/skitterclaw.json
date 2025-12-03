@@ -3,6 +3,11 @@
   "characterClass": "vermling",
   "edition": "ccug",
   "handSize": 11,
+  "traits": [
+    "nimble",
+    "outcast",
+    "resourceful"
+  ],
   "color": "#af7b51",
   "stats": [
     {
@@ -42,5 +47,336 @@
       "health": 14
     }
   ],
-  "perkWarning": true
+  "availableSummons": [
+    {
+      "name": "forest-mirage",
+      "thumbnail": true,
+      "level": 1,
+      "health": 2,
+      "attack": 1,
+      "movement": 3,
+      "range": "Latched",
+      "count": 2,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.perks.skitterclaw.9%",
+        "small": true
+      }
+    },
+    {
+      "name": "tree-runner",
+      "thumbnail": true,
+      "level": 1,
+      "health": 2,
+      "attack": 1,
+      "movement": 2,
+      "range": "Latched",
+      "count": 2,
+      "action": {
+        "type": "condition",
+        "value": "muddle"
+      }
+    },
+    {
+      "name": "labour-of-earth-movers",
+      "thumbnail": true,
+      "level": 1,
+      "health": 8,
+      "attack": 1,
+      "movement": 2,
+      "action": {
+        "type": "shield",
+        "value": "1"
+      }
+    },
+    {
+      "name": "spiny-mischief",
+      "thumbnail": true,
+      "level": 2,
+      "health": 3,
+      "attack": 1,
+      "movement": 3,
+      "range": "Latched"
+    },
+    {
+      "name": "riverbank-warden",
+      "thumbnail": true,
+      "level": 3,
+      "health": 6,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.perks.skitterclaw.10%",
+        "small": true
+      }
+    },
+    {
+      "name": "striped-night-dweller",
+      "thumbnail": true,
+      "level": 4,
+      "health": 2,
+      "attack": 1,
+      "movement": 2,
+      "range": "Latched",
+      "action": {
+        "type": "condition",
+        "value": "poison"
+      }
+    },
+    {
+      "name": "twin-tails",
+      "thumbnail": true,
+      "level": 5,
+      "health": 2,
+      "attack": 1,
+      "movement": 1,
+      "range": "Latched",
+      "count": 2
+    },
+    {
+      "name": "flock-of-meadow-darts",
+      "thumbnail": true,
+      "level": 6,
+      "health": 7,
+      "attack": 2,
+      "movement": 4,
+      "action": {
+        "type": "fly",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "pierce",
+        "value": "3"
+      }
+    },
+    {
+      "name": "ratatoskr",
+      "thumbnail": true,
+      "level": 8,
+      "health": 3,
+      "attack": 2,
+      "movement": 3,
+      "range": "Latched"
+    },
+    {
+      "name": "golden-colony",
+      "thumbnail": true,
+      "level": 8,
+      "health": 9,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "jump",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "shield",
+        "value": "1"
+      }
+    },
+    {
+      "name": "endless-dray",
+      "thumbnail": true,
+      "level": 9,
+      "health": 2,
+      "attack": 2,
+      "movement": 3,
+      "range": "Latched",
+      "count": 3
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "immobilize"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.skitterclaw.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.skitterclaw.2%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "allyShort"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.skitterclaw.3%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.skitterclaw.4%"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "%data.custom.perks.skitterclaw.5%"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "%data.custom.perks.skitterclaw.6%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.perks.skitterclaw.7%",
+    "%data.custom.perks.skitterclaw.8%"
+  ]
 }

@@ -10,6 +10,7 @@
       "jester-twins": "Jester Twins",
       "lifespeaker": "Lifespeaker",
       "lightracer": "Lightracer",
+      "progenitor": "Progenitor",
       "reeftender": "Reeftender",
       "rootwhisperer": "Rootwhisperer",
       "skitterclaw": "Skitterclaw",
@@ -17,6 +18,19 @@
       "woebound": "Woebound",
       "veilpiercer": "Veilpiercer",
       "vimthreader": "Vimthreader"
+    },
+    "traits": {
+      "arcane": "Arcane",
+      "armored": "Armored",
+      "chaotic": "Chaotic",
+      "educated": "Educated",
+      "intimidating": "Intimidating",
+      "night": "Night",
+      "nimble": "Nimble",
+      "outcast": "Outcast",
+      "persuasive": "Persuasive",
+      "resourceful": "Resourceful",
+      "strong": "Strong"
     }
   },
   "custom": {
@@ -101,9 +115,40 @@
         "5": "Play 8 unique Speed actions during your first turn across multiple scenarios.",
         "6": "For an entire scenario, have at least 2 Speed cards in your active area at the end of each of your turns."
       },
-      "reeftender": {},
+      "progenitor": {
+        "1": "Add %game.condition.stun% and %game.condition.wound% if this attack is Ponderous",
+        "2": "Add %game.attackmodifier.plus1% instead if this attack is Ponderous",
+        "3": "Place this card in your active area. %game.action.shield:1%. At the start of your next turn, discard this card and %game.action.move:1%",
+        "4": "You are considered to be first in initiative order to determine focus while Ancient Carapace is not spent",
+        "5": "Once each scenario, perform the Ponderous abilities of a card as you play it",
+        "6": "Ignore the effects of %game.condition.immobilize%, %game.condition.disarm%, %game.condition.impair%, %game.condition.stun%, and %game.condition.muddle% during the start of your turn",
+        "7": "Declare a long rest and then kill two or more enemies and loot one or more tokens or tiles during that round",
+        "8": "Move your character token to the first slot of Anicent Carapace six times using %game.condition.regenerate%"
+      },
+      "reeftender": {
+        "1": "After this attack ability, %game.action.teleport% one of your summons to an unoccupied hex adjacent to %game.characterIcon.reeftender%",
+        "2": "Whenever you declare a long rest, you may move one of your summons to your discard pile to perform %game.condition.ward%, self",
+        "3": "Once each scenario, when your summon would suffer %game.damage%, negate the %game.damage%, %game.action.teleport% to the hex occupied by that summon, and place that summon in an empty hex closest to you",
+        "4": "Your summons gain advantage on all attacks performed while adjacent to you",
+        "5": "Play four summons before your first rest and keep them alive the entire scenario.",
+        "6": "Move a summon to your discard pile when they die ten times in one scenario.",
+        "7": "At end of turn, perform:",
+        "8": "On death, leave this card in your active area.",
+        "9": "After ending a %game.action.move% or %game.action.teleport% adjacent to %game.characterIcon.reeftender%, gain %game.condition.invisible%."
+      },
       "rootwhisperer": {},
-      "skitterclaw": {},
+      "skitterclaw": {
+        "1": "After the attack ability, grant one of your summons: %game.action.move:2%",
+        "2": "If the target is Latched, %game.attackmodifier.plus2% instead",
+        "3": "All Latched enemies suffer %game.damage:1%",
+        "4": "You may summon %data.action.custom.ccug-critter% summons in adjacent occupied hexes",
+        "5": "Once per scenario, when you or an ally would suffer %game.damage% from an attack, remove a Latched summon from the attacker or the target to negate the damage instead",
+        "6": "At the start of each scenario, you may play a card from your hand to perform a summon action of the card",
+        "7": "Have at least one Latched summon on four different enemies",
+        "8": "Have your summons perform twelve attacks in one round",
+        "9": "All attacks targeting the Latched enemy add %game.action.pierce:1%.",
+        "10": "+1 %game.action.attack% for each Latched summon on self."
+      },
       "wildborn": {
         "1": "instead if you suffer %game.damage:2%",
         "2": "Add +1 %game.action.attack% per collected %data.action.custom.ccug-essence%",
@@ -123,8 +168,22 @@
         "5": "Consume at least three elements on each of your turns after the first round, without exhausting",
         "6": "Have %game.action.shield% 2 on each attack targeting you that would cause you to suffer damage, and be attacked at least 15 times."
       },
-      "veilpiercer": {},
-      "vimthreader": {}
+      "veilpiercer": {
+        "1": "The target and all enemies adjacent to it suffer %game.damage:1%",
+        "2": "Unlock <b>The Astral Plane</b>, and start each scenario with %game.condition.invisible%",
+        "3": "Whenever you long rest, you may perform \"%game.action.teleport% 2\"",
+        "4": "Once each scenario, during your turn, place one %data.action.custom.ccug-veil% in a hex within %game.action.range:4%",
+        "5": "Complete 5 Plane cards in a single scenario",
+        "6": "Never attack an enemy adjacent to you or be attacked by an enemy adjacent to you in a single scenario"
+      },
+      "vimthreader": {
+        "1": "If the target has an attribute, add %game.condition.wound%, %game.condition.poison%, %game.condition.muddle%",
+        "2": "Whenever you short rest, one adjacent enemy suffers %game.damage:1%, and you perform \"%game.action.heal:1%, self\"",
+        "3": "At the start of each scenario, you may suffer %game.damage:1% to grant all allies and self %game.action.move:3%",
+        "4": "Once each scenario, remove all negative conditions you have. One adjacent enemy suffers %game.damage% equal to the number of conditions removed",
+        "5": "For an entire scenario, perform a heal ability and cause a figure to suffer %game.damage% each round",
+        "6": "Gain the attributes of 12 different monster types"
+      }
     }
   },
   "edition": {
@@ -146,6 +205,33 @@
     "living-blizzard": "Living Blizzard",
     "pakhs-prowess": "Pakh's Prowess",
     "makolus-fervor": "Makolu's Fervor",
-    "otarks-rage": "Otark's Rage"
+    "otarks-rage": "Otark's Rage",
+    "shrieking-gull": "Shrieking Gull",
+    "spiny-urchin": "Spiny Urchin",
+    "armored-puffer": "Armored Puffer",
+    "furious-crab": "Furious Crab",
+    "soothing-star": "Soothing Star",
+    "spitting-clam": "Spitting Clam",
+    "hydra-serpent": "Hydra Serpent",
+    "venomous-tigerfish": "Venomous Tigerfish",
+    "holy-man-o-war": "Holy Man-O-War",
+    "clever-octopus": "Clever Octopus",
+    "sabretooth-sea-lion": "Sabretooth Sea Lion",
+    "reefborne-huntress": "Reefborne Huntress",
+    "living-ballista": "Living Ballista",
+    "tree-runner": "Tree Runner",
+    "forest-mirage": "Forest Mirage",
+    "labour-of-earth-movers": "Labour of Earth Movers",
+    "spiny-mischief": "Spiny Mischief",
+    "riverbank-warden": "Riverbank Warden",
+    "striped-night-dweller": "Striped Night Dweller",
+    "twin-tails": "Twin Tails",
+    "flock-of-meadow-darts": "Flock of Meadow Darts",
+    "ratatoskr": "Ratatoskr",
+    "golden-colony": "Golden Colony",
+    "endless-dray": "Endless Dray",
+    "wild-boar": "Wild Boar",
+    "bloodthirsty-swarm": "Bloodthirsty Swarm",
+    "being-of-pure-energy": "Being of Pure Energy"
   }
 }

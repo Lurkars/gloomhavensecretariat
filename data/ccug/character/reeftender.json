@@ -3,6 +3,11 @@
   "characterClass": "lurker",
   "edition": "ccug",
   "handSize": 11,
+  "traits": [
+    "armored",
+    "intimidating",
+    "strong"
+  ],
   "color": "#33accd",
   "stats": [
     {
@@ -42,5 +47,383 @@
       "health": 14
     }
   ],
-  "perkWarning": true
+  "availableSummons": [
+    {
+      "name": "shrieking-gull",
+      "thumbnail": true,
+      "level": 1,
+      "health": 3,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "fly",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "push",
+        "value": "1"
+      }
+    },
+    {
+      "name": "spiny-urchin",
+      "thumbnail": true,
+      "level": 1,
+      "health": 4,
+      "attack": 1,
+      "movement": 2,
+      "action": {
+        "type": "retaliate",
+        "value": "1"
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "muddle"
+      }
+    },
+    {
+      "name": "armored-puffer",
+      "thumbnail": true,
+      "level": 1,
+      "health": 3,
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "shield",
+        "value": "1"
+      }
+    },
+    {
+      "name": "furious-crab",
+      "thumbnail": true,
+      "level": 1,
+      "health": 3,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "pierce",
+        "value": "1"
+      }
+    },
+    {
+      "name": "soothing-star",
+      "thumbnail": true,
+      "level": 1,
+      "health": 3,
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "grid",
+        "value": "1",
+        "subActions": [
+          {
+            "type": "custom",
+            "value": "%data.custom.perks.reeftender.7%",
+            "small": true
+          },
+          {
+            "type": "heal",
+            "value": 1,
+            "small": true,
+            "subActions": [
+              {
+                "type": "range",
+                "value": 3,
+                "small": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "spitting-clam",
+      "thumbnail": true,
+      "level": 2,
+      "health": 3,
+      "attack": 1,
+      "movement": 2,
+      "range": 2,
+      "action": {
+        "type": "condition",
+        "value": "muddle"
+      },
+      "additionalAction": {
+        "type": "grid",
+        "value": "1",
+        "subActions": [
+          {
+            "type": "custom",
+            "value": "%data.custom.perks.reeftender.7%",
+            "small": true
+          },
+          {
+            "type": "heal",
+            "value": 1,
+            "small": true,
+            "subActions": [
+              {
+                "type": "range",
+                "value": 2,
+                "small": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "hydra-serpent",
+      "thumbnail": true,
+      "level": 3,
+      "health": 3,
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "target",
+        "value": "2"
+      }
+    },
+    {
+      "name": "venomous-tigerfish",
+      "thumbnail": true,
+      "level": 4,
+      "health": 3,
+      "attack": 1,
+      "movement": 2,
+      "range": 2,
+      "action": {
+        "type": "condition",
+        "value": "poison"
+      }
+    },
+    {
+      "name": "holy-man-o-war",
+      "thumbnail": true,
+      "level": 5,
+      "health": 3,
+      "attack": 3,
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.perks.reeftender.8%",
+        "small": true
+      }
+    },
+    {
+      "name": "clever-octopus",
+      "thumbnail": true,
+      "level": 7,
+      "health": 3,
+      "attack": 3,
+      "movement": 3,
+      "action": {
+        "type": "jump",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "custom",
+        "value": "%data.custom.perks.reeftender.9%",
+        "small": true
+      }
+    },
+    {
+      "name": "sabretooth-sea-lion",
+      "thumbnail": true,
+      "level": 8,
+      "health": 4,
+      "attack": 3,
+      "movement": 2,
+      "action": {
+        "type": "condition",
+        "value": "wound"
+      }
+    },
+    {
+      "name": "reefborne-huntress",
+      "thumbnail": true,
+      "level": 9,
+      "health": 5,
+      "attack": 2,
+      "movement": 3,
+      "range": 2,
+      "action": {
+        "type": "target",
+        "value": "2"
+      }
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "range",
+                    "value": 3
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "ward",
+                "effects": [
+                  {
+                    "type": "range",
+                    "value": 3
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.reeftender.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "earth|light"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.reeftender.2%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.reeftender.3%"
+    },
+    {
+      "type": "custom",
+      "count": 3,
+      "combined": true,
+      "custom": "%data.custom.perks.reeftender.4%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.perks.reeftender.5%",
+    "%data.custom.perks.reeftender.6%"
+  ]
 }
