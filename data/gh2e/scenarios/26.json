@@ -16,9 +16,14 @@
     "frost-demon",
     "wind-demon"
   ],
+  "allies": [
+    "frost-demon",
+    "wind-demon"
+  ],
   "objectives": [
     {
       "name": "Door",
+      "marker": "1",
       "health": "(6+L)xC"
     }
   ],
