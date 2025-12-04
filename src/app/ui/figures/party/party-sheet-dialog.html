@@ -431,7 +431,7 @@
           </form>
           <div class="stickers ignore-denied"
             [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-            @for (sticker of party.campaignStickers; track sticker; let index = $index) {
+            @for (sticker of party.campaignStickers; track sticker + $index; let index = $index) {
             <div class="sticker">
               @if (!campaignStickerImage(sticker,index)) {
               <span class="text" [ghs-label]="'data.campaignSticker.' + sticker"></span>

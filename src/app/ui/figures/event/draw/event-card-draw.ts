@@ -62,7 +62,6 @@ export class EventCardDrawComponent {
         this.subSelections = change.subSelections;
         this.checks = change.checks;
         this.attack = change.attack;
-        console.log(change);
     }
 
     cancel() {
@@ -77,7 +76,6 @@ export class EventCardDrawComponent {
             gameManager.stateManager.before('eventDraw.accept');
             gameManager.game.eventDraw = undefined;
             const result = gameManager.eventCardManager.applyEvent(this.event, this.selected, this.subSelections, this.checks, gameManager.game.scenario != undefined && gameManager.roundManager.firstRound, this.attack, apply);
-            console.log(this.checks, result);
             gameManager.stateManager.after(settingsManager.settings.animations ? 1000 : 250);
             ghsDialogClosingHelper(this.dialogRef, result.length ? result : undefined);
         }

@@ -55,8 +55,8 @@ export class EventCardComponent implements OnInit, OnChanges {
             })
             this.noLabel = this.event.options.every((o) => !o.label);
             const model = gameManager.game.party.eventCards.find((id => this.event && id.cardId == this.event.cardId && id.type == this.event.type && id.edition == this.event.edition));
-            if (model) {
-                this.checks = model.checks;
+            if (model && model.checks) {
+                this.checks = model.checks || [];
             }
         }
         this.spoilerFree = this.spoiler;
