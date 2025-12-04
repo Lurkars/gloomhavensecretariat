@@ -10,6 +10,30 @@
     "frost-demon",
     "usurper"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "elements": [
+        {
+          "type": "light",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "gh2e",
+          "scenario": "62.2",
+          "index": 0,
+          "section": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 3,

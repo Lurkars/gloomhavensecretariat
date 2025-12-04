@@ -8,6 +8,34 @@
     "flame-demon",
     "frost-demon"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "elements": [
+        {
+          "type": "fire",
+          "state": "strong"
+        },
+        {
+          "type": "ice",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "gh2e",
+          "scenario": "15",
+          "index": 0,
+          "section": false
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,
@@ -45,6 +73,10 @@
           "name": "frost-demon",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
         }
       ]
     }
