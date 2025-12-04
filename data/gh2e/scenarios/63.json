@@ -24,6 +24,74 @@
           "scenarioEffect": true
         }
       ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "flame-demon"
+          },
+          "type": "toggleOff"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "frost-demon"
+          },
+          "type": "toggleOff"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "giant-viper"
+          },
+          "type": "toggleOn"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "ooze"
+          },
+          "type": "toggleOn"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "flame-demon"
+          },
+          "type": "toggleOn"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "frost-demon"
+          },
+          "type": "toggleOn"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "giant-viper"
+          },
+          "type": "toggleOff"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "ooze"
+          },
+          "type": "toggleOff"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -65,6 +133,7 @@
         },
         {
           "name": "giant-viper",
+          "player3": "elite",
           "player4": "elite"
         },
         {
