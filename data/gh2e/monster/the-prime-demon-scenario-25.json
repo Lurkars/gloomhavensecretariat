@@ -1,0 +1,61 @@
+{
+  "name": "the-prime-demon-scenario-25",
+  "edition": "gh2e",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "the-prime-demon",
+  "baseStat": {
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx17",
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "level": 1,
+      "health": "Cx22",
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 2,
+      "health": "Cx25",
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "level": 3,
+      "health": "Cx31",
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "level": 4,
+      "health": "Cx35",
+      "movement": 4,
+      "attack": 6
+    },
+    {
+      "level": 5,
+      "health": "Cx41",
+      "movement": 5,
+      "attack": 7
+    },
+    {
+      "level": 6,
+      "health": "Cx50",
+      "movement": 5,
+      "attack": 7
+    },
+    {
+      "level": 7,
+      "health": "Cx60",
+      "movement": 5,
+      "attack": 8
+    }
+  ]
+}
