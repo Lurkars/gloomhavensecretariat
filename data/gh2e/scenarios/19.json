@@ -71,6 +71,10 @@
           "player4": "normal"
         },
         {
+          "name": "city-archer",
+          "player4": "normal"
+        },
+        {
           "name": "city-guard",
           "type": "normal"
         },

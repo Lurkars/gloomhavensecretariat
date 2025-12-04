@@ -3,6 +3,12 @@
   "name": "Fading Lighthouse",
   "edition": "gh2e",
   "parent": "63",
+  "parentSections": [
+    [
+      "83.1"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "flame-demon",
     "frost-demon",

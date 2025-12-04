@@ -14,6 +14,18 @@
     "earth-demon",
     "flame-demon"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "elements": [
+        {
+          "type": "earth",
+          "state": "strong"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -28,6 +40,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
         },
         {
           "name": "flame-demon",

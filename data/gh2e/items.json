@@ -2683,7 +2683,7 @@
     "cost": 15,
     "count": 1,
     "edition": "gh2e",
-    "slot": "small",
+    "slot": "onehand",
     "spent": true,
     "actions": [
       {
@@ -2711,7 +2711,7 @@
     "cost": 15,
     "count": 1,
     "edition": "gh2e",
-    "slot": "small",
+    "slot": "onehand",
     "spent": true,
     "actions": [
       {
@@ -2739,7 +2739,7 @@
     "cost": 15,
     "count": 1,
     "edition": "gh2e",
-    "slot": "small",
+    "slot": "onehand",
     "spent": true,
     "actions": [
       {
@@ -2767,7 +2767,7 @@
     "cost": 15,
     "count": 1,
     "edition": "gh2e",
-    "slot": "small",
+    "slot": "onehand",
     "spent": true,
     "actions": [
       {
@@ -2795,7 +2795,7 @@
     "cost": 15,
     "count": 1,
     "edition": "gh2e",
-    "slot": "small",
+    "slot": "onehand",
     "spent": true,
     "actions": [
       {
@@ -2823,7 +2823,7 @@
     "cost": 15,
     "count": 1,
     "edition": "gh2e",
-    "slot": "small",
+    "slot": "onehand",
     "spent": true,
     "actions": [
       {
