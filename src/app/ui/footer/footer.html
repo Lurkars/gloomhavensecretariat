@@ -26,7 +26,9 @@
   <ghs-scenario-rules></ghs-scenario-rules>
   }
   <div class="flex-shrink"></div>
+  @if (settingsManager.settings.monsterAttackModifierDeck || hasAllyAttackModifierDeck) {
   <div class="attack-modifier-spacer"></div>
+  }
 
   @if (hasAllyAttackModifierDeck) {
   <div class="deck am-deck ally-deck"
