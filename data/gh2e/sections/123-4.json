@@ -3,9 +3,30 @@
   "name": "Harried Village",
   "edition": "gh2e",
   "parent": "93",
+  "marker": "c",
   "monsters": [
     "vermling-priest",
     "vermling-scout"
+  ],
+  "objectives": [
+    {
+      "name": "Villagers",
+      "health": "3+L",
+      "marker": "i",
+      "escort": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "towards %game.mapMarker.a%"
+            }
+          ]
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -25,6 +46,9 @@
           "name": "vermling-scout",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        "1:3"
       ]
     }
   ]
