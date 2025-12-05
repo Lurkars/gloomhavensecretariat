@@ -14,6 +14,10 @@
     "cave-bear",
     "hound"
   ],
+  "allies": [
+    "cave-bear",
+    "hound"
+  ],
   "rooms": [
     {
       "roomNumber": 1,
