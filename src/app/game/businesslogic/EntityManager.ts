@@ -1,6 +1,7 @@
 import { Character } from "../model/Character";
 import { ActionType } from "../model/data/Action";
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/data/Condition";
+import { SpecialActionHelper } from "../model/data/SpecialActionHelper";
 import { Entity, EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
@@ -181,7 +182,12 @@ export class EntityManager {
       }
 
       if (entity.health + value > entity.health) {
-        const clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.expired && !this.isImmune(entity, figure, condition.name));
+        const hasDelayedMalady = SpecialActionHelper.hasActiveSpecialAction(entity, 'delayed_malady');
+        const clearHeal = entity.entityConditions.find((condition) => {
+          const isNegative = condition.types.indexOf(ConditionType.negative) !== -1;
+          const isBlockedByDelayedMalady = hasDelayedMalady && isNegative;
+          return condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.expired && !this.isImmune(entity, figure, condition.name) && !isBlockedByDelayedMalady;
+        });
         let heal = entity.entityConditions.find((condition) => condition.name == ConditionName.heal);
         if ((clearHeal) && (!heal || heal.expired || !heal.highlight)) {
           if (!heal) {
@@ -202,6 +208,8 @@ export class EntityManager {
 
   sufferDamageHighlightConditions(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
     if (settingsManager.settings.applyConditions) {
+      const hasDelayedMalady = SpecialActionHelper.hasActiveSpecialAction(entity, 'delayed_malady');
+
       if (value < 0 && !damageOnly) {
         let shieldValue = 0;
         [ConditionName.retaliate, ConditionName.shield].forEach((shieldRetaliateCondition) => {
@@ -241,7 +249,7 @@ export class EntityManager {
         })
 
         entity.entityConditions.filter((entityCondition) => entityCondition.name == ConditionName.poison || entityCondition.name == ConditionName.poison_x).forEach((entityCondition) => {
-          if (value < 0 && !entityCondition.expired && entityCondition.state != EntityConditionState.new && (entity.health + value > -shieldValue) && !this.isImmune(entity, figure, entityCondition.name)) {
+          if (value < 0 && !entityCondition.expired && entityCondition.state != EntityConditionState.new && (entity.health + value > -shieldValue) && !this.isImmune(entity, figure, entityCondition.name) && !hasDelayedMalady) {
             entityCondition.highlight = true;
           } else {
             entityCondition.highlight = false;
@@ -266,7 +274,7 @@ export class EntityManager {
         ward.highlight = false;
       }
 
-      if (brittle && !ward && value < 0 && (entity.health + value > 0)) {
+      if (brittle && !ward && value < 0 && (entity.health + value > 0) && !hasDelayedMalady) {
         brittle.value = value * -1;
         brittle.highlight = true;
 
@@ -430,6 +438,13 @@ export class EntityManager {
   }
 
   removeCondition(entity: Entity, figure: Figure, condition: Condition, permanent: boolean = false) {
+    const hasDelayedMalady = SpecialActionHelper.hasActiveSpecialAction(entity, 'delayed_malady');
+    const isNegativeCondition = condition.types.indexOf(ConditionType.negative) !== -1;
+
+    if (hasDelayedMalady && isNegativeCondition) {
+      return;
+    }
+
     entity.entityConditions = entity.entityConditions.filter((entityCondition) => entityCondition.name != condition.name || entityCondition.permanent != permanent);
 
     // apply Challenge #1525
@@ -440,6 +455,15 @@ export class EntityManager {
 
   applyCondition(entity: Entity, figure: Figure, name: ConditionName, highlight: boolean = false, autoApply: boolean = false) {
     const condition = entity.entityConditions.find((entityCondition) => entityCondition.name == name && !entityCondition.expired && (entityCondition.types.indexOf(ConditionType.apply) != -1 || entityCondition.types.indexOf(ConditionType.highlightOnly) != -1));
+
+    if (condition) {
+      const hasDelayedMalady = SpecialActionHelper.hasActiveSpecialAction(entity, 'delayed_malady');
+      const isNegativeCondition = condition.types.indexOf(ConditionType.negative) !== -1;
+
+      if (hasDelayedMalady && isNegativeCondition) {
+        return;
+      }
+    }
 
     if (condition && !this.isImmune(entity, figure, condition.name)) {
       if (condition.name == ConditionName.poison || condition.name == ConditionName.poison_x) {
@@ -519,12 +543,16 @@ export class EntityManager {
           entity.health -= condition.value;
         }
 
-        let clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.permanent && !condition.expired);
-        while (clearHeal) {
-          clearHeal.lastState = clearHeal.state;
-          clearHeal.state = EntityConditionState.expire;
-          clearHeal.expired = true;
-          clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.permanent && !condition.expired);
+        const hasDelayedMalady = SpecialActionHelper.hasActiveSpecialAction(entity, 'delayed_malady');
+
+        if (!hasDelayedMalady) {
+          let clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.permanent && !condition.expired);
+          while (clearHeal) {
+            clearHeal.lastState = clearHeal.state;
+            clearHeal.state = EntityConditionState.expire;
+            clearHeal.expired = true;
+            clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.permanent && !condition.expired);
+          }
         }
 
         if (!preventHeal && entity.health - condition.value >= EntityValueFunction(entity.maxHealth)) {
@@ -588,25 +616,24 @@ export class EntityManager {
   }
 
   expireConditions(entity: Entity, figure: Figure) {
+    const hasDelayedMalady = SpecialActionHelper.hasActiveSpecialAction(entity, 'delayed_malady');
+    let negativeCondition = false;
+
     entity.entityConditions.forEach((entityCondition) => {
+      const isNegative = entityCondition.types.indexOf(ConditionType.negative) !== -1;
+
       if (entityCondition.name == ConditionName.chill) {
-        if (entityCondition.value == 1 && !entityCondition.permanent) {
+        if (entityCondition.value == 1 && !entityCondition.permanent && !(hasDelayedMalady && isNegative)) {
           entityCondition.expired = true;
         } else {
           entityCondition.value--;
         }
       }
-    })
 
-    let negativeCondition = false;
-
-    entity.entityConditions.forEach((entityCondition) => {
       if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
-        if (entityCondition.state == EntityConditionState.expire && !entityCondition.permanent) {
+        if (entityCondition.state == EntityConditionState.expire && !entityCondition.permanent && !(hasDelayedMalady && isNegative)) {
           entityCondition.expired = true;
-          if (entityCondition.types.indexOf(ConditionType.negative) != -1) {
-            negativeCondition = true;
-          }
+          negativeCondition = negativeCondition || isNegative;
         }
       }
     })
@@ -630,21 +657,33 @@ export class EntityManager {
 
     if (regenerateCondition) {
       const maxHealth = EntityValueFunction(entity.maxHealth);
-      const heal = entity.entityConditions.every((entityCondition) => entityCondition.expired || entityCondition.types.indexOf(ConditionType.preventHeal) == -1 || this.isImmune(entity, figure, entityCondition.name)) && entity.health < maxHealth;
+      const hasDelayedMalady = SpecialActionHelper.hasActiveSpecialAction(entity, 'delayed_malady');
 
-      entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1 && !entityCondition.permanent).forEach((entityCondition) => {
-        entityCondition.expired = true;
-        entityCondition.lastState = entityCondition.state;
-        entityCondition.state = EntityConditionState.removed;
-      });
+      const heal = entity.entityConditions.every((entityCondition) => {
+        const isPreventHeal = entityCondition.types.indexOf(ConditionType.preventHeal) != -1;
+        const isNegative = entityCondition.types.indexOf(ConditionType.negative) !== -1;
+        const isBlockedByDelayedMalady = hasDelayedMalady && isNegative;
+
+        return entityCondition.expired || !isPreventHeal || isBlockedByDelayedMalady || this.isImmune(entity, figure, entityCondition.name);
+      }) && entity.health < maxHealth;
+
+      if (!hasDelayedMalady) {
+        entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1 && !entityCondition.permanent).forEach((entityCondition) => {
+          entityCondition.expired = true;
+          entityCondition.lastState = entityCondition.state;
+          entityCondition.state = EntityConditionState.removed;
+        });
+      }
 
       if (heal) {
-        let clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.permanent && !condition.expired);
-        while (clearHeal) {
-          clearHeal.lastState = clearHeal.state;
-          clearHeal.state = EntityConditionState.expire;
-          clearHeal.expired = true;
-          clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.permanent && !condition.expired);
+        if (!hasDelayedMalady) {
+          let clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.permanent && !condition.expired);
+          while (clearHeal) {
+            clearHeal.lastState = clearHeal.state;
+            clearHeal.state = EntityConditionState.expire;
+            clearHeal.expired = true;
+            clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.permanent && !condition.expired);
+          }
         }
         regenerateCondition.lastState = regenerateCondition.state;
         regenerateCondition.state = EntityConditionState.expire;
@@ -666,9 +705,14 @@ export class EntityManager {
 
     entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.state == EntityConditionState.normal && entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
       if (!this.isImmune(entity, figure, entityCondition.name) && settingsManager.settings.applyConditionsExcludes.indexOf(entityCondition.name) == -1) {
-        entityCondition.lastState = entityCondition.state;
-        entityCondition.state = EntityConditionState.turn;
-        if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
+        const hasDelayedMalady = SpecialActionHelper.hasActiveSpecialAction(entity, 'delayed_malady');
+        const skipNegativeEffect = hasDelayedMalady && entityCondition.types.indexOf(ConditionType.negative) !== -1;
+
+        if (!skipNegativeEffect) {
+          entityCondition.lastState = entityCondition.state;
+          entityCondition.state = EntityConditionState.turn;
+        }
+        if (!skipNegativeEffect && (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x)) {
           entity.health = entity.health - entityCondition.value;
 
           if (entity instanceof Character && entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '71')) {
@@ -709,13 +753,18 @@ export class EntityManager {
   }
 
   unapplyConditionsTurn(entity: Entity, figure: Figure) {
+    const hasDelayedMalady = SpecialActionHelper.hasActiveSpecialAction(entity, 'delayed_malady');
+
     entity.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.turn && entityCondition.types.indexOf(ConditionType.turn) != -1 && settingsManager.settings.applyConditionsExcludes.indexOf(entityCondition.name) == -1).forEach((entityCondition) => {
       if (entityCondition.expired) {
         entityCondition.expired = false;
       } else {
         entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.normal;
-        if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
+        const isNegativeCondition = entityCondition.types.indexOf(ConditionType.negative) !== -1;
+        const skipNegativeRestore = hasDelayedMalady && isNegativeCondition;
+
+        if ((entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) && !skipNegativeRestore) {
           entity.health = entity.health + entityCondition.value;
           this.checkHealth(entity, figure);
         }
@@ -747,8 +796,11 @@ export class EntityManager {
   applyConditionsAfter(entity: Entity, figure: Figure) {
     entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
       if (!this.isImmune(entity, figure, entityCondition.name) && settingsManager.settings.applyConditionsExcludes.indexOf(entityCondition.name) == -1) {
+        const hasDelayedMalady = SpecialActionHelper.hasActiveSpecialAction(entity, 'delayed_malady');
+        const skipNegativeEffect = hasDelayedMalady && entityCondition.types.indexOf(ConditionType.negative) !== -1;
+
         if (entityCondition.state == EntityConditionState.turn) {
-          if (entityCondition.name == ConditionName.bane) {
+          if (!skipNegativeEffect && entityCondition.name == ConditionName.bane) {
             this.changeHealth(entity, figure, -10, true);
             entityCondition.expired = true;
             entityCondition.highlight = true;
@@ -756,13 +808,13 @@ export class EntityManager {
               entityCondition.highlight = false;
             }, 1000 * settingsManager.settings.animationSpeed);
           }
-        } else if (entityCondition.state == EntityConditionState.normal) {
+        } else if (entityCondition.state == EntityConditionState.normal && !skipNegativeEffect) {
           entityCondition.lastState = entityCondition.state;
           entityCondition.state = EntityConditionState.turn;
-        } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState != EntityConditionState.new) {
+        } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState != EntityConditionState.new && !skipNegativeEffect) {
           entityCondition.lastState = entityCondition.state;
           entityCondition.state = EntityConditionState.normal;
-        } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState == EntityConditionState.new) {
+        } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState == EntityConditionState.new && !skipNegativeEffect) {
           entityCondition.lastState = EntityConditionState.new;
           entityCondition.state = EntityConditionState.normal;
         }
