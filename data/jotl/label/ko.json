@@ -3,20 +3,30 @@
     "Barbaric Instincts": "야만적 본능",
     "Black Boon": "칠흑의 은혜",
     "Blade Dance": "낫의 춤사위",
+    "Blinding Sickle": "실명의 낫",
     "Burn Away the Dark": "어둠을 불사르다",
+    "Care Package": "지원품 투하",
     "Careful Throw": "신중한 투척",
+    "Center Mass": "중심 조준",
+    "Close Cuts": "근접 베기",
     "Close to the Abyss": "심연에 다가가다",
     "Cold Embrace": "차가운 포옹",
     "Commanding Presence": "지배자의 존재감",
     "Crushing Cold": "쇄도하는 한기",
     "Desert Night": "사막의 밤",
+    "Disorienting Barrage": "엄호 투척",
+    "Double Throw": "쌍도끼 투척",
     "Dual Daggers": "두 자루의 단검",
     "Empowered Link": "굳건해진 결속",
+    "Extra Lift": "추가 깔창",
     "Eye of the Void": "공허의 눈",
+    "Fancy Hat": "멋들어진 모자",
+    "Fearsome Efficiency": "무시무시한 효율성",
     "Fierce Brilliance": "맹렬한 광휘",
     "Flame Shroud": "화염 장막",
     "Flaming Sickle": "화염의 낫",
     "Flying Sickle": "날아드는 낫",
+    "Follow Through": "마무리 투척",
     "Freeze the Soul": "영혼을 얼리다",
     "Gift of the Void": "공허의 은총",
     "Give and Take": "등가교환",
@@ -31,14 +41,18 @@
     "Master Influence": "지배의 극의",
     "No Fear": "두려움 없이",
     "Possessed by Fate": "운명에 사로잡히다",
+    "Power Pitch": "전력 투척",
     "Precision Strike": "정교한 일격",
     "Prismatic Sickle": "무지개 낫",
     "Radiant Sickle": "광휘의 낫",
+    "Repeat Shot": "연속 투척",
     "Resigned Frenzy": "광란에 몸을 맡기다",
+    "Retrieval": "회수",
     "Sand Devil": "모래 악마",
     "Sap Warmth": "온기 강탈",
     "Savage Instinct": "포악한 본능",
     "Screaming Shot": "포효의 일격",
+    "Second Wind": "재기의 바람",
     "Shield Spikes": "가시 방패",
     "Shield of the Desert": "사막의 방패",
     "Shocking Advance": "전광석화",
@@ -46,6 +60,7 @@
     "Soaring Shield": "솟구치는 방패",
     "Spirit Hunger": "영혼의 굶주림",
     "Stand Fast": "굳세게 서서",
+    "Stopping Power": "저지력",
     "Strangling Chain": "죄여오는 사슬",
     "Suggestion": "암시",
     "Surge of Power": "솟구치는 힘",
@@ -112,6 +127,59 @@
       },
       "giant-viper-scenario-21": {
         "1": "피규어가 거대 독사를 공격할 때마다, 해당 피규어는 %game.damage:L%점 입음"
+      },
+      "hatchet": {
+        "abilities": {
+          "10": {
+            "1": "<small>이 카드 위에 카드 사용자의 캐릭터 토큰 1개를 올려놓는다. 카드 사용자의 원거리 공격 시, 카드 위의 캐릭터 토큰을 대상에게 옮길 수 있다. 그러기로 하면, 해당 공격에 +3 %game.action.attack% 을 추가하고, 공격 능력을 해결한 다음 토큰을 대상에게 올려놓는다. 대상이 죽으면, 그 칸에 이 캐릭터 토큰을 올려놓는다. 카드 사용자가 해당 칸을 노획하면 토큰을 이 카드 위에 되돌려 놓는다.</small>"
+          },
+          "11": {
+            "1": "대상이 카드 사용자의 믿는 도끼 토큰을 가지고 있다면, 그 토큰을 원래 카드 위에 되돌려 놓는다."
+          },
+          "14": {
+            "1": "이동 중 진입한 칸에 인접한 모든 적 대상"
+          },
+          "15": {
+            "1": "이번 라운드 중 카드 사용자의 다음번 공격 수치가 2배가 된다."
+          },
+          "16": {
+            "1": "인접한 모든 적이 %game.damage:1%을 입는다.",
+            "2": "인접한 모든 적이 %game.damage:2%을 입는다."
+          },
+          "18": {
+            "1": "대상이 카드 사용자의 믿는 도끼 토큰을 가지고 있다면, +2 %game.action.attack% 추가 및 %game.card.experience:1% 획득."
+          },
+          "19": {
+            "1": "이번 라운드에 적을 죽였다면, +2 %game.action.move% 추가 및 %game.card.experience:1% 획득."
+          },
+          "2": {
+            "bottomHint": "인접한 적 하나가 자신의 다음 차례 종료 시까지 이동할 수 없습니다. 그런 다음 최대 3칸까지 이동합니다.",
+            "hint": "3칸 이내에 있는 적 하나가 %game.damage:3%을 입습니다(보정치 적용 및 인접한 적이 대상일 경우 불이익)."
+          },
+          "20": {
+            "1": "공격의 대상에게 인접한 아군 하나 대상"
+          },
+          "21": {
+            "1": "앞으로 4회 동안, 이동 능력 중, +2 %game.action.move% 추가."
+          },
+          "22": {
+            "1": "이번 라운드 중 카드 사용자의 모든 공격에 +1 %game.action.attack% 추가."
+          },
+          "23": {
+            "1": "대상이 카드 사용자의 믿는 도끼 토큰을 가지고 있다면, +2 %game.action.attack% 추가 및 %game.card.experience:1% 획득."
+          },
+          "24": {
+            "1": "위 공격 능력의 대상으로부터 %game.action.range:2% 내에 있는 다른 적 하나 대상",
+            "2": "앞으로 4회 동안, 공격 시 대상에게 인접한 적이 있는 경우, 대상에게 인접한 적 하나가 %game.damage:2%점을 입는다."
+          },
+          "25": {
+            "1": "<small>이 공격으로 대상이 죽으면, 대상이 죽은 칸에 인접한 적 하나가 피해 X점을 입는다. 여기에서 X는 대상이 남은 체력을 초과해서 입은 피해이다.</small>",
+            "2": "이번 라운드에 적을 죽였다면, +2 %game.action.attack% 추가 및 %game.card.experience:1% 획득."
+          },
+          "26": {
+            "1": "앞으로 5회 동안, 공격 시, +1 %game.action.attack% 및 %game.condition.wound% 추가."
+          }
+        }
       },
       "living-corpse": {
         "1": "대상이 %game.damage:2%점도 입음.",
