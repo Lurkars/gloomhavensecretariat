@@ -18,7 +18,10 @@
       "monster": [
         {
           "name": "earth-demon",
-          "type": "elite"
+          "type": "elite",
+          "tags": [
+            "elite"
+          ]
         },
         {
           "name": "earth-demon",
@@ -31,7 +34,10 @@
         },
         {
           "name": "flame-demon",
-          "type": "elite"
+          "type": "elite",
+          "tags": [
+            "elite"
+          ]
         },
         {
           "name": "flame-demon",

@@ -3,6 +3,12 @@
   "name": "Temple of the Eclipse",
   "edition": "gh2e",
   "parent": "67",
+  "parentSections": [
+    [
+      "98.2"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "night-demon",
     "sun-demon",

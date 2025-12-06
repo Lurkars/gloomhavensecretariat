@@ -10,15 +10,22 @@
     "27"
   ],
   "monsters": [
+    "city-archer",
+    "city-guard",
     "earth-demon",
     "flame-demon",
     "frost-demon",
-    "the-prime-demon",
+    "the-prime-demon-scenario-25",
     "wind-demon"
+  ],
+  "allies": [
+    "city-archer",
+    "city-guard"
   ],
   "objectives": [
     {
       "name": "Door",
+      "marker": "1",
       "health": "10+(2xL)"
     }
   ],
@@ -28,12 +35,41 @@
       "initial": true,
       "monster": [
         {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "normal"
+        },
+        {
           "name": "earth-demon",
           "type": "elite"
         },
         {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
           "name": "flame-demon",
           "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
           "player4": "normal"
         },
         {
@@ -42,10 +78,10 @@
         },
         {
           "name": "frost-demon",
-          "player4": "normal"
+          "type": "normal"
         },
         {
-          "name": "the-prime-demon",
+          "name": "the-prime-demon-scenario-25",
           "type": "boss"
         },
         {

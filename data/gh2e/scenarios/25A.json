@@ -10,16 +10,22 @@
     "27"
   ],
   "monsters": [
+    "dark-ritual-cultist-scenario-25A",
     "earth-demon",
     "flame-demon",
     "frost-demon",
-    "the-prime-demon",
+    "living-bones",
+    "the-prime-demon-scenario-25",
     "wind-demon"
+  ],
+  "allies": [
+    "dark-ritual-cultist-scenario-25A",
+    "living-bones"
   ],
   "objectives": [
     {
       "name": "Door",
-      "escort": true,
+      "marker": "1",
       "health": "10+(2xL)"
     }
   ],
@@ -28,6 +34,10 @@
       "roomNumber": 1,
       "initial": true,
       "monster": [
+        {
+          "name": "dark-ritual-cultist-scenario-25A",
+          "type": "elite"
+        },
         {
           "name": "earth-demon",
           "type": "elite"
@@ -46,7 +56,20 @@
           "player4": "normal"
         },
         {
-          "name": "the-prime-demon",
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "the-prime-demon-scenario-25",
           "type": "boss"
         },
         {

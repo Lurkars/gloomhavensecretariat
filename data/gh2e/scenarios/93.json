@@ -8,8 +8,79 @@
   },
   "monsters": [
     "cave-bear",
+    "lurker-soldier",
     "vermling-priest",
     "vermling-scout"
+  ],
+  "objectives": [
+    {
+      "name": "Villagers",
+      "health": "3+L",
+      "marker": "i",
+      "escort": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "towards %game.mapMarker.a%"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "f"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "g"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -47,6 +118,9 @@
           "name": "vermling-scout",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        "1:5"
       ]
     }
   ]

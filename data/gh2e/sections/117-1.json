@@ -30,7 +30,10 @@
         },
         {
           "name": "stone-construct",
-          "type": "elite"
+          "type": "elite",
+          "tags": [
+            "elite"
+          ]
         },
         {
           "name": "stone-construct",
