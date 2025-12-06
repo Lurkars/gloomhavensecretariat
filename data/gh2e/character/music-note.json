@@ -77,8 +77,8 @@
                 "value": "bless",
                 "effects": [
                   {
-                    "type": "target",
-                    "value": 2
+                    "type": "specialTarget",
+                    "value": "%game.action.target%2"
                   }
                 ]
               }
