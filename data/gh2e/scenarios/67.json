@@ -14,6 +14,28 @@
     "night-demon",
     "sun-demon"
   ],
+  "rules": [
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "elements": [
+        {
+          "type": "light",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "elements": [
+        {
+          "type": "dark",
+          "state": "strong"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
