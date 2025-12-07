@@ -233,6 +233,10 @@
       "meteor": "Pyroclast",
       "prism": {
         "": "HIVE",
+        "autoapply_mode": {
+          "": "Autoapply Mode",
+          "hint": "When activating %data.characterToken.prism.mode%, automatically apply damage and conditions."
+        },
         "long_rest": {
           "": "Perk 8",
           "hint": "%data.custom.fh.prism.8%"

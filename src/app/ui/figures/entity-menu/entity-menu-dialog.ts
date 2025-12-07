@@ -1154,137 +1154,130 @@ export class EntityMenuDialogComponent {
   }
 
   closeMonster() {
-    if (this.data.figure instanceof Monster) {
-      if (this.data.entity instanceof MonsterEntity) {
-        if (this.maxHp) {
-          gameManager.stateManager.before("changeEntityMaxHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.maxHp));
-          this.data.entity.maxHealth += this.maxHp;
-          gameManager.stateManager.after();
-          this.maxHp = 0;
-        }
+    if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
 
-        if (this.health != 0) {
-          gameManager.stateManager.before("changeEntityHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.health));
-          gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
-          gameManager.stateManager.after();
-          this.health = 0;
-        }
+      if (this.maxHp) {
+        gameManager.stateManager.before("changeEntityMaxHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.maxHp));
+        this.data.entity.maxHealth += this.maxHp;
+        gameManager.stateManager.after();
+        this.maxHp = 0;
+      }
 
-        if ((this.data.entity.maxHealth > 0 && this.data.entity.health <= 0 || this.data.entity.dead) && (this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => !entityCondition.highlight && entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1))) {
-          this.dead();
-        }
+      if (this.health != 0) {
+        gameManager.stateManager.before("changeEntityHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.health));
+        gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
+        gameManager.stateManager.after();
+        this.health = 0;
+      }
+
+      if ((this.data.entity.maxHealth > 0 && this.data.entity.health <= 0 || this.data.entity.dead) && (this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => !entityCondition.highlight && entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1))) {
+        this.dead();
       }
     }
   }
 
   closeSummon() {
     if (this.data.figure instanceof Character && this.data.entity instanceof Summon) {
-      if (this.data.entity.init) {
-        gameManager.characterManager.removeSummon(this.data.figure, this.data.entity);
-        gameManager.stateManager.before("addSummon", gameManager.characterManager.characterName(this.data.figure), this.data.entity.name);
-        this.data.entity.init = false;
+      const character = this.data.figure as Character;
+      const summon = this.data.entity as Summon;
+      if (summon.init) {
+        gameManager.characterManager.removeSummon(character, summon);
+        gameManager.stateManager.before("addSummon", gameManager.characterManager.characterName(character), summon.name);
+        summon.init = false;
         if (this.health != 0) {
-          gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
+          gameManager.entityManager.changeHealth(summon, character, this.health);
         }
-        if (this.attack != 0 && typeof this.data.entity.attack == 'number') {
-          this.data.entity.attack += this.attack;
+        if (this.attack != 0 && typeof summon.attack == 'number') {
+          summon.attack += this.attack;
         }
         if (this.movement != 0) {
-          this.data.entity.movement += this.movement;
+          summon.movement += this.movement;
         }
         if (this.range != 0) {
-          this.data.entity.range += this.range;
+          summon.range += this.range;
         }
         if (this.maxHp) {
-          if (this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
-            this.data.entity.health = this.data.entity.maxHealth + this.maxHp;
+          if (summon.maxHealth + this.maxHp < summon.maxHealth || summon.health == summon.maxHealth) {
+            summon.health = summon.maxHealth + this.maxHp;
           }
-          this.data.entity.maxHealth += this.maxHp;
+          summon.maxHealth += this.maxHp;
         }
-        gameManager.characterManager.addSummon(this.data.figure, this.data.entity);
+        gameManager.characterManager.addSummon(character, summon);
         gameManager.stateManager.after();
       } else {
         if (this.summonTitleInput) {
-          if (this.summonTitleInput.nativeElement.value && this.summonTitleInput.nativeElement.value != this.data.entity.name) {
-            if (this.data.entity.title != this.summonTitleInput.nativeElement.value) {
-              gameManager.stateManager.before("setTitle", this.data.entity.name, this.summonTitleInput.nativeElement.value);
-              this.data.entity.title = this.summonTitleInput.nativeElement.value;
+          if (this.summonTitleInput.nativeElement.value && this.summonTitleInput.nativeElement.value != summon.name) {
+            if (summon.title != this.summonTitleInput.nativeElement.value) {
+              gameManager.stateManager.before("setTitle", summon.name, this.summonTitleInput.nativeElement.value);
+              summon.title = this.summonTitleInput.nativeElement.value;
               gameManager.stateManager.after();
             }
-          } else if (this.data.entity.title != "") {
-            gameManager.stateManager.before("unsetTitle", 'data.summon.' + this.data.entity.name, this.data.entity.title);
-            this.data.entity.title = "";
+          } else if (summon.title != "") {
+            gameManager.stateManager.before("unsetTitle", 'data.summon.' + summon.name, summon.title);
+            summon.title = "";
             gameManager.stateManager.after();
           }
         }
 
         if (this.maxHp) {
-          gameManager.stateManager.before("changeSummonMaxHp", gameManager.characterManager.characterName(this.data.figure), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name, ghsValueSign(this.maxHp));
-          this.data.entity.maxHealth += this.maxHp;
+          gameManager.stateManager.before("changeSummonMaxHp", gameManager.characterManager.characterName(character), summon.title ? summon.title : "data.summon." + summon.name, ghsValueSign(this.maxHp));
+          summon.maxHealth += this.maxHp;
           gameManager.stateManager.after();
         }
         if (this.health != 0) {
-          gameManager.stateManager.before("changeSummonHp", gameManager.characterManager.characterName(this.data.figure), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name, ghsValueSign(this.health));
-          gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
+          gameManager.stateManager.before("changeSummonHp", gameManager.characterManager.characterName(character), summon.title ? summon.title : "data.summon." + summon.name, ghsValueSign(this.health));
+          gameManager.entityManager.changeHealth(summon, character, this.health);
           gameManager.stateManager.after();
         }
-        if (this.attack != 0 && typeof this.data.entity.attack == 'number') {
-          gameManager.stateManager.before("changeSummonAttack", gameManager.characterManager.characterName(this.data.figure), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name, ghsValueSign(this.attack));
-          this.data.entity.attack += this.attack;
+        if (this.attack != 0 && typeof summon.attack == 'number') {
+          gameManager.stateManager.before("changeSummonAttack", gameManager.characterManager.characterName(character), summon.title ? summon.title : "data.summon." + summon.name, ghsValueSign(this.attack));
+          summon.attack += this.attack;
           gameManager.stateManager.after();
         }
         if (this.movement != 0) {
-          gameManager.stateManager.before("changeSummonMove", gameManager.characterManager.characterName(this.data.figure), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name, ghsValueSign(this.movement));
-          this.data.entity.movement += this.movement;
+          gameManager.stateManager.before("changeSummonMove", gameManager.characterManager.characterName(character), summon.title ? summon.title : "data.summon." + summon.name, ghsValueSign(this.movement));
+          summon.movement += this.movement;
           gameManager.stateManager.after();
         }
         if (this.range != 0) {
-          gameManager.stateManager.before("changeSummonRange", gameManager.characterManager.characterName(this.data.figure), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name, ghsValueSign(this.range));
-          this.data.entity.range += this.range;
+          gameManager.stateManager.before("changeSummonRange", gameManager.characterManager.characterName(character), summon.title ? summon.title : "data.summon." + summon.name, ghsValueSign(this.range));
+          summon.range += this.range;
           gameManager.stateManager.after();
         }
 
-        const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialActions && this.data.figure.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
+        const specialTagsToTemove = summon.tags.filter((specialTag) => character instanceof Character && character.specialActions && character.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
 
         if (specialTagsToTemove.length) {
-          gameManager.stateManager.before("removeSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name);
-          this.data.entity.tags = this.data.entity.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
+          gameManager.stateManager.before("removeSpecialTagsSummon", gameManager.characterManager.characterName(character), specialTagsToTemove.map((specialTag) => '%data.character.' + character.edition + '.' + character.name + '.' + specialTag + '%').join(','), summon.title ? summon.title : "data.summon." + summon.name);
+          summon.tags = summon.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
           gameManager.stateManager.after();
         }
 
-        const specialTagsToAdd = this.specialTags.filter((specialTag) => this.data.entity && this.data.entity.tags.indexOf(specialTag) == -1);
+        const specialTagsToAdd = this.specialTags.filter((specialTag) => summon && summon.tags.indexOf(specialTag) == -1);
 
         if (specialTagsToAdd.length) {
-          gameManager.stateManager.before("addSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name);
+          gameManager.stateManager.before("addSpecialTagsSummon", gameManager.characterManager.characterName(character), specialTagsToAdd.map((specialTag) => '%data.character.' + character.edition + '.' + character.name + '.' + specialTag + '%').join(','), summon.title ? summon.title : "data.summon." + summon.name);
 
-          if (this.data.figure instanceof Character && this.data.figure.name == 'prism' && specialTagsToAdd.indexOf('prism_mode') != -1) {
-            if (this.data.figure.summons.length > 1) {
-              (this.data.figure as Character).health -= this.data.entity.maxHealth - this.data.entity.health;
-              gameManager.entityManager.checkHealth(this.data.figure as Character, this.data.figure);
-              this.data.entity.health = this.data.entity.maxHealth;
+          if (character.tags.indexOf('autoapply_mode') != -1 && specialTagsToAdd.indexOf('prism_mode') != -1) {
+            const damage = summon.health - summon.maxHealth;
+            gameManager.entityManager.changeHealth(character, character, damage);
+            summon.health = summon.maxHealth;
+            summon.entityConditions.forEach((summonCondition) => {
+              if (!summonCondition.expired && summonCondition.state != EntityConditionState.expire && summonCondition.state != EntityConditionState.removed && !gameManager.entityManager.isImmune(character, character, summonCondition.name)) {
+                gameManager.entityManager.addCondition(character, character, new Condition(summonCondition.name));
+              }
+            });
+            summon.entityConditions = [];
 
-              this.data.entity.entityConditions.forEach((summonCondition) => {
-                let figureCondition = (this.data.figure as Character).entityConditions.find((fc) => fc.name == summonCondition.name);
-                if (!figureCondition) {
-                  if (!gameManager.entityManager.isImmune(this.data.figure as Character, this.data.figure, summonCondition.name)) {
-                    (this.data.figure as Character).entityConditions.push(new EntityCondition(summonCondition.name, summonCondition.value));
-                  }
-                } else {
-                  figureCondition.state = EntityConditionState.new;
-                }
-              });
-              this.data.entity.entityConditions = [];
-            }
-
-            this.data.figure.summons.forEach((summon) => summon.tags = summon.tags.filter((tag) => tag != 'prism_mode'));
+            character.summons.forEach((summon) => summon.tags = summon.tags.filter((tag) => tag != 'prism_mode'));
           }
 
-          this.data.entity.tags.push(...specialTagsToAdd);
+          summon.tags.push(...specialTagsToAdd);
           gameManager.stateManager.after();
         }
       }
 
-      if ((this.data.entity.health <= 0 || this.data.entity.dead) && (this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => !entityCondition.highlight && entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1))) {
+      if ((summon.health <= 0 || summon.dead) && (summon.entityConditions.length == 0 || summon.entityConditions.every((entityCondition) => !entityCondition.highlight && entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1))) {
         this.dead();
       }
     }

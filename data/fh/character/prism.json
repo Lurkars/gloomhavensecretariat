@@ -15,6 +15,9 @@
   "spoiler": true,
   "specialActions": [
     {
+      "name": "autoapply_mode"
+    },
+    {
       "name": "long_rest",
       "perk": 8
     },
