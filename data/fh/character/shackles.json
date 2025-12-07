@@ -10,6 +10,18 @@
   ],
   "color": "#7476a7",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "delayed_malady",
+      "expire": true,
+      "counter": {
+        "initial": 5,
+        "min": 1,
+        "decrementOnRound": true,
+        "removeOnZero": true
+      }
+    }
+  ],
   "stats": [
     {
       "level": 1,

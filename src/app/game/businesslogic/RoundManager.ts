@@ -14,6 +14,7 @@ import { Element, ElementState } from "../model/data/Element";
 import { ItemFlags } from "../model/data/ItemData";
 import { LootDeck } from "../model/data/Loot";
 import { ScenarioData } from "../model/data/ScenarioData";
+import { SpecialActionHelper } from "../model/data/SpecialActionHelper";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -106,6 +107,13 @@ export class RoundManager {
       }
       this.game.state = GameState.next;
       this.game.round++;
+
+      this.game.figures.forEach((figure) => {
+        if (figure instanceof Character || figure instanceof Monster) {
+          figure.tags = figure.tags.filter((tag) => !tag.startsWith('roundAction-'));
+        }
+      });
+
       gameManager.characterManager.draw();
       gameManager.monsterManager.draw();
       gameManager.objectiveManager.draw();
@@ -533,6 +541,24 @@ export class RoundManager {
       }
 
       if (figure instanceof Character) {
+        for (const specialAction of figure.specialActions) {
+          if (SpecialActionHelper.hasCounter(specialAction)) {
+            const config = SpecialActionHelper.getCounterConfig(specialAction);
+
+            if (config.decrementOnRound) {
+              const alreadyProcessed = figure.tags.indexOf(`roundAction-${specialAction.name}`) !== -1;
+              const hasCounter = SpecialActionHelper.getCounterValue(figure.tags, specialAction.name) !== null;
+
+              if (hasCounter && !alreadyProcessed) {
+                SpecialActionHelper.decrementCounter(figure.tags, specialAction);
+                figure.tags.push(`roundAction-${specialAction.name}`);
+              }
+            }
+          }
+        }
+      }
+
+      if (figure instanceof Character) {
         if (settingsManager.settings.expireConditions) {
           gameManager.entityManager.expireConditions(figure, figure);
         }
@@ -667,7 +693,17 @@ export class RoundManager {
           figure.progress.gold = 0;
         }
 
-        figure.tags = figure.tags.filter((tag) => tag != 'new-character' && !figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.expire));
+        figure.tags = figure.tags.filter((tag) => {
+          if (tag === 'new-character') return false;
+
+          if (tag.startsWith('roundAction-')) return false;
+
+          const matchingAction = figure.specialActions.find((specialAction) => {
+            return (specialAction.name === tag || tag.startsWith(`${specialAction.name}:`)) && specialAction.expire;
+          });
+
+          return !matchingAction;
+        });
 
         if (figure.defaultIdentity != undefined) {
           figure.identity = figure.defaultIdentity;

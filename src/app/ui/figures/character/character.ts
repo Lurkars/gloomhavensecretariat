@@ -10,6 +10,7 @@ import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
 import { ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
+import { SpecialActionHelper } from 'src/app/game/model/data/SpecialActionHelper';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
@@ -109,7 +110,9 @@ export class CharacterComponent implements OnInit, OnDestroy {
     this.short = (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern';
     this.shortMenu = false;
     this.bb = gameManager.bbRules() || this.character.bb;
-    this.specialActions = this.character.specialActions.filter((specialAction) => this.character.tags.indexOf(specialAction.name) != -1);
+    this.specialActions = this.character.specialActions.filter((specialAction) => {
+      return SpecialActionHelper.hasActiveSpecialAction(this.character, specialAction.name);
+    });
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
@@ -575,9 +578,33 @@ export class CharacterComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
+  changeSpecialActionCounter(specialAction: CharacterSpecialAction, delta: number, event: Event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    const currentValue = SpecialActionHelper.getCounterValue(this.character.tags, specialAction.name);
+    if (currentValue === null) {
+      return;
+    }
+
+    gameManager.stateManager.before("updateSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction.name + '%');
+    SpecialActionHelper.changeCounter(this.character.tags, specialAction, delta);
+    gameManager.stateManager.after();
+  }
+
+  getSpecialActionCounterValue(specialAction: CharacterSpecialAction): number | null {
+    return SpecialActionHelper.getCounterValue(this.character.tags, specialAction.name);
+  }
+
   removeSpecialAction(specialAction: string) {
     gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction + '%');
-    this.character.tags = this.character.tags.filter((specialTag) => specialTag != specialAction);
+
+    const action = this.character.specialActions.find(a => a.name === specialAction);
+    if (action && SpecialActionHelper.hasCounter(action)) {
+      this.character.tags = this.character.tags.filter((specialTag) => !specialTag.startsWith(`${specialAction}:`));
+    } else {
+      this.character.tags = this.character.tags.filter((specialTag) => specialTag !== specialAction);
+    }
 
     if (this.character.name == 'lightning' && specialAction == 'careless-charge') {
       this.character.immunities = [];
