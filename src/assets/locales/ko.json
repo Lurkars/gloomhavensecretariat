@@ -1108,8 +1108,8 @@
       "allyShort": "아군",
       "enemies": "%game.target% 모든 적",
       "enemiesAdjacent": "인접한 모든 적 %game.target%",
-      "enemiesMovedThrough": "%game.target% 이동 경로에 있는 모든 적",
-      "enemiesMovedThroughAdjacent": "%game.target%이동 경로에 있는 칸을 점유하거나 인접하고 있는 모든 적 대상",
+      "enemiesMovedThrough": "이동 경로에 있는 모든 적 %game.target%",
+      "enemiesMovedThroughAdjacent": "이동 경로에 있는 칸을 점유하거나 인접하고 있는 모든 적 %game.target%",
       "enemiesRange": "%game.target% %game.action.range% {0} 내의 모든 적",
       "enemiesRangeAffect": "%game.action.range% {0} 내에 모든 적 %game.affect%",
       "enemiesRangeAffectExact": "정확히 %game.action.range% {0}인 모든 적 %game.affect%",
@@ -1998,7 +1998,7 @@
     "additional": "추가 게임 플레이",
     "allyAttackModifierDeck": {
       "": "아군 공격 보정 덱",
-      "hint": "아군을 위한 공격 보정 덱 활성화"
+      "hint": "아군의 공격 보정 덱을 활성화합니다."
     },
     "alwaysAllyAttackModifierDeck": {
       "": "항상 아군 공격 보정 덱 사용",
@@ -2029,8 +2029,8 @@
       "hint": "모든 시나리오에서 노획 덱을 사용합니다."
     },
     "amAdvantage": {
-      "": "이익/불이익을 공격 보정 덱에 추가",
-      "hint": "이익/불이익 버튼과 키보드 단축키를 추가합니다."
+      "": "공격 보정 덱에 이익/불이익 추가",
+      "hint": "공격 보정 덱에 이익/불이익 버튼과 키보드 단축키를 추가합니다."
     },
     "amAdvantageHouseRule": {
       "": "이익/불이익 굴림 보정 하우스룰",
@@ -2239,12 +2239,12 @@
     },
     "combineInteractiveAbilities": {
       "": "상호작용 능력 추적",
-      "hint": "모든 상호작용 능력을 표시."
+      "hint": "모든 상호작용 능력을 표시합니다."
     },
     "conditions": "상태/원소",
     "damageHP": {
       "": "체력 대신 피해로 표기",
-      "hint": "남은 체력 대신 받은 피해로 표기"
+      "hint": "남은 체력 대신 받은 피해로 표기합니다."
     },
     "damageHPToggle": {
       "": "캐릭터 피해/HP 전환 토글",
@@ -2257,7 +2257,7 @@
     },
     "dragFigures": {
       "": "각 말에 대한 끌어다 놓기",
-      "hint": "캐릭터/몬스터 말 목록에서 끌어다 놓기 사용. 비활성화된 상태에서 우선권이 필요하지 않는 경우, 각 말에 대한 순서를 임의로 변경할 방법이 없으므로 주의하시기 바랍니다."
+      "hint": "캐릭터/몬스터 말 목록에서 끌어다 놓기를 사용합니다. 비활성화된 상태에서 우선권이 필요하지 않는 경우, 각 말에 대한 순서를 임의로 변경할 방법이 없으므로 주의하시기 바랍니다."
     },
     "dragValues": {
       "": "주도권/체력/경험치/노획 드래그",
@@ -2426,7 +2426,7 @@
     },
     "lootDeck": {
       "": "노획 덱",
-      "hint": "노획 덱 활성화"
+      "hint": "노획 덱을 활성화합니다."
     },
     "lurkarsDefaults": "추천 설정 적용하기",
     "maxUndo": {
@@ -2536,12 +2536,12 @@
       "hint": "%game.action.shield% 또는 %game.action.retaliate% 능력에 대한 강조를 위해 애니메이션을 활성화합니다."
     },
     "stats": {
-      "": "몬스터 능력치 카드",
-      "hint": "몬스터 능력 카드 표시."
+      "": "능력치 카드",
+      "hint": "몬스터의 능력치 카드를 보여줍니다."
     },
     "summons": {
       "": "캐릭터 소환물",
-      "hint": "캐릭터 소환물을 활성화 합니다"
+      "hint": "캐릭터 소환물을 활성화 합니다."
     },
     "synced": "이 설정은 서버와 동기화됩니다!",
     "temporaryEnhancements": {

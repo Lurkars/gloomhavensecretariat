@@ -4,25 +4,39 @@
     "Black Boon": "칠흑의 은혜",
     "Blade Dance": "낫의 춤사위",
     "Blinding Sickle": "실명의 낫",
+    "Bombardment": "융단폭격",
+    "Brutalize": "압살",
     "Burn Away the Dark": "어둠을 불사르다",
+    "Camaraderie": "동료애",
     "Care Package": "지원품 투하",
     "Careful Throw": "신중한 투척",
     "Center Mass": "중심 조준",
     "Close Cuts": "근접 베기",
     "Close to the Abyss": "심연에 다가가다",
     "Cold Embrace": "차가운 포옹",
+    "Collateral Damage": "부수적 피해",
     "Commanding Presence": "지배자의 존재감",
+    "Crash Protocol": "충돌 프로토콜",
     "Crushing Cold": "쇄도하는 한기",
+    "Crushing Weight": "압도적인 무게",
     "Desert Night": "사막의 밤",
     "Disorienting Barrage": "엄호 투척",
     "Double Throw": "쌍도끼 투척",
+    "Drill Fist": "드릴 주먹",
     "Dual Daggers": "두 자루의 단검",
+    "Dust Cloud": "먼지 구름",
     "Empowered Link": "굳건해진 결속",
+    "Excessive Force": "압도적인 힘",
+    "Executioner's Axe": "처형인의 도끼",
+    "Explode": "폭렬",
+    "Explosive Blitz": "폭발적인 공세",
+    "Extra Fuel": "추가 연료",
     "Extra Lift": "추가 깔창",
     "Eye of the Void": "공허의 눈",
     "Fancy Hat": "멋들어진 모자",
     "Fearsome Efficiency": "무시무시한 효율성",
     "Fierce Brilliance": "맹렬한 광휘",
+    "Fire Bombs": "화염탄",
     "Flame Shroud": "화염 장막",
     "Flaming Sickle": "화염의 낫",
     "Flying Sickle": "날아드는 낫",
@@ -31,31 +45,52 @@
     "Gift of the Void": "공허의 은총",
     "Give and Take": "등가교환",
     "Grasp of Doom": "파멸의 손아귀",
+    "Gut Punch": "내장 파열",
     "Harvest Sickle": "수확의 낫",
     "Hateful Blast": "증오의 파동",
     "Healing Sands": "치유의 모래",
+    "Heart Seeker": "심장 추적자",
     "Honorable Fury": "고귀한 분노",
     "Horns of the Beast": "맹수의 뿔",
+    "Implode": "파열",
+    "Insult to Injury": "상처 헤집기",
+    "Knock Out the Support": "지지대 해체",
+    "Level": "평탄화",
+    "Lobbed Charge": "묵직한 한 방",
     "Lull into Oblivion": "망각 속에 가라앉다",
     "Lure of the Void": "공허의 유혹",
     "Master Influence": "지배의 극의",
+    "Mech Suit": "기계 강화복",
+    "Micro Missiles": "초소형 미사일",
     "No Fear": "두려움 없이",
+    "Nowhere to Run": "사면초가",
+    "Ones-Two Punch": "원투 펀치",
+    "Overwatch": "경계 태세",
+    "Piston Punch": "피스톤 주먹",
     "Possessed by Fate": "운명에 사로잡히다",
     "Power Pitch": "전력 투척",
     "Precision Strike": "정교한 일격",
     "Prismatic Sickle": "무지개 낫",
+    "Quick Turnaround": "재빠른 반전",
     "Radiant Sickle": "광휘의 낫",
+    "Remote Detonation": "원격 폭파",
     "Repeat Shot": "연속 투척",
     "Resigned Frenzy": "광란에 몸을 맡기다",
     "Retrieval": "회수",
+    "Ricochet": "튕기는 도끼",
+    "Ripped From the Flesh": "살점 속에서 뽑아내다",
+    "Robotic Enhancement": "기계적 향상",
+    "Rubble": "파쇄",
     "Sand Devil": "모래 악마",
     "Sap Warmth": "온기 강탈",
     "Savage Instinct": "포악한 본능",
     "Screaming Shot": "포효의 일격",
     "Second Wind": "재기의 바람",
+    "Sharpened Blades": "연마된 도끼날",
     "Shield Spikes": "가시 방패",
     "Shield of the Desert": "사막의 방패",
     "Shocking Advance": "전광석화",
+    "Shrapnel": "산탄",
     "Signs of the Void": "공허의 표식",
     "Soaring Shield": "솟구치는 방패",
     "Spirit Hunger": "영혼의 굶주림",
@@ -66,20 +101,29 @@
     "Surge of Power": "솟구치는 힘",
     "Swift Strength": "신속한 힘",
     "Taunting Fate": "운명의 조롱",
+    "The Big One": "커다란 한 방",
+    "The Bigger One": "거대한 한 방",
+    "The Favorite": "믿는 도끼",
     "The Last Journey": "마지막 여행",
+    "The New Favorite": "믿는 도끼(새 것)",
     "Turn Out the Lights": "빛을 꺼뜨리다",
     "Twirling Stabs": "회전 찌르기",
     "Vicious Ballet": "광포한 춤",
     "Warmth of the Sun": "태양의 온기",
     "Warrior of the Sun": "태양의 전사",
+    "Wholesale Destruction": "무차별 파괴",
     "Wicked Scratch": "사악한 발톱",
+    "Windup": "태엽 감기",
     "Withering Conviction": "사그라드는 신념"
   },
   "character": {
     "jotl": {
       "demolitionist": {
         "": "철거전문가",
-        "mech": "기계 강화복"
+        "mech": {
+          "": "기계 강화복",
+          "hint": "카드 사용자의 최대 체력이 5점 증가한다. 치료 %game.action.heal% 10, 자신."
+        }
       },
       "hatchet": "도끼투척수",
       "red-guard": "적위병",
@@ -109,7 +153,73 @@
         "2": "대상에게 인접한 모든 적이 %game.damage:1%점을 입음."
       },
       "demolitionist": {
-        "1": "인접한 모든 적이 피해 %game.damage:1%점을 입음."
+        "1": "인접한 모든 적이 피해 %game.damage:1%점을 입음.",
+        "abilities": {
+          "101": {
+            "1": "카드 사용자의 최대 체력이 5점 증가한다."
+          },
+          "102": {
+            "1": "인접한 장애물 1개를 파괴한다. <br>그렇게 하면, %game.card.experience:1% 을 획득하고 다음을 수행한다."
+          },
+          "103": {
+            "1": "<small>위의 두 공격 능력과 같은 적을 대상으로 할 경우, 대상의 방어 수치 무시 및 %game.condition.poison% 추가, %game.card.experience:1% 획득.</small>",
+            "2": "인접한 일반 또는 정예 적 하나에게 카드 사용자의 캐릭터 토큰을 올려놓는다. 카드 사용자 및 모든 아군은 이번 라운드에 해당 적의 방어 수치를 무시할 수 있다."
+          },
+          "104": {
+            "1": "%game.action.range:3% 내에 있는 모든 목표물이 %game.damage:3%점을 입는다."
+          },
+          "105": {
+            "1": "<small>앞으로 3회 동안, 같은 라운드 중 카드 사용자가 먼저 공격했던 적을 대상으로 하는 카드 사용자의 공격에 +3 %game.action.attack% 추가.</small>",
+            "2": "이번 라운드 중 카드 사용자의 모든 공격에 %game.condition.immobilize% 추가.",
+            "3": "%game.condition.muddle% 도 추가, %game.card.experience:1%"
+          },
+          "107": {
+            "1": "대상 범위 내 모든 장애물을 파괴한다. <br>대상 범위 내 모든 아군이 %game.damage:2%점을 입는다.",
+            "2": "카드 사용자에 인접한 동시에 벽에 인접한 모든 적이 %game.damage:2%점을 입는다."
+          },
+          "108": {
+            "1": "<small>인접한 장애물 또는 목표물 1개를 파괴한다. <br>그렇게 하면, %game.card.experience:1% 을 획득하고 다음을 수행한다.</small>",
+            "2": "<small>파괴된 장애물 또는 목표물에 인접한 모든 적 대상</small>",
+            "3": "인접한 장애물 1개를 파괴한다. <br>그렇게 하면, %game.card.experience:1% 을 획득하고 파괴된 장애물과 같은 방에 있는 모든 적이 %game.damage:2%점을 입는다."
+          },
+          "109": {
+            "1": "장애물 파괴 능력을 수행할 때, 사정거리 내에 있는 빈칸 하나에 장애물이 있는 것처럼 해당 능력을 수행할 수 있다. 그렇게 하면, 해당 칸에는 철거 타일을 놓지 않는다."
+          },
+          "74": {
+            "1": "%game.action.range:3% 내에 있는 장애물 1개를 파괴한다.",
+            "bottomHint": "최대 2칸까지 이동한 후, 3칸 이내에 있는 장애물 1개 위에 철거 타일을 올려놓습니다. <br>앞으로 해당 칸은 일반 칸으로 간주합니다.",
+            "hint": "인접한 적 하나가 %game.damage:3%점을 입습니다(보정치 적용). <br>해당 적은 자신의 다음 차례 종료 시까지 자신의 모든 공격에 불이익을 받습니다."
+          },
+          "75": {
+            "1": "인접한 장애물을 1개를 파괴한다. <br>그렇게 하면, 다음을 수행한다.",
+            "bottomHint": "<small>카드 사용자는 다음 차례 종료 시까지 자신의 모든 공격에 이익을 받습니다.</small>",
+            "hint": "인접한 적 하나가 %game.damage:3%점을 입습니다(보정치 적용)."
+          },
+          "76": {
+            "bottomHint": "인접한 적 하나가 자신의 다음 차례 종료 시까지 어떤 행동도 수행할 수 없습니다.",
+            "hint": "인접한 적 하나가 %game.damage:3%점을 입습니다(보정치 적용)."
+          },
+          "77": {
+            "bottomHint": "최대 4칸까지 이동합니다.",
+            "hint": "4칸 이내에 있는 적 하나가 %game.damage:2%점을 입습니다(보정치 적용 및 인접한 적이 대상일 경우 불이익)."
+          },
+          "78": {
+            "bottomHint": "최대 3칸까지 이동합니다.",
+            "hint": "2칸 이내에 있는 적 최대 둘까지가 %game.damage:2%점을 입습니다(대상마다 별개의 보정치 적용 및 인접한 적이 대상일 경우 불이익)"
+          },
+          "79": {
+            "bottomHint": "인접한 적 하나가 %game.damage:1%점을 입습니다(보정치 적용).",
+            "hint": "인접한 적 하나가 %game.damage:2%점을 입습니다(보정치 적용), 그런 다음 동일한 적 또는 다른 인접한 적 하나가 %game.damage:1%점을 입습니다(보정치 적용)."
+          },
+          "80": {
+            "bottomHint": "최대 3칸까지 이동합니다. 그런 다음 인접한 적 하나가 카드 사용자로부터 1칸 멀어집니다.",
+            "hint": "<small>대상 범위 내 모든 적이 %game.damage:3%점을 입습니다(대상마다 별개의 보정치 적용 및 인접한 적이 대상일 경우 불이익). 그런 다음 이 카드를 소실시킵니다.</small>"
+          },
+          "81": {
+            "1": "위 공격 능력과 같은 적을 대상으로 할 경우 %game.action.push:2% 및 %game.condition.muddle% 추가.",
+            "bottomHint": "인접한 적 하나가 %game.damage:1%점을 입습니다(보정치 적용). <br>그런 다음 카드 사용자가 있는 칸 및 인접한 칸에 있는 모든 돈 토큰과 보물 타일을 획득합니다."
+          }
+        }
       },
       "first-of-the-order": {
         "1": "%game.action.range:2%내 모든 적이 %game.damage:2%점을 입음.",
@@ -178,6 +288,70 @@
           },
           "26": {
             "1": "앞으로 5회 동안, 공격 시, +1 %game.action.attack% 및 %game.condition.wound% 추가."
+          },
+          "27": {
+            "1": "인접한 적이 카드 사용자의 믿는 도끼 토큰을 가지고 있다면, 그 토큰을 원래 카드 위로 되돌려 놓을 수 있다. 그렇게 하면, 해당 적이 %game.damage:2%점을 입고 %game.condition.wound% 상태를 얻는다.",
+            "2": "이번 라운드에 적을 죽였다면, %game.condition.strengthen% 추가 및 %game.card.experience:1% 획득."
+          },
+          "28": {
+            "1": "<small>앞으로 5회 동안, 적이 %game.action.range:5% 내에서 이동을 마쳤을 경우, 해당 적을 대상으로 '%game.action.attack:2%, %game.action.range:5%' 행동을 수행한다.</small>"
+          },
+          "3": {
+            "1": "이번 차례 중 카드 사용자의 모든 공격에 +1 %game.action.attack% 추가.",
+            "hint": "3칸 이내에 있는 적 최대 둘까지가 %game.damage:2%점을 입습니다(대상마다 별개의 보정치 적용 및 인접한 적이 대상일 경우 불이익)."
+          },
+          "30": {
+            "1": "<small>이 카드 위에 도끼 토큰을 올려놓는다. 카드 사용자의 원거리 공격시, 카드 위의 도끼 토큰을 대상에게 옮길 수 있다. 그러기로 하면, 해당 공격에 +3 %game.action.attack%, %game.condition.wound% 및 %game.action.push:1%을 추가하고, 공격 능력을 해결한 다음 토큰을 대상에게 올려놓는다. 대상이 죽으면, 그 칸에 도끼 토큰을 올려놓는다. 카드 사용자가 해당 칸을 노획하면 토큰을 이 카드 위에 되돌려 놓는다. 이 카드는 '믿는 도끼'가 활성화된 동안에는 활성화되지 않는다.</small>"
+          },
+          "31": {
+            "1": "인접한 모든 적이 %game.damage:1%점을 입는다."
+          },
+          "32": {
+            "1": "믿는 도끼 토큰이 카드 사용자가 있는 칸 또는 인접한 칸에 있다면 다음을 수행할 수 있다."
+          },
+          "33": {
+            "1": "앞으로 5회 동안, 카드 사용자의 믿는 도끼 토큰을 가진 적을 대상으로 하는 카드 사용자의 공격에 +2 %game.action.attack% 추가."
+          },
+          "34": {
+            "1": "대상이 카드 사용자의 믿는 도끼 토큰을 가지고 있으면, +2 %game.action.attack% 추가 및 %game.card.experience:1% 획득. <br>그런 다음 그 토큰을 원래 카드 위에 되돌려 놓는다."
+          },
+          "35": {
+            "1": "<small>앞으로 5회 동안, 카드 사용자가 적을 죽인 경우, 해당 칸에 인접한 모든 적이 %game.damage:2%점을 입는다.</small>"
+          },
+          "36": {
+            "1": "이번 차례 중 카드 사용자의 다음번 공격 시, 아군이 인접해 있다면, 해당 공격에 +2 %game.action.attack% 추가."
+          },
+          "37": {
+            "1": "인접한 일반 또는 정예 적 하나가 %game.damage:12%점을 입는다.",
+            "2": "이번 라운드 중 카드 사용자가 적을 죽였다면, 믿는 도끼 토큰을 원래 카드 위에 되돌려 놓고 %game.card.experience:1% 을 획득한다."
+          },
+          "38": {
+            "1": "<small>앞으로 4회 동안, '%game.action.heal:3%, %game.action.range:2%, %game.condition.bless%' 행동을 수행한다.</small>"
+          },
+          "4": {
+            "1": "인접한 모든 적이 %game.damage:1%점을 입는다.",
+            "bottomHint": "최대 2칸까지 이동합니다.",
+            "hint": "<small>3칸 이내에 적 최대 셋까지가 피해 1점을 입습니다(대상마다 별개의 보정치 적용 및 인접한 적이 대상일 경우 불이익). 해당 적들은 자신의 다음 차례 종료 시까지 자신의 모든 공격에 불이익 받습니다.</small>"
+          },
+          "5": {
+            "bottomHint": "최대 5칸까지 이동합니다.",
+            "hint": "카드 사용자가 %game.damage:3%점을 회복합니다."
+          },
+          "6": {
+            "bottomHint": "최대 3칸까지 이동합니다.",
+            "hint": "3칸 이내에 있는 적 하나가 %game.damage:3%점을 입습니다(보정치 적용 및 인접한 적이 대상일 경우 불이익)."
+          },
+          "7": {
+            "bottomHint": "최대 4칸까지 이동합니다.",
+            "hint": "인접한 적 하나가 %game.damage:3%점을 입습니다(보정치 적용)."
+          },
+          "8": {
+            "bottomHint": "최대 3칸까지 이동합니다. 그런 다음 인접한 적 하나가 카드 사용자로부터 최대 2칸까지 멀어집니다.",
+            "hint": "3칸 이내에 있는 적 하나가 %game.damage:3%점을 입습니다(보정치 적용 및 인접한 적이 대상일 경우 불이익)."
+          },
+          "9": {
+            "bottomHint": "최대 4칸까지 이동하고, 카드 사용자가 있는 칸 및 인접한 칸에 있는 모든 돈 토큰과 보물 타일을 획득합니다. 그런 다음 이 카드를 소실시킵니다.",
+            "hint": "대상 범위 내 모든 적이 %game.damage:3%점을 입습니다(대상마다 별개의 보정치 적용)."
           }
         }
       },
@@ -284,8 +458,8 @@
             "2": "인접한 모든 적이 피해 2점을 입는다."
           },
           "247": {
-            "1": "인접한 아군 하나가 ‘%game.action.attack:3%’ 행동 수행 가능, %game.card.experience:1%",
-            "2": "인접한 다른 아군 하나가 ‘%game.action.attack:3%’ 행동 수행 가능, %game.card.experience:1%",
+            "1": "인접한 아군 하나가 '%game.action.attack:3%' 행동 수행 가능, %game.card.experience:1%",
+            "2": "인접한 다른 아군 하나가 '%game.action.attack:3%' 행동 수행 가능, %game.card.experience:1%",
             "3": "인접한 적 하나가 피해 1점을 입는다."
           },
           "250": {
@@ -357,7 +531,7 @@
           "151": {
             "1": "%game.action.range:3% 내에 있는 아군 하나가 다음을 수행할 수 있다.",
             "2": "동일한 아군이 다음을 수행할 수 있다.",
-            "3": "앞으로 5회 동안, 카드 사용자의 차례 시작 시, ‘%game.condition.curse%, %game.action.range:2%’ 행동을 수행한다."
+            "3": "앞으로 5회 동안, 카드 사용자의 차례 시작 시, '%game.condition.curse%, %game.action.range:2%' 행동을 수행한다."
           },
           "152": {
             "1": "이 치료 능력을 통해 %game.condition.poison% 상태를 제거한 모든 아군이 %game.condition.bless% 상태를 얻는다.",
@@ -404,7 +578,7 @@
             "1": "인접한 모든 아군이 %game.damage:1%점을 입는다."
           },
           "164": {
-            "1": "<small>앞으로 3회 동안, 아군이 %game.condition.poison% 상태인 적을 공격한 후, 해당 아군이 ‘%game.action.heal:1%, %game.specialTarget.self%’ 행동을 수행할 수 있다.</small>"
+            "1": "<small>앞으로 3회 동안, 아군이 %game.condition.poison% 상태인 적을 공격한 후, 해당 아군이 '%game.action.heal:1%, %game.specialTarget.self%' 행동을 수행할 수 있다.</small>"
           },
           "165": {
             "1": "자신 및 %game.action.range:2% 내 모든 아군 대상",
@@ -422,7 +596,7 @@
             "4": "<small>이번 라운드 중 카드 사용자를 대상으로 하는 모든 공격에 +2 %game.action.attack% 을 추가한다. 이 카드는 라운드 종료 전에 버려질 수 없다.</small>"
           },
           "168": {
-            "1": "<small>앞으로 5회 동안, 카드 사용자의 차례 시작 시, %game.action.range:3% 내에 있는 아군 하나가 ‘%game.action.attack:2%’ 행동을 수행할 수 있다.</small>",
+            "1": "<small>앞으로 5회 동안, 카드 사용자의 차례 시작 시, %game.action.range:3% 내에 있는 아군 하나가 '%game.action.attack:2%' 행동을 수행할 수 있다.</small>",
             "2": "대신 이 %game.condition.curse% 능력 무시",
             "3": "%game.action.range:3% 내에 있는 아군 하나가 다음을 수행할 수 있다."
           },
