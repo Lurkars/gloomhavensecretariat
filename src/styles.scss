@@ -1481,7 +1481,8 @@ input[type="radio"] {
     top: 0.2em;
   }
 
-  .placeholder-checkmark {
+  .placeholder-checkmark,
+  .placeholder-prosperity {
     .ghs-svg {
       margin-top: -0.3em;
     }
@@ -1609,7 +1610,7 @@ input[type="radio"] {
     }
   }
 
-  .placerholder-image {
+  .placeholder-image {
     display: block;
     width: 100%;
     height: auto;

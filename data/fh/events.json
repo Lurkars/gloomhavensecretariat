@@ -5560,7 +5560,7 @@
     "cardId": "SR-05",
     "edition": "fh",
     "type": "summer-road",
-    "narrative": "Suddenly, the ground gives way underneath you, and you plunge into a dark pit. You'll need to find a way out.<br><br><img class=\"placerholder-image\" src=\"./assets/artwork/events/fh-SR-05.png\">",
+    "narrative": "Suddenly, the ground gives way underneath you, and you plunge into a dark pit. You'll need to find a way out.<br><br><img class=\"placeholder-image\" src=\"./assets/artwork/events/fh-SR-05.png\">",
     "options": [
       {
         "narrative": "Set the card on the table. Players may no longer communicate in any way. Once you have selected a route rais your hand. When all players' hands are raised, each player simultaneously says their choosen route's letter alout. Then flip this card.",
@@ -16407,7 +16407,7 @@
     "cardId": "WR-44",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "\"Good to meet you. I'm Hail. Unless we've met before, in which case… uh, well, I'm still Hail.\" A translucent Aesther is blocking the road in front of you. \"You're mercenaries, right? This sheer, icy cliff leads to the Crimson Plant Grove. I want you to climb up there and bring back a red one of that one plant. You know?\" You do not know, but she's willing to draw you a picture.<br><br>After a few hours of climbing, you uncrumple the drawing of the plant you're looking for and… well, it leaves a lot to be desired.<br><img class=\"placerholder-image\" src=\"./assets/artwork/events/fh-WR-44.png\">It looks like there's red axenuts and red corpsescaps here. She was very insistent that the Crimson Plant Grove is precious and you shouldn't take more than one. Which do you bring back to Hail?",
+    "narrative": "\"Good to meet you. I'm Hail. Unless we've met before, in which case… uh, well, I'm still Hail.\" A translucent Aesther is blocking the road in front of you. \"You're mercenaries, right? This sheer, icy cliff leads to the Crimson Plant Grove. I want you to climb up there and bring back a red one of that one plant. You know?\" You do not know, but she's willing to draw you a picture.<br><br>After a few hours of climbing, you uncrumple the drawing of the plant you're looking for and… well, it leaves a lot to be desired.<br><img class=\"placeholder-image\" src=\"./assets/artwork/events/fh-WR-44.png\">It looks like there's red axenuts and red corpsescaps here. She was very insistent that the Crimson Plant Grove is precious and you shouldn't take more than one. Which do you bring back to Hail?",
     "options": [
       {
         "label": "A",

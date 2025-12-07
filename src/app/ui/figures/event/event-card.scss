@@ -108,7 +108,8 @@
         &.winter-road,
         &.summer-road,
         &.winter-outpost,
-        &.summer-outpost {
+        &.summer-outpost,
+        &.gh2e {
 
             .options {
                 .option {
@@ -243,6 +244,53 @@
 
                 &.option-bg-3::after {
                     background-color: #b5a281;
+                }
+            }
+
+
+            &.city {
+                //background-image: url('~src/assets/images/eventcards/city-gh2e-front.png');
+                background-image: none;
+                background-color: #2d3343;
+            }
+    
+            &.road {
+                //background-image: url('~src/assets/images/eventcards/road-gh2e-front.png');
+                background-image: none;
+                background-color: #f1ddc2;
+                color: var(--ghs-color-darkgray);
+    
+                .options .option {
+
+                    &::before {
+                        color: var(--ghs-color-darkgray);
+                    }
+    
+                    &:nth-child(2)::before {
+                        filter: grayscale(0.7);
+                    }
+                }
+            }
+
+            &.city .options .option {
+                
+                &.option-bg-2::after {
+                    background-color: #265475;
+                }
+
+                &.option-bg-3::after {
+                    background-color: #274e5f;
+                }
+            }
+
+            &.road .options .option {
+                &.option-bg-2::after {
+                    mask: url('~src/assets/images/eventcards/fh-option-3-mask.png') no-repeat;
+                    background: linear-gradient(0deg, #B27E69, #F0E9CD);
+                }
+
+                &.option-bg-3::after {
+                    background: linear-gradient(0deg, #B27E69, #F0E9CD);
                 }
             }
         }
@@ -489,7 +537,6 @@
             background-image: url('~src/assets/images/eventcards/winter-road-back.png');
         }
 
-
         &.summer-road {
             background-image: url('~src/assets/images/eventcards/summer-road-back.png');
         }
@@ -506,7 +553,8 @@
         &.winter-road,
         &.summer-road,
         &.winter-outpost,
-        &.summer-outpost {
+        &.summer-outpost,
+        &.gh2e {
             .wrapper {
                 &::before {
                     display: none;
@@ -562,6 +610,35 @@
                 background-repeat: no-repeat;
                 background-image: url('~src/assets/images/eventcards/fh-card-id.png');
                 filter: var(--ghs-filter-shadow);
+            }
+
+
+            &.city {
+                //background-image: url('~src/assets/images/eventcards/city-gh2e-back.png');
+                background-image: none;
+
+                color: var(--ghs-color-black);
+
+                .wrapper .content .options::before {
+                    filter: brightness(0);
+                }
+
+                .card-id {
+                    color: var(--ghs-color-black);
+                    background-image: none;
+                }
+            }
+    
+            &.road {
+                //background-image: url('~src/assets/images/eventcards/road-gh2e-back.png');
+                background-image: none;
+
+                color: var(--ghs-color-darkgray);
+    
+                .card-id {
+                    color: var(--ghs-color-darkgray);
+                    background-image: none;
+                }
             }
         }
 

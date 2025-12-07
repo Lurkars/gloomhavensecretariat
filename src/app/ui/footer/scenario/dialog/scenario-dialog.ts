@@ -79,7 +79,7 @@ export class ScenarioDialogComponent {
         this.close();
         gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
         gameManager.roundManager.resetScenario();
-        gameManager.scenarioManager.setScenario(this.scenario)
+        gameManager.scenarioManager.setScenario(this.scenario, true);
         gameManager.stateManager.after();
     }
 

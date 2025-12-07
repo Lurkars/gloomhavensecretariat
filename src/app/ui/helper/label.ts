@@ -232,7 +232,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="placeholder-faction">' + image + '</span>';
       } else if (type == "checkmark") {
         replace = '<span class="placeholder-checkmark"><img src="./assets/images/check.svg" class="icon ghs-svg"></span>';
-      } else if (type == "itemSlot" && value) {
+      } else if (type == "prosperity") {
+        replace = '<span class="placeholder-prosperity"><img src="./assets/images/gh2e/prosperity.svg" class="icon ghs-svg"></span>';
+      }else if (type == "itemSlot" && value) {
         replace = '<span class="placeholder-items-slot"><img src="./assets/images/items/slots/' + value + '.svg" class="icon ghs-svg"></span>';
       } else if (type == "bbAm" && split.length == 3) {
         replace = '<span class="placeholder-bb-am"><img src="./assets/images/bb/attackmodifier/' + split[2] + '.svg" class="icon ghs-svg"></span>';

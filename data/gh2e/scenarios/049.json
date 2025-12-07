@@ -1,0 +1,89 @@
+{
+  "index": "49",
+  "name": "Tribal Assault",
+  "flowChartGroup": "the-gloom",
+  "edition": "gh2e",
+  "eventType": "road",
+  "unlocks": [
+    "52"
+  ],
+  "rewards": {
+    "prosperity": 1
+  },
+  "monsters": [
+    "hound",
+    "inox-archer",
+    "inox-guard"
+  ],
+  "objectives": [
+    {
+      "name": "Redthorn",
+      "escort": true,
+      "health": "6+(3xL)",
+      "initiative": 40
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:1",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

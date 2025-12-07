@@ -23,7 +23,7 @@
     <span class="choose-container">
       <span [ngClass]="{'text-white': light}" [ghs-label]="'game.events.effects.choose.prefix'"></span>
       @for (chooseEffect of effects; track (typeof chooseEffect == 'object' ? chooseEffect.type : chooseEffect)
-      + $index; let i = $index) {
+      + ('' + $index); let i = $index) {
       @if (i > 0) {
       <span [ngClass]="{'text-white': light}" [ghs-label]="'game.events.effects.choose.connector'"></span>
       }
@@ -45,7 +45,7 @@
     @if (effectObject.type == 'and') {
     <span class="and-container">
       @for (andEffect of effects; track (typeof andEffect == 'object' ? andEffect.type : andEffect)
-      + $index; let i = $index) {
+      + ('' + $index); let i = $index) {
       @if (i > 0) {
       <span [ngClass]="{'text-white': light}" [ghs-label]="'game.events.effects.and'"></span>
       }

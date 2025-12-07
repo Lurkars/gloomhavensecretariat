@@ -1,0 +1,78 @@
+{
+  "index": "52",
+  "name": "Shadow Weald",
+  "flowChartGroup": "the-gloom",
+  "edition": "gh2e",
+  "eventType": "road",
+  "rewards": {
+    "globalAchievements": [
+      "end-of-corruption"
+    ],
+    "prosperity": 1
+  },
+  "monsters": [
+    "earth-demon",
+    "forest-imp",
+    "harrower-infester",
+    "the-dark-rider"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:2",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        73
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "the-dark-rider",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

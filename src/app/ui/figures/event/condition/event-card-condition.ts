@@ -43,11 +43,13 @@ export class EventCardConditionComponent implements OnInit {
                 this.disabledConditions[i] = !gameManager.eventCardManager.resolvableCondition(c);
             })
 
-            if (this.conditionObject.type === EventCardConditionType.character) {
+            const type = this.conditionObject.type;
+
+            if (type === EventCardConditionType.character) {
                 this.labelArgs = [this.labelArgs.map((c) => '%game.characterIcon.' + c + '%').join('')];
             }
 
-            if (this.conditionObject.type == EventCardConditionType.building) {
+            if (type == EventCardConditionType.building) {
                 let concat = "";
                 this.conditionObject.values.filter((v) => typeof v === 'string').map((building) => {
                     return '%game.fhIcon:' + building + '%';
@@ -65,7 +67,7 @@ export class EventCardConditionComponent implements OnInit {
             }
 
 
-            if (this.conditionObject.type == EventCardConditionType.traits) {
+            if (type == EventCardConditionType.traits || type == EventCardConditionType.traitsAll) {
                 let concat = "";
                 this.conditionObject.values.filter((v) => typeof v === 'string').map((trait) => {
                     if (trait in CharacterClass) {
@@ -79,7 +81,11 @@ export class EventCardConditionComponent implements OnInit {
                         if (index < values.length - 2) {
                             concat += ', ';
                         } else if (index < values.length - 1) {
-                            concat += ' %or% ';
+                            if (type == EventCardConditionType.traits) {
+                                concat += ' %or% ';
+                            } else {
+                                concat += ' %and% ';
+                            }
                         }
                     }
                 })

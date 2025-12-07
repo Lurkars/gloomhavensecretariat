@@ -1,0 +1,62 @@
+{
+  "index": "8",
+  "name": "Barrow Lair",
+  "flowChartGroup": "merchant-guild",
+  "edition": "gh2e",
+  "eventType": "road",
+  "unlocks": [
+    "12",
+    "16"
+  ],
+  "rewards": {
+    "gold": 15,
+    "reputationFactions": [
+      "merchant-guild:2"
+    ]
+  },
+  "monsters": [
+    "bandit-archer"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:2",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

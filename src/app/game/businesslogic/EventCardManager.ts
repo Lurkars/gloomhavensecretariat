@@ -11,7 +11,7 @@ import { ScenarioData } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
-export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.additionally, EventCardEffectType.and, EventCardEffectType.battleGoal, EventCardEffectType.campaignSticker, EventCardEffectType.campaignStickerMap, EventCardEffectType.campaignStickerReplace, EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.event, EventCardEffectType.eventReturn, EventCardEffectType.eventsToTop, EventCardEffectType.experience, EventCardEffectType.globalAchievement, EventCardEffectType.gold, EventCardEffectType.goldAdditional, EventCardEffectType.inspiration, EventCardEffectType.loseBattleGoal, EventCardEffectType.loseGold, EventCardEffectType.loseMorale, EventCardEffectType.loseProsperity, EventCardEffectType.loseReputation, EventCardEffectType.morale, EventCardEffectType.partyAchievement, EventCardEffectType.prosperity, EventCardEffectType.removeEvent, EventCardEffectType.reputation, EventCardEffectType.reputationAdditional, EventCardEffectType.resource, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1, EventCardEffectType.sectionWeek, EventCardEffectType.sectionWeeks, EventCardEffectType.sectionWeekSeasonFinal, EventCardEffectType.sectionWeeksSeason, EventCardEffectType.soldier, EventCardEffectType.soldiers, EventCardEffectType.townGuardDeckCard, EventCardEffectType.townGuardDeckCardRemove, EventCardEffectType.townGuardDeckCardRemovePermanently, EventCardEffectType.townGuardDeckCards, EventCardEffectType.traitExperience, EventCardEffectType.traitScenarioCondition, EventCardEffectType.traitScenarioDamage, EventCardEffectType.unlockEnvelope, EventCardEffectType.unlockScenario, EventCardEffectType.unlockScenarioGroup, EventCardEffectType.upgradeBuilding, EventCardEffectType.wreckBuilding];
+export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.additionally, EventCardEffectType.and, EventCardEffectType.battleGoal, EventCardEffectType.campaignSticker, EventCardEffectType.campaignStickerMap, EventCardEffectType.campaignStickerReplace, EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.event, EventCardEffectType.eventReturn, EventCardEffectType.eventsToTop, EventCardEffectType.experience, EventCardEffectType.globalAchievement, EventCardEffectType.gold, EventCardEffectType.goldAdditional, EventCardEffectType.inspiration, EventCardEffectType.loseBattleGoal, EventCardEffectType.loseGold, EventCardEffectType.loseMorale, EventCardEffectType.loseProsperity, EventCardEffectType.loseReputation, EventCardEffectType.loseReputationFaction, EventCardEffectType.morale, EventCardEffectType.partyAchievement, EventCardEffectType.prosperity, EventCardEffectType.removeEvent, EventCardEffectType.reputation, EventCardEffectType.reputationFaction, EventCardEffectType.reputationAdditional, EventCardEffectType.resource, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1, EventCardEffectType.sectionWeek, EventCardEffectType.sectionWeeks, EventCardEffectType.sectionWeekSeasonFinal, EventCardEffectType.sectionWeeksSeason, EventCardEffectType.soldier, EventCardEffectType.soldiers, EventCardEffectType.townGuardDeckCard, EventCardEffectType.townGuardDeckCardRemove, EventCardEffectType.townGuardDeckCardRemovePermanently, EventCardEffectType.townGuardDeckCards, EventCardEffectType.traitExperience, EventCardEffectType.traitScenarioCondition, EventCardEffectType.traitScenarioDamage, EventCardEffectType.unlockEnvelope, EventCardEffectType.unlockScenario, EventCardEffectType.unlockScenarioGroup, EventCardEffectType.upgradeBuilding, EventCardEffectType.wreckBuilding];
 
 export class EventCardManager {
   game: Game;
@@ -458,6 +458,14 @@ export class EventCardManager {
                   this.game.party.reputation = -20;
                 }
                 break;
+              case EventCardEffectType.loseReputationFaction: {
+                const faction = effect.values[0] as string;
+                this.game.party.factionReputation[faction] = (this.game.party.factionReputation[faction] || 0) - (effect.values[1] as number);
+                if (this.game.party.factionReputation[faction] < -10) {
+                  this.game.party.factionReputation[faction] = -10;
+                }
+                break;
+              }
               case EventCardEffectType.morale:
                 this.game.party.morale += +effect.values[0];
                 if (this.game.party.morale > 20) {
@@ -474,6 +482,14 @@ export class EventCardManager {
                   this.game.party.reputation = 20;
                 }
                 break;
+              case EventCardEffectType.reputationFaction: {
+                const faction = effect.values[0] as string;
+                this.game.party.factionReputation[faction] = (this.game.party.factionReputation[faction] || 0) + (effect.values[1] as number);
+                if (this.game.party.factionReputation[faction] > 20) {
+                  this.game.party.factionReputation[faction] = 20;
+                }
+                break;
+              }
               case EventCardEffectType.resource:
                 characters.forEach((c) => {
                   c.progress.loot[effect.values[1] as LootType] = (c.progress.loot[effect.values[1] as LootType] || 0) + (+effect.values[0]);
@@ -639,6 +655,7 @@ export class EventCardManager {
         case EventCardConditionType.otherwise:
         case EventCardConditionType.reputationGT:
         case EventCardConditionType.reputationLT:
+        case EventCardConditionType.reputationFactionGT:
         case EventCardConditionType.season:
         case EventCardConditionType.seasonLT:
         case EventCardConditionType.traits:
@@ -665,8 +682,6 @@ export class EventCardManager {
         return this.game.party.campaignStickers.indexOf(condition.values[0] as string) != -1;
       case EventCardConditionType.character:
         return condition.values && characters.some((c) => condition.values.indexOf(c.name) != -1);
-      case EventCardConditionType.class:
-        return condition.values && characters.some((c) => condition.values.indexOf(c.characterClass as string) != -1);
       case EventCardConditionType.moraleGT:
         return condition.values && typeof condition.values[0] === 'number' && this.game.party.morale > condition.values[0];
       case EventCardConditionType.moraleLT:
@@ -677,6 +692,8 @@ export class EventCardManager {
         return condition.values && typeof condition.values[0] === 'number' && this.game.party.reputation > condition.values[0];
       case EventCardConditionType.reputationLT:
         return condition.values && typeof condition.values[0] === 'number' && this.game.party.reputation < condition.values[0];
+      case EventCardConditionType.reputationFactionGT:
+        return condition.values && typeof condition.values[0] === 'string' && typeof condition.values[1] === 'number' && (this.game.party.factionReputation[condition.values[0]] || 0) > condition.values[1];
       case EventCardConditionType.season:
         return Math.max(this.game.party.weeks, 0) % 20 < 10 ? condition.values[0] == 'summer' : condition.values[0] == 'winter';
       case EventCardConditionType.seasonLT:
@@ -688,6 +705,8 @@ export class EventCardManager {
         return false;
       case EventCardConditionType.traits:
         return condition.values && characters.some((c) => c.traits.some((trait) => condition.values.indexOf(trait) != -1) || condition.values.indexOf(c.characterClass as string) != -1);
+      case EventCardConditionType.traitsAll:
+        return condition.values && condition.values.every((trait) => characters.some((c) => c.traits.indexOf(trait as string) == -1 || (c.characterClass as string) == (trait as string)));
       case EventCardConditionType.payGold:
         return condition.values && characters.every((c) => typeof condition.values[0] === 'number' && c.progress.gold >= condition.values[0]);
       case EventCardConditionType.payCollectiveGold:

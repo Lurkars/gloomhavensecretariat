@@ -52,7 +52,7 @@ export class EventCardEffectComponent implements OnInit {
 
             if (this.effectObject.type == EventCardEffectType.scenarioCondition || this.effectObject.type == EventCardEffectType.traitScenarioCondition) {
                 let concat = "";
-                let values = this.effectObject.values;
+                let values = this.effectObject.values || [];
                 if (this.effectObject.type == EventCardEffectType.traitScenarioCondition) {
                     values = values.slice(1);
                 }

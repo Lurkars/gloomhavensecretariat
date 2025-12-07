@@ -1,0 +1,23 @@
+{
+  "index": "32",
+  "name": "Savvas Armory",
+  "flowChartGroup": "the-voice",
+  "edition": "gh2e",
+  "eventType": "road",
+  "monsters": [],
+  "objectives": [
+    {
+      "name": "Door",
+      "health": "(4+L)"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

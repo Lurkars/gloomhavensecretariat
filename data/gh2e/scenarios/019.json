@@ -1,0 +1,97 @@
+{
+  "index": "19",
+  "name": "Military Outpost",
+  "flowChartGroup": "demons",
+  "edition": "gh2e",
+  "eventType": "road",
+  "rewards": {
+    "experience": 25,
+    "reputationFactions": [
+      "demons:2",
+      "military:-1"
+    ]
+  },
+  "monsters": [
+    "chaos-demon",
+    "city-archer",
+    "city-guard"
+  ],
+  "allies": [
+    "chaos-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Cleansing Pillar 1",
+      "health": "2+C+L"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:2",
+          "scenarioEffect": true
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

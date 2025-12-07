@@ -1,0 +1,203 @@
+{
+  "index": "90",
+  "name": "Burning Mountain",
+  "flowChartGroup": "events",
+  "edition": "gh2e",
+  "eventType": "road",
+  "monsters": [
+    "earth-demon",
+    "flame-demon"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Open door %game.mapMarker.1%.",
+      "sections": [
+        "113.3"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "eventType": "road",
+            "name": ".*",
+            "tags": [
+              "elite"
+            ]
+          },
+          "type": "killed",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Open door %game.mapMarker.2%.",
+      "sections": [
+        "117.1"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "eventType": "road",
+            "name": ".*",
+            "tags": [
+              "elite"
+            ]
+          },
+          "type": "killed",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Open door %game.mapMarker.3%.",
+      "sections": [
+        "97.2"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "eventType": "road",
+            "name": ".*",
+            "tags": [
+              "elite"
+            ]
+          },
+          "type": "killed",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Open door %game.mapMarker.4%.",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "eventType": "road",
+            "name": ".*",
+            "tags": [
+              "elite"
+            ]
+          },
+          "type": "killed",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Open door %game.mapMarker.5%.",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "eventType": "road",
+            "name": ".*",
+            "tags": [
+              "elite"
+            ]
+          },
+          "type": "killed",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Open door %game.mapMarker.6%.",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "eventType": "road",
+            "name": ".*",
+            "tags": [
+              "elite"
+            ]
+          },
+          "type": "killed",
+          "value": "6"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite",
+          "tags": [
+            "elite"
+          ]
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "elite",
+          "tags": [
+            "elite"
+          ]
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

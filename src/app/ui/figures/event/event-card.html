@@ -2,7 +2,7 @@
   <div class="card vertical reverse event {{selected}}"
     [ngClass]="{'flipped': selected != -1 || flipped && !spoilerFree, 'disabled': disabled, 'show-debug': showDebug}"
     [style.fontSize]="container.offsetWidth * 0.070 + 'px'">
-    <div class="card-back" [ngClass]="event ? event.type : ''"
+    <div class="card-back {{!!event ? event.type : ''}}" [ngClass]="{'gh2e': !!event && event.edition == 'gh2e'}"
       [style.background-image]="showDebug && event ? 'url(\'./assets/artwork/events/debug/' + event.edition + '/' + event.type + '/' + event.cardId + '-back.png\')' : ''">
       @if (!!event) {
       <div class="wrapper" [ngClass]="{'spoiler': spoilerFree}">
@@ -45,7 +45,7 @@
       </div>
       }
     </div>
-    <div class="card-front" [ngClass]="event ? event.type : ''"
+    <div class="card-front {{!!event ? event.type : ''}}" [ngClass]="{'gh2e': !!event && event.edition == 'gh2e'}"
       [style.background-image]="showDebug && event ? 'url(\'./assets/artwork/events/debug/' + event.edition + '/' + event.type + '/' + event.cardId + '-front.png\')' : ''">
       @if (!!event) {
       <div class="options" [ngClass]="{'no-label': noLabel}">
@@ -74,7 +74,8 @@
             }
             @if (outcome.effects && outcome.effects.length) {
             <div class="effects" [ngClass]="{'inline': outcome.inlineEffects}">
-              @for (effect of outcome.effects; track (typeof effect === 'object' ? effect.type : effect) + $index) {
+              @for (effect of outcome.effects; track (typeof effect === 'object' ? effect.type : effect) + ('' +
+              $index)) {
               <ghs-event-card-effect [effect]="effect" [edition]="event.edition" [eventType]="event.type"
                 [light]="light"
                 [selected]="selected == -1 && flipped || selected == i && subSelections.indexOf(outcomeIndex) != -1"

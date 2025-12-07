@@ -1,0 +1,68 @@
+{
+  "index": "67",
+  "name": "Temple of the Eclipse",
+  "flowChartGroup": "random",
+  "edition": "gh2e",
+  "eventType": "road",
+  "rewards": {
+    "gold": 15,
+    "experience": 10,
+    "items": [
+      "136"
+    ]
+  },
+  "monsters": [
+    "night-demon",
+    "sun-demon"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "elements": [
+        {
+          "type": "light",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "elements": [
+        {
+          "type": "dark",
+          "state": "strong"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "index": "28",
+  "name": "Temple of the Seer",
+  "flowChartGroup": "hail",
+  "edition": "gh2e",
+  "eventType": "road",
+  "unlocks": [
+    "39",
+    "42"
+  ],
+  "monsters": [
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-construct",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}
