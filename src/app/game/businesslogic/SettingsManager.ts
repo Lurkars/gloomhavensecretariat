@@ -38,9 +38,11 @@ export class SettingsManager {
       }
     }
 
-    for (let editionDataUrl of settingsManager.settings.editionDataUrls) {
-      await settingsManager.loadEditionData(editionDataUrl);
-    }
+    await Promise.all(
+      settingsManager.settings.editionDataUrls.map(editionDataUrl =>
+        settingsManager.loadEditionData(editionDataUrl)
+      )
+    );
   }
 
   async loadSettings() {
