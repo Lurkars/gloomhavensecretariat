@@ -860,11 +860,13 @@
         "payCollectiveGoldReputationGT": "{0} (reputation > {1})",
         "payCollectiveGoldReputationLT": "{0} (reputation < {1})",
         "payGold": "Pay {0} gold each",
+        "reputationFactionGT": "%data.gh2eFaction:{0}% > {1}",
         "reputationGT": "Reputation > {0}",
         "reputationLT": "Reputation < {0}",
         "season": "%party.campaign.sheet.{0}%",
         "seasonLT": "If %party.campaign.sheet.{0}% is {1} weeks or fewer away",
-        "traits": "%game.trait% {0}"
+        "traits": "%game.trait% {0}",
+        "traitsAll": "%game.trait% {0}"
       },
       "deck": {
         "addCard": "Add to upcoming cards and shuffle deck",
@@ -923,7 +925,11 @@
         },
         "eventReturn": "Retrieve event {1} and return it back to the %game.events.type.{0}% deck.",
         "eventsToTop": "Look through the %game.events.type.{0}% deck until you find {1}, {2}, or {3}, and put it on top of the deck.",
-        "experience": "Gain {0} experience each.",
+        "experience": {
+          "": "Gain {0} experience each.",
+          "alt": "Each character gains {0} %game.card.experience%."
+        },
+        "gainTrait": "Each character gains %game.trait:{0}%.",
         "globalAchievement": "Global Achievement:<br>\"%data.globalAchievements.{0}%\".",
         "gold": "Gain {0} gold each.",
         "goldAdditional": "Gain {0} additional gold each.",
@@ -946,7 +952,9 @@
         "loseMorale": "Lose {0} morale.",
         "loseProsperity": "Lose {0} prosperity.",
         "loseReputation": "Lose {0} reputation.",
+        "loseReputationFaction": "Lose {1} %data.gh2eFaction:{0}% reputation",
         "loseResource": "Lose {0} %game.resource.{1}%.",
+        "loseTrait": "Each character loses %game.trait:{0}%.",
         "morale": "Gain {0} morale.",
         "noEffect": "No effect.",
         "outcome": "Read outcome %game.events.option.{0}%.",
@@ -960,7 +968,10 @@
         },
         "outpostTarget": "%game.valueSign:{0}% %game.action.target%",
         "partyAchievement": "Party Achievement:<br>\"%data.partyAchievements.{0}%\".",
-        "prosperity": "Gain {0} prosperity.",
+        "prosperity": {
+          "": "Gain {0} prosperity.",
+          "alt": "Gain {0} %game.prosperity%."
+        },
         "randomItem": {
           "": "Gain one Random Item.",
           "alt": "Gain one collective random item %game.itemFh.random%."
@@ -973,6 +984,7 @@
           "alt": "Remove event {1} from the %game.events.type.{0}% deck."
         },
         "reputation": "Gain {0} reputation.",
+        "reputationFaction": "Gain {1} %data.gh2eFaction:{0}% reputation",
         "reputationAdditional": "Gain {0} additional reputation.",
         "resource": "Gain {0} %game.resource.{1}% each.",
         "resourceType": "Gain any {0} %game.loot.{1}% each.",
