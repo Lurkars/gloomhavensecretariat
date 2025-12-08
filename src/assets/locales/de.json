@@ -905,20 +905,20 @@
         "custom": "{0}",
         "discard": {
           "": "Jeder legt jeweils {0} Karten ab.",
-          "alt": "Alle Charaktere legen zum Start des nächsten Szenarios jeweils %number.{0}% Karten ab."
+          "fh": "Alle Charaktere legen zum Start des nächsten Szenarios jeweils %number.{0}% Karten ab."
         },
         "discardOne": {
           "": "Jeder legt jeweils eine Karte ab.",
-          "alt": "Alle Charakter legen zum Start des nächsten Szenarios jeweils eine Karte ab."
+          "fh": "Alle Charakter legen zum Start des nächsten Szenarios jeweils eine Karte ab."
         },
         "drawAnotherEvent": {
           "": "Ziehe ein weiteres %game.events.type.{0}% Ereignis.",
-          "alt": "Ziehe ein weiteres %game.events.type.{0}% Ereignis."
+          "fh": "Ziehe ein weiteres %game.events.type.{0}% Ereignis."
         },
         "drawEvent": "Ziehe ein %game.events.type.{0}% Ereignis.",
         "event": {
           "": "Füge %game.events.type.{0}% Ereignis {1} zum Deck hinzu.",
-          "alt": "Füge Ereignis {1} zum %game.events.type.{0}% Deck hinzu."
+          "fh": "Füge Ereignis {1} zum %game.events.type.{0}% Deck hinzu."
         },
         "eventReturn": "Füge Ereignis {1} wieder zum %game.events.type.{0}% Deck hinzu.",
         "eventsToTop": "Durchsuche das %game.events.type.{0}% Deck bis zu {1}, {2} oder {3} findest und sortiere es an oberste Position.",
@@ -929,7 +929,7 @@
         "inspiration": "Erhalte {0} Inspiration.",
         "item": {
           "": "Erhalte \"%data.items.{1}-{0}%\" (Gegenstand {0}).",
-          "alt": "Erhalte \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+          "fh": "Erhalte \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
         },
         "itemCollective": "Erhalte {1} kollektiv \"%data.items.{2}-{0}%\" (Gegenstand {0}).",
         "itemDesign": "Erhalte \"%data.items.{1}-{0}%\" Gegenstandsplan (Gegenstein {0}).",
@@ -962,14 +962,14 @@
         "prosperity": "Erhalte {0} Wohlstand.",
         "randomItem": {
           "": "Erhalte einen zufälligen Gegenstand.",
-          "alt": "Erhaltet kollektive einen zufälligen Gegenstand %game.itemFh.random%."
+          "fh": "Erhaltet kollektive einen zufälligen Gegenstand %game.itemFh.random%."
         },
         "randomItemBlueprint": "Erhaltet einen zufälligen Gegenstandsplan %game.itemFh.random%.",
         "randomItemDesign": "Erhalte einen zufälligen Gegenstandsplan.",
         "randomScenario": "Erhaltet ein zufälliges Nebenszenario.",
         "removeEvent": {
           "": "Entferne %game.events.type.{0}% Ereignis {1} vom Spiel.",
-          "alt": "Entferne Ereignis {0} aus dem %game.events.type.{0}% Deck."
+          "fh": "Entferne Ereignis {0} aus dem %game.events.type.{0}% Deck."
         },
         "reputation": "Erhalte {0} Ansehen.",
         "reputationAdditional": "Erhalte zusätzlich {0} Ansehen.",
@@ -977,12 +977,12 @@
         "resourceType": "Erhaltet jeweils {0} beliebige %game.loot.{1}%.",
         "scenarioCondition": {
           "": "Alle beginnen das Szenario mit %{0}%.",
-          "alt": "Alle Charaktere beginnen das nächste Szenario mit {0}."
+          "fh": "Alle Charaktere beginnen das nächste Szenario mit {0}."
         },
         "scenarioConditionOne": "Ein Charakter bekommt %game.condition.{0}%.",
         "scenarioDamage": {
           "": "Alle beginnen das Szenario mit %game.damage:{0}%.",
-          "alt": "Alle Charaktere beginnen das nächste Szenario mit %game.damage:{0}%."
+          "fh": "Alle Charaktere beginnen das nächste Szenario mit %game.damage:{0}%."
         },
         "scenarioSingleMinus1": "Jeder beginnt das Szenario mit %game.card.minus1% x{0}.",
         "sectionOrWeek": "Füge %game.section:{0}% ODER {1} in einer Woche zum Kalender hinzu.",
@@ -1004,7 +1004,7 @@
         "unlockEnvelope": "Öffne Umschlag {0}, falls diese noch ungeöffnet ist.",
         "unlockScenario": {
           "": "\\\"%data.scenario.title.{1}.{0}%\\\" %data.scenarioNumber:{0}% freischalten.",
-          "alt": "Neues Szenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
+          "fh": "Neues Szenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
         },
         "unlockScenarioGroup": "\"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%) freischalten.",
         "upgradeBuilding": "Verbessere %data.buildings.{0}% zum nächsten Level, oder falls %data.buildings.{0}% schon auf Level {1} ist, erhalte stattdessen 2 Moral.",

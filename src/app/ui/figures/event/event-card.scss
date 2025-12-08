@@ -251,46 +251,73 @@
             &.city {
                 //background-image: url('~src/assets/images/eventcards/city-gh2e-front.png');
                 background-image: none;
-                background-color: #2d3343;
+                background-color: #434448;
+                background: linear-gradient(0deg, #3c3d3f, #292d36);
             }
-    
+
             &.road {
                 //background-image: url('~src/assets/images/eventcards/road-gh2e-front.png');
                 background-image: none;
                 background-color: #f1ddc2;
                 color: var(--ghs-color-darkgray);
-    
+
                 .options .option {
 
                     &::before {
                         color: var(--ghs-color-darkgray);
                     }
-    
+
                     &:nth-child(2)::before {
                         filter: grayscale(0.7);
                     }
                 }
             }
 
-            &.city .options .option {
-                
-                &.option-bg-2::after {
-                    background-color: #265475;
+            &.gh2e .options .option {
+                &.option-bg-2 {
+                    padding-bottom: 2em;
                 }
 
-                &.option-bg-3::after {
-                    background-color: #274e5f;
+                &.option-bg-3 {
+                    padding-bottom: 2em;
+
+                    &+.option-bg-2 {
+                        padding-bottom: 1.5em;
+                    }
+                }
+            }
+
+            &.city .options .option {
+
+                &.option-bg-2::after {
+                    background: linear-gradient(0deg, #354360, #2f3e5d);
+                }
+
+                &.option-bg-3 {
+                    background: #2f3e5d;
+
+                    &::after {
+                        background: linear-gradient(0deg, #38454d, #284555);
+                    }
                 }
             }
 
             &.road .options .option {
                 &.option-bg-2::after {
-                    mask: url('~src/assets/images/eventcards/fh-option-3-mask.png') no-repeat;
-                    background: linear-gradient(0deg, #B27E69, #F0E9CD);
+                    mask-image: url('~src/assets/images/eventcards/fh-option-3-mask.png');
+                    background: linear-gradient(0deg, #805245 , #daa895 2.5em,  #F0E9CD);
                 }
 
-                &.option-bg-3::after {
-                    background: linear-gradient(0deg, #B27E69, #F0E9CD);
+                &.option-bg-3 {
+                    background: #f1ddc2;
+
+                    &::after {
+                        background: linear-gradient(0deg, #805245 , #daa895 2.5em,  #F0E9CD);
+                    }
+
+                    &+.option-bg-2::after {
+                        background: linear-gradient(0deg, #ba917b , #e4bea9 2.5em,  #f5e9d9);
+                    }
                 }
             }
         }
@@ -612,11 +639,27 @@
                 filter: var(--ghs-filter-shadow);
             }
 
+            &.gh2e {
+                .wrapper .content {
+                    .text {
+                        min-height: initial;
+                    }
+
+                    .options {
+                        margin-top: 1em;
+
+                        &::before {
+                            left: 5%;
+                            width: 90%;
+                            height: 0.14em;
+                            top: -0.3em;
+                        }
+                    }
+                }
+            }
 
             &.city {
-                //background-image: url('~src/assets/images/eventcards/city-gh2e-back.png');
-                background-image: none;
-
+                background-image: url('~src/assets/images/eventcards/city-gh2e-back.png');
                 color: var(--ghs-color-black);
 
                 .wrapper .content .options::before {
@@ -626,18 +669,23 @@
                 .card-id {
                     color: var(--ghs-color-black);
                     background-image: none;
+                    top: 80%;
+                    right: -7%;
+                    filter: none;
                 }
             }
-    
+
             &.road {
-                //background-image: url('~src/assets/images/eventcards/road-gh2e-back.png');
-                background-image: none;
+                background-image: url('~src/assets/images/eventcards/road-gh2e-back.png');
 
                 color: var(--ghs-color-darkgray);
-    
+
                 .card-id {
-                    color: var(--ghs-color-darkgray);
+                    color: var(--ghs-color-brown);
                     background-image: none;
+                    filter: brightness(0.4);
+                    top: 81%;
+                    right: -6%;
                 }
             }
         }
@@ -746,6 +794,12 @@
                             }
                         }
                     }
+                }
+
+                .footer {
+                    position: relative;
+                    width: 106%;
+                    left: -3%;
                 }
             }
 

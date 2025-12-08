@@ -21,6 +21,9 @@
             }
             }
           </div>
+          @if (event.footer) {
+          <div class="footer" [ghs-label]="event.footer"></div>
+          }
         </div>
         @if (event.requirement && event.requirement.partyAchievement) {
         <div class="requirement party-achievement">

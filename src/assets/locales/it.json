@@ -905,20 +905,20 @@
         "custom": "{0}",
         "discard": {
           "": "Ognuno scarta {0} carte.",
-          "alt": "Tutti i personaggi iniziano lo scenario successivo scartando %number.{0}% carte."
+          "fh": "Tutti i personaggi iniziano lo scenario successivo scartando %number.{0}% carte."
         },
         "discardOne": {
           "": "Ognuno scarta 1 carta.",
-          "alt": "Tutti i personaggi iniziano lo scenario successivo scartando una carta."
+          "fh": "Tutti i personaggi iniziano lo scenario successivo scartando una carta."
         },
         "drawAnotherEvent": {
           "": "Pesca un altro Evento %game.events.type.{0}%.",
-          "alt": "Risolvi un altro Evento %game.events.type.{0}%."
+          "fh": "Risolvi un altro Evento %game.events.type.{0}%."
         },
         "drawEvent": "Pesca un Evento %game.events.type.{0}%.",
         "event": {
           "": "Aggiungi l'Evento %game.events.type.{0}% al mazzo.",
-          "alt": "Aggiungi l'evento {1} al mazzo %game.events.type.{0}%."
+          "fh": "Aggiungi l'evento {1} al mazzo %game.events.type.{0}%."
         },
         "eventFH": "Aggiungi l'Evento {1} al mazzo %game.events.type.{0}%.",
         "eventReturn": "Recupera l'evento {1} e rimettilo nel mazzo %game.events.type.{0}%.",
@@ -930,7 +930,7 @@
         "inspiration": "Ottieni {0} ispirazione.",
         "item": {
           "": "Ottieni \"%data.items.{1}-{0}%\" (Oggetto {0}).",
-          "alt": "Ottieni \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+          "fh": "Ottieni \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
         },
         "itemCollective": "Ottieni {1} \"%data.items.{2}-{0}%\" collettivi (Oggetto {0}).",
         "itemDesign": "Ottieni il modello \"%data.items.{1}-{0}%\" (Oggetto {0}).",
@@ -963,14 +963,14 @@
         "prosperity": "Ottieni {0} prosperità.",
         "randomItem": {
           "": "Ottieni un Oggetto Casuale.",
-          "alt": "Ottieni un oggetto casuale collettivo %game.itemFh.random%."
+          "fh": "Ottieni un oggetto casuale collettivo %game.itemFh.random%."
         },
         "randomItemBlueprint": "Ottieni un progetto oggetto casuale %game.itemFh.random%.",
         "randomItemDesign": "Ottieni un modello di oggetto casuale.",
         "randomScenario": "Ottieni uno scenario secondario casuale.",
         "removeEvent": {
           "": "Rimuovi %game.events.type.{0}% Evento {1} dal gioco.",
-          "alt": "Rimuovi l'evento {1} dal mazzo %game.events.type.{0}%."
+          "fh": "Rimuovi l'evento {1} dal mazzo %game.events.type.{0}%."
         },
         "reputation": "Ottieni {0} reputazione.",
         "reputationAdditional": "Ottieni {0} reputazione aggiuntiva.",
@@ -978,12 +978,12 @@
         "resourceType": "Ognuno ottiene {0} %game.loot.{1}% qualsiasi.",
         "scenarioCondition": {
           "": "Tutti iniziano lo scenario con {0}.",
-          "alt": "Tutti i personaggi iniziano lo scenario successivo con {0}."
+          "fh": "Tutti i personaggi iniziano lo scenario successivo con {0}."
         },
         "scenarioConditionOne": "Un personaggio ottiene %game.condition.{0}%.",
         "scenarioDamage": {
           "": "Tutti iniziano lo scenario con %game.damage:{0}%.",
-          "alt": "Tutti i personaggi iniziano lo scenario successivo con %game.damage:{0}%."
+          "fh": "Tutti i personaggi iniziano lo scenario successivo con %game.damage:{0}%."
         },
         "scenarioSingleMinus1": "Uno inizia lo scenario con %game.card.minus1% x{0}.",
         "sectionOrWeek": "Aggiungi %game.section:{0}% OPPURE {1} al calendario in una settimana.",
@@ -1005,7 +1005,7 @@
         "unlockEnvelope": "Sblocca la busta {0} se non è sbloccata.",
         "unlockScenario": {
           "": "Sblocca \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
-          "alt": "Nuovo Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
+          "fh": "Nuovo Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
         },
         "unlockScenarioGroup": "Sblocca \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%).",
         "upgradeBuilding": "Aggiorna il %data.buildings.{0}% al livello successivo, oppure, se il %data.buildings.{0}% è già di livello {1}, ottieni invece {2} morale.",

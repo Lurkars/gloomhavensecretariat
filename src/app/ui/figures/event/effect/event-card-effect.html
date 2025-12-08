@@ -16,7 +16,7 @@
     }
     @if (effectObject.type && special.indexOf(effectObject.type) == -1) {
     <span class="text" [ngClass]="{'text-white': light, 'concatenated': concatenated}"
-      [ghs-label]="'game.events.effects.' + effectObject.type + (effectObject.alt ? '.alt': '')"
+      [ghs-label]="'game.events.effects.' + effectObject.type + (effectObject.alt ? '.' + effectObject.alt : '')"
       [ghs-label-args]="labelArgs" [slice]="concatenated ? [0,-1] : []"></span>
     }
     @if (effectObject.type == 'choose') {

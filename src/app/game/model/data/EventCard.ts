@@ -5,15 +5,17 @@ export class EventCard implements Editional {
     edition: string;
     type: string;
     narrative: string;
+    footer: string;
     options: EventCardOption[];
     attack?: EventCardAttack;
     requirement: EventCardRequirement | undefined;
 
-    constructor(cardId: string, edition: string, type: string, narrative: string, options: EventCardOption[], attack?: EventCardAttack) {
+    constructor(cardId: string, edition: string, type: string, narrative: string, footer: string, options: EventCardOption[], attack?: EventCardAttack) {
         this.cardId = cardId;
         this.edition = edition;
         this.type = type;
         this.narrative = narrative;
+        this.footer = footer;
         this.options = options;
         if (attack) {
             this.attack = attack;
@@ -139,6 +141,7 @@ export enum EventCardEffectType {
     loseExperience = "loseExperience",
     loseGold = "loseGold",
     loseGoldOne = "loseGoldOne",
+    loseItem = "loseItem",
     loseMorale = "loseMorale",
     loseProsperity = "loseProsperity",
     loseReputation = "loseReputation",
@@ -192,7 +195,7 @@ export class EventCardEffect {
     condition: string | EventCardCondition | undefined;
     type: EventCardEffectType = EventCardEffectType.noEffect;
     values: (string | number | EventCardEffect)[] = [];
-    alt: boolean = false;
+    alt: string | false = false;
 
     constructor(type: EventCardEffectType, values: (string | number | EventCardEffect)[] = []) {
         this.type = type;

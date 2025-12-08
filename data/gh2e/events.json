@@ -127,7 +127,7 @@
               },
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -166,7 +166,6 @@
         "narrative": "Raise your hand (select which party member is volunteering now).",
         "outcomes": [
           {
-            "narrative": "Read section 63.2.",
             "effects": [
               "Read %game.section:63.2%."
             ]
@@ -188,7 +187,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   5
                 ]
@@ -269,7 +268,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-44"
@@ -316,7 +315,7 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   36
                 ]
@@ -559,7 +558,7 @@
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   88
                 ]
@@ -574,7 +573,7 @@
             "effects": [
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   88
                 ]
@@ -593,7 +592,7 @@
               "Collectively gain any one item from 001-014.",
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   88
                 ]
@@ -619,7 +618,7 @@
             "effects": [
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   99
                 ]
@@ -643,7 +642,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   10
                 ]
@@ -664,7 +663,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
@@ -696,7 +695,7 @@
             "effects": [
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "84"
                 ]
@@ -714,7 +713,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -794,7 +793,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
@@ -834,7 +833,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   10
                 ]
@@ -876,7 +875,7 @@
               "Immediately gain the item from the random item design.",
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   87
                 ]
@@ -895,7 +894,7 @@
               "Draw 3 random item designs and choose 1, returning the other 2 to their deck.",
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   87
                 ]
@@ -997,7 +996,7 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   114
                 ]
@@ -1022,7 +1021,7 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   114
                 ]
@@ -1068,14 +1067,14 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard"
                 ]
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-41"
@@ -1107,7 +1106,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-41"
@@ -1139,7 +1138,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-41"
@@ -1205,7 +1204,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "ward"
                 ]
@@ -1297,7 +1296,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "ward",
                   "bless"
@@ -1313,7 +1312,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "ward",
                   "bless"
@@ -1338,14 +1337,14 @@
               },
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   5
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless"
                 ]
@@ -1363,7 +1362,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
@@ -1478,7 +1477,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-44"
@@ -1521,7 +1520,7 @@
             "effects": [
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-40"
@@ -1657,7 +1656,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
@@ -1690,7 +1689,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -1726,7 +1725,7 @@
               },
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -1800,7 +1799,14 @@
             "condition": "When all boxes are checked",
             "removeFromDeck": true,
             "effects": [
-              "Read %game.section:22.1% and remove this card from the city deck."
+              "Read %game.section:22.1%.",
+              {
+                "type": "removeEvent",
+                "values": [
+                  "city",
+                  "C-27"
+                ]
+              }
             ]
           }
         ]
@@ -1834,7 +1840,14 @@
             "condition": "When all boxes are checked",
             "removeFromDeck": true,
             "effects": [
-              "Read %game.section:93.2% and remove this card from the city deck."
+              "Read %game.section:93.2%.",
+              {
+                "type": "removeEvent",
+                "values": [
+                  "city",
+                  "C-27"
+                ]
+              }
             ]
           }
         ]
@@ -1893,7 +1906,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -2098,25 +2111,19 @@
         "outcomes": [
           {
             "condition": "If you said 3",
-            "narrative": "The old man opens his hand with a weary flair and a smile. \"Tell me, was it a lucky guess, or did you hear them? No one has heard them in a long while, since before Roland tore apart this city. Tell me you heard them! It's been so long!\"",
+            "narrative": "The old man opens his hand with a weary flair and a smile. \"Tell me, was it a lucky guess, or did you hear them? No one has heard them in a long while, since before Roland tore apart this city. Tell me you heard them! It's been so long!\""
+          },
+          {
+            "narrative": "Choose one:"
+          },
+          {
             "effects": [
-              {
-                "type": "choose",
-                "values": [
-                  {
-                    "condition": "Tell him you heard them",
-                    "effects": [
-                      "Read %game.section:15.5%."
-                    ]
-                  },
-                  {
-                    "condition": "Tell him it was a random guess",
-                    "effects": [
-                      "Read %game.section:40.5%."
-                    ]
-                  }
-                ]
-              }
+              "Tell him you heard them - Read %game.section:15.5%."
+            ]
+          },
+          {
+            "effects": [
+              "Tell him it was a random guess - Read %game.section:40.5%.<br><br>"
             ]
           },
           {
@@ -2171,7 +2178,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
@@ -2230,7 +2237,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless"
                 ]
@@ -2374,7 +2381,7 @@
             "effects": [
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   95
                 ]
@@ -2404,7 +2411,7 @@
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   95
                 ]
@@ -2419,7 +2426,7 @@
             "effects": [
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   95
                 ]
@@ -2445,7 +2452,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -2629,7 +2636,8 @@
           }
         ]
       }
-    ]
+    ],
+    "footer": "<img class=\"placeholder-image\" src=\"./assets/artwork/events/gh2e-C-41.png\">"
   },
   {
     "cardId": "C-42",
@@ -2667,30 +2675,26 @@
         "narrative": "Refuse her entry.",
         "outcomes": [
           {
-            "narrative": "You point out that the invitation is clearly a fake, and you refuse to let her through. She immediately drops the act, desperate.<br><br>\"Please—I just want to see, to experience this. I spent a month's salary on this dress, I—I'm begging you, I won't say a word, no one will know I'm there.\" You look unmoved, and she scrambles around the interior of her purse. \"I have coin. I can make it worth your while. Please!\"",
+            "narrative": "You point out that the invitation is clearly a fake, and you refuse to let her through. She immediately drops the act, desperate.<br><br>\"Please—I just want to see, to experience this. I spent a month's salary on this dress, I—I'm begging you, I won't say a word, no one will know I'm there.\" You look unmoved, and she scrambles around the interior of her purse. \"I have coin. I can make it worth your while. Please!\""
+          },
+          {
+            "condition": "Option A",
+            "inlineEffects": true,
             "effects": [
-              {
-                "type": "choose",
-                "values": [
-                  {
-                    "condiion": "Option A: Accept a bribe to allow her entry.",
-                    "effects": [
-                      "Read %game.section:84.3%."
-                    ]
-                  },
-                  {
-                    "condition": "Option B: Refuse her entry.",
-                    "effects": [
-                      "Read %game.section:40.4%."
-                    ]
-                  }
-                ]
-              }
+              "Accept a bribe to allow her entry.<br>Read %game.section:84.3%."
+            ]
+          },
+          {
+            "condition": "Option B",
+            "inlineEffects": true,
+            "effects": [
+              "Refuse her entry. Read %game.section:40.4%."
             ]
           }
         ]
       }
-    ]
+    ],
+    "footer": "<img class=\"placeholder-image\" src=\"./assets/artwork/events/gh2e-C-42.png\">"
   },
   {
     "cardId": "C-43",
@@ -2700,7 +2704,7 @@
     "options": [
       {
         "label": "A",
-        "narrative": "Remind the crowd that it was quite a traumatic incident, and a drink would be helpful, if they'd be so kind. (Requires %game.trait:hero% or %game.trait:friendOfTheHero%).",
+        "narrative": "Remind the crowd that it was quite a traumatic incident, and a drink would be helpful, if they'd be so kind. (Requires %game.trait:hero% or %game.trait:friend-of-the-hero%).",
         "returnToDeck": true,
         "outcomes": [
           {
@@ -2720,12 +2724,12 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless"
                 ]
               },
-              "Each character without %game.trait:hero% or %game.trait:friendofthehero% gains %game.trait:friendofthehero%."
+              "Each character without %game.trait:hero% or %game.trait:friend-of-the-hero% gains %game.trait:friend-of-the-hero%."
             ]
           },
           {
@@ -2795,14 +2799,14 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-45"
@@ -2911,7 +2915,7 @@
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   91
                 ]
@@ -2935,7 +2939,7 @@
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   91
                 ]
@@ -3251,7 +3255,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   5
                 ]
@@ -3284,7 +3288,7 @@
             "effects": [
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
@@ -3396,7 +3400,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -3435,14 +3439,14 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard",
                   "ward"
@@ -3571,21 +3575,21 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
               },
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   3
                 ]
               },
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -3659,7 +3663,7 @@
             "effects": [
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-58"
@@ -3687,7 +3691,7 @@
               "Lose 2 reputation with the ruling faction. Gain 1 reputation with each other faction.",
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-59"
@@ -3738,7 +3742,7 @@
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   100
                 ]
@@ -3756,14 +3760,14 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   100
                 ]
@@ -3806,7 +3810,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -3838,7 +3842,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-62"
@@ -3846,7 +3850,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-63"
@@ -3865,7 +3869,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
@@ -3878,7 +3882,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-62"
@@ -3886,7 +3890,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-63"
@@ -3925,7 +3929,7 @@
               },
               {
                 "type": "removeEvent",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "C-63"
                 ]
@@ -3950,7 +3954,7 @@
               },
               {
                 "type": "removeEvent",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "C-63"
                 ]
@@ -4005,7 +4009,7 @@
               },
               {
                 "type": "removeEvent",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "C-62"
                 ]
@@ -4045,7 +4049,7 @@
             "effects": [
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   81
                 ]
@@ -4069,7 +4073,7 @@
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   81
                 ]
@@ -4095,7 +4099,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -4156,7 +4160,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "poison",
                   "curse"
@@ -4225,7 +4229,7 @@
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   85
                 ]
@@ -4243,7 +4247,7 @@
             "effects": [
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   85
                 ]
@@ -4286,7 +4290,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -4367,7 +4371,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
@@ -4404,7 +4408,7 @@
             "effects": [
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   82
                 ]
@@ -4464,7 +4468,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -4515,7 +4519,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   5
                 ]
@@ -4637,7 +4641,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless:2"
                 ]
@@ -4667,7 +4671,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-41"
@@ -4740,7 +4744,7 @@
                 "harrower"
               ]
             },
-            "narrative": "Read Outcome C.",
+            "inlineEffects": true,
             "effects": [
               {
                 "type": "outcome",
@@ -4777,7 +4781,7 @@
                 "harrower"
               ]
             },
-            "narrative": "Read Outcome C.",
+            "inlineEffects": true,
             "effects": [
               {
                 "type": "outcome",
@@ -4825,7 +4829,7 @@
               },
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -4919,7 +4923,7 @@
               },
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   5
                 ]
@@ -4940,7 +4944,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "poison"
                 ]
@@ -5107,7 +5111,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   5
                 ]
@@ -5120,7 +5124,7 @@
                   ]
                 },
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   5
                 ]
@@ -5205,7 +5209,7 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   114
                 ]
@@ -5249,7 +5253,7 @@
               "Lose 1 reputation with any one faction of your choice.",
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
@@ -5332,14 +5336,14 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   12
                 ]
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-57"
@@ -5358,7 +5362,7 @@
             "effects": [
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-57"
@@ -5385,7 +5389,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless"
                 ]
@@ -5404,14 +5408,14 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "curse"
                 ]
               },
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   139
                 ]
@@ -5494,14 +5498,14 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "strengthen"
                 ]
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   93
                 ]
@@ -5519,7 +5523,7 @@
             "effects": [
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   93
                 ]
@@ -5545,7 +5549,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -5600,7 +5604,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-90"
@@ -5622,7 +5626,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "poison"
                 ]
@@ -5673,7 +5677,7 @@
               "Lose 1 reputation with any one faction of your choice.",
               {
                 "type": "removeEvent",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "C-89",
                   "R-72"
@@ -5692,7 +5696,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -5707,7 +5711,7 @@
                 "effects": [
                   {
                     "type": "scenarioCondition",
-                    "alt": true,
+                    "alt": "gh2e",
                     "values": [
                       "safeguard"
                     ]
@@ -5716,7 +5720,7 @@
               },
               {
                 "type": "removeEvent",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "C-89",
                   "R-72"
@@ -5782,7 +5786,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-38"
@@ -5790,7 +5794,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-44"
@@ -5816,7 +5820,7 @@
               {
                 "condition": "If event C-44 is in the city deck",
                 "type": "removeEvent",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "C-44"
                 ]
@@ -5837,7 +5841,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-38"
@@ -5845,7 +5849,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-44"
@@ -5873,7 +5877,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -5891,7 +5895,7 @@
             "effects": [
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-92"
@@ -5924,7 +5928,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "strengthen"
                 ]
@@ -5945,7 +5949,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "curse"
                 ]
@@ -5963,7 +5967,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -6080,7 +6084,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless"
                 ]
@@ -6109,7 +6113,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless"
                 ]
@@ -6153,7 +6157,7 @@
             "effects": [
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-40"
@@ -6186,7 +6190,7 @@
             "effects": [
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-40"
@@ -6213,7 +6217,7 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   141
                 ]
@@ -6231,7 +6235,7 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   140
                 ]
@@ -6270,7 +6274,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   10
                 ]
@@ -6333,7 +6337,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard"
                 ]
@@ -6375,7 +6379,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "ward"
                 ]
@@ -6412,14 +6416,14 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   5
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
@@ -6445,14 +6449,14 @@
             "effects": [
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless:2"
                 ]
@@ -6467,14 +6471,14 @@
             "effects": [
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless:2"
                 ]
@@ -6501,7 +6505,7 @@
               "Check a box below. The party may then collectively remove any number of %game.condition.bless% cards from their attack modifier decks to check that many boxes. Finally, one character may gain one additional %game.condition.curse% to check one additional box.",
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "curse"
                 ]
@@ -6545,7 +6549,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "curse"
                 ]
@@ -6667,7 +6671,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "strengthen"
                 ]
@@ -6734,7 +6738,7 @@
             "effects": [
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "90"
                 ]
@@ -6752,14 +6756,14 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "90"
                 ]
@@ -6807,7 +6811,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard",
                   "ward",
@@ -6832,7 +6836,14 @@
             "condition": "If you draw a %game.attackmodifier.null% card",
             "narrative": "The nibble at the end of your line suggests a tasty lunch is about to be served, but you didn't realize who was on the menu. When the rows of scalpel-like teeth burst from the edge of the stream, the idyllic fishing spot turns to a traumatic race for cover. Tentacles whip sludge-filled barbs at anything within terrifying range. The eye-stalk breaches the water last: a crimson orb hunting you down among the tall grass.<br><br>You regain your wits and defend yourself, finally taking down the deep terror, but it will be weeks before you wake up in anything but a cold sweat.",
             "effects": [
-              "Each character starts the next scenario with %game.condition.wound% and %game.condition.poison%.",
+              {
+                "type": "scenarioCondition",
+                "alt": "gh2e",
+                "values": [
+                  "wound",
+                  "poison"
+                ]
+              },
               "Each character individually chooses to start the next scenario with %game.condition.immobilize% or %game.condition.disarm%."
             ]
           }
@@ -6864,14 +6875,14 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "97"
                 ]
@@ -6886,7 +6897,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle",
                   "poison"
@@ -6894,7 +6905,7 @@
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "97"
                 ]
@@ -6919,14 +6930,14 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   51
                 ]
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "97"
                 ]
@@ -6947,7 +6958,7 @@
               },
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   3
                 ]
@@ -6979,7 +6990,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -7032,37 +7043,34 @@
         "narrative": "The crystals have a sheen unlike any you've seen. Touch one.",
         "outcomes": [
           {
-            "narrative": "You may touch any one crystal.",
+            "narrative": "You may touch any one crystal."
+          },
+          {
+            "condition": "Blue triangle crystal",
+            "inlineEffects": true,
             "effects": [
-              {
-                "type": "choose",
-                "values": [
-                  {
-                    "condition": "Blue triangle crystal",
-                    "effects": [
-                      "Read %game.section:76.5%."
-                    ]
-                  },
-                  {
-                    "condition": "Red circular crystal",
-                    "effects": [
-                      "Read %game.section:66.5%."
-                    ]
-                  },
-                  {
-                    "condition": "Orange hex crystal",
-                    "effects": [
-                      "Read %game.section:122.1%."
-                    ]
-                  },
-                  {
-                    "condition": "Green diamond crystal",
-                    "effects": [
-                      "Read %game.section:135.5%."
-                    ]
-                  }
-                ]
-              }
+              "Read %game.section:76.5%."
+            ]
+          },
+          {
+            "condition": "Red circular crystal",
+            "inlineEffects": true,
+            "effects": [
+              "Read %game.section:66.5%."
+            ]
+          },
+          {
+            "condition": "Orange hex crystal",
+            "inlineEffects": true,
+            "effects": [
+              "Read %game.section:122.1%."
+            ]
+          },
+          {
+            "condition": "Green diamond crystal",
+            "inlineEffects": true,
+            "effects": [
+              "Read %game.section:135.5%."
             ]
           }
         ]
@@ -7072,44 +7080,46 @@
         "narrative": "Press the button in the center of the console.",
         "outcomes": [
           {
-            "narrative": "You press the big button in the center of the console. The system whirrs to life, the lights dancing in a pattern beyond your comprehension. A voice rings inside your head, but you can't find the source of the sound.<br><br>\"This is Qualco's Temporal Stash, keep out! This stash made possible through lots of trial and error and error and also some help from a pair of helpful Aesthers. But this is for Qualco's eyes only! Since time is a bit wobbly, I'll remind you—ME, Qualco only!—of the most important rule: No crystal is pressed more than once!\"<br><br>\"But future-Qualco: if you do manage to get it wrong, that'll discharge the crystal matrix, reset the stash's location, and initiate defense measures. Take that, any not-Qualcos! I said for Qualco's eyes only and I mean it!\"<br><br>You may touch any one crystal.",
+            "narrative": "You press the big button in the center of the console. The system whirrs to life, the lights dancing in a pattern beyond your comprehension. A voice rings inside your head, but you can't find the source of the sound.<br><br>\"This is Qualco's Temporal Stash, keep out! This stash made possible through lots of trial and error and error and also some help from a pair of helpful Aesthers. But this is for Qualco's eyes only! Since time is a bit wobbly, I'll remind you—ME, Qualco only!—of the most important rule: No crystal is pressed more than once!\"<br><br>\"But future-Qualco: if you do manage to get it wrong, that'll discharge the crystal matrix, reset the stash's location, and initiate defense measures. Take that, any not-Qualcos! I said for Qualco's eyes only and I mean it!\"",
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
-              },
-              {
-                "type": "choose",
-                "values": [
-                  {
-                    "condition": "Blue triangle crystal",
-                    "effects": [
-                      "Read %game.section:70.4%."
-                    ]
-                  },
-                  {
-                    "condition": "Red circular crystal",
-                    "effects": [
-                      "Read %game.section:82.5%."
-                    ]
-                  },
-                  {
-                    "condition": "Orange hex crystal",
-                    "effects": [
-                      "Read %game.section:119.4%."
-                    ]
-                  },
-                  {
-                    "condition": "Green diamond crystal",
-                    "effects": [
-                      "Read %game.section:98.5%."
-                    ]
-                  }
-                ]
               }
+            ]
+          },
+          {
+            "narrative": "You may touch any one crystal."
+          },
+          {
+            "condition": "Blue triangle crystal",
+            "inlineEffects": true,
+            "effects": [
+              "Read %game.section:70.4%."
+            ]
+          },
+          {
+            "condition": "Red circular crystal",
+            "inlineEffects": true,
+            "effects": [
+              "Read %game.section:82.5%."
+            ]
+          },
+          {
+            "condition": "Orange hex crystal",
+            "inlineEffects": true,
+            "effects": [
+              "Read %game.section:119.4%."
+            ]
+          },
+          {
+            "condition": "Green diamond crystal",
+            "inlineEffects": true,
+            "effects": [
+              "Read %game.section:98.5%."
             ]
           }
         ]
@@ -7132,7 +7142,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "poison"
                 ]
@@ -7227,7 +7237,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "strengthen"
                 ]
@@ -7270,7 +7280,7 @@
                   ]
                 },
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ],
@@ -7303,7 +7313,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound",
                   "ward",
@@ -7331,7 +7341,7 @@
             "effects": [
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-31"
@@ -7339,12 +7349,25 @@
               },
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
               },
-              "Each character start the next scenario with 1 damage and %game.condition.wound%.",
+              {
+                "type": "scenarioDamage",
+                "alt": "gh2e",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "alt": "gh2e",
+                "values": [
+                  "wound"
+                ]
+              },
               "Each %game.trait:armored% character ignores the suffer 1 damage and %game.condition.wound%."
             ]
           }
@@ -7392,7 +7415,7 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   146
                 ]
@@ -7413,14 +7436,14 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   146
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
@@ -7438,7 +7461,7 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   146
                 ]
@@ -7462,7 +7485,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
@@ -7489,7 +7512,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   15
                 ]
@@ -7566,7 +7589,7 @@
             "effects": [
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -7590,7 +7613,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard",
                   "ward"
@@ -7606,7 +7629,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
@@ -7814,13 +7837,13 @@
             },
             "narrative": "You ask for a tour of how the marvelous machine works, and the Quatryl is more than happy to showcase it.",
             "effects": [
-              "Read outcome A and add two additional attack modifier cards of your choice to the machine.",
               {
                 "type": "outcome",
                 "values": [
                   "A"
                 ]
-              }
+              },
+              "Add two additional attack modifier cards of your choice to the machine."
             ]
           },
           {
@@ -7849,9 +7872,8 @@
         "narrative": "Go left.",
         "outcomes": [
           {
-            "narrative": "Read section 37.3.",
             "effects": [
-              "Read section %game.section:37.3%."
+              "Read %game.section:37.3%."
             ]
           }
         ]
@@ -7888,7 +7910,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   5
                 ]
@@ -7928,7 +7950,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   10
                 ]
@@ -7943,7 +7965,7 @@
             "effects": [
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
@@ -7969,14 +7991,14 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   146
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound",
                   "curse"
@@ -8001,7 +8023,7 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   146
                 ]
@@ -8032,7 +8054,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound",
                   "curse"
@@ -8066,7 +8088,7 @@
               },
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -8187,14 +8209,14 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   146
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard"
                 ]
@@ -8216,7 +8238,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
@@ -8234,7 +8256,7 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   146
                 ]
@@ -8267,14 +8289,14 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless"
                 ]
               },
               {
                 "type": "removeEvent",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "R-11"
                 ]
@@ -8319,42 +8341,42 @@
                 "values": [
                   {
                     "type": "item",
-                    "alt": true,
+                    "alt": "gh2e",
                     "values": [
                       146
                     ]
                   },
                   {
                     "type": "item",
-                    "alt": true,
+                    "alt": "gh2e",
                     "values": [
                       123
                     ]
                   },
                   {
                     "type": "item",
-                    "alt": true,
+                    "alt": "gh2e",
                     "values": [
                       124
                     ]
                   },
                   {
                     "type": "item",
-                    "alt": true,
+                    "alt": "gh2e",
                     "values": [
                       125
                     ]
                   },
                   {
                     "type": "item",
-                    "alt": true,
+                    "alt": "gh2e",
                     "values": [
                       126
                     ]
                   },
                   {
                     "type": "item",
-                    "alt": true,
+                    "alt": "gh2e",
                     "values": [
                       127
                     ]
@@ -8386,28 +8408,28 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   146
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless"
                 ]
               },
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-14"
@@ -8426,7 +8448,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "strengthen",
                   "bless"
@@ -8434,14 +8456,14 @@
               },
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-14"
@@ -8468,7 +8490,7 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   120
                 ]
@@ -8486,14 +8508,14 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   120
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "strengthen",
                   "bless"
@@ -8520,21 +8542,21 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   118
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-34"
@@ -8553,21 +8575,21 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   118
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "ward"
                 ]
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-34"
@@ -8594,14 +8616,14 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless"
                 ]
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-35"
@@ -8620,14 +8642,14 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "curse"
                 ]
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-35"
@@ -8698,7 +8720,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   5
                 ]
@@ -8728,14 +8750,14 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   128
                 ]
               },
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
@@ -8774,21 +8796,21 @@
               },
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   5
                 ]
               },
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   3
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
@@ -8813,7 +8835,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "ward"
                 ]
@@ -8858,14 +8880,14 @@
             "effects": [
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound",
                   "curse"
@@ -8873,7 +8895,7 @@
               },
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -8892,7 +8914,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound",
                   "curse"
@@ -8900,7 +8922,7 @@
               },
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -8948,7 +8970,7 @@
                   "type": "otherwise"
                 },
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
@@ -8963,7 +8985,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound",
                   "poison"
@@ -8999,7 +9021,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound",
                   "poison"
@@ -9047,7 +9069,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
@@ -9071,7 +9093,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard",
                   "ward"
@@ -9087,7 +9109,7 @@
             "effects": [
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
@@ -9105,7 +9127,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "strengthen"
                 ]
@@ -9143,7 +9165,7 @@
             "effects": [
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -9173,14 +9195,14 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless"
                 ]
               },
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -9195,7 +9217,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "curse"
                 ]
@@ -9238,7 +9260,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "immobilize",
                   "muddle"
@@ -9277,7 +9299,7 @@
             "effects": [
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -9348,14 +9370,14 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
               },
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -9396,7 +9418,7 @@
             "effects": [
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "1"
                 ]
@@ -9453,14 +9475,14 @@
             "effects": [
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
@@ -9479,7 +9501,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "strengthen",
                   "ward"
@@ -9523,7 +9545,7 @@
             "effects": [
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   3
                 ]
@@ -9559,7 +9581,7 @@
             "effects": [
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   3
                 ]
@@ -9619,7 +9641,7 @@
               "Lose 1 reputation with your highest-reputation faction.",
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "curse"
                 ]
@@ -9645,14 +9667,14 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard"
                 ]
@@ -9677,7 +9699,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard"
                 ]
@@ -9692,7 +9714,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
@@ -9718,7 +9740,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless"
                 ]
@@ -9736,7 +9758,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "ward"
                 ]
@@ -9754,7 +9776,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard"
                 ]
@@ -9796,7 +9818,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "curse"
                 ]
@@ -9823,7 +9845,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
@@ -9835,14 +9857,14 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
               },
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -9854,7 +9876,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound",
                   "immobilize"
@@ -9862,7 +9884,7 @@
               },
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -9874,7 +9896,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound",
                   "immobilize"
@@ -9882,7 +9904,7 @@
               },
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
@@ -9939,7 +9961,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless"
                 ]
@@ -9964,7 +9986,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless",
                   "ward"
@@ -10012,14 +10034,14 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   45
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard"
                 ]
@@ -10095,7 +10117,7 @@
               "Choose to gain between 0 and 40 collective gold (giving the rest to the old man). If you collectively gained more than 25 gold, each character starts the next scenario with %game.condition.curse%.",
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
@@ -10129,7 +10151,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "wound"
                 ]
@@ -10177,7 +10199,7 @@
             "effects": [
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-55"
@@ -10197,7 +10219,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
@@ -10361,7 +10383,7 @@
             "effects": [
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
@@ -10376,7 +10398,7 @@
             "effects": [
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   3
                 ]
@@ -10394,7 +10416,7 @@
             "effects": [
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   3
                 ]
@@ -10431,7 +10453,8 @@
             "narrative": "You hand off the potion and point out which way the Silent Knife ran. The guard thanks you for your help and rushes off in hot pursuit.",
             "effects": [
               {
-                "type": "consumeCollectiveItem",
+                "type": "loseItem",
+                "alt": "gh2e",
                 "values": [
                   45
                 ]
@@ -10445,7 +10468,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-60"
@@ -10476,7 +10499,7 @@
             "effects": [
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-60"
@@ -10491,7 +10514,8 @@
             "narrative": "Under pressure, you point in the first wrong direction you can think of: the way he just came from. \"Empty your bags!\" he orders. He confiscates the potion and writes you a written notice of a court date.",
             "effects": [
               {
-                "type": "consumeCollectiveItem",
+                "type": "loseItem",
+                "alt": "gh2e",
                 "values": [
                   45
                 ]
@@ -10505,7 +10529,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-40"
@@ -10513,7 +10537,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-60"
@@ -10532,7 +10556,7 @@
             "effects": [
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-60"
@@ -10588,14 +10612,14 @@
             "effects": [
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "poison"
                 ]
@@ -10614,23 +10638,24 @@
     "options": [
       {
         "label": "A",
-        "narrative": "Give the Silent Knife the potion (requires \"Major Element Potion\" 045).",
+        "narrative": "Give the Silent Knife the potion (requires \"%data.items.gh2e-45%\" %game.itemFh.45%).",
         "outcomes": [
           {
-            "condition": {
-              "type": "consumeCollectiveItem",
-              "values": [
-                45
-              ]
-            },
             "narrative": "\"Oh, it's beautiful. Even better than I remembered, thank you so much for keeping it safe for me. You're really the perfect crew, shame I'm retired.\" The Silent Knife looks up for a moment, then snaps their fingers. \"Ah! I found something else I thought you'd like.\"",
             "effects": [
+              {
+                "type": "loseItem",
+                "alt": "gh2e",
+                "values": [
+                  45
+                ]
+              },
               {
                 "type": "randomItemDesign"
               },
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard"
                 ]
@@ -10673,7 +10698,7 @@
             "effects": [
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   18
                 ]
@@ -10716,7 +10741,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "ward"
                 ]
@@ -10737,7 +10762,7 @@
                 "educated"
               ]
             },
-            "narrative": "Read Outcome A.",
+            "inlineEffects": true,
             "effects": [
               {
                 "type": "outcome",
@@ -10755,7 +10780,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "curse"
                 ]
@@ -10777,15 +10802,16 @@
         "narrative": "Assist the Berserker against the guards.",
         "outcomes": [
           {
-            "narrative": "In their blood rage, your old party member can't determine who is friend or foe. You take as many blows in the chaos as the guards, but the guards eventually fall. You call out, but the Berserker wastes no time disappearing into the nearby forest. One of the guards looks to still be alive, albeit missing a hand.<br><br>To finish the job, read 18.1.<br><br>To let the guard live, read 90.2.",
+            "narrative": "In their blood rage, your old party member can't determine who is friend or foe. You take as many blows in the chaos as the guards, but the guards eventually fall. You call out, but the Berserker wastes no time disappearing into the nearby forest. One of the guards looks to still be alive, albeit missing a hand."
+          },
+          {
             "effects": [
-              {
-                "type": "choose",
-                "values": [
-                  "To finish the job, read %game.section:18.1%.",
-                  "To let the guard live, read %game.section:90.2%."
-                ]
-              }
+              "To finish the job, read %game.section:18.1%."
+            ]
+          },
+          {
+            "effects": [
+              "To let the guard live, read %game.section:90.2%."
             ]
           }
         ]
@@ -10806,14 +10832,14 @@
               },
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
               },
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   138
                 ]
@@ -10860,14 +10886,14 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard"
                 ]
               },
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   34
                 ]
@@ -10882,14 +10908,14 @@
             "effects": [
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   2
                 ]
               },
               {
                 "type": "item",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   34
                 ]
@@ -10915,7 +10941,7 @@
             "effects": [
               {
                 "type": "prosperity",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -10955,7 +10981,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "safeguard",
                   "ward"
@@ -10975,7 +11001,7 @@
             "effects": [
               {
                 "type": "scenarioDamage",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   3
                 ]
@@ -11016,7 +11042,7 @@
             "effects": [
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   15
                 ]
@@ -11042,7 +11068,7 @@
               },
               {
                 "type": "experience",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   5
                 ]
@@ -11057,7 +11083,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle",
                   "wound"
@@ -11091,7 +11117,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle",
                   "wound"
@@ -11119,7 +11145,7 @@
               "At the start of the next scenario, designate an empty hex that can be reached by performing %game.action.move% 3 from a starting hex. Characters may choose to start in that hex or an empty hex adjacent to it instead of a starting hex.",
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "road",
                   "R-69"
@@ -11139,7 +11165,7 @@
               "At the start of the next scenario, designate an empty hex that can be reached by performing %game.action.move% 3 from a starting hex. Characters may choose to start in that hex or an empty hex adjacent to it instead of a starting hex.",
               {
                 "type": "discard",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   1
                 ]
@@ -11202,7 +11228,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "bless",
                   "ward"
@@ -11229,7 +11255,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "strengthen",
                   "bless"
@@ -11237,7 +11263,7 @@
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "94"
                 ]
@@ -11256,21 +11282,21 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "curse"
                 ]
               },
               {
                 "type": "unlockScenario",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "94"
                 ]
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-85"
@@ -11297,7 +11323,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "immobilize",
                   "muddle"
@@ -11358,7 +11384,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "curse"
                 ]
@@ -11371,7 +11397,7 @@
               },
               {
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-90"
@@ -11387,7 +11413,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "poison",
                   "curse"
@@ -11430,7 +11456,7 @@
                   ]
                 },
                 "type": "event",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "city",
                   "C-90"
@@ -11491,7 +11517,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "strengthen"
                 ]
@@ -11585,7 +11611,7 @@
               "The character who stepped on the trap starts the next scenario with %game.condition.immobilize% and %game.condition.wound%.",
               {
                 "type": "scenarioCondition",
-                "alt": true,
+                "alt": "gh2e",
                 "values": [
                   "muddle"
                 ]
