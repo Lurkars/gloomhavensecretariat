@@ -908,26 +908,31 @@
         "custom": "{0}",
         "discard": {
           "": "Discard {0} cards each.",
-          "alt": "All characters start the next scenario discarding %number.{0}% cards."
+          "fh": "All characters start the next scenario discarding %number.{0}% cards.",
+          "gh2e": "Each character starts the next scenario discarding %number.{0}% cards."
         },
         "discardOne": {
           "": "Discard 1 card each.",
-          "alt": "All characters start the next scenario discarding one card."
+          "fh": "All characters start the next scenario discarding one card.",
+          "gh2e": "Each character starts the next scenario discarding one card."
         },
         "drawAnotherEvent": {
           "": "Draw another %game.events.type.{0}% Event.",
-          "alt": "Resolve another %game.events.type.{0}% Event."
+          "fh": "Resolve another %game.events.type.{0}% Event.",
+          "gh2e": "Resolve another %game.events.type.{0}% Event."
         },
         "drawEvent": "Draw a %game.events.type.{0}% Event.",
         "event": {
           "": "Add %game.events.type.{0}% Event {1} to the deck.",
-          "alt": "Add event {1} to the %game.events.type.{0}% deck."
+          "fh": "Add event {1} to the %game.events.type.{0}% deck.",
+          "gh2e": "Add event {1} to the %game.events.type.{0}% deck."
         },
         "eventReturn": "Retrieve event {1} and return it back to the %game.events.type.{0}% deck.",
         "eventsToTop": "Look through the %game.events.type.{0}% deck until you find {1}, {2}, or {3}, and put it on top of the deck.",
         "experience": {
           "": "Gain {0} experience each.",
-          "alt": "Each character gains {0} %game.card.experience%."
+          "fh": "Each character gains {0} %game.card.experience%.",
+          "gh2e": "Each character gains {0} %game.card.experience%."
         },
         "gainTrait": "Each character gains %game.trait:{0}%.",
         "globalAchievement": "Global Achievement:<br>\"%data.globalAchievements.{0}%\".",
@@ -936,7 +941,8 @@
         "inspiration": "Gain {0} inspiration.",
         "item": {
           "": "Gain \"%data.items.{1}-{0}%\" (Item {0}).",
-          "alt": "Gain \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+          "fh": "Gain \"%data.items.{1}-{0}%\" %game.itemFh.{0}%.",
+          "gh2e": "Gain \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
         },
         "itemCollective": "Gain {1} collective \"%data.items.{2}-{0}%\" (Item {0}).",
         "itemDesign": "Gain \"%data.items.{1}-{0}%\" design (Item {0}).",
@@ -949,6 +955,11 @@
         "loseExperience": "Lose {0} experience each.",
         "loseGold": "Lose {0} gold each.",
         "loseGoldOne": "One character loses {0} gold.",
+        "loseItem": {
+          "": "Lose \"%data.items.{1}-{0}%\" (Item {0}).",
+          "fh": "Lose \"%data.items.{1}-{0}%\" %game.itemFh.{0}%.",
+          "gh2e": "Lose \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+        },
         "loseMorale": "Lose {0} morale.",
         "loseProsperity": "Lose {0} prosperity.",
         "loseReputation": "Lose {0} reputation.",
@@ -970,18 +981,21 @@
         "partyAchievement": "Party Achievement:<br>\"%data.partyAchievements.{0}%\".",
         "prosperity": {
           "": "Gain {0} prosperity.",
-          "alt": "Gain {0} %game.prosperity%."
+          "fh": "Gain {0} %game.prosperity%.",
+          "gh2e": "Gain {0} %game.prosperity%."
         },
         "randomItem": {
           "": "Gain one Random Item.",
-          "alt": "Gain one collective random item %game.itemFh.random%."
+          "fh": "Gain one collective random item %game.itemFh.random%.",
+          "gh2e": "Gain one collective random item %game.itemFh.random%."
         },
         "randomItemBlueprint": "Gain one random item blueprint %game.itemFh.random%.",
         "randomItemDesign": "Gain Random Item Design.",
         "randomScenario": "Gain one random side scenario.",
         "removeEvent": {
           "": "Remove %game.events.type.{0}% Event {1} from the game.",
-          "alt": "Remove event {1} from the %game.events.type.{0}% deck."
+          "fh": "Remove event {1} from the %game.events.type.{0}% deck.",
+          "gh2e": "Remove event {1} from the %game.events.type.{0}% deck."
         },
         "reputation": "Gain {0} reputation.",
         "reputationFaction": "Gain {1} %data.gh2eFaction:{0}% reputation",
@@ -990,12 +1004,14 @@
         "resourceType": "Gain any {0} %game.loot.{1}% each.",
         "scenarioCondition": {
           "": "All start scenario with {0}.",
-          "alt": "All characters start the next scenario with {0}."
+          "fh": "All characters start the next scenario with {0}.",
+          "gh2e": "Each character starts the next scenario with {0}."
         },
         "scenarioConditionOne": "One character gains %game.condition.{0}%.",
         "scenarioDamage": {
           "": "All start scenario with %game.damage:{0}%.",
-          "alt": "All characters start the next scenario with %game.damage:{0}%."
+          "fh": "All characters start the next scenario with %game.damage:{0}%.",
+          "gh2e": "Each character starts the next scenario with %game.damage:{0}%."
         },
         "scenarioSingleMinus1": "One starts scenario with %game.card.minus1% x{0}.",
         "sectionOrWeek": "Add %game.section:{0}% OR {1} to the calendar in one week.",
@@ -1017,7 +1033,8 @@
         "unlockEnvelope": "Unlock envelope {0} if it is not unlocked.",
         "unlockScenario": {
           "": "Unlock \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
-          "alt": "New Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
+          "fh": "New Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})",
+          "gh2e": "New Scenario: \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%."
         },
         "unlockScenarioGroup": "Unlock \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%).",
         "upgradeBuilding": "Upgrade the %data.buildings.{0}% to the next level, or, if the %data.buildings.{0}% is already level {1}, gain {2} morale instead.",
