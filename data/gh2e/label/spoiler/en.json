@@ -43,9 +43,9 @@
         "10": "After moving for the first time each round, add +2 %game.action.attack% to all attacks for the round.",
         "2": "Grant on of your summons adjacent to the target: %game.action.attack% +0",
         "3": "At the start of each scenario reveal the top card of each monster ability card deck in the scenario",
-        "4": "Whenever you long rest, after you %game.card.recover% your cards from your discard pile, you may play one card from your hand to perform a Doom action of the card",
+        "4": "Whenever you long rest, after you %game.card.recover% your cards from your discard pile, you may play one card from your hand to perform a %data.action.custom.gh2e-doom% action of the card",
         "5": "On each of your summons' turns, you may have them skip their turn and instead perform %game.action.move% +0 treating you as their focus",
-        "6": "Kill 20 Doomed enemies",
+        "6": "Kill 20 enemies that have %data.action.custom.gh2e-doom%",
         "7": "In a single round, you and one of your summons must perform a combined total of 6 or more attack abilities",
         "8": "Unaffected by difficult terrain.",
         "9": "When attacking, ignore %game.action.retaliate%."
