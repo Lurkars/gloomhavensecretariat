@@ -9,6 +9,13 @@
       "tinkerer": "땜장이"
     }
   },
+  "custom": {
+    "gh2e": {
+      "flowChartGroup": {
+        "hail": "헤일"
+      }
+    }
+  },
   "edition": {
     "gh2e": "글룸헤이븐 세컨드 에디션 (%wip%)"
   }

@@ -1,27 +1,41 @@
 {
   "ability": {
+    "Accelerated Power": "기민한 힘",
+    "Angry Howl": "성난 울부짓음",
     "Barbaric Instincts": "야만적 본능",
     "Black Boon": "칠흑의 은혜",
+    "Black Hex": "암흑 사술",
+    "Black Tendrils": "암흑 덩굴",
     "Blade Dance": "낫의 춤사위",
     "Blinding Sickle": "실명의 낫",
+    "Boil Blood": "끓어오르는 피",
     "Bombardment": "융단폭격",
+    "Booming Scream": "폭발적인 비명",
     "Brutalize": "압살",
     "Burn Away the Dark": "어둠을 불사르다",
+    "Calculated Strike": "계산된 공격",
     "Camaraderie": "동료애",
     "Care Package": "지원품 투하",
     "Careful Throw": "신중한 투척",
     "Center Mass": "중심 조준",
+    "Chilling Breath": "혹한의 숨결",
     "Close Cuts": "근접 베기",
     "Close to the Abyss": "심연에 다가가다",
     "Cold Embrace": "차가운 포옹",
     "Collateral Damage": "부수적 피해",
     "Commanding Presence": "지배자의 존재감",
+    "Constrict": "조르기",
+    "Coupled Chain": "얽매인 사슬",
     "Crash Protocol": "충돌 프로토콜",
+    "Cripple": "무력화",
     "Crushing Cold": "쇄도하는 한기",
     "Crushing Weight": "압도적인 무게",
+    "Dark Charm": "칠흑의 부적",
+    "Defensive Strike": "수세적 일격",
     "Desert Night": "사막의 밤",
     "Disorienting Barrage": "엄호 투척",
     "Double Throw": "쌍도끼 투척",
+    "Drain Life": "생명력 흡수",
     "Drill Fist": "드릴 주먹",
     "Dual Daggers": "두 자루의 단검",
     "Dust Cloud": "먼지 구름",
@@ -29,92 +43,273 @@
     "Excessive Force": "압도적인 힘",
     "Executioner's Axe": "처형인의 도끼",
     "Explode": "폭렬",
+    "Explosive Blisters": "폭발성 물집",
     "Explosive Blitz": "폭발적인 공세",
     "Extra Fuel": "추가 연료",
     "Extra Lift": "추가 깔창",
     "Eye of the Void": "공허의 눈",
     "Fancy Hat": "멋들어진 모자",
     "Fearsome Efficiency": "무시무시한 효율성",
+    "Feed": "먹이 사냥",
     "Fierce Brilliance": "맹렬한 광휘",
+    "Find Cover": "숨어들기",
     "Fire Bombs": "화염탄",
     "Flame Shroud": "화염 장막",
     "Flaming Sickle": "화염의 낫",
+    "Flashing Claws": "번쩍이는 발톱",
     "Flying Sickle": "날아드는 낫",
     "Follow Through": "마무리 투척",
     "Freeze the Soul": "영혼을 얼리다",
     "Gift of the Void": "공허의 은총",
     "Give and Take": "등가교환",
     "Grasp of Doom": "파멸의 손아귀",
+    "Greed": "탐욕",
+    "Ground Pound": "지면 내려찍기",
     "Gut Punch": "내장 파열",
     "Harvest Sickle": "수확의 낫",
+    "Hasty Assault": "재빠른 공격",
     "Hateful Blast": "증오의 파동",
     "Healing Sands": "치유의 모래",
     "Heart Seeker": "심장 추적자",
+    "Heat Blast": "맹렬한 불길",
+    "Hex Whip": "사술 채찍",
     "Honorable Fury": "고귀한 분노",
     "Horns of the Beast": "맹수의 뿔",
+    "Hungry Maw": "굶주린 아가리",
+    "Icy Glare": "얼어붙는 눈빛",
     "Implode": "파열",
     "Insult to Injury": "상처 헤집기",
     "Knock Out the Support": "지지대 해체",
+    "Leech Warmth": "성난 울부짖음",
     "Level": "평탄화",
+    "Lingering Strength": "육중한 힘",
     "Lobbed Charge": "묵직한 한 방",
     "Lull into Oblivion": "망각 속에 가라앉다",
     "Lure of the Void": "공허의 유혹",
+    "Mana Explosion": "마나 폭발",
     "Master Influence": "지배의 극의",
     "Mech Suit": "기계 강화복",
     "Micro Missiles": "초소형 미사일",
     "No Fear": "두려움 없이",
+    "Nothing Special": "일반 행동",
     "Nowhere to Run": "사면초가",
+    "Noxious Blade": "독바른 칼",
+    "One-Two Punch": "원투 펀치",
     "Ones-Two Punch": "원투 펀치",
     "Overwatch": "경계 태세",
+    "Parry": "튕겨내기",
+    "Patch Wounds": "상처 덧대기",
+    "Phase Out": "비실체화",
     "Piston Punch": "피스톤 주먹",
+    "Plasma Ward": "원형질 보호막",
     "Possessed by Fate": "운명에 사로잡히다",
     "Power Pitch": "전력 투척",
     "Precision Strike": "정교한 일격",
     "Prismatic Sickle": "무지개 낫",
     "Quick Turnaround": "재빠른 반전",
     "Radiant Sickle": "광휘의 낫",
+    "Rancid Arrow": "독화살",
+    "Rapid Bolts": "신속한 사격",
+    "Reckless Charge": "무모한 돌진",
+    "Release Gas": "유독물 방출",
     "Remote Detonation": "원격 폭파",
     "Repeat Shot": "연속 투척",
     "Resigned Frenzy": "광란에 몸을 맡기다",
+    "Restoration": "회복",
     "Retrieval": "회수",
     "Ricochet": "튕기는 도끼",
     "Ripped From the Flesh": "살점 속에서 뽑아내다",
     "Robotic Enhancement": "기계적 향상",
+    "Rotting Embrace": "썩어가는 포옹",
     "Rubble": "파쇄",
+    "Runic Draw": "인력의 룬",
+    "Runic Feedback": "반사의 룬",
+    "Sacrificial Hurl": "희생적인 투척",
     "Sand Devil": "모래 악마",
+    "Sap Strength": "활력 강탈",
     "Sap Warmth": "온기 강탈",
     "Savage Instinct": "포악한 본능",
     "Screaming Shot": "포효의 일격",
     "Second Wind": "재기의 바람",
+    "Seismic Punch": "지진 강타",
+    "Septic Hex": "부패 사술",
     "Sharpened Blades": "연마된 도끼날",
     "Shield Spikes": "가시 방패",
     "Shield of the Desert": "사막의 방패",
     "Shocking Advance": "전광석화",
+    "Short Bow": "단궁 사격",
     "Shrapnel": "산탄",
     "Signs of the Void": "공허의 표식",
     "Soaring Shield": "솟구치는 방패",
+    "Spiked Pit": "가시 함정",
     "Spirit Hunger": "영혼의 굶주림",
     "Stand Fast": "굳세게 서서",
     "Stopping Power": "저지력",
     "Strangling Chain": "죄여오는 사슬",
     "Suggestion": "암시",
     "Surge of Power": "솟구치는 힘",
+    "Surround": "둘러싸기",
+    "Swarm": "무리짓기",
+    "Swift Fangs": "날렵한 송곳니",
     "Swift Strength": "신속한 힘",
     "Taunting Fate": "운명의 조롱",
+    "Taxing Advance": "고된 진격",
     "The Big One": "커다란 한 방",
     "The Bigger One": "거대한 한 방",
     "The Favorite": "믿는 도끼",
     "The Last Journey": "마지막 여행",
     "The New Favorite": "믿는 도끼(새 것)",
+    "Tip The Scales": "결정적 차이",
+    "Toxic Explosion": "유독성 폭발",
+    "Toxic Frenzy": "유독성 난동",
     "Turn Out the Lights": "빛을 꺼뜨리다",
+    "Twin Missiles": "쌍발 투사체",
     "Twirling Stabs": "회전 찌르기",
+    "Unholy Flame": "불경한 불꽃",
+    "Unstable Frenzy": "불안정한 난동",
+    "Unstable Scratch": "불안정한 발톱",
     "Vicious Ballet": "광포한 춤",
+    "Vicious Spear": "사나운 창끝",
+    "Vile Scourge": "고약한 역병",
+    "Violent Slam": "난폭한 일격",
     "Warmth of the Sun": "태양의 온기",
     "Warrior of the Sun": "태양의 전사",
+    "Weakening Bite": "약화의 송곳니",
+    "Whirlwind": "소용돌이",
     "Wholesale Destruction": "무차별 파괴",
     "Wicked Scratch": "사악한 발톱",
     "Windup": "태엽 감기",
     "Withering Conviction": "사그라드는 신념"
+  },
+  "battleGoals": {
+    "286": {
+      "": "곡예",
+      "text": "5점 이상의 피해를 무효화하기 위해 카드를 소실."
+    },
+    "287": {
+      "": "광장공포증",
+      "text": "모든 차례를 벽이나 장애물에 인접한 칸에서 종료."
+    },
+    "288": {
+      "": "이타주의자",
+      "text": "다른 어떤 캐릭터보다도 돈 토큰을 적게 노획."
+    },
+    "289": {
+      "": "조력자",
+      "text": "같은 라운드에 아군이 공격했던 몬스터를 죽임."
+    },
+    "290": {
+      "": "도전자",
+      "text": "몬스터에게 인접한 칸을 벗어나지 않음."
+    },
+    "291": {
+      "": "종결자",
+      "text": "시나리오에서 가장 나중에 죽은 몬스터를 죽임."
+    },
+    "292": {
+      "": "보호주의자",
+      "text": "피해를 무효화하기 위해 카드를 소실시키지 않음."
+    },
+    "293": {
+      "": "안전주의자",
+      "text": "체력이 최대 체력의 절반(올림) 밑으로 한 번도 내려가지 않음."
+    },
+    "294": {
+      "": "이기주의자",
+      "text": "다른 어떤 캐릭터보다도 돈 토큰을 많이 노획."
+    },
+    "295": {
+      "": "신속 치료자",
+      "text": "남은 체력이 최대 체력과 동일한 채로 시나리오 종료."
+    },
+    "296": {
+      "": "도박사",
+      "text": "불이익을 받은 공격으로 몬스터를 죽임."
+    },
+    "297": {
+      "": "다혈질",
+      "text": "첫 휴식 전에 소실 행동을 두 번 수행."
+    },
+    "298": {
+      "": "불면증",
+      "text": "긴 휴식을 취하는 라운드 중 공격으로 인한 피해를 입음."
+    },
+    "299": {
+      "": "피학성애자",
+      "text": "남은 체력이 3 이하인 채로 시나리오 종료."
+    },
+    "300": {
+      "": "강도",
+      "text": "몬스터를 죽이고 같은 차례에 해당 몬스터가 떨어트린 돈 토큰을 노획."
+    },
+    "301": {
+      "": "개시자",
+      "text": "시나리오에서 가장 먼저 죽은 몬스터를 죽임."
+    },
+    "302": {
+      "": "평화주의자",
+      "text": "죽인 몬스터가 셋 이하."
+    },
+    "303": {
+      "": "소매치기",
+      "text": "둘 이상의 몬스터에게 인접한 채로 노획 행동을 수행하여 돈 토큰을 하나 이상 획득."
+    },
+    "304": {
+      "": "동네북",
+      "text": "한 라운드 내에 몬스터 셋 이상의 공격 대상이 됨."
+    },
+    "305": {
+      "": "서민",
+      "text": "정예 몬스터 및 보스 몬스터를 죽이지 않음."
+    },
+    "306": {
+      "": "약물공포증",
+      "text": "물약을 사용하지 않음."
+    },
+    "307": {
+      "": "낭비벽",
+      "text": "같은 차례에 소실 행동을 두 번 수행."
+    },
+    "308": {
+      "": "은둔자",
+      "text": "아군에게 인접한 칸에서 차례를 종료하지 않음."
+    },
+    "309": {
+      "": "가학성애자",
+      "text": "죽인 몬스터가 다섯 이상."
+    },
+    "310": {
+      "": "선도자",
+      "text": "긴 휴식을 취하지 않음."
+    },
+    "311": {
+      "": "그림자",
+      "text": "모든 차례를 아군에게 인접한 칸에서 종료."
+    },
+    "312": {
+      "": "주의력 결핍",
+      "text": "몬스터에게 인접한 채로 인접하지 않은 다른 몬스터를 죽임."
+    },
+    "313": {
+      "": "전문가",
+      "text": "기본 행동을 수행하지 않음."
+    },
+    "314": {
+      "": "낙오자",
+      "text": "짧은 휴식을 취하지 않음."
+    },
+    "315": {
+      "": "선봉대",
+      "text": "문을 열고 그 차례를 이렇게 공개된 방에서 종료."
+    },
+    "316": {
+      "": "전파자",
+      "text": "부정적 상태가 적용된 채로 몬스터에게 부정적 상태를 적용."
+    },
+    "317": {
+      "": "약골",
+      "text": "다른 어떤 캐릭터보다도 먼저 탈진."
+    }
   },
   "character": {
     "jotl": {
@@ -139,18 +334,18 @@
         "4": "이 행동은 지난 시나리오에 버믈링 강습병이 행동했던 방식과 같음."
       },
       "black-sludge": {
-        "1": "사정거리에 관계없이 시야 내에 있는 가장 가까운 적이 [1+L/2{$math.ceil}] %game.damage%."
+        "1": "사정거리에 관계없이 시야 내에 있는 가장 가까운 적이 [1+L/2{$math.ceil}] %game.damage%"
       },
       "blood-horror": {
         "1": "가장 멀리 있는 죽은 %data.monster.zealot%에게 도약 또는, 가장 멀리 있는 적에게 도약 후 %game.action.attack% +0",
-        "2": "같은 방에 죽은 모든 %data.monster.zealot%들을 부활."
+        "2": "같은 방에 죽은 모든 %data.monster.zealot%들을 부활"
       },
       "blood-monstrosity": {
-        "1": "죽을때, 인접한 모든 피규어에 %game.damage:1%점."
+        "1": "사망 시, 인접한 모든 피규어에 %game.damage:1%점"
       },
       "chaos-demon": {
-        "1": "이번 라운드 중 피규어가 %data.monster.chaos-demon%를 공격할 때마다, 해당 피규어가 %game.damage:2%점을 입음.",
-        "2": "대상에게 인접한 모든 적이 %game.damage:1%점을 입음."
+        "1": "이번 라운드 중 피규어가 %data.monster.chaos-demon%를 공격할 때마다, 해당 피규어가 %game.damage:2%점을 입음",
+        "2": "대상에게 인접한 모든 적이 %game.damage:1%점을 입음"
       },
       "demolitionist": {
         "1": "인접한 모든 적이 피해 %game.damage:1%점을 입음.",
@@ -218,6 +413,71 @@
           "81": {
             "1": "위 공격 능력과 같은 적을 대상으로 할 경우 %game.action.push:2% 및 %game.condition.muddle% 추가.",
             "bottomHint": "인접한 적 하나가 %game.damage:1%점을 입습니다(보정치 적용). <br>그런 다음 카드 사용자가 있는 칸 및 인접한 칸에 있는 모든 돈 토큰과 보물 타일을 획득합니다."
+          },
+          "82": {
+            "1": "앞으로 2회 동안, 공격 시, +2 %game.action.attack% 추가.",
+            "2": "다음번 이동 능력의 이동 수치가 2배가 된다."
+          },
+          "83": {
+            "1": "대상이 벽에 인접해 있다면 +2 %game.action.attack% 추가 및 %game.card.experience:1% 획득.",
+            "2": "카드 사용자에 인접한 동시에 벽에 인접한 적 하나가 %game.damage:2%점을 입는다."
+          },
+          "84": {
+            "1": "<small>이번 라운드에 대상에게 적용되는 모든 치료의 효과를 무시한다. 이를 표시하기 위해 이번 라운드 동안 해당 적에게 카드 사용자의 캐릭터 토큰을 올려놓는다.</small>",
+            "2": "인접한 장애물 1개를 파괴한다. 그렇게 하면, %game.card.experience:1% 을 획득하고, 다음을 수행한다."
+          },
+          "85": {
+            "1": "인접한 장애물 1개를 파괴한다. 그렇게 하면, %game.card.experience:2% 를 획득하고 다음을 수행한다.",
+            "2": "파괴된 장애물에 인접한 모든 적 대상",
+            "3": "각 대상은 %game.damage:2%점을 입는다."
+          },
+          "86": {
+            "1": "%game.action.range:3% 내에 있는 장애물 1개를 파괴한다."
+          },
+          "88": {
+            "1": "이동 중 문을 열었을 경우, 다음을 수행한다."
+          },
+          "89": {
+            "1": "인접한 장애물 1개를 파괴한다. 그렇게 하면, %game.card.experience:1% 을 획득하고 다음을 수행한다."
+          },
+          "90": {
+            "1": "위 공격 능력과 같은 적을 대상으로 할 경우 %game.action.push:2% 및 %game.condition.muddle% 추가. %game.card.experience:1% 획득."
+          },
+          "91": {
+            "1": "%game.action.range:3% 내에 있는 철거 타일이 놓인 칸 하나를 선택한다. 해당 칸에 있거나 인접한 모든 아군과 적이 %game.damage:2%점을 입는다.",
+            "2": "철거 타일이 놓인 인접한 빈칸 하나에 피해 2점짜리 함정을 생성한다."
+          },
+          "92": {
+            "1": "대상이 목표물이라면 +3 %game.action.attack% 추가 및 %game.card.experience:1% 획득.",
+            "2": "이번 라운드 중 카드 사용자의 모든 근접 공격에 +1 %game.action.attack% 추가."
+          },
+          "93": {
+            "1": "%game.action.range:3% 내에 있는 빈칸 하나에 피해 3점짜리 %game.condition.muddle% 함정을 생성한다.",
+            "2": "<small>인접한 적 하나를 선택한다. 이동 중 매 칸마다 선택한 적에게 가까이 다가갔을 경우, 해당 적을 대상으로 다음을 수행한다.</small>",
+            "3": "<small>여기서 X는 이동한 칸 수.<small>"
+          },
+          "94": {
+            "1": "이 이동은 험난지형의 영향을 받지 않는다."
+          },
+          "95": {
+            "1": "<small>앞으로 4회 동안, 공격이 벽에 인접한 적을 대상으로 하는 경우, +2 %game.action.attack% 추가.</small>",
+            "2": "이동 중 장애물이 있는 칸에 진입할 때마다, 장애물이 파괴되고 +1 %game.action.move% 추가.",
+            "3": "이동 경로에 있는 모든 적이 %game.damage:1%점을 입고, %game.card.experience:1%."
+          },
+          "96": {
+            "1": "인접한 장애물 1개를 파괴한다. 그렇게 하면, %game.card.experience:1% 을 획득하고 파괴된 장애물에 인접한 모든 적이 %game.damage:2%점을 입는다."
+          },
+          "97": {
+            "1": "대상에게 인접한 각 벽 칸, 장애물 칸, 목표물, 피규어, 함정 하나당 +1 %game.action.attack% 추가.",
+            "2": "인접한 함정 1개를 카드 사용자에게 인접한 빈칸으로 이동시킨다."
+          },
+          "98": {
+            "1": "%game.action.range:4% 내에 있는 장애물 1개를 파괴한다. 그렇게 하면, 다음을 수행한다.",
+            "2": "파괴된 장애물에 인접한 모든 적 대상",
+            "3": "%game.action.range:4% 내에 있는 빈칸 셋에 피해 3점짜리 함정을 생성한다."
+          },
+          "99": {
+            "1": "대상이 벽에 인접해 있다면 +2 %game.action.attack% 및 %game.condition.wound% 추가, %game.card.experience:1% 획득."
           }
         }
       },
@@ -367,10 +627,13 @@
         "4": "%data.monster.monstrosity%가 스스로 %game.damage:1%점을 입음"
       },
       "rat-monstrosity": {
-        "1": "사망 시, 인접한 모든 피규어가 %game.damage:1%점 입음.",
-        "2": "사망 시, 인접한 모든 피규어가 %game.damage:2%점 입음.",
-        "3": "사망 시, 인접한 모든 피규어가 %game.damage:3%점 입음.",
-        "4": "사망 시, 인접한 모든 피규어가 %game.damage:4%점 입음."
+        "1": "인접한 모든 피규어가 %game.damage:1%점 입음",
+        "2": "인접한 모든 피규어가 %game.damage:2%점 입음",
+        "3": "인접한 모든 피규어가 %game.damage:3%점 입음",
+        "4": "인접한 모든 피규어가 %game.damage:4%점 입음"
+      },
+      "rat-monstrosity-16-2": {
+        "1": "이 피해로 인해 다른 피규어가 죽거나 탈진할 경우,"
       },
       "red-guard": {
         "abilities": {
@@ -710,7 +973,7 @@
           "1": "추종자의 사정거리 3 내에 있는 검은 임프 당 하나가 출현하며, 해당 검은 임프는 죽고, 해당 추종자는 %game.condition.stun% 상태를 얻음"
         },
         "20": {
-          "1": "노획물은 목표 대상으로 표현되며, 노획된 목표 대상을 제거함으로써 색인 결과 확인",
+          "1": "노획물은 목표물로 표현되며, 노획된 목표물을 제거함으로써 색인 결과 확인",
           "2": "화물 하나 발견",
           "3": "회복의 반지 (32번 아이템) 획득"
         },
