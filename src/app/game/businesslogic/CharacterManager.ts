@@ -9,7 +9,7 @@ import { Summon, SummonColor, SummonState } from "../model/Summon";
 import { Action, ActionType } from "../model/data/Action";
 import { CharacterData } from "../model/data/CharacterData";
 import { CharacterStat } from "../model/data/CharacterStat";
-import { Condition, ConditionName, EntityConditionState } from "../model/data/Condition";
+import { Condition, ConditionName, ConditionType, EntityConditionState } from "../model/data/Condition";
 import { Enhancement } from "../model/data/Enhancement";
 import { ItemData } from "../model/data/ItemData";
 import { PersonalQuest } from "../model/data/PersonalQuest";
@@ -225,7 +225,10 @@ export class CharacterManager {
           summon.maxHealth += 1;
           if (summon.health == summon.maxHealth - 1) {
             summon.health = summon.maxHealth;
+          } else {
+            summon.health += 1;
           }
+          gameManager.entityManager.checkHealth(summon, character);
           if (character.tags.indexOf('solid-bones') != -1) {
             summon.movement += 1;
             summon.action = new Action(ActionType.pierce, 1);
@@ -446,6 +449,25 @@ export class CharacterManager {
             } else {
               figure.identity = 0;
               figure.tokenValues[0] = 1;
+            }
+          }
+        }
+
+        if (figure.name == 'shackles' && figure.tags.indexOf('delayed_malady') != -1) {
+          const tag = figure.tags.find((tag) => tag == 'delayed_malady');
+          if (tag) {
+            figure.tags.splice(figure.tags.indexOf(tag), 1);
+            figure.entityConditions.forEach((condition) => {
+              if (condition.types.indexOf(ConditionType.negative) && !condition.expired && condition.state != EntityConditionState.removed) {
+                if (figure.immunities.indexOf(condition.name) == -1) {
+                  figure.immunities.push(condition.name);
+                }
+              }
+            })
+          }
+          if (!figure.tags.find((tag) => tag == 'delayed_malady')) {
+            {
+              figure.immunities = [];
             }
           }
         }

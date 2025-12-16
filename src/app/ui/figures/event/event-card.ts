@@ -54,9 +54,9 @@ export class EventCardComponent implements OnInit, OnChanges {
                 }
             })
             this.noLabel = this.event.options.every((o) => !o.label);
-            const model = gameManager.game.party.eventCards.find((id => this.event && id.cardId == this.event.cardId && id.type == this.event.type && id.edition == this.event.edition));
+            const model = this.identifier || gameManager.game.party.eventCards.find((id => this.event && id.cardId == this.event.cardId && id.type == this.event.type && id.edition == this.event.edition));
             if (model && model.checks) {
-                this.checks = model.checks || [];
+                this.checks = [...model.checks];
             }
         }
         this.spoilerFree = this.spoiler;
@@ -71,6 +71,9 @@ export class EventCardComponent implements OnInit, OnChanges {
                 if (this.event) {
                     this.selected = this.identifier.selected;
                     this.subSelections = this.identifier.subSelections;
+                }
+                if (this.identifier.checks) {
+                    this.checks = [...this.identifier.checks];
                 }
             }
         } else if (changes['select'] && changes['select'].previousValue != changes['select'].currentValue && this.selected != this.select) {
@@ -156,6 +159,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     }
 
     onCheck(index: number, checks: number) {
+        this.checks = this.checks || [];
         this.checks[index] = checks;
         if (this.event) {
             this.onSelect.emit(new EventCardIdentifier(this.event.cardId, this.event.edition, this.event.type, this.selected, this.subSelections, this.checks, this.attack, false));

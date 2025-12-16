@@ -11,7 +11,7 @@ import { ScenarioData } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
-export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.additionally, EventCardEffectType.and, EventCardEffectType.battleGoal, EventCardEffectType.campaignSticker, EventCardEffectType.campaignStickerMap, EventCardEffectType.campaignStickerReplace, EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.event, EventCardEffectType.eventReturn, EventCardEffectType.eventsToTop, EventCardEffectType.experience, EventCardEffectType.globalAchievement, EventCardEffectType.gold, EventCardEffectType.goldAdditional, EventCardEffectType.inspiration, EventCardEffectType.loseBattleGoal, EventCardEffectType.loseGold, EventCardEffectType.loseMorale, EventCardEffectType.loseProsperity, EventCardEffectType.loseReputation, EventCardEffectType.loseReputationFaction, EventCardEffectType.morale, EventCardEffectType.partyAchievement, EventCardEffectType.prosperity, EventCardEffectType.removeEvent, EventCardEffectType.reputation, EventCardEffectType.reputationFaction, EventCardEffectType.reputationAdditional, EventCardEffectType.resource, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1, EventCardEffectType.sectionWeek, EventCardEffectType.sectionWeeks, EventCardEffectType.sectionWeekSeasonFinal, EventCardEffectType.sectionWeeksSeason, EventCardEffectType.soldier, EventCardEffectType.soldiers, EventCardEffectType.townGuardDeckCard, EventCardEffectType.townGuardDeckCardRemove, EventCardEffectType.townGuardDeckCardRemovePermanently, EventCardEffectType.townGuardDeckCards, EventCardEffectType.traitExperience, EventCardEffectType.traitScenarioCondition, EventCardEffectType.traitScenarioDamage, EventCardEffectType.unlockEnvelope, EventCardEffectType.unlockScenario, EventCardEffectType.unlockScenarioGroup, EventCardEffectType.upgradeBuilding, EventCardEffectType.wreckBuilding];
+export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.additionally, EventCardEffectType.and, EventCardEffectType.battleGoal, EventCardEffectType.campaignSticker, EventCardEffectType.campaignStickerMap, EventCardEffectType.campaignStickerReplace, EventCardEffectType.checkbox, EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.event, EventCardEffectType.eventReturn, EventCardEffectType.eventsToTop, EventCardEffectType.experience, EventCardEffectType.globalAchievement, EventCardEffectType.gold, EventCardEffectType.goldAdditional, EventCardEffectType.inspiration, EventCardEffectType.loseBattleGoal, EventCardEffectType.loseGold, EventCardEffectType.loseMorale, EventCardEffectType.loseProsperity, EventCardEffectType.loseReputation, EventCardEffectType.loseReputationFaction, EventCardEffectType.morale, EventCardEffectType.partyAchievement, EventCardEffectType.prosperity, EventCardEffectType.removeEvent, EventCardEffectType.reputation, EventCardEffectType.reputationFaction, EventCardEffectType.reputationAdditional, EventCardEffectType.resource, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1, EventCardEffectType.sectionWeek, EventCardEffectType.sectionWeeks, EventCardEffectType.sectionWeekSeasonFinal, EventCardEffectType.sectionWeeksSeason, EventCardEffectType.soldier, EventCardEffectType.soldiers, EventCardEffectType.townGuardDeckCard, EventCardEffectType.townGuardDeckCardRemove, EventCardEffectType.townGuardDeckCardRemovePermanently, EventCardEffectType.townGuardDeckCards, EventCardEffectType.traitExperience, EventCardEffectType.traitScenarioCondition, EventCardEffectType.traitScenarioDamage, EventCardEffectType.unlockEnvelope, EventCardEffectType.unlockScenario, EventCardEffectType.unlockScenarioGroup, EventCardEffectType.upgradeBuilding, EventCardEffectType.wreckBuilding];
 
 export class EventCardManager {
   game: Game;
@@ -199,10 +199,10 @@ export class EventCardManager {
       }
 
       if (settingsManager.settings.eventsApply && apply) {
-        results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, false));
+        results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, checks, false));
 
         if (scenario) {
-          results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, true));
+          results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, checks, true));
         }
 
         if (attack) {
@@ -211,7 +211,7 @@ export class EventCardManager {
               if (outcome.attack) {
                 results.push(outcome.attack);
                 if (outcome.attack.effects) {
-                  results.push(... this.applyEffects(eventCard, outcome.attack.effects, scenario));
+                  results.push(... this.applyEffects(eventCard, outcome.attack.effects, checks, scenario));
                 }
               }
             })
@@ -241,7 +241,7 @@ export class EventCardManager {
     return results;
   }
 
-  applyEventOutcomes(eventCard: EventCard, selected: number, subSelections: number[] = [], scenario: boolean = false): (EventCardEffect | EventCardCondition)[] {
+  applyEventOutcomes(eventCard: EventCard, selected: number, subSelections: number[] = [], checks: number[], scenario: boolean = false): (EventCardEffect | EventCardCondition)[] {
     let results: (EventCardEffect | EventCardCondition)[] = [];
     const option = eventCard.options[selected];
 
@@ -256,7 +256,7 @@ export class EventCardManager {
             }
           }
           if (outcome.effects) {
-            results.push(... this.applyEffects(eventCard, outcome.effects, scenario));
+            results.push(... this.applyEffects(eventCard, outcome.effects, checks, scenario));
           }
         }
       })
@@ -269,9 +269,9 @@ export class EventCardManager {
     return EventCardApplyEffects.indexOf(effect.type) != -1;
   }
 
-  applyEffects(eventCard: EventCard, effects: (string | EventCardEffect)[], scenario: boolean): (EventCardEffect | EventCardCondition)[] {
+  applyEffects(eventCard: EventCard, effects: (string | EventCardEffect)[], checks: number[], scenario: boolean): (EventCardEffect | EventCardCondition)[] {
     let results: (EventCardEffect | EventCardCondition)[] = [];
-    effects.forEach((effect) => {
+    effects.forEach((effect, i) => {
       if (typeof effect === 'string') {
         results.push(new EventCardEffect(EventCardEffectType.custom, [effect]));
       } else {
@@ -289,7 +289,7 @@ export class EventCardManager {
           }
 
           if (effect.type == EventCardEffectType.and || effect.type == EventCardEffectType.additionally) {
-            results.push(...this.applyEffects(eventCard, effect.values.filter((e) => typeof e !== 'number' && typeof e !== 'string'), scenario));
+            results.push(...this.applyEffects(eventCard, effect.values.filter((e) => typeof e !== 'number' && typeof e !== 'string'), checks, scenario));
           } else if (scenario) {
             switch (effect.type) {
               case EventCardEffectType.scenarioCondition:
@@ -381,6 +381,11 @@ export class EventCardManager {
                 this.game.party.campaignStickers.splice(this.game.party.campaignStickers.indexOf(effect.values[1] as string, 1));
                 this.game.party.campaignStickers.push(effect.values[0] as string);
                 break
+              case EventCardEffectType.checkbox:
+                if (checks[i] && !!effect.values && effect.values.length) {
+                  results.push(...this.applyEffects(eventCard, effect.values.filter((e) => typeof e !== 'number'), checks, scenario));
+                }
+                break;
               case EventCardEffectType.drawAnotherEvent:
               case EventCardEffectType.drawEvent:
                 this.game.eventDraw = effect.values[0] as string;

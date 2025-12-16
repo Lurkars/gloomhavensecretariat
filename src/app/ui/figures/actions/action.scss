@@ -345,7 +345,8 @@
       &.slotStartXp,
       &.slotEnd,
       &.slotXp,
-      &.slotXpFh {
+      &.slotXpFh,
+      &.slotEndXp  {
         height: 2em;
         margin: 0.2em 0.05em;
 
@@ -353,7 +354,8 @@
         &.slotStart,
         &.slotStartXp,
         &.slotXp,
-        &.slotXpFh {
+        &.slotXpFh,
+        &.slotEndXp  {
           .overlay {
             background-color: var(--ghs-ability-color);
             mask-position: top left;
@@ -368,7 +370,8 @@
         }
 
         &.slotXpFh,
-        &.slotStartXp {
+        &.slotStartXp,
+        &.slotEndXp {
           height: 2.2em;
           margin-top: 0em;
 
@@ -380,7 +383,8 @@
         }
 
         &+.slotXpFh,
-        &+.slotStartXp {
+        &+.slotStartXp,
+        &.slotEndXp  {
           margin-left: -0.1em;
         }
       }

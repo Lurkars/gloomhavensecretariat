@@ -8,7 +8,7 @@ Safari >= 16
 iOS >= 16
 
 # Broader coverage—warns but still builds
-> 0.5%
+> 0.55%
 not dead
 
 # Explicit exclusions to prevent Angular warnings

@@ -99,7 +99,7 @@ export class EditorActionComponent implements OnInit {
     if (!this.action.subActions) {
       this.action.subActions = [];
     }
-    this.action.subActions.push(new Action(ActionType.attack));
+    this.action.subActions = [...this.action.subActions, new Action(ActionType.attack)];
     this.change();
   }
 
@@ -293,8 +293,12 @@ export class EditorActionComponent implements OnInit {
     this.change();
   }
 
+  hasCardValue(value: string): boolean {
+    return value == ActionCardType.experience || value == ActionCardType.slotXp || value == ActionCardType.slotXpFh || value == ActionCardType.slotEndXp || value == ActionCardType.slotStartXp;
+  }
+
   changeCard() {
-    if (this.value == ActionCardType.experience || this.value == ActionCardType.slotXp) {
+    if (this.hasCardValue(this.value)) {
       if (!this.subValue) {
         this.subValue = '1';
       }

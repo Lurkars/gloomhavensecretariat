@@ -220,7 +220,7 @@
         "narrative": "Leap in front of the crossbow bolt to save the nobleman.",
         "outcomes": [
           {
-            "narrative": "You were paid for protection, and you're as good as your word. It takes just a shift in your stance, and the crossbow bolt intended for the nobleman hits you instead.<br><br>Select one character to permanently decrease their maximum hit point value by 1 and gain %game.trait:hero%. Note both on their character sheet now, then read 27.1.",
+            "narrative": "You were paid for protection, and you're as good as your word. It takes just a shift in your stance, and the crossbow bolt intended for the nobleman hits you instead.",
             "effects": [
               "Select one character to permanently decrease their maximum hit point value by 1 and gain %game.trait:hero%. Note both on their character sheet now, then read %game.section:27.1%."
             ]
@@ -6590,23 +6590,39 @@
                 20
               ]
             },
-            "narrative": "You may purchase any one of the below items. If you do, check the box and read the associated entry in the section book.",
+            "narrative": "You may purchase any one of the below items. If you do, check the box and read the associated entry in the section book. When all boxes are checked, remove this event from the road deck.",
             "effects": [
               {
                 "type": "checkbox",
                 "values": [
-                  "A dense white crystal shedding chalky powder. Read %game.section:66.1%.",
-                  "A curious-looking gear with unusual etchings. Read %game.section:50.6%.",
-                  "A curious-looking gear covered in a thick layer of grease. Read %game.section:131.5%.",
-                  "A curious-looking gear with rusted edges. Read %game.section:76.6%.",
+                  "A dense white crystal shedding chalky powder. Read %game.section:66.1%."
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
+                  "A curious-looking gear with unusual etchings. Read %game.section:50.6%."
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
+                  "A curious-looking gear covered in a thick layer of grease. Read %game.section:131.5%."
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
+                  "A curious-looking gear with rusted edges. Read %game.section:76.6%."
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
                   "A document inside a leather tube. Read %game.section:45.4%."
                 ]
               }
             ]
-          },
-          {
-            "condition": "When all boxes are checked",
-            "removeFromDeck": true
           }
         ]
       },
@@ -8345,35 +8361,60 @@
                     "values": [
                       146
                     ]
-                  },
+                  }
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
                   {
                     "type": "item",
                     "alt": "gh2e",
                     "values": [
                       123
                     ]
-                  },
+                  }
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
                   {
                     "type": "item",
                     "alt": "gh2e",
                     "values": [
                       124
                     ]
-                  },
+                  }
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
                   {
                     "type": "item",
                     "alt": "gh2e",
                     "values": [
                       125
                     ]
-                  },
+                  }
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
                   {
                     "type": "item",
                     "alt": "gh2e",
                     "values": [
                       126
                     ]
-                  },
+                  }
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
                   {
                     "type": "item",
                     "alt": "gh2e",

@@ -555,7 +555,7 @@ export class ScenarioManager {
           if (option && option.outcomes) {
             option.outcomes.forEach((outcome, i) => {
               if (outcome.effects && (!e.subSelections || e.subSelections.length == 0 || e.subSelections.indexOf(i) != -1)) {
-                gameManager.eventCardManager.applyEffects(eventCard, outcome.effects.filter((e) => typeof e !== 'string'), true);
+                gameManager.eventCardManager.applyEffects(eventCard, outcome.effects.filter((e) => typeof e !== 'string'), e.checks, true);
               }
             })
           }
@@ -565,7 +565,7 @@ export class ScenarioManager {
             if (attackOption) {
               const outcome = attackOption.outcomes.find((outcome) => !!outcome.attack && !!outcome.attack.effects);
               if (outcome && outcome.attack) {
-                gameManager.eventCardManager.applyEffects(eventCard, outcome.attack.effects.filter((e) => typeof e !== 'string'), true);
+                gameManager.eventCardManager.applyEffects(eventCard, outcome.attack.effects.filter((e) => typeof e !== 'string'), e.checks, true);
               }
             }
           }

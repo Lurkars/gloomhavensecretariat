@@ -583,6 +583,10 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.character.immunities = [];
     }
 
+    if (this.character.name == 'shackles' && specialAction == 'delayed_malady') {
+      this.character.immunities = [];
+    }
+
     if (this.character.name == 'boneshaper') {
       if (specialAction == 'solid-bones' || specialAction == 'unholy-prowess') {
         this.character.summons.forEach((summon) => {
@@ -590,7 +594,11 @@ export class CharacterComponent implements OnInit, OnDestroy {
             summon.maxHealth -= 1;
             if (summon.health > summon.maxHealth) {
               summon.health = summon.maxHealth;
+            } else {
+              summon.health -= 1;
             }
+            gameManager.entityManager.checkHealth(summon, this.character);
+
             if (specialAction == 'solid-bones') {
               summon.movement -= 1;
               summon.action = undefined;
@@ -604,7 +612,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
       if (specialAction == 'veil-of-protection') {
         this.character.health -= 3;
         this.character.maxHealth -= 3;
-        
+
         this.character.summons.forEach((summon) => {
           summon.health -= 3;
           summon.maxHealth -= 3;

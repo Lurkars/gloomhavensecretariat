@@ -929,95 +929,105 @@ export class EntityMenuDialogComponent {
 
   closeCharacter(): void {
     if (this.data.entity instanceof Character) {
+      const character = this.data.entity;
       if (this.maxHp) {
-        gameManager.stateManager.before("changeMaxHP", gameManager.characterManager.characterName(this.data.entity), ghsValueSign(this.maxHp));
-        if (this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
-          this.data.entity.health = this.data.entity.maxHealth + this.maxHp;
+        gameManager.stateManager.before("changeMaxHP", gameManager.characterManager.characterName(character), ghsValueSign(this.maxHp));
+        if (character.maxHealth + this.maxHp < character.maxHealth || character.health == character.maxHealth) {
+          character.health = character.maxHealth + this.maxHp;
         }
-        this.data.entity.maxHealth += this.maxHp;
+        character.maxHealth += this.maxHp;
         gameManager.stateManager.after();
         this.maxHp = 0;
       }
 
       if (this.health != 0) {
-        gameManager.stateManager.before("changeHP", gameManager.characterManager.characterName(this.data.entity), ghsValueSign(this.health));
-        gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
+        gameManager.stateManager.before("changeHP", gameManager.characterManager.characterName(character), ghsValueSign(this.health));
+        gameManager.entityManager.changeHealth(character, this.data.figure, this.health);
         this.health = 0;
         gameManager.stateManager.after();
       }
 
       if (this.experience != 0) {
-        gameManager.stateManager.before("changeXP", gameManager.characterManager.characterName(this.data.entity), ghsValueSign(this.experience));
-        this.data.entity.experience += this.experience;
-        if (this.data.entity.experience < 0) {
-          this.data.entity.experience = 0;
+        gameManager.stateManager.before("changeXP", gameManager.characterManager.characterName(character), ghsValueSign(this.experience));
+        character.experience += this.experience;
+        if (character.experience < 0) {
+          character.experience = 0;
         }
         this.experience = 0;
         gameManager.stateManager.after();
       }
 
       if (this.characterToken != 0) {
-        let token = this.data.entity.token + this.characterToken;
+        let token = character.token + this.characterToken;
         if (token < 0) {
           token = 0;
         }
-        gameManager.stateManager.before("setCharacterToken", gameManager.characterManager.characterName(this.data.entity), token);
-        this.data.entity.token = token;
+        gameManager.stateManager.before("setCharacterToken", gameManager.characterManager.characterName(character), token);
+        character.token = token;
         this.characterToken = 0;
         gameManager.stateManager.after();
       }
 
-      for (let index = 0; index < this.data.entity.tokens.length; index++) {
+      for (let index = 0; index < character.tokens.length; index++) {
         if (this.characterTokenValues[index] != 0) {
-          let tokenValue = this.data.entity.tokenValues[index] + this.characterTokenValues[index];
+          let tokenValue = character.tokenValues[index] + this.characterTokenValues[index];
           if (tokenValue < 0) {
             tokenValue = 0;
           }
-          gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.data.entity), '%data.characterToken.' + this.data.figure.name + '.' + this.data.entity.tokens[index] + '%', tokenValue);
-          this.data.entity.tokenValues[index] = tokenValue;
+          gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(character), '%data.characterToken.' + this.data.figure.name + '.' + character.tokens[index] + '%', tokenValue);
+          character.tokenValues[index] = tokenValue;
           this.characterTokenValues[index] = 0;
           gameManager.stateManager.after();
         }
       }
 
       if (this.loot != 0) {
-        gameManager.stateManager.before("changeLoot", gameManager.characterManager.characterName(this.data.entity), ghsValueSign(this.loot));
-        this.data.entity.loot += this.loot;
-        if (this.data.entity.loot < 0) {
-          this.data.entity.loot = 0;
+        gameManager.stateManager.before("changeLoot", gameManager.characterManager.characterName(character), ghsValueSign(this.loot));
+        character.loot += this.loot;
+        if (character.loot < 0) {
+          character.loot = 0;
         }
         this.loot = 0;
         gameManager.stateManager.after();
       }
 
-      const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialActions && this.data.figure.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
+      const specialTagsToTemove = character.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialActions && this.data.figure.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
 
       if (specialTagsToTemove.length) {
-        gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.data.entity), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','));
-        this.data.entity.tags = this.data.entity.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
+        gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(character), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','));
+        character.tags = character.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
 
-        if (this.data.entity.name == 'lightning' && specialTagsToTemove.indexOf('careless-charge') != -1) {
-          this.data.entity.immunities = [];
-          this.entityImmunities = this.data.entity.immunities;
+        if (character.name == 'lightning' && specialTagsToTemove.indexOf('careless-charge') != -1) {
+          character.immunities = [];
+          this.entityImmunities = character.immunities;
         }
 
-        if (this.data.entity.name == 'fist' && specialTagsToTemove.indexOf('one-with-the-mountain') != -1) {
-          this.data.entity.entityConditions = this.data.entity.entityConditions.filter((entityCondition) => entityCondition.name != ConditionName.regenerate || !entityCondition.permanent);
+        if (character.name == 'shackles' && specialTagsToTemove.indexOf('delayed_malady') != -1) {
+          character.immunities = [];
+          character.tags = character.tags.filter((tag) => tag != 'delayed_malady');
+          this.entityImmunities = character.immunities;
         }
 
-        if (this.data.entity.name == 'demolitionist' && specialTagsToTemove.indexOf('mech') != -1) {
-          this.data.entity.maxHealth -= 5;
-          gameManager.entityManager.checkHealth(this.data.entity, this.data.entity);
+        if (character.name == 'fist' && specialTagsToTemove.indexOf('one-with-the-mountain') != -1) {
+          character.entityConditions = character.entityConditions.filter((entityCondition) => entityCondition.name != ConditionName.regenerate || !entityCondition.permanent);
         }
 
-        if (this.data.entity.name == 'boneshaper') {
+        if (character.name == 'demolitionist' && specialTagsToTemove.indexOf('mech') != -1) {
+          character.maxHealth -= 5;
+          gameManager.entityManager.checkHealth(character, character);
+        }
+
+        if (character.name == 'boneshaper') {
           if (specialTagsToTemove.indexOf('solid-bones') != -1 || specialTagsToTemove.indexOf('unholy-prowess') != -1) {
-            this.data.entity.summons.forEach((summon) => {
+            character.summons.forEach((summon) => {
               if (summon.name === 'shambling-skeleton') {
                 summon.maxHealth -= 1;
                 if (summon.health > summon.maxHealth) {
                   summon.health = summon.maxHealth;
+                } else {
+                  summon.health -= 1;
                 }
+                gameManager.entityManager.checkHealth(summon, character);
                 if (specialTagsToTemove.indexOf('solid-bones') != -1) {
                   summon.movement -= 1;
                   summon.action = undefined;
@@ -1027,64 +1037,85 @@ export class EntityMenuDialogComponent {
           }
         }
 
-        if (this.data.entity.name == 'astral') {
+        if (character.name == 'astral') {
           if (specialTagsToTemove.indexOf('veil-of-protection') != -1) {
-            this.data.entity.health -= 3;
-            this.data.entity.maxHealth -= 3;
-            this.data.entity.summons.forEach((summon) => {
+            character.health -= 3;
+            character.maxHealth -= 3;
+            character.summons.forEach((summon) => {
               summon.health -= 3;
               summon.maxHealth -= 3;
             })
           }
 
           if (specialTagsToTemove.indexOf('imbue-with-life') != -1) {
-            this.data.entity.entityConditions = this.data.entity.entityConditions.filter((entityCondition) => entityCondition.name != ConditionName.disarm || !entityCondition.permanent)
+            character.entityConditions = character.entityConditions.filter((entityCondition) => entityCondition.name != ConditionName.disarm || !entityCondition.permanent)
           }
         }
 
         gameManager.stateManager.after();
       }
 
-      const specialTagsToAdd = this.specialTags.filter((specialTag) => this.data.entity && this.data.entity.tags.indexOf(specialTag) == -1);
+      const specialTagsToAdd = this.specialTags.filter((specialTag) => character && character.tags.indexOf(specialTag) == -1);
 
       if (specialTagsToAdd.length) {
-        gameManager.stateManager.before("addSpecialTags", gameManager.characterManager.characterName(this.data.entity), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','));
-        this.data.entity.tags.push(...specialTagsToAdd);
+        gameManager.stateManager.before("addSpecialTags", gameManager.characterManager.characterName(character), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','));
+        character.tags.push(...specialTagsToAdd);
 
-        if (this.data.entity.name == 'lightning' && specialTagsToAdd.indexOf('careless-charge') != -1) {
-          this.data.entity.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
-          this.data.entity.immunities.push(ConditionName.curse);
+        if (character.name == 'lightning' && specialTagsToAdd.indexOf('careless-charge') != -1) {
+          character.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
+          character.immunities.push(ConditionName.curse);
           if (this.hasCondition(ConditionName.enfeeble)) {
-            this.data.entity.immunities.push(ConditionName.enfeeble);
+            character.immunities.push(ConditionName.enfeeble);
           }
-          this.entityImmunities = this.data.entity.immunities;
+          this.entityImmunities = character.immunities;
         }
-        if (this.data.entity.name == 'fist' && specialTagsToAdd.indexOf('one-with-the-mountain') != -1) {
-          let regenerate = this.data.entity.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.regenerate);
+
+        if (character.name == 'shackles' && specialTagsToAdd.indexOf('delayed_malady') != -1) {
+          character.entityConditions.forEach((condition) => {
+            if (condition.types.indexOf(ConditionType.negative) && !condition.expired && condition.state != EntityConditionState.removed && !this.entityConditions.find((removed) => removed.state == EntityConditionState.removed && removed.name == condition.name) && character.immunities.indexOf(condition.name) == -1) {
+              character.immunities.push(condition.name);
+            }
+          })
+
+          this.entityConditions.forEach((condition) => {
+            if (condition.state == EntityConditionState.new) {
+              character.immunities.push(condition.name);
+            }
+          })
+
+          this.entityImmunities = character.immunities;
+          character.tags.push(...[1, 2, 3].map(() => 'delayed_malady'));
+        }
+
+        if (character.name == 'fist' && specialTagsToAdd.indexOf('one-with-the-mountain') != -1) {
+          let regenerate = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.regenerate);
           if (regenerate) {
             regenerate.permanent = true;
           } else {
             regenerate = new EntityCondition(ConditionName.regenerate);
             regenerate.permanent = true;
-            this.data.entity.entityConditions.push(regenerate);
+            character.entityConditions.push(regenerate);
           }
         }
 
-        if (this.data.entity.name == 'demolitionist' && specialTagsToAdd.indexOf('mech') != -1) {
-          this.data.entity.maxHealth += 5;
-          this.data.entity.health += 10;
-          gameManager.entityManager.addCondition(this.data.entity, this.data.figure, new Condition(ConditionName.heal, 10));
-          gameManager.entityManager.applyCondition(this.data.entity, this.data.figure, ConditionName.heal, true);
+        if (character.name == 'demolitionist' && specialTagsToAdd.indexOf('mech') != -1) {
+          character.maxHealth += 5;
+          character.health += 10;
+          gameManager.entityManager.addCondition(character, this.data.figure, new Condition(ConditionName.heal, 10));
+          gameManager.entityManager.applyCondition(character, this.data.figure, ConditionName.heal, true);
         }
 
-        if (this.data.entity.name == 'boneshaper') {
+        if (character.name == 'boneshaper') {
           if (specialTagsToAdd.indexOf('solid-bones') != -1 || specialTagsToAdd.indexOf('unholy-prowess') != -1) {
-            this.data.entity.summons.forEach((summon) => {
+            character.summons.forEach((summon) => {
               if (summon.name === 'shambling-skeleton') {
                 summon.maxHealth += 1;
                 if (summon.health == summon.maxHealth - 1) {
                   summon.health = summon.maxHealth;
+                } else {
+                  summon.health += 1;
                 }
+                gameManager.entityManager.checkHealth(summon, character);
                 if (specialTagsToAdd.indexOf('solid-bones') != -1) {
                   summon.movement += 1;
                   summon.action = new Action(ActionType.pierce, 1);
@@ -1094,25 +1125,25 @@ export class EntityMenuDialogComponent {
           }
         }
 
-        if (this.data.entity.name == 'astral') {
+        if (character.name == 'astral') {
           if (specialTagsToAdd.indexOf('veil-of-protection') != -1) {
-            this.data.entity.health += 3;
-            this.data.entity.maxHealth += 3;
-            this.data.entity.summons.forEach((summon) => {
+            character.health += 3;
+            character.maxHealth += 3;
+            character.summons.forEach((summon) => {
               summon.health += 3;
               summon.maxHealth += 3;
             })
           }
 
           if (specialTagsToAdd.indexOf('imbue-with-life') != -1) {
-            let disarm = this.data.entity.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
+            let disarm = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
             if (disarm) {
               disarm.expired = false;
               disarm.permanent = true;
             } else {
               disarm = new EntityCondition(ConditionName.disarm);
               disarm.permanent = true;
-              this.data.entity.entityConditions.push(disarm);
+              character.entityConditions.push(disarm);
             }
           }
         }
@@ -1120,7 +1151,7 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.after();
       }
 
-      let title = this.data.entity.title;
+      let title = character.title;
 
       if (this.characterTitleInput) {
         title = this.characterTitleInput.nativeElement.value;
@@ -1128,7 +1159,7 @@ export class EntityMenuDialogComponent {
 
       if (this.titles.length > 0) {
         for (let i = 0; i < this.titles.length; i++) {
-          if (this.titles[i] == settingsManager.getLabel('data.character.' + this.data.entity.edition + '.' + this.data.entity.name.toLowerCase())) {
+          if (this.titles[i] == settingsManager.getLabel('data.character.' + character.edition + '.' + character.name.toLowerCase())) {
             this.titles[i] = '';
           }
         }
@@ -1139,15 +1170,15 @@ export class EntityMenuDialogComponent {
         }
       }
 
-      if (title != settingsManager.getLabel('data.character.' + this.data.entity.edition + '.' + this.data.entity.name.toLowerCase())) {
-        if (this.data.entity.title != title) {
-          gameManager.stateManager.before("setTitle", gameManager.characterManager.characterName(this.data.entity), title);
-          this.data.entity.title = title;
+      if (title != settingsManager.getLabel('data.character.' + character.edition + '.' + character.name.toLowerCase())) {
+        if (character.title != title) {
+          gameManager.stateManager.before("setTitle", gameManager.characterManager.characterName(character), title);
+          character.title = title;
           gameManager.stateManager.after();
         }
-      } else if (this.data.entity.title != "") {
-        gameManager.stateManager.before("unsetTitle", gameManager.characterManager.characterName(this.data.entity), this.data.entity.title);
-        this.data.entity.title = "";
+      } else if (character.title != "") {
+        gameManager.stateManager.before("unsetTitle", gameManager.characterManager.characterName(character), character.title);
+        character.title = "";
         gameManager.stateManager.after();
       }
     }
@@ -1527,6 +1558,11 @@ export class EntityMenuDialogComponent {
             gameManager.entityManager.removeCondition(this.data.entity, this.data.figure, entityCondition, entityCondition.permanent);
           } else {
             gameManager.entityManager.addCondition(this.data.entity, this.data.figure, entityCondition, entityCondition.permanent);
+
+            if (this.data.entity instanceof Character && this.data.entity.name == 'shackles' && this.data.entity.tags.indexOf('delayed_malady') != -1 && entityCondition.types.indexOf(ConditionType.negative) != -1 && this.data.entity.immunities.indexOf(entityCondition.name) == -1) {
+              this.data.entity.immunities.push(entityCondition.name);
+              this.entityImmunities.push(entityCondition.name);
+            }
           }
           gameManager.stateManager.after();
         }

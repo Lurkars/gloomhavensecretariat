@@ -10,7 +10,7 @@
     },
     "1018": {
       "": "Ascetic",
-      "text": "Collect fewer money tokens than any other character."
+      "text": "Collect fewer loot tokens than any other character."
     },
     "1019": {
       "": "Assistant",
@@ -26,7 +26,7 @@
     },
     "1022": {
       "": "Cleaner",
-      "text": "Collect three or more money tokens in the same turn."
+      "text": "Collect three or more loot tokens in the same turn."
     },
     "1023": {
       "": "Closer",
@@ -46,7 +46,7 @@
     },
     "1027": {
       "": "Egoist",
-      "text": "Collect more money tokens than any other character."
+      "text": "Collect more loot tokens than any other character."
     },
     "1028": {
       "": "Executioner",
@@ -70,7 +70,7 @@
     },
     "1033": {
       "": "Mugger",
-      "text": "Kill an enemy and loot the money token it drops in the same round."
+      "text": "Kill an enemy and loot the loot token it drops in the same round."
     },
     "1034": {
       "": "Opener",
@@ -86,7 +86,7 @@
     },
     "1037": {
       "": "Pauper",
-      "text": "Never collect a money token from end-of-turn looting."
+      "text": "Never collect a loot token from end-of-turn looting."
     },
     "1038": {
       "": "Pedestrian",
@@ -98,7 +98,7 @@
     },
     "1040": {
       "": "Pickpocket",
-      "text": "Collect two or more money tokens by performing a loot ability while adjacent to one or more enemies."
+      "text": "Collect two or more loot tokens by performing a loot ability while adjacent to one or more enemies."
     },
     "1041": {
       "": "Pincushion",
@@ -206,7 +206,7 @@
     },
     "1067": {
       "": "Miser",
-      "text": "Never exit a room with money tokens in it."
+      "text": "Never exit a room with loot tokens in it."
     },
     "1068": {
       "": "Overachiever",
@@ -413,7 +413,7 @@
   "edition": {
     "gh2e": {
       "": "Gloomhaven 2nd Edition",
-      "hint": "Gloomhaven 2nd Edition is currently <i>%wip%</i>. The scenario data may contain errors and be missing some special rules. Most non-scenario sections are currently missing, as is some data, such as items and events."
+      "hint": "Gloomhaven 2nd Edition currently has most of the non-scenario sections missing, as well as most of the artwork."
     }
   },
   "factions": {

@@ -587,11 +587,11 @@
   <div class="card-value" [ngClass]="values[0]">
     <img class="ghs-svg" [src]="'./assets/images/action/card/'+ values[0] + '.svg'" />
     @if (values[0] != 'slot' && values[0] != 'slotStart' && values[0] != 'slotStartXp' && values[0] != 'slotXp' &&
-    values[0] != 'slotXpFh') {
+    values[0] != 'slotXpFh' && values[0] != 'slotEndXp') {
     <img class="overlay" [src]="'./assets/images/action/card/overlay/' + values[0] + '.svg'" />
     }
     @if (values[0] == 'slot' || values[0] == 'slotStart' || values[0] == 'slotStartXp' || values[0] == 'slotXp' ||
-    values[0] == 'slotXpFh') {
+    values[0] == 'slotXpFh'|| values[0] == 'slotEndXp') {
     <span class="overlay" [style.mask-image]="'url(\'/assets/images/action/card/overlay/' + values[0] +'.svg\')'"
       [style.-webkit-mask-image]="'url(\'/assets/images/action/card/overlay/' + values[0] +'.svg\')'">
     </span>

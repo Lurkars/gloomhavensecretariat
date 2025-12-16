@@ -608,7 +608,8 @@
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
       </span>
-      @for (realiatePermanent of entityRetaliatePersistent | trackUUID; track realiatePermanent._trackUUID; let i = $index) {
+      @for (realiatePermanent of entityRetaliatePersistent | trackUUID; track realiatePermanent._trackUUID; let i =
+      $index) {
       <span class="item column">
         <ghs-pointer-input class="button" tabclick (singleClick)="changeRetaliatePersistent(i,-1,0)"
           [ngClass]="{'disabled' : !realiatePermanent.value}">
@@ -668,24 +669,20 @@
   !!gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length >
   0) {
   <div class="special-actions">
-    @for (specialAction of gameManager.toCharacter(data.figure).specialActions | trackUUID; track specialAction._trackUUID) {
+    @for (specialAction of gameManager.toCharacter(data.figure).specialActions | trackUUID; track
+    specialAction._trackUUID) {
     @if ((!specialAction.level || specialAction.level <= data.figure.level) && (!specialAction.perk ||
       gameManager.isCharacter(data.entity) &&
       gameManager.toCharacter(data.figure).progress.perks[specialAction.perk-1]==gameManager.toCharacter(data.figure).perks[specialAction.perk-1].count)
       && (gameManager.isCharacter(data.entity) && !specialAction.summon || gameManager.isSummon(data.entity) &&
       specialAction.summon)) { <div class="hint-container">
-      <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-      <span class="hint-trigger special-action text-white"
-        [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}" tabclick
-        (click)="applySpecialAction(specialAction)">
+      <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg"
+        [ghs-tooltip]="'data.character.' + data.figure.edition + '.' + data.figure.name + '.' + specialAction.name + '.hint'"
+        [originX]="'center'" [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'">
+      <span class="special-action text-white" [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}"
+        tabclick (click)="applySpecialAction(specialAction)">
         <span
           [ghs-label]="'data.character.' + data.figure.edition + '.' + data.figure.name + '.' + specialAction.name"></span>
-      </span>
-      <span class="hint above center">
-        <div class="text">
-          <span
-            [ghs-label]="'data.character.' + data.figure.edition + '.' + data.figure.name + '.' + specialAction.name + '.hint'"></span>
-        </div>
       </span>
   </div>
   }

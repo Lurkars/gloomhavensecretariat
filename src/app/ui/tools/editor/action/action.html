@@ -151,7 +151,7 @@
   <select [(ngModel)]="value" (change)="changeCard()">
     @for (card of ActionCardTypes; track card) {
     <option [value]="card">
-      <span [ghs-label]="'game.card.' + card" [ghs-label-args]="['X']"></span>
+      <span [ghs-label]="'game.card.' + card" [ghs-label-args]="hasCardValue(card) ? [ 'X' ] : []"></span>
     </option>
     }
   </select>

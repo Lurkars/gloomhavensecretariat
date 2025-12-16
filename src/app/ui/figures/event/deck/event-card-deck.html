@@ -104,7 +104,7 @@
         @for (model of drawnCards | trackUUID; track model._trackUUID; let index = $index) {
         @if (!filter || model.identifier.cardId.indexOf(filter) != -1) {
         <div class="container" drag-hidden cdkDrag>
-          <ghs-event-card [event]="model.card" [select]="model.identifier.selected"
+          <ghs-event-card [event]="model.card" [select]="model.identifier.selected" [identifier]="model.identifier"
             [subSelect]="model.identifier.subSelections"
             (onSelect)="updateDrawnSelect(model.identifier,$event)"></ghs-event-card>
           @if (model.card) {

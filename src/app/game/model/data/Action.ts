@@ -123,13 +123,24 @@ export enum ActionSpecialTarget {
 export enum ActionCardType {
 
   experience = "experience",
+  flip = "flip",
+  flipItem = "flipItem",
+  loss = "loss",
   lost = "lost",
+  minus1 = "minus1",
   persistent = "persistent",
   recover = "recover",
   refresh = "refresh",
   round = "round",
+  shuffle = "shuffle",
   slot = "slot",
-  slotXp = "slotXp"
+  slotEnd = "slotEnd",
+  slotEndXp = "slotEndXp",
+  slotStart = "slotStart",
+  slotStartXp = "slotStartXp",
+  slotXp = "slotXp",
+  slotXpFh = "slotXpFh",
+  spent = "spent"
 
 }
 

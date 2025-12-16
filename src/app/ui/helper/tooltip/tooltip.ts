@@ -1,4 +1,3 @@
-import { animate, style, transition, trigger } from "@angular/animations";
 import { Overlay, OverlayPositionBuilder, OverlayRef } from "@angular/cdk/overlay";
 import { ComponentPortal } from "@angular/cdk/portal";
 import { ChangeDetectionStrategy, Component, ComponentRef, Directive, ElementRef, HostListener, Input, OnDestroy, OnInit } from "@angular/core";
@@ -9,18 +8,7 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
     selector: 'ghs-tooltip',
     styleUrls: ['./tooltip.scss'],
     templateUrl: './tooltip.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    animations: [
-        trigger('tooltip', [
-            transition(':enter', [
-                style({ opacity: 0 }),
-                animate(300, style({ opacity: 1 })),
-            ]),
-            transition(':leave', [
-                animate(300, style({ opacity: 0 })),
-            ]),
-        ]),
-    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GhsTooltipComponent {
 

@@ -78,11 +78,11 @@
             @if (outcome.effects && outcome.effects.length) {
             <div class="effects" [ngClass]="{'inline': outcome.inlineEffects}">
               @for (effect of outcome.effects; track (typeof effect === 'object' ? effect.type : effect) + ('' +
-              $index)) {
+              $index); let effectIndex = $index) {
               <ghs-event-card-effect [effect]="effect" [edition]="event.edition" [eventType]="event.type"
                 [light]="light"
                 [selected]="selected == -1 && flipped || selected == i && subSelections.indexOf(outcomeIndex) != -1"
-                [inline]="outcome.inlineEffects || false" [checks]="checks[i] || 0" (onCheck)="onCheck(i,$event)"
+                [inline]="outcome.inlineEffects || false" [checks]="!!checks && checks[effectIndex] || 0" (onCheck)="onCheck(effectIndex,$event)"
                 [debug]="debug"></ghs-event-card-effect>
               }
             </div>
