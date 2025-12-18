@@ -1,0 +1,79 @@
+{
+  "index": "103.3",
+  "name": "Wetlands Ambush",
+  "edition": "gh2e",
+  "parent": "40",
+  "parentSections": [
+    [
+      "60.3"
+    ]
+  ],
+  "resetRound": "visible",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "savvas-icestorm-scenario-40",
+    "savvas-lavaflow-scenario-40",
+    "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-lavaflow-scenario-40",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "earth-demon",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "savvas-icestorm-scenario-40",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "wind-demon",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "savvas-lavaflow-scenario-40",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "flame-demon",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "savvas-lavaflow-scenario-40",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    }
+  ]
+}

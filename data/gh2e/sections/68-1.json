@@ -3,10 +3,49 @@
   "name": "Wetlands Ambush",
   "edition": "gh2e",
   "parent": "40",
+  "parentSections": [
+    [
+      "103.3"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "earth-demon",
     "flame-demon",
     "savvas-lavaflow-scenario-40"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "name": ".*",
+            "tags": [
+              "burning"
+            ]
+          },
+          "type": "gainCondition",
+          "value": "wound"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "name": ".*",
+            "tags": [
+              "burning"
+            ]
+          },
+          "type": "damage",
+          "value": "2+L"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -17,7 +56,10 @@
           "name": "earth-demon",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "tags": [
+            "burning"
+          ]
         },
         {
           "name": "flame-demon",
@@ -30,12 +72,18 @@
         },
         {
           "name": "savvas-lavaflow-scenario-40",
-          "type": "elite"
+          "type": "elite",
+          "tags": [
+            "burning"
+          ]
         },
         {
           "name": "savvas-lavaflow-scenario-40",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "tags": [
+            "burning"
+          ]
         }
       ]
     }
