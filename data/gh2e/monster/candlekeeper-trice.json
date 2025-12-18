@@ -21,8 +21,39 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "See monster stat sheet."
+            "type": "heal",
+            "value": "C"
+          },
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,1,active)|(1,1,target)|(1,2,target)|(2,0,target)"
+              },
+              {
+                "type": "element",
+                "value": "fire",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "wound"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "light"
           }
         ],
         [
@@ -73,8 +104,39 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "See monster stat sheet."
+            "type": "heal",
+            "value": "C"
+          },
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,1,active)|(1,1,target)|(1,2,target)|(2,0,target)"
+              },
+              {
+                "type": "element",
+                "value": "fire",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "wound"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "light"
           }
         ],
         [
@@ -125,8 +187,39 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "See monster stat sheet."
+            "type": "heal",
+            "value": "C"
+          },
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,1,active)|(1,1,target)|(1,2,target)|(2,0,target)"
+              },
+              {
+                "type": "element",
+                "value": "fire",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "wound"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "light"
           }
         ],
         [
@@ -177,8 +270,39 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "See monster stat sheet."
+            "type": "heal",
+            "value": "C"
+          },
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,1,active)|(1,1,target)|(1,2,target)|(2,0,target)"
+              },
+              {
+                "type": "element",
+                "value": "fire",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "wound"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "light"
           }
         ],
         [
@@ -229,8 +353,39 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "See monster stat sheet."
+            "type": "heal",
+            "value": "Cx2"
+          },
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,1,active)|(1,1,target)|(1,2,target)|(2,0,target)"
+              },
+              {
+                "type": "element",
+                "value": "fire",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "wound"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "light"
           }
         ],
         [
@@ -250,7 +405,7 @@
             "subActions": [
               {
                 "type": "pierce",
-                "value": 1,
+                "value": 2,
                 "small": true
               },
               {
@@ -281,8 +436,39 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "See monster stat sheet."
+            "type": "heal",
+            "value": "Cx2"
+          },
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,1,active)|(1,1,target)|(1,2,target)|(2,0,target)"
+              },
+              {
+                "type": "element",
+                "value": "fire",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "wound"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "light"
           }
         ],
         [
@@ -292,7 +478,7 @@
           },
           {
             "type": "move",
-            "value": 2,
+            "value": 1,
             "valueType": "plus"
           },
           {
@@ -302,7 +488,7 @@
             "subActions": [
               {
                 "type": "pierce",
-                "value": 1,
+                "value": 2,
                 "small": true
               },
               {
@@ -333,8 +519,39 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "See monster stat sheet."
+            "type": "heal",
+            "value": "Cx2"
+          },
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,1,active)|(1,1,target)|(1,2,target)|(2,0,target)"
+              },
+              {
+                "type": "element",
+                "value": "fire",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "wound"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "light"
           }
         ],
         [
@@ -344,7 +561,7 @@
           },
           {
             "type": "move",
-            "value": 2,
+            "value": 1,
             "valueType": "plus"
           },
           {
@@ -385,8 +602,39 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "See monster stat sheet."
+            "type": "heal",
+            "value": "Cx3"
+          },
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "area",
+                "value": "(0,1,active)|(1,1,target)|(1,2,target)|(2,0,target)"
+              },
+              {
+                "type": "element",
+                "value": "fire",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "wound"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "light"
           }
         ],
         [
@@ -396,7 +644,7 @@
           },
           {
             "type": "move",
-            "value": 2,
+            "value": 1,
             "valueType": "plus"
           },
           {

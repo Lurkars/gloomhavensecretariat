@@ -34,6 +34,10 @@
           "player4": "elite"
         },
         {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
           "name": "stone-construct",
           "player2": "normal",
           "player3": "normal",

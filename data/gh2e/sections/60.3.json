@@ -1,0 +1,63 @@
+{
+  "index": "60.3",
+  "name": "Wetlands Ambush",
+  "edition": "gh2e",
+  "parent": "40",
+  "marker": "1",
+  "monsters": [
+    "flame-demon",
+    "frost-demon",
+    "savvas-icestorm-scenario-40",
+    "savvas-lavaflow-scenario-40"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "savvas-icestorm-scenario-40",
+          "type": "normal"
+        },
+        {
+          "name": "savvas-icestorm-scenario-40",
+          "player4": "normal"
+        },
+        {
+          "name": "savvas-lavaflow-scenario-40",
+          "type": "normal"
+        },
+        {
+          "name": "savvas-lavaflow-scenario-40",
+          "type": "elite"
+        },
+        {
+          "name": "savvas-lavaflow-scenario-40",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "savvas-lavaflow-scenario-40",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

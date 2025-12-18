@@ -3,18 +3,43 @@
   "edition": "gh2e",
   "parent": "42",
   "marker": "1",
+  "resetRound": "visible",
   "monsters": [
     "city-guard",
-    "hound"
+    "hound",
+    "stone-construct"
   ],
   "objectives": [
     {
-      "name": "Wheel 1",
+      "name": "Wheel",
       "health": "(4+L)xC"
-    },
+    }
+  ],
+  "rules": [
     {
-      "name": "Wheel 2",
-      "health": "(4+L)xC"
+      "round": "R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "stone-construct",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "count": 2,
+          "marker": "b"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -43,11 +68,14 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
         }
       ],
       "objectives": [
-        1,
-        2
+        "1:2"
       ]
     }
   ]
