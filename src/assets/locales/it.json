@@ -596,6 +596,7 @@
           "refreshItemFh": "%game.card.recover% un articolo",
           "refreshSpentItem": "Ripristina un oggetto esaurito"
         },
+        "monsterDeck": "al mazzo modificatori di attacco mostro",
         "type": {
           "add": "Aggiungi {0}",
           "remove": "rimuovi {0}",
@@ -859,11 +860,13 @@
         "payCollectiveGoldReputationGT": "{0} (reputazione > {1})",
         "payCollectiveGoldReputationLT": "{0} (reputazione < {1})",
         "payGold": "Paga {0} oro ciascuno",
+        "reputationFactionGT": "%data.gh2eFaction:{0}% > {1}",
         "reputationGT": "Reputazione > {0}",
         "reputationLT": "Reputazione < {0}",
         "season": "%party.campaign.sheet.{0}%",
         "seasonLT": "Se %party.campaign.sheet.{0}% è {1} settimane o meno di distanza",
-        "traits": "%game.trait% {0}"
+        "traits": "%game.trait% {0}",
+        "traitsAll": "%game.trait% {0}"
       },
       "deck": {
         "addCard": "Aggiungi alle carte in arrivo e mescola il mazzo",
@@ -905,32 +908,42 @@
         "custom": "{0}",
         "discard": {
           "": "Ognuno scarta {0} carte.",
-          "fh": "Tutti i personaggi iniziano lo scenario successivo scartando %number.{0}% carte."
+          "fh": "Tutti i personaggi iniziano lo scenario successivo scartando %number.{0}% carte.",
+          "gh2e": "Ogni personaggio inizia lo scenario successivo scartando %number.{0}% carte."
         },
         "discardOne": {
           "": "Ognuno scarta 1 carta.",
-          "fh": "Tutti i personaggi iniziano lo scenario successivo scartando una carta."
+          "fh": "Tutti i personaggi iniziano lo scenario successivo scartando una carta.",
+          "gh2e": "Ogni personaggio inizia lo scenario successivo scartando una carta."
         },
         "drawAnotherEvent": {
           "": "Pesca un altro Evento %game.events.type.{0}%.",
-          "fh": "Risolvi un altro Evento %game.events.type.{0}%."
+          "fh": "Risolvi un altro Evento %game.events.type.{0}%.",
+          "gh2e": "Risolvi un altro Evento %game.events.type.{0}% ."
         },
         "drawEvent": "Pesca un Evento %game.events.type.{0}%.",
         "event": {
           "": "Aggiungi l'Evento %game.events.type.{0}% al mazzo.",
-          "fh": "Aggiungi l'evento {1} al mazzo %game.events.type.{0}%."
+          "fh": "Aggiungi l'evento {1} al mazzo %game.events.type.{0}%.",
+          "gh2e": "Aggiungi l'evento {1} al mazzo %game.events.type.{0}%."
         },
         "eventFH": "Aggiungi l'Evento {1} al mazzo %game.events.type.{0}%.",
         "eventReturn": "Recupera l'evento {1} e rimettilo nel mazzo %game.events.type.{0}%.",
         "eventsToTop": "Sbircia nel mazzo %game.events.type.{0}% fino a che non trovi {1}, {2}, o {3} e lo metti in cima al mazzo.",
-        "experience": "Ognuno ottiene {0} di esperienza.",
+        "experience": {
+          "": "Ciascuno ottiene {0} esperienza.",
+          "fh": "Ciascun personaggio ottiene {0} %game.card.experience%.",
+          "gh2e": "Ciascun personaggio ottiene {0} %game.card.experience%."
+        },
+        "gainTrait": "Ciascun personaggio ottiene %game.trait:{0}%.",
         "globalAchievement": "Traguardo globale:<br>\"%data.globalAchievements.{0}%\".",
         "gold": "Ognuno ottiene {0} di oro.",
         "goldAdditional": "Ognuno ottiene {0} di oro aggiuntivo.",
         "inspiration": "Ottieni {0} ispirazione.",
         "item": {
           "": "Ottieni \"%data.items.{1}-{0}%\" (Oggetto {0}).",
-          "fh": "Ottieni \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+          "fh": "Ottieni \"%data.items.{1}-{0}%\" %game.itemFh.{0}%.",
+          "gh2e": "Ottieni \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
         },
         "itemCollective": "Ottieni {1} \"%data.items.{2}-{0}%\" collettivi (Oggetto {0}).",
         "itemDesign": "Ottieni il modello \"%data.items.{1}-{0}%\" (Oggetto {0}).",
@@ -943,10 +956,17 @@
         "loseExperience": "Ciascuno perde {0} esperienza.",
         "loseGold": "Ognuno perde {0} oro.",
         "loseGoldOne": "Un personaggio perde {0} oro.",
+        "loseItem": {
+          "": "Perdi \"%data.items.{1}-{0}%\" (Item {0}).",
+          "fh": "Perdi \"%data.items.{1}-{0}%\" %game.itemFh.{0}%.",
+          "gh2e": "Perdi \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+        },
         "loseMorale": "Perdi {0} morale.",
         "loseProsperity": "Perdi {0} prosperità.",
         "loseReputation": "Perdi {0} reputazione.",
+        "loseReputationFaction": "Perdi {1} reputazione %data.gh2eFaction:{0}%",
         "loseResource": "Perdi {0} %game.resource.{1}%.",
+        "loseTrait": "Ciascun personaggio perde %game.trait:{0}%.",
         "morale": "Ottieni {0} morale.",
         "noEffect": "Nessun effetto.",
         "outcome": "Leggi la conclusione %game.events.option.{0}%.",
@@ -960,30 +980,39 @@
         },
         "outpostTarget": "%game.valueSign:{0}% %game.action.target%",
         "partyAchievement": "Traguardo di gruppo:<br>\"%data.partyAchievements.{0}%\".",
-        "prosperity": "Ottieni {0} prosperità.",
+        "prosperity": {
+          "": "Ottieni {0} prosperità.",
+          "fh": "Ottieni {0} %game.prosperity%.",
+          "gh2e": "Ottieni {0} %game.prosperity%."
+        },
         "randomItem": {
           "": "Ottieni un Oggetto Casuale.",
-          "fh": "Ottieni un oggetto casuale collettivo %game.itemFh.random%."
+          "fh": "Ottieni un oggetto casuale collettivo %game.itemFh.random%.",
+          "gh2e": "Ottieni un oggetto casuale collettivo %game.itemFh.random%."
         },
         "randomItemBlueprint": "Ottieni un progetto oggetto casuale %game.itemFh.random%.",
         "randomItemDesign": "Ottieni un modello di oggetto casuale.",
         "randomScenario": "Ottieni uno scenario secondario casuale.",
         "removeEvent": {
           "": "Rimuovi %game.events.type.{0}% Evento {1} dal gioco.",
-          "fh": "Rimuovi l'evento {1} dal mazzo %game.events.type.{0}%."
+          "fh": "Rimuovi l'evento {1} dal mazzo %game.events.type.{0}%.",
+          "gh2e": "Rimuovi l'evento {1} dal mazzo %game.events.type.{0}%."
         },
         "reputation": "Ottieni {0} reputazione.",
         "reputationAdditional": "Ottieni {0} reputazione aggiuntiva.",
+        "reputationFaction": "Ottieni {1} reputazione %data.gh2eFaction:{0}%",
         "resource": "Ognuno ottiene {0} %game.resource.{1}%.",
         "resourceType": "Ognuno ottiene {0} %game.loot.{1}% qualsiasi.",
         "scenarioCondition": {
           "": "Tutti iniziano lo scenario con {0}.",
-          "fh": "Tutti i personaggi iniziano lo scenario successivo con {0}."
+          "fh": "Tutti i personaggi iniziano lo scenario successivo con {0}.",
+          "gh2e": "Ciascun personaggio inizia lo scenario successivo con {0}."
         },
         "scenarioConditionOne": "Un personaggio ottiene %game.condition.{0}%.",
         "scenarioDamage": {
           "": "Tutti iniziano lo scenario con %game.damage:{0}%.",
-          "fh": "Tutti i personaggi iniziano lo scenario successivo con %game.damage:{0}%."
+          "fh": "Tutti i personaggi iniziano lo scenario successivo con %game.damage:{0}%.",
+          "gh2e": "Ciascun personaggio inizia lo scenario successivo con %game.damage:{0}%."
         },
         "scenarioSingleMinus1": "Uno inizia lo scenario con %game.card.minus1% x{0}.",
         "sectionOrWeek": "Aggiungi %game.section:{0}% OPPURE {1} al calendario in una settimana.",
@@ -1005,7 +1034,8 @@
         "unlockEnvelope": "Sblocca la busta {0} se non è sbloccata.",
         "unlockScenario": {
           "": "Sblocca \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
-          "fh": "Nuovo Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
+          "fh": "Nuovo Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})",
+          "gh2e": "Nuovo scenario: \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%."
         },
         "unlockScenarioGroup": "Sblocca \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%).",
         "upgradeBuilding": "Aggiorna il %data.buildings.{0}% al livello successivo, oppure, se il %data.buildings.{0}% è già di livello {1}, ottieni invece {2} morale.",
@@ -2691,6 +2721,10 @@
     "gh2eImbuement": {
       "": "Abilita le Infusioni dei Mostri",
       "hint": "Abilita l'opzione per aggiungere l'Infusione dei Mostri (Appendice F) nel menu Effetto Evento."
+    },
+    "gh2eImbuementKeep": {
+      "": "Conserva le Infusioni dei Mostri",
+      "hint": "Applica sempre l'ultima impostazione di Infusione del Mostro a tutti gli scenari."
     },
     "gh2eRules": "Gloomhaven 2a edizione",
     "helperDefaults": {
