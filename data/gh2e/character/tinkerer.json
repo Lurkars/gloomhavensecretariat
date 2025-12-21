@@ -227,7 +227,7 @@
     {
       "type": "add",
       "count": 1,
-      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "custom": "%game.custom.perks.ignoreScenario%",
       "cards": [
         {
           "count": 1,
