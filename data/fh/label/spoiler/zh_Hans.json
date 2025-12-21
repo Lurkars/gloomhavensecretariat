@@ -233,6 +233,10 @@
       "meteor": "炎浆使",
       "prism": {
         "": "虫巢",
+        "autoapply_mode": {
+          "": "自动应用模式",
+          "hint": "激活%data.characterToken.prism.mode%时，自动施加原召唤物状态与伤害。"
+        },
         "long_rest": {
           "": "特技 8",
           "hint": "%data.custom.fh.prism.8%"
