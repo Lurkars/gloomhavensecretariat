@@ -1,0 +1,1801 @@
+{
+  "name": "mindthief",
+  "edition": "gh2e",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Submissive Affliction",
+      "cardId": 146,
+      "level": 1,
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.146.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.146.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.146.3%",
+              "small": true
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hidden in the Shadows",
+      "cardId": 147,
+      "level": 1,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "advantage",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.147.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible",
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.147.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.147.3%"
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Scurry",
+      "cardId": 148,
+      "level": 1,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "loot",
+          "value": 2
+        }
+      ],
+      "bottomXp": 1
+    },
+    {
+      "name": "Withering Claw",
+      "cardId": 149,
+      "level": 1,
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh2e.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.149.1%"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.149.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        }
+      ],
+      "xp": 1,
+      "persistent": true
+    },
+    {
+      "name": "Frigid Apparition",
+      "cardId": 150,
+      "level": 1,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun"
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomXp": 2
+    },
+    {
+      "name": "The Mind's Weakness",
+      "cardId": 151,
+      "level": 1,
+      "initiative": 75,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh2e.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.151.1%"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.151.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        }
+      ],
+      "xp": 1,
+      "persistent": true
+    },
+    {
+      "name": "Pilfer",
+      "cardId": 152,
+      "level": 1,
+      "initiative": 79,
+      "actions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.152.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 1
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "Perverse Edge",
+      "cardId": 153,
+      "level": 1,
+      "initiative": 8,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.153.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Empathetic Assault",
+      "cardId": 154,
+      "level": 1,
+      "initiative": 12,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Psychic Blade",
+      "cardId": 155,
+      "level": 1,
+      "initiative": 77,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh2e.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.155.1%"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.155.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.155.3%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 1,
+      "bottomRound": true
+    },
+    {
+      "name": "Feedback Loop",
+      "cardId": 156,
+      "level": 1,
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh2e.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.156.1%"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.156.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 4,
+              "enhancementTypes": [
+                "square"
+              ],
+              "subActions": [
+                {
+                  "type": "jump",
+                  "value": "",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.156.3%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": "1",
+      "persistent": true
+    },
+    {
+      "name": "Possession",
+      "cardId": 157,
+      "level": "X",
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.157.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.157.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gnawing Horde",
+      "cardId": 158,
+      "level": "X",
+      "initiative": 82,
+      "lost": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "rat-swarm",
+            "health": 5,
+            "attack": 2,
+            "movement": 2,
+            "enhancements": [
+              "heal",
+              "attack",
+              "move"
+            ],
+            "action": {
+              "type": "condition",
+              "value": "poison"
+            }
+          },
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ],
+      "persistent": true,
+      "xp": 2
+    },
+    {
+      "name": "Fearsome Blade",
+      "cardId": 159,
+      "level": 2,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "wound",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "Hostile Takeover",
+      "cardId": 160,
+      "level": 2,
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.160.1%",
+          "small": true
+        }
+      ],
+      "bottomRound": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Brain Leech",
+      "cardId": 161,
+      "level": 3,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.161.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.161.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cranium Overload",
+      "cardId": 162,
+      "level": 3,
+      "initiative": 5,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.162.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 6,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.gh2e.mindthief.abilities.162.2%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.162.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.gh2e.mindthief.abilities.162.4%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Frozen Shiv",
+      "cardId": 163,
+      "level": 4,
+      "initiative": 16,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 1,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomXp": 2
+    },
+    {
+      "name": "Silent Scream",
+      "cardId": 164,
+      "level": 4,
+      "initiative": 83,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh2e.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.164.1%"
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.164.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 1
+    },
+    {
+      "name": "Mass Hysteria",
+      "cardId": 165,
+      "level": 5,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "square"
+              ],
+              "subActions": [
+                {
+                  "type": "jump",
+                  "value": "",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.165.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gangling Abomination",
+      "cardId": 166,
+      "level": 5,
+      "initiative": 81,
+      "lost": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "rat-monstrosity",
+            "health": "8",
+            "attack": "3",
+            "movement": "3",
+            "count": 1,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.166.1%"
+            }
+          },
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 2
+    },
+    {
+      "name": "Telepathic Command",
+      "cardId": 167,
+      "level": 6,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.167.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "condition",
+              "value": "invisible",
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.167.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 4,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dark Frenzy",
+      "cardId": 168,
+      "level": 6,
+      "initiative": 39,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.168.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.168.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Domination",
+      "cardId": 169,
+      "level": 7,
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.169.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.169.2%",
+          "small": true
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Psychic Projection",
+      "cardId": 170,
+      "level": 7,
+      "initiative": 92,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh2e.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.170.1%"
+            }
+          ]
+        },
+        {
+          "type": "pull",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.170.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.170.3%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 1
+    },
+    {
+      "name": "Shared Nightmare",
+      "cardId": 171,
+      "level": 8,
+      "initiative": 7,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "curse"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": "",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "stun",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Corrupting Embrace",
+      "cardId": 172,
+      "level": 8,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.172.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Many as One",
+      "cardId": 173,
+      "level": 9,
+      "initiative": 91,
+      "lost": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "rat-king",
+            "health": "10",
+            "attack": "X",
+            "movement": "3",
+            "count": 1,
+            "enhancements": [
+              "heal",
+              "move"
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.173.1%"
+            }
+          },
+          "small": true
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.mindthief.abilities.173.2%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomPersistent": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Phantasmal Killer",
+      "cardId": 174,
+      "level": 9,
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh2e.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.mindthief.abilities.174.1%"
+                },
+                {
+                  "type": "attack",
+                  "value": 3
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.mindthief.abilities.174.2%",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "dark",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.gh2e.mindthief.abilities.174.3%"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 1
+    }
+  ]
+}
