@@ -1,0 +1,238 @@
+{
+  "character": {
+    "bb": {
+      "bruiser": "Bruiser",
+      "cragheart": "Cragheart",
+      "mindthief": "Mindthief",
+      "silent-knife": "Silent Knife",
+      "spellweaver": "Spellweaver",
+      "tinkerer": "Tinkerer"
+    }
+  },
+  "edition": {
+    "bb": "Button & Bugs"
+  },
+  "items": {
+    "bb-1": {
+      "": "Nóż z Ciernia Róży",
+      "1": "Podczas swojego ataku, %game.elementHalf.consume:ice|earth% aby dodać %game.action.pierce% 1."
+    },
+    "bb-10": {
+      "": "Bicz z Pnączy",
+      "1": "Podczas swojego ataku, %game.elementHalf.consume:earth|light% aby dodać %game.condition.immobilize%."
+    },
+    "bb-11": {
+      "": "Magnetyczna Igła",
+      "1": "Podczas swojej tury, przejmij kontrolę nad jednym wrogiem w zasięgu %game.action.range% 5: %game.action.move% 2."
+    },
+    "bb-12": {
+      "": "Resztki ze Stołu",
+      "1": "Podczas swojej tury, %game.action.heal% 1 na siebie."
+    },
+    "bb-13": {
+      "": "Strzały z Piór Robina",
+      "1": "Podczas swojego ataku dystansowego na jeden cel, %game.elementHalf.consume:fire|air% aby dodać +1 %game.action.range%, %game.action.pierce% 1."
+    },
+    "bb-14": {
+      "": "Pył z Psianki",
+      "1": "Po ataku wroga, %game.elementHalf.consume:earth|dark% aby nałożyć na niego %game.condition.poison%."
+    },
+    "bb-15": {
+      "": "Kropla Mikstury Leczenia",
+      "1": "Podczas swojej tury, %game.action.heal% 3 na siebie."
+    },
+    "bb-16": {
+      "": "Lotny Proszek",
+      "1": "Podczas swojego ataku dystansowego na jeden cel, dodaj:"
+    },
+    "bb-17": {
+      "": "Haczyk i Żyłka",
+      "1": "Podczas swojego ataku dystansowego, dodaj %game.action.pierce% 2, %game.action.pull% 2."
+    },
+    "bb-18": {
+      "": "Tarcza z Łupiny Kasztana",
+      "1": "Podczas ataku wroga, zyskaj %game.action.shield% 1 oraz %game.action.retaliate% 1."
+    },
+    "bb-19": {
+      "": "Mosiężna Zębatka",
+      "1": "Po ustaleniu inicjatywy, zwiększ lub zmniejsz swoją inicjatywę o 10."
+    },
+    "bb-2": {
+      "": "Jadowity Kieł",
+      "1": "Podczas swojego ataku wręcz, dodaj %game.condition.poison%."
+    },
+    "bb-20": {
+      "": "Olej Smarujący",
+      "1": "Podczas swojego ruchu, dodaj +2 %game.action.move%."
+    },
+    "bb-21": {
+      "": "Kropla Mikstury Żywiołów",
+      "1": "Podczas swojej tury, stwórz %game.element.wild% %game.element.wild%."
+    },
+    "bb-22": {
+      "": "Kropla Mikstury Wytrzymałości",
+      "1": "Podczas swojej tury, %game.card.recover% jedną kartę poziomu 1 z ręki lub stosu kart odrzuconych na stronę A."
+    },
+    "bb-23": {
+      "": "Szczypta Proszku Zagłady",
+      "1": "Podczas swojego ataku, dodaj %game.condition.disarm%, %game.condition.poison%."
+    },
+    "bb-24": {
+      "": "Igły Krawieckie",
+      "1": "Podczas swojego ataku, dodaj %game.action.pierce% 1."
+    },
+    "bb-25": {
+      "": "Zaostrzony Ołówek",
+      "1": "Podczas swojego ataku wręcz na jeden cel, dodaj:"
+    },
+    "bb-26": {
+      "": "Tarcza z Monety",
+      "1": "Podczas ataku wroga, zyskaj %game.action.shield% 2."
+    },
+    "bb-27": {
+      "": "Skurczony Długi Łuk",
+      "1": "Podczas swojego ataku dystansowego, dodaj +1 %game.action.attack%, %game.action.pierce% 1."
+    },
+    "bb-28": {
+      "": "Skurczony Długi Miecz",
+      "1": "Podczas swojego ataku wręcz, dodaj +1 %game.action.attack%."
+    },
+    "bb-29": {
+      "": "Żaropokrzywa",
+      "1": "Po ataku wroga, %game.elementHalf.consume:fire|earth% aby nałożyć na niego %game.condition.wound%."
+    },
+    "bb-3": {
+      "": "Skurczone Zniesione Buty",
+      "1": "Podczas swojego ruchu, dodaj +1 %game.action.move%."
+    },
+    "bb-30": {
+      "": "Kocie Oko — Szklana Kulka",
+      "1": "Podczas swojego ataku, traktuj swój modyfikator %game.bbAm.0% jako %game.bbAm.1%."
+    },
+    "bb-31": {
+      "": "Odłamek Szkła",
+      "1": "Podczas swojego ataku wręcz, dodaj %game.condition.wound%."
+    },
+    "bb-32": {
+      "": "Tarcza z Karty do Gry",
+      "1": "Podczas ataku wroga, zyskaj %game.action.shield% 4."
+    },
+    "bb-33": {
+      "": "Kropla Eliksiru Pośpiechu",
+      "1": "Po wykonaniu górnej akcji karty zdolności, wykonaj również jej dolną akcję."
+    },
+    "bb-34": {
+      "": "Kropla Eliksiru Wytrzymałości",
+      "1": "Podczas swojej tury, %game.card.recover% jedną kartę z ręki lub stosu odrzuconych na stronę A."
+    },
+    "bb-35": {
+      "": "Pryzmatyczny Klejnot",
+      "1": "Podczas swojego ataku, %game.element.consume.wild% aby dodać 1 %game.action.attack%."
+    },
+    "bb-36": {
+      "": "Kropla Mikstury Wzmocnienia",
+      "1": "Podczas swojej tury, %game.condition.strengthen% na siebie."
+    },
+    "bb-37": {
+      "": "Klejnot Zmierzchowej Mgły",
+      "1": "Podczas ataku wroga, %game.elementHalf.consume:air|dark% aby zyskać %game.action.shield% 1 i nałożyć na niego %game.condition.muddle%."
+    },
+    "bb-38": {
+      "": "Klejnot Świetlnego Wabiaka",
+      "1": "Po swoim ataku, %game.elementHalf.consume:air|light% aby przejąć kontrolę nad celem ataku: %game.action.move% 1."
+    },
+    "bb-39": {
+      "": "Tarcza z Irydowej Muszli",
+      "1": "Podczas swojej tury, zyskaj %game.action.shield% 1 na rundę. Stwórz %game.element.wild%."
+    },
+    "bb-4": {
+      "": "Stara Sprężyna",
+      "1": "Podczas swojej tury, dodaj %game.action.jump% do całego swojego ruchu."
+    },
+    "bb-40": {
+      "": "Scyzoryk",
+      "1": "Podczas swojego ataku wręcz, dodaj +1 %game.action.attack%, %game.action.pierce% 2, %game.condition.wound%."
+    },
+    "bb-41": {
+      "": "Hełm z Kapsla",
+      "1": "Podczas ataku wroga, traktuj jego modyfikator %game.bbAm.2% jako %game.bbAm.1%."
+    },
+    "bb-42": {
+      "": "Hełm z Czaszki Wróbla",
+      "1": "Podczas swojego ataku, zyskaj przewagę."
+    },
+    "bb-5": {
+      "": "Kropla Mikstury Mocy",
+      "1": "Podczas swojej tury, dodaj +1 %game.action.attack% do wszystkich swoich ataków."
+    },
+    "bb-6": {
+      "": "Kropla Czystej Wody",
+      "1": "Podczas swojej tury, %game.elementHalf.consume:ice|air% aby usunąć jeden negatywny stan."
+    },
+    "bb-7": {
+      "": "Młot na Sprężynie",
+      "1": "Podczas swojego ataku wręcz, dodaj %game.action.push% 2."
+    },
+    "bb-8": {
+      "": "Tarcza z Guzika",
+      "1": "Podczas ataku wroga, zyskaj %game.action.shield% 1."
+    },
+    "bb-9": {
+      "": "Żelazny Gwóźdź",
+      "1": "Podczas swojej tury, dodaj %game.action.pierce% 2 do wszystkich swoich ataków wręcz."
+    }
+  },
+  "monster": {
+    "arena-sorcerer": "Czarownik Areny",
+    "bandit-archer": "Łucznik Bandyta",
+    "bandit-guard": "Strażnik Bandyta",
+    "demon-prince": "Książę Demonów",
+    "earth-demon": "Demon Ziemi",
+    "flame-demon": "Demon Ognia",
+    "frost-demon": "Demon Mrozu",
+    "gloomtoad": "Mroczna Ropucha",
+    "goring-beetle": "Nadziewający Żuk",
+    "harrowing-infestation": "Przerażająca Infestacja",
+    "king-button": "Król Guzik",
+    "mounted-prince": "Książę na Wierzchowcu",
+    "mouse": "Mysz",
+    "rending-beetle": "Rozszarpujący Żuk",
+    "sewer-rat": "Szczur Kanałowy",
+    "spitting-moth": "Plująca Ćma",
+    "stuffed-construct": "Wypchany Konstruktor",
+    "tattered-construct": "Postrzępiony Konstruktor",
+    "venomous-centipede": "Jadowita Stonoga",
+    "wind-demon": "Demon Wiatru"
+  },
+  "scenario": {
+    "rules": {
+      "bb": {
+        "15": "Odwróć wszystkie swoje karty zdolności na stronę B."
+      }
+    },
+    "title": {
+      "bb": {
+        "1": "Niegrzeczne Powitanie",
+        "10": "W Ciemność",
+        "11": "W Oknie",
+        "12": "Zbieranie Materiałów",
+        "13": "Przelotem",
+        "14": "Ochroniarz",
+        "15": "Uderz w Dzwon",
+        "16": "Flara Sygnałowa",
+        "17": "Długa Droga",
+        "18": "Rozbij Rupiecie",
+        "19": "Zabawa w Chowanego",
+        "2": "Przez Drogę",
+        "20": "Finał",
+        "3": "W Ścianach",
+        "4": "Wparowanie",
+        "5": "Arena Guzika",
+        "6": "Zwalczanie Szkodników",
+        "7": "Kontrola Umysłu",
+        "8": "Do Góry",
+        "9": "Znowu w Ścianach"
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "custom": {
+    "bas": {
+      "desiccated-corpse": {
+        "1": "WYSUSZENIE",
+        "2": "Zniszcz całą wodę niesioną przez sąsiadujących wrogów."
+      },
+      "dust-demon": {
+        "1": "%data.monster.dust-demon% przemieszcza się przez maksymalną liczbę wrogów."
+      },
+      "jackal": {
+        "1": "Sfora"
+      },
+      "sand-spider": {
+        "1": "Dodaj +3 %game.action.attack%, jeśli cel jest %game.condition.immobilize%.",
+        "2": "Wszystkie ataki wymierzone w %data.monster.sand-spider% w tej rundzie mają Niekorzyść.",
+        "3": "Utwórz pułapkę %game.condition.immobilize% w sąsiadującym pustym heksie najbliżej wroga."
+      }
+    }
+  },
+  "edition": {
+    "bas": "Krew i Piasek"
+  },
+  "monster": {
+    "desiccated-corpse": "Wysuszony Trup",
+    "dust-demon": "Demon Pyłu",
+    "giant-scorpion": "Olbrzymi Skorpion",
+    "horned-lizard": "Rogata Jaszczurka",
+    "jackal": "Szakal",
+    "sand-spider": "Pająk Piaskowy"
+  },
+  "scenario": {
+    "title": {
+      "bas": {
+        "1": "Wszędzie na Mapie",
+        "2": "Wzburzone Wody"
+      }
+    }
+  }
+}

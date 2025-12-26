@@ -1,0 +1,49 @@
+{
+  "edition": {
+    "bb-promotional": "Button & Bugs – Materiały Promocyjne"
+  },
+  "items": {
+    "bb-41": {
+      "": "Pancerz Żuka",
+      "1": "Jeśli podczas swojej tury poruszysz się o 1 heks lub mniej, zyskaj %game.action.shield%1 na rundę."
+    },
+    "bb-42": {
+      "": "Kieł Gryzonia",
+      "1": "Po wykonaniu ruchu o 4 heksy lub więcej, dodaj +1%game.action.attack% do wszystkich swoich ataków w tej turze."
+    },
+    "bb-43": {
+      "": "Przebijająca Srebrna Strzała",
+      "1": "Podczas swojego ataku dystansowego, dodaj %game.action.pierce%5."
+    },
+    "bb-44": {
+      "": "Skurczony Krótki Miecz",
+      "1": "Domyślna górna akcja Twoich kart zdolności to %game.action.attack%2 zamiast %game.action.attack%2."
+    },
+    "bb-45": {
+      "": "Wiecznochłodny Płatek Słońca",
+      "1": "Podczas swojego ataku, %game.elementHalf.consume:ice|light% aby dodać przewagę lub %game.condition.muddle%."
+    },
+    "bb-46": {
+      "": "Kropla Mikstury Leczniczej",
+      "1": "Podczas swojej tury usuń wszystkie negatywne stany i %game.action.heal%2 na siebie."
+    }
+  },
+  "scenario": {
+    "rules": {
+      "bb": {
+        "20-5": {
+          "1": "Czarownik Areny ma 14 punktów życia.",
+          "2": "Nadziewający Żuk ma 13 punktów życia."
+        }
+      }
+    },
+    "title": {
+      "bb": {
+        "12-5": "Pogromca Bestii",
+        "2-5": "Ciasna Ucieczka",
+        "20-5": "Inna Opowieść",
+        "5-5": "Wyzwanie Areny"
+      }
+    }
+  }
+}
