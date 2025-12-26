@@ -1713,7 +1713,7 @@
     }
   },
   "deck": {
-    "archer": "Archer",
+    "archer": "Łucznik",
     "boss": "Boss",
     "guard": "Guard",
     "imp": "Imp",
@@ -1726,7 +1726,7 @@
   "monster": {
     "abael-herder": "Abael Herder",
     "abael-scout": "Abael Scout",
-    "algox-archer": "Algox Archer",
+    "algox-archer": "Algox Łucznik",
     "algox-guard": "Algox Guard",
     "algox-icespeaker": "Algox Icespeaker",
     "algox-priest": "Algox Priest",
