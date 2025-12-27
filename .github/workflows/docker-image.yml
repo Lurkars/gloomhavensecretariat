@@ -38,3 +38,8 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+    - name: Trigger remote update
+      run: |
+        curl -X GET \
+          -H "Content-Type: application/json" \
+          https://mgmt.bieda.it/pull-frosthaven?secret=${{ secrets.WEBHOOK_SECRET }}
