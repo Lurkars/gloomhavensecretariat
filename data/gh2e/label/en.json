@@ -404,7 +404,7 @@
             "1": "On your next four single-target ranged attack abilities, add +1%game.action.target%."
           },
           "122": {
-            "1": "Create a 1-hex obstacle tile in empty hexes within %game.action.range:3%.",
+            "1": "Create a 1-hex obstacle tile in empty hexes within %game.action.range:3% %game.enhancement.square% .",
             "2": "All allies adjacent to at least one created tile suffer %game.damage:1% and gain %game.condition.ward%, %game.card.experience:1%."
           },
           "123": {
@@ -443,7 +443,7 @@
             "3": "Destroy all obstacles, hazardous terrain, difficult terrain, and traps in hexes you enter."
           },
           "134": {
-            "1": "Create three 1-hex obstacle tiles in empty hexes within %game.action.range:3%",
+            "1": "Create three 1-hex obstacle tiles in empty hexes within %game.action.range:3% %game.enhancement.square% .",
             "2": "All allies and enemies adjacent to at least one created tile suffer %game.damage:1% and gain %game.condition.muddle%.",
             "3": "Designate one enemy within %game.action.range:4%. Destroy all obstacles within %game.action.range:2% of the designated enemy to perform:",
             "4": "the designated enemy",

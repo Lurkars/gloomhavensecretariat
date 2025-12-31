@@ -410,9 +410,6 @@
           "type": "custom",
           "value": "%data.custom.gh2e.cragheart.abilities.122.1%",
           "small": true,
-          "enhancementTypes": [
-            "square"
-          ],
           "subActions": [
             {
               "type": "element",
@@ -949,8 +946,8 @@
               "value": "immobilize",
               "subActions": [
                 {
-                  "type": "target",
-                  "value": "%data.custom.gh2e.cragheart.abilities.129.1%",
+                  "type": "specialTarget",
+                  "value": "enemiesMovedThrough",
                   "small": true
                 }
               ]
@@ -1277,10 +1274,7 @@
             {
               "type": "custom",
               "value": "%data.custom.gh2e.cragheart.abilities.134.1%",
-              "small": true,
-              "enhancementTypes": [
-                "square"
-              ]
+              "small": true
             },
             {
               "type": "custom",
