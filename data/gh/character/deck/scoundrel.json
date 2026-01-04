@@ -174,7 +174,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -299,7 +299,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -514,7 +514,7 @@
               "value": 4,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -594,7 +594,7 @@
               "value": 4,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -624,7 +624,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -709,7 +709,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -757,7 +757,7 @@
           "value": 3,
           "enhancementTypes": [
             "diamond",
-            "square"
+            "diamond"
           ],
           "subActions": [
             {
@@ -949,7 +949,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -998,7 +998,7 @@
           "value": 4,
           "enhancementTypes": [
             "diamond",
-            "square"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1101,7 +1101,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -1155,8 +1155,8 @@
           "type": "heal",
           "value": 8,
           "enhancementTypes": [
-            "circle",
-            "square"
+            "diamond_plus",
+            "diamond_plus"
           ],
           "subActions": [
             {

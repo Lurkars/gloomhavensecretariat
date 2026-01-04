@@ -39,7 +39,7 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ]
         },
         {
@@ -69,8 +69,8 @@
           "type": "heal",
           "value": 3,
           "enhancementTypes": [
-            "circle",
-            "circle"
+            "diamond_plus",
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -107,8 +107,8 @@
           "type": "heal",
           "value": 4,
           "enhancementTypes": [
-            "circle",
-            "circle"
+            "diamond_plus",
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -177,7 +177,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -209,8 +209,8 @@
           "type": "heal",
           "value": 3,
           "enhancementTypes": [
-            "circle",
-            "circle"
+            "diamond_plus",
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -284,7 +284,7 @@
           "type": "attack",
           "value": 1,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -493,7 +493,7 @@
           "type": "heal",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -562,7 +562,7 @@
           "type": "condition",
           "value": "disarm",
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -650,7 +650,7 @@
           "type": "attack",
           "value": 1,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -726,7 +726,7 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -819,8 +819,8 @@
           "type": "heal",
           "value": 5,
           "enhancementTypes": [
-            "circle",
-            "circle"
+            "diamond_plus",
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -887,8 +887,8 @@
           "type": "attack",
           "value": 7,
           "enhancementTypes": [
-            "circle",
-            "circle"
+            "diamond",
+            "diamond"
           ]
         },
         {
@@ -916,7 +916,7 @@
           "type": "heal",
           "value": 7,
           "enhancementTypes": [
-            "circle"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -941,14 +941,14 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ]
         },
         {
           "type": "heal",
           "value": 2,
           "enhancementTypes": [
-            "circle"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -999,7 +999,7 @@
           "type": "heal",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -1021,7 +1021,7 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1095,7 +1095,7 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1120,8 +1120,8 @@
           "type": "heal",
           "value": 7,
           "enhancementTypes": [
-            "circle",
-            "circle"
+            "diamond_plus",
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -1159,7 +1159,7 @@
           "type": "attack",
           "value": 1,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1295,7 +1295,7 @@
           "type": "heal",
           "value": 2,
           "enhancementTypes": [
-            "circle"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -1336,8 +1336,8 @@
           "type": "heal",
           "value": 3,
           "enhancementTypes": [
-            "circle",
-            "circle"
+            "diamond_plus",
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -1382,7 +1382,7 @@
           "type": "attack",
           "value": 5,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1402,7 +1402,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1472,7 +1472,7 @@
           "type": "condition",
           "value": "stun",
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {

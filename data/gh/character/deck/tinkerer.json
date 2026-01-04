@@ -79,7 +79,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -166,7 +166,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -318,7 +318,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -357,7 +357,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -396,7 +396,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -517,7 +517,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -546,7 +546,7 @@
               "value": 2,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -760,7 +760,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -1180,7 +1180,7 @@
               "value": 4,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -1239,7 +1239,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]

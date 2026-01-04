@@ -346,7 +346,7 @@
       &.slotEnd,
       &.slotXp,
       &.slotXpFh,
-      &.slotEndXp  {
+      &.slotEndXp {
         height: 2em;
         margin: 0.2em 0.05em;
 
@@ -355,7 +355,7 @@
         &.slotStartXp,
         &.slotXp,
         &.slotXpFh,
-        &.slotEndXp  {
+        &.slotEndXp {
           .overlay {
             background-color: var(--ghs-ability-color);
             mask-position: top left;
@@ -384,7 +384,7 @@
 
         &+.slotXpFh,
         &+.slotStartXp,
-        &.slotEndXp  {
+        &.slotEndXp {
           margin-left: -0.1em;
         }
       }
@@ -1257,7 +1257,8 @@
 
     .elements {
       .minus {
-        margin-left: 0.15em;
+        margin-left: 0.05em;
+        margin-right: 0.2em;
       }
 
       .element:not(:first-child) {

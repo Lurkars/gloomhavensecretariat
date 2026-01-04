@@ -40,6 +40,7 @@ export class ObjectiveEntity implements Entity {
   }
 
   fromModel(model: GameObjectiveEntityModel) {
+    this.number = model.number;
     this.marker = model.marker;
     this.dead = model.dead;
     this.active = model.active;

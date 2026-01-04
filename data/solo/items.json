@@ -1143,8 +1143,7 @@
         "value": "%data.items.gh2e-154.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 155,
@@ -1178,8 +1177,7 @@
         "value": "%data.items.gh2e-156.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 157,
@@ -1206,8 +1204,7 @@
         "type": "element",
         "value": "earth"
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 158,
@@ -1223,8 +1220,7 @@
         "value": "%data.items.gh2e-158.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 159,
@@ -1279,8 +1275,7 @@
         "value": "%data.items.gh2e-160.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 161,
@@ -1297,8 +1292,7 @@
         "value": "%data.items.gh2e-161.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 162,
@@ -1376,8 +1370,7 @@
         "value": "%data.items.gh2e-163.2%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 164,
@@ -1393,8 +1386,7 @@
         "value": "%data.items.gh2e-164.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 165,
@@ -1411,8 +1403,7 @@
         "value": "%data.items.gh2e-165.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 166,
@@ -1437,8 +1428,7 @@
         "value": "%data.items.gh2e-166.2%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 167,
@@ -1464,8 +1454,7 @@
         "value": "%data.items.gh2e-167.2%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 168,
@@ -1504,8 +1493,7 @@
         "type": "attack",
         "value": 2
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 170,

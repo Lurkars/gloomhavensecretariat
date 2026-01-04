@@ -503,7 +503,7 @@
               "value": 2,
               "small": true,
               "enhancementTypes": [
-                "diamond"
+                "square"
               ]
             },
             {
@@ -864,7 +864,7 @@
               "value": 4,
               "small": true,
               "enhancementTypes": [
-                "diamond"
+                "square"
               ]
             },
             {
