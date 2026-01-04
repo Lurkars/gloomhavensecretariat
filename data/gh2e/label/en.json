@@ -5,9 +5,11 @@
     "Arctic Shards": "Arctic Shards",
     "Avalanche": "Avalanche",
     "Backup Ammunition": "Backup Ammunition",
+    "Balanced Measure": "Balanced Measure",
     "Blunt Force": "Blunt Force",
     "Brain Leech": "Brain Leech",
     "Brutal Momentum": "Brutal Momentum",
+    "Brute Force": "Brute Force",
     "Burrow": "Burrow",
     "Cataclysm": "Cataclysm",
     "Chromatic Explosion": "Chromatic Explosion",
@@ -17,9 +19,11 @@
     "Corrupting Embrace": "Corrupting Embrace",
     "Cranium Overload": "Cranium Overload",
     "Crater": "Crater",
+    "Crippling Offensive": "Crippling Offensive",
     "Crushing Grasp": "Crushing Grasp",
     "Dancing Gales": "Dancing Gales",
     "Dark Frenzy": "Dark Frenzy",
+    "Defensive Tactics": "Defensive Tactics",
     "Dig Pit": "Dig Pit",
     "Dirt Tornado": "Dirt Tornado",
     "Domination": "Domination",
@@ -31,34 +35,46 @@
     "Empathetic Assault": "Empathetic Assault",
     "Entomb": "Entomb",
     "Etheric Echo": "Etheric Echo",
+    "Eye for an Eye": "Eye for an Eye",
+    "Face Your End": "Face Your End",
     "Fearsome Blade": "Fearsome Blade",
+    "Fearsome Taunt": "Fearsome Taunt",
     "Feedback Loop": "Feedback Loop",
     "Fire Orbs": "Fire Orbs",
     "Flame Strike": "Flame Strike",
     "Flameswell": "Flameswell",
     "Freezing Nova": "Freezing Nova",
     "Freezing Vortex": "Freezing Vortex",
+    "Frenzied Onslaught": "Frenzied Onslaught",
     "Frigid Apparition": "Frigid Apparition",
     "Frost Strike": "Frost Strike",
     "Frostflare Orbs": "Frostflare Orbs",
     "Frozen Shiv": "Frozen Shiv",
     "Gangling Abomination": "Gangling Abomination",
     "Gnawing Horde": "Gnawing Horde",
+    "Grab and Go": "Grab and Go",
     "Heatwave": "Heatwave",
     "Heaving Swing": "Heaving Swing",
     "Hidden in the Shadows": "Hidden in the Shadows",
+    "Hook and Chain": "Hook and Chain",
     "Hostile Takeover": "Hostile Takeover",
     "Ice Armor": "Ice Armor",
     "Icy Blast": "Icy Blast",
+    "Immovable Phalanx": "Immovable Phalanx",
     "Impaling Eruption": "Impaling Eruption",
     "Inferno": "Inferno",
+    "Intimidating Growl": "Intimidating Growl",
+    "Juggernaut": "Juggernaut",
     "Kinetic Assault": "Kinetic Assault",
+    "Leaping Cleave": "Leaping Cleave",
+    "Let Fly": "Let Fly",
     "Many as One": "Many as One",
     "Mass Hysteria": "Mass Hysteria",
     "Massive Boulder": "Massive Boulder",
     "Meteor": "Meteor",
     "Mud Eruption": "Mud Eruption",
     "Opposing Strike": "Opposing Strike",
+    "Overwhelming Assault": "Overwhelming Assault",
     "Perverse Edge": "Perverse Edge",
     "Petrify": "Petrify",
     "Phantasmal Killer": "Phantasmal Killer",
@@ -66,25 +82,38 @@
     "Possession": "Possession",
     "Psychic Blade": "Psychic Blade",
     "Psychic Projection": "Psychic Projection",
+    "Push Through": "Push Through",
     "Reviving Ether": "Reviving Ether",
     "Rock Slide": "Rock Slide",
     "Rocky End": "Rocky End",
     "Rumbling Advance": "Rumbling Advance",
+    "Run Through": "Run Through",
     "Scurry": "Scurry",
     "Searing Glacier": "Searing Glacier",
+    "Selfish Retribution": "Selfish Retribution",
     "Sentient Growth": "Sentient Growth",
     "Shared Nightmare": "Shared Nightmare",
+    "Shield Bash": "Shield Bash",
     "Silent Scream": "Silent Scream",
+    "Skewer": "Skewer",
+    "Skirmishing Maneuver": "Skirmishing Maneuver",
     "Solidify": "Solidify",
+    "Spare Dagger": "Spare Dagger",
     "Spell Mastery": "Spell Mastery",
     "Stone Pummel": "Stone Pummel",
     "Submissive Affliction": "Submissive Affliction",
+    "Sweeping Blow": "Sweeping Blow",
     "Telepathic Command": "Telepathic Command",
     "The Mind's Weakness": "The Mind's Weakness",
+    "Trample": "Trample",
     "Twin Beams": "Twin Beams",
     "Unstable Upheaval": "Unstable Upheaval",
+    "Unstoppable Charge": "Unstoppable Charge",
+    "Wall of Doom": "Wall of Doom",
+    "Warding Strength": "Warding Strength",
     "Warm Up": "Warm Up",
     "Wave of Destruction": "Wave of Destruction",
+    "Whirlwind": "Whirlwind",
     "Withering Claw": "Withering Claw"
   },
   "battleGoals": {
@@ -375,7 +404,75 @@
         "3": "Whenever you long rest, add +1 %game.action.move% to your first move ability the following round",
         "4": "Each character gains advantage on their first attack during the first round of each scenario",
         "5": "In 3 different scenarios, kill an enemy that you Pushed or Pulled that round",
-        "6": "In a single scenario, across 3 consecutive rounds, play 6 different ability cards and cause enemies to suffer 7 or more damage during each of those rounds"
+        "6": "In a single scenario, across 3 consecutive rounds, play 6 different ability cards and cause enemies to suffer 7 or more damage during each of those rounds",
+        "abilities": {
+          "1": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "11": {
+            "1": "Add +1%game.action.attack% on each undamaged target."
+          },
+          "12": {
+            "1": "Whenever an enemy would attack one of your adjacent allies this round, you may have that attack target you instead, regardless of the attack's range and line-of-sight limitations."
+          },
+          "13": {
+            "1": "Gain %game.card.experience:1% the next time you retaliate this round."
+          },
+          "14": {
+            "1": "On your nex two move abilities, add +1%game.action.move%."
+          },
+          "15": {
+            "1": "On the next four sources of %game.damage% you would suffer, negate that %game.damage%."
+          },
+          "16": {
+            "1": "If you moved in a straight line in one direction with the move ability, perform:",
+            "2": "where X is the number of hexes you moved."
+          },
+          "17": {
+            "1": "Add +2%game.action.attack% and gain %game.card.experience:1% if you have moved this turn."
+          },
+          "18": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "19": {
+            "1": "During you next attack ability this round, add +1%game.action.attack% to all attacks."
+          },
+          "2": {
+            "1": "Gain %game.card.experience:1% the next time you retaliate this round."
+          },
+          "21": {
+            "1": "The first time each round that you gain %game.action.shield% or %game.action.retaliate% from one of your ability or attack modifier cards, gain %game.action.shield:1% and %game.action.retaliate:1% for the round."
+          },
+          "22": {
+            "1": "Add +1%game.action.attack% on each undamaged target."
+          },
+          "23": {
+            "1": "Once each turn, you may treat one move ability from your ability cards as an attack ability of equal value."
+          },
+          "24": {
+            "1": "Each enemy occupying a hex the target enters suffers %game.damage:4% and gains %game.condition.wound%."
+          },
+          "25": {
+            "1": "Gain %game.card.experience:1% the next time you retaliate this round."
+          },
+          "26": {
+            "1": "where X is the amount of %game.damage% you have dealt this turn."
+          },
+          "28": {
+            "1": "After each attack targeting you this round, perform:",
+            "2": "Add +1%game.action.attack% to each of your %game.action.push% and %game.action.pull%. Whenever you %game.action.push% or %game.action.pull% an enemy at least one hex, after the forced movement, that enemy and all enemies adjacent to it siffer %game.damage:1%."
+          },
+          "29": {
+            "1": "Add +3%game.action.attack% and gain %game.card.experience:1% if the target's current hit point value is lower than yours."
+          },
+          "5": {
+            "1": "where X is the number of hexes you have moved this turn.",
+            "2": "where X is the amount of %game.damage% you have dealt this turn."
+          },
+          "7": {
+            "1": "On the next six sources of %game.damage% from attacks targeting you, gain %game.action.shield:1%, %game.action.retaliate:1% for the attack."
+          }
+        }
       },
       "chaos-demon": {
         "1": "%game.custom.advantage%"
@@ -408,7 +505,7 @@
             "2": "All allies adjacent to at least one created tile suffer %game.damage:1% and gain %game.condition.ward%, %game.card.experience:1%."
           },
           "123": {
-            "1": "all enemies up to two hexes away instead, %game.card.experience:1%",
+            "1": "all enemies up to two hexes away instead",
             "2": "All adjacent allies suffer %game.damage:2%."
           },
           "124": {
@@ -426,9 +523,6 @@
           },
           "128": {
             "1": "For each target killed, gain %game.card.experience:1% and create one 1-hex obstacle tile in the featureless hex they occupied."
-          },
-          "129": {
-            "1": "all enemies moved though with the move ability"
           },
           "130": {
             "1": "4 enemies within 4 hexes",
