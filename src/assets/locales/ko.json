@@ -2677,12 +2677,12 @@
       "addTreasure": "{1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) 보물 추가",
       "addTreasures": "{1} 보물 추가 (%data.edition.{0}%)",
       "applyCondition": {
-        "char": "{0}에게 {1} 적용",
-        "monster": "{0} '{1}번'에게 {2} 적용",
-        "monsterEntities": "모든 {2}{0}에게 {1} 적용",
-        "objective": "{0}에게 {1} 적용",
+        "char": "{0}에게 %game.condition.{1}% 적용",
+        "monster": "{0} '{1}번'에게 %game.condition.{2}% 적용",
+        "monsterEntities": "모든 {2}{0}에게 %game.condition.{1}% 적용",
+        "objective": "{0}에게 %game.condition.{1}% 적용",
         "objectiveContainer": "{0} %game.objectiveMarker.{1}%에게 %game.condition.{2}% 적용",
-        "summon": "{0}의 '{1}'에게 {2} 적용"
+        "summon": "{0}의 '{1}'에게 %game.condition.{2}% 적용"
       },
       "applyHighlightAction": {
         "condition": "%game.condition.{0}%",
@@ -2763,7 +2763,7 @@
         "monsterEntities": "모든 {2}{0}에게 %game.condition.{1}% 해제",
         "objective": "{0}에게 %game.condition.{1}% 해제",
         "objectiveContainer": "{0} %game.objectiveMarker.{1}%에게 %game.condition.{2}% 해제",
-        "summon": "{0}의 {1}에게 %game.condition.{2}% 해제"
+        "summon": "{0}의 '{1}'에게 %game.condition.{2}% 해제"
       },
       "disableAutomaticLevel": "자동 레벨 계산 비활성화",
       "disableEnvelopeB": "봉투 B 비활성화",
@@ -2929,7 +2929,7 @@
         "summon": "{0}의 '{1}'에게서 %data.characterIconColored.{3}% {2} 마커 제거",
         "summons": "모든 {0} 소환물에게서 %data.characterIconColored.{2}% {1} 마커 제거"
       },
-      "removeMastery": "{0}에게서 숙련 {1} 체크 해제",
+      "removeMastery": "{0}에게서 마스터리 {1} 체크 해제",
       "removeMonster": "{0} 몬스터 제거",
       "removeObjective": "목표물 {0} 제거",
       "removeParty": "'{0}' 파티 제거",
