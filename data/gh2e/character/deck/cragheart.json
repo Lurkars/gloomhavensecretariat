@@ -473,11 +473,16 @@
               "type": "element",
               "value": "earth",
               "valueType": "minus",
-              "small": true,
               "subActions": [
                 {
                   "type": "target",
-                  "value": "%data.custom.gh2e.cragheart.abilities.123.1%"
+                  "value": "%data.custom.gh2e.cragheart.abilities.123.1%",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
                 }
               ]
             }
