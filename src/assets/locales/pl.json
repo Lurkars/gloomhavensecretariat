@@ -2775,7 +2775,7 @@
     "locale": {
       "": "Język",
       "de": "German (Deutsch)",
-      "en": "Angielski",
+      "en": "Angielski (English)",
       "es": "Spanish (Español)",
       "fr": "French (Français)",
       "help": {
@@ -2784,6 +2784,7 @@
       },
       "it": "Italian (Italiano)",
       "ko": "Korean (한국어)",
+      "pl": "Polski",
       "pt": "Portuguese (Portuguese)",
       "ru": "Russian (Русский)",
       "zh_Hans": "Simplified Chinese (简体中文)",
