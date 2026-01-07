@@ -22,6 +22,7 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   @Input() screenWidth: boolean = false;
   @Input() repeat: boolean = false;
   @Input() disabled: boolean = false;
+  @Input() draggingDisabled: boolean = false;
   @Input() forcePress: boolean = false;
   @Input() forceDoubleClick: boolean = false;
   @Input() onRelease: boolean = false;
@@ -148,7 +149,7 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   }
 
   panstart(event: PointerEvent) {
-    if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
+    if (!this.disabled && !this.draggingDisabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
       this.elementRef.nativeElement.classList.add('dragging');
     }
     this.move = true;
@@ -159,7 +160,7 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   }
 
   panmove(event: PointerEvent) {
-    if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
+    if (!this.disabled && !this.draggingDisabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
       const rect = this.elementRef.nativeElement.getBoundingClientRect();
       const x = event.clientX;
       if (this.screenWidth) {
@@ -187,7 +188,7 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   }
 
   panend(event: PointerEvent) {
-    if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed) && (this.value >= 0 || this.relative)) {
+    if (!this.disabled && !this.draggingDisabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed) && (this.value >= 0 || this.relative)) {
       this.dragEnd.emit(this.value);
     }
     this.reset();

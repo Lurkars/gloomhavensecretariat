@@ -2599,9 +2599,13 @@
       "hint": "Drag'n'drop for the figure list. Warning, if disabled and no initiative is required, there is no way to re-order the figures manually."
     },
     "dragValues": {
-      "": "Drag Initiative/HP/XP/Loot",
+      "": "Drag Values",
       "hint": "Drag support for changing values. To change initiative drag over the character portrait. For hit points, experience and loot drag over the values"
     },
+    "dragValuesHp": "Drag Hit Points",
+    "dragValuesInitiative": "Drag Initiative",
+    "dragValuesLoot": "Drag Loot",
+    "dragValuesXp": "Drag XP",
     "drawRandomItem": {
       "": "Draw Random Item rewards",
       "hint": "Automatically draw a Random Item card."

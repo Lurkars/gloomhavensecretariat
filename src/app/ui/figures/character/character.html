@@ -29,7 +29,7 @@
   <ghs-pointer-input class="drag-initiative"
     (dragMove)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && dragInitiativeMove($event)"
     (dragEnd)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && dragInitiativeEnd($event)"
-    (singleClick)="toggleFigure($event)"
+    [draggingDisabled]="!settingsManager.settings.dragValuesInitiative" (singleClick)="toggleFigure($event)"
     (doubleClick)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && initiativeDoubleClick($event)"
     [ngClass]="{'outer-denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round && !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
   </ghs-pointer-input>
@@ -158,8 +158,8 @@
             @if (!settingsManager.settings.hideCharacterHP) {
             <div class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'" ghs-pointer-input
               (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" (dragCancel)="dragCancel($event)"
-              [relative]="true" [screenWidth]="true" [fastShift]="true" (singleClick)="openEntityMenu()"
-              (doubleClick)="toggleDamageHP()">
+              [draggingDisabled]="!settingsManager.settings.dragValuesHp" [relative]="true" [screenWidth]="true"
+              [fastShift]="true" (singleClick)="openEntityMenu()" (doubleClick)="toggleDamageHP()">
               <img [ngClass]="{'damage' : settingsManager.settings.damageHP}"
                 [src]="'./assets/images/' + (settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')" />
               @if (!settingsManager.settings.damageHP) {
@@ -307,7 +307,8 @@
       @if (!bb && !settingsManager.settings.hideCharacterXP) {
       <span class="experience" [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'" ghs-pointer-input
         (singleClick)="addExperience(1)" (doubleClick)="addExperience(-1)" (dragMove)="dragXpMove($event)"
-        (dragEnd)="dragXpEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true">
+        (dragEnd)="dragXpEnd($event)" (dragCancel)="dragCancel($event)"
+        [draggingDisabled]="!settingsManager.settings.dragValuesXp" [relative]="true" [screenWidth]="true">
         {{character.experience + experience}}
         <img src="./assets/images/status/experience.svg" />
         <span class="value-overlay" [value-sign]="experience" [hideEmpty]="true" [container]="true"></span>
@@ -317,7 +318,8 @@
       !gameManager.fhRules()) && !settingsManager.settings.hideCharacterLoot) {
       <span class="loot" [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'" ghs-pointer-input
         (singleClick)="addLoot(1)" (doubleClick)="addLoot(-1)" (dragMove)="dragLootMove($event)"
-        (dragEnd)="dragLootEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true">
+        (dragEnd)="dragLootEnd($event)" (dragCancel)="dragCancel($event)"
+        [draggingDisabled]="!settingsManager.settings.dragValuesLoot" [relative]="true" [screenWidth]="true">
         {{character.loot + loot}}
         <img src="./assets/images/status/loot.svg" />
         <span class="value-overlay" [value-sign]="loot" [hideEmpty]="true" [container]="true"></span>

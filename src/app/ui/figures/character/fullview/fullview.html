@@ -22,7 +22,7 @@
       <ghs-pointer-input class="drag-initiative"
         (dragMove)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && dragInitiativeMove($event)"
         (dragEnd)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && dragInitiativeEnd($event)"
-        (singleClick)="toggleFigure($event)"
+        [draggingDisabled]="!settingsManager.settings.dragValuesInitiative" (singleClick)="toggleFigure($event)"
         (doubleClick)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && initiativeDoubleClick($event)"
         [ngClass]="{'outer-denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round && !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
       </ghs-pointer-input>
