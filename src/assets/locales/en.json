@@ -998,8 +998,8 @@
           "gh2e": "Remove event {1} from the %game.events.type.{0}% deck."
         },
         "reputation": "Gain {0} reputation.",
-        "reputationFaction": "Gain {1} %data.gh2eFaction:{0}% reputation",
         "reputationAdditional": "Gain {0} additional reputation.",
+        "reputationFaction": "Gain {1} %data.gh2eFaction:{0}% reputation",
         "resource": "Gain {0} %game.resource.{1}% each.",
         "resourceType": "Gain any {0} %game.loot.{1}% each.",
         "scenarioCondition": {
