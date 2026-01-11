@@ -81,7 +81,7 @@
         "": "Postać",
         "abilities": {
             "currentDeck": "Bieżąca talia",
-            "deckWarning": "Nie można poprawnie wybrać kart — w talii jest zbyt wiele kart!",
+            "deckWarning": "Nie można zapisać — w talii jest zbyt wiele kart!",
             "enhancements": {
                 "apply": "Zastosuj",
                 "baseCosts": "Koszty bazowe",
@@ -1958,7 +1958,8 @@
             "unlockCharacter": {
                 "": "Odblokuj",
                 "box": "Pudełko klasy %game.characterIcon.{0}%"
-            },
+            }
+        },
             "rules": {
                 "addSection": "Otwórz Sekcję {1}",
                 "addSectionIndex": "Otwórz Sekcję #{0} {1}",
@@ -2004,8 +2005,7 @@
                 "finishWithConclusion": "Zakończ scenariusz z #{0} {1}",
                 "hide": "Nie pokazuj ponownie",
                 "openRoom": "Otwórz drzwi",
-                "openRoomMarker": "Otwórz drzwi %game.mapMarker.{0}%"
-            },
+                "openRoomMarker": "Otwórz drzwi %game.mapMarker.{0}%",
             "randomDungeon": {
                 "dungeon": {
                     "": "Dobierz {0} losowych kart z talii losowego lochu. (ręcznie)",
