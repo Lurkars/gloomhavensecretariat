@@ -1230,9 +1230,9 @@
 
   "character": {
     "fh": {
-      "banner-spear": "Włócznia Sztandarowa",
+      "banner-spear": "Włócznia Sztandaru",
       "blinkblade": {
-        "": "Mignostrzał",
+        "": "Ostrzobłysk",
         "fast": "Szybki",
         "slow": "Powolny",
         "time_tokens": {
@@ -1244,7 +1244,7 @@
         }
       },
       "boneshaper": {
-        "": "Kościomanta",
+        "": "Kościodziej",
         "solid-bones": {
           "": "Twarde Kości",
           "hint": "Wszystkie Szkieletowe Pomioty mają +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
@@ -1255,14 +1255,14 @@
         }
       },
       "deathwalker": {
-        "": "Kroczący w Śmierci",
+        "": "Śmierciobieżca",
         "tokens": {
           "shadow": "Żeton Cienia"
         }
       },
-      "drifter": "Wędrowiec",
+      "drifter": "Dryfiarz",
       "geminate": {
-        "": "Bliźniak",
+        "": "Bliźniacznik",
         "melee": "Walka Wręcz",
         "range": "Zasięg"
       }
@@ -1713,7 +1713,7 @@
     }
   },
   "deck": {
-    "archer": "Archer",
+    "archer": "Łucznik",
     "boss": "Boss",
     "guard": "Guard",
     "imp": "Imp",
@@ -1726,7 +1726,7 @@
   "monster": {
     "abael-herder": "Abael Herder",
     "abael-scout": "Abael Scout",
-    "algox-archer": "Algox Archer",
+    "algox-archer": "Algox Łucznik",
     "algox-guard": "Algox Guard",
     "algox-icespeaker": "Algox Icespeaker",
     "algox-priest": "Algox Priest",
