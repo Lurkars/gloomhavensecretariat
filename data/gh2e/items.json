@@ -32,8 +32,7 @@
         "value": "%data.items.gh2e-2.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 3,
@@ -52,8 +51,7 @@
         "value": "%data.items.gh2e-3.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 4,
@@ -70,8 +68,7 @@
         "value": "%data.items.gh2e-4.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 5,
@@ -123,8 +120,7 @@
         "type": "heal",
         "value": 1
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 7,
@@ -141,8 +137,7 @@
         "value": "%data.items.gh2e-7.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 8,
@@ -159,8 +154,7 @@
         "value": "%data.items.gh2e-8.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 9,
@@ -302,8 +296,7 @@
         "value": "%data.items.gh2e-14.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 15,
@@ -319,8 +312,7 @@
         "value": "%data.items.gh2e-15.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 16,
@@ -348,8 +340,7 @@
           }
         ]
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 17,
@@ -366,8 +357,7 @@
         "value": "%data.items.gh2e-17.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 18,
@@ -434,8 +424,7 @@
         "value": "%data.items.gh2e-20.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 21,
@@ -488,8 +477,7 @@
         "value": "%data.items.gh2e-23.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 24,
@@ -506,8 +494,7 @@
         "value": "%data.items.gh2e-24.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 25,
@@ -524,8 +511,7 @@
         "value": "%data.items.gh2e-25.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 26,
@@ -542,8 +528,7 @@
         "value": "%data.items.gh2e-26.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 27,
@@ -560,8 +545,7 @@
         "value": "%data.items.gh2e-27.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 28,
@@ -580,8 +564,7 @@
         "value": "%data.items.gh2e-28.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 29,
@@ -638,8 +621,7 @@
         "type": "custom",
         "value": "%data.items.gh2e-31.2%"
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 32,
@@ -679,8 +661,7 @@
         "small": true
       }
     ],
-    "loss": true,
-    "noArtwork": true
+    "loss": true
   },
   {
     "id": 33,
@@ -696,8 +677,7 @@
         "value": "%data.items.gh2e-33.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 34,
@@ -738,8 +718,7 @@
         "value": "%data.items.gh2e-35.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 36,
@@ -791,8 +770,7 @@
         "type": "heal",
         "value": 6
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 38,
@@ -826,8 +804,7 @@
           }
         ]
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 39,
@@ -844,8 +821,7 @@
       "attack": 2,
       "movement": 2,
       "range": 0
-    },
-    "noArtwork": true
+    }
   },
   {
     "id": 40,
@@ -918,8 +894,7 @@
           }
         ]
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 43,
@@ -936,8 +911,7 @@
         "value": "%data.items.gh2e-43.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 44,
@@ -1032,8 +1006,7 @@
         "value": "%data.items.gh2e-47.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 48,
@@ -1056,8 +1029,7 @@
         "type": "element",
         "value": "wild"
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 49,
@@ -1073,8 +1045,7 @@
         "value": "%data.items.gh2e-49.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 50,
@@ -1177,8 +1148,7 @@
         "type": "heal",
         "value": 2
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 53,
@@ -1195,8 +1165,7 @@
         "value": "%data.items.gh2e-53.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 54,
@@ -1259,8 +1228,7 @@
         "value": "(1,0,target)|(0,1,target)|(1,1,target)",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 56,
@@ -1277,8 +1245,7 @@
         "value": "%data.items.gh2e-56.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 57,
@@ -1314,8 +1281,7 @@
         "small": true
       }
     ],
-    "loss": true,
-    "noArtwork": true
+    "loss": true
   },
   {
     "id": 59,
@@ -1332,8 +1298,7 @@
         "value": "%data.items.gh2e-59.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 60,
@@ -1350,8 +1315,7 @@
         "value": "%data.items.gh2e-60.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 61,
@@ -1368,8 +1332,7 @@
         "value": "%data.items.gh2e-61.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 62,
@@ -1385,8 +1348,7 @@
         "value": "%data.items.gh2e-62.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 63,
@@ -1420,8 +1382,7 @@
         "type": "heal",
         "value": 2
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 64,
@@ -1439,8 +1400,7 @@
         "small": true
       }
     ],
-    "loss": true,
-    "noArtwork": true
+    "loss": true
   },
   {
     "id": 65,
@@ -1462,8 +1422,7 @@
         "value": "(0,0,active)|(1,0,target)|(2,0,target)",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 66,
@@ -1498,8 +1457,7 @@
         "value": "invisible"
       }
     ],
-    "loss": true,
-    "noArtwork": true
+    "loss": true
   },
   {
     "id": 67,
@@ -1533,8 +1491,7 @@
         "value": "%data.items.gh2e-68.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 69,
@@ -1729,8 +1686,7 @@
         "value": "%data.items.gh2e-77.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 78,
@@ -1757,8 +1713,7 @@
           }
         ]
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 79,
@@ -1774,8 +1729,7 @@
         "value": "%data.items.gh2e-79.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 80,
@@ -1815,8 +1769,7 @@
         "value": "%data.items.gh2e-81.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 82,
@@ -1833,8 +1786,7 @@
         "value": "%data.items.gh2e-82.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 83,
@@ -1851,8 +1803,7 @@
         "value": "%data.items.gh2e-83.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 84,
@@ -1869,8 +1820,7 @@
         "value": "%data.items.gh2e-84.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 85,
@@ -1887,8 +1837,7 @@
         "value": "%data.items.gh2e-85.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 86,
@@ -1905,8 +1854,7 @@
         "value": "%data.items.gh2e-86.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 87,
@@ -1922,8 +1870,7 @@
         "value": "%data.items.gh2e-87.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 88,
@@ -1941,8 +1888,7 @@
         "value": "%data.items.gh2e-88.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 89,
@@ -1961,8 +1907,7 @@
         "value": "%data.items.gh2e-89.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 90,
@@ -1988,8 +1933,7 @@
         "value": "%data.items.gh2e-90.2%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 91,
@@ -2006,8 +1950,7 @@
         "value": "%data.items.gh2e-91.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 92,
@@ -2024,8 +1967,7 @@
         "value": "%data.items.gh2e-92.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 93,
@@ -2075,8 +2017,7 @@
           }
         ]
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 95,
@@ -2128,8 +2069,7 @@
         "value": "%data.items.gh2e-97.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 98,
@@ -2145,8 +2085,7 @@
         "value": "%data.items.gh2e-98.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 99,
@@ -2182,8 +2121,7 @@
           }
         ]
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 100,
@@ -2240,8 +2178,7 @@
         "value": "%data.items.gh2e-102.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 103,
@@ -2323,8 +2260,7 @@
           }
         ]
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 106,
@@ -2341,8 +2277,7 @@
         "value": "%data.items.gh2e-106.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 107,
@@ -2374,8 +2309,7 @@
         "type": "heal",
         "value": 1
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 108,
@@ -2395,8 +2329,7 @@
         "type": "loot",
         "value": 1
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 109,
@@ -2412,8 +2345,7 @@
         "value": "%data.items.gh2e-109.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 110,
@@ -2429,8 +2361,7 @@
         "value": "%data.items.gh2e-110.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 111,
@@ -2462,8 +2393,7 @@
           }
         ]
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 112,
@@ -2479,8 +2409,7 @@
         "value": "%data.items.gh2e-112.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 113,
@@ -2500,8 +2429,7 @@
         "type": "card",
         "value": "persistent"
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 114,
@@ -2609,8 +2537,7 @@
         "value": "%data.items.gh2e-119.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 120,
@@ -2631,8 +2558,7 @@
         "type": "condition",
         "value": "strengthen"
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 121,
@@ -2674,8 +2600,7 @@
         "value": "%data.items.gh2e-121.2%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 122,
@@ -2866,8 +2791,7 @@
         "value": "%data.items.gh2e-128.2%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 129,
@@ -2889,8 +2813,7 @@
         "type": "condition",
         "value": "ward"
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 130,
@@ -2906,8 +2829,7 @@
       "attack": 2,
       "movement": 1,
       "range": 0
-    },
-    "noArtwork": true
+    }
   },
   {
     "id": 131,
@@ -2960,8 +2882,7 @@
           }
         ]
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 132,
@@ -2981,8 +2902,7 @@
         "type": "move",
         "value": 2
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 133,
@@ -3002,8 +2922,7 @@
         "type": "attack",
         "value": -1
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 134,
@@ -3019,8 +2938,7 @@
       "attack": 3,
       "movement": 2,
       "range": 0
-    },
-    "noArtwork": true
+    }
   },
   {
     "id": 135,
@@ -3036,8 +2954,7 @@
         "value": "%data.items.gh2e-135.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 136,
@@ -3094,8 +3011,7 @@
           }
         ]
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 137,
@@ -3110,8 +3026,7 @@
         "value": "%data.items.gh2e-137.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 138,
@@ -3127,8 +3042,7 @@
         "value": "%data.items.gh2e-138.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 139,
@@ -3227,8 +3141,7 @@
         "value": "%data.items.gh2e-142.1%",
         "small": true
       }
-    ],
-    "noArtwork": true
+    ]
   },
   {
     "id": 143,

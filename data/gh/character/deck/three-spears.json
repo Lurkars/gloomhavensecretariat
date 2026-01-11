@@ -25,7 +25,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ]
         }
       ]
@@ -64,7 +64,7 @@
           "type": "heal",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -346,7 +346,7 @@
           "type": "attack",
           "value": 1,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -374,8 +374,8 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle",
-            "circle"
+            "diamond",
+            "diamond"
           ],
           "subActions": [
             {
@@ -550,7 +550,7 @@
           "type": "attack",
           "value": 1,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ]
         },
         {
@@ -705,7 +705,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -812,7 +812,7 @@
           "type": "condition",
           "value": "stun",
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -927,7 +927,7 @@
           "type": "attack",
           "value": 1,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -955,7 +955,7 @@
           "type": "condition",
           "value": "immobilize",
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1036,7 +1036,7 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1203,7 +1203,7 @@
           "type": "condition",
           "value": "disarm",
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {

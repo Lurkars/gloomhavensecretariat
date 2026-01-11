@@ -119,7 +119,7 @@
           "type": "attack",
           "value": 1,
           "enhancementTypes": [
-            "square"
+            "diamond"
           ],
           "subActions": [
             {
@@ -190,7 +190,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -198,7 +198,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -215,7 +215,7 @@
           "type": "attack",
           "value": 2,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -288,7 +288,7 @@
           "type": "move",
           "value": 2,
           "enhancementTypes": [
-            "square"
+            "circle"
           ]
         },
         {
@@ -314,7 +314,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "square"
+            "diamond"
           ],
           "subActions": [
             {
@@ -335,14 +335,14 @@
           "type": "move",
           "value": 2,
           "enhancementTypes": [
-            "square"
+            "circle"
           ]
         },
         {
           "type": "condition",
           "value": "curse",
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -364,7 +364,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "square"
+            "diamond"
           ],
           "subActions": [
             {
@@ -416,7 +416,7 @@
           "type": "attack",
           "value": 1,
           "enhancementTypes": [
-            "square"
+            "diamond"
           ],
           "subActions": [
             {
@@ -442,7 +442,7 @@
           "type": "move",
           "value": 6,
           "enhancementTypes": [
-            "square"
+            "circle"
           ],
           "subActions": [
             {
@@ -542,7 +542,7 @@
           "type": "attack",
           "value": 2,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -550,7 +550,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -622,7 +622,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -717,7 +717,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -794,8 +794,8 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle",
-            "circle"
+            "diamond",
+            "diamond"
           ],
           "subActions": [
             {
@@ -832,7 +832,7 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -867,7 +867,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -923,7 +923,7 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1008,7 +1008,7 @@
           "type": "attack",
           "value": 1,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1286,8 +1286,8 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle",
-            "circle"
+            "diamond",
+            "diamond"
           ],
           "subActions": [
             {
@@ -1295,7 +1295,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -1443,7 +1443,7 @@
           "type": "condition",
           "value": "curse",
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1469,7 +1469,7 @@
               "type": "area",
               "value": "(0,1,target)|(0,2,target)|(0,3,target)|(1,0,enhance)|(1,1,target)|(1,2,target)|(1,3,target)|(1,4,target)|(2,0,enhance)|(2,1,target)|(2,2,target)|(2,3,target)|(2,4,target)|(3,2,target)",
               "enhancementTypes": [
-                "circle"
+                "hex"
               ]
             },
             {
@@ -1495,7 +1495,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -1717,7 +1717,7 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1725,7 +1725,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {

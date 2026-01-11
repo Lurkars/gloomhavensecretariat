@@ -1,14 +1,14 @@
 {
   "about": {
     "": "소개",
-    "forceUpdate": "강제 갱신",
+    "forceUpdate": "강제 업데이트",
     "ip": "글룸헤이븐과 관련된 모든 속성, 이미지, 텍스트는 {0}의 소유입니다.",
     "license": "{0} 라이센스.",
     "sourceCode": "소스 코드",
     "support": "개발 지원",
     "version": {
       "latest": "최신",
-      "unknown": "최신 버전을 가져올 수 없습니다",
+      "unknown": "최신 버전입니다",
       "update": "최신 버전: <a target=\"_blank\" href=\"{1}\">{0}</a>"
     }
   },
@@ -22,23 +22,23 @@
   },
   "campaign": {
     "": "캠페인/캐릭터 관리",
-    "battleGoals": "전투 목표 설정",
+    "battleGoals": "전투 목표 뽑기",
     "campaignManagement": {
       "": "캠페인 관리",
       "add": "캠페인 추가",
-      "hint": "시나리오 도중에는 현재 캠페인 변경 또는 새 캠페인 생성이 비활성화됩니다. 현재 캠페인을 변경하거나 새 캠페인을 만들려면 현재 시나리오를 완료하거나 취소하십시오.",
+      "hint": "시나리오 진행중에는 캠페인을 변경하거나 새 캠페인을 만들 수 없습니다.",
       "name": "캠페인 이름 {0}",
       "reset": "캠페인 초기화"
     },
     "character": "캐릭터 시트",
     "enhancements": "향상 계산기",
-    "items": "아이템 카드 둘러보기",
+    "items": "활성화된 아이템 카드 보기",
     "map": {
       "": "세계 지도",
       "highlighting": "강조"
     },
     "party": "파티/캠페인 기록지",
-    "resources": "자원 개요 표",
+    "resources": "자원 현황",
     "sheet": "전역 캠페인 관리 기록지",
     "trials": {
       "": "평가판",
@@ -102,7 +102,7 @@
         "level": "레벨 비용",
         "lost": "소실 기호",
         "multiTarget": "다수 대상",
-        "persistent": "지속 기호",
+        "persistent": "지속 효과",
         "temporary": "일회성",
         "types": {
           "any": "모든",
@@ -216,13 +216,16 @@
           "building": "'%data.buildings.{1}%' ({0}) 건물 해금",
           "inspiration": "영감 +1",
           "itemBlueprint": "\"%data.items.{1}-{0}%\" ({0}) 제작 아이템 도안 획득",
-          "randomScenario": "%data.section:{0}% 열기, %data.scenarioNumber:{1}% 해제"
+          "itemBlueprintInfo": "무작위 아이템 도면 획득.",
+          "randomScenario": "%data.section:{0}% 열기, %data.scenarioNumber:{1}% 해제",
+          "randomScenarioInfo": "무작위 시나리오 획득."
         },
         "unlockCharacter": {
           "": "%game.characterIcon.{0}% 박스 열기",
           "itemDesign": "\"%data.items.{1}-{0}%\" ({0}) 도안 획득",
           "randomScenario": "\"{1}\" %data.scenarioNumber:{0}% 해제"
-        }
+        },
+        "unlockPQ": "개인 퀘스트 해금 {0}"
       },
       "resources": {
         "": "자원",
@@ -302,7 +305,7 @@
             "status": "반응 코드 '{0}' 값에 의한 자동 백업 실패. 세부 사항은 브라우저 콘솔을 통해 확인하십시오.",
             "unknown": "알 수 없는 이유로 자동 백업이 실패하였습니다. 세부 사항은 브라우저 콘솔을 통해 확인하십시오."
           },
-          "hint": "자동 백업 파일을 로드하지 않는 대신 데이터를 업로드할 URL을 설정하세요. 파일 이름 자리 표시자로 {FILENAME}을 사용할 수 있습니다. (이 기능이 작동하려면 적절한 CORS 설정이 필요합니다!)"
+          "hint": "데이터를 업로드할 URL을 설정하세요. (URL에 적절한 CORS 설정이 필요합니다!) 파일 이름에는 {FILENAME} 또는 {WINDOWS_FILENAME}을 사용할 수 있습니다."
         },
         "uploadUrlAuthorization": {
           "": "인증 헤더",
@@ -350,14 +353,14 @@
     },
     "exportDataDump": "데이터 덤프 내보내기",
     "exportGame": "파일로 게임 내보내기",
-    "exportSettings": "파일로 설정 내보내기",
+    "exportSettings": "설정 값 저장",
     "importDataDump": "데이터 덤프 가져오기",
     "importFile": {
       "": "파일추가",
-      "hint": "게임, 백업, 데이터덤프 또는 설정과 같은 내보낸 파일을 가져옵니다. 한번 더 클릭하여 가져옵니다!"
+      "hint": "설정 값, 게임 데이터, 백업 데이터, 덤프 데이터를 불러옵니다. 두 번 눌러야 활성화 됩니다!"
     },
     "importGame": "파일에서 게임 가져오기",
-    "importSettings": "파일에서 설정 가져오기",
+    "importSettings": "설정 값 불러오기",
     "removeAllSpoilers": "모두 삭제하기",
     "removeAllUnlocks": "모두 삭제하기",
     "removeSpoiler": "스포일러 항목 제거하기",
@@ -570,6 +573,7 @@
       "perks": {
         "": "특혜",
         "additional": "{0} 및 {1}",
+        "additionalTwo": "{0}, {1} 및 {2}",
         "card": "카드",
         "cardLabel": "{1} {2} {0}",
         "cards": {
@@ -586,6 +590,7 @@
           "refreshItemFh": "%game.card.recover% : 아이템 하나",
           "refreshSpentItem": "소모된 아이템 재생"
         },
+        "monsterDeck": "몬스터 공격 보정 덱에",
         "type": {
           "add": "{0} 추가",
           "remove": "{0} 제거",
@@ -657,6 +662,7 @@
       "revealAllConfirm": "모두 공개!",
       "shuffle": {
         "": "섞기",
+        "allHint": "더블 클릭 시, 모든 카드를 섞습니다!",
         "upcomingHint": "두 번 클릭하면 다음 카드만 섞을 수 있습니다!"
       }
     },
@@ -728,6 +734,9 @@
       "permanent": {
         "": "영속",
         "hint": "영구적인 상태"
+      },
+      "plague": {
+        "": "역병 토큰"
       },
       "poison": {
         "": "중독",
@@ -816,41 +825,109 @@
         "": "이벤트 해결",
         "notApply": "결과 무시하고 해결"
       },
+      "applyManually": "수동으로 적용:",
       "conditions": {
+        "and": "및",
+        "building": "",
+        "campaignSticker": "",
+        "loseCollectiveGold": "공동으로 {0} 골드를 잃습니다",
+        "loseCollectiveResource": "공동으로 %game.resource.{1}% {0}개를 잃습니다",
+        "loseCollectiveResourceType": "공동으로 %game.loot.{1}% {0}개를 잃습니다",
+        "loseResource": "%game.resource.{1}% {0}개를 잃습니다",
+        "loseResourceType": "%game.loot.{1}% {0}개를 잃습니다",
         "moraleGT": "사기 > {0}",
         "moraleLT": "사기 < {0}",
         "otherwise": "그 외의 경우",
         "payCollectiveGold": "파티에서 합하여 금화 총 {0}개를 모아서 지불",
-        "payCollectiveGoldConditional": "{0} ({1}) 또는 금화 총 {2} ({3})개를 모아서 지불",
+        "payCollectiveGoldConditional": {
+          "connector": "또는",
+          "prefix": "지불",
+          "suffix": "골드 획득"
+        },
+        "payCollectiveGoldReputationGT": "{0} (평판 > {1})",
+        "payCollectiveGoldReputationLT": "{0} (평판 < {1})",
+        "payGold": "공동으로 {0} 골드 지불",
         "reputationGT": "평판 > {0}",
         "reputationLT": "평판 < {0}"
       },
       "deck": {
+        "addCard": "이벤트 카드 추가",
         "allTypes": "모든 덱 보기",
         "draw": "카드 뽑기",
         "drawn": "해결됨 ({0})",
         "filter": "카드 번호로 검색",
         "new": "잠김 ({0})",
+        "removeCard": "이벤트 카드 제거",
+        "removeDrawn": "뽑은 카드 제거",
+        "removeSelection": "결과 값 재설정",
         "resolved": "해결된 이벤트 보기",
         "setup": "이벤트 덱 설정",
+        "show": "모든 이벤트 카드 보기",
+        "shuffle": "이벤트 카드 덱 섞기",
         "upcoming": "덱 구성 ({0})"
       },
       "effects": {
+        "additionally": "추가",
+        "and": "및",
+        "automation": "자동으로 효과 적용",
+        "battleGoal": "각자 %game.checkmark% {0} 획득.",
+        "campaignSticker": "캠페인 스티커 \"%data.campaignSticker.{0}%\" 획득.",
         "campaignStickerMap": "\"%data.campaignSticker.{0}%\" 캠페인 스티커를 마을 지도의 {1} 장소에 붙임.",
         "campaignStickerReplace": "\"%data.campaignSticker.{0}%\" 캠페인 스티커를 \"%data.campaignSticker.{1}%\" 위에 붙임.",
+        "choose": {
+          "connector": "또는",
+          "prefix": "선택"
+        },
         "collectiveGold": "파티에서 합하여 금화를 총 {0}개 획득.",
+        "collectiveGoldAdditional": "각자 {0} 골드 획득.",
+        "collectiveGoldOther": "공동으로 {0| 골드 획득.",
         "collectiveItem": "파티에서 합하여 \"%data.items.{1}-{0}%\" (아이템 {0}) 총 {2}개 획득.",
+        "collectiveResource": "공동으로 %game.resource.{1}% {0}개 획득.",
+        "collectiveResourceType": "공동으로 %game.loot.{1}% {0}개 획득.",
         "consumeCollectiveItem": "파티에서 합하여 %game.itemSlot:{1}% 아이템 총 {0}개 소비.",
         "consumeItem": "각자 %game.itemSlot:{1}% 아이템 {0}개 소비.",
-        "discard": "각자 카드 {0}장 버리기.",
-        "event": "%game.events.type.{0}% 이벤트 {1}번을 덱에 추가.",
-        "experience": "각자 경험치 {0}점 획득.",
+        "discard": {
+          "": "{0}장의 카드를 버립니다.",
+          "fh": "모든 플레이어는 {0}장의 카드를 버린 후 다음 시나리오를 시작합니다.",
+          "gh2e": "모든 플레이어는 {0}장의 카드를 버린 후 다음 시나리오를 시작합니다."
+        },
+        "discardOne": {
+          "": "각자 카드 1장 버리기.",
+          "fh": "각 캐릭터는 카드 1장을 버리고 다음 시나리오를 시작합니다.",
+          "gh2e": "각 캐릭터는 카드 1장을 버리고 다음 시나리오를 시작합니다."
+        },
+        "drawAnotherEvent": {
+          "": "다른 %game.events.type.{0}% 이벤트 카드를 뽑습니다.",
+          "fh": "다른 %game.events.type.{0}% 이벤트 카드를 해결합니다.",
+          "gh2e": "다른 %game.events.type.{0}% 이벤트 카드를 해결합니다."
+        },
+        "drawEvent": "%game.events.type.{0}% 이벤트 카드를 뽑습니다.",
+        "event": {
+          "": "%game.events.type.{0}% 이벤트 카드 {1}를 추가합니다.",
+          "fh": "%game.events.type.{0}% 이벤트 카드 {1}를 추가합니다."
+        },
+        "experience": {
+          "": "{0} %game.card.experience% 경험치 획득.",
+          "fh": "각자 {0} %game.card.experience% 경험치 획득.",
+          "gh2e": "각자 {0} %game.card.experience% 경험치 획득."
+        },
+        "gainTrait": "각자 %game.trait:{0}% 획득.",
         "globalAchievement": "전역 업적: \"%data.globalAchievements.{0}%\".",
         "gold": "각자 금화 {0}개 획득.",
         "goldAdditional": "추가로 각자 금화 {0}개 획득.",
+        "inspiration": "영감 {0} 획득.",
+        "item": {
+          "": "\"%data.items.{1}-{0}%\" (아이템 {0}) 획득.",
+          "fh": "\"%data.items.{1}-{0}%\" %game.itemFh.{0}% 획득.",
+          "gh2e": "\"%data.items.{1}-{0}%\" %game.itemFh.{0}% 획득."
+        },
+        "itemCollective": "공동으로 \"%data.items.{2}-{0}%\" (아이템 {0}) 획득.",
         "itemDesign": "\"%data.items.{1}-{0}%\" 도안 (아이템 {0}) 획득.",
         "loseBattleGoal": "각자 %game.checkmark% {0}개 잃음.",
+        "loseCollectiveExperience": "공동으로 경험치 {0}을 잃습니다.",
         "loseCollectiveGold": "파티에서 합하여 금화를 총 {0}개 잃음.",
+        "loseCollectiveResource": "공동으로 %game.resource.{1}% {0}개를 잃습니다.",
+        "loseCollectiveResourceAny": "공동으로 자원 {0}을 잃습니다.",
         "loseGold": "각자 금화 {0}개 잃음.",
         "loseMorale": "사기 {0}점 하락.",
         "loseProsperity": "번영도 {0}점 잃음.",
@@ -869,6 +946,7 @@
         "scenarioCondition": "모두 %game.condition.{0}% 상태로 시나리오 시작.",
         "scenarioDamage": "모두 피해 {0}점을 받고 시나리오 시작.",
         "scenarioSingleMinus1": "%game.card.minus1% {0}장을 공격 보정 덱에 섞어 넣고 시나리오 시작.",
+        "townGuardDeckCards": "마을 경비대 덱에 %game.number.{1}% %game.townGuardAM:{0}% 카드를 추가합니다.",
         "unlockScenario": "%data.scenarioNumber:{0}%번 시나리오 “%data.scenario.title.{1}.{0}%” 해금."
       },
       "option": {
@@ -1938,8 +2016,8 @@
     "port": "포트",
     "reconnect": "다시 연결하기",
     "settings": {
-      "": "설정 동기화하기",
-      "hint": "이 옵션을 사용하면 게임 외에 모든 클라이언트의 설정도 동기화됩니다. 물론 화면이나 인터페이스에 대한 일부 옵션처럼 모든 설정이 <b>동기화되지 않습니다.</b>"
+      "": "설정 동기화",
+      "hint": "모든 플레이어의 설정을 동기화합니다. 단, 화면이나 인터페이스 등 의<b>일부 옵션은 동기화 되지 않습니다</b>."
     },
     "undefined": "지정되지 않은 연결",
     "url": "호스트",
@@ -1952,7 +2030,7 @@
     "": "설정",
     "abilities": {
       "": "능력 카드",
-      "hint": "몬스터의 능력 카드를 뽑습니다. 이 옵션을 선택하지 않으면 몬스터의 순서를 수동으로 설정해야 합니다."
+      "hint": "몬스터의 능력 카드를 자동으로 뽑습니다. 비활성화 시, 수동으로 설정해야 합니다."
     },
     "abilityNumbers": {
       "": "능력 카드 번호 보기",
@@ -1960,23 +2038,24 @@
     },
     "abilityReveal": {
       "": "즉시 능력 카드 공개하기",
-      "hint": "비활성화 시, 몬스터의 능력은 차례까지 공개되지 않습니다."
+      "hint": "비활성화 시, 각 몬스터의 능력은 해당 몬스터의 차례 시 공개됩니다"
     },
     "activeApplyConditions": {
-      "": "적용할 수 있는 상태 확인하기",
+      "": "적용 가능한 상태를 확인합니다",
       "auto": {
         "": "자동 적용",
         "hint": {
-          "": "상태이상 효과를 자동으로 적용합니다.<br><br>이 기능을 활성화할 때 주의하세요!",
-          "brittle": "%game.condition.brittle%상태에서 피해를 입을 때, 자동으로 추가 피해를 입습니다.<br><br>%game.condition.poison%은 자동으로 적용되지 않습니다!",
-          "heal": "체력이 증가하면 %game.action.heal%시 제거되는 부정적 상태이상을 자동으로 제거합니다.",
-          "shield": "피해를 입을 때, 공격 수치를 자동으로%game.action.shield%X만큼 줄입니다.",
-          "ward": "%game.condition.ward%상태에서 피해를 입을 때, 자동으로 피해량이 줄어듭니다.<br><br>%game.condition.poison%은 자동으로 적용되지 않습니다!"
+          "": "상태 이상을 자동으로 적용합니다.<br><br>이 기능을 활성화 되었다면, 예외 상황을 주의하세요!",
+          "brittle": "%game.condition.brittle%상태에서 피해를 받을 때, 추가 피해를 자동으로 적용합니다.<br><br>%game.condition.poison%에 의한 피해량은 적용되지 않습니다!",
+          "heal": "치료%game.action.heal%시 부정적 상태 이상을 자동으로 제거합니다.",
+          "shield": "공격에 의한 피해량이 방어%game.action.shield% 값 만큼 자동으로 감소합니다.",
+          "ward": "%game.condition.ward%상태에서 피해를 받을 때, 자동으로 피해량이 감소합니다.<br><br>%game.condition.poison%은 자동으로 적용되지 않습니다!"
         }
       },
       "hint": {
-        "": "중독으로 체력을 감소시키는 경우와 같이 특정 조건을 적용하려면 확인이 필요합니다.<br>체력 1 감소 확인",
+        "": "중독 상태에서 체력을 감소 시키는 경우, 체력 감소에 대한 확인이 필요합니다",
         "brittle": "피해를 입을 때, %game.condition.brittle%을 적용하여 피해를 입습니다.",
+        "heal": "부정적 상태에서 치료%game.action.heal%시 도움됩니다.",
         "poison": "%game.condition.poison%상태에서 피해를 입을 때, %game.action.attack% +1(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
         "poison_x": "%game.condition.poison_x:X%상태에서 피해를 입을 때, %game.action.attack% +X(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
         "shield": "피해를 입을 때,%game.action.shield%를 적용해야하는 경우에 도움이 됩니다.",
@@ -1985,7 +2064,7 @@
     },
     "activeStandees": {
       "": "몬스터 말 활성화",
-      "hint": "몬스터의 차례에, 각 몬스터 말은 활성화 상태를 가집니다. 몬스터 말을 두 번 클릭하여 완료한 것으로 표시합니다."
+      "hint": "몬스터의 차례에, 각 몬스터 말은 활성화 상태를 가집니다. 몬스터 말을 두 번 클릭하여 완료한 것으로 표시합니다"
     },
     "activeSummons": {
       "": "소환물 활성화",
@@ -2006,11 +2085,11 @@
     },
     "alwaysFhAdvantage": {
       "": "프로스트헤이븐의 이익/불이익 규칙 적용",
-      "hint": "프로스트헤이븐의 이익/불이익 규칙을 적용합니다 (프로스트헤이븐 플레이 시 자동으로 활성화)."
+      "hint": "프로스트헤이븐의 이익/불이익 규칙을 적용합니다"
     },
     "alwaysFhEnhancements": {
       "": "프로스트헤이븐 향상",
-      "hint": "향상 시 프로스트헤이븐의 규칙과 향상 비용을 적용합니다."
+      "hint": "프로스트헤이븐의 향상 규칙을 적용합니다."
     },
     "alwaysFhSolo": {
       "": "프로스트헤이븐 1인 규칙 적용",
@@ -2278,6 +2357,12 @@
     "errata": {
       "": "오류 표시",
       "hint": "시나리오, 섹션 등 게임 진행에 차질이 될만한 오류를 팝업창으로 표시합니다."
+    },
+    "events": {
+      "": "이벤트 카드"
+    },
+    "eventsApply": {
+      "hint": "이벤트 카드 결과를 자동으로 적용합니다 (일부 이벤트 예외)."
     },
     "expireConditions": {
       "": "자동으로 상태 처리",
@@ -2619,12 +2704,12 @@
         "objective": "{0} %game.condition.{1}%",
         "objectiveContainer": "{0} % game.objectiveMarker.{1}% %game.condition.{2}%",
         "objectives": "모든 {0} %game.condition.{1}%",
-        "summon": "{0} '{1}번' %game.condition.{2}%",
+        "summon": "{0}의 '{1}' %game.condition.{2}%",
         "summons": "모든 {0} 소환물 %game.condition.{1}%"
       },
       "addConditions": {
         "char": "{0} %game.condition.{1}% x{2}",
-        "monster": "{0}의 '{1}번' %game.condition.{2}% x{3}",
+        "monster": "{0} '{1}번' %game.condition.{2}% x{3}",
         "monsterEntities": "모든 {2}{0} %game.condition.{1}% x{3}",
         "objective": "{0} %game.condition.{1}% x{2}",
         "objectiveContainer": "{0} %game.objectiveMarker.{1}% %game.condition.{2}% x{3}",
@@ -2677,12 +2762,12 @@
       "addTreasure": "{1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) 보물 추가",
       "addTreasures": "{1} 보물 추가 (%data.edition.{0}%)",
       "applyCondition": {
-        "char": "{0}에게 {1} 적용",
-        "monster": "{0} '{1}번'에게 {2} 적용",
-        "monsterEntities": "모든 {2}{0}에게 {1} 적용",
-        "objective": "{0}에게 {1} 적용",
+        "char": "{0}에게 %game.condition.{1}% 적용",
+        "monster": "{0} '{1}번'에게 %game.condition.{2}% 적용",
+        "monsterEntities": "모든 {2}{0}에게 %game.condition.{1}% 적용",
+        "objective": "{0}에게 %game.condition.{1}% 적용",
         "objectiveContainer": "{0} %game.objectiveMarker.{1}%에게 %game.condition.{2}% 적용",
-        "summon": "{0}의 '{1}'에게 {2} 적용"
+        "summon": "{0}의 '{1}'에게 %game.condition.{2}% 적용"
       },
       "applyHighlightAction": {
         "condition": "%game.condition.{0}%",
@@ -2763,7 +2848,7 @@
         "monsterEntities": "모든 {2}{0}에게 %game.condition.{1}% 해제",
         "objective": "{0}에게 %game.condition.{1}% 해제",
         "objectiveContainer": "{0} %game.objectiveMarker.{1}%에게 %game.condition.{2}% 해제",
-        "summon": "{0}의 {1}에게 %game.condition.{2}% 해제"
+        "summon": "{0}의 '{1}'에게 %game.condition.{2}% 해제"
       },
       "disableAutomaticLevel": "자동 레벨 계산 비활성화",
       "disableEnvelopeB": "봉투 B 비활성화",
@@ -2859,7 +2944,7 @@
       "removeCharacterShieldPersistent": "{0}에게서 %game.card.persistent% %game.action.shield% 제거",
       "removeCondition": {
         "char": "{0}에게서 %game.condition.{1}% 제거",
-        "monster": "{0} {1}번에게서 %game.condition.{2}% 제거",
+        "monster": "{0} '{1}번'에게서 %game.condition.{2}% 제거",
         "monsterEntities": "모든 {2}{0}에게서 %game.condition.{1}% 제거",
         "objective": "{0}에게서 %game.condition.{1}% 제거",
         "objectiveContainer": "{0} %game.objectiveMarker.{1}%에게서 %game.condition.{2}% 제거",
@@ -2929,7 +3014,7 @@
         "summon": "{0}의 '{1}'에게서 %data.characterIconColored.{3}% {2} 마커 제거",
         "summons": "모든 {0} 소환물에게서 %data.characterIconColored.{2}% {1} 마커 제거"
       },
-      "removeMastery": "{0}에게서 숙련 {1} 체크 해제",
+      "removeMastery": "{0}에게서 마스터리 {1} 체크 해제",
       "removeMonster": "{0} 몬스터 제거",
       "removeObjective": "목표물 {0} 제거",
       "removeParty": "'{0}' 파티 제거",
@@ -2963,7 +3048,7 @@
         "monster": "{0} {1}번의 {2} 상태를 변경: {3}",
         "monsterEntities": "모든 {3}{0}에 대해 {1}에서 변경: {2}",
         "objective": "{0}의 {1} 상태를 변경: {2}",
-        "summon": "{0} {1}번의 {2} 상태를 변경: {3}"
+        "summon": "{0}의 '{1}'에게 %game.condition.{2}% {3}"
       },
       "setCustomScenario": "커스텀 시나리오 설정",
       "setDrawExtraAbility": "{0}의 추가 뽑기",

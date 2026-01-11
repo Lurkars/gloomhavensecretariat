@@ -1,0 +1,2079 @@
+{
+  "name": "spellweaver",
+  "edition": "gh2e",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Reviving Ether",
+      "cardId": 61,
+      "level": 1,
+      "initiative": 80,
+      "lost": true,
+      "loss": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.spellweaver.abilities.61.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "wild"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fire Orbs",
+      "cardId": 62,
+      "level": 1,
+      "initiative": 69,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Arcane Bolt",
+      "cardId": 63,
+      "level": 1,
+      "initiative": 70,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "pierce",
+                      "value": 3,
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomXp": 1
+    },
+    {
+      "name": "Flame Strike",
+      "cardId": 64,
+      "level": 1,
+      "initiative": 26,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 1
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "condition",
+                      "value": "wound",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Icy Blast",
+      "cardId": 65,
+      "level": 1,
+      "initiative": 20,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Aid from the Ether",
+      "cardId": 66,
+      "level": 1,
+      "initiative": 36,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "heal",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.spellweaver.abilities.66.1%",
+          "small": true
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Frost Strike",
+      "cardId": 67,
+      "level": 1,
+      "initiative": 78,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "stun",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.spellweaver.abilities.67.1%",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "round",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Emberfrost",
+      "cardId": 68,
+      "level": 1,
+      "initiative": 7,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": 1,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.spellweaver.abilities.68.1%",
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": ":",
+              "small": true
+            },
+            {
+              "type": "shield",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Flameswell",
+      "cardId": 69,
+      "level": "X",
+      "initiative": 83,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.spellweaver.abilities.69.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "ward"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Ice Armor",
+      "cardId": 70,
+      "level": "X",
+      "initiative": 25,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.spellweaver.abilities.70.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStartXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "value": 0,
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.spellweaver.abilities.70.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStartXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "value": 0,
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "bottomPersistent": true
+    },
+    {
+      "name": "Impaling Eruption",
+      "cardId": 71,
+      "level": "X",
+      "initiative": 91,
+      "lost": true,
+      "actions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "immobilize",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,1,target)|(2,0,target)|(2,1,target)|(3,0,enhance)|(3,1,target)|(3,2,enhance)|(4,1,target)|(4,2,target)|(5,1,enhance)",
+              "enhancementTypes": [
+                "hex",
+                "hex",
+                "hex"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Freezing Nova",
+      "cardId": 72,
+      "level": 2,
+      "initiative": 22,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.spellweaver.abilities.72.1%",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Etheric Echo",
+      "cardId": 73,
+      "level": 2,
+      "initiative": 50,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.spellweaver.abilities.73.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "wild"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.spellweaver.abilities.73.2%",
+          "small": true
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Heatwave",
+      "cardId": 74,
+      "level": 3,
+      "initiative": 12,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(0,2,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,enhance)|(2,1,enhance)|(2,2,target)",
+              "enhancementTypes": [
+                "hex",
+                "hex"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "enhancementTypes": [
+                "diamond_plus"
+              ],
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "ally",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.spellweaver.abilities.74.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ]
+        }
+      ],
+      "xp": 1,
+      "bottomRound": true
+    },
+    {
+      "name": "Arctic Shards",
+      "cardId": 75,
+      "level": 3,
+      "initiative": 24,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 10,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ]
+        }
+      ],
+      "bottomXp": 1
+    },
+    {
+      "name": "Dancing Gales",
+      "cardId": 76,
+      "level": 4,
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ]
+        }
+      ],
+      "xp": 1,
+      "bottomXp": 1
+    },
+    {
+      "name": "Cold Fire",
+      "cardId": 77,
+      "level": 4,
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "element",
+                  "value": "fire",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "immobilize"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,enhance)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "element",
+          "value": "wild",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.spellweaver.abilities.77.1%",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "round",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Warm Up",
+      "cardId": 78,
+      "level": 5,
+      "initiative": 60,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.spellweaver.abilities.78.1%",
+          "small": true
+        },
+        {
+          "type": "card",
+          "value": "slotStart"
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 2
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "wild"
+            }
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Cool Down",
+      "cardId": 79,
+      "level": 5,
+      "initiative": 30,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": 1,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Elemental Rays",
+      "cardId": 80,
+      "level": 6,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "concatenation",
+          "value": ",",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun"
+            },
+            {
+              "type": "condition",
+              "value": "curse",
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 3,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ]
+        }
+      ],
+      "bottomXp": 1
+    },
+    {
+      "name": "Searing Glacier",
+      "cardId": 81,
+      "level": 6,
+      "initiative": 90,
+      "lost": true,
+      "actions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 5,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "element",
+                  "value": "fire",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "pierce",
+                      "value": 3
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,2,target)|(1,3,target)|(2,4,target)|(2,5,target)"
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.spellweaver.abilities.81.1%",
+          "small": true
+        }
+      ],
+      "xp": 1,
+      "bottomRound": true
+    },
+    {
+      "name": "Spell Mastery",
+      "cardId": 82,
+      "level": 7,
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.spellweaver.abilities.82.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "wild"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chromatic Explosion",
+      "cardId": 83,
+      "level": 7,
+      "initiative": 10,
+      "lost": true,
+      "actions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "poison",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,0,target)|(0,1,target)|(1,0,target)|(1,1,target)|(1,2,enhance)",
+              "small": true,
+              "enhancementTypes": [
+                "hex"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.spellweaver.abilities.83.1%",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "bless",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            },
+            {
+              "type": "element",
+              "value": "ice"
+            },
+            {
+              "type": "element",
+              "value": "air"
+            },
+            {
+              "type": "element",
+              "value": "earth"
+            },
+            {
+              "type": "element",
+              "value": "light"
+            },
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.spellweaver.abilities.83.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.spellweaver.abilities.83.3%",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "shield",
+                  "value": 3,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Frostflare Orbs",
+      "cardId": 84,
+      "level": 8,
+      "initiative": 46,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "stun"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "element",
+                  "value": "wild",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,enhance)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Twin Beams",
+      "cardId": 85,
+      "level": 8,
+      "initiative": 19,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,active)|(1,0,target)|(2,0,target)"
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "condition",
+                  "value": "wound"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,active)|(1,0,target)|(2,0,target)"
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "push",
+                  "value": 2
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.spellweaver.abilities.85.1%",
+              "small": true
+            },
+            {
+              "type": "attack",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "xp": 1,
+      "bottomRound": true
+    },
+    {
+      "name": "Freezing Vortex",
+      "cardId": 86,
+      "level": 9,
+      "initiative": 41,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 5,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.spellweaver.abilities.86.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.spellweaver.abilities.86.2%",
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.gh2e.spellweaver.abilities.86.3%",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.spellweaver.abilities.86.4%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Inferno",
+      "cardId": 87,
+      "level": 9,
+      "initiative": 96,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.spellweaver.abilities.87.1%",
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.spellweaver.abilities.87.2%"
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.spellweaver.abilities.87.3%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ]
+        }
+      ],
+      "bottomXp": 1
+    }
+  ]
+}

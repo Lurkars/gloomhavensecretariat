@@ -156,7 +156,9 @@ export class SettingsMenuComponent {
     settingsManager.settings.characterSheet = false;
     settingsManager.settings.disabledTurnConfirmation = true;
     settingsManager.settings.disableStandees = false;
-    settingsManager.settings.dragValues = true;
+    settingsManager.settings.dragValuesHp = true;
+    settingsManager.settings.dragValuesInitiative = true;
+    settingsManager.settings.dragValuesLoot = true;
     settingsManager.settings.eliteFirst = true;
     settingsManager.settings.expireConditions = false;
     settingsManager.settings.fhStyle = false;
@@ -203,7 +205,9 @@ export class SettingsMenuComponent {
     settingsManager.settings.characterSheet = false;
     settingsManager.settings.disabledTurnConfirmation = true;
     settingsManager.settings.disableStandees = false;
-    settingsManager.settings.dragValues = true;
+    settingsManager.settings.dragValuesHp = true;
+    settingsManager.settings.dragValuesInitiative = true;
+    settingsManager.settings.dragValuesLoot = true;
     settingsManager.settings.eliteFirst = true;
     settingsManager.settings.expireConditions = false;
     settingsManager.settings.fhStyle = true;
@@ -298,7 +302,9 @@ export class SettingsMenuComponent {
     settingsManager.settings.combineInteractiveAbilities = false;
     settingsManager.settings.combineSummonAction = true;
     settingsManager.settings.dragFigures = true;
-    settingsManager.settings.dragValues = true;
+    settingsManager.settings.dragValuesHp = true;
+    settingsManager.settings.dragValuesInitiative = true;
+    settingsManager.settings.dragValuesLoot = true;
     settingsManager.settings.drawRandomItem = true;
     settingsManager.settings.drawRandomScenario = true;
     settingsManager.settings.eliteFirst = true;

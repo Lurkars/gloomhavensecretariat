@@ -14,7 +14,7 @@
           "type": "attack",
           "value": "X",
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -42,7 +42,7 @@
           "type": "retaliate",
           "value": 1,
           "enhancementTypes": [
-            "circle"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -78,7 +78,7 @@
           "type": "attack",
           "value": "X",
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -131,7 +131,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -176,8 +176,8 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle",
-            "circle"
+            "diamond",
+            "diamond"
           ],
           "subActions": [
             {
@@ -302,7 +302,7 @@
           "type": "attack",
           "value": 6,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -363,7 +363,7 @@
           "type": "attack",
           "value": 1,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -449,7 +449,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -491,7 +491,7 @@
           "type": "heal",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -513,7 +513,7 @@
           "type": "retaliate",
           "value": 2,
           "enhancementTypes": [
-            "circle"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -547,7 +547,7 @@
           "type": "heal",
           "value": 1,
           "enhancementTypes": [
-            "circle"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -569,7 +569,7 @@
           "type": "attack",
           "value": 2,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -647,7 +647,7 @@
           "type": "attack",
           "value": "X",
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -685,7 +685,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -740,8 +740,8 @@
               "type": "attack",
               "value": 4,
               "enhancementTypes": [
-                "circle",
-                "circle"
+                "diamond",
+                "diamond"
               ],
               "subActions": [
                 {
@@ -803,7 +803,7 @@
           "type": "attack",
           "value": 2,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -914,7 +914,7 @@
           "type": "attack",
           "value": 2,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -990,7 +990,7 @@
               "type": "attack",
               "value": "X",
               "enhancementTypes": [
-                "circle"
+                "diamond"
               ],
               "subActions": [
                 {
@@ -1111,8 +1111,8 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle",
-            "circle"
+            "diamond",
+            "diamond"
           ]
         },
         {
@@ -1225,7 +1225,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1252,7 +1252,7 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ]
         },
         {
@@ -1271,7 +1271,7 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1314,7 +1314,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1375,7 +1375,7 @@
           "type": "attack",
           "value": 4,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1427,7 +1427,7 @@
           "type": "attack",
           "value": 5,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1452,7 +1452,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1692,7 +1692,7 @@
           "type": "attack",
           "value": 3,
           "enhancementTypes": [
-            "circle"
+            "diamond"
           ],
           "subActions": [
             {
@@ -1723,7 +1723,7 @@
               "type": "attack",
               "value": "3+X",
               "enhancementTypes": [
-                "circle"
+                "diamond"
               ],
               "subActions": [
                 {
@@ -1731,7 +1731,7 @@
                   "value": 3,
                   "small": true,
                   "enhancementTypes": [
-                    "circle"
+                    "square"
                   ]
                 },
                 {

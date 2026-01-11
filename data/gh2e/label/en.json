@@ -1,4 +1,121 @@
 {
+  "ability": {
+    "Aid from the Ether": "Aid from the Ether",
+    "Arcane Bolt": "Arcane Bolt",
+    "Arctic Shards": "Arctic Shards",
+    "Avalanche": "Avalanche",
+    "Backup Ammunition": "Backup Ammunition",
+    "Balanced Measure": "Balanced Measure",
+    "Blunt Force": "Blunt Force",
+    "Brain Leech": "Brain Leech",
+    "Brutal Momentum": "Brutal Momentum",
+    "Brute Force": "Brute Force",
+    "Burrow": "Burrow",
+    "Cataclysm": "Cataclysm",
+    "Chromatic Explosion": "Chromatic Explosion",
+    "Clear the Way": "Clear the Way",
+    "Cold Fire": "Cold Fire",
+    "Cool Down": "Cool Down",
+    "Corrupting Embrace": "Corrupting Embrace",
+    "Cranium Overload": "Cranium Overload",
+    "Crater": "Crater",
+    "Crippling Offensive": "Crippling Offensive",
+    "Crushing Grasp": "Crushing Grasp",
+    "Dancing Gales": "Dancing Gales",
+    "Dark Frenzy": "Dark Frenzy",
+    "Defensive Tactics": "Defensive Tactics",
+    "Dig Pit": "Dig Pit",
+    "Dirt Tornado": "Dirt Tornado",
+    "Domination": "Domination",
+    "Earth's Embrace": "Earth's Embrace",
+    "Earthen Bulwark": "Earthen Bulwark",
+    "Earthen Clod": "Earthen Clod",
+    "Elemental Rays": "Elemental Rays",
+    "Emberfrost": "Emberfrost",
+    "Empathetic Assault": "Empathetic Assault",
+    "Entomb": "Entomb",
+    "Etheric Echo": "Etheric Echo",
+    "Eye for an Eye": "Eye for an Eye",
+    "Face Your End": "Face Your End",
+    "Fearsome Blade": "Fearsome Blade",
+    "Fearsome Taunt": "Fearsome Taunt",
+    "Feedback Loop": "Feedback Loop",
+    "Fire Orbs": "Fire Orbs",
+    "Flame Strike": "Flame Strike",
+    "Flameswell": "Flameswell",
+    "Freezing Nova": "Freezing Nova",
+    "Freezing Vortex": "Freezing Vortex",
+    "Frenzied Onslaught": "Frenzied Onslaught",
+    "Frigid Apparition": "Frigid Apparition",
+    "Frost Strike": "Frost Strike",
+    "Frostflare Orbs": "Frostflare Orbs",
+    "Frozen Shiv": "Frozen Shiv",
+    "Gangling Abomination": "Gangling Abomination",
+    "Gnawing Horde": "Gnawing Horde",
+    "Grab and Go": "Grab and Go",
+    "Heatwave": "Heatwave",
+    "Heaving Swing": "Heaving Swing",
+    "Hidden in the Shadows": "Hidden in the Shadows",
+    "Hook and Chain": "Hook and Chain",
+    "Hostile Takeover": "Hostile Takeover",
+    "Ice Armor": "Ice Armor",
+    "Icy Blast": "Icy Blast",
+    "Immovable Phalanx": "Immovable Phalanx",
+    "Impaling Eruption": "Impaling Eruption",
+    "Inferno": "Inferno",
+    "Intimidating Growl": "Intimidating Growl",
+    "Juggernaut": "Juggernaut",
+    "Kinetic Assault": "Kinetic Assault",
+    "Leaping Cleave": "Leaping Cleave",
+    "Let Fly": "Let Fly",
+    "Many as One": "Many as One",
+    "Mass Hysteria": "Mass Hysteria",
+    "Massive Boulder": "Massive Boulder",
+    "Meteor": "Meteor",
+    "Mud Eruption": "Mud Eruption",
+    "Opposing Strike": "Opposing Strike",
+    "Overwhelming Assault": "Overwhelming Assault",
+    "Perverse Edge": "Perverse Edge",
+    "Petrify": "Petrify",
+    "Phantasmal Killer": "Phantasmal Killer",
+    "Pilfer": "Pilfer",
+    "Possession": "Possession",
+    "Psychic Blade": "Psychic Blade",
+    "Psychic Projection": "Psychic Projection",
+    "Push Through": "Push Through",
+    "Reviving Ether": "Reviving Ether",
+    "Rock Slide": "Rock Slide",
+    "Rocky End": "Rocky End",
+    "Rumbling Advance": "Rumbling Advance",
+    "Run Through": "Run Through",
+    "Scurry": "Scurry",
+    "Searing Glacier": "Searing Glacier",
+    "Selfish Retribution": "Selfish Retribution",
+    "Sentient Growth": "Sentient Growth",
+    "Shared Nightmare": "Shared Nightmare",
+    "Shield Bash": "Shield Bash",
+    "Silent Scream": "Silent Scream",
+    "Skewer": "Skewer",
+    "Skirmishing Maneuver": "Skirmishing Maneuver",
+    "Solidify": "Solidify",
+    "Spare Dagger": "Spare Dagger",
+    "Spell Mastery": "Spell Mastery",
+    "Stone Pummel": "Stone Pummel",
+    "Submissive Affliction": "Submissive Affliction",
+    "Sweeping Blow": "Sweeping Blow",
+    "Telepathic Command": "Telepathic Command",
+    "The Mind's Weakness": "The Mind's Weakness",
+    "Trample": "Trample",
+    "Twin Beams": "Twin Beams",
+    "Unstable Upheaval": "Unstable Upheaval",
+    "Unstoppable Charge": "Unstoppable Charge",
+    "Wall of Doom": "Wall of Doom",
+    "Warding Strength": "Warding Strength",
+    "Warm Up": "Warm Up",
+    "Wave of Destruction": "Wave of Destruction",
+    "Whirlwind": "Whirlwind",
+    "Withering Claw": "Withering Claw"
+  },
   "battleGoals": {
     "1016": {
       "": "Accountant",
@@ -287,7 +404,75 @@
         "3": "Whenever you long rest, add +1 %game.action.move% to your first move ability the following round",
         "4": "Each character gains advantage on their first attack during the first round of each scenario",
         "5": "In 3 different scenarios, kill an enemy that you Pushed or Pulled that round",
-        "6": "In a single scenario, across 3 consecutive rounds, play 6 different ability cards and cause enemies to suffer 7 or more damage during each of those rounds"
+        "6": "In a single scenario, across 3 consecutive rounds, play 6 different ability cards and cause enemies to suffer 7 or more damage during each of those rounds",
+        "abilities": {
+          "1": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "11": {
+            "1": "Add +1%game.action.attack% on each undamaged target."
+          },
+          "12": {
+            "1": "Whenever an enemy would attack one of your adjacent allies this round, you may have that attack target you instead, regardless of the attack's range and line-of-sight limitations."
+          },
+          "13": {
+            "1": "Gain %game.card.experience:1% the next time you retaliate this round."
+          },
+          "14": {
+            "1": "On your nex two move abilities, add +1%game.action.move%."
+          },
+          "15": {
+            "1": "On the next four sources of %game.damage% you would suffer, negate that %game.damage%."
+          },
+          "16": {
+            "1": "If you moved in a straight line in one direction with the move ability, perform:",
+            "2": "where X is the number of hexes you moved."
+          },
+          "17": {
+            "1": "Add +2%game.action.attack% and gain %game.card.experience:1% if you have moved this turn."
+          },
+          "18": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "19": {
+            "1": "During you next attack ability this round, add +1%game.action.attack% to all attacks."
+          },
+          "2": {
+            "1": "Gain %game.card.experience:1% the next time you retaliate this round."
+          },
+          "21": {
+            "1": "The first time each round that you gain %game.action.shield% or %game.action.retaliate% from one of your ability or attack modifier cards, gain %game.action.shield:1% and %game.action.retaliate:1% for the round."
+          },
+          "22": {
+            "1": "Add +1%game.action.attack% on each undamaged target."
+          },
+          "23": {
+            "1": "Once each turn, you may treat one move ability from your ability cards as an attack ability of equal value."
+          },
+          "24": {
+            "1": "Each enemy occupying a hex the target enters suffers %game.damage:4% and gains %game.condition.wound%."
+          },
+          "25": {
+            "1": "Gain %game.card.experience:1% the next time you retaliate this round."
+          },
+          "26": {
+            "1": "where X is the amount of %game.damage% you have dealt this turn."
+          },
+          "28": {
+            "1": "After each attack targeting you this round, perform:",
+            "2": "Add +1%game.action.attack% to each of your %game.action.push% and %game.action.pull%. Whenever you %game.action.push% or %game.action.pull% an enemy at least one hex, after the forced movement, that enemy and all enemies adjacent to it siffer %game.damage:1%."
+          },
+          "29": {
+            "1": "Add +3%game.action.attack% and gain %game.card.experience:1% if the target's current hit point value is lower than yours."
+          },
+          "5": {
+            "1": "where X is the number of hexes you have moved this turn.",
+            "2": "where X is the amount of %game.damage% you have dealt this turn."
+          },
+          "7": {
+            "1": "On the next six sources of %game.damage% from attacks targeting you, gain %game.action.shield:1%, %game.action.retaliate:1% for the attack."
+          }
+        }
       },
       "chaos-demon": {
         "1": "%game.custom.advantage%"
@@ -298,7 +483,114 @@
         "3": "At the end of each of your rests, you may destroy one 1-hex obstacle within %game.action.range:3% to %game.element.earth%",
         "4": "Whenever a new room is revealed, control all enemies in the newly revealed room: %game.action.move% 1, this movement must end in an empty hex",
         "5": "For an entire scenario, create, destroy, or move at least one obstacle tile each round",
-        "6": "In a single scenario, heal 8 or more hit points during a single round, deal 8 or more damage with a ranged attack ability, and deal 8 or more damage with a melee attack ability"
+        "6": "In a single scenario, heal 8 or more hit points during a single round, deal 8 or more damage with a ranged attack ability, and deal 8 or more damage with a melee attack ability",
+        "abilities": {
+          "116": {
+            "1": "At the end of this an your next four turns, perform:"
+          },
+          "117": {
+            "1": "Create a 1-hex obstacle tile in an adjacent empty hex. All allies an enemies adjacent to the created tile suffer %game.damage:1%."
+          },
+          "119": {
+            "1": "All adjacent allies and enemies suffer %game.damage:1%."
+          },
+          "120": {
+            "1": "All allies and enemies adjacent to the target suffer %game.damage:1%."
+          },
+          "121": {
+            "1": "On your next four single-target ranged attack abilities, add +1%game.action.target%."
+          },
+          "122": {
+            "1": "Create a 1-hex obstacle tile in empty hexes within %game.action.range:3% %game.enhancement.square% .",
+            "2": "All allies adjacent to at least one created tile suffer %game.damage:1% and gain %game.condition.ward%, %game.card.experience:1%."
+          },
+          "123": {
+            "1": "all enemies up to two hexes away instead",
+            "2": "All adjacent allies suffer %game.damage:2%."
+          },
+          "124": {
+            "1": "All adjacent allies and enemies suffer %game.damage:1%."
+          },
+          "125": {
+            "1": "all allies in the red hexes of the attack ability."
+          },
+          "126": {
+            "1": "Add +1%game.action.attack% for each obstacle or objective adjacent to the target."
+          },
+          "127": {
+            "1": "You may push the target into hexes containing obstacles. In each case, destroy the obstacle, the target suffers %game.damage:2%, and you gain %game.card.experience:1%.",
+            "2": "Destroy an adjacent obstacle or suffer %game.damage:1% to add +3%game.action.attack% to your next melee attack this round."
+          },
+          "128": {
+            "1": "For each target killed, gain %game.card.experience:1% and create one 1-hex obstacle tile in the featureless hex they occupied."
+          },
+          "130": {
+            "1": "4 enemies within 4 hexes",
+            "2": "Create one 1-hex obstacle tile in the featureless hex each target previously occupied."
+          },
+          "131": {
+            "1": "all allies in the red hexes of the attack ability"
+          },
+          "132": {
+            "1": "Relocate one adjacent 1-hex obstacle tile to an empty hex within %game.action.range:4% to perform:",
+            "2": "all enemies adjacent to the relocated tile",
+            "3": "Destroy all obstacles, hazardous terrain, difficult terrain, and traps in hexes you enter."
+          },
+          "134": {
+            "1": "Create three 1-hex obstacle tiles in empty hexes within %game.action.range:3% %game.enhancement.square% .",
+            "2": "All allies and enemies adjacent to at least one created tile suffer %game.damage:1% and gain %game.condition.muddle%.",
+            "3": "Designate one enemy within %game.action.range:4%. Destroy all obstacles within %game.action.range:2% of the designated enemy to perform:",
+            "4": "the designated enemy",
+            "5": "where X is twice the number of destroyed obstacles."
+          },
+          "135": {
+            "1": "All allies and enemies adjacent to the target suffer %game.damage:1%."
+          },
+          "136": {
+            "1": "Grant one ally within %game.action.range:3%:",
+            "2": "Suffer %game.damage:1%."
+          },
+          "137": {
+            "1": "Whenever you attack an adjacent enemy, you may destroy one 1-hex obstacle adjacent to both you and that enemy to add +2%game.action.attack% to the attack."
+          },
+          "138": {
+            "1": "Create one %game.damage:2%, %game.condition.stun% trap in an adjacent empty hex.",
+            "2": "Create one 1-hex obstacle tile in an empty hex adjacent to the created trap."
+          },
+          "139": {
+            "1": "all allies in the red hexes of the attack ability."
+          },
+          "140": {
+            "1": "Whenever you perform a ranged attack this round, all allies and enemies adjacent to the target suffer %game.damage:1%, %game.card.experience:1%.",
+            "2": "Destroy any number of adjacent obstacles. For each obstacle destroyed, perform:",
+            "3": "All adjacent allies and enemies suffer %game.damage:1%."
+          },
+          "141": {
+            "1": "Add +1%game.action.attack%, +1%game.action.push% for each hex containing an obstacle or wall adjacent to you.",
+            "2": "At the start of your next four turns, perform:",
+            "3": "Add +3%game.action.attack% to your next melee attack this turn."
+          },
+          "142": {
+            "1": "all allies in the red hexes of the attack ability",
+            "2": "Create 1-hex obstacle tiles in each empty red hex of the attack ability, %game.card.experience:1%.",
+            "3": "Create 1-hex obstacle tiles in each featureless hex the target exists with the push."
+          },
+          "143": {
+            "1": "Create two 1-hex obstacle tiles in empty hexes adjacent to the target but not adjacent to you. All allies and enemies adjacent to at least one created tile suffer %game.damage:1%, %game.card.experience:1%.",
+            "2": "Create 1-hex obstacle tiles in an adjacent empty hex.",
+            "3": "Destroy any number of obstacles within %game.action.range:3%. For each obstacle destroyed, give %game.condition.ward% to one ally adjacent to the hex that obstacle occupied."
+          },
+          "144": {
+            "1": "For each target, add +X%game.action.attack%, where X is the %game.action.range% to the target.",
+            "2": "You may enter hexes containing obstacles with this movement. When you do, destroy the obstacle.",
+            "3": "Add +X%game.action.attack% to your next attack this turn, where X is twice the number of obstacles destroyed with the move ability."
+          },
+          "145": {
+            "1": "You may push the targets into hexes containing obstacles. In each case, destroy the obstacle, the target suffers %game.damage:2%, and you gain %game.card.experience:1%.",
+            "2": "At the end of each of your turns, perform:",
+            "3": "where X is the number of adjacent obstacles."
+          }
+        }
       },
       "crystal-rot": {
         "1": "Add %game.condition.disarm% if there are no Living Bones, Living Corpses or Living Spirits within %game.action.range% 3."
@@ -357,7 +649,99 @@
         "6": "You are considered to be last in initiative order when determining monster focus",
         "7": "At the end of each of your rests, you may %game.elementHalf.consume:ice|dark% to control one enemy within %game.action.range:5%: %game.action.attack% 1",
         "8": "In a single scenario, kill 5 or more enemies with control abilities",
-        "9": "In a single scenario, trigger the on-attack effect from four different Augments at least 3 times each"
+        "9": "In a single scenario, trigger the on-attack effect from four different Augments at least 3 times each",
+        "abilities": {
+          "146": {
+            "1": "Add +1 %game.action.attack% for each negative condition the target has.",
+            "2": "Control one enemy within %game.action.range:4%:",
+            "3": "The controlled enemy suffers %game.damage:2%"
+          },
+          "147": {
+            "1": "If the attack ability killed an enemy, perform:",
+            "2": "If you have not moved this round, perform:",
+            "3": "You cannot perform move abilities this round. At the end of the round, lose %game.condition.invisible%."
+          },
+          "149": {
+            "1": "Add %game.condition.poison%, %game.condition.muddle% to all your melee attacks.",
+            "2": "Control one enemy within %game.action.range:4%:"
+          },
+          "151": {
+            "1": "Add +1 %game.action.attack% to all your melee attacks.",
+            "2": "Control the target of the attack ability:"
+          },
+          "152": {
+            "1": "If this attack does not kill the target, gain a money token."
+          },
+          "153": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% for each negative condition the target has."
+          },
+          "155": {
+            "1": "Your single-target melee attack abilities may target enemies within 2 hexes (of you).",
+            "2": "Control the target of the attack ability:",
+            "3": "Add %game.condition.curse% to all your melee attacks this round."
+          },
+          "156": {
+            "1": "After each of your melee attack abilities, grant one of your summons:",
+            "2": "Grant one of your summons:",
+            "3": "If you end this movement in the same hex as you start, all enemies moved through gain %game.condition.muddle%."
+          },
+          "157": {
+            "1": "Control one enemy within %game.action.range:4%:",
+            "2": "Grant one of your summons:"
+          },
+          "160": {
+            "1": "Place a character token on a normal or elite enemy within %game.action.range:4%. This round, during that enemy's turn, it treats its enemies as allies and its allies as enemies, with you controlling its abilities."
+          },
+          "161": {
+            "1": "Control one enemy within %game.action.range:4%:",
+            "2": "If you performed the attack ability, perform:"
+          },
+          "162": {
+            "1": "Designate a hex containing an enemy within %game.action.range:4% to perform:",
+            "2": "the enemy in the designated hex, %game.action.pierce:5%",
+            "3": "If the attack ability killed an enemy, perform:",
+            "4": "all enemies adjacent to the designated hex"
+          },
+          "164": {
+            "1": "After each of your melee attack abilities, perform:",
+            "2": "Control one enemy within %game.action.range:4%:"
+          },
+          "165": {
+            "1": "All enemies moved through gain %game.condition.poison%."
+          },
+          "166": {
+            "1": "Add +1 %game.action.attack% if the target has a negative condition."
+          },
+          "167": {
+            "1": "Grant one of your summons:"
+          },
+          "168": {
+            "1": "Control two enemies within %game.action.range:4%:",
+            "2": "The controlled enemies suffer %game.damage:1%, %game.card.experience:1%."
+          },
+          "169": {
+            "1": "Control two enemies within %game.action.range:4% that are adjacent to each other:",
+            "2": "You may have two %game.customAction:gh2e-augment% active at once. If you play a third %game.customAction:gh2e-augment%, you must discard either of the other two. If you discard this card and you have two active %game.customAction:gh2e-augment%, you must discard one."
+          },
+          "170": {
+            "1": "Add +1 %game.action.attack% to your melee attacks for each negative condition the target has.",
+            "2": "Designate an unoccupied hex within %game.action.range:4%.",
+            "3": "Perform this attack as though you occupied the designated hex."
+          },
+          "172": {
+            "1": "On your next four melee attacks, add %game.condition.stun%, %game.condition.curse% to the attack."
+          },
+          "173": {
+            "1": "Where X is half the Rat King's current hit point value (rounded up).",
+            "2": "Each round, the first of your allies who performs a melee attack ability gains the effects of each of your active %game.customAction:gh2e-augment% for that attack ability."
+          },
+          "174": {
+            "1": "After each of your melee attack abilities, control one target of the attack ability:",
+            "2": "After each of your control abilities, you may perform:",
+            "3": "One controlled enemy suffers %game.damage:3%."
+          }
+        },
+        "augment": "%game.customAction:gh2e-augment% Augment"
       },
       "night-demon": {
         "1": "All adjacent allies and<br>enemies suffer %game.damage:1%.",
@@ -387,7 +771,69 @@
         "3": "Whenever you short rest, if <i>Reviving Ether</i> is in your discard pile, first %game.card.recover% it",
         "4": "At the end of each of your turns during which you performed an action with %game.card.lost%, gain %game.condition.bless%",
         "5": "In a single scenario, consume both %game.element.fire% and %game.element.ice% during the same turn 6 times",
-        "6": "In a single scenario, perform 4 different %game.card.lost% actions twice each"
+        "6": "In a single scenario, perform 4 different %game.card.lost% actions twice each",
+        "abilities": {
+          "61": {
+            "1": "%game.card.recover% all cards in your lost pile."
+          },
+          "66": {
+            "1": "When you next perform an action with %game.card.lost% this round, %game.element.wild%."
+          },
+          "67": {
+            "1": "Gain advantage on all your attacks this round, %game.card.experience:1%."
+          },
+          "68": {
+            "1": "Grant one ally within %game.action.range:3%"
+          },
+          "69": {
+            "1": "On your next four single-target ranged attack abilities, add +2%game.action.attack% to the attack."
+          },
+          "70": {
+            "1": "Place a character token on one ally within %game.action.range:3%. On the next three sources of 2 or more %game.damage% they would suffer, negate the %game.damage%.",
+            "2": "On the next tree sources of 2 or more %game.damage% you would suffer, negate the %game.damage%."
+          },
+          "72": {
+            "1": "the 4 enemies closest to you within 5 hexes"
+          },
+          "73": {
+            "1": "Play one Level 1 card from your lost pile other than Reviving Ether to perform an action with %game.card.lost% of the card.",
+            "2": "When you next perform an action with %game.card.lost% this round, gain %game.condition.ward%."
+          },
+          "74": {
+            "1": "The target add +2%game.action.attack% to their next attack this round."
+          },
+          "77": {
+            "1": "Add +1%game.action.attack% to all your attacks this round, %game.card.experience:1%."
+          },
+          "78": {
+            "1": "On the next attack ability you perform from an action with %game.card.lost%, add +1%game.action.attack% to all your attacks."
+          },
+          "81": {
+            "1": "When you next perform an action with %game.card.lost% this round, %game.card.recover% one card from your discard pile."
+          },
+          "82": {
+            "1": "You may play one card from your discard pile to perform an action with %game.card.lost% of the card (the card is moved to your lost pile)."
+          },
+          "83": {
+            "1": "all allies in the red hexes of the attack ability",
+            "2": "Choose an ally within %game.action.range:3%. That ally gains %game.action.shield:3% for the next attack targeting them this round.",
+            "3": "The attacker suffers %game.damage:3%, %game.card.experience:1%."
+          },
+          "85": {
+            "1": "When you next perform an action with %game.card.lost% this round, after the action perform:"
+          },
+          "86": {
+            "1": "After the attack ability, kill each target whose hit point value is 2 or less and create one 1-hex obstacle tile in the featureless hex they occupied.",
+            "2": "Designate a hex within %game.action.range:4%.",
+            "3": "all enemies within %game.action.range:4% of the designated hex",
+            "4": "Pull toward the designated hex."
+          },
+          "87": {
+            "1": "all enemies within 2 hexes",
+            "2": "All allies within %game.action.range:2% suffer %game.damage:2%.",
+            "3": "All allies and enemies in the same room as you suffer %game.damage:4%."
+          }
+        }
       },
       "stone-construct": {
         "1": "If the move ability was performed, Stone Construct suffers %game.damage:1%.",

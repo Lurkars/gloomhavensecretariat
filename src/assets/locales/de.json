@@ -2572,9 +2572,13 @@
       "hint": "Drag'n'Drop für die Figurenliste. Achtung, falls deaktiviert und keine Initiative gesetzt werden muss ist ein manuelles Verschieben der Figuren nicht mehr möglich."
     },
     "dragValues": {
-      "": "Initiative/TP/XP/Beute ziehen",
+      "": "Werte durch ziehen ändern",
       "hint": "Cursor Ziehen(Wischen) um Werte zu ändern. Um die Initiative zu ändern, ziehe über das Charakter Portrait. Für Trefferpunkte, Erfahrung und Beute über die entsprechenden Werte"
     },
+    "dragValuesHp": "Trefferpunkte durch ziehen ändern",
+    "dragValuesInitiative": "Initiative durch ziehen ändern",
+    "dragValuesLoot": "Beute durch ziehen ändern",
+    "dragValuesXp": "Erfahrung durch ziehen ändern",
     "drawRandomItem": {
       "": "Ziehe eine zufällige Gegenstandsbelohnung",
       "hint": "Ziehe automatisch eine zufällige Gegenstandskarte."
@@ -2758,6 +2762,7 @@
       },
       "it": "Italienisch (Italiano)",
       "ko": "Koreanisch (한국어)",
+      "pl": "Polnisch (Polski)",
       "pt": "Portugiesisch (Portuguese)",
       "ru": "Russisch (Русский)",
       "zh_Hans": "Vereinfachtes Chinesisch (简体中文)",

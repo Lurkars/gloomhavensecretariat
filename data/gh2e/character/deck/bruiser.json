@@ -1,0 +1,1533 @@
+{
+  "name": "bruiser",
+  "edition": "gh2e",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Trample",
+      "cardId": 1,
+      "level": 1,
+      "initiative": 72,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemiesMovedThrough",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.1.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eye for an Eye",
+      "cardId": 2,
+      "level": 1,
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 1
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.2.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ]
+        }
+      ],
+      "round": true
+    },
+    {
+      "name": "Skewer",
+      "cardId": 3,
+      "level": 1,
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "square"
+              ],
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "pierce",
+                      "value": 1
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(1,1,target)|(1,2,active)|(2,0,target)"
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 7,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "bottomXp": 2
+    },
+    {
+      "name": "Overwhelming Assault",
+      "cardId": 4,
+      "level": 1,
+      "initiative": 61,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 7,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ]
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Balanced Measure",
+      "cardId": 5,
+      "level": 1,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "X"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.5.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "move",
+              "value": "X"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.5.2%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Grab and Go",
+      "cardId": 6,
+      "level": 1,
+      "initiative": 87,
+      "actions": [
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Warding Strength",
+      "cardId": 7,
+      "level": 1,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.bruiser.abilities.7.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStartXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slotEnd"
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Shield Bash",
+      "cardId": 8,
+      "level": 1,
+      "initiative": 15,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ],
+      "xp": 2,
+      "bottomRound": true
+    },
+    {
+      "name": "Leaping Cleave",
+      "cardId": 9,
+      "level": 1,
+      "initiative": 54,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Spare Dagger",
+      "cardId": 10,
+      "level": 1,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 1,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sweeping Blow",
+      "cardId": 11,
+      "level": "X",
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "muddle",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.bruiser.abilities.11.1%",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,0,enhance)|(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Fearsome Taunt",
+      "cardId": 12,
+      "level": "X",
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "push",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.bruiser.abilities.12.1%",
+          "small": true
+        }
+      ],
+      "xp": 1,
+      "bottomRound": true
+    },
+    {
+      "name": "Wall of Doom",
+      "cardId": 13,
+      "level": "X",
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "pull",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 2
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.13.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "pull",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "round": true
+    },
+    {
+      "name": "Intimidating Growl",
+      "cardId": 14,
+      "level": 2,
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(2,0,target)|(2,1,enhance)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.bruiser.abilities.14.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEndXp:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "xp": 1,
+      "bottomRound": true
+    },
+    {
+      "name": "Juggernaut",
+      "cardId": 15,
+      "level": 2,
+      "initiative": 34,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.bruiser.abilities.15.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEndXp:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Hook and Chain",
+      "cardId": 16,
+      "level": 3,
+      "initiative": 42,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.bruiser.abilities.16.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "X"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.16.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unstoppable Charge",
+      "cardId": 17,
+      "level": 3,
+      "initiative": 86,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.17.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "condition",
+          "value": "stun",
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomXp": 2
+    },
+    {
+      "name": "Whirlwind",
+      "cardId": 18,
+      "level": 4,
+      "initiative": 28,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 5,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemiesAdjacent",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.18.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "push",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Push Through",
+      "cardId": 19,
+      "level": 4,
+      "initiative": 57,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.bruiser.abilities.19.1%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Skirmishing Maneuver",
+      "cardId": 20,
+      "level": 5,
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Defensive Tactics",
+      "cardId": 21,
+      "level": 5,
+      "initiative": 39,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.bruiser.abilities.21.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "pull",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 2
+    },
+    {
+      "name": "Run Through",
+      "cardId": 22,
+      "level": 6,
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 3,
+                  "enhancementTypes": [
+                    "diamond"
+                  ],
+                  "subActions": [
+                    {
+                      "type": "pierce",
+                      "value": 2,
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.bruiser.abilities.22.1%",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,3,target)|(0,4,active)|(1,1,target)|(1,2,target)|(2,0,enhance)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "push",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Immovable Phalanx",
+      "cardId": 23,
+      "level": 6,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.bruiser.abilities.23.1%",
+          "small": true
+        }
+      ],
+      "round": true,
+      "bottomPersistent": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Let Fly",
+      "cardId": 24,
+      "level": 7,
+      "initiative": 19,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "push",
+                  "value": 4,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "stun",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.24.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "push",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Selfish Retribution",
+      "cardId": 25,
+      "level": 7,
+      "initiative": 8,
+      "lost": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 2
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.25.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 1,
+      "bottomRound": true
+    },
+    {
+      "name": "Frenzied Onslaught",
+      "cardId": 26,
+      "level": 8,
+      "initiative": 41,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": "X",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.26.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Crippling Offensive",
+      "cardId": 27,
+      "level": 8,
+      "initiative": 16,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Brute Force",
+      "cardId": 28,
+      "level": 9,
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.28.1%",
+              "small": true
+            },
+            {
+              "type": "move",
+              "value": 1
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "1 ally or enemy",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.bruiser.abilities.28.2%",
+          "small": true
+        }
+      ],
+      "round": true,
+      "bottomPersistent": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Face Your End",
+      "cardId": 29,
+      "level": 9,
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.29.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

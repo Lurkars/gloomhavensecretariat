@@ -406,6 +406,11 @@ export class MainComponent implements OnInit {
 
     const totalHeight = elementHeights.reduce((a, b) => a + b, 0);
     const numColumns = Math.floor(containerWidth / columnWidth);
+    
+    if (!Number.isFinite(numColumns) || numColumns <= 0 || numColumns > Number.MAX_SAFE_INTEGER) {
+      return [elementHeights];
+    }
+    
     const targetHeight = Math.max(totalHeight / numColumns, settingsManager.settings.columnsForce ? 0 : containerHeight);
     let columns: number[][] = Array.from({ length: numColumns }, () => []);
     let columnHeights: number[] = Array(numColumns).fill(0);
