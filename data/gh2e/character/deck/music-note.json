@@ -1,0 +1,1825 @@
+{
+  "name": "music-note",
+  "edition": "gh2e",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Mobilizing Measure",
+      "cardId": 351,
+      "level": 1,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-low-note%",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.music-note.abilities.351.1%",
+              "small": true
+            },
+            {
+              "type": "move",
+              "value": 2
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.351.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 1,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Bewildering Instrumental",
+      "cardId": 352,
+      "level": 1,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-high-note%",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.music-note.abilities.352.1%",
+              "small": true
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.352.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Wearying Chant",
+      "cardId": 353,
+      "level": 1,
+      "initiative": 19,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-high-note% %game.customAction:gh2e-low-note%",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.music-note.abilities.353.1%",
+              "small": true
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Power Ballad",
+      "cardId": 354,
+      "level": 1,
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-high-note% %game.customAction:gh2e-high-note% %game.customAction:gh2e-low-note%",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.music-note.abilities.354.1%",
+              "small": true
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEndXp:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Dissonant Rhythm",
+      "cardId": 355,
+      "level": 1,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-high-note% %game.customAction:gh2e-low-note% %game.customAction:gh2e-low-note%",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.music-note.abilities.355.1%",
+              "small": true
+            },
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.gh2e.music-note.abilities.355.2%",
+                  "small": true
+                },
+                {
+                  "type": "push",
+                  "value": 2,
+                  "small": true
+                },
+                {
+                  "type": "pierce",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEndXp:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%"
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Increase Cadence",
+      "cardId": 356,
+      "level": 1,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%"
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.356.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStartXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slotEnd"
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Intensifying Amplitude",
+      "cardId": 357,
+      "level": 1,
+      "initiative": 56,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.357.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slotEnd"
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Marching Beat",
+      "cardId": 358,
+      "level": 1,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.358.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 4,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ]
+    },
+    {
+      "name": "Tuning the Outcome",
+      "cardId": 359,
+      "level": 1,
+      "initiative": 44,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "bless",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%"
+        }
+      ]
+    },
+    {
+      "name": "Call to Action",
+      "cardId": 360,
+      "level": 1,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.360.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Singing Arrow",
+      "cardId": 361,
+      "level": 1,
+      "initiative": 85,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.361.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ]
+    },
+    {
+      "name": "Defensive Ditty",
+      "cardId": 362,
+      "level": "X",
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-high-note% %game.customAction:gh2e-high-note%",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.music-note.abilities.362.1%",
+              "small": true
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Echoing Aria",
+      "cardId": 363,
+      "level": "X",
+      "initiative": 5,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-low-note% %game.customAction:gh2e-low-note%",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.music-note.abilities.363.1%",
+              "small": true
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%"
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Provoke Terror",
+      "cardId": 364,
+      "level": "X",
+      "initiative": 89,
+      "lost": true,
+      "actions": [
+        {
+          "type": "push",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,enhance)|(0,1,target)|(1,0,target)|(1,1,target)|(2,0,target)|(2,1,enhance)",
+              "enhancementTypes": [
+                "hex",
+                "hex"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Onward to Battle",
+      "cardId": 365,
+      "level": 2,
+      "initiative": 91,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.365.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Soothing Lullaby",
+      "cardId": 366,
+      "level": 2,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-high-note%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.366.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "all",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.366.2%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ],
+      "persistent": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Symphonic Medley",
+      "cardId": 367,
+      "level": 3,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ],
+      "bottomLost": true,
+      "bottomLoss": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.367.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ],
+      "bottomXp": 1
+    },
+    {
+      "name": "Ode to the Gambler",
+      "cardId": 368,
+      "level": 3,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-high-note% %game.customAction:gh2e-low-note%",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.music-note.abilities.368.1%",
+              "small": true
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Hymn to the Oak",
+      "cardId": 369,
+      "level": 4,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "ward",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.369.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%"
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Alluring Serenade",
+      "cardId": 370,
+      "level": 4,
+      "initiative": 24,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-low-note% %game.customAction:gh2e-low-note%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.370.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "pull",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "curse",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%"
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Change Tempo",
+      "cardId": 371,
+      "level": 5,
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "immobilize"
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 4,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,enhance)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "curse",
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "bless",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ]
+    },
+    {
+      "name": "Thrilling Solo",
+      "cardId": 372,
+      "level": 5,
+      "initiative": 60,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-high-note% %game.customAction:gh2e-low-note% %game.customAction:gh2e-low-note%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.372.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Pull the Strings",
+      "cardId": 373,
+      "level": 6,
+      "initiative": 34,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.373.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.373.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Disorienting Dirge",
+      "cardId": 374,
+      "level": 6,
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-high-note% %game.customAction:gh2e-high-note%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.374.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.374.2%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Inspiring Anthem",
+      "cardId": 375,
+      "level": 7,
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.music-note.abilities.375.1%",
+              "small": true
+            },
+            {
+              "type": "move",
+              "value": 5,
+              "enhancementTypes": [
+                "square"
+              ],
+              "subActions": [
+                {
+                  "type": "jump",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "enhancementTypes": [
+                "diamond_plus"
+              ],
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-low-note%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.375.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 5,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wistful Wounding",
+      "cardId": 376,
+      "level": 7,
+      "initiative": 6,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-low-note%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.376.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.376.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%"
+        }
+      ],
+      "persistent": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Commanding Presence",
+      "cardId": 377,
+      "level": 8,
+      "initiative": 65,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.music-note.abilities.377.1%",
+              "small": true
+            },
+            {
+              "type": "attack",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemiesAdjacent",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:gh2e-high-note%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 6,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Toughening Trill",
+      "cardId": 378,
+      "level": 8,
+      "initiative": 78,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-high-note% %game.customAction:gh2e-low-note%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.378.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Grand Finale",
+      "cardId": 379,
+      "level": 9,
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.379.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.379.2%",
+          "small": true
+        }
+      ],
+      "bottomLost": true,
+      "bottomLoss": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.379.3%",
+          "small": true
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Captivating Performance",
+      "cardId": 380,
+      "level": 9,
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.customAction:gh2e-song% SONG: %game.customAction:gh2e-high-note% %game.customAction:gh2e-high-note% %game.customAction:gh2e-low-note% %game.customAction:gh2e-low-note%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.380.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "grid",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "disarm",
+                      "subActions": [
+                        {
+                          "type": "range",
+                          "value": 3,
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "area",
+                      "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+                    }
+                  ]
+                },
+                {
+                  "type": "concatenation",
+                  "subActions": [
+                    {
+                      "type": "card",
+                      "value": "slotStartXp:1"
+                    },
+                    {
+                      "type": "card",
+                      "value": "slotEndXp:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.music-note.abilities.380.2%",
+          "small": true
+        }
+      ],
+      "persistent": true
+    }
+  ]
+}
