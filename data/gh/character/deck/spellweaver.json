@@ -22,7 +22,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -74,7 +74,7 @@
               "value": 4,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -258,7 +258,7 @@
               "value": 1,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -359,7 +359,7 @@
               "value": 2,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -390,7 +390,7 @@
               "value": 2,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -642,7 +642,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -702,7 +702,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -781,7 +781,7 @@
               "value": 2,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -864,7 +864,7 @@
               "value": 2,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {
@@ -1126,7 +1126,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             }
           ]
@@ -1468,7 +1468,7 @@
           "type": "move",
           "value": 3,
           "enhancementTypes": [
-            "diamond"
+            "circle"
           ]
         },
         {
@@ -1621,7 +1621,7 @@
               "value": 2,
               "small": true,
               "enhancementTypes": [
-                "circle"
+                "square"
               ]
             },
             {

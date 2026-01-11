@@ -280,13 +280,9 @@ export class AttackModifierManager {
     } else {
       attackModifierDeck.current = row * 3 + Math.floor(Math.random() * 3);
       if (state) {
-        let nextRow = row + 1;
-        if (nextRow >= Math.floor(attackModifierDeck.cards.length / 3)) {
-          nextRow = 0;
-        }
-        const nextCard = nextRow * 3 + Math.floor(Math.random() * 3);
+        const secondRoll = row * 3 + Math.floor(Math.random() * 3);
         attackModifierDeck.lastVisible = attackModifierDeck.current;
-        attackModifierDeck.current = nextCard;
+        attackModifierDeck.current = secondRoll;
       } else {
         attackModifierDeck.lastVisible = attackModifierDeck.current;
       }

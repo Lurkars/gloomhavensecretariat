@@ -75,7 +75,7 @@
     {
       "name": "Nothing Special",
       "cardId": 755,
-      "initiative": 68,
+      "initiative": 66,
       "shuffle": true,
       "actions": [
         {
@@ -93,7 +93,7 @@
     {
       "name": "Nothing Special",
       "cardId": 756,
-      "initiative": 68,
+      "initiative": 66,
       "shuffle": true,
       "actions": [
         {

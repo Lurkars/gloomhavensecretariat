@@ -269,7 +269,8 @@
   <div class="separator"></div>
   <div class="line title span" ghs-setting-title-menu="gh2eRules" [sync]="true"></div>
   <div class="column">
-    @if (!settingsManager.settings.alwaysGh2eImbuement && gameManager.gh2eRules() && gameManager.imbuementManager.available) {
+    @if (!settingsManager.settings.alwaysGh2eImbuement && gameManager.gh2eRules() &&
+    gameManager.imbuementManager.available) {
     <div class="line" [disabled]="settingsManager.settings.alwaysGh2eImbuement" ghs-setting-menu="gh2eImbuement"></div>
     }
     <div class="line" ghs-setting-menu="alwaysGh2eImbuement"></div>
@@ -326,19 +327,10 @@
 
   <div class="column">
     <div class="line" ghs-setting-menu="fhStyle"></div>
-    <div class="line" ghs-setting-menu="dragValues"></div>
-    <div class="line" ghs-setting-menu="pressDoubleClick"></div>
-    <div class="line" ghs-setting-menu="dragFigures"></div>
-    <div class="line" ghs-setting-menu="automaticAttackModifierFullscreen" [requires]="['portraitMode']"></div>
     <div class="line" ghs-setting-menu="characterSheetCompact" [requires]="['characterSheet']">
     </div>
     <div class="line" ghs-setting-menu="eventsDrawReminder" [requires]="['!eventDraw']"></div>
-  </div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="characterAttackModifierAnimate"
-      [requires]="['characterSheet', 'characterAttackModifierDeck']">
-    </div>
+    <div class="line" ghs-setting-menu="damageHPToggle"></div>
     <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanent"
       [requires]="['characterSheet', 'characterAttackModifierDeck']">
     </div>
@@ -349,7 +341,20 @@
     </div>
     <div class="line" ghs-setting-menu="characterItemsPermanentActive"
       [requires]="['characterItems','characterItemsPermanent']"></div>
-    <div class="line" ghs-setting-menu="damageHPToggle"></div>
+    <div class="line" ghs-setting-menu="characterAttackModifierAnimate"
+      [requires]="['characterSheet', 'characterAttackModifierDeck']">
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="line" ghs-setting-menu="automaticAttackModifierFullscreen" [requires]="['portraitMode']"></div>
+    <div class="line" ghs-setting-menu="pressDoubleClick"></div>
+    <div class="line" ghs-setting-menu="dragFigures"></div>
+    <div class="line" ghs-setting-menu="dragValues"></div>
+    <div class="line" ghs-setting-menu="dragValuesHp" [requires]="['dragValues']" [hint]="false"></div>
+    <div class="line" ghs-setting-menu="dragValuesInitiative" [requires]="['dragValues']" [hint]="false"></div>
+    <div class="line" ghs-setting-menu="dragValuesLoot" [requires]="['dragValues']" [hint]="false"></div>
+    <div class="line" ghs-setting-menu="dragValuesXp" [requires]="['dragValues']" [hint]="false"></div>
   </div>
 
   <div class="separator"></div>

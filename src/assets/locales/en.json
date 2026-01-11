@@ -998,8 +998,8 @@
           "gh2e": "Remove event {1} from the %game.events.type.{0}% deck."
         },
         "reputation": "Gain {0} reputation.",
-        "reputationFaction": "Gain {1} %data.gh2eFaction:{0}% reputation",
         "reputationAdditional": "Gain {0} additional reputation.",
+        "reputationFaction": "Gain {1} %data.gh2eFaction:{0}% reputation",
         "resource": "Gain {0} %game.resource.{1}% each.",
         "resourceType": "Gain any {0} %game.loot.{1}% each.",
         "scenarioCondition": {
@@ -2599,9 +2599,13 @@
       "hint": "Drag'n'drop for the figure list. Warning, if disabled and no initiative is required, there is no way to re-order the figures manually."
     },
     "dragValues": {
-      "": "Drag Initiative/HP/XP/Loot",
+      "": "Drag Values",
       "hint": "Drag support for changing values. To change initiative drag over the character portrait. For hit points, experience and loot drag over the values"
     },
+    "dragValuesHp": "Drag Hit Points",
+    "dragValuesInitiative": "Drag Initiative",
+    "dragValuesLoot": "Drag Loot",
+    "dragValuesXp": "Drag XP",
     "drawRandomItem": {
       "": "Draw Random Item rewards",
       "hint": "Automatically draw a Random Item card."
@@ -2785,6 +2789,7 @@
       },
       "it": "Italian (Italiano)",
       "ko": "Korean (한국어)",
+      "pl": "Polish (Polski)",
       "pt": "Portuguese (Portuguese)",
       "ru": "Russian (Русский)",
       "zh_Hans": "Simplified Chinese (简体中文)",

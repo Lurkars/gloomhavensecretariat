@@ -36,6 +36,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
   newStyle: boolean = false;
   townGuard: boolean = false;
   bbTable: boolean = false;
+  bbDrawnIndex: number = 0;
 
   AttackModifierType = AttackModifierType;
   type: AttackModifierType = AttackModifierType.minus1;
@@ -81,6 +82,9 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
     }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0);
+    if (gameManager.bbRules() && settingsManager.settings.bbAm) {
+      this.bbTable = true;
+    }
     this.update();
     this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
   }
@@ -140,6 +144,8 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
     if (!this.character || !gameManager.entityManager.isImmune(this.character, this.character, ConditionName.enfeeble)) {
       this.enfeebleChars = gameManager.game.figures.filter((figure) => figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent && figure.additionalModifier && figure.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.enfeeble)).map((figure) => figure as Character);
     }
+
+    this.bbDrawnIndex = Math.floor(this.deck.current / 3) * 3;
   }
 
   shuffle(upcoming: boolean = false): void {

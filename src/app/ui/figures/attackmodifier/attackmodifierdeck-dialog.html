@@ -264,8 +264,9 @@
       <div class="header">
         <img class="ghs-svg" src="./assets/images/bb/attackmodifier/2.svg">
       </div>
-      @for (attackModifier of deck.cards | trackUUID; track attackModifier._trackUUID;) {
-      <div class="attack-modifier-container">
+      @for (attackModifier of deck.cards | trackUUID; track attackModifier._trackUUID; let i = $index;) {
+      <div class="attack-modifier-container"
+        [ngClass]="{'drawn' : i != deck.current && i != deck.lastVisible && i < bbDrawnIndex, 'current': i == deck.current || i == deck.lastVisible}">
         <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
           [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally"
           [townGuard]="townGuard"></ghs-attackmodifier>

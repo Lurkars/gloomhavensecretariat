@@ -428,6 +428,15 @@
       margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
       flex-shrink: 0;
       flex-grow: 0;
+      border-radius: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+      &.drawn {
+        filter: grayscale(0.7);
+      }
+
+      &.current {
+        border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
+      }
 
       ghs-attackmodifier {
         position: absolute;
