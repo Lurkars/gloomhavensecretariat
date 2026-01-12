@@ -9,6 +9,10 @@
       "voidwarden": "Guardiano del Vuoto"
     }
   },
+  "deck": {
+    "boss": "Boss",
+    "imp": "Imp"
+  },
   "monster": {
     "black-imp": "Imp Nero",
     "giant-viper": "Vipera Gigante",

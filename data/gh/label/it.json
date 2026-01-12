@@ -645,7 +645,10 @@
     "shaman": "Sciamano"
   },
   "edition": {
-    "gh": "Gloomhaven"
+    "gh": {
+      "": "Gloomhaven",
+      "hint": "Questa è la prima edizione di Gloomhaven!"
+    }
   },
   "globalAchievements": {
     "the-drake-slain": "Il Draco Ucciso"
