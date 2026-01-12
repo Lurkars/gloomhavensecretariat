@@ -22,6 +22,24 @@
           "scenario": "64",
           "index": 1,
           "section": false
+        },
+        {
+          "edition": "fh",
+          "scenario": "64",
+          "index": 2,
+          "section": false
+        },
+        {
+          "edition": "fh",
+          "scenario": "64",
+          "index": 3,
+          "section": false
+        },
+        {
+          "edition": "fh",
+          "scenario": "64",
+          "index": 4,
+          "section": false
         }
       ]
     },

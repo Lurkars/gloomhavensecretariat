@@ -138,7 +138,7 @@
         [monsterType]="MonsterType.normal">
       </ghs-actions>
     </div>
-    @for (special of (stats.special); track special; let index = $index) {
+    @for (special of (stats.special); track index; let index = $index) {
     <div class="specials">
       <span class="special">{{index+1}}:</span>
       <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="settingsManager.settings.calculate"
@@ -163,7 +163,7 @@
         [monster]="monsterCopy" [monsterType]="MonsterType.elite">
       </ghs-actions>
     </div>
-    @for (special of (eliteStats.special); track special; let index = $index) {
+    @for (special of (eliteStats.special); track index; let index = $index) {
     <div class="specials">
       <span class="special">{{index+1}}:</span>
       <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="settingsManager.settings.calculate"
@@ -190,7 +190,7 @@
         [hexSize]="0.5" [highlightActions]="highlightActions" [monster]="monsterCopy" [monsterType]="MonsterType.boss">
       </ghs-actions>
     </div>
-    @for (special of (stats.special); track special; let index = $index) {
+    @for (special of (stats.special); track index; let index = $index) {
     <div class="specials">
       <span class="special">{{index+1}}:</span>
       <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="settingsManager.settings.calculate"

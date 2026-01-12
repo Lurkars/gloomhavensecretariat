@@ -144,10 +144,10 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                             deck = gameManager.game.monsterAttackModifierDeck;
                         }
                     } else if (activeFigure instanceof ObjectiveContainer) {
-                        if (!activeFigure.amDeck || activeFigure.amDeck == 'M' || activeFigure.amDeck == 'A' && (!gameManager.fhRules() && !settingsManager.settings.alwaysAllyAttackModifierDeck || !settingsManager.settings.allyAttackModifierDeck)) {
+                        if (activeFigure.amDeck == 'M' || activeFigure.amDeck == 'A' && (!gameManager.fhRules(true) && !settingsManager.settings.alwaysAllyAttackModifierDeck || !settingsManager.settings.allyAttackModifierDeck)) {
                             gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), "monster");
                             deck = gameManager.game.monsterAttackModifierDeck;
-                        } else if (activeFigure.amDeck == 'A' && settingsManager.settings.allyAttackModifierDeck && (gameManager.fhRules() || settingsManager.settings.alwaysAllyAttackModifierDeck)) {
+                        } else if (activeFigure.amDeck == 'A' && settingsManager.settings.allyAttackModifierDeck && (gameManager.fhRules(true) || settingsManager.settings.alwaysAllyAttackModifierDeck)) {
                             gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), "ally");
                             deck = gameManager.game.allyAttackModifierDeck;
                         } else if (activeFigure.amDeck) {

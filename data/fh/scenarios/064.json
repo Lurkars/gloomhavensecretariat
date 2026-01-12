@@ -95,7 +95,7 @@
       "finish": "lost"
     },
     {
-      "round": "true",
+      "round": "R < 10",
       "objectiveSpawns": [
         {
           "objective": {
@@ -111,7 +111,7 @@
       "noteTop": "Place up to 2 new Militia members in any empty %game.mapMarker.a%, %game.mapMarker.b%, %game.mapMarker.c% or %game.mapMarker.d%"
     },
     {
-      "round": "true",
+      "round": "R < 10",
       "figures": [
         {
           "identifier": {
@@ -120,7 +120,7 @@
             "name": "Militia"
           },
           "type": "present",
-          "value": "1"
+          "value": "11"
         }
       ],
       "objectiveSpawns": [

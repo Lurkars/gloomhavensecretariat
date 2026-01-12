@@ -8,6 +8,7 @@ import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
+import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { Party } from "../model/Party";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -23,7 +24,18 @@ export class AttackModifierManager {
     if (figure instanceof Character) {
       return figure.attackModifierDeck;
     } else if (figure instanceof Monster) {
-      return (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules()) && (figure.isAlly || figure.isAllied) ? this.game.allyAttackModifierDeck : this.game.monsterAttackModifierDeck;
+      return (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules(true)) && (figure.isAlly || figure.isAllied) ? this.game.allyAttackModifierDeck : this.game.monsterAttackModifierDeck;
+    } else if (figure instanceof ObjectiveContainer && figure.amDeck) {
+      if (figure.amDeck == 'M' || !settingsManager.settings.alwaysAllyAttackModifierDeck && !gameManager.fhRules(true) && figure.amDeck == 'A') {
+        return this.game.monsterAttackModifierDeck;
+      } else if (figure.amDeck == 'A') {
+        return this.game.allyAttackModifierDeck;
+      } else {
+        const character = gameManager.game.figures.find((char) => char instanceof Character && char.name == figure.amDeck) as Character;
+        if (character && settingsManager.settings.characterAttackModifierDeck) {
+          return character.attackModifierDeck;
+        }
+      }
     }
 
     return new AttackModifierDeck();

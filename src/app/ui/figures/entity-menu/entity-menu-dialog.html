@@ -205,7 +205,8 @@
       @if ((gameManager.isCharacter(data.figure) && settingsManager.settings.characterSheet &&
       settingsManager.settings.characterAttackModifierDeck || gameManager.isMonster(data.figure)) && (!data.entity ||
       EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) ||
-      !gameManager.toMonster(data.figure).immortal) && !bb)) {
+      !gameManager.toMonster(data.figure).immortal) && !bb) || gameManager.isObjectiveContainer(data.figure) &&
+      gameManager.toObjectiveContainer(data.figure).escort && gameManager.toObjectiveContainer(data.figure).amDeck) {
       <span class="item">
         <ghs-pointer-input class="button"
           [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) + bless == 0 || isImmune(ConditionName.bless) || entityImmunities.indexOf(ConditionName.bless) != -1}"
@@ -260,7 +261,7 @@
       </span>
       <span class="item">
         <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isAllied) + curse >= 10 || isImmune(ConditionName.curse) || entityImmunities.indexOf(ConditionName.curse) != -1}"
+          [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isAllied || gameManager.isObjectiveContainer(data.figure) && gameManager.toObjectiveContainer(data.figure).amDeck == 'M') + curse >= 10 || isImmune(ConditionName.curse) || entityImmunities.indexOf(ConditionName.curse) != -1}"
           tabclick (singleClick)="changeCurse(1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
@@ -714,21 +715,18 @@
 </div>
 <div class="decks">
   @for (deck of amDecks; track deck) {
-  @if (deck == 'M') {
-  <span class="deck" (click)="toggleAMDeck(deck)"
-    [ngClass]="{'active': !gameManager.toObjectiveContainer(data.figure).amDeck || gameManager.toObjectiveContainer(data.figure).amDeck == deck}">m</span>
-  }
-  @if (settingsManager.settings.allyAttackModifierDeck && (gameManager.fhRules() ||
-  settingsManager.settings.alwaysAllyAttackModifierDeck) && deck == 'A') {
-  <span class="deck" (click)="toggleAMDeck(deck)"
-    [ngClass]="{'active': gameManager.toObjectiveContainer(data.figure).amDeck == deck}">A</span>
-  }
-  @if (deck != 'M' && deck != 'A') {
   <span class="deck" [ngClass]="{'active': gameManager.toObjectiveContainer(data.figure).amDeck == deck}"
     (click)="toggleAMDeck(deck)">
+    @if (deck == 'M') {
+    m
+    }
+    @if (deck == 'A') {
+    A
+    }
+    @if (deck != 'M' && deck != 'A') {
     <img [src]="gameManager.characterManager.characterIcon(deck)">
+    }
   </span>
-  }
   }
   @if (gameManager.toObjectiveContainer(data.figure).amDeck &&
   amDecks.indexOf(gameManager.toObjectiveContainer(data.figure).amDeck ||'') == -1) {

@@ -235,7 +235,17 @@ export class EntityMenuDialogComponent {
 
     this.bb = this.data.entity instanceof Character && this.data.entity.bb || this.data.figure instanceof Monster && this.data.figure.bb;
 
-    this.amDecks = ['M', 'A', ...gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).map((figure) => figure.name)];
+    this.amDecks = ['M'];
+
+    if (settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules(true))) {
+      this.amDecks.push('A');
+    }
+
+    this.amDecks.push(...gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).map((figure) => figure.name));
+
+    if (this.data.figure instanceof ObjectiveContainer && this.data.figure.amDeck && this.amDecks.indexOf(this.data.figure.amDeck) == -1) {
+      this.data.figure.amDeck = 'M';
+    }
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -407,7 +417,7 @@ export class EntityMenuDialogComponent {
   }
 
   changeBless(value: number) {
-    if (this.data.figure instanceof Character || this.data.figure instanceof Monster) {
+    if (this.data.figure instanceof Character || this.data.figure instanceof Monster  || this.data.figure instanceof ObjectiveContainer && this.data.figure.amDeck) {
       this.bless += value;
       const existing = gameManager.attackModifierManager.countUpcomingBlesses();
       if (this.bless + existing >= 10) {
@@ -419,9 +429,9 @@ export class EntityMenuDialogComponent {
   }
 
   changeCurse(value: number) {
-    if (this.data.figure instanceof Character || this.data.figure instanceof Monster) {
+    if (this.data.figure instanceof Character || this.data.figure instanceof Monster || this.data.figure instanceof ObjectiveContainer && this.data.figure.amDeck) {
       this.curse += value;
-      const existing = gameManager.attackModifierManager.countUpcomingCurses(this.data.figure instanceof Monster && !this.data.figure.isAlly && !this.data.figure.isAllied);
+      const existing = gameManager.attackModifierManager.countUpcomingCurses(this.data.figure instanceof Monster && !this.data.figure.isAlly && !this.data.figure.isAllied || this.data.figure instanceof ObjectiveContainer && this.data.figure.amDeck == 'M');
       if (this.curse + existing >= 10) {
         this.curse = 10 - existing;
       } else if (this.curse + existing < 0) {
@@ -898,11 +908,11 @@ export class EntityMenuDialogComponent {
 
   toggleAMDeck(deck: string) {
     if (this.data.figure instanceof ObjectiveContainer) {
-      if (this.data.figure.amDeck == deck || this.data.figure.amDeck && deck == 'M') {
+      if (this.data.figure.amDeck == deck) {
         gameManager.stateManager.before("unsetObjectiveAmDeck", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', deck);
         this.data.figure.amDeck = undefined;
         gameManager.stateManager.after();
-      } else if (deck != 'M' && this.amDecks.indexOf(deck) != -1) {
+      } else if (this.amDecks.indexOf(deck) != -1) {
         gameManager.stateManager.before("setObjectiveAmDeck", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', deck);
         this.data.figure.amDeck = deck;
         gameManager.stateManager.after();

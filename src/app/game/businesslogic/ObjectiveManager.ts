@@ -11,6 +11,7 @@ import { MonsterType } from "../model/data/MonsterType";
 import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { ObjectiveSpawnData } from "../model/data/ScenarioRule";
 import { gameManager } from "./GameManager";
+import { settingsManager } from './SettingsManager';
 
 
 export class ObjectiveManager {
@@ -41,6 +42,10 @@ export class ObjectiveManager {
         if (objectiveData.initiative) {
           objectiveContainer.initiative = objectiveData.initiative;
         }
+
+        if (objectiveContainer.escort) {
+          objectiveContainer.amDeck = settingsManager.settings.allyAttackModifierDeck && (objectiveData.allyDeck || gameManager.fhRules(true)) ? 'A' : 'M';
+        }
       }
       objectiveContainer.edition = objectiveContainer.escort ? 'escort' : 'objective';
       this.game.figures.push(objectiveContainer);
@@ -58,7 +63,7 @@ export class ObjectiveManager {
     }
   }
 
-  addObjectiveEntity(objectiveContainer: ObjectiveContainer, number: number | undefined = undefined, objectiveData: ObjectiveData | undefined = undefined, marker: string  = ""): ObjectiveEntity {
+  addObjectiveEntity(objectiveContainer: ObjectiveContainer, number: number | undefined = undefined, objectiveData: ObjectiveData | undefined = undefined, marker: string = ""): ObjectiveEntity {
     if (!number || objectiveContainer.entities.find((objectiveEntity) => objectiveEntity.number == number)) {
       const objectiveCount = objectiveContainer.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
       number = objectiveCount % 12;
