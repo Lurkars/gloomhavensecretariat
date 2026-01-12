@@ -179,6 +179,10 @@ body {
     --ghs-font-fh-extra: 'kurale';
   }
 
+  &.locale-pl {
+   --ghs-font-fh-title: 'pirataone';
+
+  }
   &.dragging {
     cursor: grabbing !important;
 

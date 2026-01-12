@@ -1,1 +1,60 @@
-{}
+{
+  "character": {
+    "fh": {
+      "core": "CORE",
+      "wildborn": "Dzikourodzony",
+      "woebound": "Związany Niedolą"
+    }
+  },
+  "custom": {
+    "perks": {
+      "core": {
+        "1": "Dodaj +1 %game.action.attack% za każdy posiadany przez ciebie stan.",
+        "2": "Na początku każdego scenariusza możesz wykonać „%game.condition.strengthen%, %game.condition.wound%, na siebie” lub „%game.condition.ward%, %game.condition.immobilize%, na siebie”.",
+        "3": "Raz na scenariusz uniknij testu wyczerpania z Przeciążenia.",
+        "4": "Raz na scenariusz, podczas swojej tury, usuń dowolną liczbę negatywnych stanów, które posiadasz.",
+        "5": "Zabij ostatniego wroga w scenariuszu i zakończ z dziewięcioma kartami zdolności w stosie kart straconych.",
+        "6": "Wyzwól efekt trwający z Chaotic Recursion sześć lub więcej razy w jednej rundzie."
+      },
+      "wildborn": {
+        "1": "zamiast tego, jeśli otrzymasz %game.damage:2%",
+        "2": "Dodaj +1 %game.action.attack% za każdą zebraną %data.action.custom.cc-essence%.",
+        "3": "Umieść tę kartę w swojej aktywnej strefie. Przy następnym dowodzonym ataku odrzuć tę kartę, aby dodać +2 %game.action.attack%.",
+        "4": "Przy następnym dowodzonym ataku odrzuć tę kartę, aby dodać +2 %game.action.attack%.",
+        "5": "%game.custom.perks.ignoreNegativeScenario% oraz traktuj wszystkie %data.action.custom.cc-essence% jako Stabilne przez jedną rundę w każdym scenariuszu.",
+        "6": "Ilekroć ty lub sojusznik mielibyście otrzymać dokładnie %game.damage:2%, ta figura może stracić %game.condition.ward%, aby nie otrzymać żadnych %game.damage%.",
+        "7": "Na początku każdego scenariusza możesz stworzyć %game.element.wild%.",
+        "8": "Zagraj co najmniej 8 akcji %game.card.lost% bez wyczerpania.",
+        "9": "Ustabilizuj 4 różne %data.action.custom.cc-essence% podczas pierwszego odpoczynku na przestrzeni dowolnych 4 scenariuszy."
+      },
+      "woebound": {
+        "1": "gdzie X to liczba elementów, które zużyłeś w tej turze",
+        "2": "Ilekroć zużywasz element jako obowiązkową część akcji, możesz wygenerować ten sam element.",
+        "3": "Na początku każdego scenariusza stwórz %game.element.wild%.",
+        "4": "Ilekroć wykonujesz długi odpoczynek, stwórz %game.element.wild%.",
+        "5": "Zużyj co najmniej trzy elementy w każdej swojej turze po pierwszej rundzie, nie wyczerpując się.",
+        "6": "Miej %game.action.shield% 2 na każdym ataku wymierzonym w ciebie, który spowodowałby otrzymanie obrażeń, oraz zostań zaatakowany co najmniej 15 razy."
+      }
+    }
+  },
+  "edition": {
+    "cc": "Custom Content Unity Guild (przestarzałe!!!)"
+  },
+  "items": {
+    "fh-cc-core": {
+      "": "Tarcza Absorpcji",
+      "1": "Gdy otrzymujesz %game.damage% z ataku, zyskaj %game.action.shield% 1 na ten atak, a następnie odwróć tę kartę.",
+      "2": "Na początku swojej tury zyskaj %game.condition.wound%.",
+      "3": "Gdy %game.condition.wound% zostanie z ciebie usunięty, odwróć tę kartę."
+    },
+    "fh-wb01": {
+      "": "Odłamki Zapomnienia",
+      "1": "Gdy miałbyś przyznać sojusznikowi zdolność, zamiast tego kontroluj wroga, aby wykonał tę zdolność. Użyj swojej talii modyfikatorów ataku dla wszystkich ataków wykonanych w ten sposób."
+    },
+    "fh-wb02": {
+      "": "Kosa Chaosu",
+      "1": "Dodaj +2 %game.action.attack% do swojego następnego ataku wręcz wymierzonego w wroga nieprzylegającego do żadnego sojusznika, a następnie odwróć tę kartę na koniec swojej tury.",
+      "2": "Jeśli zużyłeś cztery lub więcej elementów podczas swojej tury, odwróć tę kartę na koniec swojej tury."
+    }
+  }
+}
