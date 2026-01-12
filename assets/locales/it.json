@@ -142,7 +142,7 @@
         "harrower": "Harrower",
         "human": "Umana",
         "inox": "Inox",
-        "lurker": "Lurker",
+        "lurker": "Osservatore",
         "orchid": "Orchid",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
@@ -153,14 +153,14 @@
       "harrower": "Harrower",
       "human": "Umano",
       "inox": "Inox",
-      "lurker": "Lurker",
+      "lurker": "Osservatore",
       "m": {
         "aesther": "Aesther",
         "algox": "Algox",
         "harrower": "Harrower",
         "human": "Umano",
         "inox": "Inox",
-        "lurker": "Lurker",
+        "lurker": "Osservatore",
         "orchid": "Orchid",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
@@ -2603,9 +2603,13 @@
       "hint": "Drag'n'Drop per l'elenco delle unità. Avvertenza, se disabilitato e non è richiesta alcuna iniziativa, non c'è modo di riordinare manualmente le unità."
     },
     "dragValues": {
-      "": "Trascina iniziativa/PV/Esp/bottino",
+      "": "Trascina Valori",
       "hint": "Supporto al trascinamento per la modifica dei valori. Per cambiare l'iniziativa trascina sul ritratto del personaggio. Per i punti ferita, l'esperienza e il bottino trascina sopra i valori"
     },
+    "dragValuesHp": "Trascina Punti Ferita",
+    "dragValuesInitiative": "Trascina Iniziativa",
+    "dragValuesLoot": "Trascina Bottino",
+    "dragValuesXp": "Trascina Esp",
     "drawRandomItem": {
       "": "Pesca ricompense Oggetto Casuale",
       "hint": "Pesca automaticamente una carta Oggetto Casuale."
@@ -2783,12 +2787,14 @@
       "en": "Inglese (English)",
       "es": "Spagnolo (Español)",
       "fr": "Francese (Français)",
+      "pl": "Polish (Polski)",
       "help": {
         "": "Aiuta a tradurre!",
         "hint": "<img src=\"https://translate.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>"
       },
       "it": "Italiano",
       "ko": "Coreano (한국어)",
+      "pl": "Polacco (Polski)",
       "pt": "Portoghese (Portuguese)",
       "ru": "Russo (Русский)",
       "zh_Hans": "Cinese semplificato (简体中文)",
