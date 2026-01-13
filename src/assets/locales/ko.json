@@ -357,7 +357,7 @@
     "importDataDump": "데이터 덤프 가져오기",
     "importFile": {
       "": "파일추가",
-      "hint": "설정 값, 게임 데이터, 백업 데이터, 덤프 데이터를 불러옵니다. 두 번 눌러야 활성화 됩니다!"
+      "hint": "더블 클릭 하여 설정 값, 게임 데이터, 백업 데이터, 덤프 데이터를 불러옵니다."
     },
     "importGame": "파일에서 게임 가져오기",
     "importSettings": "설정 값 불러오기",
@@ -2055,10 +2055,10 @@
       "hint": {
         "": "중독 상태에서 체력을 감소 시키는 경우, 체력 감소에 대한 확인이 필요합니다",
         "brittle": "피해를 입을 때, %game.condition.brittle%을 적용하여 피해를 입습니다.",
-        "heal": "부정적 상태에서 치료%game.action.heal%시 도움됩니다.",
+        "heal": "부정적 상태에서 %game.action.heal%시 팝업 창을 띄웁니다.",
         "poison": "%game.condition.poison%상태에서 피해를 입을 때, %game.action.attack% +1(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
         "poison_x": "%game.condition.poison_x:X%상태에서 피해를 입을 때, %game.action.attack% +X(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
-        "shield": "피해를 입을 때,%game.action.shield%를 적용해야하는 경우에 도움이 됩니다.",
+        "shield": "피해를 입을 때,%game.action.shield%를 적용하여 피해를 감소시킵니다.",
         "ward": "피해를 입을 때, %game.condition.ward%를 적용하여 피해를 감소시킵니다."
       }
     },
@@ -2072,7 +2072,7 @@
     },
     "addAllMonsters": {
       "": "모든 방/섹션 추가",
-      "hint": "그러면 시나리오에 등장하는 모든 몬스터가 자동으로 추가됩니다. 공개되지 않은 방/구역이 스포일러될 수 있으니 주의하세요."
+      "hint": "시나리오에 등장하는 모든 몬스터가 자동으로 추가됩니다. 공개되지 않은 방/구역이 스포일러될 수 있으니 주의하세요."
     },
     "additional": "추가 게임 플레이",
     "allyAttackModifierDeck": {
