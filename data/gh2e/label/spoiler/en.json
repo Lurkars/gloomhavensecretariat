@@ -85,7 +85,7 @@
         "3": "Place one %data.action.custom.gh2e-tear% in a hex adjacent to the target",
         "4": "Whenever you long rest, you may %game.element.dark%",
         "5": "Once each scenario, during your turn, place one %data.action.custom.gh2e-tear% in an adjacent hex",
-        "6": "If a %game.condition.curse% causes an enemy to deal no %game.damage% during its attack, that enemy suffer %game.damage:3%",
+        "6": "If a %game.condition.curse% causes an enemy to deal no %game.damage% during its attack, that enemy suffers %game.damage:3%",
         "7": "In a single scenario, infuse or consume %game.element.dark% during each of your turns",
         "8": "In a single scenario, perform an attack ability during your turn in 5 consecutive rounds"
       },
