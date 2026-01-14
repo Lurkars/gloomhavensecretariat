@@ -1041,6 +1041,12 @@
           "2": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.3% opening it.",
           "3": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.4% opening it.",
           "4": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.5% opening it."
+        },
+        "9": {
+          "1": "Draw a token and spawn the monster on %game.mapMarker.b%.",
+          "2": "Draw a token and spawn the monster on %game.mapMarker.c%.",
+          "3": "Draw two tokens and spawn the monsters on %game.mapMarker.b% and %game.mapMarker.c%.",
+          "4": "Draw two tokens and spawn the monsters on %game.mapMarker.d% and %game.mapMarker.e%."
         }
       }
     },
