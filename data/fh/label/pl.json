@@ -1981,19 +1981,19 @@
     "rules": {
       "fh": {
         "0": "Do not set up the Hound monster ability deck. Instead, each round on initiative 26, all Hounds perform %game.action.move% 2; %game.action.attack% 2.",
-        "1": "City Guards do not perform turns but instead gain an additional innate %game.action.shield% 1 (for a total of %game.action.shield% 2 at level 1) and %game.action.retaliate% 2, and have an initiative of 50 for the purpose of focusing.",
-        "110": "Can only be destoyed when a Ruined Machine dies in an adjacent hex",
-        "112": "The two Hounds have twice their maximum hit point values.",
-        "115": "When destroyed, replace with rubble and all figures in adjacent hexes suffer trap damage",
-        "116": "Focus on moving towards %game.mapMarker.b%",
+        "1": "Strażnicy Miejscy nie wykonują tur, ale zamiast tego zyskują dodatkowe wrodzone %game.action.shield% 1 (w sumie %game.action.shield% 2 na poziomie 1) i %game.action.retaliate% 2, a ich inicjatywa wynosi 50 dla celów skupienia.",
+        "110": "Może zostać zniszczona tylko wtedy, gdy zrujnowana maszyna zginie na sąsiednim polu.",
+        "112": "Oba ogary mają podwojoną maksymalną wartość punktów życia.",
+        "115": "Gdy zostanie zniszczony, zamienia się w gruz, a wszystkie figurki na sąsiednich polach otrzymują obrażenia od pułapki.",
+        "116": "Skupia się na poruszaniu się w kierunku %game.mapMarker.b%.",
         "119": {
-          "1": "At end of turn, spend dust to:",
-          "2": "Spend 1: %game.action.move%2",
-          "3": "Spend 2:",
-          "4": "Spend 5: Convert monster within %game.action.range%2"
+          "1": "Na koniec tury wydaj pył, aby:",
+          "2": "Wydaj 1: %game.action.move%2",
+          "3": "Wydaj 2:",
+          "4": "Wydaj 5: Zmień nastawienie potwora w zasięgu %game.action.range%2"
         },
         "128": {
-          "1": "All Steel Automatons use the Imp monster ability deck.",
+          "1": "Wszystkie Stalowe Automaty używają talii zdolności potworów Chochlik.",
           "2": "Whenever any Lurker Wavethrower would summon a Lightening Eel, it summons one Vermling Scout with a current hit point value of 1 instead."
         },
         "129": "All City Guards use Archer monster ability cards instead of their own.",
