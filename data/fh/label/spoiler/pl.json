@@ -1,1 +1,67 @@
-{}
+{
+  "character": {
+    "fh": {
+      "coral": "Miażdżąca Fala",
+      "meteor": "Piroklasta",
+      "trap": "Traper"
+    }
+  },
+  "custom": {
+    "fh": {
+      "coral": {
+        "1": "Jeśli w tej rundzie wykonałeś akcję %data.action.custom.fh-tides%, zamiast tego %game.attackmodifier.plus2%",
+        "2": "Za każdym razem, gdy masz zyskać %game.condition.impair%, zapobiegnij temu stanowi",
+        "3": "Za każdym razem, gdy podczas wyboru kart zadeklarujesz długi odpoczynek, na daną rundę zyskujesz %game.action.shield:1%",
+        "4": "Otrzymaj korzyść dla wszystkich twoich ataków wykonanych podczas zajmowania lub atakowania wrogów zajmujących pola wody",
+        "5": "NIgdy nie otrzymaj obrażeń od ataków i bądź wzięty na cel przez co najmniej pięć ataków",
+        "6": "Na początku każdego ze swoich odpoczynków miej więcej aktywnych %game.action.custom.fh-tides% niż kart na stosie kart odrzuconych"
+      },
+      "meteor": {
+        "1": "Stwórz jeden kafelek niebezpiecznego terenu o wielkości 1 pola na pozbawionym cech polu sąsiadującym z celem",
+        "2": "Za każdym razem, gdy wykonujesz długi odpoczynek, możesz zniszczyć jedną sąsiadującą przeszkodę, aby zyskać %game.condition.ward%",
+        "3": "Za każdym razem, gdy wykonujesz krótki odpoczynek, możesz %game.element.consume.fire% aby wykonać %game.condition.wound%, %game.action.target:1% wróg zajmujący lub sąsiadujący z niebezpiecznym terenem",
+        "4": "Ty i wszyscy twoi sojusznicy jesteście niewrażliwi na niebezpieczny teren, który tworzysz",
+        "5": "W każdej rundzie stwórz lub zniszcz co najmniej jedną przeszkodę lub kafelek niebezpiecznego terenu",
+        "6": "W jednej turze przemieść wrogów przez sześć różnych pól niebezpiecznego terenu, które stworzyłeś"
+      },
+      "prism": {
+        "1": "Na koniec tury wykonaj akcję:"
+      },
+      "snowflake": {
+        "1": "Jeżeli ta akcja zmusza cel do poruszenia, otrzymuje on %game.damage:1%",
+        "2": "Za każdym razem, gdy wykonujesz długi odpoczynek, możesz %game.elementHalf:ice|air%",
+        "3": "Za każdym razem, gdy wykonujesz krótki odpoczynek, możesz %game.element.consume.ice% aby wykonać %game.condition.regenerate%, %game.action.range:3% i %game.element.consume.air% aby wykonać %game.condition.ward%, %game.action.range:3%",
+        "4": "Na początku każdego scenariusza wszyscy wrogowie zyskują %game.condition.muddle%.\nZa każdym razem, gdy zostanie odkryte nowe pomieszczenie, wszyscy wrogowie którzy się w nim znajdują, zyskują %game.condition.muddle%",
+        "5": "Spraw, żeby w każdej rundzie poruszył się co najmniej jeden sojusznik lub wróg",
+        "6": "Upewnij się, że pierwszy sojusznik, który otrzyma %game.damage% w każdej rundzie, zanim otrzyma %game.damage%, będzie posiadał co najmniej jeden stan, który wcześniej na niego nałożyłeś"
+      },
+      "trap": {
+        "1": "Na koniec tury, stwórz jedną pułapkę %game.damage:2% na pustym sąsiadującym polu.",
+        "10": "Za pomocą jednej zdolności, przemieść wrogów przez co najmniej siedem pułapek",
+        "2": "Stwórz jedną pułapkę %game.action.heal% 2 na pustym polu sąsiadującym z celem",
+        "3": "Stwórz jedną pułapkę %game.damage:1% na pustym polu sąsiadującym z celem",
+        "4": "Dodaj %game.damage:2% lub %game.action.heal% 2 do pułapki w zasięgu %game.action.range:2% od ciebie",
+        "5": "Dodaj %game.action.push% 2 lub %game.action.pull% 2",
+        "6": "Za każdym razem, gdy wykonujesz długi odpoczynek, możesz stworzyć jedną pułapkę %game.damage:1% na sąsiednim pustym polu",
+        "7": "Za każdym razem gdy wchodzisz na pole z pułapką, możesz zdecydować, że nie aktywujesz danej pułapki",
+        "8": "Na początku każdego scenariusza, możesz stworzyć jedną pułapkę %game.damage:2% na sąsiednim pustym polu",
+        "9": "Miej na mapie jedną pułapkę %game.action.heal% o wartości co najmniej 20"
+      }
+    }
+  },
+  "favors": {
+    "fh": {
+      "capacity": {
+        "": "Pojemność"
+      },
+      "discovery": {
+        "": "Odkrycie",
+        "automation": "Należy zastosować ręcznie w menu talii łupów!"
+      },
+      "potential": {
+        "": "Potencjalnie",
+        "automation": "Brak automatyzacji. Należy stosować fizycznie."
+      }
+    }
+  }
+}
