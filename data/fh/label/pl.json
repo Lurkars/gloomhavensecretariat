@@ -1598,7 +1598,7 @@
         "2": "<br>where X is the Living<br>Doom's current hit point value<br>divided by 5 (rounded down),<br>up to a maximum of three."
       },
       "lord-of-chaos": {
-        "1": "Force all enemies to move one hex toward the closest unoccupied corridor hex."
+        "1": "Zmuś wszystkich wrogów do przesunięcia się o jedno pole w kierunku najbliższego niezajętego pola korytarza."
       },
       "lurker-clawcrusher": {
         "1": "The target suffers %game.damage:X%, where X<br>is their %game.action.shield% value for this attack.",
@@ -1721,7 +1721,7 @@
     "burrowing-blade": "Ostrzorylec",
     "chaos-demon": "Demon Chaosu",
     "chaos-lieutenant": "Przyboczny Chaosu",
-    "chaos-spark": "Władca Chaosu",
+    "chaos-spark": "Iskra Chaosu",
     "city-guard": "Strażnik Miejski",
     "coral-corpse": "Koralowe Truchło",
     "deep-terror": "Głębinowa Groza",
