@@ -105,7 +105,102 @@
         "4": "Whenever you perform a %data.action.custom.gh2e-song%, if you have any unused Notes, gain one Note of your choice in addition to any other Note gained that round",
         "5": "During ordering of initiative in rounds in which you declare a long rest, gain one Note of your choice, and each of your allies may decrease their initiative by 10",
         "6": "In a single scenario, perform 7 different %data.action.custom.gh2e-song% actions",
-        "7": "In a single scenario, create 20 or more Notes and use each Note you create in a %data.action.custom.gh2e-song%"
+        "7": "In a single scenario, create 20 or more Notes and use each Note you create in a %data.action.custom.gh2e-song%",
+        "abilities": {
+          "351": {
+            "1": "At the end of each of your turns, grant the ally closest to you:",
+            "2": "Grant one adjacent ally:"
+          },
+          "352": {
+            "1": "At the end of each of your turns, the enemy with the highest current hit point value suffers %game.damage:1% and gains %game.condition.muddle%.",
+            "2": "Grant one adjacent ally:"
+          },
+          "353": {
+            "1": "At the end of each of your turns, the closest enemy to you that does not have %game.condition.disarm% or %game.condition.stun% gains %game.condition.disarm%."
+          },
+          "354": {
+            "1": "You and each ally add +1%game.action.attack% to your first attack each turn."
+          },
+          "355": {
+            "1": "At the end of each of your turns, perform:",
+            "2": "the enemy closest to you"
+          },
+          "356": {
+            "1": "At the end of this an your next five turns, gain one Note of your choice in addition to any other Note gained."
+          },
+          "357": {
+            "1": "On your allies' next five attacks, add +X%game.action.attack% where X is the number of use slots the character token has passed (0, 1, 2, 3, 4)."
+          },
+          "358": {
+            "1": "Grant one ally within %game.action.range:3% %game.enhancement.square% :"
+          },
+          "360": {
+            "1": "Grant one ally within %game.action.range:3% %game.enhancement.square% :"
+          },
+          "361": {
+            "1": "Grant one ally within %game.action.range:3% %game.enhancement.square% :"
+          },
+          "362": {
+            "1": "You and all allies gain %game.action.shield:1%."
+          },
+          "363": {
+            "1": "You and all allies gain %game.action.retaliate:1% %game.action.range:2%."
+          },
+          "365": {
+            "1": "Grant one ally within %game.action.range:3% %game.enhancement.square% :"
+          },
+          "366": {
+            "1": "At the end of each of your turns, perform:",
+            "2": "Place your character token on a monster within %game.action.range:3%. At the end of that enemy's turn this round, remove your character token and that enemy gains %game.condition.disarm%."
+          },
+          "367": {
+            "1": "You may immediately play up to three cards from your hand to perform one 1-Note %data.customAction:gh2e-song% action, one 2-Note %data.customAction:gh2e-song% action, and one 3-Note %data.customAction:gh2e-song% action, ignoring the Note requirements of those actions."
+          },
+          "368": {
+            "1": "You and each ally may individually choose (after revealing the card) to treat the first attack modifier card drawn each turn as %game.attackmodifier.rolling%.",
+            "2": "Force one enemy within %game.action.range:5% to perform",
+            "3": "targeting another enemy with you controlling the action."
+          },
+          "369": {
+            "1": "Grant all allies:"
+          },
+          "370": {
+            "1": "At the end of each of your turns, perform:"
+          },
+          "372": {
+            "1": "Immediately after you perform your first attack ability from your ability cards each round, you may repeat that attack ability, adding +1%game.action.attack% (you may choose a new target)."
+          },
+          "373": {
+            "1": "Control the target of the attach ability:",
+            "2": "Control one enemy within %game.action.range:5%:"
+          },
+          "374": {
+            "1": "All enemies gain disadvantage on all their attacks.",
+            "2": "Negate the next %game.damage% an ally within %game.action.range:2% would suffer this round."
+          },
+          "375": {
+            "1": "Grant one ally:"
+          },
+          "376": {
+            "1": "You and each ally add %game.condition.wound% to your first attack each turn.",
+            "2": "Grant one ally within %game.action.range:3% %game.enhancement.square% :"
+          },
+          "377": {
+            "1": "Grant one ally within %game.action.range:3% %game.enhancement.square% :"
+          },
+          "378": {
+            "1": "You and all allies gain %game.action.shield:1% and %game.action.retaliate:1% %game.action.range:2%."
+          },
+          "379": {
+            "1": "Control all enemies moved through with the move ability:",
+            "2": "Gain one Note of your choice in addition to any other Note you gain this round.",
+            "3": "You may immediately play any number of cards from your hand and discard pile to perform %data.customAction:gh2e-song% actions of the cards, ignoring all Note requirements. Skip moving your character token on active %data.customAction:gh2e-song% this round."
+          },
+          "380": {
+            "1": "At the end of each of your turns, perform:",
+            "2": "Move you character tokens on each of your active %data.customAction:gh2e-song% abilities backward one slot."
+          }
+        }
       },
       "saw": {
         "1": "Give one adjacent ally or self one medical pack",
