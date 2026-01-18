@@ -2342,13 +2342,13 @@
       "en": "Inglés (English)",
       "es": "Español",
       "fr": "Francés (Français)",
-      "pl": "Polish (Polski)",
       "help": {
         "": "¡Ayuda con la traducción!",
         "hint": "<img src=\"https://translate.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>"
       },
       "it": "Italiano",
       "ko": "Coreano (한국어)",
+      "pl": "Polish (Polski)",
       "zh_Hans": "Chino simplificado (简体中文)",
       "zh_Hant": "Chino tradicional (繁體中文)"
     },
