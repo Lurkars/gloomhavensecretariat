@@ -13,7 +13,15 @@
       "military:1"
     ]
   },
-  "monsters": [],
+  "monsters": [
+    "chaos-demon",
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "night-demon",
+    "sun-demon",
+    "wind-demon"
+  ],
   "objectives": [
     {
       "name": "Hail",
@@ -66,6 +74,28 @@
           ]
         }
       ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.gh2e.9.1%"
+    },
+    {
+      "round": "R == 2",
+      "start": true,
+      "note": "%data.scenario.rules.gh2e.9.2%"
+    },
+    {
+      "round": "R > 2 && R % 2 == 0",
+      "start": true,
+      "note": "%data.scenario.rules.gh2e.9.3%"
+    },
+    {
+      "round": "R > 2 && R % 2 == 1",
+      "start": true,
+      "note": "%data.scenario.rules.gh2e.9.4%"
     }
   ],
   "rooms": [
