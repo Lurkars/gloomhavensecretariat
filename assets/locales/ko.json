@@ -1,7 +1,7 @@
 {
   "about": {
     "": "소개",
-    "forceUpdate": "강제 업데이트",
+    "forceUpdate": "최신버전으로 업데이트",
     "ip": "글룸헤이븐과 관련된 모든 속성, 이미지, 텍스트는 {0}의 소유입니다.",
     "license": "{0} 라이센스.",
     "sourceCode": "소스 코드",
@@ -68,14 +68,14 @@
           "multiple": "도전 카드 뽑기"
         },
         "select": {
-          "": "활성화 도전 카드 전환",
-          "multiple": "활성화 도전 카드 전환"
+          "": "도전 카드 전환 활성화",
+          "multiple": "도전 카드 전환 활성화"
         }
       },
       "removed": "제거됨",
       "upcoming": "예정"
     },
-    "disabled": "시나리오에 준비된 도전 카드가 없음!"
+    "disabled": "시나리오에 필요한 도전 카드가 없습니다!"
   },
   "character": {
     "": "캐릭터",
@@ -199,7 +199,7 @@
       "gold-notes": "금화 메모",
       "import": "가져오기",
       "level": "레벨",
-      "lock": "실수로 편집하지 않도록 캐릭터 시트를 잠급니다.",
+      "lock": "편집되지 않도록 캐릭터 시트를 잠급니다.",
       "masteries": "마스터리",
       "name": "이름",
       "notes": "메모",
@@ -296,7 +296,7 @@
       "auto": {
         "": "자동 백업",
         "count": "매 행동 (x)회마다",
-        "countHint": "자동 백업 간격으로 설정할 행동 수",
+        "countHint": "자동 백업 간격을 설정할 수 있습니다",
         "onFinish": "시나리오 종료 후",
         "uploadUrl": {
           "": "Url 업로드",
@@ -312,7 +312,7 @@
           "hint": "업로드 요청의 '인증' 헤더로 사용"
         },
         "uploadUrlFileUpload": {
-          "": "파일로 업로드",
+          "": "파일 업로드",
           "hint": "업로드할 파일 객체를 생성합니다. 이 옵션을 선택하지 않으면 원시 JSON 문자열 데이터가 전송됩니다."
         },
         "uploadUrlMethod": {
@@ -339,27 +339,27 @@
           "hide": "다시 표시 안 함",
           "text": "모든 데이터는 브라우저에 저장됩니다. 플레이중인 데이터가 날아간 사례는 없었지만, 백업 데이터를 생성하는 것을 추천드립니다."
         },
-        "onFinish": "시나리오를 마친 후, 자동 백업 생성"
+        "onFinish": "시나리오 종료 후, 자동 백업 생성"
       },
       "latest": "최근 게임 백업 다운로드"
     },
     "clearAll": "모든 데이터 초기화",
     "editionDataUrls": {
       "": "에디션 데이터 관리",
-      "custom": "추가적인 에디션 데이터",
+      "custom": "추가 에디션 데이터",
       "disable": "에디션 비활성화",
       "enable": "에디션 활성화",
       "remove": "에디션 데이터 제거"
     },
-    "exportDataDump": "데이터 덤프 내보내기",
-    "exportGame": "파일로 게임 내보내기",
+    "exportDataDump": "데이터 덤프 저장",
+    "exportGame": "게임 파일 저장",
     "exportSettings": "설정 값 저장",
-    "importDataDump": "데이터 덤프 가져오기",
+    "importDataDump": "데이터 덤프 불러오기",
     "importFile": {
-      "": "파일추가",
-      "hint": "설정 값, 게임 데이터, 백업 데이터, 덤프 데이터를 불러옵니다. 두 번 눌러야 활성화 됩니다!"
+      "": "파일 추가",
+      "hint": "더블 클릭 하여 설정 값, 게임 데이터, 백업 데이터, 덤프 데이터를 불러옵니다!"
     },
-    "importGame": "파일에서 게임 가져오기",
+    "importGame": "게임 파일 불러오기",
     "importSettings": "설정 값 불러오기",
     "removeAllSpoilers": "모두 삭제하기",
     "removeAllUnlocks": "모두 삭제하기",
@@ -378,9 +378,9 @@
       "clockIn": "게임 시간 기록 켜기",
       "clockOut": "게임 시간 기록 끄기",
       "current": "현재: {0}",
-      "off": "게임 시간 기록 일시정지! 두 번 클릭하여 게임 시간 기록 켜기.",
-      "paused": "게임 시간 기록 일시정지! 두 번 클릭하여 게임 시간 기록 켜기.<br>총합: {0}",
-      "running": "게임 시간 기록 작동 중! 두 번 클릭하여 게임 시간 기록 끄기.<br>현재: {1}",
+      "off": "게임 시간 기록 일시정지! 더블 클릭하여 게임 시간 기록 켜기.",
+      "paused": "플레이 시간 기록 일시정지. 더블 클릭하여 기록을 켤 수 있습니다.<br>총합: {0}",
+      "running": "플레이 시간을 기록중입니다. 더블 클릭하여 기록을 끌 수 있습니다.<br>현재: {1}",
       "runningTotal": "게임 시간 기록 작동 중! 두 번 클릭하여 게임 시간 기록 끄기.<br>현재: {1}<br>총합: {0}",
       "timestamp": "{0}에서 {1}에 대해 실행",
       "total": "총합: {0}"
@@ -407,6 +407,7 @@
       "removeEnhancement": "향상 슬롯 삭제",
       "removeSubAction": "부속 행동 제거하기",
       "small": "작게 표현하기",
+      "subActions": "부속 행동",
       "summon": {
         "type": {
           "monster": "몬스터",
@@ -2055,10 +2056,10 @@
       "hint": {
         "": "중독 상태에서 체력을 감소 시키는 경우, 체력 감소에 대한 확인이 필요합니다",
         "brittle": "피해를 입을 때, %game.condition.brittle%을 적용하여 피해를 입습니다.",
-        "heal": "부정적 상태에서 치료%game.action.heal%시 도움됩니다.",
+        "heal": "부정적 상태에서 %game.action.heal%시 팝업 창을 띄웁니다.",
         "poison": "%game.condition.poison%상태에서 피해를 입을 때, %game.action.attack% +1(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
         "poison_x": "%game.condition.poison_x:X%상태에서 피해를 입을 때, %game.action.attack% +X(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
-        "shield": "피해를 입을 때,%game.action.shield%를 적용해야하는 경우에 도움이 됩니다.",
+        "shield": "피해를 입을 때,%game.action.shield%를 적용하여 피해를 감소시킵니다.",
         "ward": "피해를 입을 때, %game.condition.ward%를 적용하여 피해를 감소시킵니다."
       }
     },
@@ -2072,7 +2073,7 @@
     },
     "addAllMonsters": {
       "": "모든 방/섹션 추가",
-      "hint": "그러면 시나리오에 등장하는 모든 몬스터가 자동으로 추가됩니다. 공개되지 않은 방/구역이 스포일러될 수 있으니 주의하세요."
+      "hint": "시나리오에 등장하는 모든 몬스터가 자동으로 추가됩니다. 공개되지 않은 방/구역이 스포일러될 수 있으니 주의하세요."
     },
     "additional": "추가 게임 플레이",
     "allyAttackModifierDeck": {
@@ -2094,6 +2095,10 @@
     "alwaysFhSolo": {
       "": "프로스트헤이븐 1인 규칙 적용",
       "hint": "1인 레벨 계산 시 항상 프로스트헤이븐 규칙을 적용합니다. (프로스트헤이븐 플레이 시 자동 활성화)"
+    },
+    "alwaysGh2eImbuement": {
+      "": "항상 글룸헤이븐 2판의 몬스터 능력 적용",
+      "hint": "활성화 시, 모든 에디션에서 글룸헤이븐 2판의 몬스터 능력(부록F 참조)을 적용합니다."
     },
     "alwaysHazardousTerrain": {
       "": "프로스트헤이븐 위험지형",
