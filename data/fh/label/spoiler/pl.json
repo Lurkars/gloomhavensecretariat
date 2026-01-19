@@ -13,7 +13,7 @@
         "2": "Za każdym razem, gdy masz zyskać %game.condition.impair%, zapobiegnij temu stanowi",
         "3": "Za każdym razem, gdy podczas wyboru kart zadeklarujesz długi odpoczynek, na daną rundę zyskujesz %game.action.shield:1%",
         "4": "Otrzymaj korzyść dla wszystkich twoich ataków wykonanych podczas zajmowania lub atakowania wrogów zajmujących pola wody",
-        "5": "NIgdy nie otrzymaj obrażeń od ataków i bądź wzięty na cel przez co najmniej pięć ataków",
+        "5": "Nigdy nie otrzymaj obrażeń od ataków i bądź wzięty na cel przez co najmniej pięć ataków",
         "6": "Na początku każdego ze swoich odpoczynków miej więcej aktywnych %game.action.custom.fh-tides% niż kart na stosie kart odrzuconych"
       },
       "meteor": {
