@@ -205,8 +205,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "persistent": true
@@ -347,8 +354,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-high-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-high-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "persistent": true
@@ -385,8 +399,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-high-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-high-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -454,8 +475,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -525,8 +553,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-high-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-high-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -545,8 +580,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -582,8 +624,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -602,8 +651,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-high-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-high-note%"
+            }
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -635,8 +691,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -675,8 +738,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-high-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-high-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -705,8 +775,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -821,8 +898,15 @@
           "value": 1
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-high-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-high-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "persistent": true
@@ -862,8 +946,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -898,8 +989,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-high-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-high-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -966,8 +1064,15 @@
           "small": true
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "persistent": true,
@@ -1001,8 +1106,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -1014,8 +1126,15 @@
           "small": true
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomXp": 1
@@ -1107,8 +1226,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -1124,8 +1250,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-high-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-high-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomRound": true
@@ -1203,8 +1336,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-high-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-high-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "persistent": true
@@ -1285,8 +1425,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -1339,8 +1486,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "persistent": true
@@ -1498,8 +1652,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-low-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-low-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -1574,8 +1735,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-high-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-high-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "persistent": true,
@@ -1610,8 +1778,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.customAction:gh2e-high-note%"
+          "type": "fontSize",
+          "value": 150,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:gh2e-high-note%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [

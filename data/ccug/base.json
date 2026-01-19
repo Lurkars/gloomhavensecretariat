@@ -1,5 +1,6 @@
 {
     "edition": "ccug",
+    "additional": true,
     "extends": [
         "fh",
         "gh2e"

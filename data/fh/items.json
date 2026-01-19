@@ -5559,7 +5559,7 @@
     "count": 1,
     "edition": "fh",
     "slot": "small",
-    "consumed": true,
+    "consumed": "initial",
     "actions": [
       {
         "type": "custom",
@@ -5591,6 +5591,16 @@
             ]
           }
         ]
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "curse"
+      },
+      {
+        "type": "condition",
+        "value": "bless"
       }
     ]
   },

@@ -173,18 +173,8 @@
           ]
         },
         {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "ice"
-            },
-            {
-              "type": "element",
-              "value": "air"
-            }
-          ]
+          "type": "element",
+          "value": "ice:air"
         }
       ]
     },

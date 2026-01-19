@@ -26,12 +26,12 @@ export class CharacterManager {
     this.game = game;
   }
 
-  characterIcon(character: CharacterData | string): string {
+  characterIcon(character: CharacterData | string, edition: string = ''): string {
     let characterData: CharacterData;
     if (character instanceof CharacterData) {
       characterData = character;
     } else {
-      characterData = gameManager.getCharacterData(character);
+      characterData = gameManager.getCharacterData(character, edition);
     }
 
     if (characterData.iconUrl) {

@@ -166,18 +166,8 @@
           "small": true
         },
         {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "ice"
-            },
-            {
-              "type": "element",
-              "value": "earth"
-            }
-          ]
+          "type": "element",
+          "value": "ice:earth"
         }
       ]
     },

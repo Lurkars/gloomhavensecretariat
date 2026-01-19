@@ -8,6 +8,7 @@ export class Action {
   subActions: Action[];
   small: boolean;
   hidden: boolean;
+  noDivider: boolean = false;
   enhancementTypes: EnhancementType[] | undefined;
 
   constructor(type: ActionType,
@@ -40,6 +41,7 @@ export enum ActionType {
   elementHalf = "elementHalf",
   extra = "extra",
   fly = "fly",
+  fontSize = "fontSize",
   forceBox = "forceBox",
   grant = "grant",
   grid = "grid",

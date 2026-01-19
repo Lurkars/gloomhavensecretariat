@@ -291,6 +291,24 @@
   </span>
   }
 
+  @case (ActionType.fontSize) {
+  <span class="action-font-size" [style.font-size]="action.value + '%'">
+    @if (subActions.length > 0) {
+    <div class="custom-subactions">
+      @for (subAction of subActions | trackUUID; track subAction._trackUUID; let index = $index) {
+      <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster"
+        [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack" [hexSize]="hexSize"
+        [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
+        (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="true"
+        [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
+      </ghs-action>
+      }
+    </div>
+    }
+  </span>
+  }
+
   @case (ActionType.sufferDamage) {
   <span class="action-custom" ghs-pointer-input (singleClick)="toggleHighlight($event)"
     [clickBehind]="!isInteractiveApplicableAction" [ghs-tooltip]="'monster.toggleAction'" [delay]="1"

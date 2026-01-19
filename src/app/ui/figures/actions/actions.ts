@@ -99,7 +99,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
   }
 
   calcDivider(action: Action, index: number): boolean {
-    if (index < 1 || this.inline) {
+    if (index < 1 || this.inline || action.noDivider) {
       return false;
     }
 

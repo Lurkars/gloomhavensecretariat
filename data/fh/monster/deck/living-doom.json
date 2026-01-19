@@ -144,18 +144,8 @@
           ]
         },
         {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "ice"
-            },
-            {
-              "type": "element",
-              "value": "dark"
-            }
-          ]
+          "type": "element",
+          "value": "ice:dark"
         }
       ]
     },

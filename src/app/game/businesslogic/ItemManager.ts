@@ -450,7 +450,10 @@ export class ItemManager {
         character.progress.equippedItems.forEach((identifier) => {
             const item = gameManager.itemManager.getItem(identifier.name, identifier.edition, true);
             if (item) {
-                gameManager.itemManager.applyItemEffects(character, item);
+                gameManager.itemManager.applyItemEffects(character, item, item.consumed == "initial");
+                if (item.consumed == "initial") {
+                    identifier.tags = [...identifier.tags || [], ItemFlags.consumed];
+                }
             }
         })
     }

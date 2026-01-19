@@ -1110,7 +1110,7 @@
                   <a class="available-character" ghs-pointer-input (singleClick)="openCharacterSheet(characterModel)"
                     (doubleClick)="replayCharacter(characterModel)" [ghs-tooltip]="'character.replay.hint'">
                     <img
-                      [src]="'./assets/images/character/icons/' + characterModel.edition + '-' + characterModel.name + '.svg'" />
+                      [src]="gameManager.characterManager.characterIcon(characterModel.name, characterModel.edition)" />
                   </a>
                   }
                 </div>

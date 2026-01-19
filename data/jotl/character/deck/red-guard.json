@@ -812,18 +812,8 @@
           ]
         },
         {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "fire"
-            },
-            {
-              "type": "element",
-              "value": "light"
-            }
-          ]
+          "type": "element",
+          "value": "fire:light"
         },
         {
           "type": "concatenation",
@@ -867,18 +857,8 @@
           ]
         },
         {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "ice"
-            },
-            {
-              "type": "element",
-              "value": "dark"
-            }
-          ]
+          "type": "element",
+          "value": "ice:dark"
         }
       ],
       "bottomLost": true,
@@ -1219,18 +1199,8 @@
           ]
         },
         {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "earth"
-            },
-            {
-              "type": "element",
-              "value": "light"
-            }
-          ]
+          "type": "element",
+          "value": "earth:light"
         }
       ],
       "bottomLost": true,
@@ -1955,22 +1925,8 @@
           ]
         },
         {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "wild"
-            },
-            {
-              "type": "element",
-              "value": "wild"
-            },
-            {
-              "type": "element",
-              "value": "wild"
-            }
-          ]
+          "type": "element",
+          "value": "wild:wild:wild"
         }
       ],
       "bottomActions": [

@@ -9,7 +9,7 @@ import { ObjectiveEntity } from "../model/ObjectiveEntity";
 import { Summon } from "../model/Summon";
 import { Action, ActionHint, ActionType, ActionValueType } from "../model/data/Action";
 import { AttackModifier, AttackModifierType } from "../model/data/AttackModifier";
-import { Condition, ConditionName } from "../model/data/Condition";
+import { Condition, ConditionName, ConditionType } from "../model/data/Condition";
 import { Element, ElementModel, ElementState } from "../model/data/Element";
 import { AdditionalIdentifier } from "../model/data/Identifier";
 import { MonsterType } from "../model/data/MonsterType";
@@ -267,7 +267,7 @@ export class ActionsManager {
 
         switch (action.type) {
             case ActionType.heal:
-                return entity.health > 0 && entity.health < EntityValueFunction(entity.maxHealth);
+                return entity.health > 0 && entity.health < EntityValueFunction(entity.maxHealth) || action.subActions.find((subAction) => subAction.type == ActionType.condition && new Condition(subAction.value as ConditionName).types.indexOf(ConditionType.positive) != -1) != undefined;
             case ActionType.condition:
                 return !gameManager.entityManager.hasCondition(entity, new Condition('' + action.value));
             case ActionType.switchType:
@@ -372,7 +372,10 @@ export class ActionsManager {
 
         switch (action.type) {
             case ActionType.heal:
-                const heal = EntityValueFunction(action.value, figure.level);
+                let heal = EntityValueFunction(action.value, figure.level);
+                if (entity.health + heal > EntityValueFunction(entity.maxHealth)) {
+                    heal = EntityValueFunction(entity.maxHealth) - entity.health;
+                }
                 entity.health += heal;
                 gameManager.entityManager.addCondition(entity, figure, new Condition(ConditionName.heal, heal));
                 if (action.subActions) {

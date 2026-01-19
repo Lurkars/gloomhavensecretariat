@@ -18,7 +18,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/gloomhavensecretariat",
             "index": "src/index.html",
@@ -26,9 +26,6 @@
             "polyfills": [
               "zone.js"
             ],
-            "customWebpackConfig": {
-              "path": "./webpack.config.js"
-            },
             "allowedCommonJsDependencies": [
               "autocompleter",
               "leaflet",
@@ -106,7 +103,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "gloomhavensecretariat:build:production"

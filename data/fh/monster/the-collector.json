@@ -91,26 +91,8 @@
           ]
         },
         {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "fire"
-            },
-            {
-              "type": "element",
-              "value": "air"
-            },
-            {
-              "type": "element",
-              "value": "earth"
-            },
-            {
-              "type": "element",
-              "value": "light"
-            }
-          ]
+          "type": "element",
+          "value": "fire:air:earth:light"
         }
       ],
       [
@@ -181,26 +163,8 @@
           ]
         },
         {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "fire"
-            },
-            {
-              "type": "element",
-              "value": "ice"
-            },
-            {
-              "type": "element",
-              "value": "air"
-            },
-            {
-              "type": "element",
-              "value": "dark"
-            }
-          ]
+          "type": "element",
+          "value": "fire:ice:air:dark"
         }
       ]
     ]

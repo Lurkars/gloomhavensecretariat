@@ -125,9 +125,12 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         image = '<img class="icon ghs-svg" src="./assets/images/action/card/' + card + '.svg">';
         const cardOverlay = '<img class="card-overlay" src="./assets/images/action/card/overlay/' + card + '.svg">';
         replace = '<span class="placeholder-effect placeholder-card">' + image + cardOverlay + cardValue + '</span>';
-      } else if (type == "attackmodifier" && split.length == 3) {
+      } else if (type == "attackmodifier" && split.length == 3 && split[2] != "rolling") {
         image = '<img  src="./assets/images' + (fh ? '/fh' : '') + '/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
+      } else if (type == "attackmodifier" && split.length == 3 && split[2] == "rolling") {
+        image = '<img  src="./assets/images/attackmodifier/rolling.svg" class="icon">';
+        replace = '<span class="condition-icon">' + image + '</span>';
       } else if (type == "townGuardAM" && value) {
         replace = '<span class="placeholder-townguard-attackmodifier">' + value + '</span>';
         const townGuardAM = [...defaultTownGuardAttackModifier, ...additionalTownGuardAttackModifier].find((am) => am.id == value);
@@ -234,7 +237,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="placeholder-checkmark"><img src="./assets/images/check.svg" class="icon ghs-svg"></span>';
       } else if (type == "prosperity") {
         replace = '<span class="placeholder-prosperity"><img src="./assets/images/gh2e/prosperity.svg" class="icon ghs-svg"></span>';
-      }else if (type == "itemSlot" && value) {
+      } else if (type == "itemSlot" && value) {
         replace = '<span class="placeholder-items-slot"><img src="./assets/images/items/slots/' + value + '.svg" class="icon ghs-svg"></span>';
       } else if (type == "bbAm" && split.length == 3) {
         replace = '<span class="placeholder-bb-am"><img src="./assets/images/bb/attackmodifier/' + split[2] + '.svg" class="icon ghs-svg"></span>';

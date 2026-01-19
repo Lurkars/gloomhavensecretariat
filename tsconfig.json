@@ -3,6 +3,14 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -16,14 +24,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "ES2022",
-    "module": "ESNext",
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "importHelpers": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

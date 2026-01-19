@@ -1646,25 +1646,14 @@
           "value": 1,
           "subActions": [
             {
-              "type": "concatenation",
-              "value": "",
+              "type": "element",
+              "value": "wild:wild",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "element",
-                  "value": "wild",
-                  "valueType": "minus"
-                },
-                {
-                  "type": "element",
-                  "value": "wild",
-                  "valueType": "minus",
-                  "subActions": [
-                    {
-                      "type": "loot",
-                      "value": 2,
-                      "small": true
-                    }
-                  ]
+                  "type": "loot",
+                  "value": 2,
+                  "small": true
                 }
               ]
             }
@@ -1696,34 +1685,23 @@
               "small": true
             },
             {
-              "type": "concatenation",
-              "value": "",
+              "type": "element",
+              "value": "fire:earth",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "element",
-                  "value": "fire",
-                  "valueType": "minus"
-                },
-                {
-                  "type": "element",
-                  "value": "earth",
-                  "valueType": "minus",
+                  "type": "concatenation",
+                  "value": ",",
+                  "small": true,
                   "subActions": [
                     {
-                      "type": "concatenation",
-                      "value": ",",
-                      "small": true,
-                      "subActions": [
-                        {
-                          "type": "attack",
-                          "value": 3,
-                          "valueType": "add"
-                        },
-                        {
-                          "type": "card",
-                          "value": "experience:1"
-                        }
-                      ]
+                      "type": "attack",
+                      "value": 3,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
                     }
                   ]
                 }
@@ -1804,38 +1782,27 @@
               "small": true
             },
             {
-              "type": "concatenation",
-              "value": "",
+              "type": "element",
+              "value": "ice:air",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "element",
-                  "value": "ice",
-                  "valueType": "minus"
-                },
-                {
-                  "type": "element",
-                  "value": "air",
-                  "valueType": "minus",
+                  "type": "concatenation",
+                  "value": ",",
+                  "small": true,
                   "subActions": [
                     {
-                      "type": "concatenation",
-                      "value": ",",
-                      "small": true,
-                      "subActions": [
-                        {
-                          "type": "range",
-                          "value": 2,
-                          "valueType": "add"
-                        },
-                        {
-                          "type": "pierce",
-                          "value": 4
-                        },
-                        {
-                          "type": "card",
-                          "value": "experience:1"
-                        }
-                      ]
+                      "type": "range",
+                      "value": 2,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "pierce",
+                      "value": 4
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
                     }
                   ]
                 }
@@ -2010,34 +1977,23 @@
               "small": true
             },
             {
-              "type": "concatenation",
-              "value": "",
+              "type": "element",
+              "value": "wild:wild",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "element",
-                  "value": "wild",
-                  "valueType": "minus"
-                },
-                {
-                  "type": "element",
-                  "value": "wild",
-                  "valueType": "minus",
+                  "type": "concatenation",
+                  "value": ",",
+                  "small": true,
                   "subActions": [
                     {
-                      "type": "concatenation",
-                      "value": ",",
-                      "small": true,
-                      "subActions": [
-                        {
-                          "type": "attack",
-                          "value": 3,
-                          "valueType": "add"
-                        },
-                        {
-                          "type": "card",
-                          "value": "experience:1"
-                        }
-                      ]
+                      "type": "attack",
+                      "value": 3,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
                     }
                   ]
                 }
@@ -2077,37 +2033,26 @@
               ]
             },
             {
-              "type": "concatenation",
-              "value": "",
+              "type": "element",
+              "value": "wild:wild",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "element",
-                  "value": "wild",
-                  "valueType": "minus"
-                },
-                {
-                  "type": "element",
-                  "value": "wild",
-                  "valueType": "minus",
+                  "type": "concatenation",
+                  "value": ",",
+                  "small": true,
                   "subActions": [
                     {
-                      "type": "concatenation",
-                      "value": ",",
-                      "small": true,
-                      "subActions": [
-                        {
-                          "type": "condition",
-                          "value": "immobilize"
-                        },
-                        {
-                          "type": "condition",
-                          "value": "muddle"
-                        },
-                        {
-                          "type": "card",
-                          "value": "experience:1"
-                        }
-                      ]
+                      "type": "condition",
+                      "value": "immobilize"
+                    },
+                    {
+                      "type": "condition",
+                      "value": "muddle"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
                     }
                   ]
                 }
@@ -2187,25 +2132,14 @@
               "small": true
             },
             {
-              "type": "concatenation",
-              "value": "",
+              "type": "element",
+              "value": "dark:wild",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "element",
-                  "value": "dark",
-                  "valueType": "minus"
-                },
-                {
-                  "type": "element",
-                  "value": "wild",
-                  "valueType": "minus",
-                  "subActions": [
-                    {
-                      "type": "custom",
-                      "value": "%data.custom.gh.triangles.abilities.470.1%",
-                      "small": true
-                    }
-                  ]
+                  "type": "custom",
+                  "value": "%data.custom.gh.triangles.abilities.470.1%",
+                  "small": true
                 }
               ]
             }
@@ -2233,34 +2167,23 @@
               "small": true
             },
             {
-              "type": "concatenation",
-              "value": "",
+              "type": "element",
+              "value": "light:wild",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "element",
-                  "value": "light",
-                  "valueType": "minus"
-                },
-                {
-                  "type": "element",
-                  "value": "wild",
-                  "valueType": "minus",
+                  "type": "concatenation",
+                  "value": ",",
+                  "small": true,
                   "subActions": [
                     {
-                      "type": "concatenation",
-                      "value": ",",
-                      "small": true,
-                      "subActions": [
-                        {
-                          "type": "retaliate",
-                          "value": 2,
-                          "valueType": "add"
-                        },
-                        {
-                          "type": "card",
-                          "value": "experience:1"
-                        }
-                      ]
+                      "type": "retaliate",
+                      "value": 2,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
                     }
                   ]
                 }
@@ -2472,50 +2395,28 @@
               "small": true,
               "subActions": [
                 {
-                  "type": "concatenation",
-                  "value": "",
+                  "type": "element",
+                  "value": "fire:wild",
+                  "valueType": "minus",
                   "subActions": [
                     {
-                      "type": "element",
-                      "value": "fire",
-                      "valueType": "minus"
-                    },
-                    {
-                      "type": "element",
-                      "value": "wild",
-                      "valueType": "minus",
-                      "subActions": [
-                        {
-                          "type": "custom",
-                          "value": "%data.custom.gh.triangles.abilities.472.2%",
-                          "small": true
-                        }
-                      ]
+                      "type": "custom",
+                      "value": "%data.custom.gh.triangles.abilities.472.2%",
+                      "small": true
                     }
                   ]
                 }
               ]
             },
             {
-              "type": "concatenation",
-              "value": "",
+              "type": "element",
+              "value": "ice:wild",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "element",
-                  "value": "ice",
-                  "valueType": "minus"
-                },
-                {
-                  "type": "element",
-                  "value": "wild",
-                  "valueType": "minus",
-                  "subActions": [
-                    {
-                      "type": "custom",
-                      "value": "%data.custom.gh.triangles.abilities.472.3%",
-                      "small": true
-                    }
-                  ]
+                  "type": "custom",
+                  "value": "%data.custom.gh.triangles.abilities.472.3%",
+                  "small": true
                 }
               ]
             }
@@ -2747,37 +2648,19 @@
           ]
         },
         {
-          "type": "concatenation",
-          "value": "",
+          "type": "element",
+          "value": "ice:earth",
+          "valueType": "minus",
           "subActions": [
             {
-              "type": "element",
-              "value": "ice",
-              "valueType": "minus",
+              "type": "heal",
+              "value": 3,
+              "small": true,
               "subActions": [
                 {
-                  "type": "loot",
-                  "value": 1,
-                  "small": true
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "value": "earth",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "heal",
+                  "type": "range",
                   "value": 3,
-                  "small": true,
-                  "subActions": [
-                    {
-                      "type": "range",
-                      "value": 3,
-                      "small": true
-                    }
-                  ]
+                  "small": true
                 }
               ]
             }

@@ -1,5 +1,5 @@
 <div class="card-container ability"
-  [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'bb': settingsManager.settings.theme == 'bb', 'expand' : flipped || ability && ability.revealed}"
+  [ngClass]="{'fh' : settingsManager.settings.fhStyle, 'bb': settingsManager.settings.theme == 'bb', 'expand' : flipped || ability && ability.revealed}"
   [style.--ghs-ability-color]="character && character.color">
   <div class="card" [ngClass]="{'flipped' : flipped || ability && ability.revealed}" card-reveal
     (change)="onChange($event)" [disabled]="!reveal || !ability" #card [style.fontSize]="fontsize">

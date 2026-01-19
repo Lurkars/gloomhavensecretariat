@@ -573,26 +573,20 @@
           "value": 4
         },
         {
-          "type": "concatenation",
-          "value": "",
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
           "subActions": [
             {
-              "type": "element",
-              "value": "dark",
-              "valueType": "minus",
+              "type": "concatenation",
               "subActions": [
                 {
-                  "type": "concatenation",
-                  "subActions": [
-                    {
-                      "type": "area",
-                      "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
-                    },
-                    {
-                      "type": "card",
-                      "value": "experience:2"
-                    }
-                  ]
+                  "type": "area",
+                  "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:2"
                 }
               ]
             }
@@ -1304,41 +1298,35 @@
           "value": 5
         },
         {
-          "type": "concatenation",
-          "value": "",
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
           "subActions": [
             {
-              "type": "element",
-              "value": "light",
-              "valueType": "minus",
+              "type": "concatenation",
+              "value": ",",
               "subActions": [
                 {
-                  "type": "concatenation",
-                  "value": ",",
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true,
                   "subActions": [
                     {
-                      "type": "condition",
-                      "value": "muddle",
-                      "small": true,
-                      "subActions": [
-                        {
-                          "type": "specialTarget",
-                          "value": "enemiesAdjacent",
-                          "small": true
-                        }
-                      ]
-                    },
-                    {
-                      "type": "element",
-                      "value": "dark",
-                      "small": true
-                    },
-                    {
-                      "type": "card",
-                      "value": "experience:1",
+                      "type": "specialTarget",
+                      "value": "enemiesAdjacent",
                       "small": true
                     }
                   ]
+                },
+                {
+                  "type": "element",
+                  "value": "dark",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
                 }
               ]
             }
@@ -1643,41 +1631,35 @@
           ],
           "subActions": [
             {
-              "type": "concatenation",
-              "value": "",
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "element",
-                  "value": "wild",
-                  "valueType": "minus",
+                  "type": "concatenation",
+                  "value": ",",
                   "subActions": [
                     {
-                      "type": "concatenation",
-                      "value": ",",
+                      "type": "condition",
+                      "value": "invisible",
+                      "small": true,
                       "subActions": [
                         {
-                          "type": "condition",
-                          "value": "invisible",
-                          "small": true,
-                          "subActions": [
-                            {
-                              "type": "specialTarget",
-                              "value": "self",
-                              "small": true
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "value": "dark",
-                          "small": true
-                        },
-                        {
-                          "type": "card",
-                          "value": "experience:1",
+                          "type": "specialTarget",
+                          "value": "self",
                           "small": true
                         }
                       ]
+                    },
+                    {
+                      "type": "element",
+                      "value": "dark",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
                     }
                   ]
                 }

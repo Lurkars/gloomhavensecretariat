@@ -18,7 +18,7 @@ export class ItemData implements Editional {
   random: boolean = false;
   blueprint: boolean = false;
   spent: boolean = false;
-  consumed: boolean = false;
+  consumed: boolean | "initial" = false;
   persistent: boolean = false;
   loss: boolean = false;
   round: boolean = false;

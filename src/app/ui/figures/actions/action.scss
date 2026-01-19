@@ -454,12 +454,14 @@
       justify-content: center;
       align-items: center;
 
-
-
       .element {
         position: relative;
         width: 1.2em;
         height: 1.2em;
+
+        &:not(:first-child) {
+          margin-left: 0.3em;
+        }
       }
 
       .minus {
@@ -1259,10 +1261,6 @@
       .minus {
         margin-left: 0.05em;
         margin-right: 0.2em;
-      }
-
-      .element:not(:first-child) {
-        margin-left: 0.3em;
       }
     }
 
