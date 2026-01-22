@@ -24,7 +24,8 @@
               "type": "element",
               "value": "wild"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -81,7 +82,8 @@
               "type": "element",
               "value": "fire"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -492,7 +494,8 @@
               "type": "element",
               "value": "fire"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -527,7 +530,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomRound": true
@@ -574,7 +578,8 @@
               "type": "element",
               "value": "fire"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -656,14 +661,14 @@
         },
         {
           "type": "forceBox",
-          "value": 0,
           "small": true,
           "subActions": [
             {
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -697,14 +702,14 @@
         },
         {
           "type": "forceBox",
-          "value": 0,
           "small": true,
           "subActions": [
             {
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "persistent": true,
@@ -754,7 +759,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -802,7 +808,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -836,7 +843,8 @@
               "type": "element",
               "value": "wild"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -887,7 +895,8 @@
               "type": "element",
               "value": "fire"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -932,7 +941,8 @@
               "type": "element",
               "value": "fire"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "xp": 1,
@@ -979,7 +989,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -1006,7 +1017,8 @@
               "type": "element",
               "value": "light"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomXp": 1
@@ -1118,7 +1130,8 @@
               "type": "element",
               "value": "air"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "xp": 1,
@@ -1255,7 +1268,8 @@
               "type": "element",
               "value": "fire"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -1279,7 +1293,8 @@
               "type": "element",
               "value": "wild"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "persistent": true
@@ -1366,7 +1381,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -1460,7 +1476,8 @@
               "type": "element",
               "value": "dark"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomXp": 1
@@ -1520,7 +1537,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -1576,7 +1594,8 @@
               "type": "element",
               "value": "wild"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -1658,29 +1677,10 @@
           "subActions": [
             {
               "type": "element",
-              "value": "fire"
-            },
-            {
-              "type": "element",
-              "value": "ice"
-            },
-            {
-              "type": "element",
-              "value": "air"
-            },
-            {
-              "type": "element",
-              "value": "earth"
-            },
-            {
-              "type": "element",
-              "value": "light"
-            },
-            {
-              "type": "element",
-              "value": "dark"
+              "value": "fire:ice:air:earth:light:dark"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -1777,7 +1777,8 @@
               "type": "element",
               "value": "fire"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -1968,7 +1969,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -2007,7 +2009,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "xp": 1
@@ -2052,7 +2055,8 @@
               "type": "element",
               "value": "fire"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -2070,7 +2074,8 @@
               "type": "element",
               "value": "fire"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomXp": 1

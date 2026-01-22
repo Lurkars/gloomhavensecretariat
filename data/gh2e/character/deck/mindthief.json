@@ -228,7 +228,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -261,7 +262,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomXp": 2
@@ -388,7 +390,8 @@
               "type": "element",
               "value": "dark"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -456,7 +459,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -803,7 +807,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -983,7 +988,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -1017,7 +1023,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomXp": 2
@@ -1086,7 +1093,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "persistent": true,
@@ -1132,7 +1140,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -1169,7 +1178,8 @@
               "type": "element",
               "value": "dark"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -1471,7 +1481,8 @@
               "type": "element",
               "value": "dark"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "persistent": true,
@@ -1540,7 +1551,8 @@
               "type": "element",
               "value": "ice"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -1791,7 +1803,8 @@
               "type": "element",
               "value": "dark"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "persistent": true,

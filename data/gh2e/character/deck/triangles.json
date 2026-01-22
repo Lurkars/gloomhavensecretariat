@@ -1,0 +1,2629 @@
+{
+  "name": "triangles",
+  "edition": "gh2e",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Ice Spikes",
+      "cardId": 446,
+      "level": 1,
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "wild"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice:earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomXp": 2
+    },
+    {
+      "name": "Malleable Evocation",
+      "cardId": 447,
+      "level": 1,
+      "initiative": 26,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "enhancementTypes": [
+                "circle"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                },
+                {
+                  "type": "boxFhSubActions",
+                  "subActions": [
+                    {
+                      "type": "grid",
+                      "value": 2,
+                      "subActions": [
+                        {
+                          "type": "element",
+                          "value": "fire",
+                          "valueType": "minus",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "condition",
+                              "value": "strengthen"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "value": "ice",
+                          "valueType": "minus",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "condition",
+                              "value": "ward"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "value": "air",
+                          "valueType": "minus",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "condition",
+                              "value": "bless"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "value": "earth",
+                          "valueType": "minus",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "condition",
+                              "value": "safeguard"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.447.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.triangles.abilities.447.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Formless Power",
+      "cardId": 448,
+      "level": 1,
+      "initiative": 45,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.triangles.abilities.448.1%",
+          "small": true
+        }
+      ],
+      "bottomPersistent": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Shaping the Ether",
+      "cardId": 449,
+      "level": 1,
+      "initiative": 54,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "circle"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                },
+                {
+                  "type": "boxFhSubActions",
+                  "subActions": [
+                    {
+                      "type": "grid",
+                      "value": 2,
+                      "subActions": [
+                        {
+                          "type": "element",
+                          "value": "fire",
+                          "valueType": "minus",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "condition",
+                              "value": "wound"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "value": "ice",
+                          "valueType": "minus",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "condition",
+                              "value": "immobilize"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "value": "air",
+                          "valueType": "minus",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "push",
+                              "value": 3
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "value": "earth",
+                          "valueType": "minus",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "condition",
+                              "value": "poison"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.449.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stoking Hail",
+      "cardId": 450,
+      "level": 1,
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "pierce",
+                  "value": 2
+                },
+                {
+                  "type": "element",
+                  "value": "ice"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.triangles.abilities.450.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
+        }
+      ]
+    },
+    {
+      "name": "Magma Scales",
+      "cardId": 451,
+      "level": 1,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.451.1%",
+              "small": true
+            },
+            {
+              "type": "move",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ],
+              "subActions": [
+                {
+                  "type": "jump",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "disarm",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "air"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.451.1%",
+              "small": true
+            },
+            {
+              "type": "shield",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "retaliate",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire:earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomRound": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Infernal Vortex",
+      "cardId": 452,
+      "level": 1,
+      "initiative": 35,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire:air"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.452.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Frigid Torrent",
+      "cardId": 453,
+      "level": 1,
+      "initiative": 39,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice:air"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.453.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Pulsing Cores",
+      "cardId": 454,
+      "level": 1,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+                },
+                {
+                  "type": "element",
+                  "value": "fire"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.454.1%",
+              "small": true
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEndXp:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Dual Nature",
+      "cardId": 455,
+      "level": 1,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.455.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ],
+          "noDivider": true
+        }
+      ]
+    },
+    {
+      "name": "Lingering Essence",
+      "cardId": 456,
+      "level": "X",
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.triangles.abilities.456.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Flash of Brilliance",
+      "cardId": 457,
+      "level": "X",
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.triangles.abilities.457.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "wild"
+            }
+          ],
+          "noDivider": true
+        }
+      ]
+    },
+    {
+      "name": "Encompassing Shadow",
+      "cardId": 458,
+      "level": "X",
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.triangles.abilities.458.1%",
+          "small": true
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Gravel Guard",
+      "cardId": 459,
+      "level": 2,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.459.1%",
+              "small": true
+            },
+            {
+              "type": "move",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "shield",
+              "value": 1,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "all",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.459.2%",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "round": true
+    },
+    {
+      "name": "Wave of Frost",
+      "cardId": 460,
+      "level": 2,
+      "initiative": 47,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,enhance)|(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(1,3,enhance)|(2,2,target)",
+              "enhancementTypes": [
+                "hex",
+                "hex"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "jump",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "air"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Arresting Gale",
+      "cardId": 461,
+      "level": 3,
+      "initiative": 65,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "stun"
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "ward",
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "element",
+                  "value": "earth"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Empowering Flame",
+      "cardId": 462,
+      "level": 3,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.triangles.abilities.462.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "retaliate",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 2,
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "round",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Burial",
+      "cardId": 463,
+      "level": 4,
+      "initiative": 77,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,target)|(0,1,target)|(0,2,target)|(1,1,target)"
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "condition",
+                  "value": "immobilize"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "condition",
+                  "value": "curse"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
+        }
+      ]
+    },
+    {
+      "name": "Chain Lightning",
+      "cardId": 464,
+      "level": 4,
+      "initiative": 23,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                },
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "target",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "light",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "pierce",
+                      "value": 2
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.464.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
+        }
+      ]
+    },
+    {
+      "name": "Obsidian Shards",
+      "cardId": 465,
+      "level": 5,
+      "initiative": 19,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "fire:earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add"
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:2"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice:earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.triangles.abilities.465.1%",
+                  "small": true
+                },
+                {
+                  "type": "concatenation",
+                  "value": "",
+                  "subActions": [
+                    {
+                      "type": "elementHalf",
+                      "value": "ice:earth",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenationSpacer",
+                      "value": 1
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": "",
+                      "small": true,
+                      "subActions": [
+                        {
+                          "type": "card",
+                          "value": "slotStart"
+                        },
+                        {
+                          "type": "card",
+                          "value": "slotEndXp:1"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "concatenationSpacer",
+                      "value": 1
+                    },
+                    {
+                      "type": "card",
+                      "value": "persistent",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Winter's Edge",
+      "cardId": 466,
+      "level": 5,
+      "initiative": 43,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "ice:air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "valueType": "add"
+                },
+                {
+                  "type": "pierce",
+                  "value": 4
+                },
+                {
+                  "type": "card",
+                  "value": "experience:2"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "element",
+          "value": "fire:air",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "strengthen"
+                    },
+                    {
+                      "type": "condition",
+                      "value": "bless",
+                      "subActions": [
+                        {
+                          "type": "target",
+                          "value": "2 allies",
+                          "small": true
+                        },
+                        {
+                          "type": "range",
+                          "value": 3,
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "elementHalf",
+                      "value": "fire:air"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.triangles.abilities.466.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pragmatic Reinforcement",
+      "cardId": 467,
+      "level": 6,
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.triangles.abilities.467.1%"
+                }
+              ]
+            },
+            {
+              "type": "elementHalf",
+              "value": "air:earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": "",
+                  "subActions": [
+                    {
+                      "type": "grid",
+                      "value": 1,
+                      "subActions": [
+                        {
+                          "type": "custom",
+                          "value": "%data.custom.gh2e.triangles.abilities.467.2%"
+                        },
+                        {
+                          "type": "shield",
+                          "value": 2
+                        }
+                      ]
+                    },
+                    {
+                      "type": "concatenationSpacer",
+                      "value": 1
+                    },
+                    {
+                      "type": "card",
+                      "value": "round"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "ice:earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Duskstorm",
+      "cardId": 468,
+      "level": 6,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,enhance)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.triangles.abilities.468.1%"
+                },
+                {
+                  "type": "elementHalf",
+                  "value": "fire:ice"
+                }
+              ]
+            },
+            {
+              "type": "elementHalf",
+              "value": "fire:ice",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "condition",
+                  "value": "wound"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "fire:air"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Elemental Juggernaut",
+      "cardId": 469,
+      "level": 7,
+      "initiative": 94,
+      "lost": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "chromatic-construct",
+            "thumbnail": true,
+            "edition": "gh2e",
+            "health": "7",
+            "attack": "0 ",
+            "movement": "3",
+            "count": 1,
+            "enhancements": [
+              "heal",
+              "move"
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.469.1%",
+              "valueType": "fixed",
+              "small": true
+            }
+          },
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "ice:air"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "persistent": true,
+      "xp": 2
+    },
+    {
+      "name": "Confluence of Elements",
+      "cardId": 470,
+      "level": 7,
+      "initiative": 64,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "wild:wild",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "wild:wild",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "wild:wild",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "wild"
+                },
+                {
+                  "type": "element",
+                  "value": "wild"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "fire:earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ]
+    },
+    {
+      "name": "Prismatic Barrage",
+      "cardId": 471,
+      "level": 8,
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "stun"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.triangles.abilities.471.1%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                },
+                {
+                  "type": "push",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "ward",
+                      "small": true
+                    },
+                    {
+                      "type": "element",
+                      "value": "ice",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "bless",
+                      "small": true
+                    },
+                    {
+                      "type": "element",
+                      "value": "air",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "earth",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "safeguard",
+                      "small": true
+                    },
+                    {
+                      "type": "element",
+                      "value": "earth",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.471.2%",
+              "small": true,
+              "noDivider": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eye of the Hurricane",
+      "cardId": 472,
+      "level": 8,
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "strengthen"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": "%data.custom.gh2e.triangles.abilities.472.1%",
+                      "small": true
+                    },
+                    {
+                      "type": "condition",
+                      "value": "muddle",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": "%data.custom.gh2e.triangles.abilities.472.2%",
+                      "small": true
+                    },
+                    {
+                      "type": "pierce",
+                      "value": 3,
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "element",
+                  "value": "fire",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "wound",
+                      "small": true
+                    },
+                    {
+                      "type": "element",
+                      "value": "fire",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 3,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "element",
+                      "value": "air",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "earth",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "poison",
+                      "small": true
+                    },
+                    {
+                      "type": "element",
+                      "value": "earth",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.472.3%",
+              "small": true,
+              "noDivider": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ethereal Manifestation",
+      "cardId": 473,
+      "level": 9,
+      "initiative": 98,
+      "lost": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "elemental-conduit",
+            "thumbnail": true,
+            "edition": "gh2e",
+            "health": "3",
+            "attack": "2",
+            "movement": "3",
+            "range": "3",
+            "count": 1,
+            "enhancements": [
+              "heal",
+              "move"
+            ],
+            "action": {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "fly"
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.triangles.abilities.473.1%",
+                  "valueType": "fixed",
+                  "small": true
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "wild"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "persistent": true,
+      "xp": 2
+    },
+    {
+      "name": "Primal Duality",
+      "cardId": 474,
+      "level": 9,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "element",
+          "value": "fire:ice",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 4,
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.triangles.abilities.474.1%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "air:earth",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.triangles.abilities.474.2%",
+                  "small": true
+                },
+                {
+                  "type": "concatenation",
+                  "value": "",
+                  "subActions": [
+                    {
+                      "type": "grid",
+                      "value": 1,
+                      "subActions": [
+                        {
+                          "type": "shield",
+                          "value": 2
+                        },
+                        {
+                          "type": "retaliate",
+                          "value": 2
+                        }
+                      ]
+                    },
+                    {
+                      "type": "concatenationSpacer",
+                      "value": 1
+                    },
+                    {
+                      "type": "card",
+                      "value": "round"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light:dark",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "curse",
+                  "small": true
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.triangles.abilities.474.3%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.triangles.abilities.474.4%"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "teleport",
+              "value": 4
+            },
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "wild:wild",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "loot",
+                  "value": 1,
+                  "valueType": "add"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

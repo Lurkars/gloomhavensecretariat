@@ -125,7 +125,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -146,7 +147,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "xp": 1
@@ -261,7 +263,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -290,7 +293,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -341,7 +345,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -846,7 +851,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -922,7 +928,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -1011,7 +1018,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -1071,7 +1079,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -1296,7 +1305,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -1516,7 +1526,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomLost": true,
@@ -1709,7 +1720,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "xp": 1
@@ -1957,7 +1969,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "xp": 1
