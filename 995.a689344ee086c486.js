@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgloomhavensecretariat=self.webpackChunkgloomhavensecretariat||[]).push([[995],{4995:(_,a,e)=>{e.r(a),e.d(a,{TreemapModule:()=>s.F,createTreemapServices:()=>s.d});var s=e(7611);e(3445)}}]);
-//# sourceMappingURL=995.a689344ee086c486.js.map

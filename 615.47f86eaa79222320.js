@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgloomhavensecretariat=self.webpackChunkgloomhavensecretariat||[]).push([[615],{1615:(c,e,a)=>{a.r(e),a.d(e,{PacketModule:()=>s.T,createPacketServices:()=>s.$});var s=a(7172);a(3445)}}]);
-//# sourceMappingURL=615.47f86eaa79222320.js.map

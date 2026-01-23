@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgloomhavensecretariat=self.webpackChunkgloomhavensecretariat||[]).push([[695],{3076:(t,c,e)=>{e.r(c),e.d(c,{ArchitectureModule:()=>s.i,createArchitectureServices:()=>s.S});var s=e(4658);e(3445)}}]);
-//# sourceMappingURL=695.7a759b51ea4dddd1.js.map
