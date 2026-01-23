@@ -602,7 +602,7 @@
           "remove": "usuń {0}",
           "replace": "zamień {0} na {1}"
         },
-        "warning": "Wybrano więcej atutów niż dostępnych!",
+        "warning": "Wybrano więcej profitów niż dostępnych!",
         "wip": "%wip%! Profity nie są jeszcze wybrane."
       },
       "types": {
@@ -1368,14 +1368,14 @@
     "removeAll": "Usuń wszystkich",
     "removeUnused": "Usuń nieużywanych",
     "selectStandees": {
-      "all": "Wybierz wszystkie stojaki",
-      "boss": "Wybierz wszystkie stojaki bossa",
-      "elite": "Wybierz wszystkie stojaki elity",
-      "normal": "Wybierz wszystkie zwykłe stojaki"
+      "all": "Wybierz wszystkie podstawki",
+      "boss": "Wybierz wszystkie podstawki bossa",
+      "elite": "Wybierz wszystkie elitarne podstawki",
+      "normal": "Wybierz wszystkie zwykłe podstawki"
     },
-    "setStandees": "Ustaw {1} stojaków %game.monsterType.{0}%",
-    "showBoss": "Pokaż potwora - bossa",
-    "showHidden": "Pokaż ukrytego potwora",
+    "setStandees": "Ustaw {1} podstawek %game.monsterType.{0}%",
+    "showBoss": "Pokaż Bossy",
+    "showHidden": "Pokaż ukryte potwory",
     "skipInteractiveActions": "Pomiń interaktywne zdolności dla",
     "statEffect": {
       "": "Specjalne zasady stosują następujące zmiany:",
@@ -2293,8 +2293,8 @@
       }
     },
     "activeStandees": {
-      "": "Aktywne standees",
-      "hint": "W turze potworów każdy standee ma stan aktywności; kliknij dwukrotnie, aby oznaczyć jako wykonany"
+      "": "Aktywne podstawki",
+      "hint": "W turze potworów, każda podstawka ma stan aktywny; kliknij dwukrotnie, aby oznaczyć jako wykonany"
     },
     "activeSummons": {
       "": "Aktywne przyzwania",
@@ -2413,12 +2413,12 @@
       "hint": "Automatycznie dodaj tydzień do kalendarza po zakończeniu scenariusza. Automatycznie stosuje też efekty sekcji kalendarza w tym tygodniu."
     },
     "automaticStandees": {
-      "": "Automatyczne standees",
-      "hint": "Automatyczne dodawanie standees."
+      "": "Automatyczna numeracja podstawek",
+      "hint": "Automatyczne dodawanie podstawek."
     },
     "automaticStandeesDialog": {
-      "": "Automatyczne okna standees",
-      "hint": "Automatycznie otwieraj okna wyboru numeru standee dla wszystkich nowych standees."
+      "": "Automatycznie wyświetlaj okno podstawek",
+      "hint": "Automatycznie otwieraj okna wyboru numeru podstawek dla wszystkich nowych potworów."
     },
     "automaticTheme": {
       "": "Automatyczny motyw",
@@ -2469,8 +2469,8 @@
     },
     "bbRules": "Zasady Button & Bugs",
     "bbStandeeLimit": {
-      "": "Limit standees potworów",
-      "hint": "Użyj domyślnego limitu 4 standees dla wszystkich potworów. Jeśli wyłączone, można dodać do 10 standees."
+      "": "Limit podstawek potworów",
+      "hint": "Użyj domyślnego limitu 4 podstawek dla wszystkich potworów. Jeśli wyłączone, można dodać do 10 podstawek."
     },
     "bonusAdjustment": {
       "": "Dostosowanie premii poziomów"
@@ -2578,7 +2578,7 @@
     },
     "combineInteractiveAbilities": {
       "": "Łącz interaktywne zdolności",
-      "hint": "Wykonuj interaktywne zdolności dla wszystkich standees jednocześnie."
+      "hint": "Wykonuj interaktywne zdolności dla wszystkich podstawek jednocześnie."
     },
     "conditions": "Warunki/Elementy",
     "damageHP": {
@@ -2616,7 +2616,7 @@
     },
     "eliteFirst": {
       "": "Elity jako pierwsze",
-      "hint": "Pokazuj standees elit jako pierwsze przy sortowaniu."
+      "hint": "Pokazuj podstawki elit jako pierwsze przy sortowaniu."
     },
     "errata": {
       "": "Pokaż podpowiedzi erraty",
@@ -2843,8 +2843,8 @@
       "hint": "Na ekranach dotykowych podwójne kliknięcie wywoływane jest długim przytrzymaniem. (Zalecane, aby uniknąć „ghost clicków”)"
     },
     "randomStandees": {
-      "": "Losowe standees",
-      "hint": "Dodaj standees z nieużywanym losowym numerem."
+      "": "Losowe podstawki",
+      "hint": "Dodaj podstawki z nieużywanym losowym numerem."
     },
     "removeUnusedMonster": {
       "": "Usuń nieużywane",
@@ -2865,7 +2865,7 @@
     },
     "scenarioRooms": {
       "": "Pokoje scenariusza",
-      "hint": "Odblokowywanie osobnych pokoi w scenariuszu. Jeśli wyłączone, automatyczne dodawanie standees również jest wyłączone."
+      "hint": "Odblokowywanie osobnych pokoi w scenariuszu. Jeśli wyłączone, automatyczne dodawanie podstawek również jest wyłączone."
     },
     "scenarioRules": {
       "": "Zasady scenariusza",
@@ -2897,15 +2897,15 @@
     },
     "standeeShieldRetaliate": {
       "": "Tarcza i Odwet",
-      "hint": "Śledź dodatkowe wartości %game.action.shield% i %game.action.retaliate% dla standees i przyzwań."
+      "hint": "Śledź dodatkowe wartości %game.action.shield% i %game.action.retaliate% dla podstawek i przywołańców."
     },
     "standeeStats": {
-      "": "Tarcza i Odwet na standee",
-      "hint": "Pokaż aktualne wartości %game.action.shield% i %game.action.retaliate% obok każdego standee."
+      "": "Tarcza i Odwet na podstawkach",
+      "hint": "Pokaż aktualne wartości %game.action.shield% i %game.action.retaliate% obok każdej podstawki."
     },
     "standees": {
-      "": "Standees",
-      "hint": "Wyświetlaj standees. Jeśli wyłączone, odblokowywanie pokoi i automatyczne standees również jest wyłączone."
+      "": "Podstawki",
+      "hint": "Wyświetlaj podstawki. Jeśli wyłączone, odblokowywanie pokoi i automatyczne podstawki również będą wyłączone."
     },
     "statAnimations": {
       "": "Animacja statystyk",
@@ -3071,7 +3071,7 @@
         "summon": "Przyzwanie",
         "switchType": "Zamiana %game.monsterType.normal% ↔ %game.monsterType.elite%"
       },
-      "applyInteractiveActions": "Zastosuj {0} dla standees {1} z {2}",
+      "applyInteractiveActions": "Zastosuj {0} dla podstawek {1} z {2}",
       "applyScenarioRule": "Zastosuj zasadę scenariusza",
       "battleGoals": {
         "deselect": "Odznacz bieżący cel bitewny {0}",
@@ -3465,7 +3465,7 @@
       "setXP": "PD {1} dla {0}",
       "shuffleAbilityDeck": "Potasmuj zdolności {0}",
       "shuffleAbilityDeckUpcoming": "Potasmuj nadchodzące zdolności {0}",
-      "skipInteractiveActions": "Pomiń interaktywne akcje dla standee {1} z {2}",
+      "skipInteractiveActions": "Pomiń interaktywne akcje dla podstawek {1} z {2}",
       "startCampaign": "Rozpocznij nową kampanię {0}",
       "summonActive": "Przyzwanie '{1}' {0} aktywne",
       "summonDead": "Zabij przyzwanie '{1}' {0}",

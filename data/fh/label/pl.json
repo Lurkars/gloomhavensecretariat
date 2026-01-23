@@ -1245,11 +1245,11 @@
         "": "Kościodziej",
         "solid-bones": {
           "": "Twarde Kości",
-          "hint": "Wszystkie Szkieletowe Pomioty mają +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+          "hint": "Wszystkie Człapiące Szkielety mają +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
         },
         "unholy-prowess": {
-          "": "Nieświęta Potęga",
-          "hint": "Wszystkie Szkieletowe Pomioty mają +1 %game.action.heal%."
+          "": "Bezbożna Moc",
+          "hint": "Wszystkie Człapiące Szkielety mają +1 %game.action.heal%."
         }
       },
       "deathwalker": {
@@ -1776,7 +1776,7 @@
     "robotic-boltshooter": "Robotyczny Autstrzelec",
     "ruined-machine": "Zrujnowana Maszyna",
     "savvas-icestorm": "Sawas Lodogrzmot",
-    "savvas-lavaflow": "Savvas Lawomiot",
+    "savvas-lavaflow": "Sawas Lawomiot",
     "scabwit": "Parchol",
     "seeker-of-the-abyss": "Poszukiwacz Otchłani",
     "shrike-fiend": "Dzerzbiarz",
@@ -2204,28 +2204,28 @@
     "rules": {
       "fh": {
         "130-3": {
-          "1": "Gain Advantage on this target"
+          "1": "Zyskaj korzyść na ten cel"
         },
         "146-3": "When this attack is performed, on the next round at initiative 99 instead perform:",
         "17-2": {
           "1": "+2 material resource",
-          "2": "Gain any two material resources"
+          "2": "Zyskaj dwa surowce materiałowe"
         },
         "180-3": {
-          "1": "Gain one Hide"
+          "1": "Zyskaj jedną Skórę"
         },
         "19-2": {
-          "1": "+1 material resource",
-          "2": "Gain any one material resource"
+          "1": "+1 surowiec materiałowy",
+          "2": "Zyskaj jeden surowiec materiałowy"
         },
         "192-1": {
-          "1": "Gain one Metal"
+          "1": "Zyskaj jeden Metal"
         },
         "21-1": {
           "1": "on any empty starting hex"
         },
         "41-1": {
-          "1": "Gain one Lumber"
+          "1": "Zyskaj jedno Drewno"
         },
         "51-1": "Whenever it suffers damage, all characters and monsters suffer %game.damage:2%",
         "65-3": {

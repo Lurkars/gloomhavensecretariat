@@ -3,6 +3,9 @@
     "fh": {
       "coral": "Miażdżąca Fala",
       "meteor": "Piroklasta",
+      "snowflake": {
+        "": "Tancerz Śniegu"
+      },
       "trap": "Traper"
     }
   },
@@ -63,5 +66,29 @@
         "automation": "Brak automatyzacji. Należy stosować fizycznie."
       }
     }
+  },
+  "summon": {
+    "banner-of-courage": "Sztandar Odwagi",
+    "banner-of-doom": "Sztandar Zagłady",
+    "banner-of-hope": "Sztandar Nadziei",
+    "banner-of-strength": "Sztandar Siły",
+    "banner-of-valor": "Sztandar Męstwa",
+    "bone-horde": "Kościana Horda",
+    "defense-grid": "Siatka Obronna",
+    "longbowman": "Łucznik",
+    "polar-cat": "Kot Polarny",
+    "raging-corpse": "Wściekłe Zwłoki",
+    "reinforcement": "Wsparcie",
+    "shadow-beast": "Bestia Cienia",
+    "shadow-horror": "Cienista Groza",
+    "shaggy-lure": "Kudłata przynęta",
+    "shambling-skeleton": "Człapiący Szkielet",
+    "skeleton-sorcerer": "Szkielet Czarnoksiężnik",
+    "snow-fox": "Śnieżny Lis",
+    "stitched-atrocity": "Zszyte Okrucieństwo",
+    "torch-bearer": "Nosiciel Pochodni",
+    "trained-falcon": "Wyszkolony Sokół",
+    "white-owl": "Biała Sowa",
+    "wraith": "Upiór"
   }
 }
