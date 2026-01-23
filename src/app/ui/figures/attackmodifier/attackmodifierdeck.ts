@@ -150,6 +150,21 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['deck']) {
       this.update()
+    } else if (changes['character']) {
+      this.initCharacter();
+    }
+  }
+
+  initCharacter() {
+    if (this.character) {
+      this.deck = this.character.attackModifierDeck;
+      this.edition = this.character.edition;
+      this.numeration = "" + this.character.number;
+      this.characterIcon = this.character.iconUrl;
+      this.queue = 0;
+      this.drawing = false;
+      this.current = this.deck.current;
+      this.lastVisible = this.deck.lastVisible;
     }
   }
 

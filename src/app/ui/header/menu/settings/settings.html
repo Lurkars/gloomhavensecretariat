@@ -331,11 +331,16 @@
     </div>
     <div class="line" ghs-setting-menu="eventsDrawReminder" [requires]="['!eventDraw']"></div>
     <div class="line" ghs-setting-menu="damageHPToggle"></div>
-    <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanent"
+    <div class="line" ghs-setting-menu="characterAttackModifierDeckActiveBottom"
       [requires]="['characterSheet', 'characterAttackModifierDeck']">
     </div>
+    <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanent"
+      [requires]="['characterSheet', 'characterAttackModifierDeck', '!characterAttackModifierDeckActiveBottom']">
+    </div>
     <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanentActive"
-      [requires]="['characterSheet', 'characterAttackModifierDeck', 'characterAttackModifierDeckPermanent']">
+      [requires]="['characterSheet', 'characterAttackModifierDeck', 'characterAttackModifierDeckPermanent']"
+      [checked]="settingsManager.settings.characterAttackModifierDeckActiveBottom"
+      [disabled]="settingsManager.settings.characterAttackModifierDeckActiveBottom">
     </div>
     <div class="line" ghs-setting-menu="characterItemsPermanent" [requires]="['characterItems']">
     </div>

@@ -94,7 +94,22 @@ footer {
     }
   }
 
-  .ally-deck {
+  .character-deck {
+    position: fixed;
+    right: 0;
+    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 28.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    z-index: 1;
+
+    &.fade-out {
+      transform: translateX(120%);
+    }
+  }
+
+  .ally-deck,
+  .character-deck.no-ally-deck,
+  .character-deck.no-monster-deck {
     position: fixed;
     right: 0;
     width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
@@ -104,7 +119,8 @@ footer {
   }
 
   .monster-deck,
-  .ally-deck.no-monster-deck {
+  .ally-deck.no-monster-deck,
+  .character-deck.no-monster-deck.no-ally-deck {
     position: fixed;
     right: 0;
     width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
@@ -323,13 +339,19 @@ footer.compact {
   .attack-modifier-spacer {
     display: none;
   }
+  .character-deck {
+    bottom: calc(var(--ghs-unit) * 39.4 * var(--ghs-text-factor) * var(--ghs-barsize));
+  }
 
-  .ally-deck {
+  .ally-deck,
+  .character-deck.no-ally-deck,
+  .character-deck.no-monster-deck {
     bottom: calc(var(--ghs-unit) * 26 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 
   .monster-deck,
-  .ally-deck.no-monster-deck {
+  .ally-deck.no-monster-deck,
+  .character-deck.no-monster-deck.no-ally-deck {
     bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 

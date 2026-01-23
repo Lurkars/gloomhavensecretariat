@@ -2478,13 +2478,17 @@
       "": "Angriffsmodifikatordeck für Charaktere",
       "hint": "Angriffsmodifikatordeck für Charaktere aktivieren. Um Verbesserungen zu nutzen muss der Charakterbogen ebenfalls aktiviert sein."
     },
+    "characterAttackModifierDeckActiveBottom": {
+      "": "Charakter AM-Deck über Monster Deck",
+      "hint": "Zeigt das Angriffsmodifikatordeck des aktiven Charakters über dem Monster Angriffsmodifikatordeck an."
+    },
     "characterAttackModifierDeckPermanent": {
       "": "Charakter AM-Deck dauerhaft",
       "hint": "Angriffsmodifikatordeck dauerhaft unterhalb des Charakters anzeigen."
     },
     "characterAttackModifierDeckPermanentActive": {
       "": "Auto. aktives AM-Deck",
-      "hint": "Automatisch das dauerhafter AM-Deck des aktiven Charakters umschalten."
+      "hint": "Automatisch das AM-Deck des aktiven Charakters umschalten."
     },
     "characterCompact": {
       "": "Kompaktes Charakterboard",

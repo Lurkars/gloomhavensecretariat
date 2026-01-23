@@ -30,6 +30,22 @@
   <div class="attack-modifier-spacer"></div>
   }
 
+  @if (!!activeCharacter) {
+  <div class="deck am-deck character-deck"
+    [ngClass]="{'collapsed' : !activeCharacter.attackModifierDeck.active || compact && (gameManager.game.lootDeck.active || gameManager.game.challengeDeck.active), 'initial' : activeCharacter.attackModifierDeck.active && activeCharacter.attackModifierDeck.current < 0, 'partial' : activeCharacter.attackModifierDeck.active && (activeCharacter.attackModifierDeck.current == 0 || activeCharacter.attackModifierDeck.bb && activeCharacter.attackModifierDeck.current >= 0 && !activeCharacter.attackModifierDeck.state), 'full' : activeCharacter.attackModifierDeck.active && (!activeCharacter.attackModifierDeck.bb && activeCharacter.attackModifierDeck.current > 0 || activeCharacter.attackModifierDeck.bb && activeCharacter.attackModifierDeck.current >= 0 && activeCharacter.attackModifierDeck.state), 'no-ally-deck' : !hasAllyAttackModifierDeck, 'no-monster-deck' : !settingsManager.settings.monsterAttackModifierDeck, 'fade-out': activeCharacterFade}">
+    <ghs-attackmodifier-deck #characterAttackModifierDeckElement [character]="activeCharacter"
+      (before)="beforeCharacterAttackModifierDeck(activeCharacter,$event)"
+      (after)="afterCharacterAttackModifierDeck(activeCharacter,$event)" [bottom]="true"
+      [battleGoals]="false"></ghs-attackmodifier-deck>
+    <div class="active-toggle"
+      [ngClass]="{'inactive' : !activeCharacter.attackModifierDeck.active, 'denied': gameManager.stateManager.permissions && !gameManager.stateManager.permissions.character}">
+      <span class="numeration" (click)="toggleActiveCharacterAttackModifierDeck()">
+        <img [src]="gameManager.characterManager.characterIcon(activeCharacter)">
+      </span>
+    </div>
+  </div>
+  }
+
   @if (hasAllyAttackModifierDeck) {
   <div class="deck am-deck ally-deck"
     [ngClass]="{'collapsed' : !gameManager.game.allyAttackModifierDeck.active || compact && (gameManager.game.lootDeck.active || gameManager.game.challengeDeck.active), 'initial' : gameManager.game.allyAttackModifierDeck.active && gameManager.game.allyAttackModifierDeck.current < 0, 'partial' : gameManager.game.allyAttackModifierDeck.active && gameManager.game.allyAttackModifierDeck.current == 0, 'full' : gameManager.game.allyAttackModifierDeck.active && gameManager.game.allyAttackModifierDeck.current > 0, 'no-monster-deck' : !settingsManager.settings.monsterAttackModifierDeck}">
@@ -37,7 +53,7 @@
       (before)="beforeAllyAttackModifierDeck($event)" (after)="afterAllyAttackModifierDeck($event)" numeration="A"
       [bottom]="true"></ghs-attackmodifier-deck>
     <div class="active-toggle"
-      [ngClass]="{'inactive' : !gameManager.game.allyAttackModifierDeck.active, 'denied': gameManager.stateManager.permissions && !gameManager.stateManager.permissions.lootDeck}">
+      [ngClass]="{'inactive' : !gameManager.game.allyAttackModifierDeck.active, 'denied': gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers}">
       <span class="numeration" (click)="toggleActiveAllyAttackModifierDeck()">A</span>
     </div>
   </div>

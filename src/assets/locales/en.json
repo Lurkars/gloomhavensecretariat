@@ -2505,13 +2505,17 @@
       "": "Character Attack Modifier Deck",
       "hint": "Enable Attack Modifier Deck for Characters. To use perks the Character Sheet must be enabled."
     },
+    "characterAttackModifierDeckActiveBottom": {
+      "": "Charakter AM-Deck above Monster Deck",
+      "hint": "Display Attack Modifier Deck of active Character above the Monster Attackmodifierdeck."
+    },
     "characterAttackModifierDeckPermanent": {
       "": "Permanent Character AM Deck",
       "hint": "Display Attack Modifier Deck permanent under Character."
     },
     "characterAttackModifierDeckPermanentActive": {
       "": "Auto. active AM Deck",
-      "hint": "Automatically toggle permanent AM Deck for active Character."
+      "hint": "Automatically toggle AM Deck for active Character."
     },
     "characterCompact": {
       "": "Compact Character Boards",

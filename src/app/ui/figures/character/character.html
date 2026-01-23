@@ -38,7 +38,8 @@
   }
   <ghs-highlight-conditions [entity]="character" [figure]="character"></ghs-highlight-conditions>
   @if ((bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck &&
-  !settingsManager.settings.characterAttackModifierDeckPermanent) {
+  !settingsManager.settings.characterAttackModifierDeckPermanent &&
+  !settingsManager.settings.characterAttackModifierDeckActiveBottom) {
   <div class="attack-modifierdeck-container" [ngClass]="{'active' : character.attackModifierDeckVisible}">
     <div class="scroll-container">
       <ghs-attackmodifier-deck [character]="character" (before)="beforeAttackModifierDeck($event)"
@@ -247,15 +248,19 @@
       <span class="badge">{{character.lootCards.length}}</span>
     </div>
     }
-    @if ((bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck) {
+    @if ((bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck &&
+    !settingsManager.settings.characterAttackModifierDeckActiveBottom) {
     <span class="attack-modifier-button" ghs-pointer-input (singleClick)="toggleAttackModifierDeckVisible()"
       [ghs-label]="'game.attackModifiers'" [ghs-label-attribute]="'title'" [ngClass]="{'bb': bb}">
       <img src="./assets/images/attackmodifier/icon.png" />
     </span>
     }
-    @if ((bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck &&
+    @if ((bb &&
+    !settingsManager.settings.characterAttackModifierDeckActiveBottom || !bb && settingsManager.settings.characterSheet) &&
+    settingsManager.settings.characterAttackModifierDeck &&
     settingsManager.settings.characterAttackModifierAnimate && !character.attackModifierDeckVisible &&
-    (!settingsManager.settings.characterAttackModifierDeckPermanentActive || !character.active)) {
+    (!settingsManager.settings.characterAttackModifierDeckPermanentActive &&
+    !settingsManager.settings.characterAttackModifierDeckActiveBottom || !character.active)) {
     <span class="attack-modifier-draw" [ngClass]="{'drawing': amAnimationDrawing}" [ngClass]="{'bb': bb}">
       <ghs-attackmodifier-draw [character]="character"
         (drawing)="amAnimationDrawing = $event"></ghs-attackmodifier-draw>
@@ -431,7 +436,8 @@ character.progress.items.length > 0)) {
 }
 
 @if ((bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck &&
-settingsManager.settings.characterAttackModifierDeckPermanent) {
+settingsManager.settings.characterAttackModifierDeckPermanent &&
+!settingsManager.settings.characterAttackModifierDeckActiveBottom) {
 <div class="attack-modifierdeck-container permanent"
   [ngClass]="{'active' : character.attackModifierDeckVisible || settingsManager.settings.characterAttackModifierDeckPermanentActive && character.active }">
   <div class="scroll-container">

@@ -40,6 +40,8 @@ export class FooterComponent implements OnInit, OnDestroy {
   currentTime: string = "";
   hasAllyAttackModifierDeck: boolean = false;
   lootDeckEnabeld: boolean = false;
+  activeCharacter: Character | undefined;
+  activeCharacterFade: boolean = false;
 
   compact: boolean = false;
 
@@ -56,6 +58,24 @@ export class FooterComponent implements OnInit, OnDestroy {
       next: () => {
         this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof ObjectiveContainer && figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
         this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
+        const activeCharacter = settingsManager.settings.characterAttackModifierDeckActiveBottom ? gameManager.game.figures.find((figure) => figure instanceof Character && (figure.active || gameManager.bbRules())) as Character : undefined;
+        if (settingsManager.settings.animations && ((this.activeCharacter && !activeCharacter) || (!this.activeCharacter && activeCharacter))) {
+          this.activeCharacterFade = true;
+          if (activeCharacter) {
+            this.activeCharacter = activeCharacter;
+          }
+          setTimeout(() => {
+            if (activeCharacter) {
+              this.activeCharacterFade = false;
+            } else {
+              this.activeCharacter = activeCharacter;
+            }
+          }, activeCharacter ? 1 : 500 * settingsManager.settings.animationSpeed)
+
+        } else {
+          this.activeCharacter = activeCharacter;
+          this.activeCharacterFade = !activeCharacter && settingsManager.settings.animations;
+        }
       }
     })
 
@@ -156,6 +176,15 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   afterAllyAttackModifierDeck(change: AttackModiferDeckChange) {
     gameManager.game.allyAttackModifierDeck = change.deck;
+    gameManager.stateManager.after();
+  }
+
+  beforeCharacterAttackModifierDeck(character: Character, change: AttackModiferDeckChange) {
+    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, gameManager.characterManager.characterName(character), ...change.values);
+  }
+
+  afterCharacterAttackModifierDeck(character: Character, change: AttackModiferDeckChange) {
+    character.attackModifierDeck = change.deck;
     gameManager.stateManager.after();
   }
 
@@ -284,6 +313,19 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   nextDisabled(): boolean {
     return this.activeHint() || this.finish() || this.failed();
+  }
+
+  toggleActiveCharacterAttackModifierDeck() {
+    if (this.activeCharacter) {
+      this.beforeCharacterAttackModifierDeck(this.activeCharacter, new AttackModiferDeckChange(this.activeCharacter.attackModifierDeck, this.activeCharacter.attackModifierDeck.active && (!this.compact || !gameManager.game.lootDeck.active) ? 'amDeckHide' : 'amDeckShow'));
+      if (this.compact && gameManager.game.lootDeck.active) {
+        gameManager.game.lootDeck.active = false;
+        this.activeCharacter.attackModifierDeck.active = true;
+      } else {
+        this.activeCharacter.attackModifierDeck.active = !this.activeCharacter.attackModifierDeck.active;
+      }
+      this.afterCharacterAttackModifierDeck(this.activeCharacter, new AttackModiferDeckChange(this.activeCharacter.attackModifierDeck, !this.activeCharacter.attackModifierDeck.active ? 'amDeckHide' : 'amDeckShow'));
+    }
   }
 
   toggleActiveAllyAttackModifierDeck() {
