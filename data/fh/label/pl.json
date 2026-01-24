@@ -1014,9 +1014,9 @@
     "barracks": {
       "": "Koszary",
       "1": "Wspólnie wyszkolcie do 1 żołnierza za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 4<br><i>Efekt:</i> przewaga i -5 %game.action.attack%",
-      "2": "Wspólnie wyszkolcie do 1 żołnierza za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 6<br><i>Efekt:</i> przewaga i -15 %game.action.attack%",
-      "3": "Wspólnie wyszkolcie do 2 żołnierzy za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 8<br><i>Efekt:</i> przewaga i -25 %game.action.attack%",
-      "4": "Wspólnie wyszkolcie do 2 żołnierzy za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 10<br><i>Efekt:</i> przewaga i -35 %game.action.attack%",
+      "2": "Wspólnie wyszkolcie do 1 żołnierza za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 6<br><i>Efekt:</i> korzyść i -15 %game.action.attack%",
+      "3": "Wspólnie wyszkolcie do 2 żołnierzy za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 8<br><i>Efekt:</i> korzyść i -25 %game.action.attack%",
+      "4": "Wspólnie wyszkolcie do 2 żołnierzy za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 10<br><i>Efekt:</i> korzyść i -35 %game.action.attack%",
       "5": "Niekorzyść przy wszystkich rozstrzygnięciach wydarzeń ataku.<br>Nie można używać żołnierzy.",
       "soldiers": "Wyszkol 1 żołnierza"
     },
@@ -1283,7 +1283,7 @@
     "fh": {
       "abael-herder": {
         "1": "Przyznaj najbliższej Świni Piranii<br>w %game.action.range:4%:",
-        "2": "Przyznaj wszystkim Świniom Piranii w %game.action.range:3%:",
+        "2": "Przyznaj wszystkim Świniom Pirania w %game.action.range:3%:",
         "3": "Świnia Pirania otrzymuje %game.damage:1%.",
         "4": "Przyznaj najbliższej<br>Świni Piranii w %game.action.range:4%:",
         "5": "Jeśli żadna Świnia Pirania nie została<br>celem tej zdolności:",
@@ -1304,7 +1304,7 @@
         "2": "Wszyscy wrogowie sąsiadujący<br>z celem otrzymują %game.damage:2%."
       },
       "archer": {
-        "1": "Stwórz jedną pułapkę %game.damage:3% w sąsiednim<br>pustym heksie najbliżej wroga."
+        "1": "Stwórz jedną pułapkę %game.damage:3% na sąsiednim<br>pustym polu najbliżej wroga."
       },
       "banner-spear": {
         "1": "Wszyscy sojusznicy w %game.range:2% dodają +1 %game.action.attack% do jednego swojego ataku w każdej turze.",
@@ -1445,7 +1445,7 @@
             "2": "Gain advantage on all your attacks this round."
           },
           "25": {
-            "1": "where X is the amount of %game.action.damage% suffered by targets of the attack ability.",
+            "1": "gdzie X to ilość %game.action.damage% zadanych celom umiejętności ataku.",
             "2": "Whenever an adjacent enemy dies this round, move the character token on one of your persistent abilities backwards one slot."
           },
           "26": {
@@ -1456,7 +1456,7 @@
             "2": "Move the character token on three of your persistent abilities backwards one slot."
           },
           "28": {
-            "1": "%game.action.target% all enemies within 2 hexes",
+            "1": "%game.action.target% wszyscy wrogowie w zasięgu 2 pól",
             "2": "For each enemy targeted with the attack ability, Move the character token on one of your persistent abilities backwards one slot.",
             "3": "On the next six instances of an enemy entering a hex adjacent to you, that enemy suffers %game.action.damage%3"
           },
@@ -1526,16 +1526,16 @@
         "1": "The Fish King does not act."
       },
       "fish-king-scenario-77": {
-        "1": "Kill the closest Piranha Pig.<br>All adjacent enemies suffer trap damage."
+        "1": "Zabij najbliższą Świnię Piranię.<br>Wszyscy sąsiadujący wrogowie otrzymują obrażenia od pułapki."
       },
       "flame-demon": {
-        "1": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
+        "1": "Stwórz jedną pułapkę %game.damage:4% na sąsiednim<br>pustym polu najbliżej wroga",
         "2": "%game.damage:1%",
-        "3": "All adjacent<br>enemies suffer %game.damage:2%"
+        "3": "Wszyscy sąsiadujący<br>wrogowie otrzymują %game.damage:2%"
       },
       "flaming-bladespinner": {
-        "1": "All enemies within<br>%game.action.range:2% suffer %game.damage:2%.",
-        "2": "All enemies within %game.action.range:2% suffer %game.damage:1%."
+        "1": "Wszyscy wrogowie w<br>%game.action.range:2% otrzymują %game.damage:2%.",
+        "2": "Wszyscy wrogowie w zasięgu %game.action.range:2% otrzymują %game.damage:1%."
       },
       "flowChartGroup": {
         "algox-1": "Algoksy",
@@ -1554,7 +1554,7 @@
         "1": "%game.damage:1%"
       },
       "frozen-corpse": {
-        "1": "If the element is consumed by<br>the Frozen Corpse during the<br>move ability, it suffers %game.damage:2%."
+        "1": "Jeśli żywioł zostanie zużyty przez<br>Zamarznięte Zwłoki podczas zdolności ruchu,<br>otrzymają one %game.damage:2%."
       },
       "frozen-corpse-scenario-32": {
         "1": "Sprawdź zasady specjalne scenariusza"
@@ -1576,13 +1576,13 @@
         "2": "The %data.monster.harbinger-of-shadow-2% does not act."
       },
       "harrower-infester": {
-        "1": "Perform \"%game.action.heal% X, self\" where X is<br>twice the number of enemies<br>targeted by the attack ability."
+        "1": "Wykonaj \"%game.action.heal% X, na siebie\", gdzie X to<br>dwukrotność liczby wrogów<br>będących celem umiejętności ataku."
       },
       "hound": {
-        "1": "Add +2 %game.action.attack% if the target is adjacent<br>to any of the Hound's allies."
+        "1": "Dodaj +2 %game.action.attack% jeśli cel sąsiaduje<br>z którymkolwiek z sojuszników Ogara."
       },
       "ice-wraith": {
-        "1": "All elite Ice Wraiths<br> become normal, and all<br> normal Ice Wraiths become elite."
+        "1": "Wszystkie elitarne Lodowe Upiory stają się normalne, a wszystkie normalne Lodowe Upiory stają się elitarne."
       },
       "laser-spires": {
         "1": "Rotate each laser spire clockwise (if able)",
@@ -1591,7 +1591,7 @@
         "4": "Emit laser, starting at %game.mapMarker.a%"
       },
       "lightning-eel": {
-        "1": "Treats water hexes as corridors and non-water hexes as obstacles"
+        "1": "Traktuje pola z wodą jako korytarze, a pola bez wody jako przeszkody."
       },
       "living-doom": {
         "1": "Summon X normal<br>Living Spirits",
@@ -1601,44 +1601,44 @@
         "1": "Zmuś wszystkich wrogów do przesunięcia się o jedno pole w kierunku najbliższego niezajętego pola korytarza."
       },
       "lurker-clawcrusher": {
-        "1": "The target suffers %game.damage:X%, where X<br>is their %game.action.shield% value for this attack.",
-        "2": "X is double their %game.action.shield% value instead."
+        "1": "Cel otrzymuje %game.damage:X%, gdzie X<br>jest wartością %game.action.shield% dla tego ataku.",
+        "2": "X ma podwojoną wartość %game.action.shield% celu."
       },
       "lurker-mindsnipper": {
-        "1": "Control all targets of the attack<br>ability in initiative order:"
+        "1": "Kontroluj wszystkie cele zdolności tego ataku<br>w kolejności inicjatywy:"
       },
       "lurker-soldier": {
-        "1": "%game.action.target% enemies within 2 hexes"
+        "1": "%game.action.target% wrogowie w zasięgu 2 pól"
       },
       "lurker-wavethrower": {
-        "1": "Focus on the enemy<br>farthest away within %game.action.range:6%",
-        "2": "Create one 1-hex water tile<br>in an adjacent empty hex.",
-        "3": "in an adjacent unoccupied<br>hex with a water tile."
+        "1": "Skup się na najdalszym<br>wrogu w zasięgu %game.action.range:6%",
+        "2": "Stwórz 1 pole z wodą<br> w sąsiednim pustym polu.",
+        "3": "w sąsiednim niezajętym polu z wodą."
       },
       "lurker-wavethrower-scenario-128": {
-        "1": "Focus on the enemy<br>farthest away within %game.action.range:6%",
-        "2": "Create one 1-hex water tile<br>in an adjacent empty hex."
+        "1": "Skup się na najdalszym<br>wrogu w zasięgu %game.action.range:6%",
+        "2": "Stwórz 1 pole z wodą<br> w sąsiednim pustym polu."
       },
       "lurker-wavethrower-scenario-131": {
-        "1": "Focus on the enemy<br>farthest away within %game.action.range:6%",
-        "2": "Create one 1-hex water tile<br>in an adjacent empty hex.",
+        "1": "Skup się na najdalszym<br>wrogu w zasięgu %game.action.range:6%",
+        "2": "Stwórz 1 pole z wodą<br> w sąsiednim pustym polu.",
         "3": "to the leftmost empty hex if it is an odd round or rightmost if it is even"
       },
       "night-demon": {
-        "1": "All adjacent allies and<br>enemies suffer %game.damage:1%.",
+        "1": "Wszyscy sąsiadujący sojusznicy<br>oraz wrogowie otrzymują %game.damage:1%.",
         "2": "%game.custom.disadvantage%"
       },
       "ooze": {
-        "1": "with H equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values)."
+        "1": "o wartości H równej aktualnej wartości punktów życia przywołującego Szlam<br>(ograniczone maksymalną wartością punktów życia zwykłego Szlamu)"
       },
       "orphan": {
         "1": "self or glowing orb"
       },
       "piranha-pig": {
-        "1": "Add +1 %game.action.attack% if the target is adjacent<br>to any of the Piranha Pig's allies.",
-        "2": "Add +2 %game.action.attack% if the target has %game.condition.wound%.",
-        "3": "Add +1 %game.action.attack% if the target is occupying<br>a water tile.",
-        "4": "where X is the amount of<br>damage suffered by the<br>target of the attack ability."
+        "1": "Dodaj +1 %game.action.attack%, jeśli cel sąsiaduje<br>z którymkolwiek z sojuszników Świni Piranii.",
+        "2": "Dodaj +2 %game.action.attack% jeśli cel ma %game.condition.wound%.",
+        "3": "Dodaj +1 %game.action.attack%, jeśli cel zajmuje<br> pole z wodą.",
+        "4": "gdzie X to ilość obrażeń zadanych<br>celowi umiejętności ataku."
       },
       "prince-of-frost": {
         "1": "One character %game.card.recover% one lost card.",
@@ -1646,25 +1646,25 @@
       },
       "program-director": {
         "1": "to an empty hex closest to focus",
-        "2": "Ally to all monsters this round",
-        "3": "Focus on closest enemy",
-        "4": "to any empty hex closest to focus"
+        "2": "Sojusznik dla wszystkich potworów w tej rundzie",
+        "3": "Ustaw cel skupienia na najbliższym wrogu",
+        "4": "do dowolnego pustego pola najbliższego celu skupienia"
       },
       "render": {
         "1": "to farthest carving and destroy it.",
         "2": "Destroy all adjacent carvings."
       },
       "ruined-machine": {
-        "1": "If the move ability was performed,",
-        "2": "If the attack ability was performed,",
-        "3": "If the attack ability was performed,<br>all adjacent enemies suffer trap damage<br>and the Ruined Machine dies."
+        "1": "Jeśli zdolność ruchu została wykonana,",
+        "2": "Jeśli zdolność ataku została wykonana,",
+        "3": "Jeśli umiejętność ataku została wykonana,<br>wszyscy sąsiadujący wrogowie otrzymują obrażenia od pułapki<br>a Zrujnowana Maszyna ginie."
       },
       "savvas-icestorm": {
-        "1": "Grant all allies within %game.action.range:2% and self:"
+        "1": "Przyznaj wszystkim sojusznikom w zasięgu %game.action.range:2% i sobie:"
       },
       "savvas-lavaflow": {
-        "1": "All allies and enemies adjacent<br>to the target suffer %game.damage:2%",
-        "2": "All enemies within %game.action.range:4% suffer %game.damage:2%."
+        "1": "Wszyscy sojusznicy i wrogowie<br>sąsiadujący z celem otrzymują %game.damage:2%",
+        "2": "Wszyscy wrogowie w %game.action.range:4% otrzymują %game.damage:2%."
       },
       "seeker-of-the-abyss": {
         "1": "All targets lose one card.",
@@ -1672,11 +1672,11 @@
         "3": "All allies add +1 %game.action.attack% to all their attacks this round."
       },
       "shrike-fiend": {
-        "1": "All enemies within %game.action.range:3% suffer %game.damage:2%."
+        "1": "Wszyscy wrogowie w %game.action.range:3% otrzymują %game.damage:2%."
       },
       "steel-automaton": {
-        "1": "All adjacent enemies suffer %game.damage:1%",
-        "2": "All adjacent enemies suffer<br>hazardous terrain damage."
+        "1": "Wszyscy sąsiadujący wrogowie otrzymują %game.damage:1%",
+        "2": "Wszyscy sąsiadujący wrogowie otrzymują<br>obrażenia od niebezpiecznego terenu."
       },
       "sun-demon": {
         "1": "%game.custom.advantage%"
@@ -1837,7 +1837,7 @@
     "Snowdrift": "Zaspa śnieżna",
     "Spectral Helper": "Spectral Helper",
     "Stalagmites": "Stalagmites",
-    "Switch": "Switch",
+    "Switch": "Przełącznik",
     "The Great Oak": "The Great Oak",
     "Tree": "Tree"
   },
@@ -2013,7 +2013,7 @@
           "1": "The Relic gains:",
           "2": "Add %game.condition.immobilize% to all attacks targeting the primary focus",
           "3": "Change The Relic's Special 1 to:",
-          "4": "Focus on the farthest attackable enemy and perform:",
+          "4": "Skup się na najdalszym wrogu którego może być celem skupienia i wykonaj:",
           "5": "%game.action.attack%+0, %game.action.target% focus (if adjacent) and all enemies in or adjacent to hexes entered during the movement",
           "6": "Change The Relic's Special 2 to:"
         },
