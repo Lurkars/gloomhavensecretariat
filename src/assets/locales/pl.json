@@ -788,7 +788,7 @@
       }
     },
     "custom": {
-      "advantage": "Przewaga",
+      "advantage": "Korzyść",
       "disadvantage": "Atakujący mają niekorzyść",
       "instead": "Zamiast",
       "math": {
@@ -1284,9 +1284,9 @@
       "allyAffectRange": "%game.affect% jednego sojusznika w zasięgu %game.action.range% {0}",
       "allyShort": "Sojusznik",
       "enemies": "%game.target% wszystkich wrogów",
-      "enemiesAdjacent": "%game.target% wszystkich sąsiadujących wrogów",
+      "enemiesAdjacent": "%game.target% wszyscy sąsiadujący wrogowie",
       "enemiesMovedThrough": "%game.target% wszystkich wrogów, przez których przeszedłeś",
-      "enemiesMovedThroughAdjacent": "%game.target% wszystkich wrogów zajmujących lub sąsiadujących z<br>heksami, przez które przeszedłeś podczas ruchu",
+      "enemiesMovedThroughAdjacent": "%game.target% wszyscy wrogowie zajmujący lub sąsiadujący z<br>polami, przez które przeszedłeś podczas ruchu",
       "enemiesRange": "%game.target% wszystkich wrogów w zasięgu %game.action.range% {0}",
       "enemiesRangeAffect": "%game.affect% wszystkich wrogów w zasięgu %game.action.range% {0}",
       "enemiesRangeAffectExact": "%game.affect% wszystkich wrogów dokładnie w zasięgu %game.action.range% {0}",
@@ -1295,7 +1295,7 @@
       "enemyAdjacent": "%game.target% jednego sąsiadującego wroga",
       "enemyAllyRange": "%game.target% jednego wroga lub %game.affect% jednego sojusznika w zasięgu %game.action.range% {0}",
       "enemyAttacked": "%game.target% wroga, który<br>cię zaatakował",
-      "enemyOneAll": "%game.target% jednego wroga wszystkimi atakami",
+      "enemyOneAll": "%game.target% jeden wróg wszystkimi atakami",
       "enemyRange": "%game.target% jednego wroga dokładnie w zasięgu %game.action.range% {0}",
       "figures": "%game.target% wszystkie figurki",
       "figuresAdjacent": "%game.target% wszystkie sąsiadujące figurki",
