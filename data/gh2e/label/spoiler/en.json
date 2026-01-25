@@ -26,8 +26,8 @@
           "supplies": "Supplies"
         },
         "supply_tokens": {
-          "": "Supply Token",
-          "hint": "Gain 1 Supply Token (10 supplies) at the start of the scenario, as well as during each rest (with Perk 11)."
+          "": "Perk 11",
+          "hint": "Gain 1 Supply Token (10 supplies) at the start of the scenario, as well as during each rest."
         }
       },
       "triangles": {

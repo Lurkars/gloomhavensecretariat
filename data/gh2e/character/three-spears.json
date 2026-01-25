@@ -19,7 +19,8 @@
   "spoiler": true,
   "specialActions": [
     {
-      "name": "supply_tokens"
+      "name": "supply_tokens",
+      "perk": 11
     }
   ],
   "stats": [
