@@ -466,6 +466,10 @@ export class RoundManager {
         gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.heal, heal));
         gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
       }
+
+      if (figure.name == 'three-spears' && figure.tags.find((tag) => tag === 'supply_tokens') && figure.primaryToken == 0 && figure.tokenValues[0] < 5 && figure.progress.perks[10] >= 2) {
+        figure.tokenValues[0] += 1;
+      }
     }
 
     if (figure instanceof Character && !gameManager.entityManager.isAlive(figure) || figure instanceof Monster && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure instanceof ObjectiveContainer && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
@@ -695,6 +699,16 @@ export class RoundManager {
         if (figure.name == 'shards' && figure.tags.find((tag) => tag === 'extra_resonance_tokens') && figure.primaryToken == 0) {
           figure.tokenValues[0] += 2;
           gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.brittle));
+        }
+
+        if (figure.name == 'three-spears' && figure.tags.find((tag) => tag === 'supply_tokens') && figure.primaryToken == 0) {
+          figure.tokenValues[0] += 1;
+        }
+
+        if (figure.name == 'eclipse' && figure.edition == 'gh2e') {
+          let eclipseInvisible = new EntityCondition(ConditionName.invisible);
+          eclipseInvisible.permanent = true;
+          figure.entityConditions.push(eclipseInvisible);
         }
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));

@@ -20,7 +20,16 @@
       "saw": "Sawbones",
       "squidface": "Plagueherald",
       "sun": "Sunkeeper",
-      "three-spears": "Quartermaster",
+      "three-spears": {
+        "": "Quartermaster",
+        "tokens": {
+          "supplies": "Supplies"
+        },
+        "supply_tokens": {
+          "": "Supply Token",
+          "hint": "Gain 1 Supply Token (10 supplies) at the start of the scenario, as well as during each rest (with Perk 11)."
+        }
+      },
       "triangles": {
         "": "Elementalist",
         "element_waning": {
