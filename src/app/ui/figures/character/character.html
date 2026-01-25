@@ -19,7 +19,7 @@
 }
 
 <div class="character" [style.--ghs-character-color]="character.color"
-  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : (bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible, 'compact': compact, 'short': short, 'menu': shortMenu, 'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'active-border' : character.active && (settingsManager.settings.theme == 'modern' || compact) }">
+  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : (bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent && !settingsManager.settings.characterAttackModifierDeckActiveBottom || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible, 'compact': compact, 'short': short, 'menu': shortMenu, 'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'active-border' : character.active && (settingsManager.settings.theme == 'modern' || compact) }">
 
   <ghs-entity-index-key [entity]="character"></ghs-entity-index-key>
 
@@ -248,15 +248,15 @@
       <span class="badge">{{character.lootCards.length}}</span>
     </div>
     }
-    @if ((bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck &&
-    !settingsManager.settings.characterAttackModifierDeckActiveBottom) {
+    @if ((bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck) {
     <span class="attack-modifier-button" ghs-pointer-input (singleClick)="toggleAttackModifierDeckVisible()"
-      [ghs-label]="'game.attackModifiers'" [ghs-label-attribute]="'title'" [ngClass]="{'bb': bb}">
+      [ghs-label]="'game.attackModifiers'" [ghs-label-attribute]="'title'" [ngClass]="{'bb': bb, 'active': settingsManager.settings.characterAttackModifierDeckActiveBottom && character.attackModifierDeckVisible}">
       <img src="./assets/images/attackmodifier/icon.png" />
     </span>
     }
     @if ((bb &&
-    !settingsManager.settings.characterAttackModifierDeckActiveBottom || !bb && settingsManager.settings.characterSheet) &&
+    !settingsManager.settings.characterAttackModifierDeckActiveBottom || !bb && settingsManager.settings.characterSheet)
+    &&
     settingsManager.settings.characterAttackModifierDeck &&
     settingsManager.settings.characterAttackModifierAnimate && !character.attackModifierDeckVisible &&
     (!settingsManager.settings.characterAttackModifierDeckPermanentActive &&

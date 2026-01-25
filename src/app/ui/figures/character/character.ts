@@ -472,7 +472,17 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
 
   toggleAttackModifierDeckVisible() {
-    if (this.character.attackModifierDeckVisible && (!settingsManager.settings.characterAttackModifierDeckPermanent || !settingsManager.settings.characterAttackModifierDeckPermanentActive || !this.character.active)) {
+    if (settingsManager.settings.characterAttackModifierDeckActiveBottom) {
+      if (!this.character.attackModifierDeckVisible) {
+        gameManager.game.figures.forEach((figure) => { if (figure instanceof Character) { figure.attackModifierDeckVisible = false; } });
+        this.character.attackModifierDeckVisible = true;
+      } else {
+        this.character.attackModifierDeckVisible = false;
+        if (!this.character.active) {
+          gameManager.game.figures.forEach((figure) => { if (figure instanceof Character && figure.active) { figure.attackModifierDeckVisible = true; } });
+        }
+      }
+    } else if (this.character.attackModifierDeckVisible && (!settingsManager.settings.characterAttackModifierDeckPermanent || !settingsManager.settings.characterAttackModifierDeckPermanentActive || !this.character.active)) {
       this.character.attackModifierDeck.active = false;
       this.character.attackModifierDeckVisible = false;
     } else if (settingsManager.settings.characterAttackModifierDeckPermanent) {

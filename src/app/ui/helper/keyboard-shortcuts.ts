@@ -16,7 +16,7 @@ import { WorldMapComponent } from '../figures/party/world-map/world-map';
 import { FooterComponent } from '../footer/footer';
 import { HeaderComponent } from '../header/header';
 import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/keyboard-shortcuts';
-import { ghsFilterInputFocus, ghsValueSign } from './Static';
+import { ghsDialogClosingHelper, ghsFilterInputFocus, ghsValueSign } from './Static';
 
 
 export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "fullscreen" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP" | "activeCharacter" | "playerNumber";
@@ -95,6 +95,9 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     }
                     event.preventDefault();
                     event.stopPropagation();
+                } else if (this.dialogOpen && event.key === 'Backspace' && !event.ctrlKey && !event.altKey && !event.shiftKey) {
+                    ghsDialogClosingHelper(this.dialog.openDialogs[this.dialog.openDialogs.length - 1]);
+                    event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
                     gameManager.stateManager.undo();
                     event.preventDefault();
@@ -248,7 +251,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     })
                     event.stopPropagation();
                     event.preventDefault();
-                } else if (!this.dialogOpen && !event.ctrlKey && !event.altKey && this.header && event.key === 'Escape') {
+                } else if (!this.dialogOpen && !event.ctrlKey && !event.altKey && this.header && (event.key === 'Escape' || event.key === 'Backspace')) {
                     this.header.openMenu();
                     event.stopPropagation();
                     event.preventDefault();

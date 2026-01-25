@@ -14,7 +14,7 @@ import { ghsDialogClosingHelper } from "../../helper/Static";
 export type FEEDBACK_ISSUE_TYPE = "abilityCard" | "monsterStat" | "characterStat" | "artwork" | "software" | "feedback" | "automatic";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-feedback-dialog',
     templateUrl: './feedback-dialog.html',
     styleUrls: ['./feedback-dialog.scss']
@@ -84,7 +84,12 @@ export class FeedbackDialogComponent {
             text += (text ? "\n\n" : "") + this.automaticText;
         }
 
-        mailto += '&body=' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.hint') + '%0D%0A%0D%0A' + text.replaceAll("\n", '%0D%0A');
+        let enviroment = "edition: " + gameManager.currentEdition();
+        if (gameManager.game.scenario) {
+            enviroment += " #" + gameManager.game.scenario.index + (gameManager.game.scenario.edition != gameManager.currentEdition() ? " (" + gameManager.game.scenario.edition + ")" : "");
+        }
+
+        mailto += '&body=' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.hint') + '%0D%0A%0D%0A' + text.replaceAll("\n", '%0D%0A') + '%0D%0A%0D%0A' + enviroment;
 
         return mailto;
     }

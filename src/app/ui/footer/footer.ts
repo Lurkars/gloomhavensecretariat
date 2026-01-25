@@ -58,7 +58,7 @@ export class FooterComponent implements OnInit, OnDestroy {
       next: () => {
         this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof ObjectiveContainer && figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
         this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
-        const activeCharacter = settingsManager.settings.characterAttackModifierDeckActiveBottom ? gameManager.game.figures.find((figure) => figure instanceof Character && (figure.active || gameManager.bbRules())) as Character : undefined;
+        const activeCharacter = settingsManager.settings.characterAttackModifierDeckActiveBottom ? gameManager.game.figures.find((figure) => figure instanceof Character && (figure.attackModifierDeckVisible || gameManager.bbRules())) as Character : undefined;
         if (settingsManager.settings.animations && ((this.activeCharacter && !activeCharacter) || (!this.activeCharacter && activeCharacter))) {
           this.activeCharacterFade = true;
           if (activeCharacter) {
@@ -318,8 +318,10 @@ export class FooterComponent implements OnInit, OnDestroy {
   toggleActiveCharacterAttackModifierDeck() {
     if (this.activeCharacter) {
       this.beforeCharacterAttackModifierDeck(this.activeCharacter, new AttackModiferDeckChange(this.activeCharacter.attackModifierDeck, this.activeCharacter.attackModifierDeck.active && (!this.compact || !gameManager.game.lootDeck.active) ? 'amDeckHide' : 'amDeckShow'));
-      if (this.compact && gameManager.game.lootDeck.active) {
+
+      if (this.compact && (gameManager.game.lootDeck.active || gameManager.game.challengeDeck.active)) {
         gameManager.game.lootDeck.active = false;
+        gameManager.game.challengeDeck.active = false;
         this.activeCharacter.attackModifierDeck.active = true;
       } else {
         this.activeCharacter.attackModifierDeck.active = !this.activeCharacter.attackModifierDeck.active;
@@ -330,8 +332,9 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   toggleActiveAllyAttackModifierDeck() {
     this.beforeAllyAttackModifierDeck(new AttackModiferDeckChange(gameManager.game.allyAttackModifierDeck, gameManager.game.allyAttackModifierDeck.active && (!this.compact || !gameManager.game.lootDeck.active) ? 'amDeckHide' : 'amDeckShow'));
-    if (this.compact && gameManager.game.lootDeck.active) {
+    if (this.compact && (gameManager.game.lootDeck.active || gameManager.game.challengeDeck.active)) {
       gameManager.game.lootDeck.active = false;
+      gameManager.game.challengeDeck.active = false;
       gameManager.game.allyAttackModifierDeck.active = true;
     } else {
       gameManager.game.allyAttackModifierDeck.active = !gameManager.game.allyAttackModifierDeck.active;
@@ -341,6 +344,7 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   toggleActiveMonsterAttackModifierDeck() {
     this.beforeMonsterAttackModifierDeck(new AttackModiferDeckChange(gameManager.game.monsterAttackModifierDeck, gameManager.game.monsterAttackModifierDeck.active && (!this.compact || !gameManager.game.lootDeck.active) ? 'amDeckHide' : 'amDeckShow'));
+
     if (this.compact && (gameManager.game.lootDeck.active || gameManager.game.challengeDeck.active)) {
       gameManager.game.lootDeck.active = false;
       gameManager.game.challengeDeck.active = false;

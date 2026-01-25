@@ -16,49 +16,64 @@ footer {
 
   .deck {
     transition: transform calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
+    min-width: calc(var(--ghs-unit) * 50 * var(--ghs-text-factor) * var(--ghs-barsize));
+    max-width: 95vw;
+    height: calc(var(--ghs-unit) * 16 * var(--ghs-text-factor) * var(--ghs-barsize));
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 
     &:before {
       content: ' ';
       position: absolute;
-      top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
-      left: calc(var(--ghs-unit) * -2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-      bottom: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
-      right: calc(var(--ghs-unit) * -5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      top: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      left: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      height: calc(var(--ghs-unit) * 8 * var(--ghs-text-factor) * var(--ghs-barsize));
+      right: 0;
       border: calc(var(--ghs-unit) * 0.3 * var(--ghs-text-factor) * var(--ghs-barsize)) solid var(--ghs-color-gray);
       background-color: var(--ghs-color-darkgray);
       border-radius: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
 
     &.initial {
-      transform: translateX(59%);
+      transform: translateX(58%);
     }
 
     &.partial {
-      transform: translateX(17%);
+      transform: translateX(26.5%);
     }
 
     &.full {
-      transform: none;
+      transform: translateX(3%);
     }
 
     &.collapsed {
-      transform: translateX(100%);
+      transform: translateX(calc(100% - var(--ghs-unit) * 5 * var(--ghs-text-factor) * var(--ghs-barsize)));
+      overflow: visible;
+    }
+
+    ghs-attackmodifier-deck {
+      margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      margin-left: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
+      z-index: 1;
     }
 
     .active-toggle {
       cursor: pointer;
       position: absolute;
-      left: calc(var(--ghs-unit) * -5 * var(--ghs-text-factor) * var(--ghs-barsize));
-      top: 50%;
-      width: 13%;
-      height: 50%;
-      z-index: 1;
+      left: 0;
+      top: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-barsize));
+      width: calc(var(--ghs-unit) * 5.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      height: calc(var(--ghs-unit) * 5.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      z-index: 2;
 
       transition: transform calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
-      transform: translateY(-50%) scale(1);
+      transform: scale(1);
 
       &.inactive {
-        transform: translateY(-50%) scale(1.3);
+        transform: scale(1.3);
       }
 
       &:hover {
@@ -77,7 +92,7 @@ footer {
         position: absolute;
         color: var(--ghs-color-white);
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor) * var(--ghs-barsize));
-        line-height: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+        line-height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor) * var(--ghs-barsize));
         width: 100%;
         height: 100%;
         background-position: center;
@@ -94,12 +109,15 @@ footer {
     }
   }
 
-  .character-deck {
+  .character-deck,
+  .ally-deck,
+  .monster-deck {
     position: fixed;
     right: 0;
-    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
-    bottom: calc(var(--ghs-unit) * 28.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+  }
+
+  .character-deck {
+    bottom: calc(var(--ghs-unit) * 24.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     z-index: 1;
 
     &.fade-out {
@@ -110,33 +128,26 @@ footer {
   .ally-deck,
   .character-deck.no-ally-deck,
   .character-deck.no-monster-deck {
-    position: fixed;
-    right: 0;
-    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
-    bottom: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor) * var(--ghs-barsize));
-    z-index: 1;
+    bottom: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor) * var(--ghs-barsize));
+    z-index: 2;
   }
 
   .monster-deck,
   .ally-deck.no-monster-deck,
   .character-deck.no-monster-deck.no-ally-deck {
-    position: fixed;
-    right: 0;
-    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
-    bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-    z-index: 2;
+    bottom: calc(var(--ghs-unit) * -2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    z-index: 3;
   }
 
   .loot-deck,
   .challenge-deck {
     position: fixed;
     left: 0;
-    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
-    bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 8.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     z-index: 2;
+    justify-content: flex-end;
+    overflow: visible;
+    min-width: calc(var(--ghs-unit) * 40 * var(--ghs-text-factor) * var(--ghs-barsize));
 
     &::before {
       right: calc(var(--ghs-unit) * -2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
@@ -162,11 +173,16 @@ footer {
     .active-toggle {
       left: initial;
       right: calc(var(--ghs-unit) * -5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      z-index: 3;
+    }
+
+    &.loot-deck {
+      z-index: 2;
     }
 
     &.challenge-deck {
-      width: calc(var(--ghs-unit) * 50 * var(--ghs-text-factor) * var(--ghs-barsize));
-      bottom: calc(var(--ghs-unit) * 36.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      bottom: calc(var(--ghs-unit) * 32.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      z-index: 1;
 
       &.initial {
         transform: translateX(-69.5%);
@@ -187,19 +203,23 @@ footer {
       &.collapsed {
         transform: translateX(-100%);
       }
-
-      .active-toggle {
-        width: 10%;
-        height: 50%;
-      }
-
     }
   }
 
-  ghs-attackmodifier-deck,
   ghs-loot-deck {
     position: relative;
-    z-index: 2;
+    margin-top: calc(var(--ghs-unit) * 1.9 * var(--ghs-text-factor) * var(--ghs-barsize));
+    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
+    z-index: 1;
+  }
+
+  ghs-challenge-deck {
+    position: relative;
+    margin-top: calc(var(--ghs-unit) * 1.6 * var(--ghs-text-factor) * var(--ghs-barsize));
+    width: calc(var(--ghs-unit) * 50 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
+    z-index: 1;
   }
 
   &::before {
@@ -339,20 +359,21 @@ footer.compact {
   .attack-modifier-spacer {
     display: none;
   }
+
   .character-deck {
-    bottom: calc(var(--ghs-unit) * 39.4 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 35.4 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 
   .ally-deck,
   .character-deck.no-ally-deck,
   .character-deck.no-monster-deck {
-    bottom: calc(var(--ghs-unit) * 26 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 22 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 
   .monster-deck,
   .ally-deck.no-monster-deck,
   .character-deck.no-monster-deck.no-ally-deck {
-    bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 9.5 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 
   ghs-scenario-rules {

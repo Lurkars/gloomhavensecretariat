@@ -615,6 +615,13 @@
         }
       }
 
+      &.attack-modifier-button.active {
+        img {
+          width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor) * var(--ghs-text-factor));
+          height: auto;
+        }
+      }
+
       &.items-button.bb {
         margin-left: calc(var(--ghs-unit) * 5);
       }

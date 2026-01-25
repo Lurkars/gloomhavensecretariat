@@ -10,4 +10,10 @@ li {
     kbd {
         margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
     }
+
+    .hint {
+        margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        font-style: italic;
+        font-size: 0.8em;
+    }
 }

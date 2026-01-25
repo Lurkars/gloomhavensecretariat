@@ -4,7 +4,7 @@ The following keyboard shortcuts are currently implemented:
 
 - <kbd>CTRL</kbd> + <kbd>z</kbd>: Undo
 - <kbd>CTRL</kbd> + <kbd>y</kbd> | <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>Z</kbd>: Redo
-- <kbd>ESC</kbd>: open main menu
+- <kbd>ESC</kbd> | <kdb>←</kdb>: open main menu (In most browsers, the ESC key exits full-screen mode; use the BACKSPACE key instead)
 - <kbd>↑</kbd> | <kbd>+</kbd>: Zoom-In
 - <kbd>↓</kbd> | <kbd>-</kbd>: Zoom-Out
 - <kbd>CTRL</kbd> + <kbd>r</kbd>: reset zoom
@@ -54,5 +54,5 @@ On any open figure/standee menu, those shortcuts are disabled, currently shortcu
 
 On open menu:
 - <kbd>↵</kbd> | <kbd>SPACE</kbd>: confirm action / open submenu
-- <kbd>ESC</kbd>: decline action / close menu
+- <kbd>ESC</kbd> | <kdb>⌫</kdb>: decline action / close menu (In most browsers, the ESC key exits full-screen mode; use the BACKSPACE key instead)
 - <kbd>↹</kbd>: select action

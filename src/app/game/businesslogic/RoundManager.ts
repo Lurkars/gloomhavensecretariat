@@ -333,7 +333,14 @@ export class RoundManager {
       });
     }
 
+    if (settingsManager.settings.characterAttackModifierDeckActiveBottom) {
+      gameManager.game.figures.forEach((c) => { if (c instanceof Character) { c.attackModifierDeckVisible = false; } });
+    }
+
     if (figure instanceof Character && gameManager.entityManager.isAlive(figure)) {
+      if (settingsManager.settings.characterAttackModifierDeckActiveBottom) {
+        figure.attackModifierDeckVisible = true;
+      }
       if (!skipSummons && settingsManager.settings.activeSummons) {
         const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
         const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true) && summon.tags.indexOf('prism_mode') == -1 && ((!activeSummon || activeSummon.tags.indexOf('cs-skull-spirit') == -1) && summon.tags.indexOf('cs-skull-spirit') == -1 || summon.tags.indexOf('cs-skull-spirit-turn') != -1));

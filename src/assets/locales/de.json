@@ -3589,6 +3589,7 @@
       "am": "AM Karte ziehen (Kartendeck abhängig von aktiver Figur, Deck für Monster wenn keine Figur aktiv, deaktiviert während <b>Ziehen</b>)",
       "amAdvantage": "wie <kbd><span>m</span></kbd>, aber mit Vorteil ziehen wenn eingeschaltet",
       "amDisadvantage": "wie <kbd><span>m</span></kbd>, aber mit Nachteil ziehen wenn eingeschaltet",
+      "backspace": "⌫",
       "ctrl": "STRG",
       "difficulty": "Schwierigkeitsgrad/Level Menü",
       "enter": "↵",
@@ -3611,7 +3612,10 @@
         "xpDec": "dek. EP",
         "xpInc": "ink. EP"
       },
-      "esc": "ESC",
+      "esc": {
+        "": "ESC",
+        "fullscreen": "Die ESC Taste beendet in den meisten Browsern den Fullscreen-Modus, dann stattdessen die BACKSPACE nutzen."
+      },
       "events": "Ereigniseffekte Menü",
       "finish": "Szenario (beenden) Menü",
       "global": "Die folgenden Tastaturkürzel sind derzeit implementiert:",

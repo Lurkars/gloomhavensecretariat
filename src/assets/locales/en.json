@@ -3616,6 +3616,7 @@
       "am": "Draw AM card (deck depending on active figure, monster deck when not active, disabled when <b>Draw</b>)",
       "amAdvantage": "Same like <kbd><span>m</span></kbd>, but draw with Advantage if enabled",
       "amDisadvantage": "like <kbd><span>m</span></kbd>, but draw with Disadvantage if enabled",
+      "backspace": "⌫",
       "ctrl": "CTRL",
       "difficulty": "Difficulty/Level menu",
       "enter": "↵",
@@ -3638,7 +3639,10 @@
         "xpDec": "Dec. XP",
         "xpInc": "Inc. XP"
       },
-      "esc": "ESC",
+      "esc": {
+        "": "ESC",
+        "fullscreen": "In most browsers, the ESC key exits full-screen mode; use the BACKSPACE key instead."
+      },
       "events": "Event effects menu",
       "finish": "(finish) scenario menu",
       "global": "The following keyboard shortcuts are currently implemented:",
