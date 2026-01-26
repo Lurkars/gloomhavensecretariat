@@ -163,9 +163,14 @@
 
   .action-monster-type {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    max-width: 10em;
+
+    .monster-type-subactions {
+      margin-left: 0.2em;
+    }
   }
 
   .action-default {
@@ -672,7 +677,7 @@
   .element-subactions {
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    min-height: 1.2em;
     justify-content: center;
     flex: 1 0 auto;
 
@@ -1124,14 +1129,9 @@
       display: none;
     }
 
-    .action-monster-type,
     .element-subactions {
       flex-direction: row;
       align-items: center;
-
-      &.action-monster-type {
-        flex-wrap: wrap;
-      }
     }
 
     .action-grid {

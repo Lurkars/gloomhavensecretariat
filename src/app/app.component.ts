@@ -47,7 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
           }
 
           dialogRef.keydownEvents.subscribe(event => {
-            if (settingsManager.settings.keyboardShortcuts && !event.ctrlKey && !event.shiftKey && !event.altKey && event.key === "Escape") {
+            if (settingsManager.settings.keyboardShortcuts && !event.ctrlKey && !event.shiftKey && !event.altKey && (event.key === "Escape" || event.key === "Backspace")) {
               ghsDialogClosingHelper(dialogRef);
             }
           });

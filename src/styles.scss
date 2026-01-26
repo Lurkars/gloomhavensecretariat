@@ -1916,6 +1916,7 @@ input[type="radio"] {
   .element {
     &.consume {
       margin-right: 0.2em;
+      margin-bottom: 0.2em;
 
       &::before {
         left: 45%;

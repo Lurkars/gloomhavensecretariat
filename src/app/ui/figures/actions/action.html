@@ -64,7 +64,7 @@
       [clickBehind]="!isInteractiveApplicableAction" [ghs-tooltip]="'monster.toggleAction'" [delay]="1"
       [disabled]="!isInteractiveApplicableAction"
       [ngClass]="{'action-interactive' : isInteractiveApplicableAction, 'action-interactive-highlight': highlightAction()}">
-      @for (element of values; track element; let i = $index) {
+      @for (element of values; track element + i; let i = $index) {
       <span class="element"
         [ngClass]="{'consume' : action.valueType == ActionValueType.minus,  'wild' : element == 'wild'}">
         <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + element + '.svg'" />

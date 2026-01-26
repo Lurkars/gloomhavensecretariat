@@ -9,6 +9,7 @@ import { ActionHint } from 'src/app/game/model/data/Action';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
@@ -18,7 +19,6 @@ import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 import { MonsterNumberPickerDialog } from '../monster/dialogs/numberpicker-dialog';
-import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
 
 @Component({
   standalone: false,
@@ -48,6 +48,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
   activeConditions: EntityCondition[] = [];
   actionHints: ActionHint[] = [];
   activeIndex: number = -1;
+  activeTurn: boolean = false;
   marker: string = "";
   specialActionsMarker: string[] = [];
   objectiveData: ObjectiveData | undefined;
@@ -103,6 +104,14 @@ export class StandeeComponent implements OnInit, OnDestroy {
       this.marker = "";
     }
 
+    this.activeTurn = false;
+    if (this.figure instanceof Monster) {
+      const entities = this.figure.entities.filter((entity) => entity.active).sort(gameManager.monsterManager.sortEntities);
+      if (entities.length && entities[0] == this.entity) {
+        this.activeTurn = true;
+      }
+    }
+    
     this.maxHp = EntityValueFunction(this.entity.maxHealth);
 
     this.specialActionsMarker = [];

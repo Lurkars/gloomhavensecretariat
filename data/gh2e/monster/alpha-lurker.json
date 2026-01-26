@@ -1,7 +1,7 @@
 {
   "name": "alpha-lurker",
   "edition": "gh2e",
-  "deck": "lurker",
+  "deck": "lurker-soldier",
   "boss": true,
   "hidden": true,
   "count": 6,

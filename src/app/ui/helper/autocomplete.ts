@@ -102,6 +102,7 @@ export class AutocompleteDirective implements OnInit {
           case 'ArrowUp':
           case 'ArrowDown':
           case 'Escape':
+          case 'Backspace':
             if (this.spoiler && (container.children.length > 1 || this.el.nativeElement.value.length < 6)) {
               for (let i = 0; i < container.children.length; i++) {
                 const child = container.children[i] as HTMLElement;

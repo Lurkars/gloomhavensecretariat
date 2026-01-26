@@ -68,7 +68,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         this.keydown = window.addEventListener('keydown', (event: KeyboardEvent) => {
             if (settingsManager.settings.keyboardShortcuts && ghsFilterInputFocus(event)) {
                 if (gameManager.stateManager.keyboardSelecting) {
-                    if (event.key === 'Escape' || event.key === 's' || event.key === 'w') {
+                    if (event.key === 'Escape' || event.key === 'Backspace' || event.key === 's' || event.key === 'w') {
                         gameManager.stateManager.keyboardSelect = -1;
                         gameManager.stateManager.keyboardSelecting = false;
                     } else if (event.key === 'Enter') {
@@ -395,7 +395,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                 gameManager.stateManager.after();
             } else if (activeFigure instanceof Monster) {
                 let toggleFigure = true;
-                const entities = activeFigure.entities.filter((entity) => gameManager.entityManager.isAlive(entity) && entity.summon != SummonState.new);
+                const entities = activeFigure.entities.filter((entity) => gameManager.entityManager.isAlive(entity) && entity.summon != SummonState.new).sort(gameManager.monsterManager.sortEntities);
                 if (settingsManager.settings.activeStandees) {
                     let activeEntity = entities.find((entity) => entity.active);
                     if (!activeEntity && entities.length > 0 && reverse && activeFigure.active) {
@@ -432,6 +432,15 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                 gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", activeFigure.title || activeFigure.name);
                 gameManager.roundManager.toggleFigure(activeFigure);
                 gameManager.stateManager.after();
+            }
+
+            const roundButton = document.querySelector('.round-container');
+            if (roundButton) {
+                if (figures.find((figure) => figure.active) == undefined) {
+                    (roundButton as HTMLElement).focus();
+                } else {
+                    (roundButton as HTMLElement).blur();
+                }
             }
         }
     }

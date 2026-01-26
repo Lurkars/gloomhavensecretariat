@@ -76,17 +76,16 @@
 
     img,
     input {
-      visibility: hidden;
       opacity: 0;
       transition: opacity calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
     }
 
-    &:hover {
+    &:hover,
+    &:focus-within {
       width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
 
       img,
       input {
-        visibility: visible;
         opacity: 1;
       }
     }

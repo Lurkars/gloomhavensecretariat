@@ -270,6 +270,16 @@ footer {
     word-wrap: break-word;
     text-align: center;
 
+    &:focus-visible {
+      border: none;
+      outline: none;
+
+      a {
+        filter: var(--ghs-outline);
+        color: var(--ghs-color-white);
+      }
+    }
+
     a {
       font-family: var(--ghs-font-title);
       color: var(--ghs-color-gray);

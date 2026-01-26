@@ -383,7 +383,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
             this.additionalSubActions.splice(this.hasAOE ? 1 : 0, 0, newStatAction);
           } else if (stat.range) {
             if (normalActions) {
-              normalActions.subActions.push(newStatAction);
+              normalActions.subActions.unshift(newStatAction);
             } else {
               normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [newStatAction]);
               newSubActions.push(normalActions);
@@ -405,7 +405,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
               if (statAction.type != ActionType.area || this.action.subActions.every((subAction) => subAction.type != ActionType.area)) {
                 if (!eliteStat || eliteStat.actions && this.subActionExists(eliteStat.actions, newStatAction, false) || (this.monster && !this.monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == MonsterType.elite))) {
                   newStatAction.small = true;
-                  newSubActions.push(newStatAction);
+                  newSubActions.unshift(newStatAction);
                 } else if (eliteStat && (!eliteStat.actions || !this.subActionExists(eliteStat.actions, newStatAction))) {
                   if (!this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
                     if (normalActions) {
@@ -459,7 +459,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
               } else {
                 this.additionalSubActions.push(subAction);
               }
-            } else if ((subAction.valueType == ActionValueType.add || subAction.valueType == ActionValueType.fixed) && this.additionalSubActions.some((other) => other.type == ActionType.target) && !this.additionalSubActions.some((other) => other.type == ActionType.specialTarget)) {
+            } else if ((subAction.valueType == ActionValueType.add || subAction.valueType == ActionValueType.fixed) && this.additionalSubActions.some((other) => other.type == ActionType.target) && !this.additionalSubActions.some((other) => other.type == ActionType.specialTarget) && ('' + subAction.value).match(EntityValueRegex)) {
               const targetAction = this.additionalSubActions.find((other) => other.type == ActionType.target && other != subAction);
               if (targetAction) {
                 subAction.valueType = ActionValueType.fixed;

@@ -1,4 +1,4 @@
-import { Directive, HostListener } from "@angular/core";
+import { Directive, HostListener, Input } from "@angular/core";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 @Directive({
@@ -11,6 +11,8 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 })
 export class TabClickDirective {
 
+    @Input('autoBlur') autoBlur: boolean = false;
+
     @HostListener('keydown', ['$event'])
     onKeyDown(event: KeyboardEvent) {
         if (settingsManager.settings.keyboardShortcuts && (event.key === 'Enter' || event.key === ' ') && !event.shiftKey && !event.altKey && event.target instanceof HTMLElement) {
@@ -21,6 +23,9 @@ export class TabClickDirective {
                 event.target.dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
                 event.target.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
                 event.target.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true }));
+                if (this.autoBlur) {
+                    event.target.blur();
+                }
             }
         }
     }
