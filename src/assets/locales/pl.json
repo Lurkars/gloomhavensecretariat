@@ -1189,7 +1189,7 @@
       },
       "flamefruit": "Płomieńowoc",
       "herb_resources": "zioło",
-      "hide": "Ukryj",
+      "hide": "Skóra",
       "keep": "Zachowaj na %data.character.{0}.{1}%",
       "lootTreasure": {
         "": "{0} zdobywa skarb {1}?",
@@ -1602,11 +1602,11 @@
       "filter": {
         "desc": "Sortowanie malejące",
         "even": "Parzyste",
-        "lowerBoundary": "Dolna granica",
+        "lowerBoundary": "Min # Budynku",
         "odd": "Nieparzyste",
-        "parity": "Parzystość",
+        "parity": "Parzystość?",
         "randomize": "Losuj",
-        "upperBoundary": "Górna granica"
+        "upperBoundary": "Max # Budynku"
       },
       "finish": "Zakończ",
       "map": "Otwórz mapę globalną",
