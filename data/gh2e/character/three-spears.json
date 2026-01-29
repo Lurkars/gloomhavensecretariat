@@ -19,8 +19,11 @@
   "spoiler": true,
   "specialActions": [
     {
-      "name": "supply_tokens",
+      "name": "supply_tokens_perk",
       "perk": 11
+    },
+    {
+      "name": "supply_tokens_scenario"
     }
   ],
   "stats": [

@@ -335,12 +335,12 @@
       [requires]="['characterSheet', 'characterAttackModifierDeck']">
     </div>
     <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanent"
-      [requires]="['characterSheet', 'characterAttackModifierDeck', '!characterAttackModifierDeckActiveBottom']">
+      [requires]="['characterSheet', 'characterAttackModifierDeck', '!characterAttackModifierDeckActiveBottom']"
+      [disabled]="settingsManager.settings.characterAttackModifierDeckActiveBottom">
     </div>
     <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanentActive"
-      [requires]="['characterSheet', 'characterAttackModifierDeck', 'characterAttackModifierDeckPermanent']"
-      [checked]="settingsManager.settings.characterAttackModifierDeckActiveBottom"
-      [disabled]="settingsManager.settings.characterAttackModifierDeckActiveBottom">
+      [requires]="['characterSheet', 'characterAttackModifierDeck']"
+      [disabled]="!settingsManager.settings.characterAttackModifierDeckPermanent && !settingsManager.settings.characterAttackModifierDeckActiveBottom">
     </div>
     <div class="line" ghs-setting-menu="characterItemsPermanent" [requires]="['characterItems']">
     </div>

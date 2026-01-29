@@ -64,7 +64,7 @@ footer {
       cursor: pointer;
       position: absolute;
       left: 0;
-      top: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-barsize));
+      top: calc(var(--ghs-unit) * 3.75 * var(--ghs-text-factor) * var(--ghs-barsize));
       width: calc(var(--ghs-unit) * 5.5 * var(--ghs-text-factor) * var(--ghs-barsize));
       height: calc(var(--ghs-unit) * 5.5 * var(--ghs-text-factor) * var(--ghs-barsize));
       z-index: 2;

@@ -338,7 +338,7 @@ export class RoundManager {
     }
 
     if (figure instanceof Character && gameManager.entityManager.isAlive(figure)) {
-      if (settingsManager.settings.characterAttackModifierDeckActiveBottom) {
+      if (settingsManager.settings.characterAttackModifierDeckActiveBottom && settingsManager.settings.characterAttackModifierDeckPermanentActive) {
         figure.attackModifierDeckVisible = true;
       }
       if (!skipSummons && settingsManager.settings.activeSummons) {
@@ -467,7 +467,7 @@ export class RoundManager {
         gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
       }
 
-      if (figure.name == 'three-spears' && figure.tags.find((tag) => tag === 'supply_tokens') && figure.primaryToken == 0 && figure.tokenValues[0] < 5 && figure.progress.perks[10] >= 2) {
+      if (figure.name == 'three-spears' && figure.tags.find((tag) => tag === 'supply_tokens_perk') && figure.primaryToken == 0 && figure.tokenValues[0] < 5 && figure.progress.perks[10] >= 2) {
         figure.tokenValues[0] += 1;
       }
     }
@@ -701,7 +701,7 @@ export class RoundManager {
           gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.brittle));
         }
 
-        if (figure.name == 'three-spears' && figure.tags.find((tag) => tag === 'supply_tokens') && figure.primaryToken == 0) {
+        if (figure.name == 'three-spears' && figure.tags.find((tag) => tag === 'supply_tokens_scenario') && figure.primaryToken == 0) {
           figure.tokenValues[0] += 1;
         }
 

@@ -136,7 +136,11 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                         deck = gameManager.game.allyAttackModifierDeck;
                     } else if (activeFigure instanceof Character) {
                         if (settingsManager.settings.characterAttackModifierDeck) {
-                            if (activeFigure.attackModifierDeckVisible) {
+                            if (settingsManager.settings.characterAttackModifierDeckActiveBottom && gameManager.game.figures.find((figure) => figure instanceof Character && figure.attackModifierDeckVisible) != undefined) {
+                                const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.attackModifierDeckVisible) as Character;
+                                gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), gameManager.characterManager.characterName(character));
+                                deck = character.attackModifierDeck;
+                            } else if (activeFigure.attackModifierDeckVisible) {
                                 gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), gameManager.characterManager.characterName(activeFigure));
                                 deck = activeFigure.attackModifierDeck;
                             } else {

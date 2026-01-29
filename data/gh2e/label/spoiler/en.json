@@ -22,9 +22,13 @@
       "sun": "Sunkeeper",
       "three-spears": {
         "": "Quartermaster",
-        "supply_tokens": {
+        "supply_tokens_perk": {
           "": "Perk 11",
-          "hint": "Gain 1 Supply Token (10 supplies) at the start of the scenario, as well as during each rest."
+          "hint": "Gain 1 Supply Token (10 supplies) during each long rest."
+        },
+        "supply_tokens_scenario": {
+          "": "Supply Tokens",
+          "hint": "Gain 1 Supply Token (10 supplies) at the start of the scenario"
         },
         "tokens": {
           "supplies": "Supplies"
