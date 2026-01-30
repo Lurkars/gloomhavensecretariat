@@ -259,7 +259,90 @@
         "4": "In a single scenario, consume 4 or more elements in a single turn 5 times",
         "5": "Once in 3 different scenarios, have all 6 elements strong or waning at the same time",
         "6": "Add +1 %game.action.attack% for each element that is strong or waning.",
-        "7": "After each attack, %game.element.wild%."
+        "7": "After each attack, %game.element.wild%.",
+        "abilities": {
+          "447": {
+            "1": "Add +1 %game.action.target% and gain %game.card.experience:1% if you consume two or more elements.",
+            "2": "Move one waning element to the strong column."
+          },
+          "448": {
+            "1": "At the start of each of your turns, you may %game.element.wild:minus% to add +1 %game.action.attack% to all your attacks this turn."
+          },
+          "449": {
+            "1": "Add +1 %game.action.target% and gain %game.card.experience:1% if you consume two or more elements."
+          },
+          "450": {
+            "1": "Add +1 %game.action.move% if one or more elements are strong or waning."
+          },
+          "451": {
+            "1": "Grant one ally within %game.action.range:3% %game.enhancement.square% :"
+          },
+          "452": {
+            "1": "Add +1 %game.action.move% if one or more elements are strong or waning."
+          },
+          "453": {
+            "1": "Add +1 %game.action.move% if one or more elements are strong or waning."
+          },
+          "454": {
+            "1": "At the end of this and your next five turns, in order: %game.elementHalf:fire|ice%, %game.elementHalf:air|earth%, %game.elementHalf:light|dark% (repeat the same order for turns 4-6)."
+          },
+          "455": {
+            "1": "Add +1 %game.action.move% if one or more elements are strong or waning."
+          },
+          "456": {
+            "1": "Whenever an enemy consumes an element, you may infuse that element."
+          },
+          "457": {
+            "1": "You or one ally within %game.action.range:3% may %game.card.recover% one level 1 card from the discard pile."
+          },
+          "458": {
+            "1": "All attacks targeting you or adjacent allies this round gain disadvantage."
+          },
+          "459": {
+            "1": "Grant one ally within %game.action.range:3% %game.enhancement.square% :",
+            "2": "Create one %game.damage:2% trap in an empty hex within %game.action.range:3%. All enemies adjacent to the trap suffer %game.damage:1%"
+          },
+          "462": {
+            "1": "Grant one ally within %game.action.range:2%:"
+          },
+          "464": {
+            "1": "Add -1 %game.action.attack%, +2 %game.action.range% to each attack for each enemy already attacked with this ability. Each target after the first must be within %game.action.range:2% of the previous target."
+          },
+          "465": {
+            "1": "On the next two sources of %game.damage% you or an adjacent ally would suffer, negate the %game.damage%."
+          },
+          "466": {
+            "1": "Grant one ally within %game.action.range:3% %game.enhancement.square% :"
+          },
+          "467": {
+            "1": "The target may %game.card.recover% one level 1 card from the discard pile, %game.elementHalf:air|earth%.",
+            "2": "Grant the target:"
+          },
+          "468": {
+            "1": "All allies in the red hexes gain %game.condition.invisible%."
+          },
+          "469": {
+            "1": "Add +1 %game.action.attack% for each element that is strong or waning."
+          },
+          "471": {
+            "1": "Create one 1-hex hazardous terrain tile in the featureless hex occupied by the target, %game.card.experience:1%.",
+            "2": "Add +1%game.action.heal%, gain %game.card.experience:1%, and %game.element.light% if you consume two or more elements."
+          },
+          "472": {
+            "1": "all enemies adjacent to the target of the heal ability",
+            "2": "all enemies at exactly %game.action.range:2% from the target of the heal ability",
+            "3": "Add +1%game.action.attack%, gain %game.card.experience:1%, and %game.element.dark% if you consume two or more elements."
+          },
+          "473": {
+            "1": "After each attack, %game.element.wild%."
+          },
+          "474": {
+            "1": "The target suffers %game.damage:5%.",
+            "2": "Grant one ally within %game.action.range:4%:",
+            "3": "advantage",
+            "4": "%game.card.recover% one card from your discard pile, %game.element.dark%."
+          }
+        }
       },
       "two-mini": {
         "1": "Add +1 %game.action.attack% if the Wildfury and %data.action.custom.gh2e-bear-summon% are within %game.action.range% 4 of each other",

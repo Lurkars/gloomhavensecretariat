@@ -112,7 +112,8 @@
               "type": "element",
               "value": "earth"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "round": true
@@ -213,7 +214,8 @@
               "type": "element",
               "value": "air"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "xp": 2
@@ -894,7 +896,8 @@
               "type": "element",
               "value": "air"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
@@ -1013,7 +1016,8 @@
               "type": "element",
               "value": "air"
             }
-          ]
+          ],
+          "noDivider": true
         }
       ]
     },
