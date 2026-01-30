@@ -2,6 +2,7 @@ import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { Scenario } from "src/app/game/model/Scenario";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioRequirementsDialogComponent } from "src/app/ui/figures/party/requirements/requirements";
@@ -10,7 +11,7 @@ import { ScenarioConclusionComponent } from "src/app/ui/footer/scenario/scenario
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-scenario-chart-popup',
     templateUrl: 'scenario-chart-popup.html',
     styleUrls: ['./scenario-chart-popup.scss']
@@ -29,9 +30,9 @@ export class ScenarioChartPopupDialog {
     treasures: string[] = [];
     lootedTreasures: number[] = [];
 
-    constructor(@Inject(DIALOG_DATA) public scenarioData: ScenarioData, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) public scenarioData: ScenarioData, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.scenario = new Scenario(scenarioData);
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
         this.update();
     }
 

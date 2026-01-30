@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Identifier } from "src/app/game/model/data/Identifier";
@@ -35,6 +36,8 @@ export class ServerMenuComponent implements OnInit, OnDestroy {
 
   serverUpdateVersion: { latest: boolean, version: string, url: string } | undefined;
 
+  constructor(private ghsManager: GhsManager) { }
+
   async ngOnInit() {
 
     try {
@@ -54,7 +57,7 @@ export class ServerMenuComponent implements OnInit, OnDestroy {
     this.updateServer();
     this.checkServerVersion();
 
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => { this.checkServerVersion() } });
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => { this.checkServerVersion() } });
   }
 
   uiChangeSubscription: Subscription | undefined;

@@ -8,6 +8,7 @@ import { Monster } from "src/app/game/model/Monster";
 import { Ability } from "src/app/game/model/data/Ability";
 import { ActionValueType } from "src/app/game/model/data/Action";
 import { applyPlaceholder } from "../../helper/label";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 
 @Component({
@@ -45,11 +46,11 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
 
   fontsize: string = "";
 
-  constructor(public elementRef: ElementRef) { }
+  constructor(public elementRef: ElementRef, private ghsManager: GhsManager) { }
 
   ngOnInit() {
     this.update();
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         this.update();
       }

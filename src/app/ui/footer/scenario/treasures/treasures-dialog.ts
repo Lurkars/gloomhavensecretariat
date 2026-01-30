@@ -2,6 +2,7 @@ import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Scenario } from "src/app/game/model/Scenario";
@@ -9,7 +10,7 @@ import { Identifier } from "src/app/game/model/data/Identifier";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-scenario-treasures-dialog',
     templateUrl: './treasures-dialog.html',
     styleUrls: ['./treasures-dialog.scss']
@@ -29,7 +30,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
     rewardResults: string[][] = [];
     init: boolean = true;
 
-    constructor(@Inject(DIALOG_DATA) public data: { treasures: ('G' | number)[] | undefined, edition: string | undefined }, dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public data: { treasures: ('G' | number)[] | undefined, edition: string | undefined }, dialogRef: DialogRef, private ghsManager: GhsManager) {
         if (!gameManager.game.scenario && (!data.treasures || !data.edition)) {
             ghsDialogClosingHelper(dialogRef);
         } else if (data && data.treasures && data.edition) {
@@ -42,7 +43,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 this.update();
             }

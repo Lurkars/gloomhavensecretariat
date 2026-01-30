@@ -1,6 +1,7 @@
 import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
 import { ghsLabelRegex } from "./label";
@@ -76,7 +77,7 @@ export class ValueCalcDirective implements OnInit, OnDestroy, OnChanges {
   private L: number;
   private calc: boolean;
 
-  constructor(private el: ElementRef) {
+  constructor(private el: ElementRef, private ghsManager: GhsManager) {
     this.C = Math.max(2, gameManager.characterManager.characterCount());
     this.L = gameManager.game.level;
     this.calc = settingsManager.settings.calculate;
@@ -88,7 +89,7 @@ export class ValueCalcDirective implements OnInit, OnDestroy, OnChanges {
 
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         if (this.calc != settingsManager.settings.calculate || this.C != Math.max(2, gameManager.characterManager.characterCount()) || this.L != gameManager.game.level) {
           this.C = Math.max(2, gameManager.characterManager.characterCount());

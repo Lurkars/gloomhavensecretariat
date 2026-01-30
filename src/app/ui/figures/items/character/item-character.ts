@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
@@ -24,6 +25,8 @@ export class CharacterItemComponent {
     settingsManager: SettingsManager = settingsManager;
     ItemFlags = ItemFlags;
     GameState = GameState;
+
+    constructor(private ghsManager: GhsManager) { }
 
     equipped(): AdditionalIdentifier | undefined {
         return this.character.progress.equippedItems.find((identifier) => identifier.name == '' + this.item.id && identifier.edition == this.item.edition);
@@ -52,7 +55,7 @@ export class CharacterItemComponent {
             gameManager.stateManager.after();
 
             if (settingsManager.settings.animations) {
-                setTimeout(() => { gameManager.uiChange.emit() }, 500 * settingsManager.settings.animationSpeed);
+                setTimeout(() => { this.ghsManager.triggerUiChange() }, 500 * settingsManager.settings.animationSpeed);
             }
         }
     }
@@ -94,7 +97,7 @@ export class CharacterItemComponent {
                 gameManager.stateManager.after();
 
                 if (settingsManager.settings.animations) {
-                    setTimeout(() => { gameManager.uiChange.emit() }, 500 * settingsManager.settings.animationSpeed);
+                    setTimeout(() => { this.ghsManager.triggerUiChange() }, 500 * settingsManager.settings.animationSpeed);
                 }
             }
         }
@@ -126,7 +129,7 @@ export class CharacterItemComponent {
                 gameManager.stateManager.after();
 
                 if (settingsManager.settings.animations) {
-                    setTimeout(() => { gameManager.uiChange.emit() }, 500 * settingsManager.settings.animationSpeed);
+                    setTimeout(() => { this.ghsManager.triggerUiChange() }, 500 * settingsManager.settings.animationSpeed);
                 }
             }
         }

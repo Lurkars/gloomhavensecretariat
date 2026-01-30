@@ -1,6 +1,7 @@
 import { Component, Directive, ElementRef, Input, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ConditionName, ConditionType, EntityCondition } from "src/app/game/model/data/Condition";
 import { Entity } from "src/app/game/model/Entity";
@@ -24,9 +25,11 @@ export class HighlightConditionsComponent implements OnInit, OnDestroy {
   ConditionType = ConditionType;
   highlightedConditions: EntityCondition[] = [];
 
+  constructor(private ghsManager: GhsManager) { }
+
   ngOnInit(): void {
     this.update();
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         this.update();
       }
@@ -92,10 +95,10 @@ export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {
 
   @Input('conditionHighlight') condition!: EntityCondition;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         if (this.condition.highlight && !this.condition.expired && (!settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.indexOf(this.condition.name) != -1)) {
           this.playAnimation();

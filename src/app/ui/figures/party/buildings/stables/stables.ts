@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { PetCard, PetIdentifier } from "src/app/game/model/data/PetCard";
 
 @Component({
@@ -23,9 +24,11 @@ export class StablesComponent implements OnInit, OnDestroy {
     used: number = 0;
     active: number = 0;
 
+    constructor(private ghsManager: GhsManager) { }
+
     ngOnInit() {
         this.update();
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 this.updateState();
             }

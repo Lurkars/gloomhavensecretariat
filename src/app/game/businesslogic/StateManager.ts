@@ -47,6 +47,8 @@ export class StateManager {
   storageBlocked: boolean = false;
   autoBackupTimeout: any = null;
 
+  ready: boolean = false;
+
   constructor(game: Game) {
     this.game = game;
     this.lastSaveTimestamp = new Date().getTime();
@@ -93,7 +95,8 @@ export class StateManager {
       }
     })
 
-    gameManager.uiChange.emit();
+    this.ready = true;
+    gameManager.uiChange.next(false);
   }
 
   async install() {
@@ -198,7 +201,7 @@ export class StateManager {
           }
           gameManager.game.fromModel(gameModel, true);
           gameManager.stateManager.saveLocal();
-          gameManager.uiChange.emit(true);
+          gameManager.uiChange.next(true);
           setTimeout(() => {
             window.document.body.classList.remove('working');
             window.document.body.classList.remove('server-sync');
@@ -242,7 +245,7 @@ export class StateManager {
           gameManager.game.fromModel(gameUndo);
           gameManager.stateManager.saveLocal();
           gameManager.stateManager.saveStorage();
-          gameManager.uiChange.emit(true);
+          gameManager.uiChange.next(true);
           setTimeout(() => {
             window.document.body.classList.remove('working');
             window.document.body.classList.remove('server-sync');
@@ -288,7 +291,7 @@ export class StateManager {
           gameManager.game.fromModel(gameRedo);
           gameManager.stateManager.saveLocal();
           gameManager.stateManager.saveStorage();
-          gameManager.uiChange.emit(true);
+          gameManager.uiChange.next(true);
           setTimeout(() => {
             window.document.body.classList.remove('working');
             window.document.body.classList.remove('server-sync');
@@ -303,7 +306,7 @@ export class StateManager {
             gameManager.game.playSeconds = gameUpdate.playSeconds;
             gameManager.game.server = gameUpdate.server;
             gameManager.stateManager.saveLocal();
-            gameManager.uiChange.emit(true);
+            gameManager.uiChange.next(true);
             setTimeout(() => {
               window.document.body.classList.remove('working');
               window.document.body.classList.remove('server-sync');
@@ -379,7 +382,7 @@ export class StateManager {
           window.document.body.classList.remove('server-sync');
           break;
         default:
-          gameManager.uiChange.emit();
+          gameManager.uiChange.next(false);
       }
     } catch (e) {
       gameManager.stateManager.errorLog.push(ev.data);
@@ -418,7 +421,7 @@ export class StateManager {
       }
 
       gameManager.stateManager.updatePermissions();
-      gameManager.uiChange.emit();
+      gameManager.uiChange.next(false);
     }
   }
 
@@ -429,7 +432,7 @@ export class StateManager {
     gameManager.stateManager.serverVersion = "";
     gameManager.stateManager.permissions = new Permissions();
     gameManager.stateManager.updatePermissions();
-    gameManager.uiChange.emit();
+    gameManager.uiChange.next(false);
   }
 
   onError(ev: Event) {
@@ -439,14 +442,14 @@ export class StateManager {
     gameManager.stateManager.serverVersion = "";
     gameManager.stateManager.permissions = new Permissions();
     gameManager.stateManager.updatePermissions();
-    gameManager.uiChange.emit();
+    gameManager.uiChange.next(false);
   }
 
   forceUpdateState() {
     gameManager.stateManager.updateBlocked = false;
     gameManager.stateManager.permissions = gameManager.stateManager.permissionBackup;
     gameManager.stateManager.updatePermissions();
-    gameManager.uiChange.emit();
+    gameManager.uiChange.next(false);
   }
 
   requestSettings() {
@@ -575,13 +578,13 @@ export class StateManager {
     if (timeout && settingsManager.settings.animations) {
       setTimeout(() => {
         this.lastAction = "update";
-        gameManager.uiChange.emit();
+        gameManager.uiChange.next(false);
         window.document.body.classList.remove('working');
         window.document.body.classList.remove('server-sync');
       }, timeout * settingsManager.settings.animationSpeed);
     } else {
       this.lastAction = "update";
-      gameManager.uiChange.emit();
+      gameManager.uiChange.next(false);
       window.document.body.classList.remove('working');
       window.document.body.classList.remove('server-sync');
     }
@@ -695,7 +698,7 @@ export class StateManager {
     window.document.body.classList.remove('working');
     window.document.body.classList.remove('server-sync');
     this.saveStorage();
-    gameManager.uiChange.emit();
+    gameManager.uiChange.next(false);
   }
 
   hasUndo(): boolean {
@@ -724,7 +727,7 @@ export class StateManager {
       if (sync) {
         this.after(1, false, 1, 'game-undo', undos[0].revision - (undos[0].revisionOffset || 0), undolength);
       } else {
-        gameManager.uiChange.emit();
+        gameManager.uiChange.next(false);
       }
       this.lastAction = "undo";
     }
@@ -756,7 +759,7 @@ export class StateManager {
       if (sync) {
         this.after(1, false, 1, 'game-redo', redos[0].revision - (redos[0].revisionOffset || 0), redolength);
       } else {
-        gameManager.uiChange.emit();
+        gameManager.uiChange.next(false);
       }
       this.lastAction = "undo";
     }

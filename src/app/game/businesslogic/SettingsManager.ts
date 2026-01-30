@@ -166,7 +166,7 @@ export class SettingsManager {
     if (this.settings.serverSettings) {
       gameManager.stateManager.saveSettings();
     }
-    gameManager.uiChange.emit();
+    gameManager.uiChange.next(false);
   }
 
   reset() {
@@ -764,7 +764,7 @@ export class SettingsManager {
       }
     }
 
-    gameManager.uiChange.emit();
+    gameManager.uiChange.next(false);
   }
 
   getLabel(key: string, args: string[] = [], argLabel: boolean = true, empty: boolean = false, path: string = "", from: any = this.label): string {

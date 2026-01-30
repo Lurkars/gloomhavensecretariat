@@ -3,6 +3,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { ActionHint } from 'src/app/game/model/data/Action';
@@ -55,10 +56,10 @@ export class StandeeComponent implements OnInit, OnDestroy {
 
   EntityValueFunction = EntityValueFunction;
 
-  constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
+  constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
     this.update();
   }
 
@@ -111,7 +112,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
         this.activeTurn = true;
       }
     }
-    
+
     this.maxHp = EntityValueFunction(this.entity.maxHealth);
 
     this.specialActionsMarker = [];
@@ -265,7 +266,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
         next: () => {
           if ((this.entity instanceof MonsterEntity || this.entity instanceof ObjectiveEntity) && this.entity.dead) {
             this.element.nativeElement.classList.add('dead');
-            gameManager.uiChange.emit();
+            this.ghsManager.triggerUiChange();
           }
         }
       })

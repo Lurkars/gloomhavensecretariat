@@ -12,6 +12,7 @@ import { ItemsBrewDialog } from "../brew/brew";
 import { ItemDistillDialogComponent } from "../character/item-distill";
 import { ItemsCharacterDialogComponent } from "../character/items-character-dialog";
 import { ItemDialogComponent } from "./item-dialog";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
     standalone: false,
@@ -45,7 +46,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
 
     ItemSlot: ItemSlot[] = Object.values(ItemSlot);
 
-    constructor(@Inject(DIALOG_DATA) public data: { edition: string | undefined, select: Character | undefined, affordable: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) public data: { edition: string | undefined, select: Character | undefined, affordable: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.selected = undefined;
         this.character = data.select;
         this.sorted = this.character != undefined && this.character.progress.items.length > 0;
@@ -59,7 +60,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.updateEditionItems();
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 this.update();
             }

@@ -12,6 +12,7 @@ import { AttackModiferDeckChange } from '../../attackmodifier/attackmodifierdeck
 import { Building } from '../../party/buildings/buildings';
 import { PartySheetDialogComponent } from '../../party/party-sheet-dialog';
 import { WorldMapComponent } from '../../party/world-map/world-map';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 
 @Component({
     standalone: false,
@@ -47,7 +48,7 @@ export class OutpostAttackComponent {
 
     deckActive: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public data: { attack: EventCardAttack, effects: EventCardEffect[] }, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) public data: { attack: EventCardAttack, effects: EventCardEffect[] }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         if (this.data.attack) {
             this.defaultAttack = new EventCardAttack(data.attack.attackValue, data.attack.targetNumber, data.attack.targetDescription, data.attack.narrative, data.attack.effects);
         }
@@ -77,7 +78,7 @@ export class OutpostAttackComponent {
     }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() })
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() })
         this.update(true);
     }
 

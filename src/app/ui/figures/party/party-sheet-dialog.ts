@@ -2,6 +2,7 @@ import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { Party } from "src/app/game/model/Party";
@@ -96,7 +97,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   @ViewChild('itemIndex') itemIndex!: ElementRef;
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
-  constructor(@Inject(DIALOG_DATA) public data: { campaign: boolean, partySheet: boolean, disableShortcuts: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
+  constructor(@Inject(DIALOG_DATA) public data: { campaign: boolean, partySheet: boolean, disableShortcuts: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
     this.campaign = data && data.campaign;
     this.party = gameManager.game.party;
     this.disableShortcuts = data && data.disableShortcuts;
@@ -162,7 +163,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: (server: boolean) => {
         if (this.party != gameManager.game.party) {
           this.party = gameManager.game.party;

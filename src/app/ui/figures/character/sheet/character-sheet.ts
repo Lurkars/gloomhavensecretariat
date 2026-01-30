@@ -2,6 +2,7 @@ import { Dialog, DialogRef } from "@angular/cdk/dialog";
 import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
@@ -60,7 +61,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
 
   titles: string[] = [];
 
-  constructor(private dialog: Dialog) { }
+  constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
     if (this.character.identities && this.character.identities.length > 1 && settingsManager.settings.characterIdentities) {
@@ -130,7 +131,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
     this.hasAbilities = gameManager.deckData(this.character, true).abilities.length > 0;
     this.replayable = !gameManager.game.scenario && gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == this.character.name && figure.number == this.character.number) == undefined;
 
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         this.availablePerks = this.character.level + Math.min(6, Math.floor(this.character.progress.battleGoals / 3)) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
 

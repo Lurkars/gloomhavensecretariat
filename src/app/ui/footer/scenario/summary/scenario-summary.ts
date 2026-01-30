@@ -2,6 +2,7 @@ import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject, OnDestroy } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { AttackModifier, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
@@ -77,7 +78,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
 
     waitForClose: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined, conclusionOnly: boolean, rewardsOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined, conclusionOnly: boolean, rewardsOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
 
         this.scenario = data.scenario;
         this.success = data.success;
@@ -165,7 +166,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
             }
         })
 
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 if (!this.conclusionOnly) {
                     if (!gameManager.game.finish) {

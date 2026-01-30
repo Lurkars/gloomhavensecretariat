@@ -551,7 +551,7 @@ export class ActionsManager {
     getMonsterSpawnData(action: Action): MonsterSpawnData[] {
         let result: MonsterSpawnData[] = [];
 
-        if (action.type != ActionType.spawn && action.type != ActionType.summon) {
+        if (!action || !action.type || action.type != ActionType.spawn && action.type != ActionType.summon) {
             return result;
         }
 
@@ -589,7 +589,7 @@ export class ActionsManager {
     getObjectiveSpawnData(action: Action): ObjectiveSpawnData[] {
         let result: ObjectiveSpawnData[] = [];
 
-        if (action.type != ActionType.spawn && action.type != ActionType.summon) {
+        if (!action || !action.type || action.type != ActionType.spawn && action.type != ActionType.summon) {
             return result;
         } if (action.value == 'objectiveSpawn') {
             result = (JSON.parse(JSON.stringify(action.valueObject)) as ObjectiveSpawnData[]).map((value) => value as ObjectiveSpawnData);
@@ -601,7 +601,7 @@ export class ActionsManager {
 
     getElementsToConsume(action: Action): ElementModel[] {
         let elements: ElementModel[] = [];
-        if (action.type == ActionType.element && action.valueType == ActionValueType.minus) {
+        if (!action || !action.type || action.type == ActionType.element && action.valueType == ActionValueType.minus) {
             const values = this.getValues(action);
             values.forEach((value, index, self) => {
                 const elementModel = gameManager.game.elementBoard.find((element) => (element.type == value || value == Element.wild && self.indexOf(element.type) == -1) && (element.state != ElementState.inert && element.state != ElementState.new && element.state != ElementState.consumed) && elements.indexOf(element) == -1);

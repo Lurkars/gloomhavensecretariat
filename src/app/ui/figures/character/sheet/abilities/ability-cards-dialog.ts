@@ -2,6 +2,7 @@ import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { Character } from "src/app/game/model/Character";
 import { Ability } from "src/app/game/model/data/Ability";
 import { AbilityDialogComponent } from "../../../ability/ability-dialog";
@@ -30,7 +31,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
     maxLevel: number = 1;
     enhanced: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public data: { character: Character }, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) public data: { character: Character }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.character = data.character;
         this.level = this.character.level;
         this.abilities = gameManager.deckData(this.character).abilities;
@@ -47,7 +48,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() })
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() })
         this.update();
     }
 
@@ -152,7 +153,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
 
     togglePick() {
         this.deck = !this.deck;
-        gameManager.uiChange.emit();
+        this.ghsManager.triggerUiChange();
     }
 
     setLevel(level: number | string, exclusive: boolean = false) {
@@ -213,7 +214,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
     toggleEnhanced() {
         if (this.character.progress.enhancements && this.character.progress.enhancements.length) {
             this.enhanced = !this.enhanced;
-            gameManager.uiChange.emit();
+            this.ghsManager.triggerUiChange();
         } else {
             this.enhanced = false;
             this.openEnhancementDialog();

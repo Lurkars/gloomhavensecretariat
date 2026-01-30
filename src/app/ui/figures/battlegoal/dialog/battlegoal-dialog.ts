@@ -8,6 +8,7 @@ import { Character } from "src/app/game/model/Character";
 import { BattleGoal } from "src/app/game/model/data/BattleGoal";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { BattleGoalSetupDialog } from "../setup/battlegoal-setup";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
   standalone: false,
@@ -28,7 +29,7 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
   trial349: boolean = false;
   trial356: boolean = false;
 
-  constructor(@Inject(DIALOG_DATA) data: { character: Character, draw: boolean, cardOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
+  constructor(@Inject(DIALOG_DATA) data: { character: Character, draw: boolean, cardOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
     this.character = data.character;
     this.selected = this.character.battleGoal ? 0 : -1;
     this.cardOnly = data.cardOnly;
@@ -56,7 +57,7 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
     }
 
 
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         this.character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.edition == this.character.edition && figure.name == this.character.name) as Character || this.character;
         if (this.character.battleGoal) {

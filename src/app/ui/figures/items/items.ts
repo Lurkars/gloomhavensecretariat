@@ -13,6 +13,7 @@ import { ItemDistillDialogComponent } from "./character/item-distill";
 import { ItemDialogComponent } from "./dialog/item-dialog";
 import { ItemsDialogComponent } from "./dialog/items-dialog";
 import { ConfirmDialogComponent } from "../../helper/confirm/confirm";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 
 @Component({
@@ -36,11 +37,11 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     settingsManager: SettingsManager = settingsManager;
     GameState = GameState;
 
-    constructor(private dialog: Dialog) { }
+    constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
 
     ngOnInit() {
         this.updateItems();
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 this.updateItems();
             }

@@ -1,10 +1,11 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { LevelDialogComponent } from './level-dialog';
-import { Subscription } from 'rxjs';
 
 @Component({
   standalone: false,
@@ -24,10 +25,10 @@ export class LevelComponent implements OnInit, OnDestroy {
   hazardousTerrain: number = 0;
   monsterDifficulty: number = 0;
 
-  constructor(private dialog: Dialog, private overlay: Overlay) { }
+  constructor(private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         this.calculateValues();
       }

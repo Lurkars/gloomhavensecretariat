@@ -3,6 +3,7 @@ import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import { SwUpdate } from "@angular/service-worker";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
@@ -57,7 +58,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   undoOffset: number = 0;
   redoInfo: string[] = [];
 
-  constructor(@Inject(DIALOG_DATA) data: { subMenu: SubMenu, standalone: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private swUpdate: SwUpdate) {
+  constructor(@Inject(DIALOG_DATA) data: { subMenu: SubMenu, standalone: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private swUpdate: SwUpdate, private ghsManager: GhsManager) {
     this.active = data.subMenu;
     this.standalone = data.standalone;
     this.dialogRef.overlayRef.hostElement.style.zIndex = '3000';
@@ -69,7 +70,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.updateUndoRedo();
 
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         this.updateUndoRedo();
       }

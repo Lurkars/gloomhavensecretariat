@@ -1,6 +1,7 @@
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { storageManager } from "src/app/game/businesslogic/StorageManager";
 import { EditionData } from "src/app/game/model/data/EditionData";
@@ -24,6 +25,8 @@ export class DatamanagementMenuComponent implements OnInit {
   ghsInputFullScreenCheck = ghsInputFullScreenCheck;
   confirm: string = "";
   working: string = ""
+
+  constructor(private ghsManager: GhsManager) { }
 
   async ngOnInit() {
     try {
@@ -67,7 +70,7 @@ export class DatamanagementMenuComponent implements OnInit {
     } else {
       this.settingsManager.addEdition(editionData.edition);
       await this.settingsManager.loadEditionData(editionData.url, true);
-      gameManager.uiChange.emit();
+      this.ghsManager.triggerUiChange();
     }
   }
 

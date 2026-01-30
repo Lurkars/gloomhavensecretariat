@@ -9,6 +9,7 @@ import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 import { ItemData, ItemFlags, ItemSlot } from "src/app/game/model/data/ItemData";
 import { ItemsDialogComponent } from "../../items/dialog/items-dialog";
 import { ItemDialogComponent } from "../../items/dialog/item-dialog";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 
 @Component({
@@ -28,10 +29,10 @@ export class CharacterItemListComponent implements OnInit, OnDestroy {
     ItemFlags = ItemFlags;
     GameState = GameState;
 
-    constructor(private dialog: Dialog) { }
+    constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() })
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() })
         this.update();
     }
 
@@ -113,7 +114,7 @@ export class CharacterItemListComponent implements OnInit, OnDestroy {
         settingsManager.storeSettings();
 
         if (settingsManager.settings.animations) {
-            setTimeout(() => { gameManager.uiChange.emit() }, 500 * settingsManager.settings.animationSpeed);
+            setTimeout(() => { this.ghsManager.triggerUiChange() }, 500 * settingsManager.settings.animationSpeed);
         }
     }
 
@@ -122,7 +123,7 @@ export class CharacterItemListComponent implements OnInit, OnDestroy {
         settingsManager.storeSettings();
 
         if (settingsManager.settings.animations) {
-            setTimeout(() => { gameManager.uiChange.emit() }, 500 * settingsManager.settings.animationSpeed);
+            setTimeout(() => { this.ghsManager.triggerUiChange() }, 500 * settingsManager.settings.animationSpeed);
         }
     }
 

@@ -63,10 +63,10 @@
     <span class="item attack">
       <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/attack.svg'" />
       <span>:</span>
-      @if (summon.attack != 0) {
+      @if (summon.attack != '') {
       <span [ghs-label]="'' + summon.attack" [style]="style"></span>
       }
-      @if (summon.attack == 0) {
+      @if (summon.attack == '') {
       <span>-</span>
       }
       @if (!!summonData && summonData.enhancements && summonData.enhancements.indexOf('attack') != -1) {

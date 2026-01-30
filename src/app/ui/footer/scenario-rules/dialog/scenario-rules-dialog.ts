@@ -2,6 +2,7 @@ import { DialogRef } from "@angular/cdk/dialog";
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { ScenarioRule, ScenarioRuleIdentifier } from "src/app/game/model/data/ScenarioRule";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
@@ -18,10 +19,10 @@ export class ScenarioRulesDialogComponent implements OnInit, OnDestroy {
     appliedScenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
     discardedScenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
 
-    constructor(private dialogRef: DialogRef) { }
+    constructor(private dialogRef: DialogRef, private ghsManager: GhsManager) { }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => { this.update(); }
         });
         this.update();

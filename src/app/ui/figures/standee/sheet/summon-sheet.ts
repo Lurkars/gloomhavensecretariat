@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Action, ActionType } from "src/app/game/model/data/Action";
@@ -32,9 +32,11 @@ export class SummonSheetComponent implements OnInit, OnDestroy {
     enhancementActions: Action[] = [];
     hasSummon: boolean = false;
 
+    constructor(private ghsManager: GhsManager) { }
+
     ngOnInit(): void {
         this.update();
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 this.update();
             }

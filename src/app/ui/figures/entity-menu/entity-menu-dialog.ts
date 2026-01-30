@@ -2,6 +2,7 @@ import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Overlay } from "@angular/cdk/overlay";
 import { ChangeDetectorRef, Component, ElementRef, HostListener, Inject, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
@@ -97,7 +98,7 @@ export class EntityMenuDialogComponent {
   catchingDisabled: boolean = true;
   objectiveData: ObjectiveData | undefined;
 
-  constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure, positionElement: ElementRef, entityIndexKey: boolean }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
+  constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure, positionElement: ElementRef, entityIndexKey: boolean }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
     if (data.entity instanceof Character) {
       this.conditionType = 'character';
       for (let index = 0; index < data.entity.tokens.length; index++) {
@@ -417,7 +418,7 @@ export class EntityMenuDialogComponent {
   }
 
   changeBless(value: number) {
-    if (this.data.figure instanceof Character || this.data.figure instanceof Monster  || this.data.figure instanceof ObjectiveContainer && this.data.figure.amDeck) {
+    if (this.data.figure instanceof Character || this.data.figure instanceof Monster || this.data.figure instanceof ObjectiveContainer && this.data.figure.amDeck) {
       this.bless += value;
       const existing = gameManager.attackModifierManager.countUpcomingBlesses();
       if (this.bless + existing >= 10) {
@@ -838,7 +839,7 @@ export class EntityMenuDialogComponent {
     if (this.entityShield.value < 0) {
       this.entityShield.value = 0;
     }
-    gameManager.uiChange.emit();
+    this.ghsManager.triggerUiChange();
   }
 
   changeShieldPersistent(value: number) {
@@ -846,7 +847,7 @@ export class EntityMenuDialogComponent {
     if (this.entityShieldPersistent.value < 0) {
       this.entityShieldPersistent.value = 0;
     }
-    gameManager.uiChange.emit();
+    this.ghsManager.triggerUiChange();
   }
 
   changeRetaliate(index: number, value: number, range: number) {
@@ -866,7 +867,7 @@ export class EntityMenuDialogComponent {
       this.entityRetaliateRange.splice(index, 1);
     }
 
-    gameManager.uiChange.emit();
+    this.ghsManager.triggerUiChange();
   }
 
   changeRetaliatePersistent(index: number, value: number, range: number) {
@@ -886,7 +887,7 @@ export class EntityMenuDialogComponent {
       this.entityRetaliateRangePersistent.splice(index, 1);
     }
 
-    gameManager.uiChange.emit();
+    this.ghsManager.triggerUiChange();
   }
 
   setTitle(event: any, index: number) {

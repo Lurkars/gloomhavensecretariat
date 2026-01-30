@@ -1,10 +1,10 @@
 import { Component, ElementRef, Input, OnInit, ViewEncapsulation } from "@angular/core";
 import { Subscription } from "rxjs";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: '[ghs-setting-menu]',
     templateUrl: 'setting.html',
     styleUrls: ['../../menu.scss', '../settings.scss', 'setting.scss'],
@@ -25,19 +25,19 @@ export class SettingMenuComponent implements OnInit {
     @Input('default') default: number = 1;
     @Input('hint') hint: boolean = true;
     @Input('additionalHint') additionalHint: string = '';
-    @Input('labelSuffix') suffix : string = '';
+    @Input('labelSuffix') suffix: string = '';
     isDisabled: boolean = false;
 
     settingsManager: SettingsManager = settingsManager;
 
-    constructor(public elementRef: ElementRef) { }
+    constructor(public elementRef: ElementRef, private ghsManager: GhsManager) { }
 
     ngOnInit(): void {
         if (this.type === 'checkbox' && this.values.length > 0) {
             this.type = 'radio';
         }
 
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
         this.update();
     }
 
@@ -55,7 +55,7 @@ export class SettingMenuComponent implements OnInit {
 }
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: '[ghs-setting-title-menu]',
     templateUrl: 'setting-title.html',
     styleUrls: ['../../menu.scss', '../settings.scss'],

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angu
 import { Subscription } from "rxjs";
 import { InteractiveAction } from "src/app/game/businesslogic/ActionsManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
@@ -11,7 +12,7 @@ import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Act
 import { Element, ElementState } from "src/app/game/model/data/Element";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-interactive-actions',
     templateUrl: './interactive-actions.html',
     styleUrls: ['./interactive-actions.scss']
@@ -33,9 +34,11 @@ export class InteractiveActionsComponent implements OnInit, OnDestroy {
     chooseElementAction: InteractiveAction | undefined;
     chooseElementValues: string[] = [];
 
+    constructor(private ghsManager: GhsManager) { }
+
     ngOnInit() {
         this.update();
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 this.update();
             }
@@ -164,7 +167,7 @@ export class InteractiveActionsComponent implements OnInit, OnDestroy {
 
             if (this.interactiveActionEntities.some((entity) => entity.dead)) {
                 after = false;
-                gameManager.uiChange.emit();
+                this.ghsManager.triggerUiChange();
                 setTimeout(() => {
                     this.interactiveActionEntities.forEach((entity) => {
                         if (entity.dead) {

@@ -13,6 +13,7 @@ import { ScenarioDialogComponent } from './dialog/scenario-dialog';
 import { SectionDialogComponent } from './section/section-dialog';
 import { ScenarioSummaryComponent } from './summary/scenario-summary';
 import { ScenarioTreasuresDialogComponent } from './treasures/treasures-dialog';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 
 @Component({
   standalone: false,
@@ -25,10 +26,10 @@ export class ScenarioComponent implements OnInit, OnDestroy {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(private dialog: Dialog) { }
+  constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         if (gameManager.game.scenario && gameManager.game.finish && !gameManager.stateManager.scenarioSummary) {
           const conclusion = gameManager.game.finish.conclusion ? gameManager.sectionData(gameManager.game.finish.conclusion.edition).find((sectionData) => gameManager.game.finish && gameManager.game.finish.conclusion && sectionData.index == gameManager.game.finish.conclusion.index && sectionData.group == gameManager.game.finish.conclusion.group && sectionData.conclusion) : undefined;

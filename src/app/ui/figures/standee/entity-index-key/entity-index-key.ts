@@ -1,10 +1,11 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { Entity } from 'src/app/game/model/Entity';
 import { Subscription } from 'rxjs';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { Entity } from 'src/app/game/model/Entity';
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-entity-index-key',
     templateUrl: './entity-index-key.html',
     styleUrls: ['./entity-index-key.scss']
@@ -17,8 +18,10 @@ export class EntityIndexKeyComponent implements OnInit, OnDestroy {
 
     entityIndex: number = -1;
 
+    constructor(private ghsManager: GhsManager) { }
+
     ngOnInit(): void {
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
         this.update();
     }
 

@@ -46,8 +46,7 @@
     </label>
     }
     <label>
-      <input type="checkbox" [checked]="settingsManager.settings.fhStyle"
-        (change)="settingsManager.toggle('fhStyle'); gameManager.uiChange.emit()">
+      <input type="checkbox" [checked]="settingsManager.settings.fhStyle" (change)="settingsManager.toggle('fhStyle')">
       <span [ghs-label]="'settings.fhStyle'"></span>
     </label>
   </div>

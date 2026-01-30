@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GardenModel } from "src/app/game/model/Building";
 import { Character } from "src/app/game/model/Character";
@@ -32,9 +33,11 @@ export class GardenComponent implements OnInit, OnDestroy {
 
     settingsManager: SettingsManager = settingsManager;
 
+    constructor(private ghsManager: GhsManager) { }
+
     ngOnInit(): void {
         this.update();
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() })
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() })
     }
 
     uiChangeSubscription: Subscription | undefined;

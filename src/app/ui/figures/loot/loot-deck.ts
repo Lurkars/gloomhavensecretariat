@@ -1,18 +1,19 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from "@angular/core";
+import { Subscription } from "rxjs";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { LootManager } from "src/app/game/businesslogic/LootManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
+import { AdditionalIdentifier, Identifier } from "src/app/game/model/data/Identifier";
+import { ItemData } from "src/app/game/model/data/ItemData";
 import { appliableLootTypes, Loot, LootDeck, LootType } from "src/app/game/model/data/Loot";
 import { LootApplyDialogComponent } from "./loot-apply-dialog";
 import { LootDeckDialogComponent } from "./loot-deck-dialog";
 import { LootDeckFullscreenComponent } from "./loot-deck-fullscreen";
-import { Subscription } from "rxjs";
 import { LootRandomItemDialogComponent } from "./random-item/random-item-dialog";
-import { ItemData } from "src/app/game/model/data/ItemData";
-import { AdditionalIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 
 export class LootDeckChange {
 
@@ -61,7 +62,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
     init: boolean = false;
     initServer: boolean = false;
 
-    constructor(private element: ElementRef, private dialog: Dialog) {
+    constructor(private element: ElementRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
             let elements = document.elementsFromPoint(event.clientX, event.clientY);
             if (elements[0].classList.contains('deck') && elements.length > 2) {
@@ -84,7 +85,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
             }, settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0)
         }
 
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: (fromServer: boolean) => { this.update(fromServer); }
         })
 

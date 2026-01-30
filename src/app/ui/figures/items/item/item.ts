@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionType } from "src/app/game/model/data/Action";
 import { Identifier } from "src/app/game/model/data/Identifier";
@@ -42,6 +43,8 @@ export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
     settingsManager: SettingsManager = settingsManager;
     gameManager: GameManager = gameManager;
     fontsize: string = "1em";
+
+    constructor(private ghsManager: GhsManager) { }
 
     ngOnInit(): void {
         if (!this.item && this.identifier) {
@@ -85,7 +88,7 @@ export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
             this.usable = gameManager.itemManager.itemUsable(this.item);
         }
 
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';
                 if (this.item) {

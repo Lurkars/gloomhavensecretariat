@@ -2,6 +2,7 @@ import { Dialog } from '@angular/cdk/dialog';
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -79,7 +80,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
 
   @ViewChild('drawCard') drawCard!: ElementRef;
 
-  constructor(public element: ElementRef, private dialog: Dialog) {
+  constructor(public element: ElementRef, private dialog: Dialog, private ghsManager: GhsManager) {
     this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
       let elements = document.elementsFromPoint(event.clientX, event.clientY);
       if (elements[0].classList.contains('attack-modifiers') && elements.length > 2) {
@@ -116,7 +117,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
       }, settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0)
     }
 
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: (fromServer: boolean) => { this.update(fromServer); }
     })
 

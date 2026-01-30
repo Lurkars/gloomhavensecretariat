@@ -1,6 +1,7 @@
 import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ActionHex, ActionHexFromString } from "src/app/game/model/ActionHex";
 import { ActionType } from "src/app/game/model/data/Action";
@@ -357,9 +358,10 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
   private locale: string;
   private calc: boolean = false;
   private fhStyle: boolean = false;
+  private ready: boolean = false;
   private valueChange: string | number = "";
 
-  constructor(private el: ElementRef) {
+  constructor(private el: ElementRef, private ghsManager: GhsManager) {
     el.nativeElement.classList.add('placeholder');
     this.C = Math.max(2, gameManager.characterManager.characterCount());
     this.L = gameManager.game.level;
@@ -369,16 +371,17 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         const count = Math.max(2, gameManager.characterManager.characterCount());
-        if (this.locale != settingsManager.settings.locale || this.C != count || this.L != gameManager.game.level || (this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate || this.valueChange != this.value) {
+        if (!this.ready || this.locale != settingsManager.settings.locale || this.C != count || this.L != gameManager.game.level || (this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate || this.valueChange != this.value) {
           this.C = count;
           this.L = gameManager.game.level;
           this.locale = settingsManager.settings.locale;
           this.calc = settingsManager.settings.calculate;
           this.fhStyle = settingsManager.settings.fhStyle;
           this.valueChange = this.value;
+          this.ready = gameManager.stateManager.ready;
           this.apply();
         }
       }

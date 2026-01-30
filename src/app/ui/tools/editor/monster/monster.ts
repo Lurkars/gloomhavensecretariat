@@ -3,6 +3,7 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
@@ -44,7 +45,7 @@ export class MonsterEditorComponent implements OnInit {
   monstersData: MonsterData[] = [];
   editions: string[] = [];
 
-  constructor(private dialog: Dialog, private route: ActivatedRoute, private router: Router) {
+  constructor(private dialog: Dialog, private route: ActivatedRoute, private router: Router, private ghsManager: GhsManager) {
     this.monsterData = JSON.parse(newMonsterJson);
     this.updateType(false);
   }
@@ -361,7 +362,7 @@ export class MonsterEditorComponent implements OnInit {
   dropMonsterAction(type: MonsterType, level: number, event: CdkDragDrop<number>) {
     const stat = this.statsForType(type, level);
     moveItemInArray(stat.actions, event.previousIndex, event.currentIndex);
-    gameManager.uiChange.emit();
+    this.ghsManager.triggerUiChange();
     this.monsterDataToJson();
   }
 

@@ -9,6 +9,7 @@ import { GameState } from "src/app/game/model/Game";
 import { enhancableLootTypes, Loot, LootDeck, LootDeckConfig, LootType } from "src/app/game/model/data/Loot";
 import { ghsDialogClosingHelper } from "../../helper/Static";
 import { LootDeckChange } from "./loot-deck";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
   standalone: false,
@@ -45,7 +46,7 @@ export class LootDeckDialogComponent implements OnInit, OnDestroy {
   discardedCards: Loot[] = [];
   enhancementDeck: Loot[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, characters: boolean, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange>, apply: boolean }, public dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, characters: boolean, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange>, apply: boolean }, public dialogRef: DialogRef, private ghsManager: GhsManager) {
     this.deck = data.deck;
     this.characters = data.characters;
     this.before = data.before;
@@ -75,7 +76,7 @@ export class LootDeckDialogComponent implements OnInit, OnDestroy {
 
     this.enhancementDeck = gameManager.lootManager.fullLootDeck().filter((loot) => enhancableLootTypes.indexOf(loot.type) != -1).sort((a, b) => a.cardId - b.cardId);
     this.update();
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
   }
 
   uiChangeSubscription: Subscription | undefined;

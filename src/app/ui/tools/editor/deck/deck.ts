@@ -3,6 +3,7 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Ability } from "src/app/game/model/data/Ability";
@@ -86,7 +87,7 @@ export class DeckEditorComponent implements OnInit {
     deckError: any;
     abilityColor: string = "#aaaaaa";
 
-    constructor(private dialog: Dialog, private route: ActivatedRoute, private router: Router) {
+    constructor(private dialog: Dialog, private route: ActivatedRoute, private router: Router, private ghsManager: GhsManager) {
         this.deckData = new DeckData();
         this.deckData.abilities.push(new Ability());
     }
@@ -299,7 +300,7 @@ export class DeckEditorComponent implements OnInit {
 
     dropAction(actions: Action[], event: CdkDragDrop<number>) {
         moveItemInArray(actions, event.previousIndex, event.currentIndex);
-        gameManager.uiChange.emit();
+        this.ghsManager.triggerUiChange();
     }
 
     addAbilityActionBottom(ability: Ability) {

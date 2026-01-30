@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
 
@@ -41,11 +42,11 @@ export class AttackModifierComponent implements OnInit, OnChanges, OnDestroy {
 
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(public elementRef: ElementRef) { }
+  constructor(public elementRef: ElementRef, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
     this.animate = !this.disableFlip;
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.adjustFontSize() });
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.adjustFontSize() });
     this.init();
   }
 

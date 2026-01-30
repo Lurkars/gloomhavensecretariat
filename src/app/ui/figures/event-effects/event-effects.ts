@@ -23,6 +23,7 @@ import { FavorsComponent } from './favors/favors';
 import { OutpostAttackComponent } from './outpost-attack/outpost-attack';
 import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 
 @Component({
   standalone: false,
@@ -63,13 +64,13 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   eventConditionManual: EventCardCondition[] = [];
   eventAttack: EventCardAttack | undefined;
 
-  constructor(@Inject(DIALOG_DATA) data: { menu: boolean, eventResults: (EventCardEffect | EventCardCondition)[] }, private dialog: Dialog) {
+  constructor(@Inject(DIALOG_DATA) data: { menu: boolean, eventResults: (EventCardEffect | EventCardCondition)[] }, private dialog: Dialog, private ghsManager: GhsManager) {
     this.menu = data && data.menu || false;
     this.createEventResults(data && data.eventResults || [], true);
   }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
     this.update();
   }
 

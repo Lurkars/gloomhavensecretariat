@@ -9,6 +9,7 @@ import { ItemData } from "src/app/game/model/data/ItemData";
 import { LootType } from "src/app/game/model/data/Loot";
 import { ItemDialogComponent } from "../dialog/item-dialog";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
     standalone: false,
@@ -32,7 +33,7 @@ export class ItemsBrewDialog implements OnInit, OnDestroy {
     otherCharacter: Character | undefined;
     noChar: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.brewing = 0;
         if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
             const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
@@ -43,7 +44,7 @@ export class ItemsBrewDialog implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.updateItem() })
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.updateItem() })
         this.updateItem();
     }
 

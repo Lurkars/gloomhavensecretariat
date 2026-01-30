@@ -9,6 +9,7 @@ import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { EventEffectsDialog } from "../../event-effects/event-effects";
 import { EventCardDialogComponent } from "../dialog/event-card-dialog";
 import { EventCardDrawComponent } from "../draw/event-card-draw";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
     standalone: false,
@@ -32,13 +33,13 @@ export class EventCardDeckComponent {
 
     settingsManager: SettingsManager = settingsManager;
 
-    constructor(@Inject(DIALOG_DATA) data: { edition: string, type: string }, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) data: { edition: string, type: string }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.edition = data.edition;
         this.types = gameManager.eventCardManager.getEventTypesForEdition(this.edition).filter((type) => this.allTypes || gameManager.game.party.eventDecks[type] && gameManager.game.party.eventDecks[type].length);
         this.allTypesToggle = gameManager.eventCardManager.getEventTypesForEdition(this.edition).length != this.types.length;
         this.type = data.type || this.types[0];
         this.update();
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
     }
 
     uiChangeSubscription: Subscription | undefined;

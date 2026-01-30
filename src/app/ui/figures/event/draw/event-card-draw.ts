@@ -6,6 +6,7 @@ import { settingsManager, SettingsManager } from "src/app/game/businesslogic/Set
 import { EventCard, EventCardIdentifier } from "src/app/game/model/data/EventCard";
 import { ghsDialogClosingHelper } from "../../../helper/Static";
 import { EventCardDialogComponent } from "../dialog/event-card-dialog";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
     standalone: false,
@@ -25,7 +26,7 @@ export class EventCardDrawComponent {
 
     settingsManager: SettingsManager = settingsManager;
 
-    constructor(@Inject(DIALOG_DATA) data: { edition: string, type: string, cardId: string | undefined }, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) data: { edition: string, type: string, cardId: string | undefined }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         const deck = gameManager.game.party.eventDecks[data.type];
         this.globalDraw = gameManager.game.eventDraw != undefined;
         if (deck) {
@@ -40,7 +41,7 @@ export class EventCardDrawComponent {
             this.requirementWarning = gameManager.game.party.achievementsList.indexOf(this.event.requirement.partyAchievement) == -1;
         }
 
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 if (this.globalDraw && !gameManager.game.eventDraw) {
                     this.dialogRef.close();

@@ -2,6 +2,7 @@ import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { Character } from "src/app/game/model/Character";
 import { Action, ActionType } from "src/app/game/model/data/Action";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
@@ -39,7 +40,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
 
     enhancedCards: number = 0;
 
-    constructor(@Inject(DIALOG_DATA) public data: { action: Action | undefined, actionIndex: string | undefined, enhancementIndex: number | undefined, cardId: number | undefined, character: Character | undefined, summon: SummonData | undefined }, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public data: { action: Action | undefined, actionIndex: string | undefined, enhancementIndex: number | undefined, cardId: number | undefined, character: Character | undefined, summon: SummonData | undefined }, private dialogRef: DialogRef, private ghsManager: GhsManager) {
         this.data = data || {};
         this.action = this.data.action ? JSON.parse(JSON.stringify(this.data.action)) : new Action(ActionType.attack, 1);
         this.action.small = false;
@@ -108,7 +109,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
             this.customAction = true;
         }
 
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 if (this.data.character && this.data.cardId) {
                     this.enhancements = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((enhancement) => enhancement.cardId == this.data.cardId && this.data.actionIndex && enhancement.actionIndex.indexOf('bottom') == this.data.actionIndex.indexOf('bottom')).length || 0;
@@ -209,7 +210,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
             this.character.progress.enhancements.push(new Enhancement(this.data.cardId, this.data.actionIndex, this.data.enhancementIndex, this.enhancementAction));
         }
 
-        gameManager.uiChange.emit();
+        this.ghsManager.triggerUiChange();
     }
 
     setEnhancementAction(enhancementAction: EnhancementAction) {

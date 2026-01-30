@@ -1,19 +1,20 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, HostListener, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
+import { Character } from "src/app/game/model/Character";
+import { EntityValueFunction } from "src/app/game/model/Entity";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
+import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
+import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
+import { Summon, SummonState } from "src/app/game/model/Summon";
+import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
+import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { ghsDialogClosingHelper, ghsValueSign } from "../../helper/Static";
-import { EntityValueFunction } from "src/app/game/model/Entity";
-import { Summon, SummonState } from "src/app/game/model/Summon";
-import { Character } from "src/app/game/model/Character";
-import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
-import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
-import { MonsterData } from "src/app/game/model/data/MonsterData";
 
 @Component({
   standalone: false,
@@ -44,7 +45,7 @@ export class EntitiesMenuDialogComponent {
   SummonState = SummonState;
   EntityValueFunction = EntityValueFunction;
 
-  constructor(@Inject(DIALOG_DATA) public data: { monster: Monster, character: Character, objective: ObjectiveContainer, type: MonsterType | undefined }, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) public data: { monster: Monster, character: Character, objective: ObjectiveContainer, type: MonsterType | undefined }, private dialogRef: DialogRef, private ghsManager: GhsManager) {
     if (this.data.monster) {
       this.monster = this.data.monster;
       this.allEntities = this.monster.entities.filter((entity) => !data.type || entity.type == data.type);
@@ -192,7 +193,7 @@ export class EntitiesMenuDialogComponent {
       }
 
       gameManager.stateManager.after();
-      gameManager.uiChange.emit();
+      this.ghsManager.triggerUiChange();
     }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
 
     ghsDialogClosingHelper(this.dialogRef, true);

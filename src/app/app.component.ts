@@ -4,7 +4,7 @@ import { Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { gameManager } from './game/businesslogic/GameManager';
 import { settingsManager } from './game/businesslogic/SettingsManager';
-import { ghsDialogClosingHelper } from './ui/helper/Static';
+import { ghsDialogClosingHelper, ghsFilterInputFocus } from './ui/helper/Static';
 
 @Component({
   standalone: false,
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
           }
 
           dialogRef.keydownEvents.subscribe(event => {
-            if (settingsManager.settings.keyboardShortcuts && !event.ctrlKey && !event.shiftKey && !event.altKey && (event.key === "Escape" || event.key === "Backspace")) {
+            if (settingsManager.settings.keyboardShortcuts && !event.ctrlKey && !event.shiftKey && !event.altKey && (event.key === "Escape" || ghsFilterInputFocus(event) && event.key === "Backspace")) {
               ghsDialogClosingHelper(dialogRef);
             }
           });

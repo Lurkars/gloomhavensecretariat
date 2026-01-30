@@ -1,13 +1,14 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { ghsValueSign } from "../../helper/Static";
 
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-level-dialog',
     templateUrl: './level-dialog.html',
     styleUrls: ['./level-dialog.scss']
@@ -23,8 +24,10 @@ export class LevelDialogComponent implements OnInit, OnDestroy {
 
     levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
 
+    constructor(private ghsManager: GhsManager) { }
+
     ngOnInit(): void {
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 this.calculateValues();
             }

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Entity } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
@@ -42,6 +43,8 @@ export class ConditionsComponent implements OnInit, OnDestroy {
   timeout: any;
   numberStore: number = 0;
 
+  constructor(private ghsManager: GhsManager) { }
+
   ngOnInit(): void {
     this.initializeConditions();
     if (this.entities) {
@@ -50,7 +53,7 @@ export class ConditionsComponent implements OnInit, OnDestroy {
         this.monsterType = types[0];
       }
     }
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         this.initializeConditions();
       }

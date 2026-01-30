@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnDestroy, Output } from "@a
 import { Subscription } from "rxjs";
 import { InteractiveAction } from "src/app/game/businesslogic/ActionsManager";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
@@ -49,8 +50,8 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
   settingsManager: SettingsManager = settingsManager;
   MonsterType = MonsterType;
 
-  constructor() {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+  constructor(private ghsManager: GhsManager) {
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         this.update();
       }
@@ -90,7 +91,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
     this.objectives = gameManager.actionsManager.getObjectiveSpawnData(this.action);
     this.count = undefined;
     this.type = undefined;
-    if (this.action.value == 'summonData' || this.action.value == 'summonDataItem') {
+    if (this.action && (this.action.value == 'summonData' || this.action.value == 'summonDataItem')) {
       this.summonData = this.action.valueObject as SummonData;
       if (!this.summonData.edition) {
         if (this.character && this.cardId) {

@@ -2,6 +2,7 @@ import { Dialog, DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ActionHex, ActionHexFromString, ActionHexToString, ActionHexType } from "src/app/game/model/ActionHex";
 import { Character } from "src/app/game/model/Character";
@@ -47,7 +48,7 @@ export class EditorActionComponent implements OnInit {
   monsterType: MonsterType | undefined;
   monsters: string[] = [];
 
-  constructor(private dialog: Dialog) { }
+  constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
     this.monsters = gameManager.monstersData().map((monsterData) => monsterData.name);
@@ -62,7 +63,7 @@ export class EditorActionComponent implements OnInit {
       })
       hexes.forEach((other) => this.fillHexes(other, hexes));
       this.hexAction.value = hexes.map((hex) => ActionHexToString(hex)).join('|');
-      gameManager.uiChange.emit();
+      this.ghsManager.triggerUiChange();
     } else if (this.action.type == ActionType.condition || this.action.type == ActionType.specialTarget || this.action.type == ActionType.card || this.action.type == ActionType.elementHalf) {
       if (('' + this.action.value).indexOf(':') != -1) {
         this.value = ('' + this.action.value).split(':')[0];
@@ -149,7 +150,7 @@ export class EditorActionComponent implements OnInit {
 
   change() {
     this.actionChange.emit(this.action);
-    gameManager.uiChange.emit();
+    this.ghsManager.triggerUiChange();
   }
 
   toggleHex(hex: ActionHex) {
@@ -323,7 +324,7 @@ export class EditorActionComponent implements OnInit {
 
   dropSubAction(event: CdkDragDrop<number>) {
     moveItemInArray(this.action.subActions, event.previousIndex, event.currentIndex);
-    gameManager.uiChange.emit();
+    this.ghsManager.triggerUiChange();
   }
 
   changeSummonType(event: any) {
@@ -341,14 +342,14 @@ export class EditorActionComponent implements OnInit {
 
   changeSummonMonster() {
     this.action.value = this.monster + (this.monsterType ? ':' + this.monsterType : '');
-    gameManager.uiChange.emit();
+    this.ghsManager.triggerUiChange();
   }
 
   changeSummon() {
     if (this.summon) {
       this.action.valueObject = this.summon;
     }
-    gameManager.uiChange.emit();
+    this.ghsManager.triggerUiChange();
   }
 
   editSummonAction() {

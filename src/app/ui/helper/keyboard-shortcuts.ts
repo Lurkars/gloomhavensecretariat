@@ -2,6 +2,7 @@ import { Dialog } from '@angular/cdk/dialog';
 import { Directive, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
@@ -39,7 +40,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
     keyup: any;
     timeout: any;
 
-    constructor(private dialog: Dialog) {
+    constructor(private dialog: Dialog, private ghsManager: GhsManager) {
         this.dialog.afterOpened.subscribe({ next: () => { this.dialogOpen = true; this.dialogClosing = false; } });
         this.dialog.afterAllClosed.subscribe({ next: () => { this.dialogClosing = true; setTimeout(() => { if (this.dialogClosing) { this.dialogOpen = false; } }, 250) } });
     }
@@ -63,7 +64,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.currentZoom = settingsManager.settings.zoom;
 
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.currentZoom = settingsManager.settings.zoom })
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.currentZoom = settingsManager.settings.zoom })
 
         this.keydown = window.addEventListener('keydown', (event: KeyboardEvent) => {
             if (settingsManager.settings.keyboardShortcuts && ghsFilterInputFocus(event)) {
@@ -95,7 +96,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     }
                     event.preventDefault();
                     event.stopPropagation();
-                } else if (this.dialogOpen && event.key === 'Backspace' && !event.ctrlKey && !event.altKey && !event.shiftKey) {
+                } else if (this.dialogOpen && ghsFilterInputFocus(event) && event.key === 'Backspace' && !event.ctrlKey && !event.altKey && !event.shiftKey) {
                     ghsDialogClosingHelper(this.dialog.openDialogs[this.dialog.openDialogs.length - 1]);
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
@@ -284,7 +285,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('select') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && (event.key === 's' || event.key === 'w')) {
                     gameManager.stateManager.keyboardSelecting = event.key;
-                    gameManager.uiChange.emit();
+                    this.ghsManager.triggerUiChange();
                 } else if (!this.dialogOpen && !event.ctrlKey && !event.altKey && event.key === '?') {
                     this.dialog.open(KeyboardShortcutsComponent, {
                         panelClass: ['dialog'],

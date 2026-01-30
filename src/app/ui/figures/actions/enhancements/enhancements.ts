@@ -10,6 +10,7 @@ import { Element } from "src/app/game/model/data/Element";
 import { EnhancementAction, EnhancementType } from "src/app/game/model/data/Enhancement";
 import { SummonData } from "src/app/game/model/data/SummonData";
 import { EnhancementDialogComponent } from "../../character/sheet/abilities/enhancements/enhancement-dialog";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
     standalone: false,
@@ -37,11 +38,11 @@ export class ActionEnhancementsComponent implements OnInit, OnDestroy {
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
 
-    constructor(private dialog: Dialog) { }
+    constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
 
     ngOnInit() {
         this.update();
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 this.update();
             }

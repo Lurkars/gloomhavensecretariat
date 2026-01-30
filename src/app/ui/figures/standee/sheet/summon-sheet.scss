@@ -94,8 +94,6 @@
 
             .placeholder {
                 display: flex;
-                align-items: baseline;
-                height: 100%;
             }
 
             ghs-action-enhancements {
@@ -159,22 +157,22 @@
         background-image: url('~src/assets/images/fh/character/abilities/character-ability-summon1.png');
 
         .thumbnail {
-            top: 24%;
-            width: 3.7em;
+            top: 1.8em;
+            width: 4.3em;
             height: 4em;
-            clip-path: polygon(0em 0em, 3em 0em, 3.7em 2em, 3em 4em, 0em 4em);
+            clip-path: polygon(0em 0em, 3.3em 0em, 4.3em 2em, 3.3em 4em, 0em 4em);
             background-color: var(--ghs-ability-color);
 
             .thumbnail-border {
                 position: absolute;
                 top: 0.1em;
                 left: 0.1em;
-                width: 3.7em;
+                width: 4.3em;
                 height: 4em;
-                clip-path: polygon(0em 0em, 2.8em 0em, 3.5em 1.8em, 2.8em 3.8em, 0em 3.8em);
+                clip-path: polygon(0em 0em, 3.1em 0em, 4em 1.9em, 3.1em 3.8em, 0em 3.8em);
 
                 img {
-                    left: -1.4em;
+                    left: -1.9em;
                     top: -0.3em;
                     width: 155%;
                 }

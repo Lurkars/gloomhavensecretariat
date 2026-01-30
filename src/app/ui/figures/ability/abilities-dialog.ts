@@ -3,6 +3,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -30,7 +31,7 @@ export class AbiltiesDialogComponent implements OnInit, OnDestroy {
   discardedCards: Ability[] = [];
   deletedCards: Ability[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public monster: Monster, public dialogRef: DialogRef) { }
+  constructor(@Inject(DIALOG_DATA) public monster: Monster, public dialogRef: DialogRef, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -41,7 +42,7 @@ export class AbiltiesDialogComponent implements OnInit, OnDestroy {
 
     this.bottomActions = gameManager.monsterManager.hasBottomActions(this.monster);
     this.update();
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
   }
 
   uiChangeSubscription: Subscription | undefined;

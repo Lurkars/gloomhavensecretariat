@@ -7,6 +7,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { GameState } from "src/app/game/model/Game";
 import { ChallengeCard, ChallengeDeck } from "src/app/game/model/data/Challenges";
 import { ChallengeDeckChange } from "./challenge-deck";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 
 @Component({
@@ -43,7 +44,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
     finishedCards: ChallengeCard[] = [];
     removedCards: ChallengeCard[] = [];
 
-    constructor(@Inject(DIALOG_DATA) public data: { deck: ChallengeDeck, before: EventEmitter<ChallengeDeckChange>, after: EventEmitter<ChallengeDeckChange> }, public dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public data: { deck: ChallengeDeck, before: EventEmitter<ChallengeDeckChange>, after: EventEmitter<ChallengeDeckChange> }, public dialogRef: DialogRef, private ghsManager: GhsManager) {
         this.deck = data.deck;
         this.before = data.before;
         this.after = data.after;
@@ -54,7 +55,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
             this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
         }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0);
         this.update();
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
         this.edit = !gameManager.game.scenario;
     }
 

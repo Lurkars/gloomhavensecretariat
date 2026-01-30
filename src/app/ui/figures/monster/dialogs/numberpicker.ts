@@ -3,6 +3,7 @@ import { Overlay } from "@angular/cdk/overlay";
 import { Component, ElementRef, Input, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
@@ -30,10 +31,10 @@ export class MonsterNumberPicker implements OnInit, OnDestroy {
   maxStandees: number = 0;
   usedStandees: number = 0;
 
-  constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
+  constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
     this.update();
   }
 
@@ -61,7 +62,7 @@ export class MonsterNumberPicker implements OnInit, OnDestroy {
       } else {
         this.nextStandee();
       }
-      gameManager.uiChange.emit();
+      this.ghsManager.triggerUiChange();
       return;
     }
 

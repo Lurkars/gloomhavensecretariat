@@ -2,6 +2,7 @@ import { Dialog } from "@angular/cdk/dialog";
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
 import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
@@ -29,9 +30,9 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
   groups: (string | undefined)[] = [];
   hasRandom: boolean = false;
 
-  constructor(private dialog: Dialog) { }
-
   scenarioCache: { edition: string, group: string | undefined, filterSuccess: boolean, includeSpoiler: boolean, all: boolean, scenarios: ScenarioCache[] }[] = [];
+
+  constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
     this.edition =
@@ -45,7 +46,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
     this.updateGroups();
     this.setEditions();
 
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         this.scenarioCache = [];
         this.setEditions();

@@ -4,6 +4,7 @@ import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, ViewChil
 import { Subscription } from 'rxjs';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
@@ -71,10 +72,10 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   bb: boolean = false;
 
-  constructor(private dialog: Dialog, private overlay: Overlay) { }
+  constructor(private dialog: Dialog, private overlay: Overlay, protected ghsManager: GhsManager) { }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() })
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() })
     this.update();
   }
 
@@ -439,7 +440,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
     if (settingsManager.settings.characterItemsPermanent && !force) {
       this.character.itemsVisible = !this.character.itemsVisible;
       gameManager.stateManager.saveLocal();
-      gameManager.uiChange.emit();
+      this.ghsManager.triggerUiChange();
     } else if ((this.character.progress.items.length == 0 || force) && !this.bb) {
       this.dialog.open(ItemsDialogComponent, {
         panelClass: ['dialog'],
@@ -462,7 +463,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
       });
       this.character.fullview = true;
       gameManager.stateManager.saveLocal();
-      gameManager.uiChange.emit();
+      this.ghsManager.triggerUiChange();
     } else if (settingsManager.settings.characterSheet) {
       this.openCharacterSheet();
     } else {
@@ -524,7 +525,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.character.lootCardsVisible = false;
     }
     gameManager.stateManager.saveLocal();
-    gameManager.uiChange.emit();
+    this.ghsManager.triggerUiChange();
   }
 
   toggleLootCardsVisible() {

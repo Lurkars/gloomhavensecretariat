@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { storageManager } from "src/app/game/businesslogic/StorageManager";
 import { GameState } from "src/app/game/model/Game";
@@ -17,6 +18,7 @@ export class LootDeckStandaloneComponent implements OnInit {
     gameManager: GameManager = gameManager;
     configuration: boolean = false;
 
+    constructor(private ghsManager: GhsManager) { }
 
     async ngOnInit() {
         try {
@@ -26,7 +28,7 @@ export class LootDeckStandaloneComponent implements OnInit {
         }
         await settingsManager.init(!environment.production);
         await gameManager.stateManager.init(true);
-        gameManager.uiChange.emit();
+        this.ghsManager.triggerUiChange();
         if (gameManager.game.state != GameState.next) {
             gameManager.roundManager.nextGameState(true);
         }

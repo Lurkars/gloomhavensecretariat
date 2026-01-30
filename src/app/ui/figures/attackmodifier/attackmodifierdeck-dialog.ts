@@ -9,6 +9,7 @@ import { GameState } from "src/app/game/model/Game";
 import { AttackModifier, AttackModifierDeck, AttackModifierType, Gh2ESealedDeckAttackModifier, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { ConditionName } from "src/app/game/model/data/Condition";
 import { AttackModiferDeckChange } from "./attackmodifierdeck";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
   standalone: false,
@@ -53,7 +54,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
   activeFaction: string | undefined;
   factionAttackModifier: AttackModifier[] = [];
 
-  constructor(@Inject(DIALOG_DATA) data: { deck: AttackModifierDeck, character: Character, ally: boolean, numeration: string, newStyle: boolean, townGuard: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) data: { deck: AttackModifierDeck, character: Character, ally: boolean, numeration: string, newStyle: boolean, townGuard: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef, private ghsManager: GhsManager) {
     this.deck = data.deck;
     this.character = data.character;
     this.ally = data.ally;
@@ -86,7 +87,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
       this.bbTable = true;
     }
     this.update();
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
   }
 
   uiChangeSubscription: Subscription | undefined;

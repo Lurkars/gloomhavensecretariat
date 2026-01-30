@@ -4,6 +4,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
 import { Subscription } from 'rxjs';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 
 
 @Component({
@@ -35,7 +36,7 @@ export class AttackModifierDrawComponent implements OnInit, OnDestroy, OnChanges
 
   @ViewChild('drawCard') drawCard!: ElementRef;
 
-  constructor(public element: ElementRef) {
+  constructor(public element: ElementRef, private ghsManager: GhsManager) {
     this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
       let elements = document.elementsFromPoint(event.clientX, event.clientY);
       if (elements[0].classList.contains('attack-modifiers') && elements.length > 2) {
@@ -59,7 +60,7 @@ export class AttackModifierDrawComponent implements OnInit, OnDestroy, OnChanges
 
     this.current = this.deck.current;
 
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => { this.update(); }
     })
 

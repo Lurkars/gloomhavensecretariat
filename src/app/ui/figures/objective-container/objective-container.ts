@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -52,10 +53,10 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   interactiveActions: InteractiveAction[] = [];
   interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
 
-  constructor(private dialog: Dialog, private overlay: Overlay, private elementRef: ElementRef) { }
+  constructor(private dialog: Dialog, private overlay: Overlay, private elementRef: ElementRef, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
     this.update();
   }
 

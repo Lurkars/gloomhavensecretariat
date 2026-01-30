@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Figure } from 'src/app/game/model/Figure';
 
@@ -40,10 +40,10 @@ export class FigureAutoscrollDirective implements OnInit, OnDestroy {
   @Input('inline') inline: ScrollLogicalPosition = 'center';
   active: boolean = false;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         setTimeout(() => {
           if (settingsManager.settings.autoscroll && !this.active && this.figure.active) {

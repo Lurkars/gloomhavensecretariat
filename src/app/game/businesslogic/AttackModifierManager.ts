@@ -232,7 +232,7 @@ export class AttackModifierManager {
         count++;
       }
     })
-    gameManager.uiChange.emit();
+    gameManager.uiChange.next(false);
   }
 
   drawAdvantage(attackModifierDeck: AttackModifierDeck, state: 'advantage' | 'disadvantage') {
@@ -244,7 +244,7 @@ export class AttackModifierManager {
     if (attackModifierDeck.current == attackModifierDeck.cards.length) {
       return;
     }
-    gameManager.uiChange.emit();
+    gameManager.uiChange.next(false);
     let card = attackModifierDeck.cards[attackModifierDeck.current];
 
     if (card && card.rolling) {
@@ -255,12 +255,12 @@ export class AttackModifierManager {
         }
         attackModifierDeck.current = attackModifierDeck.current + 1;
         card = attackModifierDeck.cards[attackModifierDeck.current];
-        gameManager.uiChange.emit();
+        gameManager.uiChange.next(false);
       }
     } else {
       attackModifierDeck.current = attackModifierDeck.current + 1;
       card = attackModifierDeck.cards[attackModifierDeck.current];
-      gameManager.uiChange.emit();
+      gameManager.uiChange.next(false);
 
       if (fhRules && settingsManager.settings.amAdvantageHouseRule && card && card.rolling) {
         while (card.rolling) {
@@ -269,7 +269,7 @@ export class AttackModifierManager {
           }
           attackModifierDeck.current = attackModifierDeck.current + 1;
           card = attackModifierDeck.cards[attackModifierDeck.current];
-          gameManager.uiChange.emit();
+          gameManager.uiChange.next(false);
         }
       }
     }
@@ -279,7 +279,7 @@ export class AttackModifierManager {
         return;
       }
       attackModifierDeck.current = attackModifierDeck.current + 1;
-      gameManager.uiChange.emit();
+      gameManager.uiChange.next(false);
     }
   }
 

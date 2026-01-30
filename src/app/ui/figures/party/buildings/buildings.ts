@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { BuildingModel } from "src/app/game/model/Building";
 import { Party } from "src/app/game/model/Party";
@@ -22,9 +23,11 @@ export class PartyBuildingsComponent implements OnInit, OnDestroy {
 
   buildings: Building[] = [];
 
+  constructor(private ghsManager: GhsManager) { }
+
   ngOnInit(): void {
     this.updateBuildings();
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
         this.party = gameManager.game.party;
         this.updateBuildings();

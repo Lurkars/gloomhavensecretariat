@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
 import { environment } from 'src/environments/environment';
+import { GhsManager } from '../game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from '../game/businesslogic/SettingsManager';
 import { storageManager } from '../game/businesslogic/StorageManager';
 import { Character } from '../game/model/Character';
@@ -22,7 +23,7 @@ import { PointerInputService } from './helper/pointer-input-service';
   standalone: false,
   selector: 'ghs-main',
   templateUrl: './main.html',
-  styleUrls: ['./main.scss'],
+  styleUrls: ['./main.scss']
 })
 export class MainComponent implements OnInit {
 
@@ -64,8 +65,8 @@ export class MainComponent implements OnInit {
 
   @ViewChild('footer') footer!: FooterComponent;
 
-  constructor(private element: ElementRef, private swUpdate: SwUpdate, private dialog: Dialog, private pointerInputService: PointerInputService) {
-    gameManager.uiChange.subscribe({
+  constructor(private element: ElementRef, private swUpdate: SwUpdate, private dialog: Dialog, private pointerInputService: PointerInputService, private ghsManager: GhsManager) {
+    this.ghsManager.onUiChange().subscribe({
       next: () => {
         this.figures = gameManager.game.figures.filter((figure) => (settingsManager.settings.monsters || !(figure instanceof Monster)) && (!(figure instanceof Character) || !figure.absent || !settingsManager.settings.hideAbsent));
 
@@ -218,7 +219,6 @@ export class MainComponent implements OnInit {
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
     document.body.style.setProperty('--ghs-global-fontsize', settingsManager.settings.globalFontsize + '');
     document.body.style.setProperty('--ghs-animation-speed', settingsManager.settings.animationSpeed + '');
-
 
     if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock) {
       this.automaticClockIn();
@@ -406,11 +406,11 @@ export class MainComponent implements OnInit {
 
     const totalHeight = elementHeights.reduce((a, b) => a + b, 0);
     const numColumns = Math.floor(containerWidth / columnWidth);
-    
+
     if (!Number.isFinite(numColumns) || numColumns <= 0 || numColumns > Number.MAX_SAFE_INTEGER) {
       return [elementHeights];
     }
-    
+
     const targetHeight = Math.max(totalHeight / numColumns, settingsManager.settings.columnsForce ? 0 : containerHeight);
     let columns: number[][] = Array.from({ length: numColumns }, () => []);
     let columnHeights: number[] = Array(numColumns).fill(0);
@@ -616,7 +616,7 @@ export class MainComponent implements OnInit {
               this.standeeDialogSubscription.unsubscribe();
               this.standeeDialogSubscription = undefined;
             }
-            gameManager.uiChange.emit();
+            this.ghsManager.triggerUiChange();;
           }
         })
       }

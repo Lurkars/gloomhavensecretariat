@@ -2,6 +2,7 @@ import { Dialog } from "@angular/cdk/dialog";
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
 import { ChallengeDeck } from "src/app/game/model/data/Challenges";
@@ -54,7 +55,7 @@ export class ChallengeDeckComponent implements OnInit, OnDestroy, OnChanges {
     keepAvailable: number = 0;
 
 
-    constructor(private element: ElementRef, private dialog: Dialog) {
+    constructor(private element: ElementRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
             let elements = document.elementsFromPoint(event.clientX, event.clientY);
             if (elements[0].classList.contains('deck') && elements.length > 2) {
@@ -85,7 +86,7 @@ export class ChallengeDeckComponent implements OnInit, OnDestroy, OnChanges {
             }, settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0)
         }
 
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: (fromServer: boolean) => { this.update(fromServer); }
         })
 

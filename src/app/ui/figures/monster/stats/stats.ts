@@ -3,6 +3,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Monster } from 'src/app/game/model/Monster';
 import { ActionType } from 'src/app/game/model/data/Action';
@@ -45,13 +46,13 @@ export class MonsterStatsComponent implements OnInit, OnDestroy {
 
   @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
 
-  constructor(private dialog: Dialog, private overlay: Overlay, private element: ElementRef) { }
+  constructor(private dialog: Dialog, private overlay: Overlay, private element: ElementRef, private ghsManager: GhsManager) { }
 
 
   ngOnInit(): void {
     this.monsterCopy = JSON.parse(JSON.stringify(this.monster));
     this.update();
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => { this.update(); } });
+    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => { this.update(); } });
   }
 
   uiChangeSubscription: Subscription | undefined;

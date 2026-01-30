@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { storageManager } from "src/app/game/businesslogic/StorageManager";
 import { Character } from "src/app/game/model/Character";
@@ -30,7 +31,7 @@ export class AttackModifierStandaloneComponent implements OnInit, OnDestroy {
 
     @ViewChild('header') header!: HeaderComponent;
 
-    constructor(private route: ActivatedRoute, private router: Router, private dialog: Dialog) { }
+    constructor(private route: ActivatedRoute, private router: Router, private dialog: Dialog, private ghsManager: GhsManager) { }
 
     async ngOnInit() {
         try {
@@ -42,7 +43,7 @@ export class AttackModifierStandaloneComponent implements OnInit, OnDestroy {
         await gameManager.stateManager.init(true);
         gameManager.game.figures.forEach((figure) => figure.active = false);
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
-        gameManager.uiChange.emit();
+        this.ghsManager.triggerUiChange();
         if (gameManager.game.state != GameState.next) {
             gameManager.roundManager.nextGameState(true);
         }
@@ -76,7 +77,7 @@ export class AttackModifierStandaloneComponent implements OnInit, OnDestroy {
             }
         })
 
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
                 this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
                 if (this.activeDeckIndex > this.characters.length + 1) {

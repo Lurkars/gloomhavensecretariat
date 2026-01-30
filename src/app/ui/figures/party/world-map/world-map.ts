@@ -3,6 +3,7 @@ import { AfterViewInit, Component, HostListener, Inject, ViewEncapsulation } fro
 import L, { ImageOverlay, LatLngBounds, LatLngBoundsLiteral } from 'leaflet';
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { BuildingData } from "src/app/game/model/data/BuildingData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
@@ -43,11 +44,11 @@ export class WorldMapComponent implements AfterViewInit {
     showExtended: boolean = false;
     campaignSheet: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         const pinchZoom = settingsManager.settings.pinchZoom;
         settingsManager.settings.pinchZoom = false;
         this.mapEdition = this.edition;
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.updateMap() });
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.updateMap() });
         this.update();
 
         this.dialogRef.closed.subscribe({

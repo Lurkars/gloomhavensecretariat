@@ -132,7 +132,7 @@ export class EntityManager {
       } else if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && !entity.dead) {
         entity.dead = true;
         setTimeout(() => {
-          gameManager.uiChange.emit();
+          gameManager.uiChange.next(false);
         }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
       }
     }
@@ -303,14 +303,14 @@ export class EntityManager {
             if (!existingMuddle) {
               character.entityConditions.splice(character.entityConditions.indexOf(muddle), 1);
             }
-            gameManager.uiChange.emit();
+            gameManager.uiChange.next(false);
           }, 1000 * settingsManager.settings.animationSpeed);
         }
       } else if (existingStrengthen && !existingMuddle) {
         existingStrengthen.highlight = true;
         setTimeout(() => {
           existingStrengthen.highlight = false;
-          gameManager.uiChange.emit();
+          gameManager.uiChange.next(false);
         }, 1000 * settingsManager.settings.animationSpeed);
       }
     }
@@ -536,7 +536,7 @@ export class EntityManager {
         condition.highlight = true;
         setTimeout(() => {
           condition.highlight = false;
-          gameManager.uiChange.emit();
+          gameManager.uiChange.next(false);
         }, 1000 * settingsManager.settings.animationSpeed);
       } else {
         condition.highlight = false;

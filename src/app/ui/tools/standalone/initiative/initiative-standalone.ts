@@ -2,6 +2,7 @@ import { Dialog } from "@angular/cdk/dialog";
 import { Component, HostListener, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { storageManager } from "src/app/game/businesslogic/StorageManager";
 import { Character } from "src/app/game/model/Character";
@@ -26,7 +27,7 @@ export class InitiativeStandaloneComponent implements OnInit, OnDestroy {
     longRest: boolean = false;
     statusCode: number = 200;
 
-    constructor(private dialog: Dialog) { }
+    constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
 
     async ngOnInit() {
         try {
@@ -38,8 +39,8 @@ export class InitiativeStandaloneComponent implements OnInit, OnDestroy {
         await gameManager.stateManager.init(true);
         this.update();
 
-        gameManager.uiChange.emit();
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+        this.ghsManager.triggerUiChange();
+        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
 
         window.addEventListener('focus', (event) => {
             if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() != WebSocket.OPEN) {

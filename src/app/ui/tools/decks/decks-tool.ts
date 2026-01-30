@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { DeckData } from "src/app/game/model/data/DeckData";
-import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
+import { Monster } from "src/app/game/model/Monster";
 import { environment } from "src/environments/environment";
 
 @Component({
@@ -26,7 +27,7 @@ export class DecksToolComponent implements OnInit {
   elite: boolean = true;
   level: number = 1;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private ghsManager: GhsManager) { }
 
   async ngOnInit() {
     await settingsManager.init(!environment.production);
@@ -77,7 +78,7 @@ export class DecksToolComponent implements OnInit {
       });
     }
 
-    gameManager.uiChange.emit();
+    this.ghsManager.triggerUiChange();
   }
 
   deck(figure: Monster | Character): DeckData {

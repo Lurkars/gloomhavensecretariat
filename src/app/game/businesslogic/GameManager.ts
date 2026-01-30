@@ -1,4 +1,4 @@
-import { EventEmitter } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
 import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
@@ -81,7 +81,7 @@ export class GameManager {
   enhancementsManager: EnhancementsManager;
   imbuementManager: ImbuementManager;
 
-  uiChange = new EventEmitter<boolean>();
+  uiChange = new BehaviorSubject<boolean>(false);
 
   constructor() {
     this.stateManager = new StateManager(this.game);
@@ -105,24 +105,6 @@ export class GameManager {
     this.trialsManager = new TrialsManager(this.game);
     this.enhancementsManager = new EnhancementsManager(this.game);
     this.imbuementManager = new ImbuementManager(this.game);
-    this.uiChange.subscribe({
-      next: () => {
-        this.checkEntitiesKilled();
-        if (this.game.levelCalculation) {
-          this.levelManager.calculateScenarioLevel();
-        }
-        if (settingsManager.settings.scenarioRules) {
-          this.scenarioRulesManager.addScenarioRulesAlways();
-          this.scenarioRulesManager.applyScenarioRulesAlways();
-        }
-        this.roundManager.firstRound = this.game.round == 0 && this.game.roundResets.length == 0 && this.game.roundResetsHidden.length == 0;
-        this.buildingsManager.update();
-        this.challengesManager.update();
-        this.trialsManager.update();
-        this.enhancementsManager.update();
-        this.imbuementManager.update();
-      }
-    })
   }
 
   editions(all: boolean = false, additional: boolean = false): string[] {

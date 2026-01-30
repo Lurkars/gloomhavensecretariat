@@ -145,7 +145,7 @@ export class RoundManager {
       })
     }
 
-    gameManager.uiChange.emit();
+    gameManager.uiChange.next(false);
     setTimeout(() => this.working = false, 1);
   }
 
@@ -747,6 +747,6 @@ export class RoundManager {
     gameManager.trialsManager.applyTrialCards();
 
     gameManager.stateManager.standeeDialogCanceled = false;
-    gameManager.uiChange.emit();
+    gameManager.uiChange.next(false);
   }
 }
