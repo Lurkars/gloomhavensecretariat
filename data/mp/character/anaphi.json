@@ -53,8 +53,8 @@
       "thumbnail": true,
       "level": 1,
       "health": 4,
-      "attack": 3,
-      "movement": 2
+      "attack": 2,
+      "movement": 3
     },
     {
       "name": "duskrat-swarm",
