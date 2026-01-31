@@ -27,7 +27,6 @@ import { ScenarioSummaryComponent } from './scenario/summary/scenario-summary';
 export class FooterComponent implements OnInit, OnDestroy {
 
   @ViewChild('nextButton', { static: false }) nextButton!: ElementRef;
-  @ViewChild('footer', { static: false }) footer!: ElementRef;
   @ViewChild('monsterDeck', { static: false }) monsterDeck!: ElementRef;
   @ViewChild('ghsLevel', { static: false }) ghsLevel!: LevelComponent;
   @ViewChild('ghsScenario', { static: false }) ghsScenario!: ScenarioComponent;
@@ -48,7 +47,7 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   nextHint: boolean = false;
 
-  constructor(private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) { }
+  constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) { }
 
   ngOnInit(): void {
     this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof ObjectiveContainer && figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
@@ -103,11 +102,11 @@ export class FooterComponent implements OnInit, OnDestroy {
     }, 1000)
 
     setTimeout(() => {
-      this.compact = this.monsterDeck && this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
+      this.compact = this.monsterDeck && this.monsterDeck.nativeElement.clientWidth > this.elementRef.nativeElement.clientWidth * 0.3;
     }, 100)
 
     window.addEventListener('resize', (event) => {
-      this.compact = this.monsterDeck && this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
+      this.compact = this.monsterDeck && this.monsterDeck.nativeElement.clientWidth > this.elementRef.nativeElement.clientWidth * 0.3;
     });
   }
 

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
@@ -13,7 +13,6 @@ import { PetCard } from "src/app/game/model/data/PetCard";
 })
 export class PetCardComponent implements OnInit, AfterViewInit, OnDestroy {
 
-    @ViewChild('container') containerElement!: ElementRef;
     @Input() petCard!: PetCard | undefined;
     @Input() flipped: boolean = false;
     @Input() reveal: boolean = false;
@@ -24,12 +23,12 @@ export class PetCardComponent implements OnInit, AfterViewInit, OnDestroy {
     gameManager: GameManager = gameManager;
     fontsize: string = "1em";
 
-    constructor(private ghsManager: GhsManager) { }
+    constructor(private elementRef: ElementRef, private ghsManager: GhsManager) { }
 
     ngOnInit(): void {
         this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
-                this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';
+                this.fontsize = (this.elementRef.nativeElement.offsetWidth * 0.072) + 'px';
             }
         })
     }
@@ -44,7 +43,7 @@ export class PetCardComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         setTimeout(() => {
-            this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';
+            this.fontsize = (this.elementRef.nativeElement.offsetWidth * 0.072) + 'px';
         }, 1);
     }
 }

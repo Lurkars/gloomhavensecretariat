@@ -1,9 +1,8 @@
-<div class="item-container" #container>
+<div class="item-container">
   @if (!!item) {
   <div class="card vertical reverse item"
     [ngClass]="{'flipped': flipped, 'random': item.random, 'fh': fhStyle, 'craft' : craft, 'bb': bb}"
-    [style.fontSize]="fontsize" card-reveal
-    [disabled]="!reveal" (change)="emitRevealed($event)">
+    [style.fontSize]="fontsize" card-reveal [disabled]="!reveal" (change)="emitRevealed($event)">
     @if (!item.actionsBack || item.actionsBack.length == 0) {
     <div class="card-back back">
       <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>

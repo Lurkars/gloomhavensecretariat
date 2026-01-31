@@ -1,4 +1,4 @@
-<footer class="{{settingsManager.settings.theme}}" [ngClass]="{'compact' : compact}" #footer>
+<footer class="{{settingsManager.settings.theme}}" [ngClass]="{'compact' : compact}">
   <div [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
     <div #nextButton tabclick [autoBlur]="true" (click)="next()" class="round-container" [ngClass]="{'disabled' : disabled()}">
       <a><span [ghs-label]="(gameManager.game.state == GameState.next ?

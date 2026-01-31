@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
@@ -15,7 +15,6 @@ import { ItemData } from "src/app/game/model/data/ItemData";
 })
 export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
 
-    @ViewChild('container') containerElement!: ElementRef;
     @Input() item!: ItemData | undefined;
     @Input() identifier: Identifier | undefined | false;
     @Input() flipped: boolean = false;
@@ -44,7 +43,7 @@ export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
     gameManager: GameManager = gameManager;
     fontsize: string = "1em";
 
-    constructor(private ghsManager: GhsManager) { }
+    constructor(private elementRef: ElementRef, private ghsManager: GhsManager) { }
 
     ngOnInit(): void {
         if (!this.item && this.identifier) {
@@ -90,7 +89,7 @@ export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
 
         this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
             next: () => {
-                this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';
+                this.fontsize = (this.elementRef.nativeElement.offsetWidth * 0.072) + 'px';
                 if (this.item) {
                     this.usable = gameManager.itemManager.itemUsable(this.item);
                 }
@@ -108,7 +107,7 @@ export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         setTimeout(() => {
-            this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';
+            this.fontsize = (this.elementRef.nativeElement.offsetWidth * 0.072) + 'px';
         }, 1);
     }
 
