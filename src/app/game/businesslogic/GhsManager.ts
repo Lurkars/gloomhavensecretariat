@@ -1,16 +1,16 @@
-import { Injectable, OnInit } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { gameManager, GameManager } from "./GameManager";
 import { settingsManager, SettingsManager } from "./SettingsManager";
 
 @Injectable({
     providedIn: 'root',
 })
-export class GhsManager implements OnInit {
+export class GhsManager {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
 
-    ngOnInit(): void {
+    constructor() {
         this.onUiChange().subscribe({
             next: () => {
                 gameManager.checkEntitiesKilled();
