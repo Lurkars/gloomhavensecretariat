@@ -77,8 +77,8 @@ export class CharacterItemComponent {
             const equipped = this.equipped();
             if (equipped && (gameManager.itemManager.itemUsable(this.item) || force)) {
                 equipped.tags = equipped.tags || [];
-                gameManager.stateManager.before((equipped.tags.indexOf(flag) == -1 ? 'characterItemApply.' : 'characterItemUnapply.') + flag, gameManager.characterManager.characterName(this.character), this.item.id, this.item.edition, this.item.name)
-                if (equipped.tags.indexOf(flag) == -1) {
+                gameManager.stateManager.before((!equipped.tags.includes(flag) ? 'characterItemApply.' : 'characterItemUnapply.') + flag, gameManager.characterManager.characterName(this.character), this.item.id, this.item.edition, this.item.name)
+                if (!equipped.tags.includes(flag)) {
                     if (!force && gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1507, 'fh') && flag == ItemFlags.spent) {
                         equipped.tags.push(ItemFlags.consumed);
                     } else {
@@ -91,7 +91,7 @@ export class CharacterItemComponent {
                     }
                 }
 
-                if ((flag == ItemFlags.consumed || flag == ItemFlags.spent) && equipped.tags.indexOf(flag) != -1 && settingsManager.settings.characterItemsApply) {
+                if ((flag == ItemFlags.consumed || flag == ItemFlags.spent) && equipped.tags.includes(flag) && settingsManager.settings.characterItemsApply) {
                     gameManager.itemManager.applyItemEffects(this.character, this.item, true);
                 }
                 gameManager.stateManager.after();

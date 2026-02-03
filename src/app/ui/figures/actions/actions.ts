@@ -74,7 +74,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
       let eliteStat = this.monster.boss || this.monster.bb ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
 
       if (stat.actions) {
-        stat.actions.filter((statAction) => this.additionActionTypes.indexOf(statAction.type) != -1).forEach((statAction) => {
+        stat.actions.filter((statAction) => this.additionActionTypes.includes(statAction.type)).forEach((statAction) => {
           if (!eliteStat || eliteStat.actions && eliteStat.actions.some((eliteAction) => JSON.stringify(statAction) == JSON.stringify(eliteAction))) {
             this.additionalActions.push(JSON.parse(JSON.stringify(statAction)));
           } else if (eliteStat && (!eliteStat.actions || !eliteStat.actions.some((eliteAction) => JSON.stringify(statAction) == JSON.stringify(eliteAction)))) {
@@ -84,7 +84,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
       }
 
       if (eliteStat) {
-        eliteStat.actions.filter((eliteAction) => this.additionActionTypes.indexOf(eliteAction.type) != -1).forEach((eliteAction) => {
+        eliteStat.actions.filter((eliteAction) => this.additionActionTypes.includes(eliteAction.type)).forEach((eliteAction) => {
           if (!stat.actions || !stat.actions.some((statAction) => JSON.stringify(eliteAction) == JSON.stringify(statAction))) {
             this.additionalActions.push(new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [JSON.parse(JSON.stringify(eliteAction))]));
           }
@@ -138,7 +138,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
       return false;
     }
 
-    if (action.type == ActionType.concatenation && action.subActions.every((subAction) => [ActionType.card, ActionType.concatenationSpacer].indexOf(subAction.type) != -1)) {
+    if (action.type == ActionType.concatenation && action.subActions.every((subAction) => [ActionType.card, ActionType.concatenationSpacer].includes(subAction.type))) {
       return false;
     }
 

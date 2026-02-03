@@ -66,7 +66,7 @@ export class BuildingsManager {
       return section;
     }
 
-    const conclusions = gameManager.sectionData(section.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section.index) != -1));
+    const conclusions = gameManager.sectionData(section.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section.index)));
 
     if (conclusions.length == 0) {
       return undefined;

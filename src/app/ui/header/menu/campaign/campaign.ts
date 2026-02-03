@@ -57,8 +57,8 @@ export class CampaignMenuComponent implements OnInit {
             return 0;
         });
 
-        this.conditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.hidden) == -1 && condition.types.indexOf(ConditionType.special) == -1);
-        this.amConditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.amDeck) != -1);
+        this.conditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => !condition.types.includes(ConditionType.hidden) && !condition.types.includes(ConditionType.special));
+        this.amConditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.includes(ConditionType.amDeck));
         this.editionConditions = gameManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
         this.worldMap = false;
         const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.game.edition);
@@ -94,9 +94,9 @@ export class CampaignMenuComponent implements OnInit {
     }
 
     toggleCondition(condition: ConditionName) {
-        if (this.editionConditions.indexOf(condition) == -1) {
-            gameManager.stateManager.before(gameManager.game.conditions.indexOf(condition) == -1 ? 'addGameCondition' : 'removeGameCondition', condition);
-            if (gameManager.game.conditions.indexOf(condition) == -1) {
+        if (!this.editionConditions.includes(condition)) {
+            gameManager.stateManager.before(!gameManager.game.conditions.includes(condition) ? 'addGameCondition' : 'removeGameCondition', condition);
+            if (!gameManager.game.conditions.includes(condition)) {
                 gameManager.game.conditions.push(condition);
             } else {
                 gameManager.game.conditions = gameManager.game.conditions.filter((conditionName) => condition != conditionName);

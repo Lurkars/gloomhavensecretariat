@@ -120,11 +120,11 @@
           @for (condition of applyConditionsExcludes | trackUUID; track condition._trackUUID; let i = $index) {
           <div class="hint-container">
             <div tabclick class="condition"
-              [ngClass]="{'immunity': settingsManager.settings.applyConditionsExcludes.indexOf(condition.name) != -1}"
+              [ngClass]="{'immunity': settingsManager.settings.applyConditionsExcludes.includes(condition.name)}"
               (click)="toggleApplyConditionsExclude(condition.name)">
               <img
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-              @if (condition.types.indexOf(ConditionType.value) != -1) {
+              @if (condition.types.includes(ConditionType.value)) {
               <span class="value">X</span>
               }
             </div>
@@ -150,11 +150,11 @@
           @for (condition of activeApplyConditionsExcludes | trackUUID; track condition._trackUUID; let i = $index) {
           <div class="hint-container">
             <div tabclick class="condition"
-              [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1, 'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}"
+              [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsExcludes.includes(condition.name), 'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}"
               (click)="toggleActiveApplyConditionsExclude(condition.name)">
               <img
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-              @if (condition.types.indexOf(ConditionType.value) != -1) {
+              @if (condition.types.includes(ConditionType.value)) {
               <span class="value">X</span>
               }
             </div>
@@ -182,14 +182,14 @@
         </div>
         <div class="condition-list">
           @for (condition of activeApplyConditionsAuto | trackUUID; track condition._trackUUID; let i = $index) {
-          @if (settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) == -1) {
+          @if (!settingsManager.settings.activeApplyConditionsExcludes.includes(condition.name)) {
           <div class="hint-container">
             <div tabclick class="condition"
-              [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsAuto.indexOf(condition.name) == -1 || settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1, 'disabled': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1}"
+              [ngClass]="{'immunity': !settingsManager.settings.activeApplyConditionsAuto.includes(condition.name) || settingsManager.settings.activeApplyConditionsExcludes.includes(condition.name), 'disabled': settingsManager.settings.activeApplyConditionsExcludes.includes(condition.name)}"
               (click)="toggleActiveApplyConditionsAuto(condition.name)">
               <img
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-              @if (condition.types.indexOf(ConditionType.value) != -1) {
+              @if (condition.types.includes(ConditionType.value)) {
               <span class="value">X</span>
               }
             </div>

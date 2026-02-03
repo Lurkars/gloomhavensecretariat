@@ -28,7 +28,7 @@ export class ScenarioRulesComponent {
             return [];
         }
 
-        return rule.randomDungeon.monsterCards.filter((cardId) => !gameManager.game.scenario || !gameManager.game.scenario.additionalSections || gameManager.game.scenario.additionalSections.indexOf(cardId) == -1).map((cardId) => {
+        return rule.randomDungeon.monsterCards.filter((cardId) => !gameManager.game.scenario || !gameManager.game.scenario.additionalSections || !gameManager.game.scenario.additionalSections.includes(cardId)).map((cardId) => {
             if (gameManager.game.scenario) {
                 const section = gameManager.sectionData(gameManager.game.scenario.edition, true).find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomMonsterCard');
                 if (section) {
@@ -45,7 +45,7 @@ export class ScenarioRulesComponent {
             return [];
         }
 
-        return rule.randomDungeon.dungeonCards.filter((cardId) => !gameManager.game.scenario || !gameManager.game.scenario.additionalSections || gameManager.game.scenario.additionalSections.indexOf(cardId) == -1).map((cardId) => {
+        return rule.randomDungeon.dungeonCards.filter((cardId) => !gameManager.game.scenario || !gameManager.game.scenario.additionalSections || !gameManager.game.scenario.additionalSections.includes(cardId)).map((cardId) => {
             if (gameManager.game.scenario) {
                 const section = gameManager.sectionData(gameManager.game.scenario.edition, true).find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomDungeonCard');
                 if (section) {
@@ -68,7 +68,7 @@ export class ScenarioRulesComponent {
             if (scenario) {
                 const rule = gameManager.game.scenarioRules[index].rule;
                 if (rule && rule.sections) {
-                    return gameManager.sectionData(scenario.edition).filter((sectionData) => !gameManager.game.sections.find((active) => active.edition == sectionData.edition && active.group == scenario.group && active.index == sectionData.index) && sectionData.group == scenario.group && rule.sections.indexOf(sectionData.index) != -1);
+                    return gameManager.sectionData(scenario.edition).filter((sectionData) => !gameManager.game.sections.find((active) => active.edition == sectionData.edition && active.group == scenario.group && active.index == sectionData.index) && sectionData.group == scenario.group && rule.sections.includes(sectionData.index));
                 }
             }
         }
@@ -84,7 +84,7 @@ export class ScenarioRulesComponent {
                 if (rule && rule.rooms) {
                     rule.rooms.forEach((roomNumber) => {
                         const roomData = scenario.rooms.find((roomData) => roomData.roomNumber == roomNumber);
-                        if (roomData && gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomNumber) == -1) {
+                        if (roomData && gameManager.game.scenario && !gameManager.game.scenario.revealedRooms.includes(roomNumber)) {
                             rooms.push(roomData);
                         }
                     })
@@ -96,7 +96,7 @@ export class ScenarioRulesComponent {
 
     figureRules(rule: ScenarioRule): ScenarioFigureRule[] {
         return rule.figures && rule.figures.filter((figureRule) => {
-            if (HiddenScenarioFigureRuleTypes.indexOf(figureRule.type) != -1) {
+            if (HiddenScenarioFigureRuleTypes.includes(figureRule.type)) {
                 return false;
             }
 
@@ -152,7 +152,7 @@ export class ScenarioRulesComponent {
     }
 
     apply(rule: ScenarioRule) {
-        return gameManager.scenarioRulesManager.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 || rule.finish || settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0 || rule.sections && rule.sections.length > 0 || rule.randomDungeon || rule.figures && rule.figures.length > 0 && rule.figures.some((figureRule) => HiddenScenarioFigureRuleTypes.indexOf(figureRule.type) == -1) || rule.statEffects && rule.statEffects.length;
+        return gameManager.scenarioRulesManager.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 || rule.finish || settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0 || rule.sections && rule.sections.length > 0 || rule.randomDungeon || rule.figures && rule.figures.length > 0 && rule.figures.some((figureRule) => !HiddenScenarioFigureRuleTypes.includes(figureRule.type)) || rule.statEffects && rule.statEffects.length;
     }
 
     applyRule(element: HTMLElement, index: number) {
@@ -188,7 +188,7 @@ export class ScenarioRulesComponent {
                         })
                     }
 
-                    if (rule.finish && ["won", "lost"].indexOf(rule.finish) != -1) {
+                    if (rule.finish && ["won", "lost"].includes(rule.finish)) {
                         this.dialog.open(ScenarioSummaryComponent, {
                             panelClass: ['dialog'],
                             data: { scenario: scenario, success: rule.finish == "won" }

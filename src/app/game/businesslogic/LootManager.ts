@@ -86,7 +86,7 @@ export class LootManager {
     const value = this.getValue(loot);
     if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {
       character.loot += value;
-    } else if (appliableLootTypes.indexOf(loot.type) != -1) {
+    } else if (appliableLootTypes.includes(loot.type)) {
       const current = character.progress.loot[loot.type] || 0;
       if (current + value >= 0) {
         character.progress.loot[loot.type] = current + value;
@@ -280,7 +280,7 @@ export class LootManager {
         if (settingsManager.settings.drawRandomItem) {
           let from = -1;
           let to = -1;
-          if (typeof reward.value === 'string' && reward.value.indexOf('-') != -1) {
+          if (typeof reward.value === 'string' && reward.value.includes('-')) {
             from = + reward.value.split('-')[0];
             to = + reward.value.split('-')[1];
           }
@@ -357,7 +357,7 @@ export class LootManager {
       } else if (count > 0) {
         const loot: Loot = availableTypes[0];
         deck.cards.push(loot);
-        if (this.game.lootDeckFixed.indexOf(loot.type) == -1 && (type != LootType.special2 || !this.game.party.conclusions.find((value) => value.edition == 'fh' && value.index == '128.5')) && (type != LootType.special1 || !this.game.party.conclusions.find((value) => value.edition == 'fh' && value.index == '133.4'))) {
+        if (!this.game.lootDeckFixed.includes(loot.type) && (type != LootType.special2 || !this.game.party.conclusions.find((value) => value.edition == 'fh' && value.index == '128.5')) && (type != LootType.special1 || !this.game.party.conclusions.find((value) => value.edition == 'fh' && value.index == '133.4'))) {
           this.game.lootDeckFixed.push(loot.type);
         }
       } else {

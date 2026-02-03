@@ -61,12 +61,12 @@
 
     <div class="enhancement-types">
       @if (enhancementType && [EnhancementType.square, EnhancementType.circle, EnhancementType.diamond,
-      EnhancementType.diamond_plus, EnhancementType.any].indexOf(enhancementType) != -1) {
+      EnhancementType.diamond_plus, EnhancementType.any].includes(enhancementType)) {
       <div class="plus1" (click)="setEnhancementAction('plus1')" [ngClass]="{'active': enhancementAction == 'plus1'}">+1
       </div>
       }
       @if (enhancementType && [EnhancementType.circle, EnhancementType.diamond, EnhancementType.diamond_plus,
-      EnhancementType.any].indexOf(enhancementType) != -1) {
+      EnhancementType.any].includes(enhancementType)) {
       <div class="elements">
         @for (element of Elements; track element) {
         <div class="element" (click)="setEnhancementAction(element)"
@@ -76,7 +76,7 @@
         }
       </div>
       }
-      @if (enhancementType && [EnhancementType.diamond, EnhancementType.any].indexOf(enhancementType) != -1) {
+      @if (enhancementType && [EnhancementType.diamond, EnhancementType.any].includes(enhancementType)) {
       <div class="conditions">
         @for (condition of gameManager.enhancementsManager.diamondConditions; track condition) {
         <div class="condition" (click)="setEnhancementAction(condition)"
@@ -86,7 +86,7 @@
         }
       </div>
       }
-      @if (enhancementType && [EnhancementType.diamond_plus, EnhancementType.any].indexOf(enhancementType) != -1) {
+      @if (enhancementType && [EnhancementType.diamond_plus, EnhancementType.any].includes(enhancementType)) {
       <div class="conditions">
         @for (condition of gameManager.enhancementsManager.diamondPlusConditions; track condition) {
         <div class="condition" (click)="setEnhancementAction(condition)"
@@ -101,7 +101,7 @@
         [ngClass]="{'active': enhancementAction == ActionType.jump}" [ghs-label]="'%game.actionIcon.jump%'">
       </div>
       }
-      @if (enhancementType && [EnhancementType.any].indexOf(enhancementType) != -1) {
+      @if (enhancementType && [EnhancementType.any].includes(enhancementType)) {
       <div class="hex" (click)="setEnhancementAction('hex')" [ngClass]="{'active': enhancementAction == 'hex'}">
         <img src="./assets/images/action/hex/target.svg" />
       </div>

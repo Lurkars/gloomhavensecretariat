@@ -202,7 +202,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     applyLoot(character: Character, loot: Loot, index: number) {
-        if (character.lootCards.indexOf(index) == -1) {
+        if (!character.lootCards.includes(index)) {
             gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", gameManager.characterManager.characterName(character), "game.loot." + loot.type, this.lootManager.getValue(loot));
             const result = gameManager.lootManager.applyLoot(loot, character, index);
             gameManager.stateManager.after();
@@ -217,7 +217,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                             gameManager.stateManager.before("lootRandomItem", item.id, item.edition, item.name, gameManager.characterManager.characterName(character));
                             let itemIdentifier: Identifier = new Identifier('' + item.id, item.edition);
                             gameManager.itemManager.addItemCount(item);
-                            if (character.lootCards.indexOf(index) == -1) {
+                            if (!character.lootCards.includes(index)) {
                                 character.lootCards.push(index);
                                 character.lootCards.sort((a, b) => a - b);
                             }
@@ -259,7 +259,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                                             gameManager.stateManager.before("lootRandomItem", item.id, item.edition, item.name, gameManager.characterManager.characterName(activeCharacter));
                                             let itemIdentifier: Identifier = new Identifier('' + item.id, item.edition);
                                             gameManager.itemManager.addItemCount(item);
-                                            if (activeCharacter.lootCards.indexOf(this.current) == -1) {
+                                            if (!activeCharacter.lootCards.includes(this.current)) {
                                                 activeCharacter.lootCards.push(this.current);
                                                 activeCharacter.lootCards.sort((a, b) => a - b);
                                             }
@@ -322,7 +322,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
 
     getCharacter(index: number): string {
         if (this.characters) {
-            const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.lootCards && figure.lootCards.indexOf(index) != -1);
+            const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.lootCards && figure.lootCards.includes(index));
             if (character) {
                 return character.name;
             }

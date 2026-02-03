@@ -34,7 +34,7 @@ export class CharacterInitiativeDialogComponent {
         }
         dialogRef.closed.subscribe({
             next: () => {
-                if (this.value.indexOf("_") != -1 && !isNaN(+this.value.replace('_', ''))) {
+                if (this.value.includes("_") && !isNaN(+this.value.replace('_', ''))) {
                     this.updateInitiative(+this.value.replace('_', ''));
                 }
             }
@@ -56,7 +56,7 @@ export class CharacterInitiativeDialogComponent {
 
     pickNumber(number: number) {
         this.value = (this.value + "" + number).substring(1, 3);
-        if (this.value.indexOf("_") == -1) {
+        if (!this.value.includes("_")) {
             this.updateInitiative(+this.value);
             ghsDialogClosingHelper(this.dialogRef);
         }
@@ -67,7 +67,7 @@ export class CharacterInitiativeDialogComponent {
             gameManager.stateManager.before("setInitiative", (this.character ? gameManager.characterManager.characterName(this.character) : "data.objective." + this.figure.name), "" + (initiative > 0 && initiative < 100 ? initiative : 0));
             if (initiative > 0 && initiative < 100) {
                 this.setInitiative(initiative);
-                if (this.character && initiative != 99 && (this.character.name != 'prism' || this.character.tags.indexOf('long_rest') == -1)) {
+                if (this.character && initiative != 99 && (this.character.name != 'prism' || !this.character.tags.includes('long_rest'))) {
                     this.character.longRest = false;
                 }
             } else if (gameManager.game.state == GameState.draw) {
@@ -97,7 +97,7 @@ export class CharacterInitiativeDialogComponent {
                 gameManager.stateManager.after();
             } else {
                 gameManager.stateManager.before("characterLongRest", gameManager.characterManager.characterName(this.character));
-                if (this.character.initiative == 99 || this.character.name == 'prism' && this.character.tags.indexOf('long_rest') != -1) {
+                if (this.character.initiative == 99 || this.character.name == 'prism' && this.character.tags.includes('long_rest')) {
                     this.character.longRest = true;
                 } else {
                     this.setInitiative(99);

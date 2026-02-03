@@ -118,7 +118,7 @@ export class GardenComponent implements OnInit, OnDestroy {
     }
 
     plantHerb(slot: number, force: boolean = false) {
-        if (this.activeHerb && (!this.disabled && (this.level > 2 || !this.garden.flipped) && this.currentSource != -1 && this.currentResources[this.currentSource] || force) && slot >= 0 && slot < this.slots && this.herbs.indexOf(this.activeHerb) != -1 && this.garden.plots[slot] != this.activeHerb) {
+        if (this.activeHerb && (!this.disabled && (this.level > 2 || !this.garden.flipped) && this.currentSource != -1 && this.currentResources[this.currentSource] || force) && slot >= 0 && slot < this.slots && this.herbs.includes(this.activeHerb) && this.garden.plots[slot] != this.activeHerb) {
             gameManager.stateManager.before('buildings.garden.plant', this.activeHerb, slot);
             this.garden.plots = this.garden.plots || [];
             this.garden.plots[slot] = this.activeHerb;

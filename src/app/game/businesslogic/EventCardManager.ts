@@ -21,15 +21,15 @@ export class EventCardManager {
   }
 
   getEventTypesForEdition(edition: string, extension: boolean = true): string[] {
-    return gameManager.editionData.filter((editionData) => editionData.edition == edition || extension && gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1).flatMap((editionData) => editionData.events).flatMap((event) => event.type).filter((type, index, self) => index == self.indexOf(type));
+    return gameManager.editionData.filter((editionData) => editionData.edition == edition || extension && gameManager.editionExtensions(edition).includes(editionData.edition)).flatMap((editionData) => editionData.events).flatMap((event) => event.type).filter((type, index, self) => index == self.indexOf(type));
   }
 
   getEventCardsForEdition(edition: string, type: string, extension: boolean = true): EventCard[] {
-    return gameManager.editionData.filter((editionData) => editionData.edition == edition || extension && gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1).flatMap((editionData) => editionData.events).filter((eventCard) => eventCard.type == type);
+    return gameManager.editionData.filter((editionData) => editionData.edition == edition || extension && gameManager.editionExtensions(edition).includes(editionData.edition)).flatMap((editionData) => editionData.events).filter((eventCard) => eventCard.type == type);
   }
 
   getEventCardForEdition(edition: string, type: string, cardId: string): EventCard | undefined {
-    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1).flatMap((editionData) => editionData.events).find((eventCard) => eventCard.type == type && eventCard.cardId == cardId);
+    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).includes(editionData.edition)).flatMap((editionData) => editionData.events).find((eventCard) => eventCard.type == type && eventCard.cardId == cardId);
   }
 
   buildPartyDeck(edition: string, type: string) {
@@ -53,9 +53,9 @@ export class EventCardManager {
 
         if (this.game.party.eventDecks && Object.keys(this.game.party.eventDecks).length) {
 
-          this.game.party.scenarios.filter((s) => s.edition == edition || gameManager.editionExtensions(edition).indexOf(s.edition) != -1).map((s) => gameManager.scenarioManager.getScenario(s.index, s.edition, s.group)).forEach((scenarioData) => this.buildPartyDeckMigrationScenarioHelper(scenarioData));
+          this.game.party.scenarios.filter((s) => s.edition == edition || gameManager.editionExtensions(edition).includes(s.edition)).map((s) => gameManager.scenarioManager.getScenario(s.index, s.edition, s.group)).forEach((scenarioData) => this.buildPartyDeckMigrationScenarioHelper(scenarioData));
 
-          this.game.party.conclusions.filter((s) => s.edition == edition || gameManager.editionExtensions(edition).indexOf(s.edition) != -1).map((s) => gameManager.scenarioManager.getSection(s.index, s.edition, s.group, true)).forEach((scenarioData) => this.buildPartyDeckMigrationScenarioHelper(scenarioData));
+          this.game.party.conclusions.filter((s) => s.edition == edition || gameManager.editionExtensions(edition).includes(s.edition)).map((s) => gameManager.scenarioManager.getSection(s.index, s.edition, s.group, true)).forEach((scenarioData) => this.buildPartyDeckMigrationScenarioHelper(scenarioData));
 
           this.game.unlockedCharacters.map((unlock) => gameManager.getCharacterData(unlock.split(':')[1], unlock.split(':')[0])).forEach((characterData) => {
             if (characterData.unlockEvent) {
@@ -83,10 +83,10 @@ export class EventCardManager {
             }
           })
 
-          let treasures = gameManager.editionData.filter((editionData) => editionData.treasures && editionData.edition == edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1).flatMap((editionData) => editionData.treasures.map((treasure, i) => new TreasureData(treasure, i + 1 + editionData.treasureOffset || 0)));
+          let treasures = gameManager.editionData.filter((editionData) => editionData.treasures && editionData.edition == edition || gameManager.editionExtensions(edition).includes(editionData.edition)).flatMap((editionData) => editionData.treasures.map((treasure, i) => new TreasureData(treasure, i + 1 + editionData.treasureOffset || 0)));
 
           this.game.party.treasures.forEach((id) => {
-            if (id.edition == edition || gameManager.editionExtensions(edition).indexOf(id.edition) != -1) {
+            if (id.edition == edition || gameManager.editionExtensions(edition).includes(id.edition)) {
               const treasure = treasures.find((treasureData) => treasureData.index == +id.name);
               if (treasure && treasure.rewards) {
                 treasure.rewards.forEach((reward) => {
@@ -147,7 +147,7 @@ export class EventCardManager {
         this.game.party.eventDecks[type] = [];
       }
 
-      if (this.game.party.eventDecks[type].indexOf(cardId) == -1 && (!newOnly || !this.game.party.eventCards.find((e) => e.type == type && e.cardId == cardId && e.edition == edition))) {
+      if (!this.game.party.eventDecks[type].includes(cardId) && (!newOnly || !this.game.party.eventCards.find((e) => e.type == type && e.cardId == cardId && e.edition == edition))) {
         this.game.party.eventDecks[type].push(cardId);
         this.shuffleEvents(type);
       }
@@ -179,7 +179,7 @@ export class EventCardManager {
     let results: (EventCardEffect | EventCardCondition | EventCardAttack)[] = [];
     const option = eventCard.options[selected];
     let returnToDeck = false;
-    let removeFromDeck = ['fh', 'jotl'].indexOf(eventCard.edition) != -1; // default to remove from deck for JOTL and FH
+    let removeFromDeck = ['fh', 'jotl'].includes(eventCard.edition); // default to remove from deck for JOTL and FH
     if (option) {
       if (option.removeFromDeck) {
         removeFromDeck = true;
@@ -220,7 +220,7 @@ export class EventCardManager {
       }
     }
 
-    if (!returnToDeck && ['fh'].indexOf(eventCard.edition) != -1) {
+    if (!returnToDeck && ['fh'].includes(eventCard.edition)) {
       returnToDeck = eventCard.options.some((o) => !o.label && o.returnToDeck);
     }
 
@@ -248,7 +248,7 @@ export class EventCardManager {
     // apply effects
     if (option && option.outcomes) {
       option.outcomes.forEach((outcome, i) => {
-        if (!outcome.condition || subSelections && subSelections.indexOf(i) != -1) {
+        if (!outcome.condition || subSelections && subSelections.includes(i)) {
           if (outcome.condition) {
             const conditionResult = this.applyCondition(outcome.condition);
             if (conditionResult) {
@@ -266,7 +266,7 @@ export class EventCardManager {
   }
 
   applicableEffect(effect: EventCardEffect): boolean {
-    return EventCardApplyEffects.indexOf(effect.type) != -1;
+    return EventCardApplyEffects.includes(effect.type);
   }
 
   applyEffects(eventCard: EventCard, effects: (string | EventCardEffect)[], checks: number[], scenario: boolean): (EventCardEffect | EventCardCondition)[] {
@@ -284,7 +284,7 @@ export class EventCardManager {
             }
 
             if (typeof effect.condition !== 'string' && effect.condition.type == EventCardConditionType.character) {
-              characters = characters.filter((c) => (effect.condition as EventCardCondition).values.indexOf(c.name) != -1);
+              characters = characters.filter((c) => (effect.condition as EventCardCondition).values.includes(c.name));
             }
           }
 
@@ -396,7 +396,7 @@ export class EventCardManager {
                 break;
               case EventCardEffectType.eventsToTop: {
                 const deck = this.game.party.eventDecks[effect.values[0] as string];
-                const card = deck ? deck.find((cardId) => effect.values.indexOf(cardId) != -1) : undefined;
+                const card = deck ? deck.find((cardId) => effect.values.includes(cardId)) : undefined;
                 if (deck && card) {
                   const index = deck.indexOf(card);
                   deck.splice(index, 1);
@@ -684,9 +684,9 @@ export class EventCardManager {
       case EventCardConditionType.building:
         return condition.values && condition.values.every((value) => typeof value === 'string' && this.game.party.buildings && this.game.party.buildings.find((model) => model.level && model.name == value));
       case EventCardConditionType.campaignSticker:
-        return this.game.party.campaignStickers.indexOf(condition.values[0] as string) != -1;
+        return this.game.party.campaignStickers.includes(condition.values[0] as string);
       case EventCardConditionType.character:
-        return condition.values && characters.some((c) => condition.values.indexOf(c.name) != -1);
+        return condition.values && characters.some((c) => condition.values.includes(c.name));
       case EventCardConditionType.moraleGT:
         return condition.values && typeof condition.values[0] === 'number' && this.game.party.morale > condition.values[0];
       case EventCardConditionType.moraleLT:
@@ -709,9 +709,9 @@ export class EventCardManager {
         }
         return false;
       case EventCardConditionType.traits:
-        return condition.values && characters.some((c) => c.traits.some((trait) => condition.values.indexOf(trait) != -1) || condition.values.indexOf(c.characterClass as string) != -1);
+        return condition.values && characters.some((c) => c.traits.some((trait) => condition.values.includes(trait)) || condition.values.includes(c.characterClass as string));
       case EventCardConditionType.traitsAll:
-        return condition.values && condition.values.every((trait) => characters.some((c) => c.traits.indexOf(trait as string) == -1 || (c.characterClass as string) == (trait as string)));
+        return condition.values && condition.values.every((trait) => characters.some((c) => !c.traits.includes(trait as string) || (c.characterClass as string) == (trait as string)));
       case EventCardConditionType.payGold:
         return condition.values && characters.every((c) => typeof condition.values[0] === 'number' && c.progress.gold >= condition.values[0]);
       case EventCardConditionType.payCollectiveGold:

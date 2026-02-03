@@ -13,12 +13,12 @@ export class BattleGoalManager {
   }
 
   getBattleGoalEditions(): string[] {
-    return gameManager.editionData.filter((editionData) => settingsManager.settings.editions.indexOf(editionData.edition) != -1 && editionData.battleGoals && editionData.battleGoals.length > 0).map((editionData) => editionData.edition);
+    return gameManager.editionData.filter((editionData) => settingsManager.settings.editions.includes(editionData.edition) && editionData.battleGoals && editionData.battleGoals.length > 0).map((editionData) => editionData.edition);
   }
 
   getBattleGoals(filtered: boolean = true, aliases: boolean = false): BattleGoal[] {
     const edition = gameManager.game.edition;
-    return gameManager.editionData.filter((editionData) => settingsManager.settings.editions.indexOf(editionData.edition) != -1 && (gameManager.game.edition && gameManager.editionRules(editionData.edition) || gameManager.game.battleGoalEditions.indexOf(editionData.edition) != -1)).flatMap((editionData) => editionData.battleGoals.filter((battleGoal) => !filtered || !this.game.filteredBattleGoals || this.game.filteredBattleGoals.length == 0 || !this.game.filteredBattleGoals.find((identifier) => battleGoal.edition == identifier.edition && battleGoal.name == identifier.name))).filter((battleGoal, index, self) => aliases || !battleGoal.alias && (!edition || battleGoal.edition == edition) || !self.find((other) => battleGoal.alias && other.edition == battleGoal.alias.edition && other.name == battleGoal.alias.name && (!edition || battleGoal.edition != edition) || other.edition == edition && other.alias && battleGoal.edition == other.alias.edition && battleGoal.name == other.alias.name)).sort((a, b) => {
+    return gameManager.editionData.filter((editionData) => settingsManager.settings.editions.includes(editionData.edition) && (gameManager.game.edition && gameManager.editionRules(editionData.edition) || gameManager.game.battleGoalEditions.includes(editionData.edition))).flatMap((editionData) => editionData.battleGoals.filter((battleGoal) => !filtered || !this.game.filteredBattleGoals || this.game.filteredBattleGoals.length == 0 || !this.game.filteredBattleGoals.find((identifier) => battleGoal.edition == identifier.edition && battleGoal.name == identifier.name))).filter((battleGoal, index, self) => aliases || !battleGoal.alias && (!edition || battleGoal.edition == edition) || !self.find((other) => battleGoal.alias && other.edition == battleGoal.alias.edition && other.name == battleGoal.alias.name && (!edition || battleGoal.edition != edition) || other.edition == edition && other.alias && battleGoal.edition == other.alias.edition && battleGoal.name == other.alias.name)).sort((a, b) => {
       if (a.edition == b.edition) {
         return a.cardId < b.cardId ? -1 : 1;
       } else if (edition) {
@@ -37,7 +37,7 @@ export class BattleGoalManager {
   }
 
   getBattleGoalsForEdition(edition: string): BattleGoal[] {
-    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).indexOf(edition) != -1).flatMap((editionData) => editionData.battleGoals);
+    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).includes(edition)).flatMap((editionData) => editionData.battleGoals);
   }
 
   getBattleGoal(identifier: Identifier): BattleGoal | undefined {

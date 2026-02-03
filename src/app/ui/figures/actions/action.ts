@@ -243,7 +243,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
       return "";
     }
 
-    if (ActionTypesHelper.indexOf(this.action.type) != -1) {
+    if (ActionTypesHelper.includes(this.action.type)) {
       return this.action.value;
     }
 
@@ -255,7 +255,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
         case ActionType.attack:
           if (typeof stat.attack === "number") {
             statValue = stat.attack;
-          } else if (stat.attack.indexOf('X') != -1) {
+          } else if (stat.attack.includes('X')) {
             if (this.action.valueType == ActionValueType.plus) {
               return stat.attack + " +" + (settingsManager.settings.fhStyle ? '' : ' ') + this.action.value;
             } else if (this.action.valueType == ActionValueType.minus) {
@@ -347,7 +347,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
       return;
     }
     this.elementActions = [];
-    if (settingsManager.settings.fhStyle && [ActionType.element, ActionType.elementHalf, ...ActionTypesHelper].indexOf(this.action.type) == -1) {
+    if (settingsManager.settings.fhStyle && ![ActionType.element, ActionType.elementHalf, ...ActionTypesHelper].includes(this.action.type)) {
       this.action.subActions.forEach((action) => {
         if (action.type == ActionType.element || action.type == ActionType.elementHalf) {
           this.elementActions.push(action);
@@ -356,7 +356,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
       this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.element && action.type != ActionType.elementHalf);
     }
     this.fhExtraActions = [];
-    if (settingsManager.settings.fhStyle && [ActionType.boxFhSubActions, ActionType.extra].indexOf(this.action.type) == -1) {
+    if (settingsManager.settings.fhStyle && [ActionType.boxFhSubActions, !ActionType.extra].includes(this.action.type)) {
       this.action.subActions.forEach((action) => {
         if (action.type == ActionType.boxFhSubActions) {
           this.fhExtraActions.push(action);
@@ -379,7 +379,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
         let normalActions: Action | undefined = this.additionalSubActions.find((typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.normal);
         let eliteActions: Action | undefined = this.additionalSubActions.find((typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.elite);
 
-        if ((stat.range || eliteStat && eliteStat.range) && (!this.action.subActions.some((subAction) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).indexOf('active') != -1 || subAction.type == ActionType.specialTarget))) {
+        if ((stat.range || eliteStat && eliteStat.range) && (!this.action.subActions.some((subAction) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).includes('active') || subAction.type == ActionType.specialTarget))) {
           const newStatAction = new Action(ActionType.range, 0, ActionValueType.plus);
           newStatAction.small = true;
           if (stat.range && (eliteStat && eliteStat.range || !eliteStat)) {
@@ -572,7 +572,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   additionAttackSubAction(action: Action): boolean {
-    if ([ActionType.condition, ActionType.target, ActionType.pierce, ActionType.pull, ActionType.push, ActionType.swing, ActionType.area].indexOf(action.type) != -1) {
+    if ([ActionType.condition, ActionType.target, ActionType.pierce, ActionType.pull, ActionType.push, ActionType.swing, ActionType.area].includes(action.type)) {
       return true;
     }
     if (settingsManager.settings.calculateAdvantageStats && action.type == ActionType.custom && action.value == '%game.custom.advantage%') {
@@ -583,7 +583,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   subActionExists(additionalSubActions: Action[], subAction: Action, stackableCondition: boolean = true): boolean {
-    if (stackableCondition && subAction.type == ActionType.condition && (new Condition(subAction.value + '').types.indexOf(ConditionType.stackable) != -1)) {
+    if (stackableCondition && subAction.type == ActionType.condition && (new Condition(subAction.value + '').types.includes(ConditionType.stackable))) {
       return false;
     }
 
@@ -630,7 +630,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   isGhsSvg(type: ActionType) {
-    return ActionTypesIcons.indexOf(type) != -1;
+    return ActionTypesIcons.includes(type);
   }
 
   highlightAction(): boolean {

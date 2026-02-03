@@ -21,13 +21,13 @@ export function ghsShuffleArray(array: any[]): any[] {
 
 export function ghsHasSpoilers(items: Spoilable[], multiple: boolean = false): boolean {
   if (multiple) {
-    return items.filter((spoilable) => spoilable.spoiler && settingsManager.settings.spoilers.indexOf(spoilable.name) == -1).length > 1;
+    return items.filter((spoilable) => spoilable.spoiler && !settingsManager.settings.spoilers.includes(spoilable.name)).length > 1;
   }
-  return items.some((spoilable) => spoilable.spoiler && settingsManager.settings.spoilers.indexOf(spoilable.name) == -1);
+  return items.some((spoilable) => spoilable.spoiler && !settingsManager.settings.spoilers.includes(spoilable.name));
 }
 
 export function ghsIsSpoiled(spoilable: Spoilable): boolean {
-  return !spoilable.spoiler || settingsManager.settings.spoilers.indexOf('[ALL]') != -1 || settingsManager.settings.spoilers.indexOf(spoilable.name) != -1;
+  return !spoilable.spoiler || settingsManager.settings.spoilers.includes('[ALL]') || settingsManager.settings.spoilers.includes(spoilable.name);
 }
 
 export function ghsNotSpoiled(items: Spoilable[]): Spoilable[] {

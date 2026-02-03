@@ -105,7 +105,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
   }
 
   getSummonLabel(monsterSpawnData: MonsterSpawnData): string {
-    const health = typeof monsterSpawnData.monster.health === 'string' && monsterSpawnData.monster.health.indexOf('H') != -1 ? monsterSpawnData.monster.health : (monsterSpawnData.monster.health ? EntityValueFunction(monsterSpawnData.monster.health) : '');
+    const health = typeof monsterSpawnData.monster.health === 'string' && monsterSpawnData.monster.health.includes('H') ? monsterSpawnData.monster.health : (monsterSpawnData.monster.health ? EntityValueFunction(monsterSpawnData.monster.health) : '');
 
     if (monsterSpawnData.monster.player2 == monsterSpawnData.monster.player3 && monsterSpawnData.monster.player3 == monsterSpawnData.monster.player4) {
       return settingsManager.getLabel('game.summon.playerAll', ['' + monsterSpawnData.monster.type]) + (health ? ('(' + health + ' ' + settingsManager.getLabel('game.hp') + ')') : '');

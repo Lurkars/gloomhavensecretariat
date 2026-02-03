@@ -35,7 +35,7 @@ export class AttackModifierToolComponent implements OnInit {
         let update = false;
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
-          if (this.edition && gameManager.editions(true).indexOf(this.edition) == -1) {
+          if (this.edition && gameManager.editions(!true).includes(this.edition)) {
             this.edition == undefined;
           }
           update = true;

@@ -89,8 +89,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   update(): void {
     this.characterTitle = gameManager.characterManager.characterName(this.character);
-    this.summons = this.character.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') == -1);
-    this.skullSpirits = this.character.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') != -1);
+    this.summons = this.character.summons.filter((summon) => !summon.tags.includes('cs-skull-spirit'));
+    this.skullSpirits = this.character.summons.filter((summon) => summon.tags.includes('cs-skull-spirit'));
     this.summonCount = this.summons.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
     this.skullSpiritCount = this.skullSpirits.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
     this.activeConditions = gameManager.entityManager.activeConditions(this.character);
@@ -110,7 +110,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
     this.short = (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern';
     this.shortMenu = false;
     this.bb = gameManager.bbRules() || this.character.bb;
-    this.specialActions = this.character.specialActions.filter((specialAction) => this.character.tags.indexOf(specialAction.name) != -1);
+    this.specialActions = this.character.specialActions.filter((specialAction) => this.character.tags.includes(specialAction.name));
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
@@ -151,7 +151,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
     this.character.initiative = value;
     this.character.initiativeVisible = true;
-    if (this.character.name != 'prism' || this.character.tags.indexOf('long_rest') == -1) {
+    if (this.character.name != 'prism' || !this.character.tags.includes('long_rest')) {
       this.character.longRest = false;
     }
     if (value == 99) {
@@ -176,7 +176,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.character.initiative = value;
       if (value == 99) {
         this.character.longRest = true;
-      } else if (!value || this.character.name != 'prism' || this.character.tags.indexOf('long_rest') == -1) {
+      } else if (!value || this.character.name != 'prism' || !this.character.tags.includes('long_rest')) {
         this.character.longRest = false;
       }
       this.initiative = -1;
@@ -194,7 +194,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
     if (!this.character.absent) {
       if (gameManager.game.state == GameState.next && !this.character.exhausted && (!settingsManager.settings.initiativeRequired || this.character.initiative > 0)) {
         const activeSummon = this.character.summons.find((summon) => summon.active);
-        const csSprits = this.character.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') != -1);
+        const csSprits = this.character.summons.filter((summon) => summon.tags.includes('cs-skull-spirit'));
         if (settingsManager.settings.activeSummons && !activeSummon && this.character.active && csSprits.length && !csSprits.find((summon) => summon.active)) {
           gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(this.character), "data.summon." + csSprits[0].name);
           csSprits.forEach((spirit) => spirit.tags.push('cs-skull-spirit-turn'));
@@ -214,7 +214,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   nextIdentity(event: any): void {
     if (settingsManager.settings.characterIdentities && this.character.identities && this.character.identities.length > 1) {
 
-      let timeTokens = this.character.name == 'blinkblade' && this.character.tags.find((tag) => tag === 'time_tokens') && this.character.primaryToken == 0;
+      let timeTokens = this.character.name == 'blinkblade' && this.character.tags.includes('time_tokens') && this.character.primaryToken == 0;
 
       if ((gameManager.game.state == GameState.next || gameManager.game.state == GameState.draw && this.character.identity == 0 && this.character.tokenValues[0] == 0) && timeTokens) {
         return;

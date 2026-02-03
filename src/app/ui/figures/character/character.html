@@ -192,18 +192,18 @@
                 <img
                   [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
                   [style.z-index]="index * 10 + entityCondition.value" />
-                @if (entityCondition.types.indexOf(ConditionType.stack) != -1) {
+                @if (entityCondition.types.includes(ConditionType.stack)) {
                 @for (i of [] | ghsRange:(entityCondition.value - 1); track i) {
                 <img class="stack" [style.z-index]="index * 10 + entityCondition.value - i - 1"
                   [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
                 }
                 }
-                @if (entityCondition.types.indexOf(ConditionType.value) != -1 &&
-                entityCondition.types.indexOf(ConditionType.stack) == -1) {
+                @if (entityCondition.types.includes(ConditionType.value) &&
+                !entityCondition.types.includes(ConditionType.stack)) {
                 <span class="value"
                   [style.z-index]="index * 10 + entityCondition.value +1">{{entityCondition.value}}</span>
                 }
-                @if (character.immunities.indexOf(entityCondition.name) != -1) {
+                @if (character.immunities.includes(entityCondition.name)) {
                 <span class="condition immunity condition-overlay"
                   [style.z-index]="index * 10 + entityCondition.value + 2"></span>
                 }

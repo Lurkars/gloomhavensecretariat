@@ -260,7 +260,7 @@ export class OutpostAttackComponent {
             this.buildings.reverse();
         }
 
-        this.disabledBuildings = this.allBuildings.filter((building) => this.buildings.indexOf(building) == -1);
+        this.disabledBuildings = this.allBuildings.filter((building) => !this.buildings.includes(building));
     }
 
     randomize() {

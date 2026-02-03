@@ -358,7 +358,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   setFactionReputation(faction: string, value: number, force: boolean = false) {
-    if (!force && value > 12 && this.factionUnlocks.indexOf(faction) == -1) {
+    if (!force && value > 12 && !this.factionUnlocks.includes(faction)) {
       return;
     }
 
@@ -728,7 +728,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     const editions = this.partyEdition && [this.partyEdition] || gameManager.editions();
     this.scenarioEditions = [];
     editions.forEach((edition) => {
-      let scenarioData = gameManager.scenarioManager.scenarioData(edition).filter((scenarioData) => !scenarioData.hideIndex && (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.edition + ':' + scenarioData.solo) != -1)).map((scenarioData) => new ScenarioCache(scenarioData, this.countFinished(scenarioData) > 0, gameManager.scenarioManager.isBlocked(scenarioData), gameManager.scenarioManager.isLocked(scenarioData)));
+      let scenarioData = gameManager.scenarioManager.scenarioData(edition).filter((scenarioData) => !scenarioData.hideIndex && (!scenarioData.spoiler || settingsManager.settings.spoilers.includes(scenarioData.name) || scenarioData.solo && gameManager.game.unlockedCharacters.includes(scenarioData.edition + ':' + scenarioData.solo))).map((scenarioData) => new ScenarioCache(scenarioData, this.countFinished(scenarioData) > 0, gameManager.scenarioManager.isBlocked(scenarioData), gameManager.scenarioManager.isLocked(scenarioData)));
       if (scenarioData.length > 0) {
         this.scenarios[edition] = scenarioData.sort((a, b) => {
           if (a.group && !b.group) {
@@ -902,17 +902,17 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   updateAchievements(editionData: EditionData) {
     if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].partyAchievements) {
-      this.partyAchievements.push(...Object.keys(editionData.label[settingsManager.settings.locale].partyAchievements).map((achievement) => new AutocompleteItem(editionData.label[settingsManager.settings.locale].partyAchievements[achievement], achievement, this.party.achievementsList.indexOf(achievement) != -1)));
+      this.partyAchievements.push(...Object.keys(editionData.label[settingsManager.settings.locale].partyAchievements).map((achievement) => new AutocompleteItem(editionData.label[settingsManager.settings.locale].partyAchievements[achievement], achievement, this.party.achievementsList.includes(achievement))));
     } else if (editionData.label && editionData.label['en'] && editionData.label['en'].partyAchievements) {
-      this.partyAchievements.push(...Object.keys(editionData.label['en'].partyAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].partyAchievements[achievement], achievement, this.party.achievementsList.indexOf(achievement) != -1)));
+      this.partyAchievements.push(...Object.keys(editionData.label['en'].partyAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].partyAchievements[achievement], achievement, this.party.achievementsList.includes(achievement))));
     }
 
     if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].globalAchievements) {
-      this.globalAchievements.push(...Object.keys(editionData.label[settingsManager.settings.locale].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label[settingsManager.settings.locale].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)));
+      this.globalAchievements.push(...Object.keys(editionData.label[settingsManager.settings.locale].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label[settingsManager.settings.locale].globalAchievements[achievement], achievement, this.party.globalAchievementsList.includes(achievement))));
     }
 
     if (editionData.label && editionData.label['en'] && editionData.label['en'].globalAchievements) {
-      Object.keys(editionData.label['en'].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)).forEach((item) => {
+      Object.keys(editionData.label['en'].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].globalAchievements[achievement], achievement, this.party.globalAchievementsList.includes(achievement))).forEach((item) => {
         if (this.globalAchievements.every((other) => item.value != other.value)) {
           this.globalAchievements.push(item);
         }
@@ -922,7 +922,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (editionData.campaign && editionData.campaign.campaignStickers) {
       this.campaignStickers.push(...editionData.campaign.campaignStickers.map((sticker) => {
         sticker = sticker.split(':')[0];
-        return new AutocompleteItem(settingsManager.getLabel('data.campaignSticker.' + sticker), sticker, this.party.campaignStickers.indexOf(sticker) != -1);
+        return new AutocompleteItem(settingsManager.getLabel('data.campaignSticker.' + sticker), sticker, this.party.campaignStickers.includes(sticker));
       }));
     }
   }
@@ -1069,12 +1069,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   hasConclusions(section: string): boolean {
-    const conclusions = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1));
+    const conclusions = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section)));
     return conclusions.length > 0 && conclusions.every((conclusion) => !gameManager.game.party.conclusions.find((model) => model.edition == conclusion.edition && model.index == conclusion.index && model.group == conclusion.group));
   }
 
   openConclusions(section: string, week: number = -1) {
-    let conclusions: ScenarioData[] = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1) && gameManager.scenarioManager.getRequirements(sectionData).length == 0).map((conclusion) => {
+    let conclusions: ScenarioData[] = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section)) && gameManager.scenarioManager.getRequirements(sectionData).length == 0).map((conclusion) => {
       return conclusion;
     });
 
@@ -1166,12 +1166,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     let conclusions: string[] = [];
     for (let week = this.party.weeks; week < value; week++) {
       this.sectionsForWeekFixed(week).forEach((section) => {
-        if (this.hasConclusions(section) && conclusions.indexOf(section) == -1) {
+        if (this.hasConclusions(section) && !conclusions.includes(section)) {
           conclusions.push(section);
         }
       })
       this.sectionsForWeek(week).forEach((section) => {
-        if (this.hasConclusions(section) && conclusions.indexOf(section) == -1) {
+        if (this.hasConclusions(section) && !conclusions.includes(section)) {
           conclusions.push(section);
         }
       })
@@ -1377,7 +1377,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       if (campaign.campaignStickers) {
         const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker.startsWith(sticker.value));
         if (campaignSticker) {
-          total = campaignSticker.indexOf(':') != -1 ? +(campaignSticker.split(':')[1]) : 1;
+          total = campaignSticker.includes(':') ? +(campaignSticker.split(':')[1]) : 1;
         }
       }
 
@@ -1410,7 +1410,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (campaign.campaignStickers) {
       const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker == sticker || campaignSticker.startsWith(sticker));
       if (campaignSticker) {
-        if (campaignSticker.indexOf(':') != -1) {
+        if (campaignSticker.includes(':')) {
           total = +(campaignSticker.split(':')[1]);
         }
         else {

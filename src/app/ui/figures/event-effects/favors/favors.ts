@@ -67,7 +67,7 @@ export class FavorsComponent implements OnInit {
   }
 
   addSpentPoints(points: number, force: boolean = false) {
-    if (!this.disabled && this.leftPoints.indexOf(points) != -1 && (!this.gameFavorPoints.length || this.gameFavorPoints.reduce((a, b) => a + b) + points <= 7) || force) {
+    if (!this.disabled && this.leftPoints.includes(points) && (!this.gameFavorPoints.length || this.gameFavorPoints.reduce((a, b) => a + b) + points <= 7) || force) {
       this.gameFavorPoints.push(points);
       this.update();
     }
@@ -105,7 +105,7 @@ export class FavorsComponent implements OnInit {
       gameManager.stateManager.before('applyFavorSelection');
 
       while (this.availablePoints) {
-        if (this.availablePoints > 2 && this.gameFavorPoints.indexOf(2) != -1) {
+        if (this.availablePoints > 2 && this.gameFavorPoints.includes(2)) {
           this.gameFavorPoints.splice(this.gameFavorPoints.indexOf(2), 1);
           this.availablePoints -= 2;
         } else {

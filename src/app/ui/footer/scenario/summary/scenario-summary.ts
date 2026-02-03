@@ -121,7 +121,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
 
         for (let value in LootType) {
             const lootType: LootType = value as LootType;
-            if (lootType != LootType.money && lootType != LootType.special1 && lootType != LootType.special2 && this.lootColumns.indexOf(lootType) == -1 && this.characters.some((character) => character.lootCards && character.lootCards.some((index) => gameManager.game.lootDeck.cards[index].type == lootType))) {
+            if (lootType != LootType.money && lootType != LootType.special1 && lootType != LootType.special2 && !this.lootColumns.includes(lootType) && this.characters.some((character) => character.lootCards && character.lootCards.some((index) => gameManager.game.lootDeck.cards[index].type == lootType))) {
                 this.lootColumns.push(lootType);
                 this.lootColumnsLooted.push(this.characters.map((character) => this.lootValue(character, lootType)).reduce((a, b) => a + b));
                 this.lootColumnsTotal.push(gameManager.lootManager.getTotal(gameManager.game.lootDeck, lootType));
@@ -269,7 +269,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                         const itemData = gameManager.itemManager.getItem(item.split(':')[0].split('-')[0], item.split(':')[0].split('-').slice(1).join('-') || this.scenario.edition, true);
                         if (itemData) {
                             this.rewardItems[index] = itemData;
-                            this.rewardItemCount[index] = item.indexOf(':') == -1 ? 1 : +item.split(':')[1];
+                            this.rewardItemCount[index] = !item.includes(':') ? 1 : +item.split(':')[1];
 
                             // add automatically on (potential) solo scenario
                             if (this.characters.filter((char) => !char.absent).length == 1) {
@@ -278,7 +278,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                                     if (this.items[this.characters.indexOf(char)] === undefined) {
                                         this.items[this.characters.indexOf(char)] = [];
                                     }
-                                    if (this.items[this.characters.indexOf(char)].indexOf(index) == -1) {
+                                    if (!this.items[this.characters.indexOf(char)].includes(index)) {
                                         this.items[this.characters.indexOf(char)].push(index);
                                     }
                                 }
@@ -296,7 +296,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                             const itemData = gameManager.itemManager.getItem(item.split(':')[0].split('-')[0], item.split(':')[0].split('-').slice(1).join('-') || this.scenario.edition, true);
                             if (itemData) {
                                 this.rewardItems[index] = itemData;
-                                this.rewardItemCount[index] = item.indexOf(':') == -1 ? 1 : +item.split(':')[1];
+                                this.rewardItemCount[index] = !item.includes(':') ? 1 : +item.split(':')[1];
                                 index++;
                             } else {
                                 console.error("Unknown Item '" + item + "' for scenario '" + this.scenario.index + " (" + this.scenario.edition + ")")
@@ -310,7 +310,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 }
                 if (this.rewards.chooseUnlockCharacter && this.rewards.chooseUnlockCharacter.length > 0 && !this.chooseUnlockCharacter) {
                     let index = 0;
-                    while (index < this.rewards.chooseUnlockCharacter.length && gameManager.game.unlockedCharacters.indexOf(this.scenario.edition + ':' + this.rewards.chooseUnlockCharacter[index]) != -1) {
+                    while (index < this.rewards.chooseUnlockCharacter.length && gameManager.game.unlockedCharacters.includes(this.scenario.edition + ':' + this.rewards.chooseUnlockCharacter[index])) {
                         index++;
                     }
                     if (index < this.rewards.chooseUnlockCharacter.length) {
@@ -402,7 +402,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
             const newXP = character.progress.experience + this.challenges * 2 + character.experience + (this.success && this.rewards &&
                 this.rewards.experience ?
                 this.rewards.experience : 0) + ((this.success && (!this.rewards || !this.rewards.ignoredBonus ||
-                    this.rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0));
+                    !this.rewards.ignoredBonus.includes('experience')) ? gameManager.levelManager.experience() : 0));
             this.levelUp[index] = gameManager.characterManager.levelForXp(newXP) > gameManager.characterManager.levelForXp(character.progress.experience);
 
             const currentPerks = Math.floor(character.progress.battleGoals / 3);
@@ -425,7 +425,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
     }
 
     hasBonus(): boolean {
-        return ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.scenario.solo) && (gameManager.fhRules() && (gameManager.characterManager.characterCount() < 4 && (!this.rewards || !this.rewards.ignoredBonus || this.rewards.ignoredBonus.indexOf('inspiration') == -1)) || this.numberChallenges > 0);
+        return ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.scenario.solo) && (gameManager.fhRules() && (gameManager.characterManager.characterCount() < 4 && (!this.rewards || !this.rewards.ignoredBonus || !this.rewards.ignoredBonus.includes('inspiration'))) || this.numberChallenges > 0);
     }
 
     addWeek(): boolean {
@@ -601,12 +601,12 @@ export class ScenarioSummaryComponent implements OnDestroy {
         const itemData = this.rewardItems[itemIndex];
         const availableItems = choose ? itemData.count - this.characters.filter((character) => character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition)).length : 1;
 
-        return this.items[index].indexOf(itemIndex) == -1 && this.items.filter((list) => list.indexOf(itemIndex) != -1).length >= Math.min(this.rewardItemCount[itemIndex], availableItems);
+        return !this.items[index].includes(itemIndex) && this.items.filter((list) => list.includes(itemIndex)).length >= Math.min(this.rewardItemCount[itemIndex], availableItems);
     }
 
     toggleItem(event: any, index: number, itemIndex: number) {
         gameManager.stateManager.before("finishScenario.dialog.item", index, this.rewardItems[itemIndex].id);
-        if (this.items[index].indexOf(itemIndex) == -1) {
+        if (!this.items[index].includes(itemIndex)) {
             this.items[index].push(itemIndex);
         } else {
             this.items[index].splice(this.items[index].indexOf(itemIndex), 1);
@@ -740,7 +740,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                     }
 
                     this.rewardItems.forEach((item, itemIndex) => {
-                        if (this.items.every((items) => items.indexOf(itemIndex) == -1)) {
+                        if (this.items.every((items) => !items.includes(itemIndex))) {
                             this.items[index] = this.items[index] || [];
                             this.items[index].push(itemIndex);
                         }
@@ -788,7 +788,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 gameManager.game.party.manualScenarios.push(new GameScenarioModel(this.chooseLocation, this.scenario.edition, this.scenario.group));
             }
 
-            if (settingsManager.settings.automaticUnlocking && this.chooseUnlockCharacter && gameManager.game.unlockedCharacters.indexOf(this.scenario.edition + ':' + this.chooseUnlockCharacter) == -1) {
+            if (settingsManager.settings.automaticUnlocking && this.chooseUnlockCharacter && !gameManager.game.unlockedCharacters.includes(this.scenario.edition + ':' + this.chooseUnlockCharacter)) {
                 gameManager.game.unlockedCharacters.push(this.scenario.edition + ':' + this.chooseUnlockCharacter);
             }
 
@@ -864,6 +864,6 @@ export class ScenarioSummaryComponent implements OnDestroy {
     }
 
     unlocked(character: string) {
-        return gameManager.game.unlockedCharacters.indexOf(this.scenario.edition + ':' + character) != -1;
+        return gameManager.game.unlockedCharacters.includes(this.scenario.edition + ':' + character);
     }
 }

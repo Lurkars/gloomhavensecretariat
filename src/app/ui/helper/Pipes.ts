@@ -10,7 +10,7 @@ import { ScenarioCache } from 'src/app/game/model/Scenario';
 export class GhsValueSignPipe implements PipeTransform {
 
   transform(value: number, ...args: any[]): string {
-    return ghsValueSign(value, args.indexOf("empty") != -1)
+    return ghsValueSign(value, args.includes("empty"))
   }
 }
 

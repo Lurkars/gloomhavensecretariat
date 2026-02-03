@@ -123,7 +123,7 @@
         <span class="condition" tabclick (click)="toggleCondition(condition.name)"
           [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
           [originY]="'top'" [overlayY]="'bottom'"
-          [ngClass]="{'disabled' : editionConditions.indexOf(condition.name) != -1, 'active' : editionConditions.indexOf(condition.name) == -1 && gameManager.game.conditions.indexOf(condition.name) != -1 }">
+          [ngClass]="{'disabled' : editionConditions.includes(condition.name), 'active' : !editionConditions.includes(condition.name) && gameManager.game.conditions.includes(condition.name) }">
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
         </span>
@@ -139,7 +139,7 @@
         <span class="condition" tabclick (click)="toggleCondition(condition.name)"
           [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
           [originY]="'top'" [overlayY]="'bottom'"
-          [ngClass]="{'disabled' : editionConditions.indexOf(condition.name) != -1, 'active' : editionConditions.indexOf(condition.name) == -1 && gameManager.game.conditions.indexOf(condition.name) != -1 }">
+          [ngClass]="{'disabled' : editionConditions.includes(condition.name), 'active' : !editionConditions.includes(condition.name) && gameManager.game.conditions.includes(condition.name) }">
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
         </span>

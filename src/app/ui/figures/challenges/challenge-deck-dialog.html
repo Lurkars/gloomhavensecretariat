@@ -67,9 +67,9 @@
         <div class="empty"></div>
         @for (card of discardedCards | trackUUID; track card._trackUUID; let index = $index) {
         <div class="challenge-container" cdkDrag
-          [ngClass]="{'active': !edit && !!gameManager.game.scenario && gameManager.roundManager.firstRound && gameManager.game.state == GameState.draw, 'keep': !disabled && deck.keep.indexOf(deck.current - index) != -1}">
+          [ngClass]="{'active': !edit && !!gameManager.game.scenario && gameManager.roundManager.firstRound && gameManager.game.state == GameState.draw, 'keep': !disabled && deck.keep.includes(deck.current - index)}">
           <ghs-challenge-card class="drag-hidden" [challenge]="card"
-            [keep]="deck.keep.indexOf(deck.current - index) != -1" [flipped]="true" ghs-pointer-input
+            [keep]="deck.keep.includes(deck.current - index)" [flipped]="true" ghs-pointer-input
             (singleClick)="toggleKeep(deck.current-index)"
             (doubleClick)="toggleKeep(deck.current-index, true)"></ghs-challenge-card>
           @if (edit) {

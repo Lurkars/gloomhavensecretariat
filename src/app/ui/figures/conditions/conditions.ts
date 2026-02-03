@@ -174,7 +174,7 @@ export class ConditionsComponent implements OnInit, OnDestroy {
     let immune: boolean = false;
 
     if (this.immunities && !ignoreManual) {
-      immune = this.immunities.indexOf(conditionName) != -1;
+      immune = this.immunities.includes(conditionName);
     }
 
     if (!immune) {
@@ -234,7 +234,7 @@ export class ConditionsComponent implements OnInit, OnDestroy {
 
   toggleCondition(condition: Condition, permanent: boolean = false) {
     if (this.immunityEnabled && !permanent) {
-      if (this.immunities.indexOf(condition.name) == -1) {
+      if (!this.immunities.includes(condition.name)) {
         this.immunities.push(condition.name);
       } else {
         this.immunities.splice(this.immunities.indexOf(condition.name), 1);

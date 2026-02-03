@@ -59,7 +59,7 @@ export class ChallengesManager {
         }
         if (deck.current >= 0) {
             for (let i = deck.current; i > deck.finished; i--) {
-                if (!keep || deck.keep.indexOf(i) == -1) {
+                if (!keep || !deck.keep.includes(i)) {
                     const cards = deck.cards.splice(i, 1);
                     if (cards.length) {
                         deck.cards = [...deck.cards, cards[0]];
@@ -76,7 +76,7 @@ export class ChallengesManager {
     }
 
     toggleKeep(deck: ChallengeDeck, index: number, keepAvailable: number) {
-        if (deck.keep.indexOf(index) == -1) {
+        if (!deck.keep.includes(index)) {
             if (deck.keep.length == keepAvailable) {
                 deck.keep.splice(0, 1);
             }
@@ -114,7 +114,7 @@ export class ChallengesManager {
 
     activeCards(edition: string | undefined = undefined, start: boolean = false): ChallengeCard[] {
         if (this.available && this.game.challengeDeck.cards.length && this.game.challengeDeck.current > this.game.challengeDeck.finished && (start || !gameManager.roundManager.firstRound) || this.game.state == GameState.next) {
-            return this.game.challengeDeck.cards.slice(this.game.challengeDeck.finished + 1, this.game.challengeDeck.current + 1).filter((card) => !edition || card.edition == edition || gameManager.editionExtensions(edition).indexOf(card.edition) != -1);
+            return this.game.challengeDeck.cards.slice(this.game.challengeDeck.finished + 1, this.game.challengeDeck.current + 1).filter((card) => !edition || card.edition == edition || gameManager.editionExtensions(edition).includes(card.edition));
         }
         return [];
     }
@@ -124,7 +124,7 @@ export class ChallengesManager {
     }
 
     isActive(cardId: number, edition: string | undefined = undefined) {
-        return this.activeCardIds(edition).indexOf(cardId) != -1;
+        return this.activeCardIds(edition).includes(cardId);
     }
 
     applyCardsStart() {
@@ -145,7 +145,7 @@ export class ChallengesManager {
                     this.game.monsterAttackModifierDeck.cards = this.game.monsterAttackModifierDeck.cards.filter((attackModifier) => attackModifier.type != AttackModifierType.plus0);
                     break;
                 case 1503:
-                    const characters: CharacterData[] = gameManager.charactersData('fh').filter((characterData) => (!characterData.spoiler || this.game.unlockedCharacters.indexOf(characterData.edition + ':' + characterData.name) != -1) && !this.game.figures.find((figure) => figure instanceof Character && figure.edition == characterData.edition && figure.name == characterData.name));
+                    const characters: CharacterData[] = gameManager.charactersData('fh').filter((characterData) => (!characterData.spoiler || this.game.unlockedCharacters.includes(characterData.edition + ':' + characterData.name)) && !this.game.figures.find((figure) => figure instanceof Character && figure.edition == characterData.edition && figure.name == characterData.name));
                     if (characters.length) {
                         const characterData = characters[Math.floor(Math.random() * characters.length)];
                         let attackModifiers = gameManager.attackModifierManager.perkCards(characterData);
@@ -197,7 +197,7 @@ export class ChallengesManager {
                 case 1523:
                     if (this.game.round == 2 && this.game.state == GameState.draw) {
                         let hound = this.game.figures.find((figure) => figure instanceof Monster && figure.edition == 'fh' && figure.name == 'hound') as Monster;
-                        if (!hound || hound.tags.indexOf('challenge-fh-1523') == -1) {
+                        if (!hound || !hound.tags.includes('challenge-fh-1523')) {
                             if (!hound) {
                                 const houndData = gameManager.monstersData('fh').find((monsterData) => monsterData.name == 'hound');
                                 if (houndData) {
@@ -255,11 +255,11 @@ export class ChallengesManager {
                 if (gameManager.entityManager.isAlive(entity)) {
                     switch (card.cardId) {
                         case 1492:
-                            if (entity.health == entity.maxHealth && (!entity.tags || entity.tags.indexOf('challenge-fh-1492') == -1)) {
+                            if (entity.health == entity.maxHealth && (!entity.tags || !entity.tags.includes('challenge-fh-1492'))) {
                                 entity.tags = entity.tags || [];
                                 entity.tags.push('challenge-fh-1492');
                                 entity.retaliatePersistent.push(new Action(ActionType.retaliate, 2));
-                            } else if (entity.health < entity.maxHealth && entity.tags && entity.tags.indexOf('challenge-fh-1492') != -1) {
+                            } else if (entity.health < entity.maxHealth && entity.tags && entity.tags.includes('challenge-fh-1492')) {
                                 const retaliateAction = entity.retaliatePersistent.find((action) => action.type == ActionType.retaliate && action.value == 2 && action.valueType == ActionValueType.fixed && (!action.subActions || !action.subActions.length));
                                 if (retaliateAction) {
                                     entity.retaliatePersistent.splice(entity.retaliatePersistent.indexOf(retaliateAction), 1);
@@ -268,7 +268,7 @@ export class ChallengesManager {
                             }
                             break
                         case 1493:
-                            if (!entity.tags || entity.tags.indexOf('challenge-fh-1493') == -1) {
+                            if (!entity.tags || !entity.tags.includes('challenge-fh-1493')) {
                                 entity.tags = entity.tags || [];
                                 entity.tags.push('challenge-fh-1493');
                                 entity.maxHealth += Math.ceil(this.game.level / 2);
@@ -277,7 +277,7 @@ export class ChallengesManager {
 
                             break;
                         case 1496:
-                            if ((!entity.immunities || entity.immunities.indexOf(ConditionName.curse) == -1) && (!entity.tags || entity.tags.indexOf('challenge-fh-1496') == -1)) {
+                            if ((!entity.immunities || !entity.immunities.includes(ConditionName.curse)) && (!entity.tags || !entity.tags.includes('challenge-fh-1496'))) {
                                 entity.tags = entity.tags || [];
                                 entity.tags.push('challenge-fh-1496');
                                 entity.immunities.push(ConditionName.curse);
@@ -285,7 +285,7 @@ export class ChallengesManager {
                             break;
                         case 1515:
                             const elitePresent = monster.entities.find((entity) => entity.type == MonsterType.elite && gameManager.entityManager.isAlive(entity));
-                            if (elitePresent && entity.type == MonsterType.normal && (!entity.tags || entity.tags.indexOf('challenge-fh-1515') == -1)) {
+                            if (elitePresent && entity.type == MonsterType.normal && (!entity.tags || !entity.tags.includes('challenge-fh-1515'))) {
                                 entity.tags = entity.tags || [];
                                 entity.tags.push('challenge-fh-1515');
                                 if (!entity.shieldPersistent) {
@@ -293,7 +293,7 @@ export class ChallengesManager {
                                 } else {
                                     entity.shieldPersistent.value = EntityValueFunction(entity.shieldPersistent.value) + 1;
                                 }
-                            } else if (!elitePresent && entity.tags && entity.tags.indexOf('challenge-fh-1515') != -1) {
+                            } else if (!elitePresent && entity.tags && entity.tags.includes('challenge-fh-1515')) {
                                 if (entity.shieldPersistent) {
                                     if (entity.shieldPersistent.value == 1) {
                                         entity.shieldPersistent = undefined;
@@ -305,8 +305,8 @@ export class ChallengesManager {
                             }
                             break
                         case 1524:
-                            const negativeConditions = entity.entityConditions.filter((condition) => condition.types.indexOf(ConditionType.negative) != -1 && condition.state != EntityConditionState.removed && !condition.expired);
-                            if (!negativeConditions.length && (!entity.tags || entity.tags.indexOf('challenge-fh-1524') == -1)) {
+                            const negativeConditions = entity.entityConditions.filter((condition) => condition.types.includes(ConditionType.negative) && condition.state != EntityConditionState.removed && !condition.expired);
+                            if (!negativeConditions.length && (!entity.tags || !entity.tags.includes('challenge-fh-1524'))) {
                                 entity.tags = entity.tags || [];
                                 entity.tags.push('challenge-fh-1524');
                                 if (!entity.shieldPersistent) {
@@ -314,7 +314,7 @@ export class ChallengesManager {
                                 } else {
                                     entity.shieldPersistent.value = EntityValueFunction(entity.shieldPersistent.value) + 1;
                                 }
-                            } else if (negativeConditions.length && entity.tags && entity.tags.indexOf('challenge-fh-1524') != -1) {
+                            } else if (negativeConditions.length && entity.tags && entity.tags.includes('challenge-fh-1524')) {
                                 if (entity.shieldPersistent) {
                                     if (entity.shieldPersistent.value == 1) {
                                         entity.shieldPersistent = undefined;

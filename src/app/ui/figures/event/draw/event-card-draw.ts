@@ -38,7 +38,7 @@ export class EventCardDrawComponent {
         }
 
         if (this.event && this.event.requirement && this.event.requirement.partyAchievement) {
-            this.requirementWarning = gameManager.game.party.achievementsList.indexOf(this.event.requirement.partyAchievement) == -1;
+            this.requirementWarning = !gameManager.game.party.achievementsList.includes(this.event.requirement.partyAchievement);
         }
 
         this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
@@ -95,7 +95,7 @@ export class EventCardDrawComponent {
                 if (this.event) {
                     this.requirementWarning = false;
                     if (this.event.requirement && this.event.requirement.partyAchievement) {
-                        this.requirementWarning = gameManager.game.party.achievementsList.indexOf(this.event.requirement.partyAchievement) == -1;
+                        this.requirementWarning = !gameManager.game.party.achievementsList.includes(this.event.requirement.partyAchievement);
                     }
                 }
             }

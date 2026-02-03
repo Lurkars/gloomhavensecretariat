@@ -56,7 +56,7 @@ export class SectionMenuComponent implements OnInit, OnDestroy {
     if (gameManager.game.edition) {
       this.editions = [gameManager.game.edition, ...gameManager.editionExtensions(gameManager.game.edition), ...gameManager.editionScenarioExtensions(gameManager.game.edition)];
     } else {
-      this.editions = gameManager.editionData.filter((editionData) => editionData.sections && editionData.sections.filter((sectionData) => sectionData.edition == editionData.edition && settingsManager.settings.editions.indexOf(sectionData.edition) != -1).length > 0).map((editionData) => editionData.edition);
+      this.editions = gameManager.editionData.filter((editionData) => editionData.sections && editionData.sections.filter((sectionData) => sectionData.edition == editionData.edition && settingsManager.settings.editions.includes(sectionData.edition)).length > 0).map((editionData) => editionData.edition);
     }
   }
 
@@ -81,7 +81,7 @@ export class SectionMenuComponent implements OnInit, OnDestroy {
     model = { edition: this.edition, group: group, all: settingsManager.settings.showAllSections, sections: [] };
 
 
-    model.sections = gameManager.sectionData().filter((sectionData) => (settingsManager.settings.showAllSections || !sectionData.parent && (!gameManager.game.scenario || gameManager.game.scenario.custom) || gameManager.game.scenario && gameManager.scenarioManager.availableSections(false, true).indexOf(sectionData) != -1) && sectionData.edition == this.edition && sectionData.group == group && !sectionData.conclusion).sort(gameManager.scenarioManager.sortScenarios).map((sectionData) => new ScenarioCache(sectionData, false, false, this.hasSection(sectionData)))
+    model.sections = gameManager.sectionData().filter((sectionData) => (settingsManager.settings.showAllSections || !sectionData.parent && (!gameManager.game.scenario || gameManager.game.scenario.custom) || gameManager.game.scenario && gameManager.scenarioManager.availableSections(false, true).includes(sectionData)) && sectionData.edition == this.edition && sectionData.group == group && !sectionData.conclusion).sort(gameManager.scenarioManager.sortScenarios).map((sectionData) => new ScenarioCache(sectionData, false, false, this.hasSection(sectionData)))
 
     this.sectionCache.push(model);
 

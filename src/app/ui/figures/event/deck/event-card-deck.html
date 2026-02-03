@@ -43,7 +43,7 @@
         <div class="empty"></div>
         }
         @for (event of upcomingCards | trackUUID; track event._trackUUID; let index = $index) {
-        @if (!filter || event.cardId.indexOf(filter) != -1) {
+        @if (!filter || event.cardId.includes(filter)) {
         <div class="container drag-hidden" cdkDrag>
           <ghs-event-card [event]="event" [spoiler]="true"></ghs-event-card>
           <a cdkDragHandle class="button drag-handle">
@@ -73,7 +73,7 @@
         <div class="empty"></div>
         }
         @for (event of newCards | trackUUID; track event._trackUUID; let index = $index) {
-        @if (!filter || event.cardId.indexOf(filter) != -1) {
+        @if (!filter || event.cardId.includes(filter)) {
         <div class="container drag-hidden" cdkDrag>
           <ghs-event-card [event]="event" [spoiler]="true"></ghs-event-card>
           <a cdkDragHandle class="button drag-handle">
@@ -102,7 +102,7 @@
         <div class="empty"></div>
         }
         @for (model of drawnCards | trackUUID; track model._trackUUID; let index = $index) {
-        @if (!filter || model.identifier.cardId.indexOf(filter) != -1) {
+        @if (!filter || model.identifier.cardId.includes(filter)) {
         <div class="container" drag-hidden cdkDrag>
           <ghs-event-card [event]="model.card" [select]="model.identifier.selected" [identifier]="model.identifier"
             [subSelect]="model.identifier.subSelections"
@@ -123,7 +123,7 @@
             [ghs-tooltip]="'game.events.deck.removeDrawn'">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
-          @if (model.card && upcomingCards.indexOf(model.card) == -1 && newCards.indexOf(model.card) == -1) {
+          @if (model.card && !upcomingCards.includes(model.card) && !newCards.includes(model.card)) {
           <a class="button add restore" (click)="addCard(model.card)" [ghs-tooltip]="'game.events.deck.addCard'">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </a>

@@ -14,7 +14,7 @@ export class Scenario extends ScenarioData {
     this.additionalSections = JSON.parse(JSON.stringify(additionalSections));
     if (scenarioData.rooms) {
       scenarioData.rooms.forEach((roomData) => {
-        if (roomData.initial && this.revealedRooms.indexOf(roomData.roomNumber) == -1) {
+        if (roomData.initial && !this.revealedRooms.includes(roomData.roomNumber)) {
           this.revealedRooms.push(roomData.roomNumber);
         }
       })

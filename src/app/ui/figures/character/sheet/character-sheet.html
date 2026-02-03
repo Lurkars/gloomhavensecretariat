@@ -191,7 +191,7 @@
               <span class="checkmark">
                 <img src="./assets/images/close.svg">:</span>
               <span class="mastery-check checkbox"
-                [ngClass]="{'checked' : character.progress.masteries.indexOf(i) != -1}"
+                [ngClass]="{'checked' : character.progress.masteries.includes(i)}"
                 (click)="toggleMastery(i)"></span>
               <span class="placeholder text" [ghs-label]="mastery"></span>
             </div>

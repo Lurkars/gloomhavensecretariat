@@ -58,13 +58,13 @@
           ghs-pointer-input (doubleClick)="selectOption(selected == i ? -1 : i, false, $event)">
           @for (outcome of option.outcomes | trackUUID; track outcome._trackUUID; let outcomeIndex = $index) {
           <div class="outcome"
-            [ngClass]="{'selected': subSelections.indexOf(outcomeIndex) != -1 || selected == -1 && flipped || !option.label && outcome.attack, 'disabled' : resolvable[i] && resolvable[i][outcomeIndex] == false && subSelections.indexOf(outcomeIndex) == -1 && selected != -1, 'expand-to-bottom': outcomeIndex == option.outcomes.length -1 && (option.returnToDeck || option.removeFromDeck), 'margin': outcome.condition || outcome.narrative}"
+            [ngClass]="{'selected': subSelections.includes(outcomeIndex) || selected == -1 && flipped || !option.label && outcome.attack, 'disabled' : resolvable[i] && resolvable[i][outcomeIndex] == false && !subSelections.includes(outcomeIndex) && selected != -1, 'expand-to-bottom': outcomeIndex == option.outcomes.length -1 && (option.returnToDeck || option.removeFromDeck), 'margin': outcome.condition || outcome.narrative}"
             ghs-pointer-input (singleClick)="selectSub(i, outcomeIndex, $event)"
             (doubleClick)="selectSub(i, outcomeIndex, true, $event)">
             @if (outcome.condition) {
             <ghs-event-card-condition [condition]="outcome.condition" [narrative]="true" [edition]="event.edition"
               [eventType]="event.type" [light]="light"
-              [selected]="selected == -1 && flipped || selected == i && subSelections.indexOf(outcomeIndex) != -1"
+              [selected]="selected == -1 && flipped || selected == i && subSelections.includes(outcomeIndex)"
               [debug]="debug"></ghs-event-card-condition>
             }
             @if (outcome.condition) {
@@ -81,7 +81,7 @@
               $index); let effectIndex = $index) {
               <ghs-event-card-effect [effect]="effect" [edition]="event.edition" [eventType]="event.type"
                 [light]="light"
-                [selected]="selected == -1 && flipped || selected == i && subSelections.indexOf(outcomeIndex) != -1"
+                [selected]="selected == -1 && flipped || selected == i && subSelections.includes(outcomeIndex)"
                 [inline]="outcome.inlineEffects || false" [checks]="!!checks && checks[effectIndex] || 0" (onCheck)="onCheck(effectIndex,$event)"
                 [debug]="debug"></ghs-event-card-effect>
               }

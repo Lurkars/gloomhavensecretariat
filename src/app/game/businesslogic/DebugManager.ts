@@ -57,7 +57,7 @@ export class DebugManager {
         gameManager.scenarioData().forEach((scenarioData) => {
             if (scenarioData.monsters) {
                 scenarioData.monsters.forEach((name) => {
-                    if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == name.split(':')[0])) {
+                    if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).includes(monsterData.edition)) && monsterData.name == name.split(':')[0])) {
                         console.warn("Invalid monster: " + name + " | scenario", scenarioData.edition, scenarioData.group || '', scenarioData.index);
                     }
                 })
@@ -67,7 +67,7 @@ export class DebugManager {
                 scenarioData.rooms.forEach((roomData) => {
                     if (roomData.monster) {
                         roomData.monster.forEach((monsterStandeeData) => {
-                            if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == monsterStandeeData.name.split(':')[0])) {
+                            if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).includes(monsterData.edition)) && monsterData.name == monsterStandeeData.name.split(':')[0])) {
                                 console.warn("Invalid monster: " + monsterStandeeData.name + " | scenario", scenarioData.edition, scenarioData.group || '', scenarioData.index);
                             }
                         })
@@ -82,7 +82,7 @@ export class DebugManager {
             if (sectionData.monsters) {
                 sectionData.monsters.forEach((name) => {
 
-                    if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == sectionData.edition || gameManager.editionExtensions(sectionData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == name.split(':')[0])) {
+                    if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == sectionData.edition || gameManager.editionExtensions(sectionData.edition).includes(monsterData.edition)) && monsterData.name == name.split(':')[0])) {
                         console.warn("Invalid monster: " + name + " | section", sectionData.edition, sectionData.group || '', sectionData.index);
                     }
                 })
@@ -93,7 +93,7 @@ export class DebugManager {
                     if (roomData.monster) {
                         roomData.monster.forEach((monsterStandeeData) => {
 
-                            if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == sectionData.edition || gameManager.editionExtensions(sectionData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == monsterStandeeData.name.split(':')[0])) {
+                            if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == sectionData.edition || gameManager.editionExtensions(sectionData.edition).includes(monsterData.edition)) && monsterData.name == monsterStandeeData.name.split(':')[0])) {
                                 console.warn("Invalid monster: " + monsterStandeeData.name + " | section", sectionData.edition, sectionData.group || '', sectionData.index);
                             }
                         })

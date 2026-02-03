@@ -117,7 +117,7 @@
       </span>
       <span class="item">
         <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : (data.entity.health + health) == (Math.max(EntityValueFunction(data.entity.maxHealth), specialTags.indexOf('unbridled-power') != -1 ? 26 : 0) + maxHp)}"
+          [ngClass]="{'disabled' : (data.entity.health + health) == (Math.max(EntityValueFunction(data.entity.maxHealth), specialTags.includes('unbridled-power') ? 26 : 0) + maxHp)}"
           tabclick (singleClick)="changeHealth(1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
@@ -209,7 +209,7 @@
       gameManager.toObjectiveContainer(data.figure).escort && gameManager.toObjectiveContainer(data.figure).amDeck) {
       <span class="item">
         <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) + bless == 0 || isImmune(ConditionName.bless) || entityImmunities.indexOf(ConditionName.bless) != -1}"
+          [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) + bless == 0 || isImmune(ConditionName.bless) || entityImmunities.includes(ConditionName.bless)}"
           tabclick (singleClick)="changeBless(-1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </ghs-pointer-input>
@@ -219,7 +219,7 @@
           bless}}</span>
         <span class="condition" [ghs-tooltip]="'game.condition.bless.hint'" [originX]="'center'" [overlayX]="'center'"
           [originY]="'top'" [overlayY]="'bottom'"
-          [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless) || entityImmunities.indexOf(ConditionName.bless) != -1}">
+          [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless) || entityImmunities.includes(ConditionName.bless)}">
           <img src="./assets/images/status/bless.svg" />
         </span>
         <span class="badge badge-right" [value-sign]="bless" [hideEmpty]="true"></span>
@@ -231,14 +231,14 @@
       </span>
       <span class="item">
         <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingBlesses() + bless >= 10 || isImmune(ConditionName.bless) || entityImmunities.indexOf(ConditionName.bless) != -1}"
+          [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingBlesses() + bless >= 10 || isImmune(ConditionName.bless) || entityImmunities.includes(ConditionName.bless)}"
           tabclick (singleClick)="changeBless(1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
       </span>
       <span class="item">
         <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) + curse == 0 || isImmune(ConditionName.curse) || entityImmunities.indexOf(ConditionName.curse) != -1}"
+          [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) + curse == 0 || isImmune(ConditionName.curse) || entityImmunities.includes(ConditionName.curse)}"
           tabclick (singleClick)="changeCurse(-1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </ghs-pointer-input>
@@ -248,7 +248,7 @@
           curse}}</span>
         <span class="condition" [ghs-tooltip]="'game.condition.curse.hint'" [originX]="'center'" [overlayX]="'center'"
           [originY]="'top'" [overlayY]="'bottom'"
-          [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse) || entityImmunities.indexOf(ConditionName.curse) != -1}">
+          [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse) || entityImmunities.includes(ConditionName.curse)}">
           <img src="./assets/images/status/curse.svg" />
         </span>
         <span class="badge badge-right" [value-sign]="curse" [hideEmpty]="true"></span>
@@ -261,7 +261,7 @@
       </span>
       <span class="item">
         <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isAllied || gameManager.isObjectiveContainer(data.figure) && gameManager.toObjectiveContainer(data.figure).amDeck == 'M') + curse >= 10 || isImmune(ConditionName.curse) || entityImmunities.indexOf(ConditionName.curse) != -1}"
+          [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isAllied || gameManager.isObjectiveContainer(data.figure) && gameManager.toObjectiveContainer(data.figure).amDeck == 'M') + curse >= 10 || isImmune(ConditionName.curse) || entityImmunities.includes(ConditionName.curse)}"
           tabclick (singleClick)="changeCurse(1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
@@ -269,7 +269,7 @@
       @if (hasCondition(ConditionName.empower)) {
       <span class="item">
         <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower) + empower == 0  || isImmune(ConditionName.empower) || entityImmunities.indexOf(ConditionName.empower) != -1}"
+          [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower) + empower == 0  || isImmune(ConditionName.empower) || entityImmunities.includes(ConditionName.empower)}"
           tabclick (singleClick)="changeEmpower(-1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </ghs-pointer-input>
@@ -279,7 +279,7 @@
           empower}}</span>
         <span class="condition" [ghs-tooltip]="'game.condition.empower.hint'" [originX]="'center'" [overlayX]="'center'"
           [originY]="'top'" [overlayY]="'bottom'"
-          [ngClass]="{'immunity disabled' : isImmune(ConditionName.empower) || entityImmunities.indexOf(ConditionName.empower) != -1}">
+          [ngClass]="{'immunity disabled' : isImmune(ConditionName.empower) || entityImmunities.includes(ConditionName.empower)}">
           <img src="./assets/images/status/empower.svg" />
         </span>
         <span class="badge badge-right" [value-sign]="empower" [hideEmpty]="true"></span>
@@ -295,7 +295,7 @@
       </span>
       <span class="item">
         <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : empowerChar && empower >= countEmpower() || isImmune(ConditionName.empower) || entityImmunities.indexOf(ConditionName.empower) != -1}"
+          [ngClass]="{'disabled' : empowerChar && empower >= countEmpower() || isImmune(ConditionName.empower) || entityImmunities.includes(ConditionName.empower)}"
           tabclick (singleClick)="changeEmpower(1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
@@ -304,7 +304,7 @@
       @if (hasCondition(ConditionName.enfeeble)) {
       <span class="item">
         <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble) + enfeeble == 0 || isImmune(ConditionName.enfeeble) || entityImmunities.indexOf(ConditionName.enfeeble) != -1}"
+          [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble) + enfeeble == 0 || isImmune(ConditionName.enfeeble) || entityImmunities.includes(ConditionName.enfeeble)}"
           tabclick (singleClick)="changeEnfeeble(-1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </ghs-pointer-input>
@@ -314,7 +314,7 @@
           enfeeble}}</span>
         <span class="condition" [ghs-tooltip]="'game.condition.enfeeble.hint'" [originX]="'center'"
           [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
-          [ngClass]="{'immunity disabled' : isImmune(ConditionName.enfeeble) || entityImmunities.indexOf(ConditionName.enfeeble) != -1}">
+          [ngClass]="{'immunity disabled' : isImmune(ConditionName.enfeeble) || entityImmunities.includes(ConditionName.enfeeble)}">
           <img src="./assets/images/status/enfeeble.svg" />
         </span>
         <span class="badge badge-right" [value-sign]="enfeeble" [hideEmpty]="true"></span>
@@ -330,7 +330,7 @@
       </span>
       <span class="item">
         <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' :  enfeebleChar && enfeeble >= countEnfeeble() || isImmune(ConditionName.enfeeble) || entityImmunities.indexOf(ConditionName.enfeeble) != -1}"
+          [ngClass]="{'disabled' :  enfeebleChar && enfeeble >= countEnfeeble() || isImmune(ConditionName.enfeeble) || entityImmunities.includes(ConditionName.enfeeble)}"
           tabclick (singleClick)="changeEnfeeble(1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
@@ -680,7 +680,7 @@
       <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg"
         [ghs-tooltip]="'data.character.' + data.figure.edition + '.' + data.figure.name + '.' + specialAction.name + '.hint'"
         [originX]="'center'" [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'">
-      <span class="special-action text-white" [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}"
+      <span class="special-action text-white" [ngClass]="{'active-tag' : specialTags.includes(specialAction.name)}"
         tabclick (click)="applySpecialAction(specialAction)">
         <span
           [ghs-label]="'data.character.' + data.figure.edition + '.' + data.figure.name + '.' + specialAction.name"></span>

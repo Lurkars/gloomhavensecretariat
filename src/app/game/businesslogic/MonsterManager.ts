@@ -156,7 +156,7 @@ export class MonsterManager {
     let result: MonsterData[] = [];
     monsters.forEach((monster) => {
       this.getMonsterSpawns(monster).forEach((summon) => {
-        if (result.indexOf(summon) == -1) {
+        if (!result.includes(summon)) {
           result.push(summon);
         }
       })
@@ -174,7 +174,7 @@ export class MonsterManager {
         ability.actions.forEach((action) => {
           const summons = this.getActionSpawns(action, monster.edition);
           summons.forEach((summon) => {
-            if (monsters.indexOf(summon) == -1) {
+            if (!monsters.includes(summon)) {
               monsters.push(summon);
             }
           })
@@ -187,7 +187,7 @@ export class MonsterManager {
         special.forEach((action) => {
           const summons = this.getActionSpawns(action, monster.edition);
           summons.forEach((summon) => {
-            if (monsters.indexOf(summon) == -1) {
+            if (!monsters.includes(summon)) {
               monsters.push(summon);
             }
           })
@@ -202,7 +202,7 @@ export class MonsterManager {
             special.forEach((action) => {
               const summons = this.getActionSpawns(action, monster.edition);
               summons.forEach((summon) => {
-                if (monsters.indexOf(summon) == -1) {
+                if (!monsters.includes(summon)) {
                   monsters.push(summon);
                 }
               })
@@ -251,7 +251,7 @@ export class MonsterManager {
       name = name.split(':')[0];
     }
 
-    let monsterData = gameManager.monstersData().find((monsterData) => monsterData.name == name && (monsterData.edition == edition || gameManager.editionExtensions(edition).indexOf(monsterData.edition) != -1));
+    let monsterData = gameManager.monstersData().find((monsterData) => monsterData.name == name && (monsterData.edition == edition || gameManager.editionExtensions(edition).includes(monsterData.edition)));
 
     if (!monsterData) {
       console.warn("Monster not found: '" + name + "' for edition :" + edition);
@@ -333,7 +333,7 @@ export class MonsterManager {
       return 0;
     }
 
-    return monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity) && (!identifier.marker || identifier.marker == entity.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entity.tags.indexOf(tag) != -1))).length;
+    return monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity) && (!identifier.marker || identifier.marker == entity.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entity.tags.includes(tag)))).length;
   }
 
   monsterEntityCountAll(monster: Monster): number {
@@ -343,14 +343,14 @@ export class MonsterManager {
   monsterStandeeShared(monster: Monster, list: Monster[]): Monster[] {
     if (monster.bb) {
       this.game.figures.forEach((figure) => {
-        if (figure instanceof Monster && figure.bb && list.indexOf(figure) == -1) {
+        if (figure instanceof Monster && figure.bb && !list.includes(figure)) {
           list.push(figure);
         }
       })
       return list;
     }
 
-    if (list.indexOf(monster) == -1) {
+    if (!list.includes(monster)) {
       list.push(monster);
     }
 
@@ -358,7 +358,7 @@ export class MonsterManager {
       let parent: Monster[] = this.game.figures.filter((figure) => figure instanceof Monster && monster.standeeShare && figure.name == monster.standeeShare && figure.edition == (monster.standeeShareEdition || monster.edition)).map((figure) => figure as Monster);
 
       parent.forEach((parentMonster) => {
-        if (list.indexOf(parentMonster) == -1) {
+        if (!list.includes(parentMonster)) {
           list.push(parentMonster);
           this.monsterStandeeShared(parentMonster, list);
         }
@@ -368,7 +368,7 @@ export class MonsterManager {
     let children: Monster[] = this.game.figures.filter((figure) => figure instanceof Monster && figure.standeeShare && monster.name == figure.standeeShare && monster.edition == (figure.standeeShareEdition || figure.edition)).map((figure) => figure as Monster);
 
     children.forEach((childMonster) => {
-      if (list.indexOf(childMonster) == -1) {
+      if (!list.includes(childMonster)) {
         list.push(childMonster);
         this.monsterStandeeShared(childMonster, list);
       }
@@ -442,7 +442,7 @@ export class MonsterManager {
     monster.entities.push(monsterEntity);
     gameManager.addEntityCount(monster, monsterEntity);
 
-    if (monster.tags.indexOf('addedManually') != -1) {
+    if (monster.tags.includes('addedManually')) {
       monster.tags = monster.tags.filter((tag) => tag != 'addedManually');
     }
 
@@ -698,7 +698,7 @@ export class MonsterManager {
           }
 
           entity.entityConditions.forEach((entityCondition) => {
-            if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
+            if (entityCondition.types.includes(ConditionType.expire)) {
               if (entityCondition.state == EntityConditionState.normal) {
                 entityCondition.lastState = entityCondition.state;
                 entityCondition.state = EntityConditionState.expire;
@@ -729,7 +729,7 @@ export class MonsterManager {
             this.shuffleAbilities(figure);
           }
 
-          if (figure.bb && figure.tags.indexOf('bb-elite') != -1) {
+          if (figure.bb && figure.tags.includes('bb-elite')) {
             let nextAbility = figure.ability + 1;
             if (nextAbility >= figure.abilities.length) {
               nextAbility = 0;

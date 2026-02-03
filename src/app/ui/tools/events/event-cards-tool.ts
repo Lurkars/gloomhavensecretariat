@@ -37,7 +37,7 @@ export class EventCardsToolComponent implements OnInit {
         let update = false;
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
-          if (this.edition && gameManager.editions(true).indexOf(this.edition) == -1) {
+          if (this.edition && gameManager.editions(!true).includes(this.edition)) {
             this.edition == undefined;
           }
           update = true;
@@ -69,7 +69,7 @@ export class EventCardsToolComponent implements OnInit {
     this.events = [];
     if (this.edition) {
       this.types = gameManager.eventCardManager.getEventTypesForEdition(this.edition, false);
-      if (!this.type || this.types.indexOf(this.type) == -1) {
+      if (!this.type || !this.types.includes(this.type)) {
         this.type = this.types[0];
       }
       this.events = gameManager.eventCardManager.getEventCardsForEdition(this.edition, this.type, false).filter((e, i) => this.iterator == -1 || this.iterator == i);

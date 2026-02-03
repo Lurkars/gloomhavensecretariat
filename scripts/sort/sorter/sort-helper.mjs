@@ -3,9 +3,9 @@ export const sortObjectKeys = function (object, ...keys) {
         return undefined;
     }
     return Object.keys(object).sort((a, b) => {
-        if (keys.indexOf(a) != -1 && keys.indexOf(b) == -1) {
+        if (keys.includes(a) && !keys.includes(b)) {
             return -1;
-        } else if (keys.indexOf(a) == -1 && keys.indexOf(b) != -1) {
+        } else if (!keys.includes(a) && keys.includes(b)) {
             return 1;
         }
         return keys.indexOf(a) - keys.indexOf(b);
@@ -17,7 +17,7 @@ export const removeEmptyValues = function (object, ...ignores) {
         return undefined;
     }
     Object.keys(object).forEach((key) => {
-        if (!object[key] && (!ignores || ignores.indexOf(key) == -1)) {
+        if (!object[key] && (!ignores || !ignores.includes(key))) {
             object[key] = undefined;
         }
     })

@@ -77,7 +77,7 @@ export class Condition {
 
   constructor(name: ConditionName | string, value: number = 1) {
     if (typeof name == 'string') {
-      if (Object.keys(ConditionName).indexOf(name) == -1) {
+      if (Object.keys(!ConditionName).includes(name)) {
         console.warn("Invalid condition name: " + name);
         this.name = ConditionName.invalid;
       } else {
@@ -90,102 +90,102 @@ export class Condition {
 
     this.types.push(ConditionType.action);
 
-    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.wound, ConditionName.muddle, ConditionName.poison, ConditionName.invisible, ConditionName.strengthen, ConditionName.regenerate, ConditionName.infect, ConditionName.bane, ConditionName.brittle, ConditionName.chill, ConditionName.ward, ConditionName.rupture, ConditionName.poison_x, ConditionName.wound_x, ConditionName.safeguard].indexOf(this.name) != -1) {
+    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.wound, ConditionName.muddle, ConditionName.poison, ConditionName.invisible, ConditionName.strengthen, ConditionName.regenerate, ConditionName.infect, ConditionName.bane, ConditionName.brittle, ConditionName.chill, ConditionName.ward, ConditionName.rupture, ConditionName.poison_x, ConditionName.wound_x, ConditionName.safeguard].includes(this.name)) {
       this.types.push(ConditionType.entity);
     }
 
 
-    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.wound, ConditionName.muddle, ConditionName.poison, ConditionName.invisible, ConditionName.strengthen, ConditionName.regenerate, ConditionName.infect, ConditionName.bane, ConditionName.brittle, ConditionName.impair, ConditionName.rupture, ConditionName.ward, ConditionName.dodge, ConditionName.safeguard].indexOf(this.name) != -1) {
+    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.wound, ConditionName.muddle, ConditionName.poison, ConditionName.invisible, ConditionName.strengthen, ConditionName.regenerate, ConditionName.infect, ConditionName.bane, ConditionName.brittle, ConditionName.impair, ConditionName.rupture, ConditionName.ward, ConditionName.dodge, ConditionName.safeguard].includes(this.name)) {
       this.types.push(ConditionType.standard);
     }
 
-    if (this.types.indexOf(ConditionType.entity) != -1 || [ConditionName.impair, ConditionName.dodge].indexOf(this.name) != -1) {
+    if (this.types.includes(ConditionType.entity) || [ConditionName.impair, ConditionName.dodge].includes(this.name)) {
       this.types.push(ConditionType.character);
     }
 
-    if (this.types.indexOf(ConditionType.entity) != -1 || [ConditionName.plague].indexOf(this.name) != -1) {
+    if (this.types.includes(ConditionType.entity) || [ConditionName.plague].includes(this.name)) {
       this.types.push(ConditionType.monster);
     }
 
-    if ([ConditionName.poison_x, ConditionName.wound_x].indexOf(this.name) != -1) {
+    if ([ConditionName.poison_x, ConditionName.wound_x].includes(this.name)) {
       this.types.push(ConditionType.upgrade);
       this.types.push(ConditionType.value);
     }
 
-    if ([ConditionName.chill, ConditionName.plague].indexOf(this.name) != -1) {
+    if ([ConditionName.chill, ConditionName.plague].includes(this.name)) {
       this.types.push(ConditionType.stack);
     }
 
-    if ([ConditionName.chill, ConditionName.plague, ConditionName.bless, ConditionName.curse, ConditionName.enfeeble, ConditionName.empower].indexOf(this.name) != -1) {
+    if ([ConditionName.chill, ConditionName.plague, ConditionName.bless, ConditionName.curse, ConditionName.enfeeble, ConditionName.empower].includes(this.name)) {
       this.types.push(ConditionType.stackable);
     }
 
-    if ([ConditionName.wound, ConditionName.wound_x, ConditionName.regenerate].indexOf(this.name) != -1) {
+    if ([ConditionName.wound, ConditionName.wound_x, ConditionName.regenerate].includes(this.name)) {
       this.types.push(ConditionType.turn);
     }
 
-    if ([ConditionName.bane].indexOf(this.name) != -1) {
+    if ([ConditionName.bane].includes(this.name)) {
       this.types.push(ConditionType.afterTurn);
     }
 
-    if ([ConditionName.wound, ConditionName.wound_x, ConditionName.poison, ConditionName.poison_x, ConditionName.bane, ConditionName.brittle, ConditionName.infect, ConditionName.rupture].indexOf(this.name) != -1) {
+    if ([ConditionName.wound, ConditionName.wound_x, ConditionName.poison, ConditionName.poison_x, ConditionName.bane, ConditionName.brittle, ConditionName.infect, ConditionName.rupture].includes(this.name)) {
       this.types.push(ConditionType.clearHeal);
     }
 
-    if ([ConditionName.poison, ConditionName.poison_x, ConditionName.ward, ConditionName.brittle, ConditionName.heal, ConditionName.shield].indexOf(this.name) != -1) {
+    if ([ConditionName.poison, ConditionName.poison_x, ConditionName.ward, ConditionName.brittle, ConditionName.heal, ConditionName.shield].includes(this.name)) {
       this.types.push(ConditionType.apply);
     }
 
-    if ([ConditionName.ward, ConditionName.brittle, ConditionName.heal, ConditionName.shield, ConditionName.safeguard].indexOf(this.name) != -1) {
+    if ([ConditionName.ward, ConditionName.brittle, ConditionName.heal, ConditionName.shield, ConditionName.safeguard].includes(this.name)) {
       this.types.push(ConditionType.autoApply);
     }
 
-    if ([ConditionName.poison, ConditionName.poison_x].indexOf(this.name) != -1) {
+    if ([ConditionName.poison, ConditionName.poison_x].includes(this.name)) {
       this.types.push(ConditionType.double);
     }
 
-    if ([ConditionName.poison, ConditionName.poison_x, ConditionName.infect].indexOf(this.name) != -1) {
+    if ([ConditionName.poison, ConditionName.poison_x, ConditionName.infect].includes(this.name)) {
       this.types.push(ConditionType.preventHeal);
     }
 
-    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.muddle, ConditionName.invisible, ConditionName.strengthen, ConditionName.impair].indexOf(this.name) != -1) {
+    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.muddle, ConditionName.invisible, ConditionName.strengthen, ConditionName.impair].includes(this.name)) {
       this.types.push(ConditionType.expire);
     }
 
-    if ([ConditionName.regenerate, ConditionName.ward, ConditionName.invisible, ConditionName.strengthen, ConditionName.bless, ConditionName.dodge, ConditionName.safeguard].indexOf(this.name) != -1) {
+    if ([ConditionName.regenerate, ConditionName.ward, ConditionName.invisible, ConditionName.strengthen, ConditionName.bless, ConditionName.dodge, ConditionName.safeguard].includes(this.name)) {
       this.types.push(ConditionType.positive);
     }
 
-    if ([ConditionName.stun].indexOf(this.name) != -1) {
+    if ([ConditionName.stun].includes(this.name)) {
       this.types.push(ConditionType.expiredIndicator);
     }
 
-    if ([ConditionName.heal, ConditionName.shield, ConditionName.retaliate].indexOf(this.name) != -1) {
+    if ([ConditionName.heal, ConditionName.shield, ConditionName.retaliate].includes(this.name)) {
       this.types.push(ConditionType.positive);
       this.types.push(ConditionType.hidden);
       this.types.push(ConditionType.value);
     }
 
-    if ([ConditionName.bless, ConditionName.curse, ConditionName.empower, ConditionName.enfeeble].indexOf(this.name) != -1) {
+    if ([ConditionName.bless, ConditionName.curse, ConditionName.empower, ConditionName.enfeeble].includes(this.name)) {
       this.types.push(ConditionType.hidden);
       this.types.push(ConditionType.amDeck);
     }
 
-    if ([ConditionName.retaliate].indexOf(this.name) != -1) {
+    if ([ConditionName.retaliate].includes(this.name)) {
       this.types.push(ConditionType.highlightOnly);
     }
 
-    if ([ConditionName.invalid].indexOf(this.name) != -1) {
+    if ([ConditionName.invalid].includes(this.name)) {
       this.types.push(ConditionType.hidden);
     }
 
-    if ([ConditionName.plague].indexOf(this.name) != -1) {
+    if ([ConditionName.plague].includes(this.name)) {
       this.types.push(ConditionType.neutral);
       this.types.push(ConditionType.objective);
       this.types.push(ConditionType.special);
     }
 
-    if (this.types.indexOf(ConditionType.positive) == -1 && this.types.indexOf(ConditionType.neutral) == -1) {
+    if (!this.types.includes(ConditionType.positive) && !this.types.includes(ConditionType.neutral)) {
       this.types.push(ConditionType.negative);
     }
   }

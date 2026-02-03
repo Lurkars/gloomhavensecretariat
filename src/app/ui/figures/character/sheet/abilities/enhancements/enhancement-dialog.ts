@@ -61,18 +61,18 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
 
             if (ability) {
                 this.level = typeof ability.level === 'number' ? ability.level : 1;
-                if (this.data.actionIndex.indexOf('bottom') != -1) {
-                    if (ability.bottomLost || ability.bottomActions.find((action) => action.type == ActionType.card && action.value.toString().indexOf('lost') != -1)) {
+                if (this.data.actionIndex.includes('bottom')) {
+                    if (ability.bottomLost || ability.bottomActions.find((action) => action.type == ActionType.card && action.value.toString().includes('lost'))) {
                         this.special = 'lost';
                     }
-                    if (ability.bottomPersistent || ability.bottomActions.find((action) => action.type == ActionType.card && action.value.toString().indexOf('persistent') != -1)) {
+                    if (ability.bottomPersistent || ability.bottomActions.find((action) => action.type == ActionType.card && action.value.toString().includes('persistent'))) {
                         this.special = 'persistent';
                     }
                 } else {
-                    if (ability.lost || ability.actions.find((action) => action.type == ActionType.card && action.value.toString().indexOf('lost') != -1)) {
+                    if (ability.lost || ability.actions.find((action) => action.type == ActionType.card && action.value.toString().includes('lost'))) {
                         this.special = 'lost';
                     }
-                    if (ability.persistent || ability.actions.find((action) => action.type == ActionType.card && action.value.toString().indexOf('persistent') != -1)) {
+                    if (ability.persistent || ability.actions.find((action) => action.type == ActionType.card && action.value.toString().includes('persistent'))) {
                         this.special = 'persistent';
                     }
                 }
@@ -86,7 +86,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
 
             this.enhancedCards = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((e) => !e.inherited).map((e) => e.cardId).filter((cardId, index, self) => (!this.data.cardId || this.data.cardId != cardId) && index == self.indexOf(cardId)).length;
 
-            if ([ActionType.custom, ActionType.specialTarget].indexOf(this.data.action.type) != -1 && this.data.action.enhancementTypes && !this.wipSpecial) {
+            if ([ActionType.custom, ActionType.specialTarget].includes(this.data.action.type) && this.data.action.enhancementTypes && !this.wipSpecial) {
                 this.customSpecial = true;
                 const enhancementType = this.data.action.enhancementTypes[this.data.enhancementIndex];
                 switch (enhancementType) {
@@ -144,28 +144,28 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
 
         if (this.special === 'summon') {
             this.actionTypes = [...gameManager.enhancementsManager.summonActions];
-        } else if (this.actionTypes.indexOf(this.action.type) == -1) {
+        } else if (!this.actionTypes.includes(this.action.type)) {
             this.action = new Action(ActionType.attack, 1);
         }
 
         const oldEnhancementType = this.enhancementType;
 
         if (!this.action.enhancementTypes || !this.action.enhancementTypes.length || this.wipSpecial) {
-            if (gameManager.enhancementsManager.squareActions.indexOf(this.action.type) != -1) {
+            if (gameManager.enhancementsManager.squareActions.includes(this.action.type)) {
                 this.enhancementType = EnhancementType.square;
             }
-            if (gameManager.enhancementsManager.circleActions.indexOf(this.action.type) != -1) {
+            if (gameManager.enhancementsManager.circleActions.includes(this.action.type)) {
                 this.enhancementType = EnhancementType.circle;
             }
-            if (gameManager.enhancementsManager.diamondActions.indexOf(this.action.type) != -1 && (this.action.type != ActionType.condition || new Condition('' +
-                this.action.value).types.indexOf(ConditionType.negative) != -1)) {
+            if (gameManager.enhancementsManager.diamondActions.includes(this.action.type) && (this.action.type != ActionType.condition || new Condition('' +
+                this.action.value).types.includes(ConditionType.negative))) {
                 this.enhancementType = EnhancementType.diamond;
             }
-            if (gameManager.enhancementsManager.diamondPlusActions.indexOf(this.action.type) != -1 && (this.action.type != ActionType.condition || new Condition('' +
-                this.action.value).types.indexOf(ConditionType.positive) != -1)) {
+            if (gameManager.enhancementsManager.diamondPlusActions.includes(this.action.type) && (this.action.type != ActionType.condition || new Condition('' +
+                this.action.value).types.includes(ConditionType.positive))) {
                 this.enhancementType = EnhancementType.diamond_plus;
             }
-            if (gameManager.enhancementsManager.hexActions.indexOf(this.action.type) != -1) {
+            if (gameManager.enhancementsManager.hexActions.includes(this.action.type)) {
                 this.enhancementType = EnhancementType.hex;
             }
         } else if (this.data.enhancementIndex != undefined) {

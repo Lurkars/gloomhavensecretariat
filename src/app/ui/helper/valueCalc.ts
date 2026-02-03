@@ -45,7 +45,7 @@ export function valueCalc(value: string | number, level: number | undefined = un
     const funcLabel = func && func.startsWith('$');
     if (funcLabel) {
       func = func.replace('$', '');
-      if (func.indexOf(':') != -1) {
+      if (func.includes(':')) {
         funcArgs = [func.split(':')[1]];
         func = func.split(':')[0];
       }

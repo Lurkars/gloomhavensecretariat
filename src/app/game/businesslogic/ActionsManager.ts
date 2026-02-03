@@ -267,7 +267,7 @@ export class ActionsManager {
 
         switch (action.type) {
             case ActionType.heal:
-                return entity.health > 0 && entity.health < EntityValueFunction(entity.maxHealth) || action.subActions.find((subAction) => subAction.type == ActionType.condition && new Condition(subAction.value as ConditionName).types.indexOf(ConditionType.positive) != -1) != undefined;
+                return entity.health > 0 && entity.health < EntityValueFunction(entity.maxHealth) || action.subActions.find((subAction) => subAction.type == ActionType.condition && new Condition(subAction.value as ConditionName).types.includes(ConditionType.positive)) != undefined;
             case ActionType.condition:
                 return !gameManager.entityManager.hasCondition(entity, new Condition('' + action.value));
             case ActionType.switchType:
@@ -275,7 +275,7 @@ export class ActionsManager {
             case ActionType.element:
                 const values = this.getValues(action);
                 if (!action.valueType || action.valueType == ActionValueType.plus || action.valueType == ActionValueType.fixed) {
-                    return gameManager.game.elementBoard.some((element) => (action.value == Element.wild || values.indexOf(element.type) != -1) && (element.state == ElementState.inert || element.state == ElementState.waning || element.state == ElementState.consumed || element.state == ElementState.partlyConsumed));
+                    return gameManager.game.elementBoard.some((element) => (action.value == Element.wild || values.includes(element.type)) && (element.state == ElementState.inert || element.state == ElementState.waning || element.state == ElementState.consumed || element.state == ElementState.partlyConsumed));
                 } else if (action.valueType == ActionValueType.minus) {
                     let elements = this.getElementsToConsume(action);
                     if (elements.length == values.length) {
@@ -301,7 +301,7 @@ export class ActionsManager {
         actions.forEach((action, i) => {
             const index = (preIndex ? preIndex + '-' : '') + i;
             const tag = this.roundTag(action, index);
-            const hasTag = entity.tags.indexOf(tag) != -1;
+            const hasTag = entity.tags.includes(tag);
             if (this.isInteractiveApplicableAction(entity, action, index) && !hasTag) {
                 result.push({ action: action, index: index });
             }
@@ -351,10 +351,10 @@ export class ActionsManager {
 
     isMultiTargetSpecial(action: Action): boolean {
         return action.type == ActionType.specialTarget && typeof action.value === 'string' &&
-            (action.value.toLowerCase().indexOf('allies') != -1 ||
-                action.value.toLowerCase().indexOf('enemies') != -1 ||
-                action.value.toLowerCase().indexOf('figures') != -1 ||
-                action.value.toLowerCase().indexOf('targets') != -1 ||
+            (action.value.toLowerCase().includes('allies') ||
+                action.value.toLowerCase().includes('enemies') ||
+                action.value.toLowerCase().includes('figures') ||
+                action.value.toLowerCase().includes('targets') ||
                 action.value == 'all');
     }
 
@@ -366,7 +366,7 @@ export class ActionsManager {
         }
 
         const tag = this.roundTag(action, index);
-        if (entity.tags.indexOf(tag) != -1) {
+        if (entity.tags.includes(tag)) {
             return;
         }
 
@@ -604,7 +604,7 @@ export class ActionsManager {
         if (!action || !action.type || action.type == ActionType.element && action.valueType == ActionValueType.minus) {
             const values = this.getValues(action);
             values.forEach((value, index, self) => {
-                const elementModel = gameManager.game.elementBoard.find((element) => (element.type == value || value == Element.wild && self.indexOf(element.type) == -1) && (element.state != ElementState.inert && element.state != ElementState.new && element.state != ElementState.consumed) && elements.indexOf(element) == -1);
+                const elementModel = gameManager.game.elementBoard.find((element) => (element.type == value || value == Element.wild && !self.includes(element.type)) && (element.state != ElementState.inert && element.state != ElementState.new && element.state != ElementState.consumed) && !elements.includes(element));
                 if (elementModel) {
                     elements.push(elementModel);
                 }

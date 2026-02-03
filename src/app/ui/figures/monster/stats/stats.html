@@ -23,7 +23,7 @@
       @if (monster.statEffect && monster.statEffect.name) {
       <span>&nbsp;(<span [ghs-label]="'data.monster.' + monster.name"></span>)</span>
       }
-      @if (monster.tags.indexOf('bb-elite') != -1) {
+      @if (monster.tags.includes('bb-elite')) {
       <span class="elite">&nbsp;<span [ghs-label]="'%game.monsterType.elite%'"></span></span>
       }
       @if (monster.statEffect) {

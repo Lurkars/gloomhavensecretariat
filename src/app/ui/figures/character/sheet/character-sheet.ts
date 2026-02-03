@@ -86,7 +86,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
 
     this.fhSheet = gameManager.fhRules(true);
     this.gh2eSheet = !gameManager.fhRules() && gameManager.fhRules(true);
-    this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
+    this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
 
     this.donations = !this.fhSheet;
 
@@ -425,7 +425,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
       this.character.progress.masteries = [];
     }
 
-    if (this.character.progress.masteries.indexOf(index) == -1) {
+    if (!this.character.progress.masteries.includes(index)) {
       gameManager.stateManager.before("addMastery", gameManager.characterManager.characterName(this.character), "" + index);
       this.character.progress.masteries.push(index);
     } else {
@@ -559,7 +559,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
   toggleFhSheet() {
     this.fhSheet = !this.fhSheet;
     this.gh2eSheet = this.gh2eSheet ? false : !gameManager.fhRules() && gameManager.fhRules(true);
-    this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
+    this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
   }
 
   openAbilityCards() {

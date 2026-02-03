@@ -74,7 +74,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
       this.numeration = "" + this.character.number;
       this.characterIcon = this.character.iconUrl;
       gameManager.gh2eFactionUnlocks().forEach((faction) => {
-        if (this.deck.cards.some((am) => am.id && am.id.indexOf(faction) != -1)) {
+        if (this.deck.cards.some((am) => am.id && am.id.includes(faction))) {
           this.toggleFaction(faction);
           return;
         }
@@ -366,7 +366,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
 
       this.type = Object.values(AttackModifierType)[index];
 
-      if ([AttackModifierType.plus, AttackModifierType.plus3, AttackModifierType.plus4, AttackModifierType.plusX, AttackModifierType.invalid, AttackModifierType.minus, AttackModifierType.minus1extra, AttackModifierType.empower, AttackModifierType.enfeeble, AttackModifierType.townguard, AttackModifierType.success, AttackModifierType.wreck, AttackModifierType.imbue, AttackModifierType.advancedImbue].indexOf(this.type) != -1) {
+      if ([AttackModifierType.plus, AttackModifierType.plus3, AttackModifierType.plus4, AttackModifierType.plusX, AttackModifierType.invalid, AttackModifierType.minus, AttackModifierType.minus1extra, AttackModifierType.empower, AttackModifierType.enfeeble, AttackModifierType.townguard, AttackModifierType.success, AttackModifierType.wreck, AttackModifierType.imbue, AttackModifierType.advancedImbue].includes(this.type)) {
         this.changeType(prev);
       }
     }
@@ -441,7 +441,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
     } else if (!this.anyHasFactionModifier(attackModifier) || force) {
       this.before.emit(new AttackModiferDeckChange(this.deck, 'addFactionModifier', attackModifier.id));
       if (!force) {
-        this.deck.cards = this.deck.cards.filter((am) => !am.id || gameManager.gh2eFactionUnlocks().every((faction) => am.id.indexOf(faction) == -1));
+        this.deck.cards = this.deck.cards.filter((am) => !am.id || gameManager.gh2eFactionUnlocks().every((faction) => !am.id.includes(faction)));
       }
       this.deck.cards = [...this.deck.cards, Object.assign(new AttackModifier(attackModifier.type), attackModifier)];
       this.after.emit(new AttackModiferDeckChange(this.deck, 'addFactionModifier', attackModifier.id));

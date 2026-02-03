@@ -38,16 +38,16 @@ export class SettingsMenuComponent {
 
     Object.keys(ConditionName).forEach((conditionName) => {
       const condition = new Condition(conditionName);
-      if (!gameManager.game.edition || gameManager.conditions(gameManager.game.edition).map((condition) => condition.name).indexOf(condition.name) != -1 || condition.types.indexOf(ConditionType.hidden) != -1) {
-        if (condition.types.indexOf(ConditionType.turn) != -1 || condition.types.indexOf(ConditionType.afterTurn) != -1 || condition.types.indexOf(ConditionType.autoApply) != -1 && condition.types.indexOf(ConditionType.apply) == -1) {
+      if (!gameManager.game.edition || gameManager.conditions(gameManager.game.edition).map((condition) => condition.name).includes(condition.name) || condition.types.includes(ConditionType.hidden)) {
+        if (condition.types.includes(ConditionType.turn) || condition.types.includes(ConditionType.afterTurn) || condition.types.includes(ConditionType.autoApply) && !condition.types.includes(ConditionType.apply)) {
           this.applyConditionsExcludes.push(condition);
         }
 
-        if (condition.types.indexOf(ConditionType.autoApply) != -1) {
+        if (condition.types.includes(ConditionType.autoApply)) {
           this.activeApplyConditionsAuto.push(condition);
         }
 
-        if (condition.types.indexOf(ConditionType.apply) != -1) {
+        if (condition.types.includes(ConditionType.apply)) {
           this.activeApplyConditionsExcludes.push(condition);
         }
       }

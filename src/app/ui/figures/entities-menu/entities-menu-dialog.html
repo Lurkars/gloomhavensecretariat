@@ -29,11 +29,11 @@
     @for (entity of allEntities | trackUUID; track entity._trackUUID) {
     @if (!!monster) {
     <div class="entity {{gameManager.toMonsterEntity(entity).type}}" tabclick (click)="toggleEntity(entity)"
-      [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">{{entity.number}}</div>
+      [ngClass]="{'inactive' : !entities.includes(entity)}">{{entity.number}}</div>
     }
     @if (!!character) {
     <div class="entity" tabclick (click)="toggleEntity(entity)"
-      [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">
+      [ngClass]="{'inactive' : !entities.includes(entity)}">
       <span class="summon-image"
         [ngClass]="{'active' : gameManager.toSummon(entity).state == SummonState.true, 'new' : gameManager.toSummon(entity).state == SummonState.new, 'center' : (gameManager.toSummon(entity).entityConditions.length % 2) == 0}">
         <img src="./assets/images/summons/{{gameManager.toSummon(entity).color}}.png">
@@ -49,7 +49,7 @@
     }
     @if (!!objective) {
     <div class="entity" tabclick (click)="toggleEntity(entity)"
-      [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">
+      [ngClass]="{'inactive' : !entities.includes(entity)}">
       <span class="objective-marker">
         {{gameManager.toObjectiveEntity(entity).number}}
       </span>

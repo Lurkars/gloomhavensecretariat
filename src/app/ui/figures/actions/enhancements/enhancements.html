@@ -24,12 +24,12 @@
         <span class="text-white" [ghs-label]="'%game.actionIcon.jump%'"></span>
       </span>
       }
-      @if (Elements.indexOf(enhancements[slotIndex != undefined ? slotIndex : i]) != -1) {
+      @if (Elements.includes(enhancements[slotIndex != undefined ? slotIndex : i])) {
       <span class="element">
         <span [ghs-label]="'%game.element.' + enhancements[slotIndex != undefined ? slotIndex : i] + '%'"></span>
       </span>
       }
-      @if (Conditions.indexOf(enhancements[slotIndex != undefined ? slotIndex : i]) != -1) {
+      @if (Conditions.includes(enhancements[slotIndex != undefined ? slotIndex : i])) {
       <span class="condition">
         <span [ghs-label]="'%game.conditionIcon.' + enhancements[slotIndex != undefined ? slotIndex : i] + '%'"></span>
       </span>

@@ -61,7 +61,7 @@ export class ActionEnhancementsComponent implements OnInit, OnDestroy {
         this.slots = [];
         if (this.action.enhancementTypes) {
             this.slots = this.slotIndex != undefined ? [this.action.enhancementTypes[this.slotIndex]] : [...this.action.enhancementTypes];
-            this.wipSpecialIndex = this.slots[0] == EnhancementType.any ? (this.actionIndex.indexOf('bottom') == -1 ? 'custom' : 'custom-bottom') : '';
+            this.wipSpecialIndex = this.slots[0] == EnhancementType.any ? (!this.actionIndex.includes('bottom') ? 'custom' : 'custom-bottom') : '';
             this.enhancements = [];
             if (this.character && this.cardId && this.character.progress && this.character.progress.enhancements) {
                 this.character.progress.enhancements.filter((e) => e.cardId == this.cardId && (!this.wipSpecialIndex && e.actionIndex == this.actionIndex || this.wipSpecialIndex && e.actionIndex == this.wipSpecialIndex)).forEach((e) => {
@@ -76,7 +76,7 @@ export class ActionEnhancementsComponent implements OnInit, OnDestroy {
                 this.slots[this.enhancements.length] = EnhancementType.any;
             }
         }
-        this.edit = this.character && this.character.tags.indexOf('edit-abilities') != -1 || false;
+        this.edit = this.character && this.character.tags.includes('edit-abilities') || false;
     }
 
     enhance(index: number, event: any) {

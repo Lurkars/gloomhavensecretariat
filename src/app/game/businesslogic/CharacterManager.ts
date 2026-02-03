@@ -220,7 +220,7 @@ export class CharacterManager {
     character.summons.push(summon);
 
     if (character.name == 'boneshaper') {
-      if (character.tags.indexOf('solid-bones') != -1 || character.tags.indexOf('unholy-prowess') != -1) {
+      if (character.tags.includes('solid-bones') || character.tags.includes('unholy-prowess')) {
         if (summon.name === 'shambling-skeleton') {
           summon.maxHealth += 1;
           if (summon.health == summon.maxHealth - 1) {
@@ -229,7 +229,7 @@ export class CharacterManager {
             summon.health += 1;
           }
           gameManager.entityManager.checkHealth(summon, character);
-          if (character.tags.indexOf('solid-bones') != -1) {
+          if (character.tags.includes('solid-bones')) {
             summon.movement += 1;
             summon.action = new Action(ActionType.pierce, 1);
           }
@@ -237,7 +237,7 @@ export class CharacterManager {
       }
     }
 
-    if (character.name == 'astral' && character.tags.indexOf('veil-of-protection') != -1) {
+    if (character.name == 'astral' && character.tags.includes('veil-of-protection')) {
       summon.health += 3;
       summon.maxHealth += 3;
     }
@@ -246,7 +246,7 @@ export class CharacterManager {
   removeSummon(character: Character, summon: Summon) {
     character.summons.splice(character.summons.indexOf(summon), 1);
 
-    if (character.name == 'astral' && character.tags.indexOf('imbue-with-life') != -1 && summon.name == 'animated-claymore') {
+    if (character.name == 'astral' && character.tags.includes('imbue-with-life') && summon.name == 'animated-claymore') {
       let disarm = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
       character.tags = character.tags.filter((tag) => tag != 'imbue-with-life');
       if (disarm) {
@@ -296,7 +296,7 @@ export class CharacterManager {
       character.maxHealth += 5;
     }
 
-    if (character.name == 'astral' && character.tags.indexOf('veil-of-protection') != -1) {
+    if (character.name == 'astral' && character.tags.includes('veil-of-protection')) {
       character.maxHealth += 3;
     }
 
@@ -335,7 +335,7 @@ export class CharacterManager {
   }
 
   ignoreNegativeItemEffects(character: Character): boolean {
-    let perk = character.perks.find((perk) => perk.custom && (perk.custom.indexOf('%game.custom.perks.ignoreNegativeItem%') != -1 || perk.custom.indexOf('%game.custom.perks.ignoreNegativeItemFh%') != -1));
+    let perk = character.perks.find((perk) => perk.custom && (perk.custom.includes('%game.custom.perks.ignoreNegativeItem%') || perk.custom.includes('%game.custom.perks.ignoreNegativeItemFh%')));
     if (!perk) {
       return false;
     } else {
@@ -345,7 +345,7 @@ export class CharacterManager {
   }
 
   ignoreNegativeScenarioffects(character: Character): boolean {
-    let perk = character.perks.find((perk) => perk.custom && (perk.custom.indexOf('%game.custom.perks.ignoreNegativeScenario%') != -1 || perk.custom.indexOf('%game.custom.perks.ignoreScenario%') != -1));
+    let perk = character.perks.find((perk) => perk.custom && (perk.custom.includes('%game.custom.perks.ignoreNegativeScenario%') || perk.custom.includes('%game.custom.perks.ignoreScenario%')));
     if (!perk) {
       return false;
     } else {
@@ -356,13 +356,13 @@ export class CharacterManager {
 
   itemEffect(itemData: ItemData): boolean {
     if (itemData.edition == 'gh') {
-      return typeof itemData.id === 'number' && [16, 38, 52, 101, 103, 108].indexOf(itemData.id) != -1;
+      return typeof itemData.id === 'number' && [16, 38, 52, 101, 103, 108].includes(itemData.id);
     } else if (itemData.edition == 'cs') {
-      return typeof itemData.id === 'number' && [157, 71].indexOf(itemData.id) != -1;
+      return typeof itemData.id === 'number' && [157, 71].includes(itemData.id);
     } else if (itemData.edition == 'toa') {
-      return typeof itemData.id === 'number' && [101, 107].indexOf(itemData.id) != -1;
+      return typeof itemData.id === 'number' && [101, 107].includes(itemData.id);
     } else if (itemData.edition == 'fh') {
-      return typeof itemData.id === 'number' && [3, 11, 41, 60, 132, 138, 178].indexOf(itemData.id) != -1;
+      return typeof itemData.id === 'number' && [3, 11, 41, 60, 132, 138, 178].includes(itemData.id);
     }
     return false;
   }
@@ -408,7 +408,7 @@ export class CharacterManager {
           }
         });
 
-        if (figure instanceof Character && figure.name == 'blinkblade' && figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
+        if (figure instanceof Character && !figure.absent && figure.name == 'blinkblade' && figure.tags.includes('time_tokens') && figure.primaryToken == 0) {
           figure.identity = 0;
         }
 
@@ -420,7 +420,7 @@ export class CharacterManager {
           figure.tags = figure.tags.filter((tag) => !tag.startsWith('roundAction-'));
         }
 
-        if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && settingsManager.settings.battleGoals && figure.progress.trial && figure.progress.trial.edition == 'fh' && figure.progress.trial.name == '356' && figure.tags.indexOf('trial-fh-356') != -1) {
+        if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && settingsManager.settings.battleGoals && gameManager.entityManager.isAlive(figure) && figure.progress.trial && figure.progress.trial.edition == 'fh' && figure.progress.trial.name == '356' && figure.tags.includes('trial-fh-356')) {
           figure.tags.splice(figure.tags.indexOf('trial-fh-356'), 1);
           gameManager.battleGoalManager.drawBattleGoal(figure, true);
         }
@@ -440,7 +440,7 @@ export class CharacterManager {
           figure.off = false;
         }
 
-        if (figure.name == 'blinkblade' && figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
+        if (!figure.absent && figure.name == 'blinkblade' && figure.tags.includes('time_tokens') && figure.primaryToken == 0) {
           if (figure.identity == 0 && figure.tokenValues[0] < 2) {
             figure.tokenValues[0] += 1;
           } else if (figure.identity == 1) {
@@ -453,26 +453,24 @@ export class CharacterManager {
           }
         }
 
-        if (figure.name == 'shackles' && figure.tags.indexOf('delayed_malady') != -1) {
-          const tag = figure.tags.find((tag) => tag == 'delayed_malady');
-          if (tag) {
-            figure.tags.splice(figure.tags.indexOf(tag), 1);
-            figure.entityConditions.forEach((condition) => {
-              if (condition.types.indexOf(ConditionType.negative) && !condition.expired && condition.state != EntityConditionState.removed) {
-                if (figure.immunities.indexOf(condition.name) == -1) {
-                  figure.immunities.push(condition.name);
-                }
+        if (gameManager.entityManager.isAlive(figure) && figure.name == 'shackles' && figure.tags.includes('delayed_malady')) {
+          figure.tags.splice(figure.tags.indexOf('delayed_malady'), 1);
+          figure.entityConditions.forEach((condition) => {
+            if (condition.types.indexOf(ConditionType.negative) && !condition.expired && condition.state != EntityConditionState.removed) {
+              if (!figure.immunities.includes(condition.name)) {
+                figure.immunities.push(condition.name);
               }
-            })
-          }
-          if (!figure.tags.find((tag) => tag == 'delayed_malady')) {
+            }
+          })
+
+          if (!figure.tags.includes('delayed_malady')) {
             {
               figure.immunities = [];
             }
           }
         }
 
-        if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && settingsManager.settings.battleGoals && figure.progress.trial && figure.progress.trial.edition == 'fh' && figure.progress.trial.name == '356' && figure.tags.indexOf('trial-fh-356') != -1) {
+        if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && settingsManager.settings.battleGoals && !figure.absent && figure.progress.trial && figure.progress.trial.edition == 'fh' && figure.progress.trial.name == '356' && figure.tags.includes('trial-fh-356')) {
           figure.tags.splice(figure.tags.indexOf('trial-fh-356'), 1);
         }
       }
@@ -480,7 +478,7 @@ export class CharacterManager {
   }
 
   personalQuestByCard(edition: string, cardId: string): PersonalQuest | undefined {
-    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1).flatMap((editionData) => editionData.personalQuests).find((pq) => pq.cardId == cardId || pq.altId == cardId || pq.altId == '0' + cardId);
+    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).includes(editionData.edition)).flatMap((editionData) => editionData.personalQuests).find((pq) => pq.cardId == cardId || pq.altId == cardId || pq.altId == '0' + cardId);
   }
 
   previousEnhancements(character: Character, temporary: boolean) {
@@ -504,10 +502,10 @@ export class CharacterManager {
     }
 
     // wipSpecial
-    character.progress.enhancements.filter((e) => e.actionIndex.indexOf('custom') != -1).forEach((e) => {
+    character.progress.enhancements.filter((e) => e.actionIndex.includes('custom')).forEach((e) => {
       const card = gameManager.deckData(character).abilities.find((a) => a.cardId == e.cardId);
       if (card) {
-        const mapping = this.enhancementMapping(e.actionIndex.indexOf('bottom') == -1 ? card.actions : card.bottomActions || [], e.actionIndex.indexOf('bottom') == -1 ? '' : 'bottom');
+        const mapping = this.enhancementMapping(!e.actionIndex.includes('bottom') ? card.actions : card.bottomActions || [], !e.actionIndex.includes('bottom') ? '' : 'bottom');
         if (mapping.length && mapping[e.index]) {
           e.actionIndex = mapping[e.index];
           e.index = e.index - mapping.indexOf(e.actionIndex);

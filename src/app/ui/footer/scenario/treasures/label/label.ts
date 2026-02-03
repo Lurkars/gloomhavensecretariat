@@ -57,7 +57,7 @@ export class TreasureLabelComponent implements OnInit {
 
             if (this.itemCards) {
                 this.treasure.rewards.forEach((reward, index) => {
-                    if ([TreasureRewardType.item, TreasureRewardType.itemBlueprint, TreasureRewardType.itemDesign, TreasureRewardType.itemFh,].indexOf(reward.type) != -1) {
+                    if ([TreasureRewardType.item, TreasureRewardType.itemBlueprint, TreasureRewardType.itemDesign, TreasureRewardType.itemFh,].includes(reward.type)) {
                         const itemString = '' + reward.value;
                         let itemEdition = this.edition;
                         let itemId = -1
@@ -71,7 +71,7 @@ export class TreasureLabelComponent implements OnInit {
                         if (itemData) {
                             this.items.push(itemData);
                         }
-                    } else if ([TreasureRewardType.randomItem, TreasureRewardType.randomItemBlueprint, TreasureRewardType.randomItemDesign].indexOf(reward.type) != -1 && this.rewardResults && this.rewardResults[index] && this.rewardResults[index][0] && !isNaN(+this.rewardResults[index][0])) {
+                    } else if ([TreasureRewardType.randomItem, TreasureRewardType.randomItemBlueprint, TreasureRewardType.randomItemDesign].includes(reward.type) && this.rewardResults && this.rewardResults[index] && this.rewardResults[index][0] && !isNaN(+this.rewardResults[index][0])) {
                         const itemData = gameManager.itemManager.getItem(this.rewardResults[index][0], this.rewardResults[index][2], true);
                         if (itemData) {
                             this.items.push(itemData);

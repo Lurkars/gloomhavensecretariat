@@ -24,12 +24,12 @@
       @if (enhancements) {
       <label>
         <input type="checkbox" (click)="toggleSpecial(LootType.special1)"
-          [checked]="gameManager.game.lootDeckFixed.indexOf(LootType.special1) != -1">
+          [checked]="gameManager.game.lootDeckFixed.includes(LootType.special1)">
         <span [ghs-label]="'game.loot.toggleSpecial'" [ghs-label-args]="[LootType.special1]"></span>
       </label>
       <label>
         <input type="checkbox" (click)="toggleSpecial(LootType.special2)"
-          [checked]="gameManager.game.lootDeckFixed.indexOf(LootType.special2) != -1">
+          [checked]="gameManager.game.lootDeckFixed.includes(LootType.special2)">
         <span [ghs-label]="'game.loot.toggleSpecial'" [ghs-label-args]="[LootType.special2]"></span>
       </label>
       }

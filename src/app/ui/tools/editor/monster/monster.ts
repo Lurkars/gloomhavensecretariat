@@ -64,7 +64,7 @@ export class MonsterEditorComponent implements OnInit {
       next: (queryParams) => {
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
-          if (this.edition && gameManager.editions(true).indexOf(this.edition) == -1) {
+          if (this.edition && gameManager.editions(!true).includes(this.edition)) {
             this.edition == undefined;
           }
         }
@@ -81,7 +81,7 @@ export class MonsterEditorComponent implements OnInit {
 
         if (queryParams['level']) {
           this.level = +queryParams['level'];
-          if (this.level != -1 && this.levels.indexOf(this.level) == -1) {
+          if (this.level != -1 && !this.levels.includes(this.level)) {
             this.level = 1;
           }
         }
@@ -147,7 +147,7 @@ export class MonsterEditorComponent implements OnInit {
       const eliteStat = compactData.stats.filter((stat: any) => stat.type == 'elite')[0];
       if (eliteStat) {
         Object.keys(eliteStat).forEach((key) => {
-          if (eliteStat[key] && compactData.stats.filter((stat: any) => stat.type == 'elite').every((stat: any) => JSON.stringify(stat[key]) == JSON.stringify(eliteStat[key])) && normalBaseStats.indexOf(key) == -1 && key != 'type') {
+          if (eliteStat[key] && compactData.stats.filter((stat: any) => stat.type == 'elite').every((stat: any) => JSON.stringify(stat[key]) == JSON.stringify(eliteStat[key])) && !normalBaseStats.includes(key) && key != 'type') {
             compactData.baseStat[key] = eliteStat[key];
             compactData.stats.filter((stat: any) => stat.type == 'elite').forEach((stat: any) => {
               stat[key] = undefined;

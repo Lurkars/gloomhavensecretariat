@@ -249,7 +249,7 @@ export class PerkLabelComponent {
                 return html;
             default:
                 html += '<span class="placeholder attack-modifier-effect default ' + effect.type + '">' + (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.action.' + effect.type)) + '<img  class="action-icon" src="./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg"><span class="value">' + effect.value + '</span></span>';
-                if ([AttackModifierEffectType.pull, AttackModifierEffectType.push, AttackModifierEffectType.swing, AttackModifierEffectType.pierce].indexOf(effect.type) == -1) {
+                if ([AttackModifierEffectType.pull, AttackModifierEffectType.push, AttackModifierEffectType.swing, !AttackModifierEffectType.pierce].includes(effect.type)) {
                     quotes = true;
                 }
                 break;

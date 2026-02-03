@@ -69,7 +69,7 @@
         </span>
     </div>
 
-    @if (!specialActionsMarker.length || specialActionsMarker.indexOf('mode') == -1) {
+    @if (!specialActionsMarker.length || !specialActionsMarker.includes('mode')) {
     <div class="conditions actions">
       @for (actionHint of actionHints | trackUUID; track actionHint._trackUUID; let i = $index) {
       <span class="condition-container"
@@ -109,7 +109,7 @@
 
     <ghs-highlight-conditions [entity]="entity" [figure]="figure"></ghs-highlight-conditions>
 
-    @if (!specialActionsMarker.length || specialActionsMarker.indexOf('mode') == -1) {
+    @if (!specialActionsMarker.length || !specialActionsMarker.includes('mode')) {
     <div class="conditions">
       @for (entityCondition of activeConditions | trackUUID; track entityCondition._trackUUID; let index = $index)
       {
@@ -119,17 +119,17 @@
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
             [style.z-index]="index * 10 + entityCondition.value" />
-          @if (entityCondition.types.indexOf(ConditionType.stack) != -1) {
+          @if (entityCondition.types.includes(ConditionType.stack)) {
           @for (i of [] | ghsRange:(entityCondition.value - 1); track i) {
           <img class="stack" [style.z-index]="index * 10 + entityCondition.value - i - 1"
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
           }
           }
-          @if (entityCondition.types.indexOf(ConditionType.value) != -1 &&
-          entityCondition.types.indexOf(ConditionType.stack) == -1) {
+          @if (entityCondition.types.includes(ConditionType.value) &&
+          !entityCondition.types.includes(ConditionType.stack)) {
           <span class="value" [style.z-index]="index * 10 + entityCondition.value +1">{{entityCondition.value}}</span>
           }
-          @if (entity.immunities.indexOf(entityCondition.name) != -1) {
+          @if (entity.immunities.includes(entityCondition.name)) {
           <span class="condition immunity condition-overlay"
             [style.z-index]="index * 10 + entityCondition.value + 2"></span>
           }

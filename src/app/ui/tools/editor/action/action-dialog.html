@@ -1,5 +1,5 @@
 <div class="scroll-container">
-  @if (noPreview.indexOf(data.action.type) == -1) {
+  @if (!noPreview.includes(data.action.type)) {
   <ghs-action (click)="relative = !relative" [action]="data.action" [relative]="relative" [character]="data.character"
     [cardId]="data.cardId">
   </ghs-action>

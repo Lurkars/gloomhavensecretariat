@@ -116,7 +116,7 @@ export class EntitiesMenuDialogComponent {
   }
 
   toggleEntity(entity: MonsterEntity | Summon | ObjectiveEntity) {
-    if (this.entities.indexOf(entity) == -1) {
+    if (!this.entities.includes(entity)) {
       this.entities.push(entity);
     } else {
       this.entities.splice(this.entities.indexOf(entity), 1);
@@ -175,7 +175,7 @@ export class EntitiesMenuDialogComponent {
 
     setTimeout(() => {
       this.entities.forEach((entity) => {
-        if (gameManager.game.state == GameState.draw || entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
+        if (gameManager.game.state == GameState.draw || entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply))) {
           if (this.monster && entity instanceof MonsterEntity) {
             gameManager.monsterManager.removeMonsterEntity(this.monster, entity);
           } else if (this.character && entity instanceof Summon) {
@@ -246,7 +246,7 @@ export class EntitiesMenuDialogComponent {
     })
 
     this.initialImmunities.forEach((immunity) => {
-      if (this.entityImmunities.indexOf(immunity) == -1) {
+      if (!this.entityImmunities.includes(immunity)) {
         if (this.monster) {
           gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.monster, "removeImmunity"), immunity, this.data.type ? 'monster.' + this.data.type + ' ' : '');
         } else if (this.character) {
@@ -263,7 +263,7 @@ export class EntitiesMenuDialogComponent {
     })
 
     this.entityImmunities.forEach((immunity) => {
-      if (this.initialImmunities.indexOf(immunity) == -1) {
+      if (!this.initialImmunities.includes(immunity)) {
         if (this.monster) {
           gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.monster, "addImmunity"), immunity, this.data.type ? 'monster.' + this.data.type + ' ' : '');
         } else if (this.character) {
@@ -300,7 +300,7 @@ export class EntitiesMenuDialogComponent {
         }
 
         if (entity.maxHealth > 0 && entity.health <= 0 || entity.dead) {
-          entity.dead = entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => !entityCondition.highlight || entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1);
+          entity.dead = entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => !entityCondition.highlight || !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply));
           deadEntities.push(entity);
         }
       })

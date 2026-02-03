@@ -53,7 +53,7 @@ export class ActionHexComponent implements OnChanges {
       }
     })
 
-    this.edit = this.character && this.character.tags.indexOf('edit-abilities') != -1 || false;
+    this.edit = this.character && this.character.tags.includes('edit-abilities') || false;
   }
 
   click(hex: ActionHex) {

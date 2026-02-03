@@ -72,7 +72,7 @@ export function EntityValueFunction(value: string | number, L: number | undefine
   let funcValue: number | undefined;
   if (func && func.startsWith('$')) {
     func = func.replace('$', '');
-    if (func.indexOf(':') != -1) {
+    if (func.includes(':')) {
       funcValue = +func.split(':')[1];
       func = func.split(':')[0];
     }

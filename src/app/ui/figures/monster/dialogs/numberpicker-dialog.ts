@@ -207,10 +207,10 @@ export class MonsterNumberPickerDialog implements OnInit {
 
                 if (this.monster.bb) {
                     if (this.monster.entities.every((entity) => entity.type == MonsterType.elite)) {
-                        if (this.monster.tags.indexOf('bb-elite') == -1) {
+                        if (!this.monster.tags.includes('bb-elite')) {
                             this.monster.tags.push('bb-elite');
                         }
-                    } else if (this.monster.tags.indexOf('bb-elite') != -1) {
+                    } else if (this.monster.tags.includes('bb-elite')) {
                         this.monster.tags = this.monster.tags.filter((tag) => tag != 'bb-elite');
                     }
                 }

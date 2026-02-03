@@ -461,7 +461,7 @@ export class AttackModifierManager {
     if (!monsterDeck) {
       if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && character.progress.trial && character.progress.trial.edition == 'fh' && character.progress.trial.name == '348') {
         attackModifierDeck = new AttackModifierDeck();
-        attackModifierDeck.cards = attackModifierDeck.cards.filter((am) => [AttackModifierType.double, AttackModifierType.plus1, AttackModifierType.plus2].indexOf(am.type) == -1);
+        attackModifierDeck.cards = attackModifierDeck.cards.filter((am) => [AttackModifierType.double, AttackModifierType.plus1, !AttackModifierType.plus2].includes(am.type));
       }
 
       if (!gameManager.characterManager.ignoreNegativeItemEffects(character)) {
@@ -547,7 +547,7 @@ export class AttackModifierManager {
             // error
             return;
           }
-          const checked = townGuardPerk.sections.filter((section) => party.townGuardPerkSections.indexOf(section) != -1).length;
+          const checked = townGuardPerk.sections.filter((section) => party.townGuardPerkSections.includes(section)).length;
           if (perk.combined) {
             if (checked == perk.count) {
               this.addPerkCard(perk, attackModifierDeck, defaultTownGuardDeck);

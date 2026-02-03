@@ -7,7 +7,7 @@
   @if (conditionObject) {
   <span class="condition-object" class="text {{'condition-' + conditionObject.type}}"
     [ngClass]="{'text-white': light, 'inline': inline, 'lowercase': lowercase, 'disabled': disabled}">
-    @if (conditionObject.type && special.indexOf(conditionObject.type) == -1) {
+    @if (conditionObject.type && !special.includes(conditionObject.type)) {
     <span [ngClass]="{'text-white': light}" [ghs-label]="'game.events.conditions.' + conditionObject.type"
       [ghs-label-args]="labelArgs" [slice]="inline ? [0,-1] : []"></span>
     }

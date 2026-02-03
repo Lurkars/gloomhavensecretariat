@@ -64,10 +64,10 @@ export class ScenarioChartPopupDialog {
 
         this.predecessors = [];
 
-        let predecessor = gameManager.scenarioManager.scenarioData(this.scenario.edition).find((other) => other.group == this.scenario.group && other.unlocks && other.unlocks.indexOf(this.scenario.index) != -1 && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
+        let predecessor = gameManager.scenarioManager.scenarioData(this.scenario.edition).find((other) => other.group == this.scenario.group && other.unlocks && other.unlocks.includes(this.scenario.index) && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
 
         if (!predecessor) {
-            predecessor = gameManager.sectionData(this.scenario.edition).find((sectionData) => sectionData.conclusion && sectionData.group == this.scenario.group && sectionData.parent && sectionData.unlocks && sectionData.unlocks.indexOf(this.scenario.index) != -1 && gameManager.game.party.conclusions.find((conclusion) => conclusion.edition == sectionData.edition && conclusion.group == sectionData.group && conclusion.index == sectionData.index));
+            predecessor = gameManager.sectionData(this.scenario.edition).find((sectionData) => sectionData.conclusion && sectionData.group == this.scenario.group && sectionData.parent && sectionData.unlocks && sectionData.unlocks.includes(this.scenario.index) && gameManager.game.party.conclusions.find((conclusion) => conclusion.edition == sectionData.edition && conclusion.group == sectionData.group && conclusion.index == sectionData.index));
             if (predecessor) {
                 predecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => predecessor && other.group == predecessor.group && other.index == predecessor.parent && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
             }
@@ -75,17 +75,17 @@ export class ScenarioChartPopupDialog {
 
         while (predecessor) {
             this.predecessors.unshift(predecessor);
-            let newPredecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => predecessor && other.group == predecessor.group && other.unlocks && other.unlocks.indexOf(predecessor.index) != -1 && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
+            let newPredecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => predecessor && other.group == predecessor.group && other.unlocks && other.unlocks.includes(predecessor.index) && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
 
             if (!newPredecessor) {
-                newPredecessor = gameManager.sectionData(predecessor.edition).find((sectionData) => predecessor && sectionData.conclusion && sectionData.group == predecessor.group && sectionData.parent && sectionData.unlocks && sectionData.unlocks.indexOf(predecessor.index) != -1 && gameManager.game.party.conclusions.find((conclusion) => conclusion.edition == sectionData.edition && conclusion.group == sectionData.group && conclusion.index == sectionData.index));
+                newPredecessor = gameManager.sectionData(predecessor.edition).find((sectionData) => predecessor && sectionData.conclusion && sectionData.group == predecessor.group && sectionData.parent && sectionData.unlocks && sectionData.unlocks.includes(predecessor.index) && gameManager.game.party.conclusions.find((conclusion) => conclusion.edition == sectionData.edition && conclusion.group == sectionData.group && conclusion.index == sectionData.index));
                 if (newPredecessor) {
                     newPredecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => newPredecessor && other.group == newPredecessor.group && other.index == newPredecessor.parent && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
                 }
             }
 
             predecessor = newPredecessor;
-            if (predecessor && this.predecessors.indexOf(predecessor) != -1) {
+            if (predecessor && this.predecessors.includes(predecessor)) {
                 predecessor = undefined;
             }
 
@@ -115,7 +115,7 @@ export class ScenarioChartPopupDialog {
     }
 
     openTreasureDialog(treasure: number) {
-        if (this.lootedTreasures.indexOf(treasure) == -1) {
+        if (!this.lootedTreasures.includes(treasure)) {
             this.dialog.open(TreasuresDialogComponent, {
                 panelClass: ['dialog'],
                 data: { edition: this.scenario.edition, scenario: this.scenario }

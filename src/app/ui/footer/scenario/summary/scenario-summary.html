@@ -182,7 +182,7 @@
       </span>
       }
       @if (success &&
-      (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1)) {
+      (!rewards || !rewards.ignoredBonus || !rewards.ignoredBonus.includes('experience'))) {
       <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpBonus'"></span></span>
       @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
@@ -261,7 +261,7 @@
         ({{character.progress.experience + challenges * 2 + character.experience + (success && rewards &&
         rewards.experience ?
         rewards.experience : 0) + ((success && (!rewards || !rewards.ignoredBonus ||
-        rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0)) +
+        !rewards.ignoredBonus.includes('experience')) ? gameManager.levelManager.experience() : 0)) +
         (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && battleGoals[index]
         ? 3 *gameManager.trialsManager.activeFavor('fh', 'knowledge') : 0)
         }})
@@ -313,11 +313,11 @@
         [ghs-label-args]="[itemData.name]"></span></span>
     @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span>
-      @if (items[index] && items[index].indexOf(itemIndex) != -1) {
+      @if (items[index] && items[index].includes(itemIndex)) {
       <ghs-item (click)="openItemDialog(itemData)" [item]="itemData" [flipped]="true"></ghs-item>
       }
       <input type="checkbox" [disabled]="itemDistributed(index, itemIndex)"
-        [checked]="items[index] && items[index].indexOf(itemIndex) != -1"
+        [checked]="items[index] && items[index].includes(itemIndex)"
         (change)="toggleItem($event, index, itemIndex)">
     </span>
     }
@@ -836,12 +836,12 @@
         }
         @for (item of (rewards.items || []); track item; let i = $index) {
         <div class="item items">
-          @if (item.indexOf(':') != -1) {
+          @if (item.includes(':')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.items'"
             [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '', item.split(':')[1]]"
             (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
           }
-          @if (item.indexOf(':') == -1) {
+          @if (!item.includes(':')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.item'"
             [ghs-label-args]="[item.split('-')[0] , gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '']"
             (click)="openItemDialog(gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
@@ -856,12 +856,12 @@
           <span><span [ghs-label]="'scenario.rewards.chooseItem'"></span></span>
           @for (itemList of (rewards.chooseItem || []); track itemList; let i = $index) {
           @for (item of (itemList || []); track item) {
-          @if (item.indexOf(':') != -1) {
+          @if (item.includes(':')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.items'"
             [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '', item.split(':')[1]]"
             (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
           }
-          @if (item.indexOf(':') == -1) {
+          @if (!item.includes(':')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.item'"
             [ghs-label-args]="[item.split('-')[0] , gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '']"
             (click)="openItemDialog(gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
@@ -877,16 +877,16 @@
         }
         @for (item of (rewards.itemDesigns || []); track item; let i = $index) {
         <div class="item item-designs">
-          @if (item.indexOf('-') != -1) {
+          @if (item.includes('-')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemDesignRange'"
             [ghs-label-args]="[item]"></span>
           }
-          @if (item.indexOf('-') == -1 && item.indexOf(':') == -1) {
+          @if (!item.includes('-') && !item.includes(':')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemDesign'"
-            [ghs-label-args]="[item, gameManager.itemManager.getItem(item.split(':')[0],item.indexOf(':') != -1 ? item.split(':')[1] : (scenario.edition || ''), true)?.name || '']"
-            (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0],item.indexOf(':') != -1 ? item.split(':')[1] : (scenario.edition || ''), true))"></span>
+            [ghs-label-args]="[item, gameManager.itemManager.getItem(item.split(':')[0],item.includes(':') ? item.split(':')[1] : (scenario.edition || ''), true)?.name || '']"
+            (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0],item.includes(':') ? item.split(':')[1] : (scenario.edition || ''), true))"></span>
           }
-          @if (item.indexOf('-') == -1 && item.indexOf(':') != -1) {
+          @if (!item.includes('-') && item.includes(':')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemDesignEdition'"
             [ghs-label-args]="[item.split(':')[0], gameManager.itemManager.getItem(item.split(':')[0], item.split(':')[1], true)?.name || '', item.split(':')[1]]"
             (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0], item.split(':')[1], true))"></span>
@@ -898,11 +898,11 @@
         }
         @for (item of (rewards.itemBlueprints || []); track item; let i = $index) {
         <div class="item item-blueprints">
-          @if (item.indexOf('-') != -1) {
+          @if (item.includes('-')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprintRange'"
             [ghs-label-args]="item.split('-')"></span>
           }
-          @if (item.indexOf('-') == -1) {
+          @if (!item.includes('-')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprint'"
             [ghs-label-args]="[item, gameManager.itemManager.getItem(item,scenario.edition || '', true)?.name || '']"
             (click)="openItemDialog(gameManager.itemManager.getItem(item,scenario.edition || '', true))"></span>
@@ -914,7 +914,7 @@
         }
         @if (rewards.randomItemBlueprints) {
         <div class="item item-blueprints">
-          @if (rewards.randomItemBlueprints.indexOf('-') != -1) {
+          @if (rewards.randomItemBlueprints.includes('-')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomItemBlueprints'"
             [ghs-label-args]="rewards.randomItemBlueprints.split('-')"></span>
           }
@@ -1074,7 +1074,7 @@
       <label><span [ghs-label]="'scenario.rewards.bonus'"></span>:</label>
       <div class="list">
         @if (gameManager.fhRules() && EntityValueFunction('4-C') && (!rewards || !rewards.ignoredBonus ||
-        rewards.ignoredBonus.indexOf('inspiration') == -1)) {
+        !rewards.ignoredBonus.includes('inspiration'))) {
         <div class="item inspiration">
           <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="[(EntityValueFunction('4-C') |
               ghsValueSign) ]"></span> </span>

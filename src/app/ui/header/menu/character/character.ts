@@ -51,16 +51,16 @@ export class CharacterMenuComponent implements OnInit {
       }
 
       if (a.spoiler && b.spoiler) {
-        if (!this.unlocked(a) && this.unlocked(b) && this.newUnlocks.indexOf(b.name) == -1) {
+        if (!this.unlocked(a) && this.unlocked(b) && !this.newUnlocks.includes(b.name)) {
           return 1;
         }
-        if (this.unlocked(a) && this.newUnlocks.indexOf(a.name) == -1 && !this.unlocked(b)) {
+        if (this.unlocked(a) && !this.newUnlocks.includes(a.name) && !this.unlocked(b)) {
           return -1;
         }
-        if (this.unlocked(a) && this.newUnlocks.indexOf(a.name) != -1 && this.unlocked(b) && this.newUnlocks.indexOf(b.name) == -1) {
+        if (this.unlocked(a) && this.newUnlocks.includes(a.name) && this.unlocked(b) && !this.newUnlocks.includes(b.name)) {
           return 1;
         }
-        if (this.unlocked(a) && this.newUnlocks.indexOf(a.name) == -1 && this.unlocked(b) && this.newUnlocks.indexOf(a.name) != -1) {
+        if (this.unlocked(a) && !this.newUnlocks.includes(a.name) && this.unlocked(b) && this.newUnlocks.includes(a.name)) {
           return -1;
         }
         if (!this.unlocked(a) && !this.unlocked(b)) {
@@ -73,7 +73,7 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   unlocked(characterData: CharacterData): boolean {
-    return !characterData.spoiler || gameManager.game.unlockedCharacters.indexOf(characterData.edition + ':' + characterData.name) != -1;
+    return !characterData.spoiler || gameManager.game.unlockedCharacters.includes(characterData.edition + ':' + characterData.name);
   }
 
   locked(edition: string): boolean {
@@ -81,7 +81,7 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   unlock(characterData: CharacterData) {
-    if (gameManager.game.unlockedCharacters.indexOf(characterData.edition + ':' + characterData.name) == -1) {
+    if (!gameManager.game.unlockedCharacters.includes(characterData.edition + ':' + characterData.name)) {
       if (this.confirm == characterData.name) {
         gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterData.name);
         gameManager.game.unlockedCharacters.push(characterData.edition + ':' + characterData.name);

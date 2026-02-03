@@ -57,7 +57,7 @@ export class RoundManager {
             } else {
               if (element.state == ElementState.strong || element.state == ElementState.new) {
                 // GH2E Triangles Perk 12
-                if ([Element.fire, Element.ice, Element.air, Element.earth].indexOf(element.type) == -1 || !this.game.figures.find((figure) => figure instanceof Character && figure.name == 'triangles' && figure.tags.find((tag) => tag === 'element_waning'))) {
+                if ([Element.fire, Element.ice, Element.air, !Element.earth].includes(element.type) || !this.game.figures.find((figure) => figure instanceof Character && !figure.absent && figure.name == 'triangles' && figure.tags.includes('element_waning'))) {
                   element.state = ElementState.waning;
                 }
               } else if (element.state == ElementState.waning) {
@@ -140,7 +140,7 @@ export class RoundManager {
     }
 
     if (settingsManager.settings.removeUnusedMonster) {
-      this.game.figures.filter((figure) => figure instanceof Monster && figure.off && figure.entities.length == 0 && figure.tags.indexOf('addedManually') == -1).forEach((figure) => {
+      this.game.figures.filter((figure) => figure instanceof Monster && figure.off && figure.entities.length == 0 && !figure.tags.includes('addedManually')).forEach((figure) => {
         gameManager.monsterManager.removeMonster(figure as Monster);
       })
     }
@@ -180,10 +180,10 @@ export class RoundManager {
 
     let nextFigure = toggleFigure.active;
 
-    if (settingsManager.settings.activeSummons && toggleFigure instanceof Character) {
-      const activeSummon = toggleFigure.summons.find((summon) => summon.active || summon.tags.indexOf('cs-skull-spirit-turn') != -1);
-      const csSprits = toggleFigure.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') != -1);
-      if (activeSummon && (csSprits.indexOf(activeSummon) == -1 || !activeSummon.active || csSprits.indexOf(activeSummon) < csSprits.length - 1)) {
+    if (settingsManager.settings.activeSummons && toggleFigure instanceof Character && !toggleFigure.absent) {
+      const activeSummon = toggleFigure.summons.find((summon) => summon.active || summon.tags.includes('cs-skull-spirit-turn'));
+      const csSprits = toggleFigure.summons.filter((summon) => summon.tags.includes('cs-skull-spirit'));
+      if (activeSummon && (!csSprits.includes(activeSummon) || !activeSummon.active || csSprits.indexOf(activeSummon) < csSprits.length - 1)) {
         nextFigure = false;
       }
     }
@@ -192,7 +192,7 @@ export class RoundManager {
       this.afterTurn(toggleFigure);
       figure = figures.find((other, otherIndex) => gameManager.gameplayFigure(other) && !other.off && otherIndex != index);
 
-      if (!toggleFigure.off && toggleFigure instanceof Monster && toggleFigure.bb && toggleFigure.tags.indexOf('bb-elite') != -1) {
+      if (!toggleFigure.off && toggleFigure instanceof Monster && toggleFigure.bb && toggleFigure.tags.includes('bb-elite')) {
         if (!figure || figure.getInitiative() > toggleFigure.getInitiative()) {
           figure = toggleFigure;
         }
@@ -265,13 +265,13 @@ export class RoundManager {
         }
       })
 
-      if (figure instanceof Character) {
-        if (figure.name == 'music-note' && figure.tags.indexOf('song_active') != -1) {
+      if (figure instanceof Character && !figure.absent) {
+        if (figure.name == 'music-note' && figure.tags.includes('song_active')) {
           figure.experience -= 1;
         }
 
-        if (!figure.active && figure.name == 'skull' && figure.tags.find((tag) => tag === 'spirits')) {
-          figure.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') != -1).forEach((summon) => {
+        if (!figure.active && figure.name == 'skull' && figure.tags.includes('spirits')) {
+          figure.summons.filter((summon) => summon.tags.includes('cs-skull-spirit')).forEach((summon) => {
             if (summon.maxHealth) {
               summon.health += 1;
               gameManager.entityManager.checkHealth(summon, figure);
@@ -343,7 +343,7 @@ export class RoundManager {
       }
       if (!skipSummons && settingsManager.settings.activeSummons) {
         const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
-        const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true) && summon.tags.indexOf('prism_mode') == -1 && ((!activeSummon || activeSummon.tags.indexOf('cs-skull-spirit') == -1) && summon.tags.indexOf('cs-skull-spirit') == -1 || summon.tags.indexOf('cs-skull-spirit-turn') != -1));
+        const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true) && !summon.tags.includes('prism_mode') && ((!activeSummon || !activeSummon.tags.includes('cs-skull-spirit')) && !summon.tags.includes('cs-skull-spirit') || summon.tags.includes('cs-skull-spirit-turn')));
         figure.summons.slice(activeSummon ? figure.summons.indexOf(activeSummon) : 0, nextSummon ? figure.summons.indexOf(nextSummon) : figure.summons.length).forEach((prevSummon, index, self) => {
           prevSummon.active = false;
           prevSummon.tags = prevSummon.tags.filter((tag) => tag != 'cs-skull-spirit-turn');
@@ -382,7 +382,7 @@ export class RoundManager {
             }
           });
 
-          if (figure.name == 'lightning' && figure.tags.indexOf('blood-pact') != -1) {
+          if (figure.name == 'lightning' && figure.tags.includes('blood-pact')) {
             if (figure.edition != 'gh2e' || figure.health > 1) {
               figure.health -= 1;
             }
@@ -400,7 +400,7 @@ export class RoundManager {
           }
         })
 
-        if (figure.name == 'lightning' && figure.tags.indexOf('blood-pact') != -1) {
+        if (figure.name == 'lightning' && figure.tags.includes('blood-pact')) {
           if (figure.edition != 'gh2e' || figure.health > 1) {
             figure.health -= 1;
           }
@@ -434,31 +434,31 @@ export class RoundManager {
       }
     }
 
-    if (figure instanceof Character && (skipSummons || !figure.summons.some((summon) => summon.active))) {
-      if (figure.name == 'music-note' && figure.tags.indexOf('song_active') != -1) {
+    if (figure instanceof Character && !figure.absent && (skipSummons || !figure.summons.some((summon) => summon.active))) {
+      if (figure.name == 'music-note' && figure.tags.includes('song_active')) {
         figure.experience += 1;
       }
 
       if (figure.name == 'prism') {
-        if (figure.tags.indexOf('repair_mode') != -1 && figure.tags.indexOf('roundAction-repair_mode') == -1) {
+        if (figure.tags.includes('repair_mode') && !figure.tags.includes('roundAction-repair_mode')) {
           figure.health += 2;
           gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.heal, 2));
           gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
           figure.tags.push('roundAction-repair_mode');
-        } if (figure.tags.indexOf('spider_mode') != -1 && figure.tags.indexOf('roundAction-spider_mode') == -1) {
+        } if (figure.tags.includes('spider_mode') && !figure.tags.includes('roundAction-spider_mode')) {
           gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.ward));
           figure.tags.push('roundAction-spider_mode');
         }
       }
     }
 
-    if (figure instanceof Character && settingsManager.settings.applyLongRest && figure.longRest && (skipSummons || !figure.summons.some((summon) => summon.active))) {
-      if (figure.health < figure.maxHealth || figure.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1 && !entityCondition.permanent)) {
+    if (figure instanceof Character && !figure.absent && settingsManager.settings.applyLongRest && figure.longRest && (skipSummons || !figure.summons.some((summon) => summon.active))) {
+      if (figure.health < figure.maxHealth || figure.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.types.includes(ConditionType.clearHeal) && !entityCondition.permanent)) {
         let heal = 2;
 
-        if (figure.name == 'lightning' && figure.edition == 'fh-crossover' && figure.tags.find((tag) => tag === 'rapid_recovery')) {
+        if (figure.name == 'lightning' && figure.edition == 'fh-crossover' && figure.tags.includes('rapid_recovery')) {
           heal += 1;
-        } else if (figure.name == 'lightning' && figure.edition == 'gh2e' && figure.tags.find((tag) => tag === 'long_rest_heal')) {
+        } else if (figure.name == 'lightning' && figure.edition == 'gh2e' && figure.tags.includes('long_rest_heal')) {
           heal += 1;
         }
 
@@ -467,7 +467,7 @@ export class RoundManager {
         gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
       }
 
-      if (figure.name == 'three-spears' && figure.tags.find((tag) => tag === 'supply_tokens_perk') && figure.primaryToken == 0 && figure.tokenValues[0] < 5 && figure.progress.perks[10] >= 2) {
+      if (figure.name == 'three-spears' && figure.tags.includes('supply_tokens_perk') && figure.primaryToken == 0 && figure.tokenValues[0] < 5 && figure.progress.perks[10] >= 2) {
         figure.tokenValues[0] += 1;
       }
     }
@@ -516,8 +516,8 @@ export class RoundManager {
           }
         })
 
-        if (figure.name == 'skull' && figure.tags.find((tag) => tag === 'spirits')) {
-          figure.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') != -1).forEach((summon) => {
+        if (figure.name == 'skull' && !figure.absent && figure.tags.includes('spirits')) {
+          figure.summons.filter((summon) => summon.tags.includes('cs-skull-spirit')).forEach((summon) => {
             if (summon.maxHealth) {
               summon.health -= 1;
               gameManager.entityManager.checkHealth(summon, figure);
@@ -526,7 +526,7 @@ export class RoundManager {
         }
       }
 
-      if (figure instanceof Character && figure.name == 'fist' && figure.tags.indexOf('gift-of-the-mountain') != -1 && (figure.health < EntityValueFunction(figure.maxHealth, figure.level) || figure.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.permanent && !condition.expired))) {
+      if (figure instanceof Character && !figure.absent && figure.name == 'fist' && figure.tags.includes('gift-of-the-mountain') && (figure.health < EntityValueFunction(figure.maxHealth, figure.level) || figure.entityConditions.find((condition) => condition.types.includes(ConditionType.clearHeal) && !condition.permanent && !condition.expired))) {
         let heal = figure.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.heal);
         if (!heal) {
           heal = new EntityCondition(ConditionName.heal, 2);
@@ -539,7 +539,7 @@ export class RoundManager {
         gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
       }
 
-      if (figure instanceof Character && figure.name == 'shards' && figure.tags.indexOf('resonance_tokens') != -1 && figure.tokenValues[0] < 5) {
+      if (figure instanceof Character && !figure.absent && figure.name == 'shards' && figure.tags.includes('resonance_tokens') && figure.tokenValues[0] < 5) {
         figure.tokenValues[0] += 1;
       }
 
@@ -584,7 +584,7 @@ export class RoundManager {
     figure.off = true;
     figure.active = false;
 
-    if (figure instanceof Monster && figure.bb && figure.tags.indexOf('bb-elite') != -1 && figure.tags.indexOf('roundAction-bb-elite') == -1) {
+    if (figure instanceof Monster && figure.bb && figure.tags.includes('bb-elite') && !figure.tags.includes('roundAction-bb-elite')) {
       figure.tags.push('roundAction-bb-elite');
       figure.ability += 1;
       if (figure.ability >= figure.abilities.length) {
@@ -639,14 +639,14 @@ export class RoundManager {
       figure.active = false;
       figure.off = false;
       if (figure instanceof Character) {
-        if (figure.name == 'demolitionist' && figure.tags.find((tag) => tag === 'mech')) {
+        if (figure.name == 'demolitionist' && !figure.absent && figure.tags.includes('mech')) {
           const stat = figure.stats.find((stat) => stat.level == figure.level);
           if (stat) {
             figure.maxHealth = stat.health;
           }
         }
 
-        if (figure.name == 'astral' && figure.tags.find((tag) => tag === 'veil-of-protection')) {
+        if (figure.name == 'astral' && !figure.absent && figure.tags.includes('veil-of-protection')) {
           const stat = figure.stats.find((stat) => stat.level == figure.level);
           if (stat) {
             figure.maxHealth = stat.health;
@@ -674,7 +674,7 @@ export class RoundManager {
         figure.retaliatePersistent = [];
         figure.scenarioStats = new ScenarioStats();
 
-        if (gameManager.fhRules() && figure.tags.indexOf('new-character') != -1) {
+        if (gameManager.fhRules() && figure.tags.includes('new-character')) {
           figure.progress.gold = 0;
         }
 
@@ -684,31 +684,33 @@ export class RoundManager {
           figure.identity = figure.defaultIdentity;
         }
 
-        if (figure.name == 'blinkblade' && figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
-          figure.tokenValues[0] += 1;
-        }
+        if (!figure.absent) {
+          if (figure.name == 'blinkblade' && figure.tags.includes('time_tokens') && figure.primaryToken == 0) {
+            figure.tokenValues[0] += 1;
+          }
 
-        if (figure.name == 'kelp' && figure.tags.find((tag) => tag === 'trophy_tokens') && figure.primaryToken == 0) {
-          figure.tokenValues[0] += 2;
-        }
+          if (figure.name == 'kelp' && figure.tags.includes('trophy_tokens') && figure.primaryToken == 0) {
+            figure.tokenValues[0] += 2;
+          }
 
-        if (figure.name == 'shards' && figure.tags.find((tag) => tag === 'resonance_tokens') && figure.primaryToken == 0) {
-          figure.tokenValues[0] += 1;
-        }
+          if (figure.name == 'shards' && figure.tags.includes('resonance_tokens') && figure.primaryToken == 0) {
+            figure.tokenValues[0] += 1;
+          }
 
-        if (figure.name == 'shards' && figure.tags.find((tag) => tag === 'extra_resonance_tokens') && figure.primaryToken == 0) {
-          figure.tokenValues[0] += 2;
-          gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.brittle));
-        }
+          if (figure.name == 'shards' && figure.tags.includes('extra_resonance_tokens') && figure.primaryToken == 0) {
+            figure.tokenValues[0] += 2;
+            gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.brittle));
+          }
 
-        if (figure.name == 'three-spears' && figure.tags.find((tag) => tag === 'supply_tokens_scenario') && figure.primaryToken == 0) {
-          figure.tokenValues[0] += 1;
-        }
+          if (figure.name == 'three-spears' && figure.tags.includes('supply_tokens_scenario') && figure.primaryToken == 0) {
+            figure.tokenValues[0] += 1;
+          }
 
-        if (figure.name == 'eclipse' && figure.edition == 'gh2e') {
-          let eclipseInvisible = new EntityCondition(ConditionName.invisible);
-          eclipseInvisible.permanent = true;
-          figure.entityConditions.push(eclipseInvisible);
+          if (figure.name == 'eclipse' && figure.edition == 'gh2e') {
+            let eclipseInvisible = new EntityCondition(ConditionName.invisible);
+            eclipseInvisible.permanent = true;
+            figure.entityConditions.push(eclipseInvisible);
+          }
         }
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));

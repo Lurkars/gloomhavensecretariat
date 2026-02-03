@@ -117,7 +117,7 @@ export class MonsterNumberPicker implements OnInit, OnDestroy {
       if (dead) {
         gameManager.monsterManager.removeMonsterEntity(this.monster, dead);
       }
-      const entity = gameManager.monsterManager.addMonsterEntity(this.monster, number, this.monster.bb && this.monster.tags.indexOf('bb-elite') != -1 ? MonsterType.elite : this.type, false);
+      const entity = gameManager.monsterManager.addMonsterEntity(this.monster, number, this.monster.bb && this.monster.tags.includes('bb-elite') ? MonsterType.elite : this.type, false);
 
       if (gameManager.game.state == GameState.next && entity) {
         this.monster.active = !gameManager.game.figures.some((figure) => figure.active);

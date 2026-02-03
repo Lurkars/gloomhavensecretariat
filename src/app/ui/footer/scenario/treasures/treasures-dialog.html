@@ -4,7 +4,7 @@
 
   <div class="treasures">
     @for (treasure of treasures; track treasure; let i = $index) {
-    <div class="treasure" [ngClass]="{'looted': looted.indexOf(i) != -1, 'highlight' : i == treasureIndex}"
+    <div class="treasure" [ngClass]="{'looted': looted.includes(i), 'highlight' : i == treasureIndex}"
       (click)="toggleTreasure(i)">
       @if (('' + treasure).startsWith('G') || +treasure >= 0) {
       <span>@if (!('' + treasure).startsWith('G') && +treasure < 10 && +treasure>= 0) {

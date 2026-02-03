@@ -19,7 +19,7 @@ export class BattleGoalSetupDialog {
 
   constructor() {
     this.editions = gameManager.battleGoalManager.getBattleGoalEditions();
-    if (gameManager.game.edition && gameManager.battleGoalManager.getBattleGoalEditions().indexOf(gameManager.game.edition) != -1 && (!gameManager.game.battleGoalEditions || gameManager.game.battleGoalEditions.length == 0 || gameManager.game.battleGoalEditions.length == 1 && gameManager.game.battleGoalEditions.indexOf(gameManager.game.edition) != -1)) {
+    if (gameManager.game.edition && gameManager.battleGoalManager.getBattleGoalEditions().includes(gameManager.game.edition) && (!gameManager.game.battleGoalEditions || gameManager.game.battleGoalEditions.length == 0 || gameManager.game.battleGoalEditions.length == 1 && gameManager.game.battleGoalEditions.includes(gameManager.game.edition))) {
       this.selectEdition(gameManager.game.edition);
     }
     this.update();
@@ -47,8 +47,8 @@ export class BattleGoalSetupDialog {
     if (!gameManager.editionRules(edition, false)) {
       gameManager.game.battleGoalEditions = gameManager.game.battleGoalEditions || [];
       gameManager.game.filteredBattleGoals = gameManager.game.filteredBattleGoals || [];
-      gameManager.stateManager.before("battleGoals.setup." + (gameManager.game.battleGoalEditions.indexOf(edition) == -1 ? "addEdition" : "removeEdition"), edition);
-      if (gameManager.game.battleGoalEditions.indexOf(edition) == -1) {
+      gameManager.stateManager.before("battleGoals.setup." + (!gameManager.game.battleGoalEditions.includes(edition) ? "addEdition" : "removeEdition"), edition);
+      if (!gameManager.game.battleGoalEditions.includes(edition)) {
         gameManager.game.battleGoalEditions.push(edition);
       } else {
         gameManager.game.battleGoalEditions = gameManager.game.battleGoalEditions.filter((other) => other != edition);
@@ -60,7 +60,7 @@ export class BattleGoalSetupDialog {
   }
 
   selected(battleGoal: BattleGoal): boolean {
-    return !this.filtered(battleGoal) && (battleGoal.edition == gameManager.game.edition || gameManager.game.battleGoalEditions.indexOf(battleGoal.edition) != -1);
+    return !this.filtered(battleGoal) && (battleGoal.edition == gameManager.game.edition || gameManager.game.battleGoalEditions.includes(battleGoal.edition));
   }
 
   filtered(battleGoal: BattleGoal): boolean {

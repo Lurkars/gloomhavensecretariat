@@ -14,7 +14,7 @@
           (click)="selectEdition(edition)" [ngClass]="{'selected': edition == currentEdition}"></span>
         <span class="size">({{gameManager.battleGoalManager.getBattleGoalsForEdition(edition).length}})</span>
         <input type="checkbox"
-          [checked]="gameManager.game.battleGoalEditions.indexOf(edition) != -1 || gameManager.editionRules(edition, false)"
+          [checked]="gameManager.game.battleGoalEditions.includes(edition) || gameManager.editionRules(edition, false)"
           [disabled]="gameManager.editionRules(edition, false)" (change)="toggleEdition(edition)">
       </div>
       }

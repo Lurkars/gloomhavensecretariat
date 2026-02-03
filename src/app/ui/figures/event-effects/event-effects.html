@@ -16,7 +16,7 @@
       <div class="character-container">
         <a class="character" tabclick ghs-pointer-input (singleClick)="toggleCharacter(character)"
           (doubleClick)="openCharacterSheet(character)"
-          [ngClass]="{'inactive' : activeCharacters.indexOf(character) == -1}">
+          [ngClass]="{'inactive' : !activeCharacters.includes(character)}">
           <img class="icon" [src]="character.iconUrl">
           @if (character.absent) {
           <img class="absent" src="./assets/images/status/absent.svg">
@@ -25,7 +25,7 @@
         @if (!gameManager.roundManager.firstRound) {
         @for (summon of character.summons | trackUUID; track summon._trackUUID) {
         <a class="summon" tabclick (click)="toggleSummon(summon)"
-          [ngClass]="{'inactive' : activeSummons.indexOf(summon) == -1, 'thumbnail' : settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)}">
+          [ngClass]="{'inactive' : !activeSummons.includes(summon), 'thumbnail' : settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)}">
           <span class="summon-state" [ngClass]="{'fh': summon.color == SummonColor.fh}">
             @if (summon.color != SummonColor.fh) {
             <img src="./assets/images/summons/{{summon.color}}.png">

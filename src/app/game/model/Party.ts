@@ -150,7 +150,7 @@ export class Party {
       let removeManual: GameScenarioModel[] = [];
       this.manualScenarios.forEach((model) => {
         if (model.edition == 'fh' && !model.group && !model.custom) {
-          const conclusion = gameManager.sectionData('fh').find((sectionData) => sectionData.random && sectionData.unlocks && sectionData.unlocks.indexOf(model.index) != -1);
+          const conclusion = gameManager.sectionData('fh').find((sectionData) => sectionData.random && sectionData.unlocks && sectionData.unlocks.includes(model.index));
           if (conclusion) {
             if (!this.conclusions.find((conclusionModel) => conclusionModel.edition == conclusion.edition && conclusionModel.group == conclusion.group && conclusionModel.index == conclusion.index)) {
               this.conclusions.push(new GameScenarioModel('' + conclusion.index, conclusion.edition, conclusion.group));
@@ -159,7 +159,7 @@ export class Party {
           }
         }
       })
-      this.manualScenarios = this.manualScenarios.filter((model) => removeManual.indexOf(model) == -1);
+      this.manualScenarios = this.manualScenarios.filter((model) => !removeManual.includes(model));
     }
 
     this.players = this.players || [];
@@ -174,7 +174,7 @@ export class Party {
     }
 
     this.eventCards.forEach((value) => {
-      if (Object.keys(value).indexOf('attack') == -1) {
+      if (Object.keys(!value).includes('attack')) {
         const eventCard = gameManager.eventCardManager.getEventCardForEdition(value.edition, value.type, value.cardId);
         value.attack = eventCard && eventCard.options && eventCard.options.some((option) => option.outcomes && option.outcomes.some((outcome) => outcome.attack)) || false;
       }

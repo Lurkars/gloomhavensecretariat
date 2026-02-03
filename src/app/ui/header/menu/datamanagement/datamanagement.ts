@@ -65,7 +65,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   async toggleEdition(editionData: EditionData) {
-    if (this.settingsManager.settings.editions.indexOf(editionData.edition) != -1) {
+    if (this.settingsManager.settings.editions.includes(editionData.edition)) {
       this.settingsManager.removeEdition(editionData.edition);
     } else {
       this.settingsManager.addEdition(editionData.edition);
@@ -81,7 +81,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   hasDefaultEditionData(): boolean {
-    return this.settingsManager.defaultEditionDataUrls.every((editionDataUrl) => settingsManager.settings.editionDataUrls.indexOf(editionDataUrl) != -1);
+    return this.settingsManager.defaultEditionDataUrls.every((editionDataUrl) => settingsManager.settings.editionDataUrls.includes(editionDataUrl));
   }
 
   addSpoiler(target: any): void {
@@ -101,7 +101,7 @@ export class DatamanagementMenuComponent implements OnInit {
     if (target.value) {
       let characterName: string = target.value;
       let edition = '';
-      if (characterName.indexOf(':') != -1) {
+      if (characterName.includes(':')) {
         edition = target.value.split(':')[0];
         characterName = target.value.split(':')[1];
       }
@@ -111,7 +111,7 @@ export class DatamanagementMenuComponent implements OnInit {
       if (!characterData) {
         characterData = gameManager.getCharacterData(characterName);
       }
-      if (characterData && gameManager.game.unlockedCharacters.indexOf(characterData.edition + ':' + characterData.name) == -1) {
+      if (characterData && !gameManager.game.unlockedCharacters.includes(characterData.edition + ':' + characterData.name)) {
         gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterData.name);
         gameManager.game.unlockedCharacters.push(characterData.edition + ':' + characterData.name);
         if (settingsManager.settings.events) {
@@ -141,7 +141,7 @@ export class DatamanagementMenuComponent implements OnInit {
   removeUnlock(characterName: string): void {
     if (characterName.split(':').length > 1) {
       const characterData = gameManager.getCharacterData(characterName.split(':')[1], characterName.split(':')[0]);
-      if (characterName && gameManager.game.unlockedCharacters.indexOf(characterName) != -1 && characterData) {
+      if (characterName && gameManager.game.unlockedCharacters.includes(characterName) && characterData) {
         gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterData.name);
         gameManager.game.unlockedCharacters.splice(gameManager.game.unlockedCharacters.indexOf(characterName), 1);
         gameManager.stateManager.after();

@@ -188,7 +188,7 @@
         [ghs-label-args]="values.slice(1)" [relative]="relative || forceRelative" [style]="style"
         [ngClass]="{'text-white' : !textBlack && !right, 'small' : action.small}"></span>
       @if ([ 'alliesRange:', 'alliesRangeAffect:','allyAffectRange:', 'enemiesRange:', 'enemiesRangeAffect:',
-      'enemyRange:'].indexOf(action.value + '') != -1) {
+      'enemyRange:'].includes(action.value + '')) {
       <span [ngClass]="{'small' : action.small}">
         <span>{{getRange()}}</span>
         @if (getEliteRange() && getRange() != getEliteRange()) {

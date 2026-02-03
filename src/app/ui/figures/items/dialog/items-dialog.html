@@ -79,10 +79,10 @@
         }
       </div>
       }
-      @if (gameManager.itemManager.buyingDisabled() && !!character && character.tags.indexOf('new-character') == -1 ||
+      @if (gameManager.itemManager.buyingDisabled() && !!character && !character.tags.includes('new-character') ||
       gameManager.itemManager.craftingDisabled()) {
       <div class="shop-disabled">
-        @if (gameManager.itemManager.buyingDisabled() && !!character && character.tags.indexOf('new-character') == -1) {
+        @if (gameManager.itemManager.buyingDisabled() && !!character && !character.tags.includes('new-character')) {
         <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.shop.buyingDisabled'"></span>
         }
         @if (gameManager.itemManager.craftingDisabled()) {
@@ -93,13 +93,13 @@
       <div class="filter">
         <div class="slots">
           @for (slot of ItemSlot; track slot) {
-          <label [ngClass]="{'selected': itemSlots.indexOf(slot) != -1}" ghs-pointer-input
+          <label [ngClass]="{'selected': itemSlots.includes(slot)}" ghs-pointer-input
             (singleClick)="toggleItemSlotFilter(slot)" (doubleClick)="toggleItemSlotFilter(slot, true)">
             <img class="ghs-svg" [src]="'./assets/images/items/slots/' + slot + '.svg'">
           </label>
           }
           @if (itemSlotUndefined) {
-          <label [ngClass]="{'selected': itemSlots.indexOf('undefined') != -1}" ghs-pointer-input
+          <label [ngClass]="{'selected': itemSlots.includes('undefined')}" ghs-pointer-input
             (singleClick)="toggleItemSlotFilter('undefined')" (doubleClick)="toggleItemSlotFilter('undefined', true)">
             <img class="ghs-svg" src="./assets/images/unknown.svg">
           </label>

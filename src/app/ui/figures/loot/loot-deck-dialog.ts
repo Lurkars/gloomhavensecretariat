@@ -74,7 +74,7 @@ export class LootDeckDialogComponent implements OnInit, OnDestroy {
       }
     })
 
-    this.enhancementDeck = gameManager.lootManager.fullLootDeck().filter((loot) => enhancableLootTypes.indexOf(loot.type) != -1).sort((a, b) => a.cardId - b.cardId);
+    this.enhancementDeck = gameManager.lootManager.fullLootDeck().filter((loot) => enhancableLootTypes.includes(loot.type)).sort((a, b) => a.cardId - b.cardId);
     this.update();
     this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
   }
@@ -322,7 +322,7 @@ export class LootDeckDialogComponent implements OnInit, OnDestroy {
 
   getCharacter(index: number): string {
     if (this.characters) {
-      const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.lootCards && figure.lootCards.indexOf(index) != -1);
+      const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.lootCards && figure.lootCards.includes(index));
       if (character) {
         return character.name;
       }

@@ -60,7 +60,7 @@
               </div>
             </div>
           </div>
-          @if (monster.boss || monster.tags.indexOf('boss') != -1) {
+          @if (monster.boss || monster.tags.includes('boss')) {
           <span class="boss"><img src="./assets/images/monster/enemy.png" /></span>
           }
           @if (monster.standeeShare || monster.statEffect) {

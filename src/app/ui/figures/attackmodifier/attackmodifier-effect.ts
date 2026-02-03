@@ -92,6 +92,6 @@ export class AttackModifierEffectComponent implements OnInit, OnDestroy {
   }
 
   isGhsSvg(type: AttackModifierEffectType) {
-    return this.invertIcons.indexOf(type) != -1;
+    return this.invertIcons.includes(type);
   }
 }

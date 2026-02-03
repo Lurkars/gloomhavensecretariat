@@ -91,7 +91,7 @@ export class InitiativeStandaloneComponent implements OnInit, OnDestroy {
     }
 
     pickNumber(number: number) {
-        if (this.value.indexOf('_') == -1) {
+        if (!this.value.includes('_')) {
             this.value = '__';
             this.longRest = false;
         }

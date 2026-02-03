@@ -81,7 +81,7 @@ export class EventCardComponent implements OnInit, OnChanges {
         } else if (changes['spoiler'] && changes['spoiler'].previousValue != changes['spoiler'].currentValue) {
             this.spoilerFree = this.spoiler;
         }
-        this.light = this.event && ['city'].indexOf(this.event.type) != -1 || false;
+        this.light = this.event && ['city'].includes(this.event.type) || false;
     }
 
     selectOption(index: number, quiet: boolean, event: PointerEvent | undefined = undefined) {
@@ -107,7 +107,7 @@ export class EventCardComponent implements OnInit, OnChanges {
                         } else {
                             this.subSelections.push(i);
                         }
-                        if (this.subSelections.indexOf(i) != -1 && outcome.effects && outcome.effects.some((effect) => typeof effect === 'object' && effect.type == EventCardEffectType.skipThreat)) {
+                        if (this.subSelections.includes(i) && outcome.effects && outcome.effects.some((effect) => typeof effect === 'object' && effect.type == EventCardEffectType.skipThreat)) {
                             this.attack = false;
                         }
                     }
@@ -132,7 +132,7 @@ export class EventCardComponent implements OnInit, OnChanges {
             return;
         }
         if (this.event && !this.disabled && this.selected == optionIndex) {
-            if (this.subSelections.indexOf(index) != -1) {
+            if (this.subSelections.includes(index)) {
                 this.subSelections.splice(this.subSelections.indexOf(index), 1);
             } else if (this.resolvable[this.selected] && this.resolvable[this.selected][index] || force) {
                 this.subSelections.push(index);

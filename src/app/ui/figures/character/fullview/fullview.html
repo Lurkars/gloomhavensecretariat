@@ -39,13 +39,13 @@
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
             [style.z-index]="entityCondition.value" />
-          @if (entityCondition.types.indexOf(ConditionType.stack) != -1) {
+          @if (entityCondition.types.includes(ConditionType.stack)) {
           @for (i of [] | ghsRange:(entityCondition.value - 1); track i) {
           <img class="stack" [style.z-index]="entityCondition.value - i - 1"
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
           }
           }
-          @if (entityCondition.types.indexOf(ConditionType.value) != -1) {
+          @if (entityCondition.types.includes(ConditionType.value)) {
           <span class="value">{{entityCondition.value}}</span>
           }
         </span>

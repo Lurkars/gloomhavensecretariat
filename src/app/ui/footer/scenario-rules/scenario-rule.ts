@@ -41,7 +41,7 @@ export class ScenarioRuleComponent implements OnInit {
             return [];
         }
 
-        return rule.randomDungeon.monsterCards.filter((cardId) => !gameManager.game.scenario || !gameManager.game.scenario.additionalSections || gameManager.game.scenario.additionalSections.indexOf(cardId) == -1).map((cardId) => {
+        return rule.randomDungeon.monsterCards.filter((cardId) => !gameManager.game.scenario || !gameManager.game.scenario.additionalSections || !gameManager.game.scenario.additionalSections.includes(cardId)).map((cardId) => {
             if (gameManager.game.scenario) {
                 const section = gameManager.sectionData(gameManager.game.scenario.edition, true).find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomMonsterCard');
                 if (section) {
@@ -58,7 +58,7 @@ export class ScenarioRuleComponent implements OnInit {
             return [];
         }
 
-        return this.rule.randomDungeon.dungeonCards.filter((cardId) => !gameManager.game.scenario || !gameManager.game.scenario.additionalSections || gameManager.game.scenario.additionalSections.indexOf(cardId) == -1).map((cardId) => {
+        return this.rule.randomDungeon.dungeonCards.filter((cardId) => !gameManager.game.scenario || !gameManager.game.scenario.additionalSections || !gameManager.game.scenario.additionalSections.includes(cardId)).map((cardId) => {
             if (gameManager.game.scenario) {
                 const section = gameManager.sectionData(gameManager.game.scenario.edition, true).find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomDungeonCard');
                 if (section) {
@@ -78,7 +78,7 @@ export class ScenarioRuleComponent implements OnInit {
     sections(): ScenarioData[] {
         const scenario = gameManager.scenarioRulesManager.getScenarioForRule(this.identifier).scenario;
         if (scenario && this.rule.sections) {
-            return gameManager.sectionData(scenario.edition).filter((sectionData) => !gameManager.game.sections.find((active) => active.edition == sectionData.edition && active.group == scenario.group && active.index == sectionData.index) && sectionData.group == scenario.group && this.rule.sections.indexOf(sectionData.index) != -1);
+            return gameManager.sectionData(scenario.edition).filter((sectionData) => !gameManager.game.sections.find((active) => active.edition == sectionData.edition && active.group == scenario.group && active.index == sectionData.index) && sectionData.group == scenario.group && this.rule.sections.includes(sectionData.index));
         }
         return [];
     }
@@ -90,7 +90,7 @@ export class ScenarioRuleComponent implements OnInit {
             this.rule.rooms.forEach((roomNumber) => {
                 if (scenario) {
                     const roomData = scenario.rooms.find((roomData) => roomData.roomNumber == roomNumber);
-                    if (roomData && gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomNumber) == -1) {
+                    if (roomData && gameManager.game.scenario && !gameManager.game.scenario.revealedRooms.includes(roomNumber)) {
                         rooms.push(roomData);
                     }
                 }
@@ -101,7 +101,7 @@ export class ScenarioRuleComponent implements OnInit {
 
     figureRules(): ScenarioFigureRule[] {
         return this.rule.figures && this.rule.figures.filter((figureRule) => {
-            if (HiddenScenarioFigureRuleTypes.indexOf(figureRule.type) != -1) {
+            if (HiddenScenarioFigureRuleTypes.includes(figureRule.type)) {
                 return false;
             }
 
@@ -181,7 +181,7 @@ export class ScenarioRuleComponent implements OnInit {
                     if (figure instanceof Monster) {
                         const name = figure.statEffect && figure.statEffect.name ? figure.statEffect.name : figure.name;
                         if (figureRule.type == 'removeEntity') {
-                            return settingsManager.getLabel('data.monster.' + name) + ' [' + gameManager.scenarioRulesManager.entitiesByFigureRule(figureRule, this.rule).filter((entity) => entity instanceof MonsterEntity && figure.entities.indexOf(entity) != -1).map((entity) => '' + entity.number).join(', ') + ']';
+                            return settingsManager.getLabel('data.monster.' + name) + ' [' + gameManager.scenarioRulesManager.entitiesByFigureRule(figureRule, this.rule).filter((entity) => entity instanceof MonsterEntity && figure.entities.includes(entity)).map((entity) => '' + entity.number).join(', ') + ']';
                         }
                         return settingsManager.getLabel('data.monster.' + name);
                     }

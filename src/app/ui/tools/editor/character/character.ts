@@ -57,7 +57,7 @@ export class CharacterEditorComponent implements OnInit {
       next: (queryParams) => {
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
-          if (this.edition && gameManager.editions(true).indexOf(this.edition) == -1) {
+          if (this.edition && gameManager.editions(!true).includes(this.edition)) {
             this.edition == undefined;
           }
           this.charactersData = gameManager.charactersData(this.edition);
@@ -125,7 +125,7 @@ export class CharacterEditorComponent implements OnInit {
   }
 
   selectEdition(event: any) {
-    if (this.editions.indexOf(event.target.value) != -1) {
+    if (this.editions.includes(event.target.value)) {
       this.edition = event.target.value;
     } else {
       this.edition = undefined;

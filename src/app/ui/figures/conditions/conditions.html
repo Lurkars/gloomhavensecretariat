@@ -4,30 +4,30 @@
     @for (condition of conditions | trackUUID; track condition._trackUUID; let i = $index) {
     <a class="item"
       [ngClass]="{'disabled': !hasCondition(condition) && (!immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name) || isImmune(condition.name,true))}">
-      @if (condition.types.indexOf(ConditionType.stack) != -1 || condition.types.indexOf(ConditionType.upgrade) != -1) {
+      @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
       <img tabclick (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
         src="./assets/images/left.svg" />
       }
       <span class="condition" tabclick (click)="toggleCondition(condition)"
         [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
-        [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'immunity' : isImmune(condition.name)}">
+        [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.includes(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-        @if (condition.types.indexOf(ConditionType.stack) != -1 || condition.types.indexOf(ConditionType.upgrade) != -1)
+        @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade))
         {
-        <span [ngClass]="{'stack' : condition.types.indexOf(ConditionType.stack) != -1}"
+        <span [ngClass]="{'stack' : condition.types.includes(ConditionType.stack)}"
           class="value">{{getValue(condition)}}</span>
         }
       </span>
       @if (isPermanent(condition.name)) {
       <span class="condition permanent permanent-overlay"></span>
       }
-      @if (condition.types.indexOf(ConditionType.stack) != -1 || condition.types.indexOf(ConditionType.upgrade) != -1) {
+      @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
       <img tabclick (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
       }
     </a>
-    @if (conditionSeparator.indexOf(i) != -1) {
+    @if (conditionSeparator.includes(i)) {
     <div class="separator"></div>
     }
     }

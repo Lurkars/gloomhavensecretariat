@@ -90,7 +90,7 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
       this.abilityIndex = this.getAbilityIndex(this.ability);
       this.abilityLabel = this.getAbilityLabel(this.ability);
     }
-    this.fh = this.character && (this.character.edition == 'fh' || gameManager.editionExtensions(this.character.edition).indexOf('fh') != -1) || false;
+    this.fh = this.character && (this.character.edition == 'fh' || gameManager.editionExtensions(this.character.edition).includes('fh')) || false;
   }
 
   getAbilityIndex(ability: Ability): number {

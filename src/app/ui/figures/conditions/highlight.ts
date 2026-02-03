@@ -68,7 +68,7 @@ export class HighlightConditionsComponent implements OnInit, OnDestroy {
 
   after() {
     gameManager.entityManager.checkHealth(this.entity, this.figure);
-    if (this.figure instanceof Monster && this.entity instanceof MonsterEntity && this.entity.dead && (this.entity.entityConditions.length == 0 || this.entity.entityConditions.every((entityCondition) => !entityCondition.highlight || entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1))) {
+    if (this.figure instanceof Monster && this.entity instanceof MonsterEntity && this.entity.dead && (this.entity.entityConditions.length == 0 || this.entity.entityConditions.every((entityCondition) => !entityCondition.highlight || !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply)))) {
       setTimeout(() => {
         if (this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
           gameManager.monsterManager.removeMonsterEntity(this.figure, this.entity);
@@ -100,7 +100,7 @@ export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
       next: () => {
-        if (this.condition.highlight && !this.condition.expired && (!settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.indexOf(this.condition.name) != -1)) {
+        if (this.condition.highlight && !this.condition.expired && (!settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.includes(this.condition.name))) {
           this.playAnimation();
         }
       }
@@ -121,7 +121,7 @@ export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {
     this.el.nativeElement.classList.add("animation");
     setTimeout(() => {
       this.el.nativeElement.classList.remove("animation");
-      if (this.condition.types.indexOf(ConditionType.turn) != -1 || !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.indexOf(this.condition.name) != -1) {
+      if (this.condition.types.includes(ConditionType.turn) || !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.includes(this.condition.name)) {
         this.condition.highlight = false;
         gameManager.stateManager.saveLocal();
       }

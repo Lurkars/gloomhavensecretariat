@@ -112,7 +112,7 @@ export class FeedbackDialogComponent {
         if (this.error) {
             const errorId = this.error.message + (this.error.stack ? this.error.stack.split('\n')[0] : '');
             settingsManager.settings.feedbackErrorsIgnore = settingsManager.settings.feedbackErrorsIgnore || [];
-            if (settingsManager.settings.feedbackErrorsIgnore.indexOf(errorId) == -1) {
+            if (!settingsManager.settings.feedbackErrorsIgnore.includes(errorId)) {
                 settingsManager.settings.feedbackErrorsIgnore.push(errorId);
                 settingsManager.storeSettings();
                 ghsDialogClosingHelper(this.dialogRef);

@@ -5,7 +5,7 @@
   }
   <ghs-action [action]="action" [monster]="monster" [monsterType]="monsterType" [objective]="objective"
     [inline]="inline" [right]="right" [textBlack]="textBlack" [hexSize]="hexSize" [relative]="relative"
-    [statsCalculation]="statsCalculation" [highlight]="highlightActions.indexOf(action.type) != -1"
+    [statsCalculation]="statsCalculation" [highlight]="highlightActions.includes(action.type)"
     [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
     (interactiveActionsChange)="onInteractiveActionsChange($event)"
     [index]="(actionIndex ? actionIndex + '-' : '') + index" [style]="style" [character]="character" [cardId]="cardId"

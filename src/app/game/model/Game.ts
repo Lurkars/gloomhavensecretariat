@@ -80,9 +80,9 @@ export class Game {
     this.battleGoalEditions = model.battleGoalEditions || [];
     this.filteredBattleGoals = model.filteredBattleGoals || [];
     this.figures = this.figures.filter((figure) =>
-      model.characters.map((gcm) => gcm.name).indexOf(figure.name) != -1 ||
-      model.monsters.map((gmm) => gmm.name).indexOf(figure.name) != -1 ||
-      model.objectiveContainers && model.objectiveContainers.map((gom) => gom.name).indexOf(figure.name) != -1
+      model.characters.map((gcm) => gcm.name).includes(figure.name) ||
+      model.monsters.map((gmm) => gmm.name).includes(figure.name) ||
+      model.objectiveContainers && model.objectiveContainers.map((gom) => gom.name).includes(figure.name)
     );
 
     this.entitiesCounter = model.entitiesCounter || [];
@@ -270,7 +270,7 @@ export class Game {
 
     // migration
     this.unlockedCharacters = this.unlockedCharacters.map((c) => {
-      if (c.indexOf(':') == -1) {
+      if (!c.includes(':')) {
         let edition = this.edition || gameManager.currentEdition();
         let characterData = gameManager.getCharacterData(c, edition);
         if (!characterData) {

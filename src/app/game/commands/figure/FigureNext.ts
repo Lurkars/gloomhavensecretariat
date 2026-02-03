@@ -43,7 +43,7 @@ export class FigureNextCommand extends CommandImpl {
         if (activeFigure) {
             if (activeFigure instanceof Character) {
                 const activeSummon = activeFigure.summons.find((summon) => summon.active);
-                const csSprits = activeFigure.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') != -1);
+                const csSprits = activeFigure.summons.filter((summon) => summon.tags.includes('cs-skull-spirit'));
                 if (settingsManager.settings.activeSummons && !activeSummon && activeFigure.active && csSprits.length && !csSprits.find((summon) => summon.active)) {
                     csSprits.forEach((spirit) => spirit.tags.push('cs-skull-spirit-turn'));
                 }

@@ -54,7 +54,7 @@ export class EventCardDeckComponent {
         const deck = gameManager.eventCardManager.getEventCardsForEdition(this.edition, this.type);
         const current = gameManager.game.party.eventDecks[this.type] || [];
         this.upcomingCards = current.map((cardId) => deck.find((e) => e.cardId == cardId)).filter((e) => e).map((e) => e as EventCard);
-        this.newCards = deck.filter((e) => current.indexOf(e.cardId) == -1 && !gameManager.game.party.eventCards.find((id) => id.type == this.type && id.cardId == e.cardId));
+        this.newCards = deck.filter((e) => !current.includes(e.cardId) && !gameManager.game.party.eventCards.find((id) => id.type == this.type && id.cardId == e.cardId));
         this.drawnCards = gameManager.game.party.eventCards.filter((id) => deck.find((e) => e.edition == id.edition && e.type == id.type && e.cardId == id.cardId)).map((id) => { return { identifier: id, card: deck.find((card) => card.cardId == id.cardId) }; });
     }
 
@@ -133,7 +133,7 @@ export class EventCardDeckComponent {
     updateDrawnSelect(id: EventCardIdentifier, change: EventCardIdentifier | undefined = undefined) {
         const newSelected = (change ? change.selected : -1);
         const newSubSelections = change ? change.subSelections : [];
-        if (id.selected != newSelected || id.subSelections.length != newSubSelections.length || id.subSelections.some((value) => newSubSelections.indexOf(value) == -1)) {
+        if (id.selected != newSelected || id.subSelections.length != newSubSelections.length || id.subSelections.some((value) => !newSubSelections.includes(value))) {
             gameManager.stateManager.before("events.deck.changeSelection", this.type, id.cardId);
             id.selected = newSelected;
             id.subSelections = newSubSelections;

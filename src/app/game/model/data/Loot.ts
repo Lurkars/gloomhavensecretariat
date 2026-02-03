@@ -40,7 +40,7 @@ export function getLootClass(type: LootType): LootClass {
         return LootClass.random_item;
     } else if (type == LootType.special1 || type == LootType.special2) {
         return LootClass.special;
-    } else if ([LootType.lumber, LootType.metal, LootType.hide].indexOf(type) != -1) {
+    } else if ([LootType.lumber, LootType.metal, LootType.hide].includes(type)) {
         return LootClass.material_resources
     }
 

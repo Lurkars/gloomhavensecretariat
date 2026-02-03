@@ -41,7 +41,7 @@
       <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/heal.svg'" />
       <span>:</span>
       <span [value-calc]="summon.maxHealth" [empty]="true"></span>
-      @if (!!summonData && summonData.enhancements && summonData.enhancements.indexOf('heal') != -1) {
+      @if (!!summonData && summonData.enhancements && summonData.enhancements.includes('heal')) {
       <ghs-action-enhancements class="enhance" [action]="enhancementActions[0]" [index]="actionIndex"
         [character]="character" [cardId]="cardId" [slot]="0" [summon]="summonData"></ghs-action-enhancements>
       }
@@ -50,7 +50,7 @@
       <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/move.svg'" />
       <span>:</span>
       <span [value-calc]="summon.movement" [empty]="true"></span>
-      @if (!!summonData && summonData.enhancements && summonData.enhancements.indexOf('move') != -1) {
+      @if (!!summonData && summonData.enhancements && summonData.enhancements.includes('move')) {
       <ghs-action-enhancements class="enhance" [action]="enhancementActions[2]" [index]="actionIndex"
         [character]="character" [cardId]="cardId" [slot]="2" [summon]="summonData"></ghs-action-enhancements>
       }
@@ -69,7 +69,7 @@
       @if (summon.attack == '') {
       <span>-</span>
       }
-      @if (!!summonData && summonData.enhancements && summonData.enhancements.indexOf('attack') != -1) {
+      @if (!!summonData && summonData.enhancements && summonData.enhancements.includes('attack')) {
       <ghs-action-enhancements class="enhance" [action]="enhancementActions[1]" [index]="actionIndex"
         [character]="character" [cardId]="cardId" [slot]="1" [summon]="summonData"></ghs-action-enhancements>
       }
@@ -78,7 +78,7 @@
       <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/range.svg'" />
       <span>:</span>
       <span [value-calc]="summon.range" [empty]="true"></span>
-      @if (!!summonData && summonData.enhancements && summonData.enhancements.indexOf('range') != -1) {
+      @if (!!summonData && summonData.enhancements && summonData.enhancements.includes('range')) {
       <ghs-action-enhancements class="enhance" [action]="enhancementActions[3]" [index]="actionIndex"
         [character]="character" [cardId]="cardId" [slot]="3" [summon]="summonData"></ghs-action-enhancements>
       }

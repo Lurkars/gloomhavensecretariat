@@ -30,7 +30,7 @@ export class CharacterSummonDialog {
 
   constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) {
     this.summonFilter = "";
-    this.fhSummon = this.character.edition === 'fh' || gameManager.editionExtensions(this.character.edition).indexOf('fh') != -1;
+    this.fhSummon = this.character.edition === 'fh' || gameManager.editionExtensions(this.character.edition).includes('fh');
     if (this.fhSummon) {
       this.summonColor = SummonColor.fh;
     }

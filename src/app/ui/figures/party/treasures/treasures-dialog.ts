@@ -75,19 +75,19 @@ export class TreasuresDialogComponent implements OnInit, OnDestroy {
 
     toggleTreasure(index: number, forceLoot: boolean = false) {
         if (this.batchSelect && !forceLoot) {
-            if (this.selected.indexOf(index) == -1) {
+            if (!this.selected.includes(index)) {
                 this.selected.push(index);
             } else {
                 this.selected.splice(this.selected.indexOf(index), 1);
             }
         } else if (this.data.scenario && !forceLoot) {
-            if (this.selected.indexOf(index) == -1) {
+            if (!this.selected.includes(index)) {
                 this.selected = [];
                 this.selected.push(index);
             } else {
                 this.selected.splice(this.selected.indexOf(index), 1);
             }
-        } else if (this.looted.indexOf(index) == -1) {
+        } else if (!this.looted.includes(index)) {
             this.dialog.open(ScenarioTreasuresDialogComponent,
                 {
                     panelClass: ['dialog'],
@@ -106,11 +106,11 @@ export class TreasuresDialogComponent implements OnInit, OnDestroy {
 
 
     apply() {
-        const removeTreasures = this.selected.filter((index) => this.looted.indexOf(index) != -1);
-        const addTreasures = this.selected.filter((index) => this.looted.indexOf(index) == -1);
+        const removeTreasures = this.selected.filter((index) => this.looted.includes(index));
+        const addTreasures = this.selected.filter((index) => !this.looted.includes(index));
         if (removeTreasures.length > 0) {
             gameManager.stateManager.before("removeTreasures", this.edition, '[' + removeTreasures.join(',') + ']');
-            gameManager.game.party.treasures = gameManager.game.party.treasures.filter((value) => value.edition != this.edition || isNaN(+value.name) || removeTreasures.indexOf(+value.name) == -1);
+            gameManager.game.party.treasures = gameManager.game.party.treasures.filter((value) => value.edition != this.edition || isNaN(+value.name) || !removeTreasures.includes(+value.name));
             gameManager.stateManager.after();
         }
 

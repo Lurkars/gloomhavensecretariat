@@ -65,7 +65,7 @@ export class Character extends CharacterData implements Entity, Figure {
       return 200;
     }
 
-    if (this.exhausted || this.longRest && (this.name != 'prism' || this.tags.indexOf('long_rest') == -1) || this.health <= 0) {
+    if (this.exhausted || this.longRest && (this.name != 'prism' || !this.tags.includes('long_rest')) || this.health <= 0 || this.absent) {
       return 100;
     }
 

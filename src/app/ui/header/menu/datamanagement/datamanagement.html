@@ -254,14 +254,14 @@
         @for (editionData of gameManager.editionData | trackUUID; track editionData._trackUUID) {
         <a class="edition" cdkDrag>
           <label
-            [ghs-label]="(settingsManager.settings.editions.indexOf(editionData.edition) != -1 ? 'datamanagement.editionDataUrls.disable' : 'datamanagement.editionDataUrls.enable')"
+            [ghs-label]="(settingsManager.settings.editions.includes(editionData.edition) ? 'datamanagement.editionDataUrls.disable' : 'datamanagement.editionDataUrls.enable')"
             [ghs-label-attribute]="'title'">
             <input tabclick type="checkbox"
-              [checked]="settingsManager.settings.editions.indexOf(editionData.edition) != -1"
+              [checked]="settingsManager.settings.editions.includes(editionData.edition)"
               (change)="toggleEdition(editionData)">
             <span [ghs-label]="'data.edition.' + editionData.edition"></span>
           </label>
-          @if (settingsManager.defaultEditionDataUrls.indexOf(editionData.url) == -1) {
+          @if (!settingsManager.defaultEditionDataUrls.includes(editionData.url)) {
           <span class="custom" [ghs-label]="'datamanagement.editionDataUrls.custom'" [ghs-label-attribute]="'title'">
             <img src="./assets/images/hint.svg">
             <span class="url">{{editionData.url}}</span>

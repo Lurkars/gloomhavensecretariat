@@ -87,7 +87,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
             this.editions = gameManager.itemManager.itemEditions();
         }
 
-        if (this.editions.indexOf(this.currentEdition) == -1) {
+        if (!this.editions.includes(this.currentEdition)) {
             this.currentEdition = this.edition || this.editions[0];
         }
 
@@ -132,7 +132,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
         }
 
         if (this.itemSlots.length > 0) {
-            this.items = this.items.filter((itemData) => itemData.slot && this.itemSlots.indexOf(itemData.slot) != -1 || !itemData.slot && this.itemSlots.indexOf("undefined") != -1);
+            this.items = this.items.filter((itemData) => itemData.slot && this.itemSlots.includes(itemData.slot) || !itemData.slot && this.itemSlots.includes("undefined"));
         }
 
         if (this.campaignMode && this.edition && !this.all && !this.affordable) {
@@ -224,7 +224,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
     }
 
     toggleItemSlotFilter(slot: ItemSlot | "undefined", add: boolean = false) {
-        if (this.itemSlots.indexOf(slot) == -1) {
+        if (!this.itemSlots.includes(slot)) {
             if (add) {
                 this.itemSlots.push(slot);
             } else {
@@ -251,7 +251,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
     }
 
     unlockItemReveal(item: ItemData, revealed: boolean) {
-        if (this.unlocks.indexOf(item) != -1 && revealed) {
+        if (this.unlocks.includes(item) && revealed) {
             gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems || [];
             if (!this.unlocked(item)) {
                 gameManager.stateManager.before("addUnlockedItem", item.edition, item.id, item.name);

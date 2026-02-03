@@ -81,7 +81,7 @@ export class MonsterStatsComponent implements OnInit, OnDestroy {
       this.stats = gameManager.monsterManager.getStat(this.monster, MonsterType.boss);
       this.hideStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != MonsterType.boss);
     } else {
-      const statsType = !this.monster.bb || this.monster.tags.indexOf('bb-elite') == -1 ? MonsterType.normal : MonsterType.elite;
+      const statsType = !this.monster.bb || !this.monster.tags.includes('bb-elite') ? MonsterType.normal : MonsterType.elite;
       this.stats = gameManager.monsterManager.getStat(this.monster, statsType);
       this.hideStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != statsType);
       if (!this.monster.bb) {

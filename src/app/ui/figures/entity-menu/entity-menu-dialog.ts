@@ -139,9 +139,9 @@ export class EntityMenuDialogComponent {
 
     if (this.data.figure instanceof Character && this.data.figure.specialActions) {
       this.data.figure.specialActions.forEach((specialAction) => {
-        if (this.data.entity instanceof Character && !specialAction.summon && this.data.entity.tags.indexOf(specialAction.name) != -1) {
+        if (this.data.entity instanceof Character && !specialAction.summon && this.data.entity.tags.includes(specialAction.name)) {
           this.specialTags.push(specialAction.name);
-        } else if (this.data.entity instanceof Summon && specialAction.summon && this.data.entity.tags.indexOf(specialAction.name) != -1) {
+        } else if (this.data.entity instanceof Summon && specialAction.summon && this.data.entity.tags.includes(specialAction.name)) {
           this.specialTags.push(specialAction.name);
         }
       })
@@ -198,7 +198,7 @@ export class EntityMenuDialogComponent {
 
       if (gameManager.buildingsManager.petsEnabled && this.data.figure instanceof Monster && this.data.figure.pet) {
         this.catching = true;
-        this.catchingDisabled = gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.equippedItems.find((item) => item.edition == 'fh' && item.name == '247' && (!item.tags || item.tags.indexOf(ItemFlags.consumed) == -1))) == undefined;
+        this.catchingDisabled = gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.equippedItems.find((item) => item.edition == 'fh' && item.name == '247' && (!item.tags || !item.tags.includes(ItemFlags.consumed)))) == undefined;
       }
     }
 
@@ -244,7 +244,7 @@ export class EntityMenuDialogComponent {
 
     this.amDecks.push(...gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).map((figure) => figure.name));
 
-    if (this.data.figure instanceof ObjectiveContainer && this.data.figure.amDeck && this.amDecks.indexOf(this.data.figure.amDeck) == -1) {
+    if (this.data.figure instanceof ObjectiveContainer && this.data.figure.amDeck && !this.amDecks.includes(this.data.figure.amDeck)) {
       this.data.figure.amDeck = 'M';
     }
   }
@@ -318,7 +318,7 @@ export class EntityMenuDialogComponent {
 
     if (this.data.entity) {
       let maxHealth = EntityValueFunction(this.data.entity.maxHealth);
-      if (this.data.entity instanceof Character && this.data.entity.name == 'lightning' && this.specialTags.indexOf('unbridled-power') != -1) {
+      if (this.data.entity instanceof Character && this.data.entity.name == 'lightning' && this.specialTags.includes('unbridled-power')) {
         maxHealth = Math.max(maxHealth, 26);
       }
 
@@ -671,9 +671,9 @@ export class EntityMenuDialogComponent {
 
       if (catching && gameManager.game.party.pets.find((value) => this.data.figure instanceof Monster && value.edition == this.data.figure.edition && value.name == this.data.figure.pet) == undefined) {
         gameManager.game.party.pets.push(new PetIdentifier(this.data.figure.pet, this.data.figure.edition));
-        const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.equippedItems.find((item) => item.edition == 'fh' && item.name == '247' && (!item.tags || item.tags.indexOf(ItemFlags.consumed) == -1))) as Character;
+        const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.equippedItems.find((item) => item.edition == 'fh' && item.name == '247' && (!item.tags || !item.tags.includes(ItemFlags.consumed)))) as Character;
         if (character) {
-          const item = character.progress.equippedItems.find((item) => item.edition == 'fh' && item.name == '247' && (!item.tags || item.tags.indexOf(ItemFlags.consumed) == -1));
+          const item = character.progress.equippedItems.find((item) => item.edition == 'fh' && item.name == '247' && (!item.tags || !item.tags.includes(ItemFlags.consumed)));
           if (item) {
             item.tags = item.tags || [];
             item.tags.push(ItemFlags.consumed);
@@ -826,7 +826,7 @@ export class EntityMenuDialogComponent {
 
   applySpecialAction(specialAction: CharacterSpecialAction) {
     if (!specialAction.noTag) {
-      if (this.specialTags.indexOf(specialAction.name) == -1) {
+      if (!this.specialTags.includes(specialAction.name)) {
         this.specialTags.push(specialAction.name);
       } else {
         this.specialTags.splice(this.specialTags.indexOf(specialAction.name), 1);
@@ -896,7 +896,7 @@ export class EntityMenuDialogComponent {
 
   setIdentity(index: number) {
     if (this.data.entity instanceof Character && index != this.data.entity.identity) {
-      let timeTokens = this.data.entity.name == 'blinkblade' && this.data.entity.tags.find((tag) => tag === 'time_tokens') && this.data.entity.primaryToken == 0;
+      let timeTokens = this.data.entity.name == 'blinkblade' && this.data.entity.tags.includes('time_tokens') && this.data.entity.primaryToken == 0;
       if ((gameManager.game.state == GameState.next || gameManager.game.state == GameState.draw && this.data.entity.identity == 0 && this.data.entity.tokenValues[0] == 0) && timeTokens) {
         return;
       }
@@ -913,7 +913,7 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.before("unsetObjectiveAmDeck", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', deck);
         this.data.figure.amDeck = undefined;
         gameManager.stateManager.after();
-      } else if (this.amDecks.indexOf(deck) != -1) {
+      } else if (this.amDecks.includes(deck)) {
         gameManager.stateManager.before("setObjectiveAmDeck", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', deck);
         this.data.figure.amDeck = deck;
         gameManager.stateManager.after();
@@ -1002,34 +1002,34 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.after();
       }
 
-      const specialTagsToTemove = character.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialActions && this.data.figure.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
+      const specialTagsToTemove = character.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialActions && this.data.figure.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && !this.specialTags.includes(specialTag));
 
       if (specialTagsToTemove.length) {
         gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(character), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','));
-        character.tags = character.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
+        character.tags = character.tags.filter((specialTag) => !specialTagsToTemove.includes(specialTag));
 
-        if (character.name == 'lightning' && specialTagsToTemove.indexOf('careless-charge') != -1) {
+        if (character.name == 'lightning' && specialTagsToTemove.includes('careless-charge')) {
           character.immunities = [];
           this.entityImmunities = character.immunities;
         }
 
-        if (character.name == 'shackles' && specialTagsToTemove.indexOf('delayed_malady') != -1) {
+        if (character.name == 'shackles' && specialTagsToTemove.includes('delayed_malady')) {
           character.immunities = [];
           character.tags = character.tags.filter((tag) => tag != 'delayed_malady');
           this.entityImmunities = character.immunities;
         }
 
-        if (character.name == 'fist' && specialTagsToTemove.indexOf('one-with-the-mountain') != -1) {
+        if (character.name == 'fist' && specialTagsToTemove.includes('one-with-the-mountain')) {
           character.entityConditions = character.entityConditions.filter((entityCondition) => entityCondition.name != ConditionName.regenerate || !entityCondition.permanent);
         }
 
-        if (character.name == 'demolitionist' && specialTagsToTemove.indexOf('mech') != -1) {
+        if (character.name == 'demolitionist' && specialTagsToTemove.includes('mech')) {
           character.maxHealth -= 5;
           gameManager.entityManager.checkHealth(character, character);
         }
 
         if (character.name == 'boneshaper') {
-          if (specialTagsToTemove.indexOf('solid-bones') != -1 || specialTagsToTemove.indexOf('unholy-prowess') != -1) {
+          if (specialTagsToTemove.includes('solid-bones') || specialTagsToTemove.includes('unholy-prowess')) {
             character.summons.forEach((summon) => {
               if (summon.name === 'shambling-skeleton') {
                 summon.maxHealth -= 1;
@@ -1039,7 +1039,7 @@ export class EntityMenuDialogComponent {
                   summon.health -= 1;
                 }
                 gameManager.entityManager.checkHealth(summon, character);
-                if (specialTagsToTemove.indexOf('solid-bones') != -1) {
+                if (specialTagsToTemove.includes('solid-bones')) {
                   summon.movement -= 1;
                   summon.action = undefined;
                 }
@@ -1049,7 +1049,7 @@ export class EntityMenuDialogComponent {
         }
 
         if (character.name == 'astral') {
-          if (specialTagsToTemove.indexOf('veil-of-protection') != -1) {
+          if (specialTagsToTemove.includes('veil-of-protection')) {
             character.health -= 3;
             character.maxHealth -= 3;
             character.summons.forEach((summon) => {
@@ -1058,7 +1058,7 @@ export class EntityMenuDialogComponent {
             })
           }
 
-          if (specialTagsToTemove.indexOf('imbue-with-life') != -1) {
+          if (specialTagsToTemove.includes('imbue-with-life')) {
             character.entityConditions = character.entityConditions.filter((entityCondition) => entityCondition.name != ConditionName.disarm || !entityCondition.permanent)
           }
         }
@@ -1066,13 +1066,13 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.after();
       }
 
-      const specialTagsToAdd = this.specialTags.filter((specialTag) => character && character.tags.indexOf(specialTag) == -1);
+      const specialTagsToAdd = this.specialTags.filter((specialTag) => character && !character.tags.includes(specialTag));
 
       if (specialTagsToAdd.length) {
         gameManager.stateManager.before("addSpecialTags", gameManager.characterManager.characterName(character), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.edition + '.' + this.data.figure.name + '.' + specialTag + '%').join(','));
         character.tags.push(...specialTagsToAdd);
 
-        if (character.name == 'lightning' && specialTagsToAdd.indexOf('careless-charge') != -1) {
+        if (character.name == 'lightning' && specialTagsToAdd.includes('careless-charge')) {
           character.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
           character.immunities.push(ConditionName.curse);
           if (this.hasCondition(ConditionName.enfeeble)) {
@@ -1081,9 +1081,9 @@ export class EntityMenuDialogComponent {
           this.entityImmunities = character.immunities;
         }
 
-        if (character.name == 'shackles' && specialTagsToAdd.indexOf('delayed_malady') != -1) {
+        if (character.name == 'shackles' && specialTagsToAdd.includes('delayed_malady')) {
           character.entityConditions.forEach((condition) => {
-            if (condition.types.indexOf(ConditionType.negative) && !condition.expired && condition.state != EntityConditionState.removed && !this.entityConditions.find((removed) => removed.state == EntityConditionState.removed && removed.name == condition.name) && character.immunities.indexOf(condition.name) == -1) {
+            if (condition.types.indexOf(ConditionType.negative) && !condition.expired && condition.state != EntityConditionState.removed && !this.entityConditions.find((removed) => removed.state == EntityConditionState.removed && removed.name == condition.name) && !character.immunities.includes(condition.name)) {
               character.immunities.push(condition.name);
             }
           })
@@ -1098,7 +1098,7 @@ export class EntityMenuDialogComponent {
           character.tags.push(...[1, 2, 3].map(() => 'delayed_malady'));
         }
 
-        if (character.name == 'fist' && specialTagsToAdd.indexOf('one-with-the-mountain') != -1) {
+        if (character.name == 'fist' && specialTagsToAdd.includes('one-with-the-mountain')) {
           let regenerate = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.regenerate);
           if (regenerate) {
             regenerate.permanent = true;
@@ -1109,7 +1109,7 @@ export class EntityMenuDialogComponent {
           }
         }
 
-        if (character.name == 'demolitionist' && specialTagsToAdd.indexOf('mech') != -1) {
+        if (character.name == 'demolitionist' && specialTagsToAdd.includes('mech')) {
           character.maxHealth += 5;
           character.health += 10;
           gameManager.entityManager.addCondition(character, this.data.figure, new Condition(ConditionName.heal, 10));
@@ -1117,7 +1117,7 @@ export class EntityMenuDialogComponent {
         }
 
         if (character.name == 'boneshaper') {
-          if (specialTagsToAdd.indexOf('solid-bones') != -1 || specialTagsToAdd.indexOf('unholy-prowess') != -1) {
+          if (specialTagsToAdd.includes('solid-bones') || specialTagsToAdd.includes('unholy-prowess')) {
             character.summons.forEach((summon) => {
               if (summon.name === 'shambling-skeleton') {
                 summon.maxHealth += 1;
@@ -1127,7 +1127,7 @@ export class EntityMenuDialogComponent {
                   summon.health += 1;
                 }
                 gameManager.entityManager.checkHealth(summon, character);
-                if (specialTagsToAdd.indexOf('solid-bones') != -1) {
+                if (specialTagsToAdd.includes('solid-bones')) {
                   summon.movement += 1;
                   summon.action = new Action(ActionType.pierce, 1);
                 }
@@ -1137,7 +1137,7 @@ export class EntityMenuDialogComponent {
         }
 
         if (character.name == 'astral') {
-          if (specialTagsToAdd.indexOf('veil-of-protection') != -1) {
+          if (specialTagsToAdd.includes('veil-of-protection')) {
             character.health += 3;
             character.maxHealth += 3;
             character.summons.forEach((summon) => {
@@ -1146,7 +1146,7 @@ export class EntityMenuDialogComponent {
             })
           }
 
-          if (specialTagsToAdd.indexOf('imbue-with-life') != -1) {
+          if (specialTagsToAdd.includes('imbue-with-life')) {
             let disarm = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
             if (disarm) {
               disarm.expired = false;
@@ -1212,7 +1212,7 @@ export class EntityMenuDialogComponent {
         this.health = 0;
       }
 
-      if ((this.data.entity.maxHealth > 0 && this.data.entity.health <= 0 || this.data.entity.dead) && (this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => !entityCondition.highlight && entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1))) {
+      if ((this.data.entity.maxHealth > 0 && this.data.entity.health <= 0 || this.data.entity.dead) && (this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => !entityCondition.highlight && !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply)))) {
         this.dead();
       }
     }
@@ -1287,20 +1287,20 @@ export class EntityMenuDialogComponent {
           gameManager.stateManager.after();
         }
 
-        const specialTagsToTemove = summon.tags.filter((specialTag) => character instanceof Character && character.specialActions && character.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
+        const specialTagsToTemove = summon.tags.filter((specialTag) => character instanceof Character && character.specialActions && character.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && !this.specialTags.includes(specialTag));
 
         if (specialTagsToTemove.length) {
           gameManager.stateManager.before("removeSpecialTagsSummon", gameManager.characterManager.characterName(character), specialTagsToTemove.map((specialTag) => '%data.character.' + character.edition + '.' + character.name + '.' + specialTag + '%').join(','), summon.title ? summon.title : "data.summon." + summon.name);
-          summon.tags = summon.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
+          summon.tags = summon.tags.filter((specialTag) => !specialTagsToTemove.includes(specialTag));
           gameManager.stateManager.after();
         }
 
-        const specialTagsToAdd = this.specialTags.filter((specialTag) => summon && summon.tags.indexOf(specialTag) == -1);
+        const specialTagsToAdd = this.specialTags.filter((specialTag) => summon && !summon.tags.includes(specialTag));
 
         if (specialTagsToAdd.length) {
           gameManager.stateManager.before("addSpecialTagsSummon", gameManager.characterManager.characterName(character), specialTagsToAdd.map((specialTag) => '%data.character.' + character.edition + '.' + character.name + '.' + specialTag + '%').join(','), summon.title ? summon.title : "data.summon." + summon.name);
 
-          if (character.tags.indexOf('autoapply_mode') != -1 && specialTagsToAdd.indexOf('prism_mode') != -1) {
+          if (character.tags.includes('autoapply_mode') && specialTagsToAdd.includes('prism_mode')) {
             const damage = summon.health - summon.maxHealth;
             gameManager.entityManager.changeHealth(character, character, damage);
             summon.health = summon.maxHealth;
@@ -1319,7 +1319,7 @@ export class EntityMenuDialogComponent {
         }
       }
 
-      if ((summon.health <= 0 || summon.dead) && (summon.entityConditions.length == 0 || summon.entityConditions.every((entityCondition) => !entityCondition.highlight && entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1))) {
+      if ((summon.health <= 0 || summon.dead) && (summon.entityConditions.length == 0 || summon.entityConditions.every((entityCondition) => !entityCondition.highlight && !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply)))) {
         this.dead();
       }
     }
@@ -1570,7 +1570,7 @@ export class EntityMenuDialogComponent {
           } else {
             gameManager.entityManager.addCondition(this.data.entity, this.data.figure, entityCondition, entityCondition.permanent);
 
-            if (this.data.entity instanceof Character && this.data.entity.name == 'shackles' && this.data.entity.tags.indexOf('delayed_malady') != -1 && entityCondition.types.indexOf(ConditionType.negative) != -1 && this.data.entity.immunities.indexOf(entityCondition.name) == -1) {
+            if (this.data.entity instanceof Character && this.data.entity.name == 'shackles' && !this.data.entity.absent && this.data.entity.tags.includes('delayed_malady') && entityCondition.types.includes(ConditionType.negative) && !this.data.entity.immunities.includes(entityCondition.name)) {
               this.data.entity.immunities.push(entityCondition.name);
               this.entityImmunities.push(entityCondition.name);
             }
@@ -1582,7 +1582,7 @@ export class EntityMenuDialogComponent {
       this.entityConditions.forEach((condition) => {
         if (this.data.entity) {
           const entityCondition = this.data.entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
-          if ((condition.types.indexOf(ConditionType.stack) != -1 || condition.types.indexOf(ConditionType.upgrade) != -1) && entityCondition && entityCondition.value != condition.value) {
+          if ((condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) && entityCondition && entityCondition.value != condition.value) {
             gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, "setConditionValue"), condition.name, "" + condition.value, this.data.entity instanceof MonsterEntity ? 'monster.' + (this.data.entity as MonsterEntity).type + ' ' : '');
             entityCondition.value = condition.value;
             gameManager.stateManager.after();
@@ -1591,7 +1591,7 @@ export class EntityMenuDialogComponent {
       })
 
       this.data.entity.immunities.forEach((immunity) => {
-        if (this.data.entity && this.entityImmunities.indexOf(immunity) == -1) {
+        if (this.data.entity && !this.entityImmunities.includes(immunity)) {
           gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, 'removeImmunity'), immunity);
           this.data.entity.immunities = this.data.entity.immunities.filter((existing) => existing != immunity);
           gameManager.stateManager.after();
@@ -1599,7 +1599,7 @@ export class EntityMenuDialogComponent {
       })
 
       this.entityImmunities.forEach((immunity) => {
-        if (this.data.entity && this.data.entity.immunities.indexOf(immunity) == -1) {
+        if (this.data.entity && !this.data.entity.immunities.includes(immunity)) {
           gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, 'addImmunity'), immunity);
           this.data.entity.immunities.push(immunity);
           gameManager.stateManager.after();

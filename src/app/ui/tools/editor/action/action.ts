@@ -65,7 +65,7 @@ export class EditorActionComponent implements OnInit {
       this.hexAction.value = hexes.map((hex) => ActionHexToString(hex)).join('|');
       this.ghsManager.triggerUiChange();
     } else if (this.action.type == ActionType.condition || this.action.type == ActionType.specialTarget || this.action.type == ActionType.card || this.action.type == ActionType.elementHalf) {
-      if (('' + this.action.value).indexOf(':') != -1) {
+      if (('' + this.action.value).includes(':')) {
         this.value = ('' + this.action.value).split(':')[0];
         this.subValue = ('' + this.action.value).split(':')[1];
       } else {
@@ -141,7 +141,7 @@ export class EditorActionComponent implements OnInit {
       } else if (this.action.type == ActionType.card) {
         this.value = this.ActionCardTypes[0];
         this.changeCard();
-      } else if ([ActionType.area, ActionType.condition, ActionType.element, ActionType.card].indexOf(oldType) != -1) {
+      } else if ([ActionType.area, ActionType.condition, ActionType.element, ActionType.card].includes(oldType)) {
         this.action.value = "1";
       }
       this.change();
@@ -269,7 +269,7 @@ export class EditorActionComponent implements OnInit {
   }
 
   changeSpecialTarget(value: string, subValue: string) {
-    if (settingsManager.getLabel('game.specialTarget.' + value).indexOf('{0}') == -1) {
+    if (settingsManager.getLabel('game.specialTarget.' + !value).includes('{0}')) {
       subValue = '';
     } else if (!subValue) {
       subValue = '1';
@@ -282,7 +282,7 @@ export class EditorActionComponent implements OnInit {
   }
 
   changeCondition() {
-    if (new Condition(this.value).types.indexOf(ConditionType.value) != -1) {
+    if (new Condition(this.value).types.includes(ConditionType.value)) {
       if (!this.subValue) {
         this.subValue = '1';
       }
@@ -316,7 +316,7 @@ export class EditorActionComponent implements OnInit {
     this.HalfElementsRight = this.Elements.filter((e) => e != Element.wild && (!this.value || e != this.value as Element));
     this.value = this.value || this.HalfElementsLeft[0];
     this.subValue = this.subValue || this.HalfElementsRight[0];
-    if (this.Elements.indexOf(this.value as Element) != -1 && this.Elements.indexOf(this.subValue as Element) != -1) {
+    if (this.Elements.includes(this.value as Element) && this.Elements.includes(this.subValue as Element)) {
       this.action.value = this.value + ":" + this.subValue;
     }
     this.change();

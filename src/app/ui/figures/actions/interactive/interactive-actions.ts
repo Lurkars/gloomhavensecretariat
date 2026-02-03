@@ -86,7 +86,7 @@ export class InteractiveActionsComponent implements OnInit, OnDestroy {
             this.chooseElementValues = [];
             return;
         } else {
-            this.chooseElementAction = this.interactiveActions.find((interactiveAction) => interactiveAction.action.type == ActionType.element && gameManager.actionsManager.getValues(interactiveAction.action).indexOf(Element.wild) != -1);
+            this.chooseElementAction = this.interactiveActions.find((interactiveAction) => interactiveAction.action.type == ActionType.element && gameManager.actionsManager.getValues(interactiveAction.action).includes(Element.wild));
 
             if (this.chooseElementAction) {
                 const chooseElementCount = gameManager.actionsManager.getValues(this.chooseElementAction.action).filter((value) => value == Element.wild).length;
@@ -159,7 +159,7 @@ export class InteractiveActionsComponent implements OnInit, OnDestroy {
                 const disabledInteractiveActions = gameManager.actionsManager.getInteractiveActions(entity, this.figure, this.actions, this.preIndex).filter((interactiveAction) => !this.interactiveActions.find((other) => other.index == interactiveAction.index));
                 disabledInteractiveActions.forEach((interactiveAction) => {
                     const tag = gameManager.actionsManager.roundTag(interactiveAction.action, interactiveAction.index);
-                    if (entity.tags.indexOf(tag) == -1) {
+                    if (!entity.tags.includes(tag)) {
                         entity.tags.push(tag);
                     }
                 })
@@ -199,11 +199,11 @@ export class InteractiveActionsComponent implements OnInit, OnDestroy {
     }
 
     wildToConsume(): Element[] {
-        return gameManager.game.elementBoard.filter((element) => element.state != ElementState.inert && element.state != ElementState.new && element.state != ElementState.consumed && this.chooseElementValues.indexOf(element.type) == -1 && (!this.chooseElementAction || gameManager.actionsManager.getValues(this.chooseElementAction.action).indexOf(element.type) == -1) && !this.interactiveActions.find((interactiveAction) => interactiveAction.action.type == ActionType.element && interactiveAction.action.valueType == ActionValueType.minus && interactiveAction.action.value == element.type)).map((element) => element.type);
+        return gameManager.game.elementBoard.filter((element) => element.state != ElementState.inert && element.state != ElementState.new && element.state != ElementState.consumed && !this.chooseElementValues.includes(element.type) && (!this.chooseElementAction || !gameManager.actionsManager.getValues(this.chooseElementAction.action).includes(element.type)) && !this.interactiveActions.find((interactiveAction) => interactiveAction.action.type == ActionType.element && interactiveAction.action.valueType == ActionValueType.minus && interactiveAction.action.value == element.type)).map((element) => element.type);
     }
 
     wildToCreate(): Element[] {
-        return gameManager.game.elementBoard.filter((element) => element.state != ElementState.new && element.state != ElementState.strong && element.state != ElementState.always && this.chooseElementValues.indexOf(element.type) == -1 && (!this.chooseElementAction || gameManager.actionsManager.getValues(this.chooseElementAction.action).indexOf(element.type) == -1)).map((element) => element.type);
+        return gameManager.game.elementBoard.filter((element) => element.state != ElementState.new && element.state != ElementState.strong && element.state != ElementState.always && !this.chooseElementValues.includes(element.type) && (!this.chooseElementAction || !gameManager.actionsManager.getValues(this.chooseElementAction.action).includes(element.type))).map((element) => element.type);
     }
 
     selectWildElement(event: PointerEvent, element: Element) {

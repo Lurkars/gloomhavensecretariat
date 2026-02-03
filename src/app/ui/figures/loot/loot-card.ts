@@ -105,7 +105,7 @@ export class LootComponent implements OnInit, OnChanges {
                             if (conclusion.rewards && conclusion.rewards.removeLootDeckCards) {
                                 conclusion.rewards.removeLootDeckCards.forEach((lootDeckCard) => {
                                     const loot = fullLootDeck.find((loot) => loot.cardId == lootDeckCard);
-                                    if (loot && gameManager.game.lootDeckFixed.indexOf(loot.type) != -1) {
+                                    if (loot && gameManager.game.lootDeckFixed.includes(loot.type)) {
                                         gameManager.game.lootDeckFixed.splice(gameManager.game.lootDeckFixed.indexOf(loot.type), 1);
                                     }
                                 })
@@ -183,7 +183,7 @@ export class LootComponent implements OnInit, OnChanges {
                                                     gameManager.stateManager.before("lootRandomItem", item.id, item.edition, item.name, gameManager.characterManager.characterName(character));
                                                     let itemIdentifier: Identifier = new Identifier('' + item.id, item.edition);
                                                     gameManager.itemManager.addItemCount(item);
-                                                    if (character.lootCards.indexOf(this.index) == -1) {
+                                                    if (!character.lootCards.includes(this.index)) {
                                                         character.lootCards.push(this.index);
                                                         character.lootCards.sort((a, b) => a - b);
                                                     }

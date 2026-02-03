@@ -137,6 +137,6 @@ export class AttackModifierComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   filter(effect: AttackModifierEffect): boolean {
-    return [AttackModifierEffectType.element, AttackModifierEffectType.elementConsume, AttackModifierEffectType.elementHalf, AttackModifierEffectType.condition, AttackModifierEffectType.custom, AttackModifierEffectType.pull, , AttackModifierEffectType.push, AttackModifierEffectType.pierce].indexOf(effect.type) != -1;
+    return [AttackModifierEffectType.element, AttackModifierEffectType.elementConsume, AttackModifierEffectType.elementHalf, AttackModifierEffectType.condition, AttackModifierEffectType.custom, AttackModifierEffectType.pull, , AttackModifierEffectType.push, AttackModifierEffectType.pierce].includes(effect.type);
   }
 } 

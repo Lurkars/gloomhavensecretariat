@@ -244,7 +244,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
 
     this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
 
-    this.activeAMs = this.deck.cards.filter((am, i) => am.active && i < this.deck.lastVisible && this.deck.discarded.indexOf(i) == -1);
+    this.activeAMs = this.deck.cards.filter((am, i) => am.active && i < this.deck.lastVisible && !this.deck.discarded.includes(i));
   }
 
   drawQueue() {
@@ -331,7 +331,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   clickCard(index: number, event: any) {
     if (!this.drawing || index > this.current) {
       const am: AttackModifier = this.deck.cards[index];
-      if (am.active && this.deck.discarded.indexOf(index) == -1) {
+      if (am.active && !this.deck.discarded.includes(index)) {
         this.before.emit(new AttackModiferDeckChange(this.deck, "discard", index));
         this.deck.discarded.push(index);
         this.after.emit(new AttackModiferDeckChange(this.deck, "discard", index));

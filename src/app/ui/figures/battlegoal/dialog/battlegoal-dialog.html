@@ -6,9 +6,9 @@
       @for (battleGoal of battleGoals | trackUUID; track battleGoal._trackUUID; let index = $index) {
       <ghs-battlegoal ghs-pointer-input (singleClick)="select(index)" (doubleClick)="select(index,true)"
         [battleGoal]="battleGoal"
-        [flipped]="gameManager.roundManager.firstRound || selected == index || !character.battleGoal || revealed.indexOf(index) != -1 || trial349 || trial356 && battleGoals.length > 3 && index < battleGoals.length - 2 || cardOnly"
+        [flipped]="gameManager.roundManager.firstRound || selected == index || !character.battleGoal || revealed.includes(index) || trial349 || trial356 && battleGoals.length > 3 && index < battleGoals.length - 2 || cardOnly"
         [selected]="selected == index || trial349 || trial356 && battleGoals.length > 3 && index < battleGoals.length - 2"
-        [reveal]="!cardOnly && gameManager.game.round > 0 && selected != index && character.battleGoal && revealed.indexOf(index) == -1"
+        [reveal]="!cardOnly && gameManager.game.round > 0 && selected != index && character.battleGoal && !revealed.includes(index)"
         [disabled]="character.battleGoal && !!gameManager.game.scenario && gameManager.game.round > 0 || false">
       </ghs-battlegoal>
       }

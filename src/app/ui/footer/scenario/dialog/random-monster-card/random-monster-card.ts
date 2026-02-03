@@ -29,14 +29,14 @@ export class RandomMonsterCardComponent implements OnInit {
     }
 
     update() {
-        this.fh = this.section.edition == 'fh' || gameManager.editionExtensions(this.section.edition).indexOf('fh') != -1;
+        this.fh = this.section.edition == 'fh' || gameManager.editionExtensions(this.section.edition).includes('fh');
         this.element = this.section.rules && this.section.rules.find((rule) => rule.elements && rule.elements.length)?.elements[0].type as Element || undefined;
         this.standees = [];
         if (this.section.rooms.length && this.section.rooms[0] && this.section.rooms[0].monster) {
             this.section.rooms[0].monster.forEach((standee) => {
                 if (!isNaN(+standee.marker)) {
                     this.standees[+standee.marker - 1] = standee;
-                    const monster = gameManager.monstersData().find((monsterData) => monsterData.name == standee.name && (monsterData.edition == this.section.edition || gameManager.editionExtensions(this.section.edition).indexOf(monsterData.edition) != -1));
+                    const monster = gameManager.monstersData().find((monsterData) => monsterData.name == standee.name && (monsterData.edition == this.section.edition || gameManager.editionExtensions(this.section.edition).includes(monsterData.edition)));
                     if (monster) {
                         this.monster[+standee.marker - 1] = monster;
                     }

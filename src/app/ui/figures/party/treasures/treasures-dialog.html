@@ -23,14 +23,14 @@
         @for (treasure of treasures[scenario.index]; track treasure) {
         <div class="hint-container">
           <div class="treasure hint-trigger"
-            [ngClass]="{'looted': looted.indexOf(treasure) != -1, 'highlight' : selected.indexOf(treasure) != -1}"
+            [ngClass]="{'looted': looted.includes(treasure), 'highlight' : selected.includes(treasure)}"
             (click)="toggleTreasure(treasure)">
             @if (treasure < 10) { <span>0</span>
               }{{treasure}}
               <img class="overlay check" src="./assets/images/check.svg">
               <img class="overlay uncheck" src="./assets/images/close.svg">
           </div>
-          @if (looted.indexOf(treasure) != -1) {
+          @if (looted.includes(treasure)) {
           <span class="hint center">
             <ghs-treasure-label class="text placeholder text-white" [edition]="scenario.edition"
               [index]="treasure"></ghs-treasure-label>

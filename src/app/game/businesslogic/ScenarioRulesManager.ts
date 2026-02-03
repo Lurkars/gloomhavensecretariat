@@ -177,11 +177,11 @@ export class ScenarioRulesManager {
     let round = rule.round || 'false';
     let active: boolean = false;
 
-    while (round.indexOf('R') != -1) {
+    while (round.includes('R')) {
       round = round.replace('R', '' + (rule.start ? (this.game.round + 1) : this.game.round));
     }
 
-    while (round.indexOf('C') != -1) {
+    while (round.includes('C')) {
       round = round.replace('C', '' + gameManager.characterManager.characterCount());
     }
 
@@ -255,7 +255,7 @@ export class ScenarioRulesManager {
 
       if (rule.requiredRooms && rule.requiredRooms.length) {
         rule.requiredRooms.forEach((room) => {
-          active = active && gameManager.game.scenario != undefined && gameManager.game.scenario.revealedRooms.indexOf(room) != -1;
+          active = active && gameManager.game.scenario != undefined && gameManager.game.scenario.revealedRooms.includes(room);
         })
       }
 
@@ -271,7 +271,7 @@ export class ScenarioRulesManager {
         })
       }
 
-      if (rule.rooms && rule.rooms.length && rule.rooms.every((roomNumber) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomNumber) != -1)) {
+      if (rule.rooms && rule.rooms.length && rule.rooms.every((roomNumber) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.includes(roomNumber))) {
         active = false;
       }
 
@@ -495,7 +495,7 @@ export class ScenarioRulesManager {
   }
 
   presentEntitiesByFigureRule(figureRule: ScenarioFigureRule, rule: ScenarioRule | undefined): Entity[] {
-    return this.entitiesByFigureRule(figureRule, rule).filter((entity) => (gameManager.entityManager.isAlive(entity) || entity instanceof MonsterEntity && entity.dormant) && (!(entity instanceof MonsterEntity) || (!(figureRule.identifier?.marker) || (figureRule.identifier && entity.marker == figureRule.identifier.marker && (!figureRule.identifier.tags || figureRule.identifier.tags.length == 0 || figureRule.identifier.tags.forEach((tag) => entity.tags.indexOf(tag) != -1))))));
+    return this.entitiesByFigureRule(figureRule, rule).filter((entity) => (gameManager.entityManager.isAlive(entity) || entity instanceof MonsterEntity && entity.dormant) && (!(entity instanceof MonsterEntity) || (!(figureRule.identifier?.marker) || (figureRule.identifier && entity.marker == figureRule.identifier.marker && (!figureRule.identifier.tags || figureRule.identifier.tags.length == 0 || figureRule.identifier.tags.forEach((tag) => entity.tags.includes(tag)))))));
   }
 
   applyRule(rule: ScenarioRule, identifier: ScenarioRuleIdentifier, entityFilter: Entity[] | undefined = undefined) {
@@ -574,7 +574,7 @@ export class ScenarioRulesManager {
           let figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
           let ruleEntities: Entity[] = gameManager.scenarioRulesManager.entitiesByFigureRule(figureRule, rule);
           figures.forEach((figure) => {
-            let entities: Entity[] = gameManager.entityManager.entitiesAll(figure).filter((entity) => ruleEntities.indexOf(entity) != -1 && (!entityFilter || entityFilter.indexOf(entity) != -1));
+            let entities: Entity[] = gameManager.entityManager.entitiesAll(figure).filter((entity) => ruleEntities.includes(entity) && (!entityFilter || entityFilter.includes(entity)));
             entities.forEach((entity) => {
               switch (figureRule.type) {
                 case "gainCondition":
@@ -596,7 +596,7 @@ export class ScenarioRulesManager {
                   }
                   break;
                 case "damage": let damage = 0;
-                  if (isNaN(+figureRule.value) && figureRule.value.indexOf('H') != -1) {
+                  if (isNaN(+figureRule.value) && figureRule.value.includes('H')) {
                     damage = +EntityValueFunction(figureRule.value.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
                   } else {
                     damage = +EntityValueFunction(figureRule.value);
@@ -619,7 +619,7 @@ export class ScenarioRulesManager {
                   break;
                 case "heal":
                   let heal = 0;
-                  if (isNaN(+figureRule.value) && figureRule.value.indexOf('H') != -1) {
+                  if (isNaN(+figureRule.value) && figureRule.value.includes('H')) {
                     heal = +EntityValueFunction(figureRule.value.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
                   } else {
                     heal = +EntityValueFunction(figureRule.value);
@@ -634,7 +634,7 @@ export class ScenarioRulesManager {
                   break;
                 case "setHp":
                   let hp = 0;
-                  if (isNaN(+figureRule.value) && figureRule.value.indexOf('H') != -1) {
+                  if (isNaN(+figureRule.value) && figureRule.value.includes('H')) {
                     hp = +EntityValueFunction(figureRule.value.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
                   } else {
                     hp = +EntityValueFunction(figureRule.value);
@@ -698,7 +698,7 @@ export class ScenarioRulesManager {
             const monster = gameManager.monsterManager.addMonsterByName(figureRule.value, scenario.edition);
             if (monster) {
               if (figureRule.type == "transfer") {
-                if (figureRule.value.indexOf(':') == -1) {
+                if (!figureRule.value.includes(':')) {
                   monster.level = figure.level;
                 }
                 monster.active = figure.active;
@@ -759,7 +759,7 @@ export class ScenarioRulesManager {
                 if (figureRule.type == "transfer") {
                   gameManager.monsterManager.removeMonster(figure);
                 } else {
-                  figure.entities = figure.entities.filter((entity) => entities.indexOf(entity) == -1);
+                  figure.entities = figure.entities.filter((entity) => !entities.includes(entity));
                 }
               }
               monster.off = gameManager.monsterManager.monsterEntityCount(monster) == 0;
@@ -920,7 +920,7 @@ export class ScenarioRulesManager {
       }
 
       if (rule.randomDungeon && rule.randomDungeon.monsterCount && gameManager.game.scenario) {
-        const shuffledSections = ghsShuffleArray(gameManager.sectionData(gameManager.game.scenario.edition, true).filter((sectionData) => sectionData.group == 'randomMonsterCard' && rule.randomDungeon && (!rule.randomDungeon.monsterCards || rule.randomDungeon.monsterCards.indexOf(sectionData.index) != -1) && (!gameManager.game.scenario || !gameManager.game.scenario.additionalSections || gameManager.game.scenario.additionalSections.indexOf(sectionData.index) == -1)));
+        const shuffledSections = ghsShuffleArray(gameManager.sectionData(gameManager.game.scenario.edition, true).filter((sectionData) => sectionData.group == 'randomMonsterCard' && rule.randomDungeon && (!rule.randomDungeon.monsterCards || rule.randomDungeon.monsterCards.includes(sectionData.index)) && (!gameManager.game.scenario || !gameManager.game.scenario.additionalSections || !gameManager.game.scenario.additionalSections.includes(sectionData.index))));
         if (shuffledSections.length >= rule.randomDungeon.monsterCount) {
           gameManager.game.scenario.additionalSections = gameManager.game.scenario.additionalSections || [];
           gameManager.game.scenario.additionalSections.push(...shuffledSections.slice(0, rule.randomDungeon.monsterCount).map((sectionData) => sectionData.index));
@@ -965,7 +965,7 @@ export class ScenarioRulesManager {
       }
     }
 
-    while (typeof count == 'string' && count.indexOf('F') != -1) {
+    while (typeof count == 'string' && count.includes('F')) {
       count = count.replace('F', '' + F);
     }
 
@@ -979,7 +979,7 @@ export class ScenarioRulesManager {
     let checkActive: string[] = [];
     if (monster) {
       for (let i = 0; i < this.spawnCount(rule, spawn); i++) {
-        let entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, scenario.allies && scenario.allies.indexOf(spawn.monster.name) != -1, scenario.allied && scenario.allied.indexOf(spawn.monster.name) != -1, scenario.drawExtra && scenario.drawExtra.indexOf(spawn.monster.name) != -1, spawn.summon);
+        let entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, scenario.allies && scenario.allies.includes(spawn.monster.name), scenario.allied && scenario.allied.includes(spawn.monster.name), scenario.drawExtra && scenario.drawExtra.includes(spawn.monster.name), spawn.summon);
         if (entity) {
           if (spawn.monster.marker) {
             entity.marker = spawn.monster.marker;

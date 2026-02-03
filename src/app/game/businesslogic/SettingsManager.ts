@@ -33,7 +33,7 @@ export class SettingsManager {
     await this.loadSettings();
     this.developent = developent;
     for (let defaultEditionDataUrl of this.defaultEditionDataUrls) {
-      if (settingsManager.settings.editionDataUrls.indexOf(defaultEditionDataUrl) == -1 && settingsManager.settings.excludeEditionDataUrls.indexOf(defaultEditionDataUrl) == -1) {
+      if (!settingsManager.settings.editionDataUrls.includes(defaultEditionDataUrl) && !settingsManager.settings.excludeEditionDataUrls.includes(defaultEditionDataUrl)) {
         settingsManager.settings.editionDataUrls.push(defaultEditionDataUrl);
       }
     }
@@ -88,7 +88,7 @@ export class SettingsManager {
 
     if (!this.settings.editionDataUrls || this.settings.editionDataUrls.length == 0) {
       for (let defaultEditionDataUrl of this.defaultEditionDataUrls) {
-        if (this.settings.editionDataUrls.indexOf(defaultEditionDataUrl) == -1 && this.settings.excludeEditionDataUrls.indexOf(defaultEditionDataUrl) == -1) {
+        if (!this.settings.editionDataUrls.includes(defaultEditionDataUrl) && !this.settings.excludeEditionDataUrls.includes(defaultEditionDataUrl)) {
           this.settings.editionDataUrls.push(defaultEditionDataUrl);
         }
       }
@@ -299,7 +299,7 @@ export class SettingsManager {
   }
 
   addSpoiler(spoiler: string) {
-    if (this.settings.spoilers.indexOf(spoiler) == -1) {
+    if (!this.settings.spoilers.includes(spoiler)) {
       this.settings.spoilers.push(spoiler);
       this.sortSpoilers();
       this.storeSettings();
@@ -308,7 +308,7 @@ export class SettingsManager {
 
   addSpoilers(spoilables: Spoilable[]) {
     for (let spoilable of spoilables) {
-      if (this.settings.spoilers.indexOf(spoilable.name) == -1) {
+      if (!this.settings.spoilers.includes(spoilable.name)) {
         this.settings.spoilers.push(spoilable.name);
       }
     }
@@ -316,7 +316,7 @@ export class SettingsManager {
   }
 
   removeSpoiler(spoiler: string) {
-    if (this.settings.spoilers.indexOf(spoiler) != -1) {
+    if (this.settings.spoilers.includes(spoiler)) {
       this.settings.spoilers.splice(this.settings.spoilers.indexOf(spoiler), 1);
       this.storeSettings();
     }
@@ -328,7 +328,7 @@ export class SettingsManager {
   }
 
   addEdition(edition: string) {
-    if (this.settings.editions.indexOf(edition) == -1) {
+    if (!this.settings.editions.includes(edition)) {
       this.settings.editions.push(edition);
       gameManager.resetEditionMapping();
       this.storeSettings();
@@ -368,7 +368,7 @@ export class SettingsManager {
           }
           return response.json();
         }).then((value: EditionData) => {
-          if (gameManager.editions(true).indexOf(value.edition) != -1 && !force) {
+          if (gameManager.editions(true).includes(value.edition) && !force) {
             console.warn("Edition already exists: " + value.edition);
             return undefined;
           }
@@ -492,7 +492,7 @@ export class SettingsManager {
             return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
           });
 
-          if (settingsManager.settings.editions.indexOf(value.edition) != -1) {
+          if (settingsManager.settings.editions.includes(value.edition)) {
             this.loadDataLabel(value);
           } else {
             this.loadEditionLabel(value);
@@ -660,14 +660,14 @@ export class SettingsManager {
   }
 
   async addEditionDataUrl(editionDataUrl: string): Promise<EditionData | undefined> {
-    if (this.settings.editionDataUrls.indexOf(editionDataUrl) == -1) {
+    if (!this.settings.editionDataUrls.includes(editionDataUrl)) {
       const success = await this.loadEditionData(editionDataUrl);
       if (success) {
         this.settings.editionDataUrls.push(editionDataUrl);
         gameManager.editionData.sort((a, b) => {
           return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
         });
-        if (this.settings.excludeEditionDataUrls.indexOf(editionDataUrl) != -1) {
+        if (this.settings.excludeEditionDataUrls.includes(editionDataUrl)) {
           this.settings.excludeEditionDataUrls.splice(this.settings.excludeEditionDataUrls.indexOf(editionDataUrl), 1);
         }
         this.storeSettings();
@@ -679,10 +679,10 @@ export class SettingsManager {
   }
 
   async removeEditionDataUrl(editionDataUrl: string) {
-    if (this.settings.editionDataUrls.indexOf(editionDataUrl) != -1) {
+    if (this.settings.editionDataUrls.includes(editionDataUrl)) {
       gameManager.editionData = gameManager.editionData.filter((editionData) => editionData.url != editionDataUrl);
       this.settings.editionDataUrls.splice(this.settings.editionDataUrls.indexOf(editionDataUrl), 1);
-      if (this.defaultEditionDataUrls.indexOf(editionDataUrl) != -1) {
+      if (this.defaultEditionDataUrls.includes(editionDataUrl)) {
         this.settings.excludeEditionDataUrls.push(editionDataUrl);
       }
       this.storeSettings();
@@ -691,18 +691,18 @@ export class SettingsManager {
 
   async restoreDefaultEditionDataUrls() {
     for (let editionDataUrl of this.defaultEditionDataUrls) {
-      if (this.settings.editionDataUrls.indexOf(editionDataUrl) == -1) {
+      if (!this.settings.editionDataUrls.includes(editionDataUrl)) {
         this.settings.editionDataUrls.push(editionDataUrl);
         await this.loadEditionData(editionDataUrl);
       }
     }
 
     this.settings.editionDataUrls.sort((a, b) => {
-      if (this.defaultEditionDataUrls.indexOf(a) != -1 && this.defaultEditionDataUrls.indexOf(b) != -1) {
+      if (this.defaultEditionDataUrls.includes(a) && this.defaultEditionDataUrls.includes(b)) {
         return this.defaultEditionDataUrls.indexOf(a) - this.defaultEditionDataUrls.indexOf(b);
-      } else if (this.defaultEditionDataUrls.indexOf(a) != -1 && this.defaultEditionDataUrls.indexOf(b) == -1) {
+      } else if (this.defaultEditionDataUrls.includes(a) && !this.defaultEditionDataUrls.includes(b)) {
         return -1;
-      } else if (this.defaultEditionDataUrls.indexOf(a) == -1 && this.defaultEditionDataUrls.indexOf(b) != -1) {
+      } else if (!this.defaultEditionDataUrls.includes(a) && this.defaultEditionDataUrls.includes(b)) {
         return 1;
       } else {
         return this.settings.editionDataUrls.indexOf(a) - this.settings.editionDataUrls.indexOf(b);
@@ -805,9 +805,9 @@ export class SettingsManager {
   insertLabelArguments(label: string, args: string[], argLabel: boolean) {
     if (args) {
       for (let index in args) {
-        while (label.indexOf(`{${index}}`) != -1) {
+        while (label.includes(`{${index}}`)) {
           label = label.replace(`{${index}}`, argLabel ? this.getLabel(args[index]) : args[index]);
-          if (args[index].indexOf(`{${index}}`) != -1) {
+          if (args[index].includes(`{${index}}`)) {
             console.warn("Loop for '" + label + "'", args[index]);
             break;
           }

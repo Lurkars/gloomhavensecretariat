@@ -64,14 +64,14 @@ export class CharacterRetirementDialog {
 
         for (let key of Object.keys(this.character.progress.loot)) {
             const loot: LootType = key as LootType;
-            if (resourceLootTypes.indexOf(loot) != -1 && this.character.progress.loot[loot]) {
+            if (resourceLootTypes.includes(loot) && this.character.progress.loot[loot]) {
                 this.hasResources = true;
             }
         }
 
         if (this.personalQuest) {
             if (this.personalQuest.unlockCharacter) {
-                this.characterAlreadyUnlocked = gameManager.game.unlockedCharacters.indexOf(this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter) != -1;
+                this.characterAlreadyUnlocked = gameManager.game.unlockedCharacters.includes(this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter);
                 if (!this.characterAlreadyUnlocked) {
                     const unlockCharacter = gameManager.charactersData(this.personalQuest.edition).find((characterData) => this.personalQuest && characterData.edition == this.personalQuest.edition && characterData.name == this.personalQuest.unlockCharacter);
                     this.unlockEvent = unlockCharacter && unlockCharacter.unlockEvent || '';
@@ -121,7 +121,7 @@ export class CharacterRetirementDialog {
         gameManager.game.party.retirements.push(this.character.toModel());
         gameManager.characterManager.removeCharacter(this.character, true);
 
-        if (this.personalQuest && this.personalQuest.unlockCharacter && settingsManager.settings.automaticUnlocking && gameManager.game.unlockedCharacters.indexOf(this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter) == -1) {
+        if (this.personalQuest && this.personalQuest.unlockCharacter && settingsManager.settings.automaticUnlocking && !gameManager.game.unlockedCharacters.includes(this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter)) {
             gameManager.game.unlockedCharacters.push(this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter);
             if (settingsManager.settings.events) {
                 const characterData = gameManager.getCharacterData(this.personalQuest.unlockCharacter);
@@ -205,7 +205,7 @@ export class CharacterRetirementDialog {
         if (this.additional) {
             gameManager.game.party.inspiration -= 15;
             gameManager.game.party.prosperity += 2;
-            if (this.additionalPQ && this.additionalPQ.unlockCharacter && settingsManager.settings.automaticUnlocking && gameManager.game.unlockedCharacters.indexOf(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter) == -1) {
+            if (this.additionalPQ && this.additionalPQ.unlockCharacter && settingsManager.settings.automaticUnlocking && !gameManager.game.unlockedCharacters.includes(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter)) {
                 gameManager.game.unlockedCharacters.push(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter);
                 if (settingsManager.settings.events) {
                     const characterData = gameManager.getCharacterData(this.additionalPQ.unlockCharacter);
@@ -264,7 +264,7 @@ export class CharacterRetirementDialog {
             }
 
             if (this.additionalPQ.unlockCharacter) {
-                this.additionalCharacterAlreadyUnlocked = gameManager.game.unlockedCharacters.indexOf(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter) != -1;
+                this.additionalCharacterAlreadyUnlocked = gameManager.game.unlockedCharacters.includes(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter);
                 if (!this.characterAlreadyUnlocked) {
                     const unlockCharacter = gameManager.charactersData(this.additionalPQ.edition).find((characterData) => this.additionalPQ && characterData.edition == this.additionalPQ.edition && characterData.name == this.additionalPQ.unlockCharacter);
                     this.additionalUnlockEvent = unlockCharacter && unlockCharacter.unlockEvent || '';

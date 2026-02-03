@@ -18,12 +18,12 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
     value = value.replace(ghsLabelRegex, (match, ...args) => {
       let label: string = args[0];
       let value = "";
-      if (label.indexOf(':') != -1) {
+      if (label.includes(':')) {
         value = label.split(':')[1];
         label = label.split(':')[0];
       }
       let split: string[] = label.split('.');
-      if (!value && args[0].indexOf(':') != -1) {
+      if (!value && args[0].includes(':')) {
         value = split[split.length - 1];
       }
 
@@ -40,7 +40,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         let condition = new Condition(split[2]);
         image = '<span class="condition-icon' + (type == "immunity" ? ' immunity' : '') + '">';
         image += '<img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + condition.name + '.svg" class="icon">';
-        if (!value && condition.types.indexOf(ConditionType.upgrade) != -1) {
+        if (!value && condition.types.includes(ConditionType.upgrade)) {
           value = 'X';
         }
         if (value) {
@@ -52,7 +52,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         let condition = new Condition(split[2]);
         image = '<span class="condition-icon' + (type == "immunityIcon" ? ' immunity' : '') + '">';
         image += '<img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + condition.name + '.svg" class="icon">';
-        if (!value && condition.types.indexOf(ConditionType.upgrade) != -1) {
+        if (!value && condition.types.includes(ConditionType.upgrade)) {
           value = 'X';
         }
         if (value) {
@@ -62,12 +62,12 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="placeholder-condition">&#8203;' + image + '</span>';
       } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon') && !split[2].startsWith('area')) {
         split.splice(0, 1);
-        const ghsSvg = ActionTypesIcons.indexOf(split[split.length - 1] as ActionType) != -1;
+        const ghsSvg = ActionTypesIcons.includes(split[split.length - 1] as ActionType);
         image = '<img  src="./assets/images/' + (fh ? 'fh/' : '') + split.join('/') + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
         replace = '&#8203;<span class="placeholder-action">' + (fh ? '&#8203;' : settingsManager.getLabel(label)) + image + value + '</span>';
       } else if (type == "actionIcon" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon') && !split[2].startsWith('area')) {
         split.splice(0, 1);
-        const ghsSvg = ActionTypesIcons.indexOf(split[split.length - 1] as ActionType) != -1;
+        const ghsSvg = ActionTypesIcons.includes(split[split.length - 1] as ActionType);
         image = '<img  src="./assets/images/' + (fh ? 'fh/action/' : 'action/') + split[split.length - 1] + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
         replace = '&#8203;<span class="placeholder-action">&#8203;' + image + value + '</span>';
       } else if (type == "element") {
@@ -309,7 +309,7 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
         const funcLabel = func && func.startsWith('$');
         if (funcLabel) {
           func = func.replace('$', '');
-          if (func.indexOf(':') != -1) {
+          if (func.includes(':')) {
             funcArgs = [func.split(':')[1]];
             func = func.split(':')[0];
           }
@@ -326,7 +326,7 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
       const funcLabel = func && func.startsWith('$');
       if (funcLabel) {
         func = func.replace('$', '');
-        if (func.indexOf(':') != -1) {
+        if (func.includes(':')) {
           funcArgs = [func.split(':')[1]];
           func = func.split(':')[0];
         }

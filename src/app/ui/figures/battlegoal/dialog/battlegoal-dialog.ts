@@ -100,7 +100,7 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
     this.redrawAvailable = gameManager.battleGoalManager.getUnrevealedBattleGoals(this.character).length;
     this.battleGoals = this.character.battleGoals.map((identifier) => gameManager.battleGoalManager.getBattleGoal(identifier)).filter((battleGoal) => battleGoal).map((battleGoal) => battleGoal as BattleGoal);
 
-    if (this.character.battleGoal && this.revealed.indexOf(0) == -1) {
+    if (this.character.battleGoal && !this.revealed.includes(0)) {
       this.revealed.push(0);
     }
     this.trial349 = gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && this.character.progress.trial && this.character.progress.trial.edition == 'fh' && this.character.progress.trial.name == '349' || false;
@@ -118,10 +118,10 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
 
   select(index: number, force: boolean = false) {
     if (!this.cardOnly && (force || !this.character.battleGoal || gameManager.roundManager.firstRound) && !this.trial349) {
-      if (this.revealed.indexOf(index) == -1) {
+      if (!this.revealed.includes(index)) {
         this.revealed.push(index);
       }
-      if (this.selected != -1 && this.revealed.indexOf(this.selected) == -1) {
+      if (this.selected != -1 && !this.revealed.includes(this.selected)) {
         this.revealed.push(this.selected);
       }
       if (this.selected == index) {
