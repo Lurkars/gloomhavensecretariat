@@ -284,6 +284,10 @@ export class EntityManager {
           ward.expired = true
         }
       }
+
+      if (brittle && brittle.highlight || ward && ward.highlight) {
+        gameManager.uiChange.next(false);
+      }
     }
 
     if (value < 0 && !damageOnly && settingsManager.settings.calculateAdvantageStats && settingsManager.settings.animations && this.game.figures.find((figure) => figure instanceof Character && figure.active) && figure instanceof Monster && entity instanceof MonsterEntity) {

@@ -94,6 +94,17 @@
                     filter: var(--ghs-filter-white);
                 }
             }
+
+            input[type="checkbox"]:disabled {
+                cursor: initial;
+                color: var(--ghs-color-gray);
+                border-width: initial;
+                
+                &::before {
+                    color: var(--ghs-color-gray);
+                    background-color: var(--ghs-color-gray);
+                }
+              }
         }
 
         .legend {

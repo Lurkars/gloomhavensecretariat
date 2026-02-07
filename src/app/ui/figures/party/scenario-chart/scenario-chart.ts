@@ -31,6 +31,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     legend: boolean = false;
     chart!: L.Map;
     private mermaid: any = null;
+    initializing: boolean = false;
 
     gameManager: GameManager = gameManager;
 
@@ -291,10 +292,14 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         if (this.chart) {
             this.chart.remove();
         }
-        this.ngAfterViewInit();
+        this.initMap();
     }
 
-    async ngAfterViewInit() {
+    async initMap() {
+        if (this.initializing) {
+            return;
+        }
+        this.initializing = true;
         // Ensure mermaid is loaded before rendering
         if (!this.mermaid) {
             const mermaidModule = await import('mermaid');
@@ -377,6 +382,12 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         if (bindFunctions) {
             bindFunctions(container);
         }
+
+        this.initializing = false;
+    }
+
+    async ngAfterViewInit() {
+        this.initMap();
     }
 
     @HostListener('document:keydown', ['$event'])

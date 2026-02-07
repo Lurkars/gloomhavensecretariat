@@ -363,7 +363,7 @@ export class ScenarioManager {
       }
 
       if (restart) {
-        gameManager.scenarioManager.setScenario(scenario);
+        gameManager.scenarioManager.setScenario(scenario, true);
       } else {
         if (scenario && !scenario.conclusion && (!rewards || !rewards.calendarIgnore) && gameManager.fhRules() && !linked && settingsManager.settings.automaticPassTime && !scenario.solo && settingsManager.settings.partySheet && !internal && gainRewards) {
 

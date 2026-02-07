@@ -64,7 +64,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
             }
             event.preventDefault();
             event.stopPropagation();
-          } else if (event.key === 'Escape' || event.key === 'Backspace') {
+          } else if (event.key === 'Escape') {
             const current = document.getElementById('initiative-input-' + tabindex);
             if (current && document.activeElement == current) {
               current.blur();

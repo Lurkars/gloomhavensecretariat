@@ -730,6 +730,8 @@ export class RoundManager {
       } else if (figure instanceof ObjectiveContainer) {
         figure.entities = [];
       }
+
+      gameManager.sortFigures();
     })
 
     const campaignData = gameManager.campaignData();
