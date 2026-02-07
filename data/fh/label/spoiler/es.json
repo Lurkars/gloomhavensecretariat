@@ -4,6 +4,7 @@
   },
   "character": {
     "fh": {
+      "coral": "Marea restallante",
       "fist": {
         "": "Puño helado",
         "gift-of-the-mountain": {
@@ -28,6 +29,14 @@
   },
   "custom": {
     "fh": {
+      "coral": {
+        "1": "Si has realizado una acción %data.action.custom.fh-tides% esta ronda, %game.attackmodifier.plus2% en vez de lo anterior",
+        "2": "y, siempre que vayas a sufrir %game.condition.impair%, evítalo",
+        "3": "Siempre que declares un descanso largo durante la selección de cartas, obtén %game.action.shield:1% durante esa ronda",
+        "4": "Obtén Ventaja en todos tus ataques realizados mientras ocupes hexágonos de agua o elijas como objetivos a enemigos que ocupen hexágonos de agua",
+        "5": "No sufras nunca daños por ataques siendo el objetivo de al menos 5 ataques",
+        "6": "Al comienzo de cada uno de tus descansos, consigue tener más %game.action.custom.fh-tides% activas que cartas en tu pila de descartes"
+      },
       "fist": {
         "1": "Crea 1 pieza de terreno helado de 1 hexágono en un hexágono sin accesorios adyacente",
         "2": "y, siempre que entres en terreno helado con una capacidad de Movimiento, puedes ignorar el efecto para sumar %game.action.move% +1",
@@ -222,6 +231,10 @@
     "fh-21": {
       "": "Almófar",
       "1": "Mientras estés adyacente a 3 o más enemigos, obtén %game.action.shield:1%."
+    },
+    "fh-212": {
+      "": "Gema elemental",
+      "1": "Después de determinar la iniciativa, elige un elemento. Ningún monstruo puede inducir o consumir este elemento durante esta ronda. "
     },
     "fh-22": {
       "": "Cota de malla pesada",
@@ -453,6 +466,10 @@
       "": "Poción curativa",
       "1": "Durantu tu turno, realiza:<br>%game.action.heal% 3 Personal"
     },
+    "fh-84": {
+      "": "Poción de resistencia",
+      "1": "Durante tu turno, %game.card.recover% 1 carta de nivel 1 de tu pila de descartes."
+    },
     "fh-85": {
       "": "Poción de poder",
       "1": "Durante tu turno, añade %game.action.attack% +1 a todos tus ataques."
@@ -484,6 +501,10 @@
     "fh-91": {
       "": "Agua bendita",
       "1": "Durante tu turno, realiza: %game.condition.bless% Personal"
+    },
+    "fh-92": {
+      "": "Poción revitalizadora",
+      "1": "Durante tu turno, %game.card.recover% hasta 2 de tus objetos gastados."
     },
     "fh-93": {
       "": "Poción de observación",

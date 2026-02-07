@@ -1024,7 +1024,7 @@
       "": "Łódź"
     },
     "carpenter": {
-      "": "Cieśla",
+      "": "Stolarz",
       "1": "Zmniejsz wszystkie koszty budowy o 1 surowiec materiałowy",
       "2": "Zmniejsz wszystkie koszty budowy o 1 surowiec materiałowy oraz dodatkowy koszt budowy o 1 morale",
       "3": "Utracicie dowolny 1 wspólny surowiec"
@@ -1641,8 +1641,8 @@
         "4": "gdzie X to ilość obrażeń zadanych<br>celowi umiejętności ataku."
       },
       "prince-of-frost": {
-        "1": "One character %game.card.recover% one lost card.",
-        "2": "One character loses one card."
+        "1": "Jedna postać %game.card.recover% jedną utraconą kartę.",
+        "2": "Jedna postać traci jedną kartę z ręki (lub 2 ze stosu odrzuconych)"
       },
       "program-director": {
         "1": "to an empty hex closest to focus",
@@ -2227,7 +2227,7 @@
         "41-1": {
           "1": "Zyskaj jedno Drewno"
         },
-        "51-1": "Whenever it suffers damage, all characters and monsters suffer %game.damage:2%",
+        "51-1": "Za każdym razem, gdy otrzymuje obrażenia, wszystkie postacie i potwory otrzymują %game.damage:2%.",
         "65-3": {
           "1": "Open all doors %game.mapMarker.1%. Place all characters and character summons, in initiative order, in the closest empty hex on tile 16-A, then remove all doors and tile 13-A from the map."
         }

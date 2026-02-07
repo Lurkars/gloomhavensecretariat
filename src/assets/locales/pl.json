@@ -913,8 +913,8 @@
         },
         "discardOne": {
           "": "Odrzuć 1 kartę każdy.",
-          "fh": "Wszyscy bohaterowie rozpoczynają następny scenariusz odrzucając jedną kartę.",
-          "gh2e": "Każdy bohater rozpoczyna następny scenariusz odrzucając jedną kartę."
+          "fh": "Wszystkie postacie rozpoczynają następny scenariusz odrzucając jedną kartę.",
+          "gh2e": "Każda postać rozpoczyna następny scenariusz odrzucając jedną kartę."
         },
         "drawAnotherEvent": {
           "": "Dobierz kolejne wydarzenie %game.events.type.{0}%.",
@@ -954,7 +954,7 @@
         "loseCollectiveResourceType": "Utracono {0} wspólnych zasobów %game.loot.{1}%.",
         "loseExperience": "Utracono {0} doświadczenia każdy.",
         "loseGold": "Utracono {0} złota każdy.",
-        "loseGoldOne": "Jeden bohater traci {0} złota.",
+        "loseGoldOne": "Jedna postać traci {0} złota.",
         "loseItem": {
           "": "Utracono \"%data.items.{1}-{0}%\" (Przedmiot {0}).",
           "fh": "Utracono \"%data.items.{1}-{0}%\" %game.itemFh.{0}%.",
@@ -1007,7 +1007,7 @@
           "fh": "Wszyscy bohaterowie rozpoczynają następny scenariusz z {0}.",
           "gh2e": "Każdy bohater rozpoczyna następny scenariusz z {0}."
         },
-        "scenarioConditionOne": "Jeden bohater zyskuje %game.condition.{0}%.",
+        "scenarioConditionOne": "Jedna postać zyskuje %game.condition.{0}%.",
         "scenarioDamage": {
           "": "Wszyscy rozpoczynają scenariusz z %game.damage:{0}%.",
           "fh": "Wszyscy bohaterowie rozpoczynają następny scenariusz z %game.damage:{0}%.",
@@ -1170,7 +1170,7 @@
       "": "Łup",
       "apply": "Dodaj do %data.character.{0}.{1}%",
       "arrowvine": "Strzałorośl",
-      "axenut": "Toporny orzech",
+      "axenut": "Siekiernik",
       "chooseCharacter": "Wybierz postać dla +{0} {1}",
       "config": {
         "": "Tabela łupów",
@@ -1180,14 +1180,14 @@
         "hide": "Ukryj tabelę łupów",
         "show": "Pokaż tabelę łupów"
       },
-      "corpsecap": "Zwłokokap",
+      "corpsecap": "Trupownik",
       "deck": "Talia łupów",
       "enhancements": {
         "": "Ulepszenia",
         "add": "Dodaj ulepszenie",
         "remove": "Usuń ulepszenie"
       },
-      "flamefruit": "Płomieńowoc",
+      "flamefruit": "Ogniowoc",
       "herb_resources": "zioło",
       "hide": "Skóra",
       "keep": "Zachowaj na %data.character.{0}.{1}%",
@@ -1209,7 +1209,7 @@
       },
       "remove": "Usuń z %data.character.{0}.{1}%",
       "rockroot": "Skałokorzeń",
-      "snowthistle": "Śnieżokrzew",
+      "snowthistle": "Śnieżny oset",
       "special": "specjalny",
       "special1": "Specjalna karta 1 (#1418)",
       "special2": "Specjalna karta 2 (#1419)",
@@ -2503,6 +2503,9 @@
     "characterAttackModifierDeck": {
       "": "Talia modyfikatorów ataku postaci",
       "hint": "Włącz talię modyfikatorów ataku dla postaci. Aby używać atutów, musi być włączona karta postaci."
+    },
+    "characterAttackModifierDeckActiveBottom": {
+      "": "Wyświetlaj talię modyfikatorów ataku postaci powyżej talii potworów"
     },
     "characterAttackModifierDeckPermanent": {
       "": "Stała talia AM postaci",
