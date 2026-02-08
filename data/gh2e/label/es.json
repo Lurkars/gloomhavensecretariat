@@ -1,5 +1,17 @@
 {
   "edition": {
     "gh2e": "Gloomhaven 2.0 (Segunda Edición) (%wip%)"
+  },
+  "scenario": {
+    "rules": {
+      "gh2e": {
+        "9": {
+          "1": "Roba una ficha y aparece el monstruo en %game.mapMarker.b%.",
+          "2": "Roba una ficha y haz aparecer el monstruo en %game.mapMarker.c%.",
+          "3": "Roba dos fichas y haz aparecer los monstruos en %game.mapMarker.b% y %game.mapMarker.c%.",
+          "4": "Roba dos fichas y haz aparecer los monstruos en %game.mapMarker.d% y %game.mapMarker.e%."
+        }
+      }
+    }
   }
 }

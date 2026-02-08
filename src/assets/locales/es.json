@@ -1067,7 +1067,7 @@
     "active-full": "Por turnos, haz clic en la imagen de cada figura",
     "addAdditionalContent": "Añadir contenido adicional",
     "addCharacters": "%character.add%",
-    "addMonsterEntities": "Usa el botón \"+\" para generar monstruos.",
+    "addMonsterEntities": "Usa el botón \"+\" para hacer aparecer monstruos.",
     "addMonsters": "%monster.add%",
     "draw": "Clic \"%round.draw%\"",
     "draw-full": "Elige las cartas de habilidad de los personajes, indica la iniciativa y haz clic \"%round.draw%\".",

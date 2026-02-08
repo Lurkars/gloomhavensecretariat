@@ -196,6 +196,14 @@
       "": "Armadura de cuero curtido",
       "1": "Para los 2 próximos ataques que te tomen como objetivo, el atacante sufre Desventaja."
     },
+    "fh-171": {
+      "": "Amuleto rejuvenecedor",
+      "1": "Siempre que pierdas una carta para prevenir %game.damage%, %game.card.recover% hasta 1 carta de tu pila de descartes y obtén %game.condition.regenerate%."
+    },
+    "fh-179": {
+      "": "Botas de prisa",
+      "1": "Durante tu capacidad de Movimiento, añade +4 %game.action.move%. Después de la capacidad de Movimiento, sufre %game.condition.immobilize%."
+    },
     "fh-18": {
       "": "Botas humildes",
       "1": "Durante tu turno, añade %game.action.move% +1 a todas sus capacidades de Movimiento."
