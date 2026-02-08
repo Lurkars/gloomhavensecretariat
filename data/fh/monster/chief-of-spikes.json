@@ -1,0 +1,191 @@
+{
+  "name": "chief-of-spikes",
+  "edition": "fh",
+  "deck": "algox-icespeaker",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "algox-icespeaker",
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "stun"
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 8,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 1,
+          "valueType": "add"
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 8,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 1,
+          "valueType": "add"
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 10,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 1,
+          "valueType": "add"
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 12,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 1,
+          "valueType": "add"
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 15,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 1,
+          "valueType": "add"
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 18,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 1,
+          "valueType": "add"
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 26,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 1,
+          "valueType": "add"
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ],
+      "immunities": [
+        "brittle"
+      ]
+    },
+    {
+      "level": 7,
+      "health": 35,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 1,
+          "valueType": "add"
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ],
+      "immunities": [
+        "brittle"
+      ]
+    }
+  ]
+}

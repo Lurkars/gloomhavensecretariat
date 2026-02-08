@@ -158,6 +158,20 @@
     "vermling-priest": "Vermling Sacerdote",
     "vermling-scout": "Vermling Esploratore",
     "vestige-of-the-imprisoned-god": "Vestigia del Dio Imprigionato",
-    "wind-demon": "Demone del Vento"
+    "wind-demon": "Demone del Vento",
+    "abael-warlord": "Condottiero Abael"
+  },
+  "custom": {
+    "algox-snowspeaker-trap-solo": {
+      "1": "Tutti i nemici entro<br>%game.action.range:2% subiscono %game.damage:2%"
+    },
+    "errata": {
+      "solo28": "Regole speciali: \"Snowspeaker\" dovrebbe essere \"Icespeaker\""
+    },
+    "lost-in-seaweed": {
+      "1": "Concentrati sul nemico<br>più lontano entro %game.action.range:6%",
+      "2": "Crea una tessera d'acqua da 1 esagono<br>in un esagono vuoto adiacente.",
+      "3": "in un<br>esagono adiacente non occupato con una tessera d'acqua."
+    }
   }
 }

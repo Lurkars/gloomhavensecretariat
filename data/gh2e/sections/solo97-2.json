@@ -1,0 +1,49 @@
+{
+  "index": "97-2",
+  "group": "solo",
+  "name": "Battle of the Bards",
+  "edition": "gh2e",
+  "parent": "97",
+  "parentSections": [
+    [
+      "97-1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "city-archer",
+    "city-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

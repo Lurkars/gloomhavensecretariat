@@ -1,0 +1,248 @@
+{
+  "index": "15",
+  "group": "solo",
+  "name": "Aftermath",
+  "edition": "gh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "saw",
+  "rewards": {
+    "items": [
+      "148"
+    ]
+  },
+  "monsters": [
+    "city-guard-saw-solo"
+  ],
+  "allies": [
+    "city-guard-saw-solo"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "hp": "HP < H"
+          },
+          "type": "damage",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "hp": "HP == H"
+          },
+          "type": "removeEntity"
+        }
+      ],
+      "disablingRules": [
+        {
+          "edition": "gh",
+          "scenario": "15",
+          "group": "solo",
+          "index": -1,
+          "section": false
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*"
+          },
+          "type": "killed",
+          "value": "1"
+        }
+      ],
+      "finish": "lost"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "tags": [
+              "r1-a"
+            ]
+          },
+          "type": "setHp",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "tags": [
+              "r2-a"
+            ]
+          },
+          "type": "setHp",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "tags": [
+              "r2-b"
+            ]
+          },
+          "type": "setHp",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "tags": [
+              "r2-c"
+            ]
+          },
+          "type": "setHp",
+          "value": "7"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "tags": [
+              "r3-b"
+            ]
+          },
+          "type": "setHp",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "tags": [
+              "r3-c"
+            ]
+          },
+          "type": "setHp",
+          "value": "7"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "city-guard-saw-solo",
+          "type": "normal",
+          "marker": "a",
+          "tags": [
+            "r1-a"
+          ]
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "A3b",
+      "monster": [
+        {
+          "name": "city-guard-saw-solo",
+          "type": "normal",
+          "marker": "a",
+          "tags": [
+            "r2-a"
+          ]
+        },
+        {
+          "name": "city-guard-saw-solo",
+          "type": "normal",
+          "marker": "b",
+          "tags": [
+            "r2-b"
+          ]
+        },
+        {
+          "name": "city-guard-saw-solo",
+          "type": "normal",
+          "marker": "c",
+          "tags": [
+            "r2-c"
+          ]
+        },
+        {
+          "name": "city-guard-saw-solo",
+          "type": "normal",
+          "marker": "c",
+          "tags": [
+            "r2-c"
+          ]
+        },
+        {
+          "name": "city-guard-saw-solo",
+          "type": "normal",
+          "marker": "c",
+          "tags": [
+            "r2-c"
+          ]
+        }
+      ]
+    }
+  ]
+}

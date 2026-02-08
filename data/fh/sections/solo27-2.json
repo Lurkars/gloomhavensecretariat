@@ -1,0 +1,27 @@
+{
+  "index": "27-2",
+  "group": "solo",
+  "name": "Crumbling Descent",
+  "edition": "fh",
+  "parent": "27",
+  "parentSections": [
+    [
+      "27-1"
+    ]
+  ],
+  "monsters": [
+    "mountains-heart"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "mountains-heart",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

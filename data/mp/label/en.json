@@ -73,16 +73,43 @@
       }
     }
   },
-    "summon": {
-      "sewer-monstrosity": "Sewer Monstrosity",
-      "duskrat-swarm": "Duskrat Swarm",
-      "harrowers-grasp": "Harrower's Grasp",
-      "rosie": "Rosie",
-      "rat-queen": "Rat Queen",
-      "ghost-falcons": "Ghost Falcons",
-      "twilight-archon": "Twilight Archon"
+  "summon": {
+    "sewer-monstrosity": "Sewer Monstrosity",
+    "duskrat-swarm": "Duskrat Swarm",
+    "harrowers-grasp": "Harrower's Grasp",
+    "rosie": "Rosie",
+    "rat-queen": "Rat Queen",
+    "ghost-falcons": "Ghost Falcons",
+    "twilight-archon": "Twilight Archon"
   },
   "edition": {
     "mp": "Mercenary Packs"
+  },
+  "monster": {
+    "bug-body": "Bug-Body"
+  },
+  "scenario": {
+    "title": {
+      "mp": {
+        "solo-103": "A Harrowing Deal",
+        "solo-104": "Horns in the Night",
+        "solo-105": "Escape from Corruption",
+        "solo-106": "Major Annoyance"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "mp": {
+        "solo-103-1": "A Harrowing Deal",
+        "solo-103-2": "A Harrowing Deal",
+        "solo-104-1": "Horns in the Night",
+        "solo-104-2": "Horns in the Night",
+        "solo-104-3": "Horns in the Night",
+        "solo-105-1": "Escape from Corruption",
+        "solo-106-1": "Major Annoyance",
+        "solo-106-2": "Major Annoyance"
+      }
+    }
   }
 }

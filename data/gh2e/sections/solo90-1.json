@@ -1,0 +1,37 @@
+{
+  "index": "90-1",
+  "group": "solo",
+  "name": "Vermling Liberation",
+  "edition": "gh2e",
+  "parent": "90",
+  "marker": "1",
+  "monsters": [
+    "earth-demon",
+    "giant-viper",
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

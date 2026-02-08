@@ -1,0 +1,200 @@
+{
+  "name": "clockwork-devastator",
+  "edition": "cs",
+  "abilities": [
+    {
+      "cardId": 613,
+      "initiative": 28,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "cardId": 614,
+      "initiative": 38,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 615,
+      "initiative": 38,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyOneAll",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 619,
+      "initiative": 23,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "cardId": 733,
+      "initiative": 60,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,5,active)|(1,3,target)|(1,4,target)|(2,1,target)|(2,2,target)|(3,0,target)"
+            },
+            {
+              "type": "pierce",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 734,
+      "initiative": 60,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,5,active)|(1,3,target)|(1,4,target)|(2,1,target)|(2,2,target)|(3,0,target)"
+            },
+            {
+              "type": "pierce",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 735,
+      "initiative": 84,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 739,
+      "initiative": 54,
+      "actions": [
+        {
+          "type": "concatenation",
+          "value": "and:2",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            },
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

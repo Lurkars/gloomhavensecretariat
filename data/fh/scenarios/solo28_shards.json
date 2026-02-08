@@ -1,0 +1,65 @@
+{
+  "index": "28",
+  "group": "solo",
+  "name": "Tuning the Resonance",
+  "errata": "solo28",
+  "edition": "fh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "shards",
+  "rewards": {
+    "items": [
+      "256"
+    ]
+  },
+  "monsters": [
+    "algox-icespeaker-shards-solo"
+  ],
+  "objectives": [
+    {
+      "name": "Stalagmite",
+      "health": "L+5",
+      "escort": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "At the end of each round, suffers %game.damage:1% for each Ice Pillar within %game.action.range:3%"
+        }
+      ]
+    },
+    {
+      "name": "Ice Pillar",
+      "health": "L+5",
+      "tags": [
+        "ice-pillar"
+      ],
+      "actions": [
+        {
+          "type": "custom",
+          "value": "At the end of each round, suffers %game.damage:1% for each Stalagmite within %game.action.range:3%"
+        }
+      ]
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-icespeaker-shards-solo",
+          "type": "normal"
+        }
+      ],
+      "objectives": [
+        1,
+        1,
+        2,
+        2
+      ]
+    }
+  ]
+}

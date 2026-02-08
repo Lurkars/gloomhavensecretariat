@@ -51,6 +51,9 @@
     "fc-165": {
       "": "Живая броня",
       "1": "Вы становитесь невосприимчивы к «%game.condition.poison%» и %game.enhancement.circle% . Когда вы получаете урон от атаки, получайте «%game.action.shield% 0 %game.enhancement.circle% » для этой атаки."
+    },
+    "fc-164": {
+      "": "Чаша пророчества"
     }
   },
   "summon": {

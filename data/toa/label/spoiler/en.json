@@ -133,6 +133,27 @@
     "toa-130": {
       "": "Dynamic Sickle",
       "1": "During your melee Attack ability, %game.element.consume.wild% to add +2 %game.action.attack% and %game.condition.muddle% to one attack."
+    },
+    "toa-119": {
+      "1": "During your Attack ability, add +1 %game.action.attack% to one attack. Whenever this item is refreshed, one adjacent enemy suffers 1 damage.",
+      "": "Thrice-Souled Warsword"
+    },
+    "toa-120": {
+      "1": "During your melee Attack ability, gain %game.condition.chill% to add %game.condition.chill% to the attack. After the attack flip, this card.",
+      "2": "During your melee Attack ability, if you do not have %game.condition.wound%, gain %game.condition.wound% to add %game.condition.wound% to the attack. After the attack flip, this card.",
+      "": "Rekindled Core"
+    },
+    "toa-121": {
+      "1": "During your turn, play one level 5 or lower card from your hand or discard pile and immediately perform a %data.characterColored.gemstone:Crystalize% %data.characterIconColoredBg.gemstone% action from that card.",
+      "": "Crystal Catalyst"
+    },
+    "toa-123": {
+      "1": "Whenever you %game.condition.dodge% an attack, you may spend this item instead of discarding a card from your hand.",
+      "": "Arclight Cladding"
+    },
+    "toa-128": {
+      "1": "During your turn, perform \"%game.action.pull% 1, %game.condition.muddle%, %game.action.range:3%\".",
+      "": "Barbed Whip"
     }
   },
   "treasures": {

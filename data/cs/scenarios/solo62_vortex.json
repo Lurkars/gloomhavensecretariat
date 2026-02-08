@@ -1,0 +1,35 @@
+{
+  "index": "62",
+  "group": "solo",
+  "name": "Hallow Redemption",
+  "edition": "cs",
+  "spoiler": true,
+  "initial": true,
+  "solo": "vortex",
+  "rewards": {
+    "items": [
+      "57"
+    ]
+  },
+  "monsters": [
+    "cave-bear",
+    "forest-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "B1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

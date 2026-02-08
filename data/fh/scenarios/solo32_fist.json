@@ -1,0 +1,56 @@
+{
+  "index": "32",
+  "group": "solo",
+  "name": "Under the Ice",
+  "edition": "fh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "fist",
+  "rewards": {
+    "items": [
+      "260"
+    ]
+  },
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "32-1"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "steel-automaton"
+          },
+          "type": "killed",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "steel-automaton",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

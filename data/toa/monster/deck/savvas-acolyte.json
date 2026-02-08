@@ -1,0 +1,250 @@
+{
+  "name": "savvas-acolyte",
+  "edition": "toa",
+  "abilities": [
+    {
+      "cardId": 711,
+      "initiative": 19,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "minus",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "selfAlliesRange:2",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ]
+    },
+    {
+      "cardId": 712,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "condition",
+                      "value": "immobilize"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "element",
+          "value": "air"
+        }
+      ]
+    },
+    {
+      "cardId": 713,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 3,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "air",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 719,
+      "initiative": 68,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.savvas-lavaflow.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        }
+      ]
+    },
+    {
+      "cardId": 721,
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh.savvas-lavaflow.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "enemies"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "disarm",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "enemies"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 723,
+      "initiative": 68,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ]
+    }
+  ]
+}

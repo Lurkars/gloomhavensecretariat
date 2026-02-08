@@ -1,0 +1,242 @@
+{
+  "name": "volt-demon",
+  "edition": "toa",
+  "abilities": [
+    {
+      "cardId": 660,
+      "initiative": 4,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "element",
+          "value": "light"
+        }
+      ]
+    },
+    {
+      "cardId": 661,
+      "initiative": 7,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 662,
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "light"
+        }
+      ]
+    },
+    {
+      "cardId": 663,
+      "initiative": 26,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 664,
+      "initiative": 46,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 665,
+      "initiative": 41,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "light"
+        }
+      ]
+    },
+    {
+      "cardId": 666,
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 667,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.night-demon.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "wild",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

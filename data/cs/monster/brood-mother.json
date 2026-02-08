@@ -1,0 +1,284 @@
+{
+  "name": "brood-mother",
+  "edition": "cs",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "terrorscale-drake",
+  "baseStat": {
+    "type": "boss",
+    "note": "%data.custom.cs.brood-mother.1%",
+    "immunities": [
+      "immobilize",
+      "curse",
+      "poison",
+      "stun",
+      "disarm"
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 27,
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.cs.brood-mother.2%",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 3
+            },
+            {
+              "type": "retaliate",
+              "value": 3
+            },
+            {
+              "type": "heal",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 30,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.cs.brood-mother.2%",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 4
+            },
+            {
+              "type": "retaliate",
+              "value": 4
+            },
+            {
+              "type": "heal",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 39,
+      "movement": 5,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.cs.brood-mother.2%",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 4
+            },
+            {
+              "type": "retaliate",
+              "value": 4
+            },
+            {
+              "type": "heal",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 42,
+      "movement": 5,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.cs.brood-mother.2%",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 4
+            },
+            {
+              "type": "retaliate",
+              "value": 4
+            },
+            {
+              "type": "heal",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 56,
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.cs.brood-mother.2%",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 5
+            },
+            {
+              "type": "retaliate",
+              "value": 5
+            },
+            {
+              "type": "heal",
+              "value": 5,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 60,
+      "movement": 6,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.cs.brood-mother.2%",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 5
+            },
+            {
+              "type": "retaliate",
+              "value": 5
+            },
+            {
+              "type": "heal",
+              "value": 5,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 75,
+      "movement": 6,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.cs.brood-mother.2%",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 5
+            },
+            {
+              "type": "retaliate",
+              "value": 5
+            },
+            {
+              "type": "heal",
+              "value": 5,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 81,
+      "movement": 6,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.cs.brood-mother.2%",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 6
+            },
+            {
+              "type": "retaliate",
+              "value": 6
+            },
+            {
+              "type": "heal",
+              "value": 6,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -63,5 +63,10 @@
     "rust-vermin": "Rust Vermin",
     "soul-leeches": "Soul Leeches",
     "steel-scarabs": "Steel Scarabs"
+  },
+  "items": {
+    "gh-envx-151": {
+      "1": "During your melee attack, add %game.condition.poison% and %game.condition.wound% to the entire action."
+    }
   }
 }

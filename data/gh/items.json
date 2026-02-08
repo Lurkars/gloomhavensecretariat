@@ -2442,5 +2442,305 @@
         "small": true
       }
     ]
+  },
+  {
+    "id": 134,
+    "name": "Imposing Blade",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "brute",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-134.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "name": "Focusing Ray",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "tinkerer",
+    "slot": "onehand",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-135.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "name": "Volatile Elixir",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "spellweaver",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-136.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 137,
+    "name": "Silent Stiletto",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "scoundrel",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-137.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 138,
+    "name": "Stone Charm",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "cragheart",
+    "slot": "head",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-138.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "name": "Psychic Knife",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "mindthief",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-139.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 140,
+    "name": "Sun Shield",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "sun",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-140.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "name": "Utility Belt",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "three-spears",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-141.1%",
+        "small": true
+      }
+    ],
+    "loss": true
+  },
+  {
+    "id": 142,
+    "name": "Phasing Idol",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "circles",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-142.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "name": "Smoke Elixir",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "eclipse",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-143.1%",
+        "small": true
+      },
+      {
+        "type": "element",
+        "value": "dark"
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "invisible"
+      },
+      {
+        "type": "element",
+        "value": "dark"
+      }
+    ]
+  },
+  {
+    "id": 144,
+    "name": "Pendant of the Plague",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "squidface",
+    "slot": "head",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-144.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "name": "Mask of Death",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "lightning",
+    "slot": "head",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-145.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 146,
+    "name": "Master's Lute",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "music-note",
+    "slot": "twohand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-146.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 147,
+    "name": "Cloak of the Hunter",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "angry-face",
+    "slot": "body",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-147.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 148,
+    "name": "Doctor's Coat",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "saw",
+    "slot": "body",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-148.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 149,
+    "name": "Elemental Boots",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "triangles",
+    "slot": "legs",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-149.1%",
+        "small": true
+      },
+      {
+        "type": "element",
+        "value": "wild"
+      }
+    ]
+  },
+  {
+    "id": 150,
+    "name": "Staff of Command",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "two-mini",
+    "slot": "twohand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-150.1%",
+        "small": true
+      }
+    ]
   }
 ]

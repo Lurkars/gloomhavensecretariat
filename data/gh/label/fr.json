@@ -858,6 +858,12 @@
         "1": "Éclosion des Œufs",
         "2": "Invoque [C] Œuf(s)"
       }
+    },
+    "city-guard-saw-solo": {
+      "1": "Subit 1 dégât à la fin de chaque round tant qu'il n'a pas récupéré tous ses PV"
+    },
+    "ghost-wolf": {
+      "1": "Au début de chaque round:"
     }
   },
   "deck": {
@@ -943,7 +949,24 @@
     "vermling-scout": "Éclaireur Vermling",
     "vermling-shaman": "Chaman Vermling",
     "wind-demon": "Démon du Vent",
-    "winged-horror": "Horreur Ailée"
+    "winged-horror": "Horreur Ailée",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
+    "deep-earth": "Terre Profonde",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
+    "ghost-wolf": "Loup Fantôme",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
+    "high-flame": "Haute Flamme",
+    "inox-necromancer": "Nécromancien Inox",
+    "lieutenant": "Lieutenant",
+    "song-of-the-deep": "Chanson des Profondeurs",
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)"
   },
   "objective": {
     "Altar": "Autel",
@@ -1180,7 +1203,24 @@
         "93": "Le Vaisseau Englouti",
         "94": "Le Nid des Vermlings",
         "95": "L'Heure du Jugement",
-        "randomDungeon-rnd": "Donjon Aléatoire"
+        "randomDungeon-rnd": "Donjon Aléatoire",
+        "solo-1": "Retour au Tertre Noir",
+        "solo-10": "Récolte Nocturne",
+        "solo-11": "La Crypte Pesteuse",
+        "solo-12": "Insultes Anormales",
+        "solo-13": "La Bataille des Bardes",
+        "solo-14": "Chasse Perverse",
+        "solo-15": "Conséquences",
+        "solo-16": "Les Secrets Élémentaires",
+        "solo-17": "L'Ours en Cage",
+        "solo-2": "Une Intrusion Malvenue",
+        "solo-3": "Le Laboratoire Corrompu",
+        "solo-4": "Casse à l'Armurerie",
+        "solo-5": "Une Défense de Pierre",
+        "solo-6": "La Libération des Rongeurs",
+        "solo-7": "L'Escorte de la Caravane",
+        "solo-8": "Frais de Stockage",
+        "solo-9": "La Dimension des Bêtes Sauvages"
       }
     }
   },

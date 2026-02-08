@@ -1,0 +1,27 @@
+{
+  "index": "G2b",
+  "group": "solo",
+  "name": "Battle of the Bards",
+  "edition": "gh",
+  "parent": "13",
+  "parentSections": [
+    [
+      "I1a"
+    ]
+  ],
+  "monsters": [
+    "stone-golem"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

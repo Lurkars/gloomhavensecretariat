@@ -1,0 +1,61 @@
+{
+  "index": "91-2",
+  "group": "solo",
+  "name": "Caravan Escort",
+  "edition": "gh2e",
+  "parent": "91",
+  "parentSections": [
+    [
+      "91-1"
+    ]
+  ],
+  "resetRound": "visible",
+  "monsters": [
+    "inox-archer",
+    "inox-guard"
+  ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "inox-archer",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "inox-guard",
+            "type": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "inox-archer",
+            "type": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "inox-guard",
+            "type": "normal"
+          },
+          "marker": "d",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

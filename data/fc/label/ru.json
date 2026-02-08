@@ -240,7 +240,8 @@
     "valrath-savage": "Валрат-варвар",
     "valrath-tracker": "Валрат-следопыт",
     "warden": "Надзиратель",
-    "wolf-viper-abomination": "Гадюковолк"
+    "wolf-viper-abomination": "Гадюковолк",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)"
   },
   "objective": {
     "Altar": "Алтарь",
@@ -340,7 +341,8 @@
         "97": "Утраченные знания",
         "98": "Объятые пламенем",
         "99": "Отголоски прошлого",
-        "Challenge-1": "Башня, ведущая к звёздам"
+        "Challenge-1": "Башня, ведущая к звёздам",
+        "solo-19": "Предсказания неизбежного"
       }
     }
   },
@@ -483,7 +485,10 @@
         "Challenge-47": "Зал ужасов",
         "Challenge-84": "Врата на небеса",
         "randomMonsterCard-622": "…в степи",
-        "randomMonsterCard-623": "…эфирных ветров"
+        "randomMonsterCard-623": "…эфирных ветров",
+        "solo-19-29": "Предсказания неизбежного",
+        "solo-19-73": "Предсказания неизбежного",
+        "solo-19-90": "Предсказания неизбежного"
       }
     }
   }

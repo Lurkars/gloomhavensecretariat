@@ -1,0 +1,39 @@
+{
+  "index": "6-3",
+  "group": "solo",
+  "name": "Rodent Liberation",
+  "edition": "gh",
+  "parent": "6",
+  "parentSections": [
+    [
+      "6-2"
+    ]
+  ],
+  "hideIndex": true,
+  "marker": "3",
+  "monsters": [
+    "earth-demon-mindthief-solo"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "earth-demon-mindthief-solo",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true
+    }
+  ]
+}

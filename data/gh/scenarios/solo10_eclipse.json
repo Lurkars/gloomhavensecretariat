@@ -1,0 +1,132 @@
+{
+  "index": "10",
+  "group": "solo",
+  "name": "Harvesting the Night",
+  "edition": "gh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "eclipse",
+  "rewards": {
+    "items": [
+      "143"
+    ]
+  },
+  "monsters": [
+    "deep-terror",
+    "night-demon"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "night-demon"
+          },
+          "type": "killed",
+          "value": "6"
+        }
+      ],
+      "finish": "won"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "rooms": [
+        2,
+        3
+      ],
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "D2b",
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "L2a",
+      "rooms": [
+        4,
+        5
+      ],
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "A2b",
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "B4b",
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -51,6 +51,9 @@
     "fc-165": {
       "": "活化盔甲",
       "1": "對 %game.condition.poison%（中毒）和 %game.enhancement.circle% 免疫。受到攻擊傷害時，針對本次攻擊獲得 %game.action.shield% 0 %game.enhancement.circle%"
+    },
+    "fc-164": {
+      "": "預言之盆"
     }
   }
 }

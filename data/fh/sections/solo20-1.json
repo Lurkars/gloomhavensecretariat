@@ -1,0 +1,32 @@
+{
+  "index": "20-1",
+  "group": "solo",
+  "name": "Wonder of Nature",
+  "edition": "fh",
+  "parent": "20",
+  "marker": "1",
+  "monsters": [
+    "flame-demon",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

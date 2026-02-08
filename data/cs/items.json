@@ -531,6 +531,23 @@
     ]
   },
   {
+    "id": 34,
+    "name": "Claw Trap",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "chain-helmet",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-34.1%",
+        "small": true
+      }
+    ]
+  },
+  {
     "id": 35,
     "name": "Staff of Retribution",
     "cost": 20,
@@ -611,6 +628,56 @@
     ]
   },
   {
+    "id": 40,
+    "name": "Moonleather Boots",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "galaxy",
+    "slot": "legs",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-40.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Spirit Libation",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "skull",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-41.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Robe of Soothing",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "leaf",
+    "slot": "body",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-42.1%",
+        "small": true
+      }
+    ]
+  },
+  {
     "id": 43,
     "name": "Resplendent Mitre",
     "cost": 40,
@@ -643,6 +710,23 @@
     ]
   },
   {
+    "id": 45,
+    "name": "Chain Cannon",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "target",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-45.1%",
+        "small": true
+      }
+    ]
+  },
+  {
     "id": 46,
     "name": "Summoner's Whistle",
     "cost": 30,
@@ -654,6 +738,39 @@
       {
         "type": "custom",
         "value": "%data.items.cs-46.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Nature Armlets",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "tusks",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-47.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Test Tube",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "flask",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-48.1%",
         "small": true
       }
     ]
@@ -675,6 +792,39 @@
     ]
   },
   {
+    "id": 50,
+    "name": "Luminous Carapace",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "crescent-sun",
+    "slot": "body",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-50.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Flaming Armor",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "ladder-axe",
+    "slot": "body",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-51.1%",
+        "small": true
+      }
+    ]
+  },
+  {
     "id": 52,
     "name": "Flaming Axe",
     "cost": 40,
@@ -691,6 +841,22 @@
       {
         "type": "element",
         "value": "fire"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Field Mortar",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "sprig",
+    "slot": "small",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-53.1%",
+        "small": true
       }
     ]
   },
@@ -722,6 +888,45 @@
         "type": "custom",
         "value": "%data.items.cs-55.1%",
         "small": true
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Clamp Trap",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "chain-helmet",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-56.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Cleansed Voidheart",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "vortex",
+    "slot": "body",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-57.1%",
+        "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "immune",
+        "value": "muddle"
       }
     ]
   },
@@ -1504,6 +1709,24 @@
     ]
   },
   {
+    "id": 103,
+    "name": "Steelsilk Spinneret",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "beetle",
+    "slot": "onehand",
+    "spent": true,
+    "slots": 2,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-103.1%",
+        "small": true
+      }
+    ]
+  },
+  {
     "id": 104,
     "name": "Power Modulator",
     "cost": 50,
@@ -1587,6 +1810,24 @@
     }
   },
   {
+    "id": 109,
+    "name": "Auscudec of the Makers",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "tools",
+    "slot": "twohand",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-109.1%",
+        "small": true
+      }
+    ],
+    "loss": true
+  },
+  {
     "id": 110,
     "name": "Serrated Edge",
     "cost": 25,
@@ -1647,6 +1888,23 @@
       {
         "type": "custom",
         "value": "%data.items.cs-113.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 114,
+    "name": "Rite of Ruin",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "solo": "bleeding-claw",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.cs-114.1%",
         "small": true
       }
     ]

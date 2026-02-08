@@ -1,0 +1,22 @@
+{
+  "name": "shyreth",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "initiative": 8,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    }
+  ]
+}

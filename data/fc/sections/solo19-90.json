@@ -1,0 +1,26 @@
+{
+  "index": "19-90",
+  "group": "solo",
+  "name": "Forecast of the Inevitable",
+  "edition": "fc",
+  "parent": "19",
+  "monsters": [
+    "valrath-savage"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "valrath-savage",
+          "type": "normal"
+        },
+        {
+          "name": "valrath-savage",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

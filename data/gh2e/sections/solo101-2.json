@@ -1,0 +1,42 @@
+{
+  "index": "101-2",
+  "group": "solo",
+  "name": "The Caged Bear",
+  "edition": "gh2e",
+  "parent": "101",
+  "parentSections": [
+    [
+      "101-1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "earth-demon",
+    "rending-drake",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

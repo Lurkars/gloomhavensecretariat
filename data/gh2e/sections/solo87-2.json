@@ -1,0 +1,41 @@
+{
+  "index": "87-2",
+  "group": "solo",
+  "name": "Corrupted Apothecary",
+  "edition": "gh2e",
+  "parent": "87",
+  "parentSections": [
+    [
+      "87-1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "hound",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

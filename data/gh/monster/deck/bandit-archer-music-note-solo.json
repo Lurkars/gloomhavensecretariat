@@ -1,0 +1,25 @@
+{
+  "name": "bandit-archer-music-note-solo",
+  "edition": "gh",
+  "abilities": [
+    {
+      "initiative": 49,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.solo.char-am-deck%"
+        }
+      ]
+    }
+  ]
+}

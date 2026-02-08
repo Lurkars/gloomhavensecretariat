@@ -1,0 +1,37 @@
+{
+  "index": "24",
+  "group": "solo",
+  "name": "Bones in the Dirt",
+  "edition": "fh",
+  "initial": true,
+  "solo": "boneshaper",
+  "rewards": {
+    "items": [
+      "252"
+    ]
+  },
+  "monsters": [
+    "earth-demon",
+    "hollow-scholar",
+    "snow-imp"
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "id": 151,
+    "name": "Sword of the Sands",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh-envx",
+    "solo": "envx",
+    "slot": "onehand",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh-envx-151.1%",
+        "small": true
+      }
+    ]
+  }
+]

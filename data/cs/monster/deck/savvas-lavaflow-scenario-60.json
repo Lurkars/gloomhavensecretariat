@@ -1,0 +1,274 @@
+{
+  "name": "savvas-lavaflow-scenario-60",
+  "edition": "cs",
+  "abilities": [
+    {
+      "cardId": 716,
+      "initiative": 97,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "flame-demon",
+                "type": "normal"
+              }
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ]
+    },
+    {
+      "cardId": 717,
+      "initiative": 97,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "flame-demon",
+                "type": "normal"
+              }
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ]
+    },
+    {
+      "cardId": 718,
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 719,
+      "initiative": 68,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.savvas-lavaflow.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        }
+      ]
+    },
+    {
+      "cardId": 720,
+      "initiative": 41,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,active)|(0,1,target)|(1,2,target)|(1,3,target)"
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "condition",
+                      "value": "immobilize"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 721,
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh.savvas-lavaflow.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "enemies"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "disarm",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "enemies"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 722,
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 723,
+      "initiative": 68,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ]
+    }
+  ]
+}

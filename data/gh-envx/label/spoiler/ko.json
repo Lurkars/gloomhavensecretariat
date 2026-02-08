@@ -13,5 +13,10 @@
     "rust-vermin": "녹병 해충",
     "soul-leeches": "영혼 거머리",
     "steel-scarabs": "강철 풍뎅이"
+  },
+  "items": {
+    "gh-envx-151": {
+      "1": "근접 공격 중, 해당 공격 행동 전체에 %game.condition.poison% 및 %game.condition.wound% 추가."
+    }
   }
 }

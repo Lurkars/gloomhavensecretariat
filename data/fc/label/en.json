@@ -264,7 +264,8 @@
     "valrath-savage": "Valrath Savage",
     "valrath-tracker": "Valrath Tracker",
     "warden": "Warden",
-    "wolf-viper-abomination": "Wolf-Viper Abomination"
+    "wolf-viper-abomination": "Wolf-Viper Abomination",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)"
   },
   "objective": {
     "Altar": "Altar",
@@ -373,7 +374,8 @@
         "97": "Lore Untold",
         "98": "Past In Flames",
         "99": "Aftershocks",
-        "Challenge-1": "Tower to the Stars"
+        "Challenge-1": "Tower to the Stars",
+        "solo-19": "Forecast of the Inevitable"
       }
     }
   },
@@ -516,7 +518,10 @@
         "Challenge-47": "Hall of Horrors",
         "Challenge-84": "Gateway to the Firmament",
         "randomMonsterCard-622": "Arid",
-        "randomMonsterCard-623": "Ethereal"
+        "randomMonsterCard-623": "Ethereal",
+        "solo-19-29": "Forecast of the Inevitable",
+        "solo-19-73": "Forecast of the Inevitable",
+        "solo-19-90": "Forecast of the Inevitable"
       }
     }
   }

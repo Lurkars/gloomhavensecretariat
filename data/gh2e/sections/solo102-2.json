@@ -1,0 +1,43 @@
+{
+  "index": "102-2",
+  "group": "solo",
+  "name": "The Sands of Time",
+  "edition": "gh2e",
+  "parent": "102",
+  "parentSections": [
+    [
+      "102-1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "giant-viper",
+    "living-bones",
+    "living-spirit",
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

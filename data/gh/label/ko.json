@@ -734,6 +734,12 @@
         "1": "알 부화",
         "2": "알 %game.action.summon% [C]"
       }
+    },
+    "city-guard-saw-solo": {
+      "1": "매 라운드 종료 시, 완전히 치료되지 않은 모든 도시 경비병이%game.damage:1%점을 입습니다"
+    },
+    "ghost-wolf": {
+      "1": "매번 라운드 시작에:"
     }
   },
   "deck": {
@@ -826,7 +832,24 @@
     "vermling-scout": "버믈링 정찰병",
     "vermling-shaman": "버믈링 주술사",
     "wind-demon": "바람 악마",
-    "winged-horror": "날개 달린 공포"
+    "winged-horror": "날개 달린 공포",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
+    "deep-earth": "깊은 대지",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
+    "ghost-wolf": "유령 늑대",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
+    "high-flame": "높은 화염",
+    "inox-necromancer": "이녹스 강령술사",
+    "lieutenant": "부관",
+    "song-of-the-deep": "심연의 노래",
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)"
   },
   "objective": {
     "Hail": "헤일",
@@ -1040,7 +1063,45 @@
         "93": "침몰선",
         "94": "버믈링 소굴",
         "95": "상환일",
-        "randomDungeon-rnd": "무작위 던전"
+        "randomDungeon-rnd": "무작위 던전",
+        "solo-1": "검은 무덤",
+        "solo-10": "어둠 수확",
+        "solo-11": "병든 묘지",
+        "solo-12": "자연을 거스르는 모욕",
+        "solo-13": "음유시인 대결",
+        "solo-14": "타락자 사냥",
+        "solo-15": "재앙의 여파",
+        "solo-16": "원소의 비밀",
+        "solo-17": "우리에 갇힌 곰",
+        "solo-2": "유감스러운 침입",
+        "solo-3": "타락한 실험실",
+        "solo-4": "무기고 털이",
+        "solo-5": "바위 수호",
+        "solo-6": "설치류 해방",
+        "solo-7": "상단 호위",
+        "solo-8": "보관료",
+        "solo-9": "야생동물의 차원"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "gh": {
+        "solo-15-1": "재앙의 여파",
+        "solo-17-1": "우리에 갇힌 곰",
+        "solo-17-2": "우리에 갇힌 곰",
+        "solo-17-3": "우리에 갇힌 곰",
+        "solo-4-A2a": "무기고 털이",
+        "solo-4-B2b": "무기고 털이",
+        "solo-4-H1b": "무기고 털이",
+        "solo-6-1": "설치류 해방",
+        "solo-6-2": "설치류 해방",
+        "solo-6-3": "설치류 해방",
+        "solo-7-1": "상단 호위",
+        "solo-7-2": "상단 호위",
+        "solo-A1b": "음유시인 대결",
+        "solo-G2b": "음유시인 대결",
+        "solo-I1a": "음유시인 대결"
       }
     }
   }

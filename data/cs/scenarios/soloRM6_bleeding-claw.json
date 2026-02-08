@@ -1,0 +1,128 @@
+{
+  "index": "RM6",
+  "group": "solo",
+  "name": "The Fall of Shadow's Respite",
+  "edition": "cs",
+  "spoiler": true,
+  "initial": true,
+  "solo": "bleeding-claw",
+  "rewards": {
+    "items": [
+      "114"
+    ],
+    "custom": "%data.scenario.rewards.solo.rm6%"
+  },
+  "monsters": [
+    "gnashing-drake",
+    "vermling-scout-ally",
+    "vermling-shaman-ally"
+  ],
+  "allies": [
+    "vermling-scout-ally",
+    "vermling-shaman-ally"
+  ],
+  "objectives": [
+    {
+      "name": "The Chosen",
+      "health": "6+L",
+      "escort": true,
+      "marker": "a"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "sections": [
+        "6-1"
+      ]
+    },
+    {
+      "round": "R == 6",
+      "sections": [
+        "6-2"
+      ]
+    },
+    {
+      "round": "R == 8",
+      "note": "Read %data.section:3% <br>Place the Ruinmaw at hex %game.mapMarker.a%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "The Chosen"
+          },
+          "type": "remove"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "vermling-scout-ally|vermling-shaman-ally"
+          },
+          "type": "remove"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "L2a",
+      "initial": true,
+      "monster": [
+        {
+          "name": "gnashing-drake",
+          "type": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "type": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "type": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "type": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "type": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout-ally",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout-ally",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout-ally",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout-ally",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman-ally",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman-ally",
+          "type": "normal"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

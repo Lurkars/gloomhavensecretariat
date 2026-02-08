@@ -1,0 +1,40 @@
+{
+  "index": "98-3",
+  "group": "solo",
+  "name": "Corrupted Hunt",
+  "edition": "gh2e",
+  "parent": "98",
+  "parentSections": [
+    [
+      "98-2"
+    ]
+  ],
+  "marker": "3",
+  "monsters": [
+    "giant-viper"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

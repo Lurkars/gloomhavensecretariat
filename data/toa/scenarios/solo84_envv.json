@@ -1,0 +1,55 @@
+{
+  "index": "84",
+  "group": "solo",
+  "name": "Return to Crystal Gardens",
+  "edition": "toa",
+  "spoiler": true,
+  "initial": true,
+  "solo": "envv",
+  "rewards": {
+    "items": [
+      "131"
+    ]
+  },
+  "monsters": [
+    "shardrender-scenario-84",
+    "smoke-spirit"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "wound",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "shardrender-scenario-84",
+          "type": "normal"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

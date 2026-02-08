@@ -1,0 +1,77 @@
+{
+  "index": "8",
+  "group": "solo",
+  "name": "Storage Fees",
+  "edition": "gh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "three-spears",
+  "rewards": {
+    "items": [
+      "141"
+    ]
+  },
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "hound"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "bandit-guard",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "bandit-guard",
+            "type": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "bandit-archer",
+            "type": "normal"
+          },
+          "marker": "c",
+          "count": "2"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "d",
+          "count": "2"
+        }
+      ],
+      "treasures": [
+        "G"
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "rooms": [
+        2
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "I1a",
+      "treasures": [
+        "G"
+      ]
+    }
+  ]
+}

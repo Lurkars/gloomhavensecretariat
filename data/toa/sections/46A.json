@@ -1,0 +1,19 @@
+{
+  "index": "46A",
+  "group": "solo",
+  "name": "Storm Mountain",
+  "edition": "toa",
+  "parent": "82",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

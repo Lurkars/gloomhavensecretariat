@@ -1427,6 +1427,81 @@
     "fh-99": {
       "": "Major Healing Potion",
       "1": "During your turn, perform %game.action.heal% 6 self"
+    },
+    "fh-248": {
+      "": "Wanderer's Club",
+      "1": "During your attack ability, move one character token on one of your persistent abilities backward one slot and add +X %game.action.attack% to one attack, where X is the number of active persistent abilities."
+    },
+    "fh-249": {
+      "": "Recalibration Trigger",
+      "1": "During our turn, perform one of the two following abilities: Lose one card from your hand to gain 3 %data.action.custom.fh-hourglass%.",
+      "2": "%game.card.recover% up to two of your discarded cards"
+    },
+    "fh-250": {
+      "": "Spear of Justice",
+      "1": "During your turn perform:",
+      "2": "All your banners are treated as additionally occupying the hex of the attack target of their bonuses and that hex is treated as occupied by an ally this round."
+    },
+    "fh-251": {
+      "": "Soul Urn",
+      "1": "Place one %data.action.custom.fh-shadow% in an adjacent hex. %game.element.dark%"
+    },
+    "fh-252": {
+      "": "Black Earth Codex",
+      "1": "On the next three deaths of any of your summons, %game.elementHalf:earth|dark% and perform:"
+    },
+    "fh-253": {
+      "": "Mask of Duality",
+      "1": "During your ranged attack ability while in %game.characterIconIdentity.geminate.1%, gain advantage for one attack, then flip this card over.",
+      "2": "When an enemy performs an attack targeting you while you are in %game.characterIconIdentity.geminate.0%, the attacker gains disadvantage, then flip this card over."
+    },
+    "fh-254": {
+      "": "Ancestral Blade",
+      "1": "During your turn, activate all your %data.action.custom.fh-infusion% as if you just performed a %data.action.custom.fh-infusion% action."
+    },
+    "fh-255": {
+      "": "Mountain's Heart",
+      "1": "During your turn, you may create either one 1-hex obstacle or hazardous terrain tile in an empty tile within %game.action.range:2%."
+    },
+    "fh-256": {
+      "": "Sonorous Shard",
+      "1": "Gain 3 %data.action.custom.fh-resonance%"
+    },
+    "fh-257": {
+      "": "Sly Camouflage",
+      "1": "When you create a trap, place a character token on it. Monsters do not treat the trap as negative. Remove the token when you %game.card.recover% this item."
+    },
+    "fh-258": {
+      "": "Skull of Agony",
+      "1": "When you suffer damage, if your hit point value is reduced to below half your maximum, perform:",
+      "2": "This heal is not affect by and cannot remove negative conditions."
+    },
+    "fh-259": {
+      "": "Storm Carving",
+      "1": "During an attack ability you grant an ally, add %game.action.push% 2 to one of their attacks, then flip this card over.",
+      "2": "During your attack ability you, add %game.action.pull% 2 to one attack, then flip this card over."
+    },
+    "fh-260": {
+      "": "Freezing Orb",
+      "1": "During your attack ability, add %game.condition.brittle% one attack and create one 1-hex icy terrain tile in the featureless hex occupied by the target."
+    },
+    "fh-261": {
+      "": "Energized Module",
+      "1": "Remove all damage and negative conditions from one of your summons, then %data.action.custom.fh-mode% to that summon."
+    },
+    "fh-262": {
+      "": "Exhaust Boots",
+      "1": "During your move ability, when you have %game.characterIconIdentityColored.drill.1% or %game.characterIconIdentityColored.drill.2%, add +1 %game.action.move%, then flip this card over at the end of your turn.",
+      "2": "During your turn when you have %game.characterIconIdentityColored.drill.3%, perform:",
+      "4": "then flip this card over at the end of your turn."
+    },
+    "fh-263": {
+      "": "Warlord's Skull",
+      "1": "Whenever you gain %game.condition.invisible% perform a teleport ability while you have %game.condition.invisible%, after the ability perform: %game.condition.muddle% %game.action.range:1%"
+    },
+    "fh-264": {
+      "": "Spiraled Medallion",
+      "1": "When you rest, you may keep up to three %data.action.custom.fh-tides% cards in your active area."
     }
   },
   "pets": {

@@ -1,0 +1,32 @@
+{
+  "index": "106-1",
+  "group": "solo",
+  "name": "Major Annoyance",
+  "edition": "mp",
+  "parent": "106",
+  "marker": "3",
+  "monsters": [
+    "earth-demon::gh2e",
+    "wind-demon::gh2e"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon::gh2e",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon::gh2e",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon::gh2e",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

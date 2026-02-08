@@ -1,0 +1,89 @@
+{
+  "index": "29",
+  "group": "solo",
+  "name": "A Magnificent Trap",
+  "edition": "fh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "trap",
+  "rewards": {
+    "items": [
+      "257"
+    ]
+  },
+  "monsters": [
+    "algox-guard",
+    "algox-snowspeaker-trap-solo",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rules": [
+    {
+      "round": "R == 3 || R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-guard",
+            "type": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 4 || R == 6 || R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "type": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-guard",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "algox-snowspeaker-trap-solo",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-snowspeaker-trap-solo",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true
+    }
+  ]
+}

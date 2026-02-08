@@ -1,0 +1,23 @@
+{
+  "index": "67D",
+  "group": "solo",
+  "name": "Through the Fire and the Flames",
+  "edition": "cs",
+  "parent": "60",
+  "marker": "1",
+  "monsters": [
+    "rending-drake-scenario-60"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "rending-drake-scenario-60",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "index": "59",
+  "group": "solo",
+  "name": "Forest Invaders",
+  "edition": "cs",
+  "spoiler": true,
+  "initial": true,
+  "solo": "tusks",
+  "rewards": {
+    "items": [
+      "47"
+    ]
+  },
+  "monsters": [
+    "giant-viper",
+    "vermling-scout"
+  ],
+  "rules": [
+    {
+      "round": "R == 2",
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "giant-viper",
+            "type": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "B1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

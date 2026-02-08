@@ -1,0 +1,37 @@
+{
+  "index": "90",
+  "group": "solo",
+  "name": "Vermling Liberation",
+  "edition": "gh2e",
+  "initial": true,
+  "solo": "mindthief",
+  "rewards": {
+    "items": [
+      "158"
+    ]
+  },
+  "monsters": [
+    "giant-viper",
+    "harrower-infester"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

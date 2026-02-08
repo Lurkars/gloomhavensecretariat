@@ -1,0 +1,59 @@
+{
+  "index": "13",
+  "group": "solo",
+  "name": "Battle of the Bards",
+  "edition": "gh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "music-note",
+  "rewards": {
+    "items": [
+      "146"
+    ]
+  },
+  "monsters": [
+    "bandit-archer-music-note-solo:-2",
+    "bandit-guard-music-note-solo:-2",
+    "city-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer-music-note-solo:-2",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer-music-note-solo:-2",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard-music-note-solo:-2",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard-music-note-solo:-2",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard-music-note-solo:-2",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard-music-note-solo:-2",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

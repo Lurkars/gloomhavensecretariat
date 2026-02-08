@@ -1,0 +1,23 @@
+{
+  "index": "98-1",
+  "group": "solo",
+  "name": "Corrupted Hunt",
+  "edition": "gh2e",
+  "parent": "98",
+  "marker": "1",
+  "monsters": [
+    "deep-earth-gh2e"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-earth-gh2e",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

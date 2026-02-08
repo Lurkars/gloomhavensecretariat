@@ -1,0 +1,31 @@
+{
+  "index": "74F",
+  "group": "solo",
+  "name": "Otherworldly Strangers",
+  "edition": "cs",
+  "parent": "66",
+  "parentSections": [
+    [
+      "74C"
+    ]
+  ],
+  "monsters": [
+    "harrower-infester"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "index": "65A",
+  "group": "solo",
+  "name": "Elemental Converter",
+  "edition": "cs",
+  "parent": "57",
+  "marker": "2",
+  "monsters": [
+    "lurker"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

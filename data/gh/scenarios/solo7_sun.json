@@ -1,0 +1,101 @@
+{
+  "index": "7",
+  "group": "solo",
+  "name": "Caravan Escort",
+  "edition": "gh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "sun",
+  "rewards": {
+    "items": [
+      "140"
+    ]
+  },
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "city-guard-sun-solo:-2"
+  ],
+  "allies": [
+    "city-guard-sun-solo"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "note": "Return your figure to the entrance hex and return all living City Guards to %game.mapMarker.a%",
+      "sections": [
+        "7-1"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "bandit-archer"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "bandit-guard"
+          },
+          "type": "dead"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard-sun-solo:-2",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun-solo:-2",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun-solo:-2",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun-solo:-2",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun-solo:-2",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun-solo:-2",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

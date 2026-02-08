@@ -1,1 +1,10 @@
-{}
+{
+  "custom": {
+    "glacier-demon": {
+      "1": "Теряет «%game.action.retaliate%» при получении «%game.condition.wound%»"
+    },
+    "inferno-demon": {
+      "1": "Теряет «%game.action.retaliate%» при получении «%game.condition.chill%»"
+    }
+  }
+}

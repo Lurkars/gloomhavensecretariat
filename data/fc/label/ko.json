@@ -55,6 +55,7 @@
   },
   "monster": {
     "aesther-ashblade": "에스더 잿빛칼날",
-    "aesther-scout": "에스더 정찰병"
+    "aesther-scout": "에스더 정찰병",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)"
   }
 }

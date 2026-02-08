@@ -205,6 +205,22 @@
     ]
   },
   {
+    "id": 164,
+    "name": "Basin of Prophecy",
+    "cost": 50,
+    "count": 1,
+    "edition": "fc",
+    "solo": "diviner",
+    "slot": "twohand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.fc-164.1%",
+        "small": true
+      }
+    ]
+  },
+  {
     "id": 165,
     "name": "Living Armor",
     "cost": 125,

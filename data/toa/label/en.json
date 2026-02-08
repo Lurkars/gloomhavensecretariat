@@ -200,6 +200,17 @@
       "vermling-scenario-68": {
         "1": "Move towards exit %game.mapMarker.a%"
       }
+    },
+    "glacier-demon": {
+      "1": "Lose %game.action.retaliate% if %game.condition.wound%"
+    },
+    "inferno-demon": {
+      "1": "Lose %game.action.retaliate% if %game.condition.chill%"
+    },
+    "okeda": {
+      "1": "Acts immediately after the Incarnate, performing the same bottom and top actions as the Incarnate",
+      "2": "If the Incarnate did not move during the bottom action:",
+      "3": "If the Incarnate did not attack during the top action:"
     }
   },
   "deck": {
@@ -291,7 +302,13 @@
         "75": "Sunken Temple",
         "76": "Untold Woe",
         "77": "Rat Traps",
-        "78": "Ternion Tomb"
+        "78": "Ternion Tomb",
+        "solo-79": "Unsouled",
+        "solo-80": "Conflux of Power",
+        "solo-81": "Corrupted Presence",
+        "solo-82": "Storm Mountain",
+        "solo-83": "Collapsed Cavern",
+        "solo-84": "Return to Crystal Gardens"
       }
     }
   },
@@ -335,7 +352,20 @@
         "36A": "Ternion Tomb",
         "36C-1": "One named Inox killed",
         "36C-2": "All named Inox killed",
-        "51-A": "Inevitable (%game.characterIconColored.gemstone% Retires)"
+        "51-A": "Inevitable (%game.characterIconColored.gemstone% Retires)",
+        "solo-36B": "Unsouled",
+        "solo-38A": "Unsouled",
+        "solo-40A": "Conflux of Power",
+        "solo-40C": "Conflux of Power",
+        "solo-42A": "Conflux of Power",
+        "solo-42B": "Corrupted Presence",
+        "solo-43A": "Corrupted Presence",
+        "solo-43C": "Corrupted Presence",
+        "solo-46A": "Storm Mountain",
+        "solo-46B": "Storm Mountain",
+        "solo-48A": "Collapsed Cavern",
+        "solo-48B": "Collapsed Cavern",
+        "solo-48C": "Collapsed Cavern"
       }
     }
   }

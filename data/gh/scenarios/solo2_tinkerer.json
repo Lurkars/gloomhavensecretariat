@@ -1,0 +1,92 @@
+{
+  "index": "2",
+  "group": "solo",
+  "name": "An Unfortunate Intrusion",
+  "edition": "gh",
+  "initial": true,
+  "solo": "tinkerer",
+  "rewards": {
+    "items": [
+      "135"
+    ]
+  },
+  "monsters": [
+    "city-guard-tinkerer-solo",
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "allies": [
+    "city-guard-tinkerer-solo"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "a",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard-tinkerer-solo",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-tinkerer-solo",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-tinkerer-solo",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-tinkerer-solo",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

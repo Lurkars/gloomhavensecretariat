@@ -1,0 +1,41 @@
+{
+  "index": "48B",
+  "group": "solo",
+  "name": "Collapsed Cavern",
+  "edition": "toa",
+  "parent": "83",
+  "marker": "2",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -8,5 +8,8 @@
   },
   "edition": {
     "fc": "Círculos olvidados"
+  },
+  "monster": {
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)"
   }
 }

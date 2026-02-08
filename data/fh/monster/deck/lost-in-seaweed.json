@@ -1,0 +1,327 @@
+{
+  "name": "lost-in-seaweed",
+  "edition": "fh",
+  "abilities": [
+    {
+      "name": "Powerful Claw",
+      "cardId": 698,
+      "initiative": 60,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "lightning-eel",
+                "type": "normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Distant Wave",
+      "cardId": 699,
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.lost-in-seaweed.1%",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 6,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "lightning-eel",
+                "type": "normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tsunami",
+      "cardId": 700,
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "lightning-eel",
+                "type": "normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Aid from Below",
+      "cardId": 701,
+      "initiative": 98,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.lost-in-seaweed.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "monsterType",
+              "value": "boss",
+              "subActions": [
+                {
+                  "type": "summon",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "lightning-eel",
+                        "type": "elite"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.lost-in-seaweed.3%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "lightning-eel",
+                "type": "normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Aid from Below",
+      "cardId": 702,
+      "initiative": 98,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.lost-in-seaweed.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "monsterType",
+              "value": "boss",
+              "subActions": [
+                {
+                  "type": "summon",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "lightning-eel",
+                        "type": "elite"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.lost-in-seaweed.3%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "lightning-eel",
+                "type": "normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Crushing Crest",
+      "cardId": 703,
+      "initiative": 36,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
+            }
+          ]
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "lightning-eel",
+                "type": "normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Twin Claws",
+      "cardId": 704,
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+            }
+          ]
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "lightning-eel",
+                "type": "normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Massive Swell",
+      "cardId": 705,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "lightning-eel",
+                "type": "normal"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

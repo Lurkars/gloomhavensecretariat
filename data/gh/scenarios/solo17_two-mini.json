@@ -1,0 +1,38 @@
+{
+  "index": "17",
+  "group": "solo",
+  "name": "The Caged Bear",
+  "edition": "gh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "two-mini",
+  "rewards": {
+    "items": [
+      "150"
+    ]
+  },
+  "monsters": [
+    "forest-imp",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

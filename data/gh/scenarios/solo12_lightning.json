@@ -1,0 +1,90 @@
+{
+  "index": "12",
+  "group": "solo",
+  "name": "Unnatural Insults",
+  "edition": "gh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "lightning",
+  "rewards": {
+    "items": [
+      "145"
+    ]
+  },
+  "monsters": [
+    "cultist",
+    "inox-necromancer",
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "M1b",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "marker": "1",
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "normal"
+        },
+        {
+          "name": "inox-necromancer",
+          "type": "boss"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

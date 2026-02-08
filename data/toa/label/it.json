@@ -1,1 +1,15 @@
-{}
+{
+  "custom": {
+    "glacier-demon": {
+      "1": "Perdi %game.action.retaliate% se %game.condition.wound%"
+    },
+    "inferno-demon": {
+      "1": "Perdi %game.action.retaliate% se %game.condition.chill%"
+    },
+    "okeda": {
+      "1": "Agisce immediatamente dopo l'Incarnato, eseguendo le stesse azioni in basso e in alto dell'Incarnato",
+      "2": "Se l'Incarnato non si è mosso durante l'azione inferiore:",
+      "3": "Se l'Incarnato non ha attaccato durante l'azione superiore:"
+    }
+  }
+}

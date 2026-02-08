@@ -1,0 +1,151 @@
+{
+  "index": "32-1",
+  "group": "solo",
+  "name": "Under the Ice",
+  "edition": "fh",
+  "parent": "32",
+  "resetRound": "visible",
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "ruined-machine"
+  ],
+  "objectives": [
+    {
+      "name": "Altar 1",
+      "escort": true,
+      "health": "(Lx2)+6",
+      "initiative": 99
+    },
+    {
+      "name": "Altar 2",
+      "escort": true,
+      "health": "(Lx2)+6",
+      "initiative": 99
+    },
+    {
+      "name": "Altar 3",
+      "escort": true,
+      "health": "(Lx2)+6",
+      "initiative": 99
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ancient-artillery",
+            "type": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ancient-artillery",
+            "type": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "type": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 11",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 12",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ancient-artillery",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ancient-artillery",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "objectives": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}

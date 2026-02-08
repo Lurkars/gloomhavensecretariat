@@ -1,0 +1,103 @@
+{
+  "index": "99",
+  "group": "solo",
+  "name": "Aftermath",
+  "edition": "gh2e",
+  "spoiler": true,
+  "initial": true,
+  "solo": "saw",
+  "rewards": {
+    "items": [
+      "167"
+    ]
+  },
+  "monsters": [
+    "black-imp",
+    "city-guard-saw2-solo",
+    "deep-terror",
+    "earth-demon",
+    "hawthorne"
+  ],
+  "allies": [
+    "city-guard-saw2-solo",
+    "hawthorne"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "city-guard-saw2-solo"
+          },
+          "type": "damage",
+          "value": 4,
+          "scenarioEffect": false
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hawthorne"
+          },
+          "type": "damage",
+          "value": 4,
+          "scenarioEffect": false
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard-saw2-solo",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-saw2-solo",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-saw2-solo",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "hawthorne",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

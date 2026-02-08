@@ -103,7 +103,8 @@
     "valrath-commander": "Commandant Valrath",
     "valrath-savage": "Valrath Sauvage",
     "valrath-tracker": "Pisteur Valrath",
-    "wolf-viper-abomination": "Abomination Loup-Vipère"
+    "wolf-viper-abomination": "Abomination Loup-Vipère",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)"
   },
   "scenario": {
     "title": {

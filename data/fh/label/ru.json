@@ -1,1 +1,17 @@
-{}
+{
+  "monster": {
+    "energized-corpse": "Заряженный труп",
+    "mountains-heart": "Сердце гор",
+    "night-demon-deathwalker-solo": "Ночной демон (соло)"
+  },
+  "custom": {
+    "algox-snowspeaker-trap-solo": {
+      "1": "Все враги в<br>%game.action.range:2% получают %game.damage:2%"
+    },
+    "lost-in-seaweed": {
+      "1": "Фокусируется на самом<br>дальнем враге в %game.action.range:6%",
+      "2": "Создаёт жетон воды в 1 клетку<br>в соседней пустой клетке.",
+      "3": "в соседней свободной<br>клетке с жетоном воды."
+    }
+  }
+}

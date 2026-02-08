@@ -1,0 +1,73 @@
+{
+  "index": "20",
+  "group": "solo",
+  "name": "Wonder of Nature",
+  "edition": "fh",
+  "initial": true,
+  "solo": "drifter",
+  "rewards": {
+    "items": [
+      "248"
+    ]
+  },
+  "monsters": [
+    "forest-imp",
+    "hound"
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "05-B",
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

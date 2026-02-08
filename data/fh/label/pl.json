@@ -1689,6 +1689,9 @@
         "1": "Modify terrain.",
         "2": "All characters who did not attack suffer trap damage at end of round."
       }
+    },
+    "lost-in-seaweed": {
+      "2": "Stwórz 1 pole z wodą<br> w sąsiednim pustym polu."
     }
   },
   "deck": {

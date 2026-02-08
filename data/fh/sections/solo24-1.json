@@ -1,0 +1,40 @@
+{
+  "index": "24-1",
+  "group": "solo",
+  "name": "Bones in the Dirt",
+  "edition": "fh",
+  "parent": "24",
+  "marker": "1",
+  "monsters": [
+    "earth-demon",
+    "snow-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

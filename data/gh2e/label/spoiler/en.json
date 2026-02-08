@@ -981,6 +981,83 @@
     "gh2e-99": {
       "": "Unstable Explosives",
       "1": "During your turn, perform:"
+    },
+    "gh2e-153": {
+      "": "Hooked Shield",
+      "1": "After you push an enemy, perform:",
+      "2": "This movement may only enter hexes that the pushed enemy exited."
+    },
+    "gh2e-154": {
+      "": "Focusing Ray",
+      "1": "During your heal ability, add +1 %game.action.heal% and %game.condition.strengthen% one heal targeting an ally."
+    },
+    "gh2e-155": {
+      "": "Etheric Elixir",
+      "1": "When you perform the top %game.card.lost% action of <i>Reviving Ether</i>, remove the %game.attackmodifier.null% card from your attack modifier deck for the remainder of the scenario."
+    },
+    "gh2e-156": {
+      "": "Silent Stiletto",
+      "1": "Add %game.action.pierce% 1 to all your attacks."
+    },
+    "gh2e-157": {
+      "": "Stone Charm",
+      "1": "During your turn, perform your next attack or heal ability this turn as if you occupied the same hex as any obstacle."
+    },
+    "gh2e-158": {
+      "": "Psychic Knife",
+      "1": "Add +1 %game.action.attack% to all your attacks from your %data.action.custom.gh2e-augment% actions."
+    },
+    "gh2e-159": {
+      "": "Insignia of the Divine",
+      "1": "During your turn, grant self or one adjacent ally:"
+    },
+    "gh2e-160": {
+      "": "Utility Belt",
+      "1": "During your turn, gain 10 %data.action.custom.gh2e-supplies% and give one adjacent ally one item of your choice from the %game.characterIcon.three-spears% item supply."
+    },
+    "gh2e-161": {
+      "": "Phasing Idol",
+      "1": "When one of your summons suffers %game.action.damage% from an attack, negate the %game.action.damage% and that summon gains %game.condition.invisible%."
+    },
+    "gh2e-162": {
+      "": "The Night's Caress",
+      "1": "When you lose %game.condition.invisible%, flip this card over and perform:",
+      "2": "When you gain %game.condition.invisible%, flip this card over and look at the top card of your attack modifier deck. You may put that card on the bottom of your deck."
+    },
+    "gh2e-163": {
+      "": "Pendant of the Plague",
+      "1": "During your turn, perform:",
+      "2": "You may give one ally within %game.action.range:3% (of you) %game.condition.poison% to add +1 %game.action.target%."
+    },
+    "gh2e-164": {
+      "": "Mask of Death",
+      "1": "When you reveal cards from any deck, reveal one additional card."
+    },
+    "gh2e-165": {
+      "": "Master's Lute",
+      "1": "When you perform a %data.action.custom.gh2e-song% action, gain one %data.characterColored.music-note:Note% of your choice in addition to any other %data.characterColored.music-note:Note% you gain this round."
+    },
+    "gh2e-166": {
+      "": "Cloak of the Hunter",
+      "1": "Whenever you perform a %data.action.custom.gh2e-doom% action, immediately afterwards grant self or one of your summons:",
+      "2": "This movement must move toward the enemy that has %data.action.custom.gh2e-doom%."
+    },
+    "gh2e-167": {
+      "": "Doctor's Coat",
+      "1": "When an ally within %game.action.range:3% suffers %game.action.damage% from an attack, after the attack ability perform:",
+      "2": "This movement must end adjacent to the attacked ally."
+    },
+    "gh2e-168": {
+      "": "Elemental Vest",
+      "1": "At the end of your turn, for every two elements you consumed that turn: %game.element.wild%."
+    },
+    "gh2e-169": {
+      "": "Staff of Command",
+      "1": "During your turn, %data.action.custom.gh2e-command%:"
+    },
+    "gh2e-170": {
+      "": "Crawling Carapace",
+      "1": "On the first source of %game.action.damage% from an attack you or one of your summons would suffer each round, the attacked figure gains %game.action.shield:1% for the attack."
     }
   },
   "summon": {

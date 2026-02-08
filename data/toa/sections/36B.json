@@ -1,0 +1,28 @@
+{
+  "index": "36B",
+  "group": "solo",
+  "name": "Unsouled",
+  "edition": "toa",
+  "parent": "79",
+  "marker": "1",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

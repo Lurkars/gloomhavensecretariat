@@ -1,0 +1,28 @@
+{
+  "index": "100-2",
+  "group": "solo",
+  "name": "Elemental Secrets",
+  "edition": "gh2e",
+  "parent": "100",
+  "marker": "2",
+  "monsters": [
+    "earth-demon",
+    "frost-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

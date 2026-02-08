@@ -1,0 +1,36 @@
+{
+  "index": "96-1",
+  "group": "solo",
+  "name": "Unnatural Insults",
+  "edition": "gh2e",
+  "parent": "96",
+  "marker": "1",
+  "monsters": [
+    "cultist",
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

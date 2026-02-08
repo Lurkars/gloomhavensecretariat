@@ -1,0 +1,53 @@
+{
+  "index": "65",
+  "group": "solo",
+  "name": "Beyond the Grave",
+  "edition": "cs",
+  "spoiler": true,
+  "initial": true,
+  "solo": "skull",
+  "rewards": {
+    "items": [
+      "41"
+    ]
+  },
+  "monsters": [
+    "vermling-shaman"
+  ],
+  "objectives": [
+    {
+      "name": "Angry Spirit",
+      "health": "6",
+      "initiative": 50,
+      "marker": "a",
+      "count": 2,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "I1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        }
+      ],
+      "objectives": [
+        1,
+        1
+      ]
+    }
+  ]
+}

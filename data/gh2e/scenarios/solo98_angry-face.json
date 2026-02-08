@@ -1,0 +1,29 @@
+{
+  "index": "98",
+  "group": "solo",
+  "name": "Corrupted Hunt",
+  "edition": "gh2e",
+  "spoiler": true,
+  "initial": true,
+  "solo": "angry-face",
+  "rewards": {
+    "items": [
+      "166"
+    ]
+  },
+  "monsters": [
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}
