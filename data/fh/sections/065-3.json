@@ -20,7 +20,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% each monster within %game.action.range:4%"
+              "value": "%data.section.rules.fh.65-3.2%"
             }
           ]
         }
@@ -37,7 +37,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% each monster within %game.action.range:4%"
+              "value": "%data.section.rules.fh.65-3.2%"
             }
           ]
         }
@@ -54,7 +54,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% each monster within %game.action.range:4%"
+              "value": "%data.section.rules.fh.65-3.2%"
             }
           ]
         }

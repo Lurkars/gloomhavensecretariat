@@ -192,7 +192,7 @@
           "subActions": [
             {
               "type": "target",
-              "value": "all Piranha Pigs",
+              "value": "%data.custom.fh.abael-herder.7%",
               "small": true
             },
             {

@@ -44,7 +44,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% each monster within %game.action.range:4%"
+              "value": "%data.scenario.rules.fh.10%"
             }
           ]
         }
