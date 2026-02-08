@@ -16,7 +16,7 @@
   <div class="event" [ngClass]="{'already-unlocked': alreadyRetired}">
     @for (rE of character.retireEvent.split('|'); track rE) {
     <span class="text-white" [ghs-label]="'character.progress.retirement.event' + (!rE.includes(':') ? 's': '')"
-      ![ghs-label-args]="rE.includes(':') ? [rE] : [rE.split(':')[0], rE.split(':')[1]]"></span>
+      [ghs-label-args]="!rE.includes(':') ? [rE] : [rE.split(':')[0], rE.split(':')[1]]"></span>
     }
   </div>
   }
@@ -51,7 +51,7 @@
     <div class="event">
       @for (uE of unlockEvent.split('|'); track uE) {
       <span class="text-white" [ghs-label]="'character.progress.retirement.event' + (!uE.includes(':') ? 's': '')"
-        ![ghs-label-args]="uE.includes(':') ? [uE] : [uE.split(':')[0], uE.split(':')[1]]"></span>
+        [ghs-label-args]="!uE.includes(':') ? [uE] : [uE.split(':')[0], uE.split(':')[1]]"></span>
       }
     </div>
     }
@@ -158,7 +158,7 @@
     <div class="event">
       @for (uE of additionalUnlockEvent.split('|'); track uE) {
       <span class="text-white" [ghs-label]="'character.progress.retirement.event' + (!uE.includes(':') ? 's': '')"
-        ![ghs-label-args]="uE.includes(':') ? [uE] : [uE.split(':')[0], uE.split(':')[1]]"></span>
+        [ghs-label-args]="!uE.includes(':') ? [uE] : [uE.split(':')[0], uE.split(':')[1]]"></span>
       }
     </div>
     }
