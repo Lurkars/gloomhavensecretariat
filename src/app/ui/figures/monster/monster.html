@@ -40,25 +40,25 @@
 <div class="entities-container"
   [ngClass]="{'empty' : nonDead == 0, 'full-ability'  : settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition] }">
   <div class="spacer" [ngClass]="{'disabled' : nonDead < 2}">
-    <a class="entities-menu all" (click)="entitiesMenu($event)" [ghs-label]="'game.monster.selectStandees.all'"
+    <a class="entities-menu all" (click)="entitiesMenu($event)" [ghs-label]="'monster.selectStandees.all'"
       [ghs-label-attribute]="'title'">
       <img src="./assets/images/up.svg">
     </a>
     @if (entityTypeCount(MonsterType.boss)) {
     <a class="entities-menu boss" (click)="entitiesMenu($event, MonsterType.boss)"
-      [ghs-label]="'game.monster.selectStandees.boss'" [ghs-label-attribute]="'title'">
+      [ghs-label]="'monster.selectStandees.boss'" [ghs-label-attribute]="'title'">
       <img src="./assets/images/up.svg">
     </a>
     }
     @if (entityTypeCount(MonsterType.elite)) {
     <a class="entities-menu elite" (click)="entitiesMenu($event, MonsterType.elite)"
-      [ghs-label]="'game.monster.selectStandees.elite'" [ghs-label-attribute]="'title'">
+      [ghs-label]="'monster.selectStandees.elite'" [ghs-label-attribute]="'title'">
       <img src="./assets/images/up.svg">
     </a>
     }
     @if (entityTypeCount(MonsterType.normal)) {
     <a class="entities-menu normal" (click)="entitiesMenu($event, MonsterType.normal)"
-      [ghs-label]="'game.monster.selectStandees.normal'" [ghs-label-attribute]="'title'">
+      [ghs-label]="'monster.selectStandees.normal'" [ghs-label-attribute]="'title'">
       <img src="./assets/images/up.svg">
     </a>
     }
