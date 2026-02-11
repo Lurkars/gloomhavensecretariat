@@ -6,8 +6,9 @@ export enum ActionHexType {
     ally = "ally",
     blank = "blank",
     enhance = "enhance",
-    invisible = "invisible"
-}
+    invisible = "invisible",
+    custom = "custom"
+ }
 
 export class ActionHex {
 
@@ -27,7 +28,7 @@ export class ActionHex {
 
 export function ActionHexFromString(string: string): ActionHex | null {
 
-    let groups: RegExpExecArray | null = new RegExp(/^\((\d+),(\d+),(active|target|conditional|ally|blank|enhance|invisible)(\:(\w*))?\)$/).exec(string);
+    let groups: RegExpExecArray | null = new RegExp(/^\((\d+),(\d+),(active|target|conditional|ally|blank|enhance|invisible|custom)(\:((\w|-)*))?\)$/).exec(string);
 
     if (groups == null) {
         return null;

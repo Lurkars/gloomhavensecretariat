@@ -165,7 +165,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "multiTarget": true
             },
             {
               "type": "custom",

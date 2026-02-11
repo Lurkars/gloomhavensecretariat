@@ -47,6 +47,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
         this.character = this.data.character ? JSON.parse(JSON.stringify(this.data.character)) : undefined;
         this.customAction = false;
         this.enhanceAction = new Action(this.action.type, this.action.value, this.action.valueType, this.action.subActions);
+        this.enhanceAction.multiTarget = this.action.multiTarget;
         if (this.data.summon) {
             this.action = new Action(ActionType.summon, "summonData");
             this.action.valueObject = this.data.summon;
@@ -133,6 +134,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
         if (action) {
             this.action = action;
             this.enhanceAction = new Action(this.action.type, this.action.value, this.action.valueType, this.action.subActions);
+            this.enhanceAction.multiTarget = this.action.multiTarget;
         }
         this.update();
     }
@@ -184,6 +186,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
             } else {
                 this.enhanceAction = new Action(this.data.action.type, this.data.action.value, this.data.action.valueType);
             }
+            this.enhanceAction.multiTarget = this.data.action.multiTarget;
         } else if (Object.values(ConditionName).includes(this.enhancementAction as ConditionName)) {
             this.enhanceAction = new Action(ActionType.condition, this.enhancementAction);
         } else if (Object.values(Element).includes(this.enhancementAction as Element)) {

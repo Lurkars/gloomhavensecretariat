@@ -45,7 +45,7 @@ export class EnhancementsManager {
 
         if (costs > 0) {
             // double multi target
-            if (gameManager.actionsManager.isMultiTarget(action)) {
+            if (gameManager.actionsManager.hasMultiTarget(action)) {
                 costs *= 2;
             }
 

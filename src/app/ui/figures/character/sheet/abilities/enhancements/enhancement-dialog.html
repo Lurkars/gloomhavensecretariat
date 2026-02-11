@@ -115,7 +115,7 @@
         <th [ghs-label]="'character.abilities.enhancements.baseCosts'"></th>
         <td>{{gameManager.enhancementsManager.calculateBaseCosts(enhanceAction,special)}}</td>
       </tr>
-      @if (gameManager.actionsManager.isMultiTarget(enhanceAction)) {
+      @if (gameManager.actionsManager.hasMultiTarget(enhanceAction)) {
       <tr>
         <th [ghs-label]="'character.abilities.enhancements.multiTarget'"></th>
         <td class="plus">+{{gameManager.enhancementsManager.calculateBaseCosts(enhanceAction,special)}}</td>
@@ -125,7 +125,7 @@
       <tr>
         <th [ghs-label]="'character.abilities.enhancements.lost'"></th>
         <td class="minus">-{{gameManager.enhancementsManager.calculateBaseCosts(enhanceAction,special) /
-          (gameManager.actionsManager.isMultiTarget(enhanceAction) ? 1 : 2) | ghsCeil}}
+          (gameManager.actionsManager.hasMultiTarget(enhanceAction) ? 1 : 2) | ghsCeil}}
         </td>
       </tr>
       }
@@ -133,7 +133,7 @@
       <tr>
         <th [ghs-label]="'character.abilities.enhancements.persistent'"></th>
         <td class="plus">+{{gameManager.enhancementsManager.calculateBaseCosts(enhanceAction,special) *
-          (gameManager.actionsManager.isMultiTarget(enhanceAction) ? 5 : 2)}}</td>
+          (gameManager.actionsManager.hasMultiTarget(enhanceAction) ? 5 : 2)}}</td>
       </tr>
       }
       @if (level > 1) {

@@ -1072,40 +1072,28 @@
       "initiative": 33,
       "actions": [
         {
-          "type": "grid",
-          "value": 2,
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
-            {
-              "type": "grid",
-              "value": 1,
-              "subActions": [
-                {
-                  "type": "attack",
-                  "value": 3,
-                  "enhancementTypes": [
-                    "diamond"
-                  ],
-                  "subActions": [
-                    {
-                      "type": "pierce",
-                      "value": 2,
-                      "small": true
-                    }
-                  ]
-                },
-                {
-                  "type": "custom",
-                  "value": "%data.custom.gh2e.bruiser.abilities.22.1%",
-                  "small": true
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(0,3,target)|(0,4,active)|(1,1,target)|(1,2,target)|(2,0,enhance)",
               "enhancementTypes": [
                 "hex"
               ]
+            },
+            {
+              "type": "pierce",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.bruiser.abilities.22.1%",
+              "small": true
             }
           ]
         }

@@ -415,6 +415,9 @@
           "type": "custom",
           "value": "%data.custom.gh2e.cragheart.abilities.122.1%",
           "small": true,
+          "enhancementTypes": [
+            "square"
+          ],
           "subActions": [
             {
               "type": "element",
