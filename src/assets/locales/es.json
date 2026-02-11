@@ -31,6 +31,7 @@
       "reset": "Reiniciar Campaña"
     },
     "character": "Hojas de Personajes",
+    "enhancements": "Calculadora de Mejoras",
     "items": "Visión general de cartas de Objeto",
     "map": {
       "": "Mapa Global",
@@ -81,6 +82,37 @@
     "abilities": {
       "currentDeck": "Mazo actual",
       "deckWarning": "¡No es posible seleccionar la carta porque hay demasiadas cartas en la baraja!",
+      "enhancements": {
+        "apply": "Aplicar",
+        "baseCosts": "Coste Base",
+        "costs": "General",
+        "disabled": {
+          "enhancements": "¡Se ha alcanzado el número máximo de cartas mejorables ({1})!",
+          "gold": "¡No hay suficiente oro ({0}/{1}) para la mejora!"
+        },
+        "enhancements": "Mejoras anteriores",
+        "enhancerLevel": "Bonus de mejora",
+        "hint": {
+          "enhance": {
+            "": "Clic para añadir mejora.",
+            "wipSpecial": "Clic para añadir una mejora. Doble clic para añadir una nueva ranura de mejora."
+          },
+          "enhanced": "Doble clic para eliminar la mejora."
+        },
+        "level": "Nivel",
+        "lost": "Perdido",
+        "multiTarget": "Multiples Objetivos",
+        "persistent": "Persistente",
+        "temporary": "Temporal",
+        "types": {
+          "any": "Ninguno",
+          "circle": "Circulo",
+          "diamond": "Diamante",
+          "diamond_plus": "Diamante+",
+          "hex": "Hexágonos",
+          "square": "Cuadrado"
+        }
+      },
       "forceDeck": "Doble clic para añadir la carta al Mazo",
       "levelWarning": "¡Mazo inválido ya que algunas cartas son de nivel superior al personaje!",
       "pickCard": "Coge tu carta de nivel {0}",
@@ -184,13 +216,16 @@
           "building": "Desbloquea el edificio '%data.buildings.{1}%' ({0})",
           "inspiration": "Obtén +1 Inspiración",
           "itemBlueprint": "Obtén \"%data.items.{1}-{0}%\" diseño (Item {0})",
-          "randomScenario": "Abre %data.section:{0}%, Desbloquea %data.scenarioNumber:{1}%"
+          "itemBlueprintInfo": "Consigue un plano de objeto aleatorio.",
+          "randomScenario": "Abre %data.section:{0}%, Desbloquea %data.scenarioNumber:{1}%",
+          "randomScenarioInfo": "Gana un escenario secundario aleatorio."
         },
         "unlockCharacter": {
           "": "Abre la caja %game.characterIcon.{0}%",
           "itemDesign": "Obtén el diseño \"%data.items.{1}-{0}%\" (Item {0})",
           "randomScenario": "Desbloquea \"{1}\" %data.scenarioNumber:{0}%"
-        }
+        },
+        "unlockPQ": "Desbloquea misión personal {0}"
       },
       "resources": {
         "": "Recursos",
@@ -207,6 +242,7 @@
         },
         "apply": "Aplicar",
         "conclusion": "Abrir Sección %data.section:{0}%",
+        "event": "Añade el Evento {1} %game.events.type.{0}% al mazo",
         "events": "Añade el evento de Ciudad {0} y el evento de Camino {0} a sus respectivos mazos",
         "moveSupply": "Mueve los recursos al almacén de Frosthaven",
         "prosperity": "+{0} prosperidad"
@@ -224,6 +260,11 @@
     },
     "setAside": "Apartar personaje",
     "summon": {
+      "action": {
+        "fly": {
+          "": "%game.action.summon% %data.summon.{0}% %game.actionIcon.fly%"
+        }
+      },
       "level": "(Nivel {0})"
     },
     "token": "Token de Personaje",
@@ -354,10 +395,20 @@
     "action": {
       "add": "Añadir Acción",
       "addBottom": "Añadir acción inferior",
+      "addEnhancement": "Añadir ranura de mejora",
       "addSubAction": "Añadir acción secundaria",
+      "enhancements": "Mejoras",
       "remove": "Eliminar Acción",
+      "removeEnhancement": "Eliminar ranura de mejora",
       "removeSubAction": "Eliminar acción secundaria",
       "small": "Más pequeño",
+      "subActions": "Subacciones",
+      "summon": {
+        "type": {
+          "monster": "Monstruo",
+          "summon": "Datos de invocación"
+        }
+      },
       "type": "Tipo de Acción",
       "value": "Valor de la acción",
       "valueType": {
@@ -518,6 +569,7 @@
       "perks": {
         "": "Pericias",
         "additional": "{0} y {1}",
+        "additionalTwo": "{0}, {1} y {2}",
         "card": "carta",
         "cardLabel": "{0} {2} {1}",
         "cards": {
@@ -534,6 +586,7 @@
           "refreshItemFh": "%game.card.recover% un objeto",
           "refreshSpentItem": "Reponer un objeto gastado"
         },
+        "monsterDeck": "al mazo modificador de ataque del monstruo",
         "type": {
           "add": "añade {0}",
           "remove": "retira {0}",
@@ -606,6 +659,7 @@
       "revealAllConfirm": "¡Revelar todo!",
       "shuffle": {
         "": "Barajar",
+        "allHint": "¡Haz doble clic para barajar todas las cartas!",
         "upcomingHint": "¡Haz doble clic para barajar sólo las próximas cartas!"
       }
     },
@@ -678,6 +732,10 @@
         "": "Continuo",
         "hint": "Estado continuo"
       },
+      "plague": {
+        "": "Ficha de plaga",
+        "hint": "Sin condición, pero ayuda a rastrear %game.conditionIcon.plague% Fichas de plaga"
+      },
       "poison": {
         "": "Veneno",
         "hint": "%game.conditionIcon.poison% Veneno: todos los atacantes reciben +1 %game.action.attack%. Evita curación. Eliminado cuando recibes curación."
@@ -693,6 +751,10 @@
       "rupture": {
         "": "Ruptura",
         "hint": "%game.conditionIcon.rupture% Ruptura: Al realizar movimiento sufre %game.damage:1%. Se elimina al curarse."
+      },
+      "safeguard": {
+        "": "Salvaguarda",
+        "hint": "%game.conditionIcon.safeguard% Salvaguarda: Evita la siguiente condición negativa y luego elimínala."
       },
       "strengthen": {
         "": "Fortalecimiento",
@@ -761,39 +823,204 @@
     },
     "enemy": "Enemigo",
     "events": {
+      "accept": {
+        "": "Resolver evento",
+        "notApply": "Resolver, no aplicar"
+      },
+      "applyManually": "Aplicar lo siguiente de forma manual:",
       "conditions": {
+        "and": "y",
+        "loseCollectiveGold": "Pierde {0} oro colectivo",
+        "loseCollectiveResource": "Pierde {0} %game.resource.{1}% colectivo",
+        "loseCollectiveResourceType": "Pierde {0} %game.loot.{1}% recursos colectivos.",
+        "loseResource": "Pierde {0} %game.resource.{1}%",
+        "loseResourceType": "Pierde {0} %game.loot.{1}% cada uno",
+        "moraleGT": "Moral > {0}",
+        "moraleLT": "Moral < {0}",
         "otherwise": "De lo contrario",
         "payCollectiveGold": "Paga {0} oro Colectivo",
-        "payCollectiveGoldConditional": "Paga {0} ({1}) o {2} ({3}) oro Colectivo",
+        "payCollectiveGoldConditional": {
+          "connector": "o",
+          "prefix": "Pagar",
+          "suffix": "oro colectivo"
+        },
+        "payCollectiveGoldReputationGT": "{0} (reputación > {1})",
+        "payCollectiveGoldReputationLT": "{0} (reputación < {1})",
+        "payGold": "Pagar {0} oro cada uno",
         "reputationGT": "Reputación > {0}",
-        "reputationLT": "Reputación < {0}"
+        "reputationLT": "Reputación < {0}",
+        "seasonLT": "Si %party.campaign.sheet.{0}% está a{1} semanas o menos",
+        "traits": "%game.trait% {0}",
+        "traitsAll": "%game.trait% {0}"
+      },
+      "deck": {
+        "addCard": "Añadir a las cartas próximas y barajar el mazo",
+        "allTypes": "Mostrar todas las barajas",
+        "draw": "Robar Carta",
+        "drawn": "Resuelto ({0})",
+        "filter": "Buscar ID de carta",
+        "new": "Bloqueado ({0})",
+        "removeCard": "Eliminar de las próximas cartas",
+        "removeDrawn": "Eliminar de las cartas robadas",
+        "removeSelection": "Restablecer resultado",
+        "resolved": "Mostrar resuelto",
+        "setup": "Configuración de mazos de eventos",
+        "show": "Mostrar cartas de eventos completas",
+        "shuffle": "Barajar mazo",
+        "upcoming": "En el mazo ({0})"
       },
       "effects": {
+        "additionally": "Adicionalmente",
+        "and": "y",
+        "automation": "El efecto se aplica de forma automática",
+        "battleGoal": "Obtén {0} %game.checkmark% cada uno.",
+        "campaignSticker": "Obtén la pegatina de campaña \"%data.campaignSticker.{0}%\".",
+        "campaignStickerMap": "Coloca la pegatina de campaña «%data.campaignSticker.{0}%» en el mapa de la ciudad, en la ubicación {1}.",
+        "campaignStickerReplace": "Coloca la pegatina de campaña «%data.campaignSticker.{0}%» sobre «%data.campaignSticker.{1}%».",
+        "choose": {
+          "connector": "o",
+          "prefix": "Caulquiera"
+        },
         "collectiveGold": "Obtén {0} oro colectivo.",
+        "collectiveGoldAdditional": "Obtén {0} oro colectivo adicional.",
+        "collectiveGoldOther": "Todos los demás personajes obtienen {0} de oro colectivo.",
         "collectiveItem": "Obtén {2} colectivo \"%data.items.{1}-{0}%\" (Item {0}).",
+        "collectiveResource": "Obtén {0} %game.resource.{1}% colectivo.",
+        "collectiveResourceType": "Obtén cualquier {0} %game.loot.{1}% colectivo.",
         "consumeCollectiveItem": "Consume {0} objeto colectivo %game.itemSlot:{1}% .",
         "consumeItem": "Cada personaje consume un objeto {0} %game.itemSlot:{1}%.",
-        "discard": "Cada personaje descarta {0} cartas.",
-        "event": "Añade el evento %game.events.type.{0}% {1} al mazo.",
-        "experience": "Cada personaje obtiene {0} experiencia.",
+        "discard": {
+          "": "Descartar {0} cartas cada uno.",
+          "fh": "Todos los personajes comienzan el siguiente escenario descartando %number.{0}% cartas.",
+          "gh2e": "Cada personaje comienza el siguiente escenario descartando %number.{0}% cartas."
+        },
+        "discardOne": {
+          "": "Descartar 1 carta cada uno.",
+          "fh": "Todos los personajes comienzan el siguiente escenario descartando una carta.",
+          "gh2e": "Cada personaje comienza el siguiente escenario descartando una carta."
+        },
+        "drawAnotherEvent": {
+          "": "Roba otro Evento %game.events.type.{0}%.",
+          "fh": "Resuelve otro Evento %game.events.type.{0}%.",
+          "gh2e": "Resuelve otro Evento %game.events.type.{0}%."
+        },
+        "drawEvent": "Roba un evento %game.events.type.{0}%.",
+        "event": {
+          "": "Añade un evento %game.events.type.{0}% {1} al mazo.",
+          "fh": "Añada el evento {1} al mazo %game.events.type.{0}%.",
+          "gh2e": "Añade el evento {1} al mazo %game.events.type.{0}%."
+        },
+        "eventReturn": "Recupera el evento {1} y devuélvelo al mazo %game.events.type.{0}%.",
+        "eventsToTop": "Busca en el mazo %game.events.type.{0}% hasta que encuentres {1}, {2} o {3} y colócalo en la parte superior del mazo.",
+        "experience": {
+          "": "Gana {0} experiencia cada uno.",
+          "fh": "Gana {0} puntos de experiencia cada uno.",
+          "gh2e": "Cada personaje gana un {0} %game.card.experience%."
+        },
+        "gainTrait": "Cada personaje obtiene %game.trait:{0}%.",
         "globalAchievement": "Logro global: \"%data.globalAchievements.{0}%\".",
         "gold": "Obtén {0} oro cada uno.",
         "goldAdditional": "Cada personaje obtiene {0} oro adicional.",
+        "inspiration": "Obtén {0} inspiración.",
+        "item": {
+          "": "Obtén \"%data.items.{1}-{0}%\" (Item {0}).",
+          "fh": "Obtén \"%data.items.{1}-{0}%\" %game.itemFh.{0}%.",
+          "gh2e": "Obtén \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+        },
+        "itemCollective": "Obtén {1} \"%data.items.{2}-{0}%\" (Item {0}) colectivo.",
         "itemDesign": "Obtén el diseño \"%data.items.{1}-{0}%\" (Item {0}).",
         "loseBattleGoal": "Cada personaje pierde {0} %game.checkmark%.",
+        "loseCollectiveExperience": "Pierde {0} de experiencia colectiva.",
         "loseCollectiveGold": "Pierde {0} oro colectivo.",
+        "loseCollectiveResource": "Pierde {0} %game.resource.{1}% colectivo.",
+        "loseCollectiveResourceAny": "Pierde {0} recursos colectivos.",
+        "loseCollectiveResourceType": "Pierde {0} %game.loot.{1}% recursos colectivos.",
+        "loseExperience": "Pierde {0} puntos de experiencia cada uno.",
         "loseGold": "Cada personaje pierde {0} oro.",
+        "loseGoldOne": "Un personaje pierde {0} oro.",
+        "loseItem": {
+          "": "Pierde \"%data.items.{1}-{0}%\" (Item {0}).",
+          "fh": "Pierde \"%data.items.{1}-{0}%\" %game.itemFh.{0}%.",
+          "gh2e": "Pierde \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+        },
+        "loseMorale": "Pierde {0} moral.",
+        "loseProsperity": "Pierde {0} prosperidad.",
         "loseReputation": "Pierde {0} reputación.",
+        "loseReputationFaction": "Pierde {1} %data.gh2eFaction:{0}% reputación",
+        "loseResource": "Pierde {0} %game.resource.{1}%.",
+        "loseTrait": "Cada personaje pierde %game.trait:{0}%.",
+        "morale": "Obtén {0} moral.",
         "noEffect": "Sin efecto.",
         "outcome": "Lee conclusión %game.events.option.{0}%.",
+        "outcomeSelect": "Selecciona un resultado, %game.events.option.{0}% o %game.events.option.{1}%, para leerlo.",
+        "outcomes": "Lea ambos resultados %game.events.option.{0}% y %game.events.option.{1}%.",
+        "outpostAttackTarget": {
+          "": "%game.valueSign:{0}% %game.action.attack% para %game.events.effects.outpostAttackTarget.{1}%",
+          "all": "todos los objetivos.",
+          "one": "un objetivo cualquiera."
+        },
+        "outpostTarget": "%game.valueSign:{0}% %game.action.target%",
         "partyAchievement": "Logo de grupo: \"%data.partyAchievements.{0}%\".",
-        "prosperity": "Obtén {0} prosperidad.",
+        "prosperity": {
+          "": "Obtén {0} prosperidad.",
+          "fh": "Obtén {0} %game.prosperity%.",
+          "gh2e": "Obtén {0} %game.prosperity%."
+        },
+        "randomItem": {
+          "": "Gana un objeto aleatorio.",
+          "fh": "Gana un objeto aleatorio colectivo %game.itemFh.random%.",
+          "gh2e": "Gana un objeto aleatorio colectivo %game.itemFh.random%."
+        },
+        "randomItemBlueprint": "Gana un diseño de objeto aleatorio. %game.itemFh.random%.",
         "randomItemDesign": "Obtén un Diseño de objeto aleatorio.",
+        "randomScenario": "Gana un escenario secundario aleatorio.",
+        "removeEvent": {
+          "": "Elimina los eventos %game.events.type.{0}% {1} del juego.",
+          "fh": "Elimina el evento {1} del mazo %game.events.type.{0}%.",
+          "gh2e": "Elimina el evento {1} del mazo %game.events.type.{0}%."
+        },
         "reputation": "Obtén {0} reputación..",
-        "scenarioCondition": "Todos empezáis el escenario con %game.condition.{0}%.",
-        "scenarioDamage": "Todos empezáis el escenario con {0} daño.",
+        "reputationAdditional": "Obtén {0} de reputación adicional.",
+        "reputationFaction": "Obtén {1} %data.gh2eFaction:{0}% reputación",
+        "resource": "Obtén {0} %game.resource.{1}% cada uno.",
+        "resourceType": "Obtén cualquier {0} %game.loot.{1}% cada uno.",
+        "scenarioCondition": {
+          "": "Todos empiezan el escenario con {0}.",
+          "fh": "Todos los personajes comienzan el siguiente escenario con {0}.",
+          "gh2e": "Cada personaje comienza el siguiente escenario con {0}."
+        },
+        "scenarioConditionOne": "Un personaje gana %game.condition.{0}%.",
+        "scenarioDamage": {
+          "": "Todos empezáis el escenario con %game.damage:{0}%.",
+          "fh": "Todos los personajes comienzan el siguiente escenario con %game.damage:{0}%.",
+          "gh2e": "Cada personaje comienza el siguiente escenario con %game.damage:{0}%."
+        },
         "scenarioSingleMinus1": "Uno empieza el escenario con %game.card.minus1% x{0}.",
-        "unlockScenario": "Desbloquea \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%."
+        "sectionOrWeek": "Añadir %game.section:{0}% O {1} al calendario en una semana.",
+        "sectionOrWeeks": "Añade %game.section:{0}% O {1} al calendario en %game.number.{2}% semanas.",
+        "sectionWeek": "Añade %game.section:{0}% al calendario en una semana.",
+        "sectionWeekSeasonFinal": "Añade %game.section:{0}% al calendario en la última semana del próximo {1}.",
+        "sectionWeeks": "Añade %game.section:{0}% al calendario en %game.number.{1}% semanas.",
+        "sectionWeeksSeason": "Añade %game.section:{0}% al calendario en %game.number.{1}% semanas. Si esa semana está en {2}, añádela a la semana %game.numbered.{3}% de la siguiente {4} en su lugar.",
+        "skipThreat": "No resuelva la siguiente amenaza.",
+        "soldier": "Gana 1 soldado.",
+        "soldiers": "Gana {0} soldados.",
+        "townGuardDeckCard": "Añade una carta %game.townGuardAM:{0}% al mazo de guardias de la ciudad.",
+        "townGuardDeckCardRemove": "Retira una carta %game.townGuardAM:{0}% del mazo de guardias de la ciudad.",
+        "townGuardDeckCardRemovePermanently": "Elimina permanentemente una carta %game.townGuardAM:{0}% del mazo de guardias de la ciudad.",
+        "townGuardDeckCards": "Añade %game.number.{1}% cartas %game.townGuardAM:{0}% al mazo de la guardia de la ciudad.",
+        "traitExperience": "Todos los %game.trait:{0}% ganan {1} de experiencia cada uno.",
+        "traitScenarioCondition": "Todos los personajes %game.trait:{0}% comienzan el siguiente escenario con {1}.",
+        "traitScenarioDamage": "Todos los personajes %game.trait:{0}% comienzan el siguiente escenario con %game.damage:{1}%.",
+        "unlockEnvelope": "Abre el sobre {0} si no está abierto.",
+        "unlockScenario": {
+          "": "Desbloquear «%data.scenario.title.{1}.{0}%» %data.scenarioNumber:{0}%.",
+          "fh": "Nuevo escenario: \"%data.scenario.title.{1}.{0}%\" ({0})",
+          "gh2e": "Nuevo escenario: \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%."
+        },
+        "unlockScenarioGroup": "Desbloquea \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%).",
+        "upgradeBuilding": "Mejora el %data.buildings.{0}% al siguiente nivel o, si el %data.buildings.{0}% ya está en el nivel {1}, gana {2} de moral en su lugar.",
+        "wreckBuilding": "Arrasa el %data.buildings.{0}%."
       },
       "option": {
         "": "Opción {0}:",
@@ -801,9 +1028,24 @@
         "2": "B",
         "3": "C"
       },
+      "outpostAttack": {
+        "": "Ataque al puesto fronterizo",
+        "effects": "Se aplicará lo siguiente al ataque al puesto fronterizo"
+      },
+      "requirements": {
+        "": "Requisitos:",
+        "partyAchievement": "%data.partyAchievements.{0}% (Grupo) COMPLETADO",
+        "warning": "Requisitos no cumplidos. ¡Haz clic para robar otra carta!"
+      },
       "type": {
+        "boat": "Barco",
         "city": "Ciudad",
-        "road": "Camino"
+        "rift": "Fisura",
+        "road": "Camino",
+        "summer-outpost": "Puesto Fronterizo de Verano",
+        "summer-road": "Camino de Verano",
+        "winter-outpost": "Puesto fronterizo de Invierno",
+        "winter-road": "Camino de Invierno"
       }
     },
     "exhausted": "Agotado",
@@ -877,6 +1119,7 @@
         "": "Buscar…",
         "affordable": "Sólo objetos comprables",
         "all": "Mostrar todos los objetos",
+        "owned": "Solo objetos en posesión",
         "sorted": "Ordenar"
       },
       "remove": "Elimina '{0}'",
@@ -1010,14 +1253,19 @@
     "maxHealth": "Puntos de Vida Máximos",
     "solo": "Solitario",
     "specialTarget": {
+      "all": "%game.target% todos",
+      "allCharacters": "%game.target% todos los personajes",
       "allies": "%game.target% todos los aliados",
       "alliesAdjacent": "%game.target% todos los aliados adyacentes",
       "alliesAdjacentAffect": "%game.affect% todos los aliados adyacentes",
+      "alliesAffect": "%game.affect% todos los aliados",
+      "alliesEnemies": "%game.target% todos los aliados y enemigos",
       "alliesRange": "%game.target% todos los aliados a %game.action.range% {0}",
       "alliesRangeAffect": "%game.affect% todos los aliados a %game.action.range% {0}",
       "ally": "%game.target% 1 aliado",
       "allyAdjacent": "%game.target% un aliado adyacente",
       "allyAffect": "%game.affect% cualquier aliado",
+      "allyAffectAdjacent": "%game.affect% un aliado adyacente",
       "allyAffectRange": "%game.affect% un aliado a %game.action.range% {0}",
       "allyShort": "Aliado",
       "enemies": "%game.target% todos los enemigos",
@@ -1030,6 +1278,8 @@
       "enemiesRangeExact": "%game.target% todos los enemigos exactamente a %game.action.range% {0}",
       "enemy": "%game.target% un enemigo",
       "enemyAdjacent": "%game.target% un enemigo adyacente",
+      "enemyAllyRange": "%game.target% un enemigo o %game.affect% un aliado a %game.action.range% {0}",
+      "enemyAttacked": "%game.target% el enemigo que<br>te atacó",
       "enemyOneAll": "%game.target% un enemigo con todos los ataques",
       "enemyRange": "%game.target% un enemigo a exactamente %game.action.range% {0}",
       "figures": "%game.target% todas las figuras",
@@ -1040,6 +1290,7 @@
       "selfAllies": "Personal y todos los aliados",
       "selfAlliesAdjacentAffect": "%game.affect% Personal y todos los aliados adyacentes",
       "selfAlliesAffect": "%game.affect% personal y todos los aliados",
+      "selfAlliesAffectRange": "%game.affect% personal y a todos los aliados dentro de %game.action.range% {0}",
       "selfAlliesRange": "%game.target% Personal y todos los aliados a %game.action.range% {0}",
       "selfOrAlly": "Personal o aliados",
       "targets": "Todos los objetivos"
@@ -1123,6 +1374,10 @@
     "toggleAlly": {
       "off": "Volver a <span class=\"monster-ally-off\">Enemigo</span>",
       "on": "Cambiar a <span class=\"monster-ally-on\">Aliado</span>"
+    },
+    "toggleDormant": {
+      "off": "Volver a las entidades activas",
+      "on": "Cambiar a entidades inactivas"
     }
   },
   "number": {
@@ -1234,7 +1489,8 @@
             "": "Reparar edificio",
             "action": "Reparar edificio",
             "costs": "Cualquiera {0}",
-            "hint": "Reparar edificio (forzar con doble clic)"
+            "hint": "Reparar edificio (forzar con doble clic)",
+            "morale": "-1 Moral"
           },
           "rewards": {
             "action": "Nivel {0}",
@@ -1249,7 +1505,8 @@
           },
           "selectResources": {
             "": "Seleccionar Recursos",
-            "confirm": "Confirmar"
+            "confirm": "Confirmar",
+            "morale": "-1 Moral"
           },
           "state": {
             "damaged": "dañado",
@@ -1307,6 +1564,8 @@
     "campaignMode": "Modo Campaña",
     "change": "Cambiar grupo",
     "export": "Exportar",
+    "greatOak": "Santuario del Gran Roble",
+    "imbuement": "Imbuimiento",
     "import": "Importar",
     "inspiration": "Inspiración",
     "location": "Ubicación",
@@ -1317,6 +1576,36 @@
       "hint": "La creación de una nueva campaña está desactivada durante un escenario. Finalice o cancele el escenario actual para crear una nueva campaña."
     },
     "notes": "Notas",
+    "outpostAttack": {
+      "advantage": "¡Obtén ventaja por este ataque por perder soldados!",
+      "buildings": {
+        "damaged": "Edificio dañado",
+        "wrecked": "Edificio arrasado"
+      },
+      "defense": "Defensa de la base:",
+      "disadvantage": "¡Sufre una desventaja porque los cuarteles están arrasados!",
+      "filter": {
+        "desc": "Orden descendente",
+        "even": "Incluso",
+        "lowerBoundary": "Límite inferior",
+        "odd": "Extraño",
+        "parity": "Paridad",
+        "randomize": "Aleatorizar",
+        "upperBoundary": "Límite superior"
+      },
+      "finish": "Finalizar",
+      "map": "Abrir mapa global",
+      "next": "Siguiente objetivo",
+      "other": "Otros edificios",
+      "result": {
+        "damage": "El edificio está dañado.<br>¡Fallo con {0} Defensa contra %game.action.attack% {2}!",
+        "success": "¡Éxito con la defensa {0} contra %game.action.attack% {2}!",
+        "successfull": "¡La defensa tuvo éxito!",
+        "wreck": "¡Edificio Arrasado!"
+      },
+      "sheet": "Abrir hoja de Grupo",
+      "targets": "Edificios objetivo"
+    },
     "prosperity": {
       "": "Prosperidad",
       "reset": "Reiniciar Prosperidad",
@@ -1326,7 +1615,19 @@
       }
     },
     "remove": "Eliminar grupo",
-    "reputation": "Reputación",
+    "reputation": {
+      "": "Reputacion",
+      "additional": {
+        "": "Desbloqueos adicionales de reputación",
+        "sectionRequires": {
+          "": "Lee %game.section:{0}% cuando tengas al menos {1} %game.gh2eFaction:{2}% de reputación y hayas completado el escenario {3}.",
+          "multiple": "Lee %game.section:{0}% cuando tengas {1} %game.gh2eFaction:{2}% de reputación y hayas completado los escenarios {3}."
+        },
+        "special": {
+          "city-event": "Añade C-{0} al mazo de eventos de la ciudad una vez que tengas al menos {1} de reputación con una facción."
+        }
+      }
+    },
     "sheet": "Hoja de grupo",
     "shop": {
       "": "Modificar precio",
@@ -1399,6 +1700,7 @@
       "continueDraw": "Continuar con Robar",
       "continueNext": "Continuar con la siguiente ronda",
       "empty": "Por favor, añade monstruos y personajes antes de la ronda.",
+      "eventDraw": "Robar una carta de evento %game.events.type.{0}%.",
       "failed": "Todos los personajes parecen agotados. ¿Quieres reiniciar el escenario?",
       "finish": "No quedan monstruos. Has superado con éxito el escenario?",
       "initiativeRoundConfirm": "Iniciativa fijada para todos los personajes. ¿Empezar ronda?",
@@ -1417,6 +1719,41 @@
         "back": "Volver al modo campaña",
         "force": "Haz doble clic para forzar la visualización del diagrama de flujo completo, incluidos los spoilers."
       },
+      "legend": {
+        "": "Leyenda",
+        "blocked": {
+          "": "Bloqueado",
+          "hint": "Este escenario no se puede jugar porque está bloqueado por otros."
+        },
+        "locked": {
+          "": "Bloqueado",
+          "hint": "Este escenario está bloqueado, por lo que aún no se puede jugar debido a que no se cumplen los requisitos."
+        },
+        "not-campaign": {
+          "": "No modo campaña",
+          "hint": "No estás en modo campaña."
+        },
+        "not-unlocked": {
+          "": "No desbloqueado",
+          "hint": "Este escenario es visible, pero no se puede jugar porque aún no se ha desbloqueado."
+        },
+        "success": {
+          "": "Éxito",
+          "hint": "Este escenario se completó con éxito."
+        },
+        "success-blocked": {
+          "": "Éxito, actualmente bloqueado",
+          "hint": "Este escenario se completó con éxito, pero ahora está bloqueado."
+        },
+        "success-locked": {
+          "": "Éxito, actualmente bloqueado",
+          "hint": "Este escenario se completó con éxito, pero ahora está bloqueado."
+        },
+        "unplayed": {
+          "": "No jugado",
+          "hint": "Este escenario está desbloqueado y se puede jugar."
+        }
+      },
       "setup": "Mostrar Configuración del Escenario",
       "start": "Iniciar Escenario",
       "success": "Marcar como completado",
@@ -1430,6 +1767,7 @@
     "eventEffects": {
       "": "Efectos de Evento",
       "campaign": "Afecta a la campaña",
+      "drawEvent": "Roba un evento %game.events.type.{0}%",
       "drawRandomItem": {
         "": "Roba un diseño de objeto aleatorio",
         "apply": "Aplicar",
@@ -1442,6 +1780,7 @@
         "section": "Abrir %data.section:{0}%, desbloquea {2}"
       },
       "hint": "Aplicar a todos los personajes seleccionados",
+      "outpostAttack": "Ataque al puesto fronterizo",
       "progress": "Afecta al progreso del personaje"
     },
     "favors": {
@@ -1464,6 +1803,11 @@
       "reset": "Reiniciar",
       "success": "Superado"
     },
+    "gh2eImbuement": {
+      "": "Apéndice F: Imbución de monstruos",
+      "advancedImbuement": "Intuición avanzada",
+      "imbuement": "Imbuición"
+    },
     "level": "Nivel {0}",
     "locked": "Requisitos que faltan",
     "manual": {
@@ -1474,6 +1818,22 @@
     "openRoomMarker": "Abrir puerta %game.mapMarker.{1}%",
     "openRoomMarkerRef": "Abrir puerta %game.mapMarker.{1}% para loseta '{0}'",
     "openRoomRef": "Abrir puerta para loseta '{0}'",
+    "random": {
+      "": "Mazmorra aleatoria",
+      "treasure": {
+        "createTwoElements": "Creado dos elementos cualquiera",
+        "cureConditions": "Cura todas las condiciones negativas",
+        "enemiesCondition": "Todos los enemigos obtienen %game.condition.{0}%",
+        "enemiesDamage": "Todos los enemigos sufren %game.damage:{0}%",
+        "gold": "{0} oro",
+        "heal": "Cura {0} puntos de vida",
+        "lootCards": "Obtén {0} cartas de botín",
+        "recoverCards": "Recupera {0} cartas del descarte.",
+        "recoverLost": "Recuperar una carta perdida",
+        "refreshItem": "Recupera {0} %game.itemSlot:{1}% de objeto",
+        "resource": "Gana {1} %game.resource.{0}%"
+      }
+    },
     "requirements": {
       "": "Requisitos del escenario",
       "all": "Mostrar todos los requisitos (incluir los cumplidos)",
@@ -1538,6 +1898,7 @@
         "winter-road": "Añade el Evento {0} al mazo de invierno de Camino"
       },
       "experience": "{0} experiencia cada personaje",
+      "factionUnlock": "%data.gh2eFaction:{0}% Ahora se puede aumentar la reputación por encima de 12.",
       "globalAchievements": "Logros Globales",
       "gold": "Cada personaje obtiene {0} oro",
       "inspiration": "{0} inspiración",
@@ -1573,7 +1934,9 @@
         "winter-road": "Elimina el evento {0} del mazo de invierno de Camino"
       },
       "removeLootDeckCard": "Elimina la carta de botín {0} del juego. No la añadas más a ningún mazo de botín de cualquier Escenario.",
+      "repeatScenario": "¡El escenario se puede volver a jugar!",
       "reputation": "{0} reputación",
+      "reputationFactions": "Obtén {1} %game.gh2eFaction:{0}% reputación",
       "resources": "Cada personaje obtiene {1} %game.resource.{0}%",
       "resourcesLose": "Cada personaje pierde {1} %game.resource.{0}%",
       "townGuardAm": "Añade una carta %game.townGuardAm.{1}:{0}% al mazo de la Guardia de la Ciudad.",
@@ -1610,6 +1973,7 @@
         "loseCondition": "{0} pierde %game.condition.{1}%",
         "permanentCondition": "{0} obtiene continuo %game.condition.{1}%",
         "remove": "Eliminar {0}",
+        "removeAbility": "Elimina la carta de habilidad «{1}» de {0}.",
         "scenarioEffect": "como efecto de escenario",
         "setAbility": "Pon la carta de habilidad de {0} a \"{1}\"",
         "setHp": "{0} PV a {2}",
@@ -1642,16 +2006,16 @@
         "applied": "Reglas de escenario aplicadas",
         "discarded": "Reglas de escenario descartadas"
       },
-      "spawn": "Añade {2} %data.monster.{0}% %game.monsterType.{1}%",
-      "spawnMarker": "Añade {2}%data.monster.{0}% %game.monsterType.{1}% en %game.mapMarker.{3}%",
+      "spawn": "Haz aparecer {2} %data.monster.{0}% %game.monsterType.{1}%",
+      "spawnMarker": "Haz aparecer {2}%data.monster.{0}% %game.monsterType.{1}% en %game.mapMarker.{3}%",
       "spawnObjective": "Añadir Objetivo '{0}'",
-      "spawnObjectiveEscort": "Añadir Escolta '{0}'",
-      "spawnObjectiveEscortMarker": "Añadir Escolta '{0}' en %game.mapMarker.{2}%",
-      "spawnObjectiveMarker": "Añadir Objetivo '{0}' en %game.mapMarker.{2}%",
-      "spawnObjectives": "Añadir {1} Objetivos '{0}'",
-      "spawnObjectivesEscort": "Añadir {1} Escoltas '{0}'",
-      "spawnObjectivesEscortMarker": "Añadir {1} Escoltas '{0}' en %game.mapMarker.{2}%",
-      "spawnObjectivesMarker": "Añadir {1} Objetivos '{0}' en %game.mapMarker.{2}%"
+      "spawnObjectiveEscort": "Haz aparecer Escolta '{0}'",
+      "spawnObjectiveEscortMarker": "Haz aparecer Escolta '{0}' en %game.mapMarker.{2}%",
+      "spawnObjectiveMarker": "Haz aparecer Objetivo '{0}' en %game.mapMarker.{2}%",
+      "spawnObjectives": "Haz aparecer {1} Objetivos '{0}'",
+      "spawnObjectivesEscort": "Haz aparecer {1} Escoltas '{0}'",
+      "spawnObjectivesEscortMarker": "Haz aparecer {1} Escoltas '{0}' en %game.mapMarker.{2}%",
+      "spawnObjectivesMarker": "Haz aparecer {1} Objetivos '{0}' en %game.mapMarker.{2}%"
     },
     "section": {
       "": "Sección",
@@ -1938,9 +2302,17 @@
       "": "Usar siempre las reglas de Ventaja/desventaja de Frosthaven",
       "hint": "Usa siempre las reglas de Frosthaven para robar el Modificador de Ataque con Ventaja o Desventaja (Se activa automáticamente al jugar a Frosthaven)"
     },
+    "alwaysFhEnhancements": {
+      "": "Mejoras de Frosthaven",
+      "hint": "Utiliza siempre las reglas y los costes de Frosthaven para las mejoras."
+    },
     "alwaysFhSolo": {
       "": "Usar siempre las reglas en solitario de Frosthaven",
       "hint": "Aplicar siempre las reglas de Frosthaven para calcular el nivel del juego en solitario (se activa de forma automática al jugar a Frosthaven)"
+    },
+    "alwaysGh2eImbuement": {
+      "": "Imbuiciones de monstruos",
+      "hint": "Habilita todas las opciones para añadir Imbuiciones de monstruo (Apéndice F) en el menú Efecto de evento para todas las ediciones."
     },
     "alwaysHazardousTerrain": {
       "": "Siempre terreno peligroso",
@@ -1962,6 +2334,10 @@
       "": "Reglas de la casa Rolling Ventaja/Desventaja",
       "hint": "En lugar de ignorar la tirada en el segundo robo, también sacar modificadores adicionales hasta que no se saque la tirada."
     },
+    "animationSpeed": {
+      "": "Velocidad de animaciones",
+      "hint": "Cambia la velocidad de las animaciones"
+    },
     "animations": {
       "": "Animaciones",
       "hint": "Desactiva todas las animaciones, esta opción permite mejorar el rendimiento"
@@ -1976,6 +2352,7 @@
         "": "Las Estados que correspondan se aplican de forma automática antes y después de los turnos, por ejemplo, cuando una figura esté Herida perderá 1 punto de vida al inicio de su turno",
         "bane": "Aplica automáticamente el daño de %game.condition.bane% a finalizar el turno.",
         "regenerate": "Aplica automáticamente %game.condition.regenerate% al inicio del turno.",
+        "safeguard": "Aplicar automáticamente %game.condition.safeguard% al recibir la siguiente condición negativa.",
         "wound": "Aplica automáticamente el daño de %game.condition.wound% al finalizar el turno.",
         "wound_x": "Aplica automáticamente el daño de %game.condition.wound_x:X% al finalizar el turno."
       }
@@ -2003,6 +2380,10 @@
     "automaticAttackModifierFullscreen": {
       "": "Mazo MA pantalla completa",
       "hint": "Abre el mazo de Modificadores de Ataque (y también el Mazo de Botín) a pantalla completa en dispositivos con pequeños."
+    },
+    "automaticFirstFigure": {
+      "": "Inicio automático de la primera figura",
+      "hint": "Iniciar automáticamente el turno de la primera figura al comienzo de la siguiente ronda. Esto siempre está habilitado si se requiere iniciativa."
     },
     "automaticGameClock": {
       "": "Reloj de juego automático",
@@ -2087,6 +2468,10 @@
       "": "Mostrar Atributos calculados",
       "hint": "Los valores de habilidad se calculan con los Atributos, por lo que en lugar de Ataque +1, se muestra Ataque 4 para un valor de Ataque de 3 en los Atributos"
     },
+    "calculateAdvantageStats": {
+      "": "Añadir ventaja a las habilidades",
+      "hint": "Añade %game.custom.advantage% a %game.action.attack% en las cartas de habilidad."
+    },
     "calculateShieldStats": {
       "": "Añade Escudo y Represalia a las habilidades",
       "hint": "Estadísticas por defecto de %game.action.shield% y %game.action.retaliate% son añadidas a las acciones %game.action.shield% y %game.action.retaliate% de las cartas de habilidad, para que se muestren los valores sumados completos."
@@ -2104,6 +2489,10 @@
       "": "Mazo de Modificador de Ataque de personajes",
       "hint": "Activa el mazo de Modificadores de Ataque en formato digital para los personajes activos. Mejóralos mediante pericias a través de la Hoja de Personaje (debe estar habilitada)."
     },
+    "characterAttackModifierDeckActiveBottom": {
+      "": "Mazo AM de Personajes encima de monstruos",
+      "hint": "Muestra el mazo modificador de ataque del personaje activo encima del mazo modificador de ataque del monstruo."
+    },
     "characterAttackModifierDeckPermanent": {
       "": "Mazo MA permanente de personajes",
       "hint": "Mostrar el mazo de Modificador de ataque de forma permanente bajo el personaje."
@@ -2115,6 +2504,10 @@
     "characterCompact": {
       "": "Tableros de personajes compactos",
       "hint": "Mostrar tablero de personajes compactos. (actualmente no es compatible con el tema moderno)"
+    },
+    "characterFullView": {
+      "": "Vista completa del personaje",
+      "hint": "Haga doble clic en el icono del personaje para mostrar una vista independiente del personaje."
     },
     "characterHandSize": {
       "": "Mostrar tamaño de mano y nivel",
@@ -2198,6 +2591,18 @@
       "": "Arrastrar Iniciativa/PV/Exp/Botín",
       "hint": "Soporte para cambiar valores mediante arrastre. Para cambiar la iniciativa, arrastra sobre el retrato del personaje. Para puntos de vida, experiencia y botín arrastra sobre los valores"
     },
+    "dragValuesHp": "Arrastrar puntos de vida",
+    "dragValuesInitiative": "Arrastrar iniciativa",
+    "dragValuesLoot": "Arrastrar Botín",
+    "dragValuesXp": "Arrastrar Experiencia",
+    "drawRandomItem": {
+      "": "Robar objetos aleatorios",
+      "hint": "Roba de forma automatica una carta de objeto aleatorio."
+    },
+    "drawRandomScenario": {
+      "": "Robar escenarios aleatorios",
+      "hint": "Roba de forma automatica una carta de escenario aleatorio."
+    },
     "eliteFirst": {
       "": "Peanas Elite primero",
       "hint": "Mostrar las peanas elite primero cuando se ordenen las peanas"
@@ -2205,6 +2610,22 @@
     "errata": {
       "": "Mostrar erratas",
       "hint": "Mostrar erratas conocidas de escenarios, secciones, etc. En los datos propiamente dichos, todas estas erratas deberían estar arregladas, pero con las pistas debería ser más fácil entender las diferencias de impresión (Solo para la edición en inglés)."
+    },
+    "events": {
+      "": "Cartas de Evento",
+      "hint": "Soporte para cartas de mazos de eventos"
+    },
+    "eventsApply": {
+      "": "Aplicar Eventos automaticamente",
+      "hint": "Aplicar automáticamente (si es posible) los resultados de las cartas de evento."
+    },
+    "eventsDraw": {
+      "": "Robar automaticamente Eventos",
+      "hint": "Dibuja automáticamente eventos como Eventos de Camino al inicio del escenario."
+    },
+    "eventsDrawReminder": {
+      "": "Recordatorio de eventos",
+      "hint": "Muestra un recordatorio antes de la primera ronda para robar un evento."
     },
     "expireConditions": {
       "": "Retirar Estados automaticamente",
@@ -2286,6 +2707,15 @@
     "ge5Player": {
       "": "≥ 5 reglas de jugador"
     },
+    "gh2eImbuement": {
+      "": "Activar Imbuimientos de Monstruos",
+      "hint": "Habilita la opción para añadir Imbuimiento de monstruo (Apéndice F) en el menú Efecto de evento."
+    },
+    "gh2eImbuementKeep": {
+      "": "Conservar las imbuiciones de monstruos",
+      "hint": "Aplica siempre la última configuración de Imbuimientos de Monstruos a todos los escenarios."
+    },
+    "gh2eRules": "Gloomhaven 2ª Edición",
     "helperDefaults": {
       "": "Aplicar los ajustes por defectos de Helper"
     },
@@ -2349,6 +2779,8 @@
       "it": "Italiano",
       "ko": "Coreano (한국어)",
       "pl": "Polaco (Polski)",
+      "pt": "Portugués (Portuguese)",
+      "ru": "Ruso (Русский)",
       "zh_Hans": "Chino simplificado (简体中文)",
       "zh_Hant": "Chino tradicional (繁體中文)"
     },
@@ -2440,6 +2872,10 @@
       "": "Mostrar tarjetas de habilidad ampliadas",
       "hint": "Muestra todas las cartas de habilidades a la vez (también muestra automáticamente el título de la carta)."
     },
+    "showExpandedStatCard": {
+      "": "Mostrar cartas de atributos completas",
+      "hint": "Aplía las cartas de atributos para mostrar todo el contenido."
+    },
     "showFullAbilityCard": {
       "": "Mostrar títulos de cartas de habilidad",
       "hint": "Mostrar las cartas de habilidad incluyendo el título de estas."
@@ -2473,6 +2909,10 @@
       "hint": "Activa las invocaciones de los Personajes"
     },
     "synced": "¡Estos ajustes están sincronizados con el servidor!",
+    "temporaryEnhancements": {
+      "": "Mejoras temporales",
+      "hint": "Utiliza mejoras temporales para reducir los costes de mejora. Se aplican las reglas de Frosthaven tal y como se indican en el libro de reglas; en caso contrario, se aplican los costes de mejora de Gloomhaven Digital."
+    },
     "theme": {
       "": "Tema",
       "bb": "Button & Bugs (%wip%)",
@@ -2710,6 +3150,17 @@
       "characterReplay": "Juega {0} otra vez para el jugador {1}",
       "characterSetAside": "Pon {0} a un lado para el jugador {1}",
       "clearDiscardedScenarioRules": "Borrar las reglas de escenario descartadas",
+      "command": {
+        "character": {
+          "initiative": "Iniciativa para {0}"
+        },
+        "round": {
+          "state": {
+            "draw": "Robar",
+            "next": "Siguiente ronda"
+          }
+        }
+      },
       "craftItem": "Crea el objeto {1} (%data.edition.{2}%) para {0}",
       "declineApplyCondition": {
         "char": "Rechazar aplicar %game.condition.{1}% a {0}",
@@ -2840,6 +3291,10 @@
         "summon": "Elimina {3}x %game.condition.{2}% de '{1}' de {0}",
         "summons": "Elimina {2}x %game.condition.{1}% de todas las {0} invocaciones"
       },
+      "removeEntityMarker": {
+        "monster": "Eliminar marcador %game.mapMarker.{2}% de “{1}” de {0}",
+        "objectiveContainer": "Eliminar el marcador %game.mapMarker.{2}% de %game.objectiveMarker.{1}% de {0}"
+      },
       "removeEntityRetaliate": {
         "char": "Elimina %game.action.retaliate% de {0}",
         "monster": "Elimina %game.action.retaliate% de '{1}' de{0}",
@@ -2966,6 +3421,7 @@
       "setInitiative": "Iniciativa {1} para {0}",
       "setLevel": "Nivel {1} para {0}",
       "setNotes": "Notas \"{1}\" para {0}",
+      "setObjectiveEntityMarker": "Establecer marcador desde %game.objectiveMarker.{1}% de {0} a %game.mapMarker.{2}%",
       "setObjectiveExhausted": "Objectivo {0} agotado",
       "setObjectiveInitiative": "Iniciativa {1} para el objetivo {0}",
       "setPQ": "Misión personal {1} para {0}",
@@ -3166,7 +3622,10 @@
         "xpDec": "Disminuir Exp.",
         "xpInc": "Aumentar Exp."
       },
-      "esc": "ESC",
+      "esc": {
+        "": "esc",
+        "fullscreen": "En la mayoría de los navegadores, la tecla ESC sale del modo de pantalla completa; utilice la tecla RETROCESO en su lugar."
+      },
       "events": "Menú de efectos de evento",
       "finish": "(finalizar) menú escenario",
       "global": "Actualmente están implementados los siguientes atajos de teclado:",
@@ -3193,6 +3652,7 @@
       "toggleAbsent": "Fijar <i>Ocultar cifras ausentes</i>",
       "toggleDamageHP": "Fijar <i>%settings.damageHP%</i>",
       "toggleElements": "Fijar el estado de los elementos",
+      "toggleFullscreen": "Alternar <i>Pantalla Completa</i>",
       "toggleHandSize": "Fijar <i>Mostar tamaño de mano y nivel</i>",
       "togglePlayerNumber": "Fijar <i>Mostrar número de personaje</i>",
       "toggleTraits": "Fijar <i>Mostrar rasgos</i>",

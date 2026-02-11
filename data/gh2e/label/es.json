@@ -1,4 +1,12 @@
 {
+  "deck": {
+    "archer": "Arquero",
+    "boss": "Jefe",
+    "guard": "Guardia",
+    "imp": "Duende",
+    "priest": "Sacerdote",
+    "scout": "Explorador"
+  },
   "edition": {
     "gh2e": "Gloomhaven 2.0 (Segunda Edición) (%wip%)"
   },
