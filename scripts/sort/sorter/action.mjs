@@ -58,5 +58,5 @@ export const sortAction = function (action) {
         action.value = hexes.map((actionHex) => "(" + actionHex.x + "," + actionHex.y + "," + actionHex.type + (actionHex.value ? ":" + actionHex.value : "") + ")").join('|');
     }
 
-    return sortObjectKeys(action, 'type', 'value', 'valueType', 'valueObject', 'small', 'enhancementTypes', 'subActions');
+    return sortObjectKeys(action, 'type', 'value', 'valueType', 'valueObject', 'multiTarget', 'small', 'enhancementTypes', 'subActions');
 }

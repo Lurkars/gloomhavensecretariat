@@ -94,6 +94,7 @@
             {
               "type": "heal",
               "value": 2,
+              "multiTarget": true,
               "enhancementTypes": [
                 "circle"
               ],
@@ -165,8 +166,7 @@
                     }
                   ]
                 }
-              ],
-              "multiTarget": true
+              ]
             },
             {
               "type": "custom",
