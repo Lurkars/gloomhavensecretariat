@@ -1,1 +1,9 @@
-{}
+{
+  "scenario": {
+    "rewards": {
+      "cs": {
+        "18": "Gana 100 monedas de oro cada uno. <br> Este oro debe gastarse inmediatamente en mejoras."
+      }
+    }
+  }
+}

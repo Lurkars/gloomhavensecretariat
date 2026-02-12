@@ -158,6 +158,17 @@
     "Wreathed in Flame": "Wreathed in Flame"
   },
   "custom": {
+    "glacier-demon": {
+      "1": "Lose %game.action.retaliate% if %game.condition.wound%"
+    },
+    "inferno-demon": {
+      "1": "Lose %game.action.retaliate% if %game.condition.chill%"
+    },
+    "okeda": {
+      "1": "Acts immediately after the Incarnate, performing the same bottom and top actions as the Incarnate",
+      "2": "If the Incarnate did not move during the bottom action:",
+      "3": "If the Incarnate did not attack during the top action:"
+    },
     "toa": {
       "enraged-vanquisher": {
         "1": "If an enemy targets you with an attack<br>this round, that enemy gains",
@@ -200,17 +211,6 @@
       "vermling-scenario-68": {
         "1": "Move towards exit %game.mapMarker.a%"
       }
-    },
-    "glacier-demon": {
-      "1": "Lose %game.action.retaliate% if %game.condition.wound%"
-    },
-    "inferno-demon": {
-      "1": "Lose %game.action.retaliate% if %game.condition.chill%"
-    },
-    "okeda": {
-      "1": "Acts immediately after the Incarnate, performing the same bottom and top actions as the Incarnate",
-      "2": "If the Incarnate did not move during the bottom action:",
-      "3": "If the Incarnate did not attack during the top action:"
     }
   },
   "deck": {

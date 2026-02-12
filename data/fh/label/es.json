@@ -642,8 +642,8 @@
     },
     "carpenter": {
       "": "Carpintero",
-      "1": "Reducir todos los costes de construcción en 1 recurso de materiales",
-      "2": "Reduce todos los costes de construcción en 1 recurso de materiales y el coste extra de construcción de 1 moral",
+      "1": "Reduce todos los costes de construcción en 1 recurso de materiales",
+      "2": "Reduce todos los costes de construcción en 1 recurso de materiales y el coste adicional de construcción en 1 de moral",
       "3": "Perder 1 recurso colectivo cualquiera"
     },
     "climbing-gear": {
@@ -775,10 +775,10 @@
       "2": "Cada personaje comienza el siguiente escenario con %game.condition.curse%"
     },
     "town-hall": {
-      "": "Ayuntamiento",
-      "1": "Roba un desafío y quédate con uno. Cuando el mazo de retos esté completo, lee %data.section:190.1%",
-      "2": "Roba dos desafíos y quédate con uno. Cuando el mazo de retos esté completo, lee %data.section:190.1%",
-      "3": "Roba tres desafíos y quédate con hasta dos. Cuando el mazo de retos esté completo, lee %data.section:190.1%",
+      "": "Asamblea",
+      "1": "Roba 1 desafío y quédate hasta 1. Cuando hayáis completado todos los Desafíos del mazo, lee %data.section:190.1%",
+      "2": "Roba 2 Desafíos y quédate hasta 1 de ellos. Cuando hayáis completado todos los Desafíos del mazo , lee %data.section:190.1%",
+      "3": "Roba 3 Desafíos y quédate hasta 2 de ellos. Cuando hayáis completado todos los Desafíos del mazo, lee %data.section:190.1%",
       "4": "No se pueden completar desafíos"
     },
     "trading-post": {

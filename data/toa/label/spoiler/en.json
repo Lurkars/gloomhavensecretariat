@@ -106,9 +106,26 @@
       "": "Graveweed Extract",
       "1": "During your Attack ability, add %game.condition.curse%, or %game.condition.enfeeble%, %game.condition.enfeeble%, %game.condition.enfeeble% to a one attack."
     },
+    "toa-119": {
+      "": "Thrice-Souled Warsword",
+      "1": "During your Attack ability, add +1 %game.action.attack% to one attack. Whenever this item is refreshed, one adjacent enemy suffers 1 damage."
+    },
+    "toa-120": {
+      "": "Rekindled Core",
+      "1": "During your melee Attack ability, gain %game.condition.chill% to add %game.condition.chill% to the attack. After the attack flip, this card.",
+      "2": "During your melee Attack ability, if you do not have %game.condition.wound%, gain %game.condition.wound% to add %game.condition.wound% to the attack. After the attack flip, this card."
+    },
+    "toa-121": {
+      "": "Crystal Catalyst",
+      "1": "During your turn, play one level 5 or lower card from your hand or discard pile and immediately perform a %data.characterColored.gemstone:Crystalize% %data.characterIconColoredBg.gemstone% action from that card."
+    },
     "toa-122": {
       "": "Crystal Spike",
       "1": "During your melee Attack ability, add %game.action.pierce% 1 and %game.condition.wound% to one attack."
+    },
+    "toa-123": {
+      "": "Arclight Cladding",
+      "1": "Whenever you %game.condition.dodge% an attack, you may spend this item instead of discarding a card from your hand."
     },
     "toa-124": {
       "": "Arcbolt Lance",
@@ -126,6 +143,10 @@
       "": "Arclight Hood",
       "1": "You are immune to %game.condition.immobilize%, even if this item is spent. When attacked, the attacker gains Disadvantage on the attack and gain %game.condition.dodge% after the attack."
     },
+    "toa-128": {
+      "": "Barbed Whip",
+      "1": "During your turn, perform \"%game.action.pull% 1, %game.condition.muddle%, %game.action.range:3%\"."
+    },
     "toa-129": {
       "": "Talo's Rosary",
       "1": "During your turn, remove negative condition from Self and perform \"%game.action.heal% 3, Self\". This can be used while you have %game.condition.stun%."
@@ -133,27 +154,6 @@
     "toa-130": {
       "": "Dynamic Sickle",
       "1": "During your melee Attack ability, %game.element.consume.wild% to add +2 %game.action.attack% and %game.condition.muddle% to one attack."
-    },
-    "toa-119": {
-      "1": "During your Attack ability, add +1 %game.action.attack% to one attack. Whenever this item is refreshed, one adjacent enemy suffers 1 damage.",
-      "": "Thrice-Souled Warsword"
-    },
-    "toa-120": {
-      "1": "During your melee Attack ability, gain %game.condition.chill% to add %game.condition.chill% to the attack. After the attack flip, this card.",
-      "2": "During your melee Attack ability, if you do not have %game.condition.wound%, gain %game.condition.wound% to add %game.condition.wound% to the attack. After the attack flip, this card.",
-      "": "Rekindled Core"
-    },
-    "toa-121": {
-      "1": "During your turn, play one level 5 or lower card from your hand or discard pile and immediately perform a %data.characterColored.gemstone:Crystalize% %data.characterIconColoredBg.gemstone% action from that card.",
-      "": "Crystal Catalyst"
-    },
-    "toa-123": {
-      "1": "Whenever you %game.condition.dodge% an attack, you may spend this item instead of discarding a card from your hand.",
-      "": "Arclight Cladding"
-    },
-    "toa-128": {
-      "1": "During your turn, perform \"%game.action.pull% 1, %game.condition.muddle%, %game.action.range:3%\".",
-      "": "Barbed Whip"
     }
   },
   "treasures": {

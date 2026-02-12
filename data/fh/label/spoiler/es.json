@@ -437,6 +437,10 @@
       "": "Amuleto rejuvenecedor",
       "1": "Siempre que pierdas una carta para prevenir %game.damage%, %game.card.recover% hasta 1 carta de tu pila de descartes y obtén %game.condition.regenerate%."
     },
+    "fh-177": {
+      "": "Botas de transferencia",
+      "1": "Cuando actives una trampa por entrar en su hexágono, puedes aplicar sus efectos a una figura a %game.action.range:3% o menos en lugar de a ti."
+    },
     "fh-179": {
       "": "Botas de prisa",
       "1": "Durante tu capacidad de Movimiento, añade +4 %game.action.move%. Después de la capacidad de Movimiento, sufre %game.condition.immobilize%."

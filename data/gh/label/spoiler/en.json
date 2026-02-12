@@ -1033,13 +1033,81 @@
       "": "Resonant Crystal",
       "1": "During your turn, destroy an adjacent obstacle."
     },
+    "gh-134": {
+      "": "Imposing Blade",
+      "1": "Any time you kill an enemy during your turn, gain %game.action.shield% 1 for the rest of the round."
+    },
+    "gh-135": {
+      "": "Focusing Ray",
+      "1": "During your Heal action, double the value of the Heal."
+    },
+    "gh-136": {
+      "": "Volatile Elixir",
+      "1": "During your ranged attack, add +2 %game.action.attack% and gain Advantage on the entire Attack action, but suffer 2 damage for each attack made."
+    },
+    "gh-137": {
+      "": "Silent Stiletto",
+      "1": "Any time you perform a melee attack, add %game.action.pierce% 1 to the Attack."
+    },
+    "gh-138": {
+      "": "Stone Charm",
+      "1": "During your action where an obstacle is created, create one additional obstacle and apply all effects of the action to it."
+    },
+    "gh-139": {
+      "": "Psychic Knife",
+      "1": "Any time you perform an %data.characterColored.mindthief:Augment% action, add +1 %game.action.attack% to the entire action."
+    },
     "gh-14": {
       "": "Minor Power Potion",
       "1": "During your attack, add +1 %game.action.attack% to your entire Attack action."
     },
+    "gh-140": {
+      "": "Sun Shield",
+      "1": "When damaged by an attack, you may %game.element.consume.light% to gain %game.action.shield% 3 for the attack."
+    },
+    "gh-141": {
+      "": "Utility Belt",
+      "1": "During your turn, you or any one ally may Refresh %game.card.refresh% one of your spent or consumed items."
+    },
+    "gh-142": {
+      "": "Phasing Idol",
+      "1": "When a summon you own is damaged by an attack, it suffers no damage instead."
+    },
+    "gh-143": {
+      "": "Smoke Elixir",
+      "1": "During your turn, gain %game.condition.invisible% and create<br>%game.element.dark%"
+    },
+    "gh-144": {
+      "": "Pendant of the Plague",
+      "1": "During your turn, %game.condition.poison% and %game.condition.curse% one enemy within %game.action.range:3%."
+    },
+    "gh-145": {
+      "": "Mask of Death",
+      "1": "Any time you perform a melee attack and you have exactly 1 hit point, add +2 %game.action.attack% to the Attack."
+    },
+    "gh-146": {
+      "": "Master's Lute",
+      "1": "After performing any %data.characterColored.music-note:Song% action, immediately perform an %game.action.attack% 2 or %game.action.move% 2 action."
+    },
+    "gh-147": {
+      "": "Cloak of the Hunter",
+      "1": "Any time you perform a %data.characterColored.angry-face:Doom% action, %game.condition.muddle% the target of the %data.characterColored.angry-face:Doom%."
+    },
+    "gh-148": {
+      "": "Doctor's Coat",
+      "1": "Any time an ally performs a Medical Pack or Large Medical Pack action, they add +1 %game.action.heal% to their Heal."
+    },
+    "gh-149": {
+      "": "Elemental Boots",
+      "1": "If you move 5 or more hexes on your turn, create any element."
+    },
     "gh-15": {
       "": "Boots of Speed",
       "1": "At the beginning of a round, after all ability cards have been revealed, increase or decrease your leading initiative value by 10."
+    },
+    "gh-150": {
+      "": "Staff of Command",
+      "1": "After performing a %data.characterColored.two-mini:Command% action, play one card from your hand and immediately perform the same side of the card (top or bottom) as the %data.characterColored.two-mini:Command% action."
     },
     "gh-16": {
       "": "Cloak of Pockets",
@@ -1409,74 +1477,6 @@
     "gh-99": {
       "": "Magma Waders",
       "1": "Ignore the damaging effects of hazardous terrain and perform a \"%game.action.heal% 2, Self\" action on any turn in which you have entered a hazardous terrain hex."
-    },
-    "gh-134": {
-      "": "Imposing Blade",
-      "1": "Any time you kill an enemy during your turn, gain %game.action.shield% 1 for the rest of the round."
-    },
-    "gh-135": {
-      "": "Focusing Ray",
-      "1": "During your Heal action, double the value of the Heal."
-    },
-    "gh-136": {
-      "": "Volatile Elixir",
-      "1": "During your ranged attack, add +2 %game.action.attack% and gain Advantage on the entire Attack action, but suffer 2 damage for each attack made."
-    },
-    "gh-137": {
-      "": "Silent Stiletto",
-      "1": "Any time you perform a melee attack, add %game.action.pierce% 1 to the Attack."
-    },
-    "gh-138": {
-      "": "Stone Charm",
-      "1": "During your action where an obstacle is created, create one additional obstacle and apply all effects of the action to it."
-    },
-    "gh-139": {
-      "": "Psychic Knife",
-      "1": "Any time you perform an %data.characterColored.mindthief:Augment% action, add +1 %game.action.attack% to the entire action."
-    },
-    "gh-140": {
-      "": "Sun Shield",
-      "1": "When damaged by an attack, you may %game.element.consume.light% to gain %game.action.shield% 3 for the attack."
-    },
-    "gh-141": {
-      "": "Utility Belt",
-      "1": "During your turn, you or any one ally may Refresh %game.card.refresh% one of your spent or consumed items."
-    },
-    "gh-142": {
-      "": "Phasing Idol",
-      "1": "When a summon you own is damaged by an attack, it suffers no damage instead."
-    },
-    "gh-143": {
-      "": "Smoke Elixir",
-      "1": "During your turn, gain %game.condition.invisible% and create<br>%game.element.dark%"
-    },
-    "gh-144": {
-      "": "Pendant of the Plague",
-      "1": "During your turn, %game.condition.poison% and %game.condition.curse% one enemy within %game.action.range:3%."
-    },
-    "gh-145": {
-      "": "Mask of Death",
-      "1": "Any time you perform a melee attack and you have exactly 1 hit point, add +2 %game.action.attack% to the Attack."
-    },
-    "gh-146": {
-      "": "Master's Lute",
-      "1": "After performing any %data.characterColored.music-note:Song% action, immediately perform an %game.action.attack% 2 or %game.action.move% 2 action."
-    },
-    "gh-147": {
-      "": "Cloak of the Hunter",
-      "1": "Any time you perform a %data.characterColored.angry-face:Doom% action, %game.condition.muddle% the target of the %data.characterColored.angry-face:Doom%."
-    },
-    "gh-148": {
-      "": "Doctor's Coat",
-      "1": "Any time an ally performs a Medical Pack or Large Medical Pack action, they add +1 %game.action.heal% to their Heal."
-    },
-    "gh-149": {
-      "": "Elemental Boots",
-      "1": "If you move 5 or more hexes on your turn, create any element."
-    },
-    "gh-150": {
-      "": "Staff of Command",
-      "1": "After performing a %data.characterColored.two-mini:Command% action, play one card from your hand and immediately perform the same side of the card (top or bottom) as the %data.characterColored.two-mini:Command% action."
     },
     "gh-envx-151": {
       "": "Sword of the Sands"

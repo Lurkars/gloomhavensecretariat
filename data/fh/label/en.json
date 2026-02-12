@@ -1280,6 +1280,12 @@
     }
   },
   "custom": {
+    "algox-snowspeaker-trap-solo": {
+      "1": "All enemies within<br>%game.action.range:2% suffer %game.damage:2%"
+    },
+    "errata": {
+      "solo28": "Special rules: \"Snowspeaker\" should be \"Icespeaker\""
+    },
     "fh": {
       "abael-herder": {
         "1": "Grant the closest Piranha Pig<br>within %game.action.range:4%:",
@@ -1691,12 +1697,6 @@
         "2": "All characters who did not attack suffer trap damage at end of round."
       }
     },
-    "algox-snowspeaker-trap-solo": {
-      "1": "All enemies within<br>%game.action.range:2% suffer %game.damage:2%"
-    },
-    "errata": {
-      "solo28": "Special rules: \"Snowspeaker\" should be \"Icespeaker\""
-    },
     "lost-in-seaweed": {
       "1": "Focus on the enemy<br>farthest away within %game.action.range:6%",
       "2": "Create one 1-hex water tile<br>in an adjacent empty hex.",
@@ -1717,28 +1717,35 @@
   "monster": {
     "abael-herder": "Abael Herder",
     "abael-scout": "Abael Scout",
+    "abael-warlord": "Abael Warlord",
     "algox-archer": "Algox Archer",
     "algox-guard": "Algox Guard",
     "algox-icespeaker": "Algox Icespeaker",
+    "algox-icespeaker-shards-solo": "Algox Icespeaker (Solo)",
     "algox-priest": "Algox Priest",
     "algox-scout": "Algox Scout",
     "algox-snowspeaker": "Algox Snowspeaker",
+    "algox-snowspeaker-trap-solo": "Algox Snowspeaker (Solo)",
     "algox-stormcaller": "Algox Stormcaller",
     "ancient-artillery": "Ancient Artillery",
     "augmented-mindthief": "Augmented Mindthief",
     "belara": "Belara",
     "black-imp": "Black Imp",
+    "black-imp-deathwalker-solo": "Black Imp (Solo)",
     "blacksmith": "Blacksmith",
     "brother": "Brother",
     "burrowing-blade": "Burrowing Blade",
     "chaos-demon": "Chaos Demon",
     "chaos-lieutenant": "Chaos Lieutenant",
     "chaos-spark": "Chaos Spark",
+    "chief-of-spikes": "Chief of Spikes",
     "city-guard": "City Guard",
+    "city-guard-banner-spear-solo": "City Guard (Solo)",
     "coral-corpse": "Coral Corpse",
     "deep-terror": "Deep Terror",
     "earth-demon": "Earth Demon",
     "elder-ooze": "Elder Ooze",
+    "energized-corpse": "Energized Corpse",
     "fish-king": "Fish King",
     "flame-demon": "Flame Demon",
     "flaming-bladespinner": "Flaming Bladespinner",
@@ -1757,9 +1764,11 @@
     "harbinger-of-shadow-2": "Harbinger of Shadow %game.mapMarker.2%",
     "harrower-infester": "Harrower Infester",
     "hateful-corpse": "Hateful Corpse",
+    "hollow-scholar": "Hollow Scholar",
     "hound": "Hound",
     "hungry-maw": "Hungry Maw",
     "ice-wraith": "Ice Wraith",
+    "incarnation-of-ancestors": "Incarnation of Ancestors",
     "lady-in-white": "Lady in White",
     "large-vermling-scout": "Large Vermling Scout",
     "laser-spires": "Laser Spires",
@@ -1768,15 +1777,19 @@
     "living-doom": "Living Doom",
     "living-spirit": "Living Spirit",
     "lord-of-chaos": "Lord of Chaos",
+    "lost-in-seaweed": "Lost in Seaweed",
     "lurker-clawcrusher": "Lurker Clawcrusher",
     "lurker-conductor": "Lurker Conductor",
     "lurker-mindsnipper": "Lurker Mindsnipper",
     "lurker-soldier": "Lurker Soldier",
     "lurker-wavethrower": "Lurker Wavethrower",
+    "mountains-heart": "Mountain's Heart",
     "night-demon": "Night Demon",
+    "night-demon-deathwalker-solo": "Night Demon (Solo)",
     "ooze": "Ooze",
     "orphan": "Orphan",
     "piranha-pig": "Piranha Pig",
+    "plea-for-help-without-answer": "Plea for Help Without Answer",
     "polar-bear": "Polar Bear",
     "power-core": "Power Core",
     "prince-of-frost": "Prince of Frost",
@@ -1791,6 +1804,7 @@
     "savvas-lavaflow": "Savvas Lavaflow",
     "scabwit": "Scabwit",
     "seeker-of-the-abyss": "Seeker of the Abyss",
+    "shape-blocks-out-the-sun": "Shape Blocks Out the Sun",
     "shrike-fiend": "Shrike Fiend",
     "snow-imp": "Snow Imp",
     "snowdancer": "Snowdancer",
@@ -1806,21 +1820,7 @@
     "vermling-scout": "Vermling Scout",
     "vestige-of-the-imprisoned-god": "Vestige of the Imprisoned God",
     "wind-demon": "Wind Demon",
-    "yoglang": "Yoglang",
-    "abael-warlord": "Abael Warlord",
-    "algox-icespeaker-shards-solo": "Algox Icespeaker (Solo)",
-    "algox-snowspeaker-trap-solo": "Algox Snowspeaker (Solo)",
-    "black-imp-deathwalker-solo": "Black Imp (Solo)",
-    "chief-of-spikes": "Chief of Spikes",
-    "city-guard-banner-spear-solo": "City Guard (Solo)",
-    "energized-corpse": "Energized Corpse",
-    "hollow-scholar": "Hollow Scholar",
-    "incarnation-of-ancestors": "Incarnation of Ancestors",
-    "lost-in-seaweed": "Lost in Seaweed",
-    "mountains-heart": "Mountain's Heart",
-    "night-demon-deathwalker-solo": "Night Demon (Solo)",
-    "plea-for-help-without-answer": "Plea for Help Without Answer",
-    "shape-blocks-out-the-sun": "Shape Blocks Out the Sun"
+    "yoglang": "Yoglang"
   },
   "objective": {
     "Altar": "Altar",
@@ -2808,7 +2808,6 @@
         "randomMonsterCard-913": "Scorching",
         "randomMonsterCard-914": "Swift",
         "red-well": "\"Red Well\" Campaign Sticker",
-        "stage": "\"Stage\" Campaign Sticker",
         "solo-20-1": "Wonder of Nature",
         "solo-21-1": "Race Against the Clock",
         "solo-21-2": "Race Against the Clock",
@@ -2825,7 +2824,8 @@
         "solo-35-1": "Wet Work",
         "solo-35-2": "Wet Work",
         "solo-36-1": "Crash Against the Waves",
-        "solo-36-2": "Crash Against the Waves"
+        "solo-36-2": "Crash Against the Waves",
+        "stage": "\"Stage\" Campaign Sticker"
       }
     }
   }

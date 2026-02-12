@@ -250,6 +250,7 @@
     "avatar-of-ashtar": "Avatar of Ashtar",
     "avatar-of-thelija": "Avatar of Thelija",
     "bear-drake-abomination": "Bear-Drake Abomination",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)",
     "elham": "Elham",
     "guardian-of-the-firmament": "Guardian of the Firmament",
     "human-commander": "Human Commander",
@@ -264,8 +265,7 @@
     "valrath-savage": "Valrath Savage",
     "valrath-tracker": "Valrath Tracker",
     "warden": "Warden",
-    "wolf-viper-abomination": "Wolf-Viper Abomination",
-    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)"
+    "wolf-viper-abomination": "Wolf-Viper Abomination"
   },
   "objective": {
     "Altar": "Altar",
