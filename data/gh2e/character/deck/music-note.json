@@ -569,6 +569,9 @@
           "type": "custom",
           "value": "%data.custom.gh2e.music-note.abilities.358.1%",
           "small": true,
+          "enhancementTypes": [
+            "square"
+          ],
           "subActions": [
             {
               "type": "move",
@@ -673,6 +676,9 @@
           "type": "custom",
           "value": "%data.custom.gh2e.music-note.abilities.360.1%",
           "small": true,
+          "enhancementTypes": [
+            "square"
+          ],
           "subActions": [
             {
               "type": "move",
@@ -754,6 +760,9 @@
           "type": "custom",
           "value": "%data.custom.gh2e.music-note.abilities.361.1%",
           "small": true,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "attack",
@@ -978,6 +987,9 @@
           "type": "custom",
           "value": "%data.custom.gh2e.music-note.abilities.365.1%",
           "small": true,
+          "enhancementTypes": [
+            "square"
+          ],
           "subActions": [
             {
               "type": "attack",
@@ -1717,6 +1729,9 @@
           "type": "custom",
           "value": "%data.custom.gh2e.music-note.abilities.376.2%",
           "small": true,
+          "enhancementTypes": [
+            "square"
+          ],
           "subActions": [
             {
               "type": "retaliate",
@@ -1762,7 +1777,10 @@
             {
               "type": "custom",
               "value": "%data.custom.gh2e.music-note.abilities.377.1%",
-              "small": true
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
             },
             {
               "type": "attack",
