@@ -50,7 +50,7 @@
         {
           "monster": {
             "name": "black-imp",
-            "type": "normal"
+            "type": "elite"
           },
           "marker": "c"
         }
