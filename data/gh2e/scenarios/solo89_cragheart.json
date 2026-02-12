@@ -50,7 +50,7 @@
         {
           "monster": {
             "name": "black-imp",
-            "type": "normal"
+            "type": "elite"
           },
           "marker": "c"
         }
@@ -74,7 +74,9 @@
     {
       "roomNumber": 1,
       "initial": true,
-      "monster": []
+      "objectives": [
+        1
+      ]
     }
   ]
 }
