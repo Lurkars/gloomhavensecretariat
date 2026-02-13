@@ -1,15 +1,14 @@
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { Component, ElementRef, EventEmitter, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { Subscription } from "rxjs";
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { enhancableLootTypes, Loot, LootDeck, LootDeckConfig, LootType } from "src/app/game/model/data/Loot";
 import { ghsDialogClosingHelper } from "../../helper/Static";
 import { LootDeckChange } from "./loot-deck";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
   standalone: false,
@@ -17,7 +16,8 @@ import { GhsManager } from "src/app/game/businesslogic/GhsManager";
   templateUrl: './loot-deck-dialog.html',
   styleUrls: ['./loot-deck-dialog.scss',]
 })
-export class LootDeckDialogComponent implements OnInit, OnDestroy {
+export class LootDeckDialogComponent implements OnInit {
+  private cdr = inject(ChangeDetectorRef);
 
   @ViewChild('menu') menuElement!: ElementRef;
   gameManager: GameManager = gameManager;
@@ -47,6 +47,7 @@ export class LootDeckDialogComponent implements OnInit, OnDestroy {
   enhancementDeck: Loot[] = [];
 
   constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, characters: boolean, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange>, apply: boolean }, public dialogRef: DialogRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
     this.deck = data.deck;
     this.characters = data.characters;
     this.before = data.before;
@@ -58,6 +59,7 @@ export class LootDeckDialogComponent implements OnInit, OnDestroy {
     this.currentConfig();
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+      this.cdr.markForCheck();
     }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0);
     if (this.deck.cards.length == 0) {
       this.edit = true;
@@ -76,16 +78,8 @@ export class LootDeckDialogComponent implements OnInit, OnDestroy {
 
     this.enhancementDeck = gameManager.lootManager.fullLootDeck().filter((loot) => enhancableLootTypes.includes(loot.type)).sort((a, b) => a.cardId - b.cardId);
     this.update();
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   update() {
     this.upcomingCards = this.deck.cards.filter((loot, index) => index > this.deck.current);
@@ -118,6 +112,7 @@ export class LootDeckDialogComponent implements OnInit, OnDestroy {
     }
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+      this.cdr.markForCheck();
     }, 0);
   }
 

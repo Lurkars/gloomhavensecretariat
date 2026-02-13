@@ -1,6 +1,5 @@
 import { Dialog } from "@angular/cdk/dialog";
-import { Component, HostListener, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, HostListener, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -17,7 +16,7 @@ import { environment } from "src/environments/environment";
     templateUrl: './initiative-standalone.html',
     styleUrls: ['./initiative-standalone.scss', '../../../../ui/figures/character/cards/initiative-dialog.scss']
 })
-export class InitiativeStandaloneComponent implements OnInit, OnDestroy {
+export class InitiativeStandaloneComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
@@ -27,7 +26,9 @@ export class InitiativeStandaloneComponent implements OnInit, OnDestroy {
     longRest: boolean = false;
     statusCode: number = 200;
 
-    constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
+    constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
+    }
 
     async ngOnInit() {
         try {
@@ -40,7 +41,6 @@ export class InitiativeStandaloneComponent implements OnInit, OnDestroy {
         this.update();
 
         this.ghsManager.triggerUiChange();
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
 
         window.addEventListener('focus', (event) => {
             if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() != WebSocket.OPEN) {
@@ -50,13 +50,6 @@ export class InitiativeStandaloneComponent implements OnInit, OnDestroy {
 
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);

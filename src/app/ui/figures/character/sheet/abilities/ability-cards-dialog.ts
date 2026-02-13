@@ -1,6 +1,5 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, Inject, OnInit } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { Character } from "src/app/game/model/Character";
@@ -14,7 +13,7 @@ import { EnhancementDialogComponent } from "./enhancements/enhancement-dialog";
     templateUrl: 'ability-cards-dialog.html',
     styleUrls: ['./ability-cards-dialog.scss']
 })
-export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
+export class AbilityCardsDialogComponent implements OnInit {
 
     character: Character;
     level: number | string;
@@ -32,6 +31,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
     enhanced: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public data: { character: Character }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
         this.character = data.character;
         this.level = this.character.level;
         this.abilities = gameManager.deckData(this.character).abilities;
@@ -48,17 +48,9 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() })
         this.update();
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.cardsToPick = this.character.level - this.character.progress.deck.length - 1;

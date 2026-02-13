@@ -10,6 +10,7 @@ import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { ObjectiveEntity } from "../model/ObjectiveEntity";
 import { AttackModifier, AttackModifierType } from "../model/data/AttackModifier";
 import { Condition, ConditionName } from "../model/data/Condition";
+import { Element } from "../model/data/Element";
 import { FigureError, FigureErrorType } from "../model/data/FigureError";
 import { MonsterStatEffect } from "../model/data/MonsterStat";
 import { MonsterType } from "../model/data/MonsterType";
@@ -19,7 +20,6 @@ import { ScenarioData } from "../model/data/ScenarioData";
 import { MonsterSpawnData, ScenarioFigureRule, ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { Element } from "../model/data/Element";
 
 export class ScenarioRulesManager {
 

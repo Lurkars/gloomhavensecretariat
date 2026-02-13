@@ -1,11 +1,11 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-scenario-conclusion-dialog',
     templateUrl: './scenario-conclusion.html',
     styleUrls: ['./scenario-conclusion.scss']

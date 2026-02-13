@@ -1,6 +1,5 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
-import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { Scenario } from "src/app/game/model/Scenario";
@@ -31,18 +30,11 @@ export class ScenarioChartPopupDialog {
     lootedTreasures: number[] = [];
 
     constructor(@Inject(DIALOG_DATA) public scenarioData: ScenarioData, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
         this.scenario = new Scenario(scenarioData);
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
         this.update();
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.isSuccess = gameManager.scenarioManager.isSuccess(this.scenario);

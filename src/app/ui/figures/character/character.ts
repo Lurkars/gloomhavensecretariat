@@ -1,7 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -34,7 +33,7 @@ import { AbilityCardsDialogComponent } from './sheet/abilities/ability-cards-dia
   templateUrl: './character.html',
   styleUrls: ['./character.scss']
 })
-export class CharacterComponent implements OnInit, OnDestroy {
+export class CharacterComponent implements OnInit {
 
   @Input() character!: Character;
 
@@ -72,20 +71,14 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   bb: boolean = false;
 
-  constructor(private dialog: Dialog, private overlay: Overlay, protected ghsManager: GhsManager) { }
+  constructor(private dialog: Dialog, private overlay: Overlay, protected ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() })
     this.update();
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   update(): void {
     this.characterTitle = gameManager.characterManager.characterName(this.character);

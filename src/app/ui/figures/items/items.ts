@@ -1,19 +1,18 @@
 import { Dialog } from "@angular/cdk/dialog";
-import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from "@angular/core";
-import { Subscription } from "rxjs";
+import { ChangeDetectorRef, Component, inject, Input, OnDestroy, OnInit, ViewEncapsulation } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Identifier } from "src/app/game/model/data/Identifier";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { getLootClass, LootClass, LootType } from "src/app/game/model/data/Loot";
 import { GameState } from "src/app/game/model/Game";
+import { ConfirmDialogComponent } from "../../helper/confirm/confirm";
 import { ItemsBrewDialog } from "./brew/brew";
 import { ItemDistillDialogComponent } from "./character/item-distill";
 import { ItemDialogComponent } from "./dialog/item-dialog";
 import { ItemsDialogComponent } from "./dialog/items-dialog";
-import { ConfirmDialogComponent } from "../../helper/confirm/confirm";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 
 @Component({
@@ -24,6 +23,7 @@ import { GhsManager } from "src/app/game/businesslogic/GhsManager";
     encapsulation: ViewEncapsulation.None
 })
 export class CharacterItemsComponent implements OnInit, OnDestroy {
+    private cdr = inject(ChangeDetectorRef);
 
     @Input() character!: Character;
     items: ItemData[] = [];
@@ -37,29 +37,21 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     settingsManager: SettingsManager = settingsManager;
     GameState = GameState;
 
-    constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
+    constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.updateItems());
+    }
 
     ngOnInit() {
         this.updateItems();
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                this.updateItems();
-            }
-        })
         if (!this.itemEdition) {
             this.itemEdition = gameManager.currentEdition(this.character.edition);
         }
         this.editionChange();
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
     ngOnDestroy(): void {
         if (this.itemEdition) {
             this.itemEdition = gameManager.currentEdition(this.character.edition);
-        }
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
         }
     }
 
@@ -125,6 +117,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
             } else {
                 this.item = gameManager.itemManager.getItem(this.itemIndex, this.itemEdition || this.character.edition, false);
             }
+            this.cdr.markForCheck();
         });
     }
 

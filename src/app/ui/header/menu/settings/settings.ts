@@ -5,9 +5,9 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { StorageManager, storageManager } from "src/app/game/businesslogic/StorageManager";
 import { GameState } from "src/app/game/model/Game";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
+import { ghsTextSearch } from "src/app/ui/helper/Static";
 import { SubMenu } from "../menu";
 import { SettingMenuComponent } from "./setting/setting";
-import { ghsTextSearch } from "src/app/ui/helper/Static";
 
 @Component({
   standalone: false,

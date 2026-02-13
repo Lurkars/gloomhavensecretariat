@@ -1,24 +1,23 @@
 import { Dialog, } from "@angular/cdk/dialog";
-import { Component, Input, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 import { ItemData, ItemFlags, ItemSlot } from "src/app/game/model/data/ItemData";
-import { ItemsDialogComponent } from "../../items/dialog/items-dialog";
 import { ItemDialogComponent } from "../../items/dialog/item-dialog";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
+import { ItemsDialogComponent } from "../../items/dialog/items-dialog";
 
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-character-item-list',
     templateUrl: './item-list.html',
     styleUrls: ['./item-list.scss']
 })
-export class CharacterItemListComponent implements OnInit, OnDestroy {
+export class CharacterItemListComponent implements OnInit {
 
     @Input() character!: Character;
 
@@ -29,20 +28,14 @@ export class CharacterItemListComponent implements OnInit, OnDestroy {
     ItemFlags = ItemFlags;
     GameState = GameState;
 
-    constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
+    constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
+    }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() })
         this.update();
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.setup = gameManager.game.state == GameState.draw && gameManager.roundManager.firstRound;

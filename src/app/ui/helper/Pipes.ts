@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { ghsDurationLabel, ghsValueSign } from './Static';
 import { ScenarioCache } from 'src/app/game/model/Scenario';
+import { ghsDurationLabel, ghsValueSign } from './Static';
 
 @Pipe({
   standalone: false,

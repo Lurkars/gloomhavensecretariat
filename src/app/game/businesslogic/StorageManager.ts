@@ -218,7 +218,7 @@ export class StorageManager {
           // Use a single transaction to make clear+write atomic
           const transaction = this.db.transaction(store, "readwrite");
           const objectStore = transaction.objectStore(store);
-          
+
           // Clear all existing data
           await new Promise<void>((resolveInner, rejectInner) => {
             const clearRequest = objectStore.clear();
@@ -234,14 +234,14 @@ export class StorageManager {
               putRequest.onerror = () => rejectInner(putRequest.error);
             });
           }
-          
+
           // Wait for transaction to complete
           await new Promise<void>((resolveInner, rejectInner) => {
             transaction.oncomplete = () => resolveInner();
             transaction.onerror = () => rejectInner(transaction.error);
             transaction.onabort = () => rejectInner(new Error('Transaction aborted'));
           });
-          
+
           resolve();
         } catch (e) {
           console.error(`Failed to writeArray to ${store}:`, e);

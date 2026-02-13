@@ -1,6 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Directive, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -41,6 +40,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
     timeout: any;
 
     constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => { this.currentZoom = settingsManager.settings.zoom });
         this.dialog.afterOpened.subscribe({ next: () => { this.dialogOpen = true; this.dialogClosing = false; } });
         this.dialog.afterAllClosed.subscribe({ next: () => { this.dialogClosing = true; setTimeout(() => { if (this.dialogClosing) { this.dialogOpen = false; } }, 250) } });
     }
@@ -64,7 +64,6 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.currentZoom = settingsManager.settings.zoom;
 
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.currentZoom = settingsManager.settings.zoom })
 
         this.keydown = window.addEventListener('keydown', (event: KeyboardEvent) => {
             if (settingsManager.settings.keyboardShortcuts && ghsFilterInputFocus(event)) {
@@ -345,12 +344,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         })
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
     ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
         window.removeEventListener('keydown', this.keydown);
         window.removeEventListener('keyup', this.keyup);
     }

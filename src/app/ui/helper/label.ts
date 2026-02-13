@@ -1,5 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -342,7 +341,7 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
   standalone: false,
   selector: '[ghs-label]'
 })
-export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
+export class GhsLabelDirective implements OnInit, OnChanges {
 
   @Input('ghs-label') value!: string | number;
   @Input('ghs-label-args') args: (string | number | boolean)[] = [];
@@ -362,6 +361,19 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
   private valueChange: string | number = "";
 
   constructor(private el: ElementRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => {
+      const count = Math.max(2, gameManager.characterManager.characterCount());
+      if (!this.ready || this.locale != settingsManager.settings.locale || this.C != count || this.L != gameManager.game.level || (this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate || this.valueChange != this.value) {
+        this.C = count;
+        this.L = gameManager.game.level;
+        this.locale = settingsManager.settings.locale;
+        this.calc = settingsManager.settings.calculate;
+        this.fhStyle = settingsManager.settings.fhStyle;
+        this.valueChange = this.value;
+        this.ready = gameManager.stateManager.ready;
+        this.apply();
+      }
+    });
     el.nativeElement.classList.add('placeholder');
     this.C = Math.max(2, gameManager.characterManager.characterCount());
     this.L = gameManager.game.level;
@@ -371,31 +383,9 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        const count = Math.max(2, gameManager.characterManager.characterCount());
-        if (!this.ready || this.locale != settingsManager.settings.locale || this.C != count || this.L != gameManager.game.level || (this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate || this.valueChange != this.value) {
-          this.C = count;
-          this.L = gameManager.game.level;
-          this.locale = settingsManager.settings.locale;
-          this.calc = settingsManager.settings.calculate;
-          this.fhStyle = settingsManager.settings.fhStyle;
-          this.valueChange = this.value;
-          this.ready = gameManager.stateManager.ready;
-          this.apply();
-        }
-      }
-    });
     this.apply();
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
 
   ngOnChanges(changes: SimpleChanges): void {

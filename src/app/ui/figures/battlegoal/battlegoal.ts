@@ -6,7 +6,7 @@ import { Identifier } from "src/app/game/model/data/Identifier";
 
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-battlegoal',
     templateUrl: './battlegoal.html',
     styleUrls: ['./battlegoal.scss']
@@ -23,7 +23,7 @@ export class BattleGoalComponent implements OnChanges {
     @Input() disabled: boolean = false;
     @Input() filtered: boolean = false;
     @Input() reveal: boolean = false;
-    
+
     winterIcon: boolean = false;
 
     ngOnChanges(changes: SimpleChanges): void {

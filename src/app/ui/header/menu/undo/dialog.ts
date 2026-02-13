@@ -1,6 +1,5 @@
 import { DialogRef } from "@angular/cdk/dialog";
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -11,7 +10,7 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
     templateUrl: './dialog.html',
     styleUrls: ['./dialog.scss']
 })
-export class UndoDialogComponent implements OnInit, OnDestroy {
+export class UndoDialogComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
     undoOffset: number = 0;
@@ -21,9 +20,15 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
     undoConfirm = "";
 
     constructor(public dialogRef: DialogRef, private ghsManager: GhsManager) {
-        this.dialogRef.overlayRef.hostElement.style.zIndex = '3000';
+        this.ghsManager.uiChangeEffect(() => {
+            this.undoOffset = gameManager.stateManager.undos.length > 0 ? (gameManager.game.revision
+                - (gameManager.game.revisionOffset || 0)) - this.getUndoRevision(gameManager.stateManager.undos.length - 1) - 1 : 0;
+            this.undoArray = Array.from({ length: Math.min(10, gameManager.stateManager.undos.length) }).map((value, i) => gameManager.stateManager.undos.length - i - 1);
+            this.redoArray = Array.from({ length: Math.min(10, gameManager.stateManager.redos.length) }).map((value, i) => Math.min(10, gameManager.stateManager.redos.length) - i - 1);
+        });
+        this.dialogRef.overlayRef.hostElement.style.zIndex = '999';
         if (this.dialogRef.overlayRef.backdropElement) {
-            this.dialogRef.overlayRef.backdropElement.style.zIndex = '3000';
+            this.dialogRef.overlayRef.backdropElement.style.zIndex = '999';
         }
     }
 
@@ -32,23 +37,8 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
             - (gameManager.game.revisionOffset || 0)) - this.getUndoRevision(gameManager.stateManager.undos.length - 1) - 1 : 0;
         this.undoArray = Array.from({ length: Math.min(10, gameManager.stateManager.undos.length) }).map((value, i) => gameManager.stateManager.undos.length - i - 1);
         this.redoArray = Array.from({ length: Math.min(10, gameManager.stateManager.redos.length) }).map((value, i) => Math.min(10, gameManager.stateManager.redos.length) - i - 1);
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                this.undoOffset = gameManager.stateManager.undos.length > 0 ? (gameManager.game.revision
-                    - (gameManager.game.revisionOffset || 0)) - this.getUndoRevision(gameManager.stateManager.undos.length - 1) - 1 : 0;
-                this.undoArray = Array.from({ length: Math.min(10, gameManager.stateManager.undos.length) }).map((value, i) => gameManager.stateManager.undos.length - i - 1);
-                this.redoArray = Array.from({ length: Math.min(10, gameManager.stateManager.redos.length) }).map((value, i) => Math.min(10, gameManager.stateManager.redos.length) - i - 1);
-            }
-        })
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     moreUndos() {
         if (this.undoArray.length < gameManager.stateManager.undos.length) {

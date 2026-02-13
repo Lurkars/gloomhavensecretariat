@@ -1,10 +1,10 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, EventEmitter, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
-import { AttackModiferDeckChange } from "./attackmodifierdeck";
+import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { ghsDialogClosingHelper } from "../../helper/Static";
+import { AttackModiferDeckChange } from "./attackmodifierdeck";
 
 @Component({
   standalone: false,

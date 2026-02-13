@@ -1,6 +1,5 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, ElementRef, HostListener, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -39,7 +38,7 @@ import { WorldMapComponent } from "./world-map/world-map";
   templateUrl: 'party-sheet-dialog.html',
   styleUrls: ['./party-sheet-dialog.scss']
 })
-export class PartySheetDialogComponent implements OnInit, OnDestroy {
+export class PartySheetDialogComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -98,6 +97,17 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
   constructor(@Inject(DIALOG_DATA) public data: { campaign: boolean, partySheet: boolean, disableShortcuts: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect((server: boolean) => {
+      if (this.party != gameManager.game.party) {
+        this.party = gameManager.game.party;
+        this.update();
+      } else {
+        this.updateAlways();
+      }
+      if (server && this.townGuardDeck && this.party.townGuardDeck) {
+        gameManager.attackModifierManager.fromModel(this.townGuardDeck, this.party.townGuardDeck);
+      }
+    });
     this.campaign = data && data.campaign;
     this.party = gameManager.game.party;
     this.disableShortcuts = data && data.disableShortcuts;
@@ -163,20 +173,6 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: (server: boolean) => {
-        if (this.party != gameManager.game.party) {
-          this.party = gameManager.game.party;
-          this.update();
-        } else {
-          this.updateAlways();
-        }
-
-        if (server && this.townGuardDeck && this.party.townGuardDeck) {
-          gameManager.attackModifierManager.fromModel(this.townGuardDeck, this.party.townGuardDeck);
-        }
-      }
-    })
     this.update();
 
     this.dialogRef.closed.subscribe({
@@ -186,13 +182,6 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     })
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   @HostListener('document:keydown', ['$event'])
   keyboardShortcuts(event: KeyboardEvent) {

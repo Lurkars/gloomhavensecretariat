@@ -1,8 +1,8 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject, ViewChild } from "@angular/core";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { CharacterSheetComponent } from "../sheet/character-sheet";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 
 @Component({

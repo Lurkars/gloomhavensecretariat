@@ -1,7 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -26,7 +25,7 @@ import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
   templateUrl: './objective-container.html',
   styleUrls: ['./objective-container.scss']
 })
-export class ObjectiveContainerComponent implements OnInit, OnDestroy {
+export class ObjectiveContainerComponent implements OnInit {
 
   @Input() objective!: ObjectiveContainer;
 
@@ -53,20 +52,14 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   interactiveActions: InteractiveAction[] = [];
   interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
 
-  constructor(private dialog: Dialog, private overlay: Overlay, private elementRef: ElementRef, private ghsManager: GhsManager) { }
+  constructor(private dialog: Dialog, private overlay: Overlay, private elementRef: ElementRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
     this.update();
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   update() {
     this.nonDead = this.objective.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;

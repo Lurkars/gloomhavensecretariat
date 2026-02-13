@@ -1,5 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, Input, OnInit } from "@angular/core";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
@@ -14,7 +13,7 @@ import { Summon } from "src/app/game/model/Summon";
     templateUrl: './summon-sheet.html',
     styleUrls: ['./summon-sheet.scss']
 })
-export class SummonSheetComponent implements OnInit, OnDestroy {
+export class SummonSheetComponent implements OnInit {
 
     @Input() summon!: Summon;
     @Input() summonData: SummonData | undefined;
@@ -32,24 +31,14 @@ export class SummonSheetComponent implements OnInit, OnDestroy {
     enhancementActions: Action[] = [];
     hasSummon: boolean = false;
 
-    constructor(private ghsManager: GhsManager) { }
+    constructor(private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
+    }
 
     ngOnInit(): void {
         this.update();
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                this.update();
-            }
-        })
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.hasSummon = this.summon != undefined;

@@ -6,7 +6,7 @@ import { DamageStats, ScenarioStats } from "src/app/game/model/CharacterProgress
 import { LootType } from "src/app/game/model/data/Loot";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-statistics-dialog',
     templateUrl: 'statistics-dialog.html',
     styleUrls: ['./statistics-dialog.scss']

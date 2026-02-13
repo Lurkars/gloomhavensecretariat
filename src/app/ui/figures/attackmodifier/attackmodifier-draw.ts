@@ -1,10 +1,9 @@
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
-import { Character } from 'src/app/game/model/Character';
-import { Subscription } from 'rxjs';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 
 
 @Component({
@@ -13,7 +12,8 @@ import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
   templateUrl: './attackmodifier-draw.html',
   styleUrls: ['./attackmodifier-draw.scss']
 })
-export class AttackModifierDrawComponent implements OnInit, OnDestroy, OnChanges {
+export class AttackModifierDrawComponent implements OnInit, OnChanges {
+  private cdr = inject(ChangeDetectorRef);
 
   @Input('character') character!: Character;
   @Output('drawing') drawingEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -37,6 +37,7 @@ export class AttackModifierDrawComponent implements OnInit, OnDestroy, OnChanges
   @ViewChild('drawCard') drawCard!: ElementRef;
 
   constructor(public element: ElementRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
     this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
       let elements = document.elementsFromPoint(event.clientX, event.clientY);
       if (elements[0].classList.contains('attack-modifiers') && elements.length > 2) {
@@ -60,19 +61,9 @@ export class AttackModifierDrawComponent implements OnInit, OnDestroy, OnChanges
 
     this.current = this.deck.current;
 
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => { this.update(); }
-    })
 
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['deck']) {
@@ -122,6 +113,7 @@ export class AttackModifierDrawComponent implements OnInit, OnDestroy, OnChanges
           this.queue = 0;
         }
       }
+      this.cdr.markForCheck();
     }, settingsManager.settings.animations ? 2500 * settingsManager.settings.animationSpeed : 0);
   }
 }

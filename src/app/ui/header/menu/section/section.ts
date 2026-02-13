@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -13,7 +12,7 @@ import { ScenarioCache } from "src/app/game/model/Scenario";
   templateUrl: 'section.html',
   styleUrls: ['../menu.scss', 'section.scss']
 })
-export class SectionMenuComponent implements OnInit, OnDestroy {
+export class SectionMenuComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -23,7 +22,12 @@ export class SectionMenuComponent implements OnInit, OnDestroy {
 
   sectionCache: { edition: string, group: string | undefined, all: boolean, sections: ScenarioCache[] }[] = [];
 
-  constructor(private ghsManager: GhsManager) { }
+  constructor(private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => {
+      this.setEditions();
+      this.sectionCache = [];
+    });
+  }
 
   ngOnInit(): void {
     this.edition =
@@ -36,21 +40,8 @@ export class SectionMenuComponent implements OnInit, OnDestroy {
 
     this.setEditions();
 
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        this.setEditions();
-        this.sectionCache = [];
-      }
-    })
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   setEditions() {
     if (gameManager.game.edition) {

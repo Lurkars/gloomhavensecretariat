@@ -1,7 +1,6 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Overlay } from "@angular/cdk/overlay";
-import { Component, ElementRef, Input, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, ElementRef, Input, OnInit } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -18,7 +17,7 @@ import { MonsterNumberPickerDialog } from "./numberpicker-dialog";
   templateUrl: 'numberpicker.html',
   styleUrls: ['./numberpicker.scss']
 })
-export class MonsterNumberPicker implements OnInit, OnDestroy {
+export class MonsterNumberPicker implements OnInit {
 
   @Input() monster!: Monster;
   @Input() type!: MonsterType;
@@ -31,20 +30,14 @@ export class MonsterNumberPicker implements OnInit, OnDestroy {
   maxStandees: number = 0;
   usedStandees: number = 0;
 
-  constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) { }
+  constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
     this.update();
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   update() {
     this.maxStandees = gameManager.monsterManager.monsterStandeeMax(this.monster);

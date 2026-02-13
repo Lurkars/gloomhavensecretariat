@@ -245,7 +245,7 @@ export class LootManager {
           for (let i = 0; i < reward.value; i++) {
             this.drawCard(gameManager.game.lootDeck);
           }
-          gameManager.uiChange.next(false);
+          gameManager.triggerUiChange(false);
         }
         break;
       case TreasureRewardType.scenario:

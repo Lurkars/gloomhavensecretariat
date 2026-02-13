@@ -1,6 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -16,7 +15,7 @@ import { AbilityDialogComponent } from '../../ability/ability-dialog';
   templateUrl: './ability-card.html',
   styleUrls: ['./ability-card.scss']
 })
-export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
+export class MonsterAbilityCardComponent implements OnInit {
 
   @Input() monster!: Monster;
   @Input() index: number = -1;
@@ -29,20 +28,14 @@ export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
   hasBottomActions: boolean = false;
   drawnAbilities: number = 0;
 
-  constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
+  constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
     this.update();
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   update() {
     this.hasBottomActions = gameManager.monsterManager.hasBottomActions(this.monster);

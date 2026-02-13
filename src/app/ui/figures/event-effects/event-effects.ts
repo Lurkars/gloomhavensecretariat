@@ -1,7 +1,7 @@
 import { Dialog, DIALOG_DATA } from '@angular/cdk/dialog';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -23,7 +23,6 @@ import { FavorsComponent } from './favors/favors';
 import { OutpostAttackComponent } from './outpost-attack/outpost-attack';
 import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
-import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 
 @Component({
   standalone: false,
@@ -65,22 +64,17 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   eventAttack: EventCardAttack | undefined;
 
   constructor(@Inject(DIALOG_DATA) data: { menu: boolean, eventResults: (EventCardEffect | EventCardCondition)[] }, private dialog: Dialog, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
     this.menu = data && data.menu || false;
     this.createEventResults(data && data.eventResults || [], true);
   }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
     this.update();
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
   ngOnDestroy(): void {
     this.close();
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
   }
 
   update(toggle: boolean = false) {

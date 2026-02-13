@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
-import { Subscription } from "rxjs";
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, Input, OnInit, Output } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -13,7 +12,8 @@ import { ItemData } from "src/app/game/model/data/ItemData";
     templateUrl: './item.html',
     styleUrls: ['./item.scss']
 })
-export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ItemComponent implements OnInit, AfterViewInit {
+    private cdr = inject(ChangeDetectorRef);
 
     @Input() item!: ItemData | undefined;
     @Input() identifier: Identifier | undefined | false;
@@ -43,7 +43,14 @@ export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
     gameManager: GameManager = gameManager;
     fontsize: string = "1em";
 
-    constructor(private elementRef: ElementRef, private ghsManager: GhsManager) { }
+    constructor(private elementRef: ElementRef, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => {
+            this.fontsize = (this.elementRef.nativeElement.offsetWidth * 0.072) + 'px';
+            if (this.item) {
+                this.usable = gameManager.itemManager.itemUsable(this.item);
+            }
+        });
+    }
 
     ngOnInit(): void {
         if (!this.item && this.identifier) {
@@ -87,27 +94,13 @@ export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
             this.usable = gameManager.itemManager.itemUsable(this.item);
         }
 
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                this.fontsize = (this.elementRef.nativeElement.offsetWidth * 0.072) + 'px';
-                if (this.item) {
-                    this.usable = gameManager.itemManager.itemUsable(this.item);
-                }
-            }
-        })
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     ngAfterViewInit(): void {
         setTimeout(() => {
             this.fontsize = (this.elementRef.nativeElement.offsetWidth * 0.072) + 'px';
+            this.cdr.markForCheck();
         }, 1);
     }
 

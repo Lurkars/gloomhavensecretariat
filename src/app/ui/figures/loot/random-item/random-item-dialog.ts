@@ -1,11 +1,11 @@
+import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject } from '@angular/core';
-import { DialogRef, DIALOG_DATA, Dialog } from '@angular/cdk/dialog';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
-import { ItemData } from 'src/app/game/model/data/ItemData';
-import { Character } from 'src/app/game/model/Character';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { ItemDialogComponent } from '../../items/dialog/item-dialog';
+import { Character } from 'src/app/game/model/Character';
+import { ItemData } from 'src/app/game/model/data/ItemData';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
+import { ItemDialogComponent } from '../../items/dialog/item-dialog';
 
 @Component({
   standalone: false,

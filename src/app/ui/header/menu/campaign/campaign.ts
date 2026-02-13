@@ -9,12 +9,12 @@ import { Condition, ConditionName, ConditionType } from "src/app/game/model/data
 import { BattleGoalSetupDialog } from "src/app/ui/figures/battlegoal/setup/battlegoal-setup";
 import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet-dialog";
 import { EnhancementDialogComponent } from "src/app/ui/figures/character/sheet/abilities/enhancements/enhancement-dialog";
+import { EventCardDeckComponent } from "src/app/ui/figures/event/deck/event-card-deck";
 import { ItemsDialogComponent } from "src/app/ui/figures/items/dialog/items-dialog";
 import { PartySheetDialogComponent } from "src/app/ui/figures/party/party-sheet-dialog";
 import { PartyResourcesDialogComponent } from "src/app/ui/figures/party/resources/resources";
 import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
 import { ScenarioChartDialogComponent } from "../../../figures/party/scenario-chart/scenario-chart";
-import { EventCardDeckComponent } from "src/app/ui/figures/event/deck/event-card-deck";
 
 
 @Component({
@@ -78,7 +78,7 @@ export class CampaignMenuComponent implements OnInit {
                 settingsManager.set('theme', 'default');
             }
             if (edition == 'gh2e') {
-              settingsManager.set('fhStyle', true);
+                settingsManager.set('fhStyle', true);
             }
         }
         gameManager.game.edition = edition;
@@ -156,13 +156,13 @@ export class CampaignMenuComponent implements OnInit {
         this.close.emit();
     }
     openEventDeckSetup() {
-      this.dialog.open(EventCardDeckComponent, {
-        panelClass: ['dialog'],
-        data: {
-          edition: gameManager.game.edition
-        }
-      });
-      this.close.emit();
+        this.dialog.open(EventCardDeckComponent, {
+            panelClass: ['dialog'],
+            data: {
+                edition: gameManager.game.edition
+            }
+        });
+        this.close.emit();
     }
 
     openBattleGoalsSetup() {

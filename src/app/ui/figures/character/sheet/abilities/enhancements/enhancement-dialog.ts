@@ -1,6 +1,5 @@
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, Inject, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { Character } from "src/app/game/model/Character";
@@ -17,7 +16,7 @@ import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
     templateUrl: 'enhancement-dialog.html',
     styleUrls: ['./enhancement-dialog.scss']
 })
-export class EnhancementDialogComponent implements OnInit, OnDestroy {
+export class EnhancementDialogComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
     ActionType = ActionType;
@@ -41,6 +40,12 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
     enhancedCards: number = 0;
 
     constructor(@Inject(DIALOG_DATA) public data: { action: Action | undefined, actionIndex: string | undefined, enhancementIndex: number | undefined, cardId: number | undefined, character: Character | undefined, summon: SummonData | undefined }, private dialogRef: DialogRef, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => {
+            if (this.data.character && this.data.cardId) {
+                this.enhancements = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((enhancement) => enhancement.cardId == this.data.cardId && this.data.actionIndex && enhancement.actionIndex.indexOf('bottom') == this.data.actionIndex.indexOf('bottom')).length || 0;
+                this.enhancedCards = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((e) => !e.inherited).map((enhancement) => enhancement.cardId).filter((cardId, index, self) => (!this.data.cardId || this.data.cardId != cardId) && index == self.indexOf(cardId)).length;
+            }
+        });
         this.data = data || {};
         this.action = this.data.action ? JSON.parse(JSON.stringify(this.data.action)) : new Action(ActionType.attack, 1);
         this.action.small = false;
@@ -110,25 +115,9 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
             this.customAction = true;
         }
 
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                if (this.data.character && this.data.cardId) {
-                    this.enhancements = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((enhancement) => enhancement.cardId == this.data.cardId && this.data.actionIndex && enhancement.actionIndex.indexOf('bottom') == this.data.actionIndex.indexOf('bottom')).length || 0;
-
-                    this.enhancedCards = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((e) => !e.inherited).map((enhancement) => enhancement.cardId).filter((cardId, index, self) => (!this.data.cardId || this.data.cardId != cardId) && index == self.indexOf(cardId)).length;
-                }
-            }
-        })
         this.update();
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     updateAction(action: Action | undefined = undefined) {
         if (action) {

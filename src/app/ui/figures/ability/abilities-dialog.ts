@@ -1,7 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { ChangeDetectorRef, Component, ElementRef, inject, Inject, OnInit, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -16,7 +15,8 @@ import { applyPlaceholder } from '../../helper/label';
   templateUrl: './abilities-dialog.html',
   styleUrls: ['./abilities-dialog.scss']
 })
-export class AbiltiesDialogComponent implements OnInit, OnDestroy {
+export class AbiltiesDialogComponent implements OnInit {
+  private cdr = inject(ChangeDetectorRef);
 
   @ViewChild('menu') menuElement!: ElementRef;
   reveal: number = 0;
@@ -31,32 +31,28 @@ export class AbiltiesDialogComponent implements OnInit, OnDestroy {
   discardedCards: Ability[] = [];
   deletedCards: Ability[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public monster: Monster, public dialogRef: DialogRef, private ghsManager: GhsManager) { }
+  constructor(@Inject(DIALOG_DATA) public monster: Monster, public dialogRef: DialogRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
   ngOnInit(): void {
     setTimeout(() => {
       if (this.menuElement) {
         this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
       }
+      this.cdr.markForCheck();
     }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0);
 
     this.bottomActions = gameManager.monsterManager.hasBottomActions(this.monster);
     this.update();
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   toggleEdit() {
     this.edit = !this.edit;
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+      this.cdr.markForCheck();
     }, 0);
   }
 

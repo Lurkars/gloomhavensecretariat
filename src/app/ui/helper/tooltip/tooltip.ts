@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component, ComponentRef, Directive, ElementRef
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-tooltip',
     styleUrls: ['./tooltip.scss'],
     templateUrl: './tooltip.html',
@@ -22,7 +22,8 @@ export class GhsTooltipComponent {
 }
 
 @Directive({
-  standalone: false, selector: '[ghs-tooltip]' })
+    standalone: false, selector: '[ghs-tooltip]'
+})
 export class GhsTooltipDirective implements OnInit, OnDestroy {
 
     @Input('ghs-tooltip') value = '';
@@ -62,7 +63,7 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
             }]);
 
         this.overlayRef = this.overlay.create({ positionStrategy });
-        this.overlayRef.hostElement.style.zIndex = "3000";
+        this.overlayRef.hostElement.style.zIndex = '999';
         this.timeout = null;
     }
 

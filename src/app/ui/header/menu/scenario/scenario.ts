@@ -1,6 +1,5 @@
 import { Dialog } from "@angular/cdk/dialog";
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -18,7 +17,7 @@ import { ScenarioChartDialogComponent } from "../../../figures/party/scenario-ch
   templateUrl: 'scenario.html',
   styleUrls: ['../menu.scss', 'scenario.scss']
 })
-export class ScenarioMenuComponent implements OnInit, OnDestroy {
+export class ScenarioMenuComponent implements OnInit {
 
   @Output() close = new EventEmitter();
 
@@ -32,7 +31,12 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
 
   scenarioCache: { edition: string, group: string | undefined, filterSuccess: boolean, includeSpoiler: boolean, all: boolean, scenarios: ScenarioCache[] }[] = [];
 
-  constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
+  constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => {
+      this.scenarioCache = [];
+      this.setEditions();
+    });
+  }
 
   ngOnInit(): void {
     this.edition =
@@ -46,21 +50,8 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
     this.updateGroups();
     this.setEditions();
 
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        this.scenarioCache = [];
-        this.setEditions();
-      }
-    })
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   setEditions() {
     if (gameManager.game.edition) {

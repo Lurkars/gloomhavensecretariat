@@ -1,6 +1,6 @@
 import { DEFAULT_DIALOG_CONFIG, DialogModule } from '@angular/cdk/dialog';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, provideZonelessChangeDetection } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -381,6 +381,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' })
   ],
   providers: [
+    provideZonelessChangeDetection(),
     {
       provide: DEFAULT_DIALOG_CONFIG,
       useValue: {

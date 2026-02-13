@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-trial-dialog',
     templateUrl: './trial-dialog.html',
     styleUrls: ['./trial-dialog.scss'],

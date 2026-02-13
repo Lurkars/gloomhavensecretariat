@@ -1,7 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -21,7 +20,7 @@ import { MonsterStatsDialogComponent } from './stats-dialog';
   templateUrl: './stats.html',
   styleUrls: ['./stats.scss']
 })
-export class MonsterStatsComponent implements OnInit, OnDestroy {
+export class MonsterStatsComponent implements OnInit {
 
   @Input() monster!: Monster;
   @Input() forceStats: boolean = false;
@@ -46,22 +45,16 @@ export class MonsterStatsComponent implements OnInit, OnDestroy {
 
   @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
 
-  constructor(private dialog: Dialog, private overlay: Overlay, private element: ElementRef, private ghsManager: GhsManager) { }
+  constructor(private dialog: Dialog, private overlay: Overlay, private element: ElementRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
 
   ngOnInit(): void {
     this.monsterCopy = JSON.parse(JSON.stringify(this.monster));
     this.update();
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => { this.update(); } });
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   update() {
     if (!settingsManager.settings.statAnimations) {

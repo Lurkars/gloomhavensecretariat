@@ -1,24 +1,28 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
-import { Component, isDevMode, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, isDevMode, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
-import { Subscription } from 'rxjs';
-import { gameManager } from './game/businesslogic/GameManager';
+import { GhsManager } from './game/businesslogic/GhsManager';
 import { settingsManager } from './game/businesslogic/SettingsManager';
 import { ghsDialogClosingHelper, ghsFilterInputFocus } from './ui/helper/Static';
-
 @Component({
   standalone: false,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   title = 'gloomhavensecretariat';
 
   theme: string = '';
   locale: string = '';
 
+  private ghsManager = inject(GhsManager);
+
   constructor(private meta: Meta, private dialog: Dialog) {
+    this.ghsManager.uiChangeEffect(() => {
+      this.applyStyle();
+      this.applyAnimations();
+    });
     this.dialog.afterOpened.subscribe({
       next: (dialogRef: DialogRef) => {
         if (dialogRef.overlayRef.backdropElement && dialog.openDialogs.length > 1 && !dialogRef.overlayRef.backdropElement.classList.contains('fullscreen-backdrop')) {
@@ -58,12 +62,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.applyStyle();
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
-      next: () => {
-        this.applyStyle();
-        this.applyAnimations();
-      }
-    })
     const preventDefault = (e: Event) => e.preventDefault();
 
     document.addEventListener('gesturestart', preventDefault);
@@ -71,13 +69,6 @@ export class AppComponent implements OnInit, OnDestroy {
     document.addEventListener('gestureend', preventDefault);
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   applyStyle() {
     this.theme = settingsManager.settings.theme;

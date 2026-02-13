@@ -1,15 +1,16 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, inject, OnDestroy, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameClockTimestamp } from "src/app/game/model/Game";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-game-clock-dialog',
     templateUrl: 'game-clock.html',
     styleUrls: ['./game-clock.scss']
 })
 export class GameClockDialogComponent implements OnInit, OnDestroy {
+    private cdr = inject(ChangeDetectorRef);
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
@@ -32,6 +33,7 @@ export class GameClockDialogComponent implements OnInit, OnDestroy {
     update() {
         this.current = this.gameClock.length && !this.gameClock[0].clockOut ? (new Date().getTime() - this.gameClock[0].clockIn) / 1000 : undefined;
         this.total = gameManager.game.gameClock.length ? gameManager.game.gameClock.map((value) => ((value.clockOut || new Date().getTime()) - value.clockIn) / 1000).reduce((a, b) => a + b, 0) : 0;
+        this.cdr.markForCheck();
     }
 
     ngOnDestroy(): void {

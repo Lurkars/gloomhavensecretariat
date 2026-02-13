@@ -1,10 +1,10 @@
-import { DIALOG_DATA, Dialog } from "@angular/cdk/dialog";
+import { Dialog, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { ScenarioConclusionComponent } from "../../../footer/scenario/scenario-conclusion/scenario-conclusion";
 import { Scenario } from "src/app/game/model/Scenario";
 import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
+import { ScenarioConclusionComponent } from "../../../footer/scenario/scenario-conclusion/scenario-conclusion";
 
 @Component({
     standalone: false,

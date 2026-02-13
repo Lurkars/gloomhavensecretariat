@@ -1,15 +1,15 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ConditionName } from "src/app/game/model/data/Condition";
 import { CharacterData } from "src/app/game/model/data/CharacterData";
+import { ConditionName } from "src/app/game/model/data/Condition";
 import { DeckData } from "src/app/game/model/data/DeckData";
 import { EditionData } from "src/app/game/model/data/EditionData";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { environment } from "src/environments/environment";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-edition-editor',
     templateUrl: './edition.html',
     styleUrls: ['./editor.scss', './edition.scss']

@@ -3,7 +3,6 @@ import { AfterViewInit, Component, HostListener, Inject, OnInit, ViewEncapsulati
 
 import { Overlay } from "@angular/cdk/overlay";
 import L, { LatLngBoundsLiteral } from 'leaflet';
-import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -36,6 +35,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     gameManager: GameManager = gameManager;
 
     constructor(@Inject(DIALOG_DATA) public data: { edition: string, group: string | undefined }, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.updateMap());
         this.edition = data.edition;
         this.group = data.group;
         this.campaignMode = gameManager.game.party.campaignMode;
@@ -75,17 +75,9 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             });
         }
 
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.updateMap() });
         this.update();
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.flow = [

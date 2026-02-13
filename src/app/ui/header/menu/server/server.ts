@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -17,7 +16,7 @@ import { v4 as uuidv4 } from 'uuid';
   templateUrl: 'server.html',
   styleUrls: ['../menu.scss', 'server.scss']
 })
-export class ServerMenuComponent implements OnInit, OnDestroy {
+export class ServerMenuComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -36,7 +35,9 @@ export class ServerMenuComponent implements OnInit, OnDestroy {
 
   serverUpdateVersion: { latest: boolean, version: string, url: string } | undefined;
 
-  constructor(private ghsManager: GhsManager) { }
+  constructor(private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.checkServerVersion());
+  }
 
   async ngOnInit() {
 
@@ -57,16 +58,8 @@ export class ServerMenuComponent implements OnInit, OnDestroy {
     this.updateServer();
     this.checkServerVersion();
 
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => { this.checkServerVersion() } });
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   connect(url: string, port: string, code: string): void {
     if (url && !isNaN(+port) && code) {

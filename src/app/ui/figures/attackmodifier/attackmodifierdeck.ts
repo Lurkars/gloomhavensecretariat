@@ -1,6 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -32,7 +31,8 @@ export class AttackModiferDeckChange {
   templateUrl: './attackmodifierdeck.html',
   styleUrls: ['./attackmodifierdeck.scss']
 })
-export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges {
+export class AttackModifierDeckComponent implements OnInit, OnChanges {
+  private cdr = inject(ChangeDetectorRef);
 
   @Input('deck') deck!: AttackModifierDeck;
   @Input('character') character: Character | undefined;
@@ -81,6 +81,9 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   @ViewChild('drawCard') drawCard!: ElementRef;
 
   constructor(public element: ElementRef, private dialog: Dialog, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect((fromServer: boolean) => {
+      this.update(fromServer);
+    });
     this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
       let elements = document.elementsFromPoint(event.clientX, event.clientY);
       if (elements[0].classList.contains('attack-modifiers') && elements.length > 2) {
@@ -114,12 +117,10 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
         this.lastVisible = this.deck.lastVisible;
         this.drawTimeout = null;
         this.init = true;
+        this.cdr.markForCheck();
       }, settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0)
     }
 
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: (fromServer: boolean) => { this.update(fromServer); }
-    })
 
     if (this.edition && !this.newStyle) {
       this.newStyle = gameManager.newAmStyle(this.edition);
@@ -140,13 +141,6 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
     });
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['deck']) {
@@ -263,6 +257,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
           this.queue = 0;
         }
       }
+      this.cdr.markForCheck();
     }, settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0);
   }
 

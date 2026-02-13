@@ -1,6 +1,5 @@
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, Inject, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -15,7 +14,7 @@ import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
     templateUrl: './treasures-dialog.html',
     styleUrls: ['./treasures-dialog.scss']
 })
-export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
+export class ScenarioTreasuresDialogComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
 
@@ -31,6 +30,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
     init: boolean = true;
 
     constructor(@Inject(DIALOG_DATA) public data: { treasures: ('G' | number)[] | undefined, edition: string | undefined }, dialogRef: DialogRef, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
         if (!gameManager.game.scenario && (!data.treasures || !data.edition)) {
             ghsDialogClosingHelper(dialogRef);
         } else if (data && data.treasures && data.edition) {
@@ -43,21 +43,9 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                this.update();
-            }
-        });
         this.update();
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.scenario = gameManager.game.scenario || gameManager.scenarioManager.createScenario();

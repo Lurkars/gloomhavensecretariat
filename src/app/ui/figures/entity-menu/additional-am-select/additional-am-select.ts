@@ -1,12 +1,12 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
+import { AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-additional-am-select-dialog',
     templateUrl: './additional-am-select.html',
     styleUrls: ['./additional-am-select.scss']

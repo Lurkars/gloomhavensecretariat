@@ -1,7 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { ChangeDetectorRef, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -24,7 +23,8 @@ import { ScenarioSummaryComponent } from './scenario/summary/scenario-summary';
   templateUrl: './footer.html',
   styleUrls: ['./footer.scss']
 })
-export class FooterComponent implements OnInit, OnDestroy {
+export class FooterComponent implements OnInit {
+  private cdr = inject(ChangeDetectorRef);
 
   @ViewChild('nextButton', { static: false }) nextButton!: ElementRef;
   @ViewChild('monsterDeck', { static: false }) monsterDeck!: ElementRef;
@@ -47,37 +47,36 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   nextHint: boolean = false;
 
-  constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) { }
+  constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => {
+      this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof ObjectiveContainer && figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
+      this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
+      const activeCharacter = settingsManager.settings.characterAttackModifierDeckActiveBottom ? gameManager.game.figures.find((figure) => figure instanceof Character && (figure.attackModifierDeckVisible || gameManager.bbRules())) as Character : undefined;
+      if (settingsManager.settings.animations && ((this.activeCharacter && !activeCharacter) || (!this.activeCharacter && activeCharacter))) {
+        this.activeCharacterFade = true;
+        if (activeCharacter) {
+          this.activeCharacter = activeCharacter;
+        }
+        setTimeout(() => {
+          if (activeCharacter) {
+            this.activeCharacterFade = false;
+          } else {
+            this.activeCharacter = activeCharacter;
+          }
+          this.cdr.markForCheck();
+        }, activeCharacter ? 1 : 500 * settingsManager.settings.animationSpeed)
+      } else {
+        this.activeCharacter = activeCharacter;
+        this.activeCharacterFade = !activeCharacter && settingsManager.settings.animations;
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof ObjectiveContainer && figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
 
     this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
 
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof ObjectiveContainer && figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
-        this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
-        const activeCharacter = settingsManager.settings.characterAttackModifierDeckActiveBottom ? gameManager.game.figures.find((figure) => figure instanceof Character && (figure.attackModifierDeckVisible || gameManager.bbRules())) as Character : undefined;
-        if (settingsManager.settings.animations && ((this.activeCharacter && !activeCharacter) || (!this.activeCharacter && activeCharacter))) {
-          this.activeCharacterFade = true;
-          if (activeCharacter) {
-            this.activeCharacter = activeCharacter;
-          }
-          setTimeout(() => {
-            if (activeCharacter) {
-              this.activeCharacterFade = false;
-            } else {
-              this.activeCharacter = activeCharacter;
-            }
-          }, activeCharacter ? 1 : 500 * settingsManager.settings.animationSpeed)
-
-        } else {
-          this.activeCharacter = activeCharacter;
-          this.activeCharacterFade = !activeCharacter && settingsManager.settings.animations;
-        }
-      }
-    })
 
     setInterval(() => {
       gameManager.game.playSeconds++;
@@ -99,10 +98,12 @@ export class FooterComponent implements OnInit, OnDestroy {
         gameManager.stateManager.saveLocal();
       }
 
+      this.cdr.markForCheck();
     }, 1000)
 
     setTimeout(() => {
       this.compact = this.monsterDeck && this.monsterDeck.nativeElement.clientWidth > this.elementRef.nativeElement.clientWidth * 0.3;
+      this.cdr.markForCheck();
     }, 100)
 
     window.addEventListener('resize', (event) => {
@@ -110,13 +111,6 @@ export class FooterComponent implements OnInit, OnDestroy {
     });
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   next(force: boolean = false): void {
     if (!force && this.disabled()) {

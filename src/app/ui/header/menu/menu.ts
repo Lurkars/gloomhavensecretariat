@@ -1,7 +1,6 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
 import { SwUpdate } from "@angular/service-worker";
-import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -41,7 +40,7 @@ export enum SubMenu {
   templateUrl: 'menu.html',
   styleUrls: ['./menu.scss']
 })
-export class MainMenuComponent implements OnInit, OnDestroy {
+export class MainMenuComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -59,31 +58,20 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   redoInfo: string[] = [];
 
   constructor(@Inject(DIALOG_DATA) data: { subMenu: SubMenu, standalone: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private swUpdate: SwUpdate, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.updateUndoRedo());
     this.active = data.subMenu;
     this.standalone = data.standalone;
-    this.dialogRef.overlayRef.hostElement.style.zIndex = '3000';
+    this.dialogRef.overlayRef.hostElement.style.zIndex = '999';
     if (this.dialogRef.overlayRef.backdropElement) {
-      this.dialogRef.overlayRef.backdropElement.style.zIndex = '3000';
+      this.dialogRef.overlayRef.backdropElement.style.zIndex = '999';
     }
   }
 
   ngOnInit(): void {
     this.updateUndoRedo();
 
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        this.updateUndoRedo();
-      }
-    })
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   close() {
     ghsDialogClosingHelper(this.dialogRef);

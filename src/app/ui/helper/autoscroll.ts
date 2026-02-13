@@ -1,5 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Figure } from 'src/app/game/model/Figure';
@@ -33,37 +32,29 @@ export class AutoscrollDirective implements OnChanges {
   standalone: false,
   selector: '[figure-autoscroll]'
 })
-export class FigureAutoscrollDirective implements OnInit, OnDestroy {
+export class FigureAutoscrollDirective implements OnInit {
 
   @Input('figure-autoscroll') figure!: Figure;
   @Input('block') block: ScrollLogicalPosition = 'center';
   @Input('inline') inline: ScrollLogicalPosition = 'center';
   active: boolean = false;
 
-  constructor(private el: ElementRef, private ghsManager: GhsManager) { }
+  constructor(private el: ElementRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => {
+      setTimeout(() => {
+        if (settingsManager.settings.autoscroll && !this.active && this.figure.active) {
+          this.el.nativeElement.scrollIntoView({
+            behavior: !settingsManager.settings.animations ? 'auto' : 'smooth',
+            block: this.block,
+            inline: this.inline
+          });
+        }
+        this.active = this.figure.active;
+      }, settingsManager.settings.animations ? 300 * settingsManager.settings.animationSpeed : 5);
+    });
+  }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        setTimeout(() => {
-          if (settingsManager.settings.autoscroll && !this.active && this.figure.active) {
-            this.el.nativeElement.scrollIntoView({
-              behavior: !settingsManager.settings.animations ? 'auto' : 'smooth',
-              block: this.block,
-              inline: this.inline
-            });
-          }
-          this.active = this.figure.active;
-        }, settingsManager.settings.animations ? 300 * settingsManager.settings.animationSpeed : 5);
-      }
-    })
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 }

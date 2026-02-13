@@ -1,8 +1,8 @@
 import { gameManager } from "../businesslogic/GameManager";
-import { ConditionName, EntityCondition } from "./data/Condition";
-import { GameState } from "./Game";
-import { AdditionalIdentifier } from "./data/Identifier";
 import { Action } from "./data/Action";
+import { ConditionName, EntityCondition } from "./data/Condition";
+import { AdditionalIdentifier } from "./data/Identifier";
+import { GameState } from "./Game";
 
 export interface Entity {
   active: boolean;

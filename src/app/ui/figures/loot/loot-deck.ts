@@ -1,6 +1,5 @@
 import { Dialog } from "@angular/cdk/dialog";
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from "@angular/core";
-import { Subscription } from "rxjs";
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { LootManager } from "src/app/game/businesslogic/LootManager";
@@ -35,7 +34,8 @@ export class LootDeckChange {
     templateUrl: './loot-deck.html',
     styleUrls: ['./loot-deck.scss']
 })
-export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
+export class LootDeckComponent implements OnInit, OnChanges {
+    private cdr = inject(ChangeDetectorRef);
 
     @Input('deck') deck!: LootDeck;
     @Input() bottom: boolean = false;
@@ -63,6 +63,9 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
     initServer: boolean = false;
 
     constructor(private element: ElementRef, private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect((fromServer: boolean) => {
+            this.update(fromServer);
+        });
         this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
             let elements = document.elementsFromPoint(event.clientX, event.clientY);
             if (elements[0].classList.contains('deck') && elements.length > 2) {
@@ -82,12 +85,10 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                 this.current = this.deck.current;
                 this.drawTimeout = null;
                 this.init = true;
+                this.cdr.markForCheck();
             }, settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0)
         }
 
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: (fromServer: boolean) => { this.update(fromServer); }
-        })
 
         window.addEventListener('resize', (event) => {
             this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
@@ -98,13 +99,6 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
         });
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes['deck']) {
@@ -198,6 +192,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                 }
             }
 
+            this.cdr.markForCheck();
         }, settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0);
     }
 

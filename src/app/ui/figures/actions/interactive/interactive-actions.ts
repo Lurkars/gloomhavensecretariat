@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { InteractiveAction } from "src/app/game/businesslogic/ActionsManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
@@ -17,7 +16,7 @@ import { Element, ElementState } from "src/app/game/model/data/Element";
     templateUrl: './interactive-actions.html',
     styleUrls: ['./interactive-actions.scss']
 })
-export class InteractiveActionsComponent implements OnInit, OnDestroy {
+export class InteractiveActionsComponent implements OnInit {
 
     @Input() actions!: Action[];
     @Input() figure!: Monster | ObjectiveContainer;
@@ -34,24 +33,14 @@ export class InteractiveActionsComponent implements OnInit, OnDestroy {
     chooseElementAction: InteractiveAction | undefined;
     chooseElementValues: string[] = [];
 
-    constructor(private ghsManager: GhsManager) { }
+    constructor(private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
+    }
 
     ngOnInit() {
         this.update();
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                this.update();
-            }
-        });
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         let change = this.interactiveActions.length > 0;

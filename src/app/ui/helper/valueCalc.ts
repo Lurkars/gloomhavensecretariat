@@ -1,5 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -67,7 +66,7 @@ export function valueCalc(value: string | number, level: number | undefined = un
   standalone: false,
   selector: ' [value-calc]'
 })
-export class ValueCalcDirective implements OnInit, OnDestroy, OnChanges {
+export class ValueCalcDirective implements OnInit, OnChanges {
 
   @Input('value-calc') value!: string | number;
   @Input('level') level: number | undefined;
@@ -78,6 +77,14 @@ export class ValueCalcDirective implements OnInit, OnDestroy, OnChanges {
   private calc: boolean;
 
   constructor(private el: ElementRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => {
+      if (this.calc != settingsManager.settings.calculate || this.C != Math.max(2, gameManager.characterManager.characterCount()) || this.L != gameManager.game.level) {
+        this.C = Math.max(2, gameManager.characterManager.characterCount());
+        this.L = gameManager.game.level;
+        this.calc = settingsManager.settings.calculate;
+        this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
+      }
+    });
     this.C = Math.max(2, gameManager.characterManager.characterCount());
     this.L = gameManager.game.level;
     this.calc = settingsManager.settings.calculate;
@@ -89,26 +96,9 @@ export class ValueCalcDirective implements OnInit, OnDestroy, OnChanges {
 
 
   ngOnInit(): void {
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        if (this.calc != settingsManager.settings.calculate || this.C != Math.max(2, gameManager.characterManager.characterCount()) || this.L != gameManager.game.level) {
-          this.C = Math.max(2, gameManager.characterManager.characterCount());
-          this.L = gameManager.game.level;
-          this.calc = settingsManager.settings.calculate;
-          this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
-        }
-      }
-    });
     this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
 
 

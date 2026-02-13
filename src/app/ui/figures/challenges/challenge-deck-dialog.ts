@@ -1,13 +1,12 @@
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild } from "@angular/core";
-import { Subscription } from "rxjs";
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
 import { ChallengeCard, ChallengeDeck } from "src/app/game/model/data/Challenges";
 import { ChallengeDeckChange } from "./challenge-deck";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 
 @Component({
@@ -17,6 +16,7 @@ import { GhsManager } from "src/app/game/businesslogic/GhsManager";
     styleUrls: ['./challenge-deck-dialog.scss']
 })
 export class ChallengeDeckDialogComponent implements OnInit {
+    private cdr = inject(ChangeDetectorRef);
 
     @ViewChild('menu') menuElement!: ElementRef;
     gameManager: GameManager = gameManager;
@@ -45,6 +45,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
     removedCards: ChallengeCard[] = [];
 
     constructor(@Inject(DIALOG_DATA) public data: { deck: ChallengeDeck, before: EventEmitter<ChallengeDeckChange>, after: EventEmitter<ChallengeDeckChange> }, public dialogRef: DialogRef, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
         this.deck = data.deck;
         this.before = data.before;
         this.after = data.after;
@@ -53,19 +54,12 @@ export class ChallengeDeckDialogComponent implements OnInit {
     ngOnInit(): void {
         setTimeout(() => {
             this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+            this.cdr.markForCheck();
         }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0);
         this.update();
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
         this.edit = !gameManager.game.scenario;
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.upcomingCards = this.deck.cards.filter((card, index) => index > this.deck.current);
@@ -90,6 +84,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
         this.edit = !this.edit;
         setTimeout(() => {
             this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+            this.cdr.markForCheck();
         }, 0);
     }
 

@@ -1,5 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -12,7 +11,7 @@ import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackM
   styleUrls: ['./attackmodifier.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AttackModifierComponent implements OnInit, OnChanges, OnDestroy {
+export class AttackModifierComponent implements OnInit, OnChanges {
 
   @Input() attackModifier!: AttackModifier;
   @Input() characterIcon!: string;
@@ -42,11 +41,12 @@ export class AttackModifierComponent implements OnInit, OnChanges, OnDestroy {
 
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(public elementRef: ElementRef, private ghsManager: GhsManager) { }
+  constructor(public elementRef: ElementRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.adjustFontSize());
+  }
 
   ngOnInit(): void {
     this.animate = !this.disableFlip;
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.adjustFontSize() });
     this.init();
   }
 
@@ -54,13 +54,6 @@ export class AttackModifierComponent implements OnInit, OnChanges, OnDestroy {
     this.adjustFontSize();
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   adjustFontSize() {
     this.elementRef.nativeElement.style.fontSize = (this.elementRef.nativeElement.offsetWidth * 0.08) + 'px';

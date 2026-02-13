@@ -1,7 +1,7 @@
 import { Dialog } from "@angular/cdk/dialog";
-import { Component, Input, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Action } from "src/app/game/model/data/Action";
@@ -10,7 +10,6 @@ import { Element } from "src/app/game/model/data/Element";
 import { EnhancementAction, EnhancementType } from "src/app/game/model/data/Enhancement";
 import { SummonData } from "src/app/game/model/data/SummonData";
 import { EnhancementDialogComponent } from "../../character/sheet/abilities/enhancements/enhancement-dialog";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
     standalone: false,
@@ -18,7 +17,7 @@ import { GhsManager } from "src/app/game/businesslogic/GhsManager";
     templateUrl: './enhancements.html',
     styleUrls: ['./enhancements.scss']
 })
-export class ActionEnhancementsComponent implements OnInit, OnDestroy {
+export class ActionEnhancementsComponent implements OnInit {
 
     @Input('action') action!: Action;
     @Input('index') actionIndex: string = "";
@@ -38,24 +37,14 @@ export class ActionEnhancementsComponent implements OnInit, OnDestroy {
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
 
-    constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
+    constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
+    }
 
     ngOnInit() {
         this.update();
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                this.update();
-            }
-        })
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.slots = [];

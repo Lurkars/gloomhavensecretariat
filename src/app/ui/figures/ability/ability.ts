@@ -1,14 +1,13 @@
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { InteractiveAction } from "src/app/game/businesslogic/ActionsManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Monster } from "src/app/game/model/Monster";
 import { Ability } from "src/app/game/model/data/Ability";
 import { ActionValueType } from "src/app/game/model/data/Action";
 import { applyPlaceholder } from "../../helper/label";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 
 @Component({
@@ -17,7 +16,7 @@ import { GhsManager } from "src/app/game/businesslogic/GhsManager";
   templateUrl: './ability.html',
   styleUrls: ['./ability.scss']
 })
-export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
+export class AbilityComponent implements OnInit, OnChanges {
 
   @Input() ability: Ability | undefined;
   @Input() abilities!: Ability[];
@@ -46,24 +45,14 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
 
   fontsize: string = "";
 
-  constructor(public elementRef: ElementRef, private ghsManager: GhsManager) { }
+  constructor(public elementRef: ElementRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
   ngOnInit() {
     this.update();
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        this.update();
-      }
-    });
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.update();

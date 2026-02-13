@@ -1,4 +1,4 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject, OnInit } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 
@@ -8,7 +8,7 @@ import { LootType } from "src/app/game/model/data/Loot";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-character-move-resources',
     templateUrl: 'move-resources.html',
     styleUrls: ['./move-resources.scss']

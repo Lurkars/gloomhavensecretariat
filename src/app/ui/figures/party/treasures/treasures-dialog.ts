@@ -1,6 +1,5 @@
 import { Dialog, DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, ElementRef, Inject, OnInit, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { Identifier } from "src/app/game/model/data/Identifier";
@@ -14,7 +13,7 @@ import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
     templateUrl: 'treasures-dialog.html',
     styleUrls: ['./treasures-dialog.scss']
 })
-export class TreasuresDialogComponent implements OnInit, OnDestroy {
+export class TreasuresDialogComponent implements OnInit {
 
     @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
@@ -27,27 +26,16 @@ export class TreasuresDialogComponent implements OnInit, OnDestroy {
     batchSelect: boolean = true;
 
     constructor(@Inject(DIALOG_DATA) public data: { edition: string, scenario: ScenarioData | undefined }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
         this.edition = data.edition;
         this.batchSelect = data.scenario == undefined;
     }
 
 
     ngOnInit(): void {
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                this.update();
-            }
-        });
         this.update();
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.scenarios = [];

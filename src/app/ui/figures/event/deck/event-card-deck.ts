@@ -1,15 +1,14 @@
 import { Dialog, DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, Inject } from "@angular/core";
-import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EventCard, EventCardIdentifier } from "src/app/game/model/data/EventCard";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { EventEffectsDialog } from "../../event-effects/event-effects";
 import { EventCardDialogComponent } from "../dialog/event-card-dialog";
 import { EventCardDrawComponent } from "../draw/event-card-draw";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
     standalone: false,
@@ -34,21 +33,14 @@ export class EventCardDeckComponent {
     settingsManager: SettingsManager = settingsManager;
 
     constructor(@Inject(DIALOG_DATA) data: { edition: string, type: string }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
         this.edition = data.edition;
         this.types = gameManager.eventCardManager.getEventTypesForEdition(this.edition).filter((type) => this.allTypes || gameManager.game.party.eventDecks[type] && gameManager.game.party.eventDecks[type].length);
         this.allTypesToggle = gameManager.eventCardManager.getEventTypesForEdition(this.edition).length != this.types.length;
         this.type = data.type || this.types[0];
         this.update();
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         const deck = gameManager.eventCardManager.getEventCardsForEdition(this.edition, this.type);

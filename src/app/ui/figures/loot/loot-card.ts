@@ -3,17 +3,17 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/cor
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { Loot, LootType, fullLootDeck } from "src/app/game/model/data/Loot";
-import { LootApplyDialogComponent } from "./loot-apply-dialog";
-import { LootRandomItemDialogComponent } from "./random-item/random-item-dialog";
 import { AdditionalIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 import { ItemData } from "src/app/game/model/data/ItemData";
-import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario-summary";
-import { GameScenarioModel } from "src/app/game/model/Scenario";
+import { fullLootDeck, Loot, LootType } from "src/app/game/model/data/Loot";
 import { EntityValueFunction } from "src/app/game/model/Entity";
+import { GameScenarioModel } from "src/app/game/model/Scenario";
+import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario-summary";
+import { LootApplyDialogComponent } from "./loot-apply-dialog";
+import { LootRandomItemDialogComponent } from "./random-item/random-item-dialog";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-loot',
     templateUrl: './loot-card.html',
     styleUrls: ['./loot-card.scss']

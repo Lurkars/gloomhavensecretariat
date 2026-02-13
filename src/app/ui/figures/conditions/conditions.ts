@@ -1,5 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -16,7 +15,7 @@ import { MonsterType } from "src/app/game/model/data/MonsterType";
   templateUrl: './conditions.html',
   styleUrls: ['./conditions.scss']
 })
-export class ConditionsComponent implements OnInit, OnDestroy {
+export class ConditionsComponent implements OnInit {
 
   @Input() entityConditions!: EntityCondition[];
   @Input() immunities!: ConditionName[];
@@ -43,7 +42,9 @@ export class ConditionsComponent implements OnInit, OnDestroy {
   timeout: any;
   numberStore: number = 0;
 
-  constructor(private ghsManager: GhsManager) { }
+  constructor(private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.initializeConditions());
+  }
 
   ngOnInit(): void {
     this.initializeConditions();
@@ -53,20 +54,8 @@ export class ConditionsComponent implements OnInit, OnDestroy {
         this.monsterType = types[0];
       }
     }
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        this.initializeConditions();
-      }
-    })
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   @HostListener('document:keydown', ['$event'])
   onKeyPress(event: KeyboardEvent) {

@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { InteractiveAction } from "src/app/game/businesslogic/ActionsManager";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
@@ -16,7 +15,7 @@ import { MonsterType } from "src/app/game/model/data/MonsterType";
   templateUrl: './actions.html',
   styleUrls: ['./actions.scss']
 })
-export class ActionsComponent implements OnInit, OnDestroy {
+export class ActionsComponent implements OnInit {
 
   @Input() monster: Monster | undefined;
   @Input() monsterType: MonsterType | undefined;
@@ -48,24 +47,14 @@ export class ActionsComponent implements OnInit, OnDestroy {
   additionalActions: Action[] = [];
   additionActionTypes: ActionType[] = [ActionType.shield, ActionType.retaliate, ActionType.heal, ActionType.element, ActionType.elementHalf];
 
-  constructor(private ghsManager: GhsManager) { }
+  constructor(private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
   ngOnInit(): void {
     this.update();
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        this.update();
-      }
-    })
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   update(): void {
     this.additionalActions = [];

@@ -1,12 +1,11 @@
 import { Dialog, DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
-import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EventCard, EventCardIdentifier } from "src/app/game/model/data/EventCard";
 import { ghsDialogClosingHelper } from "../../../helper/Static";
 import { EventCardDialogComponent } from "../dialog/event-card-dialog";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
     standalone: false,
@@ -27,6 +26,11 @@ export class EventCardDrawComponent {
     settingsManager: SettingsManager = settingsManager;
 
     constructor(@Inject(DIALOG_DATA) data: { edition: string, type: string, cardId: string | undefined }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => {
+            if (this.globalDraw && !gameManager.game.eventDraw) {
+                this.dialogRef.close();
+            }
+        });
         const deck = gameManager.game.party.eventDecks[data.type];
         this.globalDraw = gameManager.game.eventDraw != undefined;
         if (deck) {
@@ -41,22 +45,8 @@ export class EventCardDrawComponent {
             this.requirementWarning = !gameManager.game.party.achievementsList.includes(this.event.requirement.partyAchievement);
         }
 
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                if (this.globalDraw && !gameManager.game.eventDraw) {
-                    this.dialogRef.close();
-                }
-            }
-        })
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     select(change: EventCardIdentifier) {
         this.selected = change.selected;

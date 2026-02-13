@@ -7,7 +7,7 @@ import { Monster } from "src/app/game/model/Monster";
   standalone: false,
   selector: 'ghs-figure-errors',
   templateUrl: './errors.html',
-  styleUrls: [ './errors.scss' ]
+  styleUrls: ['./errors.scss']
 })
 export class FigureErrorsComponent implements OnInit {
 
@@ -31,7 +31,7 @@ export class FigureErrorsComponent implements OnInit {
   standalone: false,
   selector: 'ghs-figure-errors-dialog',
   templateUrl: './errors-dialog.html',
-  styleUrls: [ './errors-dialog.scss' ]
+  styleUrls: ['./errors-dialog.scss']
 })
 export class FigureErrorsDialogComponent {
 

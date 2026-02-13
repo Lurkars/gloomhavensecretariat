@@ -1,40 +1,31 @@
 import { DialogRef } from "@angular/cdk/dialog";
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, OnInit } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { ScenarioRule, ScenarioRuleIdentifier } from "src/app/game/model/data/ScenarioRule";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-scenario-rules-dialog',
     templateUrl: './scenario-rules-dialog.html',
     styleUrls: ['./scenario-rules-dialog.scss']
 })
-export class ScenarioRulesDialogComponent implements OnInit, OnDestroy {
+export class ScenarioRulesDialogComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
 
     appliedScenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
     discardedScenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
 
-    constructor(private dialogRef: DialogRef, private ghsManager: GhsManager) { }
+    constructor(private dialogRef: DialogRef, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
+    }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => { this.update(); }
-        });
         this.update();
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.appliedScenarioRules = [];

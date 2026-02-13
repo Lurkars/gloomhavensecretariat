@@ -1,5 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { Entity } from 'src/app/game/model/Entity';
@@ -10,7 +9,7 @@ import { Entity } from 'src/app/game/model/Entity';
     templateUrl: './entity-index-key.html',
     styleUrls: ['./entity-index-key.scss']
 })
-export class EntityIndexKeyComponent implements OnInit, OnDestroy {
+export class EntityIndexKeyComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
     @Input() entity!: Entity;
@@ -18,20 +17,14 @@ export class EntityIndexKeyComponent implements OnInit, OnDestroy {
 
     entityIndex: number = -1;
 
-    constructor(private ghsManager: GhsManager) { }
+    constructor(private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
+    }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
         this.update();
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update(): void {
         this.entityIndex = gameManager.entityManager.getIndexForEntity(this.entity, gameManager.stateManager.keyboardSelecting === 'w');

@@ -1,7 +1,6 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { AfterViewInit, Component, HostListener, Inject, ViewEncapsulation } from "@angular/core";
 import L, { ImageOverlay, LatLngBounds, LatLngBoundsLiteral } from 'leaflet';
-import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -45,10 +44,10 @@ export class WorldMapComponent implements AfterViewInit {
     campaignSheet: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.updateMap());
         const pinchZoom = settingsManager.settings.pinchZoom;
         settingsManager.settings.pinchZoom = false;
         this.mapEdition = this.edition;
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.updateMap() });
         this.update();
 
         this.dialogRef.closed.subscribe({
@@ -58,13 +57,6 @@ export class WorldMapComponent implements AfterViewInit {
         })
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         let editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);

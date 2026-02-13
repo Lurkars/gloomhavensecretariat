@@ -5,7 +5,7 @@ import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
   standalone: false,
   selector: 'ghs-healthbar',
   templateUrl: './healthbar.html',
-  styleUrls: [ './healthbar.scss' ]
+  styleUrls: ['./healthbar.scss']
 })
 export class HealthbarComponent {
 

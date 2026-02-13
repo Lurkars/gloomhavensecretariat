@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { Component, Input, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, inject, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -16,6 +16,7 @@ import { ghsInputFullScreenCheck } from "src/app/ui/helper/Static";
   styleUrls: ['../menu.scss', 'datamanagement.scss']
 })
 export class DatamanagementMenuComponent implements OnInit {
+  private cdr = inject(ChangeDetectorRef);
 
   @Input() editionsOnly: boolean = false;
 
@@ -225,6 +226,7 @@ export class DatamanagementMenuComponent implements OnInit {
     if (this.confirm != "importFile") {
       setTimeout(() => {
         this.confirm = "importFile";
+        this.cdr.markForCheck();
       }, 100);
     } else {
       ghsInputFullScreenCheck();

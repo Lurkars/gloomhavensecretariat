@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { CharacterStat } from "src/app/game/model/data/CharacterStat";
 import { CharacterClass, CharacterData } from "src/app/game/model/data/CharacterData";
+import { CharacterStat } from "src/app/game/model/data/CharacterStat";
 import { ghsIsSpoiled } from "src/app/ui/helper/Static";
 import { environment } from "src/environments/environment";
 

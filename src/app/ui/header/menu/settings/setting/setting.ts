@@ -1,5 +1,4 @@
 import { Component, ElementRef, Input, OnInit, ViewEncapsulation } from "@angular/core";
-import { Subscription } from "rxjs";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
@@ -30,24 +29,18 @@ export class SettingMenuComponent implements OnInit {
 
     settingsManager: SettingsManager = settingsManager;
 
-    constructor(public elementRef: ElementRef, private ghsManager: GhsManager) { }
+    constructor(public elementRef: ElementRef, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
+    }
 
     ngOnInit(): void {
         if (this.type === 'checkbox' && this.values.length > 0) {
             this.type = 'radio';
         }
 
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
         this.update();
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.isDisabled = this.requires.length > 0 && this.requires.some((require) => require.startsWith('!') ? settingsManager.get(require.replace('!', '')) : !settingsManager.get(require)) || this.requiresOne.length > 0 && this.requiresOne.every((require) => require.startsWith('!') ? settingsManager.get(require.replace('!', '')) : !settingsManager.get(require));

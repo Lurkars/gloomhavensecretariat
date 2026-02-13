@@ -1,7 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -13,7 +12,7 @@ import { LevelDialogComponent } from './level-dialog';
   templateUrl: './level.html',
   styleUrls: ['./level.scss']
 })
-export class LevelComponent implements OnInit, OnDestroy {
+export class LevelComponent implements OnInit {
 
   @ViewChild('levelButton') levelButton!: ElementRef;
 
@@ -25,23 +24,13 @@ export class LevelComponent implements OnInit, OnDestroy {
   hazardousTerrain: number = 0;
   monsterDifficulty: number = 0;
 
-  constructor(private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) { }
+  constructor(private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.calculateValues());
+  }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        this.calculateValues();
-      }
-    });
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   open() {
     const positions = [

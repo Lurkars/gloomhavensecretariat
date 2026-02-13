@@ -1,5 +1,5 @@
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject } from '@angular/core';
-import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';

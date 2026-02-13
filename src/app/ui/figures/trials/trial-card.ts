@@ -5,7 +5,7 @@ import { TrialCard } from "src/app/game/model/data/Trials";
 
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-trial-card',
     templateUrl: './trial-card.html',
     styleUrls: ['./trial-card.scss']

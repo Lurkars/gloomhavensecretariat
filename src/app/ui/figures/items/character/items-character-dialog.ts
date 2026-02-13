@@ -6,9 +6,9 @@ import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 import { ItemData, ItemFlags, ItemSlot } from "src/app/game/model/data/ItemData";
-import { ItemsDialogComponent } from "../dialog/items-dialog";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { ItemDialogComponent } from "../dialog/item-dialog";
+import { ItemsDialogComponent } from "../dialog/items-dialog";
 
 @Component({
     standalone: false,

@@ -1,6 +1,6 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, CdkDragEnter, CdkDragExit, CdkDragRelease, CdkDragStart, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, ElementRef, isDevMode, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, inject, isDevMode, OnInit, ViewChild } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { Subscription } from 'rxjs';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -26,6 +26,7 @@ import { PointerInputService } from './helper/pointer-input-service';
   styleUrls: ['./main.scss']
 })
 export class MainComponent implements OnInit {
+  private cdr = inject(ChangeDetectorRef);
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -66,88 +67,80 @@ export class MainComponent implements OnInit {
   @ViewChild('footer') footer!: FooterComponent;
 
   constructor(private element: ElementRef, private swUpdate: SwUpdate, private dialog: Dialog, private pointerInputService: PointerInputService, private ghsManager: GhsManager) {
-    this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        this.figures = gameManager.game.figures.filter((figure) => (settingsManager.settings.monsters || !(figure instanceof Monster)) && (!(figure instanceof Character) || !figure.absent || !settingsManager.settings.hideAbsent));
-
-        if (this.initialized) {
-          const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
-          if (figure) {
-            this.fullviewChar = figure as Character;
-            this.welcome = false;
-          } else if (gameManager.game.figures.length == 0) {
-            this.welcome = true;
-            this.welcomeOtherEditions = settingsManager.settings.editions.length < gameManager.editionData.length;
-            this.welcomeEditionHint = gameManager.game.edition && settingsManager.getLabel('data.edition.' + gameManager.game.edition + '.hint') != 'hint' || false;
-          } else {
-            this.fullviewChar = undefined;
-            this.welcome = false;
-            this.calcColumns();
-            if (settingsManager.settings.automaticStandeesDialog && settingsManager.settings.automaticStandees && settingsManager.settings.standees && !settingsManager.settings.randomStandees && settingsManager.settings.scenarioRooms) {
-              if (this.standeeDialog && gameManager.stateManager.lastAction == 'undo') {
-                this.standeeDialog.close();
-              }
-
-              if (this.dialog.openDialogs.length == 0) {
-                this.automaticStandeeDialogs();
-              }
-              else if (!this.standeeDialogSubscription) {
-                this.standeeDialogSubscription = this.dialog.afterAllClosed.subscribe({
-                  next: () => {
-                    this.automaticStandeeDialogs();
+    this.ghsManager.uiChangeEffect(() => {
+      this.figures = gameManager.game.figures.filter((figure) => (settingsManager.settings.monsters || !(figure instanceof Monster)) && (!(figure instanceof Character) || !figure.absent || !settingsManager.settings.hideAbsent));
+      if (this.initialized) {
+        const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
+        if (figure) {
+          this.fullviewChar = figure as Character;
+          this.welcome = false;
+        } else if (gameManager.game.figures.length == 0) {
+          this.welcome = true;
+          this.welcomeOtherEditions = settingsManager.settings.editions.length < gameManager.editionData.length;
+          this.welcomeEditionHint = gameManager.game.edition && settingsManager.getLabel('data.edition.' + gameManager.game.edition + '.hint') != 'hint' || false;
+        } else {
+          this.fullviewChar = undefined;
+          this.welcome = false;
+          this.calcColumns();
+          if (settingsManager.settings.automaticStandeesDialog && settingsManager.settings.automaticStandees && settingsManager.settings.standees && !settingsManager.settings.randomStandees && settingsManager.settings.scenarioRooms) {
+            if (this.standeeDialog && gameManager.stateManager.lastAction == 'undo') {
+              this.standeeDialog.close();
+            }
+            if (this.dialog.openDialogs.length == 0) {
+              this.automaticStandeeDialogs();
+            }
+            else if (!this.standeeDialogSubscription) {
+              this.standeeDialogSubscription = this.dialog.afterAllClosed.subscribe({
+                next: () => {
+                  this.automaticStandeeDialogs();
+                }
+              })
+            }
+          }
+          this.showBackupHint = settingsManager.settings.backupHint && !this.loading && !gameManager.game.scenario && (gameManager.game.party.scenarios.length > 0 || gameManager.game.party.casualScenarios.length > 0 || gameManager.game.parties.some((party) => party.casualScenarios.length > 0));
+          if (settingsManager.settings.initiativeRequired && settingsManager.settings.initiativeRoundConfirm && gameManager.game.state == GameState.draw && gameManager.game.scenario) {
+            if (gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent) != undefined && gameManager.game.figures.every((figure) => !(figure instanceof Character) || !gameManager.entityManager.isAlive(figure) || figure.absent || figure.getInitiative() > 0)) {
+              if (!this.initiativeSetDialog) {
+                this.initiativeSetDialog = this.dialog.open(ConfirmDialogComponent, {
+                  panelClass: ['dialog'],
+                  data: {
+                    label: 'round.hint.initiativeRoundConfirm'
+                  }
+                });
+                this.initiativeSetDialog.closed.subscribe({
+                  next: (result) => {
+                    this.initiativeSetDialog = "discard";
+                    if (result) {
+                      this.initiativeSetDialog = false;
+                      this.footer.next();
+                    }
                   }
                 })
               }
-            }
-            this.showBackupHint = settingsManager.settings.backupHint && !this.loading && !gameManager.game.scenario && (gameManager.game.party.scenarios.length > 0 || gameManager.game.party.casualScenarios.length > 0 || gameManager.game.parties.some((party) => party.casualScenarios.length > 0));
-
-            if (settingsManager.settings.initiativeRequired && settingsManager.settings.initiativeRoundConfirm && gameManager.game.state == GameState.draw && gameManager.game.scenario) {
-              if (gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent) != undefined && gameManager.game.figures.every((figure) => !(figure instanceof Character) || !gameManager.entityManager.isAlive(figure) || figure.absent || figure.getInitiative() > 0)) {
-                if (!this.initiativeSetDialog) {
-                  this.initiativeSetDialog = this.dialog.open(ConfirmDialogComponent, {
-                    panelClass: ['dialog'],
-                    data: {
-                      label: 'round.hint.initiativeRoundConfirm'
-                    }
-                  });
-
-                  this.initiativeSetDialog.closed.subscribe({
-                    next: (result) => {
-                      this.initiativeSetDialog = "discard";
-                      if (result) {
-                        this.initiativeSetDialog = false;
-                        this.footer.next();
-                      }
-                    }
-                  })
-                }
-              } else {
-                if (this.initiativeSetDialog instanceof DialogRef) {
-                  this.initiativeSetDialog.close();
-                }
-                this.initiativeSetDialog = false;
+            } else {
+              if (this.initiativeSetDialog instanceof DialogRef) {
+                this.initiativeSetDialog.close();
               }
-            } else if (gameManager.game.state == GameState.next) {
               this.initiativeSetDialog = false;
             }
-          }
-        }
-
-        if (this.serverPing != settingsManager.settings.serverPing) {
-          if (this.serverPingInterval) {
-            clearInterval(this.serverPingInterval);
-            this.serverPingInterval = null;
-          }
-
-          this.serverPing = settingsManager.settings.serverPing;
-          if (this.serverPing > 0) {
-            this.serverPingInterval = setInterval(() => {
-              gameManager.stateManager.sendPing();
-            }, 1000 * this.serverPing);
+          } else if (gameManager.game.state == GameState.next) {
+            this.initiativeSetDialog = false;
           }
         }
       }
-    })
+      if (this.serverPing != settingsManager.settings.serverPing) {
+        if (this.serverPingInterval) {
+          clearInterval(this.serverPingInterval);
+          this.serverPingInterval = null;
+        }
+        this.serverPing = settingsManager.settings.serverPing;
+        if (this.serverPing > 0) {
+          this.serverPingInterval = setInterval(() => {
+            gameManager.stateManager.sendPing();
+          }, 1000 * this.serverPing);
+        }
+      }
+    });
 
     this.swUpdate.versionUpdates.subscribe(evt => {
       this.loading = false;
@@ -174,6 +167,7 @@ export class MainComponent implements OnInit {
 
     setInterval(() => {
       this.cancelLoading = true;
+      this.cdr.markForCheck();
     }, 10000);
 
     window.addEventListener('beforeinstallprompt', (e) => {
@@ -395,6 +389,7 @@ export class MainComponent implements OnInit {
 
           this.translate(scrollTo, skipAnimation);
         }
+        this.cdr.markForCheck();
       }, 1);
     }
   }

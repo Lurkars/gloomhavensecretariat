@@ -1,6 +1,5 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component, Inject, OnDestroy } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -27,7 +26,7 @@ import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
     templateUrl: './scenario-summary.html',
     styleUrls: ['./scenario-summary.scss']
 })
-export class ScenarioSummaryComponent implements OnDestroy {
+export class ScenarioSummaryComponent {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
@@ -79,6 +78,16 @@ export class ScenarioSummaryComponent implements OnDestroy {
     waitForClose: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined, conclusionOnly: boolean, rewardsOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => {
+            if (!this.conclusionOnly) {
+                if (!gameManager.game.finish) {
+                    gameManager.stateManager.scenarioSummary = false;
+                    this.close();
+                } else {
+                    this.loadFinish();
+                }
+            }
+        });
 
         this.scenario = data.scenario;
         this.success = data.success;
@@ -166,27 +175,8 @@ export class ScenarioSummaryComponent implements OnDestroy {
             }
         })
 
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                if (!this.conclusionOnly) {
-                    if (!gameManager.game.finish) {
-                        gameManager.stateManager.scenarioSummary = false;
-                        this.close();
-                    } else {
-                        this.loadFinish();
-                    }
-                }
-            }
-        })
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     updateFinish() {
         const finish = new ScenarioFinish();

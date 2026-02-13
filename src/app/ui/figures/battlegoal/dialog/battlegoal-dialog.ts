@@ -1,14 +1,13 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { moveItemInArray } from "@angular/cdk/drag-drop";
-import { Component, Inject, OnDestroy } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { BattleGoal } from "src/app/game/model/data/BattleGoal";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { BattleGoalSetupDialog } from "../setup/battlegoal-setup";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
   standalone: false,
@@ -16,7 +15,7 @@ import { GhsManager } from "src/app/game/businesslogic/GhsManager";
   templateUrl: './battlegoal-dialog.html',
   styleUrls: ['./battlegoal-dialog.scss']
 })
-export class CharacterBattleGoalsDialog implements OnDestroy {
+export class CharacterBattleGoalsDialog {
 
   gameManager: GameManager = gameManager;
   battleGoals: BattleGoal[] = [];
@@ -30,6 +29,15 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
   trial356: boolean = false;
 
   constructor(@Inject(DIALOG_DATA) data: { character: Character, draw: boolean, cardOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => {
+      this.character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.edition == this.character.edition && figure.name == this.character.name) as Character || this.character;
+      if (this.character.battleGoal) {
+        this.selected = 0;
+      } else {
+        this.selected = -1;
+      }
+      this.update();
+    });
     this.character = data.character;
     this.selected = this.character.battleGoal ? 0 : -1;
     this.cardOnly = data.cardOnly;
@@ -57,26 +65,8 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
     }
 
 
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        this.character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.edition == this.character.edition && figure.name == this.character.name) as Character || this.character;
-        if (this.character.battleGoal) {
-          this.selected = 0;
-        } else {
-          this.selected = -1;
-        }
-        this.update();
-      }
-    })
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   drawCards() {
     if (this.redrawAvailable) {

@@ -1,5 +1,4 @@
-import { Component, Directive, ElementRef, Input, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, Directive, ElementRef, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -15,7 +14,7 @@ import { MonsterEntity } from "src/app/game/model/MonsterEntity";
   templateUrl: './highlight.html',
   styleUrls: ['./highlight.scss']
 })
-export class HighlightConditionsComponent implements OnInit, OnDestroy {
+export class HighlightConditionsComponent implements OnInit {
 
   @Input() entity!: Entity;
   @Input() figure!: Figure;
@@ -25,24 +24,14 @@ export class HighlightConditionsComponent implements OnInit, OnDestroy {
   ConditionType = ConditionType;
   highlightedConditions: EntityCondition[] = [];
 
-  constructor(private ghsManager: GhsManager) { }
+  constructor(private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
   ngOnInit(): void {
     this.update();
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        this.update();
-      }
-    })
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   update() {
     this.highlightedConditions = gameManager.entityManager.highlightedConditions(this.entity);
@@ -90,32 +79,24 @@ export class HighlightConditionsComponent implements OnInit, OnDestroy {
   standalone: false,
   selector: '[conditionHighlight]'
 })
-export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {
+export class ConditionHighlightAnimationDirective implements OnInit {
 
 
   @Input('conditionHighlight') condition!: EntityCondition;
 
-  constructor(private el: ElementRef, private ghsManager: GhsManager) { }
+  constructor(private el: ElementRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => {
+      if (this.condition.highlight && !this.condition.expired && (!settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.includes(this.condition.name))) {
+        this.playAnimation();
+      }
+    });
+  }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        if (this.condition.highlight && !this.condition.expired && (!settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.includes(this.condition.name))) {
-          this.playAnimation();
-        }
-      }
-    })
-
     this.playAnimation();
   }
 
-  uiChangeSubscription: Subscription | undefined;
 
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   playAnimation() {
     this.el.nativeElement.classList.add("animation");

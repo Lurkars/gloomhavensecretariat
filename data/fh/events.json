@@ -6483,7 +6483,7 @@
             "effects": [
               {
                 "type": "randomItem",
-                "alt": true
+                "alt": "fh"
               },
               {
                 "type": "scenarioCondition",
@@ -6637,7 +6637,7 @@
               },
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           }
@@ -6685,7 +6685,7 @@
             "effects": [
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           }
@@ -7478,7 +7478,7 @@
             "effects": [
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               },
               {
                 "type": "item",
@@ -7802,7 +7802,7 @@
             "effects": [
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               },
               {
                 "type": "outcome",
@@ -14204,7 +14204,7 @@
             "effects": [
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           },
@@ -14955,7 +14955,7 @@
             "effects": [
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           }
@@ -14995,7 +14995,7 @@
             "effects": [
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           }
@@ -15313,7 +15313,7 @@
             "effects": [
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           },
@@ -15430,7 +15430,7 @@
               },
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           }
@@ -15532,7 +15532,7 @@
             "effects": [
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           }
@@ -15724,7 +15724,7 @@
             "effects": [
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           }
@@ -15924,7 +15924,7 @@
             "effects": [
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           },
@@ -16128,7 +16128,7 @@
               },
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           }
@@ -16152,7 +16152,7 @@
               },
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           }
@@ -16418,7 +16418,7 @@
             "effects": [
               {
                 "type": "discardOne",
-                "alt": true
+                "alt": "fh"
               }
             ]
           }

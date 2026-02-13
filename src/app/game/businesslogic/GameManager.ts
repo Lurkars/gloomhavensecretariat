@@ -1,4 +1,4 @@
-import { BehaviorSubject } from "rxjs";
+import { signal, WritableSignal } from "@angular/core";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
 import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
@@ -16,7 +16,7 @@ import { Ability } from "../model/data/Ability";
 import { Action, ActionType } from "../model/data/Action";
 import { ChallengeCard } from "../model/data/Challenges";
 import { CharacterData } from "../model/data/CharacterData";
-import { Condition, ConditionName, ConditionType, Conditions } from "../model/data/Condition";
+import { Condition, ConditionName, Conditions, ConditionType } from "../model/data/Condition";
 import { DeckData } from "../model/data/DeckData";
 import { CampaignData, EditionData, FH_PROSPERITY_STEPS, GH2E_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "../model/data/EditionData";
 import { ElementModel, ElementState } from "../model/data/Element";
@@ -81,7 +81,13 @@ export class GameManager {
   enhancementsManager: EnhancementsManager;
   imbuementManager: ImbuementManager;
 
-  uiChange = new BehaviorSubject<boolean>(false);
+  uiChangeSignal: WritableSignal<number> = signal(0);
+  uiChangeFromServer: WritableSignal<boolean> = signal(false);
+
+  triggerUiChange(fromServer: boolean = false): void {
+    this.uiChangeFromServer.set(fromServer);
+    this.uiChangeSignal.update(v => v + 1);
+  }
 
   constructor() {
     this.stateManager = new StateManager(this.game);

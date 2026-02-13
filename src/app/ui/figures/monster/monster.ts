@@ -1,7 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -17,7 +16,7 @@ import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dial
   templateUrl: './monster.html',
   styleUrls: ['./monster.scss']
 })
-export class MonsterComponent implements OnInit, OnDestroy {
+export class MonsterComponent implements OnInit {
 
   @Input() monster!: Monster;
   MonsterType = MonsterType;
@@ -28,20 +27,14 @@ export class MonsterComponent implements OnInit, OnDestroy {
   count: number = 0;
   sortedEntites: MonsterEntity[] = [];
 
-  constructor(private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) { }
+  constructor(private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
     this.update();
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   update() {
     this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);

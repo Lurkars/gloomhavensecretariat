@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -13,7 +12,7 @@ import { ghsValueSign } from "../../helper/Static";
     templateUrl: './level-dialog.html',
     styleUrls: ['./level-dialog.scss']
 })
-export class LevelDialogComponent implements OnInit, OnDestroy {
+export class LevelDialogComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
@@ -24,24 +23,14 @@ export class LevelDialogComponent implements OnInit, OnDestroy {
 
     levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
 
-    constructor(private ghsManager: GhsManager) { }
+    constructor(private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.calculateValues());
+    }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                this.calculateValues();
-            }
-        });
         this.calculateValues();
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     setLevelCalculation(levelCalculation: boolean) {
         gameManager.stateManager.before(levelCalculation ? "enableAutomaticLevel" : "disabledAutomaticLevel");

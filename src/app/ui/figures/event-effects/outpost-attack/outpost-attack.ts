@@ -1,8 +1,8 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Inject } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierDeck, AttackResult } from 'src/app/game/model/data/AttackModifier';
 import { EventCardAttack, EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
@@ -12,7 +12,6 @@ import { AttackModiferDeckChange } from '../../attackmodifier/attackmodifierdeck
 import { Building } from '../../party/buildings/buildings';
 import { PartySheetDialogComponent } from '../../party/party-sheet-dialog';
 import { WorldMapComponent } from '../../party/world-map/world-map';
-import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 
 @Component({
     standalone: false,
@@ -49,6 +48,7 @@ export class OutpostAttackComponent {
     deckActive: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public data: { attack: EventCardAttack, effects: EventCardEffect[] }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
         if (this.data.attack) {
             this.defaultAttack = new EventCardAttack(data.attack.attackValue, data.attack.targetNumber, data.attack.targetDescription, data.attack.narrative, data.attack.effects);
         }
@@ -78,16 +78,10 @@ export class OutpostAttackComponent {
     }
 
     ngOnInit(): void {
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() })
         this.update(true);
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
     ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
 
         if (gameManager.game.party.townGuardDeck) {
             gameManager.game.party.townGuardDeck.active = this.deckActive;

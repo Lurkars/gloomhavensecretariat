@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -24,7 +23,7 @@ export const ActionTypesHelper: ActionType[] = [ActionType.concatenation, Action
   templateUrl: './action.html',
   styleUrls: ['./action.scss']
 })
-export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
+export class ActionComponent implements OnInit, AfterViewInit {
 
   @Input() monster: Monster | undefined;
   @Input() monsterType: MonsterType | undefined;
@@ -76,24 +75,14 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
   level: number = 0;
   round: string = "";
 
-  constructor(private ghsManager: GhsManager) { }
+  constructor(private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
   ngOnInit(): void {
     this.update();
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-      next: () => {
-        this.update();
-      }
-    })
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   ngAfterViewInit(): void {
     // hacky enhancments in label texts

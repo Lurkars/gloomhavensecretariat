@@ -1,7 +1,7 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, Inject, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
@@ -12,7 +12,6 @@ import { ItemsBrewDialog } from "../brew/brew";
 import { ItemDistillDialogComponent } from "../character/item-distill";
 import { ItemsCharacterDialogComponent } from "../character/items-character-dialog";
 import { ItemDialogComponent } from "./item-dialog";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
     standalone: false,
@@ -20,7 +19,7 @@ import { GhsManager } from "src/app/game/businesslogic/GhsManager";
     templateUrl: './items-dialog.html',
     styleUrls: ['./items-dialog.scss']
 })
-export class ItemsDialogComponent implements OnInit, OnDestroy {
+export class ItemsDialogComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
@@ -47,6 +46,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
     ItemSlot: ItemSlot[] = Object.values(ItemSlot);
 
     constructor(@Inject(DIALOG_DATA) public data: { edition: string | undefined, select: Character | undefined, affordable: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
         this.selected = undefined;
         this.character = data.select;
         this.sorted = this.character != undefined && this.character.progress.items.length > 0;
@@ -60,20 +60,8 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.updateEditionItems();
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                this.update();
-            }
-        })
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     setEdition(edition: string) {
         this.currentEdition = edition;

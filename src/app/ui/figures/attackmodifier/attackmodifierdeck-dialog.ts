@@ -1,15 +1,14 @@
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { Component, ElementRef, EventEmitter, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { Subscription } from "rxjs";
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild, inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { AttackModifier, AttackModifierDeck, AttackModifierType, Gh2ESealedDeckAttackModifier, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { ConditionName } from "src/app/game/model/data/Condition";
 import { AttackModiferDeckChange } from "./attackmodifierdeck";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 
 @Component({
   standalone: false,
@@ -17,7 +16,8 @@ import { GhsManager } from "src/app/game/businesslogic/GhsManager";
   templateUrl: './attackmodifierdeck-dialog.html',
   styleUrls: ['./attackmodifierdeck-dialog.scss',]
 })
-export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
+export class AttackModifierDeckDialogComponent implements OnInit {
+  private cdr = inject(ChangeDetectorRef);
 
   deck: AttackModifierDeck;
   character: Character;
@@ -55,6 +55,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
   factionAttackModifier: AttackModifier[] = [];
 
   constructor(@Inject(DIALOG_DATA) data: { deck: AttackModifierDeck, character: Character, ally: boolean, numeration: string, newStyle: boolean, townGuard: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
     this.deck = data.deck;
     this.character = data.character;
     this.ally = data.ally;
@@ -82,27 +83,21 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
     }
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+      this.cdr.markForCheck();
     }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0);
     if (gameManager.bbRules() && settingsManager.settings.bbAm) {
       this.bbTable = true;
     }
     this.update();
-    this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({ next: () => this.update() });
   }
 
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
 
   toggleEdit() {
     this.edit = !this.edit;
     this.bbTable = false;
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+      this.cdr.markForCheck();
     }, 0);
   }
 
@@ -111,6 +106,7 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
     this.edit = false;
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+      this.cdr.markForCheck();
     }, 0);
   }
 

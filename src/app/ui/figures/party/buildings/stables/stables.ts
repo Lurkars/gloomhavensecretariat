@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, OnInit } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { PetCard, PetIdentifier } from "src/app/game/model/data/PetCard";
@@ -11,7 +10,7 @@ import { PetCard, PetIdentifier } from "src/app/game/model/data/PetCard";
     templateUrl: 'stables.html',
     styleUrls: ['./stables.scss'],
 })
-export class StablesComponent implements OnInit, OnDestroy {
+export class StablesComponent implements OnInit {
 
     pets: { card: PetCard | undefined, model: PetIdentifier | undefined }[] = [];
 
@@ -24,24 +23,14 @@ export class StablesComponent implements OnInit, OnDestroy {
     used: number = 0;
     active: number = 0;
 
-    constructor(private ghsManager: GhsManager) { }
+    constructor(private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.updateState());
+    }
 
     ngOnInit() {
         this.update();
-        this.uiChangeSubscription = this.ghsManager.onUiChange().subscribe({
-            next: () => {
-                this.updateState();
-            }
-        })
     }
 
-    uiChangeSubscription: Subscription | undefined;
-
-    ngOnDestroy(): void {
-        if (this.uiChangeSubscription) {
-            this.uiChangeSubscription.unsubscribe();
-        }
-    }
 
     update() {
         this.select = gameManager.game.scenario != undefined && gameManager.roundManager.firstRound;
