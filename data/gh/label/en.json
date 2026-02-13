@@ -605,6 +605,9 @@
     }
   },
   "custom": {
+    "city-guard-saw-solo": {
+      "1": "Suffer %game.damage:1% at end of round until fully healed"
+    },
     "gh": {
       "ancient-artillery": {
         "1": "All adjacent enemies suffer %game.damage:2%."
@@ -1132,9 +1135,6 @@
         "2": "%game.action.summon% [C] eggs"
       }
     },
-    "city-guard-saw-solo": {
-      "1": "Suffer %game.damage:1% at end of round until fully healed"
-    },
     "ghost-wolf": {
       "1": "At start of each round:"
     }
@@ -1180,33 +1180,47 @@
     "ancient-artillery": "Ancient Artillery",
     "arcane-golem": "Arcane Golem",
     "bandit-archer": "Bandit Archer",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
     "bandit-commander": "Bandit Commander",
     "bandit-guard": "Bandit Guard",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
     "black-imp": "Black Imp",
     "bloated-regent": "Bloated Regent",
     "captain-of-the-guard": "Captain of the Guard",
     "cave-bear": "Cave Bear",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
     "city-archer": "City Archer",
     "city-guard": "City Guard",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
     "cultist": "Cultist",
     "dark-rider": "Dark Rider",
+    "deep-earth": "Deep Earth",
     "deep-terror": "Deep Terror",
     "earth-demon": "Earth Demon",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
     "elder-drake": "Elder Drake",
     "flame-demon": "Flame Demon",
     "forest-imp": "Forest Imp",
     "frost-demon": "Frost Demon",
+    "ghost-wolf": "Ghost Wolf",
     "giant-ooze": "Giant Ooze",
     "giant-viper": "Giant Viper",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
     "harrower-infester": "Harrower Infester",
+    "high-flame": "High Flame",
     "hound": "Hound",
     "hungry-soul": "Hungry Soul",
     "infiltrator": "Infiltrator",
     "inox-archer": "Inox Archer",
     "inox-bodyguard": "Inox Bodyguard",
     "inox-guard": "Inox Guard",
+    "inox-necromancer": "Inox Necromancer",
     "inox-shaman": "Inox Shaman",
     "jekserah": "Jekserah",
+    "lieutenant": "Lieutenant",
     "living-bones": "Living Bones",
     "living-corpse": "Living Corpse",
     "living-spirit": "Living Spirit",
@@ -1221,8 +1235,10 @@
     "savvas-icestorm": "Savvas Icestorm",
     "savvas-lavaflow": "Savvas Lavaflow",
     "siege-cannon": "Siege Cannon",
+    "song-of-the-deep": "Song of the Deep",
     "spitting-drake": "Spitting Drake",
     "stone-golem": "Stone Golem",
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
     "sun-demon": "Sun Demon",
     "the-betrayer": "The Betrayer",
     "the-colorless": "The Colorless",
@@ -1230,26 +1246,10 @@
     "the-harvester": "The Harvester",
     "the-sightless-eye": "The Sightless Eye",
     "vermling-scout": "Vermling Scout",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)",
     "vermling-shaman": "Vermling Shaman",
     "wind-demon": "Wind Demon",
-    "winged-horror": "Winged Horror",
-    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
-    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
-    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
-    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
-    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
-    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
-    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
-    "deep-earth": "Deep Earth",
-    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
-    "ghost-wolf": "Ghost Wolf",
-    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
-    "high-flame": "High Flame",
-    "inox-necromancer": "Inox Necromancer",
-    "lieutenant": "Lieutenant",
-    "song-of-the-deep": "Song of the Deep",
-    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
-    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)"
+    "winged-horror": "Winged Horror"
   },
   "objective": {
     "Altar": "Altar",

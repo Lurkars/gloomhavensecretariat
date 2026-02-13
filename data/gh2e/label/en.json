@@ -480,6 +480,13 @@
     }
   },
   "custom": {
+    "city-guard-saw2-solo": {
+      "1": "When given a medical pack, perform:",
+      "2": "Remove %data.monster.city-guard-saw2-solo% from the map after being healed fully or given a medical pack."
+    },
+    "city-guard-sun2-solo": {
+      "1": "Acts immediately after %game.characterIcon.sun%."
+    },
     "gh2e": {
       "ancient-artillery": {
         "1": "Focus on the enemy<br>farthest away within %game.action.range:7%",
@@ -1018,13 +1025,6 @@
         }
       }
     },
-    "city-guard-saw2-solo": {
-      "1": "When given a medical pack, perform:",
-      "2": "Remove %data.monster.city-guard-saw2-solo% from the map after being healed fully or given a medical pack."
-    },
-    "city-guard-sun2-solo": {
-      "1": "Acts immediately after %game.characterIcon.sun%."
-    },
     "hawthorne": {
       "1": "Adds +1 %game.action.attack% to all attacks while undamaged"
     },
@@ -1082,19 +1082,25 @@
     "ancient-artillery": "Ancient Artillery",
     "arcane-construct": "Arcane Construct",
     "bandit-archer": "Bandit Archer",
+    "bandit-archer-music-note2-solo": "%data.monster.bandit-archer%",
     "bandit-commander": "Bandit Commander",
     "bandit-scout": "Bandit Scout",
+    "bandit-scout-music-note2-solo": "%data.monster.bandit-scout%",
     "black-imp": "Black Imp",
     "bloated-victim": "Bloated Victim",
     "candlekeeper-trice": "Candlekeeper Trice",
     "cave-bear": "Cave Bear",
+    "cave-bear-circles2-solo": "%data.monster.cave-bear%",
     "chaos-demon": "Chaos Demon",
     "city-archer": "City Archer",
     "city-guard": "City Guard",
+    "city-guard-saw2-solo": "%data.monster.city-guard%",
+    "city-guard-sun2-solo": "%data.monster.city-guard%",
     "corrupt-city-guard": "Corrupt City Guard",
     "crystal-rot": "Crystal Rot",
     "cultist": "Cultist",
     "dark-ritual-cultist": "Dark Ritual Cultist",
+    "deep-earth-gh2e": "Deep Earth",
     "deep-terror": "Deep Terror",
     "disjointed-twin": "Disjointed Twin",
     "doomcannon": "Doomcannon",
@@ -1107,6 +1113,7 @@
     "giant-ooze": "Giant Ooze",
     "giant-viper": "Giant Viper",
     "harrower-infester": "Harrower Infester",
+    "hawthorne": "Hawthorne",
     "hound": "Hound",
     "inox-archer": "Inox Archer",
     "inox-bodyguard": "Inox Bodyguard",
@@ -1117,6 +1124,7 @@
     "living-bones": "Living Bones",
     "living-corpse": "Living Corpse",
     "living-spirit": "Living Spirit",
+    "living-spirit-squidface-solo": "%data.monster.living-spirit%",
     "lurker-soldier": "Lurker Soldier",
     "merciless-taskmaster": "Merciless Taskmaster",
     "night-demon": "Night Demon",
@@ -1124,9 +1132,11 @@
     "rending-drake": "Rending Drake",
     "savvas-icestorm": "Savvas Icestorm",
     "savvas-lavaflow": "Savvas Lavaflow",
+    "shyreth": "Shyreth",
     "spitting-drake": "Spitting Drake",
     "spymaster-argeise": "Spymaster Argeise",
     "stone-construct": "Stone Construct",
+    "stone-construct-tinkerer-solo": "%data.monster.stone-construct%",
     "sun-demon": "Sun Demon",
     "the-betrayer": "The Betrayer",
     "the-colorless": "The Colorless",
@@ -1144,18 +1154,8 @@
     "usurper": "Usurper",
     "vermling-priest": "Vermling Priest",
     "vermling-scout": "Vermling Scout",
-    "wind-demon": "Wind Demon",
-    "bandit-archer-music-note2-solo": "%data.monster.bandit-archer%",
-    "bandit-scout-music-note2-solo": "%data.monster.bandit-scout%",
-    "cave-bear-circles2-solo": "%data.monster.cave-bear%",
-    "city-guard-saw2-solo": "%data.monster.city-guard%",
-    "city-guard-sun2-solo": "%data.monster.city-guard%",
-    "deep-earth-gh2e": "Deep Earth",
-    "hawthorne": "Hawthorne",
-    "living-spirit-squidface-solo": "%data.monster.living-spirit%",
-    "shyreth": "Shyreth",
-    "stone-construct-tinkerer-solo": "%data.monster.stone-construct%",
-    "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%"
+    "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%",
+    "wind-demon": "Wind Demon"
   },
   "personalQuest": {
     "gh2e": {

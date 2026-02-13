@@ -642,8 +642,8 @@
     },
     "carpenter": {
       "": "Carpintero",
-      "1": "Reducir todos los costes de construcción en 1 recurso de materiales",
-      "2": "Reduce todos los costes de construcción en 1 recurso de materiales y el coste extra de construcción de 1 moral",
+      "1": "Reduce todos los costes de construcción en 1 recurso de materiales",
+      "2": "Reduce todos los costes de construcción en 1 recurso de materiales y el coste adicional de construcción en 1 de moral",
       "3": "Perder 1 recurso colectivo cualquiera"
     },
     "climbing-gear": {
@@ -775,10 +775,10 @@
       "2": "Cada personaje comienza el siguiente escenario con %game.condition.curse%"
     },
     "town-hall": {
-      "": "Ayuntamiento",
-      "1": "Roba un desafío y quédate con uno. Cuando el mazo de retos esté completo, lee %data.section:190.1%",
-      "2": "Roba dos desafíos y quédate con uno. Cuando el mazo de retos esté completo, lee %data.section:190.1%",
-      "3": "Roba tres desafíos y quédate con hasta dos. Cuando el mazo de retos esté completo, lee %data.section:190.1%",
+      "": "Asamblea",
+      "1": "Roba 1 desafío y quédate hasta 1. Cuando hayáis completado todos los Desafíos del mazo, lee %data.section:190.1%",
+      "2": "Roba 2 Desafíos y quédate hasta 1 de ellos. Cuando hayáis completado todos los Desafíos del mazo , lee %data.section:190.1%",
+      "3": "Roba 3 Desafíos y quédate hasta 2 de ellos. Cuando hayáis completado todos los Desafíos del mazo, lee %data.section:190.1%",
       "4": "No se pueden completar desafíos"
     },
     "trading-post": {
@@ -831,7 +831,9 @@
     "friend-of-the-frostspeakers": "Amistad de los Voz de Escarcha",
     "friend-of-the-icespeakers": "Amistad de los Voz de Hielo",
     "friend-of-the-snowspeakers": "Amistad de los Voz de Nieve",
+    "ice-spike": "Espina de hielo",
     "into-the-forest": "Adentrándose en el bosque",
+    "portcullis": "Rastrillo",
     "red-well": "Pozo Rojo",
     "shard-seeker": "Buscadores de la esquirla",
     "sled": "Trineo",
@@ -1118,7 +1120,7 @@
         "env81": "1ª Impresión (Edición en Inglés): En el sobre 81 hay un mazo cuyo orden debe invertirse. Si lo sacas y la carta visible se titula «T___ de W___», invierte el orden del mazo para que esa carta sea la primera que se saque cuando el mazo esté boca abajo.",
         "env85": "1ª Impresión (Edición en Inglés): El sobre 85 debería incluir las pegatinas 15",
         "env90": "1ª Impresión (Edición en Inglés): El sobre 90 debería incluir las pegatinas 1, 5, 8 y 9",
-        "scenario110": "1ª Impresión (Edición en Inglés): los hexágonos de agua son terreno peligroso, no pasillos.",
+        "scenario110": "1ª Impresión (Edición en Inglés): los hexágonos de agua son terreno impracticable, no pasillos.",
         "scenario111": "1ª Impresión (Edición en Inglés): Las posiciones de las puertas de la Sección 182.2 son correctas. La Sección 138.2 debe enlazar con la Sección 147.2.",
         "scenario117": "1ª Impresión (Edición en Inglés): Este escenario tiene 5 osos polares pero sólo hay 4 figuras. Un quinto oso polar debe ser sustituido por otras figuras o miniaturas disponibles. (¡Corregido en GHS!)",
         "scenario130": "1ª Impresión (Edición en Inglés): Key - Shrike Fiend has an image of Night Demon. (Fixed in GHS!)",

@@ -98,6 +98,7 @@
     "avatar-of-ashtar": "Ashtars Avatar",
     "avatar-of-thelija": "Thelijas Avatar",
     "bear-drake-abomination": "Drakenbär-Abscheulichkeit",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)",
     "elham": "Elham",
     "guardian-of-the-firmament": "Wächter des Firmaments",
     "human-commander": "Menschliche Kommandantin",
@@ -112,8 +113,7 @@
     "valrath-savage": "Valrath Wilde",
     "valrath-tracker": "Valrath Häscher",
     "warden": "Wächter",
-    "wolf-viper-abomination": "Wolf-Viper-Abscheulichkeit",
-    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)"
+    "wolf-viper-abomination": "Wolf-Viper-Abscheulichkeit"
   },
   "partyAchievements": {
     "a-strongbox": "Eine Schatulle",

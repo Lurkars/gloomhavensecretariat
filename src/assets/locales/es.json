@@ -56,16 +56,16 @@
         "": "Descartar el Desafío robado",
         "multiple": "Descartar los Desafíos robados"
       },
-      "current": "Actual",
-      "finished": "Finalizado",
+      "current": "Activo",
+      "finished": "Completados",
       "hint": {
         "current": {
           "": "Desafío activo actualmente",
           "multiple": "Desafíos actualmente activos"
         },
         "drawAvailable": {
-          "": "Robar Challenge",
-          "multiple": "Robar Challenges"
+          "": "Robar Desafío",
+          "multiple": "Robar Desafíos"
         },
         "select": {
           "": "Fijar Desafío activo",
@@ -73,7 +73,7 @@
         }
       },
       "removed": "Eliminado",
-      "upcoming": "Próximamente"
+      "upcoming": "Próximos"
     },
     "disabled": "¡No hay ningún desafío fijado para el escenario!"
   },
@@ -1451,7 +1451,7 @@
         "addSuccess": "Marcar como superado",
         "conclusions": "Conclusión",
         "edition": "Edición",
-        "finished": "Finalizado",
+        "finished": "Completado",
         "group": "Grupo",
         "index": "#",
         "name": "Nombre",
@@ -1914,7 +1914,7 @@
       "lootDeckCard": "Añade la carta de botín {0} al mazo de botín de cada escenario, adicionalmente de la distribución estándar del mazo de botín del escenario.",
       "lostPartyAchievements": "Logros de Grupo Perdidos",
       "morale": "{0} moral",
-      "overlayCampaignSticker": "Coloca \"%data.campaignSticker.{0}%\" la pegatina de campaña en el mapa de la ciudad en la ubicación {1}",
+      "overlayCampaignSticker": "Coloca la pegatina de campaña \"%data.campaignSticker.{0}%\" en el mapa de la ciudad en la ubicación {1}",
       "overlaySticker": "Coloca la pegatina de mapa superpuesto {0} en la ubicación {0} ({1}).",
       "partyAchievements": "Logros de Grupo",
       "perks": "Cada personaje obtiene {0} pericia",

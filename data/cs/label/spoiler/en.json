@@ -45,6 +45,10 @@
       "": "Ghostshimmer Honey",
       "1": "During your turn, perform %game.action.heal% 3 %game.condition.regenerate% Affect self and one adjacent ally."
     },
+    "cs-103": {
+      "": "Steelsilk Spinneret",
+      "1": "The next two times an enemy suffers damage from attacking you, that enemy gains %game.condition.immobilize%."
+    },
     "cs-104": {
       "": "Power Modulator",
       "1": "(X is 1, 2, 3) During your turn, forgo your top action to perform %game.action.attack% X + 1 %game.action.range:2% %game.action.target% 4 - X."
@@ -65,6 +69,10 @@
       "": "Delicate Model",
       "1": "You %game.action.loot% each hex this summon enters. You control this summon's actions."
     },
+    "cs-109": {
+      "": "Auscudec of the Makers",
+      "1": "During your turn, forgo your top action to play a summon action from a card in your lost pile, ignoring two ^scrapx^."
+    },
     "cs-11": {
       "": "Pox Antidote",
       "1": "During your turn, remove %game.condition.infect% from Self or adjacent ally."
@@ -84,6 +92,10 @@
     "cs-113": {
       "": "Terrorscale Crossblades",
       "1": "On your next three melee attacks targeting enemies with at least one negative condition, gain Advantage."
+    },
+    "cs-114": {
+      "": "Rite of Ruin",
+      "1": "During your attack ability gain %game.condition.wound% to add +3 %game.action.attack% to one attack. If you kill the target perform \"%game.action.heal% 3, Self\"."
     },
     "cs-115": {
       "": "Savage Cuirass",
@@ -185,6 +197,10 @@
       "": "Battering Ram",
       "1": "During your melee Attack ability, add %game.condition.muddle% and %game.action.push% 2 to all your attacks."
     },
+    "cs-34": {
+      "": "Claw Trap",
+      "1": "At the end of your turn, create one 4 damage %game.condition.poison% trap in an adjacent empty hex."
+    },
     "cs-35": {
       "": "Staff of Retribution",
       "1": "When attacked, gain %game.action.retaliate% 1, %game.action.range:3% for the attack."
@@ -209,6 +225,18 @@
       "": "Orb of Vigor",
       "1": "During your Attack ability, you may place one character token on this card to add +1 %game.action.attack%. When there are three tokens on this card it is consumed %game.card.lost%."
     },
+    "cs-40": {
+      "": "Moonleather Boots",
+      "1": "Add +1 %game.action.move% to all your movement while you are at full health."
+    },
+    "cs-41": {
+      "": "Spirit Libation",
+      "1": "During your turn remove one damage token from one %data.characterColored.skull:Spirit% %data.characterIconColoredBg.skull%. This %data.characterColored.skull:Spirit% may immediately take a turn without receiving a damage token."
+    },
+    "cs-42": {
+      "": "Robe of Soothing",
+      "1": "Whenever you given an ally a %data.characterColored.leaf:Prayer% ability card, that ally may perform \"%game.action.heal% 2, Self\"."
+    },
     "cs-43": {
       "": "Resplendent Mitre",
       "1": "During your Heal action, add +2 %game.action.heal% to each Heal."
@@ -217,9 +245,21 @@
       "": "Canister Projectile",
       "1": "During your ranged Attack ability, add %game.action.pierce% 2 to one attack."
     },
+    "cs-45": {
+      "": "Chain Cannon",
+      "1": "During your turn, perform \"%game.action.pull% 2, Self toward one enemy within %game.action.range:3%\"."
+    },
     "cs-46": {
       "": "Summoner's Whistle",
       "1": "During your turn, one summoned ally you own performs %game.action.move% +0 %game.action.attack% +0 with you controlling the abilities."
+    },
+    "cs-47": {
+      "": "Nature Armlets",
+      "1": "While %data.characterColored.tusks:Mounted% on a summon, you can apply your %game.items.slots.small% items item effects to the summon instead."
+    },
+    "cs-48": {
+      "": "Test Tube",
+      "1": "During your turn, %game.element.consume.wild% to perform one of the following: %game.action.move% 2, %game.action.jump%, %game.element.air% | %game.action.heal% 3, Self, %game.element.light% | %game.action.attack% 2, %game.element.fire%."
     },
     "cs-49": {
       "": "Booster Shot",
@@ -229,9 +269,21 @@
       "": "Orb of Retribution",
       "1": "When attacked by an adjacent enemy, you may place one character token on this card to gain %game.action.retaliate% 1 for the attack. When there are three tokens on this card it is consumed %game.card.lost%."
     },
+    "cs-50": {
+      "": "Luminous Carapace",
+      "1": "During your turn, when you %game.element.consume.wild% an element, do not move the consumed element to the Inert column."
+    },
+    "cs-51": {
+      "": "Flaming Armor",
+      "1": "When attacked, you may %game.element.consume.fire% to gain %game.action.retaliate% 3 for the attack."
+    },
     "cs-52": {
       "": "Flaming Axe",
       "1": "During your melee Attack ability, add +1 %game.action.attack% and %game.condition.wound% to all your attacks."
+    },
+    "cs-53": {
+      "": "Field Mortar",
+      "1": "Once each turn, during your turn, you may remove one condition from an adjacent figure and place that condition on this card if it is not already on this card. During your turn, one adjacent figure gains all conditions on this card, then consume %game.card.lost% this item."
     },
     "cs-54": {
       "": "Vipertooth Dagger",
@@ -240,6 +292,14 @@
     "cs-55": {
       "": "Ghost Viper Venom",
       "1": "During your Attack ability, add %game.condition.poison% 2 to one attack."
+    },
+    "cs-56": {
+      "": "Clamp Trap",
+      "1": "At the end of your turn create one 3 damage %game.condition.immobilize% trap in an adjacent empty hex."
+    },
+    "cs-57": {
+      "": "Cleansed Voidheart",
+      "1": "You are immune to %game.condition.muddle%. At the end of each round, if you have %game.condition.wound% gain %game.condition.regenerate%."
     },
     "cs-58": {
       "": "Dizzying Tincture",
@@ -424,66 +484,6 @@
     "cs-99": {
       "": "Dark Stone",
       "1": "During your turn you may place one character token on this card to generate: %game.element.dark%. When there are two tokens on this card it is consumed %game.card.lost%."
-    },
-    "cs-103": {
-      "": "Steelsilk Spinneret",
-      "1": "The next two times an enemy suffers damage from attacking you, that enemy gains %game.condition.immobilize%."
-    },
-    "cs-109": {
-      "": "Auscudec of the Makers",
-      "1": "During your turn, forgo your top action to play a summon action from a card in your lost pile, ignoring two ^scrapx^."
-    },
-    "cs-114": {
-      "": "Rite of Ruin",
-      "1": "During your attack ability gain %game.condition.wound% to add +3 %game.action.attack% to one attack. If you kill the target perform \"%game.action.heal% 3, Self\"."
-    },
-    "cs-34": {
-      "": "Claw Trap",
-      "1": "At the end of your turn, create one 4 damage %game.condition.poison% trap in an adjacent empty hex."
-    },
-    "cs-40": {
-      "": "Moonleather Boots",
-      "1": "Add +1 %game.action.move% to all your movement while you are at full health."
-    },
-    "cs-41": {
-      "": "Spirit Libation",
-      "1": "During your turn remove one damage token from one %data.characterColored.skull:Spirit% %data.characterIconColoredBg.skull%. This %data.characterColored.skull:Spirit% may immediately take a turn without receiving a damage token."
-    },
-    "cs-42": {
-      "": "Robe of Soothing",
-      "1": "Whenever you given an ally a %data.characterColored.leaf:Prayer% ability card, that ally may perform \"%game.action.heal% 2, Self\"."
-    },
-    "cs-45": {
-      "": "Chain Cannon",
-      "1": "During your turn, perform \"%game.action.pull% 2, Self toward one enemy within %game.action.range:3%\"."
-    },
-    "cs-47": {
-      "": "Nature Armlets",
-      "1": "While %data.characterColored.tusks:Mounted% on a summon, you can apply your %game.items.slots.small% items item effects to the summon instead."
-    },
-    "cs-48": {
-      "": "Test Tube",
-      "1": "During your turn, %game.element.consume.wild% to perform one of the following: %game.action.move% 2, %game.action.jump%, %game.element.air% | %game.action.heal% 3, Self, %game.element.light% | %game.action.attack% 2, %game.element.fire%."
-    },
-    "cs-50": {
-      "": "Luminous Carapace",
-      "1": "During your turn, when you %game.element.consume.wild% an element, do not move the consumed element to the Inert column."
-    },
-    "cs-51": {
-      "": "Flaming Armor",
-      "1": "When attacked, you may %game.element.consume.fire% to gain %game.action.retaliate% 3 for the attack."
-    },
-    "cs-53": {
-      "": "Field Mortar",
-      "1": "Once each turn, during your turn, you may remove one condition from an adjacent figure and place that condition on this card if it is not already on this card. During your turn, one adjacent figure gains all conditions on this card, then consume %game.card.lost% this item."
-    },
-    "cs-56": {
-      "": "Clamp Trap",
-      "1": "At the end of your turn create one 3 damage %game.condition.immobilize% trap in an adjacent empty hex."
-    },
-    "cs-57": {
-      "": "Cleansed Voidheart",
-      "1": "You are immune to %game.condition.muddle%. At the end of each round, if you have %game.condition.wound% gain %game.condition.regenerate%."
     }
   },
   "summon": {

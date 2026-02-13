@@ -103,7 +103,7 @@
       },
       "1506": {
         "": "Formación compacta",
-        "text": "Cada vez que cualquier personaje realice un ataque mientras no esté adyacente a un aliado, sufre game.action.attack% -1 al ataque."
+        "text": "Cada vez que cualquier personaje realice un ataque mientras no esté adyacente a un aliado, sufre %game.action.attack% -1 al ataque."
       },
       "1507": {
         "": "Manufactura chapucera",
@@ -437,6 +437,10 @@
       "": "Amuleto rejuvenecedor",
       "1": "Siempre que pierdas una carta para prevenir %game.damage%, %game.card.recover% hasta 1 carta de tu pila de descartes y obtén %game.condition.regenerate%."
     },
+    "fh-177": {
+      "": "Botas de transferencia",
+      "1": "Cuando actives una trampa por entrar en su hexágono, puedes aplicar sus efectos a una figura a %game.action.range:3% o menos en lugar de a ti."
+    },
     "fh-179": {
       "": "Botas de prisa",
       "1": "Durante tu capacidad de Movimiento, añade +4 %game.action.move%. Después de la capacidad de Movimiento, sufre %game.condition.immobilize%."
@@ -521,6 +525,10 @@
     "fh-24": {
       "": "Filo corrupto",
       "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, añade %game.condition.wound%, %game.condition.poison%, y %game.condition.muddle% a 1 ataque."
+    },
+    "fh-244": {
+      "": "Ámbar de energía",
+      "1": "Durante tu turno, aumenta en 1 el valor numérico impreso de %game.action.attack%, %game.action.move%, %game.action.target%, o %game.action.range% de 1 de tus capacidades."
     },
     "fh-245": {
       "": "Moneda antigua"
@@ -710,6 +718,10 @@
     "fh-72": {
       "": "Báculo de roble",
       "1": "Durante tu turno, %game.element.consume.light% para realizar:"
+    },
+    "fh-75": {
+      "": "Guantelete de rosa",
+      "1": "Después de que cualquier aliado a %game.action.range:2% o menos sufra %game.damage% de un ataque, retira todos los estados negativos del aliado y luego realiza:"
     },
     "fh-76": {
       "": "Cuerno de mando",

@@ -48,12 +48,12 @@
       "": "Kristalldiadem",
       "1": "Wenn du eine lange oder kurze Rast machst, erhältst du STÄRKUNG %game.condition.strengthen%."
     },
+    "fc-164": {
+      "": "Wahrsagebecken"
+    },
     "fc-165": {
       "": "Lebende Rüstung",
       "1": "Du bist immun gegen %game.condition.poison% und %game.enhancement.circle%. Wenn du durch einen Angriff Schaden erleidest, erhältst du für den Angriff Schild %game.action.shield% 0 %game.enhancement.circle%."
-    },
-    "fc-164": {
-      "": "Wahrsagebecken"
     }
   },
   "summon": {
