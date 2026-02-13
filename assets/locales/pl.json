@@ -1512,8 +1512,8 @@
             "defense": "+{0} obrony",
             "items": "Dodaj %game.itemFh.{0}% do %game.itemFh.{1}% do zasobów przedmiotów",
             "loseMorale": "-{0} morale",
-            "plot": "+{0} fabuły",
-            "plots": "+{0} fabuł",
+            "plot": "+{0} poletko",
+            "plots": "+{0} poletka",
             "prosperity": "+{0} dobrobytu",
             "section": "%data.section:{0}%",
             "soldiers": "+{0} żołnierzy"
