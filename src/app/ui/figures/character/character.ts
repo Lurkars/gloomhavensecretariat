@@ -472,7 +472,7 @@ export class CharacterComponent implements OnInit {
         this.character.attackModifierDeckVisible = true;
       } else {
         this.character.attackModifierDeckVisible = false;
-        if (!this.character.active) {
+        if (settingsManager.settings.characterAttackModifierDeckPermanentActive && !this.character.active) {
           gameManager.game.figures.forEach((figure) => { if (figure instanceof Character && figure.active) { figure.attackModifierDeckVisible = true; } });
         }
       }
