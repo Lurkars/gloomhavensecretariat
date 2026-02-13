@@ -300,7 +300,7 @@ export class EntitiesMenuDialogComponent {
         }
 
         if (entity.maxHealth > 0 && entity.health <= 0 || entity.dead) {
-          entity.dead = entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => !entityCondition.highlight || !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply));
+          entity.dead = entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => !entityCondition.highlight || entityCondition.types.includes(ConditionType.hidden) || !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply));
           deadEntities.push(entity);
         }
       })
