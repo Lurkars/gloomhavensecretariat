@@ -1,0 +1,37 @@
+{
+  "index": "35-2",
+  "group": "solo",
+  "name": "Wet Work",
+  "edition": "fh",
+  "parent": "35",
+  "parentSections": [
+    [
+      "35-1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "abael-warlord",
+    "piranha-pig"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-warlord",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

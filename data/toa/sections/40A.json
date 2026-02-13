@@ -1,0 +1,32 @@
+{
+  "index": "40A",
+  "group": "solo",
+  "name": "Conflux of Power",
+  "edition": "toa",
+  "parent": "80",
+  "marker": "1",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

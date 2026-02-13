@@ -1,0 +1,34 @@
+{
+  "index": "101",
+  "group": "solo",
+  "name": "The Caged Bear",
+  "edition": "gh2e",
+  "spoiler": true,
+  "initial": true,
+  "solo": "two-mini",
+  "rewards": {
+    "items": [
+      "169"
+    ]
+  },
+  "monsters": [
+    "earth-demon",
+    "rending-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

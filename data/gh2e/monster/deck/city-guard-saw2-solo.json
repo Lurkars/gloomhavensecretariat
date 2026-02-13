@@ -1,0 +1,44 @@
+{
+  "name": "city-guard-saw2-solo",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "initiative": 100,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.city-guard-saw2-solo.1%",
+              "small": true
+            },
+            {
+              "type": "move",
+              "value": 1,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "stun",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.city-guard-saw2-solo.2%",
+          "small": true
+        }
+      ]
+    }
+  ]
+}

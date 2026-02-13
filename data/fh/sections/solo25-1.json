@@ -1,0 +1,26 @@
+{
+  "index": "25-1",
+  "group": "solo",
+  "name": "Divide and Conquer",
+  "edition": "fh",
+  "parent": "25",
+  "monsters": [
+    "ice-wraith"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "city-guard-sun-solo",
+  "edition": "gh",
+  "abilities": [
+    {
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.solo.char-am-deck%"
+        }
+      ]
+    }
+  ]
+}

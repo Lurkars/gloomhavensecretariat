@@ -1,0 +1,57 @@
+{
+  "index": "6-2",
+  "group": "solo",
+  "name": "Rodent Liberation",
+  "edition": "gh",
+  "parent": "6",
+  "parentSections": [
+    [
+      "6-1"
+    ]
+  ],
+  "hideIndex": true,
+  "marker": "2",
+  "monsters": [
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "6-3"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*vermling.*"
+          },
+          "type": "dead"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1287,7 +1287,8 @@
         "3": "Świnia Pirania otrzymuje %game.damage:1%.",
         "4": "Przyznaj najbliższej<br>Świni Piranii w %game.action.range:4%:",
         "5": "Jeśli żadna Świnia Pirania nie została<br>celem tej zdolności:",
-        "6": "gdzie X to liczba Świń Piranii<br>na mapie."
+        "6": "gdzie X to liczba Świń Piranii<br>na mapie.",
+        "7": "wszystkie świnie Pirania"
       },
       "algox-icespeaker": {
         "1": "Stwórz jedną 1‑heksową przeszkodę<br>w sąsiednim pustym heksie<br>najbliżej wroga.",
@@ -1689,6 +1690,9 @@
         "1": "Modify terrain.",
         "2": "All characters who did not attack suffer trap damage at end of round."
       }
+    },
+    "lost-in-seaweed": {
+      "2": "Stwórz 1 pole z wodą<br> w sąsiednim pustym polu."
     }
   },
   "deck": {
@@ -1982,9 +1986,13 @@
       "fh": {
         "0": "Do not set up the Hound monster ability deck. Instead, each round on initiative 26, all Hounds perform %game.action.move% 2; %game.action.attack% 2.",
         "1": "Strażnicy Miejscy nie wykonują tur, ale zamiast tego zyskują dodatkowe wrodzone %game.action.shield% 1 (w sumie %game.action.shield% 2 na poziomie 1) i %game.action.retaliate% 2, a ich inicjatywa wynosi 50 dla celów skupienia.",
+        "10": "%game.action.target% wszystkie potwory w zasięgu %game.action.range:4%",
         "110": "Może zostać zniszczona tylko wtedy, gdy zrujnowana maszyna zginie na sąsiednim polu.",
         "112": "Oba ogary mają podwojoną maksymalną wartość punktów życia.",
-        "115": "Gdy zostanie zniszczony, zamienia się w gruz, a wszystkie figurki na sąsiednich polach otrzymują obrażenia od pułapki.",
+        "115": {
+          "": "Gdy zostanie zniszczony, zamienia się w gruz, a wszystkie figurki na sąsiednich polach otrzymują obrażenia od pułapki",
+          "1": "Dodaj %data.section:66.2% do kalendarza za X+1 tygodni, gdzie X to liczba zniszczonych pylonów."
+        },
         "116": "Skupia się na poruszaniu się w kierunku %game.mapMarker.b%.",
         "119": {
           "1": "Na koniec tury wydaj pył, aby:",
@@ -2229,7 +2237,8 @@
         },
         "51-1": "Za każdym razem, gdy otrzymuje obrażenia, wszystkie postacie i potwory otrzymują %game.damage:2%.",
         "65-3": {
-          "1": "Open all doors %game.mapMarker.1%. Place all characters and character summons, in initiative order, in the closest empty hex on tile 16-A, then remove all doors and tile 13-A from the map."
+          "1": "Open all doors %game.mapMarker.1%. Place all characters and character summons, in initiative order, in the closest empty hex on tile 16-A, then remove all doors and tile 13-A from the map.",
+          "2": "%game.action.target% wszystkie potwory w zasięgu %game.action.range:4%"
         }
       }
     },

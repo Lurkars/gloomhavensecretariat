@@ -4,7 +4,8 @@
     [style.grid-column-end]="hex.x * 2 + 3 + (hex.y % 2)" [style.grid-row-start]="hex.y + 1"
     [style.grid-row-end]="hex.y + 1" (click)="click(hex)" [ngClass]="{'enhanced' : enhancedHexes.includes(hex)}">
     @if (hex.type != 'enhance' || editMode) {
-    <img class="icon" [src]="'./assets/images/action/hex/' +  hex.type + '.svg'">
+    <img class="icon"
+      [src]="'./assets/images/action/hex/' + (hex.type == 'custom' ? 'custom/' + hex.value : hex.type) + '.svg'">
     }
     @if (!editMode && hex.type == 'enhance') {
     <ghs-action-enhancements class="enhance" [action]="action" [index]="actionIndex" [character]="character"

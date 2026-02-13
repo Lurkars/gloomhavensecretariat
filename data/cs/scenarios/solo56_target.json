@@ -1,0 +1,42 @@
+{
+  "index": "56",
+  "group": "solo",
+  "name": "Disarm the Machine",
+  "edition": "cs",
+  "spoiler": true,
+  "initial": true,
+  "solo": "target",
+  "rewards": {
+    "items": [
+      "45"
+    ]
+  },
+  "monsters": [
+    "ancient-artillery-scenario-56"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "N1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery-scenario-56",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery-scenario-56",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery-scenario-56",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery-scenario-56",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

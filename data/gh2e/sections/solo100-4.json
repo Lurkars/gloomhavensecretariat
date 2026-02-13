@@ -1,0 +1,90 @@
+{
+  "index": "100-4",
+  "group": "solo",
+  "name": "Elemental Secrets",
+  "edition": "gh2e",
+  "parent": "100",
+  "marker": "4",
+  "monsters": [
+    "chaos-demon"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "gh2e",
+          "scenario": "100",
+          "group": "solo",
+          "index": 0,
+          "section": false
+        },
+        {
+          "edition": "gh2e",
+          "scenario": "100",
+          "group": "solo",
+          "index": 1,
+          "section": false
+        },
+        {
+          "edition": "gh2e",
+          "scenario": "100",
+          "group": "solo",
+          "index": 2,
+          "section": false
+        },
+        {
+          "edition": "gh2e",
+          "scenario": "100",
+          "group": "solo",
+          "index": 3,
+          "section": false
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "fire",
+          "state": "strong"
+        },
+        {
+          "type": "ice",
+          "state": "strong"
+        },
+        {
+          "type": "air",
+          "state": "strong"
+        },
+        {
+          "type": "earth",
+          "state": "strong"
+        },
+        {
+          "type": "light",
+          "state": "strong"
+        },
+        {
+          "type": "dark",
+          "state": "strong"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

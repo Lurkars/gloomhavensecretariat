@@ -7,7 +7,7 @@ import { MonsterEntity } from "../model/MonsterEntity";
 import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { ObjectiveEntity } from "../model/ObjectiveEntity";
 import { Summon } from "../model/Summon";
-import { Action, ActionHint, ActionType, ActionValueType } from "../model/data/Action";
+import { Action, ActionHint, ActionSpecialTarget, ActionType, ActionValueType } from "../model/data/Action";
 import { AttackModifier, AttackModifierType } from "../model/data/AttackModifier";
 import { Condition, ConditionName, ConditionType } from "../model/data/Condition";
 import { Element, ElementModel, ElementState } from "../model/data/Element";
@@ -343,19 +343,19 @@ export class ActionsManager {
         return action.type == ActionType.monsterType && entity instanceof MonsterEntity && entity.type == (action.value as MonsterType);
     }
 
+    hasMultiTarget(action: Action): boolean {
+        return action.multiTarget || action.subActions && action.subActions.some((subAction) => this.isMultiTarget(subAction, true));
+    }
+
     isMultiTarget(action: Action, includeHex: boolean = true): boolean {
         let result = action.type == ActionType.target && EntityValueFunction(action.value) > 1 || this.isMultiTargetSpecial(action) || includeHex && action.type == ActionType.area;
 
-        return result || action.subActions && action.subActions.some((subAction) => this.isMultiTarget(subAction, includeHex));
+        return result || action.multiTarget || action.subActions && action.subActions.some((subAction) => this.isMultiTarget(subAction, includeHex));
     }
 
     isMultiTargetSpecial(action: Action): boolean {
         return action.type == ActionType.specialTarget && typeof action.value === 'string' &&
-            (action.value.toLowerCase().includes('allies') ||
-                action.value.toLowerCase().includes('enemies') ||
-                action.value.toLowerCase().includes('figures') ||
-                action.value.toLowerCase().includes('targets') ||
-                action.value == 'all');
+            ([ActionSpecialTarget.all, ActionSpecialTarget.allCharacters, ActionSpecialTarget.allies, ActionSpecialTarget.alliesAdjacent, ActionSpecialTarget.alliesAdjacentAffect, ActionSpecialTarget.alliesAffect, ActionSpecialTarget.alliesEnemies, ActionSpecialTarget.alliesRange, ActionSpecialTarget.alliesRangeAffect, ActionSpecialTarget.enemies, ActionSpecialTarget.enemiesAdjacent, ActionSpecialTarget.enemiesMovedThrough, ActionSpecialTarget.enemiesMovedThroughAdjacent, ActionSpecialTarget.enemiesRange, ActionSpecialTarget.enemiesRangeAffect, ActionSpecialTarget.enemiesRangeAffectExact, ActionSpecialTarget.enemiesRangeExact, ActionSpecialTarget.figures, ActionSpecialTarget.figuresAdjacent, ActionSpecialTarget.figuresRange, ActionSpecialTarget.selfAllies, ActionSpecialTarget.selfAlliesAdjacentAffect, ActionSpecialTarget.selfAlliesAffect, ActionSpecialTarget.selfAlliesAffectRange, ActionSpecialTarget.selfAlliesRange, ActionSpecialTarget.targets].includes(action.value.split(':')[0] as ActionSpecialTarget));
     }
 
     applyInteractiveAction(entity: Entity, figure: Figure, interactiveAction: InteractiveAction, additionalValues: string[] = [], force: boolean = false) {

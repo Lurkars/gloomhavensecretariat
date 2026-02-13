@@ -1,0 +1,151 @@
+[
+  {
+    "id": "AN",
+    "name": "Ribbon of Friendship",
+    "cost": 50,
+    "count": 1,
+    "edition": "mp",
+    "solo": "anaphi",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.mp-AN.1%",
+        "small": true
+      },
+      {
+        "type": "condition",
+        "value": "poison",
+        "subActions": [
+          {
+            "type": "range",
+            "value": 2,
+            "small": true
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "value": "%data.items.mp-AN.2%",
+        "small": true
+      }
+    ],
+    "noArtwork": true
+  },
+  {
+    "id": "SA",
+    "name": "Crest of Frosthaven",
+    "cost": 50,
+    "count": 1,
+    "edition": "mp",
+    "solo": "satha",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.mp-SA.1%",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "%data.items.mp-SA.2%",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 2,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
+      }
+    ],
+    "noArtwork": true
+  },
+  {
+    "id": "CSA",
+    "name": "Basin of Prophecy (A)",
+    "cost": 50,
+    "count": 1,
+    "edition": "mp",
+    "solo": "cassandra",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.mp-CSA.1%",
+        "small": true
+      }
+    ],
+    "noArtwork": true
+  },
+  {
+    "id": "CSB",
+    "name": "Basin of Prophecy (B)",
+    "cost": 50,
+    "count": 1,
+    "edition": "mp",
+    "solo": "cassandra",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.mp-CSB.1%",
+        "small": true
+      },
+      {
+        "type": "attack",
+        "value": 1,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "%data.items.mp-CSB.2%",
+            "small": true
+          },
+          {
+            "type": "pierce",
+            "value": 2,
+            "small": true
+          },
+          {
+            "type": "custom",
+            "value": "%data.action.custom.mp-divination% 3",
+            "small": true
+          }
+        ]
+      }
+    ],
+    "noArtwork": true
+  },
+  {
+    "id": "HL",
+    "name": "No Nonsense Boots",
+    "cost": 50,
+    "count": 1,
+    "edition": "mp",
+    "solo": "hail",
+    "slot": "legs",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.mp-HL.1%",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "%data.items.mp-HL.2%",
+        "small": true
+      }
+    ],
+    "noArtwork": true
+  }
+]

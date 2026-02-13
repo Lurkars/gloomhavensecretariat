@@ -1,0 +1,140 @@
+{
+  "index": "33",
+  "group": "solo",
+  "name": "Recharge",
+  "edition": "fh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "prism",
+  "rewards": {
+    "items": [
+      "261"
+    ]
+  },
+  "monsters": [
+    "energized-corpse",
+    "frozen-corpse",
+    "living-bones",
+    "living-spirit"
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rules": [
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-spirit",
+            "type": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "type": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "frozen-corpse",
+            "type": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "frozen-corpse",
+            "type": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 12",
+      "start": true,
+      "sections": [
+        "33-1"
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

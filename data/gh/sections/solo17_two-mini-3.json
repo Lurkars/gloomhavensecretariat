@@ -1,0 +1,42 @@
+{
+  "index": "17-3",
+  "group": "solo",
+  "name": "The Caged Bear",
+  "edition": "gh",
+  "parent": "17",
+  "parentSections": [
+    [
+      "17-2"
+    ]
+  ],
+  "hideIndex": true,
+  "marker": "3",
+  "monsters": [
+    "cave-bear",
+    "vermling-shaman"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Immediately open door %game.mapMarker.c%"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

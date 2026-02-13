@@ -1,0 +1,48 @@
+{
+  "index": "21",
+  "group": "solo",
+  "name": "Race Against the Clock",
+  "edition": "fh",
+  "initial": true,
+  "solo": "blinkblade",
+  "rewards": {
+    "items": [
+      "249"
+    ]
+  },
+  "monsters": [
+    "robotic-boltshooter",
+    "ruined-machine"
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

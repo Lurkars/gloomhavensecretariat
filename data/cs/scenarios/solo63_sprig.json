@@ -1,0 +1,89 @@
+{
+  "index": "63",
+  "group": "solo",
+  "name": "A Cornered Viper",
+  "edition": "cs",
+  "spoiler": true,
+  "initial": true,
+  "solo": "sprig",
+  "rewards": {
+    "items": [
+      "53"
+    ]
+  },
+  "monsters": [
+    "cave-bear",
+    "giant-viper",
+    "living-corpse",
+    "living-spirit",
+    "stone-golem"
+  ],
+  "objectives": [
+    {
+      "name": "Lost Ranger",
+      "health": "10",
+      "initiative": 30,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "3",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "5",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "B1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "type": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

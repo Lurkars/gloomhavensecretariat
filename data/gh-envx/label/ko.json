@@ -1,5 +1,12 @@
 {
   "edition": {
     "gh-envx": "글룸헤이븐 봉투 X"
+  },
+  "scenario": {
+    "title": {
+      "gh": {
+        "solo-18": "시간의 모래"
+      }
+    }
   }
 }

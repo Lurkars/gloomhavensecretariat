@@ -1,1 +1,15 @@
-{}
+{
+  "custom": {
+    "glacier-demon": {
+      "1": "如果%game.condition.wound%失去%game.action.retaliate%"
+    },
+    "inferno-demon": {
+      "1": "如果%game.action.retaliate%失去%game.action.retaliate%"
+    },
+    "okeda": {
+      "1": "在化身行动后立即行动，与该化身执行相同的上下半区行动",
+      "2": "如果该化身没有在下半区行动中移动：",
+      "3": "如果该化身没有在上半区行动中攻击："
+    }
+  }
+}

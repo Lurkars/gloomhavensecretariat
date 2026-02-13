@@ -1,0 +1,33 @@
+{
+  "index": "101-3",
+  "group": "solo",
+  "name": "The Caged Bear",
+  "edition": "gh2e",
+  "parent": "101",
+  "parentSections": [
+    [
+      "101-2"
+    ]
+  ],
+  "marker": "3",
+  "monsters": [
+    "cave-bear",
+    "vermling-priest"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-priest",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

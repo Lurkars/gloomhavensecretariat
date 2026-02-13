@@ -1,0 +1,16 @@
+{
+  "name": "city-guard-saw-solo",
+  "edition": "gh",
+  "abilities": [
+    {
+      "initiative": 100,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh.city-guard-saw-solo.1%",
+          "small": true
+        }
+      ]
+    }
+  ]
+}

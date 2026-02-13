@@ -1,0 +1,49 @@
+{
+  "name": "okeda",
+  "edition": "toa",
+  "abilities": [
+    {
+      "cardId": 999,
+      "initiative": 99,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.toa.okeda.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.toa.okeda.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": "2",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.toa.okeda.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "4",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "enfeeble",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "index": "83",
+  "group": "solo",
+  "name": "Collapsed Cavern",
+  "edition": "toa",
+  "spoiler": true,
+  "initial": true,
+  "solo": "spiked-ring",
+  "rewards": {
+    "items": [
+      "120"
+    ]
+  },
+  "monsters": [
+    "black-imp",
+    "cave-bear",
+    "deep-terror",
+    "earth-demon",
+    "forest-imp",
+    "living-bones"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "elements": [
+        {
+          "type": "earth",
+          "state": "waning"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "sections": [
+        "48B"
+      ]
+    },
+    {
+      "round": "R == 9",
+      "sections": [
+        "48C"
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

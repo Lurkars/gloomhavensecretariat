@@ -1,0 +1,34 @@
+{
+  "name": "vermling-scout-mindthief2-solo",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "initiative": 29,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

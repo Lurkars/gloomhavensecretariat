@@ -98,9 +98,15 @@
             }
 
             &.spent {
-
                 .ghs-svg {
                     filter: var(--ghs-filter-yellow);
+                    opacity: 0.6;
+                }
+            }
+
+            &.forced.active {
+                .ghs-svg {
+                    filter: var(--ghs-filter-blue);
                     opacity: 0.6;
                 }
             }

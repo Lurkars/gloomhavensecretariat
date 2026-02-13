@@ -1,0 +1,32 @@
+{
+  "index": "34-1",
+  "group": "solo",
+  "name": "Boiler Room",
+  "edition": "fh",
+  "parent": "34",
+  "marker": "1",
+  "monsters": [
+    "flaming-bladespinner",
+    "steel-automaton"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flaming-bladespinner",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "type": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

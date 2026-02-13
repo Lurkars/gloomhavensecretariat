@@ -1689,6 +1689,17 @@
         "1": "替换为有害地形板块。",
         "2": "所有本轮中没有攻击过受锢之神残肢的角色承受陷阱伤害。"
       }
+    },
+    "algox-snowspeaker-trap-solo": {
+      "1": "在%game.action.range:2%内的所有敌人受到 %game.damage:2%"
+    },
+    "errata": {
+      "solo28": "特殊规则：“雪语者”应改为“冰语者”"
+    },
+    "lost-in-seaweed": {
+      "1": "以%game.action.range:6%内最远的敌人为目标",
+      "2": "在一个相邻的空格子中创造一个1格的水域地形。",
+      "3": "在一个相邻的未占据的水域地形格。"
     }
   },
   "deck": {
@@ -1794,7 +1805,12 @@
     "vermling-scout": "腐鼠侦察兵",
     "vestige-of-the-imprisoned-god": "受锢之神残肢",
     "wind-demon": "狂风恶魔",
-    "yoglang": "尤格朗"
+    "yoglang": "尤格朗",
+    "algox-icespeaker-shards-solo": "冰角族冰语者（单人）",
+    "algox-snowspeaker-trap-solo": "冰角族雪语者",
+    "black-imp-deathwalker-solo": "黑色小鬼（单人）",
+    "chief-of-spikes": "尖刺酋长",
+    "city-guard-banner-spear-solo": "城市守卫（单人）"
   },
   "objective": {
     "Altar": "祭坛",

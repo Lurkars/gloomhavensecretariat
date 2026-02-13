@@ -1131,6 +1131,12 @@
         "1": "Hatch eggs",
         "2": "%game.action.summon% [C] eggs"
       }
+    },
+    "city-guard-saw-solo": {
+      "1": "Suffer %game.damage:1% at end of round until fully healed"
+    },
+    "ghost-wolf": {
+      "1": "At start of each round:"
     }
   },
   "deck": {
@@ -1226,7 +1232,24 @@
     "vermling-scout": "Vermling Scout",
     "vermling-shaman": "Vermling Shaman",
     "wind-demon": "Wind Demon",
-    "winged-horror": "Winged Horror"
+    "winged-horror": "Winged Horror",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
+    "deep-earth": "Deep Earth",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
+    "ghost-wolf": "Ghost Wolf",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
+    "high-flame": "High Flame",
+    "inox-necromancer": "Inox Necromancer",
+    "lieutenant": "Lieutenant",
+    "song-of-the-deep": "Song of the Deep",
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)"
   },
   "objective": {
     "Altar": "Altar",
@@ -1563,7 +1586,24 @@
         "93": "Sunken Vessel",
         "94": "Vermling Nest",
         "95": "Payment Due",
-        "randomDungeon-rnd": "Random Dungeon"
+        "randomDungeon-rnd": "Random Dungeon",
+        "solo-1": "Return to the Black Barrow",
+        "solo-10": "Harvesting the Night",
+        "solo-11": "Plagued Crypt",
+        "solo-12": "Unnatural Insults",
+        "solo-13": "Battle of the Bards",
+        "solo-14": "Corrupted Hunt",
+        "solo-15": "Aftermath",
+        "solo-16": "Elemental Secrets",
+        "solo-17": "The Caged Bear",
+        "solo-2": "An Unfortunate Intrusion",
+        "solo-3": "Corrupted Laboratory",
+        "solo-4": "Armory Heist",
+        "solo-5": "Stone Defense",
+        "solo-6": "Rodent Liberation",
+        "solo-7": "Caravan Escort",
+        "solo-8": "Storage Fees",
+        "solo-9": "Plane of Wild Beasts"
       }
     }
   },
@@ -1591,7 +1631,22 @@
         "randomMonsterCard-570": "Corrupted",
         "randomMonsterCard-571": "Infected",
         "randomMonsterCard-572": "Putrid",
-        "randomMonsterCard-573": "Frigid"
+        "randomMonsterCard-573": "Frigid",
+        "solo-15-1": "Aftermath",
+        "solo-17-1": "The Caged Bear",
+        "solo-17-2": "The Caged Bear",
+        "solo-17-3": "The Caged Bear",
+        "solo-4-A2a": "Armory Heist",
+        "solo-4-B2b": "Armory Heist",
+        "solo-4-H1b": "Armory Heist",
+        "solo-6-1": "Rodent Liberation",
+        "solo-6-2": "Rodent Liberation",
+        "solo-6-3": "Rodent Liberation",
+        "solo-7-1": "Caravan Escort",
+        "solo-7-2": "Caravan Escort",
+        "solo-A1b": "Battle of the Bards",
+        "solo-G2b": "Battle of the Bards",
+        "solo-I1a": "Battle of the Bards"
       }
     }
   }

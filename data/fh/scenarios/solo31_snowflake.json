@@ -1,0 +1,130 @@
+{
+  "index": "31",
+  "group": "solo",
+  "name": "Fighting Snow with Snow",
+  "edition": "fh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "snowflake",
+  "rewards": {
+    "items": [
+      "259"
+    ]
+  },
+  "monsters": [
+    "algox-snowspeaker",
+    "frost-demon",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Rune Worker",
+      "escort": true,
+      "health": "L+1",
+      "initiative": 99,
+      "marker": "b",
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "name": "Rune Worker",
+      "escort": true,
+      "health": "L+1",
+      "initiative": 99,
+      "marker": "c",
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2"
+        }
+      ]
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rules": [
+    {
+      "round": "R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "frost-demon",
+            "type": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "type": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "wind-demon",
+            "type": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-snowspeaker",
+            "type": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-snowspeaker",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        }
+      ],
+      "objectives": [
+        "1:4",
+        "2:2"
+      ]
+    }
+  ]
+}

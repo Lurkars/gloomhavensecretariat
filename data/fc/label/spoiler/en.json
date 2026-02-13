@@ -51,6 +51,9 @@
     "fc-165": {
       "": "Living Armor",
       "1": "You are immune to %game.condition.poison% and %game.enhancement.circle%. When damage by an attack, gain %game.action.shield% 0 %game.enhancement.circle% for the attack."
+    },
+    "fc-164": {
+      "": "Basin of Prophecy"
     }
   },
   "summon": {

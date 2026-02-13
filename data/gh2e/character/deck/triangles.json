@@ -94,6 +94,7 @@
             {
               "type": "heal",
               "value": 2,
+              "multiTarget": true,
               "enhancementTypes": [
                 "circle"
               ],
@@ -107,59 +108,54 @@
                   ]
                 },
                 {
-                  "type": "boxFhSubActions",
+                  "type": "grid",
+                  "value": 2,
                   "subActions": [
                     {
-                      "type": "grid",
-                      "value": 2,
+                      "type": "element",
+                      "value": "fire",
+                      "valueType": "minus",
+                      "small": true,
                       "subActions": [
                         {
-                          "type": "element",
-                          "value": "fire",
-                          "valueType": "minus",
-                          "small": true,
-                          "subActions": [
-                            {
-                              "type": "condition",
-                              "value": "strengthen"
-                            }
-                          ]
-                        },
+                          "type": "condition",
+                          "value": "strengthen"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "value": "ice",
+                      "valueType": "minus",
+                      "small": true,
+                      "subActions": [
                         {
-                          "type": "element",
-                          "value": "ice",
-                          "valueType": "minus",
-                          "small": true,
-                          "subActions": [
-                            {
-                              "type": "condition",
-                              "value": "ward"
-                            }
-                          ]
-                        },
+                          "type": "condition",
+                          "value": "ward"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "value": "air",
+                      "valueType": "minus",
+                      "small": true,
+                      "subActions": [
                         {
-                          "type": "element",
-                          "value": "air",
-                          "valueType": "minus",
-                          "small": true,
-                          "subActions": [
-                            {
-                              "type": "condition",
-                              "value": "bless"
-                            }
-                          ]
-                        },
+                          "type": "condition",
+                          "value": "bless"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "value": "earth",
+                      "valueType": "minus",
+                      "small": true,
+                      "subActions": [
                         {
-                          "type": "element",
-                          "value": "earth",
-                          "valueType": "minus",
-                          "small": true,
-                          "subActions": [
-                            {
-                              "type": "condition",
-                              "value": "safeguard"
-                            }
-                          ]
+                          "type": "condition",
+                          "value": "safeguard"
                         }
                       ]
                     }
@@ -278,6 +274,7 @@
             {
               "type": "attack",
               "value": 2,
+              "multiTarget": true,
               "enhancementTypes": [
                 "circle"
               ],
@@ -291,59 +288,55 @@
                   ]
                 },
                 {
-                  "type": "boxFhSubActions",
+                  "type": "grid",
+                  "value": 2,
                   "subActions": [
                     {
-                      "type": "grid",
-                      "value": 2,
+                      "type": "element",
+                      "value": "fire",
+                      "valueType": "minus",
+                      "small": true,
                       "subActions": [
                         {
-                          "type": "element",
-                          "value": "fire",
-                          "valueType": "minus",
-                          "small": true,
-                          "subActions": [
-                            {
-                              "type": "condition",
-                              "value": "wound"
-                            }
-                          ]
-                        },
+                          "type": "condition",
+                          "value": "wound"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "value": "ice",
+                      "valueType": "minus",
+                      "small": true,
+                      "subActions": [
                         {
-                          "type": "element",
-                          "value": "ice",
-                          "valueType": "minus",
-                          "small": true,
-                          "subActions": [
-                            {
-                              "type": "condition",
-                              "value": "immobilize"
-                            }
-                          ]
-                        },
+                          "type": "condition",
+                          "value": "immobilize"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "value": "air",
+                      "valueType": "minus",
+                      "small": true,
+                      "subActions": [
                         {
-                          "type": "element",
-                          "value": "air",
-                          "valueType": "minus",
-                          "small": true,
-                          "subActions": [
-                            {
-                              "type": "push",
-                              "value": 3
-                            }
-                          ]
-                        },
+                          "type": "push",
+                          "value": 3,
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "value": "earth",
+                      "valueType": "minus",
+                      "small": true,
+                      "subActions": [
                         {
-                          "type": "element",
-                          "value": "earth",
-                          "valueType": "minus",
-                          "small": true,
-                          "subActions": [
-                            {
-                              "type": "condition",
-                              "value": "poison"
-                            }
-                          ]
+                          "type": "condition",
+                          "value": "poison"
                         }
                       ]
                     }
@@ -453,7 +446,10 @@
             {
               "type": "custom",
               "value": "%data.custom.gh2e.triangles.abilities.451.1%",
-              "small": true
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
             },
             {
               "type": "move",
@@ -985,7 +981,10 @@
             {
               "type": "custom",
               "value": "%data.custom.gh2e.triangles.abilities.459.1%",
-              "small": true
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
             },
             {
               "type": "move",
@@ -1174,6 +1173,7 @@
         {
           "type": "condition",
           "value": "ward",
+          "multiTarget": true,
           "enhancementTypes": [
             "circle"
           ],
@@ -1727,6 +1727,9 @@
           "type": "custom",
           "value": "%data.custom.gh2e.triangles.abilities.466.1%",
           "small": true,
+          "enhancementTypes": [
+            "square"
+          ],
           "subActions": [
             {
               "type": "attack",
@@ -1977,6 +1980,7 @@
         {
           "type": "attack",
           "value": 3,
+          "multiTarget": true,
           "enhancementTypes": [
             "diamond"
           ],

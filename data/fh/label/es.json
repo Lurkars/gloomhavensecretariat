@@ -679,7 +679,8 @@
         "state": {
           "both": "Cosechar el huerto y sembrar plantas",
           "harvest": "El huerto está girado, esta semana solamente se puede cosechar",
-          "plant": "Sembrar plantas"
+          "plant": "Sembrar plantas",
+          "toggle": "Girar carta de Huerto"
         }
       }
     },
@@ -814,6 +815,7 @@
     }
   },
   "campaignSticker": {
+    "blue-well": "Pozo Azul",
     "boat": "Barco",
     "brummix": "Brummix",
     "bug-in-a-jar": "Frasco con bicho",
@@ -830,8 +832,10 @@
     "friend-of-the-icespeakers": "Amistad de los Voz de Hielo",
     "friend-of-the-snowspeakers": "Amistad de los Voz de Nieve",
     "into-the-forest": "Adentrándose en el bosque",
+    "red-well": "Pozo Rojo",
     "shard-seeker": "Buscadores de la esquirla",
     "sled": "Trineo",
+    "stage": "Escenario",
     "statue": "Estatua",
     "uncharged-core": "Núcleo descargado",
     "unfettered-allies": "Aliados desencadenados",
@@ -847,6 +851,9 @@
         "time_tokens": {
           "": "%data.characterToken.blinkblade.time% Fichas de tiempo",
           "hint": "Añadir/eliminar de forma automática fichas de tiempo al inicio de la ronda tras definir lento/rápido"
+        },
+        "tokens": {
+          "time": "Ficha de tiempo"
         }
       },
       "boneshaper": {
@@ -860,7 +867,12 @@
           "hint": "Todos los Esqueletos tambaleantes tienen +1 %game.action.heal%."
         }
       },
-      "deathwalker": "Guía de ánimas",
+      "deathwalker": {
+        "": "Guía de ánimas",
+        "tokens": {
+          "shadow": "Ficha de Sombra"
+        }
+      },
       "drifter": "Errante",
       "geminate": {
         "": "Geminado",
@@ -890,7 +902,8 @@
         "3": "El cerdo piraña sufre %game.damage:1%.",
         "4": "Otorga al Cerdo piraña más<br>cercano a %game.action.range:4% o menos:",
         "5": "Si ningún Cerdo piraña ha sido objetivo<br>de la anterior capacidad para otorgar,",
-        "6": "donde X es el número de Cerdos<br>piraña que hay en el tablero."
+        "6": "donde X es el número de Cerdos<br>piraña que hay en el tablero.",
+        "7": "Todos los Cerdos Piraña"
       },
       "algox-icespeaker": {
         "1": "Crea 1 pieza de obstáculo de<br>1 hexágono en un hexágono vacío<br>adyacente más cercano a un enemigo.",
@@ -920,7 +933,19 @@
         "6": "Añade %game.action.attack% +1 por cada aliado adyacente al objetivo",
         "7": "Al final de cada uno de tus descansos largos, otorga a un aliado a %game.action.range:3% o menos: %game.action.move% 2",
         "8": "Siempre que abras una puerta con una capacidad de Movimiento, añade %game.action.move% +3",
-        "9": "Una vez por escenario, durante tu turno, obtén %game.action.shield% 2 durante la ronda en curso"
+        "9": "Una vez por escenario, durante tu turno, obtén %game.action.shield% 2 durante la ronda en curso",
+        "abilities": {
+          "61": {
+            "1": "Sufre %game.damage:1% por cada aliado cuyo valor de puntos de vida haya aumentado con la habilidad de curación.",
+            "2": "Tu controlas el movimiento de esta invocación"
+          },
+          "62": {
+            "1": "Todos los aliados a %game.action.range%2 obtienen +1 %game.action.attack% a uno de sus ataques cada turno."
+          },
+          "63": {
+            "1": "Todos tus ataques a distancia obtienen -1%game.action.range%."
+          }
+        }
       },
       "belara": {
         "1": "Todos los aliados y enemigos<br>adyacentes al objetivo sufren %game.damage:2%",
@@ -948,6 +973,10 @@
         "5": "Al comienzo de cada escenario, puedes jugar 1 carta de nivel 1 de tu mano para realizar 1 acción de invocación de la carta",
         "6": "Mata al menos a 15 de tus invocaciones",
         "7": "Juega una acción de invocación en tu primer turno, consigue que la invocación mate al menos a 6 enemigos y mantenla con vida durante todo el escenario"
+      },
+      "brother": {
+        "1": "Un hermano realiza:",
+        "2": "El Hermano %game.mapMarker.b% realiza:"
       },
       "burrowing-blade": {
         "1": "Todos los enemigos adyacentes sufren %game.damage:2%.",
@@ -984,7 +1013,99 @@
         "3": "Puedes llevar 1 Objeto %game.items.slots.onehand% adicional a cada escenario",
         "4": "Al final de cada escenario, puedes descartar hasta 2 cartas de Botín, excepto la de Objeto aleatorio, para robar ese mismo número de cartas de Botín nuevas",
         "5": "Termina un escenario con tus fichas de Personaje en los últimos espacios de 4 capacidades continuas",
-        "6": "Nunca realices una capacidad de Movimiento o Ataque con un valor inferior a 4, y realiza al menos 1 capacidad de Movimiento o Ataque cada ronda"
+        "6": "Nunca realices una capacidad de Movimiento o Ataque con un valor inferior a 4, y realiza al menos 1 capacidad de Movimiento o Ataque cada ronda",
+        "abilities": {
+          "1": {
+            "1": "En los próximos seis ataques cuerpo a cuerpo, añade +2%game.action.attack%.",
+            "2": "Mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás."
+          },
+          "11": {
+            "1": "Si mataste a un enemigo con la habilidad de ataque, mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás."
+          },
+          "13": {
+            "1": "Antes de aplicar cualquier otra bonificación, mueve la ficha del personaje en una de tus habilidades persistentes un espacio hacia delante: +2%game.action.range%.",
+            "2": "Cada vez que mates a un enemigo, mueve la ficha del personaje en una de tus habilidades persistentes un espacio hacia atrás."
+          },
+          "16": {
+            "1": "En tus próximos seis ataques cuerpo a cuerpo contra un enemigo adyacente a cualquier otro enemigo, un enemigo adyacente al objetivo sufre %game.action.damage%2."
+          },
+          "18": {
+            "2": "En tus próximas seis habilidades de ataque a distancia, añade +1%game.action.target%."
+          },
+          "19": {
+            "2": "Mueve la ficha de personaje de dos de tus habilidades persistentes un espacio hacia atrás."
+          },
+          "2": {
+            "1": "Mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás.",
+            "2": "En tus próximas seis habilidades de movimiento, añade +2 %game.action.move%."
+          },
+          "20": {
+            "1": "Mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás.",
+            "2": "En las siguientes seis fuentes de %game.action.damage% de ataques dirigidos contra ti, obtienes %game.action.shield:2%."
+          },
+          "21": {
+            "1": "Si mataste a un enemigo con la habilidad de ataque, mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás.",
+            "2": "Si has matado a un enemigo en esta ronda, mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás."
+          },
+          "22": {
+            "1": "En tus próximas seis curaciones dirigidas a figuras sin %game.condition.ward%, añade %game.condition.ward%.",
+            "2": "donde X es el doble del número de fichas y baldosas saqueadas."
+          },
+          "23": {
+            "1": "Antes de aplicar cualquier otra bonificación, mueve la ficha del personaje en una de tus habilidades persistentes un espacio hacia adelante: %game.condition.wound%",
+            "2": "Si estás adyacente a al menos dos enemigos, mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás."
+          },
+          "24": {
+            "1": "En tus próximos seis ataques contra enemigos con %game.action.shield%, añade %game.action.pierce:3%.",
+            "2": "Obtén ventaja en todos tus ataques durante esta ronda."
+          },
+          "25": {
+            "1": "donde X es la cantidad de %game.action.damage% sufrida por los objetivos de la habilidad de ataque.",
+            "2": "Cada vez que muera un enemigo adyacente en esta ronda, mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás."
+          },
+          "26": {
+            "1": "Inmediatamente después de tus próximas seis habilidades de curación, realiza %game.action.move:3% %game.action.jump%.",
+            "2": "Por cada aliado atravesado durante la habilidad de movimiento, mueve la ficha de personaje de una de tus habilidades persistentes una casilla hacia atrás."
+          },
+          "27": {
+            "2": "Mueve la ficha de personaje de tres de tus habilidades persistentes un espacio hacia atrás."
+          },
+          "28": {
+            "1": "%game.action.target% todos los enemigos dentro de 2 hexágonos",
+            "2": "Por cada enemigo al que apuntes con la habilidad de ataque, mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás.",
+            "3": "Las siguientes seis veces que un enemigo entre en un hexágono adyacente al tuyo, ese enemigo sufrirá un %game.action.damage%3"
+          },
+          "29": {
+            "1": "Antes de aplicar cualquier otra bonificación, mueve la ficha del personaje en una de tus habilidades persistentes un espacio hacia delante: %game.condition.immobilize%"
+          },
+          "3": {
+            "1": "Todos tus ataques a distancia obtienen +1 %game.action.range%. En tus próximos seis ataques a distancia, añade +1 %game.action.attack%.",
+            "2": "Mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás."
+          },
+          "30": {
+            "1": "En las próximas cuatro fuentes de %game.action.damage% que sufras, que sean iguales o inferiores al 4 %, anula el %game.action.damage%",
+            "2": "Antes de aplicar cualquier otra bonificación, mueve la ficha del personaje en una de tus habilidades persistentes un espacio hacia delante: +1 %game.action.target%."
+          },
+          "31": {
+            "1": "%game.action.target% todos los aliados adyacentes a al menos un enemigo seleccionado con la habilidad de ataque",
+            "2": "donde X es el número de hexágonos que te has movido durante la habilidad de movimiento."
+          },
+          "4": {
+            "1": "Mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás.",
+            "2": "En tus próximas seis curaciones, añade +2%game.action.heal%."
+          },
+          "5": {
+            "1": "Mueve la ficha de personaje de dos de tus habilidades persistentes un espacio hacia atrás.",
+            "2": "En los siguientes seis ataques dirigidos contra ti realizados por enemigos dentro de %game.action.range%2, obtén %game.action.retaliate:2% %game.action.range%2."
+          },
+          "6": {
+            "1": "Mueve la ficha de personaje de dos de tus habilidades persistentes un espacio hacia atrás.",
+            "2": "En las siguientes seis fuentes de %game.action.damage% de ataques dirigidos contra ti, obtén %game.action.shield:1%."
+          },
+          "8": {
+            "2": "Si estás junto a un solo enemigo, mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás."
+          }
+        }
       },
       "elder-ooze": {
         "1": "El objetivo pierde un objeto.",
@@ -1185,6 +1306,14 @@
       }
     }
   },
+  "deck": {
+    "archer": "Arquero",
+    "boss": "Jefe",
+    "guard": "Guardia",
+    "imp": "Duende",
+    "priest": "Sacerdote",
+    "scout": "Explorador"
+  },
   "edition": {
     "fh": "Frosthaven"
   },
@@ -1219,11 +1348,13 @@
     "flaming-sword-of-justice": "Ígnea Espada de la Justicia",
     "forest-imp": "Duende del bosque",
     "fracture-of-the-deep": "Fractura de las profundidades",
+    "fractured-lieutenant": "Teniente fracturado",
     "frost-demon": "Demonio de Hielo",
     "frozen-corpse": "Cadáver helado",
     "frozen-fist": "Puño helado",
     "giant-piranha-pig": "Cerdo piraña gigante",
     "giant-piranha-pig-boss": "Mazo de Jefe Extra nº 83",
+    "guard-captain": "Capitán de la Guardia",
     "harbinger-of-shadow": "Heraldo de la Sombra",
     "harbinger-of-shadow-1": "Heraldo de la Sombra %game.mapMarker.1%",
     "harbinger-of-shadow-2": "Heraldo de la Sombra %game.mapMarker.2%",
@@ -1231,6 +1362,7 @@
     "hound": "Sabueso",
     "hungry-maw": "Hambre Eterna",
     "ice-wraith": "Espectro de hielo",
+    "lady-in-white": "Dama de Blanco",
     "laser-spires": "Barrera láser",
     "lightning-eel": "Anguila relámpago",
     "living-bones": "Huesos vivientes",
@@ -1266,6 +1398,7 @@
     "the-collector": "El Coleccionista",
     "the-relic": "La Reliquia",
     "the-shimmer": "El Resplandeciente",
+    "tormentor": "Tormento",
     "vanjal": "Vanjal",
     "vermling-priest": "Sacerdote infestor",
     "vermling-scout": "Explorador infestor",
@@ -1274,11 +1407,13 @@
   },
   "objective": {
     "Altar": "Altar",
+    "Artificer": "Artífice",
     "Barrel": "Barril",
     "Barricade": "Barricada",
-    "Bookshelf": "Estantería",
+    "Bookshelf": "Librería",
     "Cabinet": "Armario",
     "Caravan Wagon": "Vagón de la caravana",
+    "Crate": "Caja",
     "Dark Fog": "Niebla oscura",
     "Door": "Puerta",
     "Elemental Anchor": "Ancla elemental",
@@ -1310,6 +1445,10 @@
   },
   "personalQuest": {
     "fh": {
+      "505": {
+        "": "Gustos refinados",
+        "1": "Objetos en posesión que incluyen objetos como coste de fabricación"
+      },
       "509": {
         "": "Amenaza de las profundidades",
         "1": "Sigue \"La invasión del puerto\" %game.scenarioNumber:71% hasta el final"
@@ -1319,7 +1458,16 @@
         "1": "Duendes muertos"
       },
       "519": {
-        "4": "Escenario completado en los Campos de Cristal"
+        "": "Ansia viajera",
+        "1": "Escenario completado en el Bosque Fuegoblanco",
+        "2": "Escenario completado en las Montañas Cobrizas",
+        "3": "Escenario completado en el Bosque Radiante",
+        "4": "Escenario completado en los Campos de Cristal",
+        "5": "Escenario completado en el Mar de los Mordiscos"
+      },
+      "523": {
+        "": "Promover la prosperidad",
+        "1": "Oro donado al Tempo del Gran Roble"
       },
       "527": {
         "": "Prepararse para lo peor",
@@ -1340,6 +1488,10 @@
       "549": {
         "": "Regreso a lo básico",
         "1": "Máquinas ruinosas muertas"
+      },
+      "557": {
+        "": "El gran desafío",
+        "1": "Desafíos completados"
       },
       "581": {
         "": "El estudio de las plantas",
@@ -1423,9 +1575,13 @@
       "fh": {
         "0": "No coloques el mazo de habilidades del monstruo Sabueso. En lugar de eso, cada ronda tienen una iniciativa de 26, todos los Sabuesos realizan, %game.action.move% 2; %game.action.attack% 2.",
         "1": "Los Guardias de la ciudad no realizan turnos pero obtienen %game.action.shield% 1 adicional (con un total %game.action.shield% 2 a nivel 1) y %game.action.retaliate% 2, tienen una iniciativa de 50 a efectos de centro de atención.",
+        "10": "cada monstruo %game.action.target% a distancia %game.action.range:4%",
         "110": "Sólo puede ser destruido cuando muere una Máquina ruinosa en un hexágono adyacente",
         "112": "Los dos sabuesos tienen el doble de sus valores máximos de puntos de vida.",
-        "115": "Cuando se destruye, se reemplaza con escombros y todas las figuras en hexágonos adyacentes sufren daño de trampa",
+        "115": {
+          "": "Cuando se destruya, reemplázalo con escombros y todas las figuras en hexágonos adyacentes sufrirán daño de trampa",
+          "1": "Añade %data.section:66.2% al calendario en X+1 semanas, donde X es el número de pilones destruidos."
+        },
         "116": "Centra su atención en moverse hacia %game.mapMarker.b%",
         "119": {
           "1": "Al final del turno, gasta polvo para:",
@@ -1618,7 +1774,10 @@
         "126-1": "<b>%wip%!</b> Añade de forma manual:<br>Obtén 6 recursos materiales de forma colectiva.",
         "128-2": "Abre el libro de puzzles por la primera página",
         "132-3": "Cada personaje obtiene 10 de oro por cada ficha numerada que haya saqueado",
-        "139-2": "Ahora puedes jugar a los escenarios con el requisito %game.fhIcon:boat%. Pon un nombre a tu barco, escríbelo en la pegatina y en la parte delantera de B-01 y B-02<br>Baraja los eventos B-01 a 13 juntos y úsalos para crear el mazo de barco activo. Guarda este mazo en el sobre B cuando no esté en uso y emplea el separador para separar las cartas activas de las otras.",
+        "139-2": {
+          "1": "Ahora puedes jugar escenarios con el requisito %game.fhIcon:boat%. Ponle un nombre a tu barco y escríbelo en la pegatina y en la parte delantera de B-01 y B-02, en los espacios en blanco.",
+          "2": "Baraja los eventos B-01 a 13 y utilízalos para crear el mazo de eventos de Barco. Guarda este mazo en el sobre B cuando no lo utilices y utiliza el separador de cartas para separar el mazo de eventos del barco de las demás cartas de eventos del barco."
+        },
         "140-3": "No pases a la página siguiente del libro de puzzles. En su lugar, escribe la solución del siguiente puzzle en la misma página",
         "145-2": "Abre el mazo de Juicios ahora. No lo barajes. Cada jugador roba una carta del mazo y la lee en secreto.<br>Una vez leído por el jugador, la carta no puede ser devuelta al mazo y debe ser completada por ese jugador. Algunas pruebas pueden llevar varios escenarios en completarse, y deben ser mantenidas en secreto por el jugador hasta que se complete. Cuando un jugador completa una prueba, puede revelarla a otros jugadores por primera vez, retirarla del juego y robar una nueva prueba de la parte superior del mazo de pruebas.",
         "146-2": "Cada personaje obtiene 10 de oro por cada ficha numerada que haya saqueado <br>Todos los personajes comienzan el siguiente escenario con %game.condition.muddle% y %game.condition.curse%",
@@ -1667,7 +1826,8 @@
         },
         "51-1": "Cada vez que sufre daño, todos los personajes y monstruos sufren %game.damage:2%",
         "65-3": {
-          "1": "Abre todas las puertas %game.mapMarker.1%. Coloca a todos los personajes e invocaciones de personajes, por orden de iniciativa, en el hexágono vacío más cercano de la loseta 16-A y, a continuación, elimina todas las puertas y la loseta 13-A del mapa."
+          "1": "Abre todas las puertas %game.mapMarker.1%. Coloca a todos los personajes e invocaciones de personajes, por orden de iniciativa, en el hexágono vacío más cercano de la loseta 16-A y, a continuación, elimina todas las puertas y la loseta 13-A del mapa.",
+          "2": "%game.action.target% cada monstruo dentro de %game.action.range:4%"
         }
       }
     },
@@ -2169,6 +2329,7 @@
         "99-2": "Infiltrándose en la guarida del Rey del Mar",
         "99-3": "%game.characterIconColored.kelp% se retira",
         "99-4": "La llamada del Heraldo",
+        "blue-well": "Pegatina de campaña \"Pozo Azul\"",
         "randomMonsterCard-891": "Aplastante",
         "randomMonsterCard-892": "Tormentoso",
         "randomMonsterCard-893": "Territorial",
@@ -2192,7 +2353,9 @@
         "randomMonsterCard-911": "Funerario",
         "randomMonsterCard-912": "Luminoso",
         "randomMonsterCard-913": "Abrasador",
-        "randomMonsterCard-914": "Veloz"
+        "randomMonsterCard-914": "Veloz",
+        "red-well": "Pegatina de campaña \"Pozo Rojo\"",
+        "stage": "Pegatina de campaña \"Escenario\""
       }
     }
   }

@@ -1,0 +1,18 @@
+{
+  "name": "city-guard-banner-spear-solo",
+  "edition": "fh",
+  "abilities": [
+    {
+      "name": "Nothing Special",
+      "cardId": 752,
+      "initiative": 50,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "[(L/2){$math.ceil}]"
+        }
+      ]
+    }
+  ]
+}

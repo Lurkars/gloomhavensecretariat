@@ -1,0 +1,24 @@
+{
+  "index": "57",
+  "group": "solo",
+  "name": "Elemental Converter",
+  "edition": "cs",
+  "spoiler": true,
+  "initial": true,
+  "solo": "flask",
+  "rewards": {
+    "items": [
+      "48"
+    ]
+  },
+  "monsters": [
+    "deep-terror"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "I2b",
+      "initial": true
+    }
+  ]
+}

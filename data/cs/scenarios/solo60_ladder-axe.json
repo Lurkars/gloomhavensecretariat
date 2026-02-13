@@ -1,0 +1,32 @@
+{
+  "index": "60",
+  "group": "solo",
+  "name": "Through the Fire and the Flames",
+  "edition": "cs",
+  "spoiler": true,
+  "initial": true,
+  "solo": "ladder-axe",
+  "rewards": {
+    "items": [
+      "51"
+    ]
+  },
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "savvas-lavaflow-scenario-60"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "G2a",
+      "initial": true,
+      "monster": [
+        {
+          "name": "savvas-lavaflow-scenario-60",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

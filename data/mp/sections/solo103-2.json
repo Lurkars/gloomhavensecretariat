@@ -1,0 +1,47 @@
+{
+  "index": "103-2",
+  "group": "solo",
+  "name": "A Harrowing Deal",
+  "edition": "mp",
+  "parent": "103",
+  "parentSections": [
+    [
+      "103-1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "bug-body",
+    "living-corpse::jotl"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bug-body",
+          "type": "boss"
+        },
+        {
+          "name": "living-corpse::jotl",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse::jotl",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse::jotl",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse::jotl",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

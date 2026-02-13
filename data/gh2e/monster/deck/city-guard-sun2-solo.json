@@ -1,0 +1,27 @@
+{
+  "name": "city-guard-sun2-solo",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "initiative": 1,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.city-guard-sun2-solo.1%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    }
+  ]
+}

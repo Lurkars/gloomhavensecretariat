@@ -1,0 +1,93 @@
+{
+  "index": "QA3",
+  "group": "solo",
+  "name": "Magnum Opus",
+  "edition": "cs",
+  "spoiler": true,
+  "initial": true,
+  "solo": "tools",
+  "rewards": {
+    "items": [
+      "109"
+    ]
+  },
+  "monsters": [
+    "clockwork-railcaster",
+    "clockwork-soldier"
+  ],
+  "objectives": [
+    {
+      "name": "Dummies",
+      "health": "4+L",
+      "escort": true,
+      "initiative": 50
+    },
+    {
+      "name": "Obstacle",
+      "health": "4+L",
+      "escort": true,
+      "initiative": 50
+    },
+    {
+      "name": "Magnum Opus",
+      "health": "4+L",
+      "escort": true,
+      "initiative": 50
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "N1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "clockwork-railcaster",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "clockwork-railcaster",
+          "player4": "normal"
+        },
+        {
+          "name": "clockwork-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "clockwork-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "clockwork-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "clockwork-soldier",
+          "type": "elite"
+        },
+        {
+          "name": "clockwork-soldier",
+          "player4": "normal"
+        },
+        {
+          "name": "clockwork-soldier",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3
+      ]
+    }
+  ]
+}

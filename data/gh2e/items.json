@@ -3438,5 +3438,423 @@
       }
     ],
     "noArtwork": true
+  },
+  {
+    "id": 153,
+    "name": "Hooked Shield",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "bruiser",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-153.1%",
+        "small": true
+      },
+      {
+        "type": "move",
+        "value": 3,
+        "subActions": [
+          {
+            "type": "jump",
+            "small": true
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-153.2%",
+        "small": true
+      }
+    ],
+    "noArtwork": true
+  },
+  {
+    "id": 154,
+    "name": "Focusing Ray",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "tinkerer",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-154.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 155,
+    "name": "Etheric Elixir",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "spellweaver",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-155.1%",
+        "small": true
+      }
+    ],
+    "noArtwork": true
+  },
+  {
+    "id": 156,
+    "name": "Silent Stiletto",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "silent-knife",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-156.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 157,
+    "name": "Stone Charm",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "cragheart",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-157.1%",
+        "small": true
+      },
+      {
+        "type": "element",
+        "value": "earth"
+      }
+    ],
+    "effects": [
+      {
+        "type": "element",
+        "value": "earth"
+      }
+    ]
+  },
+  {
+    "id": 158,
+    "name": "Psychic Knife",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "mindthief",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-158.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 159,
+    "name": "Insignia of the Divine",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "sun",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-159.1%",
+        "small": true
+      },
+      {
+        "type": "move",
+        "value": 4,
+        "subActions": [
+          {
+            "type": "jump",
+            "small": true
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "value": "light"
+      }
+    ],
+    "effects": [
+      {
+        "type": "element",
+        "value": "light"
+      }
+    ],
+    "noArtwork": true
+  },
+  {
+    "id": 160,
+    "name": "Utility Belt",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "three-spears",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-160.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 161,
+    "name": "Phasing Idol",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "circles",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-161.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 162,
+    "name": "The Night's Caress",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "eclipse",
+    "slot": "head",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-162.1%",
+        "small": true
+      },
+      {
+        "type": "condition",
+        "value": "muddle",
+        "subActions": [
+          {
+            "type": "range",
+            "value": 1,
+            "small": true
+          }
+        ]
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-162.2%",
+        "small": true
+      }
+    ],
+    "noArtwork": true
+  },
+  {
+    "id": 163,
+    "name": "Pendant of the Plague",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "squidface",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-163.1%",
+        "small": true
+      },
+      {
+        "type": "concatenation",
+        "value": ",",
+        "subActions": [
+          {
+            "type": "condition",
+            "value": "curse"
+          },
+          {
+            "type": "condition",
+            "value": "plague",
+            "subActions": [
+              {
+                "type": "range",
+                "value": 5,
+                "small": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-163.2%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 164,
+    "name": "Mask of Death",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "lightning",
+    "slot": "head",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-164.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 165,
+    "name": "Master's Lute",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "music-note",
+    "slot": "twohand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-165.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 166,
+    "name": "Cloak of the Hunter",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "angry-face",
+    "slot": "body",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-166.1%",
+        "small": true
+      },
+      {
+        "type": "move",
+        "value": 1
+      },
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-166.2%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 167,
+    "name": "Doctor's Coat",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "saw",
+    "slot": "body",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-167.1%",
+        "small": true
+      },
+      {
+        "type": "move",
+        "value": 2
+      },
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-167.2%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 168,
+    "name": "Elemental Vest",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "triangles",
+    "slot": "body",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-168.1%",
+        "small": true
+      }
+    ],
+    "noArtwork": true
+  },
+  {
+    "id": 169,
+    "name": "Staff of Command",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "two-mini",
+    "slot": "twohand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-169.1%",
+        "small": true
+      },
+      {
+        "type": "attack",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": 170,
+    "name": "Crawling Carapace",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh2e",
+    "solo": "crossed-swords",
+    "slot": "body",
+    "minusOne": 2,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.gh2e-170.1%",
+        "small": true
+      }
+    ],
+    "noArtwork": true
   }
 ]

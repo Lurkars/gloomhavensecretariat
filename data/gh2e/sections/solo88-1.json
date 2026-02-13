@@ -1,0 +1,49 @@
+{
+  "index": "88-1",
+  "group": "solo",
+  "name": "Material Concerns",
+  "edition": "gh2e",
+  "parent": "88",
+  "marker": "1",
+  "monsters": [
+    "cultist",
+    "living-bones",
+    "living-corpse",
+    "shyreth"
+  ],
+  "allies": [
+    "shyreth"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "shyreth",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

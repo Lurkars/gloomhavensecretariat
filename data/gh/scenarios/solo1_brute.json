@@ -1,0 +1,86 @@
+{
+  "index": "1",
+  "group": "solo",
+  "name": "Return to the Black Barrow",
+  "edition": "gh",
+  "initial": true,
+  "solo": "brute",
+  "rewards": {
+    "items": [
+      "134"
+    ]
+  },
+  "monsters": [
+    "bandit-archer:-1",
+    "bandit-guard:-1",
+    "living-bones:-1"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "L1a",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "bandit-guard:-1",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard:-1",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard:-1",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "G1b",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "bandit-archer:-1",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-guard:-1",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard:-1",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "I1b",
+      "marker": "1",
+      "monster": [
+        {
+          "name": "bandit-archer:-1",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer:-1",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones:-1",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones:-1",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

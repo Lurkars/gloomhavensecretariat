@@ -1,0 +1,39 @@
+{
+  "index": "6-2",
+  "group": "solo",
+  "name": "The Fall of Shadow's Respite",
+  "edition": "cs",
+  "parent": "RM6",
+  "monsters": [
+    "gnashing-drake",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "gnashing-drake",
+          "type": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "type": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "type": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

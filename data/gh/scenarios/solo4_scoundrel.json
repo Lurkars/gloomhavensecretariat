@@ -1,0 +1,56 @@
+{
+  "index": "4",
+  "group": "solo",
+  "name": "Armory Heist",
+  "edition": "gh",
+  "initial": true,
+  "solo": "scoundrel",
+  "rewards": {
+    "items": [
+      "137"
+    ]
+  },
+  "monsters": [
+    "ancient-artillery",
+    "city-guard-scoundrel-solo",
+    "stone-golem-scoundrel-solo"
+  ],
+  "objectives": [
+    {
+      "name": "Rikharn",
+      "escort": true,
+      "health": "15+5xL",
+      "initiative": 49,
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "attack",
+          "value": 4
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard-scoundrel-solo",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-scoundrel-solo",
+          "type": "normal"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

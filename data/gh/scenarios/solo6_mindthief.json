@@ -1,0 +1,55 @@
+{
+  "index": "6",
+  "group": "solo",
+  "name": "Rodent Liberation",
+  "edition": "gh",
+  "initial": true,
+  "solo": "mindthief",
+  "rewards": {
+    "items": [
+      "139"
+    ]
+  },
+  "monsters": [
+    "vermling-scout:-1"
+  ],
+  "objectives": [
+    {
+      "name": "Altar",
+      "health": "3+L",
+      "marker": "a"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-scout:-1",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout:-1",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout:-1",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout:-1",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout:-1",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout:-1",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

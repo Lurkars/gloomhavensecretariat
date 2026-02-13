@@ -1,0 +1,45 @@
+{
+  "index": "90-2",
+  "group": "solo",
+  "name": "Vermling Liberation",
+  "edition": "gh2e",
+  "parent": "90",
+  "parentSections": [
+    [
+      "90-1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "harrower-infester",
+    "ooze",
+    "vermling-scout-mindthief2-solo"
+  ],
+  "allies": [
+    "vermling-scout-mindthief2-solo"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

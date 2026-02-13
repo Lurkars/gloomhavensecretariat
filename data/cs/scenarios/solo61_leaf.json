@@ -1,0 +1,68 @@
+{
+  "index": "61",
+  "group": "solo",
+  "name": "Archaic Preservation",
+  "edition": "cs",
+  "spoiler": true,
+  "initial": true,
+  "solo": "leaf",
+  "rewards": {
+    "items": [
+      "42"
+    ]
+  },
+  "monsters": [
+    "ancient-artillery",
+    "archaic-golem",
+    "rending-drake"
+  ],
+  "allies": [
+    "archaic-golem"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:2",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "I1a",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "archaic-golem",
+          "type": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

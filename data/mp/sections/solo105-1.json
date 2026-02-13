@@ -1,0 +1,119 @@
+{
+  "index": "105-1",
+  "group": "solo",
+  "name": "Escape from Corruption",
+  "edition": "mp",
+  "parent": "105",
+  "marker": "1",
+  "resetRound": "visible",
+  "monsters": [
+    "black-imp::gh2e",
+    "chaos-demon::gh2e",
+    "harrower-infester::gh2e",
+    "hound::gh2e",
+    "inox-archer::gh2e"
+  ],
+  "allies": [
+    "hound",
+    "inox-archer"
+  ],
+  "rules": [
+    {
+      "round": "R == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "chaos-demon::gh2e",
+            "type": "elite"
+          },
+          "marker": "1"
+        },
+        {
+          "monster": {
+            "name": "harrower-infester::gh2e",
+            "type": "normal"
+          },
+          "marker": "2"
+        },
+        {
+          "monster": {
+            "name": "black-imp::gh2e",
+            "type": "elite"
+          },
+          "marker": "5"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp::gh2e",
+            "type": "elite"
+          },
+          "marker": "2"
+        },
+        {
+          "monster": {
+            "name": "black-imp::gh2e",
+            "type": "elite"
+          },
+          "marker": "3"
+        },
+        {
+          "monster": {
+            "name": "harrower-infester::gh2e",
+            "type": "elite"
+          },
+          "marker": "6"
+        }
+      ]
+    },
+    {
+      "round": "R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "harrower-infester::gh2e",
+            "type": "elite"
+          },
+          "marker": "3"
+        },
+        {
+          "monster": {
+            "name": "chaos-demon::gh2e",
+            "type": "normal"
+          },
+          "marker": "4"
+        },
+        {
+          "monster": {
+            "name": "chaos-demon::gh2e",
+            "type": "elite"
+          },
+          "marker": "7"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound::gh2e",
+          "type": "elite"
+        },
+        {
+          "name": "inox-archer::gh2e",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "name": "earth-demon-diviner-solo",
+  "edition": "fc",
+  "deck": "earth-demon",
+  "hidden": true,
+  "count": 6,
+  "standeeShare": "earth-demon",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 21,
+      "movement": 1,
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": 27,
+      "movement": 1,
+      "attack": 3
+    },
+    {
+      "level": 2,
+      "health": 36,
+      "movement": 1,
+      "attack": 3
+    },
+    {
+      "level": 3,
+      "health": 39,
+      "movement": 2,
+      "attack": 3
+    },
+    {
+      "level": 4,
+      "health": 45,
+      "movement": 2,
+      "attack": 4
+    },
+    {
+      "level": 5,
+      "health": 51,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 60,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 66,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 30,
+      "movement": 2,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 39,
+      "movement": 2,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 54,
+      "movement": 2,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 60,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 63,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 75,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 81,
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 96,
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    }
+  ]
+}

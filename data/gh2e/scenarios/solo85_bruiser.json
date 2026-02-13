@@ -1,0 +1,37 @@
+{
+  "index": "85",
+  "group": "solo",
+  "name": "A Night Out",
+  "edition": "gh2e",
+  "initial": true,
+  "solo": "bruiser",
+  "rewards": {
+    "items": [
+      "153"
+    ]
+  },
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

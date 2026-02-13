@@ -371,6 +371,62 @@
     "gh-98": {
       "": "Bottes d'Écailles de Wyverne",
       "1": "Vous n'êtes pas affecté par les terrains difficiles ou dangereux."
+    },
+    "gh-134": {
+      "": "Lame Imposante",
+      "1": "À chaque fois que vous tuez un adversaire pendant votre tour, gagnez %game.action.shield% 1 pour le reste du round."
+    },
+    "gh-136": {
+      "": "Elixir Volatile",
+      "1": "Pendant votre attaque à distance, ajoutez +2 %game.action.attack% et gagnez Avantage pour la totalité de l'action d'Attaque, mais subissez 2 dégâts pour chaque attaque réalisée."
+    },
+    "gh-141": {
+      "": "Ceinture Logistique",
+      "1": "Pendant votre tour, vous pouvez Rafraîchir %game.card.refresh% un de vos objets épuisé ou consommé."
+    },
+    "gh-142": {
+      "": "Idôle de Phase",
+      "1": "Quand une de vos invocations est blessée par une attaque, elle ne subit aucun dégât."
+    },
+    "gh-145": {
+      "": "Masque de la Mort",
+      "1": "À chaque fois que vous réalisez une attaque de mêlée et que vous avez exactement 1 point de vie, ajoutez +2 %game.action.attack% à l'Attaque."
+    },
+    "gh-135": {
+      "1": "Pendant votre action de Soin, doublez la valeur du Soin."
+    },
+    "gh-137": {
+      "1": "À chaque fois que vous réalisez une attaque de mêlée, ajoutez %game.action.pierce% 1 à l'Attaque."
+    },
+    "gh-138": {
+      "1": "Pendant l'action lors de laquelle un obstacle est créé, créez un obstacle additionnel et appliquez tous les effets de l'action à celui-ci."
+    },
+    "gh-139": {
+      "1": "À chaque fois que vous réalisez une action %data.characterColored.mindthief:Augment%, ajoutez +1 %game.action.attack% à la totalité de l'action."
+    },
+    "gh-140": {
+      "1": "Lorsque vous êtes blessé par une attaque, vous pouvez %game.element.consume.light% pour gagner %game.action.shield% 3 pour l'attaque."
+    },
+    "gh-143": {
+      "1": "Durant votre tour, devenez %game.condition.invisible% et créez %game.element.dark%"
+    },
+    "gh-144": {
+      "1": "Pendant votre tour, empoisonnez %game.condition.poison% et maudissez %game.condition.curse% un adversaire à portée %game.action.range:3%."
+    },
+    "gh-146": {
+      "1": "Après avoir réalisé une action Chanson %data.characterColored.music-note:Song%, réalisez immédiatement une action %game.action.attack% 2 ou une action %game.action.move% 2."
+    },
+    "gh-147": {
+      "1": "À chaque fois que vous réalisez une action Jugement %data.characterColored.angry-face:Doom%, infligez %game.condition.muddle% à la cible du jugement."
+    },
+    "gh-148": {
+      "1": "À chaque fois qu'un allié réalise une action Kit de Soins ou Grand Kit de Soins, il ajoute +1 %game.action.heal% à leur soin."
+    },
+    "gh-149": {
+      "1": "Si vous vous déplacez de 5 hexagones ou plus pendant votre tour, créez n'importe quel élément."
+    },
+    "gh-150": {
+      "1": "Après avoir réalisez une action %data.characterColored.two-mini:Command%, jouez une carte de votre main et réalisez immédiatement le même côté de carte (supérieur ou inférieur) que l'action %data.characterColored.two-mini:Command%."
     }
   },
   "summon": {

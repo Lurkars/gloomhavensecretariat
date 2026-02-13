@@ -1,0 +1,34 @@
+{
+  "index": "21-1",
+  "group": "solo",
+  "name": "Race Against the Clock",
+  "edition": "fh",
+  "parent": "21",
+  "monsters": [
+    "ancient-artillery"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

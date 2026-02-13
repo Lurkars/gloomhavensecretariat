@@ -1,0 +1,46 @@
+{
+  "index": "36-1",
+  "group": "solo",
+  "name": "Crash Against the Waves",
+  "edition": "fh",
+  "parent": "36",
+  "resetRound": "visible",
+  "monsters": [
+    "shape-blocks-out-the-sun"
+  ],
+  "rules": [
+    {
+      "round": "R == 4",
+      "start": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "shape-blocks-out-the-sun",
+            "type": "boss"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "36-2"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "shape-blocks-out-the-sun"
+          },
+          "type": "killed"
+        }
+      ]
+    }
+  ],
+  "rooms": []
+}

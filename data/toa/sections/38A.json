@@ -1,0 +1,31 @@
+{
+  "index": "38A",
+  "group": "solo",
+  "name": "Unsouled",
+  "edition": "toa",
+  "parent": "79",
+  "parentSections": [
+    [
+      "36B"
+    ]
+  ],
+  "monsters": [
+    "okeda"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "okeda",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

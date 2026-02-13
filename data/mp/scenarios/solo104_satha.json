@@ -1,0 +1,49 @@
+{
+  "index": "104",
+  "group": "solo",
+  "name": "Horns in the Night",
+  "edition": "mp",
+  "initial": true,
+  "solo": "satha",
+  "rewards": {
+    "items": [
+      "SA"
+    ]
+  },
+  "monsters": [
+    "algox-archer::fh",
+    "algox-scout::fh",
+    "city-guard::fh"
+  ],
+  "allies": [
+    "city-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer::fh",
+          "type": "normal"
+        },
+        {
+          "name": "algox-scout::fh",
+          "type": "normal"
+        },
+        {
+          "name": "algox-scout::fh",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard::fh",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard::fh",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

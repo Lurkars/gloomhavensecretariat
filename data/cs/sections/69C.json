@@ -1,0 +1,48 @@
+{
+  "index": "69C",
+  "group": "solo",
+  "name": "Archaic Preservation",
+  "edition": "cs",
+  "parent": "61",
+  "parentSections": [
+    [
+      "69B"
+    ]
+  ],
+  "monsters": [
+    "stone-golem"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "archaic-golem"
+          },
+          "type": "damage",
+          "value": "2"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

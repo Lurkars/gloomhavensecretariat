@@ -1,5 +1,12 @@
 {
   "edition": {
     "gh-envx": "Gloomhaven Envelope X"
+  },
+  "scenario": {
+    "title": {
+      "gh": {
+        "solo-18": "The Sands of Time"
+      }
+    }
   }
 }

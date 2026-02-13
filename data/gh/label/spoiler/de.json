@@ -564,6 +564,57 @@
     "gh-99": {
       "": "Lavalatschen",
       "1": "Ignoriere Schadenseffekte von gefährlichem Gelände und wende in jedem Zug, in dem du ein gefährliches Geländefeld betrittst, \"%game.action.heal% 2\" bei dir an."
+    },
+    "gh-134": {
+      "": "Imposante Klinge"
+    },
+    "gh-135": {
+      "": "Fokusstrahl"
+    },
+    "gh-136": {
+      "": "Instabiles Elixier"
+    },
+    "gh-137": {
+      "": "Flüsterklinge"
+    },
+    "gh-138": {
+      "": "Steinamulett"
+    },
+    "gh-139": {
+      "": "Astralmesser"
+    },
+    "gh-140": {
+      "": "Sonnenschild"
+    },
+    "gh-141": {
+      "": "Werkzeuggürtel"
+    },
+    "gh-142": {
+      "": "Phasenfigur"
+    },
+    "gh-143": {
+      "": "Rauchelixier"
+    },
+    "gh-144": {
+      "": "Seuchenbrosche"
+    },
+    "gh-145": {
+      "": "Todesmaske"
+    },
+    "gh-146": {
+      "": "Virtuosenlaute"
+    },
+    "gh-147": {
+      "": "Mantel des Jägers"
+    },
+    "gh-148": {
+      "": "Arztkittel"
+    },
+    "gh-149": {
+      "": "Elementar Stiefel"
+    },
+    "gh-150": {
+      "": "Befehlsstab"
     }
   },
   "summon": {

@@ -1,0 +1,42 @@
+{
+  "index": "96-2",
+  "group": "solo",
+  "name": "Unnatural Insults",
+  "edition": "gh2e",
+  "parent": "96",
+  "parentSections": [
+    [
+      "96-1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "cultist",
+    "inox-priest",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "normal"
+        },
+        {
+          "name": "inox-priest",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

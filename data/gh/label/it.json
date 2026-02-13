@@ -634,6 +634,12 @@
         "1": "Schiusa le uova",
         "2": "%game.action.summon% [C] uova"
       }
+    },
+    "city-guard-saw-solo": {
+      "1": "Subisci %game.damage:1% alla fine del round fino a quando non viene completamente curato"
+    },
+    "ghost-wolf": {
+      "1": "All'inizio di ogni round:"
     }
   },
   "deck": {

@@ -1,0 +1,63 @@
+{
+  "index": "35",
+  "group": "solo",
+  "name": "Wet Work",
+  "edition": "fh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "kelp",
+  "rewards": {
+    "items": [
+      "263"
+    ]
+  },
+  "monsters": [
+    "abael-scout",
+    "abael-warlord",
+    "burrowing-blade",
+    "piranha-pig"
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "invisible"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

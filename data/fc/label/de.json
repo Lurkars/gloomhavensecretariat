@@ -112,7 +112,8 @@
     "valrath-savage": "Valrath Wilde",
     "valrath-tracker": "Valrath Häscher",
     "warden": "Wächter",
-    "wolf-viper-abomination": "Wolf-Viper-Abscheulichkeit"
+    "wolf-viper-abomination": "Wolf-Viper-Abscheulichkeit",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)"
   },
   "partyAchievements": {
     "a-strongbox": "Eine Schatulle",

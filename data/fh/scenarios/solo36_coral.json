@@ -1,0 +1,69 @@
+{
+  "index": "36",
+  "group": "solo",
+  "name": "Crash Against the Waves",
+  "edition": "fh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "coral",
+  "rewards": {
+    "items": [
+      "264"
+    ]
+  },
+  "monsters": [
+    "lightning-eel",
+    "lost-in-seaweed"
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rules": [
+    {
+      "round": "R == 3",
+      "start": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lost-in-seaweed",
+            "type": "boss"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "lightning-eel",
+            "type": "elite"
+          },
+          "marker": "a",
+          "count": "4"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "36-1"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "lost-in-seaweed"
+          },
+          "type": "killed"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true
+    }
+  ]
+}

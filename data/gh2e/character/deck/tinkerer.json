@@ -1,0 +1,1641 @@
+{
+  "name": "tinkerer",
+  "edition": "gh2e",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Potent Potable",
+      "cardId": 30,
+      "level": 1,
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.30.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Harmless Contraption",
+      "cardId": 31,
+      "level": 1,
+      "initiative": 74,
+      "lost": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "decoy",
+            "health": "10",
+            "movement": "3",
+            "count": 1,
+            "enhancements": [
+              "heal",
+              "move"
+            ]
+          },
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 3
+    },
+    {
+      "name": "Flamethrower",
+      "cardId": 32,
+      "level": 1,
+      "initiative": 16,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(0,2,active)|(1,0,enhance)|(1,1,target)|(1,2,target)|(2,2,enhance)",
+              "enhancementTypes": [
+                "hex",
+                "hex"
+              ]
+            },
+            {
+              "type": "pierce",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.32.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "xp": 3,
+      "bottomRound": true
+    },
+    {
+      "name": "Potent Potables",
+      "cardId": 33,
+      "level": 1,
+      "initiative": 73,
+      "lost": true,
+      "actions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun",
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 3,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.tinkerer.abilities.33.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ink Bomb",
+      "cardId": 34,
+      "level": 1,
+      "initiative": 80,
+      "lost": true,
+      "actions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,enhance)",
+                  "enhancementTypes": [
+                    "hex"
+                  ]
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.tinkerer.abilities.34.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Net Shooter",
+      "cardId": 35,
+      "level": 1,
+      "initiative": 19,
+      "lost": true,
+      "actions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,enhance)",
+                  "enhancementTypes": [
+                    "hex"
+                  ]
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "immobilize",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.tinkerer.abilities.35.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "immobilize",
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stun Shot",
+      "cardId": 36,
+      "level": 1,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "stun",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 1
+        },
+        {
+          "type": "loot",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "Reinvigorating Elixir",
+      "cardId": 37,
+      "level": 1,
+      "initiative": 37,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomLoss": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.37.1%",
+          "small": true
+        }
+      ],
+      "bottomXp": 3
+    },
+    {
+      "name": "Restorative Mist",
+      "cardId": 38,
+      "level": 1,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allies",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jet Propulsion",
+      "cardId": 39,
+      "level": 1,
+      "initiative": 34,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 8,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomXp": 2
+    },
+    {
+      "name": "Enhancement Field",
+      "cardId": 40,
+      "level": 1,
+      "initiative": 61,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.40.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.40.2%",
+          "small": true,
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.40.3%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 3,
+      "bottomRound": true
+    },
+    {
+      "name": "Toxic Bolt",
+      "cardId": 41,
+      "level": 1,
+      "initiative": 76,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 6,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomXp": 3
+    },
+    {
+      "name": "Gas Canister",
+      "cardId": 42,
+      "level": "X",
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.42.1%",
+          "small": true,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Volatile Concoction",
+      "cardId": 43,
+      "level": "X",
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "enhancementTypes": [
+                "diamond_plus"
+              ],
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "ally",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.tinkerer.abilities.43.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.43.2%",
+          "small": true,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hook Gun",
+      "cardId": 44,
+      "level": "X",
+      "initiative": 72,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 2
+        }
+      ],
+      "bottomXp": 1
+    },
+    {
+      "name": "Repulsor Gun",
+      "cardId": 45,
+      "level": 2,
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "push",
+              "value": 1,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Crank Bow",
+      "cardId": 46,
+      "level": 2,
+      "initiative": 23,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 8,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 3
+    },
+    {
+      "name": "Teleportation Pad",
+      "cardId": 47,
+      "level": 3,
+      "initiative": 62,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.47.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.47.2%",
+          "small": true,
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "teleport",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 3
+    },
+    {
+      "name": "Stamina Booster",
+      "cardId": 48,
+      "level": 3,
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomLoss": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.48.1%",
+          "small": true
+        }
+      ],
+      "bottomXp": 3
+    },
+    {
+      "name": "Dangerous Contraption",
+      "cardId": 49,
+      "level": 4,
+      "initiative": 10,
+      "lost": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "battle-bot",
+            "health": "7",
+            "attack": "3",
+            "movement": "3",
+            "count": 1,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ]
+          },
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.49.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1,
+              "enhancementTypes": [
+                "diamond_plus"
+              ]
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 3,
+      "bottomRound": true
+    },
+    {
+      "name": "Proximity Mine",
+      "cardId": 50,
+      "level": 4,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.tinkerer.abilities.50.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.50.2%",
+          "small": true,
+          "enhancementTypes": [
+            "square",
+            "square"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Noxious Vials",
+      "cardId": 51,
+      "level": 5,
+      "initiative": 75,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,enhance)",
+                  "enhancementTypes": [
+                    "hex"
+                  ]
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "poison",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.tinkerer.abilities.51.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Disintegration Beam",
+      "cardId": 52,
+      "level": 5,
+      "initiative": 36,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.52.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,3,target)|(0,4,active)|(1,1,target)|(1,2,target)|(2,0,target)"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Invigorating Aerosol",
+      "cardId": 53,
+      "level": 6,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.53.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "safeguard",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "ward",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "strengthen",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "bless",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEndXp:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Auto Turret",
+      "cardId": 54,
+      "level": 6,
+      "initiative": 32,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.54.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                },
+                {
+                  "type": "pierce",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "ward",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Murderous Contraption",
+      "cardId": 55,
+      "level": 7,
+      "initiative": 84,
+      "lost": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "kill-bot",
+            "health": "8",
+            "attack": "3",
+            "movement": "4",
+            "count": 1,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "area",
+              "value": "(0,1,target)|(0,2,active)|(1,0,target)"
+            }
+          },
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 3
+    },
+    {
+      "name": "Pernicious Fogger",
+      "cardId": 56,
+      "level": 7,
+      "initiative": 71,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.56.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.tinkerer.abilities.56.2%",
+              "small": true
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 3
+    },
+    {
+      "name": "Cryonic Snare",
+      "cardId": 57,
+      "level": 8,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.57.1%",
+          "small": true,
+          "enhancementTypes": [
+            "square",
+            "square"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.57.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond_plus"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Harsh Stimulants",
+      "cardId": 58,
+      "level": 8,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.58.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "forceBox",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.gh2e.tinkerer.abilities.58.2%"
+                    }
+                  ]
+                },
+                {
+                  "type": "move",
+                  "value": 2,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                },
+                {
+                  "type": "attack",
+                  "value": 6,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.58.3%",
+          "small": true,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "plus",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "enemiesAdjacent",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.tinkerer.abilities.58.4%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomXp": 3
+    },
+    {
+      "name": "Gravity Bomb",
+      "cardId": 59,
+      "level": 9,
+      "initiative": 85,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.59.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "pull",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": "%data.custom.gh2e.tinkerer.abilities.59.2%",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.tinkerer.abilities.59.3%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Chimeric Formula",
+      "cardId": 60,
+      "level": 9,
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "bless",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.60.1%",
+          "small": true
+        }
+      ],
+      "bottomLost": true,
+      "bottomLoss": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.tinkerer.abilities.60.2%",
+          "small": true
+        }
+      ],
+      "bottomXp": 3
+    }
+  ]
+}

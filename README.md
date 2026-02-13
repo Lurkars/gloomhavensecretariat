@@ -264,9 +264,9 @@ Thanks to everyone who has already [contributed](https://github.com/Lurkars/gloo
 
 ### Translating
 
-Latest, I am now trying to use [Weblate](https://translate.gloomhaven-secretariat.de/) as a translation tool. You can log in with your *GitHub* account to help translate the application.
+Latest, I am now trying to use [Weblate](https://i18n.gloomhaven-secretariat.de/) as a translation tool. You can log in with your *GitHub* account to help translate the application.
 
-<img src="https://translate.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg" alt="Translation status" />
+<img src="https://i18n.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg" alt="Translation status" />
 
 ## Archive
 

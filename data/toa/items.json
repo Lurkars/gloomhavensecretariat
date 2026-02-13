@@ -299,6 +299,63 @@
     ]
   },
   {
+    "id": 119,
+    "name": "Thrice-Souled Warsword",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "solo": "three-eyes",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.toa-119.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 120,
+    "name": "Rekindled Core",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "solo": "ice-meteor",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.toa-120.1%",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "%data.items.toa-120.2%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 121,
+    "name": "Crystal Catalyst",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "solo": "gemstone",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.toa-121.1%",
+        "small": true
+      }
+    ]
+  },
+  {
     "id": 122,
     "name": "Crystal Spike",
     "cost": 50,
@@ -310,6 +367,23 @@
       {
         "type": "custom",
         "value": "%data.items.toa-122.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "name": "Arclight Cladding",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "solo": "lightning-ball",
+    "slot": "body",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.toa-123.1%",
         "small": true
       }
     ]
@@ -374,6 +448,23 @@
       {
         "type": "custom",
         "value": "%data.items.toa-127.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "name": "Barbed Whip",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "solo": "spiked-ring",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.toa-128.1%",
         "small": true
       }
     ]

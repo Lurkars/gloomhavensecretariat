@@ -1,7 +1,7 @@
 blank_issues_enabled: true
 contact_links:
     - name: 🖊️ Translation Platform
-      url: https://translate.gloomhaven-secretariat.de
+      url: https://i18n.gloomhaven-secretariat.de
       about: If you just find typos, please fix them directly on GHS Translation Platform
     - name: ❓ FAQ and Basic User Guide
       url: https://help.gloomhaven-secretariat.de/

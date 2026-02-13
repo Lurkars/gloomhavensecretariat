@@ -2,6 +2,192 @@
   "campaignSticker": {
     "42-temple": "Templo"
   },
+  "challenges": {
+    "fh": {
+      "1482": {
+        "": "Prueba de armaduras",
+        "text": "Cada vez que cualquier personaje sufra %game.damage% de un ataque no este reducido por %game.action.shield%, se añade %game.action.push% 2 al ataque."
+      },
+      "1483": {
+        "": "Empatía",
+        "text": "Cada vez que algún enemigo sufra %game.damage%, todos los demás enemigos obtienen Ventaja en todos sus ataques durante la ronda en curso."
+      },
+      "1484": {
+        "": "Optimismo",
+        "text": "Cada vez que reveles una carta de Modificador de ataque negativa o %game.attackmodifier.null% del mazo de Modificadores de ataque de monstruo, trátala en su lugar como %game.attackmodifier.plus0%."
+      },
+      "1485": {
+        "": "Mala suerte",
+        "text": "Cada vez que reveles una carta de Modificador de ataque %game.attackmodifier.minus2% del mazo de Modificadores de ataque de monstruo, trátala en su lugar como %game.attackmodifier.double%."
+      },
+      "1486": {
+        "": "Intervención divina",
+        "text": "Añade 3 cartas de Modificador de ataque %game.attackmodifier.bless% al mazo de Modificadores de ataque de monstruo al comienzo del escenario."
+      },
+      "1487": {
+        "": "Hipocondria",
+        "text": "Cada vez que a un personaje se le aplique un estado negativo, también sufre %game.condition.wound%."
+      },
+      "1488": {
+        "": "Contra el viento",
+        "text": "Todos los ataques a distancia enemigos tienen %game.action.range% +1.<br>Añade %game.action.move%+1 a todas las capacidades de Movimiento de los enemigos."
+      },
+      "1489": {
+        "": "Patalear en sueños",
+        "text": "Cada vez que un personaje realice un descanso corto o largo, todos los aliados adyacentes sufren daño por terreno peligroso."
+      },
+      "1490": {
+        "": "La fuerza de la codicia",
+        "text": "Los enemigos realizan %game.action.loot%1 al final de cada uno de sus turnos. Cada vez que un enemigo saquee una ficha de botín, obtiene %game.condition.strengthen%. Si este escenario no tiene mazo de Botín, roba un nuevo desafío y pon esta carta debajo de su mazo."
+      },
+      "1491": {
+        "": "Tácticas alternativas",
+        "text": "Al determinar la iniciativa cada ronda, la iniciativa se ordena de mayor a menor."
+      },
+      "1492": {
+        "": "Púas",
+        "text": "Todos los enemigos no dañados tienen %game.action.retaliate%2."
+      },
+      "1493": {
+        "": "De otra pasta",
+        "text": "Todos los enemigos añaden N/2 (redondeando hacia arriba) a su valor máximo de puntos de vida."
+      },
+      "1494": {
+        "": "Vigilancia",
+        "text": "Cada vez que realices un ataque que tome como objetivo a un enemigo que aún no haya actuado durante esta ronda, sufre Desventaja en el ataque. Cada ves que realices un ataque que tome como objetivo a un enemigo que ya haya actuado durante esta ronda, obtén Ventaja en el ataque."
+      },
+      "1495": {
+        "": "Exterminación tóxica",
+        "text": "La primera vez que muera un enemigo en cada ronda, cada personaje adyacente a él sufre %game.condition.poison%."
+      },
+      "1496": {
+        "": "Festín o inanición",
+        "text": "Retira todas las cartas de Modificadores de ataque %game.attackmodifier.plus0% del mazo de Modificadores de ataque de monstruo al comienzo del escenario. Todos los enemigos son inmunes a %game.condition.curse%."
+      },
+      "1497": {
+        "": "Presas combustibles",
+        "text": "Cada vez que muera un enemigo, uno de los personajes que estén más cercanos a él sufre %game.damage:1% (o %game.damage:2% en escenarios de nivel 4 a 7)."
+      },
+      "1498": {
+        "": "Fuerza seductora",
+        "text": "Todos los ataques a distancia enemigos tienen %game.action.push%1."
+      },
+      "1499": {
+        "": "Distracción brillante",
+        "text": "Siempre que hay a3 o más fichas de Botín reveladas en el tablero al final de cualquier ronda, todos los personajes sufren %game.condition.impair%. Si este escenario no tiene mazo de Botín, roba un nuevo desafío y pon esta carta debajo de su mazo."
+      },
+      "1500": {
+        "": "Agresividad potenciada",
+        "text": "Siempre que se robe una carta de Modificador de ataque %game.attackmodifier.minus1% o %game.attackmodifier.minus2% del mazo de Modificadores de ataque de monstruo, después del ataque, retirar la carta del mazo para el resto del escenario."
+      },
+      "1501": {
+        "": "Reflejos aumentados",
+        "text": "Disminuye todos los valores de iniciativa de los enemigos en 10."
+      },
+      "1502": {
+        "": "Entumecidos de frío",
+        "text": "Los personajes no pueden usar %game.itemSlot:small%."
+      },
+      "1503": {
+        "": "Imitación",
+        "hint": "Por motivos de implementación, ¡el personaje se elige al azar!",
+        "text": "Toma 5 cartas de Modificador de ataque de Pericia al azar de cualquier personaje de Frosthaven desbloqueado ( a elección de los jugadores) que no participe en el escenario. Añádelas al mazo de Modificadores de ataque de monstruo."
+      },
+      "1504": {
+        "": "El oro de los tontos",
+        "text": "Cada vez que un personaje saquee 1 o más fichas e Botín sufre %game.condition.curse%. Si este escenario no tiene mazo de Botín, roba un nuevo desafío y pon esta carta debajo de su mazo."
+      },
+      "1505": {
+        "": "Resaca",
+        "text": "Aumenta todos los valores de iniciativa de los personajes en 10."
+      },
+      "1506": {
+        "": "Formación compacta",
+        "text": "Cada vez que cualquier personaje realice un ataque mientras no esté adyacente a un aliado, sufre game.action.attack% -1 al ataque."
+      },
+      "1507": {
+        "": "Manufactura chapucera",
+        "text": "Cada vez que vaya a gastarse un objeto en vez de eso se pierde."
+      },
+      "1508": {
+        "": "Formación escalonada",
+        "text": "Al final del turno de cada personaje, todos los personajes adyacentes sufren %game.damage:1%."
+      },
+      "1509": {
+        "": "Raciones de saldo",
+        "text": "Cada vez que un pesonaje descanse, sufre %game.condition.curse%."
+      },
+      "1510": {
+        "": "Avance unido",
+        "text": "Cada vez que cualquier personaje termine su turno a más de 2 hexágonos de distancia de cualquier otro personaje (3 hexágonos de distancia si hay 3 personajes o 4 si hay 4 personajes) el personaje ha terminado su turno sufre %game.condition.muddle%."
+      },
+      "1511": {
+        "": "Niebla densa",
+        "text": "Todas las capacidades de Movimiento de valor 4 o superior de los personajes se reducen en 1."
+      },
+      "1512": {
+        "": "Armadura de pinchos",
+        "text": "Todos los personajes obtienen %game.action.retaliate%X,%game.action.range%3, donde X es u valor de %game.action.shield% . Añade %game.action.attack% -1 a todos los ataques de los personajes."
+      },
+      "1513": {
+        "": "Combate limpio",
+        "text": "Cada vez que un personaje mate a un enemigo, ese personaje sufre todos los estados negativos que tenía el enemigo cuando murió."
+      },
+      "1514": {
+        "": "Falange",
+        "text": "Cada enemigo obtiene %game.action.shield% 1 mientras esté adyacente a 1 o más de sus aliados."
+      },
+      "1515": {
+        "": "Presencia dominante",
+        "text": "Mientras cualquier enemigo ode élite esté presente en el tablero, todos los enemigos normales del mismo tipo obtienen %game.action.shield%1."
+      },
+      "1516": {
+        "": "Tácticas arcanas",
+        "text": "Cada vez que uno o más elementos pasen de Menguante a Inerte al final de una ronda, un personaje sufre daño por terreno peligroso."
+      },
+      "1517": {
+        "": "Calentamineto",
+        "text": "Mientras el valor de puntos de vida de cualquier personaje sea igual o superior a la mitad de su valor máximo de puntos de vida (redondeado hacia abajo) ese personaje sufre Desventaja en todos sus ataques."
+      },
+      "1518": {
+        "": "Enlace de sangre",
+        "text": "La primera vez que cualquier enemigo sufra %game.damage% en cada ronda, otro enemigo dañado realiza %game.action.heal% X, Personal, donde X es el daño sufrido."
+      },
+      "1519": {
+        "": "Abrojos",
+        "text": "Los personajes y sus aliados tratan todos los hexágonos como fichas de Botín como terreno peligroso. Esto no afecta a los enemigos."
+      },
+      "1520": {
+        "": "Dolor compartido",
+        "text": "Cada vez que un enemigo sufra %game.damage%, otro personaje sufre %game.damage:1%."
+      },
+      "1521": {
+        "": "Avasallamiento",
+        "text": "Todos los enemigos añaden %game.action.jump% a todas sus capacidades de Movimiento."
+      },
+      "1522": {
+        "": "Ofensiva ampliada",
+        "hint": "¡Solo se aplica a los monstruos!",
+        "text": "Todas las figuras añaden %game.action.attack% -1 y %game.action.target% +1 a todas sus capacidades de Ataque con un solo objetivo."
+      },
+      "1523": {
+        "": "Manada de caza",
+        "text": "Al comienzo de la tercera ronda, aparece un Sabueso normal en cualquier hexágono inicial por cada personaje del grupo. Si el escenario tiene Sabuesos en la primera sala o 6 tipos de monstruos sin contar los Sabuesos, roba un nuevo desafío y pon esta carta debajo de su mazo."
+      },
+      "1524": {
+        "": "Vigor saludable",
+        "text": "Cada enemigo obtiene %game.action.shield%1 mientras no tenga estados negativos. Cada vez que un enemigo pierda 1 o más estados negativos al final de su turno, sufre %game.damage:1%."
+      },
+      "1525": {
+        "": "Retribución rencorosa",
+        "text": "Cada vez que se reteñiré cualquier estado negativo de cualquier enemigo, este obtiene %game.condition.strengthen%."
+      },
+      "1526": {
+        "": "Atrincherarse",
+        "text": "Al determinar la iniciativa cada ronda, si hay menos monstruos que personajes en el tablero, todos los monstruos obtienen %game.condition.ward.%."
+      }
+    }
+  },
   "character": {
     "fh": {
       "coral": "Marea restallante",
@@ -17,6 +203,7 @@
         }
       },
       "meteor": "Piroclasto",
+      "shackles": "Canalizador de dolor",
       "snowflake": {
         "": "Danzanieves",
         "muddle-monster": {
@@ -53,6 +240,16 @@
         "5": "Crea o destruye al menos 1 pieza de obstáculo o terreno peligroso en cada ronda",
         "6": "Mueve a enemigos por 6 hexágonos diferentes de terreno peligroso creados por ti en un mismo turno"
       },
+      "shackles": {
+        "1": "Al atacar, ignora %game.action.retaliate%",
+        "2": "todos los enemigos a 2 hexágonos o menos",
+        "3": "Añade %game.action.attack% + 1 por cada estado negativo que tengas",
+        "4": "Cada ronda en la que realices un descanso largo, puedes ignorar todos los estados negativos que tengas; si lo haces no se podrán retirar durante esa ronda",
+        "5": "Siempre que este personaje quede agotado, realiza primero %game.condition.curse%, %game.action.target% todos, %game.action.range:3%",
+        "6": "Aumenta tu valor máximo de puntos de vida en 5",
+        "7": "Consigue que otras figuras sufran un total de al menos %game.damage:40% en una misma ronda",
+        "8": "Empieza tu turno con %game.condition.wound%,%game.condition.brittle%,%game.condition.bane%,%game.condition.poison%,%game.condition.immobilize%,%game.condition.disarm%,%game.condition.stun% y %game.condition.muddle%"
+      },
       "snowflake": {
         "1": "Si esta acción obliga al objetivo a moverse, este sufre %game.damage:1%",
         "2": "Siempre que realices un descanso largo, puedes %game.elementHalf:ice|air%",
@@ -84,17 +281,41 @@
       "": "Escudo tosco",
       "1": "Cuando un enemigo vaya a aplicarte un estado negativo, evita sufrir ese estado"
     },
+    "fh-100": {
+      "": "Poción de resistencia mayor",
+      "1": "Durante tu turno, %game.card.recover% 1 carta de tu pila de descartes."
+    },
+    "fh-101": {
+      "": "Poción de poder mayor",
+      "1": "Durante tu turno, añade +2 %game.action.attack% a todos tus ataques."
+    },
     "fh-102": {
       "": "Poción elemental mayor",
       "1": "Durante tu turno, %game.element.wild% %game.element.wild%"
+    },
+    "fh-103": {
+      "": "Poción de remedio mayor",
+      "1": "Durante tu turno, retira todos los estados negativos que sufras. Puedes usarla incluso si sufres %game.condition.impair% o %game.condition.stun%."
+    },
+    "fh-105": {
+      "": "Poción de piroescudo mayor",
+      "1": "Durante tu turno, realiza: %game.action.retaliate% 2 %game.action.range:3%"
     },
     "fh-11": {
       "": "Amuleto sencillo",
       "1": "Al inicio del escenario, retira 1 carta de Modificador de ataque %game.attackmodifier.minus1% de tu mazo de Modificadores de ataque."
     },
+    "fh-111": {
+      "": "Poción de frenesí mayor",
+      "1": "Durante tu turno, realiza:"
+    },
     "fh-115": {
       "": "Poción de inducción",
       "1": "Durante tu turno, ignora un símbolo de consumo elemental en una acción de hayas jugado y obtén su efecto."
+    },
+    "fh-119": {
+      "": "Mejunje letal",
+      "1": "Durante tu turno, realiza:"
     },
     "fh-12": {
       "": "Cota de malla tosca",
@@ -184,6 +405,22 @@
       "": "Escudo reforzado",
       "1": "Cuando un enemigo vaya a aplicarte un estado negativo, evita sufrir ese estado."
     },
+    "fh-156": {
+      "": "Pendiente de luna",
+      "1": "Cuando hagas un descanso corto, %game.card.recover% hasta 3 de tus objetos gastados."
+    },
+    "fh-157": {
+      "": "Anillo de acero",
+      "1": "Cuando sufras %game.damage% por un ataque, obtén %game.action.shield:4% para dicho ataque."
+    },
+    "fh-158": {
+      "": "Broche de las profundidades",
+      "1": "Durante tu turno, realiza:"
+    },
+    "fh-159": {
+      "": "Brazalete glorioso",
+      "1": "Después de tu capacidad de Ataque durante la cual un enemigo sufrió al menos %game.damage% 6, realiza:"
+    },
     "fh-16": {
       "": "Casco inspirador",
       "1": "Durante tu turno, otorga a todos los aliados adyacentes: %game.action.move% 2"
@@ -195,6 +432,14 @@
     "fh-17": {
       "": "Armadura de cuero curtido",
       "1": "Para los 2 próximos ataques que te tomen como objetivo, el atacante sufre Desventaja."
+    },
+    "fh-171": {
+      "": "Amuleto rejuvenecedor",
+      "1": "Siempre que pierdas una carta para prevenir %game.damage%, %game.card.recover% hasta 1 carta de tu pila de descartes y obtén %game.condition.regenerate%."
+    },
+    "fh-179": {
+      "": "Botas de prisa",
+      "1": "Durante tu capacidad de Movimiento, añade +4 %game.action.move%. Después de la capacidad de Movimiento, sufre %game.condition.immobilize%."
     },
     "fh-18": {
       "": "Botas humildes",
@@ -211,6 +456,10 @@
     "fh-188": {
       "": "Cristal congelate",
       "1": "Durante tu turno, crea 1 pieza de 1 hexágono de terreno peligroso, terreno helado o agua en un hexágono sin accesorios adyacente."
+    },
+    "fh-189": {
+      "": "Anillo de la noche",
+      "1": "Durante tu turno, realiza"
     },
     "fh-19": {
       "": "Martillo tintineate",
@@ -240,6 +489,10 @@
       "": "Cota de malla pesada",
       "1": "Cuando sufras %game.damage% por un ataque, obtén %game.action.shield:3% para dicho ataque."
     },
+    "fh-221": {
+      "": "Estilete de hielo",
+      "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, %game.element.consume.ice% para añadir %game.action.pierce% 3 a 1 ataque."
+    },
     "fh-225": {
       "": "Figura algox",
       "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, %game.element.consume.earth% para añadir %game.action.attack% +1 a 1 ataque, y luego dale la vuelta a esta carta.",
@@ -260,6 +513,10 @@
     "fh-236": {
       "": "Espejo agrietado",
       "1": "Durante tu turno, pierde 1 carta de tu mano para %game.card.recover% una carta de tu pila de perdida de un nivel igual o inferior."
+    },
+    "fh-239": {
+      "": "Ojo de la tormenta",
+      "1": "Durante tu turno, todos los aliados y enemigos a %game.action.range:2% o menos sufren %game.damage% 1."
     },
     "fh-24": {
       "": "Filo corrupto",
@@ -462,6 +719,10 @@
       "": "Lanza tosca",
       "1": "Durante tu turno, 1 de tus capacidades de Ataque cuerpo a cuerpo con un solo objetivo puede tener como objetivo a un enemigo situado a 2 hexágonos de distancia."
     },
+    "fh-81": {
+      "": "Efigie de dolor",
+      "1": "Cuando sufres %game.damage% 5 o menos por un ataque, un enemigo a %game.action.range:2% o menos también sufre la misma cantidad de %game.damage%."
+    },
     "fh-83": {
       "": "Poción curativa",
       "1": "Durantu tu turno, realiza:<br>%game.action.heal% 3 Personal"
@@ -529,6 +790,10 @@
     "fh-98": {
       "": "Mejunje insalubre",
       "1": "Durante tu turno, realiza: %game.condition.wound%, %game.condition.poison% Personal"
+    },
+    "fh-99": {
+      "": "Poción curativa mayor",
+      "1": "Durante tu turno, realiza: %game.action.heal% 6 Personal"
     }
   },
   "pets": {
@@ -544,6 +809,8 @@
     "banner-of-valor": "Bandera de valor",
     "bone-horde": "Horda de huesos",
     "defense-grid": "Matriz defensiva",
+    "flesh-bomb": "Efigie inestable",
+    "flesh-fiend": "Efigie cicatrizada",
     "longbowman": "Arquero",
     "polar-cat": "Gato polar",
     "raging-corpse": "Cadáver enfurecido",

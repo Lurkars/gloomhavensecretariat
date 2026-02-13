@@ -1287,7 +1287,8 @@
         "3": "Piranha Pig suffers %game.damage:1%.",
         "4": "Grant the closest<br>Piranha Pig within %game.action.range:4%:",
         "5": "If no Piranha Pig was targeted<br>by the grant ability:",
-        "6": "where X is the number of<br>Piranha Pigs on the map."
+        "6": "where X is the number of<br>Piranha Pigs on the map.",
+        "7": "all Piranha Pigs"
       },
       "algox-icespeaker": {
         "1": "Create one 1-hex obstacle<br>tile in an adjacent empty<br>hex closest to an enemy.",
@@ -1689,6 +1690,17 @@
         "1": "Modify terrain.",
         "2": "All characters who did not attack suffer trap damage at end of round."
       }
+    },
+    "algox-snowspeaker-trap-solo": {
+      "1": "All enemies within<br>%game.action.range:2% suffer %game.damage:2%"
+    },
+    "errata": {
+      "solo28": "Special rules: \"Snowspeaker\" should be \"Icespeaker\""
+    },
+    "lost-in-seaweed": {
+      "1": "Focus on the enemy<br>farthest away within %game.action.range:6%",
+      "2": "Create one 1-hex water tile<br>in an adjacent empty hex.",
+      "3": "in an adjacent unoccupied<br>hex with a water tile."
     }
   },
   "deck": {
@@ -1794,7 +1806,21 @@
     "vermling-scout": "Vermling Scout",
     "vestige-of-the-imprisoned-god": "Vestige of the Imprisoned God",
     "wind-demon": "Wind Demon",
-    "yoglang": "Yoglang"
+    "yoglang": "Yoglang",
+    "abael-warlord": "Abael Warlord",
+    "algox-icespeaker-shards-solo": "Algox Icespeaker (Solo)",
+    "algox-snowspeaker-trap-solo": "Algox Snowspeaker (Solo)",
+    "black-imp-deathwalker-solo": "Black Imp (Solo)",
+    "chief-of-spikes": "Chief of Spikes",
+    "city-guard-banner-spear-solo": "City Guard (Solo)",
+    "energized-corpse": "Energized Corpse",
+    "hollow-scholar": "Hollow Scholar",
+    "incarnation-of-ancestors": "Incarnation of Ancestors",
+    "lost-in-seaweed": "Lost in Seaweed",
+    "mountains-heart": "Mountain's Heart",
+    "night-demon-deathwalker-solo": "Night Demon (Solo)",
+    "plea-for-help-without-answer": "Plea for Help Without Answer",
+    "shape-blocks-out-the-sun": "Shape Blocks Out the Sun"
   },
   "objective": {
     "Altar": "Altar",
@@ -1982,9 +2008,13 @@
       "fh": {
         "0": "Do not set up the Hound monster ability deck. Instead, each round on initiative 26, all Hounds perform %game.action.move% 2; %game.action.attack% 2.",
         "1": "City Guards do not perform turns but instead gain an additional innate %game.action.shield% 1 (for a total of %game.action.shield% 2 at level 1) and %game.action.retaliate% 2, and have an initiative of 50 for the purpose of focusing.",
+        "10": "%game.action.target% each monster within %game.action.range:4%",
         "110": "Can only be destoyed when a Ruined Machine dies in an adjacent hex",
         "112": "The two Hounds have twice their maximum hit point values.",
-        "115": "When destroyed, replace with rubble and all figures in adjacent hexes suffer trap damage",
+        "115": {
+          "": "When destroyed, replace with rubble and all figures in adjacent hexes suffer trap damage",
+          "1": "Add %data.section:66.2% to the calendar in X+1 weeks, where X is the number of pylons destroyed."
+        },
         "116": "Focus on moving towards %game.mapMarker.b%",
         "119": {
           "1": "At end of turn, spend dust to:",
@@ -2164,7 +2194,24 @@
         "97": "Program Control Nexus",
         "98": "Collapsing Vent",
         "99": "Prison Break",
-        "randomDungeon-rnd": "Random Dungeon"
+        "randomDungeon-rnd": "Random Dungeon",
+        "solo-20": "Wonder of Nature",
+        "solo-21": "Race Against the Clock",
+        "solo-22": "Scouting Ambush",
+        "solo-23": "The Dead of Night",
+        "solo-24": "Bones in the Dirt",
+        "solo-25": "Divide and Conquer",
+        "solo-26": "Path of Ancestry",
+        "solo-27": "Crumbling Descent",
+        "solo-28": "Tuning the Resonance",
+        "solo-29": "A Magnificent Trap",
+        "solo-30": "A Collection of Suffering",
+        "solo-31": "Fighting Snow with Snow",
+        "solo-32": "Under the Ice",
+        "solo-33": "Recharge",
+        "solo-34": "Boiler Room",
+        "solo-35": "Wet Work",
+        "solo-36": "Crash Against the Waves"
       }
     }
   },
@@ -2229,7 +2276,8 @@
         },
         "51-1": "Whenever it suffers damage, all characters and monsters suffer %game.damage:2%",
         "65-3": {
-          "1": "Open all doors %game.mapMarker.1%. Place all characters and character summons, in initiative order, in the closest empty hex on tile 16-A, then remove all doors and tile 13-A from the map."
+          "1": "Open all doors %game.mapMarker.1%. Place all characters and character summons, in initiative order, in the closest empty hex on tile 16-A, then remove all doors and tile 13-A from the map.",
+          "2": "%game.action.target% each monster within %game.action.range:4%"
         }
       }
     },
@@ -2760,7 +2808,24 @@
         "randomMonsterCard-913": "Scorching",
         "randomMonsterCard-914": "Swift",
         "red-well": "\"Red Well\" Campaign Sticker",
-        "stage": "\"Stage\" Campaign Sticker"
+        "stage": "\"Stage\" Campaign Sticker",
+        "solo-20-1": "Wonder of Nature",
+        "solo-21-1": "Race Against the Clock",
+        "solo-21-2": "Race Against the Clock",
+        "solo-24-1": "Bones in the Dirt",
+        "solo-24-2": "Bones in the Dirt",
+        "solo-25-1": "Divide and Conquer",
+        "solo-27-1": "Crumbling Descent",
+        "solo-27-2": "Crumbling Descent",
+        "solo-28-1": "Tuning the Resonance",
+        "solo-32-1": "Under the Ice",
+        "solo-33-1": "Recharge",
+        "solo-34-1": "Boiler Room",
+        "solo-34-a": "Boiler Room",
+        "solo-35-1": "Wet Work",
+        "solo-35-2": "Wet Work",
+        "solo-36-1": "Crash Against the Waves",
+        "solo-36-2": "Crash Against the Waves"
       }
     }
   }

@@ -1,0 +1,44 @@
+{
+  "index": "34-a",
+  "group": "solo",
+  "name": "Boiler Room",
+  "edition": "fh",
+  "parent": "34",
+  "marker": "a",
+  "monsters": [
+    "ancient-artillery",
+    "ruined-machine"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

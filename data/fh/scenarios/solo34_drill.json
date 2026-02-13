@@ -1,0 +1,65 @@
+{
+  "index": "34",
+  "group": "solo",
+  "name": "Boiler Room",
+  "edition": "fh",
+  "spoiler": true,
+  "initial": true,
+  "solo": "drill",
+  "rewards": {
+    "items": [
+      "262"
+    ]
+  },
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rules": [
+    {
+      "round": "R % 4 == 2",
+      "start": true,
+      "note": "Move token to Low pressure section"
+    },
+    {
+      "round": "R % 4 == 3",
+      "start": true,
+      "note": "Move token to High pressure section"
+    },
+    {
+      "round": "R % 4 == 0",
+      "start": true,
+      "note": "Move token to Over pressure section"
+    },
+    {
+      "round": "R > 1 && R % 4 == 1",
+      "start": true,
+      "note": "Move token to Regular pressure section"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "index": "6-1",
+  "group": "solo",
+  "name": "Rodent Liberation",
+  "edition": "gh",
+  "parent": "6",
+  "hideIndex": true,
+  "marker": "1",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": "mindthief"
+          },
+          "type": "damage",
+          "value": "5"
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": "mindthief"
+          },
+          "type": "gainCondition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": "mindthief",
+            "conditions": [
+              "poison"
+            ]
+          },
+          "type": "damage",
+          "value": "3"
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": "mindthief",
+            "conditions": [
+              "!poison"
+            ]
+          },
+          "type": "gainCondition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Altar"
+          },
+          "type": "killed",
+          "value": "3"
+        }
+      ],
+      "disableRules": [
+        {
+          "edition": "gh",
+          "scenario": "6-1",
+          "group": "solo",
+          "index": 1,
+          "section": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "objectives": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

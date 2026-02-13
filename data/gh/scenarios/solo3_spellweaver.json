@@ -1,0 +1,193 @@
+{
+  "index": "3",
+  "group": "solo",
+  "name": "Corrupted Laboratory",
+  "edition": "gh",
+  "initial": true,
+  "solo": "spellweaver",
+  "rewards": {
+    "items": [
+      "136"
+    ]
+  },
+  "monsters": [
+    "black-imp",
+    "spitting-drake",
+    "stone-golem"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
+      "note": "Close and lock door %game.mapMarker.b%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "tags": [
+              "off"
+            ]
+          },
+          "type": "dormant"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "stone-golem",
+            "type": "normal",
+            "marker": "c"
+          },
+          "marker": "c"
+        }
+      ],
+      "treasures": [
+        "G"
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Reopen door %game.mapMarker.b%",
+      "rooms": [
+        3,
+        4
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "stone-golem",
+            "marker": "c"
+          },
+          "type": "killed"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "tags": [
+              "off"
+            ]
+          },
+          "type": "activate"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "G2b",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal",
+          "tags": [
+            "off"
+          ]
+        },
+        {
+          "name": "black-imp",
+          "type": "elite",
+          "tags": [
+            "off"
+          ]
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal",
+          "tags": [
+            "off"
+          ]
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "I1b",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal",
+          "tags": [
+            "off"
+          ]
+        },
+        {
+          "name": "black-imp",
+          "type": "normal",
+          "tags": [
+            "off"
+          ]
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal",
+          "tags": [
+            "off"
+          ]
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "A2a",
+      "marker": "b",
+      "treasures": [
+        "G"
+      ],
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "A1b",
+      "marker": "a",
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

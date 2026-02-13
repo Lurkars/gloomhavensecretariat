@@ -1,6 +1,7 @@
 {
   "about": {
     "": "Sobre",
+    "forceUpdate": "Forçar Atualização",
     "ip": "Gloomhaven e todo conteúdo, imagens, e texto são propriedade de {0}.",
     "license": "Licença: {0}.",
     "sourceCode": "Código Fonte",
@@ -21,6 +22,7 @@
   },
   "campaign": {
     "": "Gerenciamento de Campanha/Personagem",
+    "battleGoals": "Configurações de Objetivo de Batalha",
     "campaignManagement": {
       "": "Gerenciar Campanha",
       "add": "Adicionar Campanha",
@@ -43,6 +45,30 @@
     },
     "deck": {
       "current": "Atual"
+    }
+  },
+  "game": {
+    "battleGoals": {
+      "setup": {
+        "": "Configure Objetivos de Batalha",
+        "empty": "Nenhuma Carta de Objetivos de Batalha selecionada."
+      }
+    },
+    "events": {
+      "deck": {
+        "setup": "Configure Baralho de Eventos"
+      }
+    }
+  },
+  "monster": {
+    "setStandees": "Configure {1} %game.monsterType.{0}% standees"
+  },
+  "scenario": {
+    "chart": {
+      "setup": "Mostrar Configuração de Cenário"
+    },
+    "setup": {
+      "": "Configuração de Cenário"
     }
   },
   "state": {

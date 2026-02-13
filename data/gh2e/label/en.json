@@ -5,6 +5,7 @@
     "Arcane Bolt": "Arcane Bolt",
     "Arctic Shards": "Arctic Shards",
     "Arresting Gale": "Arresting Gale",
+    "Auto Turret": "Auto Turret",
     "Avalanche": "Avalanche",
     "Backup Ammunition": "Backup Ammunition",
     "Balanced Measure": "Balanced Measure",
@@ -20,6 +21,7 @@
     "Cataclysm": "Cataclysm",
     "Chain Lightning": "Chain Lightning",
     "Change Tempo": "Change Tempo",
+    "Chimeric Formula": "Chimeric Formula",
     "Chromatic Explosion": "Chromatic Explosion",
     "Clear the Way": "Clear the Way",
     "Cold Fire": "Cold Fire",
@@ -28,15 +30,19 @@
     "Cool Down": "Cool Down",
     "Corrupting Embrace": "Corrupting Embrace",
     "Cranium Overload": "Cranium Overload",
+    "Crank Bow": "Crank Bow",
     "Crater": "Crater",
     "Crippling Offensive": "Crippling Offensive",
     "Crushing Grasp": "Crushing Grasp",
+    "Cryonic Snare": "Cryonic Snare",
     "Dancing Gales": "Dancing Gales",
+    "Dangerous Contraption": "Dangerous Contraption",
     "Dark Frenzy": "Dark Frenzy",
     "Defensive Ditty": "Defensive Ditty",
     "Defensive Tactics": "Defensive Tactics",
     "Dig Pit": "Dig Pit",
     "Dirt Tornado": "Dirt Tornado",
+    "Disintegration Beam": "Disintegration Beam",
     "Disorienting Dirge": "Disorienting Dirge",
     "Dissonant Rhythm": "Dissonant Rhythm",
     "Domination": "Domination",
@@ -52,6 +58,7 @@
     "Empathetic Assault": "Empathetic Assault",
     "Empowering Flame": "Empowering Flame",
     "Encompassing Shadow": "Encompassing Shadow",
+    "Enhancement Field": "Enhancement Field",
     "Entomb": "Entomb",
     "Ethereal Manifestation": "Ethereal Manifestation",
     "Etheric Echo": "Etheric Echo",
@@ -64,6 +71,7 @@
     "Fire Orbs": "Fire Orbs",
     "Flame Strike": "Flame Strike",
     "Flameswell": "Flameswell",
+    "Flamethrower": "Flamethrower",
     "Flash of Brilliance": "Flash of Brilliance",
     "Formless Power": "Formless Power",
     "Freezing Nova": "Freezing Nova",
@@ -75,13 +83,18 @@
     "Frostflare Orbs": "Frostflare Orbs",
     "Frozen Shiv": "Frozen Shiv",
     "Gangling Abomination": "Gangling Abomination",
+    "Gas Canister": "Gas Canister",
     "Gnawing Horde": "Gnawing Horde",
     "Grab and Go": "Grab and Go",
     "Grand Finale": "Grand Finale",
     "Gravel Guard": "Gravel Guard",
+    "Gravity Bomb": "Gravity Bomb",
+    "Harmless Contraption": "Harmless Contraption",
+    "Harsh Stimulants": "Harsh Stimulants",
     "Heatwave": "Heatwave",
     "Heaving Swing": "Heaving Swing",
     "Hidden in the Shadows": "Hidden in the Shadows",
+    "Hook Gun": "Hook Gun",
     "Hook and Chain": "Hook and Chain",
     "Hostile Takeover": "Hostile Takeover",
     "Hymn to the Oak": "Hymn to the Oak",
@@ -93,9 +106,12 @@
     "Increase Cadence": "Increase Cadence",
     "Infernal Vortex": "Infernal Vortex",
     "Inferno": "Inferno",
+    "Ink Bomb": "Ink Bomb",
     "Inspiring Anthem": "Inspiring Anthem",
     "Intensifying Amplitude": "Intensifying Amplitude",
     "Intimidating Growl": "Intimidating Growl",
+    "Invigorating Aerosol": "Invigorating Aerosol",
+    "Jet Propulsion": "Jet Propulsion",
     "Juggernaut": "Juggernaut",
     "Kinetic Assault": "Kinetic Assault",
     "Leaping Cleave": "Leaping Cleave",
@@ -110,26 +126,36 @@
     "Meteor": "Meteor",
     "Mobilizing Measure": "Mobilizing Measure",
     "Mud Eruption": "Mud Eruption",
+    "Murderous Contraption": "Murderous Contraption",
+    "Net Shooter": "Net Shooter",
+    "Noxious Vials": "Noxious Vials",
     "Obsidian Shards": "Obsidian Shards",
     "Ode to the Gambler": "Ode to the Gambler",
     "Onward to Battle": "Onward to Battle",
     "Opposing Strike": "Opposing Strike",
     "Overwhelming Assault": "Overwhelming Assault",
+    "Pernicious Fogger": "Pernicious Fogger",
     "Perverse Edge": "Perverse Edge",
     "Petrify": "Petrify",
     "Phantasmal Killer": "Phantasmal Killer",
     "Pilfer": "Pilfer",
     "Possession": "Possession",
+    "Potent Potable": "Potent Potable",
+    "Potent Potables": "Potent Potables",
     "Power Ballad": "Power Ballad",
     "Pragmatic Reinforcement": "Pragmatic Reinforcement",
     "Primal Duality": "Primal Duality",
     "Prismatic Barrage": "Prismatic Barrage",
     "Provoke Terror": "Provoke Terror",
+    "Proximity Mine": "Proximity Mine",
     "Psychic Blade": "Psychic Blade",
     "Psychic Projection": "Psychic Projection",
     "Pull the Strings": "Pull the Strings",
     "Pulsing Cores": "Pulsing Cores",
     "Push Through": "Push Through",
+    "Reinvigorating Elixir": "Reinvigorating Elixir",
+    "Repulsor Gun": "Repulsor Gun",
+    "Restorative Mist": "Restorative Mist",
     "Reviving Ether": "Reviving Ether",
     "Rock Slide": "Rock Slide",
     "Rocky End": "Rocky End",
@@ -150,20 +176,25 @@
     "Soothing Lullaby": "Soothing Lullaby",
     "Spare Dagger": "Spare Dagger",
     "Spell Mastery": "Spell Mastery",
+    "Stamina Booster": "Stamina Booster",
     "Stoking Hail": "Stoking Hail",
     "Stone Pummel": "Stone Pummel",
+    "Stun Shot": "Stun Shot",
     "Submissive Affliction": "Submissive Affliction",
     "Sweeping Blow": "Sweeping Blow",
     "Symphonic Medley": "Symphonic Medley",
     "Telepathic Command": "Telepathic Command",
+    "Teleportation Pad": "Teleportation Pad",
     "The Mind's Weakness": "The Mind's Weakness",
     "Thrilling Solo": "Thrilling Solo",
     "Toughening Trill": "Toughening Trill",
+    "Toxic Bolt": "Toxic Bolt",
     "Trample": "Trample",
     "Tuning the Outcome": "Tuning the Outcome",
     "Twin Beams": "Twin Beams",
     "Unstable Upheaval": "Unstable Upheaval",
     "Unstoppable Charge": "Unstoppable Charge",
+    "Volatile Concoction": "Volatile Concoction",
     "Wall of Doom": "Wall of Doom",
     "Warding Strength": "Warding Strength",
     "Warm Up": "Warm Up",
@@ -173,7 +204,7 @@
     "Whirlwind": "Whirlwind",
     "Wistful Wounding": "Wistful Wounding",
     "Withering Claw": "Withering Claw",
-    "name": "Winter's Edge"
+    "Winter's Edge": "Winter's Edge"
   },
   "battleGoals": {
     "1016": {
@@ -903,8 +934,104 @@
         "2": "Whenever you perform an action with %game.card.lost%, you may %game.element.wild%",
         "3": "Whenever you long rest, you may perform: %game.action.heal% 2, %game.action.range:3%",
         "4": "For an entire scenario, during each of your turns, give an enemy a negative condition, give an ally a positive condition, heal an ally, or grant an ally shield",
-        "5": "Perform 11 different %game.card.lost% actions"
+        "5": "Perform 11 different %game.card.lost% actions",
+        "abilities": {
+          "30": {
+            "1": "On your next four single-target heal abilities, add +1 %game.action.target%."
+          },
+          "32": {
+            "1": "Grant all adjacent allies and self:"
+          },
+          "33": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "34": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "35": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "37": {
+            "1": "One ally within %game.action.range:3% may %game.card.recover% all their cards from their discard pile."
+          },
+          "40": {
+            "1": "Place the \"Enhancement Field\" token in an empty hex within %game.action.range:3%.",
+            "2": "Add +1 %game.action.attack% to all attacks you and all allies perform while within %game.action.range:1% of the token.",
+            "3": "You and all adjacent allies add +1 %game.action.attack% to all attacks this round."
+          },
+          "42": {
+            "1": "Create one %game.damage:4% %game.enhancement.square% ,%game.condition.muddle% trap in an adjacent empty hey."
+          },
+          "43": {
+            "1": "The target may %game.card.recover% one level 1 card from their discard pile.",
+            "2": "Create one %game.damage:2% %game.enhancement.square% ,%game.condition.poison% trap in an adjacent empty hey."
+          },
+          "47": {
+            "1": "Place two \"Teleportation Pad\" tokens in empty hexes within %game.action.range:5%.",
+            "2": "You and all allies may threat the two hexes containing the tokens as being adjacent to each other during move abilities."
+          },
+          "48": {
+            "1": "One ally within %game.action.range:3% may %game.card.recover% one card from their lost pile."
+          },
+          "49": {
+            "1": "Grant one adjacent ally:"
+          },
+          "50": {
+            "1": "All enemies adjacent to the target gain %game.condition.muddle%.",
+            "2": "Create one %game.damage:2% %game.enhancement.square% ,%game.condition.immobilize% trap in an empty hey within %game.action.range:2% %game.enhancement.square% ."
+          },
+          "51": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "52": {
+            "1": "Kill all enemies in the targeted area whose current hit point value is less than or equal to 5. Gain %game.card.experience:1% for each enemy killed."
+          },
+          "53": {
+            "1": "At the end of this and your next four turns, perform:"
+          },
+          "54": {
+            "1": "At the end of this and your next three turns, perform the following twice:"
+          },
+          "56": {
+            "1": "Place the \"Pernicious Fogger\" token in an empty hex within %game.action.range:3%.",
+            "2": "At the end of each of their turns, all allies and enemies within %game.action.range:1% of the token suffer %game.damage:2%."
+          },
+          "57": {
+            "1": "Create one %game.damage:4% %game.enhancement.square% ,%game.condition.wound%, %game.condition.stun% trap in an empty hey within %game.action.range:2% %game.enhancement.square% .",
+            "2": "Grant one adjacent ally:"
+          },
+          "58": {
+            "1": "Grant one ally within %game.action.range:3%:",
+            "2": "Suffer %game.damage:2%.",
+            "3": "Control one enemy within %game.action.range:3 %%game.enhancement.square% :",
+            "4": "then that enemy gains %game.condition.stun%."
+          },
+          "59": {
+            "1": "Place the \"Gravity Bomb\" token in an empty hex within %game.action.range:4%. At the end of your next turn, perform:",
+            "2": "all enemies within %game.action.range:2% of the token",
+            "3": "Pull toward the token. Then any enemy occupying the hex containing the token suffers %game.damage:5%, all enemies occupying hexes adjacent to the token suffer %game.damage:1%, and you discard this card."
+          },
+          "60": {
+            "1": "The target of the heal ability may immediately play up to two cards from their hand, performing at most one top and one bottom action of the cards.",
+            "2": "One ally within %game.action.range:3% may %game.card.recover% one card from the lost pile of one ally adjacent to them."
+          }
+        }
       }
+    },
+    "city-guard-saw2-solo": {
+      "1": "When given a medical pack, perform:",
+      "2": "Remove %data.monster.city-guard-saw2-solo% from the map after being healed fully or given a medical pack."
+    },
+    "city-guard-sun2-solo": {
+      "1": "Acts immediately after %game.characterIcon.sun%."
+    },
+    "hawthorne": {
+      "1": "Adds +1 %game.action.attack% to all attacks while undamaged"
+    },
+    "living-spirit-squidface-solo": {
+      "1": "Base armor is 0 while %data.monster.living-spirit-squidface-solo% does not have %game.condition.poison%",
+      "2": "%data.monster.living-spirit-squidface-solo%s without %game.condition.poison% do not act.",
+      "3": "%game.characterIcon.squidface% may have the %data.monster.living-spirit-squidface-solo% lose %game.condition.poison% to add %game.condition.poison%."
     }
   },
   "deck": {
@@ -1017,7 +1144,18 @@
     "usurper": "Usurper",
     "vermling-priest": "Vermling Priest",
     "vermling-scout": "Vermling Scout",
-    "wind-demon": "Wind Demon"
+    "wind-demon": "Wind Demon",
+    "bandit-archer-music-note2-solo": "%data.monster.bandit-archer%",
+    "bandit-scout-music-note2-solo": "%data.monster.bandit-scout%",
+    "cave-bear-circles2-solo": "%data.monster.cave-bear%",
+    "city-guard-saw2-solo": "%data.monster.city-guard%",
+    "city-guard-sun2-solo": "%data.monster.city-guard%",
+    "deep-earth-gh2e": "Deep Earth",
+    "hawthorne": "Hawthorne",
+    "living-spirit-squidface-solo": "%data.monster.living-spirit%",
+    "shyreth": "Shyreth",
+    "stone-construct-tinkerer-solo": "%data.monster.stone-construct%",
+    "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%"
   },
   "personalQuest": {
     "gh2e": {
@@ -1214,7 +1352,25 @@
         "97": "Vermling Camp",
         "98": "Metamorphic Fault",
         "99": "Sintering Forge",
-        "S": "Challenger's Rift"
+        "S": "Challenger's Rift",
+        "solo-100": "Elemental Secrets",
+        "solo-101": "The Caged Bear",
+        "solo-102": "The Sands of Time",
+        "solo-85": "A Night Out",
+        "solo-86": "An Unfortunate Intrusion",
+        "solo-87": "Corrupted Apothecary",
+        "solo-88": "Material Concerns",
+        "solo-89": "Stone Defense",
+        "solo-90": "Vermling Liberation",
+        "solo-91": "Caravan Escort",
+        "solo-92": "Storage Fees",
+        "solo-93": "Plane of Wild Beasts",
+        "solo-94": "Harvesting the Night",
+        "solo-95": "Plagued Crypt",
+        "solo-96": "Unnatural Insults",
+        "solo-97": "Battle of the Bards",
+        "solo-98": "Corrupted Hunt",
+        "solo-99": "Aftermath"
       }
     }
   },
@@ -1471,7 +1627,45 @@
         "randomMonsterCard-570": "Corrupted",
         "randomMonsterCard-571": "Infected",
         "randomMonsterCard-572": "Putrid",
-        "randomMonsterCard-573": "Frigid"
+        "randomMonsterCard-573": "Frigid",
+        "solo-100-1": "Elemental Secrets",
+        "solo-100-2": "Elemental Secrets",
+        "solo-100-3": "Elemental Secrets",
+        "solo-100-4": "Elemental Secrets",
+        "solo-101-1": "The Caged Bear",
+        "solo-101-2": "The Caged Bear",
+        "solo-101-3": "The Caged Bear",
+        "solo-102-1": "The Sands of Time",
+        "solo-102-2": "The Sands of Time",
+        "solo-85-1": "A Night Out",
+        "solo-85-2": "A Night Out",
+        "solo-86-1": "An Unfortunate Intrusion",
+        "solo-86-2": "An Unfortunate Intrusion",
+        "solo-87-1": "Corrupted Apothecary",
+        "solo-87-2": "Corrupted Apothecary",
+        "solo-88-1": "Material Concerns",
+        "solo-88-2": "Material Concerns",
+        "solo-90-1": "Vermling Liberation",
+        "solo-90-2": "Vermling Liberation",
+        "solo-91-1": "Caravan Escort",
+        "solo-91-2": "Caravan Escort",
+        "solo-92-1": "Storage Fees",
+        "solo-92-2": "Storage Fees",
+        "solo-92-3": "Storage Fees",
+        "solo-93-1": "Plane of Wild Beasts",
+        "solo-94-1": "Harvesting the Night",
+        "solo-94-2": "Harvesting the Night",
+        "solo-95-1": "Plagued Crypt",
+        "solo-95-2": "Plagued Crypt",
+        "solo-96-1": "Unnatural Insults",
+        "solo-96-2": "Unnatural Insults",
+        "solo-97-1": "Battle of the Bards",
+        "solo-97-2": "Battle of the Bards",
+        "solo-98-1": "Corrupted Hunt",
+        "solo-98-2": "Corrupted Hunt",
+        "solo-98-3": "Corrupted Hunt",
+        "solo-98-4": "Corrupted Hunt",
+        "solo-99-1": "Aftermath"
       }
     }
   }

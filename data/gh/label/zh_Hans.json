@@ -1223,6 +1223,12 @@
         "1": "将所有卵孵化",
         "2": "%game.action.summon% [C] 个卵"
       }
+    },
+    "city-guard-saw-solo": {
+      "1": "在回合结束时受到%game.damage:1%，直到被完全治愈"
+    },
+    "ghost-wolf": {
+      "1": "在每个回合开始时："
     }
   },
   "deck": {
@@ -1315,7 +1321,16 @@
     "vermling-scout": "腐灵族哨兵",
     "vermling-shaman": "腐灵族萨满",
     "wind-demon": "疾风恶魔",
-    "winged-horror": "翼魔"
+    "winged-horror": "翼魔",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.charactergh..music-note% %solo%)",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
+    "deep-earth": "大地深处",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)"
   },
   "objective": {
     "Altar": "祭坛",

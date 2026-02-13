@@ -80,9 +80,9 @@ export class Game {
     this.battleGoalEditions = model.battleGoalEditions || [];
     this.filteredBattleGoals = model.filteredBattleGoals || [];
     this.figures = this.figures.filter((figure) =>
-      model.characters.map((gcm) => gcm.name).includes(figure.name) ||
-      model.monsters.map((gmm) => gmm.name).includes(figure.name) ||
-      model.objectiveContainers && model.objectiveContainers.map((gom) => gom.name).includes(figure.name)
+      figure instanceof Character && model.characters.map((gcm) => gcm.edition + '-' + gcm.name).includes(figure.edition + '-' + figure.name) ||
+      figure instanceof Monster && model.monsters.map((gmm) => gmm.edition + '-' + gmm.name).includes(figure.edition + '-' + figure.name) ||
+      figure instanceof ObjectiveContainer && model.objectiveContainers && model.objectiveContainers.map((gom) => gom.uuid).includes(figure.uuid)
     );
 
     this.entitiesCounter = model.entitiesCounter || [];

@@ -1,0 +1,22 @@
+{
+  "index": "33-1",
+  "group": "solo",
+  "name": "Recharge",
+  "edition": "fh",
+  "parent": "33",
+  "monsters": [
+    "energized-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "energized-corpse",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

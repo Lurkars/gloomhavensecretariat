@@ -10,6 +10,7 @@ export class Action {
   hidden: boolean;
   noDivider: boolean = false;
   enhancementTypes: EnhancementType[] | undefined;
+  multiTarget: boolean = false;
 
   constructor(type: ActionType,
     value: number | string = "",

@@ -1,0 +1,48 @@
+{
+  "index": "86-2",
+  "group": "solo",
+  "name": "An Unfortunate Intrusion",
+  "edition": "gh2e",
+  "parent": "86",
+  "parentSections": [
+    [
+      "86-1"
+    ]
+  ],
+  "monsters": [
+    "vermling-priest",
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-priest",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-priest",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}
