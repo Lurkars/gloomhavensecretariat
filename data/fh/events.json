@@ -6483,7 +6483,7 @@
             "effects": [
               {
                 "type": "randomItem",
-                "alt": true
+                "alt": "fh"
               },
               {
                 "type": "scenarioCondition",
