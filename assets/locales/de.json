@@ -597,6 +597,7 @@
           "refreshItemFh": "%game.card.recover% einen Gegenstand",
           "refreshSpentItem": "Einen abgenutzten Gegenstand erneuern"
         },
+        "monsterDeck": "zum Angriffsmodifikatordeck für Monster",
         "type": {
           "add": "füge {0} hinzu",
           "remove": "entferne {0}",
@@ -860,11 +861,13 @@
         "payCollectiveGoldReputationGT": "{0} (Ansehen > {1})",
         "payCollectiveGoldReputationLT": "{0} (Ansehen < {1})",
         "payGold": "Zahlt jeweils {0} Gold",
+        "reputationFactionGT": "%data.gh2eFaction:{0}% > {1}",
         "reputationGT": "Ansehen > {0}",
         "reputationLT": "Ansehen < {0}",
         "season": "%party.campaign.sheet.{0}%",
         "seasonLT": "Wenn %party.campaign.sheet.{0}% in {1} Wochen oder weniger stattfindet",
-        "traits": "%game.trait% {0}"
+        "traits": "%game.trait% {0}",
+        "traitsAll": "%game.trait% {0}"
       },
       "deck": {
         "addCard": "Zu den zukünftigen Ereigniskarten hinzufügen und Kartenstapel mischen",
@@ -906,31 +909,41 @@
         "custom": "{0}",
         "discard": {
           "": "Jeder legt jeweils {0} Karten ab.",
-          "fh": "Alle Charaktere legen zum Start des nächsten Szenarios jeweils %number.{0}% Karten ab."
+          "fh": "Alle Charaktere legen zum Start des nächsten Szenarios jeweils %number.{0}% Karten ab.",
+          "gh2e": "Jeder Charakter legt jeweils {0} Karten ab."
         },
         "discardOne": {
           "": "Jeder legt jeweils eine Karte ab.",
-          "fh": "Alle Charakter legen zum Start des nächsten Szenarios jeweils eine Karte ab."
+          "fh": "Alle Charakter legen zum Start des nächsten Szenarios jeweils eine Karte ab.",
+          "gh2e": "Jeder Charakter legt jeweils eine Karte ab."
         },
         "drawAnotherEvent": {
           "": "Ziehe ein weiteres %game.events.type.{0}% Ereignis.",
-          "fh": "Ziehe ein weiteres %game.events.type.{0}% Ereignis."
+          "fh": "Ziehe ein weiteres %game.events.type.{0}% Ereignis.",
+          "gh2e": "Ziehe ein weiteres %game.events.type.{0}% Ereignis."
         },
         "drawEvent": "Ziehe ein %game.events.type.{0}% Ereignis.",
         "event": {
           "": "Füge %game.events.type.{0}% Ereignis {1} zum Deck hinzu.",
-          "fh": "Füge Ereignis {1} zum %game.events.type.{0}% Deck hinzu."
+          "fh": "Füge Ereignis {1} zum %game.events.type.{0}% Deck hinzu.",
+          "gh2e": "Füge Ereignis {1} zum %game.events.type.{0}% Deck hinzu."
         },
         "eventReturn": "Füge Ereignis {1} wieder zum %game.events.type.{0}% Deck hinzu.",
         "eventsToTop": "Durchsuche das %game.events.type.{0}% Deck bis zu {1}, {2} oder {3} findest und sortiere es an oberste Position.",
-        "experience": "Erhaltet jeder {0} Erfahrung.",
+        "experience": {
+          "": "Erhaltet jeder {0} Erfahrung.",
+          "fh": "Jeder Charakter erhält {0} %game.card.experience%.",
+          "gh2e": "Jeder Charakter erhält {0} %game.card.experience%."
+        },
+        "gainTrait": "Jeder Charakter erhält %game.trait:{0}%.",
         "globalAchievement": "Globaler Erfolg:<br>\"%data.globalAchievements.{0}%\".",
         "gold": "Erhaltet jeweils {0} Gold.",
         "goldAdditional": "Jeder erhält {0} Gold zusätzlich.",
         "inspiration": "Erhalte {0} Inspiration.",
         "item": {
           "": "Erhalte \"%data.items.{1}-{0}%\" (Gegenstand {0}).",
-          "fh": "Erhalte \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+          "fh": "Erhalte \"%data.items.{1}-{0}%\" %game.itemFh.{0}%.",
+          "gh2e": "Erhalte \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
         },
         "itemCollective": "Erhalte {1} kollektiv \"%data.items.{2}-{0}%\" (Gegenstand {0}).",
         "itemDesign": "Erhalte \"%data.items.{1}-{0}%\" Gegenstandsplan (Gegenstein {0}).",
@@ -943,10 +956,17 @@
         "loseExperience": "Verliert jeweils {0} Erfahrung.",
         "loseGold": "Verliert jeweils {0} Gold.",
         "loseGoldOne": "Jeder Charakter verliert {0} Gold.",
+        "loseItem": {
+          "": "Veliert \"%data.items.{1}-{0}%\" (Gegenstand {0}).",
+          "fh": "Verliert \"%data.items.{1}-{0}%\" %game.itemFh.{0}%.",
+          "gh2e": "Verliert \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+        },
         "loseMorale": "Verliert {0} Moral.",
         "loseProsperity": "Verliert {0} Wohlstand.",
         "loseReputation": "Verliere {0} Ansehen.",
+        "loseReputationFaction": "Verliert {1} %data.gh2eFaction:{0}% Ansehen",
         "loseResource": "Verliere {0} %game.resource.{1}%.",
+        "loseTrait": "Jeder Charakter verliert %game.trait:{0}%.",
         "morale": "Erhalte {0} Moral.",
         "noEffect": "Kein Effekt.",
         "outcome": "Lese Ausgang %game.events.option.{0}%.",
@@ -960,30 +980,39 @@
         },
         "outpostTarget": "%game.valueSign:{0}% %game.action.target%",
         "partyAchievement": "Gruppenerfolg:<br>\"%data.partyAchievements.{0}%\".",
-        "prosperity": "Erhalte {0} Wohlstand.",
+        "prosperity": {
+          "": "Erhalte {0} Wohlstand.",
+          "fh": "Erhalte {0} %game.prosperity%.",
+          "gh2e": "Erhalte {0} %game.prosperity%."
+        },
         "randomItem": {
           "": "Erhalte einen zufälligen Gegenstand.",
-          "fh": "Erhaltet kollektive einen zufälligen Gegenstand %game.itemFh.random%."
+          "fh": "Erhaltet kollektive einen zufälligen Gegenstand %game.itemFh.random%.",
+          "gh2e": "Erhaltet kollektive einen zufälligen Gegenstand %game.itemFh.random%."
         },
         "randomItemBlueprint": "Erhaltet einen zufälligen Gegenstandsplan %game.itemFh.random%.",
         "randomItemDesign": "Erhalte einen zufälligen Gegenstandsplan.",
         "randomScenario": "Erhaltet ein zufälliges Nebenszenario.",
         "removeEvent": {
           "": "Entferne %game.events.type.{0}% Ereignis {1} vom Spiel.",
-          "fh": "Entferne Ereignis {0} aus dem %game.events.type.{0}% Deck."
+          "fh": "Entferne Ereignis {0} aus dem %game.events.type.{0}% Deck.",
+          "gh2e": "Entferne Ereignis {0} aus dem %game.events.type.{0}% Deck."
         },
         "reputation": "Erhalte {0} Ansehen.",
         "reputationAdditional": "Erhalte zusätzlich {0} Ansehen.",
+        "reputationFaction": "Gewinnt {1} %data.gh2eFaction:{0}% Ansehen",
         "resource": "Erhaltet jeweils {0} %game.resource.{1}%.",
         "resourceType": "Erhaltet jeweils {0} beliebige %game.loot.{1}%.",
         "scenarioCondition": {
           "": "Alle beginnen das Szenario mit %{0}%.",
-          "fh": "Alle Charaktere beginnen das nächste Szenario mit {0}."
+          "fh": "Alle Charaktere beginnen das nächste Szenario mit {0}.",
+          "gh2e": "Jeder Charakter beginnt das nächste Szenario mit {0}."
         },
         "scenarioConditionOne": "Ein Charakter bekommt %game.condition.{0}%.",
         "scenarioDamage": {
           "": "Alle beginnen das Szenario mit %game.damage:{0}%.",
-          "fh": "Alle Charaktere beginnen das nächste Szenario mit %game.damage:{0}%."
+          "fh": "Alle Charaktere beginnen das nächste Szenario mit %game.damage:{0}%.",
+          "gh2e": "Jeder Charakter beginnt das nächste Szenario mit %game.damage:{0}%."
         },
         "scenarioSingleMinus1": "Jeder beginnt das Szenario mit %game.card.minus1% x{0}.",
         "sectionOrWeek": "Füge %game.section:{0}% ODER {1} in einer Woche zum Kalender hinzu.",
@@ -1005,7 +1034,8 @@
         "unlockEnvelope": "Öffne Umschlag {0}, falls diese noch ungeöffnet ist.",
         "unlockScenario": {
           "": "\\\"%data.scenario.title.{1}.{0}%\\\" %data.scenarioNumber:{0}% freischalten.",
-          "fh": "Neues Szenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
+          "fh": "Neues Szenario: \"%data.scenario.title.{1}.{0}%\" ({0})",
+          "gh2e": "Neues Szenario: \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%."
         },
         "unlockScenarioGroup": "\"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%) freischalten.",
         "upgradeBuilding": "Verbessere %data.buildings.{0}% zum nächsten Level, oder falls %data.buildings.{0}% schon auf Level {1} ist, erhalte stattdessen 2 Moral.",

@@ -527,6 +527,7 @@
       "elementHalf": "元素衰退",
       "extra": "&#91;FH Helper for Subactions&#93;",
       "fly": "飞行",
+      "fontSize": "&#91;Fontsize (in %)&#93;",
       "forceBox": "&#91;FH Mandatory Box&#93;",
       "grant": "赋予",
       "grid": "&#91;Grid&#93;",
@@ -860,11 +861,13 @@
         "payCollectiveGoldReputationGT": "{0} (声望 > {1})",
         "payCollectiveGoldReputationLT": "{0} (声望 < {1})",
         "payGold": "每人支付 {0}枚金币",
+        "reputationFactionGT": "%data.gh2eFaction:{0}% > {1}",
         "reputationGT": "声望> {0}",
         "reputationLT": "声望< {0}",
         "season": "%party.campaign.sheet.{0}%",
         "seasonLT": "如果%party.campaign.sheet.{0}%在第 {1} 周以内",
-        "traits": "%game.trait% {0}"
+        "traits": "%game.trait% {0}",
+        "traitsAll": "%game.trait% {0}"
       },
       "deck": {
         "addCard": "加入抽牌堆并洗牌",
@@ -906,32 +909,42 @@
         "custom": "{0}",
         "discard": {
           "": "每人弃置{0}张牌。",
-          "fh": "所有角色在下个剧本开始时弃置%number.{0}%张卡牌。"
+          "fh": "所有角色在下个剧本开始时弃置%number.{0}%张卡牌。",
+          "gh2e": "下一个剧本开始时，每个角色弃置%number.{0}%张手牌。"
         },
         "discardOne": {
           "": "每人弃置1张牌。",
-          "fh": "所有角色在下个剧本开始时弃置1张卡牌。"
+          "fh": "所有角色在下个剧本开始时弃置1张卡牌。",
+          "gh2e": "下一个剧本开始时，每个角色弃置1张手牌。"
         },
         "drawAnotherEvent": {
           "": "抽取另一张%game.events.type.{0}%事件卡。",
-          "fh": "结算另一张%game.events.type.{0}%事件卡。"
+          "fh": "结算另一张%game.events.type.{0}%事件卡。",
+          "gh2e": "结算另一张%game.events.type.{0}%事件卡。"
         },
         "drawEvent": "抽取一张 %game.events.type.{0}%事件。",
         "event": {
           "": "将%game.events.type.{0}%事件卡 {1} 洗入对应牌堆。",
-          "fh": "将事件卡{1}洗入%game.events.type.{0}%牌堆。"
+          "fh": "将事件卡{1}洗入%game.events.type.{0}%牌堆。",
+          "gh2e": "将事件卡{1}加入%game.events.type.{0}%事件牌堆。"
         },
         "eventFH": "将事件{1}加入%game.events.type.{0}%牌堆。",
         "eventReturn": "找回 {1}事件并将其洗回%game.events.type.{0}%牌堆。",
         "eventsToTop": "查看%game.events.type.{0}%牌堆直到你找到 {1}, {2}, 或{3},并将其置于牌堆顶部。",
-        "experience": "每人获得 {0} 点经验。",
+        "experience": {
+          "": "每个角色获得{0}点经验值。",
+          "fh": "每个角色获得{0}%game.card.experience%。",
+          "gh2e": "每个角色获得{0}%game.card.experience%。"
+        },
+        "gainTrait": "每个角色获得%game.trait:{0}%。",
         "globalAchievement": "世界成就：\"%data.globalAchievements.{0}%\"。",
         "gold": "每人获得 {0} 金币。",
         "goldAdditional": "每人额外获得 {0} 金币。",
         "inspiration": "获得 {0}点灵感。",
         "item": {
           "": "获得 \"%data.items.{1}-{0}%\" (Item {0})。",
-          "fh": "获得\"%data.items.{1}-{0}%\" %game.itemFh.{0}%。"
+          "fh": "获得\"%data.items.{1}-{0}%\" %game.itemFh.{0}%。",
+          "gh2e": "获得\"%data.items.{1}-{0}%\" %game.itemFh.{0}%。"
         },
         "itemCollective": "获得{1}个集体的\"%data.items.{2}-{0}%\" (Item {0})。",
         "itemDesign": "获得 \"%data.items.{1}-{0}%\" 设计图纸 (物品 {0})。",
@@ -944,10 +957,17 @@
         "loseExperience": "各损失{0}经验。",
         "loseGold": "每人失去 {0} 金币。",
         "loseGoldOne": "一名角色失去{0}枚金币。",
+        "loseItem": {
+          "": "失去\"%data.items.{1}-{0}%\" (Item {0})。",
+          "fh": "失去\"%data.items.{1}-{0}%\" %game.itemFh.{0}%。",
+          "gh2e": "失去\"%data.items.{1}-{0}%\" %game.itemFh.{0}%。"
+        },
         "loseMorale": "失去{0}点士气。",
         "loseProsperity": "失去{0}点繁荣度。",
         "loseReputation": "失去 {0} 点声望。",
+        "loseReputationFaction": "失去{1} %data.gh2eFaction:{0}%声望",
         "loseResource": "失去 {0} %game.resource.{1}%。",
+        "loseTrait": "每个角色失去%game.trait:{0}%。",
         "morale": "获得{0}点士气。",
         "noEffect": "没有效果。",
         "outcome": "阅读结果 %game.events.option.{0}%。",
@@ -961,30 +981,39 @@
         },
         "outpostTarget": "%game.valueSign:{0}% %game.action.target%",
         "partyAchievement": "团队成就：\"%data.partyAchievements.{0}%\"。",
-        "prosperity": "获得 {0} 点繁荣。",
+        "prosperity": {
+          "": "获得{0}繁荣。",
+          "fh": "获得{0}%game.prosperity%。",
+          "gh2e": "获得{0}%game.prosperity%。"
+        },
         "randomItem": {
           "": "获得一个随机道具。",
-          "fh": "共同获得一个随机道具%game.itemFh.random%."
+          "fh": "共同获得一个随机道具%game.itemFh.random%.",
+          "gh2e": "共同获得一个随机道具%game.itemFh.random%。"
         },
         "randomItemBlueprint": "获得一个随机物品设计图%game.itemFh.random%。",
         "randomItemDesign": "获得随机物品设计图纸。",
         "randomScenario": "获得一个随机支线剧本。",
         "removeEvent": {
           "": "从游戏中移除%game.events.type.{0}% 事件{1}。",
-          "fh": "从%game.events.type.{0}%牌堆中移除事件{1}。"
+          "fh": "从%game.events.type.{0}%牌堆中移除事件{1}。",
+          "gh2e": "从%game.events.type.{0}%事件牌堆中移除事件卡{1}。"
         },
         "reputation": "获得 {0} 点声望。",
         "reputationAdditional": "获得{0}点额外的声望。",
+        "reputationFaction": "获得{1}%data.gh2eFaction:{0}%声望",
         "resource": "每人获得{0}个%game.resource.{1}%。",
         "resourceType": "每人获得任意{0}个%game.loot.{1}%。",
         "scenarioCondition": {
           "": "所有角色以 {0}开始剧本。",
-          "fh": "所有角色在下个剧本开始时具有{0}。"
+          "fh": "所有角色在下个剧本开始时具有{0}。",
+          "gh2e": "下个剧本开始时，每个角色获得{0}。"
         },
         "scenarioConditionOne": "一名角色获得 %game.condition.{0}%。",
         "scenarioDamage": {
           "": "所有角色在下个剧本开始时受到%game.damage:{0}%。",
-          "fh": "所有角色在下个剧本开始时受到%game.damage:{0}%。"
+          "fh": "所有角色在下个剧本开始时受到%game.damage:{0}%。",
+          "gh2e": "下个剧本开始时，每个角色承受%game.damage:{0}%。"
         },
         "scenarioSingleMinus1": "剧本开始时一名角色获得 %game.card.minus1% x{0}。",
         "sectionOrWeek": "将 %game.section:{0}%或者{1}加入一周后的日历中。",
@@ -1006,7 +1035,8 @@
         "unlockEnvelope": "如果信封{0}没有被打开，则打开它。",
         "unlockScenario": {
           "": "解锁\"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%。",
-          "fh": "新场景：\"%data.scenario.title.{1}.{0}%\" ({0})"
+          "fh": "新场景：\"%data.scenario.title.{1}.{0}%\" ({0})",
+          "gh2e": "新剧本：\"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%。"
         },
         "unlockScenarioGroup": "解锁\"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%)。",
         "upgradeBuilding": "将%data.buildings.{0}%升级至下一个等级，如果%data.buildings.{0}%已经为{1}级，则获得{2}点声望。",
@@ -2482,6 +2512,10 @@
       "": "角色攻击修正牌堆",
       "hint": "启用角色的攻击修正牌堆功能.角色表必须被启用才能使用角色专长卡牌."
     },
+    "characterAttackModifierDeckActiveBottom": {
+      "": "角色攻击修正牌在怪物修正牌之上",
+      "hint": "在怪物攻击修正牌上方显示活动角色的攻击修正牌。"
+    },
     "characterAttackModifierDeckPermanent": {
       "": "始终使用角色攻击修正牌堆",
       "hint": "始终在角色面板下方显示攻击修正牌堆."
@@ -2577,9 +2611,13 @@
       "hint": "拖放个体列表.警告,如果禁用并且没有开启时序值必要功能的话,则无法手动重新排序."
     },
     "dragValues": {
-      "": "拖动时序值/ 生命值 / 经验值 /拾取物",
+      "": "可用鼠标拖拽改变数值",
       "hint": "支持拖动更改数值.要更改时序值,请拖动角色肖像.对于生命值,经验值和拾取物直接在数值上拖动"
     },
+    "dragValuesHp": "可鼠标拖拽改变生命值",
+    "dragValuesInitiative": "可鼠标拖拽改变时序值",
+    "dragValuesLoot": "可鼠标拖拽改变拾取数",
+    "dragValuesXp": "可鼠标拖拽改变经验值",
     "drawRandomItem": {
       "": "抽取随机道具奖励",
       "hint": "自动抽取一个随机道具卡牌。"
@@ -2763,6 +2801,7 @@
       },
       "it": "意大利语（Italiano）",
       "ko": "韩语 (한국어)",
+      "pl": "波兰语（Polski）",
       "pt": "葡萄牙语(Portuguese)",
       "ru": "俄文(Русский)",
       "zh_Hans": "简体中文",
@@ -3584,6 +3623,7 @@
       "am": "抽取攻击修正卡牌 (由当前行动单位决定所抽取的牌库, 无行动单位时抽取怪物攻击修正牌堆, 当 <b>Draw</b> 失效)",
       "amAdvantage": "与 <kbd><span>m</span></kbd> 相同,但如果启用将以劣势攻击抽取",
       "amDisadvantage": "与 <kbd><span>m</span></kbd>一样, 但如果启用以劣势攻击抽取",
+      "backspace": "⌫",
       "ctrl": "CTRL",
       "difficulty": "难度 / 等级菜单",
       "enter": "↵",
@@ -3606,7 +3646,10 @@
         "xpDec": "减少经验值",
         "xpInc": "增加经验值"
       },
-      "esc": "ESC",
+      "esc": {
+        "": "ESC",
+        "fullscreen": "在大多数浏览器中，ESC 键会退出全屏模式；请使用退格键代替。"
+      },
       "events": "事件效果菜单",
       "finish": "(完成)剧本菜单",
       "global": "当前已生效的键盘快捷键如下:",
