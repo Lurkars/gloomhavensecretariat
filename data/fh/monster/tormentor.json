@@ -1,6 +1,7 @@
 {
   "name": "tormentor",
   "edition": "fh",
+  "flying": true,
   "deck": "boss",
   "boss": true,
   "hidden": true,
