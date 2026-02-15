@@ -2237,7 +2237,7 @@
         },
         "51-1": "Za każdym razem, gdy otrzymuje obrażenia, wszystkie postacie i potwory otrzymują %game.damage:2%.",
         "65-3": {
-          "1": "Open all doors %game.mapMarker.1%. Place all characters and character summons, in initiative order, in the closest empty hex on tile 16-A, then remove all doors and tile 13-A from the map.",
+          "1": "Otwórz wszystkie drzwi %game.mapMarker.1%. W kolejności inicjatywy - Umieść wszyskie postacie i przywołańców postaci, na najbliższym pustym polu kafla mapy 16-A, następnie usuń wszystkie drzwi oraz kafel mapy 13-A z gry.",
           "2": "%game.action.target% wszystkie potwory w zasięgu %game.action.range:4%"
         }
       }

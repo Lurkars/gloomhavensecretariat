@@ -297,9 +297,25 @@
       "": "Poción de remedio mayor",
       "1": "Durante tu turno, retira todos los estados negativos que sufras. Puedes usarla incluso si sufres %game.condition.impair% o %game.condition.stun%."
     },
+    "fh-104": {
+      "": "Poción de agilidad",
+      "1": "Durante tu capacidad de Movimiento, añade %game.action.move% +3 y %game.action.jump%."
+    },
     "fh-105": {
       "": "Poción de piroescudo mayor",
       "1": "Durante tu turno, realiza: %game.action.retaliate% 2 %game.action.range:3%"
+    },
+    "fh-106": {
+      "": "Poción de muro pétreo",
+      "1": "Durante tu turno, realiza %game.condition.ward% %game.action.target% 2 aliados adyacentes y Personal"
+    },
+    "fh-107": {
+      "": "Poción de vigor",
+      "1": "Durante tu turno, realiza: %game.condition.strengthen% %game.action.target% 2 aliados adyacentes y Personal"
+    },
+    "fh-108": {
+      "": "Lluvia bendita",
+      "1": "Durante tu turno, realiza: %game.condition.bless% %game.action.target% 2 aliados adyacentes y Personal"
     },
     "fh-11": {
       "": "Amuleto sencillo",
@@ -425,6 +441,22 @@
       "": "Casco inspirador",
       "1": "Durante tu turno, otorga a todos los aliados adyacentes: %game.action.move% 2"
     },
+    "fh-160": {
+      "": "Pendiente de sol",
+      "1": "Cuando hagas un descanso corto, %game.card.recover% hasta 3 de tus objetos gastados y realiza:"
+    },
+    "fh-161": {
+      "": "Anillo de estratega",
+      "1": "Al final de tu turno, juega 1 carta de tu mano y realiza todas las capacidades continuas y obligatorias de la acción superior o inferior de la carta."
+    },
+    "fh-162": {
+      "": "Broche de hielo aullarte",
+      "1": "Durante tu turno, realiza:"
+    },
+    "fh-163": {
+      "": "Pulsera aturdidora",
+      "1": "Durante tu turno, aplica %game.condition.stun% a. la mitad (redondeando hacia arriba) de los enemigos adyacentes a ti."
+    },
     "fh-167": {
       "": "Brazalete de atracción",
       "1": "Al inicio del turno de un enemigo, antes de que centre su atención, realiza:"
@@ -473,6 +505,10 @@
       "": "Tricornio",
       "1": "Durante tu turno, añade %game.action.range% +1 y %game.action.pierce% a 1 de tus ataques a distancia."
     },
+    "fh-197": {
+      "": "Diadema etérida",
+      "1": "Después de determinar la iniciativa, cambia 1 carta de tu mano por otra que hayas jugado. Tu iniciativa no se ve afectada."
+    },
     "fh-2": {
       "": "Casco tosco",
       "1": "Cuando te ataquen, trata cualquier carta de Modificador de ataque %game.attackmodifier.double% que robe el enemigo como %game.attackmodifier.plus1% en su lugar."
@@ -485,9 +521,17 @@
       "": "Almófar",
       "1": "Mientras estés adyacente a 3 o más enemigos, obtén %game.action.shield:1%."
     },
+    "fh-211": {
+      "": "Barril explosivo",
+      "1": "Durante tu turno, designa 1 hexágono adyacente. Al final de tu turno, todas las figuras a %game.action.range:2% o menos del hexágono designado sufren %game.damage% 1."
+    },
     "fh-212": {
       "": "Gema elemental",
       "1": "Después de determinar la iniciativa, elige un elemento. Ningún monstruo puede inducir o consumir este elemento durante esta ronda. "
+    },
+    "fh-215": {
+      "": "Jarra confundidora",
+      "1": "Durante tu turno, añade %game.action.attack% +1 y %game.condition.muddle% a todos tus ataques. Al final de tu turno, realiza:"
     },
     "fh-22": {
       "": "Cota de malla pesada",
@@ -526,12 +570,21 @@
       "": "Filo corrupto",
       "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, añade %game.condition.wound%, %game.condition.poison%, y %game.condition.muddle% a 1 ataque."
     },
+    "fh-243": {
+      "": "Roca Maldita",
+      "1": "Este artículo no se puede vender, y se debe llevar y usar en cada escenario.",
+      "2": "Al ini io del escenario, realiza:"
+    },
     "fh-244": {
       "": "Ámbar de energía",
       "1": "Durante tu turno, aumenta en 1 el valor numérico impreso de %game.action.attack%, %game.action.move%, %game.action.target%, o %game.action.range% de 1 de tus capacidades."
     },
     "fh-245": {
       "": "Moneda antigua"
+    },
+    "fh-247": {
+      "": "Red de adiestrador",
+      "1": "Durante tu turno, captura a 1 enemigo adyacente cuyo valor de puntos de vida sea 1 o 2."
     },
     "fh-25": {
       "": "Centro sosegante",
@@ -842,7 +895,7 @@
   "treasures": {
     "fh": {
       "51": "Lee %data.section:78.1%",
-      "54": "¿El cofre del tesoro? No había ningún cofre del tesoro allí Tal vez deberías ir más despacio con la bebida.",
+      "54": "¿Cofre? Aquí no había ningún cofre. Deja de empinar tanto el codo.",
       "57": "¿Qué es esto? Un cofre vacío con una trampilla de plomo en la parte inferior. Anotas la ubicación para poder volver con la ayuda de Gem más tarde.",
       "62": "Ganas el diseño del cubo mecánico %game.itemFh.82% cuando encuentres la otra mitad de este plano."
     }
