@@ -20,6 +20,8 @@ export class LevelDialogComponent implements OnInit {
     experience: number = 0;
     loot: number = 0;
     hazardousTerrain: number = 0;
+    scenarioLevel: number = 0;
+    wealthFavor: number = 0;
 
     levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
 
@@ -123,9 +125,11 @@ export class LevelDialogComponent implements OnInit {
         this.experience = gameManager.levelManager.experience();
         this.loot = gameManager.levelManager.loot();
         this.hazardousTerrain = gameManager.levelManager.terrain();
+        this.scenarioLevel = gameManager.levelManager.scenarioLevel();
+        this.wealthFavor = gameManager.trialsManager.activeFavor('fh', 'wealth');
 
-        if (gameManager.trialsManager.activeFavor('fh', 'wealth')) {
-            this.loot += gameManager.trialsManager.activeFavor('fh', 'wealth');
+        if (this.wealthFavor) {
+            this.loot += this.wealthFavor;
         }
     }
 }

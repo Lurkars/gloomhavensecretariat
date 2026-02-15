@@ -72,6 +72,10 @@ export class ScenarioSummaryComponent {
     levelUp: boolean[] = [];
     perksUp: boolean[] = [];
     stats: boolean = false;
+    lootMultiplier: number = 0;
+    experienceBonus: number = 0;
+    wealthFavor: number = 0;
+    knowledgeFavor: number = 0;
 
     EntityValueFunction = EntityValueFunction;
 
@@ -79,6 +83,10 @@ export class ScenarioSummaryComponent {
 
     constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined, conclusionOnly: boolean, rewardsOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.ghsManager.uiChangeEffect(() => {
+            this.lootMultiplier = gameManager.levelManager.loot();
+            this.experienceBonus = gameManager.levelManager.experience();
+            this.wealthFavor = gameManager.trialsManager.activeFavor('fh', 'wealth');
+            this.knowledgeFavor = gameManager.trialsManager.activeFavor('fh', 'knowledge');
             if (!this.conclusionOnly) {
                 if (!gameManager.game.finish) {
                     gameManager.stateManager.scenarioSummary = false;

@@ -18,10 +18,12 @@ export class LootApplyDialogComponent {
     selected: string;
     edition: string;
     loot: Loot;
+    lootValue: string;
     edit: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public data: { loot: Loot, selected: string | undefined, edit: boolean }, public dialogRef: DialogRef) {
         this.loot = data.loot;
+        this.lootValue = '' + gameManager.lootManager.getValue(this.loot);
         this.selected = data.selected || "";
         this.edit = data.edit || false;
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && gameManager.entityManager.isAlive(figure)).map((figure) => figure as Character);

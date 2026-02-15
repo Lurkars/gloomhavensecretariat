@@ -96,23 +96,22 @@
       }
       }
       @if (success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply &&
-      gameManager.trialsManager.activeFavor('fh', 'wealth')) {
+      wealthFavor) {
       <span class="head-col calc-col">
         <span [ghs-label]="'data.favors.fh.wealth.reward'" [ghs-tooltip]="'data.favors.fh.wealth.text'"></span>
-        @if (gameManager.trialsManager.activeFavor('fh', 'wealth') > 1) {
-        <span>&nbsp;({{gameManager.trialsManager.activeFavor('fh',
-          'wealth')}}x)</span>
+        @if (wealthFavor > 1) {
+        <span>&nbsp;({{wealthFavor}}x)</span>
         }
       </span>
       @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         @if (character.loot) {
-        <span class="gold">{{(character.loot*gameManager.trialsManager.activeFavor('fh', 'wealth')) |
+        <span class="gold">{{(character.loot*wealthFavor) |
           ghsValueSign}}</span>
-        @if (gameManager.trialsManager.activeFavor('fh', 'wealth') > 1) {
+        @if (wealthFavor > 1) {
         &nbsp;
         <span>(</span>
-        @for (i of [] | ghsRange:gameManager.trialsManager.activeFavor('fh', 'wealth'); track i) {
+        @for (i of [] | ghsRange:wealthFavor; track i) {
         <span>{{character.loot
           | ghsValueSign}}</span>
         }
@@ -139,13 +138,13 @@
       <span>
         <span class="gold">{{(success && rewards && rewards.gold ? rewards.gold : 0) + (collectiveGold[index] ?
           collectiveGold[index] : 0) + (character.loot *
-          gameManager.levelManager.loot()) + (gameManager.trialsManager.favorsEnabled &&
+          lootMultiplier) + (gameManager.trialsManager.favorsEnabled &&
           gameManager.trialsManager.apply
-          ? character.loot *gameManager.trialsManager.activeFavor('fh', 'wealth') : 0) | ghsValueSign}}</span>
+          ? character.loot *wealthFavor : 0) | ghsValueSign}}</span>
         ({{character.progress.gold + (success && rewards && rewards.gold ? rewards.gold : 0)+ (collectiveGold[index] ?
         collectiveGold[index] : 0) + character.loot *
-        gameManager.levelManager.loot() + (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
-        ? character.loot *gameManager.trialsManager.activeFavor('fh', 'wealth') : 0)}})
+        lootMultiplier + (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
+        ? character.loot *wealthFavor : 0)}})
       </span>
       }
       @if (character.absent) {
@@ -187,7 +186,7 @@
       @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         @if (!character.absent) {
-        <span>{{gameManager.levelManager.experience()
+        <span>{{experienceBonus
           | ghsValueSign}}</span>
         }
         @if (character.absent) {
@@ -218,22 +217,21 @@
       }
       }
       @if (success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
-      &&gameManager.trialsManager.activeFavor('fh', 'knowledge')) {
+      &&knowledgeFavor) {
       <span class="head-col calc-col">
         <span [ghs-label]="'data.favors.fh.knowledge.reward'" [ghs-tooltip]="'data.favors.fh.knowledge.text'"></span>
-        @if (gameManager.trialsManager.activeFavor('fh', 'knowledge') > 1) {
-        <span>&nbsp;({{gameManager.trialsManager.activeFavor('fh',
-          'knowledge')}}x)</span>
+        @if (knowledgeFavor > 1) {
+        <span>&nbsp;({{knowledgeFavor}}x)</span>
         }
       </span>
       @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
       <span class="calc-col">
         @if (battleGoals[index]) {
-        <span class="xp">{{(3*gameManager.trialsManager.activeFavor('fh', 'knowledge')) | ghsValueSign}}</span>
-        @if (gameManager.trialsManager.activeFavor('fh', 'knowledge') > 1) {
+        <span class="xp">{{(3*knowledgeFavor) | ghsValueSign}}</span>
+        @if (knowledgeFavor > 1) {
         &nbsp;
         <span>(</span>
-        @for (i of [] | ghsRange:gameManager.trialsManager.activeFavor('fh', 'knowledge'); track i) {
+        @for (i of [] | ghsRange:knowledgeFavor; track i) {
         <span>+3</span>
         }
         <span>)</span>
@@ -253,7 +251,7 @@
         <span class="xp">{{((rewards && rewards.experience ? rewards.experience : 0) + challenges * 2
           +
           character.experience + ( (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') ==
-          -1) ? gameManager.levelManager.experience() : 0)) | ghsValueSign}}</span>
+          -1) ? experienceBonus : 0)) | ghsValueSign}}</span>
         }
         @if (!success) {
         <span class="xp">{{character.experience | ghsValueSign}}</span>
@@ -261,9 +259,9 @@
         ({{character.progress.experience + challenges * 2 + character.experience + (success && rewards &&
         rewards.experience ?
         rewards.experience : 0) + ((success && (!rewards || !rewards.ignoredBonus ||
-        !rewards.ignoredBonus.includes('experience')) ? gameManager.levelManager.experience() : 0)) +
+        !rewards.ignoredBonus.includes('experience')) ? experienceBonus : 0)) +
         (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && battleGoals[index]
-        ? 3 *gameManager.trialsManager.activeFavor('fh', 'knowledge') : 0)
+        ? 3 *knowledgeFavor : 0)
         }})
         @if (levelUp[index]) {
         <span class="level-up" [ghs-tooltip]="'scenario.summary.levelUp'"

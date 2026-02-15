@@ -39,6 +39,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   init: boolean = false;
   hintState: string = "";
+  characterCount: number = 0;
 
   lastGameClockTimestamp: GameClockTimestamp | undefined;
   overallGameClock: number = 0;
@@ -47,6 +48,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
     this.ghsManager.uiChangeEffect(() => {
+      this.characterCount = gameManager.characterManager.characterCount(true);
       if (this.hintStateValue() != this.hintState) {
         this.init = false;
         setTimeout(() => {

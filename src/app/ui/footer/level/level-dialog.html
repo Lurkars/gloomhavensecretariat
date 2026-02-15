@@ -36,12 +36,12 @@
     <span class="item">
       @if (!gameManager.game.levelCalculation) {
       <a tabclick class="level"
-        [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : gameManager.game.playerCount < 1 && level == gameManager.levelManager.scenarioLevel()}"
+        [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : gameManager.game.playerCount < 1 && level == scenarioLevel}"
         (click)="setLevel(level)">{{level}}</a>
       }
       @if (gameManager.game.levelCalculation) {
       <a class="level"
-        [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : gameManager.game.playerCount < 1 && level == gameManager.levelManager.scenarioLevel()}">{{level}}</a>
+        [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : gameManager.game.playerCount < 1 && level == scenarioLevel}">{{level}}</a>
       }
     </span>
     }
@@ -58,9 +58,9 @@
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/loot.svg'">:</span>
       <span class="value">x{{loot}}</span>
       <span class="hint"><span [ghs-label]="'game.level.loot'"></span>&nbsp;@if
-        (gameManager.trialsManager.activeFavor('fh', 'wealth')) {
+        (wealthFavor) {
         <span [ghs-label]="'data.favors.fh.wealth.level'"
-          [ghs-label-args]="[gameManager.trialsManager.activeFavor('fh', 'wealth')]"></span>
+          [ghs-label-args]="[wealthFavor]"></span>
         }</span>
     </div>
     <div class="trap">

@@ -126,7 +126,7 @@
           </div>
         </div>
 
-        @if ((settingsManager.settings.partySheet || gameManager.characterManager.characterCount(true) > 0)) {
+        @if ((settingsManager.settings.partySheet || characterCount > 0)) {
         <div class="event-effects">
           <a tabclick (click)="openEventEffects($event)"><img class="ghs-svg" src="./assets/images/event.svg"> <span
               [ghs-label]="'scenario.eventEffects'"></span></a>

@@ -24,9 +24,11 @@ export class ScenarioComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  characterCount: number = 0;
 
   constructor(private dialog: Dialog, private ghsManager: GhsManager) {
     this.ghsManager.uiChangeEffect(() => {
+      this.characterCount = gameManager.characterManager.characterCount(true);
       if (gameManager.game.scenario && gameManager.game.finish && !gameManager.stateManager.scenarioSummary) {
         const conclusion = gameManager.game.finish.conclusion ? gameManager.sectionData(gameManager.game.finish.conclusion.edition).find((sectionData) => gameManager.game.finish && gameManager.game.finish.conclusion && sectionData.index == gameManager.game.finish.conclusion.index && sectionData.group == gameManager.game.finish.conclusion.group && sectionData.conclusion) : undefined;
         this.dialog.open(ScenarioSummaryComponent, {

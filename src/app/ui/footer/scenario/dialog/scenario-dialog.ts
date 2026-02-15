@@ -34,11 +34,13 @@ export class ScenarioDialogComponent {
     openRooms: RoomData[] = [];
     closedRooms: RoomData[] = [];
     availableSections: ScenarioData[] = [];
+    characterCount: number = 0;
 
     constructor(@Inject(DIALOG_DATA) public scenario: Scenario, public dialogRef: DialogRef, private dialog: Dialog) {
         this.openRooms = gameManager.scenarioManager.openRooms();
         this.closedRooms = gameManager.scenarioManager.closedRooms();
         this.availableSections = gameManager.scenarioManager.availableSections();
+        this.characterCount = gameManager.characterManager.characterCount(true);
     }
 
     finishScenario(success: boolean) {

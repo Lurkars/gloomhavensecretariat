@@ -89,7 +89,7 @@
   </div>
   }
   <span class="spacer"></span>
-  @if (!gameManager.bbRules() && !!gameManager.game.scenario && (gameManager.characterManager.characterCount(true) > 0
+  @if (!gameManager.bbRules() && !!gameManager.game.scenario && (characterCount > 0
   || settingsManager.settings.partySheet)) {
   <div class="event-effects" (click)="openEventEffects()">
     <img class="ghs-svg"

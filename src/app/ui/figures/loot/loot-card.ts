@@ -1,6 +1,7 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { AdditionalIdentifier, Identifier } from "src/app/game/model/data/Identifier";
@@ -35,11 +36,18 @@ export class LootComponent implements OnInit, OnChanges {
     settingsManager: SettingsManager = settingsManager;
     LootType = LootType;
 
+    characterCount: number = 0;
+    lootValue: number = 0;
     revealed: boolean = false;
     animate: boolean = false;
     sections: string[] = [];
 
-    constructor(private dialog: Dialog) { }
+    constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => {
+            this.characterCount = gameManager.characterManager.characterCount();
+            this.lootValue = gameManager.lootManager.getValue(this.loot, false);
+        });
+    }
 
     ngOnInit(): void {
         this.animate = !this.disableFlip;

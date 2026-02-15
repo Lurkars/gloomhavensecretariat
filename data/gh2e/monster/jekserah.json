@@ -13,7 +13,7 @@
       [
         {
           "type": "custom",
-          "value": "Grant the C closest allies:",
+          "value": "Grant the [C] closest allies:",
           "small": true,
           "subActions": [
             {
@@ -32,7 +32,7 @@
       [
         {
           "type": "custom",
-          "value": "Perform the following C times:",
+          "value": "Perform the following [C] times:",
           "small": true,
           "subActions": [
             {

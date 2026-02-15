@@ -27,7 +27,7 @@
       }
     </div>
     }
-    @if (!gameManager.bbRules() && !gameManager.game.scenario && (gameManager.characterManager.characterCount(true) > 0
+    @if (!gameManager.bbRules() && !gameManager.game.scenario && (characterCount > 0
     || settingsManager.settings.partySheet)) {
     <div class="event-effects">
       <img class="ghs-svg" src="./assets/images/event.svg"> <span [ghs-label]="'scenario.eventEffects'"></span>
