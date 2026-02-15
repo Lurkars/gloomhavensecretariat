@@ -610,6 +610,9 @@
     }
   },
   "custom": {
+    "city-guard-saw-solo": {
+      "1": "在回合结束时受到%game.damage:1%，直到被完全治愈"
+    },
     "gh": {
       "ancient-artillery": {
         "1": "所有相邻的敌人遭受%game.damage:2%。"
@@ -1224,9 +1227,6 @@
         "2": "%game.action.summon% [C] 个卵"
       }
     },
-    "city-guard-saw-solo": {
-      "1": "在回合结束时受到%game.damage:1%，直到被完全治愈"
-    },
     "ghost-wolf": {
       "1": "在每个回合开始时："
     }
@@ -1269,22 +1269,31 @@
     "ancient-artillery": "远古炮台",
     "arcane-golem": "奥术魔像",
     "bandit-archer": "强盗弓箭手",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.charactergh..music-note% %solo%)",
     "bandit-commander": "强盗头目",
     "bandit-guard": "强盗卫兵",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
     "black-imp": "黑暗小妖",
     "bloated-regent": "摄政王行尸",
     "captain-of-the-guard": "卫兵队长",
     "cave-bear": "洞穴熊",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
     "city-archer": "城市弓箭手",
     "city-guard": "城市卫兵",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
     "cultist": "邪教徒",
     "dark-rider": "黑暗骑士",
+    "deep-earth": "大地深处",
     "deep-terror": "深恐者",
     "earth-demon": "大地恶魔",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
     "elder-drake": "上古亚龙",
     "flame-demon": "烈焰恶魔",
     "forest-imp": "森林小妖",
-    "frost-demon": "冰霜恶魔",
+    "frost-demon": "寒霜恶魔",
     "giant-ooze": "巨型软泥怪",
     "giant-viper": "巨型蝮蛇",
     "harrower-infester": "巢灵族寄生者",
@@ -1321,16 +1330,7 @@
     "vermling-scout": "腐灵族哨兵",
     "vermling-shaman": "腐灵族萨满",
     "wind-demon": "疾风恶魔",
-    "winged-horror": "翼魔",
-    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.charactergh..music-note% %solo%)",
-    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
-    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
-    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
-    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
-    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
-    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
-    "deep-earth": "大地深处",
-    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)"
+    "winged-horror": "翼魔"
   },
   "objective": {
     "Altar": "祭坛",

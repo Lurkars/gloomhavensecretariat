@@ -1280,6 +1280,12 @@
     }
   },
   "custom": {
+    "algox-snowspeaker-trap-solo": {
+      "1": "在%game.action.range:2%内的所有敌人受到 %game.damage:2%"
+    },
+    "errata": {
+      "solo28": "特殊规则：“雪语者”应改为“冰语者”"
+    },
     "fh": {
       "abael-herder": {
         "1": "赋予%game.action.range:4%内最近的食人鱼豚：",
@@ -1287,7 +1293,8 @@
         "3": "食人鱼豚承受%game.damage:1%。",
         "4": "赋予%game.action.range:4%内最近的食人鱼豚：",
         "5": "如果本次赋予能力没有目标食人鱼豚：",
-        "6": "其中X为地图上食人鱼豚的数量。"
+        "6": "其中X为地图上食人鱼豚的数量。",
+        "7": "所有食人鱼豚"
       },
       "algox-icespeaker": {
         "1": "在离敌人最近的相邻空格<br>内创造1块1格的障碍物板块。",
@@ -1690,12 +1697,6 @@
         "2": "所有本轮中没有攻击过受锢之神残肢的角色承受陷阱伤害。"
       }
     },
-    "algox-snowspeaker-trap-solo": {
-      "1": "在%game.action.range:2%内的所有敌人受到 %game.damage:2%"
-    },
-    "errata": {
-      "solo28": "特殊规则：“雪语者”应改为“冰语者”"
-    },
     "lost-in-seaweed": {
       "1": "以%game.action.range:6%内最远的敌人为目标",
       "2": "在一个相邻的空格子中创造一个1格的水域地形。",
@@ -1716,28 +1717,35 @@
   "monster": {
     "abael-herder": "渊鬼牧民",
     "abael-scout": "渊鬼侦察兵",
+    "abael-warlord": "渊鬼领主",
     "algox-archer": "冰角弓箭手",
     "algox-guard": "冰角守卫",
     "algox-icespeaker": "冰角冰语者",
+    "algox-icespeaker-shards-solo": "冰角族冰语者（单人）",
     "algox-priest": "冰角祭司",
     "algox-scout": "冰角侦察兵",
     "algox-snowspeaker": "冰角雪语者",
+    "algox-snowspeaker-trap-solo": "冰角族雪语者",
     "algox-stormcaller": "冰角风暴呼唤者",
     "ancient-artillery": "远古火炮",
     "augmented-mindthief": "强能心灵窃贼",
     "belara": "贝拉热",
     "black-imp": "黑色小恶魔",
+    "black-imp-deathwalker-solo": "黑色小鬼（单人）",
     "blacksmith": "铁匠",
     "brother": "兄弟",
     "burrowing-blade": "掘洞刃虫",
     "chaos-demon": "混乱恶魔",
     "chaos-lieutenant": "混乱副官",
     "chaos-spark": "混乱火花",
+    "chief-of-spikes": "尖刺酋长",
     "city-guard": "城市守卫",
+    "city-guard-banner-spear-solo": "城市守卫（单人）",
     "coral-corpse": "珊瑚尸体",
     "deep-terror": "深层惧魔",
     "earth-demon": "大地恶魔",
     "elder-ooze": "上古软泥怪",
+    "energized-corpse": "充能尸体",
     "fish-king": "鱼王",
     "flame-demon": "烈焰恶魔",
     "flaming-bladespinner": "烈焰旋刃器",
@@ -1756,9 +1764,11 @@
     "harbinger-of-shadow-2": "暗影先驱%game.mapMarker.2%",
     "harrower-infester": "骇虫寄生者",
     "hateful-corpse": "恨意尸体",
+    "hollow-scholar": "空洞学者",
     "hound": "猎犬",
     "hungry-maw": "饥饿巨口",
     "ice-wraith": "寒冰缚灵",
+    "incarnation-of-ancestors": "先祖化身",
     "lady-in-white": "白衣女鬼",
     "large-vermling-scout": "大型腐鼠侦察兵",
     "laser-spires": "激光尖柱",
@@ -1767,15 +1777,19 @@
     "living-doom": "活化末日灵",
     "living-spirit": "活化灵体",
     "lord-of-chaos": "混乱领主",
+    "lost-in-seaweed": "迷失海藻",
     "lurker-clawcrusher": "潜伏蟹螯爪粉碎者",
     "lurker-conductor": "潜伏蟹指挥家",
     "lurker-mindsnipper": "潜伏蟹心灵裁剪者",
     "lurker-soldier": "潜伏蟹士兵",
     "lurker-wavethrower": "潜伏蟹波浪投掷者",
+    "mountains-heart": "山之心",
     "night-demon": "黑夜恶魔",
+    "night-demon-deathwalker-solo": "黑夜恶魔（单人）",
     "ooze": "软泥怪",
     "orphan": "遗孤",
     "piranha-pig": "食人鱼豚",
+    "plea-for-help-without-answer": "求助无门",
     "polar-bear": "北极熊",
     "power-core": "动力核心",
     "prince-of-frost": "寒霜王子",
@@ -1790,6 +1804,7 @@
     "savvas-lavaflow": "萨瓦斯熔岩使",
     "scabwit": "斯卡比特",
     "seeker-of-the-abyss": "深渊探寻者",
+    "shape-blocks-out-the-sun": "蔽日之形",
     "shrike-fiend": "伯劳邪魔",
     "snow-imp": "冰雪小恶魔",
     "snowdancer": "雪舞者",
@@ -1805,12 +1820,7 @@
     "vermling-scout": "腐鼠侦察兵",
     "vestige-of-the-imprisoned-god": "受锢之神残肢",
     "wind-demon": "狂风恶魔",
-    "yoglang": "尤格朗",
-    "algox-icespeaker-shards-solo": "冰角族冰语者（单人）",
-    "algox-snowspeaker-trap-solo": "冰角族雪语者",
-    "black-imp-deathwalker-solo": "黑色小鬼（单人）",
-    "chief-of-spikes": "尖刺酋长",
-    "city-guard-banner-spear-solo": "城市守卫（单人）"
+    "yoglang": "尤格朗"
   },
   "objective": {
     "Altar": "祭坛",
@@ -2001,9 +2011,13 @@
       "fh": {
         "0": "不要设置猎犬怪物能力牌库。改为每轮每个猎犬按先攻26执行%game.action.move% 2；%game.action.attack% 2。",
         "1": "城市守卫不执行回合，改为获得额外的天生%game.action.shield% 1(等级1时共拥有%game.action.shield% 2)和%game.action.retaliate% 2，先攻为50。",
+        "10": "%game.action.target%%game.action.range:4%内的每个怪物",
         "110": "仅在毁败机械在相邻格中死亡时才能被摧毁",
         "112": "2个猎犬的生命值上限翻倍。",
-        "115": "摧毁时，替换为碎石，且所有在相邻格中的个体承受陷阱伤害",
+        "115": {
+          "": "摧毁时，将其替换为残骸（困难地形），同时所有相邻个体承受陷阱伤害",
+          "1": "将%data.section:66.2%加入X+1周后的日历，其中X为摧毁的桥架的数量。"
+        },
         "116": "以%game.mapMarker.b%为焦点移动",
         "119": {
           "1": "在回合结束时，花费粉尘：",
@@ -2183,7 +2197,24 @@
         "97": "程序控制中枢",
         "98": "风管坍塌",
         "99": "越狱",
-        "randomDungeon-rnd": "随机地城"
+        "randomDungeon-rnd": "随机地城",
+        "solo-20": "自然奇迹",
+        "solo-21": "与时间赛跑",
+        "solo-22": "侦察伏击",
+        "solo-23": "黑夜消亡",
+        "solo-24": "冢中学者",
+        "solo-25": "分而治之",
+        "solo-26": "先祖之道",
+        "solo-27": "崩裂深渊",
+        "solo-28": "调谐共鸣",
+        "solo-29": "华丽的陷阱",
+        "solo-30": "苦难集",
+        "solo-31": "以雪制雪",
+        "solo-32": "冰层之下",
+        "solo-33": "充电",
+        "solo-34": "锅炉房",
+        "solo-35": "湿活",
+        "solo-36": "击浪"
       }
     }
   },
@@ -2248,7 +2279,8 @@
         },
         "51-1": "每当它承受伤害时，所有角色和怪物承受%game.damage:2%",
         "65-3": {
-          "1": "打开所有房门%game.mapMarker.1%。将所有角色和角色召唤物按照先攻顺序，放置到板块16-A上最近的空格中，随后移除地图上所有房门和板块13-A。"
+          "1": "打开所有房门%game.mapMarker.1%。将所有角色和角色召唤物按照先攻顺序，放置到板块16-A上最近的空格中，随后移除地图上所有房门和板块13-A。",
+          "2": "%game.action.target%%game.action.range:4%内的每个怪物"
         }
       }
     },
@@ -2779,6 +2811,23 @@
         "randomMonsterCard-913": "灼热",
         "randomMonsterCard-914": "迅捷",
         "red-well": "\"红井\"战役贴纸",
+        "solo-20-1": "自然奇迹",
+        "solo-21-1": "与时间赛跑",
+        "solo-21-2": "与时间赛跑",
+        "solo-24-1": "冢中学者",
+        "solo-24-2": "冢中学者",
+        "solo-25-1": "分而治之",
+        "solo-27-1": "崩裂深渊",
+        "solo-27-2": "崩裂深渊",
+        "solo-28-1": "调谐共鸣",
+        "solo-32-1": "冰层之下",
+        "solo-33-1": "充电",
+        "solo-34-1": "锅炉房",
+        "solo-34-a": "锅炉房",
+        "solo-35-1": "湿活",
+        "solo-35-2": "湿活",
+        "solo-36-1": "击浪",
+        "solo-36-2": "击浪",
         "stage": "\"舞台\"战役贴纸"
       }
     }

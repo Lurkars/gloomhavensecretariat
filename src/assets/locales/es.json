@@ -1888,7 +1888,7 @@
       "collectiveResourcesLose": "Pierde {1} %game.resource.{0}% colectivo",
       "envelope": "Abre el sobre {0}",
       "event": {
-        "boat": "Añade el evento {0} al mazo de Navegación",
+        "boat": "Añade el evento {0} al mazo de Barco",
         "city": "Añade el Evento de Ciudad {0} a su mazo",
         "rift": "Añade el Evento de Grieta {0} a su mazo",
         "road": "Añade el Evento de Camino {0} a su mazo",
@@ -1924,7 +1924,7 @@
       "randomItemBlueprints": "Añade los objetos %game.itemFh.{0}% a %game.itemFh.{1}% el mazo de diseños aleatorios.",
       "randomItems": "Cada personaje obtiene un objeto aleatorio ({0}-{1})",
       "removeEvent": {
-        "boat": "Elimina el evento {0} del mazo de navegación",
+        "boat": "Elimina el evento {0} del mazo de Barco",
         "city": "Elimina el evento de Ciudad {0} del mazo",
         "rift": "Elimina el evento de Grieta {0} del mazo",
         "road": "Elimina el Evento de Camino {0} del mazo",

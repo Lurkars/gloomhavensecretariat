@@ -42,6 +42,7 @@
     "solo": "单人剧情（全部版本）"
   },
   "monster": {
+    "abael-warlord": "渊鬼领主",
     "algox-icespeaker-shards-solo": "冰角族冰语者（单人）",
     "algox-snowspeaker-trap-solo": "冰角族雪语者",
     "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.charactergh..music-note% %solo%)",
@@ -56,6 +57,60 @@
     "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
     "deep-earth": "大地深处",
     "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)",
-    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)"
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
+    "energized-corpse": "充能尸体",
+    "hollow-scholar": "空洞学者",
+    "incarnation-of-ancestors": "先祖化身",
+    "lost-in-seaweed": "迷失海藻",
+    "mountains-heart": "山之心",
+    "night-demon-deathwalker-solo": "黑夜恶魔（单人）",
+    "plea-for-help-without-answer": "求助无门",
+    "shape-blocks-out-the-sun": "蔽日之形"
+  },
+  "scenario": {
+    "title": {
+      "fh": {
+        "solo-20": "自然奇迹",
+        "solo-21": "与时间赛跑",
+        "solo-22": "侦察伏击",
+        "solo-23": "黑夜消亡",
+        "solo-24": "冢中学者",
+        "solo-25": "分而治之",
+        "solo-26": "先祖之道",
+        "solo-27": "崩裂深渊",
+        "solo-28": "调谐共鸣",
+        "solo-29": "华丽的陷阱",
+        "solo-30": "苦难集",
+        "solo-31": "以雪制雪",
+        "solo-32": "冰层之下",
+        "solo-33": "充电",
+        "solo-34": "锅炉房",
+        "solo-35": "湿活",
+        "solo-36": "击浪"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "fh": {
+        "solo-20-1": "自然奇迹",
+        "solo-21-1": "与时间赛跑",
+        "solo-21-2": "与时间赛跑",
+        "solo-24-1": "冢中学者",
+        "solo-24-2": "冢中学者",
+        "solo-25-1": "分而治之",
+        "solo-27-1": "崩裂深渊",
+        "solo-27-2": "崩裂深渊",
+        "solo-28-1": "调谐共鸣",
+        "solo-32-1": "冰层之下",
+        "solo-33-1": "充电",
+        "solo-34-1": "锅炉房",
+        "solo-34-a": "锅炉房",
+        "solo-35-1": "湿活",
+        "solo-35-2": "湿活",
+        "solo-36-1": "击浪",
+        "solo-36-2": "击浪"
+      }
+    }
   }
 }

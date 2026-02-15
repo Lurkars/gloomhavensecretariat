@@ -748,10 +748,10 @@
     },
     "stables": {
       "": "Establos",
-      "1": "Lleva una mascota a cada escenario.<br><i>Capacidad:</i> 4",
-      "2": "Lleva una mascota a cada escenario.<br><i>Capacidad:</i> 8",
-      "3": "Lleva dos mascotas a cada escenario.<br><i>Capacidad:</i> 8",
-      "4": "Lleva dos mascotas a cada escenario.<br><i>Capacidad:</i> 12",
+      "1": "Lleva 1 mascota a cada escenario.<br><i>Capacidad:</i> 4",
+      "2": "Lleva 1 mascota a cada escenario.<br><i>Capacidad:</i> 8",
+      "3": "Lleva 2 mascotas a cada escenario.<br><i>Capacidad:</i> 8",
+      "4": "Lleva 2 mascotas a cada escenario.<br><i>Capacidad:</i> 12",
       "5": "Los personajes no pueden usar mascotas",
       "pets": {
         "": "Mascotas",
@@ -1490,6 +1490,10 @@
       "549": {
         "": "Regreso a lo básico",
         "1": "Máquinas ruinosas muertas"
+      },
+      "552": {
+        "": "El estudio de la vida",
+        "1": "Enemigos capturados"
       },
       "557": {
         "": "El gran desafío",
