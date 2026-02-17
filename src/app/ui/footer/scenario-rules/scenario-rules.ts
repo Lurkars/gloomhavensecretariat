@@ -1,12 +1,13 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Component } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Condition } from "src/app/game/model/data/Condition";
 import { RoomData } from "src/app/game/model/data/RoomData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { HiddenScenarioFigureRuleTypes, ScenarioFigureRule, ScenarioRule } from "src/app/game/model/data/ScenarioRule";
+import { HiddenScenarioFigureRuleTypes, ScenarioFigureRule, ScenarioRule, ScenarioRuleIdentifier } from "src/app/game/model/data/ScenarioRule";
 import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
 
 @Component({
@@ -21,7 +22,15 @@ export class ScenarioRulesComponent {
     settingsManager: SettingsManager = settingsManager;
     EntityValueFunction = EntityValueFunction;
 
-    constructor(private dialog: Dialog) { }
+    scenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
+
+    constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => this.update());
+    }
+
+    update(): void {
+        this.scenarioRules = [...gameManager.game.scenarioRules];
+    }
 
     randomDungeonsMonsterLabel(rule: ScenarioRule): string[] {
         if (!rule.randomDungeon || !rule.randomDungeon.monsterCards || !rule.randomDungeon.monsterCards.length) {

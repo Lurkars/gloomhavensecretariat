@@ -1,6 +1,7 @@
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { Component, HostListener, Inject, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, HostListener, inject, Inject, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { GameState } from "src/app/game/model/Game";
@@ -17,6 +18,7 @@ import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
     styleUrls: ['./numberpicker-dialog.scss']
 })
 export class MonsterNumberPickerDialog implements OnInit {
+    private cdr = inject(ChangeDetectorRef);
 
     monster: Monster;
     type: MonsterType;
@@ -30,10 +32,11 @@ export class MonsterNumberPickerDialog implements OnInit {
     change: boolean = false;
     settingsManager: SettingsManager = settingsManager;
     timeout: any;
+    entitiesLeft: number = 0;
 
     gameManager: GameManager = gameManager;
 
-    constructor(@Inject(DIALOG_DATA) data: { monster: Monster, type: MonsterType, range: number[], entity: MonsterEntity | undefined, entities: MonsterEntity[] | undefined, automatic: boolean, change: boolean }, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) data: { monster: Monster, type: MonsterType, range: number[], entity: MonsterEntity | undefined, entities: MonsterEntity[] | undefined, automatic: boolean, change: boolean }, private dialogRef: DialogRef, private ghsManager: GhsManager) {
         this.monster = data.monster;
         this.type = data.type;
         this.max = gameManager.monsterManager.monsterStandeeMax(this.monster);
@@ -48,6 +51,13 @@ export class MonsterNumberPickerDialog implements OnInit {
         if (this.entity) {
             this.type = this.entity.type;
         }
+
+        this.ghsManager.uiChangeEffect(() => this.update());
+        this.update();
+    }
+
+    update() {
+        this.entitiesLeft = this.entities && this.entities.filter((entity) => entity.type == this.type && entity.number < 1).length || 0;
     }
 
     @HostListener('document:keydown', ['$event'])
@@ -70,6 +80,7 @@ export class MonsterNumberPickerDialog implements OnInit {
                     this.timeout = setTimeout(() => {
                         this.pickNumber(+event.key);
                         this.timeout = undefined;
+                        this.cdr.markForCheck();
                     }, 1000);
                 } else if (event.key === '0' && this.max > 9) {
                     this.pickNumber(10);
@@ -105,10 +116,6 @@ export class MonsterNumberPickerDialog implements OnInit {
 
     hasNumber(number: number): boolean {
         return gameManager.monsterManager.monsterStandeeUsed(this.monster, number) != undefined;
-    }
-
-    entitiesLeft(): number {
-        return this.entities && this.entities.filter((entity) => entity.type == this.type && entity.number < 1).length || 0;
     }
 
     randomStandee() {

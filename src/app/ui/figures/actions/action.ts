@@ -74,6 +74,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
 
   level: number = 0;
   round: string = "";
+  hasEntitiesCache: Record<MonsterType, boolean> = { 'normal': false, 'elite': false, 'boss': false };
 
   constructor(private ghsManager: GhsManager) {
     this.ghsManager.uiChangeEffect(() => this.update());
@@ -147,6 +148,9 @@ export class ActionComponent implements OnInit, AfterViewInit {
     }
 
     this.round = gameManager.game.round % 2 == 0 ? 'even' : 'odd';
+    this.hasEntitiesCache.normal = this.hasEntities(MonsterType.normal);
+    this.hasEntitiesCache.elite = this.hasEntities(MonsterType.elite);
+    this.hasEntitiesCache.boss = this.hasEntities(MonsterType.boss);
   }
 
   hasEntities(type: MonsterType | string | undefined = undefined): boolean {

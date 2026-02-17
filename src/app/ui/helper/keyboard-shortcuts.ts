@@ -47,18 +47,19 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
 
     applySelect() {
         const entities = gameManager.entityManager.getIndexedEntities(gameManager.stateManager.keyboardSelecting === 'w');
-        if (gameManager.stateManager.keyboardSelect > 0 && gameManager.stateManager.keyboardSelect <= entities.length) {
+        const selectedIndex = gameManager.stateManager.keyboardSelect;
+        gameManager.stateManager.keyboardSelecting = false;
+        gameManager.stateManager.keyboardSelect = -1;
+        if (selectedIndex > 0 && selectedIndex <= entities.length) {
             this.dialog.open(EntityMenuDialogComponent, {
                 panelClass: ['dialog'],
                 data: {
-                    entity: entities[gameManager.stateManager.keyboardSelect - 1].entity,
-                    figure: entities[gameManager.stateManager.keyboardSelect - 1].figure,
+                    entity: entities[selectedIndex - 1].entity,
+                    figure: entities[selectedIndex - 1].figure,
                     entityIndexKey: true
                 }
             })
-            gameManager.stateManager.keyboardSelecting = false;
         }
-        gameManager.stateManager.keyboardSelect = -1;
     }
 
     ngOnInit(): void {

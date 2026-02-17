@@ -24,13 +24,13 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [],
-
             "allowedCommonJsDependencies": [
               "autocompleter",
               "leaflet",
               "mermaid",
               "debug",
               "vscode-jsonrpc",
+              "vscode-languageserver-protocol",
               "cytoscape-fcose",
               "cytoscape-cose-bilkent",
               "@braintree/sanitize-url",

@@ -1,5 +1,5 @@
 import { Dialog, DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { Component, HostListener, Inject } from "@angular/core";
+import { ChangeDetectorRef, Component, HostListener, inject, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
@@ -13,6 +13,7 @@ import { ScenarioSummaryComponent } from "../summary/scenario-summary";
     styleUrls: ['./section-dialog.scss']
 })
 export class SectionDialogComponent {
+    private cdr = inject(ChangeDetectorRef);
 
     gameManager: GameManager = gameManager;
 
@@ -39,6 +40,7 @@ export class SectionDialogComponent {
 
     close(result: boolean) {
         ghsDialogClosingHelper(this.dialogRef, result);
+        this.cdr.markForCheck();
     }
 
     @HostListener('document:keydown', ['$event'])

@@ -408,6 +408,9 @@ export class LootManager {
     if (result.fhSupportSpent.metal) {
       gameManager.game.party.loot[LootType.metal] = (gameManager.game.party.loot[LootType.metal] || 0) - (result.fhSupportSpent.metal);
     }
+    if (result.fhSupportSpent.manual) {
+      gameManager.game.party.inspiration -= result.fhSupportSpent.manual;
+    }
   }
 
 }

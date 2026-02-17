@@ -315,13 +315,40 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     if (!gameManager.game.scenario) {
       const retiredEnabled = this.retireEnabled;
       if (this.personalQuest) {
-        this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.character.progress.personalQuestProgress[i] >= EntityValueFunction(requirement.counter));
+        this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter)
+        );
       }
 
       if (!retiredEnabled && this.retireEnabled && settingsManager.settings.applyRetirement && gameManager.game.party.campaignMode) {
         this.retire(false, true);
       }
     }
+  }
+
+  getPersonalQuestCount(i: number): number {
+    if (!this.personalQuest || i < 0 || i >= this.personalQuest.requirements.length) {
+      return 0;
+    }
+    const requirement = this.personalQuest.requirements[i];
+    if (!requirement.checkbox || !requirement.checkbox.length) {
+      return this.character.progress.personalQuestProgress[i] || 0;
+    } else {
+      let count = 0;
+      let n = this.character.progress.personalQuestProgress[i] || 0;
+      while (n > 0) {
+        count += n & 1;
+        n >>= 1;
+      }
+      return count;
+    }
+  }
+
+  isPersonalQuestCheckboxChecked(index: number, bit: number): boolean {
+    return (this.character.progress.personalQuestProgress[index] & (1 << bit)) !== 0;
+  }
+
+  setPersonalQuestCheckboxProgress(index: number, bit: number) {
+    this.setPersonalQuestProgress(index, this.character.progress.personalQuestProgress[index] ^ (1 << bit));
   }
 
   retire(force: boolean = false, dialogOnly: boolean = false) {

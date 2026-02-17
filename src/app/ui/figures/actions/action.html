@@ -137,7 +137,7 @@
   }
 
   @case (ActionType.monsterType) {
-  @if (relative || hasEntities('' + action.value)) {
+  @if (relative || monsterType && hasEntitiesCache[monsterType]) {
   <span class="action-monster-type" [ngClass]="{'small' : action.small}">
     <span class="monster-type small" [ngClass]="'monster-type-' + action.value"><span
         [ghs-label]="'monster.' + action.value" [style]="style"></span>:</span>
@@ -657,27 +657,27 @@
     <span class="value">
       @if (!relative && !forceRelative) {
       <span>
-        @if (hasEntities(MonsterType.normal) || !monster) {
+        @if (hasEntitiesCache.normal || !monster) {
         <span [value-calc]="normalValue" [level]="level"></span>
         }
-        @if (hasEntities(MonsterType.normal) && hasEntities(MonsterType.elite) && normalValue != eliteValue) {
+        @if (hasEntitiesCache.normal && hasEntitiesCache.elite && normalValue != eliteValue) {
         <span>/</span>
         }
-        @if (hasEntities(MonsterType.elite) && (normalValue != eliteValue || !hasEntities(MonsterType.normal))) {
-        <span [ngClass]="{'elite' : hasEntities(MonsterType.normal)}" [value-calc]="eliteValue" [level]="level"></span>
+        @if (hasEntitiesCache.elite && (normalValue != eliteValue || !hasEntitiesCache.normal)) {
+        <span [ngClass]="{'elite' : hasEntitiesCache.normal}" [value-calc]="eliteValue" [level]="level"></span>
         }
       </span>
       }
       @if (relative || forceRelative) {
       <span>
-        @if (hasEntities(MonsterType.normal) || !monster || forceRelative) {
+        @if (hasEntitiesCache.normal || !monster || forceRelative) {
         <span [ghs-label]="normalValue+ ''" [relative]="relative || forceRelative" [style]="style"></span>
         }
-        @if (hasEntities(MonsterType.normal) && hasEntities(MonsterType.elite) && normalValue != eliteValue) {
+        @if (hasEntitiesCache.normal && hasEntitiesCache.elite && normalValue != eliteValue) {
         <span>/</span>
         }
-        @if (hasEntities(MonsterType.elite) && (normalValue != eliteValue || !hasEntities(MonsterType.normal))) {
-        <span [ngClass]="{'elite' : hasEntities(MonsterType.normal)}" [ghs-label]="eliteValue + ''"
+        @if (hasEntitiesCache.elite && (normalValue != eliteValue || !hasEntitiesCache.normal)) {
+        <span [ngClass]="{'elite' : hasEntitiesCache.normal}" [ghs-label]="eliteValue + ''"
           [relative]="relative || forceRelative" [style]="style"></span>
         }
         @if (!fhStyle) {

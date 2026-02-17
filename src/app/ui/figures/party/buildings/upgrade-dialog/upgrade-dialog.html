@@ -301,6 +301,27 @@
     </span>
     }
     }
+    @if (gameManager.game.party.inspiration) {
+    <span class="head-col calc-col" [ghs-label]="'party.inspiration'"></span>
+    <span class="calc-col">
+      <a class="button" [ngClass]="{'disabled' : fhSupportSpent.manual == 0 }"
+        (click)="changeValue('manual',fhSupportSpent, -1)">
+        <img class="ghs-svg" src="./assets/images/minus.svg">
+      </a>
+      <span class="value" [ghs-label]="'party.inspiration'" [ghs-label-attribute]="'title'">
+        {{fhSupportSpent.manual || '-'}} / {{gameManager.game.party.inspiration}}
+      </span>
+      <a class="button" [ngClass]="{'disabled' : repair && paidResources == repair}"
+        (click)="changeValue('manual',fhSupportSpent, 1)">
+        <img class="ghs-svg" src="./assets/images/plus.svg">
+      </a>
+    </span>
+    @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
+    <span class="calc-col">
+      -
+    </span>
+    }
+    }
   </div>
   }
 

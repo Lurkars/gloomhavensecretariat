@@ -1,5 +1,5 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { AfterViewInit, Component, HostListener, Inject, OnInit, ViewEncapsulation } from "@angular/core";
+import { Component, HostListener, Inject, OnInit, ViewEncapsulation } from "@angular/core";
 
 import { Overlay } from "@angular/cdk/overlay";
 import L, { LatLngBoundsLiteral } from 'leaflet';
@@ -18,7 +18,7 @@ import { ScenarioChartPopupDialog } from "./popup/scenario-chart-popup";
     styleUrls: ['scenario-chart.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
+export class ScenarioChartDialogComponent implements OnInit {
 
     flow: string[] = [];
     flowString: string = "";
@@ -376,10 +376,6 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         }
 
         this.initializing = false;
-    }
-
-    async ngAfterViewInit() {
-        this.initMap();
     }
 
     @HostListener('document:keydown', ['$event'])

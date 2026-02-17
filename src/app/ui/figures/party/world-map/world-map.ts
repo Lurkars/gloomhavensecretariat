@@ -1,5 +1,5 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { AfterViewInit, Component, HostListener, Inject, ViewEncapsulation } from "@angular/core";
+import { Component, HostListener, Inject, ViewEncapsulation } from "@angular/core";
 import L, { ImageOverlay, LatLngBounds, LatLngBoundsLiteral } from 'leaflet';
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
@@ -21,7 +21,7 @@ import { PartySheetDialogComponent } from "../party-sheet-dialog";
     styleUrls: ['./world-map.scss',],
     encapsulation: ViewEncapsulation.None
 })
-export class WorldMapComponent implements AfterViewInit {
+export class WorldMapComponent {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
@@ -42,6 +42,7 @@ export class WorldMapComponent implements AfterViewInit {
     zooming: boolean = false;
     showExtended: boolean = false;
     campaignSheet: boolean = false;
+    initializing: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.ghsManager.uiChangeEffect(() => this.updateMap());
@@ -106,11 +107,15 @@ export class WorldMapComponent implements AfterViewInit {
         if (this.map) {
             this.map.remove();
         }
-        this.ngAfterViewInit();
+        this.initMap();
     }
 
-    ngAfterViewInit(): void {
+    initMap() {
+        if (this.initializing) {
+            return;
+        }
         if (this.worldMap) {
+            this.initializing = true;
             const width = this.worldMap.width;
             const height = this.worldMap.height;
             this.map = L.map('map', {
@@ -269,6 +274,7 @@ export class WorldMapComponent implements AfterViewInit {
                     }
                 }
             })
+            this.initializing = false;
         }
     }
 

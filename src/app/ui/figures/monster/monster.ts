@@ -26,6 +26,7 @@ export class MonsterComponent implements OnInit {
   nonDead: number = 0;
   count: number = 0;
   sortedEntites: MonsterEntity[] = [];
+  hasEntitiesCache: Record<MonsterType, boolean> = { "normal": false, "elite": false, "boss": false };
 
   constructor(private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
     this.ghsManager.uiChangeEffect(() => this.update());
@@ -40,6 +41,9 @@ export class MonsterComponent implements OnInit {
     this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
     this.count = gameManager.monsterManager.monsterStandeeMax(this.monster);
     this.sortedEntites = settingsManager.settings.eliteFirst ? this.monster.entities.sort(gameManager.monsterManager.sortEntities) : this.monster.entities.sort(gameManager.monsterManager.sortEntitiesByNumber);
+    this.hasEntitiesCache.normal = this.hasEntities(MonsterType.normal);
+    this.hasEntitiesCache.elite = this.hasEntities(MonsterType.elite);
+    this.hasEntitiesCache.boss = this.hasEntities(MonsterType.boss);
   }
 
   isNormal() {
@@ -56,7 +60,7 @@ export class MonsterComponent implements OnInit {
     return gameManager.getEdition(this.monster);
   }
 
-  entityTypeCount(type: MonsterType): boolean {
+  hasEntities(type: MonsterType): boolean {
     const count = this.monster.entities.filter((entity) => entity.type == type).length;
     return count > 1 && count < this.nonDead;
   }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from "@angular/core";
+import { ChangeDetectorRef, Component, EventEmitter, HostListener, inject, Input, OnInit, Output } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -16,6 +16,7 @@ import { MonsterType } from "src/app/game/model/data/MonsterType";
   styleUrls: ['./conditions.scss']
 })
 export class ConditionsComponent implements OnInit {
+  private cdr = inject(ChangeDetectorRef);
 
   @Input() entityConditions!: EntityCondition[];
   @Input() immunities!: ConditionName[];
@@ -64,12 +65,13 @@ export class ConditionsComponent implements OnInit {
       if (this.timeout) {
         clearTimeout(this.timeout);
         const combined: number = this.numberStore * 10 + keyNumber;
-        this.numberStore = combined;
+        this.numberStore = combined < this.conditions.length + 3 ? combined : 1;
         this.selectCondition();
       } else if (keyNumber > 0 && keyNumber * 10 <= this.conditions.length + 3) {
         this.numberStore = keyNumber;
         this.timeout = setTimeout(() => {
           this.selectCondition();
+          this.cdr.markForCheck();
         }, 1000);
       } else {
         this.numberStore = keyNumber == 0 ? 10 : keyNumber;

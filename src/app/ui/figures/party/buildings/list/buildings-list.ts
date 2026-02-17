@@ -1,5 +1,5 @@
 import { Dialog } from "@angular/cdk/dialog";
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { ChangeDetectorRef, Component, EventEmitter, inject, Input, Output } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
@@ -21,6 +21,7 @@ import { BuildingUpgradeDialog } from "../upgrade-dialog/upgrade-dialog";
     styleUrls: ['./buildings-list.scss']
 })
 export class BuildingsListComponent {
+    private cdr = inject(ChangeDetectorRef);
 
     @Input() buildings: Building[] = [];
     @Input() short: boolean = false;
@@ -41,15 +42,19 @@ export class BuildingsListComponent {
 
         if (building.data.repair && building.model.state == "damaged") {
             const totalCosts = building.data.repair[building.model.level - 1];
-            return (this.partyResource(LootType.lumber) + this.partyResource(LootType.metal) + this.partyResource(LootType.hide)) > totalCosts || gameManager.game.party.morale > 0;
+            return (this.partyResource(LootType.lumber) + this.partyResource(LootType.metal) + this.partyResource(LootType.hide)) + gameManager.game.party.inspiration > totalCosts || gameManager.game.party.morale > 0;
         }
 
         let discount = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == "carpenter" && buildingModel.level > 0 && buildingModel.state != 'wrecked') != undefined;
 
+        let inspiration = gameManager.game.party.inspiration;
+
         if (building.model.state == 'wrecked') {
             costs = building.data.rebuild[building.model.level - 1];
             if (costs.lumber > this.partyResource(LootType.lumber)) {
-                if (discount && costs.lumber == this.partyResource(LootType.lumber) + 1) {
+                if (inspiration && costs.lumber <= this.partyResource(LootType.lumber) + inspiration) {
+                    inspiration -= costs.lumber - this.partyResource(LootType.lumber);
+                } else if (discount && costs.lumber == this.partyResource(LootType.lumber) + 1) {
                     discount = false;
                 } else {
                     return false;
@@ -57,14 +62,18 @@ export class BuildingsListComponent {
             }
 
             if (costs.metal > this.partyResource(LootType.metal)) {
-                if (discount && costs.metal == this.partyResource(LootType.metal) + 1) {
+                if (inspiration && costs.metal <= this.partyResource(LootType.metal) + inspiration) {
+                    inspiration -= costs.metal - this.partyResource(LootType.metal);
+                } else if (discount && costs.metal == this.partyResource(LootType.metal) + 1) {
                     discount = false;
                 } else {
                     return false;
                 }
             }
             if (costs.hide > this.partyResource(LootType.hide)) {
-                if (discount && costs.hide == this.partyResource(LootType.hide) + 1) {
+                if (inspiration && costs.hide <= this.partyResource(LootType.hide) + inspiration) {
+                    inspiration -= costs.hide - this.partyResource(LootType.hide);
+                } else if (discount && costs.hide == this.partyResource(LootType.hide) + 1) {
                     discount = false;
                 } else {
                     return false;
@@ -77,7 +86,9 @@ export class BuildingsListComponent {
             }
 
             if ((costs.lumber || 0) > this.partyResource(LootType.lumber)) {
-                if (discount && costs.lumber == this.partyResource(LootType.lumber) + 1) {
+                if (inspiration && costs.lumber <= this.partyResource(LootType.lumber) + inspiration) {
+                    inspiration -= costs.lumber - this.partyResource(LootType.lumber);
+                } else if (discount && costs.lumber == this.partyResource(LootType.lumber) + 1) {
                     discount = false;
                 } else {
                     return false;
@@ -85,7 +96,9 @@ export class BuildingsListComponent {
             }
 
             if ((costs.metal || 0) > this.partyResource(LootType.metal)) {
-                if (discount && costs.metal == this.partyResource(LootType.metal) + 1) {
+                if (inspiration && costs.metal <= this.partyResource(LootType.metal) + inspiration) {
+                    inspiration -= costs.metal - this.partyResource(LootType.metal);
+                } else if (discount && costs.metal == this.partyResource(LootType.metal) + 1) {
                     discount = false;
                 } else {
                     return false;
@@ -93,7 +106,9 @@ export class BuildingsListComponent {
             }
 
             if ((costs.hide || 0) > this.partyResource(LootType.hide)) {
-                if (discount && costs.hide == this.partyResource(LootType.hide) + 1) {
+                if (inspiration && costs.hide <= this.partyResource(LootType.hide) + inspiration) {
+                    inspiration -= costs.hide - this.partyResource(LootType.hide);
+                } else if (discount && costs.hide == this.partyResource(LootType.hide) + 1) {
                     discount = false;
                 } else {
                     return false;
@@ -146,6 +161,7 @@ export class BuildingsListComponent {
                                     }
                                 }
                                 gameManager.stateManager.after();
+                                this.cdr.markForCheck();
                             }, 1)
                         }
                     }
@@ -217,6 +233,7 @@ export class BuildingsListComponent {
                             }
                             building.model.state = 'normal';
                             gameManager.stateManager.after();
+                            this.cdr.markForCheck();
                         }
                     }
                 })
@@ -251,6 +268,7 @@ export class BuildingsListComponent {
                             }
                             building.model.state = 'normal';
                             gameManager.stateManager.after();
+                            this.cdr.markForCheck();
                         }
                     }
                 })
@@ -309,7 +327,6 @@ export class BuildingsListComponent {
                         }
                     }
                 }
-
                 gameManager.stateManager.after();
             } else if (!gameManager.buildingsManager.initialBuilding(building.data) && !gameManager.buildingsManager.availableBuilding(building.data) || building.model.level > 1) {
                 gameManager.stateManager.before("downgradeBuilding", building.data.id, building.model.name, (building.model.level - 1));

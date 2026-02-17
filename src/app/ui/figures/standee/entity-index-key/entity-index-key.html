@@ -1,10 +1,10 @@
-@if (gameManager.stateManager.keyboardSelecting || show) {
+@if (isKeyboardSelecting || show) {
 <span class="key-container">
   @if (entityIndex >= 10) {
-  <kbd [ngClass]="{'highlight' : (entityIndex / 10 | ghsFloor) == gameManager.stateManager.keyboardSelect}"><span>{{entityIndex
+  <kbd [ngClass]="{'highlight' : (entityIndex / 10 | ghsFloor) == keyboardSelect}"><span>{{entityIndex
       / 10 | ghsFloor}}</span></kbd>
   }
-  <kbd [ngClass]="{'highlight' : entityIndex < 10 && entityIndex == gameManager.stateManager.keyboardSelect}"><span>{{entityIndex
+  <kbd [ngClass]="{'highlight' : entityIndex < 10 && entityIndex == keyboardSelect}"><span>{{entityIndex
       % 10}}</span></kbd>
 </span>
 }

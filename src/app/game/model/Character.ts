@@ -163,7 +163,7 @@ export class Character extends CharacterData implements Entity, Figure {
     }
     this.immunities = model.immunities || [];
     this.markers = model.markers || this.markers;
-    this.tags = model.tags || this.tags;
+    this.tags = model.tags || this.tags || [];
     this.identity = model.identity || 0;
 
     this.summons = this.summons.filter((summon) => model.summons.some((value) => value.uuid && value.uuid == summon.uuid));
@@ -188,6 +188,11 @@ export class Character extends CharacterData implements Entity, Figure {
         if (!Array.isArray(this.progress.enhancements)) {
           this.progress.enhancements = [];
         }
+      }
+
+      if (gameManager.currentEdition() == 'fh' && this.progress.personalQuest == '581' && !this.tags.includes('fh-pq-581-migration') && this.progress.personalQuestProgress[0]) {
+        this.tags.push('fh-pq-581-migration');
+        this.progress.personalQuestProgress[0] = (1 << this.progress.personalQuestProgress[0]) - 1;
       }
 
       gameManager.characterManager.previousEnhancements(this, gameManager.enhancementsManager.temporary);

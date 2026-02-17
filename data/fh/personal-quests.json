@@ -6,6 +6,14 @@
             {
                 "name": "%data.personalQuest.fh.581.1%",
                 "counter": 5,
+                "checkbox": [
+                    "%game.resource.arrowvine%",
+                    "%game.resource.axenut%",
+                    "%game.resource.corpsecap%",
+                    "%game.resource.flamefruit%",
+                    "%game.resource.rockroot%",
+                    "%game.resource.snowthistle%"
+                ],
                 "autotrack": "differentHerbs"
             }
         ],

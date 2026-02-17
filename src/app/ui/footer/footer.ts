@@ -47,6 +47,8 @@ export class FooterComponent implements OnInit {
 
   nextHint: boolean = false;
 
+  isDisabled: boolean = false;
+
   constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
     this.ghsManager.uiChangeEffect(() => {
       this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof ObjectiveContainer && figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
@@ -69,6 +71,7 @@ export class FooterComponent implements OnInit {
         this.activeCharacter = activeCharacter;
         this.activeCharacterFade = !activeCharacter && settingsManager.settings.animations;
       }
+      this.isDisabled = this.disabled();
     });
   }
 
@@ -77,6 +80,7 @@ export class FooterComponent implements OnInit {
 
     this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
 
+    this.isDisabled = this.disabled();
 
     setInterval(() => {
       gameManager.game.playSeconds++;
@@ -98,7 +102,7 @@ export class FooterComponent implements OnInit {
         gameManager.stateManager.saveLocal();
       }
 
-      this.cdr.markForCheck();
+      this.cdr.detectChanges();
     }, 1000)
 
     setTimeout(() => {

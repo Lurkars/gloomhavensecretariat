@@ -18,10 +18,8 @@
           [ngClass]="'level-' +  gameManager.game.scenario.level"></span>
       </span>
       }
-      @if (settingsManager.settings.scenarioRooms && settingsManager.settings.treasures &&
-      gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections).length > 0) {
-      <span class="treasures" (click)="openTreasures($event)"
-        [ngClass]="{'unlooted' : gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections, true).length > 0}">
+      @if (settingsManager.settings.scenarioRooms && settingsManager.settings.treasures && treasures.length > 0) {
+      <span class="treasures" (click)="openTreasures($event)" [ngClass]="{'unlooted' : unlootedTreasures.length > 0}">
         <img class="ghs-svg" src="./assets/images/scenario/treasure.svg">
       </span>
       }
@@ -37,7 +35,7 @@
   <div class="sections rooms"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
     @if (settingsManager.settings.scenarioRooms) {
-    @for (roomData of gameManager.scenarioManager.openRooms() | trackUUID; track roomData._trackUUID) {
+    @for (roomData of openRooms | trackUUID; track roomData._trackUUID) {
     <span class="section room" (click)="open()">
       <img class="ghs-svg" src="./assets/images/scenario/door-open.svg">
       {{roomData.ref}}
@@ -47,7 +45,7 @@
     </span>
     }
     }
-    @for (section of gameManager.game.sections | trackUUID; track section._trackUUID) {
+    @for (section of sections | trackUUID; track section._trackUUID) {
     <span class="section" ghs-pointer-input (singleClick)="open()" (doubleClick)="openRandomMonsterCard(section)">
       <img class="ghs-svg" src="./assets/images/lock-open.svg">
       @if (!section.hideIndex) {
@@ -64,7 +62,7 @@
     </span>
     }
     @if (settingsManager.settings.scenarioRooms) {
-    @for (roomData of gameManager.scenarioManager.closedRooms() | trackUUID; track roomData._trackUUID) {
+    @for (roomData of closedRooms | trackUUID; track roomData._trackUUID) {
     <span class="section room available" (click)="openRoom(roomData, $event)"
       [ghs-tooltip]="(roomData.marker ? 'scenario.openRoomMarker' : 'scenario.openRoom') + (roomData.ref ? 'Ref': '')"
       [ghs-label-args]="[roomData.ref || '', roomData.marker || '']" [originX]="'center'" [overlayY]="'center'"
@@ -77,7 +75,7 @@
     </span>
     }
     }
-    @for (section of availableSections() | trackUUID; track section._trackUUID) {
+    @for (section of availableSections | trackUUID; track section._trackUUID) {
     <span class="section available" (click)="addSection(section, $event)">
       @if (!section.conclusion) {
       <img class="ghs-svg" src="./assets/images/lock.svg">

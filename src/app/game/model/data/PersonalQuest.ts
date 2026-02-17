@@ -19,6 +19,7 @@ export class PersonalQuestRequirement {
 
     name: string = "";
     counter: number | string = 1;
+    checkbox: string[] = [];
     autoautotrack: string | undefined;
     requires: number[] = [];
 

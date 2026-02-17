@@ -369,6 +369,7 @@ export class MainComponent implements OnInit {
         if (containerElement) {
           this.translate(scrollTo, skipAnimation);
         }
+        this.cdr.markForCheck();
       }, 1)
     } else {
       setTimeout(() => {
@@ -520,12 +521,15 @@ export class MainComponent implements OnInit {
               if (skipAnimation) {
                 containerElement.classList.remove('no-animations');
               }
+              this.cdr.markForCheck();
             }, !settingsManager.settings.animations || skipAnimation ? 0 : 250 * settingsManager.settings.animationSpeed);
           } else if (skipAnimation) {
             setTimeout(() => {
               containerElement.classList.remove('no-animations');
+              this.cdr.markForCheck();
             }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0)
           }
+          this.cdr.markForCheck();
         }
       }
     }, 1);

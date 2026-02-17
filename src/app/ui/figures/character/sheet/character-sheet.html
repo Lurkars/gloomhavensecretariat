@@ -190,8 +190,7 @@
             <div class="mastery">
               <span class="checkmark">
                 <img src="./assets/images/close.svg">:</span>
-              <span class="mastery-check checkbox"
-                [ngClass]="{'checked' : character.progress.masteries.includes(i)}"
+              <span class="mastery-check checkbox" [ngClass]="{'checked' : character.progress.masteries.includes(i)}"
                 (click)="toggleMastery(i)"></span>
               <span class="placeholder text" [ghs-label]="mastery"></span>
             </div>
@@ -349,11 +348,10 @@
               [ngClass]="{'disabled' : requirement.requires && requirement.requires.length > 0 && !personalQuestRequirementUnlocked(i)}">
               <span class="requirement-name">
                 <span [ghs-label]="requirement.name"></span>:@if (EntityValueFunction(requirement.counter) > 1) {
-                <span>&nbsp;{{character.progress.personalQuestProgress[i]
-                  ||
-                  0}}/{{EntityValueFunction(requirement.counter)}}</span>
+                <span>&nbsp;{{getPersonalQuestCount(i)}}/{{EntityValueFunction(requirement.counter)}}</span>
                 }
               </span>
+              @if (!requirement.checkbox || !requirement.checkbox.length) {
               <span class="counter">
                 @if (EntityValueFunction(requirement.counter) < 11) { @for (counter of [] |
                   ghsRange:EntityValueFunction(requirement.counter); track counter) { <span class="checkbox"
@@ -367,6 +365,18 @@
                 [max]="EntityValueFunction(requirement.counter)" (change)="setPersonalQuestProgress(i, $event)">
               }
               </span>
+              }
+              @if (!!requirement.checkbox && requirement.checkbox.length) {
+              <span class="counter">
+                @for (checkbox of requirement.checkbox; track checkbox; let index = $index) {
+                <label>
+                  <span class="checkbox" [ngClass]="{'checked' : isPersonalQuestCheckboxChecked(i, index) }"
+                    (click)="setPersonalQuestCheckboxProgress(i,index)"></span>
+                  <span class="checkbox-label" [ghs-label]="checkbox"></span>
+                </label>
+                }
+              </span>
+              }
             </div>
             }
           </div>

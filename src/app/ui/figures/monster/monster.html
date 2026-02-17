@@ -44,19 +44,19 @@
       [ghs-label-attribute]="'title'">
       <img src="./assets/images/up.svg">
     </a>
-    @if (entityTypeCount(MonsterType.boss)) {
+    @if (hasEntitiesCache.boss) {
     <a class="entities-menu boss" (click)="entitiesMenu($event, MonsterType.boss)"
       [ghs-label]="'monster.selectStandees.boss'" [ghs-label-attribute]="'title'">
       <img src="./assets/images/up.svg">
     </a>
     }
-    @if (entityTypeCount(MonsterType.elite)) {
+    @if (hasEntitiesCache.elite) {
     <a class="entities-menu elite" (click)="entitiesMenu($event, MonsterType.elite)"
       [ghs-label]="'monster.selectStandees.elite'" [ghs-label-attribute]="'title'">
       <img src="./assets/images/up.svg">
     </a>
     }
-    @if (entityTypeCount(MonsterType.normal)) {
+    @if (hasEntitiesCache.normal) {
     <a class="entities-menu normal" (click)="entitiesMenu($event, MonsterType.normal)"
       [ghs-label]="'monster.selectStandees.normal'" [ghs-label-attribute]="'title'">
       <img src="./assets/images/up.svg">
