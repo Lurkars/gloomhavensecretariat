@@ -351,7 +351,7 @@
     },
     "fh-123": {
       "": "Armadura de cuero",
-      "1": "Cuando te ataquen, ates de robar una carta de Modificador de ataque, el atacante sufre Desventaja en el ataque."
+      "1": "Cuando te ataquen, antes de robar una carta de Modificador de ataque, el atacante sufre Desventaja en el ataque."
     },
     "fh-124": {
       "": "Zapatos alados",
@@ -485,6 +485,10 @@
       "": "Botas de avaricia",
       "1": "Siempre que saquees 2 o más fichas de Botín a la vez, realiza: %game.condition.bless% Personal."
     },
+    "fh-182": {
+      "": "Cortaalas",
+      "1": "Después de tu ataque cuerpo a cuerpo, pon una ficha de Personaje sobre el objetivo. El objetivo pierde %game.action.fly%."
+    },
     "fh-183": {
       "": "Jarra de nieblas",
       "1": "Durante tu turno, todas las figuras sufren Desventaja y %game.action.range%-1 en todos sus ataques a distancia de esta ronda. "
@@ -509,6 +513,10 @@
       "": "Diadema etérida",
       "1": "Después de determinar la iniciativa, cambia 1 carta de tu mano por otra que hayas jugado. Tu iniciativa no se ve afectada."
     },
+    "fh-199": {
+      "": "Zapatos opulentos",
+      "1": "Desde el inicio del escenario y para el resto de este, considera que vas antes que tus invocaciones en orden de iniciativa a efectos de atención de los monstruos."
+    },
     "fh-2": {
       "": "Casco tosco",
       "1": "Cuando te ataquen, trata cualquier carta de Modificador de ataque %game.attackmodifier.double% que robe el enemigo como %game.attackmodifier.plus1% en su lugar."
@@ -516,6 +524,10 @@
     "fh-20": {
       "": "Arco bien tensado",
       "1": "Durante tu turno, añade %game.action.range% +1 a todos tus ataques a distancia."
+    },
+    "fh-204": {
+      "": "Pinza amputada",
+      "1": "Durante tu turno, 1 enemigo normal o de élite adyacente sufre %game.damage% igual a su valor de %game.action.shield%."
     },
     "fh-21": {
       "": "Almófar",
@@ -573,7 +585,7 @@
     "fh-243": {
       "": "Roca Maldita",
       "1": "Este artículo no se puede vender, y se debe llevar y usar en cada escenario.",
-      "2": "Al ini io del escenario, realiza:"
+      "2": "Al inicio del escenario, realiza:"
     },
     "fh-244": {
       "": "Ámbar de energía",
