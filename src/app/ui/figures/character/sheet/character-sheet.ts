@@ -71,7 +71,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       this.retireEnabled = false;
       if (!gameManager.game.scenario) {
         if (this.personalQuest) {
-          this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.character.progress.personalQuestProgress[i] >= EntityValueFunction(requirement.counter));
+          this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter));
         } else {
           this.retireEnabled = true;
         }
@@ -138,7 +138,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
     if (!gameManager.game.scenario) {
       if (this.personalQuest) {
-        this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.character.progress.personalQuestProgress[i] >= EntityValueFunction(requirement.counter));
+        this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter));
       } else {
         this.retireEnabled = true;
       }
@@ -283,7 +283,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       this.personalQuest = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), this.character.progress.personalQuest);
       if (this.personalQuest) {
         this.character.progress.personalQuest = this.personalQuest.cardId;
-        this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.character.progress.personalQuestProgress[i] >= EntityValueFunction(requirement.counter));
+        this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter));
       }
 
       gameManager.stateManager.after();
@@ -380,7 +380,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   personalQuestRequirementUnlocked(index: number): boolean {
-    return this.personalQuest != undefined && this.personalQuest.requirements[index] != undefined && this.personalQuest.requirements[index].requires && this.personalQuest.requirements[index].requires.every((requireIndex) => this.personalQuest && this.character.progress.personalQuestProgress[requireIndex - 1] >= EntityValueFunction(this.personalQuest.requirements[requireIndex - 1].counter));
+    return this.personalQuest != undefined && this.personalQuest.requirements[index] != undefined && this.personalQuest.requirements[index].requires && this.personalQuest.requirements[index].requires.every((requireIndex) => this.personalQuest && this.getPersonalQuestCount(requireIndex - 1) >= EntityValueFunction(this.personalQuest.requirements[requireIndex - 1].counter));
   }
 
   setExtraPerks(event: any) {
