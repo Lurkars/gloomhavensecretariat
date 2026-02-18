@@ -616,8 +616,8 @@
       "1": "Podczas twojej zdolności ruchu dodaj +4 %game.action.move%. Po wykonaniu zdolności ruchu otrzymujesz %game.condition.immobilize%."
     },
     "fh-18": {
-      "": "Siermiężne Buty",
-      "1": "Podczas twojej zdolności ruchu dodaj +1 %game.action.move%."
+      "": "Twarde Buty",
+      "1": "Podczas twojej tury dodaj +1 %game.action.move% do wszystkich twoich zdolności ruchu."
     },
     "fh-180": {
       "": "Buty Chciwości",
@@ -722,7 +722,7 @@
     },
     "fh-202": {
       "": "Kręgosłup Olbrzymiej Świniopiranii",
-      "1": "Podczas twojej zdolności ataku wręcz dodaj %game.action.pierce% i %game.condition.wound% do jednego ataku."
+      "1": "Podczas twojej zdolności ataku wręcz dodaj %game.action.pierce:2% i %game.condition.wound% do jednego ataku."
     },
     "fh-203": {
       "": "Berło Kontroli",
@@ -855,7 +855,7 @@
     },
     "fh-231": {
       "": "Skórujący Nóż",
-      "1": "Kiedy zdobywasz żeton łupów, otrzymujesz 3 `hide` zamiast dobierania karty łupów."
+      "1": "Kiedy zdobywasz żeton łupów, otrzymujesz 3 %game.resource.hide% zamiast dobierania karty łupów."
     },
     "fh-232": {
       "": "Różdżka Orchidów",
@@ -937,8 +937,8 @@
       "1": "Natychmiast po tym, jak wróg zakończy swoją zdolność ruchu, sąsiadując z tobą, wykonaj: %game.action.push% 1 %game.action.target% ten wróg"
     },
     "fh-28": {
-      "": "",
-      "1": ""
+      "": "Solidne Buty",
+      "1": "Podczas twojej tury dodaj +1 %game.action.move% do wszystkich twoich zdolności ruchu oraz ignoruj trudny teren."
     },
     "fh-29": {
       "": "Rozłupujący Topór",
@@ -1034,8 +1034,8 @@
       "1": "Podczas twojej zdolności ataku wręcz dodaj +1 %game.action.attack% i %game.condition.wound% do jednego ataku."
     },
     "fh-5": {
-      "": "",
-      "1": ""
+      "": "Siermiężne Buty",
+      "1": "Podczas twojej zdolności ruchu dodaj +1 %game.action.move%"
     },
     "fh-50": {
       "": "Tarcza Wzajemności",

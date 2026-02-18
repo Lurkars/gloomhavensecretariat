@@ -413,9 +413,45 @@
       "": "Pavés",
       "1": "Cuando sufras %game.damage% por un ataque, obtén %game.action.shield:2% para dicho ataque."
     },
+    "fh-138": {
+      "": "Bacinete pesado",
+      "1": "Siempre que un enemigo vaya a aplicarte %game.condition.disarm%, %game.condition.stun%, o %game.condition.muddle%, evita sufrir ese estado."
+    },
+    "fh-139": {
+      "": "Yelmo con cuernos",
+      "1": "Después de moverte 4 o más hexágonos en tu turno, añade +1 %game.action.attack% a tu próximo ataque cuerpo a cuerpo de este turno."
+    },
     "fh-14": {
       "": "Espada pesada",
       "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, añade %game.action.attack% +1 a 1 ataque."
+    },
+    "fh-140": {
+      "": "Manto de invocación",
+      "1": "Durante tu turno, otorga a 1 de tus invocaciones: %game.action.shield:2%."
+    },
+    "fh-141": {
+      "": "Cuero tachonado",
+      "1": "Cuando te ataquen, antes de robar una carta de Modificador de ataque, el atacante sufre Desventaja en el ataque y tu obtienes %game.action.shield:1% para el ataque."
+    },
+    "fh-142": {
+      "": "Botas de aceleración",
+      "1": "Al determinar la iniciativa, después de que todas las cartas de Capacidad hayan sido reveladas, aumenta o disminuye tu iniciativa en 20."
+    },
+    "fh-143": {
+      "": "Sandalias de robustez",
+      "1": "Después de moverte 4 o más hexágonos en tu turno, tras la capacidad de Movimiento, realiza:"
+    },
+    "fh-144": {
+      "": "Bastón de eminencia",
+      "1": "Durante tu turno, %game.element.consume.wild% para añadir %game.action.attack% +1 a todos tus ataques."
+    },
+    "fh-145": {
+      "": "Daga versátil",
+      "1": "Cuando uses la acción superior básica de una carta de Capacidad, realiza %game.action.attack% 3 en lugar de %game.action.attack% 2."
+    },
+    "fh-146": {
+      "": "Cadena con garfio",
+      "1": "Durante tu turno, añade %game.action.pull% 2 a todos tus ataques a distancia."
     },
     "fh-15": {
       "": "Escudo reforzado",
