@@ -1,5 +1,6 @@
 import { DialogRef } from "@angular/cdk/dialog";
 import { ConnectionPositionPair } from "@angular/cdk/overlay";
+import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Spoilable } from "src/app/game/model/data/Spoilable";
 
@@ -108,9 +109,11 @@ export function ghsDialogClosingHelper(dialogRef: DialogRef, result: any = undef
       dialogRef.overlayRef.backdropElement.classList.add('backdrop-closing');
     }
     setTimeout(() => {
+      gameManager.triggerUiChange(false);
       dialogRef.close(result);
     }, 250);
   } else {
+    gameManager.triggerUiChange(false);
     dialogRef.close(result);
   }
 }

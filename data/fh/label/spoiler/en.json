@@ -451,7 +451,7 @@
     },
     "fh-103": {
       "": "Major Cure Potion",
-      "1": "During your turn, remove all negative conditions you have. This item can be used while you have %game.condition.impair% %game.condition.stun%."
+      "1": "During your turn, remove all negative conditions you have. This item can be used while you have %game.condition.impair% or %game.condition.stun%."
     },
     "fh-104": {
       "": "Swiftness Potion",
@@ -591,7 +591,7 @@
     },
     "fh-135": {
       "": "Armorbane Bow",
-      "1": "During your attack, add %game.action.pierce% to all your ranged attacks."
+      "1": "During your attack, add %game.action.pierce% 3 to all your ranged attacks."
     },
     "fh-136": {
       "": "Battle Axe",
@@ -733,7 +733,8 @@
     },
     "fh-167": {
       "": "Attractive Bracelet",
-      "1": "At the start of the enemy's turn, before it determines its focus, perform:"
+      "1": "At the start of the enemy's turn, before it determines its focus, perform:",
+      "2": "the enemy"
     },
     "fh-168": {
       "": "Circlet of Eyes",
@@ -857,7 +858,7 @@
     },
     "fh-195": {
       "": "Tri-Corner Hat",
-      "1": "During your turn add +1 %game.action.range% and %game.action.pierce% to one of your ranged attacks."
+      "1": "During your turn add +1 %game.action.range% and %game.action.pierce% 1 to one of your ranged attacks."
     },
     "fh-196": {
       "": "Choker of Sacrifice",
@@ -894,7 +895,7 @@
     },
     "fh-202": {
       "": "Giant Piranha Pig Spine",
-      "1": "During your melee attack ability, add %game.action.pierce% and %game.condition.wound% one attack."
+      "1": "During your melee attack ability, add %game.action.pierce% 2 and %game.condition.wound% one attack."
     },
     "fh-203": {
       "": "Scepter of Control",
@@ -918,7 +919,7 @@
     },
     "fh-208": {
       "": "Titan Nail",
-      "1": "During your attack ability add %game.action.pierce% to one attack targeting an enemy whose current hit point value is 4 or less."
+      "1": "During your attack ability add %game.action.pierce% 3 to one attack targeting an enemy whose current hit point value is 4 or less."
     },
     "fh-209": {
       "": "Sword of Mastery",
@@ -1019,7 +1020,7 @@
     },
     "fh-23": {
       "": "Sturdy Greaves",
-      "1": "At the start of your turn, add -2 %game.action.move% to all your move abilities to gain %game.action.shield% this round. "
+      "1": "At the start of your turn, add -2 %game.action.move% to all your move abilities to gain %game.action.shield% 1 this round. "
     },
     "fh-230": {
       "": "Examination Glass",
@@ -1027,7 +1028,7 @@
     },
     "fh-231": {
       "": "Skinning Knife",
-      "1": "When you gain a loot token, gain 3 `hide` instead of drawing a loot card."
+      "1": "When you gain a loot token, gain 3 %game.resource.hide% instead of drawing a loot card."
     },
     "fh-232": {
       "": "Orchid Wand",
@@ -1205,7 +1206,7 @@
     },
     "fh-32": {
       "": "Shell Armor",
-      "1": "During yur turn, perform %game.condition.ward% self"
+      "1": "During your turn, perform %game.condition.ward% self"
     },
     "fh-33": {
       "": "Volatile Boots",
@@ -1234,7 +1235,7 @@
     },
     "fh-39": {
       "": "Abyss Axe",
-      "1": "During your attack ability, add +3 %game.action.attack% and %game.action.pierce% to one attack targeting a Frozen Corpse, Ice Wraith, or Living Doom."
+      "1": "During your attack ability, add +3 %game.action.attack% and %game.action.pierce% 1 to one attack targeting a Frozen Corpse, Ice Wraith, or Living Doom."
     },
     "fh-4": {
       "": "Crude Hide Armor",
@@ -1258,7 +1259,7 @@
     },
     "fh-44": {
       "": "Sword of Absolution",
-      "1": "When you would gain %game.condition.poison% %game.condition.curse%, gain %game.condition.bless%."
+      "1": "When you would gain %game.condition.poison% or %game.condition.curse%, gain %game.condition.bless%."
     },
     "fh-45": {
       "": "Master Scepter",
@@ -1396,7 +1397,8 @@
     },
     "fh-75": {
       "": "Rose Gauntlet",
-      "1": "After any ally within %game.action.range:2% suffers %game.damage% from an attack, remove all negative conditions from the ally then perform:"
+      "1": "After any ally within %game.action.range:2% suffers %game.damage% from an attack, remove all negative conditions from the ally then perform:",
+      "2": "the ally"
     },
     "fh-76": {
       "": "Horn of Command",
@@ -1449,7 +1451,7 @@
     },
     "fh-87": {
       "": "Cure Potion",
-      "1": "During your turn, remove one negative condition you have. This item can be used while you have %game.condition.impair% %game.condition.stun%."
+      "1": "During your turn, remove one negative condition you have. This item can be used while you have %game.condition.impair% or %game.condition.stun%."
     },
     "fh-88": {
       "": "Fireshield Potion",

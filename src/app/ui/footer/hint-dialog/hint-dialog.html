@@ -1,49 +1,49 @@
 <div class="hint-dialog">
   <div class="hint">
-    @if (empty()) {
+    @if (isEmpty) {
     <p><span [ghs-label]="'round.hint.empty'"></span></p>
     }
-    @if (missingInitiative()) {
+    @if (isMissingInitiative) {
     <p><span [ghs-label]="'round.hint.missingInitiative'"></span> </p>
     }
-    @if (active()) {
+    @if (isActive) {
     <p><span [ghs-label]="'round.hint.active'"></span></p>
     }
-    @if (active()) {
+    @if (isActive) {
     <a (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
     }
-    @if (active()) {
+    @if (isActive) {
     <a (click)="next()" class="small"><span [ghs-label]="'round.hint.confirmTurns'"></span></a>
     }
-    @if (finish()) {
+    @if (isFinish) {
     <p><span [ghs-label]="'round.hint.finish'"></span></p>
     }
-    @if (finish()) {
+    @if (isFinish) {
     <a (click)="finishScenario(true)"><span [ghs-label]="'round.hint.confirmFinish'"></span></a>
     }
-    @if (failed()) {
+    @if (isFailed) {
     <p><span [ghs-label]="'round.hint.failed'"></span></p>
     }
-    @if (failed()) {
+    @if (isFailed) {
     <a (click)="finishScenario(false)"><span [ghs-label]="'round.hint.confirmFailed'"></span></a>
     }
-    @if (failed()) {
+    @if (isFailed) {
     <a (click)="resetScenario()"><span [ghs-label]="'round.hint.confirmReset'"></span></a>
     }
-    @if (finish() || failed()) {
+    @if (isFinish || isFailed) {
     <a (click)="confirm()"><span [ghs-label]="(gameManager.game.state == GameState.next ?
       'round.hint.continueNext' : 'round.hint.continueDraw')"></span></a>
     }
-    @if (battleGoals()) {
+    @if (isBattleGoals) {
     <p><span [ghs-label]="'round.hint.battleGoals'"></span></p>
     }
-    @if (battleGoals()) {
+    @if (isBattleGoals) {
     <a (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
     }
-    @if (eventDraw() && gameManager.game.eventDraw) {
+    @if (isEventDraw && gameManager.game.eventDraw) {
     <p><span [ghs-label]="'round.hint.eventDraw'" [ghs-label-args]="[gameManager.game.eventDraw]"></span></p>
     }
-    @if (eventDraw()) {
+    @if (isEventDraw) {
     <a (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
     }
   </div>

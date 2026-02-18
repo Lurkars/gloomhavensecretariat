@@ -69,6 +69,8 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         const ghsSvg = ActionTypesIcons.includes(split[split.length - 1] as ActionType);
         image = '<img  src="./assets/images/' + (fh ? 'fh/action/' : 'action/') + split[split.length - 1] + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
         replace = '&#8203;<span class="placeholder-action">&#8203;' + image + value + '</span>';
+      } else if (type == "actionText" && split.length == 3) {
+        replace = '&#8203;<span class="placeholder-action">' + settingsManager.getLabel('game.action.' + split[2]) + '</span>';
       } else if (type == "element") {
         let element = split[2];
         if (element == "consume") {

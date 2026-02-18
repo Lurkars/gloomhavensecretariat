@@ -875,6 +875,7 @@
       justify-content: flex-start;
       align-items: center;
       padding: 0.2em;
+      padding-top: 0.4em;
     }
 
     &:before {
@@ -1250,6 +1251,10 @@
       .action-concatenation-item {
         margin: 0;
       }
+    }
+
+    .action-condition .subactions {
+      max-width: 75%;
     }
 
     .special-type {

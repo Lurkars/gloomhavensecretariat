@@ -1,0 +1,33 @@
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+
+  label {
+    display: flex;
+  }
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  ghs-header {
+    z-index: 2;
+  }
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+
+  ghs-item {
+    width: 200px;
+    min-width: 200px;
+    height: 300px;
+    min-height: 300px;
+    margin: 10px;
+  }
+}

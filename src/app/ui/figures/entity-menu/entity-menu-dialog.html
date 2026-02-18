@@ -645,19 +645,16 @@
   </div>
   }
 
-  @if (data.entity && gameManager.isCharacter(data.entity) && (settingsManager.settings.characterIdentities &&
-  !!gameManager.toCharacter(data.entity).identities && gameManager.toCharacter(data.entity).identities.length > 1 ||
-  !!gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length >
-  0)) {
+
+  @if (!levelDialog && (identities.length || specialActions.length)) {
   <hr class="character-special" />
   }
 
-  @if (data.entity && gameManager.isCharacter(data.entity) && settingsManager.settings.characterIdentities &&
-  !!gameManager.toCharacter(data.entity).identities && gameManager.toCharacter(data.entity).identities.length > 1) {
+  @if (!levelDialog && data.entity && gameManager.isCharacter(data.entity) && identities.length > 1) {
   <div class="identities-container">
-    @for (identity of [] | ghsRange:gameManager.toCharacter(data.entity).identities.length; track identity) {
+    @for (identity of [] | ghsRange:identities.length; track identity) {
     <a class="item" (click)="setIdentity(identity)"
-      [ghs-tooltip]="'data.character.' + gameManager.toCharacter(data.entity).edition + '.' + gameManager.toCharacter(data.entity).name + '.' +  gameManager.toCharacter(data.entity).identities[identity]"
+      [ghs-tooltip]="'data.character.' + gameManager.toCharacter(data.entity).edition + '.' + gameManager.toCharacter(data.entity).name + '.' +  identities[identity]"
       [ngClass]="{'deactivated': gameManager.toCharacter(data.entity).identity == identity}">
       <img
         [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity).name, identity)" />
@@ -666,11 +663,9 @@
   </div>
   }
 
-  @if (data.entity && !levelDialog && gameManager.isCharacter(data.figure) &&
-  !!gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length >
-  0) {
+  @if (!levelDialog && data.entity && specialActions.length > 0) {
   <div class="special-actions">
-    @for (specialAction of gameManager.toCharacter(data.figure).specialActions | trackUUID; track
+    @for (specialAction of specialActions | trackUUID; track
     specialAction._trackUUID) {
     @if ((!specialAction.level || specialAction.level <= data.figure.level) && (!specialAction.perk ||
       gameManager.isCharacter(data.entity) &&
@@ -741,7 +736,7 @@
 <div class="level-dialog">
   @if (data.entity && gameManager.isCharacter(data.entity)) {
   <div class="level-container" [ngClass]="{'bb' : bb}">
-    <span class="item"><img src="./assets/images/status/level.svg" /></span>
+    <a (click)="levelDialog = false" class="item"><img src="./assets/images/status/level.svg" /></a>
     @for (level of [] | ghsRange:(bb ? 5 : 9); track level) {
     <span class="item"><a class="level" [ngClass]="{'active' : level + 1 == data.entity.level}" tabclick
         (click)="setLevel(level + 1)">{{level
@@ -749,16 +744,15 @@
     }
   </div>
   <div class="char-container">
-    @if (titles.length == 0 || !settingsManager.settings.characterIdentities) {
+    @if (titles.length == 0 || !identities.length) {
     <img [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(data.entity).name)">
     <input class="title" #charactertitle type="text" [value]="gameManager.toCharacter(data.entity).title">
     }
-    @if (titles.length > 0 && settingsManager.settings.characterIdentities) {
+    @if (titles.length > 0 && identities.length) {
     <div class="titles-container">
-      @for (i of [] | ghsRange:gameManager.toCharacter(data.entity).identities.length; track i) {
+      @for (i of [] | ghsRange:identities.length; track i) {
       <div class="title-container">
-        <img
-          [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity).name,gameManager.toCharacter(data.entity).identity)">
+        <img [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity).name,i)">
         <input class="title" type="text" [value]="titles[i]" (change)="setTitle($event, i)">
       </div>
       }

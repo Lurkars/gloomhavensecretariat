@@ -1,4 +1,4 @@
-import { Dialog } from '@angular/cdk/dialog';
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
 import { ChangeDetectorRef, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -11,6 +11,7 @@ import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { AttackModiferDeckChange, AttackModifierDeckComponent } from '../figures/attackmodifier/attackmodifierdeck';
 import { ChallengeDeckChange } from '../figures/challenges/challenge-deck';
 import { LootDeckChange, LootDeckComponent } from '../figures/loot/loot-deck';
+import { ConfirmDialogComponent } from '../helper/confirm/confirm';
 import { HintDialogComponent } from './hint-dialog/hint-dialog';
 import { LevelComponent } from './level/level';
 import { ScenarioComponent } from './scenario/scenario';
@@ -43,6 +44,8 @@ export class FooterComponent implements OnInit {
   activeCharacter: Character | undefined;
   activeCharacterFade: boolean = false;
 
+  initiativeSetDialog: DialogRef<unknown, ConfirmDialogComponent> | "discard" | false = false;
+
   compact: boolean = false;
 
   nextHint: boolean = false;
@@ -51,27 +54,7 @@ export class FooterComponent implements OnInit {
 
   constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
     this.ghsManager.uiChangeEffect(() => {
-      this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof ObjectiveContainer && figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
-      this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
-      const activeCharacter = settingsManager.settings.characterAttackModifierDeckActiveBottom ? gameManager.game.figures.find((figure) => figure instanceof Character && (figure.attackModifierDeckVisible || gameManager.bbRules())) as Character : undefined;
-      if (settingsManager.settings.animations && ((this.activeCharacter && !activeCharacter) || (!this.activeCharacter && activeCharacter))) {
-        this.activeCharacterFade = true;
-        if (activeCharacter) {
-          this.activeCharacter = activeCharacter;
-        }
-        setTimeout(() => {
-          if (activeCharacter) {
-            this.activeCharacterFade = false;
-          } else {
-            this.activeCharacter = activeCharacter;
-          }
-          this.cdr.markForCheck();
-        }, activeCharacter ? 1 : 500 * settingsManager.settings.animationSpeed)
-      } else {
-        this.activeCharacter = activeCharacter;
-        this.activeCharacterFade = !activeCharacter && settingsManager.settings.animations;
-      }
-      this.isDisabled = this.disabled();
+      this.update();
     });
   }
 
@@ -115,6 +98,59 @@ export class FooterComponent implements OnInit {
     });
   }
 
+  update() {
+    this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof ObjectiveContainer && figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
+    this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
+    const activeCharacter = settingsManager.settings.characterAttackModifierDeckActiveBottom ? gameManager.game.figures.find((figure) => figure instanceof Character && (figure.attackModifierDeckVisible || gameManager.bbRules())) as Character : undefined;
+    if (settingsManager.settings.animations && ((this.activeCharacter && !activeCharacter) || (!this.activeCharacter && activeCharacter))) {
+      this.activeCharacterFade = true;
+      if (activeCharacter) {
+        this.activeCharacter = activeCharacter;
+      }
+      setTimeout(() => {
+        if (activeCharacter) {
+          this.activeCharacterFade = false;
+        } else {
+          this.activeCharacter = activeCharacter;
+        }
+        this.cdr.markForCheck();
+      }, activeCharacter ? 1 : 500 * settingsManager.settings.animationSpeed)
+    } else {
+      this.activeCharacter = activeCharacter;
+      this.activeCharacterFade = !activeCharacter && settingsManager.settings.animations;
+    }
+    this.isDisabled = this.disabled();
+
+    if (settingsManager.settings.initiativeRequired && settingsManager.settings.initiativeRoundConfirm && gameManager.game.state == GameState.draw && gameManager.game.scenario && !this.nextHint) {
+      if (gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent) != undefined && gameManager.game.figures.every((figure) => !(figure instanceof Character) || !gameManager.entityManager.isAlive(figure) || figure.absent || figure.getInitiative() > 0)) {
+        if (!this.initiativeSetDialog) {
+          this.initiativeSetDialog = this.dialog.open(ConfirmDialogComponent, {
+            panelClass: ['dialog'],
+            data: {
+              label: 'round.hint.initiativeRoundConfirm'
+            }
+          });
+          this.initiativeSetDialog.closed.subscribe({
+            next: (result) => {
+              this.initiativeSetDialog = "discard";
+              if (result) {
+                this.initiativeSetDialog = false;
+                this.next();
+              }
+            }
+          })
+        }
+      } else {
+        if (this.initiativeSetDialog instanceof DialogRef) {
+          this.initiativeSetDialog.close();
+        }
+        this.initiativeSetDialog = false;
+      }
+    } else if (gameManager.game.state == GameState.next) {
+      this.initiativeSetDialog = false;
+    }
+  }
+
 
   next(force: boolean = false): void {
     if (!force && this.disabled()) {
@@ -129,6 +165,7 @@ export class FooterComponent implements OnInit {
       dialogRef.closed.subscribe({
         next: (result) => {
           this.nextHint = false;
+          this.initiativeSetDialog = "discard";
           if (result) {
             this.nextState();
           }

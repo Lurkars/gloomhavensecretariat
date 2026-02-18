@@ -81,6 +81,7 @@ export enum ActionValueType {
 }
 
 export enum ActionSpecialTarget {
+  ability = "ability",
   all = "all",
   allCharacters = "allCharacters",
   allies = "allies",

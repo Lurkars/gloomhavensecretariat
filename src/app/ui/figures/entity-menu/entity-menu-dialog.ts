@@ -1,4 +1,4 @@
-import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
+import { Dialog, DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Overlay } from "@angular/cdk/overlay";
 import { ChangeDetectorRef, Component, ElementRef, HostListener, Inject, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
@@ -80,6 +80,9 @@ export class EntityMenuDialogComponent {
   enfeebleChar: Character | undefined;
   enfeebleChars: Character[] = [];
 
+  identities: string[] = [];
+  specialActions: CharacterSpecialAction[] = [];
+
   bb: boolean = false;
 
   amDecks: string[] = [];
@@ -118,6 +121,9 @@ export class EntityMenuDialogComponent {
           }
         }
       }
+
+      this.identities = settingsManager.settings.characterIdentities ? [...data.entity.identities] : [];
+
     } else if (data.figure instanceof ObjectiveContainer) {
       this.conditionType = data.figure.escort ? 'character' : 'objective';
     } else if (data.entity instanceof MonsterEntity) {
@@ -138,6 +144,9 @@ export class EntityMenuDialogComponent {
     }
 
     if (this.data.figure instanceof Character && this.data.figure.specialActions) {
+
+      this.specialActions = this.data.figure.specialActions.filter((specialAction) => (!specialAction.level || specialAction.level <= data.figure.level) && (this.data.entity instanceof Character && !specialAction.summon || this.data.entity instanceof Summon && specialAction.summon));
+
       this.data.figure.specialActions.forEach((specialAction) => {
         if (this.data.entity instanceof Character && !specialAction.summon && this.data.entity.tags.includes(specialAction.name)) {
           this.specialTags.push(specialAction.name);
@@ -523,13 +532,6 @@ export class EntityMenuDialogComponent {
   toggleExhausted() {
     if (this.data.entity instanceof Character) {
       gameManager.stateManager.before(this.data.entity.exhausted ? "unsetExhausted" : "setExhausted", gameManager.characterManager.characterName(this.data.entity));
-      this.exhausted();
-      gameManager.stateManager.after();
-    }
-  }
-
-  exhausted() {
-    if (this.data.entity instanceof Character) {
       this.data.entity.exhausted = !this.data.entity.exhausted;
       if (this.data.entity.exhausted) {
         this.data.entity.off = true;
@@ -537,6 +539,8 @@ export class EntityMenuDialogComponent {
       } else {
         this.data.entity.off = false;
       }
+      gameManager.stateManager.after();
+      this.changeDetectorRef.markForCheck();
     }
   }
 

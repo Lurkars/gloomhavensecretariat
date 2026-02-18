@@ -653,7 +653,7 @@ export class ScenarioManager {
 
       if (this.game.figures.find((figure) => figure instanceof Character && !figure.absent && figure.name == 'snowflake' && figure.tags.includes('muddle-monster'))) {
         this.game.figures.forEach((figure) => {
-          if (figure instanceof Monster) {
+          if (figure instanceof Monster && !figure.isAlly) {
             figure.entities.forEach((entity) => {
               if (entities.includes(entity) && !gameManager.entityManager.isImmune(entity, figure, ConditionName.muddle)) {
                 gameManager.entityManager.addCondition(entity, figure, new Condition(ConditionName.muddle));

@@ -1,6 +1,7 @@
 import { Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, HostListener } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
@@ -20,7 +21,25 @@ export class HintDialogComponent {
     gameManager: GameManager = gameManager;
     GameState = GameState;
 
-    constructor(private dialogRef: DialogRef, private dialog: Dialog) { }
+    isEmpty: boolean = false;
+    isMissingInitiative: boolean = false;
+    isActive: boolean = false;
+    isBattleGoals: boolean = false;
+    isEventDraw: boolean = false;
+    isFinish: boolean = false;
+    isFailed: boolean = false;
+
+    constructor(private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+        this.ghsManager.uiChangeEffect(() => {
+            this.isEmpty = this.empty();
+            this.isMissingInitiative = this.missingInitiative();
+            this.isActive = this.active();
+            this.isBattleGoals = this.battleGoals();
+            this.isEventDraw = this.eventDraw();
+            this.isFinish = this.finish();
+            this.isFailed = this.failed();
+        });
+    }
 
     confirm() {
         const active = gameManager.game.figures.find((figure) => figure.active);
@@ -116,15 +135,15 @@ export class HintDialogComponent {
     @HostListener('document:keydown', ['$event'])
     onKeyEnter(event: KeyboardEvent) {
         if (settingsManager.settings.keyboardShortcuts && event.key === 'Enter') {
-            if (this.active()) {
+            if (this.isActive) {
                 this.confirm();
-            } else if (this.finish()) {
+            } else if (this.isFinish) {
                 this.finishScenario(true);
-            } else if (this.failed()) {
+            } else if (this.isFailed) {
                 this.finishScenario(false);
-            } else if (this.battleGoals()) {
+            } else if (this.isBattleGoals) {
                 this.confirm();
-            } else if (this.eventDraw()) {
+            } else if (this.isEventDraw) {
                 this.confirm();
             }
             event.preventDefault();

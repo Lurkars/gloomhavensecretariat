@@ -3,6 +3,7 @@ import { Overlay } from "@angular/cdk/overlay";
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
@@ -29,8 +30,21 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   character: Character | undefined;
   objectiveContainer: ObjectiveContainer | undefined;
   reveal: number = 0;
+  id: string = "";
+  initiativeHidden: boolean = false;
+  hidden: boolean = false;
+  initiativeValue: string = '';
+  min: number = 0;
 
-  constructor(private dialog: Dialog, private overlay: Overlay, public elementRef: ElementRef) { };
+  constructor(private dialog: Dialog, private overlay: Overlay, public elementRef: ElementRef, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => {
+      this.id = 'initiative-input-' + this.tabindex();
+      this.initiativeHidden = gameManager.game.state == GameState.draw && this.figure instanceof Character && !this.figure.initiativeVisible;
+      this.hidden = this.figure.initiative > 0 && this.initiativeHidden && !this.reveal;
+      this.initiativeValue = this.formatInitiative();
+      this.min = gameManager.game.state == GameState.draw ? 0 : 1;
+    })
+  };
 
   ngOnInit(): void {
     if (this.figure instanceof Character) {
@@ -82,10 +96,6 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  initiativeHidden(): boolean {
-    return gameManager.game.state == GameState.draw && this.figure instanceof Character && !this.figure.initiativeVisible;
-  }
-
   updateInitiative(event: any) {
     if (this.reveal) {
       this.disableReveal();
@@ -98,10 +108,17 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
     }
   }
 
+  private formatInitiative(): string {
+    return this.figure.initiative > 0
+      ? (this.figure.initiative < 10 ? '0' + this.figure.initiative : '' + this.figure.initiative)
+      : '';
+  }
+
   enableReveal(event: any) {
     if (this.initiativeInput) {
       this.reveal = this.figure.initiative;
       this.figure.initiative = 0;
+      this.initiativeValue = this.formatInitiative();
       setTimeout(() => {
         this.initiativeInput.nativeElement.focus();
       }, 1);
@@ -114,6 +131,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
     if (this.reveal) {
       this.figure.initiative = this.reveal;
       this.reveal = 0;
+      this.initiativeValue = this.formatInitiative();
     }
   }
 

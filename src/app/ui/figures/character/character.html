@@ -1,6 +1,5 @@
 @if (!character.absent && settingsManager.settings.summons) {
-<div class="summons-container"
-  [ngClass]="{'empty' : summonCount == 0, 'off' : character.off || character.exhausted || character.health <= 0 }">
+<div class="summons-container" [ngClass]="{'empty' : summonCount == 0, 'off' : off }">
   <span class="spacer"></span>
   <span class="entities-menu" [ngClass]="{'empty' : summonCount == 0, 'disabled' : summonCount < 2}"
     [entityAnimation]="summonCount == 0" (click)="openEntitiesMenu($event)">
@@ -19,7 +18,7 @@
 }
 
 <div class="character" [style.--ghs-character-color]="character.color"
-  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : (bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent && !settingsManager.settings.characterAttackModifierDeckActiveBottom || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible, 'compact': compact, 'short': short, 'menu': shortMenu, 'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'active-border' : character.active && (settingsManager.settings.theme == 'modern' || compact) }">
+  [ngClass]="{'off' : off  || absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : (bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent && !settingsManager.settings.characterAttackModifierDeckActiveBottom || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible, 'compact': compact, 'short': short, 'menu': shortMenu, 'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'active-border' : character.active && (settingsManager.settings.theme == 'modern' || compact) }">
 
   <ghs-entity-index-key [entity]="character"></ghs-entity-index-key>
 
@@ -85,7 +84,7 @@
               (singleClick)="nextIdentity($event)">
               <img
                 [ngClass]="{'identities' : settingsManager.settings.characterIdentities &&  character.identities && character.identities.length > 1}"
-                [src]="character.identities.length == 0 || !settingsManager.settings.characterIdentities ? character.iconUrl : gameManager.characterManager.characterIdentityIcon(character.name, character.identity)" />
+                [src]="identityIcon ? identityIcon : character.iconUrl" />
             </span>
             @if (compact) {
             <ghs-character-initiative [figure]="character"></ghs-character-initiative>
@@ -93,7 +92,7 @@
             <span class="name" ghs-pointer-input (singleClick)="openEntityMenu()"
               (doubleClick)="compact && openCharacterSheet()">
               {{characterTitle}}
-              @if (character.exhausted) {
+              @if (exhausted) {
               <img class="ghs-svg exhausted" src="./assets/images/status/exhausted.svg" />
               }
             </span>
@@ -229,7 +228,7 @@
         <img [src]="character.iconUrl" />
       </span>
       {{gameManager.characterManager.characterName(character, character.absent)}}
-      @if (character.exhausted) {
+      @if (exhausted) {
       <img class="ghs-svg exhausted" src="./assets/images/status/exhausted.svg" />
       }
     </div>
@@ -250,7 +249,8 @@
     }
     @if ((bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck) {
     <span class="attack-modifier-button" ghs-pointer-input (singleClick)="toggleAttackModifierDeckVisible()"
-      [ghs-label]="'game.attackModifiers'" [ghs-label-attribute]="'title'" [ngClass]="{'bb': bb, 'active': settingsManager.settings.characterAttackModifierDeckActiveBottom && character.attackModifierDeckVisible}">
+      [ghs-label]="'game.attackModifiers'" [ghs-label-attribute]="'title'"
+      [ngClass]="{'bb': bb, 'active': settingsManager.settings.characterAttackModifierDeckActiveBottom && character.attackModifierDeckVisible}">
       <img src="./assets/images/attackmodifier/icon.png" />
     </span>
     }
@@ -273,7 +273,7 @@
       [ghs-label-attribute]="'title'">
       <img
         [src]="settingsManager.settings.fhStyle ? './assets/images/fh/battlegoals/battle-goal-back-fh.png' : './assets/images/battlegoals/battle-goal-back.png'" />
-      @if (character.battleGoal && character.battleGoals.length > 0) {
+      @if (battleGoalSelected) {
       <img class="check" src="./assets/images/check.svg" />
       }
     </div>
@@ -408,8 +408,7 @@
 </div>
 
 @if (!character.absent && settingsManager.settings.summons) {
-<div class="summons-container spirits"
-  [ngClass]="{'empty' : skullSpiritCount == 0, 'off' : character.off || character.exhausted || character.health <= 0 }">
+<div class="summons-container spirits" [ngClass]="{'empty' : skullSpiritCount == 0, 'off' : off }">
   <span class="spacer"></span>
   <span class="entities-menu" [ngClass]="{'empty' : skullSpiritCount == 0, 'disabled' : skullSpiritCount < 2}"
     [entityAnimation]="skullSpiritCount == 0" (click)="openEntitiesMenu($event)">

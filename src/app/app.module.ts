@@ -174,6 +174,7 @@ import { GhsErrorHandler } from './ui/tools/error-handler';
 import { EventCardsToolComponent } from './ui/tools/events/event-cards-tool';
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
+import { ItemsCardsToolComponent } from './ui/tools/items/items-cards-tool';
 import { RandomMonsterCardsToolComponent } from './ui/tools/random-monster-cards/random-monster-cards-tool';
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier/attackmodifier-standalone';
 import { InitiativeStandaloneComponent } from './ui/tools/standalone/initiative/initiative-standalone';
@@ -293,6 +294,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     ItemDialogComponent,
     ItemDistillDialogComponent,
     ItemsBrewDialog,
+    ItemsCardsToolComponent,
     ItemsCharacterDialogComponent,
     ItemsDialogComponent,
     KeyboardShortcuts,

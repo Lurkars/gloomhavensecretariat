@@ -1787,8 +1787,8 @@
         "value": 3,
         "subActions": [
           {
-            "type": "specialTarget",
-            "value": "the ally",
+            "type": "target",
+            "value": "%data.items.fh-75.2%",
             "small": true
           },
           {
@@ -4031,8 +4031,8 @@
         "value": 4,
         "subActions": [
           {
-            "type": "specialTarget",
-            "value": "the enemy",
+            "type": "target",
+            "value": "%data.items.fh-167.2%",
             "small": true
           },
           {
@@ -4503,8 +4503,8 @@
             "value": "poison",
             "subActions": [
               {
-                "type": "target",
-                "value": "the target of the heal ability",
+                "type": "specialTarget",
+                "value": "ability:heal",
                 "small": true
               }
             ]

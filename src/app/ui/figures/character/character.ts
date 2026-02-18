@@ -68,6 +68,11 @@ export class CharacterComponent implements OnInit {
   skullSpiritCount: number = 0;
   activeConditions: EntityCondition[] = [];
   specialActions: CharacterSpecialAction[] = [];
+  exhausted: boolean = false;
+  off: boolean = false;
+  absent: boolean = false;
+  battleGoalSelected: boolean = false;
+  identityIcon: string = "";
 
   bb: boolean = false;
 
@@ -104,6 +109,11 @@ export class CharacterComponent implements OnInit {
     this.shortMenu = false;
     this.bb = gameManager.bbRules() || this.character.bb;
     this.specialActions = this.character.specialActions.filter((specialAction) => this.character.tags.includes(specialAction.name));
+    this.exhausted = this.character.exhausted;
+    this.off = this.character.off || this.exhausted || this.character.health <= 0;
+    this.absent = this.character.absent;
+    this.battleGoalSelected = this.character.battleGoal && this.character.battleGoals.length > 0;
+    this.identityIcon = this.character.identities && this.character.identities.length ? gameManager.characterManager.characterIdentityIcon(this.character.name, this.character.identity) : '';
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
@@ -113,17 +123,6 @@ export class CharacterComponent implements OnInit {
   afterAttackModifierDeck(change: AttackModiferDeckChange) {
     this.character.attackModifierDeck = change.deck;
     gameManager.stateManager.after();
-  }
-
-  exhausted() {
-    this.character.exhausted = !this.character.exhausted;
-    if (this.character.exhausted) {
-      this.character.off = true;
-      this.character.active = false;
-    } else {
-      this.character.off = false;
-    }
-    gameManager.sortFigures(this.character);
   }
 
   dragInitiativeMove(value: number) {
