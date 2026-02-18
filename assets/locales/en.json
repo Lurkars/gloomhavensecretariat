@@ -1269,6 +1269,7 @@
     "maxHealth": "Maximum hit points",
     "solo": "Solo",
     "specialTarget": {
+      "ability": "%game.target% the target of the %game.actionText.{0}% ability",
       "all": "%game.target% all",
       "allCharacters": "%game.target% all characters",
       "allies": "%game.target% all allies",
