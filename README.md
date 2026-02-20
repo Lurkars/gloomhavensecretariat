@@ -231,6 +231,12 @@ docker run --rm -p 80:80 --name ghs gloomhavensecretariat/ghs
 
 For use with docker compose, just run `docker compose up -d`.
 
+#### Environment variables
+
+| Variable | Default | Description |
+|---|---|---|
+| `NGINX_ACCESS_LOG` | `on` (nginx default) | Set to `off` to disable nginx access logs. |
+
 ## Building from source
 
 If you want to create your own custom build (e.g. for [self-hosting](#Selfhosting)), prepare a [development setup](#development). Then run `npm run build` ([available options](https://angular.io/cli/build#options)) and access the build at `./dist/gloomhavensecretariat`.
