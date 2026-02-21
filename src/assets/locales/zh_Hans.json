@@ -1273,6 +1273,7 @@
     "maxHealth": "最大生命值",
     "solo": "Solo",
     "specialTarget": {
+      "ability": "%game.target%为%game.actionText.{0}%能力的目标",
       "all": "%game.target% 所有",
       "allCharacters": "%game.target%所有角色",
       "allies": "%game.target% 的所有盟友",

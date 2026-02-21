@@ -64,8 +64,9 @@
     "lost-in-seaweed": "迷失海藻",
     "mountains-heart": "山之心",
     "night-demon-deathwalker-solo": "黑夜恶魔（单人）",
-    "plea-for-help-without-answer": "求助无门",
-    "shape-blocks-out-the-sun": "蔽日之形"
+    "plea-for-help-without-answer": "无可救药",
+    "shape-blocks-out-the-sun": "蔽日之形",
+    "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%"
   },
   "scenario": {
     "title": {

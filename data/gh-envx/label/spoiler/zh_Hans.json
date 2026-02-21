@@ -1,1 +1,10 @@
-{}
+{
+  "summon": {
+    "angry-wasps": "愤怒黄蜂",
+    "creeping-beetles": "蜂拥甲虫",
+    "rage-hornets": "愤怒大黄蜂",
+    "rust-vermin": "铁锈钳虫",
+    "soul-leeches": "灵魂水蛭",
+    "steel-scarabs": "钢金龟"
+  }
+}

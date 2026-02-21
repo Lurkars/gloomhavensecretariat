@@ -313,15 +313,29 @@
   },
   "summon": {
     "bat-swarm": "蝙蝠集群",
+    "battle-boar": "战斗野猪",
+    "battle-bot": "战斗机器人",
     "black-unicorn": "黑暗独角兽",
+    "decoy": "分身诱饵",
     "healing-sprite": "治愈之灵",
     "iron-beast": "钢铁野兽",
+    "kill-bot": "杀戮机器人",
     "lava-golem": "熔岩傀儡",
     "living-bomb": "活体炸弹",
+    "monolith": "巨型方尖碑",
     "nail-sphere": "钉刺圆球",
+    "rat-king": "鼠王",
+    "rat-swarm": "鼠群",
+    "rock-colossus": "岩石魔像",
     "shadow-wolf": "暗影狼",
+    "skeleton": "骷髅",
+    "slime-spirit": "史莱姆精灵",
+    "steel-construct": "钢制魔像",
     "thorn-shooter": "荆棘射手",
-    "void-eater": "虚空吞噬者"
+    "two-mini": "战熊",
+    "vicious-jackal": "凶恶豺狼",
+    "void-eater": "虚空吞噬者",
+    "warrior-spirit": "勇士之魂"
   },
   "treasures": {
     "gh": {

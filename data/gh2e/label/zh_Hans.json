@@ -512,6 +512,7 @@
     "usurper": "篡位者",
     "vermling-priest": "腐鼠牧师",
     "vermling-scout": "腐鼠侦察兵",
+    "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%",
     "wind-demon": "疾风恶魔"
   },
   "personalQuest": {

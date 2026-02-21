@@ -317,17 +317,37 @@
       "": "Lluvia bendita",
       "1": "Durante tu turno, realiza: %game.condition.bless% %game.action.target% 2 aliados adyacentes y Personal"
     },
+    "fh-109": {
+      "": "Poción revitalizadora mayor",
+      "1": "Durante tu turno, %game.card.recover% hasta 1 de tus pociones de 2 plantas perdidas."
+    },
     "fh-11": {
       "": "Amuleto sencillo",
       "1": "Al inicio del escenario, retira 1 carta de Modificador de ataque %game.attackmodifier.minus1% de tu mazo de Modificadores de ataque."
+    },
+    "fh-110": {
+      "": "Poción de precisión",
+      "1": "Cuando reléeles una carta de Modificador de ataque %game.attackmodifier.null% de tu mazo de Modificadores de ataque, trátala en su lugar como %game.attackmodifier.plus2%."
     },
     "fh-111": {
       "": "Poción de frenesí mayor",
       "1": "Durante tu turno, realiza:"
     },
+    "fh-112": {
+      "": "Poción de martillo",
+      "1": "Durante tu turno, sufre %game.damage% 10."
+    },
+    "fh-113": {
+      "": "Poción de soltura",
+      "1": "Al inicio de tu turno, descarta 1 de tus cartas jugadas para realizar tanto la acción superior como la inferior de tu otra carta jugada. Solo una acción como máximo puede activar un símbolo %game.card.lost%."
+    },
     "fh-115": {
       "": "Poción de inducción",
       "1": "Durante tu turno, ignora un símbolo de consumo elemental en una acción de hayas jugado y obtén su efecto."
+    },
+    "fh-117": {
+      "": "Petaca de infierno",
+      "1": "Durante tu turno, realiza:"
     },
     "fh-119": {
       "": "Mejunje letal",
@@ -453,9 +473,47 @@
       "": "Cadena con garfio",
       "1": "Durante tu turno, añade %game.action.pull% 2 a todos tus ataques a distancia."
     },
+    "fh-147": {
+      "": "Máscara del terror",
+      "1": "Durante tu ataque cuerpo a cuerpo, añade %game.action.push%."
+    },
+    "fh-148": {
+      "": "Diadema de santidad",
+      "1": "Después de los 3 próximos ataques que tomen como objeto a un aliado a %game.action.range:2% o menos, dale la vuelta a esta carta.",
+      "2": "Durante tu turno, realiza:",
+      "4": "y luego dale la vuelta a esta carta"
+    },
+    "fh-149": {
+      "": "Arnés",
+      "1": "Para las 5 próximas fuentes de %game.damage%de ataques que te tomen como objetivo, obtén %game.action.shield:1% para dichos ataques."
+    },
     "fh-15": {
       "": "Escudo reforzado",
       "1": "Cuando un enemigo vaya a aplicarte un estado negativo, evita sufrir ese estado."
+    },
+    "fh-150": {
+      "": "Túnica del Roble",
+      "1": "Durante tu turno, realiza:"
+    },
+    "fh-151": {
+      "": "Sandalias de serenidad",
+      "1": "Cuando uses la acción inferior básica de una carta de Capacidad, realiza %game.action.move% 4 en lugar de %game.action.move% 2."
+    },
+    "fh-152": {
+      "": "Escarpes de acero",
+      "1": "Al final de tu turno, si te has movido 1 o menos hexágonos durante tu turno, obtén %game.action.shield:1% durante esta ronda."
+    },
+    "fh-153": {
+      "": "Lanza larga",
+      "1": "Durante tu capacidad de Ataque cuerpo a cuerpo con un solo objetivo, cambia el objetivo de la capacidad a:"
+    },
+    "fh-154": {
+      "": "Bomba volátil",
+      "1": "Durante tu capacidad de Ataque a distancia con un solo objetivo, cambia el objetivo de la capacidad a:"
+    },
+    "fh-155": {
+      "": "Scutum",
+      "1": "Cuando sufras %game.damage% por un ataque, obtén %game.action.shield:4% para dicho ataque."
     },
     "fh-156": {
       "": "Pendiente de luna",
@@ -589,6 +647,10 @@
       "": "Estilete de hielo",
       "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, %game.element.consume.ice% para añadir %game.action.pierce% 3 a 1 ataque."
     },
+    "fh-223": {
+      "": "Pararayos",
+      "1": "Después de determinar la iniciativa, todos los monstruos consideran que vas primero en el orden de iniciativa al centrar su atención durante esta ronda. "
+    },
     "fh-225": {
       "": "Figura algox",
       "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, %game.element.consume.earth% para añadir %game.action.attack% +1 a 1 ataque, y luego dale la vuelta a esta carta.",
@@ -617,6 +679,10 @@
     "fh-24": {
       "": "Filo corrupto",
       "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, añade %game.condition.wound%, %game.condition.poison%, y %game.condition.muddle% a 1 ataque."
+    },
+    "fh-240": {
+      "": "Gema del demonio",
+      "1": "Cuando falléis un escenario, sigues obteniendo todas las %game.checkmark% de tu Objetivo de batalla si lo has cumplido."
     },
     "fh-243": {
       "": "Roca Maldita",
@@ -827,6 +893,10 @@
     "fh-76": {
       "": "Cuerno de mando",
       "1": "Durante el turno de una de tus invocaciones, decide cómo realiza sus capacidades."
+    },
+    "fh-77": {
+      "": "Cañón de caos",
+      "1": "Durante tu turno, sustituye una pieza de 1 hexágono de obstáculo, terreno peligroso, terreno impracticable o terreno helado en un hexágono desocupado a %game.action.range:2% o menos por un tipo diferente de pieza de la lista anterior."
     },
     "fh-8": {
       "": "Lanza tosca",
