@@ -101,7 +101,8 @@
   </label>
 
   @if ((costs.gold || costs.hide || costs.lumber || costs.metal) && !force && !rewardsOnly) {
-  <div class="table" [style.--ghs-summary-columns]="2 + characters.length">
+  <div class="table"
+    [style.--ghs-summary-columns]="2 + (costs.gold || !settingsManager.settings.fhShareResources ?  characters.length : 0)">
     <span class="head-col"
       [ngClass]="{'first' : !repair, 'costs' : repair, 'some' : paidResources, 'full' : (requiredResources - (discount ? 1 : 0) <= paidResources)}">
       @if (repair) {
@@ -114,6 +115,7 @@
       }
     </span>
     <span class="first"><span [ghs-label]="'party.campaign.sheet.supply'"></span></span>
+    @if (costs.gold || !settingsManager.settings.fhShareResources) {
     @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span class="first">
       <img class="icon character-icon" [src]="character.iconUrl" />
@@ -121,6 +123,7 @@
         {{gameManager.characterManager.characterName(character, character.absent)}}
       </span>
     </span>
+    }
     }
     @if (costs.gold) {
     <span class="head-col calc-col costs" [ngClass]="{'some' : spent.gold, 'full' : spent.gold == costs.gold}">
@@ -179,6 +182,7 @@
       <span>-</span>
       }
     </span>
+    @if (costs.gold || !settingsManager.settings.fhShareResources) {
     @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
     <span class="calc-col">
       @if (character.progress.loot['lumber']) {
@@ -200,7 +204,7 @@
       }
     </span>
     }
-    }
+    }}
     @if (costs.metal) {
     <span class="head-col calc-col"
       [ngClass]="{'costs' : !repair, 'some' : spent.metal, 'full' : spent.metal == costs.metal || (requiredResources - (discount ? 1 : 0) == paidResources)}">
@@ -229,6 +233,7 @@
       <span>-</span>
       }
     </span>
+    @if (costs.gold || !settingsManager.settings.fhShareResources) {
     @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
     <span class="calc-col">
       @if (character.progress.loot['metal']) {
@@ -249,6 +254,7 @@
       <span>-</span>
       }
     </span>
+    }
     }
     }
     @if (costs.hide) {
@@ -279,6 +285,7 @@
       <span>-</span>
       }
     </span>
+    @if (costs.gold || !settingsManager.settings.fhShareResources) {
     @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
     <span class="calc-col">
       @if (character.progress.loot['hide']) {
@@ -301,6 +308,7 @@
     </span>
     }
     }
+    }
     @if (gameManager.game.party.inspiration) {
     <span class="head-col calc-col" [ghs-label]="'party.inspiration'"></span>
     <span class="calc-col">
@@ -316,10 +324,12 @@
         <img class="ghs-svg" src="./assets/images/plus.svg">
       </a>
     </span>
+    @if (costs.gold || !settingsManager.settings.fhShareResources) {
     @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
     <span class="calc-col">
       -
     </span>
+    }
     }
     }
   </div>

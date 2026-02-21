@@ -12,6 +12,7 @@ import { LootType } from "src/app/game/model/data/Loot";
 import { PerkType } from "src/app/game/model/data/Perks";
 import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
 import { ghsDialogClosingHelper, ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
+import { PartySheetDialogComponent } from "../../party/party-sheet-dialog";
 import { StatisticsDialogComponent } from "../../party/statistics/statistics-dialog";
 import { TrialDialogComponent } from "../../trials/dialog/trial-dialog";
 import { AbilityCardsDialogComponent } from "./abilities/ability-cards-dialog";
@@ -257,7 +258,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   setResource(type: LootType, event: any) {
-    if (!isNaN(+event.target.value)) {
+    if (!settingsManager.settings.fhShareResources && !isNaN(+event.target.value)) {
       gameManager.stateManager.before("setResource", gameManager.characterManager.characterName(this.character), "game.loot." + type, event.target.value);
       this.character.progress.loot[type] = +event.target.value;
       gameManager.stateManager.after();
@@ -504,10 +505,19 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   moveResources() {
-    this.dialog.open(CharacterMoveResourcesDialog, {
-      panelClass: ['dialog'],
-      data: { character: this.character }
-    });
+    if (settingsManager.settings.fhShareResources) {
+      if (this.dialogRef) {
+        this.dialogRef.close();
+      }
+      this.dialog.open(PartySheetDialogComponent, {
+        panelClass: ['dialog-invert'],
+      });
+    } else {
+      this.dialog.open(CharacterMoveResourcesDialog, {
+        panelClass: ['dialog'],
+        data: { character: this.character }
+      });
+    }
   }
 
   exportCharacter() {

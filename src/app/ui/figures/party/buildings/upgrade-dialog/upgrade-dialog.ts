@@ -103,7 +103,7 @@ export class BuildingUpgradeDialog implements OnInit {
     }
 
     ngOnInit(): void {
-        if (this.force && (!settingsManager.settings.applyBuildingRewards || !gameManager.game.party.campaignMode)) {
+        if (this.force && (this.repair || !settingsManager.settings.applyBuildingRewards || !gameManager.game.party.campaignMode)) {
             this.dialogRef.close(true);
         }
     }

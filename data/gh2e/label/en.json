@@ -1160,70 +1160,126 @@
   "personalQuest": {
     "gh2e": {
       "01": {
-        "": "Political Intrigue"
+        "": "Political Intrigue",
+        "1": "Votes",
+        "2": "Solved %game.section:136.1%"
       },
       "02": {
-        "": "Inn to Hospitality"
+        "": "Inn to Hospitality",
+        "1": "Money Tokens looted"
       },
       "03": {
-        "": "Augmented Abilities"
+        "": "Augmented Abilities",
+        "1": "Enhancements",
+        "2": "Read %game.section:71.2%"
       },
       "04": {
-        "": "The Fall of Man"
+        "": "The Fall of Man",
+        "1": "%game.itemFh.149% used",
+        "2": "Read %game.section:115.2%"
       },
       "05": {
-        "": "Seeker of Xorn"
+        "": "Seeker of Xorn",
+        "1": "\"Crypt Basement\" %game.scenario:57% completed",
+        "2": "Item gained",
+        "3": "%game.condition.poison% gained",
+        "4": "\"Palace of Ice\" %game.scenario:58% completed"
       },
       "06": {
-        "": "Zealot of the Blood God"
+        "": "Zealot of the Blood God",
+        "1": "Scenarios completed with max. half HP",
+        "2": "Solved %game.section:122.3%"
       },
       "07": {
-        "": "A Tale to Tell"
+        "": "A Tale to Tell",
+        "1": "Treasures looted",
+        "2": "Read %game.section:12.3%"
       },
       "08": {
-        "": "Take Back the Trees"
+        "": "Take Back the Trees",
+        "1": "Road Events",
+        "2": "Read %game.section:64.3%"
       },
       "09": {
-        "": "Finding the Cure"
+        "": "Finding the Cure",
+        "1": "Scenario Locations",
+        "2": "Copperneck Mountains",
+        "3": "Corpsewood",
+        "4": "Dagger Forest",
+        "5": "Gloomhaven",
+        "6": "Lingering Swamp",
+        "7": "Misty Sea",
+        "8": "Watcher Mountains",
+        "9": "Read %game.section:55.3%"
       },
       "10": {
-        "": "Aberrant Slayer"
+        "": "Aberrant Slayer",
+        "1": "%game.element.wild% Enhancment",
+        "2": "Read %game.section:14.3%"
       },
       "11": {
-        "": "Adoptive Parent"
+        "": "Adoptive Parent",
+        "1": "Scenarios with 3 or more Money Tokens looted",
+        "2": "Read %game.section:122.5%"
       },
       "12": {
-        "": "Implement of Light"
+        "": "Implement of Light",
+        "1": "Negated %game.damage:4% or more",
+        "2": "Read %game.section:82.1%"
       },
       "13": {
-        "": "Merchant Class"
+        "": "Merchant Class",
+        "1": "%game.items.slots.head% items",
+        "2": "%game.items.slots.body% items",
+        "3": "%game.items.slots.legs% items",
+        "4": "%game.items.slots.onehand% or %game.items.slots.twohand% items",
+        "5": "%game.items.slots.small% items",
+        "6": "Read %game.section:129.1%"
       },
       "14": {
-        "": "Eternal Wanderer"
+        "": "Eternal Wanderer",
+        "1": "Scenarios completed",
+        "2": "Read %game.section:52.2%"
       },
       "15": {
-        "": "Escaping the Sin-Ra"
+        "": "Escaping the Sin-Ra",
+        "1": "Side Scenarios (> 56) completed",
+        "2": "Read %game.section:128.2%"
       },
       "16": {
-        "": "The Perfect Poison"
+        "": "The Perfect Poison",
+        "1": "%game.condition.poison% Enemies",
+        "2": "Read %game.section:8.3%"
       },
       "17": {
-        "": "Living on the Edge"
+        "": "Living on the Edge",
+        "1": "Enemies suffered %game.damage%",
+        "2": "Read %game.section:47.4%"
       },
       "18": {
-        "": "Battle Legend"
+        "": "Battle Legend",
+        "1": "Earned %game.checkmark% from completed battle goals",
+        "2": "Read %game.section:23.3%"
       },
       "19": {
-        "": "Martial Study"
+        "": "Martial Study",
+        "1": "%game.items.slots.onehand% or %game.items.slots.twohand% different items used",
+        "2": "Read %game.section:67.2%"
       },
       "20": {
-        "": "Piety in All Things"
+        "": "Piety in All Things",
+        "1": "Gold donated to the Temple of the Great Oak",
+        "2": "Read %game.section:51.5%"
       },
       "21": {
-        "": "Pursuit of Proficiency"
+        "": "Pursuit of Proficiency",
+        "1": "%game.experience% from ability cards",
+        "2": "Read %game.section:17.2%"
       },
       "22": {
-        "": "Trophy Hunt"
+        "": "Trophy Hunt",
+        "1": "Different types of monsters killed",
+        "2": "Read %game.section:21.1%"
       }
     }
   },

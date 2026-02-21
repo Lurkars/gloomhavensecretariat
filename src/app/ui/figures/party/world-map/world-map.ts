@@ -1,8 +1,7 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component, HostListener, Inject, ViewEncapsulation } from "@angular/core";
+import { AfterViewInit, Component, HostListener, Inject, ViewEncapsulation } from "@angular/core";
 import L, { ImageOverlay, LatLngBounds, LatLngBoundsLiteral } from 'leaflet';
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { BuildingData } from "src/app/game/model/data/BuildingData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
@@ -21,13 +20,14 @@ import { PartySheetDialogComponent } from "../party-sheet-dialog";
     styleUrls: ['./world-map.scss',],
     encapsulation: ViewEncapsulation.None
 })
-export class WorldMapComponent {
+export class WorldMapComponent implements AfterViewInit {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
 
     map!: L.Map;
     worldMap: { width: number, height: number } | undefined;
+    edition: string;
     mapEdition: string;
     scenarios: ScenarioData[] = [];
     conclusions: ScenarioData[] = [];
@@ -44,12 +44,11 @@ export class WorldMapComponent {
     campaignSheet: boolean = false;
     initializing: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
-        this.ghsManager.uiChangeEffect(() => this.updateMap());
+    constructor(@Inject(DIALOG_DATA) public data: { edition: string, pick: boolean }, public dialogRef: DialogRef, private dialog: Dialog) {
         const pinchZoom = settingsManager.settings.pinchZoom;
         settingsManager.settings.pinchZoom = false;
+        this.edition = this.data.edition;
         this.mapEdition = this.edition;
-        this.update();
 
         this.dialogRef.closed.subscribe({
             next: () => {
@@ -58,6 +57,9 @@ export class WorldMapComponent {
         })
     }
 
+    ngAfterViewInit(): void {
+        this.updateMap();
+    }
 
     update() {
         let editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
@@ -128,7 +130,8 @@ export class WorldMapComponent {
                 attributionControl: false
             });
             var bounds: LatLngBoundsLiteral = [[0, 0], [height, width]];
-            L.imageOverlay('./assets/images/world-map/' + this.mapEdition + '/map.jpg', bounds).addTo(this.map);
+            const worldMapOverlay = L.imageOverlay('./assets/images/world-map/' + this.mapEdition + '/map.jpg', bounds);
+            worldMapOverlay.addTo(this.map);
             this.map.fitBounds(bounds);
             this.map.zoomIn();
 
@@ -180,21 +183,23 @@ export class WorldMapComponent {
                         event.target.setZIndex(i + 2);
                     });
 
-                    overlay.on('click', () => {
-                        if (!settingsManager.settings.debugEditWorldMap && (!gameManager.stateManager.permissions || gameManager.stateManager.permissions.scenario)) {
-                            const scenarioData = this.scenarios[i];
-                            this.dialog.open(ScenarioChartPopupDialog, {
-                                panelClass: ['dialog'],
-                                data: scenarioData
-                            }).closed.subscribe({
-                                next: (result) => {
-                                    if (result) {
-                                        this.dialogRef.close();
+                    if (!this.data.pick) {
+                        overlay.on('click', () => {
+                            if (!settingsManager.settings.debugEditWorldMap && (!gameManager.stateManager.permissions || gameManager.stateManager.permissions.scenario)) {
+                                const scenarioData = this.scenarios[i];
+                                this.dialog.open(ScenarioChartPopupDialog, {
+                                    panelClass: ['dialog'],
+                                    data: scenarioData
+                                }).closed.subscribe({
+                                    next: (result) => {
+                                        if (result) {
+                                            this.dialogRef.close();
+                                        }
                                     }
-                                }
-                            })
-                        }
-                    });
+                                })
+                            }
+                        });
+                    }
 
                     overlay.addTo(this.map);
                     const element = overlay.getElement();
@@ -227,21 +232,23 @@ export class WorldMapComponent {
                             element.classList.add('building');
                         }
 
-                        overlayCampaignSticker.on('click', () => {
-                            const conclusion: ScenarioData = this.conclusions[i];
-                            let scenarioData: ScenarioData | undefined;
-                            if (conclusion.parent) {
-                                scenarioData = gameManager.scenarioData(conclusion.edition).find((scenarioData) => scenarioData.edition == conclusion.edition && scenarioData.group == conclusion.group && scenarioData.index == conclusion.parent);
-                            }
-                            this.dialog.open(ScenarioSummaryComponent, {
-                                panelClass: ['dialog'],
-                                data: {
-                                    scenario: new Scenario(scenarioData || conclusion),
-                                    conclusion: conclusion,
-                                    conclusionOnly: true
+                        if (!this.data.pick) {
+                            overlayCampaignSticker.on('click', () => {
+                                const conclusion: ScenarioData = this.conclusions[i];
+                                let scenarioData: ScenarioData | undefined;
+                                if (conclusion.parent) {
+                                    scenarioData = gameManager.scenarioData(conclusion.edition).find((scenarioData) => scenarioData.edition == conclusion.edition && scenarioData.group == conclusion.group && scenarioData.index == conclusion.parent);
                                 }
+                                this.dialog.open(ScenarioSummaryComponent, {
+                                    panelClass: ['dialog'],
+                                    data: {
+                                        scenario: new Scenario(scenarioData || conclusion),
+                                        conclusion: conclusion,
+                                        conclusionOnly: true
+                                    }
+                                });
                             });
-                        });
+                        }
                     }
 
                     if (sectionData.rewards && sectionData.rewards.overlaySticker) {
@@ -275,6 +282,15 @@ export class WorldMapComponent {
                 }
             })
             this.initializing = false;
+
+            if (this.data.pick) {
+                this.map.on('click', (e) => {
+                    let coordinate = new WorldMapCoordinates();
+                    coordinate.x = e.latlng.lng;
+                    coordinate.y = height - e.latlng.lat;
+                    this.dialogRef.close(coordinate);
+                })
+            }
         }
     }
 

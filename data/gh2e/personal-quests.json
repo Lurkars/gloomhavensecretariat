@@ -1,123 +1,483 @@
 [
     {
         "cardId": "01",
-        "altId": "01",
+        "altId": "537",
         "unlockCharacter": "sun",
-        "unlockPQ": "16"
+        "unlockPQ": "16",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.01.1%",
+                "counter": 30
+            },
+            {
+                "name": "%data.personalQuest.gh2e.01.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "02",
-        "altId": "02",
+        "altId": "538",
         "unlockCharacter": "three-spears",
-        "unlockPQ": "14"
+        "unlockPQ": "14",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.02.1%",
+                "counter": 60,
+                "autotrack": "loot"
+            }
+        ]
     },
     {
         "cardId": "03",
-        "altId": "03",
+        "altId": "539",
         "unlockCharacter": "circles",
-        "unlockPQ": "12"
+        "unlockPQ": "12",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.03.1%",
+                "counter": 5,
+                "autotrack": "enhancements"
+            },
+            {
+                "name": "%data.personalQuest.gh2e.03.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "04",
-        "altId": "04",
+        "altId": "540",
         "unlockCharacter": "eclipse",
-        "unlockPQ": "13"
+        "unlockPQ": "13",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.04.1%",
+                "counter": 10
+            },
+            {
+                "name": "%data.personalQuest.gh2e.04.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "05",
-        "altId": "05",
+        "altId": "541",
         "unlockCharacter": "squidface",
-        "unlockPQ": "17"
+        "unlockPQ": "17",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.05.1%",
+                "counter": 1,
+                "autotrack": "scenario:57"
+            },
+            {
+                "name": "%data.personalQuest.gh2e.05.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.05.3%",
+                "counter": 7,
+                "autotrack": "condition:poison",
+                "requires": [
+                    2
+                ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.05.4%",
+                "counter": 1,
+                "autotrack": "scenario:58",
+                "requires": [
+                    3
+                ]
+            }
+        ]
     },
     {
         "cardId": "06",
-        "altId": "06",
+        "altId": "542",
         "unlockCharacter": "lightning",
-        "unlockPQ": "21"
+        "unlockPQ": "21",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.06.1%",
+                "counter": 10
+            },
+            {
+                "name": "%data.personalQuest.gh2e.06.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "07",
-        "altId": "07",
+        "altId": "543",
         "unlockCharacter": "music-note",
-        "unlockPQ": "19"
+        "unlockPQ": "19",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.07.1%",
+                "counter": 10
+            },
+            {
+                "name": "%data.personalQuest.gh2e.07.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "08",
-        "altId": "08",
+        "altId": "544",
         "unlockCharacter": "angry-face",
-        "unlockPQ": "20"
+        "unlockPQ": "20",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.08.1%",
+                "counter": 10
+            },
+            {
+                "name": "%data.personalQuest.gh2e.08.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "09",
-        "altId": "09",
+        "altId": "545",
         "unlockCharacter": "saw",
-        "unlockPQ": "15"
+        "unlockPQ": "15",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.09.1%",
+                "counter": 5,
+                "checkbox": [
+                    "%data.personalQuest.gh2e.09.2%",
+                    "%data.personalQuest.gh2e.09.3%",
+                    "%data.personalQuest.gh2e.09.4%",
+                    "%data.personalQuest.gh2e.09.5%",
+                    "%data.personalQuest.gh2e.09.6%",
+                    "%data.personalQuest.gh2e.09.7%",
+                    "%data.personalQuest.gh2e.09.8%"
+                ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.09.9%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "10",
-        "altId": "10",
+        "altId": "546",
         "unlockCharacter": "triangles",
-        "unlockPQ": "22"
+        "unlockPQ": "22",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.10.1%",
+                "counter": 1
+            },
+            {
+                "name": "%data.personalQuest.gh2e.10.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "11",
-        "altId": "11",
+        "altId": "547",
         "unlockCharacter": "two-mini",
-        "unlockPQ": "18"
+        "unlockPQ": "18",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.11.1%",
+                "counter": 10
+            },
+            {
+                "name": "%data.personalQuest.gh2e.11.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "12",
-        "altId": "12",
-        "unlockCharacter": "sun"
+        "altId": "548",
+        "unlockCharacter": "sun",
+        "requirements": [
+            {
+                "name": "%data.items.gh2e-148% %game.itemFh.148%",
+                "counter": 1,
+                "autotrack": "item:148"
+            },
+            {
+                "name": "%data.personalQuest.gh2e.12.1%",
+                "counter": 10,
+                "requires": [
+                    1
+                ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.12.2%",
+                "counter": 1,
+                "requires": [
+                    2
+                ]
+            }
+        ]
     },
     {
         "cardId": "13",
-        "altId": "13",
-        "unlockCharacter": "three-spears"
+        "altId": "549",
+        "unlockCharacter": "three-spears",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.13.1%",
+                "counter": 3,
+                "autotrack": "itemType:head"
+            },
+            {
+                "name": "%data.personalQuest.gh2e.13.2%",
+                "counter": 3,
+                "autotrack": "itemType:body"
+            },
+            {
+                "name": "%data.personalQuest.gh2e.13.3%",
+                "counter": 3,
+                "autotrack": "itemType:legs"
+            },
+            {
+                "name": "%data.personalQuest.gh2e.13.4%",
+                "counter": 5,
+                "autotrack": "itemType:onehand|twohand"
+            },
+            {
+                "name": "%data.personalQuest.gh2e.13.5%",
+                "counter": 5,
+                "autotrack": "itemType:small"
+            },
+            {
+                "name": "%data.personalQuest.gh2e.13.6%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "14",
-        "altId": "14",
-        "unlockCharacter": "circles"
+        "altId": "550",
+        "unlockCharacter": "circles",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.14.1%",
+                "counter": 12
+            },
+            {
+                "name": "%data.personalQuest.gh2e.14.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "15",
-        "altId": "15",
-        "unlockCharacter": "eclipse"
+        "altId": "551",
+        "unlockCharacter": "eclipse",
+        "requirements": [
+            {
+                "name": "%data.items.gh2e-113% %game.itemFh.113%",
+                "counter": 1,
+                "autotrack": "item:113"
+            },
+            {
+                "name": "%data.personalQuest.gh2e.15.1%",
+                "counter": 6,
+                "requires": [
+                    1
+                ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.15.2%",
+                "counter": 1,
+                "requires": [
+                    2
+                ]
+            }
+        ]
     },
     {
         "cardId": "16",
-        "altId": "16",
-        "unlockCharacter": "squidface"
+        "altId": "552",
+        "unlockCharacter": "squidface",
+        "requirements": [
+            {
+                "name": "%data.items.gh2e-7% %game.itemFh.7%",
+                "counter": 1,
+                "autotrack": "item:7"
+            },
+            {
+                "name": "%data.personalQuest.gh2e.16.1%",
+                "counter": 30,
+                "requires": [
+                    1
+                ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.16.2%",
+                "counter": 1,
+                "requires": [
+                    2
+                ]
+            }
+        ]
     },
     {
         "cardId": "17",
-        "altId": "17",
-        "unlockCharacter": "lightning"
+        "altId": "553",
+        "unlockCharacter": "lightning",
+        "requirements": [
+            {
+                "name": "%data.items.gh2e-150% %game.itemFh.150%",
+                "counter": 1,
+                "autotrack": "item:150"
+            },
+            {
+                "name": "%data.personalQuest.gh2e.17.1%",
+                "counter": 20,
+                "requires": [
+                    1
+                ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.17.2%",
+                "counter": 1,
+                "requires": [
+                    2
+                ]
+            }
+        ]
     },
     {
         "cardId": "18",
-        "altId": "18",
-        "unlockCharacter": "music-note"
+        "altId": "554",
+        "unlockCharacter": "music-note",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.18.1%",
+                "counter": 12
+            },
+            {
+                "name": "%data.personalQuest.gh2e.18.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "19",
-        "altId": "19",
-        "unlockCharacter": "angry-face"
+        "altId": "555",
+        "unlockCharacter": "angry-face",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.19.1%",
+                "counter": 8
+            },
+            {
+                "name": "%data.personalQuest.gh2e.19.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "20",
-        "altId": "20",
-        "unlockCharacter": "saw"
+        "altId": "556",
+        "unlockCharacter": "saw",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.20.1%",
+                "counter": 120
+            },
+            {
+                "name": "%data.personalQuest.gh2e.20.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "21",
-        "altId": "21",
-        "unlockCharacter": "triangles"
+        "altId": "557",
+        "unlockCharacter": "triangles",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.21.1%",
+                "counter": 120
+            },
+            {
+                "name": "%data.personalQuest.gh2e.21.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     },
     {
         "cardId": "22",
-        "altId": "22",
-        "unlockCharacter": "two-mini"
+        "altId": "558",
+        "unlockCharacter": "two-mini",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.gh2e.22.1%",
+                "counter": 20
+            },
+            {
+                "name": "%data.personalQuest.gh2e.22.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ]
     }
 ]

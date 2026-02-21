@@ -1,11 +1,12 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, Inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, Inject } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierDeck, AttackResult } from 'src/app/game/model/data/AttackModifier';
-import { EventCardAttack, EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
+import { EventCardAttack, EventCardAttackTarget, EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
+import { WorldMapCoordinates } from 'src/app/game/model/data/WorldMap';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { ghsDialogClosingHelper, ghsShuffleArray, ghsValueSign } from 'src/app/ui/helper/Static';
 import { AttackModiferDeckChange } from '../../attackmodifier/attackmodifierdeck';
@@ -21,6 +22,8 @@ import { WorldMapComponent } from '../../party/world-map/world-map';
 })
 export class OutpostAttackComponent {
 
+    private cdr = inject(ChangeDetectorRef);
+
     settingsManager: SettingsManager = settingsManager;
     gameManager: GameManager = gameManager;
     EntityValueFunction = EntityValueFunction;
@@ -33,11 +36,15 @@ export class OutpostAttackComponent {
     buildings: Building[] = [];
     disabledBuildings: Building[] = [];
 
-    parity: "even" | "odd" | 0 = 0;
     factor: "advantage" | "disadvantage" | false = false;
+
     lowerBoundary: number = 0;
     upperBoundary: number = 0;
+    parity: "even" | "odd" | 0 = 0;
+    level: "low" | "high" | 0 = 0;
+    distance: "previousTarget" | string | WorldMapCoordinates | undefined;
     desc: boolean = false;
+
     barracks: boolean = false;
     soldiers: number = 0;
     baracksBonus: number = 0;
@@ -50,7 +57,7 @@ export class OutpostAttackComponent {
     constructor(@Inject(DIALOG_DATA) public data: { attack: EventCardAttack, effects: EventCardEffect[] }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.ghsManager.uiChangeEffect(() => this.update());
         if (this.data.attack) {
-            this.defaultAttack = new EventCardAttack(data.attack.attackValue, data.attack.targetNumber, data.attack.targetDescription, data.attack.narrative, data.attack.effects);
+            this.defaultAttack = new EventCardAttack(data.attack.attackValue, data.attack.targetNumber, data.attack.target, data.attack.targetDescription, data.attack.narrative, data.attack.effects);
         }
 
         if (this.defaultAttack && data.effects) {
@@ -72,7 +79,7 @@ export class OutpostAttackComponent {
                 this.defaultAttack.targetNumber = typeof this.defaultAttack.targetNumber == 'number' ? this.defaultAttack.targetNumber + targetNumberValueChange : this.defaultAttack.targetNumber + " " + ghsValueSign(targetNumberValueChange);
             }
         }
-        this.attack = this.defaultAttack || new EventCardAttack(this.manualAttackValue, this.manualTargetNumber, "", "", []);
+        this.attack = this.defaultAttack || new EventCardAttack(this.manualAttackValue, this.manualTargetNumber, new EventCardAttackTarget(), "", "", []);
 
         this.deckActive = !!gameManager.game.party.townGuardDeck && gameManager.game.party.townGuardDeck.active;
     }
@@ -82,7 +89,6 @@ export class OutpostAttackComponent {
     }
 
     ngOnDestroy(): void {
-
         if (gameManager.game.party.townGuardDeck) {
             gameManager.game.party.townGuardDeck.active = this.deckActive;
         }
@@ -132,6 +138,17 @@ export class OutpostAttackComponent {
 
         this.applyBaracks();
         if (init) {
+            if (this.attack.target) {
+                this.lowerBoundary = this.attack.target.lowerBoundary || 0;
+                this.upperBoundary = this.attack.target.upperBoundary || 0;
+                this.parity = this.attack.target.parity || 0;
+                this.level = this.attack.target.level || 0;
+                this.distance = this.attack.target.distance || undefined;
+
+                if (this.attack.target.randomize) {
+                    this.randomize();
+                }
+            }
             this.applyFilter();
         }
     }
@@ -173,6 +190,18 @@ export class OutpostAttackComponent {
             building.model.state = state;
             this.attackResult = undefined;
             this.applyBaracks();
+
+            if (this.attack.target.distance === "previousTarget") {
+                this.buildings.sort((a, b) => {
+                    const distanceA = this.targetDistance(a);
+                    const distanceB = this.targetDistance(b);
+                    if (distanceA > 0 && distanceB > 0) {
+                        return distanceA - distanceB;
+                    }
+                    return 0;
+                })
+            }
+
             gameManager.stateManager.after();
         }
     }
@@ -221,40 +250,115 @@ export class OutpostAttackComponent {
             }
         }
 
-        this.attack = new EventCardAttack(EntityValueFunction(this.defaultAttack ? this.defaultAttack.attackValue : this.manualAttackValue) + (this.soldiers * this.baracksBonus), EntityValueFunction(this.defaultAttack ? this.defaultAttack.targetNumber : this.manualTargetNumber) - this.attacks, this.defaultAttack ? this.defaultAttack.targetDescription : "", this.defaultAttack ? this.defaultAttack.narrative : "", this.defaultAttack ? this.defaultAttack.effects : []);
+        let target = new EventCardAttackTarget();
+        target.lowerBoundary = this.lowerBoundary || 0;
+        target.upperBoundary = this.upperBoundary || 0;
+        target.parity = this.parity || 0;
+        target.level = this.level || 0;
+        target.distance = this.distance || undefined;
+
+        this.attack = new EventCardAttack(EntityValueFunction(this.defaultAttack ? this.defaultAttack.attackValue : this.manualAttackValue) + (this.soldiers * this.baracksBonus), EntityValueFunction(this.defaultAttack ? this.defaultAttack.targetNumber : this.manualTargetNumber) - this.attacks, this.defaultAttack ? this.defaultAttack.target : target, this.defaultAttack ? this.defaultAttack.targetDescription : "", this.defaultAttack ? this.defaultAttack.narrative : "", this.defaultAttack ? this.defaultAttack.effects : []);
     }
 
     applyFilter() {
-        this.buildings = this.allBuildings.filter((building) => {
-            if (!building.data.id || isNaN(+building.data.id)) {
-                return false;
-            }
+        this.attack.target.lowerBoundary = this.lowerBoundary || 0;
+        this.attack.target.upperBoundary = this.upperBoundary || 0;
+        this.attack.target.parity = this.parity || 0;
+        this.attack.target.level = this.level || 0;
+        this.attack.target.distance = this.distance || undefined;
 
-            if (building.model.state == 'wrecked') {
-                return false;
-            }
+        this.buildings = this.allBuildings.filter((building) => this.filterBuilding(building));
 
-            const number = +building.data.id;
-            if (this.parity && (this.parity == 'even' && number % 2 == 1 || this.parity == 'odd' && number % 2 == 0)) {
-                return false;
-            }
+        this.buildings.sort((a, b) => this.sortBuildings(a, b));
 
-            if (+this.lowerBoundary && number < this.lowerBoundary) {
-                return false;
-            }
-
-            if (+this.upperBoundary && number > this.upperBoundary) {
-                return false;
-            }
-
-            return true;
-        }).sort((a, b) => +a.data.id - +b.data.id);
-
-        if (this.desc) {
+        if (this.attack.target && this.attack.target.desc) {
             this.buildings.reverse();
         }
 
-        this.disabledBuildings = this.allBuildings.filter((building) => !this.buildings.includes(building));
+        this.disabledBuildings = [...this.allBuildings.filter((building) => !this.buildings.includes(building))];
+        this.disabledBuildings.sort((a, b) => this.sortBuildings(a, b));
+
+        if (this.attack.target && this.attack.target.desc) {
+            this.disabledBuildings.reverse();
+        }
+    }
+
+    filterBuilding(building: Building): boolean {
+        if (!building.data.id || isNaN(+building.data.id)) {
+            return false;
+        }
+
+        if (building.model.state == 'wrecked') {
+            return false;
+        }
+
+        const number = +building.data.id;
+
+        if (this.attack.target.parity && (this.attack.target.parity == 'even' && number % 2 == 1 || this.attack.target.parity == 'odd' && number % 2 == 0)) {
+            return false;
+        }
+
+        if (this.attack.target.lowerBoundary && number < this.attack.target.lowerBoundary) {
+            return false;
+        }
+
+        if (this.attack.target.upperBoundary && number > this.attack.target.upperBoundary) {
+            return false;
+        }
+
+        return true;
+    }
+
+    sortBuildings(a: Building, b: Building): number {
+
+        const filterA = this.filterBuilding(a);
+        const filterB = this.filterBuilding(b);
+
+        if (filterA && !filterB) {
+            return -1;
+        } else if (!filterA && filterB) {
+            return 1;
+        }
+
+        if (this.attack.target.level && a.model.level != b.model.level) {
+            if (this.attack.target.level == 'low') {
+                return a.model.level - b.model.level;
+            } else if (this.attack.target.level == 'high') {
+                return b.model.level - a.model.level;
+            }
+        }
+
+        if (this.attack.target.distance) {
+            const distanceA = this.targetDistance(a);
+            const distanceB = this.targetDistance(b);
+            if (distanceA != -1 && distanceB != -1) {
+                return distanceA - distanceB;
+            }
+        }
+
+        return +a.data.id - +b.data.id;
+    }
+
+    targetDistance(building: Building): number {
+        let distance: number | undefined;
+        if (this.attack.target.distance === "previousTarget") {
+            const index = this.buildings.indexOf(building);
+            if (index > this.attacks) {
+                distance = gameManager.buildingsManager.distanceBetween(building.model, this.buildings[this.attacks].model);
+            } else {
+                return 0;
+            }
+        } else if (typeof this.attack.target.distance === 'string') {
+            const targetBuilding = this.allBuildings.find((building) => building.model.name == this.attack.target.distance);
+            if (targetBuilding) {
+                distance = gameManager.buildingsManager.distanceBetween(building.model, targetBuilding.model);
+            }
+        } else if (this.attack.target.distance) {
+            const coordinates = this.attack.target.distance as WorldMapCoordinates;
+            distance = gameManager.buildingsManager.distanceFrom(building.model, coordinates);
+        }
+
+        return distance != undefined ? distance : -1;
     }
 
     randomize() {
@@ -268,6 +372,8 @@ export class OutpostAttackComponent {
             const building = this.disabledBuildings.splice(event.previousIndex, 1)[0];
             this.buildings.splice(event.currentIndex, 0, building);
         }
+        this.buildings = [...this.buildings];
+        this.disabledBuildings = [...this.disabledBuildings];
     }
 
     dropDisabledBuildings(event: CdkDragDrop<Building[]>) {
@@ -277,6 +383,8 @@ export class OutpostAttackComponent {
             const building = this.buildings.splice(event.previousIndex, 1)[0];
             this.disabledBuildings.splice(event.currentIndex, 0, building);
         }
+        this.buildings = [...this.buildings];
+        this.disabledBuildings = [...this.disabledBuildings];
     }
 
     partySheet() {
@@ -286,12 +394,31 @@ export class OutpostAttackComponent {
         })
     }
 
-    worldMap() {
+    worldMap(pick: boolean = false) {
         this.dialog.open(WorldMapComponent, {
             panelClass: ['fullscreen-panel'],
             backdropClass: ['fullscreen-backdrop'],
-            data: gameManager.currentEdition()
+            data: { edition: gameManager.currentEdition(), pick: pick }
+        }).closed.subscribe({
+            next: (result) => {
+                if (pick) {
+                    if (result) {
+                        this.distance = result as WorldMapCoordinates;
+                    } else {
+                        this.distance = undefined;
+                    }
+
+                    this.applyFilter();
+                    this.cdr.markForCheck();
+                }
+            }
         })
+    }
+
+    resetDistance() {
+        this.distance = undefined;
+        this.applyFilter();
+        this.cdr.markForCheck();
     }
 
     close(finish: boolean = false) {

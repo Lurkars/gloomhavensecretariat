@@ -16,6 +16,19 @@
         background: none;
         z-index: 1;
 
+        &.pick {
+            cursor: crosshair !important;
+
+            .scenario,
+            .building,
+            &.highlighting .scenario {
+
+                &:hover {
+                    cursor: crosshair !important;
+                }
+            }
+        }
+
         .scenario {
             z-index: 2;
 

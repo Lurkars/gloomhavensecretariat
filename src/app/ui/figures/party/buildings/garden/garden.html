@@ -37,6 +37,7 @@
       }
     </div>
 
+    @if (!settingsManager.settings.fhShareResources) {
     <div class="sources">
       <a class="source" (click)="selectSource(characters.length)"
         [ngClass]="{'active': currentSource == characters.length, 'disabled' : !currentResources[characters.length]}">
@@ -51,6 +52,7 @@
       </a>
       }
     </div>
+    }
 
   </div>
 

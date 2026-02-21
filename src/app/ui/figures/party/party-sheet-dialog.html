@@ -244,7 +244,7 @@
             <label class="supply" (click)="openResources()"><span
                 [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
             <span class="spacer"></span>
-            @if (characters.length > 0) {
+            @if (characters.length > 0 && !settingsManager.settings.fhShareResources) {
             <div class="move-resources">
               <span class="label"><span [ghs-label]="'character.progress.resources.move'"></span>:</span>
               <div class="characters">
@@ -397,7 +397,8 @@
             }
           </div>
           <div class="perk-list">
-            @for (townGuardPerk of gameManager.campaignData().townGuardPerks | trackUUID; track townGuardPerk._trackUUID) {
+            @for (townGuardPerk of gameManager.campaignData().townGuardPerks | trackUUID; track
+            townGuardPerk._trackUUID) {
             <div class="perk">
               <div class="sections">
                 @for (section of townGuardPerk.sections; track section) {
@@ -523,8 +524,7 @@
             </label>
             <div class="grid">
               @for (reputation of [] | ghsRange:31; track reputation) {
-              <div class="row"
-                [ngClass]="{'locked': 30 - reputation - 10 > 12 && !factionUnlocks.includes(faction)}">
+              <div class="row" [ngClass]="{'locked': 30 - reputation - 10 > 12 && !factionUnlocks.includes(faction)}">
                 <span class="value" ghs-pointer-input
                   (singleClick)="setFactionReputation(faction, 30 - reputation - 10)"
                   [ngClass]="{'checked' : party.factionReputation[faction] == 30 - reputation - 10}"
@@ -652,7 +652,8 @@
               <div class="level">1</div>
               <div class="checkbox checked disabled"></div>
             </div>
-            @for (check of [] | ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); track check; let index = $index) {
+            @for (check of [] | ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); track check; let index = $index)
+            {
             <div class="tick"
               [ngClass]="{'large' : prosperitySteps.includes(index), 'section': prosperitySections[index], 'break': check == 33}">
               @if (prosperitySteps.includes(index)) {
@@ -916,7 +917,8 @@
             }
           </div>
           <div class="checklist">
-            @for (check of [] | ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); track check; let index = $index) {
+            @for (check of [] | ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); track check; let index = $index)
+            {
             <div class="tick"
               [autoscroll]="gameManager.prosperityTicks() == index +1 || gameManager.prosperityTicks() == 0 && index == 0"
               [ngClass]="{'large' : prosperitySteps.includes(index), 'section': prosperitySections[index]}">

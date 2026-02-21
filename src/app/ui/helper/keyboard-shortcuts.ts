@@ -237,7 +237,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                             this.dialog.open(WorldMapComponent, {
                                 panelClass: ['fullscreen-panel'],
                                 backdropClass: ['fullscreen-backdrop'],
-                                data: gameManager.game.edition
+                                data: { edition: gameManager.game.edition }
                             })
                             event.stopPropagation();
                             event.preventDefault();

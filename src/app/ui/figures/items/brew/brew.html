@@ -12,16 +12,19 @@
       }
     </label>
 
-    <div class="table" [style.--ghs-summary-columns]="2 + brewing">
+    <div class="table"
+      [style.--ghs-summary-columns]="2 + brewing + (settingsManager.settings.fhShareResources ? -1 : 0)">
       @for (i of [] | ghsRange:brewing; track i) {
       <span class="head-col first">{{i+1}}.</span>
       }
+      @if(!settingsManager.settings.fhShareResources) {
       <span class="first">
         <img class="icon character-icon" [src]="character.iconUrl" />
         <span class="name" [ngClass]="{'absent' : character.absent}">
           {{gameManager.characterManager.characterName(character)}}
         </span>
       </span>
+      }
       <span class="first"><span [ghs-label]="'party.campaign.sheet.supply'"></span></span>
 
       @for (herb of herbs; track herb) {
@@ -42,6 +45,7 @@
         <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +  herb + '.svg'">
       </span>
       }
+      @if(!settingsManager.settings.fhShareResources) {
       <span class="calc-col">
         @if (character.progress.loot[herb]) {
         <span class="value" [ghs-label]="'game.loot.' " [ghs-label-attribute]="'title'">
@@ -57,6 +61,7 @@
         <span>-</span>
         }
       </span>
+      }
       <span class="calc-col">
         @if (gameManager.game.party.loot[herb]) {
         @if (fhSupportSpent[herb] && (character.progress.loot[herb] || 0) > (characterSpent[herb] || 0)) {

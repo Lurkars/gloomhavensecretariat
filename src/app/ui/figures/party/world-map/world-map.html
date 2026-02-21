@@ -1,5 +1,6 @@
 <div class="world-map-container">
-  <div #map class="world-map" [ngClass]="{'highlighting' : settingsManager.settings.globalMapHighlighting}" id="map">
+  <div #map class="world-map"
+    [ngClass]="{'highlighting' : settingsManager.settings.globalMapHighlighting, 'pick': data.pick}" id="map">
   </div>
   <div class="menu">
     <a (click)="openFlowChart()" [ghs-tooltip]="'scenario.chart'" [originY]="'top'" [overlayY]="'bottom'">

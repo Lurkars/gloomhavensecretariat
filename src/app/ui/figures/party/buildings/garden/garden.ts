@@ -78,14 +78,16 @@ export class GardenComponent implements OnInit {
         if (this.activeHerb) {
             this.currentResources = [];
             this.currentSource = -1;
-            this.characters.forEach((character, index) => {
-                if (this.activeHerb) {
-                    this.currentResources[index] = (character.progress.loot[this.activeHerb] || 0);
-                    if (this.currentResources[index] && this.currentSource == -1) {
-                        this.currentSource = index;
+            if (!settingsManager.settings.fhShareResources) {
+                this.characters.forEach((character, index) => {
+                    if (this.activeHerb) {
+                        this.currentResources[index] = (character.progress.loot[this.activeHerb] || 0);
+                        if (this.currentResources[index] && this.currentSource == -1) {
+                            this.currentSource = index;
+                        }
                     }
-                }
-            })
+                })
+            }
             this.currentResources[this.characters.length] = (gameManager.game.party.loot[this.activeHerb] || 0);
             if (this.currentResources[this.characters.length]) {
                 this.currentSource = this.characters.length;

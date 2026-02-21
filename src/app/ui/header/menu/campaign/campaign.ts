@@ -133,7 +133,7 @@ export class CampaignMenuComponent implements OnInit {
         this.dialog.open(WorldMapComponent, {
             panelClass: ['fullscreen-panel'],
             backdropClass: ['fullscreen-backdrop'],
-            data: gameManager.game.edition
+            data: { edition: gameManager.game.edition }
         })
         this.close.emit();
     }

@@ -139,7 +139,7 @@ export class ItemManager {
                 if (requiredResource > 0) {
                     isCraftItem = true;
                 }
-                if (getLootClass(lootType) == LootClass.herb_resources) {
+                if (getLootClass(lootType) == LootClass.herb_resources || settingsManager.settings.fhShareResources && getLootClass(lootType) == LootClass.material_resources) {
                     canCraft = canCraft && ((character.progress.loot[lootType] || 0) >= requiredResource || (gameManager.game.party.loot[lootType] || 0) >= requiredResource);
                 } else {
                     canCraft = canCraft && (character.progress.loot[lootType] || 0) >= requiredResource;
@@ -235,7 +235,7 @@ export class ItemManager {
             Object.keys(item.resources).forEach(key => {
                 const lootType = key as LootType;
                 const requiredResource = (item.resources[lootType] || 0);
-                if (getLootClass(lootType) == LootClass.herb_resources) {
+                if (getLootClass(lootType) == LootClass.herb_resources || settingsManager.settings.fhShareResources && getLootClass(lootType) == LootClass.material_resources) {
                     if ((character.progress.loot[lootType] || 0) >= requiredResource) {
                         character.progress.loot[lootType] = (character.progress.loot[lootType] || 0) - requiredResource;
                     } else {

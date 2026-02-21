@@ -253,6 +253,7 @@
     @if (settingsManager.settings.amAdvantage) {
     <div class="line" ghs-setting-menu="amAdvantageHouseRule" [requires]="['amAdvantage', 'alwaysFhAdvantage']"></div>
     }
+    <div class="line" ghs-setting-menu="fhShareResources" [disabled]="!gameManager.fhRules()"></div>
     @if (gameManager.challengesManager.available) {
     <div class="line" ghs-setting-menu="fhChallengesApply" [disabled]="!gameManager.fhRules()"
       [requires]="['fhChallenges']"></div>

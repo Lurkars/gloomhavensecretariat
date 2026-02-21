@@ -98,6 +98,7 @@ export class ItemsDialogComponent implements OnInit {
     update(onlyAffordable: boolean = false) {
         this.unlocks = [];
         this.selected = undefined;
+        this.brewing = 0;
         this.items = this.editionItems.filter((itemData) => (!this.affordable || gameManager.itemManager.assigned(itemData) < itemData.count)).filter((itemData) => !this.affordable || this.character && gameManager.itemManager.canAdd(itemData, this.character) && (gameManager.itemManager.canBuy(itemData, this.character) || gameManager.itemManager.canCraft(itemData, this.character)));
 
         if (this.character && this.edition && this.campaignMode && !this.all && !this.affordable) {
@@ -207,8 +208,6 @@ export class ItemsDialogComponent implements OnInit {
                 return this.items.indexOf(A) - this.items.indexOf(B);
             })
         }
-
-        this.brewing = 0;
     }
 
     toggleItemSlotFilter(slot: ItemSlot | "undefined", add: boolean = false) {

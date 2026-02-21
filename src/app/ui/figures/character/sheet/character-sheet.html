@@ -96,57 +96,67 @@
         <hr class="compact-separator">
         }
         @if (fhSheet && !gh2eSheet) {
-        <div class="row resources">
+        <div class="row resources" [ngClass]="{'disabled': settingsManager.settings.fhShareResources}">
           <label><span [ghs-label]="'character.progress.resources'"></span>:</label>
-          <a class="move" (click)="moveResources()"><span [ghs-label]="'character.progress.resources.move'"></span></a>
+          <a class="move" (click)="moveResources()"><span
+              [ghs-label]="settingsManager.settings.fhShareResources ? 'character.progress.resources.shared' : 'character.progress.resources.move'"></span></a>
           <div class="resource-table">
             <div class="materials">
               <div class="resource lumber">
                 <img src="./assets/images/fh/loot/lumber.svg">
-                <input [value]="character.progress.loot.lumber" type="number" min="0"
-                  (change)="setResource(LootType.lumber, $event)">
+                <input
+                  [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.lumber :  character.progress.loot.lumber"
+                  type="number" min="0" (change)="setResource(LootType.lumber, $event)">
               </div>
               <div class="resource metal">
                 <img src="./assets/images/fh/loot/metal.svg">
-                <input [value]="character.progress.loot.metal" type="number" min="0"
-                  (change)="setResource(LootType.metal, $event)">
+                <input
+                  [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.metal :  character.progress.loot.metal"
+                  type="number" min="0" (change)="setResource(LootType.metal, $event)">
               </div>
               <div class="resource hide">
                 <img src="./assets/images/fh/loot/hide.svg">
-                <input [value]="character.progress.loot.hide" type="number" min="0"
-                  (change)="setResource(LootType.hide, $event)">
+                <input
+                  [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.hide :  character.progress.loot.hide"
+                  type="number" min="0" (change)="setResource(LootType.hide, $event)">
               </div>
             </div>
             <div class="herbs">
               <div class="resource arrowvine">
                 <img src="./assets/images/fh/loot/arrowvine.svg">
-                <input [value]="character.progress.loot.arrowvine" type="number" min="0"
-                  (change)="setResource(LootType.arrowvine, $event)">
+                <input
+                  [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.arrowvine :  character.progress.loot.arrowvine"
+                  type="number" min="0" (change)="setResource(LootType.arrowvine, $event)">
               </div>
               <div class="resource axenut">
                 <img src="./assets/images/fh/loot/axenut.svg">
-                <input [value]="character.progress.loot.axenut" type="number" min="0"
-                  (change)="setResource(LootType.axenut, $event)">
+                <input
+                  [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.axenut :  character.progress.loot.axenut"
+                  type="number" min="0" (change)="setResource(LootType.axenut, $event)">
               </div>
               <div class="resource corpsecap">
                 <img src="./assets/images/fh/loot/corpsecap.svg">
-                <input [value]="character.progress.loot.corpsecap" type="number" min="0"
-                  (change)="setResource(LootType.corpsecap, $event)">
+                <input
+                  [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.corpsecap :  character.progress.loot.corpsecap"
+                  type="number" min="0" (change)="setResource(LootType.corpsecap, $event)">
               </div>
               <div class="resource flamefruit">
                 <img src="./assets/images/fh/loot/flamefruit.svg">
-                <input [value]="character.progress.loot.flamefruit" type="number" min="0"
-                  (change)="setResource(LootType.flamefruit, $event)">
+                <input
+                  [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.flamefruit :  character.progress.loot.flamefruit"
+                  type="number" min="0" (change)="setResource(LootType.flamefruit, $event)">
               </div>
               <div class="resource rockroot">
                 <img src="./assets/images/fh/loot/rockroot.svg">
-                <input [value]="character.progress.loot.rockroot" type="number" min="0"
-                  (change)="setResource(LootType.rockroot, $event)">
+                <input
+                  [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.rockroot :  character.progress.loot.rockroot"
+                  type="number" min="0" (change)="setResource(LootType.rockroot, $event)">
               </div>
               <div class="resource snowthistle">
                 <img src="./assets/images/fh/loot/snowthistle.svg">
-                <input [value]="character.progress.loot.snowthistle" type="number" min="0"
-                  (change)="setResource(LootType.snowthistle, $event)">
+                <input
+                  [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.snowthistle :  character.progress.loot.snowthistle"
+                  type="number" min="0" (change)="setResource(LootType.snowthistle, $event)">
               </div>
             </div>
           </div>

@@ -478,7 +478,7 @@ export class CharacterManager {
   }
 
   personalQuestByCard(edition: string, cardId: string): PersonalQuest | undefined {
-    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).includes(editionData.edition)).flatMap((editionData) => editionData.personalQuests).find((pq) => pq.cardId == cardId || pq.altId == cardId || pq.altId == '0' + cardId);
+    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).includes(editionData.edition)).flatMap((editionData) => editionData.personalQuests).find((pq) => pq.cardId == cardId || pq.cardId == '0' + cardId || pq.altId == cardId || pq.altId == '0' + cardId);
   }
 
   previousEnhancements(character: Character, temporary: boolean) {

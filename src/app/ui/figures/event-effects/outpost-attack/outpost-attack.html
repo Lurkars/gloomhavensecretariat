@@ -20,6 +20,7 @@
   </div>
   }
 
+  @if (attack.target && attack.target.manual) {
   <div class="filter">
     <select [(ngModel)]="lowerBoundary" (change)="applyFilter()"
       [ghs-tooltip]="'party.outpostAttack.filter.lowerBoundary'">
@@ -52,14 +53,25 @@
       <option [value]="'even'" [ghs-label]="'party.outpostAttack.filter.even'"></option>
       <option [value]="'odd'" [ghs-label]="'party.outpostAttack.filter.odd'"></option>
     </select>
+    <select [(ngModel)]="level" (change)="applyFilter()">
+      <option [value]="0" [ghs-label]="'party.outpostAttack.filter.level'"></option>
+      <option [value]="'low'" [ghs-label]="'party.outpostAttack.filter.level.low'"></option>
+      <option [value]="'high'" [ghs-label]="'party.outpostAttack.filter.level.high'"></option>
+    </select>
     <label>
       <input type="checkbox" [(ngModel)]="desc" (change)="applyFilter()">
       <span [ghs-label]="'party.outpostAttack.filter.desc'"></span>
     </label>
     <a (click)="randomize()">
+      <img class="ghs-svg" src="./assets/images/random.svg">
       <span [ghs-label]="'party.outpostAttack.filter.randomize'"></span>
     </a>
+    <a ghs-pointer-input (singleClick)="worldMap(true)" (doubleClick)="resetDistance()">
+      <img class="ghs-svg" src="./assets/images/fh/buildings/distance.svg">
+      <span [ghs-label]="'party.outpostAttack.filter.distance'"></span>
+    </a>
   </div>
+  }
 
   <div class="baracks-bonus">
     @if (barracks) {
@@ -126,7 +138,8 @@
     (cdkDropListDropped)="dropBuildings($event)">
     <thead>
       <tr>
-        <th colspan="6" [ghs-label]="'party.outpostAttack.targets'"></th>
+        <th [attr.colspan]="attack.target && attack.target.distance ? 7 : 6"
+          [ghs-label]="'party.outpostAttack.targets'"></th>
       </tr>
     </thead>
     <tbody>
@@ -152,7 +165,10 @@
           <span>({{building.data.id}})</span>
           }
         </td>
-        <td class="level"><span>{{building.model.level || '-'}}</span></td>
+        <td class="level">
+          <span [ghs-label]="'party.outpostAttack.buildings.lvl'"
+            [ghs-label-args]="[building.model.level || '-']"></span>
+        </td>
         <td class="state">
           @if (building.model.state == 'damaged') {
           <span class="damaged" [ghs-tooltip]="'party.outpostAttack.buildings.damaged'">
@@ -165,6 +181,12 @@
           </span>
           }
         </td>
+        @if (attack.target && attack.target.distance) {
+        <td class="distance">
+          <img class="ghs-svg" src="./assets/images/fh/buildings/distance.svg">
+          {{targetDistance(building) | ghsFloor}}
+        </td>
+        }
       </tr>
       }
     </tbody>
@@ -193,7 +215,10 @@
           <span>({{building.data.id}})</span>
           }
         </td>
-        <td class="level">{{building.model.level || '-'}}</td>
+        <td class="level">
+          <span [ghs-label]="'party.outpostAttack.buildings.lvl'"
+            [ghs-label-args]="[building.model.level || '-']"></span>
+        </td>
         <td class="state">
           @if (building.model.state == 'damaged') {
           <span [ghs-tooltip]="'party.outpostAttack.buildings.damaged'">

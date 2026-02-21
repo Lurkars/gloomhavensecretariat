@@ -32,6 +32,7 @@ export class GhsManager {
         gameManager.trialsManager.update();
         gameManager.enhancementsManager.update();
         gameManager.imbuementManager.update();
+        gameManager.lootManager.update();
 
         // StateManager permissions update
         if (!settingsManager.settings.serverUrl || !settingsManager.settings.serverPort || !settingsManager.settings.serverCode) {

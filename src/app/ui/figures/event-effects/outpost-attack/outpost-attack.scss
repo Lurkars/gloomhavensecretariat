@@ -5,6 +5,7 @@
     flex-direction: column;
     font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     color: var(--ghs-color-white);
+    max-height: 90vh;
 
     .header {
         display: flex;
@@ -49,14 +50,16 @@
     .filter {
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
         align-items: center;
-        margin: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor)) 0;
+        margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        max-width: calc(var(--ghs-unit) * 55 * var(--ghs-dialog-factor));
 
         input,
         select,
         label,
         a {
-            margin: 0 calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+            margin: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
         }
 
         label {
@@ -67,11 +70,20 @@
 
         a {
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-family: var(--ghs-font-title);
             color: var(--ghs-color-white);
 
             &:hover {
                 opacity: 0.6;
+            }
+
+            .ghs-svg {
+                height: 1em;
+                width: auto;
+                filter: var(--ghs-filter-white);
             }
         }
     }
@@ -80,6 +92,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
 
         .soldier {
             position: relative;
@@ -209,8 +222,6 @@
         justify-content: center;
         min-width: calc(var(--ghs-unit) * 55 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
-        overflow-x: auto;
-        overflow-y: visible;
 
         .town-guard-deck {
             margin-top: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
@@ -224,6 +235,7 @@
         justify-content: center;
         align-items: flex-start;
         font-size: 1.5em;
+        overflow: auto;
 
         table {
             margin: 0 calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
@@ -287,6 +299,19 @@
 
             span .ghs-svg {
                 height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                width: auto;
+                filter: var(--ghs-filter-white);
+            }
+        }
+
+        .distance {
+            display: flex;
+            align-items: center;
+            font-family: var(--ghs-font-text);
+            font-size: 0.8em;
+
+            .ghs-svg {
+                height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                 width: auto;
                 filter: var(--ghs-filter-white);
             }

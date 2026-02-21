@@ -324,6 +324,20 @@ export class LootManager {
     this.shuffleDeck(this.game.lootDeck);
   }
 
+  update() {
+    if (settingsManager.settings.fhShareResources) {
+      this.game.figures.forEach((figure) => {
+        if (figure instanceof Character) {
+          for (let key of Object.keys(figure.progress.loot)) {
+            const loot = key as LootType;
+            this.game.party.loot[loot] = (this.game.party.loot[loot] || 0) + (figure.progress.loot[loot] || 0);
+            figure.progress.loot[loot] = 0;
+          }
+        }
+      })
+    }
+  }
+
   fullLootDeck(): Loot[] {
     let availableCards: Loot[] = JSON.parse(JSON.stringify(fullLootDeck));
 

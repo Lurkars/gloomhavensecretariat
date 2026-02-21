@@ -243,7 +243,11 @@ export class BuildingsListComponent {
 
     repair(building: Building, force: boolean = false) {
         if (building.model.state == 'damaged') {
-            if (this.upgradeable(building) || force) {
+            if (force) {
+                gameManager.stateManager.before("repairBuilding", building.data.id, building.data.name);
+                building.model.state = 'normal';
+                gameManager.stateManager.after();
+            } else if (this.upgradeable(building)) {
                 this.dialog.open(BuildingUpgradeDialog, {
                     panelClass: ['dialog'],
                     data: {
@@ -254,7 +258,7 @@ export class BuildingsListComponent {
                     }
                 }).closed.subscribe({
                     next: (result) => {
-                        if (force && result == true || result instanceof SelectResourceResult) {
+                        if (result instanceof SelectResourceResult) {
                             gameManager.stateManager.before("repairBuilding", building.data.id, building.data.name);
                             if (!force && result instanceof SelectResourceResult) {
                                 if (result.morale) {

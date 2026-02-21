@@ -1,4 +1,5 @@
 import { Editional } from "./Editional";
+import { WorldMapCoordinates } from "./WorldMap";
 
 export class EventCard implements Editional {
     cardId: string;
@@ -212,16 +213,33 @@ export class EventCardCondition {
 export class EventCardAttack {
     attackValue: string | number;
     targetNumber: string | number;
+    target: EventCardAttackTarget;
     targetDescription: string;
     narrative: string;
     effects: string[];
 
-    constructor(attackValue: string | number, targetNumber: string | number, targetDescription: string, narrative: string, effects: string[]) {
+    constructor(attackValue: string | number, targetNumber: string | number, target: EventCardAttackTarget, targetDescription: string, narrative: string, effects: string[]) {
         this.attackValue = attackValue;
         this.targetNumber = targetNumber;
+        this.target = target;
         this.targetDescription = targetDescription;
         this.narrative = narrative;
         this.effects = effects;
+    }
+}
+
+export class EventCardAttackTarget {
+    lowerBoundary: number = 0;
+    upperBoundary: number = 0;
+    parity: 0 | 'even' | 'odd' = 0;
+    level: 0 | 'low' | 'high' = 0;
+    desc: boolean = false;
+    randomize: boolean = false;
+    manual: boolean = false;
+    distance: "previousTarget" | string | WorldMapCoordinates | undefined;
+
+    constructor(manual: boolean = true) {
+        this.manual = manual;
     }
 }
 

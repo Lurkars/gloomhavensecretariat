@@ -771,6 +771,11 @@
       margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
       flex-direction: column;
 
+      &.disabled .resource-table {
+        pointer-events: none;
+        opacity: 0.7;
+      }
+
       .move {
         cursor: pointer;
         position: absolute;

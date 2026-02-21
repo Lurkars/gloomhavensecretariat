@@ -132,6 +132,7 @@ export class Settings {
   fhGhItems: boolean = false;
   fhPets: boolean = true;
   fhSecondEdition: boolean = false;
+  fhShareResources: boolean = false;
   fhStyle: boolean = false;
   fhTrials: boolean = false;
   fhTrialsApply: boolean = true;

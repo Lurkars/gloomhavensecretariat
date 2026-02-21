@@ -1,7 +1,8 @@
-import { GardenModel } from "../model/Building";
+import { BuildingModel, GardenModel } from "../model/Building";
 import { Game } from "../model/Game";
 import { BuildingData, BuildingRewards } from "../model/data/BuildingData";
 import { ScenarioData } from "../model/data/ScenarioData";
+import { WorldMapCoordinates } from "../model/data/WorldMap";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -108,5 +109,65 @@ export class BuildingsManager {
         }
       }
     }
+  }
+
+  coordinatesFromModel(input: BuildingModel): WorldMapCoordinates | undefined {
+    const campaign = gameManager.campaignData();
+    if (!campaign) {
+      return undefined;
+    }
+    const buildingData = campaign.buildings.find((data) => data.name == input.name);
+    if (!buildingData || !buildingData.coordinates || !buildingData.coordinates.length) {
+      return undefined;
+    }
+    let level = 0;
+    while (!buildingData.coordinates[level] && level < buildingData.coordinates.length - 1) {
+      level++;
+    }
+
+    let editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.currentEdition());
+    if (editionData && !editionData.worldMap && editionData.extendWorldMap) {
+      editionData = gameManager.editionData.find((other) => editionData && other.edition == editionData.extendWorldMap && other.worldMap);
+    }
+
+    return buildingData.coordinates[level] || undefined;
+  }
+
+
+  distanceBetween(a: BuildingModel, b: BuildingModel): number | undefined {
+    const coordsA = this.coordinatesFromModel(a);
+    const coordsB = this.coordinatesFromModel(b);
+    if (!coordsA || !coordsB) {
+      return undefined;
+    }
+    const centerAx = coordsA.x + coordsA.width / 2;
+    const centerAy = coordsA.y + coordsA.height / 2;
+    const centerBx = coordsB.x + coordsB.width / 2;
+    const centerBy = coordsB.y + coordsB.height / 2;
+
+    return Math.sqrt(Math.pow(centerBx - centerAx, 2) + Math.pow(centerBy - centerAy, 2));
+  }
+
+  distanceFrom(a: BuildingModel, coordsB: WorldMapCoordinates): number | undefined {
+    const coordsA = this.coordinatesFromModel(a);
+
+    if (!coordsA) {
+      return undefined;
+    }
+    const centerAx = coordsA.x + coordsA.width / 2;
+    const centerAy = coordsA.y + coordsA.height / 2;
+    const centerBx = coordsB.x + coordsB.width / 2;
+    const centerBy = coordsB.y + coordsB.height / 2;
+
+    return Math.sqrt(Math.pow(centerBx - centerAx, 2) + Math.pow(centerBy - centerAy, 2));
+  }
+
+  distance(coordsA: WorldMapCoordinates, coordsB: WorldMapCoordinates): number {
+    const centerAx = coordsA.x + coordsA.width / 2;
+    const centerAy = coordsA.y + coordsA.height / 2;
+    const centerBx = coordsB.x + coordsB.width / 2;
+    const centerBy = coordsB.y + coordsB.height / 2;
+
+    return Math.sqrt(Math.pow(centerBx - centerAx, 2) + Math.pow(centerBy - centerAy, 2));
   }
 }
