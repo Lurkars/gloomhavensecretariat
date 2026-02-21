@@ -426,7 +426,7 @@
         "": "Datos de personaje",
         "deck": "Nombre mazo de habilidades",
         "hp": {
-          "": "Puntos de vida",
+          "": "SPuntos de vida",
           "-1": "Perfil personalizado",
           "0": "Perfil bajo",
           "1": "Perfil medio",

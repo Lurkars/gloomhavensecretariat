@@ -230,7 +230,8 @@
       "resources": {
         "": "Resources",
         "apply": "Move Resources",
-        "move": "Move to Frosthaven Supply"
+        "move": "Move to Frosthaven Supply",
+        "shared": "All Resources shared (House Rule)"
       },
       "retired": "Retired",
       "retirement": {
@@ -1597,13 +1598,20 @@
       "advantage": "Gain advantage for this attack for losing soliders!",
       "buildings": {
         "damaged": "Damaged Building",
+        "lvl": "Lvl {0}",
         "wrecked": "Wrecked Building"
       },
       "defense": "Base Defense:",
       "disadvantage": "Gain disadvantage because the Barracks are wrecked!",
       "filter": {
         "desc": "Descending Order",
+        "distance": "Distance",
         "even": "Even",
+        "level": {
+          "": "Level",
+          "high": "High to Low",
+          "low": "Low to High"
+        },
         "lowerBoundary": "Lower Boundary",
         "odd": "Odd",
         "parity": "Parity",
@@ -2680,6 +2688,10 @@
     "fhSecondEdition": {
       "": "2nd Printing",
       "hint": "Some changes between first and second printing of Frosthaven cannot be set automatically. So please check this if you are using second printing of Frosthaven."
+    },
+    "fhShareResources": {
+      "": "Share Resources House Rule",
+      "hint": "Share all resources except gold between all characters and Frosthaven supply."
     },
     "fhStyle": {
       "": "Frosthaven Style",
