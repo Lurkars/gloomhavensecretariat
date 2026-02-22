@@ -1,0 +1,21 @@
+<div class="recaps">
+    @if (predecessors.length) {
+    <ghs-scenario-recap [scenarios]="predecessors"></ghs-scenario-recap>
+    }
+
+    @if (!!predecessor && predessorLabel) {
+    <div class="recap">
+        <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + predecessor.index + '%'"></span>:
+        <span [ghs-label]="predessorLabel"></span>
+    </div>
+    }
+
+    @if (!!scenario && label) {
+    <div class="recap">
+        @if (predecessors.length) {
+        <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + scenario.index + '%'"></span>:
+        }
+        <span [ghs-label]="label"></span>
+    </div>
+    }
+</div>

@@ -50,6 +50,7 @@ export class ScenarioData implements Editional, Spoilable {
   level: number | undefined;
   overlays: ScenarioOverlay[] = [];
   spotlight: boolean = false;
+  recap: ScenarioRecap[] = [];
 
   // from Editional
   edition: string = "";
@@ -99,6 +100,7 @@ export class ScenarioData implements Editional, Spoilable {
       this.level = scenarioData.level;
       this.overlays = scenarioData.overlays;
       this.spotlight = scenarioData.spotlight;
+      this.recap = scenarioData.recap;
     }
   }
 }
@@ -211,6 +213,12 @@ export class ScenarioRewardHints {
   reputationFactions: string[] = [];
   randomSideScenario: string = "";
   pet: string = "";
+}
+
+export class ScenarioRecap {
+  key: string = "";
+  prefix: string = "";
+  predecessor: string = "";
 }
 
 export class ScenarioFinish {

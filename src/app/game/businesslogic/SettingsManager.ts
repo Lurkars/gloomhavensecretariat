@@ -770,13 +770,13 @@ export class SettingsManager {
   getLabel(key: string, args: string[] = [], argLabel: boolean = true, empty: boolean = false, path: string = "", from: any = this.label): string {
     key += '';
     if (!from) {
-      return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
+      return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : "");
     } else if (from[key]) {
       if (typeof from[key] === 'object') {
         if (from[key][""]) {
           return this.insertLabelArguments(from[key][""], args, argLabel);
         }
-        return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
+        return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : "");
       }
       return this.insertLabelArguments(from[key], args, argLabel);
     } else {
@@ -795,11 +795,22 @@ export class SettingsManager {
       }
     }
 
-    return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
+    return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : "");
   }
 
   emptyLabel(key: string, args: string[], path: string): string {
     return key + (args && args.length > 0 ? (" [" + args + "]") : "");
+  }
+
+  labelExists(key: string, includeObject: boolean = false, from: any = this.label): boolean {
+    if (!!from[key]) {
+      return includeObject || typeof from[key] === 'string' || typeof from[key] === 'object' && from[key][""];
+    }
+    const keys = key.split(".");
+    if (keys.length && !!from[keys[0]]) {
+      return this.labelExists(keys.slice(1, keys.length).join("."), includeObject, from[keys[0]]);
+    }
+    return false;
   }
 
   insertLabelArguments(label: string, args: string[], argLabel: boolean) {

@@ -8,6 +8,7 @@ import { RoomData } from "src/app/game/model/data/RoomData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { EventEffectsDialog } from "src/app/ui/figures/event-effects/event-effects";
 import { FavorsComponent } from "src/app/ui/figures/event-effects/favors/favors";
+import { ScenarioRecapDialogComponent } from "src/app/ui/figures/scenario-recap/scenario-recap";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { ScenarioRulesDialogComponent } from "../../scenario-rules/dialog/scenario-rules-dialog";
 import { ScenarioConclusionComponent } from "../scenario-conclusion/scenario-conclusion";
@@ -140,6 +141,13 @@ export class ScenarioDialogComponent {
     openFavors() {
         this.dialog.open(FavorsComponent, {
             panelClass: ['dialog']
+        })
+    }
+
+    openRecapDialog() {
+        this.dialog.open(ScenarioRecapDialogComponent, {
+            panelClass: ['dialog'],
+            data: this.scenario
         })
     }
 

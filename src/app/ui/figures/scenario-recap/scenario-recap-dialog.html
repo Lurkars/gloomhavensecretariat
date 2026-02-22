@@ -1,0 +1,9 @@
+<div class="recap-dialog">
+    @if (!!scenario) {
+    <div class="header">
+        <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + scenario.index + '%'"></span>
+        <span class="text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
+    </div>
+    }
+    <ghs-scenario-recap [scenarios]="scenarios"></ghs-scenario-recap>
+</div>

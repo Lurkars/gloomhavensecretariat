@@ -8,6 +8,7 @@ import { ScenarioRequirementsDialogComponent } from "src/app/ui/figures/party/re
 import { TreasuresDialogComponent } from "src/app/ui/figures/party/treasures/treasures-dialog";
 import { ScenarioConclusionComponent } from "src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { ScenarioRecapDialogComponent } from "../../../scenario-recap/scenario-recap";
 
 @Component({
     standalone: false,
@@ -22,6 +23,7 @@ export class ScenarioChartPopupDialog {
     isSuccess: boolean = false;
     showSetup: boolean = false;
     showTreasures: boolean = false;
+    showRecap: boolean = false;
     hasRequirements: boolean = false;
     hasMissingRequirements: boolean = false;
     allRequirements: boolean = false;
@@ -54,34 +56,7 @@ export class ScenarioChartPopupDialog {
 
         this.showTreasures = this.treasures.length > 0 && this.treasures.length == this.lootedTreasures.length || this.showSetup;
 
-        this.predecessors = [];
-
-        let predecessor = gameManager.scenarioManager.scenarioData(this.scenario.edition).find((other) => other.group == this.scenario.group && other.unlocks && other.unlocks.includes(this.scenario.index) && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
-
-        if (!predecessor) {
-            predecessor = gameManager.sectionData(this.scenario.edition).find((sectionData) => sectionData.conclusion && sectionData.group == this.scenario.group && sectionData.parent && sectionData.unlocks && sectionData.unlocks.includes(this.scenario.index) && gameManager.game.party.conclusions.find((conclusion) => conclusion.edition == sectionData.edition && conclusion.group == sectionData.group && conclusion.index == sectionData.index));
-            if (predecessor) {
-                predecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => predecessor && other.group == predecessor.group && other.index == predecessor.parent && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
-            }
-        }
-
-        while (predecessor) {
-            this.predecessors.unshift(predecessor);
-            let newPredecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => predecessor && other.group == predecessor.group && other.unlocks && other.unlocks.includes(predecessor.index) && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
-
-            if (!newPredecessor) {
-                newPredecessor = gameManager.sectionData(predecessor.edition).find((sectionData) => predecessor && sectionData.conclusion && sectionData.group == predecessor.group && sectionData.parent && sectionData.unlocks && sectionData.unlocks.includes(predecessor.index) && gameManager.game.party.conclusions.find((conclusion) => conclusion.edition == sectionData.edition && conclusion.group == sectionData.group && conclusion.index == sectionData.index));
-                if (newPredecessor) {
-                    newPredecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => newPredecessor && other.group == newPredecessor.group && other.index == newPredecessor.parent && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
-                }
-            }
-
-            predecessor = newPredecessor;
-            if (predecessor && this.predecessors.includes(predecessor)) {
-                predecessor = undefined;
-            }
-
-        }
+        this.predecessors = gameManager.scenarioManager.getPredecessors(this.scenario);
     }
 
     setScenario() {
@@ -113,6 +88,13 @@ export class ScenarioChartPopupDialog {
                 data: { edition: this.scenario.edition, scenario: this.scenario }
             })
         }
+    }
+
+    openRecapDialog() {
+        this.dialog.open(ScenarioRecapDialogComponent, {
+            panelClass: ['dialog'],
+            data: this.scenario
+        })
     }
 
     addSuccess() {

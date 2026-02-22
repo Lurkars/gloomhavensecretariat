@@ -1,0 +1,8 @@
+.recaps {
+    display: flex;
+    flex-direction: column;
+
+    .recap {
+        margin: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) 0;
+    }
+}

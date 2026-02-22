@@ -215,6 +215,13 @@
         align-items: center;
         margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
 
+        .recap {
+            cursor: pointer;
+            font-family: var(--ghs-font-text);
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        }
+
         .ghs-svg {
             filter: var(--ghs-filter-white);
             transform: rotate(90deg);

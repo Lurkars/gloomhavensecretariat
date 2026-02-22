@@ -105,6 +105,7 @@ import { StatisticsDialogComponent } from './ui/figures/party/statistics/statist
 import { TreasuresDialogComponent } from './ui/figures/party/treasures/treasures-dialog';
 import { PartyWeekDialogComponent } from './ui/figures/party/week-dialog/week-dialog';
 import { WorldMapComponent } from './ui/figures/party/world-map/world-map';
+import { ScenarioRecapComponent, ScenarioRecapDialogComponent } from './ui/figures/scenario-recap/scenario-recap';
 import { EntityIndexKeyComponent } from './ui/figures/standee/entity-index-key/entity-index-key';
 import { SummonSheetComponent } from './ui/figures/standee/sheet/summon-sheet';
 import { StandeeComponent } from './ui/figures/standee/standee';
@@ -341,6 +342,8 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     ScenarioConclusionComponent,
     ScenarioDialogComponent,
     ScenarioMenuComponent,
+    ScenarioRecapComponent,
+    ScenarioRecapDialogComponent,
     ScenarioRequirementsComponent,
     ScenarioRequirementsDialogComponent,
     ScenarioRuleComponent,

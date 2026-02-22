@@ -104,6 +104,12 @@
         </a>
         }
 
+        @if (gameManager.scenarioManager.hasRecaps()) {
+        <a class="recap" (click)="openRecapDialog()">
+          <span [ghs-label]="'scenario.recap'"></span>
+        </a>
+        }
+
         <div class="additional">
           @if (gameManager.game.appliedScenarioRules.length || gameManager.game.discardedScenarioRules.length) {
           <a (click)="showScenarioRules()"><span [ghs-label]="'scenario.rules.show'"></span>

@@ -184,10 +184,18 @@ export class Character extends CharacterData implements Entity, Figure {
     if (model.progress) {
       this.progress = Object.assign(new CharacterProgress(), model.progress);
 
-      if (this.progress.enhancements) {
-        if (!Array.isArray(this.progress.enhancements)) {
-          this.progress.enhancements = [];
-        }
+      this.progress.items = [...model.progress.items];
+      this.progress.equippedItems = [...model.progress.equippedItems];
+      this.progress.personalQuestProgress = [...model.progress.personalQuestProgress];
+      this.progress.perks = [...model.progress.perks];
+      this.progress.masteries = [...model.progress.masteries];
+      this.progress.scenarioStats = [...model.progress.scenarioStats];
+      this.progress.deck = [...model.progress.deck];
+
+      if (model.progress.enhancements) {
+        this.progress.enhancements = [...model.progress.enhancements];
+      } else if (!Array.isArray(this.progress.enhancements)) {
+        this.progress.enhancements = [];
       }
 
       if (gameManager.currentEdition() == 'fh' && this.progress.personalQuest == '581' && !this.tags.includes('fh-pq-581-migration') && this.progress.personalQuestProgress[0]) {

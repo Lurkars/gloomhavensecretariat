@@ -167,6 +167,45 @@
           </td>
           }
         </tr>
+        <tr>
+          <th><span [ghs-label]="'scenario.stats.resources'"></span></th>
+          @for (character of characters| trackUUID; track character._trackUUID) {
+          <td>
+            <div class="loot">
+              @for (lootType of materials; track lootType) {
+              <span [ghs-label]="'scenario.stats.resources.loot'"
+                [ghs-label-args]="[lootType, character.scenarioStats.loot[lootType] || 0]" [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.resources.loot.hint'"></span>
+              }
+            </div>
+            <div class="loot">
+              @for (lootType of herbs; track lootType) {
+              <span [ghs-label]="'scenario.stats.resources.loot'"
+                [ghs-label-args]="[lootType, character.scenarioStats.loot[lootType] || 0]" [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.resources.loot.hint'"></span>
+              }
+            </div>
+          </td>
+          }
+          @if (!character) {
+          <td>
+            <div class="loot">
+              @for (lootType of materials; track lootType) {
+              <span [ghs-label]="'scenario.stats.resources.loot'"
+                [ghs-label-args]="[lootType, overall.loot[lootType] || 0]" [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.resources.loot.hint'"></span>
+              }
+            </div>
+            <div class="loot">
+              @for (lootType of herbs; track lootType) {
+              <span [ghs-label]="'scenario.stats.resources.loot'"
+                [ghs-label-args]="[lootType, overall.loot[lootType] || 0]" [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.resources.loot.hint'"></span>
+              }
+            </div>
+          </td>
+          }
+        </tr>
       </tbody>
     </table>
   </div>

@@ -124,12 +124,11 @@
         margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         font-family: var(--ghs-font-title);
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
 
         a {
             cursor: pointer;
-            min-width: 33%;
             display: flex;
             justify-content: center;
 

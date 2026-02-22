@@ -30,6 +30,7 @@
   </div>
 
   <div class="spoiler-block" [ngClass]="{'visible': showTreasures}">
+    @if (!showTreasures || treasures.length) {
     <div class="treasures">
       @for (treasure of treasures; track treasure) {
       <div class="hint-container">
@@ -56,6 +57,7 @@
       </div>
       }
     </div>
+    }
 
     @if (showTreasures && treasures.length == 0) {
     <label [ghs-label]="'scenario.chart.treasures.empty'"></label>
@@ -68,15 +70,16 @@
     </div>
   </div>
 
-  @if (predecessors.length) {
   <span class="predecessors">
     @for (predecessor of predecessors | trackUUID; track predecessor._trackUUID; let i = $index) {
     @if (i > 0 && i < predecessors.length) { <img class="ghs-svg" src="./assets/images/arrow-up.svg">
       }
       <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + predecessor.index + '%'"></span>
       }
+      @if (gameManager.scenarioManager.hasRecaps()) {
+      <a class="recap" [ghs-label]="'scenario.recap'" (click)="openRecapDialog()"></a>
+      }
   </span>
-  }
 
   <div class="buttons">
     <a class="play"

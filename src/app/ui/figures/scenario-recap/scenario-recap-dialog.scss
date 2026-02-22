@@ -1,0 +1,12 @@
+.recap-dialog {
+    color: var(--ghs-color-white);
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+    max-width: calc(var(--ghs-unit) * 60 * var(--ghs-text-factor));
+
+    .header {
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+        border-bottom: calc(var(--ghs-unit) * 0.3 * var(--ghs-text-factor)) solid var(--ghs-color-white);
+        padding-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+        margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+    }
+}

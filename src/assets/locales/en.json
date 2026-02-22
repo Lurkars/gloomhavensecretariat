@@ -1859,6 +1859,7 @@
         "resource": "Gain {1} %game.resource.{0}%"
       }
     },
+    "recap": "Recap",
     "requirements": {
       "": "Scenario Requirements",
       "all": "Show all requirements (include fulfilled)",
@@ -2128,6 +2129,13 @@
         "hint": "Other damage received"
       },
       "progress": "Loot, XP",
+      "resources": {
+        "": "Resources",
+        "loot": {
+          "": "%game.resource.{0}%: {1}",
+          "hint": "Number of %game.resource{0}% looted"
+        }
+      },
       "scenarios": "Scenarios",
       "toggle": {
         "hide": "Hide Scenario Statistics",

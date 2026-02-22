@@ -1,14 +1,12 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component, HostListener, Inject, OnInit, ViewEncapsulation } from "@angular/core";
+import { AfterViewInit, Component, HostListener, Inject, OnInit, ViewEncapsulation } from "@angular/core";
 
-import { Overlay } from "@angular/cdk/overlay";
 import L, { LatLngBoundsLiteral } from 'leaflet';
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { PartySheetDialogComponent } from "src/app/ui/figures/party/party-sheet-dialog";
 import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
-import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 import { ScenarioChartPopupDialog } from "./popup/scenario-chart-popup";
 
 @Component({
@@ -18,7 +16,7 @@ import { ScenarioChartPopupDialog } from "./popup/scenario-chart-popup";
     styleUrls: ['scenario-chart.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class ScenarioChartDialogComponent implements OnInit {
+export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
     flow: string[] = [];
     flowString: string = "";
@@ -34,7 +32,7 @@ export class ScenarioChartDialogComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
 
-    constructor(@Inject(DIALOG_DATA) public data: { edition: string, group: string | undefined }, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
+    constructor(@Inject(DIALOG_DATA) public data: { edition: string, group: string | undefined }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.ghsManager.uiChangeEffect(() => this.updateMap());
         this.edition = data.edition;
         this.group = data.group;
@@ -74,12 +72,15 @@ export class ScenarioChartDialogComponent implements OnInit {
                 logLevel: 5
             });
         }
+    }
 
-        this.update();
+    ngAfterViewInit(): void {
+        this.updateMap();
     }
 
 
-    update() {
+
+    update(): boolean {
         this.flow = [
             "flowchart LR",
             "classDef default stroke-width:4, r:32px;",
@@ -276,15 +277,21 @@ export class ScenarioChartDialogComponent implements OnInit {
             }
         });
 
-        this.flowString = this.flow.join("\n");
+        if (this.flow.join("\n") != this.flowString) {
+
+            this.flowString = this.flow.join("\n");
+            return true;
+        }
+        return false;
     }
 
     updateMap() {
-        this.update();
-        if (this.chart) {
-            this.chart.remove();
+        if (this.update()) {
+            if (this.chart) {
+                this.chart.remove();
+            }
+            this.initMap();
         }
-        this.initMap();
     }
 
     async initMap() {
@@ -353,8 +360,7 @@ export class ScenarioChartDialogComponent implements OnInit {
                         if (scenarioData) {
                             this.dialog.open(ScenarioChartPopupDialog, {
                                 panelClass: ['dialog'],
-                                data: scenarioData,
-                                positionStrategy: this.overlay.position().flexibleConnectedTo(element).withPositions(ghsDefaultDialogPositions())
+                                data: scenarioData
                             }).closed.subscribe({
                                 next: (result) => {
                                     if (result) {

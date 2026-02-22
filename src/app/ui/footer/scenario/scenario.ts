@@ -9,6 +9,7 @@ import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
 import { EventEffectsDialog } from '../../figures/event-effects/event-effects';
 import { EventCardDrawComponent } from '../../figures/event/draw/event-card-draw';
+import { ScenarioRecapDialogComponent } from '../../figures/scenario-recap/scenario-recap';
 import { RandomMonsterCardDialogComponent } from './dialog/random-monster-card/random-monster-card-dialog';
 import { ScenarioDialogComponent } from './dialog/scenario-dialog';
 import { SectionDialogComponent } from './section/section-dialog';
@@ -91,6 +92,15 @@ export class ScenarioComponent {
       this.dialog.open(ScenarioDialogComponent, { data: gameManager.game.scenario, panelClass: ['dialog'] });
     } else {
       this.dialog.open(EventEffectsDialog, { panelClass: ['dialog'] });
+    }
+  }
+
+  openRecapDialog() {
+    if (gameManager.game.scenario && gameManager.scenarioManager.hasRecaps()) {
+      this.dialog.open(ScenarioRecapDialogComponent, {
+        panelClass: ['dialog'],
+        data: this.gameManager.game.scenario
+      })
     }
   }
 

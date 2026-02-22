@@ -47,6 +47,7 @@ export class EditionData implements Editional {
   newAmStyle: boolean = false;
   newItemStyle: boolean = false;
   campaign: CampaignData | undefined;
+  recaps: boolean = false;
   treasures: string[] = [];
   treasureOffset: number = 0;
   monsterAmTables: string[][] = [];

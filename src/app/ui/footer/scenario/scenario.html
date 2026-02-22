@@ -1,5 +1,5 @@
 <div class="scenario-container" [ngClass]="{'setup' : gameManager.game.round < 1}">
-  <div class="button" (click)="open()">
+  <div class="button" ghs-pointer-input (singleClick)="open()" (doubleClick)="openRecapDialog()">
     @if (!!gameManager.game.scenario) {
     <div class="scenario">
       @if (gameManager.game.scenario.index && !gameManager.game.scenario.hideIndex) {
@@ -19,7 +19,8 @@
       </span>
       }
       @if (settingsManager.settings.scenarioRooms && settingsManager.settings.treasures && treasures.length > 0) {
-      <span class="treasures" (click)="openTreasures($event)" [ngClass]="{'unlooted' : unlootedTreasures.length > 0}">
+      <span class="treasures" ghs-pointer-input (singleClick)="openTreasures($event)"
+        [ngClass]="{'unlooted' : unlootedTreasures.length > 0}">
         <img class="ghs-svg" src="./assets/images/scenario/treasure.svg">
       </span>
       }
@@ -36,7 +37,7 @@
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
     @if (settingsManager.settings.scenarioRooms) {
     @for (roomData of openRooms | trackUUID; track roomData._trackUUID) {
-    <span class="section room" (click)="open()">
+    <span class="section room" ghs-pointer-input (singleClick)="open()">
       <img class="ghs-svg" src="./assets/images/scenario/door-open.svg">
       {{roomData.ref}}
       @if (roomData.marker) {
@@ -63,7 +64,7 @@
     }
     @if (settingsManager.settings.scenarioRooms) {
     @for (roomData of closedRooms | trackUUID; track roomData._trackUUID) {
-    <span class="section room available" (click)="openRoom(roomData, $event)"
+    <span class="section room available" ghs-pointer-input (singleClick)="openRoom(roomData, $event)"
       [ghs-tooltip]="(roomData.marker ? 'scenario.openRoomMarker' : 'scenario.openRoom') + (roomData.ref ? 'Ref': '')"
       [ghs-label-args]="[roomData.ref || '', roomData.marker || '']" [originX]="'center'" [overlayY]="'center'"
       [originY]="'top'" [overlayY]="'bottom'">
@@ -76,7 +77,7 @@
     }
     }
     @for (section of availableSections | trackUUID; track section._trackUUID) {
-    <span class="section available" (click)="addSection(section, $event)">
+    <span class="section available" ghs-pointer-input (singleClick)="addSection(section, $event)">
       @if (!section.conclusion) {
       <img class="ghs-svg" src="./assets/images/lock.svg">
       }

@@ -88,8 +88,9 @@ export class ScenarioSummaryComponent {
             this.wealthFavor = gameManager.trialsManager.activeFavor('fh', 'wealth');
             this.knowledgeFavor = gameManager.trialsManager.activeFavor('fh', 'knowledge');
             if (!this.conclusionOnly) {
-                if (!gameManager.game.finish) {
+                if (!gameManager.game.finish && !this.rewardsOnly) {
                     gameManager.stateManager.scenarioSummary = false;
+                    console.log("WHOT?");
                     this.close();
                 } else {
                     this.loadFinish();

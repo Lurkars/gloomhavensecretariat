@@ -92,6 +92,7 @@ import { MonsterStatsDialogComponent } from './ui/figures/monster/stats/stats-di
 import { ObjectiveContainerComponent } from './ui/figures/objective-container/objective-container';
 import { PartyBuildingsComponent } from './ui/figures/party/buildings/buildings';
 import { GardenComponent } from './ui/figures/party/buildings/garden/garden';
+import { BuildingsListComponent } from './ui/figures/party/buildings/list/buildings-list';
 import { PetCardComponent } from './ui/figures/party/buildings/stables/pet-card/pet-card';
 import { StablesComponent } from './ui/figures/party/buildings/stables/stables';
 import { BuildingUpgradeDialog } from './ui/figures/party/buildings/upgrade-dialog/upgrade-dialog';
@@ -104,6 +105,7 @@ import { StatisticsDialogComponent } from './ui/figures/party/statistics/statist
 import { TreasuresDialogComponent } from './ui/figures/party/treasures/treasures-dialog';
 import { PartyWeekDialogComponent } from './ui/figures/party/week-dialog/week-dialog';
 import { WorldMapComponent } from './ui/figures/party/world-map/world-map';
+import { ScenarioRecapComponent, ScenarioRecapDialogComponent } from './ui/figures/scenario-recap/scenario-recap';
 import { EntityIndexKeyComponent } from './ui/figures/standee/entity-index-key/entity-index-key';
 import { SummonSheetComponent } from './ui/figures/standee/sheet/summon-sheet';
 import { StandeeComponent } from './ui/figures/standee/standee';
@@ -159,6 +161,7 @@ import { GhsNumberInput } from './ui/helper/number-input/number-input';
 import { PointerInputDirective } from './ui/helper/pointer-input';
 import { TabClickDirective } from './ui/helper/tabclick';
 import { GhsTooltipComponent, GhsTooltipDirective } from './ui/helper/tooltip/tooltip';
+import { TrackUUIDPipe } from './ui/helper/trackUUID';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { MainComponent } from './ui/main';
 import { AttackModifierToolComponent } from './ui/tools/attackmodifier/attackmodifier-tool';
@@ -171,6 +174,7 @@ import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 import { EventCardsToolComponent } from './ui/tools/events/event-cards-tool';
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
+import { ItemsCardsToolComponent } from './ui/tools/items/items-cards-tool';
 import { RandomMonsterCardsToolComponent } from './ui/tools/random-monster-cards/random-monster-cards-tool';
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier/attackmodifier-standalone';
 import { InitiativeStandaloneComponent } from './ui/tools/standalone/initiative/initiative-standalone';
@@ -205,6 +209,7 @@ describe('AppComponent', () => {
         AutoscrollDirective,
         BattleGoalComponent,
         BattleGoalSetupDialog,
+        BuildingsListComponent,
         BuildingUpgradeDialog,
         CampaignMenuComponent,
         CardRevealDirective,
@@ -289,6 +294,7 @@ describe('AppComponent', () => {
         ItemDialogComponent,
         ItemDistillDialogComponent,
         ItemsBrewDialog,
+        ItemsCardsToolComponent,
         ItemsCharacterDialogComponent,
         ItemsDialogComponent,
         KeyboardShortcuts,
@@ -335,6 +341,8 @@ describe('AppComponent', () => {
         ScenarioConclusionComponent,
         ScenarioDialogComponent,
         ScenarioMenuComponent,
+        ScenarioRecapComponent,
+        ScenarioRecapDialogComponent,
         ScenarioRequirementsComponent,
         ScenarioRequirementsDialogComponent,
         ScenarioRuleComponent,
@@ -356,6 +364,7 @@ describe('AppComponent', () => {
         StatsListComponent,
         SummonSheetComponent,
         TabClickDirective,
+        TrackUUIDPipe,
         TreasureLabelComponent,
         TreasuresDialogComponent,
         TreasuresToolComponent,

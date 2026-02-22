@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
 import { DamageStats, ScenarioStats } from "src/app/game/model/CharacterProgress";
-import { LootType } from "src/app/game/model/data/Loot";
+import { herbResourceLootTypes, LootType, materialResourceLootTypes } from "src/app/game/model/data/Loot";
 
 @Component({
     standalone: false,
@@ -18,6 +18,8 @@ export class StatisticsDialogComponent implements OnInit {
     overall: ScenarioStats = new ScenarioStats();
     retired: boolean = false;
     available: boolean = false;
+    materials: LootType[] = [...materialResourceLootTypes];
+    herbs: LootType[] = [...herbResourceLootTypes];
 
     gameManager: GameManager = gameManager;
 

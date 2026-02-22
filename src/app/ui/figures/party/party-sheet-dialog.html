@@ -186,14 +186,14 @@
             (singleClick)="setWeek(index+1 + 80*calendarSheet)"
             (doubleClick)="setWeekSection(index+1+ 80*calendarSheet)"
             [ngClass]="{'checked': party.weeks > index + 80*calendarSheet, 'section': sectionsForWeekFixed(week+ 80*calendarSheet).length > 0 || sectionsForWeek(week+ 80*calendarSheet).length > 0, 'locked': settingsManager.settings.calendarLocked && (settingsManager.settings.calendarLocked != 'permissive' || party.weeks != index + 80*calendarSheet && party.weeks != index + 80*calendarSheet + 1)}">
-            @for (section of sectionsForWeekFixed(week+ 80*calendarSheet); track section) {
+            @for (section of sectionsForWeekFixed(week+ 80*calendarSheet); track section + $index) {
             <div class="section">
               <img
                 [src]="'./assets/images/' + (hasConclusions(section) ? 'hint.svg' : (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg'))">
               {{section}}
             </div>
             }
-            @for (section of sectionsForWeek(week+ 80*calendarSheet); track section) {
+            @for (section of sectionsForWeek(week+ 80*calendarSheet); track section + $index) {
             <div class="section manual">
               <img
                 [src]="'./assets/images/' + (hasConclusions(section) ? 'hint.svg' : (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg'))">
@@ -401,7 +401,7 @@
             townGuardPerk._trackUUID) {
             <div class="perk">
               <div class="sections">
-                @for (section of townGuardPerk.sections; track section) {
+                @for (section of townGuardPerk.sections; track section + $index) {
                 <div class="section"
                   [ngClass]="{'checked': party.townGuardPerkSections.includes(section), 'disabled' : !party.townGuardPerkSections.includes(section) && party.townGuardPerkSections.length >= (party.townGuardPerks / 3 | ghsFloor)}"
                   ghs-pointer-input (singleClick)="toggleTownGuardPerkSection(section)"
