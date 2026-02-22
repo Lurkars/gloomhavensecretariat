@@ -191,6 +191,13 @@
   "character": {
     "fh": {
       "coral": "Marea restallante",
+      "drill": {
+        "": "Mosaico de Metal",
+        "high": "Alta",
+        "low": "Baja",
+        "over": "Excesiva",
+        "regular": "Normal"
+      },
       "fist": {
         "": "Puño helado",
         "gift-of-the-mountain": {
@@ -200,6 +207,16 @@
         "one-with-the-mountain": {
           "": "Uno con la montaña",
           "hint": "Siempre que no tengas %game.condition.regenerate%, obtén %game.condition.regenerate%."
+        }
+      },
+      "kelp": {
+        "": "Espectro abisal",
+        "tokens": {
+          "trophy": "Ficha de Trofeo"
+        },
+        "trophy_tokens": {
+          "": "Pericia 11",
+          "hint": "%data.custom.fh.kelp.4%"
         }
       },
       "meteor": "Piroclasto",
@@ -224,6 +241,15 @@
         "5": "No sufras nunca daños por ataques siendo el objetivo de al menos 5 ataques",
         "6": "Al comienzo de cada uno de tus descansos, consigue tener más %game.action.custom.fh-tides% activas que cartas en tu pila de descartes"
       },
+      "drill": {
+        "1": "%game.action.custom.fh-pressure-up% O BIEN %game.action.custom.fh-pressure-down%",
+        "2": "El objetivo y todos los enemigos adyacentes a él sufren %game.damage:1%",
+        "3": "Siempre que realices un descanso largo, puedes %game.action.custom.fh-pressure-up% O BIEN %game.action.custom.fh-pressure-down%",
+        "4": "Siempre que vayas a sufrir %game.condition.poison%, puedes sufrir %game.damage:1% para evitarlo",
+        "5": "Una vez por escenario, cuando este personaje vaya a quedar agotado, en su lugar obtienes %game.condition.stun% y %game.condition.invisible%, pierdes todas tus cartas, %game.card.recover% 4 cartas perdidas y luego descarta las cartas recuperadas",
+        "6": "No ataques nunca",
+        "7": "Durante 4 rondas consecutivas, sube o baja el manómetro 3 niveles desde donde empezó la ronda (%game.action.custom.fh-pressure-low% a %game.action.custom.fh-pressure-over%, o viceversa)"
+      },
       "fist": {
         "1": "Crea 1 pieza de terreno helado de 1 hexágono en un hexágono sin accesorios adyacente",
         "2": "y, siempre que entres en terreno helado con una capacidad de Movimiento, puedes ignorar el efecto para sumar %game.action.move% +1",
@@ -231,6 +257,15 @@
         "4": "Una vez por escenario, cuando vayas a sufrir %game.damage%, puedes prevenir ese %game.damage%,",
         "5": "%game.card.recover% al menos 1 carta de tu pila de descartes cada ronda",
         "6": "En el mismo turno, entra en al menos 10 hexágonos diferentes con una capacidad de Movimiento y luego haz que un enemigo sufra al menos %game.damage:10% con una capacidad de Ataque"
+      },
+      "kelp": {
+        "1": "Obtén 1 %game.characterToken.kelp.trophy%",
+        "2": "Obtén 1 %game.action.custom.fh-trophy%",
+        "3": "Siempre que realices un descanso largo, puedes %game.action.loot% 1 hexágono adyacente; si obtienes alguna ficha de Botín, obtén también 1 %game.action.custom.fh-trophy%",
+        "4": "Al comienzo de cada escenario, obtén 2 %game.action.custom.fh-trophy%",
+        "5": "Mientras tengas %game.condition.invisible%, obtienes Ventaja en todos tus ataques",
+        "6": "Realiza todos tus ataques con Ventaja",
+        "7": "Imbuye %game.element.dark% cada ronda"
       },
       "meteor": {
         "1": "Crea una pieza de terreno peligroso de 1 hexágono en un hexágono sin accesorios adyacente al objetivo",
@@ -586,6 +621,10 @@
     "fh-183": {
       "": "Jarra de nieblas",
       "1": "Durante tu turno, todas las figuras sufren Desventaja y %game.action.range%-1 en todos sus ataques a distancia de esta ronda. "
+    },
+    "fh-186": {
+      "": "Semillas de brote inusitado",
+      "1": "Durante tu turno, crea 1 obstáculo de 1 hexágono en un hexágono vacío adyacente."
     },
     "fh-188": {
       "": "Cristal congelate",
