@@ -622,6 +622,10 @@
       "": "Jarra de nieblas",
       "1": "Durante tu turno, todas las figuras sufren Desventaja y %game.action.range%-1 en todos sus ataques a distancia de esta ronda. "
     },
+    "fh-185": {
+      "": "Cuchillo espejado",
+      "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, suma todos los estados negativos que tengas excepto %game.condition.brittle%, %game.condition.bane% y %game.condition.stun% a 1 ataque."
+    },
     "fh-186": {
       "": "Semillas de brote inusitado",
       "1": "Durante tu turno, crea 1 obstáculo de 1 hexágono en un hexágono vacío adyacente."
@@ -1021,6 +1025,53 @@
   "pets": {
     "fh-05": {
       "1": "En orden de iniciativa, todos los personajes de forma inmediata realizan:"
+    }
+  },
+  "scenario": {
+    "recap": {
+      "fh": {
+        "1": {
+          "": "Tu grupo de mercenarios fue contratado para escoltar una caravana del Gremio de Comerciantes desde Roble Blanco, para llevar suministros (y comprobar el estado) de Frosthaven, un puesto fronterizo lejano y remoto que el Gremio ha estado tratando de expandir."
+        },
+        "10": {
+          "5": "Un Voz de hielo al que perseguías te atrajo a una especie de trampa: caíste por una fisura oculta a una cripta subterránea llena de espíritus. Tras acabar con ellos y conseguir un trineo, comenzaste a perseguir a estos Algox."
+        },
+        "11": {
+          "6": "En tu ascenso, te sorprendió una avalancha. Has luchado por salir adelante y has conseguido equipo de escalada que te ayudará a alcanzar la cima."
+        },
+        "12": {
+          "6": "Durante el ascenso, te vio envuelto una avalancha. Te diste cuenta de que la avalancha había dejado al descubierto una estructura de piedra en ruinas que sobresalía del suelo, no muy lejos de allí, y decidiste que merecía la pena echarle un vistazo."
+        },
+        "2": {
+          "1": "Ayudaste a repeler un ataque de los Algox; la alcaldesa Satha te pidió ayuda para seguir lidiando con ellos. El explorador Valrath de Satha avistó a un pequeño grupo que se dirigía a la mortal cara oriental de la montaña y sospecha que hay una entrada secreta en esa zona."
+        },
+        "3": {
+          "1": "Ayudaste a repeler un ataque de los Algox; la alcaldesa Satha te pidió ayuda para seguir lidiando con ellos. El explorador Valrath de Satha avistó a un pequeño grupo que se dirigía a la mortal cara oriental de la montaña y sospecha que hay una entrada secreta en esa zona."
+        },
+        "4A": {
+          "2": "Rescataste a una sacerdotisa algox llamada Lanprul mientras investigabas una entrada secreta al Pico Helado. Ella pertenece a los Voz de la Nieve, un grupo de algox que cree que su dios (Geryuu) se comunica con ellos a través de la nieve que cae. Están en guerra con un grupo rival de algox, los Voz del Hielo, que creen que pueden comunicarse con su dios a través del hielo que emerge del suelo. Los Voz de Hielo ocupan actualmente el pico Helado, pero los Voz de la Nieve aprovecharon la oportunidad para tomarlo cuando estos se marcharon para atacar Frosthaven.",
+          "3": "Rescataste a una sacerdotisa algox llamada Lanprul mientras investigabas una entrada secreta al Pico Helado. Ella pertenece a los Voz de la Nieve, un grupo de algox que cree que su dios (Geryuu) se comunica con ellos a través de la nieve que cae. Están en guerra con un grupo rival de algox, los Voz del Hielo, que creen que pueden comunicarse con su dios a través del hielo que emerge del suelo. Los Voz de Hielo ocupan actualmente el pico Helado, pero los Voz de la Nieve aprovecharon la oportunidad para tomarlo cuando estos se marcharon para atacar Frosthaven."
+        },
+        "4B": {
+          "2": "Interrumpiste una batalla entre dos grupos rivales de Algox. Uno de los Algox luchadores, que se hacía llamar Voz de Hielo, te saludó y te dijo que los Voz de la Nieve habían invadido su hogar mientras ellos estaban fuera atacando Frosthaven. El pico tiene un significado religioso tanto para los Voz de la Nieve como para los Voz de Hielo, que difieren en cómo creen que deben comunicarse con su dios, Geryuu.",
+          "3": "Interrumpiste una batalla entre dos grupos rivales de Algox. Uno de los Algox luchadores, que se hacía llamar Voz de Hielo, te saludó y te dijo que los Voz de la Nieve habían invadido su hogar mientras ellos estaban fuera atacando Frosthaven. El pico tiene un significado religioso tanto para los Voz de la Nieve como para los Voz de Hielo, que difieren en cómo creen que deben comunicarse con su dios, Geryuu."
+        },
+        "5": {
+          "4": "Te pusiste del lado de los Voz de la Nieve en su batalla contra los Voz de Hielo al matar al jefe de los Voz de Hielo. Los Voz de la Nieve, que creen que se comunican con su dios a través de la nieve que cae, están en guerra con los Voz de Hielo, que creen que pueden comunicarse con su dios a través del hielo que emerge del suelo. El pico de la montaña es sagrado para ambos grupos.<br>La jefa de los Voz de la Nieve, Lanprul, te pidió que la ayudaras a poner fin a la guerra con los Voz de Hielo para garantizar la seguridad de Frosthaven frente a Algox. Ella vio a un grupo de Voz de Hielo al norte del bosque Fuegoblanco que lanzará un contraataque si no se les detiene."
+        },
+        "6": {
+          "4": "Te pusiste del lado de los Voz del Hielo en su batalla contra los Voz de la Nieve al matar al jefe de estos últimos. Los Voz del Hielo creen que pueden comunicarse con su dios Geryuu a través del hielo que emerge del suelo. Están en guerra con los Voz de la Nieve, que creen que pueden comunicarse con su dios Geryuu a través de la nieve que cae.<br>El pico de la montaña es sagrado para ambos grupos. El jefe de los Voz del Hielo, Elland, cree que Geryuu te trajo para ayudar a derrotar a los Voz de la Nieve, y ha prometido cesar temporalmente las hostilidades contra Frosthaven.<br>Un poderoso Voz de la Nieve ha alcanzado la cima del pico de la montaña y amenaza con derribar toda la montaña. Elland te ha sugerido que demuestres tu fuerza y amistad derrotando a este Voz de la Nieve."
+        },
+        "7": {
+          "4": "Tras resolver el problema inmediato de Algox que amenazaba Frosthaven, la alcaldesa Satha mencionó que se habían avistado acechadores en las afueras del territorio de Frosthaven. Os ha pedido que lo investiguéis."
+        },
+        "8": {
+          "4": "Tras ocuparse de la situación inmediata con los Algox, la alcaldesa Satha mencionó que unas extrañas construcciones metálicas avanzaban por los páramos. Los exploradores las rastrearon a través del Bosque Fuegoblanco y luego hasta un valle helado. Os pidió que investigaseis el asunto."
+        },
+        "9": {
+          "5": "Un Voz de hielo al que perseguías te atrajo a una especie de trampa: caíste por una fisura oculta a una cripta subterránea llena de espíritus. Después de ocuparte de ellos, decidiste explorar más a fondo esta zona subterránea."
+        }
+      }
     }
   },
   "summon": {

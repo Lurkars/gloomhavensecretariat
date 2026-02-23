@@ -1120,6 +1120,7 @@
         "env81": "1ª Impresión (Edición en Inglés): En el sobre 81 hay un mazo cuyo orden debe invertirse. Si lo sacas y la carta visible se titula «T___ de W___», invierte el orden del mazo para que esa carta sea la primera que se saque cuando el mazo esté boca abajo.",
         "env85": "1ª Impresión (Edición en Inglés): El sobre 85 debería incluir las pegatinas 15",
         "env90": "1ª Impresión (Edición en Inglés): El sobre 90 debería incluir las pegatinas 1, 5, 8 y 9",
+        "scenario104": "1ª Impresión (Edición en Inglés): Penúltima línea de las reglas especiales: «Ice Wraith» debería ser «Savvas Icestorm». (¡Corregido en GHS!)",
         "scenario110": "1ª Impresión (Edición en Inglés): los hexágonos de agua son terreno impracticable, no pasillos.",
         "scenario111": "1ª Impresión (Edición en Inglés): Las posiciones de las puertas de la Sección 182.2 son correctas. La Sección 138.2 debe enlazar con la Sección 147.2.",
         "scenario117": "1ª Impresión (Edición en Inglés): Este escenario tiene 5 osos polares pero sólo hay 4 figuras. Un quinto oso polar debe ser sustituido por otras figuras o miniaturas disponibles. (¡Corregido en GHS!)",
@@ -1131,7 +1132,6 @@
         "scenario60": "1ª Impresión (Edición en Inglés): debería tener el objeto 224 como recompensa del escenario. (¡Corregido en GHS!)",
         "scenario70": "1ª Impresión (Edición en Inglés): tiene dos objetos aleatorios en el mazo de botín. Es una errata; debería haber 1. (¡Corregido en GHS!)",
         "scenario78": "1ª Impresión (Edición en Inglés): tiene un problema con el mapa - Cambia la imagen del diseño del mapa, dando la vuelta a 13-D y 13-B en esa imagen (y también dando la vuelta a 13-B en la representación del mapa en la página de introducción).",
-        "scenario104": "1ª Impresión (Edición en Inglés): Penúltima línea de las reglas especiales: «Ice Wraith» debería ser «Savvas Icestorm». (¡Corregido en GHS!)",
         "section111-2": "1ª Impresión (Edición en Inglés): Mapa: «Lurker Soldier» debería ser «Lurker Clawcrusher» (¡Corregido en GHS!)",
         "section14-2": "1ª Impresión (Edición en Inglés): «Ice Wraith» debería ser «Frost Demon» (¡Corregido en GHS!)",
         "section154-1": "1ª Impresión (Edición en Inglés): «Black Imp» debería ser «Forest Imp» (¡Corregido en GHS!)",
@@ -1486,6 +1486,11 @@
       "543": {
         "": "La marca del destino",
         "1": "Aliados agotados durante escenarios que tú consigues completar"
+      },
+      "545": {
+        "": "Acallar las moradas de los muertos",
+        "1": "Obtén la Hacha abisal %game.itemFh.39%",
+        "2": "Cadáveres helados, Espectros de hielo y/o Perdiciones vivientes matadas con ella"
       },
       "549": {
         "": "Regreso a lo básico",
