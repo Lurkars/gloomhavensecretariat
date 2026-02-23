@@ -770,13 +770,13 @@ export class SettingsManager {
   getLabel(key: string, args: string[] = [], argLabel: boolean = true, empty: boolean = false, path: string = "", from: any = this.label): string {
     key += '';
     if (!from) {
-      return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : "");
+      return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
     } else if (from[key]) {
       if (typeof from[key] === 'object') {
         if (from[key][""]) {
           return this.insertLabelArguments(from[key][""], args, argLabel);
         }
-        return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : "");
+        return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
       }
       return this.insertLabelArguments(from[key], args, argLabel);
     } else {
@@ -795,7 +795,7 @@ export class SettingsManager {
       }
     }
 
-    return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : "");
+    return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
   }
 
   emptyLabel(key: string, args: string[], path: string): string {

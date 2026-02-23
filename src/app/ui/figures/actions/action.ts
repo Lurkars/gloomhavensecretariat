@@ -349,7 +349,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.element && action.type != ActionType.elementHalf);
     }
     this.fhExtraActions = [];
-    if (settingsManager.settings.fhStyle && [ActionType.boxFhSubActions, !ActionType.extra].includes(this.action.type)) {
+    if (settingsManager.settings.fhStyle && ![ActionType.boxFhSubActions, ActionType.extra].includes(this.action.type)) {
       this.action.subActions.forEach((action) => {
         if (action.type == ActionType.boxFhSubActions) {
           this.fhExtraActions.push(action);

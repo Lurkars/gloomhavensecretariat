@@ -461,7 +461,7 @@ export class AttackModifierManager {
     if (!monsterDeck) {
       if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && character.progress.trial && character.progress.trial.edition == 'fh' && character.progress.trial.name == '348') {
         attackModifierDeck = new AttackModifierDeck();
-        attackModifierDeck.cards = attackModifierDeck.cards.filter((am) => [AttackModifierType.double, AttackModifierType.plus1, !AttackModifierType.plus2].includes(am.type));
+        attackModifierDeck.cards = attackModifierDeck.cards.filter((am) => ![AttackModifierType.double, AttackModifierType.plus1, AttackModifierType.plus2].includes(am.type));
       }
 
       if (!gameManager.characterManager.ignoreNegativeItemEffects(character)) {

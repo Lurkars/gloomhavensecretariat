@@ -45,6 +45,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   overallGameClock: number = 0;
   currentGameClock: number = 0;
   gameClockInterval: any;
+  syncing: boolean = false;
 
   constructor(private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
     this.ghsManager.uiChangeEffect(() => {
@@ -58,6 +59,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }, settingsManager.settings.animations ? 500 * settingsManager.settings.animationSpeed : 0);
       }
       this.updateClock();
+      this.syncing = window.document.body.classList.contains('server-sync');
     });
   }
 
@@ -73,10 +75,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (this.gameClockInterval) {
       clearInterval(this.gameClockInterval);
     }
-  }
-
-  syncing(): boolean {
-    return window.document.body.classList.contains('server-sync');
   }
 
   hintStateValue(): string {

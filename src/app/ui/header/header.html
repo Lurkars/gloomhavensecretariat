@@ -46,10 +46,10 @@
   }
 
   @if (!standalone) {
-  @if (syncing()) {
+  @if (syncing) {
   <img src="./assets/images/shuffle.svg" class="server-connection syncing">
   }
-  @if (!syncing() && gameManager.stateManager.wsState() != -99 && gameManager.game.server) {
+  @if (!syncing && gameManager.stateManager.wsState() != -99 && gameManager.game.server) {
   <span class="game-server">°</span>
   }
   @if (settingsManager.settings.hints) {

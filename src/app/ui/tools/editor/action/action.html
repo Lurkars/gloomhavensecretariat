@@ -47,9 +47,9 @@
   }
   }
 
-  @if (!hideValues && [ActionType.area, ActionType.card, ActionType.condition, ActionType.element,
+  @if (!hideValues && ![ActionType.area, ActionType.card, ActionType.condition, ActionType.element,
   ActionType.elementHalf, ActionType.jump, ActionType.monsterType, ActionType.specialTarget, ActionType.summon,
-  !ActionType.custom].includes(action.type)) {
+  ActionType.custom].includes(action.type)) {
   <input type="text" [ngModel]="action.value" (ngModelChange)="action.value=valueChange($event)" (change)="change()">
   }
 
@@ -203,9 +203,9 @@
   </select>
   }
 
-  @if (!hideValues && [ActionType.area, ActionType.card, ActionType.condition, ActionType.concatenation,
+  @if (!hideValues && ![ActionType.area, ActionType.card, ActionType.condition, ActionType.concatenation,
   ActionType.custom, ActionType.grant, ActionType.grid, ActionType.jump, ActionType.monsterType,
-  ActionType.specialTarget, ActionType.summon, !ActionType.trigger].includes(action.type)) {
+  ActionType.specialTarget, ActionType.summon, ActionType.trigger].includes(action.type)) {
   <label><span [ghs-label]="'editor.action.valueType'"></span></label>
   <select [(ngModel)]="action.valueType" placeholder="valueType" (change)="change()">
     @for (valueType of ActionValueTypes; track valueType) {

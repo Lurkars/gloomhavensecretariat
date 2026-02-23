@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from "@angular/core";
+import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
@@ -11,12 +11,17 @@ import { Perk, PerkType } from "src/app/game/model/data/Perks";
     styleUrls: ['./label.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class PerkLabelComponent {
+export class PerkLabelComponent implements OnInit {
 
     @Input() perk!: Perk;
     PerkType = PerkType;
+    perkLabel: string[] = [];
 
-    perkLabel(perk: Perk): string[] {
+    ngOnInit(): void {
+        this.perkLabel = this.calcPerkLabel(this.perk)
+    }
+
+    calcPerkLabel(perk: Perk): string[] {
         let label: string[] = [];
         let cardLabel: string[] = [];
         if (perk.cards) {
@@ -249,7 +254,7 @@ export class PerkLabelComponent {
                 return html;
             default:
                 html += '<span class="placeholder attack-modifier-effect default ' + effect.type + '">' + (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.action.' + effect.type)) + '<img  class="action-icon" src="./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg"><span class="value">' + effect.value + '</span></span>';
-                if ([AttackModifierEffectType.pull, AttackModifierEffectType.push, AttackModifierEffectType.swing, !AttackModifierEffectType.pierce].includes(effect.type)) {
+                if (![AttackModifierEffectType.pull, AttackModifierEffectType.push, AttackModifierEffectType.swing, AttackModifierEffectType.pierce].includes(effect.type)) {
                     quotes = true;
                 }
                 break;

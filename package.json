@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretariat",
-  "version": "0.148.1",
+  "version": "0.148.2",
   "license": "AGPL3",
   "description": "Gloomhaven Secretariat is a Gloomhaven/Frosthaven Companion app.",
   "homepage": "https://gloomhaven-secretariat.de",
@@ -116,7 +116,7 @@
     "electron-builder": "^26.8.1",
     "http-server": "^14.1.1",
     "husky": "^9.1.7",
-    "jasmine-core": "~6.0.1",
+    "jasmine-core": "~6.1.0",
     "karma": "~6.4.4",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.1",

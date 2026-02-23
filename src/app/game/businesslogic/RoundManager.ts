@@ -57,7 +57,7 @@ export class RoundManager {
             } else {
               if (element.state == ElementState.strong || element.state == ElementState.new) {
                 // GH2E Triangles Perk 12
-                if ([Element.fire, Element.ice, Element.air, !Element.earth].includes(element.type) || !this.game.figures.find((figure) => figure instanceof Character && !figure.absent && figure.name == 'triangles' && figure.tags.includes('element_waning'))) {
+                if (![Element.fire, Element.ice, Element.air, Element.earth].includes(element.type) || !this.game.figures.find((figure) => figure instanceof Character && !figure.absent && figure.name == 'triangles' && figure.tags.includes('element_waning'))) {
                   element.state = ElementState.waning;
                 }
               } else if (element.state == ElementState.waning) {

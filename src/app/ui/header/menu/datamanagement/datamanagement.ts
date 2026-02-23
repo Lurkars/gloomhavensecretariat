@@ -35,8 +35,10 @@ export class DatamanagementMenuComponent implements OnInit {
       if (backups && backups.length > 0) {
         this.backups = backups.length;
       }
+      this.cdr.markForCheck();
     } catch (e) {
       this.backups = 0;
+      this.cdr.markForCheck();
     }
   }
 
@@ -240,9 +242,9 @@ export class DatamanagementMenuComponent implements OnInit {
     try {
       reader.addEventListener('load', async (event: any) => {
         const data = JSON.parse(event.target.result);
-        if (data.revision && typeof data.revision === 'number') {
+        if (typeof data.revision === 'number') {
           this.importGame(Object.assign(new GameModel(), data));
-        } else if (data.zoom && typeof data.zoom === 'number') {
+        } else if (typeof data.zoom === 'number') {
           this.importSettings(Object.assign(new Settings(), data));
         } else if (data.game && data.settings || typeof data === 'object' && data['ghs-game'] && data['ghs-settings']) {
           this.importDataDump(data);
