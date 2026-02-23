@@ -230,7 +230,8 @@
       "resources": {
         "": "Recursos",
         "apply": "Mover recursos",
-        "move": "Mover a suministros de Frosthaven"
+        "move": "Mover a suministros de Frosthaven",
+        "shared": "Todos los recursos compartidos (Regla de la casa)"
       },
       "retired": "Retirado",
       "retirement": {
@@ -261,6 +262,10 @@
     "setAside": "Apartar personaje",
     "summon": {
       "action": {
+        "": "%game.action.summon% %data.summon.{0}%",
+        "count": {
+          "": "%game.action.summon% {1} %data.summon.{0}%"
+        },
         "fly": {
           "": "%game.action.summon% %data.summon.{0}% %game.actionIcon.fly%"
         }
@@ -1586,7 +1591,13 @@
       "disadvantage": "¡Sufre una desventaja porque los cuarteles están arrasados!",
       "filter": {
         "desc": "Orden descendente",
+        "distance": "Distancia",
         "even": "Incluso",
+        "level": {
+          "": "Nivel",
+          "high": "De alto a bajo",
+          "low": "De bajo a alto"
+        },
         "lowerBoundary": "Límite inferior",
         "odd": "Extraño",
         "parity": "Paridad",
@@ -1834,6 +1845,7 @@
         "resource": "Gana {1} %game.resource.{0}%"
       }
     },
+    "recap": "Recapitulación",
     "requirements": {
       "": "Requisitos del escenario",
       "all": "Mostrar todos los requisitos (incluir los cumplidos)",
@@ -2103,6 +2115,12 @@
         "hint": "Otros daños sufridos"
       },
       "progress": "Botín, Exp.",
+      "resources": {
+        "": "Recursos",
+        "loot": {
+          "hint": "Numero de %game.resource{0}% saqueados"
+        }
+      },
       "scenarios": "Escenarios",
       "toggle": {
         "hide": "Ocultar estadísticas de Escenario",
@@ -2663,6 +2681,10 @@
     "fhSecondEdition": {
       "": "2a Impresión",
       "hint": "Algunos cambios entre la primera y la segunda impresión de Frosthaven no pueden establecerse automáticamente. Por lo tanto, comprueba si utilizas la segunda impresión de Frosthaven. (ACTIVA esta opción para jugar con la edición Española)."
+    },
+    "fhShareResources": {
+      "": "Compartir recursos Regla de la casa",
+      "hint": "Comparte todos los recursos, excepto el oro, entre todos los personajes y el suministro de Frosthaven."
     },
     "fhStyle": {
       "": "Estilo Frosthaven",
