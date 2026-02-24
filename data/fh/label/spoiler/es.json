@@ -190,6 +190,17 @@
   },
   "character": {
     "fh": {
+      "astral": {
+        "": "Inductora",
+        "imbue-with-life": {
+          "": "Imbuir de vida",
+          "hint": "Siempre que no tengas %game.condition.disarm%, sufre %game.condition.disarm%."
+        },
+        "veil-of-protection": {
+          "": "Velo de protección",
+          "hint": "Tus valores de puntos de vida actuales y máximos aumentan en 3."
+        }
+      },
       "coral": "Marea restallante",
       "drill": {
         "": "Mosaico de Metal",
@@ -233,6 +244,15 @@
   },
   "custom": {
     "fh": {
+      "astral": {
+        "1": "Mueve un elemento Menguante a Fuerte",
+        "2": "%game.action.attack% +1 por cada par de %game.action.custom.fh-infusion% activas",
+        "3": "Cuando el personaje quede agotado, mantén en juego todas tus bonificaciones activas y tus invocaciones actuarán a iniciativa 99 cada ronda",
+        "4": "Siempre que realices un descanso corto, puedes %game.element.consume.wild% para %game.card.recover% un Objeto %game.items.slots.onehand% o %game.items.slots.twohand% gastado",
+        "5": "Una vez por escenario, al determinar la iniciativa, después de que se hayan revelado todas las cartas de Capacidad, %game.element.wild%",
+        "6": "Ten 5 bonificaciones %game.action.custom.fh-infusion% activas",
+        "7": "Mata al menos 4 enemigos, pero no ataques nunca"
+      },
       "coral": {
         "1": "Si has realizado una acción %data.action.custom.fh-tides% esta ronda, %game.attackmodifier.plus2% en vez de lo anterior",
         "2": "y, siempre que vayas a sufrir %game.condition.impair%, evítalo",
@@ -586,6 +606,9 @@
       "": "Pulsera aturdidora",
       "1": "Durante tu turno, aplica %game.condition.stun% a. la mitad (redondeando hacia arriba) de los enemigos adyacentes a ti."
     },
+    "fh-166": {
+      "1": "Durante tu turno, realiza:"
+    },
     "fh-167": {
       "": "Brazalete de atracción",
       "1": "Al inicio del turno de un enemigo, antes de que centre su atención, realiza:"
@@ -594,9 +617,19 @@
       "": "Armadura de cuero curtido",
       "1": "Para los 2 próximos ataques que te tomen como objetivo, el atacante sufre Desventaja."
     },
+    "fh-170": {
+      "": "Ojo de la Verdad",
+      "1": "Durante tu turno, revela la carta superior de cada mazo de habilidades de cada monstruo."
+    },
     "fh-171": {
       "": "Amuleto rejuvenecedor",
       "1": "Siempre que pierdas una carta para prevenir %game.damage%, %game.card.recover% hasta 1 carta de tu pila de descartes y obtén %game.condition.regenerate%."
+    },
+    "fh-174": {
+      "1": "Durante tu turno, realiza: %game.action.teleport% 20 Este teletransporte debe finalizar en un hexágono adyacente a uno de tus aliados."
+    },
+    "fh-176": {
+      "1": "Durante tu turno, realiza: %game.action.teleport% 4 Este teletransporte debe finalizar en un hexágono adyacente a uno de tus enemigos."
     },
     "fh-177": {
       "": "Botas de transferencia",
@@ -642,13 +675,23 @@
       "": "Martillo tintineate",
       "1": "Durante tu capacidad de Ataque, añade %game.condition.muddle% a todos tus ataques."
     },
+    "fh-191": {
+      "1": "Durante tu turno, realiza:"
+    },
     "fh-195": {
       "": "Tricornio",
       "1": "Durante tu turno, añade %game.action.range% +1 y %game.action.pierce% a 1 de tus ataques a distancia."
     },
+    "fh-196": {
+      "1": "Durante tu turno, descarta 1 carta de botín excepto Objeto Aleatoria para realizar:"
+    },
     "fh-197": {
       "": "Diadema etérida",
       "1": "Después de determinar la iniciativa, cambia 1 carta de tu mano por otra que hayas jugado. Tu iniciativa no se ve afectada."
+    },
+    "fh-198": {
+      "": "Collar del cazador",
+      "1": "Durante tu turno, realiza:"
     },
     "fh-199": {
       "": "Zapatos opulentos",
@@ -682,6 +725,10 @@
       "": "Jarra confundidora",
       "1": "Durante tu turno, añade %game.action.attack% +1 y %game.condition.muddle% a todos tus ataques. Al final de tu turno, realiza:"
     },
+    "fh-218": {
+      "": "Tomo de vida",
+      "1": "Durante tu turno, retira todos los estados de todas las figuras y otorga a todas las figuras:"
+    },
     "fh-22": {
       "": "Cota de malla pesada",
       "1": "Cuando sufras %game.damage% por un ataque, obtén %game.action.shield:3% para dicho ataque."
@@ -690,9 +737,18 @@
       "": "Estilete de hielo",
       "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, %game.element.consume.ice% para añadir %game.action.pierce% 3 a 1 ataque."
     },
+    "fh-222": {
+      "1": "Durante tu turno, descarta 2 cartas de tu mano para realizar:"
+    },
     "fh-223": {
       "": "Pararayos",
       "1": "Después de determinar la iniciativa, todos los monstruos consideran que vas primero en el orden de iniciativa al centrar su atención durante esta ronda. "
+    },
+    "fh-224": {
+      "": "Armadura de Empatía",
+      "1": "Después de los siguientes tres ataques dirigidos a ti, da la vuelta a esta carta.",
+      "2": "Durante tu turno, realiza:",
+      "4": "después, da la vuelta a esta carta."
     },
     "fh-225": {
       "": "Figura algox",
@@ -929,6 +985,9 @@
       "": "Báculo de roble",
       "1": "Durante tu turno, %game.element.consume.light% para realizar:"
     },
+    "fh-74": {
+      "1": "Durante tu turno, realiza:"
+    },
     "fh-75": {
       "": "Guantelete de rosa",
       "1": "Después de que cualquier aliado a %game.action.range:2% o menos sufra %game.damage% de un ataque, retira todos los estados negativos del aliado y luego realiza:"
@@ -940,6 +999,9 @@
     "fh-77": {
       "": "Cañón de caos",
       "1": "Durante tu turno, sustituye una pieza de 1 hexágono de obstáculo, terreno peligroso, terreno impracticable o terreno helado en un hexágono desocupado a %game.action.range:2% o menos por un tipo diferente de pieza de la lista anterior."
+    },
+    "fh-79": {
+      "1": "Durante tu turno,  añade %game.action.attack% +1 a todos tus ataques y realiza:"
     },
     "fh-8": {
       "": "Lanza tosca",
@@ -1023,8 +1085,53 @@
     }
   },
   "pets": {
+    "fh-01": {
+      "": "Cerdo piraña",
+      "1": "Todos los personajes realizan de inmediato:"
+    },
+    "fh-02": {
+      "": "Sabueso",
+      "1": "Durante esta ronda, todos los personajes suman %game.action.attack% +1 a todos sus ataques cuerpo a cuerpo que tengan como objetivo enemigos adyacentes a cualquiera de los aliados del personaje."
+    },
+    "fh-03": {
+      "": "Draco escupidor",
+      "1": "Durante esta ronda, todos los personajes añaden %game.condition.poison% a todos sus ataques a distancia."
+    },
+    "fh-04": {
+      "": "Draco desgarrador",
+      "1": "Durante esta ronda, todos los personajes añaden %game.condition.wound% a todos sus ataques cuerpo a cuerpo."
+    },
     "fh-05": {
-      "1": "En orden de iniciativa, todos los personajes de forma inmediata realizan:"
+      "": "Duende negro",
+      "1": "En orden de iniciativa, todos los personajes realizan de inmediato:"
+    },
+    "fh-06": {
+      "": "Duende del bosque",
+      "1": "En orden de iniciativa, todos los personajes realizan de inmediato:"
+    },
+    "fh-07": {
+      "": "Duende de la nieve",
+      "1": "En orden de iniciativa, todos los personajes realizan de inmediato:"
+    },
+    "fh-08": {
+      "": "Cieno",
+      "1": "Crea un obstáculo de 1, 2 o 3 hexágonos en cualquier lugar revelado del tablero."
+    },
+    "fh-09": {
+      "": "Máquina ruinosa",
+      "1": "Todos los personajes realizan de inmediato:"
+    },
+    "fh-10": {
+      "": "Anguila relámpago",
+      "1": "Todos los personajes sufren %game.damage:2% para %game.card.recover% de sus cartas descartadas de nivel 1 o X."
+    },
+    "fh-11": {
+      "": "HE-RO-IC-O",
+      "1": "En orden de iniciativa, todos los personajes pueden elegir individualmente realizar de inmediato una de estas opciones:"
+    },
+    "fh-12": {
+      "": "Brummix",
+      "1": "Durante la selección de cartas, revela la primera carta del mazo de Capacidades de cada conjunto de monstruos activo de esta ronda antes de que cada personaje seleccione sus cartas."
     }
   },
   "scenario": {
@@ -1036,17 +1143,179 @@
         "10": {
           "5": "Un Voz de hielo al que perseguías te atrajo a una especie de trampa: caíste por una fisura oculta a una cripta subterránea llena de espíritus. Tras acabar con ellos y conseguir un trineo, comenzaste a perseguir a estos Algox."
         },
+        "108": {
+          "": "En un cofre, encontraste una tablilla de piedra grabada. La imagen representa un paisaje extrañamente familiar, y sentiste que podrías encontrar el lugar si lo buscabas con suficiente empeño."
+        },
+        "109": {
+          "": "Encontraste una delicada pieza de maquinaria curiosa en un cofre. Cuando la sacaste, cobró vida y proyectó un mapa sobre ella. Descubriste cómo manipular este mapa proyectado y encontraste la ubicación de lo que parece ser una fábrica de algún tipo."
+        },
         "11": {
           "6": "En tu ascenso, te sorprendió una avalancha. Has luchado por salir adelante y has conseguido equipo de escalada que te ayudará a alcanzar la cima."
+        },
+        "110": {
+          "": "Encontraste una losa de piedra tallada en un cofre. Tenía forma de piedra angular y sentiste que sabías dónde encajaba. Mentalmente te indicó el camino."
+        },
+        "111": {
+          "": "Encontraste un espejo de plata en un cofre. A diferencia de la mayoría de los espejos, este no reflejaba tu imagen, sino que mostraba una imagen de tu grupo caminando por el desierto hacia una cueva llena de tesoros."
+        },
+        "112": {
+          "": "Dentro de un cofre del tesoro, en lo más profundo de una aterradora mazmorra llena de peligrosos monstruos, encontraste un adorable cachorro de lobo que dormía plácidamente. Y estaba vivo, de alguna manera. Encerrado en un cofre. Quizás esto suene extraño o improbable, pero los cachorros son increíbles, así que ¿por qué hacer tantas preguntas? Te lo llevaste contigo a Frosthaven."
+        },
+        "113": {
+          "": "Mientras viajabas, te viste envuelto en una espesa niebla. Cuando se disipó, te encontraste en un frondoso bosque, donde no era invierno en absoluto, lleno de animales del bosque y polen. Parecía como si intentara mantenerte alejado de algo. Sin embargo, es difícil engañarte, así que te abriste paso a través de las ilusiones y encontraste una exuberante gruta. Decidiste investigar (quizás de inmediato, o quizás decidiste volver más tarde)."
+        },
+        "114": {
+          "4": "El ingeniero residente de Frosthaven, Pinter Droman, cree que hay una nueva oportunidad para crear un paso a través de las montañas tras un reciente desprendimiento de tierra. Esto podría ahorrar varios días en cada viaje. Pinter ha creado unas bombas para ayudar a despejar los escombros restantes, pero la fauna local no ha visto con buenos ojos esta medida. Te ha pedido que coloques algunos explosivos en determinados lugares, ya que, a diferencia de sus trabajadores habituales, tú puedes protegerte."
+        },
+        "115": {
+          "114": "Todo salió tan bien como cabía esperar cuando se mezclan dinamita y osos polares, pero saliste victorioso.<br>Unas semanas más tarde, él necesitaba más ayuda con el proyecto. Parte de la carretera pasa por debajo de un acantilado, por lo que el equipo de construcción instaló pilones para reforzarlo. Sin embargo, a algunos saqueadores Algox, un clan llamado los Cuernos de la Ruina, no les gusta nada esta nueva construcción. Pinter te pidió que fueras a proteger los pilones antes de que se produjera el ataque."
+        },
+        "116": {
+          "115": "Una vez hecho esto, Pinter y su equipo pudieron terminar la carretera. La alcaldesa Satha pidió a algunos comerciantes locales que probasen este nuevo atajo y te pidió que escoltases a las primeras caravanas que se dirigían al sur."
+        },
+        "117": {
+          "": "Después de pasar un tiempo lejos de Frosthaven, tu amigo el trampero Infestor regresó. Se instalaron en el bosque Fuegoblanco, pero los osos polares han estado ahuyentando a todos los animales más pequeños. Otros Infestores locales cazaban en excesos a los osos, expulsándolos de su hábitat natural. Tu viejo amigo te pidió que le ayudaras a reubicar a los osos en un lugar más adecuado."
+        },
+        "118": {
+          "": "La Esculpehuesos regresó y te sorprendió un día. Han estado buscando energía en nuevos planos de existencia, y ha descubierto una extraña energía mucho más cerca de casa, que emana de algún lugar cercano a Frosthaven."
         },
         "12": {
           "6": "Durante el ascenso, te vio envuelto una avalancha. Te diste cuenta de que la avalancha había dejado al descubierto una estructura de piedra en ruinas que sobresalía del suelo, no muy lejos de allí, y decidiste que merecía la pena echarle un vistazo."
         },
+        "128": {
+          "": "Un día de verano, encontraste a dos hermanos, Nits y Narb, borrachos al borde de la carretera. Se estaban peleando entre ellos y con la nieve, posiblemente alucinando. Intentaste ayudarles, quizá con éxito, y entonces decidiste seguir el escenario de Matthew G. Somers."
+        },
+        "129": {
+          "128": "Más tarde, viste a los dos en el Cráter; te saludaron efusivamente y borrachos, y te presentaron a un noble capitalista llamado Derrick. Empezaron a presumir ante él de tus logros (ficticios) y luego se produjo toda una serie de tonterías. Sin embargo, Derrick quedó impresionado y dijo que quizá tuviera un trabajo para ti más adelante. <br>Efectivamente, unas semanas más tarde, así sucedió. Te mostró una bolsa de ágatas solares, unas piedras preciosas raras y hermosas. Al parecer, son muy populares entre la Orden Radiante, fervientes adoradores del Gran Roble. Derrick encontró una mina cercana, explotada por Algox, y sugirió tomarla por la fuerza. Sin embargo, primero te pidió que robaras un trineo lleno de ellas, tendiéndoles una emboscada."
+        },
+        "13": {
+          "7": "Los perseguiste hasta el borde del Mar de los Mordiscos, donde te encontraste con los Acechadores en una cueva excavada en un acantilado. Encontraste una extraña esquirla de coral en el cráneo de un cadáver viviente; este te comunicó que quería que lo llevaras al norte, lejos del mar, lejos de los acantilados. Supusiste que eso era lo que buscaban los acechadores.<br>Antes de adentrarte en mar abierto, decidiste seguir la llamada de la esquiarla por tierra a lo largo de la costa norte."
+        },
+        "130": {
+          "129": "Con la ayuda de algunos mercenarios, capturaste el trineo y recuperaste todas las ágatas solares que pudiste, guardándolas en contenedores aislados. Partiste hacia Frosthaven."
+        },
+        "132": {
+          "": "Un anciano llamado Mulbrynn se presentó en el Cráter y se ofreció a contarte una leyenda a cambio de una bebida. Te habló de otro grupo de aventureros que encontraron un ídolo «oscuro y poderoso» que los obligó a subir a lo alto de las Montañas Imperiales, prometiéndoles que sus sueños se harían realidad. Nunca regresaron. Te entregó un mapa del lugar al que se dirigían."
+        },
+        "136": {
+          "": "Dinah Snapclaw, la tabernera infestora del de Frosthaven, te ha contado historias sobre un famoso pirata, Barty Mediaoreja. Te ha pedido que busques monedas antiguas, como la que ella lleva. Si las encuentras todas, se supone que te llevarán a un enorme tesoro.<br>Después de llevarle una de las monedas, te habló del botín de la Reina Pirata, un enorme tesoro que ella y Barty buscaban juntos antes de que él la traicionara. Necesitas cuatro monedas para encontrarlo; ella tiene una, él tiene otra, tú acabas de encontrar una tercera y aún falta la última.<br>Ella quiere vengarse y hacerse con el tesoro, así que te ha dado la ubicación del escondite de Barty. Está bastante segura de que ahí es donde él guarda su moneda. Tráele dos monedas más y todos seréis ricos."
+        },
+        "137": {
+          "136": "El escondite de Barty estaba al final de un río subterráneo infestado de anguilas. Su moneda estaba allí, junto con un buen botín. Con la moneda de Dinah, la de Barty y las otras dos que encontraste durante tus exploraciones, tenías todos los elementos que necesitabas. Dinah te llevó a una cueva no muy lejos de Frosthaven. Te contó más cosas sobre la Reina Pirata, una Quatryl que, al parecer, había intentado utilizar autómatas como tripulación. A los que seguían vivos no les gustó mucho la idea, así que se amotinaron. Creyeron que la tenían atrapada, pero ella se encerró a sí misma y a sus robots. Los piratas marcaron la ubicación de su tumba y sellaron esa información en una cueva, detrás de una cerradura que solo se podía abrir con cuatro monedas específicas. Descubriste la orientación correcta (o, lo viste al retirar a Dagacentella, gracias Asmodee ^^) y Dinah recuperó un antiguo pergamino de la caverna que había más allá. El botín de la Reina Pirata estaba a solo un corto viaje en barco."
+        },
+        "14": {
+          "7": "Los perseguiste hasta el borde del Mar de los Mordiscos, donde te encontraste con los Acechadores en una cueva excavada en un acantilado. Encontraste una extraña esquirla de coral en el cráneo de un cadáver viviente; esta te comunicó que quería que lo llevaras al norte, lejos del mar, lejos de los acantilados. Supusiste que eso era lo que buscaban los acechadores.<br>Tras construir un barco, decidiste adentrarte en el mar cubierto de hielo y ver dónde quería llevarte la esquirla."
+        },
+        "15": {
+          "8": "Corrías por un valle peligroso, perseguido por lobos, que se abría hacia los Campos de Cristal, llenos de enormes pilares de cristal tan altos como árboles.<br>Te fijaste en una aguja enorme, más grande y de color más oscuro que el resto, y decidiste ir a verla."
+        },
+        "16": {
+          "8": "Corrías por un valle peligroso, perseguido por lobos, que se abría hacia los Campos de Cristal, llenos de enormes pilares de cristal tan altos como árboles. <br>Te fijaste en una espiga lejana que te pareció un poco curiosa, más corta y ancha que el resto, y decidiste ir a verla."
+        },
+        "17": {
+          "9": "En la última sala de las catacumbas, encontraste una extraña puerta con engranajes y símbolos. Esto no significaba nada para ti hasta que el académico Quatryl, Crain, comenzó a pedirte que investigaras los \"lugares de muerte\" y las extrañas energías que permanecen en ciertas partes del norte, probablemente como resultado de una guerra librada hace mucho tiempo."
+        },
+        "18": {
+          "10": "Los Algox que encontraste canalizaban energía a través de extrañas puntas de cristal, conductos que aumentaban su poder. Los derrotaste, pero divisaste otro campo de estas puntas en la distancia. Este es mucho más grande, así que te dispusiste a buscar su origen."
+        },
+        "19": {
+          "11": "Derrotaste a la poderosa Voz de la Nieve, pero algo que ella hizo temblar el pico de la montaña; rápidamente descendiste en rappel."
+        },
         "2": {
           "1": "Ayudaste a repeler un ataque de los Algox; la alcaldesa Satha te pidió ayuda para seguir lidiando con ellos. El explorador Valrath de Satha avistó a un pequeño grupo que se dirigía a la mortal cara oriental de la montaña y sospecha que hay una entrada secreta en esa zona."
         },
+        "20": {
+          "12": "Entraste en el templo y encontraste muchas criaturas metálicas; tras derrotarlas, descubriste una serie de hendiduras brillantes en el suelo. Parecían ser conductos para que las criaturas recuperaran su poder, y el poder sugiere una fuente de energía. Encontraste cables metálicos enterrados bajo el suelo y decidiste seguirlos para adentrarte más en el templo."
+        },
+        "21": {
+          "13": "Cruzaste un puente hecho con una antigua caja torácica y derrotaste a los demonios que lo custodiaban. Decidiste seguir el rastro de la Esquirla de Coral hacia el norte, con la esperanza de llegar a dondequiera que te estuviera llevando."
+        },
+        "22": {
+          "14": "Después de enfrentarte a una pesadilla de abaeles, anguilas y cerdos pirañas, rompiste una segunda esquirla de coral de una piedra. Un semicírculo de acechadores surgió del agua, incluida su líder. Te hablaron de una corona de coral que se hizo añicos, y con ella se hizo también añicos el gran reino de los acechadores. La mayoría de los acechadores entraron en un frenesí ciego después de eso; has aceptado ayudar a reunir la corona con la esperanza de que reconstruya la civilización de los acechadores.<br>La atracción psíquica de los fragmentos de coral te llevó al este y hacia las profundidades del mar."
+        },
+        "23": {
+          "15": "Derrotaste al teniente del Caos que custodiaba la entrada, el cual proclamó que se estaban preparando para destruir tu puesto fronterizo. Encontraste unas escaleras que conducían hacia abajo y un haz de luz que te llevaba hacia arriba. Optaste por bajar las escaleras."
+        },
+        "24": {
+          "15": "Derrotaste al teniente del Caos que custodiaba la entrada, el cual proclamó que se estaban preparando para destruir tu puesto fronterizo. Encontraste unas escaleras que conducían hacia abajo y un haz de luz que te llevaba hacia arriba. Entraste en el haz para ser transportado hacia arriba."
+        },
+        "25": {
+          "16": "Resultó ser una especie de edificio antiguo. Lo abriste y encontraste máquinas rotas, cristales y desorden. Encontraste un ascensor antiguo y conseguiste ponerlo en marcha, descendiendo hasta lo más profundo. En la parte inferior había una pasarela en dos direcciones: te dirigiste directamente hacia una alarma de seguridad para enfrentarte a ella."
+        },
+        "26": {
+          "16": "Resultó ser una especie de edificio antiguo. Lo abriste y encontraste máquinas rotas, cristales y desorden. Encontraste un ascensor antiguo y conseguiste ponerlo en marcha, descendiendo hasta lo más profundo. En la parte inferior había una pasarela en dos direcciones; Te alejaste de una alarma de seguridad con la esperanza de evitar a los defensores."
+        },
+        "28": {
+          "18": "Derrotaste a los Voz del Hielo, pero trajiste a un superviviente para que se reuniera con el jefe Lanprul. El superviviente informó de que Geryuu había enviado «excavadores» contra ellos y que estaba cansado de esta guerra. Mientras que el jefe Lanprul se mostró receptivo, otra persona, Denpang, animó a lanzar un ataque total con tu ayuda del lado de los Voz de la Nieve. Ella se marchó para planear la batalla. Tú te quedaste con el jefe Lanprul para planear la vía de la paz.",
+          "19": "Descubriste que los espíritus de Salón Celeste, un lugar de gran importancia religiosa, se habían vuelto contra los Voz del Hielo. Mientras los enterrabas, el jefe Elland declaró que esto no podía continuar, que la guerra estaba llevando a la ruina a todos los Algox. Una anciana del grupo, Putargal, instó a vengarse de los Voz de la Nieve por lo que le habían hecho a la Montaña del Desprecio Nevado y al Salón Celeste. Se marchó para planear un ataque contra sus enemigos, pero tú te quedaste con el jefe Elland para buscar la paz."
+        },
+        "29": {
+          "18": "Derrotaste a los Voz del Hielo, pero trajiste a un superviviente para que se encontrara con el jefe Lanprul. El superviviente informó de que Geryuu había enviado «excavadores» contra ellos y que estaba cansado de esta guerra. Mientras que el jefe Lanprul se mostró receptivo, otra persona, Denpang, animó a lanzar un ataque total con tu ayuda al lado de los Voz de la Nieve. Ella se marchó para planear la guerra. Te fuiste con Denpang para ayudar en el ataque y conseguir la victoria definitiva de los Voz de la Nieve."
+        },
         "3": {
           "1": "Ayudaste a repeler un ataque de los Algox; la alcaldesa Satha te pidió ayuda para seguir lidiando con ellos. El explorador Valrath de Satha avistó a un pequeño grupo que se dirigía a la mortal cara oriental de la montaña y sospecha que hay una entrada secreta en esa zona."
+        },
+        "30": {
+          "19": "Descubriste que los espíritus del Salón Celeste, un lugar de gran importancia religiosa, se habían vuelto contra los Voz del Hielo. Mientras los enterrabas, el jefe Elland declaró que esto no podía continuar, que la guerra estaba llevando a la ruina a todos los Algox. Una anciana del grupo, Putargal, instó a vengarse de los Voz de la Nieve por lo que le habían hecho a la montaña del Desprecio Nevado y el Salón Celeste. Se marchó para planear un ataque contra sus enemigos y tú la acompañaste para sumarte a la batalla."
+        },
+        "31": {
+          "20": "Para derrotar a todos los autómatas, era necesario destruir un extraño orbe brillante. Una vez derrotados, se podía investigar una extraña puerta sellada por un complejo rompecabezas con engranajes y símbolos. Esto no significaba nada para ti hasta que el académico Quatryl, Crain, comenzó a pedirte que investigaras los “lugares de la muerte” y las extrañas energías que permanecían en ciertas partes del norte, probablemente como resultado de una guerra librada hace mucho tiempo."
+        },
+        "32": {
+          "13": "Cruzaste un puente hecho con una antigua caja torácica y derrotaste a los demonios que lo custodiaban. Decidiste ignorar la atracción de la Esquirla por ahora e investigar el bosque occidental."
+        },
+        "33": {
+          "22": "Allí, fuiste atacado por los acechadores, atraídos por el poder de las Esquirlas que llevas contigo. Destrozaron tu barco, por lo que decidiste buscar otro medio de transporte. El inventor de Frosthaven, Pinter Droman, diseñó una batisfera, una nave para viajar con seguridad bajo el agua, pero necesitaba una fuente de energía. Te sugirió que podrías encontrar una en el corazón del Bosque Radiante."
+        },
+        "34": {
+          "23": "Sea cual sea tu elección, encontraste al menos una forma de ascender para frustrar el siniestro propósito de esta torre. Sabías que las respuestas se encontraban en la planta superior.",
+          "24": "Sea cual sea tu elección, encontraste al menos una forma de ascender para frustrar el siniestro propósito de esta torre. Sabías que las respuestas se encontraban en la planta superior."
+        },
+        "35": {
+          "25": "Allí rescataste a Crain, un erudito quatryl que estaba estudiando a los Desencadenados. Se ha estado recuperando en Frosthaven y cree haber desarrollado un dispositivo que desactivaría a los Desencadenados. Sin embargo, primero necesita materiales y te ha pedido que lo lleves de vuelta para poder encontrar las piezas que necesita."
+        },
+        "36": {
+          "26": "Allí rescataste a Crain, un erudito quatryl que estaba estudiando a los Desencadenados. Se ha estado recuperando en Frosthaven. Te mostró algunos mapas del complejo y dos posibles caminos hacia el núcleo. Decidistees colarte por encima de ellos a través de los conductos."
+        },
+        "37": {
+          "26": "Allí rescataste a Crain, un erudito quatryl que estaba estudiando a los Desencadenados. Se ha estado recuperando en Frosthaven. Te mostró algunos mapas del complejo y dos posibles caminos hacia el núcleo. Decidiste tomar el camino más profundo, que en su día pudo haber sido un sistema de transporte."
+        },
+        "38": {
+          "28": "Sea cual sea el grupo de Algox con el que te hayas aliado primero, has aceptado ayudar a su jefe a buscar una solución pacífica a su conflicto. Asististe a una cumbre entre dos emisarios de Algox, Gurndel y Barduu, como testigo y guardaespaldas. Sin embargo, tanto los Voz del Hielo como los Voz de la Nieve la atacaron, luchando contra ti y contra sus tribus enemigas. Lograste escapar con ellos; acordaron que la única forma de avanzar era buscar al Oráculo en el Bosque Fuegoblanco, Mar'ogh."
+        },
+        "39": {
+          "29": "Los Voz de la Nieve salieron victoriosos, pero desde entonces has estado sintiendo culpa y teniendo pesadillas. Así que cuando, unas semanas más tarde, te enteraste de la existencia de un campo de refugiados de los Voz del Hielo en el Bosque Radiante, decidiste intentar ayudar."
+        },
+        "40": {
+          "30": "Los Voz del Hielo salieron victoriosos, pero desde entonces has estado sintiendo culpa y teniendo pesadillas. Un pequeño grupo de Voz de la Nieve sobrevivió y le pidió ayuda la alcaldesa Satha. Llegaste a un acuerdo con Satha y te pusiste en marcha para ver si podías ayudar."
+        },
+        "41": {
+          "31": "Seguiste por el pasillo luminoso, derrotaste a más autómatas y descansaste antes de continuar."
+        },
+        "42": {
+          "33": "Allí, fuiste atacado por los Acechadores, atraídos por el poder de las Esquirlas que llevabas contigo. Destrozaron tu barco, por lo que decidiste buscar otro medio de transporte. El inventor de Frosthaven, Pinter Droman, diseñó una batisfera, una nave para viajar con seguridad bajo el agua, pero necesitaba una fuente de energía. Te sugirió que podrías encontrar una en el corazón del Bosque Radiante. <br>Recuperaste la fuente de energía y se la devolviste a Pinter. Tras unas semanas, la batisfera estaba lista, junto con un grupo de trajes submarinos. Era hora de seguir el rastro de las esquirlas de coral."
+        },
+        "43": {
+          "35": "Después de rebuscar entre los desechos, Crain terminó su dispositivo de desactivación. Ahora que está construido, puedes acompañarlo al núcleo del complejo."
+        },
+        "44": {
+          "36": "Allí rescataste a Crain, un erudito quatryl que estaba estudiando a los Desencadenados. Se ha estado recuperando en Frosthaven. Te mostró algunos mapas del complejo y dos posibles caminos hacia el núcleo. Elegiste uno y te pusiste en marcha.<br>Tras los peligros del viaje, llegaste a la cámara central. Ahora solo tienes que averiguar cómo desactivarlo.",
+          "37": "Allí rescataste a Crain, un erudito quatryl que estaba estudiando a los Desencadenados. Se ha estado recuperando en Frosthaven. Te mostró algunos mapas del complejo y dos posibles caminos hacia el núcleo. Elegiste uno y te pusiste en marcha.<br>Tras los peligros del viaje, llegaste a la cámara central. Ahora solo tienes que averiguar cómo desactivarlo."
+        },
+        "45": {
+          "38": "Barduu y Gurndel consultaron a Mar'ogh, quien dijo: «LA CORRUPCIÓN SE HA EXTENDIDO DEMASIADO. AQUEL QUE DUERME AHORA SE DESPIERTA. SU INFLUENCIA AVIVA EL CONFLICTO. EL CORAZÓN DE HIELO SE ENNEGRECE. SU IMPUREZA DEBE SER ERRADICADA Y SUSTITUIDA. FORMA UN NUEVO CORAZÓN HECHO DE HIELO Y NIEVE. UN CAMINO YACE OCULTO EN EL MAR: EL GLACIAR VIVO, FORMADO EN ÉPOCAS PASADAS. EL OTRO YACE EN LAS COLINAS DEL SUR: LA NIEVE NUEVA QUE GUARDA LA CANCIÓN DE LOS DÍAS POR VENIR. JUNTOS CONTENEN EL PODER DE DETENER LA CORRUPCIÓN. BÚSCALOS Y REGRESA».<br>Así, viajaste al glaciar viviente en busca de hielo."
+        },
+        "46": {
+          "38": "Barduu y Gurndel consultaron a Mar'ogh, quien dijo: «LA CORRUPCIÓN SE HA EXTENDIDO DEMASIADO. AQUEL QUE DUERME AHORA SE DESPIERTA. SU INFLUENCIA AVIVA EL CONFLICTO. EL CORAZÓN DE HIELO SE ENNEGRECE. SU IMPUREZA DEBE SER ERRADICADA Y SUSTITUIDA. FORMA UN NUEVO CORAZÓN HECHO DE HIELO Y NIEVE. UN CAMINO YACE OCULTO EN EL MAR: EL GLACIAR VIVO, FORMADO EN ÉPOCAS PASADAS. EL OTRO YACE EN LAS COLINAS DEL SUR: LA NIEVE NUEVA QUE GUARDA LA CANCIÓN DE LOS DÍAS POR VENIR. JUNTOS CONTENEN EL PODER DE DETENER LA CORRUPCIÓN. BÚSCALOS Y REGRESA».<br>Así, viajaste al Paso Muerto en busca de la Nieve Nueva."
+        },
+        "47": {
+          "39": "Los Voz del Hielo estaban siendo atacados por miembros poseídos de su propia tribu, y en lugar de acabar con el resto de estos Algox, los rescataste. Una Voz del Hielo llamada Putargal te dio las gracias y te pidió ayuda para erradicar al resto de los Algox poseídos y encontrar el origen de la corrupción."
+        },
+        "48": {
+          "40": "Encontraste a los refugiados de los Voz de la Nieve siendo atacados por los Desencadenados. Hiciste todo lo posible por salvar a tantos heridos como pudiste. Una joven de los Vozde la Nieve, Denpang, te dio las gracias y te pidió un poco más de ayuda: que llevaras al resto de su clan a una isla llamada Frai'd Tog, donde los Voz de la Nieve restantes podrían vivir en paz."
+        },
+        "49": {
+          "42": "La prueba de la batisfera fue un éxito. Unas semanas más tarde, Sol en los bajios visitó Frosthaven. Informó de que ella y un grupo de compañeros acechadores intentaron obtener una esquiarla corrompida por las sombras, pero ella y sus aliados fueron derrotados. Hasta que esa esquirla no se libere del mal, seguirá corrompiendo a los acechadores y Frosthaven nunca estará a salvo. Además, la Corona no puede ser reunificada sin ella. Pinter recomendó convertir tus esquirlas en una bomba psíquica para aturdir a los acechadores, pero tú decidiste buscar otra forma de entrar."
         },
         "4A": {
           "2": "Rescataste a una sacerdotisa algox llamada Lanprul mientras investigabas una entrada secreta al Pico Helado. Ella pertenece a los Voz de la Nieve, un grupo de algox que cree que su dios (Geryuu) se comunica con ellos a través de la nieve que cae. Están en guerra con un grupo rival de algox, los Voz del Hielo, que creen que pueden comunicarse con su dios a través del hielo que emerge del suelo. Los Voz de Hielo ocupan actualmente el pico Helado, pero los Voz de la Nieve aprovecharon la oportunidad para tomarlo cuando estos se marcharon para atacar Frosthaven.",
@@ -1059,22 +1328,79 @@
         "5": {
           "4": "Te pusiste del lado de los Voz de la Nieve en su batalla contra los Voz de Hielo al matar al jefe de los Voz de Hielo. Los Voz de la Nieve, que creen que se comunican con su dios a través de la nieve que cae, están en guerra con los Voz de Hielo, que creen que pueden comunicarse con su dios a través del hielo que emerge del suelo. El pico de la montaña es sagrado para ambos grupos.<br>La jefa de los Voz de la Nieve, Lanprul, te pidió que la ayudaras a poner fin a la guerra con los Voz de Hielo para garantizar la seguridad de Frosthaven frente a Algox. Ella vio a un grupo de Voz de Hielo al norte del bosque Fuegoblanco que lanzará un contraataque si no se les detiene."
         },
+        "50": {
+          "42": "La prueba de la batisfera fue un éxito. Unas semanas más tarde, Sol en los bajios visitó Frosthaven. Informó de que ella y un grupo de compañeros acechadores intentaron obtener una esquiarla corrompida por las sombras, pero ella y sus aliados fueron derrotados. Hasta que esa esquirla no se libere del mal, seguirá corrompiendo a los acechadores y Frosthaven nunca estará a salvo. Además, la Corona no puede ser reunificada sin ella. Pinter recomendó convertir tus esquirlas en una bomba psíquica para aturdir a los acechadores y tu decidiste confiar en el."
+        },
+        "51": {
+          "43": "Despejasteis algunos túneles de acceso, donde pudisteis utilizar los dispositivos de desactivación con gran eficacia, y derribasteis el pasadizo detrás de vosotros para proteger vuestras espaldas. Seguisteis avanzando."
+        },
+        "52": {
+          "45": "Recuperaste un fragmento de hielo vivo y nieve nueva, y los llevaste al claro sagrado para combinarlos.",
+          "46": "Recuperaste un fragmento de hielo vivo y nieve nueva, y los llevaste al claro sagrado para combinarlos."
+        },
+        "53": {
+          "49": "De vuelta al Mar de los Mordiscos, encontraste la enorme cúpula submarina de la guarnición de los Acechadores, donde se encuentra la esquirla, y buscaste una forma de entrar. Por desgracia, los guardias te vieron, así que te retiraste a una estrecha cueva. De alguna manera, tú y tu batisfera lograsteis atravesarla y salisteis a una extraña estructura de coral con forma de flor. Detrás de un enorme trono, por pura suerte, viste otra esquirla de coral."
+        },
+        "54": {
+          "50": "Encontraste un lugar adecuado y comenzaste el proceso de armar el dispositivo, pero los guardias de los Acechadores te descubrieron antes de que terminaras. Sin embargo, el dispositivo funcionó: todos los guardias de los Acechadores quedaron aturdidos, pero muchas estructuras quedaron destruidas. La esquirla te llamó desde bajo los escombros, por lo que supiste que tenías que excavar."
+        },
+        "55": {
+          "52": "Mar'ogh abrió un extraño portal para completar el ritual. Sin embargo, nada es tan sencillo: descubriste que debías derrotar a criaturas de hielo y nieve y utilizar su esencia para formar un glifo. Una vez hecho esto, los dos emisarios completaron el ritual, combinando el hielo y la nieve para formar el Fragmento Indomable. En su interior, encontraron las verdaderas palabras de Geryuu y descubrieron que los Algox habían sido engañados por algún tipo de poder. Tenías que volver a la montaña del Desprecio Nevado para incrustar el Fragmento en el Corazón de Hielo, eliminar la oscuridad que se había apoderado de los Algox y devolverlos a Geryuu."
+        },
+        "56": {
+          "47": "Seguiste al Algox y encontraste un nido de Putrefactores y de Legión de Verdugos. Los eliminaste, pero la oscuridad permaneció. Encontraste un túnel que conducía más profundamente hacia el origen de la corrupción."
+        },
+        "57": {
+          "48": "Encontraste la isla en el Mar de los Mordiscos, pero estaba rodeada por un vórtice de nieve y viento y ocupada por demonios. Te dirigiste a una montaña de la isla, hacia el origen de este caos."
+        },
         "6": {
           "4": "Te pusiste del lado de los Voz del Hielo en su batalla contra los Voz de la Nieve al matar al jefe de estos últimos. Los Voz del Hielo creen que pueden comunicarse con su dios Geryuu a través del hielo que emerge del suelo. Están en guerra con los Voz de la Nieve, que creen que pueden comunicarse con su dios Geryuu a través de la nieve que cae.<br>El pico de la montaña es sagrado para ambos grupos. El jefe de los Voz del Hielo, Elland, cree que Geryuu te trajo para ayudar a derrotar a los Voz de la Nieve, y ha prometido cesar temporalmente las hostilidades contra Frosthaven.<br>Un poderoso Voz de la Nieve ha alcanzado la cima del pico de la montaña y amenaza con derribar toda la montaña. Elland te ha sugerido que demuestres tu fuerza y amistad derrotando a este Voz de la Nieve."
+        },
+        "60": {
+          "53": "Derrotaste y purificaste a un acechador corrupto, la Ballena Caída, que te mostró visiones de una corona reunificada. Y, tras obtener los seis fragmentos, llegó el momento de reunificarla.",
+          "54": "Descubriste que el derrumbe había despertado a muchos de los guardias. Derrotaste y purificaste a un acechador corrupto, la Ballena Caída, que te mostró visiones de una corona reunificada. Y, tras obtener los seis fragmentos, llegó el momento de reunificarla."
+        },
+        "65": {
+          "": "Los Etéridos están interesados en establecer un puesto de investigación en el norte. Tú te encargas del trabajo preliminar."
+        },
+        "66": {
+          "65": "Un grupo de ocho Etéridos se acercó a Frosthaven y se fusionó en un solo ser. Voz de los Ocho, su portavoz, te pidió ayuda a cambio de conocimientos. Localizaron una matriz elemental y te pidieron que la recuperaras. Los ocho Etéridos descubrieron que solo el Ancla del dispositivo seguía intacta y que necesitaba nuevos núcleos elementales. Unas semanas más tarde, informaron de que los habían encontrado y te pidieron que te reunieras con ellos en la matriz."
+        },
+        "67": {
+          "66": "Voz de los Ocho y Nera, una de las ocho especialistas en encantamientos, abrieron portales a cuatro planos elementales para ti. Recuperaste un núcleo de cada uno y los colocaste dentro de un receptáculo especial que Etéridos había preparado. Necesitaban tiempo para remodelar los núcleos y prometieron que te llamarían cuando volvieran a necesitar tu ayuda."
+        },
+        "68": {
+          "67": "Al regresar al puesto avanzado de los Etéridos, encontraste a los ocho Etéridos en apuros. Necesitabas potenciar los núcleos con tus propias energías. Los habitantes de los planos elementales acudieron para recuperar las piedras y tú luchaste contra ellos. Aunque lograste tu objetivo, algo salió mal... Se abrió una nueva grieta."
+        },
+        "69": {
+          "": "Has oído rumores sobre un Roble Verdadero en algún lugar del norte, plantado por un profeta a partir de una bellota del Gran Roble de la capital. Has estado recogiendo muestras de madera."
         },
         "7": {
           "4": "Tras resolver el problema inmediato de Algox que amenazaba Frosthaven, la alcaldesa Satha mencionó que se habían avistado acechadores en las afueras del territorio de Frosthaven. Os ha pedido que lo investiguéis."
         },
+        "70": {
+          "69": "Un botánico Savvas local, Listerius, estudió las muestras de madera. Te envió al Bosque Radiante para que recogieras también algunas muestras de tierra. Con ellas, estaba seguro de que podría triangular la ubicación. Después de traerlas, Listerius comenzó a analizarlas. Unas semanas más tarde, encontraste la cabaña de Listerius saqueada. La Orden Radiante de Roble Blanco se enteró de su \"blasfemia\", robó las notas y fue a destruir el Roble Verdadero que habías estado buscando."
+        },
         "8": {
           "4": "Tras ocuparse de la situación inmediata con los Algox, la alcaldesa Satha mencionó que unas extrañas construcciones metálicas avanzaban por los páramos. Los exploradores las rastrearon a través del Bosque Fuegoblanco y luego hasta un valle helado. Os pidió que investigaseis el asunto."
         },
+        "87": {
+          "": "El capitán Olmstead te llevó hasta una chica Inox que encontraron casi congelada a las afueras de Frosthaven. Ella le dijo que \"El Coleccionista\" llevaba semanas reteniéndola a ella y a su família. La chica logró decirte donde se encuentra \"El Coleccionista\"."
+        },
+        "88": {
+          "87": "La guarida del Coleccionista era una estructura metálica situada en el Bosque Fuegoblanco. Luchaste contra los guardias del Coleccionista y rescataste a los dos hermanos de la chica. Ellos regresaron a Frosthaven para recibir atención médica, mientras que tú continuaste para acabar con el monstruo."
+        },
         "9": {
           "5": "Un Voz de hielo al que perseguías te atrajo a una especie de trampa: caíste por una fisura oculta a una cripta subterránea llena de espíritus. Después de ocuparte de ellos, decidiste explorar más a fondo esta zona subterránea."
+        },
+        "99": {
+          "": "Gem, una antigua orquídea, te encontró en el Cráter justo antes de irte a dormir. Sin dar demasiados detalles —se movía demasiado lentamente como para siquiera considerarlo—, te entregó una bolsa de antiguas monedas de oro y te contrató."
         }
       }
     }
   },
   "summon": {
+    "animated-claymore": "Claymore animada",
     "banner-of-courage": "Bandera de coraje",
     "banner-of-doom": "Bandera de condena",
     "banner-of-hope": "Bandera de esperanza",
@@ -1094,6 +1420,7 @@
     "shambling-skeleton": "Esqueleto tambaleante",
     "skeleton-sorcerer": "Hechicero esqueleto",
     "snow-fox": "Zorro de las nieves",
+    "spiritbound-falchion": "Alfanje espiritual",
     "stitched-atrocity": "Atrocidad cosida",
     "torch-bearer": "Portador de antorcha",
     "trained-falcon": "Halcón adiestrado",

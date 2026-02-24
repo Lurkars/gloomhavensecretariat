@@ -1,1 +1,6 @@
-{}
+{
+  "monster": {
+    "frost-demon": "Demon Mrozu",
+    "hound": "Ogar"
+  }
+}

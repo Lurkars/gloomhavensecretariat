@@ -5,5 +5,12 @@
         "2": "Stwórz 1 pole z wodą<br> w sąsiednim pustym polu."
       }
     }
+  },
+  "monster": {
+    "algox-icespeaker-shards-solo": "Algoks Lodomówca (Solo)",
+    "algox-snowspeaker-trap-solo": "Algoks Śniegomówca (Solo)",
+    "mountains-heart": "Serce Góry",
+    "night-demon-deathwalker-solo": "Nocny demon (solo)",
+    "plea-for-help-without-answer": "Wołanie o pomoc bez odpowiedzi"
   }
 }

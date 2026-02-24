@@ -37,9 +37,9 @@
       "": "Mapa Global",
       "highlighting": "Resaltar"
     },
-    "party": "Hojas de Grupo/Campaña",
-    "resources": "Tabla general de recursos",
-    "sheet": "Hoja de gestión global de campañas",
+    "party": "Hoja de Grupo/Campaña",
+    "resources": "Cuadro resumen de recursos",
+    "sheet": "Hoja de Gestión Global de Campaña",
     "trials": {
       "": "Pruebas",
       "automation": "¡El efecto de esta carta se aplica automáticamente!"
@@ -272,7 +272,7 @@
       },
       "level": "(Nivel {0})"
     },
-    "token": "Token de Personaje",
+    "token": "Ficha de Personaje",
     "traits": "Rasgos",
     "unlock": {
       "": "¿Desbloquear?",
@@ -291,12 +291,12 @@
     "addSpoiler": "Añadir Spoiler",
     "addUnlock": "Desbloquear",
     "backup": {
-      "": "Backups de Juego",
-      "all": "Descargar todas las Backups de juegos ({0})",
+      "": "Copias de seguridad de Juego",
+      "all": "Descargar todas las copias de seguridad de juegos ({0})",
       "auto": {
-        "": "Backups automáticas",
+        "": "Copias de seguridad automáticas",
         "count": "Cada (x) acciones",
-        "countHint": "Número de acciones entre Backups automáticas",
+        "countHint": "Número de acciones entre copias de seguridad automáticas",
         "onFinish": "Tras finalizar el Escenario",
         "uploadUrl": {
           "": "Subir URL",
@@ -331,11 +331,11 @@
           "hint": "Nombre de usuario utilizado para la solicitud de carga"
         }
       },
-      "delete": "Eliminar Backups de juego",
+      "delete": "Eliminar copias de seguridad de juego",
       "download": {
         "": "Descargar archivos de Backup",
         "hint": {
-          "": "Haz Backups del juego con regularidad para evitar la pérdida de datos.",
+          "": "Haz Copias de seguridad del juego con regularidad para evitar la pérdida de datos.",
           "hide": "No mostrar de nuevo",
           "text": "Todo tu progreso se almacena en la memoria de tu navegador. Aunque ningún navegador debería borrar accidentalmente estos datos, todavía hay algunos casos de incidentes de este tipo. Independientemente de si estos incidentes son causados por errores de uso, pero para estar seguros, es una buena idea crear una copia de seguridad."
         },
@@ -1749,16 +1749,16 @@
           "hint": "Este escenario es visible, pero no se puede jugar porque aún no se ha desbloqueado."
         },
         "success": {
-          "": "Éxito",
-          "hint": "Este escenario se completó con éxito."
+          "": "Superado",
+          "hint": "Este escenario se superó de forma exitosa."
         },
         "success-blocked": {
-          "": "Éxito, actualmente bloqueado",
-          "hint": "Este escenario se completó con éxito, pero ahora está bloqueado."
+          "": "Superado, actualmente bloqueado",
+          "hint": "Este escenario se superó de forma exitosa, pero ahora está bloqueado."
         },
         "success-locked": {
-          "": "Éxito, actualmente bloqueado",
-          "hint": "Este escenario se completó con éxito, pero ahora está bloqueado."
+          "": "Superado, actualmente cerrado",
+          "hint": "Este escenario se superó de forma exitosa, pero ahora está cerrado."
         },
         "unplayed": {
           "": "No jugado",
@@ -2140,7 +2140,7 @@
       "": "Resumen del Escenario",
       "alreadyWarning": {
         "": "Ya finalizado",
-        "hint": "El escenario ya se ha finalizado con éxito en el modo campaña, no se conceden recompensas.",
+        "hint": "Este escenario se superó de forma exitosa en modo campaña, no se conceden recompensas.",
         "ignore": "¡Obtener recompensas igualmente!",
         "reapply": "Eliminar recompensas"
       },
@@ -2349,8 +2349,8 @@
       "hint": "Añade botones de Ventaja y Desventaja y atajos de teclado a los Mazos de Modificadores de Ataque."
     },
     "amAdvantageHouseRule": {
-      "": "Reglas de la casa Rolling Ventaja/Desventaja",
-      "hint": "En lugar de ignorar la tirada en el segundo robo, también sacar modificadores adicionales hasta que no se saque la tirada."
+      "": "Racha con Ventaja/Desventaja Reglas de la casa",
+      "hint": "En lugar de ignorar el segundo robo, sigue robando modificadores adicionales hasta no robar una carta con icono de racha."
     },
     "animationSpeed": {
       "": "Velocidad de animaciones",
@@ -2470,7 +2470,7 @@
       "": "Límite de personajes",
       "hint": "Solo permite un personaje como es habitual en el juego en solitario. Si se desactiva, se pueden añadir varios personajes."
     },
-    "bbRules": "Reglas de Button & Bugs",
+    "bbRules": "Reglas de Botones & Bichos",
     "bbStandeeLimit": {
       "": "Límite de peanas de monstruos",
       "hint": "Usar el límite estándar de 4 peanas para todos los monstruos. Si se desactiva permite añadir hasta 10 peanas."
@@ -2508,7 +2508,7 @@
       "hint": "Activa el mazo de Modificadores de Ataque en formato digital para los personajes activos. Mejóralos mediante pericias a través de la Hoja de Personaje (debe estar habilitada)."
     },
     "characterAttackModifierDeckActiveBottom": {
-      "": "Mazo AM de Personajes encima de monstruos",
+      "": "Mazo MA de Personajes encima de monstruos",
       "hint": "Muestra el mazo modificador de ataque del personaje activo encima del mazo modificador de ataque del monstruo."
     },
     "characterAttackModifierDeckPermanent": {
@@ -2556,7 +2556,7 @@
       "hint": "Fija automáticamente los objetos continuos del personaje activo."
     },
     "characterSheet": {
-      "": "Hojas de Personajes",
+      "": "Hoja de Personaje",
       "hint": "Activa la Hoja de Personaje. Para abrirla, haz clic en el icono grande del personaje a la derecha."
     },
     "characterSheetCompact": {
@@ -2675,7 +2675,7 @@
     },
     "fhPets": {
       "": "Ayuda para Mascotas",
-      "hint": "Captura y gestión de animales de compañía (Edificio 88 Establos)"
+      "hint": "Captura y gestión de mascotas (Edificio 88 Establos)"
     },
     "fhRules": "Reglas de Frosthaven",
     "fhSecondEdition": {
@@ -2937,7 +2937,7 @@
     },
     "theme": {
       "": "Tema",
-      "bb": "Button & Bugs (%wip%)",
+      "bb": "Botones & Bichos (%wip%)",
       "default": "Por defecto",
       "fh": "Frosthaven",
       "hint": "Elige un tema para el fondo, las barras y las fuentes.",
@@ -3508,7 +3508,7 @@
         "removeBless": "Elimina Bendición {0} del mazo MA",
         "removeCard": "Elimina carta {1} del {0} mazo MA",
         "removeCurse": "Elimina Maldición {0} del mazo MA",
-        "removeDrawnDiscards": "Elimina los descartes robados del {0} mazo AM",
+        "removeDrawnDiscards": "Elimina los descartes robados del {0} mazo MA",
         "reorder": "Reorganizar {0} el mazo MA",
         "restoreDefault": "Restaurar el mazo {0} MA por defecto",
         "shuffle": "Baraja {0} mazo MA",
