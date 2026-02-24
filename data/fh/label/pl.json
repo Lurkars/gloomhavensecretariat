@@ -1209,7 +1209,7 @@
     "destroyer-of-the-icespeakers": "Pogromca Lodowych Mówców",
     "destroyer-of-the-snowspeakers": "Pogromca Śnieżnych Mówców",
     "empty-jar": "Puste Słoik",
-    "firepepper": "Ognisty Pieprz",
+    "firepepper": "Ognista Papryczka",
     "friend-of-the-fish-king": "Przyjaciel Króla Ryb",
     "friend-of-the-frostspeakers": "Przyjaciel Mroźnych Mówców",
     "friend-of-the-icespeakers": "Przyjaciel Lodowych Mówców",
@@ -1280,6 +1280,12 @@
     }
   },
   "custom": {
+    "algox-snowspeaker-trap-solo": {
+      "1": "Wszyscy Przeciwnicy w zasięgu %game.action.range:2% otrzymują %game.damage:2% obrażeń"
+    },
+    "errata": {
+      "solo28": "Zasady specjalne: Słowo \"Śniegomówca\" powinno zostać zastąpione przez \"Lodomówca\""
+    },
     "fh": {
       "abael-herder": {
         "1": "Przyznaj najbliższej Świni Piranii<br>w %game.action.range:4%:",
@@ -1504,6 +1510,7 @@
         "env81": "1st Printing: There is a deck of cards in envelope 81 whose order should be reversed. If you pull it out and the visible card is titled \"T___ of W___\", reverse the order of the deck so that card is the first drawn when the deck is face-down.",
         "env85": "1st Printing: Envelope 85 should list sticker 15",
         "env90": "1st Printing: Envelope 90 should list sticker 1,5,8 and 9",
+        "scenario104": "1st Printing: Second to last line of the special rules: \"Ice Wraith\" should be \"Savvas Icestorm\". (Fixed in GHS!)",
         "scenario110": "1st Printing: the water hexes are difficult terrain, not corridor.",
         "scenario111": "1st Printing: The door positions from Section 182.2 are correct. Section 138.2 should link to Section 147.2.",
         "scenario117": "1st Printing: This scenario setup has 5 Polar bears but there are only 4 standees. A fifth Polar bear should be 'proxied' from other available standees or minis. (Fixed in GHS!)",
@@ -1515,7 +1522,6 @@
         "scenario60": "1st Printing: should have Item 224 as a scenario reward. (Fixed in GHS!)",
         "scenario70": "1st Printing: has two Random Items on the Loot Deck. This is a typo; there should be 1. (Fixed in GHS!)",
         "scenario78": "1st Printing: has a tricky map issue - Change the Map Layout image, flipping 13-D and 13-B in that image (and also flipping 13-B in the map depiction on the intro page).",
-        "scenario104": "1st Printing: Second to last line of the special rules: \"Ice Wraith\" should be \"Savvas Icestorm\". (Fixed in GHS!)",
         "section111-2": "1st Printing: Map: Lurker Soldier should be Lurker Clawcrusher (Fixed in GHS!)",
         "section14-2": "1st Printing: Map: Ice Wraith should be Frost Demon. (Fixed in GHS!)",
         "section154-1": "1st Printing: Map: Black Imp should be Forest Imp. (Fixed in GHS!)",
@@ -1592,7 +1598,7 @@
         "4": "Emit laser, starting at %game.mapMarker.a%"
       },
       "lightning-eel": {
-        "1": "Traktuje pola z wodą jako korytarze, a pola bez wody jako przeszkody."
+        "1": "Traktuje pola z wodą jako korytarze, a pola bez wody jako przeszkody"
       },
       "living-doom": {
         "1": "Summon X normal<br>Living Spirits",
@@ -1630,7 +1636,7 @@
         "2": "%game.custom.disadvantage%"
       },
       "ooze": {
-        "1": "o wartości H równej aktualnej wartości punktów życia przywołującego Szlam<br>(ograniczone maksymalną wartością punktów życia zwykłego Szlamu)"
+        "1": "o wartości H równej aktualnej wartości punktów życia przywołującego Szlam<br>(ograniczone maksymalną wartością punktów życia zwykłego Szlamu)."
       },
       "orphan": {
         "1": "self or glowing orb"
@@ -1643,7 +1649,7 @@
       },
       "prince-of-frost": {
         "1": "Jedna postać %game.card.recover% jedną utraconą kartę.",
-        "2": "Jedna postać traci jedną kartę z ręki (lub 2 ze stosu odrzuconych)"
+        "2": "Jedna postać traci jedną kartę z ręki (lub 2 ze stosu odrzuconych)."
       },
       "program-director": {
         "1": "to an empty hex closest to focus",
@@ -1692,7 +1698,9 @@
       }
     },
     "lost-in-seaweed": {
-      "2": "Stwórz 1 pole z wodą<br> w sąsiednim pustym polu."
+      "1": "Skup się na wrogu znajdującym się najdalej w zasięgu %game.action.range:6%",
+      "2": "Stwórz 1 pole z wodą<br> w sąsiednim pustym polu.",
+      "3": "na sąsiednim niezajętym <br>polu z kaflem wody."
     }
   },
   "deck": {
@@ -1712,9 +1720,11 @@
     "algox-archer": "Algoks Łucznik",
     "algox-guard": "Algoks Strażnik",
     "algox-icespeaker": "Algoks Lodomówca",
+    "algox-icespeaker-shards-solo": "Algoks Lodomówca (Solo)",
     "algox-priest": "Algoks Kapłan",
     "algox-scout": "Algoks Zwiadowca",
     "algox-snowspeaker": "Algoks Śniegomówca",
+    "algox-snowspeaker-trap-solo": "Algoks Śniegomówca (Solo)",
     "algox-stormcaller": "Algoks Zew Burzy",
     "ancient-artillery": "Pradawne Działo",
     "augmented-mindthief": "Wzmocniona Myślołapka",
@@ -1765,10 +1775,13 @@
     "lurker-mindsnipper": "Czychacz Szarpimózg",
     "lurker-soldier": "Czychacz Żołnierz",
     "lurker-wavethrower": "Czychacz Falomiot",
+    "mountains-heart": "Serce Góry",
     "night-demon": "Demon Nocy",
+    "night-demon-deathwalker-solo": "Nocny demon (solo)",
     "ooze": "Szlam",
     "orphan": "Sierota",
     "piranha-pig": "Świniopirania",
+    "plea-for-help-without-answer": "Wołanie o pomoc bez odpowiedzi",
     "polar-bear": "NIedźwiedź Polarny",
     "power-core": "Rdzeń Mocy",
     "prince-of-frost": "Książe Mrozu",
@@ -1987,13 +2000,13 @@
         "0": "Do not set up the Hound monster ability deck. Instead, each round on initiative 26, all Hounds perform %game.action.move% 2; %game.action.attack% 2.",
         "1": "Strażnicy Miejscy nie wykonują tur, ale zamiast tego zyskują dodatkowe wrodzone %game.action.shield% 1 (w sumie %game.action.shield% 2 na poziomie 1) i %game.action.retaliate% 2, a ich inicjatywa wynosi 50 dla celów skupienia.",
         "10": "%game.action.target% wszystkie potwory w zasięgu %game.action.range:4%",
-        "110": "Może zostać zniszczona tylko wtedy, gdy zrujnowana maszyna zginie na sąsiednim polu.",
+        "110": "Może zostać zniszczona tylko wtedy, gdy zrujnowana maszyna zginie na sąsiednim polu",
         "112": "Oba ogary mają podwojoną maksymalną wartość punktów życia.",
         "115": {
           "": "Gdy zostanie zniszczony, zamienia się w gruz, a wszystkie figurki na sąsiednich polach otrzymują obrażenia od pułapki",
           "1": "Dodaj %data.section:66.2% do kalendarza za X+1 tygodni, gdzie X to liczba zniszczonych pylonów."
         },
-        "116": "Skupia się na poruszaniu się w kierunku %game.mapMarker.b%.",
+        "116": "Skupia się na poruszaniu się w kierunku %game.mapMarker.b%",
         "119": {
           "1": "Na koniec tury wydaj pył, aby:",
           "2": "Wydaj 1: %game.action.move%2",
@@ -2235,7 +2248,7 @@
         "41-1": {
           "1": "Zyskaj jedno Drewno"
         },
-        "51-1": "Za każdym razem, gdy otrzymuje obrażenia, wszystkie postacie i potwory otrzymują %game.damage:2%.",
+        "51-1": "Za każdym razem, gdy otrzymuje obrażenia, wszystkie postacie i potwory otrzymują %game.damage:2%",
         "65-3": {
           "1": "Otwórz wszystkie drzwi %game.mapMarker.1%. W kolejności inicjatywy - Umieść wszyskie postacie i przywołańców postaci, na najbliższym pustym polu kafla mapy 16-A, następnie usuń wszystkie drzwi oraz kafel mapy 13-A z gry.",
           "2": "%game.action.target% wszystkie potwory w zasięgu %game.action.range:4%"
@@ -2355,9 +2368,9 @@
         "140-1": "Świetlisty szyb",
         "140-3": "Praca trwa",
         "141-1": "Olbrzymia bryła lodu",
-        "141-2-1": "1 wagon uciekł",
-        "141-2-2": "2 wagony uciekły",
-        "141-2-3": "3 wagony uciekły",
+        "141-2-1": "1 wóz uciekł",
+        "141-2-2": "2 wozy uciekły",
+        "141-2-3": "3 wozy uciekły",
         "141-2-4": "4 wagony uciekły",
         "141-2-5": "5 wagonów uciekło",
         "141-3": "Wewnątrz roju",
