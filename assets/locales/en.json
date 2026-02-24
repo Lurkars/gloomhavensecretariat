@@ -1806,7 +1806,8 @@
       },
       "hint": "Apply to all selected figures",
       "outpostAttack": "Outpost Attack",
-      "progress": "Affects character progress"
+      "progress": "Affects character progress",
+      "progressShare": "Affects outpost progress"
     },
     "favors": {
       "": "Appendix F: Favors",

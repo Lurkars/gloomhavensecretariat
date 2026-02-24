@@ -230,7 +230,8 @@
       "resources": {
         "": "资源",
         "apply": "挪动资源",
-        "move": "挪至寒霜港补给中"
+        "move": "挪至寒霜港补给中",
+        "shared": "共享资源（村规）"
       },
       "retired": "退隐",
       "retirement": {
@@ -1602,6 +1603,7 @@
       "buildings": {
         "damage": "损坏建筑",
         "damaged": "损坏的建筑",
+        "lvl": "Lvl {0}",
         "repair": "修理建筑",
         "wreck": "损毁建筑",
         "wrecked": "损毁的建筑"
@@ -1610,7 +1612,13 @@
       "disadvantage": "因兵营损毁而处于劣势！",
       "filter": {
         "desc": "按从大到小",
+        "distance": "距离",
         "even": "偶数",
+        "level": {
+          "": "等级",
+          "high": "从高到低",
+          "low": "从低到高"
+        },
         "lowerBoundary": "下边界",
         "odd": "奇数",
         "parity": "相同",
@@ -1858,6 +1866,7 @@
         "resource": "获得{1}个%game.resource.{0}%"
       }
     },
+    "recap": "剧情回顾",
     "requirements": {
       "": "场景条件",
       "all": "显示所有条件（包括已满足的）",
@@ -2127,6 +2136,13 @@
         "hint": "其他收到的伤害"
       },
       "progress": "拾取,经验值",
+      "resources": {
+        "": "资源",
+        "loot": {
+          "": "%game.resource.{0}%: {1}",
+          "hint": "拾取的%game.resource{0}%数量"
+        }
+      },
       "scenarios": "场景",
       "toggle": {
         "hide": "隐藏场景信息",
@@ -2687,6 +2703,10 @@
     "fhSecondEdition": {
       "": "2刷版本",
       "hint": "霜港迷城的1刷和2刷版本之间的某些更改无法自动设置.因此,如果您正在使用霜港迷城的2刷版本,请勾选此项."
+    },
+    "fhShareResources": {
+      "": "共享资源村规",
+      "hint": "除金币之外，寒霜港与玩家之间共用所有资源。"
     },
     "fhStyle": {
       "": "霜港迷城风格",
