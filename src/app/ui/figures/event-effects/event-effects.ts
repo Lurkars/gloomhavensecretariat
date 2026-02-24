@@ -336,13 +336,21 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   }
 
   changeLoot(type: LootType, value: number) {
-    this.activeCharacters.forEach((character, i) => {
-      this.loot[i] = this.loot[i] || {};
-      this.loot[i][type] = (this.loot[i][type] || 0) + value;
-      if ((character.progress.loot[type] || 0) + (this.loot[i][type] || 0) < 0) {
-        this.loot[i][type] = - (character.progress.loot[type] || 0);
+    if (settingsManager.settings.fhShareResources) {
+      this.loot[this.characters.length] = this.loot[this.characters.length] || {};
+      this.loot[this.characters.length][type] = (this.loot[this.characters.length][type] || 0) + value;
+      if ((gameManager.game.party.loot[type] || 0) + (this.loot[this.characters.length][type] || 0) < 0) {
+        this.loot[this.characters.length][type] = - (gameManager.game.party.loot[type] || 0);
       }
-    });
+    } else {
+      this.activeCharacters.forEach((character, i) => {
+        this.loot[i] = this.loot[i] || {};
+        this.loot[i][type] = (this.loot[i][type] || 0) + value;
+        if ((character.progress.loot[type] || 0) + (this.loot[i][type] || 0) < 0) {
+          this.loot[i][type] = - (character.progress.loot[type] || 0);
+        }
+      });
+    }
   }
 
   minLoot(type: LootType): number {
@@ -688,14 +696,20 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
     this.lootColumns.forEach((type) => {
       if (this.minLoot(type) != 0 || this.maxLoot(type) != 0) {
-        gameManager.stateManager.before("eventEffect.changeCharacterResource", type, ghsValueSign(this.minLoot(type) != 0 ? this.minLoot(type) : this.maxLoot(type)), characterIcons);
-        this.activeCharacters.forEach((character, i) => {
-          if (this.loot[i] && this.loot[i][type]) {
-            character.progress.loot[type] = (character.progress.loot[type] || 0) + (this.loot[i][type] || 0);
-            this.loot[i][type] = 0;
-          }
-        })
-        gameManager.stateManager.after();
+        if (settingsManager.settings.fhShareResources) {
+          gameManager.stateManager.before("eventEffect.changeCharacterResource", type, ghsValueSign(this.minLoot(type) != 0 ? this.minLoot(type) : this.maxLoot(type)), '%party.campaign.sheet.supply%');
+          gameManager.game.party.loot[type] = (gameManager.game.party.loot[type] || 0) + (this.loot[this.characters.length][type] || 0);
+          gameManager.stateManager.after();
+        } else {
+          gameManager.stateManager.before("eventEffect.changeCharacterResource", type, ghsValueSign(this.minLoot(type) != 0 ? this.minLoot(type) : this.maxLoot(type)), characterIcons);
+          this.activeCharacters.forEach((character, i) => {
+            if (this.loot[i] && this.loot[i][type]) {
+              character.progress.loot[type] = (character.progress.loot[type] || 0) + (this.loot[i][type] || 0);
+              this.loot[i][type] = 0;
+            }
+          })
+          gameManager.stateManager.after();
+        }
       }
     })
   }

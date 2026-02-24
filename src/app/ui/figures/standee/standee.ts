@@ -42,6 +42,7 @@ export class StandeeComponent implements OnInit {
   ConditionType = ConditionType;
   MonsterType = MonsterType;
 
+  entityHealth: number = 0;
   health: number = 0;
   maxHp: number = 0;
 
@@ -115,6 +116,7 @@ export class StandeeComponent implements OnInit {
       }
     }
 
+    this.entityHealth = this.entity.health;
     this.maxHp = EntityValueFunction(this.entity.maxHealth);
 
     this.specialActionsMarker = [];

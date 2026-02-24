@@ -149,6 +149,7 @@ export class CharacterComponent implements OnInit {
     if (value == 99) {
       this.character.longRest = true;
     }
+    this.ghsManager.triggerUiChange();
   }
 
   dragInitiativeEnd(value: number) {

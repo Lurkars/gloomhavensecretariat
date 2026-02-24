@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretariat",
-  "version": "0.148.2",
+  "version": "0.148.3",
   "license": "AGPL3",
   "description": "Gloomhaven Secretariat is a Gloomhaven/Frosthaven Companion app.",
   "homepage": "https://gloomhaven-secretariat.de",
@@ -103,8 +103,8 @@
     "uuid": "^13.0.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~21.1.4",
-    "@angular/cli": "~21.1.4",
+    "@angular-devkit/build-angular": "~21.1.5",
+    "@angular/cli": "~21.1.5",
     "@angular/compiler-cli": "~21.1.5",
     "@types/d3": "^7.4.3",
     "@types/dom-screen-wake-lock": "1.0.3",

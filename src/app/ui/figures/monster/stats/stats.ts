@@ -41,6 +41,7 @@ export class MonsterStatsComponent implements OnInit {
   catching: boolean = false;
   catched: boolean = false;
   flying: boolean = false;
+  level: number = 0;
   monsterCopy!: Monster;
 
   @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
@@ -67,6 +68,7 @@ export class MonsterStatsComponent implements OnInit {
     this.catched = this.catching && gameManager.buildingsManager.petsEnabled && gameManager.game.party.pets.find((value) => value.edition == this.monster.edition && value.name == this.monster.pet) != undefined;
     this.setStats();
     this.flying = this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled') || this.monster.statEffect != undefined && this.monster.statEffect.flying == true;
+    this.level = this.monster.level;
   }
 
   setStats() {

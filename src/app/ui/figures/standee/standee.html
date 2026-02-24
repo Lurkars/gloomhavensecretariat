@@ -1,9 +1,6 @@
-<div class="entity-border"
-  [ngClass]="entityBorderClasses"
-  [entityAnimation]="entity.dead">
+<div class="entity-border" [ngClass]="entityBorderClasses" [entityAnimation]="entity.dead">
   <div class="entity" [ngClass]="entityTypeClass">
-    <div #standee class="standee"
-      [ngClass]="standeeClasses">
+    <div #standee class="standee" [ngClass]="standeeClasses">
 
       @if (gameManager.isSummon(entity) && gameManager.toSummon(entity).active) {
       <div class="sheet">
@@ -24,49 +21,46 @@
         </div>
         }
       </div>
-      <span class="number"
-        [ngClass]="numberClasses">
+      <span class="number" [ngClass]="numberClasses">
         <span class="value">{{numberDisplay}}</span>
-        </span>
+      </span>
 
-        @if (gameManager.isSummon(entity)) {
-        <span class="summon-state"
-          [ngClass]="summonStateClasses">
-          @if (gameManager.toSummon(entity).color != SummonColor.fh) {
-          <img src="./assets/images/summons/{{gameManager.toSummon(entity).color}}.png">
-          }
-          <span class="summon-number">
-            @if (gameManager.toSummon(entity).number == 0) {
-            <span>-</span>
-            }
-            @if (gameManager.toSummon(entity).number > 0) {
-            <span>{{gameManager.toSummon(entity).number}}</span>
-            }</span>
-        </span>
+      @if (gameManager.isSummon(entity)) {
+      <span class="summon-state" [ngClass]="summonStateClasses">
+        @if (gameManager.toSummon(entity).color != SummonColor.fh) {
+        <img src="./assets/images/summons/{{gameManager.toSummon(entity).color}}.png">
         }
-
-
-        <span class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'"
-          [ngClass]="healthClasses">
-          @if (maxHp && !settingsManager.settings.damageHP) {
-          <span>
-            {{((entity.health + health) | ghsMinZero)}}
-          </span>
-          }
-          @if (maxHp && settingsManager.settings.damageHP) {
-          <span>
-            {{maxHp}}/{{((maxHp - entity.health + health) | ghsMinZero)}}
-          </span>
-          }
-          @if (objectiveData && objectiveData.trackDamage) {
-          <span>
-            {{(entity.health + health) | ghsMinZero}}
-          </span>
-          }
-          @if ((!objectiveData || !objectiveData.trackDamage) && !maxHp) {
+        <span class="summon-number">
+          @if (gameManager.toSummon(entity).number == 0) {
           <span>-</span>
           }
+          @if (gameManager.toSummon(entity).number > 0) {
+          <span>{{gameManager.toSummon(entity).number}}</span>
+          }</span>
+      </span>
+      }
+
+
+      <span class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'" [ngClass]="healthClasses">
+        @if (maxHp && !settingsManager.settings.damageHP) {
+        <span>
+          {{((entityHealth + health) | ghsMinZero)}}
         </span>
+        }
+        @if (maxHp && settingsManager.settings.damageHP) {
+        <span>
+          {{maxHp}}/{{((maxHp - entityHealth + health) | ghsMinZero)}}
+        </span>
+        }
+        @if (objectiveData && objectiveData.trackDamage) {
+        <span>
+          {{(entityHealth + health) | ghsMinZero}}
+        </span>
+        }
+        @if ((!objectiveData || !objectiveData.trackDamage) && !maxHp) {
+        <span>-</span>
+        }
+      </span>
     </div>
 
     @if (!specialActionsMarker.length || !specialActionsMarker.includes('mode')) {
@@ -142,8 +136,7 @@
       }
       @if (gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).summon != SummonState.false) {
       <span class="summon-container" [ngClass]="{'center' : (entity.entityConditions.length % 2) == 0}">
-        <span class="summon"
-          [ngClass]="monsterSummonClasses">
+        <span class="summon" [ngClass]="monsterSummonClasses">
           <img src="./assets/images/summons/{{ gameManager.toMonster(figure).summonColor }}.png">
         </span>
       </span>

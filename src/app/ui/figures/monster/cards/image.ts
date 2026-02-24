@@ -1,6 +1,7 @@
 import { DIALOG_DATA, Dialog, DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -18,8 +19,19 @@ export class MonsterImageComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
+  disabled: boolean = false;
+  off: boolean = false;
+  active: boolean = false;
 
-  constructor(private dialog: Dialog) { }
+  constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
+
+  update() {
+    this.disabled = gameManager.game.state == GameState.draw || this.monster.entities.length == 0;
+    this.off = this.monster.off;
+    this.active = this.monster.active;
+  }
 
   toggleFigure() {
     if (gameManager.game.state == GameState.next && gameManager.monsterManager.monsterEntityCount(this.monster)) {

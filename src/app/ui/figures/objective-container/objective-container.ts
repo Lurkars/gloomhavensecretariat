@@ -122,6 +122,7 @@ export class ObjectiveContainerComponent implements OnInit {
     }
 
     this.objective.initiative = value;
+    this.ghsManager.triggerUiChange();
   }
 
   dragInitiativeEnd(value: number) {

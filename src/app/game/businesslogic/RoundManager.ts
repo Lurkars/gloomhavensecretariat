@@ -333,13 +333,14 @@ export class RoundManager {
       });
     }
 
-    if (settingsManager.settings.characterAttackModifierDeckActiveBottom) {
+    if (settingsManager.settings.characterAttackModifierDeckActiveBottom && settingsManager.settings.characterAttackModifierDeckPermanentActive) {
       gameManager.game.figures.forEach((c) => { if (c instanceof Character) { c.attackModifierDeckVisible = false; } });
     }
 
     if (figure instanceof Character && gameManager.entityManager.isAlive(figure)) {
       if (settingsManager.settings.characterAttackModifierDeckActiveBottom && settingsManager.settings.characterAttackModifierDeckPermanentActive) {
         figure.attackModifierDeckVisible = true;
+        figure.attackModifierDeck.active = true;
       }
       if (!skipSummons && settingsManager.settings.activeSummons) {
         const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);

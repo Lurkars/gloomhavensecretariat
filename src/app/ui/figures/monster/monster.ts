@@ -23,6 +23,7 @@ export class MonsterComponent implements OnInit {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
+  off: boolean = false;
   nonDead: number = 0;
   count: number = 0;
   sortedEntites: MonsterEntity[] = [];
@@ -38,6 +39,7 @@ export class MonsterComponent implements OnInit {
 
 
   update() {
+    this.off = this.monster.off;
     this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
     this.count = gameManager.monsterManager.monsterStandeeMax(this.monster);
     this.sortedEntites = settingsManager.settings.eliteFirst ? this.monster.entities.sort(gameManager.monsterManager.sortEntities) : this.monster.entities.sort(gameManager.monsterManager.sortEntitiesByNumber);

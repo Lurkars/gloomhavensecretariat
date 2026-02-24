@@ -3,7 +3,7 @@
   <div class="values" (click)="open()">
     <span class="level" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'"><img class="ghs-svg"
         src="./assets/images/level.svg">
-      {{gameManager.game.level}}</span>
+      {{level}}</span>
     <span class="loot" [ghs-label]="'game.level.loot'" [ghs-label-attribute]="'title'"><img class="ghs-svg"
         [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/loot.svg'">
       x{{loot}}</span>

@@ -138,8 +138,9 @@
       [type]="'character'" (conditionChange)="changeConditions($event)"></ghs-conditions>
     }
 
-    @if (characters.length) {
+    @if (characters.length || settingsManager.settings.fhShareResources) {
     <div class="entity-container">
+      @if (characters.length) {
       <span class="progress"><span [ghs-label]="'scenario.eventEffects.progress'"></span></span>
       <span class="item">
         <ghs-pointer-input class="button" tabclick (singleClick)="changeExperience(-1)" [repeat]="true">
@@ -190,6 +191,11 @@
                 <img class="ghs-svg" src="./assets/images/plus.svg">
               </ghs-pointer-input>
             </span>
+            }
+
+            @if (settingsManager.settings.fhShareResources) {
+            <span class="progress"><span [ghs-label]="'scenario.eventEffects.progressShare'"></span></span>
+            }
             @for (type of lootColumns; track type) {
             <span class="item">
               <ghs-pointer-input class="button" tabclick (singleClick)="changeLoot(type, -1)" [repeat]="true">

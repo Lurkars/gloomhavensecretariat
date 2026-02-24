@@ -18,6 +18,7 @@ export class LevelComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  level: number = 0;
   trap: number = 0;
   experience: number = 0;
   loot: number = 0;
@@ -51,6 +52,7 @@ export class LevelComponent implements OnInit {
   }
 
   calculateValues() {
+    this.level = gameManager.game.level;
     this.trap = gameManager.levelManager.trap();
     this.experience = gameManager.levelManager.experience();
     this.loot = gameManager.levelManager.loot();

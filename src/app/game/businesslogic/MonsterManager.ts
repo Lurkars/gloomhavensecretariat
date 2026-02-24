@@ -563,7 +563,9 @@ export class MonsterManager {
   setLevel(monster: Monster, level: number) {
     monster.level = level;
 
-    this.resetMonsterAbilities(monster);
+    if (!this.game.scenario || gameManager.roundManager.firstRound && this.game.state == GameState.draw) {
+      this.resetMonsterAbilities(monster);
+    }
 
     monster.entities.forEach((monsterEntity) => {
       let stat = this.getStat(monster, monsterEntity.type);

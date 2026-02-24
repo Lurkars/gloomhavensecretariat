@@ -73,7 +73,7 @@ export class ScenarioComponent {
       })
     }
 
-    this.sections = gameManager.game.sections;
+    this.sections = [...gameManager.game.sections];
     this.treasures = !!gameManager.game.scenario ? gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections) : [];
     this.unlootedTreasures = !!gameManager.game.scenario ? gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections, true) : [];
     this.openRooms = gameManager.scenarioManager.openRooms();
