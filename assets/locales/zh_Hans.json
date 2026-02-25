@@ -1813,7 +1813,8 @@
       },
       "hint": "应用至所有选定个体",
       "outpostAttack": "前哨攻击",
-      "progress": "影响角色成长进度"
+      "progress": "影响角色成长进度",
+      "progressShare": "影响哨站建设"
     },
     "favors": {
       "": "附录F：恩惠机制",

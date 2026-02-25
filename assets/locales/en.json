@@ -1750,6 +1750,22 @@
           "": "Blocked",
           "hint": "This scenario cannot be played, because it is blocked by others."
         },
+        "calendar": {
+          "": "Unlocked by calendar",
+          "hint": "This scenario is unlocked by a calendar section."
+        },
+        "exclusive": {
+          "": "Exclusive",
+          "hint": "This scenario path is exclusive, so only one path can be taken and others are blocked."
+        },
+        "force-linked": {
+          "": "Forced Linked",
+          "hint": "This scenario is linked and must be played directly afterwards."
+        },
+        "linked": {
+          "": "Linked",
+          "hint": "This scenario is linked."
+        },
         "locked": {
           "": "Locked",
           "hint": "This scenario is locked, so it cannot be played yet because of unmet requirements."
