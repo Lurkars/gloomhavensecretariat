@@ -201,8 +201,13 @@
       "meteor": "용암분쇄자",
       "prism": {
         "": "모방군집",
+        "autoapply_mode": {
+          "": "모드 자동 적용",
+          "hint": "%data.characterToken.prism.mode% 활성화일 때, 자동으로 피해와 상태 적용."
+        },
         "prism_mode": {
-          "": "%data.characterToken.prism.mode% 모드 토큰"
+          "": "%data.characterToken.prism.mode% 모드 토큰",
+          "hint": "%data.characterToken.prism.mode% 모드가 소환물에 활성화되어 있을 경우, 소환물은 차례 행동을 하지 않음."
         },
         "repair_mode": {
           "": "재구축 지원",

@@ -230,7 +230,8 @@
       "resources": {
         "": "Ressourcen",
         "apply": "Ressourcen verschieben",
-        "move": "Zum Frosthaven-Vorrat verschieben"
+        "move": "Zum Frosthaven-Vorrat verschieben",
+        "shared": "Alle Ressourcen teilen (Hausregel)"
       },
       "retired": "Ruhestand",
       "retirement": {
@@ -1272,6 +1273,7 @@
     "maxHealth": "Maximale Trefferpunkte",
     "solo": "Alleine",
     "specialTarget": {
+      "ability": "%game.target% das Ziel der %game.actionText.{0}% Fertigkeit",
       "all": "%game.target% alle an",
       "allCharacters": "%game.target% alle Charaktere",
       "allies": "%game.target% alle Verbündeten an",
@@ -1599,13 +1601,20 @@
       "advantage": "Setze Soldaten für diese Attacke ein um Vorteil zu erhalten!",
       "buildings": {
         "damaged": "Beschädigtes Gebäude",
+        "lvl": "Lvl {0}",
         "wrecked": "Zertrümmertes Gebäude"
       },
       "defense": "Basis Verteidigung:",
       "disadvantage": "Erhalte Nachteil, da die Baracken zertrümmert sind!",
       "filter": {
         "desc": "Absteigende Reihenfolge",
+        "distance": "Distanz",
         "even": "Gerade",
+        "level": {
+          "": "Level",
+          "high": "Hoch nach Niedrig",
+          "low": "Niedrig nach Hoch"
+        },
         "lowerBoundary": "Untergrenze",
         "odd": "Ungerade",
         "parity": "Parität",
@@ -1800,7 +1809,8 @@
       },
       "hint": "Auf alle ausgewählten Figuren anwenden",
       "outpostAttack": "Außenposten-Ereignis",
-      "progress": "Betrifft Charakter Progression"
+      "progress": "Betrifft Charakter Progression",
+      "progressShare": "Betritt Außenposten Progression"
     },
     "favors": {
       "": "Anhang F: Gefälligkeiten",
@@ -1853,6 +1863,7 @@
         "resource": "Erhalte {1} %game.resource.{0}%"
       }
     },
+    "recap": "Zusammenfassung",
     "requirements": {
       "": "Szenario Voraussetzungen",
       "all": "Zeige alle Voraussetzungen (inkl. erfüllte)",
@@ -2122,6 +2133,13 @@
         "hint": "Anderer erlittener Schaden"
       },
       "progress": "Beute, EP",
+      "resources": {
+        "": "Ressourcen",
+        "loot": {
+          "": "%game.resource.{0}%: {1}",
+          "hint": "Anzahl an erbeuteten %game.resource{0}%"
+        }
+      },
       "scenarios": "Szenarien",
       "toggle": {
         "hide": "Szenario Statistiken ausblenden",
@@ -2682,6 +2700,10 @@
     "fhSecondEdition": {
       "": "2te Auflage",
       "hint": "Einige Änderungen zwischen der ersten und zweiten Auflage von Frosthaven können nicht automatisch angewandt werden. Bitte diese Option auswählen, wenn die zweite Auflage von Frosthaven verwendet wird."
+    },
+    "fhShareResources": {
+      "": "Hausregel Ressourcen teilen",
+      "hint": "Alle Ressourcen außer Gold zwischen allen Charakteren und dem Frosthaven-Vorrat teilen."
     },
     "fhStyle": {
       "": "Frosthaven Stil",

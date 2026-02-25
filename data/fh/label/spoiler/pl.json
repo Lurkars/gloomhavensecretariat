@@ -1268,6 +1268,9 @@
         "10": {
           "5": "Lodomówca, którego ścigaliście, zwabił was w swego rodzaju pułapkę – wpadliście przez ukrytą szczelinę do podziemnej krypty pełnej duchów. Po rozprawieniu się z nimi i zdobyciu sań, ruszyliście w pościg za tymi Algoksami."
         },
+        "100": {
+          "99": "Zaprowadziła was do starego i odległego więzienia, w którym strażnicy (rzecz jasna) nie byli tak martwi, jak obiecywano. \"Więzień\" zdawał się być przetrzymywany w drewnianej skrzyni na piedestale. W skrzyni znajdował się Dreszczowiec o imieniu Zu, który ewidentnie nieco oszalał z powodu długiego uwięzienia. Iskra wysłała was do umysłu roju Dreszczowca, aby spróbować przywrócić mu zmysły."
+        },
         "104": {
           "": "W skrzyni znaleźliście tęczowy klucz. Gdy go trzymaliście, w powietrzu pojawiła się dziurka od klucza, przez którą dostrzegliście słoneczny, wiosenny krajobraz. Próbowaliście użyć klucza, aby otworzyć drzwi, ale to nie zadziałało. Postanowiliście spróbować ponownie później."
         },
@@ -1279,6 +1282,9 @@
         },
         "118": {
           "": "Pewnego dnia Kościodziej powrócił i was zaskoczył. Poszukiwał energii z nowych sfer egzystencji – i znalazł dziwną energię znacznie bliżej domu, emanującą skądś w pobliżu Frosthaven."
+        },
+        "120": {
+          "": "Jakaś siła mąci w umysłach mieszkańców Frosthaven, w tym niektórych strażników – jeden z nich pchnął nożem drugiego. Kapitan Olmstead zameldował, że w tym tygodniu działo się to wielokrotnie. Jest niemal pewien, że coś zadomowiło się w opuszczonej chacie. Cokolwiek to było, próbowało następnie zmusić was, byście sami się wypatroszyli. Uznaliście, że powinniście to sprawdzić."
         },
         "122": {
           "": "Podczas waszych podróży napotkaliście starszą Kwatrylkę, która pielęgnowała wyśmienicie pachnące papryczki. Nazwała je „ognistymi papryczkami” – i opowiedziała wam historię o bestii zwanej Głodną Paszczą, która żyje pod Górami Miedzianej Turni. Podobno pożera ona całe wioski, ale można ją nasycić jedynie gulaszem z ognistej papryczki. Zapytała, czy jesteście gotowi na wyzwanie."
@@ -1355,8 +1361,14 @@
         "7": {
           "4": "Po zażegnaniu bezpośredniego zagrożenia ze strony Algoksów wiszącego nad Frosthaven, Burmistrzyni Satha wspomniała, że na obrzeżach terytorium Frosthaven dostrzeżono Czychaczy. Zostaliście poproszeni o sprawdzenie tej sytuacji."
         },
+        "8": {
+          "4": "Po zażegnaniu bezpośredniego zagrożenia ze strony Algoksów, Burmistrzyni Satha wspomniała, że przez pustkowia maszerują dziwne metalowe konstrukty. Zwiadowcy tropili je przez Las Białego Ognia, a następnie do zamarzniętej doliny. Poprosiła was, abyście przyjrzeli się tej sprawie."
+        },
         "9": {
           "5": "Lodomówca, którego ścigaliście, zwabił was w swego rodzaju pułapkę – wpadliście przez ukrytą szczelinę do podziemnej krypty pełnej duchów. Po rozprawieniu się z nimi, postanowiliście podjąć się dalszej eksploracji tego podziemnego obszaru."
+        },
+        "99": {
+          "": "\"Iskra\", sędziwa Orchidka, odnalazła was przy karczmie tuż przed snem. Bez zbędnych szczegółów – poruszała się o wiele za wolno, by w ogóle o tym myśleć – wręczyła wam worek starożytnych złotych monet i was wynajęła."
         }
       }
     }

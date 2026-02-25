@@ -396,13 +396,25 @@
       "": "Poción de soltura",
       "1": "Al inicio de tu turno, descarta 1 de tus cartas jugadas para realizar tanto la acción superior como la inferior de tu otra carta jugada. Solo una acción como máximo puede activar un símbolo %game.card.lost%."
     },
+    "fh-114": {
+      "": "Poción de presciencia",
+      "1": "Durante tu turno, revela la primera carta de un mazo de Capacidades de monstruo. Puedes ponerla debajo del mazo."
+    },
     "fh-115": {
       "": "Poción de inducción",
       "1": "Durante tu turno, ignora un símbolo de consumo elemental en una acción de hayas jugado y obtén su efecto."
     },
+    "fh-116": {
+      "": "Petaca de plaga",
+      "1": "Durante tu turno, realiza:"
+    },
     "fh-117": {
       "": "Petaca de infierno",
       "1": "Durante tu turno, realiza:"
+    },
+    "fh-118": {
+      "": "Petaca fulminante",
+      "1": "Durante tu turno, 1 enemigo a %game.action.range:2% o menos sufre %game.damage% 4."
     },
     "fh-119": {
       "": "Mejunje letal",
