@@ -5,6 +5,7 @@ import L, { LatLngBoundsLiteral } from 'leaflet';
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { PartySheetDialogComponent } from "src/app/ui/figures/party/party-sheet-dialog";
 import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
 import { ScenarioChartPopupDialog } from "./popup/scenario-chart-popup";
@@ -160,6 +161,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         }
 
         let unlocks: { a: string, b: string }[] = [];
+        let collectedLinks: { a: string, b: string }[] = [];
 
         scenarios.forEach((scenarioData) => {
             const success = this.campaignMode && gameManager.scenarioManager.isSuccess(scenarioData);
@@ -169,18 +171,41 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             if (visible) {
                 if (scenarioData.unlocks) {
                     scenarioData.unlocks.forEach((index) => {
-                        let arrow = " --> ";
-                        const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
-                        if (other) {
-                            if (gameManager.scenarioManager.isBlocked(other)) {
+                        let arrow: string | false = " --> ";
+                        const unlockScenarioData = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
+                        if (unlockScenarioData) {
+                            if (this.campaignMode && gameManager.scenarioManager.isBlocked(unlockScenarioData)) {
                                 arrow = " --x ";
-                                this.flow.push("\t" + scenarioData.index + arrow + other.index);
-                            } else if (gameManager.scenarioManager.isLocked(other)) {
+                            } else if (this.campaignMode && gameManager.scenarioManager.isLocked(unlockScenarioData)) {
                                 arrow = " --o ";
-                                this.flow.push("\t" + scenarioData.index + arrow + other.index);
-                            } else if (!unlocks.find((unlock) => unlock.a == scenarioData.index && unlock.b == other.index)) {
-                                unlocks.push({ a: scenarioData.index, b: other.index });
-                                this.flow.push("\t" + scenarioData.index + arrow + other.index);
+                            } else if (!unlocks.find((unlock) => unlock.a == scenarioData.index && unlock.b == unlockScenarioData.index)) {
+                                unlocks.push({ a: scenarioData.index, b: unlockScenarioData.index });
+                            } else {
+                                arrow = false;
+                            }
+
+                            if (arrow) {
+                                if (unlockScenarioData.blocks && unlockScenarioData.blocks.some((block) => scenarioData.unlocks.includes(block)) && scenarios.some((other) => other.index == unlockScenarioData.index)) {
+                                    arrow = ' ' + arrow.trim() + '|🔓| ';
+                                }
+
+                                if (scenarioData.forcedLinks && scenarioData.forcedLinks.includes(unlockScenarioData.index)) {
+                                    if (arrow.includes('🔓')) {
+                                        arrow = arrow.replace('🔓', '🔓❗🔗')
+                                    } else {
+                                        arrow = ' ' + arrow.trim() + '|❗🔗| ';
+                                    }
+                                    collectedLinks.push({ a: scenarioData.index, b: unlockScenarioData.index });
+                                } else if (scenarioData.links && scenarioData.links.includes(unlockScenarioData.index)) {
+                                    if (arrow.includes('🔓')) {
+                                        arrow = arrow.replace('🔓', '🔓🔗')
+                                    } else {
+                                        arrow = ' ' + arrow.trim() + '|🔗| ';
+                                    }
+                                    collectedLinks.push({ a: scenarioData.index, b: unlockScenarioData.index });
+                                }
+
+                                this.flow.push("\t" + scenarioData.index + arrow + unlockScenarioData.index);
                             }
                         }
                     })
@@ -190,7 +215,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                     scenarioData.links.forEach((index) => {
                         let arrow = ' .->|🔗| ';
                         const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
-                        if (other && !links.includes(index) && scenarios.find((unlocked) => unlocked.edition == other.edition && unlocked.group == other.group && unlocked.index == other.index)) {
+                        if (other && !collectedLinks.some((value) => value.a == scenarioData.index && value.b == other.index) && !links.includes(index) && scenarios.find((unlocked) => unlocked.edition == other.edition && unlocked.group == other.group && unlocked.index == other.index)) {
                             if (gameManager.scenarioManager.isBlocked(other)) {
                                 arrow = ' .-x|🔗| ';
                             } else if (gameManager.scenarioManager.isLocked(other)) {
@@ -207,7 +232,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                     scenarioData.forcedLinks.forEach((index) => {
                         let arrow = ' .->|❗🔗| ';
                         const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
-                        if (other && !forcedLinks.includes(index)) {
+                        if (other && !collectedLinks.some((value) => value.a == scenarioData.index && value.b == other.index) && !forcedLinks.includes(index)) {
                             if (gameManager.scenarioManager.isBlocked(other)) {
                                 arrow = ' .-x|❗🔗| ';
                             } else if (gameManager.scenarioManager.isLocked(other)) {
@@ -219,10 +244,9 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                         }
                     })
                 }
-            }
 
-            if (visible) {
-                gameManager.scenarioManager.getSections(scenarioData).filter((sectionData) => sectionData.unlocks && sectionData.unlocks.length).forEach((sectionData) => {
+                const sections = gameManager.scenarioManager.getSections(scenarioData);
+                sections.filter((sectionData) => sectionData.unlocks && sectionData.unlocks.length).forEach((sectionData) => {
                     const success = this.campaignMode && gameManager.game.party.conclusions.find((scenarioModel) => scenarioModel.edition == sectionData.edition && scenarioModel.group == sectionData.group && scenarioModel.index == sectionData.index) != undefined;
                     const visible: boolean = !this.campaignMode || success;
 
@@ -233,6 +257,27 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                             if (other) {
                                 if (!unlocks.find((unlock) => unlock.a == scenarioData.index && unlock.b == other.index)) {
                                     unlocks.push({ a: scenarioData.index, b: other.index });
+
+                                    if (!this.campaignMode && other.blocks && other.blocks.some((block) => sectionData.unlocks.includes(block) || sections.some((otherSection) => otherSection.unlocks && otherSection.unlocks.includes(block)))) {
+                                        arrow = ' ' + arrow.trim() + '|🔓| ';
+                                    }
+
+                                    if (sectionData.forcedLinks && sectionData.forcedLinks.includes(other.index)) {
+                                        if (arrow.includes('🔓')) {
+                                            arrow = arrow.replace('🔓', '🔓❗🔗')
+                                        } else {
+                                            arrow = ' ' + arrow.trim() + '|❗🔗| ';
+                                        }
+                                        collectedLinks.push({ a: scenarioData.index, b: other.index });
+                                    } else if (sectionData.links && sectionData.links.includes(other.index)) {
+                                        if (arrow.includes('🔓')) {
+                                            arrow = arrow.replace('🔓', '🔓🔗')
+                                        } else {
+                                            arrow = ' ' + arrow.trim() + '|🔗| ';
+                                        }
+                                        collectedLinks.push({ a: scenarioData.index, b: other.index });
+                                    }
+
                                     this.flow.push("\t" + scenarioData.index + arrow + other.index);
                                 }
                             }
@@ -242,7 +287,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                             sectionData.links.forEach((index) => {
                                 let arrow = ' .->|🔗| ';
                                 const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
-                                if (other && !links.includes(index)) {
+                                if (other && !collectedLinks.some((value) => value.a == scenarioData.index && value.b == other.index) && !links.includes(index)) {
                                     if (gameManager.scenarioManager.isBlocked(other)) {
                                         arrow = ' .-x|🔗| ';
                                     } else if (gameManager.scenarioManager.isLocked(other)) {
@@ -260,7 +305,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                             sectionData.forcedLinks.forEach((index) => {
                                 let arrow = ' .->|❗🔗| ';
                                 const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
-                                if (other && !forcedLinks.includes(index)) {
+                                if (other && !collectedLinks.some((value) => value.a == scenarioData.index && value.b == other.index) && !forcedLinks.includes(index)) {
                                     if (gameManager.scenarioManager.isBlocked(other)) {
                                         arrow = ' .-x|❗🔗| ';
                                     } else if (gameManager.scenarioManager.isLocked(other)) {
@@ -274,6 +319,16 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                         }
                     }
                 })
+
+                sections.filter((sectionData) => sectionData.conclusion && sectionData.rewards && (sectionData.rewards.calendarSection || sectionData.rewards.calendarSectionManual)).forEach((sectionData) => {
+                    const success = this.campaignMode && gameManager.game.party.conclusions.find((scenarioModel) => scenarioModel.edition == sectionData.edition && scenarioModel.group == sectionData.group && scenarioModel.index == sectionData.index) != undefined;
+                    const visible: boolean = !this.campaignMode || success;
+                    if (visible) {
+                        this.calendarLinkHelper(scenarioData.index, sectionData, unlocks);
+                    }
+                })
+
+                this.calendarLinkHelper(scenarioData.index, scenarioData, unlocks);
             }
         });
 
@@ -283,6 +338,60 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             return true;
         }
         return false;
+    }
+
+    calendarLinkHelper(scenarioIndex: string, scenarioData: ScenarioData, unlocks: { a: string, b: string }[]) {
+        if (scenarioData.rewards && scenarioData.rewards.calendarSection) {
+            scenarioData.rewards.calendarSection.map((value) => gameManager.scenarioManager.getSection(value.split('-')[0], scenarioData.edition, scenarioData.group)).forEach((sectionData) => {
+                if (sectionData && !sectionData.hideIndex) {
+                    if (sectionData.unlocks) {
+                        sectionData.unlocks.forEach((index) => {
+                            if (!unlocks.find((unlock) => unlock.a == scenarioIndex && unlock.b == index)) {
+                                unlocks.push({ a: scenarioIndex, b: index });
+                                this.flow.push("\t" + scenarioIndex + ' --o|🗓️| ' + index);
+                            }
+                        })
+                    } else {
+                        gameManager.sectionData(sectionData.edition).filter((other) => other.conclusion && other.parentSections && other.parentSections.some((value) => value.includes(sectionData.index))).forEach((other) => {
+                            if (other.unlocks && !other.hideIndex) {
+                                other.unlocks.forEach((index) => {
+                                    if (!unlocks.find((unlock) => unlock.a == scenarioIndex && unlock.b == index)) {
+                                        unlocks.push({ a: scenarioIndex, b: index });
+                                        this.flow.push("\t" + scenarioIndex + ' --o|🗓️| ' + index);
+                                    }
+                                })
+                            }
+                        })
+                    }
+                }
+            })
+        }
+
+        if (scenarioData.rewards && scenarioData.rewards.calendarSectionManual) {
+            scenarioData.rewards.calendarSectionManual.map((value) => gameManager.scenarioManager.getSection(value.section, scenarioData.edition, scenarioData.group)).forEach((sectionData) => {
+                if (sectionData && !sectionData.hideIndex) {
+                    if (sectionData.unlocks) {
+                        sectionData.unlocks.forEach((index) => {
+                            if (!unlocks.find((unlock) => unlock.a == scenarioIndex && unlock.b == index)) {
+                                unlocks.push({ a: scenarioIndex, b: index });
+                                this.flow.push("\t" + scenarioIndex + ' --o|🗓️| ' + index);
+                            }
+                        })
+                    } else {
+                        gameManager.sectionData(sectionData.edition).filter((other) => other.conclusion && other.parentSections && other.parentSections.some((value) => value.includes(sectionData.index))).forEach((other) => {
+                            if (other.unlocks && !other.hideIndex) {
+                                other.unlocks.forEach((index) => {
+                                    if (!unlocks.find((unlock) => unlock.a == scenarioIndex && unlock.b == index)) {
+                                        unlocks.push({ a: scenarioIndex, b: index });
+                                        this.flow.push("\t" + scenarioIndex + ' --o|🗓️| ' + index);
+                                    }
+                                })
+                            }
+                        })
+                    }
+                }
+            })
+        }
     }
 
     updateMap() {

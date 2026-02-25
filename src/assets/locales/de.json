@@ -1753,6 +1753,22 @@
           "": "Blockiert",
           "hint": "Dieses Szenario kann nicht gespielt werden, da es durch andere Szenarien blockiert ist."
         },
+        "calendar": {
+          "": "Durch Kalendar freigeschaltet",
+          "hint": "Dieses Szenario wird durch eine Sektion im Kalendar freigeschaltet."
+        },
+        "exclusive": {
+          "": "Exklusiv",
+          "hint": "Der Pfad zu diesem Szenario ist exklusiv, so dass andere Pfade blockiert werden."
+        },
+        "force-linked": {
+          "": "Erzwungene Verbindung",
+          "hint": "Dieses Szenario ist verbunden und must direkt im Anschluss gespielt werden."
+        },
+        "linked": {
+          "": "Verbindung",
+          "hint": "Dieses Szenario ist verbunden."
+        },
         "locked": {
           "": "Fehlende Voraussetzungen",
           "hint": "Dieses Szenario kann nicht gespielt werden, da bestimmte Voraussetzungen noch nicht erfüllt sind."

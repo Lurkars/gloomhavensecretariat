@@ -1532,7 +1532,7 @@
 
                 &.locked {
                   opacity: 0.7;
-                  
+
                   .key,
                   .value {
                     cursor: not-allowed;
@@ -2169,6 +2169,10 @@
 
             .scenario-title {
               position: relative;
+
+              span {
+                cursor: pointer;
+              }
             }
 
             .blocked {

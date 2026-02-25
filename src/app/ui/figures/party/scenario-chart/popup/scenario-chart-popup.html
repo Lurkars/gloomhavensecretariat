@@ -7,6 +7,15 @@
     <span class="title">
       <span class="number text-white" [ghs-label]="'%game.scenarioNumber:' + scenario.index+ '%'"></span>
       <span class="name text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData)"></span>
+
+      @if (isSuccess) {
+      <a class="rewards" (click)="openScenarioRewards()" [ghs-tooltip]="'scenario.summary.rewards'">
+        <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
+      </a>
+      <a (click)="openStatisticsDialog()" [ghs-tooltip]="'scenario.stats'">
+        <img class="ghs-svg" src="./assets/images/stats.svg">
+      </a>
+      }
     </span>
   </div>
 
@@ -76,7 +85,7 @@
       }
       <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + predecessor.index + '%'"></span>
       }
-      @if (gameManager.scenarioManager.hasRecaps()) {
+      @if (predecessors.length && gameManager.scenarioManager.hasRecaps()) {
       <a class="recap" [ghs-label]="'scenario.recap'" (click)="openRecapDialog()"></a>
       }
   </span>

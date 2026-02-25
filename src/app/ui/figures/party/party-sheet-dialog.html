@@ -761,7 +761,8 @@
                 @if (scenarioData.isBlocked || scenarioData.isLocked) {
                 <img src="./assets/images/close.svg">
                 }
-                <span [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData)"></span>
+                <span (click)="scenarioPopUp(scenarioData)"
+                  [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData)"></span>
               </span>
               <span>
                 <span class="spacer"></span>

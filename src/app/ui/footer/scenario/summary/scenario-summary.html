@@ -81,7 +81,7 @@
       </span>
       }
       }
-      @if (success && !!rewards && rewards.collectiveResources) {
+      @if (success && !!rewards && rewards.collectiveResources && !settingsManager.settings.fhShareResources) {
       @for (value of rewards.collectiveResources; track value) {
       <span class="head-col"><span class="text-white" [ghs-label]="'scenario.summary.rewards.collectiveResource'"
           [ghs-label-args]="[value.type]"></span></span>
@@ -315,8 +315,7 @@
       <ghs-item (click)="openItemDialog(itemData)" [item]="itemData" [flipped]="true"></ghs-item>
       }
       <input type="checkbox" [disabled]="itemDistributed(index, itemIndex)"
-        [checked]="items[index] && items[index].includes(itemIndex)"
-        (change)="toggleItem($event, index, itemIndex)">
+        [checked]="items[index] && items[index].includes(itemIndex)" (change)="toggleItem($event, index, itemIndex)">
     </span>
     }
     }
@@ -368,7 +367,8 @@
         @if (settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 2 &&
         character == trial356) {
         <div class="battlegoal-list">
-          @for (battleGoal of character.battleGoals.slice(0,character.battleGoals.length - 2) | trackUUID; track battleGoal._trackUUID) {
+          @for (battleGoal of character.battleGoals.slice(0,character.battleGoals.length - 2) | trackUUID; track
+          battleGoal._trackUUID) {
           <span class="battlegoal" (click)="openBattleGoals(character)">
             <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
           </span>
@@ -684,7 +684,8 @@
     <div class="reward achievements">
       <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
       <div class="list">
-        @for (calendarSection of rewards.calendarSectionManual | trackUUID; track calendarSection._trackUUID; let i = $index) {
+        @for (calendarSection of rewards.calendarSectionManual | trackUUID; track calendarSection._trackUUID; let i =
+        $index) {
         <div class="item achievement">
           <span class="placeholder text-white" [ghs-label]="calendarSection.hint"></span>
           <input type="number" min="-1" [value]="calendarSectionManual[i] || -1"

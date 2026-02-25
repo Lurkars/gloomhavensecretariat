@@ -19,6 +19,28 @@
             .number {
                 font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
             }
+
+            a {
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 0.2em;
+
+                img {
+                    width: 1em;
+                    height: auto;
+                    filter: var(--ghs-filter-white);
+                }
+
+                &:hover {
+                    opacity: 0.7;
+                }
+
+                &.rewards img {
+                    filter: var(--ghs-filter-green);
+                }
+            }
         }
 
         .subtitle {

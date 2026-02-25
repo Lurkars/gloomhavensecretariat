@@ -2,6 +2,12 @@
   <div class="scroll-container">
     @if (!character) {
     <div class="header">
+      @if (!!scenario) {
+      <span class="title">
+        <span class="number" [ghs-label]="'%game.scenarioNumber:' + scenario.index+ '%'"></span>
+        <span class="name" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
+      </span>
+      }
     </div>
     }
     <table>
@@ -26,6 +32,7 @@
         </tr>
       </thead>
       <tbody>
+        @if(!scenario) {
         <tr>
           <th><span [ghs-label]="'scenario.stats.scenarios'"></span></th>
           @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
@@ -45,6 +52,7 @@
           </td>
           }
         </tr>
+        }
         <tr>
           <th><span [ghs-label]="'scenario.stats.damage'"></span></th>
           @for (character of characters| trackUUID; track character._trackUUID) {

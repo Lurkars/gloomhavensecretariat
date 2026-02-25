@@ -3,6 +3,19 @@
     position: relative;
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
 
+    .header {
+        .title {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .number {
+                font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+            }
+        }
+    }
+
     table {
         border-collapse: collapse;
         width: 100%;

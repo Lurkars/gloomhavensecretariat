@@ -597,7 +597,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   statistics() {
     this.dialog.open(StatisticsDialogComponent, {
       panelClass: ['dialog-invert'],
-      data: this.character
+      data: { character: this.character }
     })
   }
 

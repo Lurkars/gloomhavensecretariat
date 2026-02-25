@@ -4,6 +4,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { Character } from "src/app/game/model/Character";
 import { DamageStats, ScenarioStats } from "src/app/game/model/CharacterProgress";
 import { herbResourceLootTypes, LootType, materialResourceLootTypes } from "src/app/game/model/data/Loot";
+import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 
 @Component({
     standalone: false,
@@ -13,6 +14,8 @@ import { herbResourceLootTypes, LootType, materialResourceLootTypes } from "src/
 })
 export class StatisticsDialogComponent implements OnInit {
 
+    character: Character | undefined;
+    scenario: ScenarioData | undefined;
     characters: Character[] = [];
     scenarios: number[][] = [];
     overall: ScenarioStats = new ScenarioStats();
@@ -23,7 +26,10 @@ export class StatisticsDialogComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
 
-    constructor(@Inject(DIALOG_DATA) public character: Character | undefined) { }
+    constructor(@Inject(DIALOG_DATA) private data: { character: Character | undefined, scenario: ScenarioData | undefined }) {
+        this.character = data && this.data.character || undefined;
+        this.scenario = data && this.data.scenario || undefined;
+    }
 
     ngOnInit(): void {
         this.update();
@@ -60,7 +66,7 @@ export class StatisticsDialogComponent implements OnInit {
             character.scenarioStats = new ScenarioStats();
             this.scenarios[index] = [0, 0, 0];
             if (character.progress.scenarioStats.length) {
-                character.scenarioStats = this.scenarioStatisticsSum(character.progress.scenarioStats);
+                character.scenarioStats = this.scenarioStatisticsSum(character.progress.scenarioStats, this.scenario);
                 this.scenarios[index] = [character.progress.scenarioStats.length, character.progress.scenarioStats.filter((stat) => stat.success).length, character.progress.scenarioStats.filter((stat) => !stat.success).length];
             }
         })
@@ -69,7 +75,12 @@ export class StatisticsDialogComponent implements OnInit {
         this.scenarios[this.characters.length] = this.scenarios.reduce((a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]]);
     }
 
-    scenarioStatisticsSum(stats: ScenarioStats[]): ScenarioStats {
+    scenarioStatisticsSum(stats: ScenarioStats[], scenario: ScenarioData | undefined = undefined): ScenarioStats {
+        if (scenario) {
+            const scenarioStat = stats.find((value) => scenario && value.scenario && value.scenario.index == scenario.index && value.scenario.edition == scenario.edition && value.scenario.group == scenario.group && value.success);
+            return scenarioStat ? scenarioStat : new ScenarioStats();
+        }
+
         let scenarioStats = new ScenarioStats();
 
         let damageStats = this.damageStatisticsSum(stats);

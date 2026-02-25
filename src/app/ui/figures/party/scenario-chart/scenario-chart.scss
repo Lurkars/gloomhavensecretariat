@@ -99,12 +99,12 @@
                 cursor: initial;
                 color: var(--ghs-color-gray);
                 border-width: initial;
-                
+
                 &::before {
                     color: var(--ghs-color-gray);
                     background-color: var(--ghs-color-gray);
                 }
-              }
+            }
         }
 
         .legend {
@@ -182,6 +182,17 @@
                         &.not-unlocked {
                             border-radius: 0;
                         }
+                    }
+
+                    .link {
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 2.3em;
+                        color: var(--ghs-color-white);
+                        margin-right: 1em;
+                        font-family: var(--ghs-font-gh-title);
+                        font-size: 0.6em;
                     }
                 }
             }

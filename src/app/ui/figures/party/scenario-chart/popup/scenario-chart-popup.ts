@@ -7,8 +7,10 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioRequirementsDialogComponent } from "src/app/ui/figures/party/requirements/requirements";
 import { TreasuresDialogComponent } from "src/app/ui/figures/party/treasures/treasures-dialog";
 import { ScenarioConclusionComponent } from "src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion";
+import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { ScenarioRecapDialogComponent } from "../../../scenario-recap/scenario-recap";
+import { StatisticsDialogComponent } from "../../statistics/statistics-dialog";
 
 @Component({
     standalone: false,
@@ -96,6 +98,29 @@ export class ScenarioChartPopupDialog {
             data: this.scenario
         })
     }
+
+    openScenarioRewards(conclusionOnly: boolean = false) {
+        const conclusion = gameManager.game.party.conclusions.filter((value) => value.edition == this.scenarioData.edition).map((value) => gameManager.sectionData(this.scenarioData.edition).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData).find((conclusionData) => conclusionData.parent == this.scenarioData.index && conclusionData.group == this.scenarioData.group);
+
+        this.dialog.open(ScenarioSummaryComponent, {
+            panelClass: ['dialog'],
+            data: {
+                scenario: new Scenario(this.scenarioData),
+                conclusion: conclusion,
+                success: true,
+                rewardsOnly: true,
+                conclusionOnly: conclusionOnly
+            }
+        })
+    }
+
+    openStatisticsDialog() {
+        this.dialog.open(StatisticsDialogComponent, {
+            panelClass: ['dialog-invert'],
+            data: { scenario: this.scenario }
+        })
+    }
+
 
     addSuccess() {
         const conclusions = gameManager.sectionData(this.scenario.edition).filter((sectionData) =>

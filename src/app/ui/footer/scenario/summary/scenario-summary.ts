@@ -417,7 +417,7 @@ export class ScenarioSummaryComponent {
 
     hasRewards(): boolean {
         const rewards = this.rewards;
-        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards || rewards.removeLootDeckCards || rewards.townGuardAm || rewards.overlayCampaignSticker || rewards.overlaySticker || rewards.pet || rewards.eventDecks || rewards.reputationFactions || rewards.factionUnlock)) {
+        if (rewards && (rewards.envelopes && rewards.envelopes.length || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources && rewards.resources.length || rewards.collectiveResources && rewards.collectiveResources.length || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items && rewards.items.length || rewards.chooseItem && rewards.chooseItem.length || rewards.itemDesigns && rewards.itemDesigns.length || rewards.itemBlueprints && rewards.itemBlueprints.length || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events && rewards.events.length || rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards && rewards.lootDeckCards.length || rewards.removeLootDeckCards && rewards.removeLootDeckCards.length || rewards.townGuardAm && rewards.townGuardAm.length || rewards.overlayCampaignSticker || rewards.overlaySticker || rewards.pet || rewards.eventDecks && rewards.eventDecks.length || rewards.reputationFactions && rewards.reputationFactions.length || rewards.factionUnlock)) {
             return true;
         }
         return false;
@@ -428,7 +428,7 @@ export class ScenarioSummaryComponent {
     }
 
     addWeek(): boolean {
-        return gameManager.fhRules() && ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.scenario.solo) && !this.scenario.conclusion && (!this.rewards || !this.rewards.calendarIgnore) && (!this.scenario.forcedLinks || !this.scenario.forcedLinks.length) && (!this.conclusion || !this.conclusion.forcedLinks || !this.conclusion.forcedLinks.length) && settingsManager.settings.automaticPassTime && settingsManager.settings.partySheet;
+        return gameManager.fhRules() && ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.rewardsOnly && !this.scenario.solo) && !this.scenario.conclusion && (!this.rewards || !this.rewards.calendarIgnore) && (!this.scenario.forcedLinks || !this.scenario.forcedLinks.length) && (!this.conclusion || !this.conclusion.forcedLinks || !this.conclusion.forcedLinks.length) && settingsManager.settings.automaticPassTime && settingsManager.settings.partySheet;
     }
 
     weekSections(): ScenarioData[] {

@@ -3,6 +3,7 @@
   "name": "Opening the Pass",
   "edition": "fh",
   "conclusion": true,
+  "hideIndex": true,
   "unlocks": [
     "114"
   ]

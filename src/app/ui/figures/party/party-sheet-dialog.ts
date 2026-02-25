@@ -26,6 +26,7 @@ import { EventCardDeckComponent } from "../event/deck/event-card-deck";
 import { BuildingUpgradeDialog } from "./buildings/upgrade-dialog/upgrade-dialog";
 import { ScenarioRequirementsDialogComponent } from "./requirements/requirements";
 import { PartyResourcesDialogComponent } from "./resources/resources";
+import { ScenarioChartPopupDialog } from "./scenario-chart/popup/scenario-chart-popup";
 import { ScenarioChartDialogComponent } from "./scenario-chart/scenario-chart";
 import { StatisticsDialogComponent } from "./statistics/statistics-dialog";
 import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
@@ -675,6 +676,13 @@ export class PartySheetDialogComponent implements OnInit {
         rewardsOnly: true,
         conclusionOnly: conclusionOnly
       }
+    })
+  }
+
+  scenarioPopUp(scenarioData: ScenarioData) {
+    this.dialog.open(ScenarioChartPopupDialog, {
+      panelClass: ['dialog'],
+      data: scenarioData
     })
   }
 

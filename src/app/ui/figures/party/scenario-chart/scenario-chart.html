@@ -58,6 +58,24 @@
           <span class="symbol not-unlocked">NU</span>
           <span [ghs-label]="'scenario.chart.legend.not-unlocked'"></span>
         </li>
+        <li [ghs-tooltip]="'scenario.chart.legend.linked.hint'" [originY]="'top'" [overlayY]="'bottom'">
+          <span class="link">🔗</span>
+          <span [ghs-label]="'scenario.chart.legend.linked'"></span>
+        </li>
+        <li [ghs-tooltip]="'scenario.chart.legend.force-linked.hint'" [originY]="'top'" [overlayY]="'bottom'">
+          <span class="link">❗🔗</span>
+          <span [ghs-label]="'scenario.chart.legend.force-linked'"></span>
+        </li>
+        <li [ghs-tooltip]="'scenario.chart.legend.exclusive.hint'" [originY]="'top'" [overlayY]="'bottom'">
+          <span class="link">🔓</span>
+          <span [ghs-label]="'scenario.chart.legend.exclusive'"></span>
+        </li>
+        @if (gameManager.fhRules(false) || this.edition == 'fh') {
+        <li [ghs-tooltip]="'scenario.chart.legend.calendar.hint'" [originY]="'top'" [overlayY]="'bottom'">
+          <span class="link">🗓️</span>
+          <span [ghs-label]="'scenario.chart.legend.calendar'"></span>
+        </li>
+        }
       </ul>
       }
     </div>
