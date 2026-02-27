@@ -100,7 +100,103 @@
         "5": "Once each scenario, during your turn, place one %data.action.custom.gh2e-tear% in an adjacent hex",
         "6": "If a %game.condition.curse% causes an enemy to deal no %game.damage% during its attack, that enemy suffers %game.damage:3%",
         "7": "In a single scenario, infuse or consume %game.element.dark% during each of your turns",
-        "8": "In a single scenario, perform an attack ability during your turn in 5 consecutive rounds"
+        "8": "In a single scenario, perform an attack ability during your turn in 5 consecutive rounds",
+        "abilities": {
+          "267": {
+            "1": "Whenever you kill an enemy, you may discard this card to place one %game.customAction:gh2e-tear% in the hex they occupied.",
+            "2": "%game.action.teleport% to the hex occupied by one ally within eight hexes of you and simultaneously %game.action.teleport% that ally to the hex occupied by you."
+          },
+          "268": {
+            "1": "Reveal the top card of each monster within %game.action.range:2%'s ability card deck.",
+            "2": "Place one %game.customAction:gh2e-tear% in a hex within %game.action.range:2%."
+          },
+          "269": {
+            "1": "Place your character token on an ally within %game.action.range:3% and one %game.customAction:gh2e-tear% in a hex adjacent to them. On the next source of %game.damage% that ally would suffer, negate the %game.damage%."
+          },
+          "270": {
+            "1": "After the attack, if the target has 2 or fewer hit points, kill the target.",
+            "2": "Place one %game.customAction:gh2e-tear% in an adjacent hex."
+          },
+          "271": {
+            "1": "Enemies within %game.action.range:2% add -1 %game.action.attack% to all their attacks this round.",
+            "2": "Place one %game.customAction:gh2e-tear% in a hex within %game.action.range:2%."
+          },
+          "273": {
+            "1": "Add +1 %game.action.attack% to the second attack if the first attack kills an enemy."
+          },
+          "274": {
+            "1": "Whenever an enemy dies within %game.action.range:2% (of you), you may discard this card to grant whoever killed that enemy:"
+          },
+          "275": {
+            "1": "If the target is pushed into one or more hexes with a %game.customAction:gh2e-tear%, they gain %game.condition.muddle%, %game.condition.curse%, and suffer hazardous terrain damage."
+          },
+          "276": {
+            "1": "You and all allies add +1 %game.action.attack%, %game.action.pierce:1% to all attacks targeting enemies within %game.action.range:1% (of you) this round.",
+            "2": "Place one %game.customAction:gh2e-tear% in an adjacent hex."
+          },
+          "277": {
+            "1": "Place your character token on an enemy within %game.action.range:3% and one %game.customAction:gh2e-tear% in a hex adjacent to them. On your next attack targeting that enemy, add +2%game.action.attack% and gain advantage.",
+            "2": "This %game.action.teleport% must end in a hex containing a %game.customAction:gh2e-tear%."
+          },
+          "278": {
+            "1": "Place one %game.customAction:gh2e-tear% in a hex within %game.action.range:2%.",
+            "2": "Whenever an enemy enters a hex within %game.action.range:2% (of you) this round, that enemy gains %game.condition.wound%.",
+            "3": "At the end of this round, all enemies that have %game.condition.wound% suffer %game.damage:1%, %game.card.experience:1%."
+          },
+          "279": {
+            "1": "Negate the next source of %game.damage% you would suffer this round.",
+            "2": "All attacks targeting you this round gain disadvantage.",
+            "3": "All attacks targeting allies within %game.action.range:2% (of you) this round gain disadvantage, %game.card.experience:1%."
+          },
+          "280": {
+            "1": "If the target is adjacent to none of its allies after the push, it suffers %game.damage:2%.",
+            "2": "Place two %game.customAction:gh2e-tear% in hexes within %game.action.range:3% that are not adjacent to each other and %game.action.teleport% to one those hexes.",
+            "3": "On your next two attacks, double the value of the attack."
+          },
+          "281": {
+            "1": "Whenever you remove a %game.customAction:gh2e-tear% you may discard this card to gain %game.condition.strengthen% and have all adjacent enemies suffer %game.damage:2%."
+          },
+          "282": {
+            "1": "You and all allies gain advantage on all attacks targeting enemies that have %game.condition.poison% this round.",
+            "2": "Whenever you or an ally attack an enemy within %game.action.range:2% (of you) this round, after the attack ability the attacker may perform:"
+          },
+          "284": {
+            "1": "all targets of the stun ability",
+            "2": "Grant one adjacent ally:",
+            "3": "This %game.action.teleport% must and in a hex containing a %game.customAction:gh2e-tear%."
+          },
+          "285": {
+            "1": "If you have %game.condition.invisible%, place one %game.customAction:gh2e-tear% in a hex adjacent to the target. If you do not have %game.condition.invisible%, the target suffers %game.damage:4%.",
+            "2": "The targets suffer %game.damage:1%, %game.card.experience:1%."
+          },
+          "286": {
+            "1": "At the end of your next turn, if you do not have %game.condition.invisible%, you may perform:",
+            "2": "When you next kill an enemy this round, place one %game.customAction:gh2e-tear% in the hex they occupied."
+          },
+          "287": {
+            "1": "Reveal the top card of each monster within %game.action.range:3%'s ability card deck.",
+            "2": "Place one %game.customAction:gh2e-tear% in a hex within %game.action.range:3%."
+          },
+          "290": {
+            "1": "If the target of the attack ability's current hit point value is half (rounded down) their maximum or less, gain %game.card.experience:1% and perform:",
+            "2": "that enemy"
+          },
+          "291": {
+            "1": "Enemies in the red hexes suffer %game.damage:2%.",
+            "2": "%game.action.teleport% to %game.custom:gh2e-tear-hex% of the damage ability.",
+            "3": "Play a card from your hand to perform the top or bottom action of the card, %game.card.experience:1%.",
+            "4": "This attack does not cause you to gain %game.condition.invisible% at the end of the round, %game.card.experience:1%."
+          },
+          "292": {
+            "1": "If you have %game.condition.invisible%, place one %game.customAction:gh2e-tear% in a hex adjacent to the target. If you do not have %game.condition.invisible% and the target is a normal enemy occupying a hex containing a %game.customAction:gh2e-tear%, you may remove the %game.customAction:gh2e-tear% and gain %game.condition.invisible% to kill the target and gain %game.card.experience:1%.",
+            "2": "During this an the next four rounds, you may perform attack abilities while you have %game.condition.invisible%. When this card is moved from you active area to your lost pile, you become exhausted."
+          },
+          "293": {
+            "1": "Grant all allies in the red hexes:",
+            "2": "1 ally or enemy",
+            "3": "If the target enters a hex containing a %game.customAction:gh2e-tear% you may remove the %game.customAction:gh2e-tear% to have the target gain %game.condition.invisible%."
+          }
+        }
       },
       "lightning": {
         "1": "You may suffer %game.damage:2% to add +2 %game.action.attack%",
