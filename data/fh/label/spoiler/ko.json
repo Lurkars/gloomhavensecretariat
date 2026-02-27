@@ -203,7 +203,7 @@
         "": "모방군집",
         "autoapply_mode": {
           "": "모드 자동 적용",
-          "hint": "%data.characterToken.prism.mode% 활성화일 때, 자동으로 피해와 상태 적용."
+          "hint": "%data.characterToken.prism.mode% 활성화할 때, 자동으로 피해와 상태 적용."
         },
         "prism_mode": {
           "": "%data.characterToken.prism.mode% 모드 토큰",
