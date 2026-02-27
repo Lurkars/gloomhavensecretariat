@@ -1111,7 +1111,7 @@
         "brewed": "{2} brewed {1} %game.itemFh.{0}%",
         "brewedOther": "{2} brewed {1} %game.itemFh.{0}% for {3}",
         "disabled": "Cannot brew potions, rebuild '%data.buildings.alchemist%' (35) first",
-        "item": "{1} %game.itemFh.{0}%",
+        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
         "noChar": "Potion already owned by every character!",
         "selectCharacter": "Select Character to brew for:"
       },
@@ -1966,6 +1966,7 @@
       "randomItemBlueprint": "Gain one random item blueprint",
       "randomItemBlueprints": "Add items %game.itemFh.{0}% to %game.itemFh.{1}% to the random item blueprint deck.",
       "randomItems": "Each character gains one random item ({0}-{1})",
+      "randomSideScenario": "Drawn one random side scenario.",
       "removeEvent": {
         "boat": "Remove event {0} from the boat deck",
         "city": "Remove City Event {0} from the deck",

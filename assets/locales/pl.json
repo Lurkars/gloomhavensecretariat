@@ -1849,7 +1849,7 @@
         "resource": "Zyskaj {1} %game.resource.{0}%"
       }
     },
-    "recap": "Podsumowanie",
+    "recap": "Streszczenie",
     "requirements": {
       "": "Wymagania scenariusza",
       "all": "Pokaż wszystkie wymagania (w tym spełnione)",
