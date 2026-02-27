@@ -981,6 +981,15 @@
       "": "Botas eternas",
       "1": "Durante tu capacidad de Movimiento añade %game.action.move% +1 y obtén %game.condition.regenerate%"
     },
+    "fh-63": {
+      "": "Escarpes de sombra",
+      "1": "Durante tu capacidad de Movimiento, %game.element.consume.dark% para añadir %game.action.move% +2"
+    },
+    "fh-67": {
+      "": "Gafas de convergencia",
+      "1": "Cuando te ataquen, añade %game.action.attack% +1 al ataque en lugar de robar una carta de Modificador de ataque y luego dale la vuelta a esta carta.",
+      "2": "Durante tu capacidad de Ataque, añade %game.action.attack% +1 a 1 ataque en lugar de robar una carta de Modificador de ataque y luego dale la vuelta a esta carta."
+    },
     "fh-69": {
       "": "Capa emplumada",
       "1": "Cuando sufras %game.damage% por un ataque, %game.element.consume.air% para obtener %game.action.shield:3% para dicho ataque."
@@ -996,6 +1005,10 @@
     "fh-72": {
       "": "Báculo de roble",
       "1": "Durante tu turno, %game.element.consume.light% para realizar:"
+    },
+    "fh-73": {
+      "": "Porra energizante",
+      "1": "Cuando apliques un estado positivo a un aliado, otro aliado a %game.action.range:3% obtiene el mismo estado."
     },
     "fh-74": {
       "1": "Durante tu turno, realiza:"

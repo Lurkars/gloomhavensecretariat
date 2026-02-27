@@ -1861,107 +1861,107 @@
   "personalQuest": {
     "fh": {
       "505": {
-        "": "Refined Tastes",
-        "1": "Items craftable with own items costs"
+        "": "Wyrafinowany gust",
+        "1": "Przedmioty wytworzone kosztem surowcowym"
       },
       "509": {
-        "": "Threat from the Deep",
-        "1": "Follow \"Invasion of the Docks\" %game.scenarioNumber:71% to a conclusion"
+        "": "Groza z głębin",
+        "1": "Odblokuj i przejdź do końca scenariusz \"Inwazja na doki\" %game.scenarioNumber:71%"
       },
       "514": {
-        "": "End the Trickery",
-        "1": "Imps killed"
+        "": "koniec oszustw",
+        "1": "Zabite chochliki"
       },
       "519": {
-        "": "Eternal Wanderer",
-        "1": "Completed scenario in Whitefire Wood",
-        "2": "Completed scenario in Copperneck Mountains",
-        "3": "Completed scenario in Radiant Forest",
-        "4": "Completed scenario in Crystal Fields",
-        "5": "Completed scenario in Biting Sea"
+        "": "",
+        "1": "Ukończony scenariusz w Lesie Białego Ognia",
+        "2": "Ukończony scenariusz w Górach Miedzianych Turni",
+        "3": "Ukończony scenariusz w Radiant Forest",
+        "4": "Ukończony scenariusz w Kryształowych Polach",
+        "5": "Ukończony scenariusz w Kąsającym Morzu"
       },
       "523": {
-        "": "Continued Prosperity",
-        "1": "Gold donated to the Temple of the Great Oak"
+        "": "",
+        "1": "Podarowane złoto dla Świątyni Wielkiego Dębu"
       },
       "527": {
-        "": "Prepared for the Worst",
-        "1": "Enhancements purchased"
+        "": "Gotowy na najgorsze",
+        "1": "Kupione ulepszenia"
       },
       "538": {
-        "": "Battle Legend",
-        "1": "Earned %game.checkmark% from completed battle goals"
+        "": "Legenda bitwy",
+        "1": "Otrzymane %game.checkmark% z ukończonych celów bitewnych"
       },
       "542": {
-        "": "Let Them Be",
-        "1": "Side scenarios (numbered 65 or higher) completed"
+        "": "",
+        "1": "Ukończone poboczne scenariusze (numerowane 65 lub wyżej)"
       },
       "543": {
-        "": "The Chosen One",
-        "1": "Allies exhausted during scenarios you otherwise complete"
+        "": "Wybraniec",
+        "1": "Wyczerpani sojusznicy podczas ukończenia scenariusza, gdy ty dalej jesteś przytomny"
       },
       "545": {
-        "": "Quiet the Dead Places",
-        "1": "Own Abyss Axe %game.itemFh.39%",
-        "2": "Frozen Corpses, Ice Wraiths, and/or Living Dooms killed with it"
+        "": "",
+        "1": "Posiadaj Topór Otchłani %game.itemFh.39%",
+        "2": "Zamarznięte zwłoki, Lodowe Upiory i/lub Ożywione Zagłady zabite z jego wykorzystaniem"
       },
       "549": {
-        "": "Return to Simplicity",
-        "1": "Ruined Machines killed"
+        "": "Powrót do prostoty",
+        "1": "Zabite Zrujnowane Maszyny"
       },
       "552": {
-        "": "The Study of Life",
-        "1": "Enemies captured"
+        "": "Studium Życia",
+        "1": ""
       },
       "557": {
-        "": "The Greatest Challenge",
-        "1": "Challenges completed"
+        "": "Największe wyzwanie",
+        "1": "Ukończone wyzwania"
       },
       "581": {
-        "": "The Study of Plants",
-        "1": "Different types of herbs looted"
+        "": "Studium roślin",
+        "1": "Zebrane różne rodzaje ziół"
       },
       "582": {
-        "": "Searching for the Oak",
-        "1": "Lumber cards looted",
-        "2": "Follow \"Sacred Soil\" %game.scenarioNumber:69% to a conclusion"
+        "": "Poszukiwanie Dębu",
+        "1": "Zebrane karty drewna",
+        "2": "Odblokuj scenariusz \"Święta gleba\" %game.scenarioNumber:69% i ukończ cały wątek fabularny"
       },
       "583": {
-        "": "Merchant Class",
-        "1": "%game.items.slots.head% items",
-        "2": "%game.items.slots.body% items",
-        "3": "%game.items.slots.legs% items",
-        "4": "%game.items.slots.onehand% or %game.items.slots.twohand% items",
-        "5": "%game.items.slots.small% items"
+        "": "Kupcy rządzą",
+        "1": "%game.items.slots.head% przedmioty",
+        "2": "%game.items.slots.body% przedmioty",
+        "3": "%game.items.slots.legs% przedmioty",
+        "4": "%game.items.slots.onehand% lub %game.items.slots.twohand% przedmioty",
+        "5": "%game.items.slots.small% przedmioty"
       },
       "584": {
-        "": "Greed is Good"
+        "": ""
       },
       "585": {
-        "": "Build, not Destroy",
-        "1": "Buildings constructed or upgraded"
+        "": "Buduj, nie niszcz",
+        "1": "Budynki ulepszone lub zbudowane"
       },
       "586": {
-        "": "Team Building",
-        "1": "Person's name read in different outpost phases"
+        "": "Budowanie zespołu",
+        "1": "Przeczytane imię osoby w różnych fazach outpostu"
       },
       "587": {
-        "": "Aesther Outpost",
-        "1": "Follow \"A Strong Foundation\" %game.scenarioNumber:65% to a conclusion"
+        "": "Posterunek Esterów",
+        "1": "Odblokuj scenariusz \"Mocne fundamenty\" %game.scenarioNumber:65% i ukończ cały wątek fabularny"
       },
       "588": {
-        "": "Dangerous Game",
-        "1": "Algox Guards killed",
-        "2": "Lurker Clawcrushers killed",
-        "3": "Robotic Boltshooters killed"
+        "": "Niebezpieczna gra",
+        "1": "Zabici Algoksi Strażnicy",
+        "2": "Zabici Czychacze Rozgniatacze",
+        "3": "Zabite Robotyczne Autostrzelce"
       },
       "589": {
-        "": "Life Lessons",
-        "1": "Experience gained from ability cards"
+        "": "Lekcje życia",
+        "1": "Zdobyte doświadczenie z kart zdolności"
       },
       "590": {
-        "": "Explore the Reaches",
-        "1": "Scenarios completed with %game.fhIcon:boat%, %game.fhIcon:climbing-gear%, or %game.fhIcon:sled% requirement "
+        "": "Badanie rubieży",
+        "1": "Ukończone scenariusze z wymaganiem: %game.fhIcon:boat%, %game.fhIcon:climbing-gear%, lub %game.fhIcon:sled% "
       }
     }
   },

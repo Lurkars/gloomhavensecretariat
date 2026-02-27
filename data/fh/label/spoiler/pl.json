@@ -192,6 +192,7 @@
     "fh": {
       "coral": "Miażdżąca Fala",
       "meteor": "Piroklasta",
+      "shackles": "Przekaźnik Bólu",
       "snowflake": {
         "": "Tancerz Śniegu"
       },
@@ -218,6 +219,16 @@
       },
       "prism": {
         "1": "Na koniec tury wykonaj akcję:"
+      },
+      "shackles": {
+        "1": "Gdy atakuje, ignoruj %game.action.retaliate%",
+        "2": "Wszyscy wrogowie w zasięgu 2 pól",
+        "3": "Dodaj +1 %game.action.attack% za każdy posiadany negatywny stan",
+        "4": "W każdej rundzie, w której wykonujesz długi odpoczynek możesz zignorować wszystkie negatywne stany. Jeżeli to zrobisz, nie mogą być one usunięte w tej rundzie",
+        "5": "Za każdym razem, gdy staniesz się wyczerpany, najpierw wykonaj %game.condition.curse%, %game.action.target% wszyscy, %game.action.range:3%",
+        "6": "Zwiększ swoją maksymalną wartość punktów życia o 5",
+        "7": "W trakcie jednej rundy zadaj innym figurkom obrażenia o łącznej wartości co najmniej %game.damage:40%",
+        "8": "Rozpocznij turę z %game.condition.wound%,%game.condition.brittle%,%game.condition.bane%,%game.condition.poison%,%game.condition.immobilize%,%game.condition.disarm%,%game.condition.stun% oraz %game.condition.muddle%"
       },
       "snowflake": {
         "1": "Jeżeli ta akcja zmusza cel do poruszenia, otrzymuje on %game.damage:1%",
@@ -1271,6 +1282,9 @@
         "100": {
           "99": "Zaprowadziła was do starego i odległego więzienia, w którym strażnicy (rzecz jasna) nie byli tak martwi, jak obiecywano. \"Więzień\" zdawał się być przetrzymywany w drewnianej skrzyni na piedestale. W skrzyni znajdował się Dreszczowiec o imieniu Zu, który ewidentnie nieco oszalał z powodu długiego uwięzienia. Iskra wysłała was do umysłu roju Dreszczowca, aby spróbować przywrócić mu zmysły."
         },
+        "101": {
+          "100": "Podczas gdy wasze świadome umysły trwały we śnie, wasza podświadomość skierowała się ku rdzeniowi umysłu Zu. Okazało się, że jest to replika dawnej kryjówki jego i Iskry. Rozprawiliście się z ostatnimi urojeniami mącącymi świadomość Zu i przywróciliście mu przytomność.<br>Zu narzekał, że to miał być wyrok dożywocia i że nie odprawił jeszcze swojej pokuty. Iskra powiedziała mu, że muszą odnaleźć i pomóc pewnemu Sawasowi imieniem \"Bartlet\", oraz żeby przestał narzekać. Zu ustąpił."
+        },
         "104": {
           "": "W skrzyni znaleźliście tęczowy klucz. Gdy go trzymaliście, w powietrzu pojawiła się dziurka od klucza, przez którą dostrzegliście słoneczny, wiosenny krajobraz. Próbowaliście użyć klucza, aby otworzyć drzwi, ale to nie zadziałało. Postanowiliście spróbować ponownie później."
         },
@@ -1381,6 +1395,8 @@
     "banner-of-valor": "Sztandar Męstwa",
     "bone-horde": "Kościana Horda",
     "defense-grid": "Siatka Obronna",
+    "flesh-bomb": "Mięsna Bomba",
+    "flesh-fiend": "Mięsisty Nikczemnik",
     "longbowman": "Łucznik",
     "polar-cat": "Kot Polarny",
     "raging-corpse": "Wściekłe Zwłoki",
