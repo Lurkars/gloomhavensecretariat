@@ -89,5 +89,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Library quest conclusion, §36.2"
+    }
   ]
 }

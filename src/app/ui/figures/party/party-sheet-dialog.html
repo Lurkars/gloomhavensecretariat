@@ -678,6 +678,12 @@
             }
           </div>
         </div>
+        <div class="retirement-note" ghs-pointer-input
+          (singleClick)="isConclusion('68.4', 'gh2e') ? conclusionRewards('68.4') :  finishConclusion('68.4')"
+          (doubleClick)="removeConclusion('68.4', 'gh2e')">
+          <span class="checkbox" [ngClass]="{'checked' : isConclusion('68.4', 'gh2e')}"></span>
+          <span [ghs-label]="'data.section.rewards.gh2e.68-4.2'"></span>
+        </div>
       </div>
       }
 

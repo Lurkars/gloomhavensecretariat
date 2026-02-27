@@ -54,5 +54,11 @@
         "1:4-C"
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "9"
+    }
   ]
 }

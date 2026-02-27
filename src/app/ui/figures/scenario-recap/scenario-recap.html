@@ -1,21 +1,25 @@
 <div class="recaps">
-    @if (predecessors.length) {
-    <ghs-scenario-recap [scenarios]="predecessors"></ghs-scenario-recap>
-    }
-
-    @if (!!predecessor && predessorLabel) {
+    @if (selected != -1) {
+    @if(scenarios[selected] && label) {
+    <ghs-scenario-recap [scenario]="scenarios[selected]" [forceAll]="forceAll"></ghs-scenario-recap>
     <div class="recap">
-        <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + predecessor.index + '%'"></span>:
-        <span [ghs-label]="predessorLabel"></span>
+        <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + scenarios[selected]?.index + '%'"></span>:
+        <span [ghs-label]="label"></span>
     </div>
     }
-
-    @if (!!scenario && label) {
+    @if(!scenarios[selected] && label) {
     <div class="recap">
-        @if (predecessors.length) {
-        <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + scenario.index + '%'"></span>:
-        }
         <span [ghs-label]="label"></span>
+    </div>
+    }
+    }
+
+    @if (selected == -1) {
+    <div class="select-container">
+        @for (recap of recaps | trackUUID; track recap._trackUUID; let i = $index) {
+        <span class="select text-white" (click)="selected=i"
+            [ghs-label]="'%game.scenarioNumber:' + scenarios[i]?.index + '%'"></span>
+        }
     </div>
     }
 </div>

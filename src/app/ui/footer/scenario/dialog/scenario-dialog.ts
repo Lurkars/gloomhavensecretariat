@@ -147,7 +147,7 @@ export class ScenarioDialogComponent {
     openRecapDialog() {
         this.dialog.open(ScenarioRecapDialogComponent, {
             panelClass: ['dialog'],
-            data: this.scenario
+            data: { scenario: this.scenario }
         })
     }
 

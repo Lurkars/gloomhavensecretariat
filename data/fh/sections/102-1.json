@@ -20,7 +20,7 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "All characters return one card from their hand or discard pile to their set-aside deck."
+      "note": "%data.section.rules.fh.102-1.1%"
     }
   ],
   "rooms": [

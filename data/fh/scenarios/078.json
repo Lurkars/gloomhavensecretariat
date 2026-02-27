@@ -61,5 +61,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Job Posting §167.2"
+    }
   ]
 }

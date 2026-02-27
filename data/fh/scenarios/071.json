@@ -70,5 +70,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "PQ 12 - Threat from the Deep"
+    }
   ]
 }

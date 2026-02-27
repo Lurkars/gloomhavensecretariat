@@ -1254,41 +1254,97 @@ export class ScenarioManager {
     return this.game.scenario.rooms.filter((roomData) => this.game.scenario && !this.game.scenario.revealedRooms.includes(roomData.roomNumber) && this.openRooms(true).some((openRoomData) => openRoomData.rooms && openRoomData.rooms.includes(roomData.roomNumber)));
   }
 
-  getPredecessors(scenario: ScenarioData): ScenarioData[] {
+  getPredecessors(scenario: ScenarioData, all: boolean = false): ScenarioData[] {
     let predecessors: ScenarioData[] = [];
-    let predecessor = this.scenarioData(scenario.edition).find((other) => other.group == scenario.group && other.unlocks && other.unlocks.includes(scenario.index) && (!gameManager.game.party.campaignMode || this.isSuccess(other)));
-
-    if (!predecessor) {
-      predecessor = gameManager.sectionData(scenario.edition).find((sectionData) => sectionData.conclusion && sectionData.group == scenario.group && sectionData.parent && sectionData.unlocks && sectionData.unlocks.includes(scenario.index) && gameManager.game.party.conclusions.find((conclusion) => conclusion.edition == sectionData.edition && conclusion.group == sectionData.group && conclusion.index == sectionData.index));
-      if (predecessor) {
-        predecessor = this.scenarioData(predecessor.edition).find((other) => predecessor && other.group == predecessor.group && other.index == predecessor.parent && (!gameManager.game.party.campaignMode || this.isSuccess(other)));
-      }
-    }
+    const campaignMode = gameManager.game.party.campaignMode && !all;
+    let predecessor = this.getPredecessor(scenario, campaignMode);
 
     while (predecessor) {
       predecessors.unshift(predecessor);
-      let newPredecessor = this.scenarioData(predecessor.edition).find((other) => predecessor && other.group == predecessor.group && other.unlocks && other.unlocks.includes(predecessor.index) && (!gameManager.game.party.campaignMode || this.isSuccess(other)));
-
-      if (!newPredecessor) {
-        newPredecessor = gameManager.sectionData(predecessor.edition).find((sectionData) => predecessor && sectionData.conclusion && sectionData.group == predecessor.group && sectionData.parent && sectionData.unlocks && sectionData.unlocks.includes(predecessor.index) && gameManager.game.party.conclusions.find((conclusion) => conclusion.edition == sectionData.edition && conclusion.group == sectionData.group && conclusion.index == sectionData.index));
-        if (newPredecessor) {
-          newPredecessor = this.scenarioData(predecessor.edition).find((other) => newPredecessor && other.group == newPredecessor.group && other.index == newPredecessor.parent && (!gameManager.game.party.campaignMode || this.isSuccess(other)));
-        }
-      }
-
+      let newPredecessor = this.getPredecessor(predecessor, campaignMode);
       predecessor = newPredecessor;
       if (predecessor && predecessors.includes(predecessor)) {
         predecessor = undefined;
       }
-
     }
 
     return predecessors;
   }
 
-  hasRecaps() {
-    const editionData = gameManager.editionData.find((e) => e.edition == gameManager.currentEdition());
-    return !!editionData && editionData.recaps || false;
+  getPredecessor(scenarioData: ScenarioData, all: boolean): ScenarioData | undefined {
+    let predecessor: ScenarioData | undefined = this.scenarioData(scenarioData.edition, all).find((other) => other.group == scenarioData.group && other.unlocks && other.unlocks.includes(scenarioData.index) && (!all || this.isSuccess(other)));
+
+    if (!predecessor) {
+      const conclusion = gameManager.sectionData(scenarioData.edition).find((sectionData) => sectionData.conclusion && sectionData.group == scenarioData.group && sectionData.unlocks && sectionData.unlocks.includes(scenarioData.index) && (!all || gameManager.game.party.conclusions.find((conclusion) => conclusion.edition == sectionData.edition && conclusion.group == sectionData.group && conclusion.index == sectionData.index)));
+      if (conclusion) {
+        predecessor = this.findScenarioPredecessorForSection(conclusion, scenarioData.edition, all);
+      }
+    }
+
+    if (!predecessor && scenarioData.requires && scenarioData.requires.length > 0) {
+      for (const requireGroup of scenarioData.requires) {
+        if (requireGroup.length === 1) {
+          const requiredScenario = this.scenarioData(scenarioData.edition, all).find(
+            (other) => other.index == requireGroup[0] && (!all || this.isSuccess(other))
+          );
+          if (requiredScenario) {
+            predecessor = requiredScenario;
+            break;
+          }
+        }
+      }
+    }
+
+    return predecessor;
+  }
+
+  findScenarioPredecessorForSection(section: ScenarioData, edition: string, all: boolean, visited: Set<string> = new Set()): ScenarioData | undefined {
+    const key = section.index;
+    if (visited.has(key)) {
+      return undefined;
+    }
+    visited.add(key);
+
+    if (section.parent) {
+      const parentScenario = this.scenarioData(edition, all).find((other) => other.index == section.parent && other.group == section.group && (!all || this.isSuccess(other)));
+      if (parentScenario) {
+        return parentScenario;
+      }
+    }
+
+    const predecessorViaScenario = this.scenarioData(edition, all).find((other) => other.rewards && (
+      other.rewards.calendarSection && other.rewards.calendarSection.some((value) => section.index == value.split('-')[0]) ||
+      other.rewards.calendarSectionManual && other.rewards.calendarSectionManual.some((value) => section.index == value.section)
+    ) && (!all || this.isSuccess(other)));
+
+    if (predecessorViaScenario) {
+      return predecessorViaScenario;
+    }
+
+    const predecessorSection = gameManager.sectionData(edition).find((sectionData) => sectionData.rewards && (
+      sectionData.rewards.calendarSection && sectionData.rewards.calendarSection.some((value) => section.index == value.split('-')[0]) ||
+      sectionData.rewards.calendarSectionManual && sectionData.rewards.calendarSectionManual.some((value) => section.index == value.section)
+    ));
+
+    if (predecessorSection) {
+      return this.findScenarioPredecessorForSection(predecessorSection, edition, all, visited);
+    }
+
+    if (section.parentSections && section.parentSections.length > 0) {
+      for (const parentSectionGroup of section.parentSections) {
+        for (const parentSectionIndex of parentSectionGroup) {
+          const parentSection = gameManager.sectionData(edition).find((s) => s.index == parentSectionIndex);
+          if (parentSection) {
+            const result = this.findScenarioPredecessorForSection(parentSection, edition, all, visited);
+            if (result) {
+              return result;
+            }
+          }
+        }
+      }
+    }
+
+    return undefined;
   }
 
   drawRandomScenario(edition: string): ScenarioData | undefined {
@@ -1319,8 +1375,17 @@ export class ScenarioManager {
   }
 
   scenarioTitle(scenarioData: ScenarioData | undefined, section: boolean = false): string {
-    return scenarioData ? 'data.' + (section ? 'section.title.' : 'scenario.title.') + scenarioData.edition
-      + '.' + (scenarioData.group ? scenarioData.group + '-' : '') + scenarioData.index.replaceAll('.', '-') : (section ? 'section' : 'scenario');
+    if (!scenarioData) {
+      return (section ? 'section' : 'scenario');
+    }
+    const label = 'data.' + (section ? 'section.title.' : 'scenario.title.') + scenarioData.edition
+      + '.' + (scenarioData.group ? scenarioData.group + '-' : '') + scenarioData.index.replaceAll('.', '-');
+
+    if (settingsManager.labelExists(label)) {
+      return label;
+    }
+
+    return section ? '%game.section:' + scenarioData.index + '%' : '#' + scenarioData.index;
   }
 
   scenarioDataForModel(model: GameScenarioModel): ScenarioData | undefined {

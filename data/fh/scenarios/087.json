@@ -59,5 +59,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Job Posting §41.1"
+    }
   ]
 }

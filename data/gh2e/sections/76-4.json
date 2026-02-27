@@ -5,7 +5,7 @@
   "parent": "28",
   "conclusion": true,
   "rewards": {
-    "randomSideScenario": 1
+    "randomSideScenario": true
   },
   "monsters": []
 }

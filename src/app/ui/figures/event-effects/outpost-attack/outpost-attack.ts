@@ -144,12 +144,13 @@ export class OutpostAttackComponent {
                 this.parity = this.attack.target.parity || 0;
                 this.level = this.attack.target.level || 0;
                 this.distance = this.attack.target.distance || undefined;
-
+                this.applyFilter();
                 if (this.attack.target.randomize) {
                     this.randomize();
                 }
+            } else {
+                this.applyFilter();
             }
-            this.applyFilter();
         }
     }
 

@@ -1,0 +1,10 @@
+{
+  "index": "68.4",
+  "name": "Puzzle Book",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "%data.section.rewards.gh2e.68-4.1%"
+  }
+}

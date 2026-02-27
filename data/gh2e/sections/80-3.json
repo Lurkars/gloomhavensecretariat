@@ -12,7 +12,7 @@
       "the-candle-kept"
     ],
     "prosperity": 1,
-    "randomSideScenario": 1
+    "randomSideScenario": true
   },
   "monsters": []
 }

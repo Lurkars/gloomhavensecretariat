@@ -1931,6 +1931,19 @@
             }
           }
         }
+
+        .retirement-note {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          position: absolute;
+          top: calc(var(--ghs-unit) * 94 * var(--ghs-dialog-factor));
+          left: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+
+          .checkbox {
+            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+          }
+        }
       }
     }
 

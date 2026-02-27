@@ -58,5 +58,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "94"
+    }
   ]
 }

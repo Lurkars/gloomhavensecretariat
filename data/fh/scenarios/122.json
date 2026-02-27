@@ -26,5 +26,11 @@
       "roomNumber": 1,
       "initial": true
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "SR-13"
+    }
   ]
 }

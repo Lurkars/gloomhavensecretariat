@@ -74,5 +74,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "SR-52"
+    }
   ]
 }

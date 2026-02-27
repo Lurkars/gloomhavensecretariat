@@ -2250,6 +2250,9 @@
     },
     "rules": {
       "fh": {
+        "102-1": {
+          "1": "All characters return one card from their hand or discard pile to their set-aside deck."
+        },
         "130-3": {
           "1": "Gain Advantage on this target"
         },

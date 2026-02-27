@@ -104,7 +104,7 @@
         </a>
         }
 
-        @if (gameManager.scenarioManager.hasRecaps()) {
+        @if (scenario.recaps && scenario.recaps.length) {
         <a class="recap" (click)="openRecapDialog()">
           <span [ghs-label]="'scenario.recap'"></span>
         </a>

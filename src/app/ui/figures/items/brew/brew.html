@@ -100,11 +100,11 @@
       }
       @if (!!item && !brewed ) {
       <span class="placeholder text-white item" [ghs-label]="'game.items.brewing.item'"
-        [ghs-label-args]="[item.id, item.name]"></span>
+        [ghs-label-args]="[item.id, item.name, item.edition]"></span>
       }
       @if (!!brewed) {
       <span class="placeholder text-white item" [ghs-label]="'game.items.brewing.item'"
-        [ghs-label-args]="[brewed.id, brewed.name]"></span>
+        [ghs-label-args]="[brewed.id, brewed.name, brewed.edition]"></span>
       }
       @if (!item && !brewed) {
       <span class="herb">

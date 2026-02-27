@@ -76,5 +76,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Job Posting §180.3"
+    }
   ]
 }

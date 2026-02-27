@@ -106,5 +106,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "PQ 07 - Aesther Outpost"
+    }
   ]
 }

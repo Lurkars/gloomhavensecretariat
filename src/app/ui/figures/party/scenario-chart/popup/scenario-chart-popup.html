@@ -6,15 +6,17 @@
     }
     <span class="title">
       <span class="number text-white" [ghs-label]="'%game.scenarioNumber:' + scenario.index+ '%'"></span>
-      <span class="name text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData)"></span>
+      <span class="name text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
 
-      @if (isSuccess) {
-      <a class="rewards" (click)="openScenarioRewards()" [ghs-tooltip]="'scenario.summary.rewards'">
+      @if (isSuccess || forceAll) {
+      <a [ngClass]="{'rewards': isSuccess}" (click)="openScenarioRewards()" [ghs-tooltip]="'scenario.summary.rewards'">
         <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
       </a>
+      @if (isSuccess) {
       <a (click)="openStatisticsDialog()" [ghs-tooltip]="'scenario.stats'">
         <img class="ghs-svg" src="./assets/images/stats.svg">
       </a>
+      }
       }
     </span>
   </div>
@@ -22,7 +24,7 @@
   @if (hasRequirements) {
   <div class="spoiler-block visible">
     <label [ghs-label]="'scenario.requirements'"></label>
-    <ghs-requirements [scenarioData]="scenarioData" [all]="true" [allToggle]="false"></ghs-requirements>
+    <ghs-requirements [scenarioData]="scenario" [all]="true" [allToggle]="false"></ghs-requirements>
     <div class="background"></div>
   </div>
   }
@@ -85,7 +87,7 @@
       }
       <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + predecessor.index + '%'"></span>
       }
-      @if (predecessors.length && gameManager.scenarioManager.hasRecaps()) {
+      @if (scenario.recaps && scenario.recaps.length) {
       <a class="recap" [ghs-label]="'scenario.recap'" (click)="openRecapDialog()"></a>
       }
   </span>

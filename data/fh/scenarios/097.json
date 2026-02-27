@@ -123,5 +123,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "96"
+    }
   ]
 }

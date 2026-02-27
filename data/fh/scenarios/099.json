@@ -83,5 +83,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Job Posting §151.3"
+    }
   ]
 }

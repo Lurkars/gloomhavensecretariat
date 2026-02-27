@@ -96,10 +96,10 @@ export class ScenarioComponent {
   }
 
   openRecapDialog() {
-    if (gameManager.game.scenario && gameManager.scenarioManager.hasRecaps()) {
+    if (gameManager.game.scenario && gameManager.game.scenario.recaps && gameManager.game.scenario.recaps.length) {
       this.dialog.open(ScenarioRecapDialogComponent, {
         panelClass: ['dialog'],
-        data: this.gameManager.game.scenario
+        data: { scenario: this.gameManager.game.scenario }
       })
     }
   }

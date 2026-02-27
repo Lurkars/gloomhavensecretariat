@@ -50,7 +50,7 @@ export class ScenarioData implements Editional, Spoilable {
   level: number | undefined;
   overlays: ScenarioOverlay[] = [];
   spotlight: boolean = false;
-  recap: ScenarioRecap[] = [];
+  recaps: ScenarioRecap[] = [];
 
   // from Editional
   edition: string = "";
@@ -100,9 +100,14 @@ export class ScenarioData implements Editional, Spoilable {
       this.level = scenarioData.level;
       this.overlays = scenarioData.overlays;
       this.spotlight = scenarioData.spotlight;
-      this.recap = scenarioData.recap;
+      this.recaps = scenarioData.recaps;
     }
   }
+}
+
+export class ScenarioRecap {
+  type: 'scenario' | 'section' | 'event' | 'other' | undefined;
+  value: string | undefined;
 }
 
 export class ScenarioRequirement {
@@ -114,9 +119,7 @@ export class ScenarioRequirement {
   puzzle: string[] | undefined;
   characters: string[] | undefined;
   scenarios: string[][] | undefined;
-
 }
-
 
 export class ScenarioRewards {
 
@@ -166,7 +169,7 @@ export class ScenarioRewards {
   repeatScenario: boolean = false;
   reputationFactions: string[] = [];
   factionUnlock: string = "";
-  randomSideScenario: number = 0;
+  randomSideScenario: boolean = false;
   hints: ScenarioRewardHints | undefined = undefined;
   valueMapping: Record<string, ScenarioFigureRule> | undefined = undefined;
 
@@ -215,12 +218,6 @@ export class ScenarioRewardHints {
   pet: string = "";
 }
 
-export class ScenarioRecap {
-  key: string = "";
-  prefix: string = "";
-  predecessor: string = "";
-}
-
 export class ScenarioFinish {
 
   conclusion: GameScenarioModel | undefined;
@@ -239,6 +236,7 @@ export class ScenarioFinish {
   randomItemIndex: number = -1;
   randomItems: (Identifier | undefined)[] = [];
   randomItemBlueprints: number[] = [];
+  randomSideScenario: Identifier | undefined = undefined;
   trials: boolean[] = [];
 
 }

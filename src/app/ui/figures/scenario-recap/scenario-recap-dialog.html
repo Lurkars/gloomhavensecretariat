@@ -5,5 +5,7 @@
         <span class="text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
     </div>
     }
-    <ghs-scenario-recap [scenarios]="scenarios"></ghs-scenario-recap>
+    <div class="scroll-container">
+        <ghs-scenario-recap [scenario]="scenario" [forceAll]="forceAll"></ghs-scenario-recap>
+    </div>
 </div>

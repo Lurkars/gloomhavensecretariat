@@ -40,42 +40,49 @@
         @if (!short) {
         <span class="effects">
             @if (building.model.state === 'normal' && building.data.effectNormal &&
-            building.data.effectNormal[building.model.level-1]) {
+            building.data.effectNormal[building.model.level ? building.model.level-1 : 0]) {
             <span class="effect">
-                <span class="icon" [ghs-tooltip]="building.data.effectNormal[building.model.level-1]" [originY]="'top'"
-                    [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/normal.svg">
+                <span class="icon"
+                    [ghs-tooltip]="building.data.effectNormal[building.model.level ? building.model.level-1 : 0]"
+                    [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/normal.svg">
                 </span>
-                <span class="text" [ghs-label]="building.data.effectNormal[building.model.level-1]"></span>
+                <span class="text"
+                    [ghs-label]="building.data.effectNormal[building.model.level ? building.model.level-1 : 0]"></span>
             </span>
             }
             @if (building.model.state === 'wrecked' && building.data.effectWrecked &&
-            building.data.effectWrecked[building.model.level-1]) {
+            building.data.effectWrecked[building.model.level ? building.model.level-1 : 0]) {
             <span class="effect">
-                <span class="icon unavailable" [ghs-tooltip]="building.data.effectWrecked[building.model.level-1]"
+                <span class="icon unavailable"
+                    [ghs-tooltip]="building.data.effectWrecked[building.model.level ? building.model.level-1 : 0]"
                     [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/normal.svg">
                 </span>
-                <span class="text" [ghs-label]="building.data.effectWrecked[building.model.level-1]"></span>
+                <span class="text"
+                    [ghs-label]="building.data.effectWrecked[building.model.level ? building.model.level-1 : 0]"></span>
             </span>
             }
         </span>
         <span class="interactions">
             @if (building.model.state === 'normal' && building.data.interactionsAvailable &&
-            building.data.interactionsAvailable[building.model.level-1]) {
+            building.data.interactionsAvailable[building.model.level ? building.model.level-1 : 0]) {
             <span class="interaction">
-                <span class="icon" [ghs-tooltip]="building.data.interactionsAvailable[building.model.level-1]"
+                <span class="icon"
+                    [ghs-tooltip]="building.data.interactionsAvailable[building.model.level ? building.model.level-1 : 0]"
                     [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/interaction.svg">
                 </span>
-                <span class="text" [ghs-label]="building.data.interactionsAvailable[building.model.level-1]"></span>
+                <span class="text"
+                    [ghs-label]="building.data.interactionsAvailable[building.model.level ? building.model.level-1 : 0]"></span>
             </span>
             }
             @if (building.model.state === 'wrecked' && building.data.interactionsUnavailable &&
-            building.data.interactionsUnavailable[building.model.level-1]) {
+            building.data.interactionsUnavailable[building.model.level ? building.model.level-1 : 0]) {
             <span class="interaction">
                 <span class="icon unavailable"
-                    [ghs-tooltip]="building.data.interactionsUnavailable[building.model.level-1]" [originY]="'top'"
-                    [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/interaction.svg">
+                    [ghs-tooltip]="building.data.interactionsUnavailable[building.model.level ? building.model.level-1 : 0]"
+                    [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/interaction.svg">
                 </span>
-                <span class="text" [ghs-label]="building.data.interactionsUnavailable[building.model.level-1]"></span>
+                <span class="text"
+                    [ghs-label]="building.data.interactionsUnavailable[building.model.level ? building.model.level-1 : 0]"></span>
             </span>
             }
             @if (gameManager.buildingsManager.petsEnabled && building.data.name == 'stables') {

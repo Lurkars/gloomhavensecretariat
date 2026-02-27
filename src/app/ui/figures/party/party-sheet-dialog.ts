@@ -679,10 +679,26 @@ export class PartySheetDialogComponent implements OnInit {
     })
   }
 
+  conclusionRewards(index: string) {
+    const conclusion = gameManager.sectionData(this.partyEdition || gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
+    if (conclusion) {
+      this.dialog.open(ScenarioSummaryComponent, {
+        panelClass: ['dialog'],
+        data: {
+          scenario: new Scenario(conclusion),
+          conclusion: conclusion,
+          success: true,
+          rewardsOnly: true,
+          conclusionOnly: true
+        }
+      })
+    }
+  }
+
   scenarioPopUp(scenarioData: ScenarioData) {
     this.dialog.open(ScenarioChartPopupDialog, {
       panelClass: ['dialog'],
-      data: scenarioData
+      data: { scenarioData: scenarioData }
     })
   }
 
@@ -1058,11 +1074,11 @@ export class PartySheetDialogComponent implements OnInit {
     return [];
   }
 
-  isConclusion(section: string): boolean {
+  isConclusion(section: string, edition: string | undefined = undefined): boolean {
     if (!section) {
       return false;
     }
-    return this.party.conclusions.find((model) => model.edition == gameManager.game.edition && model.index == section) != undefined;
+    return this.party.conclusions.find((model) => (!edition && model.edition == gameManager.game.edition || edition && model.edition == edition) && model.index == section) != undefined;
   }
 
   hasConclusions(section: string): boolean {
@@ -1141,11 +1157,13 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   removeConclusion(section: string, edition: string) {
-    gameManager.stateManager.before("removeConclusion", gameManager.game.party.name, section);
-    gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter((conclusion) => conclusion.edition != edition || conclusion.index != section);
-    // TODO: remove week
-    gameManager.stateManager.after();
-    this.update();
+    if (this.isConclusion(section, edition)) {
+      gameManager.stateManager.before("removeConclusion", gameManager.game.party.name, section);
+      gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter((conclusion) => conclusion.edition != edition || conclusion.index != section);
+      // TODO: remove week
+      gameManager.stateManager.after();
+      this.update();
+    }
   }
 
   setWeek(value: number) {

@@ -2,7 +2,7 @@ import { DIALOG_DATA } from "@angular/cdk/dialog";
 import { Component, Inject, Input, OnInit } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ScenarioData } from "src/app/game/model/data/ScenarioData";
+import { ScenarioData, ScenarioRecap } from "src/app/game/model/data/ScenarioData";
 
 
 @Component({
@@ -13,11 +13,13 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 })
 export class ScenarioRecapDialogComponent {
 
-    scenarios: ScenarioData[];
+    scenario: ScenarioData;
+    forceAll: boolean;
     gameManager: GameManager = gameManager;
 
-    constructor(@Inject(DIALOG_DATA) public scenario: ScenarioData) {
-        this.scenarios = [...gameManager.scenarioManager.getPredecessors(this.scenario), scenario];
+    constructor(@Inject(DIALOG_DATA) private data: { scenario: ScenarioData, forceAll: boolean }) {
+        this.scenario = this.data.scenario;
+        this.forceAll = this.data.forceAll || false;
     }
 }
 
@@ -29,39 +31,45 @@ export class ScenarioRecapDialogComponent {
 })
 export class ScenarioRecapComponent implements OnInit {
 
-    @Input() scenarios: ScenarioData[] = [];
+    @Input() scenario: ScenarioData | undefined;
+    @Input() forceAll: boolean = false;
 
     label: string | false = false;
-    scenario: ScenarioData | undefined;
-    predecessor: ScenarioData | undefined;
-    predecessors: ScenarioData[] = [];
-    predessorLabel: string | false = false;
+    recaps: ScenarioRecap[] = [];
+    scenarios: (ScenarioData | undefined)[] = [];
+    selected: number = -1;
 
     ngOnInit(): void {
-        if (this.scenarios.length) {
-            this.scenario = this.scenarios[this.scenarios.length - 1];
-            this.predecessors = this.scenarios.slice(0, this.scenarios.length - 1);
+        if (this.scenario) {
             const prefix = 'data.scenario.recap.' + this.scenario.edition + '.';
-            this.label = prefix + this.scenario.index;
-            if (!settingsManager.labelExists(this.label, true)) {
-                this.label = prefix + this.scenario.index.replaceAll(/[A-Z]+/g, '');
-            }
 
-            if (this.predecessors.length) {
-                this.predecessor = this.predecessors[this.predecessors.length - 1];
-
-                this.predessorLabel = this.label + '.' + this.predecessor.index;
-                if (!settingsManager.labelExists(this.predessorLabel)) {
-                    this.predessorLabel = this.label + '.' + this.predecessor.index.replaceAll(/[A-Z]+/g, '');
+            this.recaps = this.scenario.recaps.filter((recap) => {
+                if (this.scenario) {
+                    if (recap.type == 'scenario' && recap.value) {
+                        const scenarioData = gameManager.scenarioManager.getScenario(recap.value, this.scenario.edition, this.scenario.group) || undefined;
+                        if (scenarioData && (gameManager.scenarioManager.isSuccess(scenarioData) || this.forceAll)) {
+                            return true;
+                        }
+                    } else {
+                        return true;
+                    }
                 }
+                return false;
+            });
 
-                if (!settingsManager.labelExists(this.predessorLabel)) {
-                    this.predessorLabel = false;
+            this.recaps.forEach((recap, i) => {
+                if (this.scenario) {
+                    if (recap.type == 'scenario' && recap.value) {
+                        this.label = settingsManager.labelExists(prefix + this.scenario.index + '.' + recap.value.replaceAll(/[A-Z]+/g, '')) ? prefix + this.scenario.index + '.' + recap.value.replaceAll(/[A-Z]+/g, '') : false;
+                        this.scenarios[i] = gameManager.scenarioManager.getScenario(recap.value, this.scenario.edition, this.scenario.group);
+                    } else {
+                        this.label = settingsManager.labelExists(prefix + this.scenario.index) ? prefix + this.scenario.index : false;
+                    }
                 }
-            }
+            });
 
-            if (!settingsManager.labelExists(this.label)) {
-                this.label = false;
+            if (this.recaps.length == 1) {
+                this.selected = 0;
             }
         }
     }

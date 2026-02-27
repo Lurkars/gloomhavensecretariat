@@ -39,5 +39,11 @@
       "roomNumber": 1,
       "initial": true
     }
+  ],
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "65"
+    }
   ]
 }

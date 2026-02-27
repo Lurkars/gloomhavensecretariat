@@ -190,5 +190,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "SR-23"
+    }
   ]
 }

@@ -71,5 +71,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "WR-13"
+    }
   ]
 }

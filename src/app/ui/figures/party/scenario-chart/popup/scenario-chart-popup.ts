@@ -32,10 +32,12 @@ export class ScenarioChartPopupDialog {
     predecessors: ScenarioData[] = [];
     treasures: string[] = [];
     lootedTreasures: number[] = [];
+    forceAll: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public scenarioData: ScenarioData, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+    constructor(@Inject(DIALOG_DATA) private data: { scenarioData: ScenarioData, forceAll: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.ghsManager.uiChangeEffect(() => this.update());
-        this.scenario = new Scenario(scenarioData);
+        this.scenario = new Scenario(this.data.scenarioData);
+        this.forceAll = this.data.forceAll || false;
         this.update();
     }
 
@@ -58,7 +60,7 @@ export class ScenarioChartPopupDialog {
 
         this.showTreasures = this.treasures.length > 0 && this.treasures.length == this.lootedTreasures.length || this.showSetup;
 
-        this.predecessors = gameManager.scenarioManager.getPredecessors(this.scenario);
+        this.predecessors = gameManager.scenarioManager.getPredecessors(this.scenario, this.forceAll);
     }
 
     setScenario() {
@@ -95,17 +97,17 @@ export class ScenarioChartPopupDialog {
     openRecapDialog() {
         this.dialog.open(ScenarioRecapDialogComponent, {
             panelClass: ['dialog'],
-            data: this.scenario
+            data: { scenario: this.scenario, forceAll: this.forceAll }
         })
     }
 
     openScenarioRewards(conclusionOnly: boolean = false) {
-        const conclusion = gameManager.game.party.conclusions.filter((value) => value.edition == this.scenarioData.edition).map((value) => gameManager.sectionData(this.scenarioData.edition).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData).find((conclusionData) => conclusionData.parent == this.scenarioData.index && conclusionData.group == this.scenarioData.group);
+        const conclusion = gameManager.game.party.conclusions.filter((value) => value.edition == this.scenario.edition).map((value) => gameManager.sectionData(this.scenario.edition).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData).find((conclusionData) => conclusionData.parent == this.scenario.index && conclusionData.group == this.scenario.group);
 
         this.dialog.open(ScenarioSummaryComponent, {
             panelClass: ['dialog'],
             data: {
-                scenario: new Scenario(this.scenarioData),
+                scenario: this.scenario,
                 conclusion: conclusion,
                 success: true,
                 rewardsOnly: true,

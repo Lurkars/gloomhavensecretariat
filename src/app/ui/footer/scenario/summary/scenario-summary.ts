@@ -65,6 +65,7 @@ export class ScenarioSummaryComponent {
     randomItemIndex: number = -1;
     randomItems: (ItemData | undefined)[] = [];
     randomItemBlueprints: number[] = [];
+    randomSideScenario: ScenarioData | undefined;
     trials: boolean[] = [];
     trial349: Character | undefined;
     trial356: Character | undefined;
@@ -90,7 +91,6 @@ export class ScenarioSummaryComponent {
             if (!this.conclusionOnly) {
                 if (!gameManager.game.finish && !this.rewardsOnly) {
                     gameManager.stateManager.scenarioSummary = false;
-                    console.log("WHOT?");
                     this.close();
                 } else {
                     this.loadFinish();
@@ -139,7 +139,7 @@ export class ScenarioSummaryComponent {
 
         for (let value in LootType) {
             const lootType: LootType = value as LootType;
-            if (lootType != LootType.money && lootType != LootType.special1 && lootType != LootType.special2 && !this.lootColumns.includes(lootType) && this.characters.some((character) => character.lootCards && character.lootCards.some((index) => gameManager.game.lootDeck.cards[index].type == lootType))) {
+            if (lootType != LootType.money && lootType != LootType.special1 && lootType != LootType.special2 && !this.lootColumns.includes(lootType) && this.characters.some((character) => character.lootCards && character.lootCards.some((index) => gameManager.game.lootDeck.cards[index] && gameManager.game.lootDeck.cards[index].type == lootType))) {
                 this.lootColumns.push(lootType);
                 this.lootColumnsLooted.push(this.characters.map((character) => this.lootValue(character, lootType)).reduce((a, b) => a + b));
                 this.lootColumnsTotal.push(gameManager.lootManager.getTotal(gameManager.game.lootDeck, lootType));
@@ -160,8 +160,7 @@ export class ScenarioSummaryComponent {
         this.characterProgress = !this.rewardsOnly && !this.conclusionOnly && (gameManager.game.party.campaignMode || !gameManager.fhRules());
         this.gainRewards = gameManager.game.party.campaignMode;
 
-        this.updateState()
-
+        this.updateState(this.rewardsOnly);
 
         gameManager.stateManager.scenarioSummary = true;
 
@@ -203,6 +202,7 @@ export class ScenarioSummaryComponent {
         finish.randomItemIndex = this.randomItemIndex;
         finish.randomItems = this.randomItems ? this.randomItems.map((itemData) => itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined) : [];
         finish.randomItemBlueprints = this.randomItemBlueprints;
+        finish.randomSideScenario = this.randomSideScenario ? new Identifier('' + this.randomSideScenario.index, this.randomSideScenario.edition) : undefined;
         finish.trials = this.trials;
         gameManager.game.finish = finish;
         this.updateState();
@@ -225,6 +225,7 @@ export class ScenarioSummaryComponent {
             this.randomItemIndex = finish.randomItemIndex;
             this.randomItems = finish.randomItems ? finish.randomItems.map((item) => item ? gameManager.itemManager.getItem(item.name, item.edition, true) : undefined) : [];
             this.randomItemBlueprints = finish.randomItemBlueprints || [];
+            this.randomSideScenario = finish.randomSideScenario ? gameManager.scenarioManager.getScenario(finish.randomSideScenario.name, finish.randomSideScenario.edition, this.scenario.group) : undefined;
             this.trials = finish.trials || [];
             this.updateState();
         }
@@ -243,7 +244,7 @@ export class ScenarioSummaryComponent {
                 if (!this.rewards) {
                     this.rewards = Object.assign(new ScenarioRewards, this.conclusion.rewards);
                 } else {
-                    Object.assign(this.rewards, this.conclusion.rewards)
+                    Object.assign(this.rewards, this.conclusion.rewards);
                 }
             }
 
@@ -364,6 +365,12 @@ export class ScenarioSummaryComponent {
                     }
                 }
 
+                if (settingsManager.settings.drawRandomScenario && this.rewards.randomSideScenario) {
+                    if (!this.randomSideScenario) {
+                        this.randomSideScenario = gameManager.scenarioManager.drawRandomScenario(this.scenario.edition);
+                    }
+                }
+
                 if (this.rewards.townGuardAm) {
                     this.townGuardAMs = this.rewards.townGuardAm.map((id) => additionalTownGuardAttackModifier.find((am) => am.id == id) as AttackModifier);
                 }
@@ -417,7 +424,7 @@ export class ScenarioSummaryComponent {
 
     hasRewards(): boolean {
         const rewards = this.rewards;
-        if (rewards && (rewards.envelopes && rewards.envelopes.length || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources && rewards.resources.length || rewards.collectiveResources && rewards.collectiveResources.length || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items && rewards.items.length || rewards.chooseItem && rewards.chooseItem.length || rewards.itemDesigns && rewards.itemDesigns.length || rewards.itemBlueprints && rewards.itemBlueprints.length || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events && rewards.events.length || rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards && rewards.lootDeckCards.length || rewards.removeLootDeckCards && rewards.removeLootDeckCards.length || rewards.townGuardAm && rewards.townGuardAm.length || rewards.overlayCampaignSticker || rewards.overlaySticker || rewards.pet || rewards.eventDecks && rewards.eventDecks.length || rewards.reputationFactions && rewards.reputationFactions.length || rewards.factionUnlock)) {
+        if (rewards && (rewards.envelopes && rewards.envelopes.length || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources && rewards.resources.length || rewards.collectiveResources && rewards.collectiveResources.length || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items && rewards.items.length || rewards.chooseItem && rewards.chooseItem.length || rewards.itemDesigns && rewards.itemDesigns.length || rewards.itemBlueprints && rewards.itemBlueprints.length || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events && rewards.events.length || rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards && rewards.lootDeckCards.length || rewards.removeLootDeckCards && rewards.removeLootDeckCards.length || rewards.townGuardAm && rewards.townGuardAm.length || rewards.overlayCampaignSticker || rewards.overlaySticker || rewards.pet || rewards.eventDecks && rewards.eventDecks.length || rewards.reputationFactions && rewards.reputationFactions.length || rewards.factionUnlock || rewards.randomSideScenario)) {
             return true;
         }
         return false;
@@ -805,6 +812,10 @@ export class ScenarioSummaryComponent {
                         gameManager.game.party.unlockedItems.push(new CountIdentifier('' + itemId, this.scenario.edition));
                     }
                 })
+            }
+
+            if ((this.gainRewards || this.forceCampaign) && this.randomSideScenario) {
+                gameManager.game.party.manualScenarios.push(new GameScenarioModel(this.randomSideScenario.index, this.randomSideScenario.edition));
             }
 
             if ((this.gainRewards || this.forceCampaign) && this.rewards && this.rewards.calendarSectionManual) {

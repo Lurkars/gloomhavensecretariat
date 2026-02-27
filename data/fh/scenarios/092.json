@@ -237,5 +237,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Job Posting §104.1"
+    }
   ]
 }

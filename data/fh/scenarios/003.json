@@ -130,5 +130,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "1"
+    }
   ]
 }

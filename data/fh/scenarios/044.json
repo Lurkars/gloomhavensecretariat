@@ -12,6 +12,10 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "unlocks": [
+    "58",
+    "59"
+  ],
   "forcedLinks": [
     "58",
     "59"
@@ -71,6 +75,16 @@
       "objectives": [
         1
       ]
+    }
+  ],
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "36"
+    },
+    {
+      "type": "scenario",
+      "value": "37"
     }
   ]
 }

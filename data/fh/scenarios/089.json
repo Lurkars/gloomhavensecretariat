@@ -56,5 +56,11 @@
         }
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Job Posting §178.3"
+    }
   ]
 }

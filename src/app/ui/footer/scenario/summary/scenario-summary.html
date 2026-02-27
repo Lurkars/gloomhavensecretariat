@@ -16,7 +16,7 @@
     }
     @if (!!conclusion && conclusion != scenario) {
     <span class="conclusion">
-      <span [ghs-label]="(conclusion.name ? gameManager.scenarioManager.scenarioTitle(conclusion,true) :
+      <span class="text-white" [ghs-label]="(conclusion.name ? gameManager.scenarioManager.scenarioTitle(conclusion,true) :
       '%scenario.section% #' + conclusion.index)"></span>
     </span>
     }
@@ -582,8 +582,7 @@
       }
     </div>
     }
-    @if (success && (!scenario.unlocks || scenario.unlocks.length == 0) && !!conclusion && !!conclusion.unlocks &&
-    conclusion.unlocks.length > 0) {
+    @if (success && !!conclusion && !!conclusion.unlocks && conclusion.unlocks.length > 0) {
     <div class="reward locations">
       <label><span [ghs-label]="(conclusion.unlocks.length > 1 ? 'scenario.rewards.locations' :
             'scenario.rewards.location')"></span></label>
@@ -935,6 +934,19 @@
           @if (rewards.hints && rewards.hints.randomItemBlueprint) {
           <span class="placeholder text-white hint" [ghs-label]="rewards.hints.randomItemBlueprint"></span>
           }
+          }
+        </div>
+        }
+        @if (rewards.randomSideScenario) {
+        <div class="item random-scenario">
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomSideScenario'"></span>
+          @if(randomSideScenario) {
+          <div class="draw">
+            <span class="placeholder"
+              [ghs-label]="'%data.scenarioNumber:' + this.randomSideScenario.index + '%'"></span>
+            <span class="placeholder text-white"
+              [ghs-label]="'%data.scenario.title.' + this.randomSideScenario.edition + '.'+this.randomSideScenario.index + '%'"></span>
+          </div>
           }
         </div>
         }

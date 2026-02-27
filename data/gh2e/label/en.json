@@ -1431,6 +1431,14 @@
     }
   },
   "section": {
+    "rewards": {
+      "gh2e": {
+        "68-4": {
+          "1": "Open the puzzle book to the first spread.",
+          "2": "When the first character retires, read %game.section:68.4%"
+        }
+      }
+    },
     "title": {
       "gh2e": {
         "10-2": "Merchant Reputation 16",
@@ -1610,6 +1618,7 @@
         "67-1": "The Last Stand",
         "68-1": "Wetlands Ambush",
         "68-2": "Arcane Library",
+        "68-4": "Puzzle Book",
         "69-3": "Investigation",
         "7-1": "Training Course",
         "70-1": "Decrepit Wood",

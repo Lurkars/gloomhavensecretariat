@@ -5,4 +5,16 @@
     .recap {
         margin: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) 0;
     }
+
+    .select-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .select {
+            cursor: pointer;
+            margin: calc(var(--ghs-unit) * 0.6 * var(--ghs-dialog-factor)) 0;
+            font-size: 1.2em;
+        }
+    }
 }

@@ -4,6 +4,7 @@
   "flowChartGroup": "random",
   "edition": "gh2e",
   "eventType": "road",
+  "random": true,
   "rewards": {
     "experience": 15,
     "prosperity": 1

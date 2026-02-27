@@ -182,5 +182,11 @@
         "3:C < 4 ? 0 : 3"
       ]
     }
+  ],
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Forgotten Circles tie-in; from Building 44 §118.3"
+    }
   ]
 }

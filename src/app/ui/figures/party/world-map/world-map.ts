@@ -189,7 +189,7 @@ export class WorldMapComponent implements AfterViewInit {
                                 const scenarioData = this.scenarios[i];
                                 this.dialog.open(ScenarioChartPopupDialog, {
                                     panelClass: ['dialog'],
-                                    data: scenarioData
+                                    data: { scenarioData: scenarioData }
                                 }).closed.subscribe({
                                     next: (result) => {
                                         if (result) {

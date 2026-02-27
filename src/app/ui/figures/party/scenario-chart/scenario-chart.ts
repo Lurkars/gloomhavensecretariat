@@ -469,7 +469,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                         if (scenarioData) {
                             this.dialog.open(ScenarioChartPopupDialog, {
                                 panelClass: ['dialog'],
-                                data: scenarioData
+                                data: { scenarioData: scenarioData, forceAll: !this.campaignMode }
                             }).closed.subscribe({
                                 next: (result) => {
                                     if (result) {
