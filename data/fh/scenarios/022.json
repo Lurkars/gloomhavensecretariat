@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "boat",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "14"
+    }
+  ],
   "requirements": [
     {
       "buildings": [
@@ -100,12 +106,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "14"
     }
   ]
 }

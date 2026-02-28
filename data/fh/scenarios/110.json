@@ -14,6 +14,12 @@
   "complexity": 2,
   "eventType": "road",
   "random": true,
+  "recaps": [
+    {
+      "type": "section",
+      "value": "81.1"
+    }
+  ],
   "requirements": [
     {
       "buildings": [
@@ -226,12 +232,6 @@
         3,
         3
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "§81.1"
     }
   ]
 }

@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Library quest conclusion, §36.2"
+    }
+  ],
   "rewards": {
     "prosperity": 2,
     "items": [
@@ -88,12 +94,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Library quest conclusion, §36.2"
     }
   ]
 }

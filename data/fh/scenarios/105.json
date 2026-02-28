@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "104"
+    }
+  ],
   "requirements": [
     {
       "buildings": [
@@ -117,12 +123,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "104"
     }
   ]
 }

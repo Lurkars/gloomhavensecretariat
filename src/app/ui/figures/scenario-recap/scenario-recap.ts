@@ -34,9 +34,12 @@ export class ScenarioRecapComponent implements OnInit {
     @Input() scenario: ScenarioData | undefined;
     @Input() forceAll: boolean = false;
 
+    gameManager: GameManager = gameManager;
+
     label: string | false = false;
     recaps: ScenarioRecap[] = [];
     scenarios: (ScenarioData | undefined)[] = [];
+    sections: (ScenarioData | undefined)[] = [];
     selected: number = -1;
 
     ngOnInit(): void {
@@ -48,6 +51,21 @@ export class ScenarioRecapComponent implements OnInit {
                     if (recap.type == 'scenario' && recap.value) {
                         const scenarioData = gameManager.scenarioManager.getScenario(recap.value, this.scenario.edition, this.scenario.group) || undefined;
                         if (scenarioData && (gameManager.scenarioManager.isSuccess(scenarioData) || this.forceAll)) {
+                            return true;
+                        }
+                    } else if (recap.type == 'section' && recap.value) {
+                        const sectionData = gameManager.scenarioManager.getSection(recap.value, this.scenario.edition, this.scenario.group) || undefined;
+                        if (sectionData) {
+                            if (sectionData.parent) {
+                                const scenarioData = gameManager.scenarioManager.getScenario(sectionData.parent, this.scenario.edition, this.scenario.group) || undefined;
+                                if (scenarioData && (gameManager.scenarioManager.isSuccess(scenarioData) || this.forceAll)) {
+                                    return true;
+                                }
+                            }
+                            if (sectionData && (gameManager.game.party.conclusions.some((conclusion) => conclusion.edition == sectionData.edition && conclusion.index == sectionData.index && conclusion.group == sectionData.group) || this.forceAll)) {
+                                return true;
+                            }
+                        } else {
                             return true;
                         }
                     } else {
@@ -62,6 +80,22 @@ export class ScenarioRecapComponent implements OnInit {
                     if (recap.type == 'scenario' && recap.value) {
                         this.label = settingsManager.labelExists(prefix + this.scenario.index + '.' + recap.value.replaceAll(/[A-Z]+/g, '')) ? prefix + this.scenario.index + '.' + recap.value.replaceAll(/[A-Z]+/g, '') : false;
                         this.scenarios[i] = gameManager.scenarioManager.getScenario(recap.value, this.scenario.edition, this.scenario.group);
+                    } else if (recap.type == 'section' && recap.value) {
+                        const sectionData = gameManager.scenarioManager.getSection(recap.value, this.scenario.edition, this.scenario.group);
+                        if (sectionData) {
+                            this.sections[i] = sectionData;
+                            if (sectionData.parent) {
+                                const scenarioData = gameManager.scenarioManager.getScenario(sectionData.parent, this.scenario.edition, this.scenario.group) || undefined;
+                                if (scenarioData) {
+                                    this.scenarios[i] = scenarioData;
+                                    this.label = settingsManager.labelExists(prefix + this.scenario.index + '.' + scenarioData.index.replaceAll(/[A-Z]+/g, '')) ? prefix + this.scenario.index + '.' + scenarioData.index.replaceAll(/[A-Z]+/g, '') : false;
+                                }
+                            }
+                        }
+
+                        if (this.label) {
+                            this.label = settingsManager.labelExists(prefix + this.scenario.index) ? prefix + this.scenario.index : false;
+                        }
                     } else {
                         this.label = settingsManager.labelExists(prefix + this.scenario.index) ? prefix + this.scenario.index : false;
                     }

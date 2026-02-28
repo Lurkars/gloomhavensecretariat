@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "105"
+    }
+  ],
   "rewards": {
     "items": [
       "213"
@@ -31,12 +37,6 @@
     {
       "roomNumber": 1,
       "initial": true
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "105"
     }
   ]
 }

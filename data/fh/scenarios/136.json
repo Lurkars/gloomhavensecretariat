@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "boat",
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Building 74, Level 2, §35.3"
+    }
+  ],
   "requirements": [
     {
       "buildings": [
@@ -83,12 +89,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Building 74, Level 2, §35.3"
     }
   ]
 }

@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Building 72 and SR-41"
+    }
+  ],
   "rewards": {
     "experience": 10,
     "items": [
@@ -92,12 +98,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Building 72 and SR-41"
     }
   ]
 }

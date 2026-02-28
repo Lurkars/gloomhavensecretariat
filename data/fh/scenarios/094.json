@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "175.1"
+    }
+  ],
   "requirements": [
     {
       "buildings": [
@@ -139,12 +145,6 @@
       "objectives": [
         "1:4"
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Job Posting §175.1"
     }
   ]
 }

@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Building 83, Level 2 §116.3"
+    }
+  ],
   "requirements": [
     {
       "campaignSticker": [
@@ -79,12 +85,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Building 83, Level 2 §116.3"
     }
   ]
 }

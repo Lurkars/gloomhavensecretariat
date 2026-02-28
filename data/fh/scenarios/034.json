@@ -12,6 +12,16 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "23"
+    },
+    {
+      "type": "scenario",
+      "value": "24"
+    }
+  ],
   "rewards": {
     "campaignSticker": [
       "coral-shard"
@@ -31,16 +41,6 @@
           "type": "boss"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "23"
-    },
-    {
-      "type": "scenario",
-      "value": "24"
     }
   ]
 }

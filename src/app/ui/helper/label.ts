@@ -278,6 +278,17 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
           image = '<img class="enhancement-icon" src="./assets/images/fh/character/abilities/enhancements/' + split[2] + '.svg">';
         }
         replace = '<span class="placeholder-enhancement">' + image + '</span>';
+      } else if (type == "tooltip" && value) {
+        const label = settingsManager.getLabel(value);
+        const text = settingsManager.getLabel(value + '.tooltip');
+        replace = `<span class="hint-container inline">
+        <span class="hint-trigger">${label}</span>
+        <span class="hint center">
+          <span class="text">
+            <span>${text}</span>
+          </span>
+        </span>
+      </span>`;
       } else {
         let labelArgs = label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg), placeholder, relative));

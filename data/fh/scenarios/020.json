@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "12"
+    }
+  ],
   "rewards": {
     "gold": 15
   },
@@ -219,12 +225,6 @@
         2,
         2
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "12"
     }
   ]
 }

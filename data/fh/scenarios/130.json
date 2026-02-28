@@ -13,6 +13,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "129"
+    }
+  ],
   "monsters": [
     "frozen-corpse",
     "lightning-eel",
@@ -109,12 +115,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "129"
     }
   ]
 }

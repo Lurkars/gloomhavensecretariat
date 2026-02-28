@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "event",
+      "value": "SR-13"
+    }
+  ],
   "lootDeckConfig": {
     "money": 6,
     "lumber": 3,
@@ -25,12 +31,6 @@
     {
       "roomNumber": 1,
       "initial": true
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "SR-13"
     }
   ]
 }

@@ -12,6 +12,11 @@
   "edition": "fh",
   "complexity": 1,
   "initial": true,
+  "recaps": [
+    {
+      "type": "other"
+    }
+  ],
   "unlocks": [
     "2",
     "3"
@@ -107,11 +112,6 @@
           "type": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other"
     }
   ]
 }

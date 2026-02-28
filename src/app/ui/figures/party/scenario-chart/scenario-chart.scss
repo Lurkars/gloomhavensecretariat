@@ -114,12 +114,18 @@
             align-items: flex-start;
             cursor: zoom-in;
 
+            a {
+                img {
+                    transform: rotate(180deg);
+                }
+            }
+
             &.open {
                 cursor: zoom-out;
 
                 a {
                     img {
-                        transform: rotate(180deg);
+                        transform: none;
                     }
                 }
             }

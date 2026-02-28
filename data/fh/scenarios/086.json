@@ -11,6 +11,12 @@
   },
   "edition": "fh",
   "complexity": 2,
+  "recaps": [
+    {
+      "type": "section",
+      "value": "91.4"
+    }
+  ],
   "rewards": {
     "morale": 2
   },
@@ -104,12 +110,6 @@
       "objectives": [
         1
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Job Posting §91.4"
     }
   ]
 }

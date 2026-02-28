@@ -910,6 +910,11 @@ export class PartySheetDialogComponent implements OnInit {
         }
       }
     }
+
+    if (this.gh2eSheet && gameManager.gh2eRules() && this.party.retirements.length && !this.isConclusion('68.4', 'gh2e')) {
+      this.finishConclusion('68.4')
+    }
+
     this.updateAlways();
   }
 

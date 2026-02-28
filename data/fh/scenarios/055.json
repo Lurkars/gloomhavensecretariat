@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "52"
+    }
+  ],
   "rewards": {
     "prosperity": 2,
     "events": [
@@ -76,12 +82,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "52"
     }
   ]
 }

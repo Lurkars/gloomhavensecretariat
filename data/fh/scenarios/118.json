@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 1,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "89.3"
+    }
+  ],
   "requirements": [
     {
       "buildings": [
@@ -107,12 +113,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Boneshaper retirement, §89.3"
     }
   ]
 }

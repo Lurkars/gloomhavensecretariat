@@ -13,6 +13,12 @@
   "edition": "fh",
   "complexity": 1,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "69"
+    }
+  ],
   "rewards": {
     "prosperity": 1,
     "custom": "%data.scenario.rewards.fh.070%"
@@ -106,12 +112,6 @@
       "objectives": [
         1
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "69"
     }
   ]
 }

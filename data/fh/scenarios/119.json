@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "42.2"
+    }
+  ],
   "requirements": [
     {
       "campaignSticker": [
@@ -104,12 +110,6 @@
       "objectives": [
         1
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Astral retirement, §42.2"
     }
   ]
 }

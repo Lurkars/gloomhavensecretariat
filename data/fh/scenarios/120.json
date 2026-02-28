@@ -11,6 +11,12 @@
   },
   "edition": "fh",
   "complexity": 1,
+  "recaps": [
+    {
+      "type": "event",
+      "value": "WO-18"
+    }
+  ],
   "rewards": {
     "morale": 1,
     "collectiveResources": [
@@ -98,12 +104,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "WO-18"
     }
   ]
 }

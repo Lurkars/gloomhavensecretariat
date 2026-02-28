@@ -1145,6 +1145,14 @@ input[type="radio"] {
     }
   }
 
+  &.inline {
+    display: inline-flex;
+
+    .hint-trigger {
+      margin-left: initial;
+    }
+  }
+
   .hint {
     position: absolute;
     top: 100%;

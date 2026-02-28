@@ -13,6 +13,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "169.1"
+    }
+  ],
   "rewards": {
     "gold": 10,
     "collectiveResources": [
@@ -170,12 +176,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Trap retirement, §169.1"
     }
   ]
 }

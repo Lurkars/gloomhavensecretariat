@@ -1759,7 +1759,7 @@
           "hint": "This scenario path is exclusive, so only one path can be taken and others are blocked."
         },
         "force-linked": {
-          "": "Forced Linked",
+          "": "Force Linked",
           "hint": "This scenario is linked and must be played directly afterwards."
         },
         "linked": {

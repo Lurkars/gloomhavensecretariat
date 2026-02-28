@@ -11,6 +11,12 @@
   },
   "edition": "fh",
   "complexity": 2,
+  "recaps": [
+    {
+      "type": "event",
+      "value": "SR-52"
+    }
+  ],
   "unlocks": [
     "125"
   ],
@@ -73,12 +79,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "SR-52"
     }
   ]
 }

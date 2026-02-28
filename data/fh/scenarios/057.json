@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "boat",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "48"
+    }
+  ],
   "requirements": [
     {
       "buildings": [
@@ -141,12 +147,6 @@
       "objectives": [
         "1:C < 3 ? 1 : 0"
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "48"
     }
   ]
 }

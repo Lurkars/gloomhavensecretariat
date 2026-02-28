@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "17.2"
+    }
+  ],
   "unlocks": [
     "97"
   ],
@@ -68,12 +74,6 @@
         1,
         1
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Job Posting §17.2"
     }
   ]
 }

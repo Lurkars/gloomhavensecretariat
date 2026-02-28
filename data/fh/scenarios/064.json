@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "63"
+    }
+  ],
   "rewards": {
     "prosperity": 3,
     "battleGoals": 3,
@@ -559,12 +565,6 @@
         "2:C>3",
         "2:C>3"
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "63"
     }
   ]
 }

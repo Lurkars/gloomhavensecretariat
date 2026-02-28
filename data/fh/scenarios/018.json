@@ -13,6 +13,12 @@
   "edition": "fh",
   "complexity": 1,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "10"
+    }
+  ],
   "rewards": {
     "morale": 1,
     "randomItemBlueprint": 1,
@@ -79,12 +85,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "10"
     }
   ]
 }

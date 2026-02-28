@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "120"
+    }
+  ],
   "monsters": [
     "vermling-priest",
     "vermling-scout"
@@ -56,12 +62,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "120"
     }
   ]
 }

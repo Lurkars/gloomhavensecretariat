@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 1,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "5"
+    }
+  ],
   "rewards": {
     "collectiveResources": [
       {
@@ -71,12 +77,6 @@
           "player3": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "5"
     }
   ]
 }

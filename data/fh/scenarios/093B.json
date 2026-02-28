@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "157.3"
+    }
+  ],
   "blocks": [
     "93A"
   ],
@@ -123,12 +129,6 @@
           "type": "boss"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Job Posting §157.3"
     }
   ]
 }

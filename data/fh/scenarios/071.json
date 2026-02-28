@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "allyDeck": true,
+  "recaps": [
+    {
+      "type": "other",
+      "value": "%character.progress.personalQuest% 02 - %data.personalQuest.fh.509%"
+    }
+  ],
   "rewards": {
     "experience": 10,
     "custom": "%data.scenario.rewards.fh.071%",
@@ -69,12 +75,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "PQ 12 - Threat from the Deep"
     }
   ]
 }

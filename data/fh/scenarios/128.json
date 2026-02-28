@@ -11,6 +11,12 @@
   },
   "edition": "fh",
   "complexity": 3,
+  "recaps": [
+    {
+      "type": "event",
+      "value": "SR-23"
+    }
+  ],
   "monsters": [
     "abael-scout",
     "lurker-wavethrower",
@@ -189,12 +195,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "SR-23"
     }
   ]
 }

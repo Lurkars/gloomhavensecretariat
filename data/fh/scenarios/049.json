@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "boat",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "42"
+    }
+  ],
   "unlocks": [
     "53"
   ],
@@ -134,12 +140,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "42"
     }
   ]
 }

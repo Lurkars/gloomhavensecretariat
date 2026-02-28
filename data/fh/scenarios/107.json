@@ -13,6 +13,12 @@
   "complexity": 2,
   "eventType": "road",
   "random": true,
+  "recaps": [
+    {
+      "type": "section",
+      "value": "142.4"
+    }
+  ],
   "requirements": [
     {
       "buildings": [
@@ -34,12 +40,6 @@
     {
       "roomNumber": 1,
       "initial": true
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "§142.4"
     }
   ]
 }

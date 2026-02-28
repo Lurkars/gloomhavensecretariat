@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "115"
+    }
+  ],
   "monsters": [
     "algox-archer",
     "algox-guard",
@@ -193,12 +199,6 @@
       "objectives": [
         1
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "115"
     }
   ]
 }

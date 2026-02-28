@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "114"
+    }
+  ],
   "rewards": {
     "experience": 15,
     "calendarSectionManual": [
@@ -211,12 +217,6 @@
       "objectives": [
         1
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "114"
     }
   ]
 }

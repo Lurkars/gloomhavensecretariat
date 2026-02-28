@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "194.3"
+    }
+  ],
   "unlocks": [
     "133"
   ],
@@ -124,12 +130,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "§194.3"
     }
   ]
 }

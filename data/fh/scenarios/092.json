@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "boat",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "104.1"
+    }
+  ],
   "requirements": [
     {
       "buildings": [
@@ -236,12 +242,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Job Posting §104.1"
     }
   ]
 }

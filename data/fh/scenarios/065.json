@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 1,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "other",
+      "value": "%character.progress.personalQuest% 07 - %data.personalQuest.fh.587%"
+    }
+  ],
   "rewards": {
     "collectiveResources": [
       {
@@ -105,12 +111,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "PQ 07 - Aesther Outpost"
     }
   ]
 }

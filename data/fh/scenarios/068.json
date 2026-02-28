@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "67"
+    }
+  ],
   "rewards": {
     "custom": "%data.scenario.rewards.fh.068%",
     "calendarSection": [
@@ -156,12 +162,6 @@
           "type": "boss"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "67"
     }
   ]
 }

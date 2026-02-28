@@ -11,6 +11,12 @@
   },
   "edition": "fh",
   "complexity": 2,
+  "recaps": [
+    {
+      "type": "section",
+      "value": "163.3"
+    }
+  ],
   "rewards": {
     "gold": 10
   },
@@ -292,12 +298,6 @@
         5,
         5
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "WO-80 & §163.3"
     }
   ]
 }

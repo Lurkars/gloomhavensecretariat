@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 1,
   "random": true,
+  "recaps": [
+    {
+      "type": "section",
+      "value": "146.4"
+    }
+  ],
   "rewards": {
     "experience": 15
   },
@@ -109,12 +115,6 @@
           "type": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "§146.4"
     }
   ]
 }

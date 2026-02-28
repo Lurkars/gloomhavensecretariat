@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Shackles retirement and WR-32, §125.1 or §163.5"
+    }
+  ],
   "rewards": {
     "morale": 1,
     "inspiration": 1
@@ -62,12 +68,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Shackles retirement and WR-32, §125.1 or §163.5"
     }
   ]
 }

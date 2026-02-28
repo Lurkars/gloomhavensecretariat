@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 1,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "event",
+      "value": "WR-13"
+    }
+  ],
   "rewards": {
     "custom": "%data.scenario.rewards.fh.113%"
   },
@@ -70,12 +76,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "WR-13"
     }
   ]
 }

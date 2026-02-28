@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "other",
+      "value": "%character.progress.personalQuest% 02 & \"%data.campaignSticker.into-the-forest%\" %scenario.rewards.campaignSticker%"
+    }
+  ],
   "requirements": [
     {
       "campaignSticker": [
@@ -93,12 +99,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "PQ 02 & \"Into the Forest\" campaign sticker"
     }
   ]
 }

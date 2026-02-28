@@ -4,6 +4,21 @@
 
     .recap {
         margin: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) 0;
+
+        ghs-scenario-recap {
+            display: block;
+            padding-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+            border-bottom: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) dashed var(--ghs-color-gray);
+        }
+
+        .section .title {
+            margin: 0 calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+        }
+
+        .separator {
+            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        }
     }
 
     .select-container {

@@ -1,24 +1,48 @@
 <div class="recaps">
     @if (selected != -1) {
-    @if(scenarios[selected] && label) {
-    <ghs-scenario-recap [scenario]="scenarios[selected]" [forceAll]="forceAll"></ghs-scenario-recap>
     <div class="recap">
-        <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + scenarios[selected]?.index + '%'"></span>:
-        <span [ghs-label]="label"></span>
+        @if(scenarios[selected] ) {
+        <ghs-scenario-recap [scenario]="scenarios[selected]" [forceAll]="forceAll"></ghs-scenario-recap>
+        <span class="scenario">
+            <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + scenarios[selected]?.index + '%'"></span>
+            @if(recaps[selected].type != 'section' || !recaps[selected].value) {
+            <span class="separator">:</span>
+            }
+        </span>
+        }
+        @if(recaps[selected].type == 'section' && recaps[selected].value) {
+        <span class="section">
+            <span class="text-white" [ghs-label]="'%game.section:' + recaps[selected].value + '%'"></span>
+            @if (!scenarios[selected] && sections[selected]) {
+            <span class="title text-white"
+                [ghs-label]="gameManager.scenarioManager.scenarioTitle(sections[selected],true)"></span>
+            }
+            <span class="separator">:</span>
+        </span>
+        }
+        @if(recaps[selected].type == 'other' && recaps[selected].value) {
+        <span class="other">
+            <span class="text-white" [ghs-label]="recaps[selected].value || ''"></span>
+            <span class="separator">:</span>
+        </span>
+        }
+        @if(label) {
+        <span class="label" [ghs-label]="label"></span>
+        }
     </div>
-    }
-    @if(!scenarios[selected] && label) {
-    <div class="recap">
-        <span [ghs-label]="label"></span>
-    </div>
-    }
     }
 
     @if (selected == -1) {
     <div class="select-container">
         @for (recap of recaps | trackUUID; track recap._trackUUID; let i = $index) {
-        <span class="select text-white" (click)="selected=i"
-            [ghs-label]="'%game.scenarioNumber:' + scenarios[i]?.index + '%'"></span>
+        <div class="select text-white" (click)="selected=i">
+            @if (scenarios[i]) {
+            <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + scenarios[i]?.index + '%'"></span>
+            }
+            @if (sections[i]) {
+            <span class="text-white" [ghs-label]="'%game.section:' + sections[i]?.index + '%'"></span>
+            }
+        </div>
         }
     </div>
     }

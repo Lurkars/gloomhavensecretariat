@@ -14,6 +14,16 @@
   "complexity": 3,
   "eventType": "road",
   "allyDeck": true,
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "18"
+    },
+    {
+      "type": "scenario",
+      "value": "19"
+    }
+  ],
   "unlocks": [
     "38"
   ],
@@ -213,16 +223,6 @@
         1,
         1
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "18"
-    },
-    {
-      "type": "scenario",
-      "value": "19"
     }
   ]
 }

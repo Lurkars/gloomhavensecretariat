@@ -11,6 +11,16 @@
   },
   "edition": "fh",
   "complexity": 1,
+  "recaps": [
+    {
+      "type": "other",
+      "value": "WO-17, §115.1 and §178.1"
+    },
+    {
+      "type": "other",
+      "value": "SO-41 and §178.1"
+    }
+  ],
   "monsters": [
     "ancient-artillery",
     "ice-wraith"
@@ -59,16 +69,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "WO-17, §115.1 and §178.1"
-    },
-    {
-      "type": "other",
-      "value": "SO-41 and §178.1"
     }
   ]
 }

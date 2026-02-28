@@ -13,6 +13,12 @@
   "complexity": 2,
   "eventType": "road",
   "random": true,
+  "recaps": [
+    {
+      "type": "section",
+      "value": "171.2"
+    }
+  ],
   "rewards": {
     "morale": 2,
     "inspiration": 2
@@ -69,12 +75,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "§171.2"
     }
   ]
 }

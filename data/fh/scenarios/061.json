@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "other",
+      "value": "%game.gameIcon:puzzle% 16"
+    }
+  ],
   "rewards": {
     "unlockCharacter": "shards",
     "calendarSection": [
@@ -134,12 +140,6 @@
       "objectives": [
         1
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Puzzle Book, page 16"
     }
   ]
 }

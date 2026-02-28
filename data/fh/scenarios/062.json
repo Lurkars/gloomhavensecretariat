@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "other",
+      "value": "%game.gameIcon:puzzle% %game.gameIcon:check%"
+    }
+  ],
   "unlocks": [
     "63"
   ],
@@ -77,12 +83,6 @@
       "objectives": [
         1
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Puzzle Book completed"
     }
   ]
 }

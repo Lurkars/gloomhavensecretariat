@@ -11,6 +11,12 @@
   },
   "edition": "fh",
   "complexity": 2,
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "94"
+    }
+  ],
   "rewards": {
     "gold": 10,
     "morale": 1
@@ -57,12 +63,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "94"
     }
   ]
 }

@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "13"
+    }
+  ],
   "rewards": {
     "itemBlueprints": [
       "69"
@@ -80,12 +86,6 @@
           "player4": "normal"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "13"
     }
   ]
 }

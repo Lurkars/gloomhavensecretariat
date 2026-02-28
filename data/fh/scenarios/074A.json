@@ -12,6 +12,16 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "90.1"
+    },
+    {
+      "type": "section",
+      "value": "71.4"
+    }
+  ],
   "unlocks": [
     "76"
   ],
@@ -80,16 +90,6 @@
       "objectives": [
         1
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "section",
-      "value": "90.1"
-    },
-    {
-      "type": "section",
-      "value": "71.4"
     }
   ]
 }

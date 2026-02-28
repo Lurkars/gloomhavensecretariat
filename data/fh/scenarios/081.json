@@ -13,6 +13,12 @@
   "complexity": 3,
   "eventType": "road",
   "allyDeck": true,
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Forgotten Circles tie-in; from Treasure 96 and FH Puzzle Book"
+    }
+  ],
   "rewards": {
     "prosperity": 1,
     "itemBlueprints": [
@@ -187,12 +193,6 @@
         1,
         2
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Forgotten Circles tie-in; from Treasure 96 and FH Puzzle Book"
     }
   ]
 }

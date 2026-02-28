@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "5"
+    }
+  ],
   "unlocks": [
     "18"
   ],
@@ -105,12 +111,6 @@
         1,
         1
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "5"
     }
   ]
 }

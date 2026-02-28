@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "192.1"
+    }
+  ],
   "requirements": [
     {
       "buildings": [
@@ -85,12 +91,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Job Posting §192.1"
     }
   ]
 }

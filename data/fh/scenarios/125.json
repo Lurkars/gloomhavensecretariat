@@ -11,6 +11,12 @@
   },
   "edition": "fh",
   "complexity": 2,
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "124"
+    }
+  ],
   "rewards": {
     "items": [
       "194"
@@ -100,12 +106,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "124"
     }
   ]
 }

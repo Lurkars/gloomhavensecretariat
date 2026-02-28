@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "130.3"
+    }
+  ],
   "monsters": [
     "frozen-corpse",
     "ice-wraith",
@@ -105,12 +111,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Job Posting §130.3"
     }
   ]
 }

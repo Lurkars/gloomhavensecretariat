@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 3,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "180.3"
+    }
+  ],
   "rewards": {
     "items": [
       "234"
@@ -75,12 +81,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Job Posting §180.3"
     }
   ]
 }

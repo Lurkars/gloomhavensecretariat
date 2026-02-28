@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "other",
+      "value": "Forgotten Circles tie-in; from Building 44 §118.3"
+    }
+  ],
   "rewards": {
     "prosperity": 2,
     "itemDesigns": [
@@ -181,12 +187,6 @@
         "2:C < 3 ? 0 : 3",
         "3:C < 4 ? 0 : 3"
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Forgotten Circles tie-in; from Building 44 §118.3"
     }
   ]
 }

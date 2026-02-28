@@ -12,6 +12,16 @@
   "edition": "fh",
   "complexity": 2,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "scenario",
+      "value": "44"
+    },
+    {
+      "type": "scenario",
+      "value": "51"
+    }
+  ],
   "blocks": [
     "58"
   ],
@@ -320,16 +330,6 @@
       "objectives": [
         1
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "scenario",
-      "value": "44"
-    },
-    {
-      "type": "scenario",
-      "value": "51"
     }
   ]
 }

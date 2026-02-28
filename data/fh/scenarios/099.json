@@ -12,6 +12,12 @@
   "edition": "fh",
   "complexity": 1,
   "eventType": "road",
+  "recaps": [
+    {
+      "type": "section",
+      "value": "151.3"
+    }
+  ],
   "unlocks": [
     "100"
   ],
@@ -82,12 +88,6 @@
           "player4": "elite"
         }
       ]
-    }
-  ],
-  "recaps": [
-    {
-      "type": "other",
-      "value": "Job Posting §151.3"
     }
   ]
 }
