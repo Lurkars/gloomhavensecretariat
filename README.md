@@ -290,6 +290,7 @@ Assets/Data used:
 - [X-haven Assistant](https://github.com/Tarmslitaren/FrosthavenAssistant)
 - [Gloomhaven Item DB](https://github.com/heisch/gloomhaven-item-db)
 - [Virtual Gloomhaven Board](https://github.com/PurpleKingdomGames/virtual-gloomhaven-board)
+- [Frosthaven - Previously On](https://github.com/jenkinsonc/frosthaven-previouslyon)
 - some other used assets are licensed under public domain
 
 

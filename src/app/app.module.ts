@@ -383,7 +383,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     DragDropModule,
     DialogModule,
     InViewportModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production && !environment.electron, registrationStrategy: 'registerImmediately' })
   ],
   providers: [
     provideZonelessChangeDetection(),

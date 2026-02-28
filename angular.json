@@ -89,6 +89,42 @@
               "commonChunk": true,
               "buildOptimizer": true
             },
+            "electron": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "6mb",
+                  "maximumError": "12mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "256kb",
+                  "maximumError": "512kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.electron.ts"
+                }
+              ],
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": true
+              },
+              "outputHashing": "all",
+              "sourceMap": {
+                "scripts": true,
+                "styles": false,
+                "hidden": false
+              },
+              "namedChunks": false,
+              "extractLicenses": false,
+              "vendorChunk": true,
+              "commonChunk": true,
+              "buildOptimizer": true
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -106,6 +142,9 @@
           "configurations": {
             "production": {
               "buildTarget": "gloomhavensecretariat:build:production"
+            },
+            "electron": {
+              "buildTarget": "gloomhavensecretariat:build:electron"
             },
             "development": {
               "buildTarget": "gloomhavensecretariat:build:development"

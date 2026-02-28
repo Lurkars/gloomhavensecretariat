@@ -7,6 +7,8 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
+    backgroundColor: '#936658',
+    show: false,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true
@@ -15,13 +17,18 @@ function createWindow() {
 
   mainWindow.loadFile('./dist/gloomhavensecretariat/index.html');
 
+  // Clear cache to ensure old Service Worker is removed, but keep localStorage/IndexedDB
+  mainWindow.webContents.session.clearCache();
+  mainWindow.webContents.session.clearStorageData({
+    storages: ['serviceworkers', 'cachestorage']
+  });
+
   mainWindow.on("closed", () => {
     mainWindow = null;
   });
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
-    mainWindow.loadFile('./dist/gloomhavensecretariat/index.html');
   })
 }
 
