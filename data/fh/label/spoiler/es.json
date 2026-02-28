@@ -231,6 +231,32 @@
         }
       },
       "meteor": "Piroclasto",
+      "prism": {
+        "": "COLMENA",
+        "autoapply_mode": {
+          "": "Modo automático",
+          "hint": "Al activar %data.characterToken.prism.mode%, obtén automáticamente daño y condiciones."
+        },
+        "long_rest": {
+          "": "Pericia 8",
+          "hint": "%data.custom.fh.prism.8%"
+        },
+        "prism_mode": {
+          "": "%data.characterToken.prism.mode% Ficha de Modo",
+          "hint": "%data.characterToken.prism.mode% Modo está activado para invocar, la invocación no se activa en el turno."
+        },
+        "repair_mode": {
+          "": "Ayuda reparadora",
+          "hint": "%data.characterToken.prism.mode% Modo Dron de reparación: Al inicio de cada uno de tus turnos, realiza: %game.action.heal% 2, Personal"
+        },
+        "spider_mode": {
+          "": "Baluarte insectoide",
+          "hint": "%data.characterToken.prism.mode% Modo Araña escudo: Al inicio de cada uno e tus turnos, realiza: %game.condition.ward%, Personal"
+        },
+        "tokens": {
+          "mode": "Ficha de Modo"
+        }
+      },
       "shackles": "Canalizador de dolor",
       "snowflake": {
         "": "Danzanieves",
@@ -294,6 +320,20 @@
         "4": "A ti y a todos los aliados no os afecta el terreno peligroso que tú creas",
         "5": "Crea o destruye al menos 1 pieza de obstáculo o terreno peligroso en cada ronda",
         "6": "Mueve a enemigos por 6 hexágonos diferentes de terreno peligroso creados por ti en un mismo turno"
+      },
+      "prism": {
+        "1": "Al final del turno realiza:",
+        "10": "Siempre que vayas a sufrir %game.condition.wound%, evítalo",
+        "11": "%game.action.custom.fh-mode% todas las rondas",
+        "12": "%game.action.custom.fh-mode% a 4 invocaciones diferentes en una misma ronda",
+        "2": "Centra su atención en el enemigo más lejano a COLMENA.",
+        "3": "Todos los aliados adyacentes obtienen %game.action.shield% 1.",
+        "4": "Cuando te ataquen, reduce el %game.damage% en 1 por cada estado negativo que tenga el atacante.",
+        "5": "Aplica %game.condition.wound% a todas las figuras adyacentes y Personal al final del turno.",
+        "6": "Después de esta capacidad de Ataque, otorga a 1 de tus invocaciones: %game.action.move:2%",
+        "7": "Después de esta capacidad de Ataque, %game.action.custom.fh-mode%",
+        "8": "Siempre que realices un descanso largo, puedes hacerlo con cualquier valor de iniciativa, que eliges después de que se haya revelado todas las cartas de Capacidad, y tú decides cómo realizan sus capacidades tus invocaciones durante la ronda",
+        "9": "Al final de cada uno de tus descansos cortos, puedes %game.action.custom.fh-mode%"
       },
       "shackles": {
         "1": "Al atacar, ignora %game.action.retaliate%",
@@ -767,6 +807,10 @@
       "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, %game.element.consume.earth% para añadir %game.action.attack% +1 a 1 ataque, y luego dale la vuelta a esta carta.",
       "2": "Durante tu capacidad de Ataque, %game.element.consume.air% para añadir %game.action.push% 2 a 1 ataque, y luego dale la vuelta a esta carta."
     },
+    "fh-227": {
+      "": "Unidad de datos",
+      "1": "Cuando hagas un descanso corto, pon la mitad (redondeando hacia abajo) de tu pila de descartes encima de este objeto, pierde 1 de las cartas restantes al azar como es habitual, y luego roba las cartas que hay encima de este objeto."
+    },
     "fh-23": {
       "": "Grebas robustas",
       "1": "Al inicio de tu turno, añade %game.action.move% -2 a todas tus capacidades de Movimiento para obtener %game.action.shield% durante esta ronda. "
@@ -806,6 +850,9 @@
     },
     "fh-245": {
       "": "Moneda antigua"
+    },
+    "fh-246": {
+      "": "Tarjeta llave"
     },
     "fh-247": {
       "": "Red de adiestrador",
@@ -1426,29 +1473,43 @@
   },
   "summon": {
     "animated-claymore": "Claymore animada",
+    "arcing-generator": "Generador de arco",
+    "armored-tank": "Tanque blindado",
     "banner-of-courage": "Bandera de coraje",
     "banner-of-doom": "Bandera de condena",
     "banner-of-hope": "Bandera de esperanza",
     "banner-of-strength": "Bandera de fuerza",
     "banner-of-valor": "Bandera de valor",
+    "bombardier": "Bombarda",
     "bone-horde": "Horda de huesos",
+    "dampening-unit": "Unidad de amortiguación",
     "defense-grid": "Matriz defensiva",
     "flesh-bomb": "Efigie inestable",
     "flesh-fiend": "Efigie cicatrizada",
+    "jackal-mech": "Robot chacal",
+    "leaper": "Saltador",
     "longbowman": "Arquero",
+    "machine-bolter": "Ametralladora automatizada",
     "polar-cat": "Gato polar",
     "raging-corpse": "Cadáver enfurecido",
     "reinforcement": "Refuerzo",
+    "repair-drone": "Dron de reparación",
     "shadow-beast": "Bestia de sombras",
     "shadow-horror": "Horror de sombras",
     "shaggy-lure": "Señuelo desgreñado",
     "shambling-skeleton": "Esqueleto tambaleante",
+    "shield-spider": "Araña escudo",
     "skeleton-sorcerer": "Hechicero esqueleto",
+    "sledge-driver": "Metal pesado",
+    "sniper-turret": "Torreta francotiradora",
     "snow-fox": "Zorro de las nieves",
     "spiritbound-falchion": "Alfanje espiritual",
     "stitched-atrocity": "Atrocidad cosida",
+    "sword-propeller": "Espada hélice",
     "torch-bearer": "Portador de antorcha",
+    "toxin-distributor": "Aspersor de toxinas",
     "trained-falcon": "Halcón adiestrado",
+    "trapping-unit": "Unidad trampera",
     "white-owl": "Búho blanco",
     "wraith": "Espectro"
   },

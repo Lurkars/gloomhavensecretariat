@@ -100,7 +100,48 @@
         "5": "每个剧本限一次，你的回合期间，在你的相邻格放置一个%data.action.custom.gh2e-tear%",
         "6": "敌人在攻击期间，因抽取%game.condition.curse%而导致未造成%game.damage%时，该敌人承受%game.damage:3%",
         "7": "在单一剧本中，你的每个回合均灌注或消耗%game.element.dark%",
-        "8": "在单一剧本中，连续5轮均执行过一次攻击能力"
+        "8": "在单一剧本中，连续5轮均执行过一次攻击能力",
+        "abilities": {
+          "267": {
+            "1": "当你消灭一名敌人后，你可以弃置本卡牌来放置一个%game.customAction:gh2e-tear%到该敌人原来占据的格子中。",
+            "2": "%game.action.teleport%至8格内的一个盟友所在格，同时%game.action.teleport%该盟友至你先前所在格。"
+          },
+          "268": {
+            "1": "揭示%game.action.range:2%内所有怪物的能力卡牌最上方的那张牌。",
+            "2": "在%game.action.range:2%内的一个格子中放置一个%game.customAction:gh2e-tear%。"
+          },
+          "269": {
+            "1": "将你的角色标记放到%game.action.range:3%内的一个盟友上，并放置一个%game.customAction:gh2e-tear%到该盟友的相邻格。下一次该盟友承受%game.damage%时，抵消该%game.damage%。"
+          },
+          "270": {
+            "1": "攻击后，若目标的生命值不高于2点，消灭该目标。",
+            "2": "在相邻的格子中放置一个%game.customAction:gh2e-tear%。"
+          },
+          "271": {
+            "1": "本轮中，距你%game.action.range:2%内的所有敌人的所有攻击附加-1%game.action.attack%。",
+            "2": "在%game.action.range:2%内的一个格子中放置一个%game.customAction:gh2e-tear%。"
+          },
+          "273": {
+            "1": "如果第一次攻击消灭了一个敌人，为第二次攻击增加+1%game.action.attack%。"
+          },
+          "274": {
+            "1": "当有敌人在距你%game.action.range:2%内死亡时，你可以弃掉本卡牌，赋予消灭该敌人的个体："
+          },
+          "275": {
+            "1": "如果目标被推入一个或更多含有%game.customAction:gh2e-tear%的格子，其获得%game.condition.muddle%，%game.condition.curse%，并承受有害地形伤害。"
+          },
+          "276": {
+            "1": "本轮中，你和所有盟友在攻击距你%game.action.range:1%内的敌人时，为所有攻击增加+1%game.action.attack%, %game.action.pierce:1%。",
+            "2": "在相邻的格子中放置一个%game.customAction:gh2e-tear%。"
+          },
+          "277": {
+            "1": "将你的角色标记放到%game.action.range:3%内的一个敌人上，并在该敌人的相邻格放置一个%game.customAction:gh2e-tear%。你下一次以该敌人为目标的攻击，增加+2%game.action.attack%并获得优势。",
+            "2": "本次%game.action.teleport%必须停留在一个包含%game.customAction:gh2e-tear%的格子中。"
+          },
+          "278": {
+            "1": "在%game.action.range:2%内的一个格子中放置一个%game.customAction:gh2e-tear%。"
+          }
+        }
       },
       "lightning": {
         "1": "你可以承受%game.damage:2%来增加+2 %game.action.attack%",

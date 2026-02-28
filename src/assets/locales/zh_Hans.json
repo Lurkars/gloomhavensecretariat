@@ -1115,7 +1115,7 @@
         "brewed": "{2} 酿造 {1} %game.itemFh.{0}%",
         "brewedOther": "{2} 为 {3} 酿造 {1} %game.itemFh.{0}%",
         "disabled": "无法酿造药水，请先重建 '%data.buildings.alchemist%' (35)",
-        "item": "{1} %game.itemFh.{0}%",
+        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
         "noChar": "所有角色均已持有该药水！",
         "selectCharacter": "选择获得酿造药水的角色："
       },
@@ -1973,6 +1973,7 @@
       "randomItemBlueprint": "获得一张随机物品蓝图",
       "randomItemBlueprints": "添加物品%game.itemFh.{0}%至%game.itemFh.{1}%到随机物品蓝图牌库。",
       "randomItems": "每名角色获得一件随机物品({0}-{1})",
+      "randomSideScenario": "抽取一个随机支线剧本。",
       "removeEvent": {
         "boat": "从船只牌库移除事件{0}",
         "city": "从牌库移除城镇事件{0}",

@@ -1114,7 +1114,7 @@
         "brewed": "{2} hat {1} %game.itemFh.{0}% gebraut",
         "brewedOther": "{2} hat {1} %game.itemFh.{0}% für {3} gebraut",
         "disabled": "Brauen von Tränken nicht möglich, erst '%data.buildings.alchemist%' (35) wiederaufbauen",
-        "item": "{1} %game.itemFh.{0}%",
+        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
         "noChar": "Jeder Charakter besitzt schon diesen Trank!",
         "selectCharacter": "Charakter auswählen, für den der Trank gebraut wird:"
       },
@@ -1969,6 +1969,7 @@
       "randomItemBlueprint": "Erhalte einen zufälligen Gegenstandsplan",
       "randomItemBlueprints": "Füge Gegenstände %game.itemFh.{0}% bis %game.itemFh.{1}% zu den zufälligen Gegenstandsblaupausen hinzu.",
       "randomItems": "Jeder Charakter erhält ein zufälliges Item ({0}-{1})",
+      "randomSideScenario": "Ziehe ein zufälliges Nebenszenario.",
       "removeEvent": {
         "boat": "Entferne Ereignis {0} vom Bootdeck",
         "city": "Entferne Start-Ereignis {0} vom Deck",
@@ -2653,7 +2654,7 @@
       "hint": "Ziehe automatisch eine zufällige Gegenstandskarte."
     },
     "drawRandomScenario": {
-      "": "Ziehe eine zufällige Szenariobelohnung.",
+      "": "Ziehe eine zufällige Szenariobelohnung",
       "hint": "Ziehe automatisch ein zufälliges Szenario."
     },
     "eliteFirst": {
