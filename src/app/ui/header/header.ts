@@ -46,6 +46,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   currentGameClock: number = 0;
   gameClockInterval: any;
   syncing: boolean = false;
+  wsState: number = -1;
 
   constructor(private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
     this.ghsManager.uiChangeEffect(() => {
@@ -69,6 +70,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.cdr.markForCheck();
     }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
 
+    setInterval(() => {
+      this.wsState = gameManager.stateManager.wsState();
+      this.syncing = window.document.body.classList.contains('server-sync');
+      this.cdr.markForCheck();
+    }, 500)
   }
 
   ngOnDestroy(): void {

@@ -28,7 +28,7 @@
   </ghs-pointer-input>
 
   @if (!short) {
-  <ghs-character-initiative [figure]="objective"></ghs-character-initiative>
+  <ghs-character-initiative [figure]="objective" [initiative]="initiative"></ghs-character-initiative>
   }
 
   @if (!!entity) {
@@ -40,7 +40,8 @@
     <div class="column col-1">
       <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
       @if (short) {
-      <ghs-character-initiative class="initiative" [figure]="objective"></ghs-character-initiative>
+      <ghs-character-initiative class="initiative" [figure]="objective"
+        [initiative]="initiative"></ghs-character-initiative>
       }
       <div class="bar-container">
         <div class="title-container" ghs-pointer-input (singleClick)="openEntityMenu()">
@@ -172,7 +173,8 @@
     <div class="column col-1">
       <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
       @if (short) {
-      <ghs-character-initiative class="initiative" [figure]="objective"></ghs-character-initiative>
+      <ghs-character-initiative class="initiative" [figure]="objective"
+        [initiative]="initiative"></ghs-character-initiative>
       }
       <div class="bar-container">
         <div class="title-container" ghs-pointer-input (singleClick)="openEntityMenu()">

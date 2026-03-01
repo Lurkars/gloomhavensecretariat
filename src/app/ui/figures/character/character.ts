@@ -50,6 +50,9 @@ export class CharacterComponent implements OnInit {
   AttackModifierType = AttackModifierType;
   levelDialog: boolean = false;
 
+  characterHp: number = 0;
+  characterMaxHp: number = 0;
+
   characterTitle: string = "";
   initiative: number = -1;
   health: number = 0;
@@ -86,6 +89,8 @@ export class CharacterComponent implements OnInit {
 
 
   update(): void {
+    this.characterHp = this.character.health;
+    this.characterMaxHp = this.character.maxHealth;
     this.characterTitle = gameManager.characterManager.characterName(this.character);
     this.summons = this.character.summons.filter((summon) => !summon.tags.includes('cs-skull-spirit'));
     this.skullSpirits = this.character.summons.filter((summon) => summon.tags.includes('cs-skull-spirit'));
@@ -137,18 +142,7 @@ export class CharacterComponent implements OnInit {
       value = 1;
     }
 
-    if (this.initiative == -1) {
-      this.initiative = this.character.initiative;
-    }
-
-    this.character.initiative = value;
-    this.character.initiativeVisible = true;
-    if (this.character.name != 'prism' || !this.character.tags.includes('long_rest')) {
-      this.character.longRest = false;
-    }
-    if (value == 99) {
-      this.character.longRest = true;
-    }
+    this.initiative = value;
     this.ghsManager.triggerUiChange();
   }
 
@@ -173,9 +167,7 @@ export class CharacterComponent implements OnInit {
         this.character.longRest = false;
       }
       this.initiative = -1;
-      if (this.character instanceof Character) {
-        this.character.initiativeVisible = true;
-      }
+      this.character.initiativeVisible = true;
       if (gameManager.game.state == GameState.next) {
         gameManager.sortFigures(this.character);
       }

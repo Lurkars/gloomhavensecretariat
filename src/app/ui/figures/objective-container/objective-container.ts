@@ -113,15 +113,11 @@ export class ObjectiveContainerComponent implements OnInit {
       value = 0;
     }
 
-    if (value == 0 && settingsManager.settings.initiativeRequired) {
+    if (gameManager.game.state == GameState.next && value == 0 && settingsManager.settings.initiativeRequired) {
       value = 1;
     }
 
-    if (this.initiative == -1) {
-      this.initiative = this.objective.initiative;
-    }
-
-    this.objective.initiative = value;
+    this.initiative = value;
     this.ghsManager.triggerUiChange();
   }
 
@@ -132,7 +128,7 @@ export class ObjectiveContainerComponent implements OnInit {
       value = 0;
     }
 
-    if (value == 0 && settingsManager.settings.initiativeRequired) {
+    if (gameManager.game.state == GameState.next && value == 0 && settingsManager.settings.initiativeRequired) {
       value = 1;
     }
 

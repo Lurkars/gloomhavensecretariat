@@ -169,7 +169,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
                 }
             }
 
-            if (!fromServer && loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && !this.standalone && this.fullscreen && gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure))) {
+            if (!fromServer && loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && !this.standalone && this.fullscreen && gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) && gameManager.game.figures.every((figure) => !(figure instanceof Character) || !figure.lootCards.includes(currentIndex))) {
                 let activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) as Character;
                 if ((!activeCharacter || settingsManager.settings.alwaysLootApplyDialog)) {
                     const dialog = this.dialog.open(LootApplyDialogComponent, {

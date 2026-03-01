@@ -21,6 +21,7 @@ import { CharacterInitiativeDialogComponent } from "./initiative-dialog";
 export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
 
   @Input() figure!: Character | ObjectiveContainer;
+  @Input() initiative: number = -1;
   @ViewChild('initiativeInput', { static: false }) initiativeInput!: ElementRef;
 
   characterManager: CharacterManager = gameManager.characterManager;
@@ -109,6 +110,12 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   }
 
   private formatInitiative(): string {
+    if (this.initiative != -1) {
+      return this.initiative > 0
+        ? (this.initiative < 10 ? '0' + this.initiative : '' + this.initiative)
+        : '';
+    }
+
     return this.figure.initiative > 0
       ? (this.figure.initiative < 10 ? '0' + this.figure.initiative : '' + this.figure.initiative)
       : '';

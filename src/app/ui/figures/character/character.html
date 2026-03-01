@@ -33,7 +33,8 @@
     [ngClass]="{'outer-denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round && !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
   </ghs-pointer-input>
   @if (!short) {
-  <ghs-character-initiative class="initiative" [figure]="character"></ghs-character-initiative>
+  <ghs-character-initiative class="initiative" [figure]="character"
+    [initiative]="initiative"></ghs-character-initiative>
   }
   <ghs-highlight-conditions [entity]="character" [figure]="character"></ghs-highlight-conditions>
   @if ((bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck &&
@@ -72,7 +73,8 @@
       <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"
         (doubleClick)="compact && openCharacterSheet()"></div>
       @if (short) {
-      <ghs-character-initiative class="initiative" [figure]="character"></ghs-character-initiative>
+      <ghs-character-initiative class="initiative" [figure]="character"
+        [initiative]="initiative"></ghs-character-initiative>
       }
       <div class="bar-container">
         <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"
@@ -87,7 +89,7 @@
                 [src]="identityIcon ? identityIcon : character.iconUrl" />
             </span>
             @if (compact) {
-            <ghs-character-initiative [figure]="character"></ghs-character-initiative>
+            <ghs-character-initiative [figure]="character" [initiative]="initiative"></ghs-character-initiative>
             }
             <span class="name" ghs-pointer-input (singleClick)="openEntityMenu()"
               (doubleClick)="compact && openCharacterSheet()">
@@ -164,12 +166,12 @@
                 [src]="'./assets/images/' + (settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')" />
               @if (!settingsManager.settings.damageHP) {
               <span>
-                {{(character.health + health) | ghsMinZero}}/{{character.maxHealth}}
+                {{(characterHp + health) | ghsMinZero}}/{{characterMaxHp}}
               </span>
               }
               @if (settingsManager.settings.damageHP) {
               <span>
-                {{character.maxHealth}}/{{character.maxHealth - (character.health + health) | ghsMinZero}}
+                {{characterMaxHp}}/{{characterMaxHp - (characterHp + health) | ghsMinZero}}
               </span>
               }
               <span class="value-overlay" [value-sign]="health" [hideEmpty]="true"

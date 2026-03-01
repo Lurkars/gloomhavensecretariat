@@ -144,6 +144,7 @@ export class ScenarioStatsManager {
         character.scenarioStats.treasures = character.treasures.length;
 
         if (character.lootCards) {
+            let lootStats: Partial<Record<LootType, number>> = {};
             character.lootCards.forEach((index) => {
                 const loot = this.game.lootDeck.cards[index];
                 if (loot) {
@@ -151,7 +152,8 @@ export class ScenarioStatsManager {
                     if (type == LootType.special1 || type == LootType.special2) {
                         type = LootType.money;
                     }
-                    character.scenarioStats.loot[type] = gameManager.lootManager.getValue(loot);
+                    lootStats[type] = (lootStats[type] || 0) + gameManager.lootManager.getValue(loot);
+                    character.scenarioStats.loot[type] = lootStats[type];
                 }
             })
         }

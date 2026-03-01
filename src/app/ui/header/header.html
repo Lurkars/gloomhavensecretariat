@@ -10,7 +10,7 @@
   <img src="./assets/images/warning.svg" [ghs-tooltip]="gameManager.stateManager.serverError"
     class="ghs-svg server-connection closed" [ghs-label]="'server.error'" [ghs-label-attribute]="'title'">
   }
-  @switch (gameManager.stateManager.wsState()) {
+  @switch (wsState) {
   @case (WebSocket.OPEN) {
   <a (click)="openMenu(SubMenu.server)" [ghs-label]="'server.connected'" [ghs-label-attribute]="'title'"
     class="server-connection-status">

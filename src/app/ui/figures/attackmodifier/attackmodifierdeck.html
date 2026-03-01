@@ -1,5 +1,5 @@
 <div class="attack-modifiers"
-  [ngClass]="{'disabled' : !standalone && (!townGuard && gameManager.game.state == GameState.draw || townGuard && gameManager.game.scenario), 'vertical' : vertical, 'character' : character}">
+  [ngClass]="{'disabled' : !standalone && (!townGuard && gameManager.game.state == GameState.draw || townGuard && gameManager.game.scenario), 'vertical' : vertical, 'character' : !!character}">
 
   @if (!gameManager.bbRules() && !!character && battleGoals && !!gameManager.game.scenario &&
   settingsManager.settings.battleGoals && gameManager.game.round > 0 && !settingsManager.settings.battleGoalsCharacter)

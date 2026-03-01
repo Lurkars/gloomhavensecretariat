@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, inject, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -17,6 +17,7 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrls: ['../menu.scss', 'server.scss']
 })
 export class ServerMenuComponent implements OnInit {
+  private cdr = inject(ChangeDetectorRef);
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -50,6 +51,7 @@ export class ServerMenuComponent implements OnInit {
           return response.json();
         }).then((value: ServerInfo[]) => {
           this.publicServer = value;
+          this.cdr.markForCheck();
         });
     } catch (error) {
       this.publicServer = [];
@@ -126,6 +128,7 @@ export class ServerMenuComponent implements OnInit {
           return response.json();
         }).then((value: any) => {
           this.serverUpdateVersion = { latest: value.tag_name == gameManager.stateManager.serverVersion || value.tag_name == 'v' + gameManager.stateManager.serverVersion, version: value.tag_name, url: value.html_url };
+          this.cdr.markForCheck();
         });
     }
   }
