@@ -139,7 +139,62 @@
             "2": "本次%game.action.teleport%必须停留在一个包含%game.customAction:gh2e-tear%的格子中。"
           },
           "278": {
-            "1": "在%game.action.range:2%内的一个格子中放置一个%game.customAction:gh2e-tear%。"
+            "1": "在%game.action.range:2%内的一个格子中放置一个%game.customAction:gh2e-tear%。",
+            "2": "本轮中，每当一个敌人进入你%game.action.range:2%内的格子时，该敌人获得%game.condition.wound%。",
+            "3": "本轮结束时，所有带有 %game.condition.wound%的敌人承受%game.damage:1%，%game.card.experience:1%。"
+          },
+          "279": {
+            "1": "抵消你本轮中下次承受的%game.damage%。",
+            "2": "本轮中，所有以你为目标的攻击获得劣势。",
+            "3": "本轮中，所有以距你%game.action.range:2%内的盟友为目标的攻击获得劣势，%game.card.experience:1%。"
+          },
+          "280": {
+            "1": "如果推斥后，目标不与任何其盟友相邻，其承受%game.damage:2%。",
+            "2": "在%game.action.range:3%内的两个格子中放置两个互不相邻的%game.customAction:gh2e-tear%，并%game.action.teleport%至其中一个格子。",
+            "3": "你下2次攻击的攻击值翻倍。"
+          },
+          "281": {
+            "1": "当你移除%game.customAction:gh2e-tear%时，你可以弃掉本卡牌来获得%game.condition.strengthen%，并令所有相邻敌人承受%game.damage:2%。"
+          },
+          "282": {
+            "1": "本轮中，你和所有盟友以带有%game.condition.poison%的敌人为目标的所有攻击获得优势。",
+            "2": "本轮中，每当你或盟友攻击距你%game.action.range:2%的敌人时，在攻击能力后可以执行："
+          },
+          "284": {
+            "1": "所有该击晕能力的目标",
+            "2": "赋予一个相邻的盟友：",
+            "3": "只能%game.action.teleport%至一个带有%game.customAction:gh2e-tear%的格子。"
+          },
+          "285": {
+            "1": "如果你带有%game.condition.invisible%，放置一个%game.customAction:gh2e-tear%至目标的相邻格。如果你未带有%game.condition.invisible%，目标承受%game.damage:4%。",
+            "2": "目标承受%game.damage:1%, %game.card.experience:1%。"
+          },
+          "286": {
+            "1": "你下一个回合结束时，如果你未带有%game.condition.invisible%，你可以执行：",
+            "2": "本轮中，你下一次消灭一个敌人时，放置一个%game.customAction:gh2e-tear%至该敌人占据的格子。"
+          },
+          "287": {
+            "1": "揭示%game.action.range:3%内所有怪物能力牌库顶的那张卡牌。",
+            "2": "在%game.action.range:3%内的一个格子中放置一个%game.customAction:gh2e-tear%。"
+          },
+          "290": {
+            "1": "如果本次攻击能力目标的当前生命值已不高于最大值的一半（向下取整），获得%game.card.experience:1%并执行：",
+            "2": "该敌人"
+          },
+          "291": {
+            "1": "红色格子中的敌人承受%game.damage:2%。",
+            "2": "%game.action.teleport%至伤害能力的%game.custom:gh2e-tear-hex%格子。",
+            "3": "从手牌中打出一张卡牌并执行该卡牌上半区或下半区的行动，%game.card.experience:1%。",
+            "4": "本次攻击不会令你在本轮结束时获得%game.condition.invisible%，%game.card.experience:1%。"
+          },
+          "292": {
+            "1": "如果你带有%game.condition.invisible%，放置一个%game.customAction:gh2e-tear%至目标的相邻格。如果你未带有%game.condition.invisible%，同时，目标是普通敌人且占据了一个包含%game.customAction:gh2e-tear%的格子，你可以移除该%game.customAction:gh2e-tear%并获得%game.condition.invisible%来消灭该目标，%game.card.experience:1%。",
+            "2": "本轮及下4轮，你可以在带有%game.condition.invisible%的情况下执行攻击能力。当本卡牌从激活区移至遗失区时，你筋疲力尽。"
+          },
+          "293": {
+            "1": "赋予所有红色格子中的盟友：",
+            "2": "1个盟友或敌人",
+            "3": "如果目标进入了包含%game.customAction:gh2e-tear%的格子，你可以移除该%game.customAction:gh2e-tear%来令该盟友获得%game.condition.invisible%。"
           }
         }
       },

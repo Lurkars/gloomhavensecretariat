@@ -258,6 +258,20 @@
         }
       },
       "shackles": "Canalizador de dolor",
+      "shards": {
+        "": "Quiebrasonata",
+        "extra_resonance_tokens": {
+          "": "Pericia 10",
+          "hint": "%data.custom.fh.shards.5%"
+        },
+        "resonance_tokens": {
+          "": "%data.characterToken.shards.resonance% Fichas de Resonancia",
+          "hint": "Al final de cada uno de tus turnos, ganas 1 %data.characterToken.shards.resonance%"
+        },
+        "tokens": {
+          "resonance": "Ficha de Resonancia"
+        }
+      },
       "snowflake": {
         "": "Danzanieves",
         "muddle-monster": {
@@ -344,6 +358,16 @@
         "6": "Aumenta tu valor máximo de puntos de vida en 5",
         "7": "Consigue que otras figuras sufran un total de al menos %game.damage:40% en una misma ronda",
         "8": "Empieza tu turno con %game.condition.wound%,%game.condition.brittle%,%game.condition.bane%,%game.condition.poison%,%game.condition.immobilize%,%game.condition.disarm%,%game.condition.stun% y %game.condition.muddle%"
+      },
+      "shards": {
+        "1": "Revela la primera carta del mazo de Capacidades de monstruo del objetivo",
+        "2": "Obtén 1 %game.characterToken.shards.resonance%",
+        "3": "Obtén 1 %game.action.custom.fh-resonance%",
+        "4": "Siempre que realices un descanso corto, puedes %game.element.consume.air% para realizar %game.condition.strengthen%, %game.action.range:3% y %game.element.consume.light% para realizar %game.condition.bless%, %game.action.range:3%",
+        "5": "Al comienzo de cada escenario, puedes sufrir %game.condition.brittle% para obtener 2 %game.action.custom.fh-resonance%",
+        "6": "Cada vez que se revele una nueva sala, puedes revelar la primera carta del mazo de Modificadores de ataque de monstruo y de todos los mazos de Modificadores de ataque de los aliados",
+        "7": "Ten siempre %game.action.custom.fh-resonance% 0 directamente antes de obtener %game.action.custom.fh-resonance% al final de cada uno de tus turnos",
+        "8": "Gasta 5 %game.action.custom.fh-resonance% en cada una de las 5 capacidades de Onda diferentes"
       },
       "snowflake": {
         "1": "Si esta acción obliga al objetivo a moverse, este sufre %game.damage:1%",
