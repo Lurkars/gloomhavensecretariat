@@ -46,6 +46,7 @@
           },
           "statEffect": {
             "health": "HxC",
+            "absolute": true,
             "actions": [
               {
                 "type": "shield",
