@@ -4,11 +4,44 @@
   "edition": "gh2e",
   "parent": "26",
   "marker": "1",
+  "resetRound": "visible",
   "monsters": [
     "ancient-artillery",
     "city-archer",
     "city-guard",
     "first-shield-harmon"
+  ],
+  "rules": [
+    {
+      "round": "R >= 5 && R % 2 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "city-archer",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R >= 6 && R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "city-guard",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -32,6 +65,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player4": "normal"
         },
         {
           "name": "city-guard",
