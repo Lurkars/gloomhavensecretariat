@@ -10,15 +10,33 @@
     "25"
   ],
   "monsters": [
+    "city-archer",
+    "city-guard",
     "cultist",
     "living-bones",
     "living-corpse"
+  ],
+  "allies": [
+    "city-archer",
+    "city-guard"
   ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
       "monster": [
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
         {
           "name": "cultist",
           "type": "elite"

@@ -5,8 +5,14 @@
   "edition": "gh2e",
   "monsters": [
     "cultist",
+    "earth-demon",
     "living-bones",
-    "living-corpse"
+    "living-corpse",
+    "night-demon"
+  ],
+  "allies": [
+    "earth-demon",
+    "night-demon"
   ],
   "rooms": [
     {
@@ -16,6 +22,12 @@
         {
           "name": "cultist",
           "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "living-bones",
@@ -30,6 +42,16 @@
           "name": "living-corpse",
           "player2": "normal",
           "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "normal",
           "player4": "elite"
         }
       ]
