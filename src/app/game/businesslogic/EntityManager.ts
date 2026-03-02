@@ -673,6 +673,10 @@ export class EntityManager {
         if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
           entity.health = entity.health - entityCondition.value;
 
+          if (figure instanceof Monster && !figure.isAlly && gameManager.characterManager.getActiveCharacters().find((c) => c.tags.includes('call-of-the-grave'))) {
+            entity.health = entity.health - 1;
+          }
+
           if (entity instanceof Character && entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '71')) {
             entity.health = entity.health + entityCondition.value + 1;
             entity.entityConditions.push(new EntityCondition(ConditionName.heal, 1));
@@ -719,6 +723,9 @@ export class EntityManager {
         entityCondition.state = EntityConditionState.normal;
         if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
           entity.health = entity.health + entityCondition.value;
+          if (figure instanceof Monster && !figure.isAlly && gameManager.characterManager.getActiveCharacters().find((c) => c.tags.includes('call-of-the-grave'))) {
+            entity.health = entity.health + 1;
+          }
           this.checkHealth(entity, figure);
         }
       }

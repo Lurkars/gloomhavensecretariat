@@ -13,6 +13,13 @@
   ],
   "color": "#cb9070",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "call-of-the-grave",
+      "expire": true,
+      "level": 1
+    }
+  ],
   "stats": [
     {
       "level": 1,

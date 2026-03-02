@@ -3,7 +3,13 @@
     "gh2e": {
       "angry-face": "Doomstalker",
       "circles": "Soultether",
-      "crossed-swords": "Bladeswarm",
+      "crossed-swords": {
+        "": "Bladeswarm",
+        "call-of-the-grave": {
+          "": "Call of the Grave",
+          "hint": "Enemies that have %game.condition.wound% suffer %game.damage:2% at the start of each of their turns instead of %game.damage:1%."
+        }
+      },
       "eclipse": "Nightshroud",
       "lightning": {
         "": "Berserker",
