@@ -25,6 +25,16 @@
   ],
   "rules": [
     {
+      "round": "true",
+      "start": true,
+      "elements": [
+        {
+          "type": "dark",
+          "state": "strong"
+        }
+      ]
+    },
+    {
       "round": "R == 1",
       "start": true,
       "figures": [

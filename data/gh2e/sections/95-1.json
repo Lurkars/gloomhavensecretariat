@@ -3,15 +3,49 @@
   "edition": "gh2e",
   "parent": "45",
   "marker": "2",
+  "resetRound": "visible",
   "monsters": [
     "deep-terror",
     "night-demon"
   ],
   "objectives": [
     {
-      "name": "Rock Column A",
+      "name": "Rock Column",
       "health": "(8+L)xC",
+      "marker": "a",
       "initiative": 1
+    }
+  ],
+  "rules": [
+    {
+      "round": "R >= 3 && R % 2 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R >= 2 && R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
     }
   ],
   "rooms": [
