@@ -1,0 +1,461 @@
+{
+  "items": {
+    "cs-103": {
+      "": "Steelsilk Spinneret"
+    },
+    "cs-109": {
+      "": "Auscudec of the Makers"
+    },
+    "cs-114": {
+      "": "Rite of Ruin"
+    },
+    "cs-34": {
+      "": "Claw Trap"
+    },
+    "cs-40": {
+      "": "Moonleather Boots"
+    },
+    "cs-41": {
+      "": "Spirit Libation"
+    },
+    "cs-42": {
+      "": "Robe of Soothing"
+    },
+    "cs-45": {
+      "": "Chain Cannon"
+    },
+    "cs-47": {
+      "": "Nature Armlets"
+    },
+    "cs-48": {
+      "": "Test Tube"
+    },
+    "cs-50": {
+      "": "Luminous Carapace"
+    },
+    "cs-51": {
+      "": "Flaming Armor"
+    },
+    "cs-53": {
+      "": "Field Mortar"
+    },
+    "cs-56": {
+      "": "Clamp Trap"
+    },
+    "cs-57": {
+      "": "Cleansed Voidheart"
+    },
+    "fc-164": {
+      "": "Basin of Prophecy"
+    },
+    "fh-248": {
+      "": "Wanderer's Club"
+    },
+    "fh-249": {
+      "": "Recalibration Trigger"
+    },
+    "fh-250": {
+      "": "Spear of Justice"
+    },
+    "fh-251": {
+      "": "Soul Urn"
+    },
+    "fh-252": {
+      "": "Black Earth Codex"
+    },
+    "fh-253": {
+      "": "Mask of Duality"
+    },
+    "fh-254": {
+      "": "Ancestral Blade"
+    },
+    "fh-255": {
+      "": "Mountain's Heart"
+    },
+    "fh-256": {
+      "": "Sonorous Shard"
+    },
+    "fh-257": {
+      "": "Sly Camouflage"
+    },
+    "fh-258": {
+      "": "Skull of Agony"
+    },
+    "fh-259": {
+      "": "Storm Carving"
+    },
+    "fh-260": {
+      "": "Freezing Orb"
+    },
+    "fh-261": {
+      "": "Energized Module"
+    },
+    "fh-262": {
+      "": "Exhaust Boots"
+    },
+    "fh-263": {
+      "": "Warlord's Skull"
+    },
+    "fh-264": {
+      "": "Spiraled Medallion"
+    },
+    "gh-134": {
+      "": "Imposing Blade"
+    },
+    "gh-135": {
+      "": "Focusing Ray"
+    },
+    "gh-136": {
+      "": "Volatile Elixir"
+    },
+    "gh-137": {
+      "": "Silent Stiletto"
+    },
+    "gh-138": {
+      "": "Stone Charm"
+    },
+    "gh-139": {
+      "": "Psychic Knife"
+    },
+    "gh-140": {
+      "": "Sun Shield"
+    },
+    "gh-141": {
+      "": "Utility Belt"
+    },
+    "gh-142": {
+      "": "Phasing Idol"
+    },
+    "gh-143": {
+      "": "Smoke Elixir"
+    },
+    "gh-144": {
+      "": "Pendant of the Plague"
+    },
+    "gh-145": {
+      "": "Mask of Death"
+    },
+    "gh-146": {
+      "": "Master's Lute"
+    },
+    "gh-147": {
+      "": "Cloak of the Hunter"
+    },
+    "gh-148": {
+      "": "Doctor's Coat"
+    },
+    "gh-149": {
+      "": "Elemental Boots"
+    },
+    "gh-150": {
+      "": "Staff of Command"
+    },
+    "gh-envx-151": {
+      "": "Sword of the Sands"
+    },
+    "gh2e-153": {
+      "": "Hooked Shield",
+      "1": "หลังจากคุณผลักศัตรู ดำเนินการ:",
+      "2": "การเคลื่อนที่นี้สามารถเข้าได้เฉพาะหกเหลี่ยมที่ศัตรูที่ถูกผลักออกจากไป"
+    },
+    "gh2e-154": {
+      "": "Focusing Ray",
+      "1": "ระหว่างความสามารถรักษา เพิ่ม +1 %game.action.heal% และ %game.condition.strengthen% ในการรักษาหนึ่งครั้งที่เล็งพรรคพวก"
+    },
+    "gh2e-155": {
+      "": "Etheric Elixir",
+      "1": "เมื่อคุณดำเนินการแอ็กชันบน %game.card.lost% ของ <i>Reviving Ether</i> เอาการ์ด %game.attackmodifier.null% ออกจากสำรับมอดิฟายเออร์โจมตีของคุณสำหรับสถานการณ์ที่เหลือ"
+    },
+    "gh2e-156": {
+      "": "Silent Stiletto",
+      "1": "เพิ่ม %game.action.pierce% 1 ในการโจมตีทั้งหมดของคุณ"
+    },
+    "gh2e-157": {
+      "": "Stone Charm",
+      "1": "ระหว่างเทิร์นของคุณ ดำเนินการการโจมตีหรือรักษาครั้งถัดไปในเทิร์นนี้ราวกับคุณอยู่ในหกเหลี่ยมเดียวกับสิ่งกีดขวางใดๆ"
+    },
+    "gh2e-158": {
+      "": "Psychic Knife",
+      "1": "เพิ่ม +1 %game.action.attack% ในการโจมตีทั้งหมดของคุณจากแอ็กชัน %data.action.custom.gh2e-augment% ของคุณ"
+    },
+    "gh2e-159": {
+      "": "Insignia of the Divine",
+      "1": "ระหว่างเทิร์นของคุณ ให้ตัวเองหรือพรรคพวกที่ติดกันหนึ่งตัว:"
+    },
+    "gh2e-160": {
+      "": "Utility Belt",
+      "1": "ระหว่างเทิร์นของคุณ ได้รับ 10 %data.action.custom.gh2e-supplies% และให้พรรคพวกที่ติดกันหนึ่งตัวไอเทมหนึ่งชิ้นที่คุณเลือกจากคลังไอเทม %game.characterIcon.three-spears%"
+    },
+    "gh2e-161": {
+      "": "Phasing Idol",
+      "1": "เมื่อสิ่งเรียกของคุณหนึ่งตัวได้รับ %game.action.damage% จากการโจมตี ยกเลิก %game.action.damage% และสิ่งเรียกนั้นได้รับ %game.condition.invisible%"
+    },
+    "gh2e-162": {
+      "": "The Night's Caress",
+      "1": "เมื่อคุณเสีย %game.condition.invisible% พลิกการ์ดนี้และดำเนินการ:",
+      "2": "เมื่อคุณได้รับ %game.condition.invisible% พลิกการ์ดนี้และดูการ์ดบนสุดของสำรับมอดิฟายเออร์โจมตี คุณอาจวางการ์ดนั้นไว้ด้านล่างสำรับ"
+    },
+    "gh2e-163": {
+      "": "Pendant of the Plague",
+      "1": "ระหว่างเทิร์นของคุณ ดำเนินการ:",
+      "2": "คุณอาจให้พรรคพวกหนึ่งตัวภายใน %game.action.range:3% (จากคุณ) %game.condition.poison% เพื่อเพิ่ม +1 %game.action.target%"
+    },
+    "gh2e-164": {
+      "": "Mask of Death",
+      "1": "เพิ่ม +2 %game.action.attack% ในการโจมตีประชิดทั้งหมดขณะค่าพอยท์เลือดปัจจุบันของคุณเป็น 1"
+    },
+    "gh2e-165": {
+      "": "Master's Lute",
+      "1": "เมื่อคุณดำเนินการแอ็กชัน %data.action.custom.gh2e-song% ได้รับ %data.characterColored.music-note:Note% หนึ่งอันที่คุณเลือกนอกจาก %data.characterColored.music-note:Note% อื่นที่คุณได้รับในรอบนี้"
+    },
+    "gh2e-166": {
+      "": "Cloak of the Hunter",
+      "1": "ทุกครั้งที่คุณดำเนินการแอ็กชัน %data.action.custom.gh2e-doom% ทันทีหลังจากนั้นให้ตัวเองหรือสิ่งเรียกของคุณหนึ่งตัว:",
+      "2": "การเคลื่อนที่นี้ต้องเคลื่อนที่ไปทางศัตรูที่มี %data.action.custom.gh2e-doom%"
+    },
+    "gh2e-167": {
+      "": "Doctor's Coat",
+      "1": "เมื่อพรรคพวกหนึ่งตัวภายใน %game.action.range:3% ได้รับ %game.action.damage% จากการโจมตี หลังความสามารถโจมตี ดำเนินการ:",
+      "2": "การเคลื่อนที่นี้ต้องจบติดกับพรรคพวกที่ถูกโจมตี"
+    },
+    "gh2e-168": {
+      "": "Elemental Vest",
+      "1": "เมื่อสิ้นสุดเทิร์นของคุณ สำหรับทุกสองธาตุที่คุณใช้ในเทิร์นนั้น: %game.element.wild%"
+    },
+    "gh2e-169": {
+      "": "Staff of Command",
+      "1": "ระหว่างเทิร์นของคุณ %data.action.custom.gh2e-command%:"
+    },
+    "gh2e-170": {
+      "": "Crawling Carapace",
+      "1": "ในการโจมตีครั้งแรกที่คุณหรือสิ่งเรียกของคุณจะได้รับ %game.action.damage% ในแต่ละรอบ ตัวละครที่ถูกโจมตีได้รับ %game.action.shield:1% สำหรับการโจมตี"
+    },
+    "mp-AN": {
+      "": "Ribbon of Friendship",
+      "1": "ทันทีหลังคุณดำเนินการความสามารถ %data.action.custom.gh2e-augment% %data.characterColored.anaphi:Augment% ดำเนินการ:",
+      "2": "คุณอาจดำเนินการความสามารถนี้ราวกับคุณอยู่ในหกเหลี่ยมเดียวกับสิ่งเรียกของคุณหนึ่งตัว"
+    },
+    "mp-CSA": {
+      "": "Basin of Prophecy (A)",
+      "1": "เพิ่ม +1 %data.action.custom.mp-divination% ในการ %data.action.custom.mp-divination% ทั้งหมด"
+    },
+    "mp-CSB": {
+      "": "Basin of Prophecy (B)",
+      "1": "ระหว่างเทิร์นของคุณ ดำเนินการ:",
+      "2": "%game.action.target:1% ศัตรูที่อยู่ในหกเหลี่ยมที่มี %data.action.custom.mp-rift%"
+    },
+    "mp-HL": {
+      "": "No Nonsense Boots",
+      "1": "เมื่อสิ้นสุดเทิร์น ถ้าคุณใช้ %data.action.custom.mp-resolve% 3 หรือมากกว่าในเทิร์นนี้ พลิกการ์ดนี้",
+      "2": "ระหว่างเทิร์นของคุณ ถ้าคุณมี %data.action.custom.mp-irritation% %data.characterColored.hail:Irritation% ที่แอคทีฟ คุณอาจย้ายการ์ดนั้นไปพูลเพื่อเล่นการ์ดอื่นจากพูลและดำเนินการแอ็กชัน %data.action.custom.mp-irritation% %data.characterColored.hail:Irritation% ของมัน แล้วพลิกการ์ดนี้"
+    },
+    "mp-SA": {
+      "": "Crest of Frosthaven",
+      "1": "ทุกครั้งที่พักผ่อนยาว %game.element.ice% และพลิกการ์ดนี้",
+      "2": "ทุกครั้งที่พรรคพวกพักผ่อน คุณอาจพลิกการ์ดนี้เพื่อให้พวกเขา:"
+    },
+    "solo-103": {
+      "1": "สองครั้งถัดไปที่ศัตรูได้รับความเสียหายจากการโจมตีคุณ ศัตรูนั้นได้รับ %game.condition.immobilize%"
+    },
+    "solo-109": {
+      "1": "ระหว่างเทิร์นของคุณ ยกเลิกแอ็กชันบนเพื่อเล่นแอ็กชันเรียกจากการ์ดในกองทิ้ง โดยไม่สนใจ ^scrapx^ สองอัน"
+    },
+    "solo-114": {
+      "1": "ระหว่างความสามารถโจมตี ได้รับ %game.condition.wound% เพื่อเพิ่ม +3 %game.action.attack% ในการโจมตีหนึ่งครั้ง ถ้าฆ่าเป้าหมาย ดำเนินการ \"%game.action.heal% 3, Self\""
+    },
+    "solo-119": {
+      "1": "ระหว่างความสามารถโจมตี เพิ่ม +1 %game.action.attack% ในการโจมตีหนึ่งครั้ง ทุกครั้งที่ไอเทมนี้ถูก refresh ศัตรูที่ติดกันหนึ่งตัวได้รับความเสียหาย 1"
+    },
+    "solo-120": {
+      "1": "ระหว่างความสามารถโจมตีประชิด ได้รับ %game.condition.chill% เพื่อเพิ่ม %game.condition.chill% ในการโจมตี หลังการโจมตี พลิกการ์ดนี้",
+      "2": "ระหว่างความสามารถโจมตีประชิด ถ้าคุณไม่มี %game.condition.wound% ได้รับ %game.condition.wound% เพื่อเพิ่ม %game.condition.wound% ในการโจมตี หลังการโจมตี พลิกการ์ดนี้"
+    },
+    "solo-121": {
+      "1": "ระหว่างเทิร์นของคุณ เล่นการ์ดเลเวล 5 หรือต่ำกว่าหนึ่งใบจากมือหรือกองทิ้ง และดำเนินการแอ็กชัน %data.characterColored.gemstone:Crystalize% %data.characterIconColoredBg.gemstone% ของการ์ดนั้นทันที"
+    },
+    "solo-123": {
+      "1": "ทุกครั้งที่คุณ %game.condition.dodge% การโจมตี คุณอาจใช้ไอเทมนี้แทนการทิ้งการ์ดจากมือ"
+    },
+    "solo-128": {
+      "1": "ระหว่างเทิร์นของคุณ ดำเนินการ \"%game.action.pull% 1, %game.condition.muddle%, %game.action.range:3%\""
+    },
+    "solo-134": {
+      "1": "ทุกครั้งที่ฆ่าศัตรูระหว่างเทิร์น ได้รับ %game.action.shield% 1 สำหรับรอบที่เหลือ"
+    },
+    "solo-135": {
+      "1": "ระหว่างแอ็กชัน Heal เพิ่มค่าการรักษาเป็นสองเท่า"
+    },
+    "solo-136": {
+      "1": "ระหว่างการโจมตีระยะไกล เพิ่ม +2 %game.action.attack% และได้เปรียบในการโจมตีทั้งหมด แต่ได้รับความเสียหาย 2 สำหรับการโจมตีแต่ละครั้ง"
+    },
+    "solo-137": {
+      "1": "ทุกครั้งที่ดำเนินการโจมตีประชิด เพิ่ม %game.action.pierce% 1 ในการโจมตี"
+    },
+    "solo-138": {
+      "1": "ระหว่างแอ็กชันที่สร้างสิ่งกีดขวาง สร้างสิ่งกีดขวางเพิ่มอีกหนึ่งอันและใช้ผลทั้งหมดของแอ็กชันกับมัน"
+    },
+    "solo-139": {
+      "1": "ทุกครั้งที่ดำเนินการแอ็กชัน %data.characterColored.mindthief:Augment% เพิ่ม +1 %game.action.attack% ในแอ็กชันทั้งหมด"
+    },
+    "solo-140": {
+      "1": "เมื่อได้รับความเสียหายจากการโจมตี คุณอาจ %game.element.consume.light% เพื่อได้รับ %game.action.shield% 3 สำหรับการโจมตี"
+    },
+    "solo-141": {
+      "1": "ระหว่างเทิร์นของคุณ คุณหรือพรรคพวกหนึ่งตัวอาจ Refresh %game.card.refresh% ไอเทมที่ใช้หรือใช้แล้วหนึ่งชิ้นของคุณ"
+    },
+    "solo-142": {
+      "1": "เมื่อสิ่งเรียกที่คุณเป็นเจ้าของได้รับความเสียหายจากการโจมตี มันไม่ได้รับความเสียหายแทน"
+    },
+    "solo-143": {
+      "1": "ระหว่างเทิร์นของคุณ ได้รับ %game.condition.invisible% และสร้าง<br>%game.element.dark%"
+    },
+    "solo-144": {
+      "1": "ระหว่างเทิร์นของคุณ ให้ %game.condition.poison% และ %game.condition.curse% ศัตรูหนึ่งตัวภายใน %game.action.range:3%"
+    },
+    "solo-145": {
+      "1": "ทุกครั้งที่ดำเนินการโจมตีประชิดและคุณมีพอยท์เลือดพอดี 1 เพิ่ม +2 %game.action.attack% ในการโจมตี"
+    },
+    "solo-146": {
+      "1": "หลังดำเนินการแอ็กชัน %data.characterColored.music-note:Song% ใดๆ ดำเนินการแอ็กชัน %game.action.attack% 2 หรือ %game.action.move% 2 ทันที"
+    },
+    "solo-147": {
+      "1": "ทุกครั้งที่ดำเนินการแอ็กชัน %data.characterColored.angry-face:Doom% ให้ %game.condition.muddle% เป้าหมายของ %data.characterColored.angry-face:Doom%"
+    },
+    "solo-148": {
+      "1": "ทุกครั้งที่พรรคพวกดำเนินการแอ็กชัน Medical Pack หรือ Large Medical Pack พวกเขาเพิ่ม +1 %game.action.heal% ในการรักษาของพวกเขา"
+    },
+    "solo-149": {
+      "1": "ถ้าคุณเคลื่อนที่ 5 หกเหลี่ยมขึ้นไปในเทิร์น สร้างธาตุใดก็ได้"
+    },
+    "solo-150": {
+      "1": "หลังดำเนินการแอ็กชัน %data.characterColored.two-mini:Command% เล่นการ์ดหนึ่งใบจากมือและดำเนินการด้านเดียวกันของการ์ด (บนหรือล่าง) กับแอ็กชัน %data.characterColored.two-mini:Command% ทันที"
+    },
+    "solo-151": {
+      "1": "ระหว่างการโจมตีประชิด เพิ่ม %game.condition.poison% และ %game.condition.wound% ในแอ็กชันทั้งหมด"
+    },
+    "solo-164": {
+      "1": "เมื่อคุณเปิดเผยการ์ดจากสำรับใดๆ เปิดเผยการ์ดเพิ่มอีกหนึ่งใบ"
+    },
+    "solo-248": {
+      "1": "ระหว่างความสามารถโจมตี ย้ายโทเค็นตัวละครบนความสามารถถาวรของคุณหนึ่งอันถอยหลังหนึ่งช่อง และเพิ่ม +X %game.action.attack% ในการโจมตีหนึ่งครั้ง โดย X คือจำนวนความสามารถถาวรที่แอคทีฟ"
+    },
+    "solo-249": {
+      "1": "ระหว่างเทิร์นของเรา ดำเนินการความสามารถหนึ่งในสองอย่างต่อไปนี้: เสียการ์ดหนึ่งใบจากมือเพื่อได้รับ 3 %data.action.custom.fh-hourglass%",
+      "2": "%game.card.recover% การ์ดที่ทิ้งของคุณได้ถึงสองใบ"
+    },
+    "solo-250": {
+      "1": "ระหว่างเทิร์นของคุณ ดำเนินการ:",
+      "2": "ธงทั้งหมดของคุณถือว่าอยู่บนหกเหลี่ยมของเป้าหมายการโจมตีของโบนัสของพวกเขาเพิ่มเติม และหกเหลี่ยมนั้นถือว่ามีพรรคพวกอยู่ในรอบนี้"
+    },
+    "solo-251": {
+      "1": "วาง %data.action.custom.fh-shadow% หนึ่งอันในหกเหลี่ยมที่ติดกัน %game.element.dark%"
+    },
+    "solo-252": {
+      "1": "ในการตายสามครั้งถัดไปของสิ่งเรียกของคุณ %game.elementHalf:earth|dark% และดำเนินการ:"
+    },
+    "solo-253": {
+      "1": "ระหว่างความสามารถโจมตีระยะไกลขณะอยู่ใน %game.characterIconIdentity.geminate.1% ได้เปรียบในการโจมตีหนึ่งครั้ง แล้วพลิกการ์ดนี้",
+      "2": "เมื่อศัตรูดำเนินการโจมตีที่เล็งคุณขณะคุณอยู่ใน %game.characterIconIdentity.geminate.0% ผู้โจมตีได้รับเสียเปรียบ แล้วพลิกการ์ดนี้"
+    },
+    "solo-254": {
+      "1": "ระหว่างเทิร์นของคุณ เปิดใช้งาน %data.action.custom.fh-infusion% ทั้งหมดของคุณราวกับคุณเพิ่งดำเนินการแอ็กชัน %data.action.custom.fh-infusion%"
+    },
+    "solo-255": {
+      "1": "ระหว่างเทิร์นของคุณ คุณอาจสร้างสิ่งกีดขวาง 1 หกเหลี่ยมหรือแผ่นภูมิประเทศอันตรายหนึ่งอันในหกเหลี่ยมว่างภายใน %game.action.range:2%"
+    },
+    "solo-256": {
+      "1": "ได้รับ 3 %data.action.custom.fh-resonance%"
+    },
+    "solo-257": {
+      "1": "เมื่อคุณสร้างกับดัก วางโทเค็นตัวละครบนมัน มอนสเตอร์ไม่ถือกับดักเป็นลบ เอาโทเค็นออกเมื่อคุณ %game.card.recover% ไอเทมนี้"
+    },
+    "solo-258": {
+      "1": "เมื่อคุณได้รับความเสียหาย ถ้าค่าพอยท์เลือดของคุณลดต่ำกว่าครึ่งหนึ่งของสูงสุด ดำเนินการ:",
+      "2": "การรักษานี้ไม่ได้รับผลจากและไม่สามารถเอาเงื่อนไขลบออกได้"
+    },
+    "solo-259": {
+      "1": "ระหว่างความสามารถโจมตีที่คุณให้พรรคพวก เพิ่ม %game.action.push% 2 ในการโจมตีหนึ่งครั้งของพวกเขา แล้วพลิกการ์ดนี้",
+      "2": "ระหว่างความสามารถโจมตีของคุณ เพิ่ม %game.action.pull% 2 ในการโจมตีหนึ่งครั้ง แล้วพลิกการ์ดนี้"
+    },
+    "solo-260": {
+      "1": "ระหว่างความสามารถโจมตี เพิ่ม %game.condition.brittle% ในการโจมตีหนึ่งครั้งและสร้างแผ่นภูมิประเทศน้ำแข็ง 1 หกเหลี่ยมในหกเหลี่ยมว่างที่เป้าหมายอยู่"
+    },
+    "solo-261": {
+      "1": "เอาความเสียหายและเงื่อนไขลบทั้งหมดออกจากสิ่งเรียกของคุณหนึ่งตัว แล้ว %data.action.custom.fh-mode% ให้สิ่งเรียกนั้น"
+    },
+    "solo-262": {
+      "1": "ระหว่างความสามารถเคลื่อนที่ เมื่อคุณมี %game.characterIconIdentityColored.drill.1% หรือ %game.characterIconIdentityColored.drill.2% เพิ่ม +1 %game.action.move% แล้วพลิกการ์ดนี้เมื่อสิ้นสุดเทิร์น",
+      "2": "ระหว่างเทิร์นของคุณเมื่อคุณมี %game.characterIconIdentityColored.drill.3% ดำเนินการ:",
+      "4": "แล้วพลิกการ์ดนี้เมื่อสิ้นสุดเทิร์น"
+    },
+    "solo-263": {
+      "1": "ทุกครั้งที่คุณได้รับ %game.condition.invisible% ดำเนินการความสามารถเทเลพอร์ตขณะคุณมี %game.condition.invisible% หลังความสามารถ ดำเนินการ: %game.condition.muddle% %game.action.range:1%"
+    },
+    "solo-264": {
+      "1": "เมื่อคุณพักผ่อน คุณอาจเก็บการ์ด %data.action.custom.fh-tides% ได้ถึงสามใบในพื้นที่แอคทีฟ"
+    },
+    "solo-34": {
+      "1": "เมื่อสิ้นสุดเทิร์น สร้างกับดัก %game.condition.poison% ความเสียหาย 4 หนึ่งอันในหกเหลี่ยมว่างที่ติดกัน"
+    },
+    "solo-40": {
+      "1": "เพิ่ม +1 %game.action.move% ในการเคลื่อนที่ทั้งหมดขณะคุณมีสุขภาพเต็ม"
+    },
+    "solo-41": {
+      "1": "ระหว่างเทิร์นของคุณ เอา damage token หนึ่งอันออกจาก %data.characterColored.skull:Spirit% %data.characterIconColoredBg.skull% หนึ่งตัว %data.characterColored.skull:Spirit% นี้อาจดำเนินเทิร์นทันทีโดยไม่ได้รับ damage token"
+    },
+    "solo-42": {
+      "1": "ทุกครั้งที่ให้พรรคพวกการ์ดความสามารถ %data.characterColored.leaf:Prayer% พรรคพวกนั้นอาจดำเนินการ \"%game.action.heal% 2, Self\""
+    },
+    "solo-45": {
+      "1": "ระหว่างเทิร์นของคุณ ดำเนินการ \"%game.action.pull% 2, Self ไปทางศัตรูหนึ่งตัวภายใน %game.action.range:3%\""
+    },
+    "solo-47": {
+      "1": "ขณะ %data.characterColored.tusks:Mounted% บนสิ่งเรียก คุณสามารถใช้ผลไอเทม %game.items.slots.small% ของคุณกับสิ่งเรียกแทนได้"
+    },
+    "solo-48": {
+      "1": "ระหว่างเทิร์นของคุณ %game.element.consume.wild% เพื่อดำเนินการอย่างใดอย่างหนึ่งต่อไปนี้: %game.action.move% 2, %game.action.jump%, %game.element.air% | %game.action.heal% 3, Self, %game.element.light% | %game.action.attack% 2, %game.element.fire%"
+    },
+    "solo-50": {
+      "1": "ระหว่างเทิร์นของคุณ เมื่อคุณ %game.element.consume.wild% ธาตุ อย่าย้ายธาตุที่ใช้ไปคอลัมน์ Inert"
+    },
+    "solo-51": {
+      "1": "เมื่อถูกโจมตี คุณอาจ %game.element.consume.fire% เพื่อได้รับ %game.action.retaliate% 3 สำหรับการโจมตี"
+    },
+    "solo-53": {
+      "1": "ครั้งเดียวต่อเทิร์น ระหว่างเทิร์นของคุณ คุณอาจเอาเงื่อนไขหนึ่งอย่างออกจากตัวละครที่ติดกันและวางเงื่อนไขนั้นบนการ์ดนี้ถ้ามันยังไม่อยู่บนการ์ดนี้ ระหว่างเทิร์นของคุณ ตัวละครที่ติดกันหนึ่งตัวได้รับเงื่อนไขทั้งหมดบนการ์ดนี้ แล้วใช้ %game.card.lost% ไอเทมนี้"
+    },
+    "solo-56": {
+      "1": "เมื่อสิ้นสุดเทิร์น สร้างกับดัก %game.condition.immobilize% ความเสียหาย 3 หนึ่งอันในหกเหลี่ยมว่างที่ติดกัน"
+    },
+    "solo-57": {
+      "1": "คุณภูมิคุ้มกันต่อ %game.condition.muddle% เมื่อสิ้นสุดแต่ละรอบ ถ้าคุณมี %game.condition.wound% ได้รับ %game.condition.regenerate%"
+    },
+    "toa-119": {
+      "": "ดาบสงครามสามวิญญาณ"
+    },
+    "toa-120": {
+      "": "แกนที่จุดใหม่"
+    },
+    "toa-121": {
+      "": "ตัวเร่งปฏิกิริยาคริสตัล"
+    },
+    "toa-123": {
+      "": "อาร์คลิทแคลดดิ้ง"
+    },
+    "toa-128": {
+      "": "แส้หนาม"
+    }
+  },
+  "scenario": {
+    "rules": {
+      "solo": {
+        "14": {
+          "1": "The Hound คือ Ghost Wolf",
+          "2": "Earth Demon คือ Deep Earth มีพอยท์เลือด Hx2 โดย H คือค่าพอยท์เลือดปกติของ Earth Demon เอลิท",
+          "3": "Flame Demon คือ High Flame เพิ่ม +2 ให้ Retaliate ระยะของ Retaliate และ Shield",
+          "4": "Giant Viper ทั้งหมดเพิ่ม +1 Attack ในการโจมตีทั้งหมด"
+        }
+      }
+    }
+  }
+}

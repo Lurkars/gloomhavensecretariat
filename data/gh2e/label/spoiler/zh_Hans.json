@@ -9,7 +9,7 @@
         "": "狂战士",
         "blood-pact": {
           "": "血之契约",
-          "hint": "在你的回合开始时，如果你的当前生命值高于1点，承受%game.damage:1%。"
+          "hint": "在你回合开始时，如果当前生命值高于1点，承受%game.damage:1%。"
         },
         "long_rest_heal": {
           "": "Perk 9",
@@ -73,15 +73,15 @@
         "5": "每个剧本限一次，在所有能力卡牌翻开后的确定先攻顺序期间，你的所有召唤物获得%game.condition.invisible%",
         "6": "在你首次休息之前，执行3个不同的召唤能力，并保持对应的卡牌在激活区域直至剧本结束",
         "7": "在6个剧本的首轮中，执行6个不同的召唤能力",
-        "8": "回合结束时，赋予一名%game.action.range%3内的盟友%game.action.shield%1",
+        "8": "回合结束时，赋予%game.action.range%3内的一个盟友%game.action.shield%1",
         "9": "如果%game.element.air%处于强烈或衰退状态，+3%game.action.move%。"
       },
       "crossed-swords": {
-        "1": "%game.characterIcon.envx%的激活区域每有一张%game.card.lost%卡牌，增加+1%game.action.attack%",
+        "1": "%game.characterIcon.envx%的激活区每有一张%game.card.lost%卡牌，增加+1%game.action.attack%",
         "10": "所有相邻盟友获得%game.action.shield:1%。",
         "11": "为所有相邻敌人的攻击附加 -1%game.action.attack%。",
-        "12": "为所有相邻召唤物的攻击附加+1%game.action.attack%。",
-        "13": "如果目标与你的盟友相邻，附加+2%game.action.attack%。",
+        "12": "为所有相邻召唤物的攻击增加+1%game.action.attack%。",
+        "13": "如果目标与你的盟友相邻，增加+2%game.action.attack%。",
         "14": "如果目标带有任何负面状态，附加%game.condition.disarm%。",
         "2": "每当你充分休息时，你可以%game.action.teleport%至你的一个召唤物占据的格子，并同时%game.action.teleport%该召唤物至你之前占据的格子",
         "3": "每个剧本限一次，当你执行一个%game.card.lost%行动时，你可以立刻打出一张手牌并执行该卡牌上的一个%game.card.lost%行动",
@@ -93,7 +93,7 @@
         "9": "回合结束时，所有相邻的盟友与敌人承受%game.action.damage:2%。"
       },
       "eclipse": {
-        "1": "在攻击能力后，赋予一个相邻的盟友或者自身：%game.action.teleport% 2",
+        "1": "本次攻击能力后，赋予一个相邻的盟友或者自身：%game.action.teleport% 2",
         "2": "如果本次攻击消灭了目标，将一张%game.condition.curse%卡牌洗入怪物修正牌堆",
         "3": "在目标的相邻格放置一个%data.action.custom.gh2e-tear%",
         "4": "每当你充分休息时，你可以%game.element.dark%",
@@ -208,9 +208,9 @@
         "7": "在单一剧本中，每个回合结束时你的生命值不高于最高生命值的一半，且未筋疲力尽"
       },
       "music-note": {
-        "1": "在本轮结束时，跳过推进激活%data.action.custom.gh2e-song%上的角色标记",
+        "1": "本轮结束时，跳过推进激活%data.action.custom.gh2e-song%上的角色标记",
         "2": "赋予一个盟友：%game.action.move% 2或%game.action.attack% 2",
-        "3": "在每个剧本结束时，每个完成战斗目标的角色获得%game.card.experience:8%",
+        "3": "每个剧本结束时，如果你完成了你的战斗目标，参与剧本的全部角色获得%game.card.experience:8%",
         "4": "每当你执行一个%data.action.custom.gh2e-song%时，如果持有未使用的音符，则本轮可获得一个自选音符",
         "5": "在你声明充分休息的轮次，决定先攻顺序期间，获得一个自选音符，同时你的每个盟友可以将自身的先攻值减少10点",
         "6": "在单一剧本中，执行7个不同的%data.action.custom.gh2e-song%行动",
@@ -228,17 +228,17 @@
             "1": "在你每个回合结束时，距离你最近且不带有 %game.condition.disarm%或%game.condition.stun%的敌人获得%game.condition.disarm%。"
           },
           "354": {
-            "1": "你和每个盟友在各自回合的第一次攻击附加+1%game.action.attack%。"
+            "1": "你和每个盟友在各自回合的第一次攻击增加+1%game.action.attack%。"
           },
           "355": {
-            "1": "在你的每个回合结束时，执行：",
+            "1": "在你每个回合结束时，执行：",
             "2": "距离你最近的敌人"
           },
           "356": {
-            "1": "在你的当前回合以及接下来的5个回合结束时，除你本轮已获得的音符，额外再获得一个任意音符。"
+            "1": "本回合以及接下来的5个回合结束时，除你本轮已获得的音符，额外再获得一个任意音符。"
           },
           "357": {
-            "1": "在你盟友的下五次攻击中，附加+X%game.action.attack%，其中X为下列已经过的槽位数 (0, 1, 2, 3, 4)。"
+            "1": "你盟友的下五次攻击中，增加+X%game.action.attack%，其中X为下列已经过的槽位数 (0, 1, 2, 3, 4)。"
           },
           "358": {
             "1": "赋予 %game.action.range:3% %game.enhancement.square%内的一个盟友："
@@ -259,8 +259,8 @@
             "1": "赋予 %game.action.range:3% %game.enhancement.square%内的一个盟友："
           },
           "366": {
-            "1": "在你的每个回合结束时，执行：",
-            "2": "将你的角色标记放在%game.action.range:3%内的一个怪物上。本轮中，该怪物的回合结束时，移除你的角色标记并令该敌人获得%game.condition.disarm%。"
+            "1": "在你每个回合结束时，执行：",
+            "2": "将你的角色标记放在%game.action.range:3%内的一个怪物上。本轮中，该敌人的回合结束时，移除你的角色标记并令该敌人获得%game.condition.disarm%。"
           },
           "367": {
             "1": "你可以立刻打出手牌中的至多三张卡牌，来执行一个1音符%data.customAction:gh2e-song%行动，一个2音符%data.customAction:gh2e-song%行动，和一个3音符%data.customAction:gh2e-song%行动，忽略这些行动的所有音符花费。"
@@ -274,10 +274,10 @@
             "1": "赋予所有盟友："
           },
           "370": {
-            "1": "在你的每个回合结束时，执行："
+            "1": "在你每个回合结束时，执行："
           },
           "372": {
-            "1": "在每轮你首次执行你能力卡牌上的攻击能力后，可以立刻重复执行一次该攻击能力（你可以选择另一个目标），并附加+1%game.action.attack%。"
+            "1": "在每轮你首次执行你能力卡牌上的攻击能力后，可以立刻重复执行一次该攻击能力（你可以选择另一个目标），并增加+1%game.action.attack%。"
           },
           "373": {
             "1": "控制该攻击能力的目标执行：",
@@ -306,7 +306,7 @@
             "3": "你可以立刻从手牌或弃牌堆中打出任意数量的卡牌来执行这些卡牌上的%data.customAction:gh2e-song%行动，忽略所有音符需求。在本轮结束时，跳过推进激活%data.customAction:gh2e-song%上的角色标记。"
           },
           "380": {
-            "1": "在你的每个回合结束时，执行：",
+            "1": "在你每个回合结束时，执行：",
             "2": "将你每个激活%data.customAction:gh2e-song%上的角色标记向后移动一个槽位。"
           }
         }
@@ -326,14 +326,14 @@
         "2": "目标或目标%game.action.range% 2内的一个敌人获得%game.condition.poison%",
         "3": "你获得%game.action.fly%",
         "4": "每当你获得充分休息的治疗时，你可以移除一个盟友的%game.condition.poison%来增加+1 %game.action.heal%",
-        "5": "每个剧本限一次，每当一个带有%game.condition.plague%的敌人将要死亡时，你先控制那个敌人执行其怪物能力卡牌上的行动，并为其所有攻击附加%game.condition.plague%，然后该敌人死亡",
+        "5": "每个剧本限一次，当一个带有%game.condition.plague%的敌人将要死亡时，你先控制该敌人执行其怪物能力卡牌上的行动，并为其所有攻击附加%game.condition.plague%，然后该敌人死亡",
         "6": "在单一轮次中，未抽取攻击修正卡牌的情况下消灭至少3个敌人",
         "7": "在单一剧本中，每轮都对一个敌人或盟友施加或移除%game.condition.poison%"
       },
       "sun": {
         "1": "你或一个相邻盟友可以从弃牌堆中%game.card.recover%一张一级卡牌",
-        "2": "在你的回合期间，若开启至少1扇门，在该轮次中获得%game.action.shield% 1, %game.action.retaliate% 1",
-        "3": "每当你充分休息时，你可以%game.element.light%",
+        "2": "在你回合期间，若开启至少1扇门，在该轮次中获得%game.action.shield% 1, %game.action.retaliate% 1",
+        "3": "每当你充分休息时，可以%game.element.light%",
         "4": "每当你过量治疗盟友时，该盟友获得%game.condition.ward%",
         "5": "在单一剧本中，每轮都灌注或消耗%game.element.light%",
         "6": "在单一剧本中，通过攻击造成8点伤害至少3次"

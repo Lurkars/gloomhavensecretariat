@@ -1,0 +1,72 @@
+{
+  "ability": {
+    "Armed and Dangerous": "ติดอาวุธและอันตราย",
+    "Bioluminescence": "เรืองแสงชีวภาพ",
+    "Blood Drain": "ดูดเลือด",
+    "Bone Daggers": "มีดกระดูก",
+    "Call of the Grave": "เสียงเรียกแห่งหลุมศพ",
+    "Corrupting Parasites": "ปรสิตเสื่อม",
+    "Cyclone of Blades": "พายุหมุนแห่งใบมีด",
+    "Death March": "ขบวนมรณะ",
+    "Deflecting Blades": "ใบมีดเบี่ยง",
+    "Endless": "ไม่มีที่สิ้นสุด",
+    "Engulfing Stingers": "เหล็กในกลืน",
+    "Focused Scourge": "ภัยโฟกัส",
+    "Fury of the Horde": "ความโกรธแห่งกองทัพ",
+    "Grasping Advance": "การรุกจับ",
+    "Hive Mind": "จิตหมู่",
+    "Incubation": "ฟักไข่",
+    "Infest": "รบกวน",
+    "Oasis": "โอเอซิส",
+    "Omniscient Assault": "การโจมตีรอบรู้",
+    "Overwhelming Offensive": "การรุกถล่ม",
+    "Putrid Grubs": "ตัวอ่อนเน่า",
+    "Repulsive Host": "เจ้าบ้านน่าขยะแขยง",
+    "Scattered Defense": "การป้องกันกระจัด",
+    "Sunstroke": "ลมแดด",
+    "Swarming Minions": "บริวารหมู่",
+    "The Storm's Edge": "ขอบพายุ",
+    "Tomb of the Immortal": "สุสานอมตะ",
+    "Unstoppable Army": "กองทัพหยุดไม่ได้",
+    "Vampiric Tempest": "พายุแวมไพร์",
+    "Wasteland": "ที่รกร้าง"
+  },
+  "character": {
+    "gh": {
+      "envx": "Bladeswarm"
+    }
+  },
+  "custom": {
+    "gh": {
+      "envx": {
+        "abilities": {
+          "641": {
+            "1": "นอกจากไอเทมปัจจุบันของคุณ คุณอาจติดตั้งไอเทม %game.items.slots.onehand% ได้ถึงสี่อัน ไอเทม %game.items.slots.twohand% สองอัน หรือไอเทม %game.items.slots.onehand% สองอันและไอเทม %game.items.slots.twohand% หนึ่งอันทันที",
+            "2": "พรรคพวกที่อัญเชิญที่คุณเป็นเจ้าของทั้งหมดดำเนินการ",
+            "3": "โดยคุณควบคุมการกระทำ"
+          },
+          "644": {
+            "1": "พรรคพวกที่อัญเชิญที่คุณเป็นเจ้าของทั้งหมดดำเนินการ",
+            "2": "โดยคุณควบคุมการกระทำ",
+            "3": "พรรคพวกที่อัญเชิญและติดกันทั้งหมดเพิ่ม +1 %game.action.attack% จากการโจมตีทั้งหมดของพวกเขา"
+          }
+        }
+      }
+    }
+  },
+  "items": {
+    "gh-envx-151": {
+      "1": "ระหว่างการโจมตีประชิดของคุณ ให้เพิ่ม %game.condition.poison% และ %game.condition.wound% ให้กับแอ็กชันทั้งหมด"
+    }
+  },
+  "summon": {
+    "angry-wasps": "ตัวต่อโกรธ",
+    "bloat-maggot": "หนอนพอง",
+    "creeping-beetles": "แมลงปีกแข็งคลาน",
+    "lightning-moths": "ผีเสื้อสายฟ้า",
+    "rage-hornets": "ตัวต่อโกรธ",
+    "rust-vermin": "สัตว์ร้ายสนิม",
+    "soul-leeches": "ปลิงวิญญาณ",
+    "steel-scarabs": "แมลงสคารับเหล็ก"
+  }
+}

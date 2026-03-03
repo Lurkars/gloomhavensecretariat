@@ -1,0 +1,1653 @@
+{
+  "ability": {
+    "A Moment's Peace": "ช่วงเวลาสงบ",
+    "Accelerated End": "จุดจบเร่งด่วน",
+    "Aid from the Ether": "ความช่วยเหลือจากอีเทอร์",
+    "Airborne Toxin": "พิษในอากาศ",
+    "Amputate": "ตัดแขนขา",
+    "Ancient Ward": "คำสาปโบราณ",
+    "Angel of Death": "เทวดาแห่งความตาย",
+    "Angelic Ascension": "การขึ้นสวรรค์",
+    "Armor of the Night": "เกราะแห่งราตรี",
+    "Auto Turret": "ป้อมปืนอัตโนมัติ",
+    "Avalanche": "หิมะถล่ม",
+    "Backstab": "แทงหลัง",
+    "Backup Ammunition": "กระสุนสำรอง",
+    "Bag of Holding": "ถุงเก็บของ",
+    "Balanced Measure": "สมดุลแห่งการวัด",
+    "Baneful Hex": "คำสาปหกเหลี่ยม",
+    "Battlefield Medicine": "ยารักษาสนามรบ",
+    "Beacon of Light": "ประภาคารแห่งแสง",
+    "Bedside Manner": "มารยาทที่เตียง",
+    "Bentleman s Anger": "ความโกรธของเบนเทิลแมน",
+    "Biting Gnats": "แมลงกัด",
+    "Biting Wind": "ลมหนาวกัด",
+    "Black Arrot": "Black Arrot",
+    "Black Fire": "ไฟดำ",
+    "Black Hole": "หลุมดำ",
+    "Black Knives": "มีดดำ",
+    "Black Tides": "คลื่นดำ",
+    "Bladed Boomerang": "บูมเมอแรงมีคม",
+    "Blind Destruction": "การทำลายแบบมืด",
+    "Blistering Vortex": "วังวนแผดเผา",
+    "Blood Hunger": "ความหิวเลือด",
+    "Blood Pact": "พันธสัญญาเลือด",
+    "Blood Transfusion": "การถ่ายเลือด",
+    "Bloody Saw": "เลื่อยเลือด",
+    "Blunt Force": "แรงทื่อ",
+    "Boiling Arc": "โค้งเดือด",
+    "Bonded Might": "พลังพันธะ",
+    "Bone Breaker": "หักกระดูก",
+    "Booming Proclamation": "ประกาศก้อง",
+    "Booster Shot": "ยาฉีดเสริม",
+    "Borrowed Essence": "สาระที่ยืมมา",
+    "Bounce Back": "เด้งกลับ",
+    "Brain Leech": "ปลิงสมอง",
+    "Break the Chains": "ทำลายโซ่",
+    "Bright Aegis": "โล่สว่าง",
+    "Brilliant Flash": "แสงวาบ",
+    "Brilliant Prayer": "คำอธิษฐานเรืองแสง",
+    "Brisly Trauma": "บาดแผลสยอง",
+    "Brutal Momentum": "โมเมนตัมโหด",
+    "Brute Force": "แรงดิบ",
+    "Burial": "ฝังศพ",
+    "Burning Flash": "แสงวาบเผา",
+    "Burning Hatred": "ความเกลียดชังลุกโชน",
+    "Burning Oil": "น้ำมันลุกไหม้",
+    "Calastrophic Bomb": "ระเบิดหายนะ",
+    "Call to Action": "เรียกร้องสู่การกระทำ",
+    "Camouflage": "พรางตัว",
+    "Captivating Performance": "การแสดงสะกดใจ",
+    "Careless Charge": "โจมตีประมาท",
+    "Cataclysm": "หายนะ",
+    "Cauterize": "จี้แผล",
+    "Cautious Advance": "รุกอย่างระมัดระวัง",
+    "Chain Lightning": "สายฟ้าลูกโซ่",
+    "Change Tempo": "เปลี่ยนจังหวะ",
+    "Chimeric Formula": "สูตรคิเมรา",
+    "Chromatic Explosion": "ระเบิดสี",
+    "Claws of the Night": "กรงเล็บแห่งราตรี",
+    "Cleansing Force": "พลังชำระ",
+    "Clear the Way": "เปิดทาง",
+    "Cleaving Axe": "ขวานผ่า",
+    "Cloak of Shade": "ผ้าคลุมเงา",
+    "Cloom Darts": "Cloom Darts",
+    "Cold Fire": "ไฟเย็น",
+    "Cold Front": "แนวหนาว",
+    "Commanding Presence": "บุคลิกบัญชา",
+    "Concealed Dominance": "อำนาจซ่อนเร้น",
+    "Concentrated Rage": "ความโกรธเข้มข้น",
+    "Conjured Hid": "Conjured Hid",
+    "Continual Supply": "เสบียงต่อเนื่อง",
+    "Convert the Flock": "เปลี่ยนฝูง",
+    "Corrupting Embrace": "กอดที่เสื่อม",
+    "Crackling Air": "อากาศแตก",
+    "Cranium Overload": "สมองล้น",
+    "Crank Bow": "คันธนูหมุน",
+    "Crashing Wade": "Crashing Wade",
+    "Crater": "หลุมอุกกาบาต",
+    "Creeping Curse": "คำสาปคืบคลาน",
+    "Crippling Bow": "คันธนูทำให้พิการ",
+    "Crippling Chorus": "คณะร้องทำให้พิการ",
+    "Crippling Noose": "บ่วงทำให้พิการ",
+    "Crippling Offensive": "การโจมตีทำให้พิการ",
+    "Crippling Poison": "พิษทำให้พิการ",
+    "Crushing Grasp": "กำหมัดบด",
+    "Crushing Hammer": "ค้อนบด",
+    "Crystallizing Blast": "ระเบิดผลึก",
+    "Cull the Weak": "กำจัดผู้อ่อนแอ",
+    "Curative Aerosol": "สเปรย์รักษา",
+    "Curative Mixture": "ยาผสมรักษา",
+    "Dancing Shadows": "เงาเต้นรำ",
+    "Dangerous Contraption": "เครื่องจักรอันตราย",
+    "Dark Cloud": "เมฆดำ",
+    "Dark Frenzy": "ความบ้าคลั่งมืด",
+    "Darkened Skies": "ท้องฟ้ามืด",
+    "Daybreak": "รุ่งอรุณ",
+    "Dazing Wound": "แผลมึน",
+    "Dazzling Charge": "โจมตีจ้า",
+    "Defensive Ditty": "เพลงป้องกัน",
+    "Defensive Stance": "ท่าป้องกัน",
+    "Defensive Tactics": "ยุทธวิธีป้องกัน",
+    "Defiance of Death": "ท้าทายความตาย",
+    "Detonation": "ระเบิด",
+    "Devastating Hack": "ฟันทำลาย",
+    "Devil Horns": "เขาเดวิล",
+    "Dig Pit": "ขุดหลุม",
+    "Dirt Tornado": "พายุฝุ่น",
+    "Disappearing Wounds": "แผลหายไป",
+    "Disintegration Beam": "ลำแสงสลาย",
+    "Disorienting Dirge": "เพลงสวดสับสน",
+    "Disorienting Flash": "แสงวาบสับสน",
+    "Disorienting Roar": "คำรามสับสน",
+    "Divided Mind": "จิตใจแยก",
+    "Divine Intervention": "การแทรกแซงจากสวรรค์",
+    "Do No Harm": "ไม่ทำร้าย",
+    "Domination": "ครอบงำ",
+    "Doomed Breeze": "ลมชะตากรรม",
+    "Duelist's Advance": "รุกของนักดวล",
+    "Earthen Clod": "ก้อนดิน",
+    "Earthen Spikes": "หนามดิน",
+    "Earthen Steed": "ม้าดิน",
+    "Echoing Aria": "เพลงก้อง",
+    "Elemental Aegis": "โล่ธาตุ",
+    "Elemental Aid": "ความช่วยเหลือธาตุ",
+    "Empathetic Assault": "โจมตีด้วยความเห็นอกเห็นใจ",
+    "Empowering Command": "คำสั่งเสริมพลัง",
+    "Empowering Void": "ความว่างเสริมพลัง",
+    "Encompassing Shadow": "เงาครอบคลุม",
+    "Endless Spikes": "หนามไม่รู้จบ",
+    "Energizing Strike": "โจมตีเติมพลัง",
+    "Energizing Tonic": "ยาบำรุงพลัง",
+    "Enervating Wound": "แผลอ่อนแรง",
+    "Engulfed in Flames": "ถูกกลืนด้วยเปลวไฟ",
+    "Engulfing Radiance": "แสงสว่างกลืน",
+    "Enhancement Field": "สนามเสริม",
+    "Epidemic": "โรคระบาด",
+    "Eternal Equilibrium": "สมดุลนิรันดร์",
+    "Ethereal Manifestation": "การปรากฏของอีเทอร์",
+    "Ethereal Vines": "เถาอีเทอร์",
+    "Euthanize": "การุณยฆาต",
+    "Explosive Punch": "หมัดระเบิด",
+    "Expose": "เปิดโปง",
+    "Eye for an Eye": "ตาต่อตา",
+    "Eye of the Hurricane": "ดวงตาพายุ",
+    "Eyes of the Night": "ดวงตาแห่งราตรี",
+    "Face Your End": "เผชิญจุดจบ",
+    "Fatal Advance": "รุกมรณะ",
+    "Fatal Fury": "ความโกรธมรณะ",
+    "Fearsome Blade": "ดาบน่าสะพรึง",
+    "Feedback Loop": "วงจรย้อนกลับ",
+    "Felling": "โค่น",
+    "Feral Instincts": "สัญชาตญาณดุร้าย",
+    "Fetid Flurry": "พายุเหม็น",
+    "Final Fight": "การต่อสู้ครั้งสุดท้าย",
+    "Fire Orbs": "ลูกไฟ",
+    "First Aid": "ปฐมพยาบาล",
+    "Flame Strike": "โจมตีเปลวไฟ",
+    "Flamethrower": "เครื่องพ่นไฟ",
+    "Flanking Strike": "โจมตีปีก",
+    "Flashing Burst": "ระเบิดแสงวาบ",
+    "Flight of Flame": "บินแห่งเปลวไฟ",
+    "Flintlock": "ปืนฟลินท์ล็อค",
+    "Flurry of Axes": "พายุขวาน",
+    "Flurry of Blades": "พายุใบมีด",
+    "Focused Aggression": "ความก้าวร้าวมุ่งเน้น",
+    "Foot Snare": "กับดักเท้า",
+    "Forceful Storm": "พายุทรงพลัง",
+    "Forceful Swipe": "ปัดทรงพลัง",
+    "Forged Ferocity": "ความดุร้ายหลอม",
+    "Forked Beam": "ลำแสงแยก",
+    "Formless Power": "พลังไร้รูป",
+    "Fortified Position": "ตำแหน่งเสริม",
+    "Foul Wind": "ลมเหม็น",
+    "Freezing Nova": "โนวาเยือกแข็ง",
+    "Frenzied Onslaught": "การโจมตีบ้าคลั่ง",
+    "Fresh Kill": "ฆ่าสด",
+    "Frightening Curse": "คำสาปน่ากลัว",
+    "Frigid Apparition": "วิญญาณเยือก",
+    "Frigid Torrent": "กระแสเยือก",
+    "From the Brink": "จากขอบเหว",
+    "Frost Armor": "เกราะน้ำแข็ง",
+    "Frozen Mind": "จิตใจเยือกแข็ง",
+    "Frozen Night": "ราตรีเยือกแข็ง",
+    "Furious Aid": "ความช่วยเหลือโกรธ",
+    "Gas Canister": "กระบอกแก๊ส",
+    "Gathering Doom": "ชะตากรรมรวมตัว",
+    "Giant Club": "กระบองยักษ์",
+    "Glass Hammer": "ค้อนแก้ว",
+    "Glorious Bolt": "สายฟ้าเรืองรอง",
+    "Gnawing Horde": "ฝูงกัดแทะ",
+    "Grab and Go": "คว้าแล้วไป",
+    "Grasping Vermin": "แมลงจับ",
+    "Grasping the Void": "จับความว่าง",
+    "Gravel Vortex": "วังวนกรวด",
+    "Grim Bargain": "ข้อตกลงมืด",
+    "Grim Sustenance": "อาหารมืด",
+    "Growing Rage": "ความโกรธเติบโต",
+    "Gruesome Advantage": "ได้เปรียบสยอง",
+    "Hammer Blow": "หมัดค้อน",
+    "Hamstring": "ตัดเอ็น",
+    "Hand of the Surgeon": "มือศัลยแพทย์",
+    "Hardened Spikes": "หนามแข็ง",
+    "Harmless Contraption": "เครื่องจักรไร้ภัย",
+    "Harsh Stimulants": "สารกระตุ้นรุนแรง",
+    "Hastened Step": "ก้าวเร่ง",
+    "Heaving Swing": "สวิงหนัก",
+    "Hidden Daggers": "มีดซ่อน",
+    "Hold Back the Pain": "ยับยั้งความเจ็บ",
+    "Holy Strike": "โจมตีศักดิ์สิทธิ์",
+    "Hook Gun": "ปืนตะขอ",
+    "Hook and Chain": "ตะขอและโซ่",
+    "Horned Majesty": "พระเกียรติแห่งเขา",
+    "Hostile Takeover": "ยึดครองศัตรู",
+    "Howling Bolts": "สายฟ้าร้อง",
+    "Ice Spikes": "หนามน้ำแข็ง",
+    "Icy Blast": "ระเบิดน้ำแข็ง",
+    "Illuminate the Target": "ส่องเป้าหมาย",
+    "Immortality": "อมตะ",
+    "Immovable Phalanx": "แนวรบไม่เคลื่อน",
+    "Impaling Eruption": "ระเบิดแทง",
+    "Impaling Spear": "หอกแทง",
+    "Impending End": "จุดจบใกล้",
+    "Inescapable Fate": "ชะตากรรมหลีกเลี่ยงไม่ได้",
+    "Inexorable Momentum": "โมเมนตัมไม่หยุด",
+    "Infernal Vortex": "วังวนนรก",
+    "Inferno": "นรก",
+    "Info the Night": "สู่ราตรี",
+    "Ink Bomb": "ระเบิดหมึก",
+    "Inspiring Anthem": "เพลงปลุกใจ",
+    "Inspiring Sanctity": "ความศักดิ์สิทธิ์ปลุกใจ",
+    "Interplanar Mastery": "เชี่ยวชาญข้ามมิติ",
+    "Intervening Apparitions": "วิญญาณแทรกแซง",
+    "Iron Bulwark": "กำแพงเหล็ก",
+    "Jaws of Death": "ขากรรไกรแห่งความตาย",
+    "Jet Propulsion": "แรงขับไอพ่น",
+    "Juggernaut": "ยักษ์",
+    "Kinetic Assault": "โจมตีจลน์",
+    "King of the Hill": "ราชาเนินเขา",
+    "Large Medical Pack": "ชุดแพทย์ขนาดใหญ่",
+    "Lash Out": "ตวัด",
+    "Lava Eruption": "ลาวาระเบิด",
+    "Lay on Hands": "วางมือรักษา",
+    "Lead to Slaughter": "นำสู่การฆ่า",
+    "Leaping Cleave": "ฟันกระโดด",
+    "Leathery E": "Leathery E",
+    "Lethal Injection": "ฉีดมรณะ",
+    "Living Mountain": "ภูเขามีชีวิต",
+    "Living Night": "ราตรีมีชีวิต",
+    "Living Torch": "คบเพลิงมีชีวิต",
+    "Long Con": "หลอกยาว",
+    "Lumbering Bash": "ตีหนัก",
+    "Lurking Ruin": "ซากซุ่ม",
+    "Malleable Evocation": "การเรียกที่ปรับได้",
+    "Mana Bolt": "สายฟ้ามานา",
+    "Many as One": "หลายเป็นหนึ่ง",
+    "Marching Beat": "จังหวะเดิน",
+    "Mass Extinction": "การสูญพันธุ์ครั้งใหญ่",
+    "Mass Hysteria": "ความตื่นตระหนกหมู่",
+    "Massive Boulder": "หินยักษ์",
+    "Master Physician": "แพทย์ผู้เชี่ยวชาญ",
+    "Maul": "ทุบ",
+    "Medical Pack": "ชุดแพทย์",
+    "Melody and Harmony": "ทำนองและความกลมกลืน",
+    "Meteor": "อุกกาบาต",
+    "Micro Bots": "หุ่นยนต์จิ๋ว",
+    "Mighty Bond": "พันธะทรงพลัง",
+    "Mobile Response": "ตอบสนองเคลื่อนที่",
+    "Mobilizing Axiom": "สัจพจน์ระดม",
+    "Mobilizing Measure": "มาตรการระดม",
+    "Multi Pronged Assault": "โจมตีหลายทาง",
+    "Murderous Contraption": "เครื่องจักรฆาตกรรม",
+    "Natural Remedy": "ยาธรรมชาติ",
+    "Nature's Hunger": "ความหิวของธรรมชาติ",
+    "Nature's Lift": "การยกของธรรมชาติ",
+    "Negative Energy": "พลังงานลบ",
+    "Net Shooter": "ยิงตาข่าย",
+    "Nightfall": "พลบค่ำ",
+    "Nightmare Serenade": "เซเรเนดฝันร้าย",
+    "Nightmarish Affliction": "ความทุกข์ฝันร้าย",
+    "Nimble Knife": "มีดว่องไว",
+    "Noxious Vials": "ขวดพิษ",
+    "Numb the Pain": "ชาเจ็บ",
+    "Obsidian Shards": "เศษออบซิเดียน",
+    "Oozing Manifestation": "การปรากฏของเมือก",
+    "Open Wound": "แผลเปิด",
+    "Opposing Strike": "โจมตีตรงข้าม",
+    "Otherworldly Rage": "ความโกรธต่างโลก",
+    "Oversized Pack": "กระเป๋าขนาดใหญ่",
+    "Overwhelming Assault": "โจมตีถล่ม",
+    "Pain's End": "จุดจบความเจ็บ",
+    "Paralyzing Bite": "การกัดทำให้เป็นอัมพาต",
+    "Parasitic Influence": "อิทธิพลปรสิต",
+    "Patch Fur": "ปะขน",
+    "Path of Glory": "เส้นทางแห่งเกียรติ",
+    "Perverse Edge": "ขอบวิปริต",
+    "Petrify": "ทำให้เป็นหิน",
+    "Phantasmal Killer": "ฆาตกรหลอก",
+    "Pilfer": "ขโมย",
+    "Portable Ballista": "บัลลิสตาพกพา",
+    "Possession": "ครอบงำ",
+    "Potent Potables": "เครื่องดื่มทรงพลัง",
+    "Power Ballad": "เพลงพลัง",
+    "Practical Plans": "แผนปฏิบัติได้",
+    "Pragmatic Reinforcement": "การเสริมอย่าง pragmatism",
+    "Precaution": "ระมัดระวัง",
+    "Predator and Prey": "ผู้ล่าและเหยื่อ",
+    "Prep for Surgery": "เตรียมผ่าตัด",
+    "Prepare for the Kill": "เตรียมฆ่า",
+    "Prescription": "ใบสั่งยา",
+    "Press the Attack": "กดโจมตี",
+    "Prevention Is Key": "การป้องกันคือกุญแจ",
+    "Primal Blessing": "พรดึกดำบรรพ์",
+    "Primal Duality": "ความเป็นคู่ดึกดำบรรพ์",
+    "Proficiency": "ความเชี่ยวชาญ",
+    "Protective Blessing": "พรคุ้มครอง",
+    "Provoke Terror": "ยั่วยุความหวาดกลัว",
+    "Provoking Roar": "คำรามยั่วยุ",
+    "Proximity Mine": "กับดักใกล้",
+    "Psychic Projection": "การฉายภาพจิต",
+    "Pull the Strings": "ดึงสาย",
+    "Pulverize": "บด",
+    "Punch Through": "ชกทะลุ",
+    "Pure Augmentation": "การเสริมบริสุทธิ์",
+    "Purifying Aura": "ออร่าชำระ",
+    "Quick Hands": "มือเร็ว",
+    "Quiet Frenzy": "ความบ้าคลั่งเงียบ",
+    "Quietus": "ความสงบ",
+    "Quiver of Arrows": "กระบอกธนู",
+    "Race to the Grade": "แข่งสู่เกรด",
+    "Rain of Arrows": "ฝนธนู",
+    "Rampage": "ความบ้าคลั่ง",
+    "Raw Enhancement": "การเสริมดิบ",
+    "Reckless Offensive": "โจมตีประมาท",
+    "Reforge": "หลอมใหม่",
+    "Refreshment": "สดชื่น",
+    "Regenerative Tissue": "เนื้อเยื่อ regenerate",
+    "Reinforced Steel": "เหล็กเสริม",
+    "Reinvigorating Elixir": "ยาอายุวัฒนะ",
+    "Relentless Ally": "พรรคพวกไม่หยุด",
+    "Relentless Offensive": "โจมตีไม่หยุด",
+    "Research the Cure": "วิจัยยารักษา",
+    "Reserved Energy": "พลังงานสำรอง",
+    "Resolute Stand": "ยืนหยัด",
+    "Restock": "เติมสินค้า",
+    "Restorative Mist": "หมอกรักษา",
+    "Reviving Ether": "อีเทอร์ฟื้น",
+    "Reviving Shock": "ช็อกฟื้น",
+    "Ride the Wind": "ขี่ลม",
+    "Righteous Strength": "พลังชอบธรรม",
+    "Rising Momentum": "โมเมนตัมเพิ่ม",
+    "Rock Slide": "หินถล่ม",
+    "Rock Tunnel": "อุโมงค์หิน",
+    "Rocky End": "จุดจบหิน",
+    "Rot Maggots": "หนอนเน่า",
+    "Rumbling Advance": "รุกดังก้อง",
+    "Sacrifice": "เสียสละด้วยใจ",
+    "Sap Life": "ดูดชีวิต",
+    "Scales of Justice": "ตราชั่งความยุติธรรม",
+    "Scattered Terror": "ความหวาดกลัวกระจาย",
+    "Scroll of Annihilation": "ม้วนกระดาษทำลายล้าง",
+    "Scroll of Blizzards": "ม้วนกระดาษพายุหิมะ",
+    "Scroll of Judgment": "ม้วนกระดาษพิพากษา",
+    "Scroll of Lightning": "ม้วนกระดาษสายฟ้า",
+    "Scroll of Recall": "ม้วนกระดาษเรียกคืน",
+    "Scurry": "วิ่งเร็ว",
+    "Seeing Red": "เห็นแดง",
+    "Selfish Retribution": "การตอบแทนเห็นแก่ตัว",
+    "Sentient Growth": "การเติบโตมีสติ",
+    "Shadow Puppets": "หุ่นเงา",
+    "Shaping the Ether": "หล่อหลอมอีเทอร์",
+    "Shared Nightmare": "ฝันร้ายร่วม",
+    "Sharpening Kit": "ชุดลับมีด",
+    "Shield Bash": "ปัดโล่",
+    "Shiny Distraction": "สิ่งรบกวนแวววาว",
+    "Side Pouch": "กระเป๋าข้าง",
+    "Silent Force": "พลังเงียบ",
+    "Silent Scream": "กรีดร้องเงียบ",
+    "Simulacrum": "หุ่นจำลอง",
+    "Singing Arrow": "ธนูร้องเพลง",
+    "Single Out": "เลือกเป้า",
+    "Singular Focus": "โฟกัสเดียว",
+    "Sinister Opportunity": "โอกาส sinister",
+    "Skewer": "เสียบ",
+    "Skirmishing Maneuver": "ยุทธวิธีปะทะ",
+    "Smoke": "ควัน",
+    "Smoke Bomb": "ระเบิดควัน",
+    "Soaring Ally": "พรรคพวกบิน",
+    "Solid Bot": "หุ่นแข็ง",
+    "Song of Speed": "เพลงแห่งความเร็ว",
+    "Soothing Lullaby": "เพลงกล่อมนอน",
+    "Soulfire": "ไฟวิญญาณ",
+    "Spare Dagger": "มีดสำรอง",
+    "Special Mixture": "ยาผสมพิเศษ",
+    "Spiked Armor": "เกราะหนาม",
+    "Spirit Swap": "สลับวิญญาณ",
+    "Spirit of Doom": "วิญญาณชะตากรรม",
+    "Spirit of the Night": "วิญญาณแห่งราตรี",
+    "Spread the Plague": "แพร่โรค",
+    "Spreading Scourge": "ภัยพิบัติแพร่",
+    "Spring the Trap": "ปล่อยกับดัก",
+    "Staff of Visions": "ไม้เท้าแห่งวิสัยทัศน์",
+    "Stamina Booster": "ยาบำรุงความอดทน",
+    "Stick to the Shadows": "ติดเงา",
+    "Stiletto Storm": "พายุสติเล็ตโต้",
+    "Stinging Cloud": "เมฆต่อย",
+    "Stoking Hail": "ลูกเห็บเร่ง",
+    "Stone Fists": "หมัดหิน",
+    "Stone Pummel": "ทุบหิน",
+    "Stone Sigil": "ตราหิน",
+    "Storm Sigil": "ตราพายุ",
+    "Storm of": "พายุปีก",
+    "Strength in Numbers": "พลังในจำนวน",
+    "Strengthen in Agony": "แข็งแกร่งในความเจ็บ",
+    "Stun Shot": "ยิงมึน",
+    "Submissive Affliction": "ความทุกข์ยอมจำนน",
+    "Succumb for the Gift": "ยอมต่อของขวัญ",
+    "Supportive Chant": "บทสวดสนับสนุน",
+    "Surgeon's Satchel": "กระเป๋าศัลยแพทย์",
+    "Swallowed by Fear": "ถูกกลืนด้วยความกลัว",
+    "Sweeping Blow": "ตีกวาด",
+    "Swift Bow": "คันธนูเร็ว",
+    "Swift Trickery": "กลอุบายเร็ว",
+    "Syringe": "เข็มฉีดยา",
+    "Tactical Order": "คำสั่งยุทธวิธี",
+    "Teamwork": "ทำงานเป็นทีม",
+    "Tear the Fabric": "ฉีกผืนผ้า",
+    "Terror Blade": "ดาบความหวาดกลัว",
+    "The Hunt Begins": "การล่าเริ่มต้น",
+    "The Maw of Madness": "ปากแห่งความบ้า",
+    "The Mind's Weakness": "ความอ่อนแอของจิตใจ",
+    "Thief's Knack": "พรสวรรค์โจร",
+    "Throw Voice": "โยนเสียง",
+    "Throwing Knives": "มีดขว้าง",
+    "Tinkerer's Tools": "เครื่องมือช่าง",
+    "Toxic Bolt": "สายฟ้าพิษ",
+    "Trample": "เหยียบ",
+    "Tranquil Trill": "ร้องไพเราะสงบ",
+    "Tremulant Cyclone": "ไซโคลนสั่น",
+    "Triage": "จัดลำดับผู้ป่วย",
+    "Tribal Sigil": "ตราเผ่า",
+    "Trickster's Reversal": "การพลิกของ Trickster",
+    "Tuning the Outcome": "ปรับผลลัพธ์",
+    "Twin Restoration": "ฟื้นฟูคู่",
+    "Tyrannical Force": "พลังทรราช",
+    "Unbridled Power": "พลังไร้บังเหียน",
+    "Under the Skin": "ใต้ผิวหนัง",
+    "Unending Chant": "บทสวดไม่รู้จบ",
+    "Unending Dominance": "อำนาจไม่รู้จบ",
+    "Unseen bread": "ขนมปังมองไม่เห็น",
+    "Unstable Upheaval": "การเปลี่ยนแปลงไม่เสถียร",
+    "Unstoppable Beast": "สัตว์หยุดไม่ได้",
+    "Unstoppable Chard": "โจมตีหยุดไม่ได้",
+    "Unstoppable Destruction": "การทำลายหยุดไม่ได้",
+    "Unwavering Hand": "มือไม่สั่น",
+    "Unwavering Mandate": "คำสั่งไม่สั่น",
+    "Vaccine": "วัคซีน",
+    "Vengeance": "การแก้แค้น",
+    "Vengeful Barrage": "การโจมตีแก้แค้น",
+    "Venom Shiv": "มีดพิษ",
+    "Venomous Ally": "พรรคพวกมีพิษ",
+    "Vicious": "โหดร้าย",
+    "Vicious Blood": "เลือดโหด",
+    "Vile Pestilence": "โรคระบาดน่ารังเกียจ",
+    "Virulent Strain": "สายพันธุ์รุนแรง",
+    "Visage of the Inevitable": "ใบหน้าของสิ่งที่หลีกเลี่ยงไม่ได้",
+    "Vital Charge": "โจมตีสำคัญ",
+    "Vital Strike": "โจมตีสำคัญ",
+    "Voice of the Night": "เสียงแห่งราตรี",
+    "Volatile Concoction": "ยาผสมระเหย",
+    "Volatile Consumption": "การบริโภคระเหย",
+    "Volatile Flame": "เปลวไฟระเหย",
+    "Wall of Doom": "กำแพงชะตากรรม",
+    "Warding Dagger": "มีดคุ้มครอง",
+    "Warding Strength": "พลังคุ้มครอง",
+    "Watch It Burn": "ดูมันไหม้",
+    "Weapon of Purity": "อาวุธแห่งความบริสุทธิ์",
+    "Whirlwind": "พายุหมุน",
+    "Wild Animation": "การเคลื่อนไหวป่า",
+    "Wild Command": "คำสั่งป่า",
+    "Winged Congregation": "ชุมนุมมีปีก",
+    "Wings of the Night": "ปีกแห่งราตรี",
+    "Winter s Edge": "ขอบฤดูหนาว",
+    "Wistful Wounding": "แผลเศร้า",
+    "Withering Claw": "กรงเล็บเหี่ยว",
+    "Wretched Creature": "สิ่งมีชีวิตน่าสงสาร",
+    "Wretched Swarm": "ฝูงน่าสงสาร",
+    "Zephyr Wings": "ปีกสายลม"
+  },
+  "battleGoals": {
+    "458": {
+      "": "กระชับ",
+      "text": "มีการ์ดรวมในมือและทิ้งอย่างน้อยห้าใบเมื่อจบสถานการณ์"
+    },
+    "459": {
+      "": "ขี้เกียจ",
+      "text": "ได้รับประสบการณ์ 7 หรือน้อยกว่าในช่วงสถานการณ์"
+    },
+    "460": {
+      "": "ทำงานหนัก",
+      "text": "ได้รับประสบการณ์ 13 หรือมากกว่าในช่วงสถานการณ์"
+    },
+    "461": {
+      "": "คลั่ง",
+      "text": "มีการ์ดรวมในมือและทิ้งสามใบหรือน้อยกว่าเมื่อจบสถานการณ์"
+    },
+    "462": {
+      "": "ชอบเจ็บ",
+      "text": "คะแนนชีวิตปัจจุบันต้องเท่ากับหรือน้อยกว่า 2 เมื่อจบสถานการณ์"
+    },
+    "463": {
+      "": "รักษาเร็ว",
+      "text": "คะแนนชีวิตปัจจุบันต้องเท่ากับคะแนนชีวิตสูงสุดเมื่อจบสถานการณ์"
+    },
+    "464": {
+      "": "ทำให้เป็นกลาง",
+      "text": "ทำให้กับดักถูกปล่อยหรือปลดอาวุธในเทิร์นของคุณหรือเทิร์นของการเรียกของคุณในช่วงสถานการณ์"
+    },
+    "465": {
+      "": "ปล้น",
+      "text": "ล่าขุมทรัพย์ในช่วงสถานการณ์"
+    },
+    "466": {
+      "": "ผู้คุ้มครอง",
+      "text": "ไม่ให้พรรคพวกตัวละครของคุณหมดแรงในช่วงสถานการณ์"
+    },
+    "467": {
+      "": "นักสำรวจ",
+      "text": "เปิดเผยห้องโดยเปิดประตูในเทิร์นของคุณในช่วงสถานการณ์"
+    },
+    "468": {
+      "": "สะสม",
+      "text": "ล่าเหรียญทองอย่างน้อยห้าหมายเลขในช่วงสถานการณ์"
+    },
+    "469": {
+      "": "ยากจน",
+      "text": "ไม่ล่าเหรียญทองหรือขุมทรัพย์ในช่วงสถานการณ์"
+    },
+    "470": {
+      "": "สันติ",
+      "text": "ฆ่ามอนสเตอร์สามตัวหรือน้อยกว่าในช่วงสถานการณ์"
+    },
+    "471": {
+      "": "ซาดิสต์",
+      "text": "ฆ่ามอนสเตอร์อย่างน้อยห้าตัวในช่วงสถานการณ์"
+    },
+    "472": {
+      "": "นักล่า",
+      "text": "ฆ่ามอนสเตอร์เอลิทอย่างน้อยหนึ่งตัวในช่วงสถานการณ์"
+    },
+    "473": {
+      "": "มืออาชีพ",
+      "text": "ใช้ไอเทมที่ติดตั้งจำนวนครั้งเท่ากับหรือมากกว่าระดับบวก 2 ระหว่างสถานการณ์"
+    },
+    "474": {
+      "": "ก้าวร้าว",
+      "text": "มีมอนสเตอร์อย่างน้อยหนึ่งตัวบนแผนที่เมื่อเริ่มต้นทุกรอบในช่วงสถานการณ์"
+    },
+    "475": {
+      "": "พลัง",
+      "text": "ฆ่ามอนสเตอร์ในช่วงสถานการณ์โดยทำให้ความเสียหายอย่างน้อย 4 หน่วยมากกว่าที่จำเป็น"
+    },
+    "476": {
+      "": "บริสุทธิ์",
+      "text": "ไม่ใช้ไอเทมในช่วงสถานการณ์"
+    },
+    "477": {
+      "": "เปิด",
+      "text": "เป็นคนแรกที่ฆ่ามอนสเตอร์ในช่วงสถานการณ์"
+    },
+    "478": {
+      "": "อดทน",
+      "text": "อย่าปล่อยให้คะแนนชีวิตปัจจุบันต่ำกว่าครึ่งหนึ่งของคะแนนชีวิตสูงสุด (ปัดขึ้น) ในช่วงสถานการณ์"
+    },
+    "479": {
+      "": "เพชฌฆาต",
+      "text": "ฆ่ามอนสเตอร์ที่ยังไม่ได้รับความเสียหายด้วยการโจมตีครั้งเดียวในช่วงสถานการณ์"
+    },
+    "480": {
+      "": "ตามหลัง",
+      "text": "พักยาวเท่านั้นในช่วงสถานการณ์"
+    },
+    "481": {
+      "": "รีบเร่ง",
+      "text": "พักสั้นเท่านั้นในช่วงสถานการณ์"
+    }
+  },
+  "character": {
+    "gh": {
+      "brute": "Brute",
+      "cragheart": "Cragheart",
+      "mindthief": "Mindthief",
+      "scoundrel": "Scoundrel",
+      "spellweaver": "Spellweaver",
+      "tinkerer": "Tinkerer"
+    }
+  },
+  "custom": {
+    "city-guard-saw-solo": {
+      "1": "รับความเสียหาย %game.damage:1% เมื่อจบรอบจนกว่าจะรักษาหาย"
+    },
+    "gh": {
+      "ancient-artillery": {
+        "1": "ศัตรูที่อยู่ติดกันทั้งหมดรับความเสียหาย %game.damage:2%"
+      },
+      "archer": {
+        "1": "สร้างกับดักความเสียหาย %game.damage:3% ในหกเหลี่ยมว่างที่ติดกันและใกล้ศัตรูที่สุด"
+      },
+      "bandit-commander": {
+        "1": "เคลื่อนที่ไปประตูถัดไปและเปิดเผยห้อง"
+      },
+      "brute": {
+        "abilities": {
+          "12": {
+            "1": "โดย X คือจำนวนหกเหลี่ยมที่คุณเคลื่อนที่ในเทิร์นนี้",
+            "2": "โดย X คือจำนวนความเสียหายที่คุณทำให้เกิดในเทิร์นนี้"
+          },
+          "13": {
+            "1": "เพิ่ม +1 %game.action.attack% ในการโจมตีทั้งหมดของคุณในรอบนี้"
+          },
+          "14": {
+            "1": "ฆ่าศัตรูปกติที่อยู่ติดกันหนึ่งตัว"
+          },
+          "15": {
+            "1": "เมื่อได้รับความเสียหาย 3 ครั้งถัดไป แทนที่จะไม่ได้รับความเสียหาย"
+          },
+          "16": {
+            "1": "หากการเคลื่อนที่เป็นเส้นตรง ให้ดำเนินการ",
+            "2": "โดย X คือจำนวนหกเหลี่ยมที่คุณเคลื่อนที่ด้วยการกระทำนี้"
+          },
+          "2": {
+            "1": "ได้รับ %game.card.experience:1% ทุกครั้งที่คุณโจมตีกลับในรอบนี้"
+          },
+          "20": {
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+          },
+          "22": {
+            "1": "ฆ่าศัตรูปกติที่อยู่ติดกันหนึ่งตัวด้วย %game.condition.stun%",
+            "2": "เพิ่ม +1 %game.action.attack% ในการโจมตีทั้งหมดของคุณในรอบนี้"
+          },
+          "23": {
+            "1": "คุณอาจถือว่าความสามารถ %game.action.move% ทั้งหมดเป็นความสามารถ %game.action.attack% ที่มีค่าเท่ากัน"
+          },
+          "26": {
+            "1": "เพิ่ม +3 %game.action.attack% ในการโจมตีทั้งหมดของคุณที่โจมตีศัตรูที่มี %game.condition.disarm%, %game.condition.immobilize% หรือ %game.condition.stun% ในรอบนี้"
+          },
+          "28": {
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+          },
+          "29": {
+            "1": "ฆ่าศัตรูปกติหรือเอลิทที่อยู่ติดกันหนึ่งตัว"
+          },
+          "4": {
+            "1": "ศัตรูใดที่โจมตีพรรคพวกที่อยู่ติดกันของคุณในรอบนี้ จะโจมตีคุณแทน ไม่ว่าขนาดระยะโจมตีจะเป็นเท่าใด"
+          },
+          "7": {
+            "1": "เมื่อได้รับความเสียหาย 6 ครั้งถัดไปจากการโจมตีที่มุ่งมาที่คุณ ให้ได้รับ %game.action.shield%1 แทน"
+          }
+        }
+      },
+      "captain-of-the-guard": {
+        "1": "พรรคพวกทั้งหมดเพิ่ม +1 %game.action.attack% ในการโจมตีทุกรอบนี้"
+      },
+      "cragheart": {
+        "abilities": {
+          "116": {
+            "1": "ในการโจมตีประชิด 6 ครั้งถัดไปที่มุ่งมาที่คุณ ให้ได้รับ %game.action.retaliate:2%"
+          },
+          "118": {
+            "1": "สร้างสิ่งกีดขวางหกเหลี่ยมเดียวสองอันในหกเหลี่ยมว่างที่อยู่ติดกับคุณ"
+          },
+          "119": {
+            "1": "พรรคพวกและศัตรูที่อยู่ติดกันทั้งหมดรับความเสียหาย 1"
+          },
+          "120": {
+            "1": "พรรคพวกและศัตรูทั้งหมดที่อยู่ติดกับเป้าหมายรับความเสียหาย 1"
+          },
+          "121": {
+            "1": "ในการโจมตีระยะไกล 4 ครั้งถัดไป ให้ได้รับ ADD TARGET"
+          },
+          "122": {
+            "1": "ทำลายสิ่งกีดขวางที่อยู่ติดกันหนึ่งอัน",
+            "2": "โจมตีศัตรูทั้งหมดที่เคลื่อนที่ผ่าน"
+          },
+          "123": {
+            "1": "โจมตีศัตรูทั้งหมดที่อยู่ห่างไม่เกินสอง",
+            "2": "หกเหลี่ยมแทน %game.card.experience:1%",
+            "3": "พรรคพวกที่อยู่ติดกันทั้งหมดรับความเสียหาย 2",
+            "4": "พรรคพวกทั้งหมดรับความเสียหาย 1",
+            "5": "ส่งผลต่อพรรคพวกทั้งหมด"
+          },
+          "124": {
+            "1": "%game.action.push% 2, %game.card.experience:1%",
+            "2": "พรรคพวกและศัตรูที่อยู่ติดกันทั้งหมดรับความเสียหาย 1",
+            "3": "ความเสียหาย 2 แทน %game.card.experience:1%"
+          },
+          "125": {
+            "1": "+1 %game.action.attack%, %game.card.experience:1%",
+            "2": "%game.condition.muddle% พรรคพวกและศัตรูทั้งหมดในพื้นที่เป้าหมาย"
+          },
+          "126": {
+            "1": "%game.condition.immobilize%, %game.card.experience:1%"
+          },
+          "127": {
+            "1": "คุณอาจผลักเป้าหมายเข้าไปในหกเหลี่ยมที่มีสิ่งกีดขวาง ในแต่ละกรณี ทำลายสิ่งกีดขวาง เป้าหมายรับความเสียหาย 2 และคุณได้รับ %game.card.experience:1%",
+            "2": "เพิ่ม +1 %game.action.attack% ในการโจมตีระยะไกลทั้งหมดของคุณในรอบนี้"
+          },
+          "128": {
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละ",
+            "2": "ศัตรูที่ถูกโจมตี",
+            "3": "เพิ่ม +2 %game.action.attack% ในการโจมตีประชิดทั้งหมดของคุณในรอบนี้"
+          },
+          "129": {
+            "1": "ในการโจมตีระยะไกล 6 ครั้งถัดไป เมื่อ %game.element.air% เป็น Strong หรือ Waning ให้ %game.element.consume.air% เพื่อเพิ่ม +2 %game.action.range%"
+          },
+          "130": {
+            "1": "ทำลายสิ่งกีดขวางที่อยู่ติดกันหนึ่งอัน",
+            "2": "โจมตีศัตรูทั้งหมดที่อยู่ติดกับสิ่งกีดขวางที่ถูกทำลาย"
+          },
+          "131": {
+            "1": "ส่งผลต่อพรรคพวกทั้งหมดในพื้นที่เป้าหมาย"
+          },
+          "132": {
+            "1": "เคลื่อนย้ายสิ่งกีดขวางหกเหลี่ยมเดียวที่อยู่ติดกันไปยังหกเหลี่ยมว่างภายใน %game.action.range:4%",
+            "2": "โจมตีศัตรูทั้งหมดที่อยู่ติด",
+            "3": "กับสิ่งกีดขวางที่ถูกเคลื่อนย้าย",
+            "4": "ทำลายสิ่งกีดขวางทั้งหมดและปลดกับดักทั้งหมดที่เคลื่อนที่ผ่าน"
+          },
+          "134": {
+            "1": "สร้างสิ่งกีดขวางหกเหลี่ยมเดียวสามอันในหกเหลี่ยมว่างภายใน %game.action.range:4%",
+            "2": "พรรคพวกและศัตรูที่อยู่ติดกับสิ่งกีดขวางที่สร้างขึ้นรับความเสียหาย 2",
+            "3": "การเคลื่อนที่ต้องเป็นเส้นตรง"
+          },
+          "136": {
+            "1": "ฆ่าศัตรูปกติหนึ่งตัวภายใน %game.action.range:4%",
+            "2": "สร้างสิ่งกีดขวางหกเหลี่ยมเดียวหนึ่งอันในหกเหลี่ยมที่ศัตรูตาย"
+          },
+          "137": {
+            "1": "ในการโจมตีประชิด 4 ครั้งถัดไป เมื่อเป็นไปได้ ให้ทำลายสิ่งกีดขวางที่อยู่ติดกันเพื่อเพิ่ม +3 %game.action.attack%"
+          },
+          "138": {
+            "1": "สร้างกับดักความเสียหาย 2 %game.condition.stun% หนึ่งอันในหกเหลี่ยมว่างที่อยู่ติดกัน"
+          },
+          "139": {
+            "1": "%game.condition.immobilize% พรรคพวกและศัตรูทั้งหมดในพื้นที่เป้าหมาย"
+          },
+          "140": {
+            "1": "สร้างสิ่งกีดขวางสามเหลี่ยมสามหกเหลี่ยมหนึ่งอันในหกเหลี่ยมว่างภายใน %game.action.range% 3",
+            "2": "โจมตีศัตรูทั้งหมดที่อยู่ติดกับสิ่งกีดขวาง"
+          },
+          "141": {
+            "1": "สำหรับแต่ละหกเหลี่ยมที่คุณไม่สามารถผลักเป้าหมายได้เนื่องจากกำแพงหรือสิ่งกีดขวาง เป้าหมายรับความเสียหาย 2 และคุณได้รับ %game.card.experience:1%",
+            "2": "เพิ่ม +1 %game.action.attack% ในการโจมตีระยะไกลทั้งหมดของคุณในรอบนี้",
+            "3": "เพิ่ม +2 %game.action.attack% แทน %game.card.experience:1%"
+          },
+          "142": {
+            "1": "ทำลายสิ่งกีดขวางทั้งหมดภายใน %game.action.range% 2",
+            "2": "โดย X คือสองเท่าของจำนวน",
+            "3": "หกเหลี่ยมที่สิ่งกีดขวางที่ถูกทำลาย",
+            "4": "ครอบครอง",
+            "5": "การเคลื่อนที่ต้องจบในหกเหลี่ยมที่อยู่ติดกับสิ่งกีดขวาง"
+          },
+          "143": {
+            "1": "เมื่อเริ่มเทิร์น 5 เทิร์นถัดไป ให้ดำเนินการ \"%game.action.heal:2%, %game.action.range:2%\""
+          },
+          "144": {
+            "1": "พรรคพวกและศัตรูที่อยู่ติดกับเป้าหมายทั้งหมดรับความเสียหายเท่ากับความเสียหายที่เป้าหมายได้รับ",
+            "2": "พรรคพวกและศัตรูที่อยู่ติดกับหกเหลี่ยมใดๆ ที่คุณเข้าไประหว่างการเคลื่อนที่รับความเสียหาย 2"
+          },
+          "145": {
+            "1": "คุณอาจผลักเป้าหมายเข้าไปในหกเหลี่ยมที่มีสิ่งกีดขวาง ในแต่ละกรณี ทำลายสิ่งกีดขวาง เป้าหมายรับความเสียหาย 2 และคุณได้รับ %game.card.experience:1%"
+          }
+        }
+      },
+      "dark-rider": {
+        "1": "X = จำนวนหกเหลี่ยมที่เคลื่อนที่"
+      },
+      "deep-terror": {
+        "1": "ในหกเหลี่ยมที่ติดกับเป้าหมาย"
+      },
+      "elder-drake": {
+        "1": "บินไปยังที่เกาะหินถัดไป"
+      },
+      "flame-demon": {
+        "1": "ศัตรูที่อยู่ติดกันทั้งหมดรับความเสียหาย %game.damage:2%",
+        "2": "สร้างกับดักความเสียหาย %game.damage:4% ในหกเหลี่ยมว่างที่ติดกันและใกล้ศัตรูที่สุด"
+      },
+      "flowChartGroup": {
+        "atop-mountains": "บนยอดเขา",
+        "city-events": "เหตุการณ์ในเมือง",
+        "demon-and-rift": "ปีศาจและรอยแยก",
+        "dragons": "มังกร",
+        "intro": "บทนำ",
+        "personal-quests": "เป้าหมายส่วนตัว",
+        "random-scenarios": "สถานการณ์สุ่ม",
+        "rebellion-rises": "การกบฏลุกขึ้น",
+        "road-events": "เหตุการณ์บนถนน",
+        "sealed": "ปิดผนึก",
+        "sewers": "ท่อระบายน้ำ",
+        "the-merchant": "พ่อค้า",
+        "through-jungles": "ผ่านป่า",
+        "under-oceans": "ใต้มหาสมุทร",
+        "voice": "เสียง"
+      },
+      "giant-viper": {
+        "1": "เพิ่ม +2 %game.action.attack% ถ้าเป้าหมายอยู่ติดกับพรรคพวกของ %data.monster.giant-viper%",
+        "2": "การโจมตีทั้งหมดที่กำหนดเป้าหมาย %data.monster.giant-viper% ในรอบนี้ได้เสียเปรียบ"
+      },
+      "harrower-infester": {
+        "1": "ทำ \"%game.action.heal% 2, %game.specialTarget.self%\" สำหรับแต่ละเป้าหมายที่ได้รับความเสียหาย"
+      },
+      "hound": {
+        "1": "เพิ่ม +2 %game.action.attack% ถ้าเป้าหมายอยู่ติดกับพรรคพวกของ %data.monster.hound%"
+      },
+      "merciless-overseer": {
+        "1": "Scout ทั้งหมดทำอีกครั้ง",
+        "2": "V = จำนวน Scout ที่มีอยู่"
+      },
+      "mindthief": {
+        "1": "X คือครึ่งหนึ่งของคะแนนชีวิตปัจจุบันของหนู (ปัดขึ้น)",
+        "abilities": {
+          "146": {
+            "1": "เพิ่ม +1 %game.action.attack% สำหรับแต่ละสภาวะลบบนเป้าหมาย",
+            "2": "บังคับศัตรูหนึ่งตัวภายใน %game.action.range:5% ให้ดำเนินการ",
+            "3": "โจมตีศัตรูอีกตัว โดยคุณควบคุมการกระทำ"
+          },
+          "149": {
+            "1": "ในการโจมตีประชิดของคุณ:",
+            "2": "ได้รับ %game.action.shield% 1",
+            "3": "เมื่อเล่น %data.custom.gh.mindthief.augment% อื่น ให้ทิ้งการ์ดนี้",
+            "4": "หากคุณจบการเคลื่อนที่ในหกเหลี่ยมเดียวกับที่เริ่ม ให้ดำเนินการ"
+          },
+          "151": {
+            "1": "ในการโจมตีประชิดของคุณ:",
+            "2": "เพิ่ม +2 %game.action.attack%",
+            "3": "เมื่อเล่น %data.custom.gh.mindthief.augment% อื่น ให้ทิ้งการ์ดนี้"
+          },
+          "152": {
+            "1": "ในการโจมตีประชิดของคุณ:",
+            "2": "เมื่อเล่น %data.custom.gh.mindthief.augment% อื่น ให้ทิ้งการ์ดนี้",
+            "3": "บังคับศัตรูหนึ่งตัวภายใน %game.action.range:4% ให้ดำเนินการ",
+            "4": "โดยคุณควบคุมการกระทำ"
+          },
+          "154": {
+            "1": "เพิ่ม +2 %game.action.attack% และได้รับ %game.card.experience:1% สำหรับแต่ละสภาวะลบบนเป้าหมาย"
+          },
+          "156": {
+            "1": "ในการโจมตีประชิดของคุณ:",
+            "2": "เมื่อเล่น %data.custom.gh.mindthief.augment% อื่น ให้ทิ้งการ์ดนี้"
+          },
+          "157": {
+            "1": "พรรคพวกที่อยู่ติดกันหนึ่งคนอาจดำเนินการ",
+            "2": "พรรคพวกหนึ่งคนภายใน %game.action.range:3% อาจดำเนินการ"
+          },
+          "160": {
+            "1": "บังคับศัตรูปกติหรือเอลิทหนึ่งตัวภายใน %game.action.range:3% ให้ดำเนินเทิร์นในรอบนี้ราวกับพรรคพวกของมันเป็นศัตรูและศัตรูของมันเป็นพรรคพวก",
+            "2": "เพื่อแสดงสิ่งนี้ ให้วางโทเค็นตัวละครของคุณหนึ่งอันบนศัตรูนี้สำหรับรอบ"
+          },
+          "162": {
+            "1": "ในการโจมตีประชิดของคุณ:",
+            "2": "เมื่อเล่น %data.custom.gh.mindthief.augment% อื่น ให้ทิ้งการ์ดนี้"
+          },
+          "163": {
+            "1": "ได้รับเหรียญทองเพิ่มหนึ่งเหรียญจากคลังสำหรับแต่ละศัตรูที่อยู่ติดกัน"
+          },
+          "164": {
+            "1": "ฆ่าศัตรูปกติหนึ่งตัวภายใน %game.action.range:4%",
+            "2": "โจมตีศัตรูทั้งหมดที่อยู่ติดกับเป้าหมายที่ถูกฆ่า",
+            "3": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตีด้วยการโจมตีนี้"
+          },
+          "165": {
+            "1": "คุณอาจมี %data.custom.gh.mindthief.augments% สองอันทำงานพร้อมกัน",
+            "2": "หากเล่น %data.custom.gh.mindthief.augment% ที่สาม ให้ทิ้งอันใดอันหนึ่ง"
+          },
+          "166": {
+            "1": "ในการโจมตีประชิดของคุณ:",
+            "2": "เมื่อเล่น %data.custom.gh.mindthief.augment% อื่น ให้ทิ้งการ์ดนี้",
+            "3": "บังคับศัตรูหนึ่งตัวภายใน %game.action.range:5% ให้ดำเนินการ",
+            "4": "โดยคุณควบคุมการกระทำ"
+          },
+          "169": {
+            "1": "ในการโจมตีประชิดของคุณ:",
+            "2": "ได้รับ",
+            "3": "เมื่อเล่น %data.custom.gh.mindthief.augment% อื่น ให้ทิ้งการ์ดนี้"
+          },
+          "170": {
+            "1": "การโจมตีระยะไกลทั้งหมดของคุณได้รับผลของ %data.custom.gh.mindthief.augments% ของคุณในรอบนี้"
+          },
+          "172": {
+            "1": "พรรคพวกที่อยู่ติดกันหนึ่งคนอาจดำเนินการ",
+            "2": "การโจมตีนี้ได้รับผลของ %data.custom.gh.mindthief.augments% ของคุณ",
+            "3": "บังคับศัตรูปกติหรือเอลิทหนึ่งตัวภายใน %game.action.range:5% ให้ดำเนินเทิร์นในรอบนี้ราวกับพรรคพวกของมันเป็นศัตรูและศัตรูของมันเป็นพรรคพวก โดยคุณควบคุมการกระทำ<br><br>เพื่อแสดงสิ่งนี้ ให้วางโทเค็นตัวละครของคุณหนึ่งอันบนศัตรูนี้สำหรับรอบ"
+          },
+          "173": {
+            "1": "X คือครึ่งหนึ่งของคะแนนชีวิตปัจจุบันของหนู (ปัดขึ้น)",
+            "2": "พรรคพวกทั้งหมดภายใน %game.action.range:2% เพิ่ม +X %game.action.attack% ในการโจมตีทั้งหมดของพวกเขาในรอบนี้ โดย X คือจำนวนพรรคพวกของคุณภายใน %game.action.range:2% ของคุณ"
+          },
+          "174": {
+            "1": "ในการโจมตีประชิดของคุณ:",
+            "2": "ฆ่าเป้าหมายปกติหนึ่งตัวแทน",
+            "3": "เมื่อเล่น %data.custom.gh.mindthief.augment% อื่น ให้ทิ้งการ์ดนี้"
+          }
+        },
+        "augment": "เสริมพลัง %game.characterIconColoredBg.mindthief%",
+        "augments": "เสริมพลัง %game.characterIconColoredBg.mindthief%"
+      },
+      "night-demon": {
+        "1": "ศัตรูและพรรคพวกที่อยู่ติดกันทั้งหมดรับความเสียหาย %game.damage:1%"
+      },
+      "ooze": {
+        "1": "โดย H เท่ากับคะแนนชีวิตปัจจุบันของ %data.monster.ooze% ที่เรียก (จำกัดโดยคะแนนชีวิตสูงสุดของ %data.monster.ooze% ปกติ)"
+      },
+      "prime-demon": {
+        "1": "บัลลังก์เคลื่อนที่"
+      },
+      "savvas-lavaflow": {
+        "1": "พรรคพวกและศัตรูที่อยู่ติดกับเป้าหมายทั้งหมดรับความเสียหาย %game.damage:2%",
+        "2": "ศัตรูทั้งหมดรับความเสียหาย %game.damage:2%"
+      },
+      "scoundrel": {
+        "abilities": {
+          "100": {
+            "1": "เพิ่ม %game.condition.wound% และได้รับ %game.card.experience:1% เมื่อเป้าหมายอยู่ติดกับพรรคพวกของคุณ"
+          },
+          "103": {
+            "1": "เพิ่ม +2 %game.action.attack% ในการโจมตีทั้งหมดของคุณในรอบนี้ที่โจมตีศัตรูที่ไม่อยู่ติดกับพรรคพวกของมัน"
+          },
+          "104": {
+            "1": "ได้รับได้เปรียบในการโจมตีทั้งหมดของคุณในรอบนี้"
+          },
+          "105": {
+            "1": "เพิ่ม +3 %game.action.attack% และได้รับ %game.card.experience:1% เมื่อเป้าหมายอยู่ติดกับพรรคพวกของคุณ",
+            "2": "เพิ่ม +3 %game.action.attack% และได้รับ %game.card.experience:1% เมื่อเป้าหมายไม่อยู่ติดกับพรรคพวกของมัน"
+          },
+          "106": {
+            "1": "เพิ่ม +2 %game.action.attack% และได้รับ %game.card.experience:1% เมื่อเป้าหมายอยู่ติดกับพรรคพวกของคุณ",
+            "2": "ในการโจมตี 6 ครั้งถัดไปที่โจมตีศัตรูที่มี %game.condition.disarm%, %game.condition.immobilize% หรือ %game.condition.stun% ให้เพิ่ม +2 %game.action.attack%"
+          },
+          "107": {
+            "1": "ฆ่าศัตรูปกติที่อยู่ติดกันหนึ่งตัวที่ไม่อยู่ติดกับพรรคพวกของมันและอยู่ติดกับพรรคพวกของคุณ"
+          },
+          "108": {
+            "1": "เพิ่ม +2 %game.action.attack% ในการโจมตีทั้งหมดของคุณที่โจมตีศัตรูที่มี %game.condition.poison%"
+          },
+          "110": {
+            "1": "เพิ่ม +4 %game.action.attack% และได้รับ %game.card.experience:2% เมื่อเป้าหมายอยู่ติดกับพรรคพวกของคุณ"
+          },
+          "111": {
+            "1": "ปลดกับดักที่อยู่ติดกันหนึ่งอัน",
+            "2": "โจมตีศัตรูหนึ่งตัวภายใน %game.action.range:3% ให้ได้รับผลของกับดักที่ปลดแล้ว",
+            "3": "ในการโจมตีครั้งถัดไปที่โจมตีศัตรูที่ไม่อยู่ติดกับพรรคพวกของมันและอยู่ติดกับพรรคพวกของคุณ ให้เพิ่มค่าโจมตีเป็นสองเท่า"
+          },
+          "113": {
+            "1": "ฆ่าศัตรูที่อยู่ติดกันหนึ่งตัวที่มีคะแนนชีวิตปัจจุบันเท่ากับหรือน้อยกว่า 3"
+          },
+          "114": {
+            "1": "บังคับศัตรูปกติหรือเอลิทที่อยู่ติดกันหนึ่งตัวให้ดำเนินเทิร์นในรอบนี้ราวกับพรรคพวกของมันเป็นศัตรูและศัตรูของมันเป็นพรรคพวก โดยคุณควบคุมการกระทำ",
+            "2": "เพื่อแสดงสิ่งนี้ ให้วางโทเค็นตัวละครของคุณหนึ่งอันบนศัตรูนี้สำหรับรอบ"
+          },
+          "115": {
+            "1": "เพิ่ม %game.condition.poison% และ %game.condition.wound% ในการโจมตีทั้งหมดของคุณ"
+          },
+          "88": {
+            "1": "เพิ่ม +2 %game.action.attack% และได้รับ %game.card.experience:1% เมื่อเป้าหมายอยู่ติดกับพรรคพวกของคุณ",
+            "2": "ในการโจมตี 4 ครั้งถัดไปที่โจมตีศัตรูที่ไม่อยู่ติดกับพรรคพวกของมัน ให้เพิ่ม +2 %game.action.attack%"
+          },
+          "89": {
+            "1": "เพิ่ม +2 %game.action.attack% และได้รับ %game.card.experience:1% เมื่อเป้าหมายอยู่ติดกับพรรคพวกของคุณ"
+          },
+          "90": {
+            "1": "ในการโจมตีครั้งถัดไปขณะ %game.condition.invisible% ให้เพิ่มค่าโจมตีเป็นสองเท่า"
+          },
+          "91": {
+            "1": "เพิ่ม +2 %game.action.attack% และได้รับ %game.card.experience:1% เมื่อเป้าหมายอยู่ติดกับพรรคพวกของคุณ",
+            "2": "เพิ่ม +2 %game.action.attack% และได้รับ %game.card.experience:1% เมื่อเป้าหมายไม่อยู่ติดกับพรรคพวกของมัน"
+          },
+          "92": {
+            "1": "ปลดกับดักที่อยู่ติดกันหนึ่งอัน"
+          },
+          "97": {
+            "1": "เพิ่ม +1 %game.action.attack% สำหรับแต่ละพรรคพวกของคุณที่อยู่ติดกับเป้าหมาย",
+            "2": "เพิ่ม +2 %game.action.attack% แทน %game.card.experience:1%",
+            "3": "บังคับศัตรูที่อยู่ติดกันหนึ่งตัวให้ดำเนินการ",
+            "4": "โดยคุณควบคุมการกระทำ และจบในหกเหลี่ยมที่อยู่ติดกับคุณ"
+          },
+          "98": {
+            "1": "เพิ่ม +X %game.action.attack% โดย X คือสองเท่าของค่าโล่ของเป้าหมาย",
+            "2": "ครั้งถัดไปที่คุณได้รับความเสียหายในรอบนี้ ให้ไม่ได้รับความเสียหายแทน"
+          },
+          "99": {
+            "1": "%game.action.loot% ทุกหกเหลี่ยมที่คุณเข้าไปด้วยการกระทำนี้"
+          }
+        }
+      },
+      "spellweaver": {
+        "abilities": {
+          "61": {
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+          },
+          "62": {
+            "1": "นอกจากนี้ โจมตีศัตรูทั้งหมดบนเส้นทางไปยังเป้าหมายหลัก",
+            "2": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+          },
+          "63": {
+            "1": "กู้คืน %game.card.recover% การ์ดที่สูญหายทั้งหมดของคุณ"
+          },
+          "66": {
+            "1": "เมื่อได้รับความเสียหาย 2 ครั้งถัดไป ให้ไม่ได้รับความเสียหายแทน"
+          },
+          "69": {
+            "1": "ในการโจมตี 4 ครั้งถัดไป ให้เพิ่ม +1 %game.action.attack%",
+            "2": "เพิ่ม +2 %game.action.attack% แทน"
+          },
+          "75": {
+            "1": "ส่งผลต่อพรรคพวกหนึ่งคน",
+            "2": "ส่งผลต่อพรรคพวกทั้งหมดแทน"
+          },
+          "76": {
+            "1": "ฆ่าเป้าหมายปกติหนึ่งตัวแทน %game.card.experience:1%",
+            "2": "ส่งผลต่อพรรคพวกหนึ่งคน",
+            "3": "โดย X คือครึ่งหนึ่งของคะแนนชีวิตสูงสุดของพรรคพวกนั้น (ปัดลง)",
+            "4": "X คือคะแนนชีวิตสูงสุดของพรรคพวกนั้นแทน"
+          },
+          "79": {
+            "1": "ในการโจมตีประชิด 5 ครั้งถัดไปที่มุ่งมาที่คุณ ให้ได้รับ %game.action.retaliate:3%"
+          },
+          "80": {
+            "1": "ศัตรูทั้งหมดที่อยู่ติดกับเป้าหมายรับความเสียหาย 2 %game.card.experience:1%"
+          },
+          "81": {
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+          },
+          "82": {
+            "1": "กู้คืน %game.card.recover% การ์ดที่สูญหายของคุณได้สูงสุดสองใบ"
+          },
+          "84": {
+            "1": "%game.action.loot:3% แทน %game.card.experience:1%",
+            "2": "คุณไม่สามารถล่าเหรียญทองหรือแผ่นขุมทรัพย์ได้เกินสี่ด้วยการกระทำนี้"
+          },
+          "85": {
+            "1": "เมื่อได้รับความเสียหาย 3 ครั้งถัดไปจากการโจมตีที่มุ่งมาที่คุณ ให้ไม่ได้รับความเสียหายแทนและได้รับ %game.action.retaliate:3%, %game.action.range:3%"
+          },
+          "86": {
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี",
+            "2": "ฆ่าศัตรูปกติทั้งหมดในพื้นที่เป้าหมาย",
+            "3": "เลือกหกเหลี่ยมภายใน %game.action.range:4%",
+            "4": "โจมตีศัตรูทั้งหมดภายใน %game.action.range:4% ของหกเหลี่ยมที่เลือกและดึงพวกมันเข้าหามัน"
+          },
+          "87": {
+            "1": "โจมตีศัตรูทั้งหมดในห้องเดียวกับคุณ",
+            "2": "พรรคพวกทั้งหมดในห้องเดียวกับคุณรับความเสียหาย 2"
+          }
+        }
+      },
+      "the-betrayer": {
+        "1": "ควบคุมจิตใจ"
+      },
+      "tinkerer": {
+        "abilities": {
+          "30": {
+            "1": "สร้างกับดักความเสียหาย 6 หนึ่งอันในหกเหลี่ยมว่างที่อยู่ติดกัน",
+            "2": "ได้รับ %game.card.experience:2% เมื่อกับดักถูกกระตุ้นโดยศัตรู"
+          },
+          "34": {
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+          },
+          "35": {
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+          },
+          "37": {
+            "1": "พรรคพวกที่อยู่ติดกันหนึ่งคนอาจกู้คืน %game.card.recover% การ์ดที่ทิ้งแล้วทั้งหมดของพวกเขา"
+          },
+          "40": {
+            "1": "คุณและพรรคพวกที่อยู่ติดกันทั้งหมดเพิ่ม +1 %game.action.attack% ในการโจมตีทั้งหมดของคุณในรอบนี้"
+          },
+          "43": {
+            "1": "สร้างกับดักความเสียหาย 2 %game.condition.poison% หนึ่งอันในหกเหลี่ยมว่างที่อยู่ติดกัน",
+            "2": "พรรคพวกหนึ่งคนภายใน %game.action.range:2% อาจกู้คืน %game.card.recover% การ์ดที่ทิ้งแล้วของพวกเขาหนึ่งใบ",
+            "3": "การ์ดที่ทิ้งแล้วสูงสุดสองใบแทน"
+          },
+          "44": {
+            "1": "ในการรักษา 4 ครั้งถัดไป ให้เพิ่ม +2 %game.action.heal%"
+          },
+          "45": {
+            "1": "พรรคพวกหนึ่งคนภายใน %game.action.range:3% อาจกู้คืน %game.card.recover% การ์ดที่สูญหายของพวกเขาหนึ่งใบ"
+          },
+          "47": {
+            "1": "ปลดกับดักที่อยู่ติดกันหนึ่งอัน",
+            "2": "สร้างกับดัก %game.condition.stun% หนึ่งอันในหกเหลี่ยมว่างที่อยู่ติดกัน"
+          },
+          "51": {
+            "1": "พรรคพวกที่อยู่ติดกันหนึ่งคนอาจรีเฟรช %game.card.refresh% ไอเทม %game.items.slots.small% ที่ใช้แล้วของพวกเขาหนึ่งชิ้น",
+            "2": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+          },
+          "52": {
+            "1": "ฆ่าศัตรูทั้งหมดในพื้นที่เป้าหมายที่มีคะแนนชีวิตปัจจุบันเท่ากับหรือน้อยกว่า 5",
+            "2": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกฆ่า"
+          },
+          "53": {
+            "1": "สร้างกับดักความเสียหาย 4 %game.condition.muddle% หนึ่งอันในหกเหลี่ยมว่างที่อยู่ติดกัน",
+            "2": "เมื่อจบเทิร์น 4 เทิร์นถัดไป พรรคพวกหนึ่งคนภายใน %game.action.range:3% อาจกู้คืน %game.card.recover% การ์ดที่ทิ้งแล้วของพวกเขาหนึ่งใบ"
+          },
+          "54": {
+            "1": "เมื่อจบเทิร์น 5 เทิร์นถัดไป ให้ดำเนินการ \"%game.action.attack:2%, %game.action.range:5%\""
+          },
+          "57": {
+            "1": "สิ่งเรียกทั้งหมดภายใน %game.action.range:3% อาจดำเนินการ",
+            "2": "โดยคุณควบคุมการกระทำ"
+          },
+          "58": {
+            "1": "รับความเสียหาย 2",
+            "2": "พรรคพวกที่อยู่ติดกันทั้งหมดเพิ่ม +2 %game.action.attack% ในการโจมตีทั้งหมดของพวกเขาในรอบนี้",
+            "3": "พรรคพวกที่อยู่ติดกันทั้งหมดรับความเสียหาย 2"
+          },
+          "59": {
+            "1": "ฆ่าศัตรูปกติหรือเอลิทที่อยู่ติดกันหนึ่งตัว"
+          },
+          "60": {
+            "1": "พรรคพวกที่อยู่ติดกันหนึ่งคนอาจกู้คืน %game.card.recover% การ์ดที่สูญหายของพวกเขาสูงสุดสองใบ จากนั้นสูญเสียการ์ดสองใบ",
+            "2": "พรรคพวกหนึ่งคนภายใน %game.action.range:3% อาจกู้คืน %game.card.recover% การ์ดที่สูญหายหนึ่งใบของพรรคพวกที่อยู่ติดกับพวกเขา"
+          }
+        }
+      },
+      "winged-horror": {
+        "1": "ฟักไข่",
+        "2": "%game.action.summon% [C] ไข่"
+      }
+    },
+    "ghost-wolf": {
+      "1": "เมื่อเริ่มต้นแต่ละรอบ:"
+    }
+  },
+  "deck": {
+    "archer": "นักธนู",
+    "boss": "บอส",
+    "guard": "ยาม",
+    "imp": "อิมพ์",
+    "scout": "Scout",
+    "shaman": "หมอผี"
+  },
+  "edition": {
+    "gh": {
+      "": "Gloomhaven",
+      "hint": "นี่คือฉบับแรกของ Gloomhaven!"
+    }
+  },
+  "globalAchievements": {
+    "ancient-technology": "เทคโนโลยีโบราณ",
+    "annihilation-of-order": "การทำลายล้างระเบียบ",
+    "artifact-cleansed": "สิ่งประดิษฐ์: ชำระแล้ว",
+    "artifact-lost": "สิ่งประดิษฐ์: สูญหาย",
+    "artifact-recovered": "สิ่งประดิษฐ์: กู้คืนแล้ว",
+    "city-rule-demonic": "กฎเมือง: ปีศาจ",
+    "city-rule-economic": "กฎเมือง: เศรษฐกิจ",
+    "city-rule-militaristic": "กฎเมือง: ทหาร",
+    "end-of-corruption": "จุดจบความเสื่อม",
+    "end-of-gloom": "จุดจบความมืด",
+    "end-of-the-invasion": "จุดจบการรุกราน",
+    "the-dead-invade": "คนตายรุกราน",
+    "the-drake-aided": "The Drake ได้รับความช่วยเหลือ",
+    "the-drake-slain": "The Drake ถูกสังหาร",
+    "the-edge-of-darkness": "ขอบความมืด",
+    "the-merchant-flees": "พ่อค้าหนี",
+    "the-power-of-enhancement": "พลังแห่งการเสริม",
+    "the-rift-neutralized": "รอยแยกเป็นกลาง",
+    "the-voice-freed": "เสียงเป็นอิสระ",
+    "the-voice-silenced": "เสียงถูกปิด",
+    "water-breathing": "หายใจใต้น้ำ"
+  },
+  "monster": {
+    "ancient-artillery": "ปืนใหญ่โบราณ",
+    "arcane-golem": "โกเลมอาร์เคน",
+    "bandit-archer": "โจรนักธนู",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
+    "bandit-commander": "ผู้บัญชาการโจร",
+    "bandit-guard": "โจรยาม",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
+    "black-imp": "อิมพ์ดำ",
+    "bloated-regent": "ผู้สำเร็จราชการบวม",
+    "captain-of-the-guard": "กัปตันยาม",
+    "cave-bear": "หมีถ้ำ",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
+    "city-archer": "นักธนูเมือง",
+    "city-guard": "ยามเมือง",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
+    "cultist": "ลัทธิ",
+    "dark-rider": "นักขี่มืด",
+    "deep-earth": "Deep Earth",
+    "deep-terror": "ความหวาดกลัวลึก",
+    "earth-demon": "ปีศาจดิน",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
+    "elder-drake": "Elder Drake",
+    "flame-demon": "ปีศาจไฟ",
+    "forest-imp": "อิมพ์ป่า",
+    "frost-demon": "ปีศาจน้ำแข็ง",
+    "ghost-wolf": "Ghost Wolf",
+    "giant-ooze": "เมือกยักษ์",
+    "giant-viper": "งูยักษ์",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
+    "harrower-infester": "Harrower Infester",
+    "high-flame": "High Flame",
+    "hound": "สุนัขล่า",
+    "hungry-soul": "วิญญาณหิว",
+    "infiltrator": "Infiltrator",
+    "inox-archer": "Inox นักธนู",
+    "inox-bodyguard": "Inox บอดี้การ์ด",
+    "inox-guard": "Inox ยาม",
+    "inox-necromancer": "Inox Necromancer",
+    "inox-shaman": "Inox หมอผี",
+    "jekserah": "Jekserah",
+    "lieutenant": "Lieutenant",
+    "living-bones": "Living Bones",
+    "living-corpse": "Living Corpse",
+    "living-spirit": "Living Spirit",
+    "lurker": "Lurker",
+    "lurker-king": "Lurker King",
+    "merciless-overseer": "ผู้ดูแลไร้ความปราณี",
+    "night-demon": "ปีศาจราตรี",
+    "ooze": "Ooze",
+    "prime-demon": "Prime Demon",
+    "prime-lieutenant": "Prime Lieutenant",
+    "rending-drake": "Rending Drake",
+    "savvas-icestorm": "Savvas Icestorm",
+    "savvas-lavaflow": "Savvas Lavaflow",
+    "siege-cannon": "ปืนใหญ่ปิดล้อม",
+    "song-of-the-deep": "Song of the Deep",
+    "spitting-drake": "Spitting Drake",
+    "stone-golem": "โกเลมหิน",
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
+    "sun-demon": "ปีศาจดวงอาทิตย์",
+    "the-betrayer": "ผู้ทรยศ",
+    "the-colorless": "The Colorless",
+    "the-gloom": "The Gloom",
+    "the-harvester": "The Harvester",
+    "the-sightless-eye": "The Sightless Eye",
+    "vermling-scout": "Vermling Scout",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)",
+    "vermling-shaman": "Vermling Shaman",
+    "wind-demon": "ปีศาจลม",
+    "winged-horror": "ความหวาดกลัวมีปีก"
+  },
+  "objective": {
+    "Altar": "แท่นบูชา",
+    "Bone Pile": "กองกระดูก",
+    "Captive Orchid": "กล้วยไม้ captive",
+    "Door": "ประตู",
+    "Fish": "ปลา",
+    "Grave": "หลุมศพ",
+    "Hail": "ลูกเห็บ",
+    "Orchid": "กล้วยไม้",
+    "Redthorn": "Redthorn",
+    "Rock Column": "เสาหิน",
+    "The Crystal": "คริสตัล",
+    "Totem": "โทเทม",
+    "Tree": "ต้นไม้",
+    "Villager": "ชาวบ้าน",
+    "Vocal Cord": "เส้นเสียง",
+    "Water Pump": "ปั๊มน้ำ",
+    "zephyr": "Zephyr"
+  },
+  "partyAchievements": {
+    "a-demons-errand": "งานของปีศาจ",
+    "a-map-to-treasure": "แผนที่ไปขุมทรัพย์",
+    "across-the-divide": "ข้ามความแตกแยก",
+    "an-invitation": "คำเชิญ",
+    "bad-business": "ธุรกิจเลว",
+    "dark-bounty": "รางวัลมืด",
+    "debt-collection": "เก็บหนี้",
+    "first-steps": "ก้าวแรก",
+    "fishs-aid": "ความช่วยเหลือของ Fish",
+    "following-clues": "ตามเบาะแส",
+    "grave-job": "งานหลุมศพ",
+    "high-sea-escort": "คุ้มกันทะเลลึก",
+    "jekserahs-plans": "แผนของ Jekserah",
+    "redthorns-aid": "ความช่วยเหลือของ Redthorn",
+    "sin-ra": "Sin-Ra",
+    "stonebreakers-censer": "Stonebreaker's Censer",
+    "sun-blessed": "ได้รับพรจากดวงอาทิตย์",
+    "the-drakes-command": "คำสั่งของ The Drake",
+    "the-drakes-treasure": "ขุมทรัพย์ของ The Drake",
+    "the-poisons-source": "แหล่งพิษ",
+    "the-scepter-and-the-voice": "คทาและเสียง",
+    "the-voices-command": "คำสั่งของเสียง",
+    "the-voices-treasure": "ขุมทรัพย์ของเสียง",
+    "through-the-nest": "ผ่านรัง",
+    "through-the-ruins": "ผ่านซากปรักหักพัง",
+    "through-the-trench": "ผ่านร่องลึก",
+    "tremors": "การสั่น",
+    "water-staff": "ไม้เท้าน้ำ"
+  },
+  "personalQuest": {
+    "gh": {
+      "510": {
+        "": "Seeker of Xorn",
+        "1": "\"Crypt\" Scenarios",
+        "2": "Follow \"Noxious Cellar\" (Scenario 52) to a conclusion"
+      },
+      "511": {
+        "": "Merchant Class",
+        "1": "%game.items.slots.head% items",
+        "2": "%game.items.slots.body% items",
+        "3": "%game.items.slots.legs% items",
+        "4": "%game.items.slots.onehand% or %game.items.slots.twohand% items",
+        "5": "%game.items.slots.small% items"
+      },
+      "512": {
+        "": "Greed Is Gold"
+      },
+      "513": {
+        "": "Finding the Cure",
+        "1": "Forest Imps killed",
+        "2": "Follow \"Forgotten Grove\" (Scenario 59) to a conclusion"
+      },
+      "514": {
+        "": "A Study of Anatomy",
+        "1": "Exhausted Party Members"
+      },
+      "515": {
+        "": "Law Bringer",
+        "1": "Bandits or Cultists killed"
+      },
+      "516": {
+        "": "Pounds of Flesh",
+        "1": "Vermlings killed"
+      },
+      "517": {
+        "": "Trophy Hunt",
+        "1": "Different types of monsters killed"
+      },
+      "518": {
+        "": "Eternal Wanderer",
+        "1": "Different scenarios completed"
+      },
+      "519": {
+        "": "Battle Legend",
+        "1": "Earned %game.checkmark% from completed battle goals"
+      },
+      "520": {
+        "": "Implement of Light",
+        "1": "Living Bones, Living Corpses, or Living Spirits killed with Skullbane Axe"
+      },
+      "521": {
+        "": "Take Back the Trees",
+        "1": "Completed scenarios in Dagger Forest",
+        "2": "Follow \"Foggy Thicket\" (Scenario 55) to a conclusion"
+      },
+      "522": {
+        "": "The Thin Places",
+        "1": "Completed side scenarios (scenario number > 51)"
+      },
+      "523": {
+        "": "Aberrant Slayer",
+        "1": "Flame Demon killed",
+        "2": "Frost Demon killed",
+        "3": "Wind Demon killed",
+        "4": "Earth Demon killed",
+        "5": "Night Demon killed",
+        "6": "Sun Demon killed"
+      },
+      "524": {
+        "": "Fearless Stand",
+        "1": "Elite monsters killed"
+      },
+      "525": {
+        "": "Piety in All Things",
+        "1": "Gold donated to the Sanctuary of the Great Oak"
+      },
+      "526": {
+        "": "Vengeance",
+        "1": "Completed scenarios in Gloomhaven",
+        "2": "Follow \"Investigation\" (Scenario 57) to a conclusion"
+      },
+      "527": {
+        "": "Zealot of the Blood Good"
+      },
+      "528": {
+        "": "Goliath Toppler",
+        "1": "Completed boss scenarios"
+      },
+      "529": {
+        "": "The Fall of Man",
+        "1": "Completed scenarios in Lingering Swarm",
+        "2": "Follow \"Fading Lighthouse\" (Scenario 61) to a conclusion"
+      },
+      "530": {
+        "": "Augmented Abilities",
+        "1": "Enhancements"
+      },
+      "531": {
+        "": "Elemental Samples",
+        "1": "Completed scenario in Gloomhaven",
+        "2": "Completed scenario in Dagger Forest",
+        "3": "Completed scenario in Lingering Swamp",
+        "4": "Completed scenario in Watcher Mountains",
+        "5": "Completed scenario in Copperneck Mountains",
+        "6": "Completed scenario in Misty Sea"
+      },
+      "532": {
+        "": "A Helping Hand",
+        "1": "Personal quests achieved"
+      },
+      "533": {
+        "": "The Perfect Poison",
+        "1": "Oozes killed",
+        "2": "Lurkers killed",
+        "3": "Spitting Drakes killed"
+      }
+    }
+  },
+  "scenario": {
+    "group": {
+      "randomDungeon": "%scenario.random%",
+      "randomMonsterCard": "การ์ดมอนสเตอร์สุ่ม"
+    },
+    "rewards": {
+      "gh": {
+        "54": "เกษียณ Seeker of Xorn ทันที ใช้เหตุการณ์เมืองและถนนแทนเหตุการณ์เกษียณปกติของคลาส",
+        "56": "เป้าหมาย \"Take Back the Trees\" สำเร็จ",
+        "58": "เป้าหมาย \"Vengeance\" สำเร็จ",
+        "60": "เป้าหมาย \"Finding the Cure\" สำเร็จ",
+        "62": "เป้าหมาย \"The Fall of Man\" สำเร็จ"
+      }
+    },
+    "rules": {
+      "gh": {
+        "19": {
+          "1": "towards the altar %game.mapMarker.b%"
+        },
+        "22": {
+          "1": "For each altar that isn't destroyed, regardless of whether it has been revealed, the maximum hit point and attack values of all demons is increased by 1 and their movement and range values are increased by 0.5 (rounded up). Melee attacks do not increase in range."
+        },
+        "36": {
+          "1": "The Prime Demon starts the scenario with twice the number of hit points indicated on its stat card."
+        },
+        "38": {
+          "1": "towards the shaman on the D tile"
+        },
+        "42": {
+          "1": "All monsters add +1 %game.action.attack% to all their attacks",
+          "2": "All monsters gain Advantage on all their attacks",
+          "3": "All monsters heal 1 hit point at the start of each of their turns",
+          "4": "All characters and character summons suffer 1 damage at the start of each of their turns.",
+          "5": "All characters and character summons gain Disadvantage on all their attacks.",
+          "6": "All characters and character summons deduct -1 Attack from all their attacks."
+        },
+        "54": {
+          "1": "All Cave Bears add %game.condition.poison% to all their attacks."
+        },
+        "67": {
+          "1": "The elite Stone Golem is one level higher than the scenario level, up to a maximum of 7, and it has HxC hit points, where H is an elite Stone Golem's regular hit point value. This is the Arcane Golem. It cannot enter or pass through door %game.mapMarker.2%."
+        },
+        "71": {
+          "1": "Move left",
+          "2": "Move up",
+          "3": "Move right",
+          "4": "Move down"
+        },
+        "73": {
+          "1": "Roll boulders down."
+        },
+        "74": {
+          "1": "Add water tile."
+        },
+        "78": {
+          "1": "The two Cultists %game.mapMarker.b%, as well as the victim %game.mapMarker.a%, are immune to forced movement, %game.condition.immobilize%, and %game.condition.stun%, and can also open doors.",
+          "2": "Immune to forced movement",
+          "3": "Can open doors"
+        },
+        "79": {
+          "1": "Move to starting location, if moved off, then perform"
+        },
+        "86": {
+          "1": "towards the end of the docks %game.mapMarker.b%"
+        },
+        "89": {
+          "1": "All Cultists summon elite Giant Vipers instead of normal Living Bones."
+        }
+      }
+    },
+    "title": {
+      "gh": {
+        "1": "Black Barrow",
+        "10": "มิติแห่งพลังธาตุ",
+        "11": "จัตุรัส Gloomhaven A",
+        "12": "จัตุรัส Gloomhaven B",
+        "13": "วิหารผู้หยั่งรู้",
+        "14": "โพรงเยือกแข็ง",
+        "15": "ศาลแห่งพลัง",
+        "16": "ช่องเขา",
+        "17": "เกาะที่หายไป",
+        "18": "ท่อระบายน้ำร้าง",
+        "19": "สุสานที่ถูกลืม",
+        "2": "ที่ซ่อน Barrow",
+        "20": "สถานที่ศักดิ์สิทธิ์เนโครแมนเซอร์",
+        "21": "บัลลังก์นรก",
+        "22": "วิหารธาตุ",
+        "23": "ซากปรักหักพังลึก",
+        "24": "ห้องก้อง",
+        "25": "ปีน Icecrag",
+        "26": "อ่างเก็บน้ำโบราณ",
+        "27": "รอยแยกพังพินาศ",
+        "28": "ห้องพิธีภายนอก",
+        "29": "สถานที่ศักดิ์สิทธิ์แห่งความมืด",
+        "3": "ค่าย Inox",
+        "30": "Shrine of the Depths",
+        "31": "Plane of the Night",
+        "32": "Decrepit Wood",
+        "33": "Savvas Armory",
+        "34": "Scorched Summit",
+        "35": "Gloomhaven Battlements A",
+        "36": "Gloomhaven Battlements B",
+        "37": "Doom Trench",
+        "38": "Slave Pens",
+        "39": "Treacherous Divide",
+        "4": "Crypt of the Damned",
+        "40": "Ancient Defense Network",
+        "41": "Timeworn Tomb",
+        "42": "Realm of the Voice",
+        "43": "Drake Nest",
+        "44": "Tribal Assault",
+        "45": "Rebel Swamp",
+        "46": "Nightmare Peak",
+        "47": "Lair of the Unseeing Eye",
+        "48": "Shadow Weald",
+        "49": "Rebel's Stand",
+        "5": "Ruinous Crypt",
+        "50": "Ghost Fortress",
+        "51": "The Void",
+        "52": "Noxious Cellar",
+        "53": "Crypt Basement",
+        "54": "Palace of Ice",
+        "55": "Foggy Thicket",
+        "56": "Bandit's Wood",
+        "57": "Investigation",
+        "58": "Bloody Shack",
+        "59": "Forgotten Grove",
+        "6": "Decaying Crypt",
+        "60": "Alchemy Lab",
+        "61": "Fading Lighthouse",
+        "62": "Pit of Souls",
+        "63": "Magma Pit",
+        "64": "Underwater Lagoon",
+        "65": "Sulfur Mine",
+        "66": "Clockwork Cove",
+        "67": "Arcane Library",
+        "68": "Toxic Moor",
+        "69": "Well of the Unfortunate",
+        "7": "Vibrant Grotto",
+        "70": "Chained Isle",
+        "71": "Windswept Highlands",
+        "72": "Oozing Grove",
+        "73": "Rockslide Ridge",
+        "74": "Merchant Ship",
+        "75": "Overgrown Graveyard",
+        "76": "Harrower Hive",
+        "77": "Vault of Secrets",
+        "78": "Sacrifice Pit",
+        "79": "Lost Temple",
+        "8": "Gloomhaven Warehouse",
+        "80": "Vigil Keep",
+        "81": "Temple of the Eclipse",
+        "82": "Burning Mountain",
+        "83": "Shadows Within",
+        "84": "Crystalline Cave",
+        "85": "Sun Temple",
+        "86": "Harried Village",
+        "87": "Corrupted Cove",
+        "88": "Plane of Water",
+        "89": "Syndicate Hideout",
+        "9": "Diamond Mine",
+        "90": "Demonic Rift",
+        "91": "Wild Melee",
+        "92": "Back Alley Brawl",
+        "93": "Sunken Vessel",
+        "94": "Vermling Nest",
+        "95": "Payment Due",
+        "randomDungeon-rnd": "ดันเจี้ยนสุ่ม",
+        "solo-1": "Return to the Black Barrow",
+        "solo-10": "Harvesting the Night",
+        "solo-11": "Plagued Crypt",
+        "solo-12": "Unnatural Insults",
+        "solo-13": "Battle of the Bards",
+        "solo-14": "Corrupted Hunt",
+        "solo-15": "Aftermath",
+        "solo-16": "Elemental Secrets",
+        "solo-17": "The Caged Bear",
+        "solo-2": "An Unfortunate Intrusion",
+        "solo-3": "Corrupted Laboratory",
+        "solo-4": "Armory Heist",
+        "solo-5": "Stone Defense",
+        "solo-6": "Rodent Liberation",
+        "solo-7": "Caravan Escort",
+        "solo-8": "Storage Fees",
+        "solo-9": "Plane of Wild Beasts"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "gh": {
+        "82-A": "%scenario.conclusion% A",
+        "82-B": "%scenario.conclusion% B",
+        "randomMonsterCard-554": "ขนร่วง",
+        "randomMonsterCard-555": "จมน้ำ",
+        "randomMonsterCard-556": "สิ้นหวัง",
+        "randomMonsterCard-557": "ถูกมลทิน",
+        "randomMonsterCard-558": "ป่า",
+        "randomMonsterCard-559": "เสริม",
+        "randomMonsterCard-560": "โหด",
+        "randomMonsterCard-561": "เน่า",
+        "randomMonsterCard-562": "หมอก",
+        "randomMonsterCard-563": "บด",
+        "randomMonsterCard-564": "เผ่า",
+        "randomMonsterCard-565": "น่าสะพรึง",
+        "randomMonsterCard-566": "โบราณ",
+        "randomMonsterCard-567": "มีเกล็ด",
+        "randomMonsterCard-568": "มีพิษ",
+        "randomMonsterCard-569": "ไม่เสถียร",
+        "randomMonsterCard-570": "เสื่อม",
+        "randomMonsterCard-571": "ติดเชื้อ",
+        "randomMonsterCard-572": "เหม็น",
+        "randomMonsterCard-573": "เยือก",
+        "solo-15-1": "Aftermath",
+        "solo-17-1": "The Caged Bear",
+        "solo-17-2": "The Caged Bear",
+        "solo-17-3": "The Caged Bear",
+        "solo-4-A2a": "Armory Heist",
+        "solo-4-B2b": "Armory Heist",
+        "solo-4-H1b": "Armory Heist",
+        "solo-6-1": "Rodent Liberation",
+        "solo-6-2": "Rodent Liberation",
+        "solo-6-3": "Rodent Liberation",
+        "solo-7-1": "Caravan Escort",
+        "solo-7-2": "Caravan Escort",
+        "solo-A1b": "Battle of the Bards",
+        "solo-G2b": "Battle of the Bards",
+        "solo-I1a": "Battle of the Bards"
+      }
+    }
+  }
+}

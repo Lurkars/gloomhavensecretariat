@@ -1,0 +1,15 @@
+{
+  "edition": {
+    "sox": "ผู้แสวงหาซอร์น"
+  },
+  "monster": {
+    "night-demon-sox": "%data.monster.night-demon% (%data.edition.sox%)",
+    "tormented-soul": "วิญญาณทรมาน",
+    "water-eel": "ปลาไหลน้ำ"
+  },
+  "scenario": {
+    "Crypt of the Ancients": "สุสานแห่งบรรพบุรุษ",
+    "Flooded Crypt": "สุสานที่ถูกน้ำท่วม",
+    "Nobles' Crypt": "สุสานแห่งขุนนาง"
+  }
+}
