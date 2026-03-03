@@ -93,14 +93,14 @@
     "cardId": "03",
     "edition": "jotl",
     "type": "city",
-    "narrative": "\"I'll have you know, I have the ear of Councilman Greymare! He would be quite interested to hear the outrageous prices you're charging for routine tailoring! Primitive! You—you thick-skulled barbarian!\" A short, bearded man continues shouting as he walks out of a tailor in the Mixed District. \"I'll hem my own clothes. It certainly can't be that difficult if you've made a business of it!\"<br><br>With that, he turns and promptly trips over his robes, dashing the leather-bound books he was carrying all over the cobblestone street. At least one of them looks interesting...",
+    "narrative": "\"I'll have you know, I have the ear of Councilman Greymare! He would be quite interested to hear the outrageous prices you're charging for routine tailoring! Primitive! You-you thick-skulled barbarian!\" A short, bearded man continues shouting as he walks out of a tailor in the Mixed District. \"I'll hem my own clothes. It certainly can't be that difficult if you've made a business of it!\"<br><br>With that, he turns and promptly trips over his robes, dashing the leather-bound books he was carrying all over the cobblestone street. At least one of them looks interesting...",
     "options": [
       {
         "label": "A",
         "narrative": "Help him gather his scattered books.",
         "outcomes": [
           {
-            "narrative": "You hand over the last of the books as he dusts himself off. \"Hmph! Well, thank you. Ah—the Jaws. Dominic Scrim, good to make your acquaintance. I wish the rest of these mercenaries were as helpful as you lot. Maybe there are some good among you. A token of my gratitude...\"",
+            "narrative": "You hand over the last of the books as he dusts himself off. \"Hmph! Well, thank you. Ah-the Jaws. Dominic Scrim, good to make your acquaintance. I wish the rest of these mercenaries were as helpful as you lot. Maybe there are some good among you. A token of my gratitude...\"",
             "effects": [
               {
                 "type": "collectiveGold",
@@ -132,7 +132,7 @@
     "cardId": "04",
     "edition": "jotl",
     "type": "city",
-    "narrative": "You're walking along the stalls of the Sinking Market when a display of exotic fruit catches your eye. The proprietor walks you through a few of the offerings: grain-cherries, blood melon—even a hard nut that can be broken open to reveal sweet milk. You start discussing which to purchase with your companions and the shopkeep's attention turns to other interested patrons.<br><br>Out of the corner of your eye, you see a young Vermling reach up to swipe some red berries from a display basket.",
+    "narrative": "You're walking along the stalls of the Sinking Market when a display of exotic fruit catches your eye. The proprietor walks you through a few of the offerings: grain-cherries, blood melon-even a hard nut that can be broken open to reveal sweet milk. You start discussing which to purchase with your companions and the shopkeep's attention turns to other interested patrons.<br><br>Out of the corner of your eye, you see a young Vermling reach up to swipe some red berries from a display basket.",
     "options": [
       {
         "label": "A",
@@ -156,7 +156,7 @@
         "narrative": "Let it slide. It's not your problem.",
         "outcomes": [
           {
-            "narrative": "The Vermling crams a handful of the berries into her mouth. Juice runs down the child's chin as she rushes away—but she makes it no more than a few steps before collapsing to the ground, gasping for air. The shopkeep immediately realizes what happened. \"Idiot! Red tin-berries are poisonous!\" He leans down, popping a green berry from his pocket into the Vermling's mouth. \"That should counteract the poison.\" After a moment, she sputters back to life and darts into the nearest sewer grate.",
+            "narrative": "The Vermling crams a handful of the berries into her mouth. Juice runs down the child's chin as she rushes away-but she makes it no more than a few steps before collapsing to the ground, gasping for air. The shopkeep immediately realizes what happened. \"Idiot! Red tin-berries are poisonous!\" He leans down, popping a green berry from his pocket into the Vermling's mouth. \"That should counteract the poison.\" After a moment, she sputters back to life and darts into the nearest sewer grate.",
             "effects": [
               {
                 "type": "noEffect"
@@ -213,7 +213,7 @@
     "cardId": "06",
     "edition": "jotl",
     "type": "city",
-    "narrative": "New wanted posters are going up around town featuring someone that looks strangely like one of your party members. You'd need to reposition their nose a bit and maybe throw a hood over their head, but you could probably collect on the fifteen-gold bounty.<br><br>After a bit of banter, you all agree that would be crazy. Even if you convinced the guards your party member was this crook and got the bounty, they'd have to escape from jail afterward. It certainly wouldn't be worth it. Just crazy-talk between good friends. Heh. No way, no how, not these buddies. Thick as—",
+    "narrative": "New wanted posters are going up around town featuring someone that looks strangely like one of your party members. You'd need to reposition their nose a bit and maybe throw a hood over their head, but you could probably collect on the fifteen-gold bounty.<br><br>After a bit of banter, you all agree that would be crazy. Even if you convinced the guards your party member was this crook and got the bounty, they'd have to escape from jail afterward. It certainly wouldn't be worth it. Just crazy-talk between good friends. Heh. No way, no how, not these buddies. Thick as-",
     "options": [
       {
         "label": "A",
@@ -407,14 +407,14 @@
     "cardId": "10",
     "edition": "jotl",
     "type": "city",
-    "narrative": "\"A witch!\" an Inox dockworker slurs loudly from the corner of the Sleeping Lion. \"She came outta the sewers and turned the foreman into a—*hic*—into a fish!\" You turn back to your drink, but the man keeps shouting. \"I'll stake three days' pay for anyone who can kill her!\" Suddenly, you are interested in his ramblings.<br><br>You follow the drunk's directions which, predictably, get you hopelessly lost in the network of sewers under Gloomhaven. You're considering just tunneling to the surface when you hear scratching behind you. You draw your weapons and turn, ready for a fight. An ancient Valrath stands feebly before you, bent and wizened with age. A cord of dried fish hangs around her neck. She ignores your weapons and silently points a gnarled finger past you, down a nearby passage.",
+    "narrative": "\"A witch!\" an Inox dockworker slurs loudly from the corner of the Sleeping Lion. \"She came outta the sewers and turned the foreman into a-*hic*-into a fish!\" You turn back to your drink, but the man keeps shouting. \"I'll stake three days' pay for anyone who can kill her!\" Suddenly, you are interested in his ramblings.<br><br>You follow the drunk's directions which, predictably, get you hopelessly lost in the network of sewers under Gloomhaven. You're considering just tunneling to the surface when you hear scratching behind you. You draw your weapons and turn, ready for a fight. An ancient Valrath stands feebly before you, bent and wizened with age. A cord of dried fish hangs around her neck. She ignores your weapons and silently points a gnarled finger past you, down a nearby passage.",
     "options": [
       {
         "label": "A",
         "narrative": "Cut her down and claim the reward.",
         "outcomes": [
           {
-            "narrative": "Sometimes dockworkers tell tall tales. This is not one of those times. Before you can even bring your weapon to bear, the witch is on you like a demon, clawing and biting. After a long battle you emerge victorious and limp back to the inn. The Inox is even drunker than when you left him, but he honors his bounty—which you remind him was four days' pay. As you nurse your wounds over a pint, you reflect that it's a shame dockworkers aren't better compensated.",
+            "narrative": "Sometimes dockworkers tell tall tales. This is not one of those times. Before you can even bring your weapon to bear, the witch is on you like a demon, clawing and biting. After a long battle you emerge victorious and limp back to the inn. The Inox is even drunker than when you left him, but he honors his bounty-which you remind him was four days' pay. As you nurse your wounds over a pint, you reflect that it's a shame dockworkers aren't better compensated.",
             "effects": [
               {
                 "type": "collectiveGold",
@@ -491,7 +491,7 @@
       },
       {
         "label": "B",
-        "narrative": "Doesn't this Orchid know who you are? The Jaws of the Lion don't need to prove themselves to anybody—these games are only for kids anyway.",
+        "narrative": "Doesn't this Orchid know who you are? The Jaws of the Lion don't need to prove themselves to anybody-these games are only for kids anyway.",
         "outcomes": [
           {
             "narrative": "You walk away, reassuring yourself you already know how strong you are. The children taunting you from the sidelines don't even hurt your feelings.",
@@ -697,7 +697,7 @@
         "narrative": "Agree to help unload the caravan.",
         "outcomes": [
           {
-            "narrative": "You arrive at the west gate, but the caravan is nowhere to be found. Jekserah is shouting angrily at her bodyguards—apparently the shipment was stolen in transit. You inquire about payment anyway.<br><br>\"I'm not going to pay you for doing nothing!\" You press the issue, since you held up your part of the bargain. She eventually passes you a few coins, but makes it clear you won't be working together again. The feeling is mutual.",
+            "narrative": "You arrive at the west gate, but the caravan is nowhere to be found. Jekserah is shouting angrily at her bodyguards-apparently the shipment was stolen in transit. You inquire about payment anyway.<br><br>\"I'm not going to pay you for doing nothing!\" You press the issue, since you held up your part of the bargain. She eventually passes you a few coins, but makes it clear you won't be working together again. The feeling is mutual.",
             "effects": [
               {
                 "type": "collectiveGold",
@@ -714,7 +714,7 @@
         "narrative": "Refuse the woman. Something is off.",
         "outcomes": [
           {
-            "narrative": "She doesn't take kindly to being refused—it seems your response isn't something she encounters often. She stands from the table in a huff: \"You think you're the only mercenaries in this town? I'll find some other idiots to do my bidding.\"",
+            "narrative": "She doesn't take kindly to being refused-it seems your response isn't something she encounters often. She stands from the table in a huff: \"You think you're the only mercenaries in this town? I'll find some other idiots to do my bidding.\"",
             "effects": [
               {
                 "type": "noEffect"

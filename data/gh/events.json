@@ -329,7 +329,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "The town erupts into chaos with panicked cries of 'Vermlings!' — a perfect opportunity to collect some valuables. Slinking around to an abandoned shop, you find a way in and pilfer the safe. In the morning, the devastation from the assault is noticeable. Downtrodden looks greet you as you pass, and you wonder if your presence was missed along the walls.",
+            "narrative": "The town erupts into chaos with panicked cries of 'Vermlings!' - a perfect opportunity to collect some valuables. Slinking around to an abandoned shop, you find a way in and pilfer the safe. In the morning, the devastation from the assault is noticeable. Downtrodden looks greet you as you pass, and you wonder if your presence was missed along the walls.",
             "effects": [
               {
                 "type": "randomItemDesign"
@@ -641,7 +641,7 @@
     "cardId": "11",
     "edition": "gh",
     "type": "city",
-    "narrative": "\"Please, something of interest, sirs.\" The words come through in chitters and hisses. You turn your head toward an alley in the Ward of Scales to see a Harrower dressed in crude robes and a mask. It holds out a piece of parchment.<br><br>\"Something for sirs. Very powerful. Just five gold.\"<br><br>You can see the parchment has the designs for something on it, but still — you recognize this Harrower. It is known for trading in disreputable goods. You can't know where that parchment came from, and if anyone saw you dealing with this creature...well, they might get the wrong idea.",
+    "narrative": "\"Please, something of interest, sirs.\" The words come through in chitters and hisses. You turn your head toward an alley in the Ward of Scales to see a Harrower dressed in crude robes and a mask. It holds out a piece of parchment.<br><br>\"Something for sirs. Very powerful. Just five gold.\"<br><br>You can see the parchment has the designs for something on it, but still - you recognize this Harrower. It is known for trading in disreputable goods. You can't know where that parchment came from, and if anyone saw you dealing with this creature...well, they might get the wrong idea.",
     "options": [
       {
         "label": "A",
@@ -824,7 +824,7 @@
     "cardId": "14",
     "edition": "gh",
     "type": "city",
-    "narrative": "You hear screams from the south as you approach the docks and see a group of women running toward you in a panic. \"An invasion!\" They yell as they race by you, nearly knocking you over. You hurry to the docks and find a crowd of workers on edge, armed with makeshift weapons and circling one particular pier. Standing at the far end of the wooden planks is a group of Lurkers — terrifying crab-like monsters as big as an Inox and equally ferocious. Except these Lurkers don't appear to be hostile. They are simply standing on the dock, clacking their claws in a strange rhythm.",
+    "narrative": "You hear screams from the south as you approach the docks and see a group of women running toward you in a panic. \"An invasion!\" They yell as they race by you, nearly knocking you over. You hurry to the docks and find a crowd of workers on edge, armed with makeshift weapons and circling one particular pier. Standing at the far end of the wooden planks is a group of Lurkers - terrifying crab-like monsters as big as an Inox and equally ferocious. Except these Lurkers don't appear to be hostile. They are simply standing on the dock, clacking their claws in a strange rhythm.",
     "options": [
       {
         "label": "A",
@@ -1553,7 +1553,7 @@
                 "tinkerer"
               ]
             },
-            "narrative": "You quickly identify the source of the problem — some frayed wiring in the kitchen — and have it replaced in no time. The proprietor seems very impressed by your work and gives free drinks all around in your name.",
+            "narrative": "You quickly identify the source of the problem - some frayed wiring in the kitchen - and have it replaced in no time. The proprietor seems very impressed by your work and gives free drinks all around in your name.",
             "removeFromDeck": true,
             "effects": [
               {
@@ -1625,7 +1625,7 @@
     "cardId": "27",
     "edition": "gh",
     "type": "city",
-    "narrative": "You are out in the Ward of Scales when you see a crowd of people forming to the south, growing louder and more dense by the second. As you approach, you see through the angry mob a terrified Vermling being pulled in your direction by a group of gruff men. \"Dirty thief!\" a woman next to you screams. \"String it up!\" Glancing behind you to where the crowd appears to be headed, you see a disused gibbet in the market square. The men — clearly not guards — move closer.",
+    "narrative": "You are out in the Ward of Scales when you see a crowd of people forming to the south, growing louder and more dense by the second. As you approach, you see through the angry mob a terrified Vermling being pulled in your direction by a group of gruff men. \"Dirty thief!\" a woman next to you screams. \"String it up!\" Glancing behind you to where the crowd appears to be headed, you see a disused gibbet in the market square. The men - clearly not guards - move closer.",
     "options": [
       {
         "label": "A",
@@ -1757,7 +1757,7 @@
     "cardId": "29",
     "edition": "gh",
     "type": "city",
-    "narrative": "You get word from a contact that there is trouble brewing down at the East Walls and decide to investigate. What you find is a large contingency of the city's Savvas workforce — the best builders you'll find anywhere — in open rebellion against the construction managers, demanding better pay for the specialized work they perform. \"This city would be a lifeless pile of rocks without us!\" one of the Savvas yells. \"It's time we see some of its prosperity!\" The manager on the other side of the argument looks like a captured mouse, not sure at all how to get out of the situation.",
+    "narrative": "You get word from a contact that there is trouble brewing down at the East Walls and decide to investigate. What you find is a large contingency of the city's Savvas workforce - the best builders you'll find anywhere - in open rebellion against the construction managers, demanding better pay for the specialized work they perform. \"This city would be a lifeless pile of rocks without us!\" one of the Savvas yells. \"It's time we see some of its prosperity!\" The manager on the other side of the argument looks like a captured mouse, not sure at all how to get out of the situation.",
     "options": [
       {
         "label": "A",
@@ -2059,7 +2059,7 @@
     "cardId": "33",
     "edition": "gh",
     "type": "city",
-    "narrative": "The Void is a troubling area in Gloomhaven — a vast, barren expanse of black sand amid the bustling streets of the city. No one enters its perimeter. On a trip to the University, however, you see a young girl playing near the edge of the Void. Before you can warn her, she trips and falls onto the sand. She immediately emits a blood-curdling scream and begins to tear at her skin.",
+    "narrative": "The Void is a troubling area in Gloomhaven - a vast, barren expanse of black sand amid the bustling streets of the city. No one enters its perimeter. On a trip to the University, however, you see a young girl playing near the edge of the Void. Before you can warn her, she trips and falls onto the sand. She immediately emits a blood-curdling scream and begins to tear at her skin.",
     "options": [
       {
         "label": "A",
@@ -2185,7 +2185,7 @@
     "options": [
       {
         "label": "A",
-        "narrative": "Point the way to the Sinking Market — the only place that would deal with them.",
+        "narrative": "Point the way to the Sinking Market - the only place that would deal with them.",
         "removeFromDeck": true,
         "outcomes": [
           {
@@ -2571,7 +2571,7 @@
     "cardId": "40",
     "edition": "gh",
     "type": "city",
-    "narrative": "You are shopping for supplies in the Boiler's District when an intense explosion knocks you off your feet. You look in the direction of the heat waves to see plumes of fire and smoke rising from a building less than a block a way. The fire rages uncontrollably and there are many wounded residents laying near the blast, screaming in pain. You also spot something else — a hooded figure in a dark robe fleeing from the scene.",
+    "narrative": "You are shopping for supplies in the Boiler's District when an intense explosion knocks you off your feet. You look in the direction of the heat waves to see plumes of fire and smoke rising from a building less than a block a way. The fire rages uncontrollably and there are many wounded residents laying near the blast, screaming in pain. You also spot something else - a hooded figure in a dark robe fleeing from the scene.",
     "options": [
       {
         "label": "A",
@@ -2791,7 +2791,7 @@
     "cardId": "43",
     "edition": "gh",
     "type": "city",
-    "narrative": "You return to your rooms for the evening to find a small note resting on the ground in front of your door. It is from the Tinkerer, explaining that he has been pursuing further studies in flammable liquid delivery methods. He asks for your help in delivering to him a small robotic contraption that he absentmindedly left behind in a secret stash under the floorboards of his old room. He details the device's location and gives an address to deliver it to — some small village far to the northwest.",
+    "narrative": "You return to your rooms for the evening to find a small note resting on the ground in front of your door. It is from the Tinkerer, explaining that he has been pursuing further studies in flammable liquid delivery methods. He asks for your help in delivering to him a small robotic contraption that he absentmindedly left behind in a secret stash under the floorboards of his old room. He details the device's location and gives an address to deliver it to - some small village far to the northwest.",
     "options": [
       {
         "label": "A",
@@ -3243,7 +3243,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You set to work reinforcing the gate with anything you can find — planks of wood, carts full of stones, your own bodies. Due to your tremendous effort, the guards on the walls manage to bring down the beast before it breaks through. The various merchants of the Boiler's District thank you for your valiant service.",
+            "narrative": "You set to work reinforcing the gate with anything you can find - planks of wood, carts full of stones, your own bodies. Due to your tremendous effort, the guards on the walls manage to bring down the beast before it breaks through. The various merchants of the Boiler's District thank you for your valiant service.",
             "effects": [
               {
                 "type": "gold",
@@ -3332,7 +3332,7 @@
     "cardId": "52",
     "edition": "gh",
     "type": "city",
-    "narrative": "You have been hearing rumors in the bars: a pox is spreading through Gloomhaven, affecting lower class citizens — street urchins and back-alley thugs. And then one night you see it: a Harrower dressed in a ragged green cloak holding a man down in an alley as its swarm spreads out and consumes him. The man's screams are muffled as the insects skitter down his throat. Killing monsters and demons is one thing, but the Plagueherald shouldn't be preying on people in the city. You approach it, intent on stopping its attack.",
+    "narrative": "You have been hearing rumors in the bars: a pox is spreading through Gloomhaven, affecting lower class citizens - street urchins and back-alley thugs. And then one night you see it: a Harrower dressed in a ragged green cloak holding a man down in an alley as its swarm spreads out and consumes him. The man's screams are muffled as the insects skitter down his throat. Killing monsters and demons is one thing, but the Plagueherald shouldn't be preying on people in the city. You approach it, intent on stopping its attack.",
     "options": [
       {
         "label": "A",
@@ -3727,7 +3727,7 @@
     "cardId": "60",
     "edition": "gh",
     "type": "city",
-    "narrative": "You are wandering the Ward of Scales in the evening when a crowd of people begins to form outside one of the shops, growing louder and more dense by the second. As you approach, you see a terrified family of Quatryls through a familiar angry mob. The father pleads with a group of disheveled men with torches. \"Cheats!\" A woman next to you screams. \"Burn the store down!\" One of the men — clearly not a guard — backhands the father away from the door and pushes his way inside the shop.",
+    "narrative": "You are wandering the Ward of Scales in the evening when a crowd of people begins to form outside one of the shops, growing louder and more dense by the second. As you approach, you see a terrified family of Quatryls through a familiar angry mob. The father pleads with a group of disheveled men with torches. \"Cheats!\" A woman next to you screams. \"Burn the store down!\" One of the men - clearly not a guard - backhands the father away from the door and pushes his way inside the shop.",
     "options": [
       {
         "label": "A",
@@ -4263,7 +4263,7 @@
     "cardId": "69",
     "edition": "gh",
     "type": "city",
-    "narrative": "You are rather surprised to walk into the Brown Door one night to see your old friend the Soothsinger playing a song on the corner stage. You are even more surprised when you get closer and discover the song is about you. It is a raucous tale about the time she met you in a forest and you gave her terrible directions — just the worst, most backward directions possible. Everyone in the crowd is tearing up with laughter as she eloquently describes your bumbling and ineptitude.",
+    "narrative": "You are rather surprised to walk into the Brown Door one night to see your old friend the Soothsinger playing a song on the corner stage. You are even more surprised when you get closer and discover the song is about you. It is a raucous tale about the time she met you in a forest and you gave her terrible directions - just the worst, most backward directions possible. Everyone in the crowd is tearing up with laughter as she eloquently describes your bumbling and ineptitude.",
     "options": [
       {
         "label": "A",
@@ -4414,7 +4414,7 @@
     "cardId": "72",
     "edition": "gh",
     "type": "city",
-    "narrative": "The metal sphere and rod — you've had them in your possession for a while now and occasionally pull them out to mull over the carvings. You've brought it to the University, but they can't make any sense of it either. You are fiddling with the device in the Sleeping Lion when you are tapped on the shoulder. You turn to see a wicked grin on the dirty face of a old bandit. \"They call me Fish, and that there is a key, friend — a key of the ancient sort.\" Before you can ask, Fish pulls out a similar black sphere atop a metal rod. \"They're twins, ain't they, and Fish knows just what they open. A tomb of treasure, friend. Come, come, Fish will show you the way.\"",
+    "narrative": "The metal sphere and rod - you've had them in your possession for a while now and occasionally pull them out to mull over the carvings. You've brought it to the University, but they can't make any sense of it either. You are fiddling with the device in the Sleeping Lion when you are tapped on the shoulder. You turn to see a wicked grin on the dirty face of a old bandit. \"They call me Fish, and that there is a key, friend - a key of the ancient sort.\" Before you can ask, Fish pulls out a similar black sphere atop a metal rod. \"They're twins, ain't they, and Fish knows just what they open. A tomb of treasure, friend. Come, come, Fish will show you the way.\"",
     "options": [
       {
         "label": "A",
@@ -4469,7 +4469,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "\"Yes, very interesting,\" a bookish Quatryl says as he rolls the crystal over in his hand. \"It seems as if this crystal is attuned to a specific location, and once removed, it begins vibrating until mountains and houses start falling down. I'd say you need to return it to its proper home. With the proper tools, which I'll need help paying for — I should be able to triangulate that location for you.\"",
+            "narrative": "\"Yes, very interesting,\" a bookish Quatryl says as he rolls the crystal over in his hand. \"It seems as if this crystal is attuned to a specific location, and once removed, it begins vibrating until mountains and houses start falling down. I'd say you need to return it to its proper home. With the proper tools, which I'll need help paying for - I should be able to triangulate that location for you.\"",
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -4543,7 +4543,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You enter the fortune-teller's tent and the old Orchid woman's expression immediately goes dark. She gestures you to sit at her table, and when you do, she grabs your arm and looks deep into your eyes. \"Your path is dark and cursed. There is a shadow around you — a Gloom. You must leave this place. Be rid of it before it consumes you.\"",
+            "narrative": "You enter the fortune-teller's tent and the old Orchid woman's expression immediately goes dark. She gestures you to sit at her table, and when you do, she grabs your arm and looks deep into your eyes. \"Your path is dark and cursed. There is a shadow around you - a Gloom. You must leave this place. Be rid of it before it consumes you.\"",
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -4942,7 +4942,7 @@
     "cardId": "01",
     "edition": "gh",
     "type": "road",
-    "narrative": "\"Heading out a little late, aren't you?\" The guard at the wall looks at you passively. You grunt in response and head through the opened gate.<br><br>\"Nobody's gonna go looking for your corpse if you don't return!\" the guard shouts at your back.<br><br>You ended up embarking out on the road much later than you had hoped — events in town saw to that — but as dusk settles on the horizon you feel confident that you are up to any threat you might face.<br><br>And then begins the howling of wolves — vicious, foul beasts — and, judging from their sounds, they seem to be getting closer.",
+    "narrative": "\"Heading out a little late, aren't you?\" The guard at the wall looks at you passively. You grunt in response and head through the opened gate.<br><br>\"Nobody's gonna go looking for your corpse if you don't return!\" the guard shouts at your back.<br><br>You ended up embarking out on the road much later than you had hoped - events in town saw to that - but as dusk settles on the horizon you feel confident that you are up to any threat you might face.<br><br>And then begins the howling of wolves - vicious, foul beasts - and, judging from their sounds, they seem to be getting closer.",
     "options": [
       {
         "label": "A",
@@ -4968,7 +4968,7 @@
         "returnToDeck": true,
         "outcomes": [
           {
-            "narrative": "Confident that the wolves pose no significant threat, you stand your ground and prepare for battle. The pack comes — ragged and hungry, slowly emerging from the dark — and surrounds your party.<br><br>There are more of them than you expected, but not enough to take you down. You suffer a bite or two, but are able to fight them off.",
+            "narrative": "Confident that the wolves pose no significant threat, you stand your ground and prepare for battle. The pack comes - ragged and hungry, slowly emerging from the dark - and surrounds your party.<br><br>There are more of them than you expected, but not enough to take you down. You suffer a bite or two, but are able to fight them off.",
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -5779,7 +5779,7 @@
             "condition": {
               "type": "otherwise"
             },
-            "narrative": "You try to explain that you mean the Inox no ill will, but the leader eyes you skeptically. \"Foul creature. I curse you and your kind! Run — get off my land and never come back!\"",
+            "narrative": "You try to explain that you mean the Inox no ill will, but the leader eyes you skeptically. \"Foul creature. I curse you and your kind! Run - get off my land and never come back!\"",
             "removeFromDeck": true,
             "effects": [
               {
@@ -5941,7 +5941,7 @@
     "cardId": "21",
     "edition": "gh",
     "type": "road",
-    "narrative": "You find yourself cutting through the dense underbrush of a forest when you notice a number of small woodland animals running along the forest floor in the opposite direction. Mice, squirrels, ferrets — they all appear to be running from something up ahead of you. You are filled with a troubling sense of foreboding as you catch a whiff of smoke in the air.",
+    "narrative": "You find yourself cutting through the dense underbrush of a forest when you notice a number of small woodland animals running along the forest floor in the opposite direction. Mice, squirrels, ferrets - they all appear to be running from something up ahead of you. You are filled with a troubling sense of foreboding as you catch a whiff of smoke in the air.",
     "options": [
       {
         "label": "A",
@@ -6005,7 +6005,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "Well, I certainly could not have done that on my own. Your assistance is greatly appreciated. I tell you what — the next time we're back in Gloomhaven, why don't you stop by our circus, and we'll let you in for free.",
+            "narrative": "Well, I certainly could not have done that on my own. Your assistance is greatly appreciated. I tell you what - the next time we're back in Gloomhaven, why don't you stop by our circus, and we'll let you in for free.",
             "effects": [
               {
                 "type": "event",
@@ -6024,7 +6024,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You take pity on an old Orchid woman trying to extricate her fortune-teller's wagon by herself. You help her get it back on the road, and then she grabs you and looks deep into your eyes. \"Your path is dark and cursed. There is a shadow around you — a Gloom. You must leave this place. Be rid of it before it consumes you.\"",
+            "narrative": "You take pity on an old Orchid woman trying to extricate her fortune-teller's wagon by herself. You help her get it back on the road, and then she grabs you and looks deep into your eyes. \"Your path is dark and cursed. There is a shadow around you - a Gloom. You must leave this place. Be rid of it before it consumes you.\"",
             "effects": [
               {
                 "type": "experience",
@@ -6095,7 +6095,7 @@
     "cardId": "24",
     "edition": "gh",
     "type": "road",
-    "narrative": "You come across a group of brow-beaten Inox trudging down the path in the opposite direction as you. Some are pulling carts laden with various miscellany, mostly furs and crudely crafted goods. The rest have armloads of much of the same. It is obvious that this is everything the Inox have—their life's worth in their arms and wagons. They are all covered in what appears to be soot. The shaman at the head of the group calls to you. \"The beast awakens! The mountain is aflame! Beware you do not anger it!\" Looking to the horizon, you can see black smoke rising from a far-off peak.",
+    "narrative": "You come across a group of brow-beaten Inox trudging down the path in the opposite direction as you. Some are pulling carts laden with various miscellany, mostly furs and crudely crafted goods. The rest have armloads of much of the same. It is obvious that this is everything the Inox have-their life's worth in their arms and wagons. They are all covered in what appears to be soot. The shaman at the head of the group calls to you. \"The beast awakens! The mountain is aflame! Beware you do not anger it!\" Looking to the horizon, you can see black smoke rising from a far-off peak.",
     "options": [
       {
         "label": "A",
@@ -6774,7 +6774,7 @@
     "cardId": "34",
     "edition": "gh",
     "type": "road",
-    "narrative": "Your travels leave you out in the wilderness overnight, so you make camp and start a fire. It's hard to sleep outside of the comfort of the city, always on guard, looking for the next fatal threat. Luckily the night proves fairly dull. That is, until you hear the sound of voices approaching your camp. They are faint and low — almost like growling, but you can hear indications of language.",
+    "narrative": "Your travels leave you out in the wilderness overnight, so you make camp and start a fire. It's hard to sleep outside of the comfort of the city, always on guard, looking for the next fatal threat. Luckily the night proves fairly dull. That is, until you hear the sound of voices approaching your camp. They are faint and low - almost like growling, but you can hear indications of language.",
     "options": [
       {
         "label": "A",
@@ -7210,7 +7210,7 @@
     "cardId": "40",
     "edition": "gh",
     "type": "road",
-    "narrative": "There were heavy rains last night for sure, but you didn't realize the full extent of it until you come face-to-face with a river raging right through the middle of the road. This river is no small matter, either — it is several feet deep and fast-flowing. It's rather troubling, too, since you have no idea how long it might take to find a decent crossing point.",
+    "narrative": "There were heavy rains last night for sure, but you didn't realize the full extent of it until you come face-to-face with a river raging right through the middle of the road. This river is no small matter, either - it is several feet deep and fast-flowing. It's rather troubling, too, since you have no idea how long it might take to find a decent crossing point.",
     "options": [
       {
         "label": "A",
@@ -7481,7 +7481,7 @@
     "cardId": "45",
     "edition": "gh",
     "type": "road",
-    "narrative": "Riding up on horses, a band of dirty, rough men quickly overtake and surround your group. They look hard and dangerous, and you immediately pull out your weapons as they approach. Then you hear a familiar laugh. \"Well, if it isn't my old crew.\" A woman in dark leather armor leaps off her horse to comes greet you. \"You know what, boys? This lot gets a pass.\" She winks at you and turns around. \"Plus, they'd probably kill you all if things turned ugly.\" Jumping back onto her horse, the Scoundrel looks back at you. \"Well, it was nice seeing you. Just remember — you never saw me.\"",
+    "narrative": "Riding up on horses, a band of dirty, rough men quickly overtake and surround your group. They look hard and dangerous, and you immediately pull out your weapons as they approach. Then you hear a familiar laugh. \"Well, if it isn't my old crew.\" A woman in dark leather armor leaps off her horse to comes greet you. \"You know what, boys? This lot gets a pass.\" She winks at you and turns around. \"Plus, they'd probably kill you all if things turned ugly.\" Jumping back onto her horse, the Scoundrel looks back at you. \"Well, it was nice seeing you. Just remember - you never saw me.\"",
     "options": [
       {
         "label": "A",
@@ -7609,7 +7609,7 @@
     "cardId": "48",
     "edition": "gh",
     "type": "road",
-    "narrative": "You see them long before they get close to you — radiant balls of light blazing against the horizon. Sun Demons. As they approach, you prepare for an attack, but the demons have other plans. They menace you with their glowing claws, but they would rather have information than kill you. \"Where is the one you call a Sunkeeper?\" one of them hisses. \"The Valrath neglects her duties, and now we must resolve matters personally.\" You press for further information, but the demons get angry. \"These are not your concerns! Tell us where she is or die at our hands!\"",
+    "narrative": "You see them long before they get close to you - radiant balls of light blazing against the horizon. Sun Demons. As they approach, you prepare for an attack, but the demons have other plans. They menace you with their glowing claws, but they would rather have information than kill you. \"Where is the one you call a Sunkeeper?\" one of them hisses. \"The Valrath neglects her duties, and now we must resolve matters personally.\" You press for further information, but the demons get angry. \"These are not your concerns! Tell us where she is or die at our hands!\"",
     "options": [
       {
         "label": "A",
@@ -7814,7 +7814,7 @@
     "cardId": "52",
     "edition": "gh",
     "type": "road",
-    "narrative": "You smell the corpses before you see them. A group of five or so, spread across the road, flies buzzing around in a frenzy. As you get closer, you see the wretched, deformed looks on their faces and the boils covering their skin. You also see their crude armor and weapons — likely a group of cutthroats. What is truly odd, though, is that their weapons are out of their sheaths in the first place. It appears they were engaged in battle when they suddenly succumbed to some horrible disease. You can think of at least one way that could have happened. Fine handiwork from the Plagueherald.",
+    "narrative": "You smell the corpses before you see them. A group of five or so, spread across the road, flies buzzing around in a frenzy. As you get closer, you see the wretched, deformed looks on their faces and the boils covering their skin. You also see their crude armor and weapons - likely a group of cutthroats. What is truly odd, though, is that their weapons are out of their sheaths in the first place. It appears they were engaged in battle when they suddenly succumbed to some horrible disease. You can think of at least one way that could have happened. Fine handiwork from the Plagueherald.",
     "options": [
       {
         "label": "A",
@@ -7993,7 +7993,7 @@
     "cardId": "55",
     "edition": "gh",
     "type": "road",
-    "narrative": "You come to a fork in the road. One path looks clear and easy, but the other path is overgrown with thorns and nettles. Either one will likely get you to where you are going. The whole situation feels off, though — as if someone or something is watching you. Still, a decision must be made.",
+    "narrative": "You come to a fork in the road. One path looks clear and easy, but the other path is overgrown with thorns and nettles. Either one will likely get you to where you are going. The whole situation feels off, though - as if someone or something is watching you. Still, a decision must be made.",
     "options": [
       {
         "label": "A",
@@ -8225,7 +8225,7 @@
     "cardId": "60",
     "edition": "gh",
     "type": "road",
-    "narrative": "You see smoke on the horizon and sigh, expecting the worst. Sure enough, you approach the scene to find a ransacked caravan — burned, pillaged, and destroyed by what appears to be Vermlings. You find one survivor among the victims who laments that when the Vermlings came upon them, one of the guards, a large Inox, seemed to throw aside his weapon and simply accept his fate. That's when you find the body of the Brute, torn and bloody among the wreckage. Seeing him this way, the fire gone from his eyes, he appears unnaturally small.",
+    "narrative": "You see smoke on the horizon and sigh, expecting the worst. Sure enough, you approach the scene to find a ransacked caravan - burned, pillaged, and destroyed by what appears to be Vermlings. You find one survivor among the victims who laments that when the Vermlings came upon them, one of the guards, a large Inox, seemed to throw aside his weapon and simply accept his fate. That's when you find the body of the Brute, torn and bloody among the wreckage. Seeing him this way, the fire gone from his eyes, he appears unnaturally small.",
     "options": [
       {
         "label": "A",
@@ -8607,7 +8607,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "\"Well, I just — I mean, I'd never…\" the merchant trails off incredulously. \"To think there are places in the world where such barbarism still exists. It boggles the mind.\"",
+            "narrative": "\"Well, I just - I mean, I'd never…\" the merchant trails off incredulously. \"To think there are places in the world where such barbarism still exists. It boggles the mind.\"",
             "effects": [
               {
                 "type": "gold",

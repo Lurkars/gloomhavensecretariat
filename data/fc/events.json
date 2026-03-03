@@ -255,7 +255,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You are pretty sure that being a guest of honor at a feast will bring unwanted attention, so you opt for the gift instead. The Orchid woman hands you a wrapped bundle. Inside, you find a double-edged dagger unlike anything you have ever seen before—subtle curves and an expert balance. In awe, you thank her profusely. She responds, \"In earlier times, it was the weapon of choice for a notorious thief. Put it to better use.\"",
+            "narrative": "You are pretty sure that being a guest of honor at a feast will bring unwanted attention, so you opt for the gift instead. The Orchid woman hands you a wrapped bundle. Inside, you find a double-edged dagger unlike anything you have ever seen before-subtle curves and an expert balance. In awe, you thank her profusely. She responds, \"In earlier times, it was the weapon of choice for a notorious thief. Put it to better use.\"",
             "effects": [
               {
                 "type": "item",
@@ -276,7 +276,7 @@
     "cardId": "87",
     "edition": "fc",
     "type": "city",
-    "narrative": "Your thoughts turn to the mysterious Orchid girl and the caravan you protected in your trip to the past. She said events could not be changed and it was dangerous to try, but were your attempts to save them really for naught? These thoughts race through your head as you return to your room for the evening and find a note affixed to your door:<br><br>\"I have waited a long time to say thank you, but I hope this still finds you well. The caravan was destined to be lost, but because of you, Moonshard was not, and her company out here in the wilderness all these years has been a true blessing. Perhaps one day we will meet again, but for your own sake, I hope not.<br>— Terra",
+    "narrative": "Your thoughts turn to the mysterious Orchid girl and the caravan you protected in your trip to the past. She said events could not be changed and it was dangerous to try, but were your attempts to save them really for naught? These thoughts race through your head as you return to your room for the evening and find a note affixed to your door:<br><br>\"I have waited a long time to say thank you, but I hope this still finds you well. The caravan was destined to be lost, but because of you, Moonshard was not, and her company out here in the wilderness all these years has been a true blessing. Perhaps one day we will meet again, but for your own sake, I hope not.<br>- Terra",
     "options": [
       {
         "label": "A",
@@ -667,7 +667,7 @@
             "condition": {
               "type": "otherwise"
             },
-            "narrative": "The guards take issue with your appearance and bar your entry to the city—something about fearing foreigners.",
+            "narrative": "The guards take issue with your appearance and bar your entry to the city-something about fearing foreigners.",
             "returnToDeck": true,
             "effects": [
               {
@@ -764,7 +764,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "Such tough ones we have here! You should join in our Tournament of Champions—a competition in various disciplines among all guests of this realm. You can compete to earn unimaginable rewards!",
+            "narrative": "Such tough ones we have here! You should join in our Tournament of Champions-a competition in various disciplines among all guests of this realm. You can compete to earn unimaginable rewards!",
             "effects": [
               {
                 "condition": {
@@ -878,7 +878,7 @@
     "cardId": "04",
     "edition": "fc",
     "type": "rift",
-    "narrative": "You step through the fissure into a bleak and hellish wasteland of grey gravel—no vegetation and no signs of life. The sole irregularity is a group of odd mounds jutting out of the ground in the distance. The silence is unnerving. The only sound accompanying you is your own breath and footfalls.<br><br>As you approach one of the mounds to investigate, reaching out to touch its pitted surface, it explodes in activity. An angry swarm of insects rushes forth, hissing and chittering as they coalesce into the largest Harrower you have ever seen. It faces you, then looks over its shoulder. Out of all the other mounds come more Harrowers, surrounding you threateningly. You glance left and right for a way out, but the barren landscape only mocks your desperation.",
+    "narrative": "You step through the fissure into a bleak and hellish wasteland of grey gravel-no vegetation and no signs of life. The sole irregularity is a group of odd mounds jutting out of the ground in the distance. The silence is unnerving. The only sound accompanying you is your own breath and footfalls.<br><br>As you approach one of the mounds to investigate, reaching out to touch its pitted surface, it explodes in activity. An angry swarm of insects rushes forth, hissing and chittering as they coalesce into the largest Harrower you have ever seen. It faces you, then looks over its shoulder. Out of all the other mounds come more Harrowers, surrounding you threateningly. You glance left and right for a way out, but the barren landscape only mocks your desperation.",
     "options": [
       {
         "label": "A",
@@ -945,7 +945,7 @@
     "cardId": "05",
     "edition": "fc",
     "type": "rift",
-    "narrative": "Passing the gateway, you end up in a barren void with just a few stepping stones beneath your feet. They seem to float in this nothingness without any form of suspension. Needless to say, it only adds to the ghostly atmosphere.<br><br>You step carefully across the rocks, making your way through this lightless and lifeless place until you come upon a milky onyx sphere hovering in front of you. It emits a dark energy, but there is a certain allure that attracts you—it is almost as if you could see a whole starlit sky within.",
+    "narrative": "Passing the gateway, you end up in a barren void with just a few stepping stones beneath your feet. They seem to float in this nothingness without any form of suspension. Needless to say, it only adds to the ghostly atmosphere.<br><br>You step carefully across the rocks, making your way through this lightless and lifeless place until you come upon a milky onyx sphere hovering in front of you. It emits a dark energy, but there is a certain allure that attracts you-it is almost as if you could see a whole starlit sky within.",
     "options": [
       {
         "label": "A",
@@ -1444,7 +1444,7 @@
     "cardId": "14",
     "edition": "fc",
     "type": "rift",
-    "narrative": "Slipping through the fissure, you end up in a quaint little village with a tavern—the Light and Shadow Brewery. You hear the joyful noise of drinking and merriment and decide it might be a good opportunity to have a new experience. Inside, you are seated at the only available table and order some drinks. Many races are getting along well with each other and having a good time.<br><br>A hooded group of Aesthers near the bar seems out of place. You strain your ears to hear their whispers: \"I know a great spot we could ambush incoming travelers from, but we may need help preparing it. Maybe we could hire these mercenaries. The haul we'll get will more than pay their share!\"<br><br>One of them notices you eavesdropping and walks over. He whispers, \"Well, you interested in setting some traps with us? We'll pay you handsomely!\"",
+    "narrative": "Slipping through the fissure, you end up in a quaint little village with a tavern-the Light and Shadow Brewery. You hear the joyful noise of drinking and merriment and decide it might be a good opportunity to have a new experience. Inside, you are seated at the only available table and order some drinks. Many races are getting along well with each other and having a good time.<br><br>A hooded group of Aesthers near the bar seems out of place. You strain your ears to hear their whispers: \"I know a great spot we could ambush incoming travelers from, but we may need help preparing it. Maybe we could hire these mercenaries. The haul we'll get will more than pay their share!\"<br><br>One of them notices you eavesdropping and walks over. He whispers, \"Well, you interested in setting some traps with us? We'll pay you handsomely!\"",
     "options": [
       {
         "label": "A",
@@ -1452,7 +1452,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You agree to aid the group of Aesthers with their scheme and follow them to a wooded crossroads just outside of town—the perfect place for an ambush. You work with them to set various magical traps and are thanked with a bag of coins.",
+            "narrative": "You agree to aid the group of Aesthers with their scheme and follow them to a wooded crossroads just outside of town-the perfect place for an ambush. You work with them to set various magical traps and are thanked with a bag of coins.",
             "effects": [
               {
                 "type": "gold",
@@ -1483,7 +1483,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "Playing along, you agree to aid the group of Aesthers with their scheme and follow them to a wooded crossroads just outside of town—the perfect place for an ambush. With great effort, you set magical traps that appear to work but are sabotaged to backfire when sprung. You are thanked with a bag of coins.",
+            "narrative": "Playing along, you agree to aid the group of Aesthers with their scheme and follow them to a wooded crossroads just outside of town-the perfect place for an ambush. With great effort, you set magical traps that appear to work but are sabotaged to backfire when sprung. You are thanked with a bag of coins.",
             "effects": [
               {
                 "type": "gold",
@@ -1585,7 +1585,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "As this Aesther is so bent on hunting you down, it is quite easy to lead it back to the alleys where you found it. On the way there, you manage to vent some of your frustration—dealing minor blows and guiding it through old traps.",
+            "narrative": "As this Aesther is so bent on hunting you down, it is quite easy to lead it back to the alleys where you found it. On the way there, you manage to vent some of your frustration-dealing minor blows and guiding it through old traps.",
             "effects": [
               "Replace current scenario with \"The Shackles Loosen\" %data.scenarioNumber:111%, and play it immediately in campaign mode until complete, changing the scenario goal to kill the Husk. It starts with [2xC] damage."
             ]
@@ -1654,7 +1654,7 @@
     "cardId": "18",
     "edition": "fc",
     "type": "rift",
-    "narrative": "The drinks at the Light and Shadow Brewery have been on your mind lately. It would be nice to stop back in there and relax for a bit.<br><br>Stepping through the portal, you immediately recognize a certain wooded crossroads. You are happy to note that the brewery is not far, but your happiness is short-lived. Your path is blocked by a grisly scene of slain Aesthers scattering the ground. Torn appendages and blood are everywhere. You remember them—it's the group who hired you to set traps near here. This confirms those traps backfired just as you planned. However, you didn't expect them to create this much carnage.<br><br>Your keen senses also notice a rip in space amidst the scene. It's a portal to another dimension.",
+    "narrative": "The drinks at the Light and Shadow Brewery have been on your mind lately. It would be nice to stop back in there and relax for a bit.<br><br>Stepping through the portal, you immediately recognize a certain wooded crossroads. You are happy to note that the brewery is not far, but your happiness is short-lived. Your path is blocked by a grisly scene of slain Aesthers scattering the ground. Torn appendages and blood are everywhere. You remember them-it's the group who hired you to set traps near here. This confirms those traps backfired just as you planned. However, you didn't expect them to create this much carnage.<br><br>Your keen senses also notice a rip in space amidst the scene. It's a portal to another dimension.",
     "options": [
       {
         "label": "A",
@@ -1806,7 +1806,7 @@
     "cardId": "82",
     "edition": "fc",
     "type": "road",
-    "narrative": "The road stretches out before you, endless and unremarkable. Your spirits flag and your steps drag, having traveled it so many times—from Gloomhaven, back to Gloomhaven—you've committed all its twists and turns to memory.<br><br>But something is strange today. No birds chirp. No animals cross your path. There is a hot, dry wind in the air and no clouds overhead. A sense of foreboding creeps over you.<br><br>And then, there appears a colorful, circular fissure hanging in front of you, beckoning you to step into the unknown. Beyond that whirling maelstrom is an unfamiliar world with possibilities and risks—possibly even a short cut to where you are going. You hesitate with indecision...",
+    "narrative": "The road stretches out before you, endless and unremarkable. Your spirits flag and your steps drag, having traveled it so many times-from Gloomhaven, back to Gloomhaven-you've committed all its twists and turns to memory.<br><br>But something is strange today. No birds chirp. No animals cross your path. There is a hot, dry wind in the air and no clouds overhead. A sense of foreboding creeps over you.<br><br>And then, there appears a colorful, circular fissure hanging in front of you, beckoning you to step into the unknown. Beyond that whirling maelstrom is an unfamiliar world with possibilities and risks-possibly even a short cut to where you are going. You hesitate with indecision...",
     "options": [
       {
         "label": "A",
@@ -1850,7 +1850,7 @@
     "cardId": "83",
     "edition": "fc",
     "type": "road",
-    "narrative": "The road stretches out before you, endless and unremarkable. Your spirits flag and your steps drag, having traveled it so many times—from Gloomhaven, back to Gloomhaven—you've committed all its twists and turns to memory. In fact, even these thoughts feel familiar.<br><br>To get your mind off the drudgery, you begin to reflect on Cassandra, the Diviner who tore up the Sleeping Lion and went on to destroy great evil.<br><br>Without warning, a colorful, circular fissure opens before you as you walk. It beckons you to step into the unknown.",
+    "narrative": "The road stretches out before you, endless and unremarkable. Your spirits flag and your steps drag, having traveled it so many times-from Gloomhaven, back to Gloomhaven-you've committed all its twists and turns to memory. In fact, even these thoughts feel familiar.<br><br>To get your mind off the drudgery, you begin to reflect on Cassandra, the Diviner who tore up the Sleeping Lion and went on to destroy great evil.<br><br>Without warning, a colorful, circular fissure opens before you as you walk. It beckons you to step into the unknown.",
     "options": [
       {
         "label": "A",

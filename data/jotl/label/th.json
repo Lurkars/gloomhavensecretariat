@@ -935,17 +935,13 @@
     "blood-imp": "อิมพ์เลือด",
     "blood-monstrosity": "มอนสเตอร์เลือด",
     "blood-tumor": "เนื้องอกเลือด",
-    "chaos-demon": "Chaos Demon",
     "common-vermling-raider": "นักปล้นเวิร์มลิงทั่วไป",
     "first-of-the-order": "คนแรกแห่งคณะ",
     "giant-viper": "งูยักษ์",
-    "living-corpse": "Living Corpse",
-    "living-spirit": "Living Spirit",
     "monstrosity": "มอนสเตอร์",
     "rat-monstrosity": "มอนสเตอร์หนู",
     "stone-golem": "โกเลมหิน",
     "vermling-raider": "นักปล้นเวิร์มลิง",
-    "vermling-scout": "Vermling Scout",
     "zealot": "ผู้คลั่งศรัทธา"
   },
   "objective": {

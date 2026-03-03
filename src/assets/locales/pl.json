@@ -81,7 +81,7 @@
     "": "Postać",
     "abilities": {
       "currentDeck": "Bieżąca talia",
-      "deckWarning": "Nie można zapisać — w talii jest zbyt wiele kart!",
+      "deckWarning": "Nie można zapisać - w talii jest zbyt wiele kart!",
       "enhancements": {
         "apply": "Zastosuj",
         "baseCosts": "Koszty bazowe",
@@ -114,7 +114,7 @@
         }
       },
       "forceDeck": "Kliknij dwukrotnie, aby dodać kartę do talii",
-      "levelWarning": "Nieprawidłowa talia — niektóre karty mają wyższy poziom niż postać!",
+      "levelWarning": "Nieprawidłowa talia - niektóre karty mają wyższy poziom niż postać!",
       "pickCard": "Wybierz kartę poziomu {0}",
       "removeFromDeck": "Kliknij dwukrotnie, aby usunąć kartę z talii",
       "show": "Pokaż wszystkie karty umiejętności",
@@ -1108,7 +1108,7 @@
         "brewFor": "Warz dla {0}",
         "brewed": "{2} uwarzył {1} %game.itemFh.{0}%",
         "brewedOther": "{2} uwarzył {1} %game.itemFh.{0}% dla {3}",
-        "disabled": "Nie można warzyć mikstur — najpierw odbuduj '%data.buildings.alchemist%' (35)",
+        "disabled": "Nie można warzyć mikstur - najpierw odbuduj '%data.buildings.alchemist%' (35)",
         "item": "{1} %game.itemFh.{0}%",
         "noChar": "Każda postać posiada już tę miksturę!",
         "selectCharacter": "Wybierz postać, dla której warzyć:"
@@ -1141,9 +1141,9 @@
       "sell": "Sprzedaj '{0}' za {1} złota",
       "shop": {
         "": "Karty przedmiotów",
-        "buyingDisabled": "Nie można kupować przedmiotów — najpierw odbuduj '%data.buildings.trading-post%' (37)",
+        "buyingDisabled": "Nie można kupować przedmiotów - najpierw odbuduj '%data.buildings.trading-post%' (37)",
         "character": "Sklep z przedmiotami dla %game.characterIconColored.{0}% {1}",
-        "craftingDisabled": "Nie można wytwarzać przedmiotów — najpierw odbuduj '%data.buildings.craftsman%' (34)"
+        "craftingDisabled": "Nie można wytwarzać przedmiotów - najpierw odbuduj '%data.buildings.craftsman%' (34)"
       },
       "unlock": "Odblokuj przedmiot",
       "unlocked": "Przedmiot odblokowany",
@@ -2604,7 +2604,7 @@
     },
     "dragValues": {
       "": "Przeciąganie Inicjatywy/HP/XP/Łupu",
-      "hint": "Obsługa przeciągania do zmiany wartości. Aby zmienić inicjatywę, przeciągnij nad portretem postaci. Aby zmienić HP, doświadczenie lub łup — przeciągnij nad wartościami."
+      "hint": "Obsługa przeciągania do zmiany wartości. Aby zmienić inicjatywę, przeciągnij nad portretem postaci. Aby zmienić HP, doświadczenie lub łup - przeciągnij nad wartościami."
     },
     "dragValuesHp": "Przeciąganie Punktów Życia",
     "dragValuesInitiative": "Przeciąganie Inicjatywy",
@@ -2664,7 +2664,7 @@
     },
     "fhGarden": {
       "": "Obsługa Ogrodu",
-      "hint": "Sadź i zbieraj zioła (Budynek 24 — Ogród)."
+      "hint": "Sadź i zbieraj zioła (Budynek 24 - Ogród)."
     },
     "fhGhItems": {
       "": "Dodaj przedmioty z Gloomhaven",
@@ -2672,7 +2672,7 @@
     },
     "fhPets": {
       "": "Obsługa Zwierzaków",
-      "hint": "Łap i zarządzaj zwierzakami (Budynek 88 — Stajnie)."
+      "hint": "Łap i zarządzaj zwierzakami (Budynek 88 - Stajnie)."
     },
     "fhRules": "Zasady Frosthaven",
     "fhSecondEdition": {
@@ -2966,7 +2966,7 @@
     },
     "wakeLock": {
       "": "Wake Lock",
-      "hint": "Wake Lock na obsługiwanych urządzeniach. Utrzymuje ekran włączony — może szybciej zużywać baterię."
+      "hint": "Wake Lock na obsługiwanych urządzeniach. Utrzymuje ekran włączony - może szybciej zużywać baterię."
     },
     "xhaDefaults": "Zastosuj ustawienia X-haven Assistant",
     "zoom": {

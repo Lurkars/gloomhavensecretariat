@@ -1,23 +1,12 @@
 {
   "character": {
     "fh-crossover": {
-      "brute": "Brute",
-      "cragheart": "Cragheart",
       "demolitionist": {
-        "": "Demolitionist",
         "mech": {
           "": "ชุดเมค",
           "hint": "ค่าพอยท์เลือดสูงสุดของคุณเพิ่มขึ้น 5 รักษา %game.action.heal% 10 ตัวคุณเอง"
         }
-      },
-      "diviner": "Diviner",
-      "hatchet": "Hatchet",
-      "mindthief": "Mindthief",
-      "red-guard": "Red Guard",
-      "scoundrel": "Scoundrel",
-      "spellweaver": "Spellweaver",
-      "tinkerer": "Tinkerer",
-      "voidwarden": "Voidwarden"
+      }
     }
   },
   "custom": {

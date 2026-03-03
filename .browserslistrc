@@ -7,7 +7,7 @@ FirefoxAndroid >=111
 Safari > 16.3
 iOS > 16.3
 
-# Broader coverage—warns but still builds
+# Broader coverage - warns but still builds
 > 0.6%
 not dead
 

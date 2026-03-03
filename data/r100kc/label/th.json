@@ -18,12 +18,7 @@
       }
     }
   },
-  "edition": {
-    "r100kc": "Reddit 100k Subscriber Contest &lt;%wip%(!)&gt;"
-  },
   "monster": {
-    "black-cat": "แมวดำ",
-    "evil-eyeball": "Evil Eyeball",
-    "resonator-bot": "Resonator Bot"
+    "black-cat": "แมวดำ"
   }
 }

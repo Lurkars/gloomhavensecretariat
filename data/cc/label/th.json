@@ -1,9 +1,7 @@
 {
   "character": {
     "fh": {
-      "core": "CORE",
-      "wildborn": "Wildborn",
-      "woebound": "Woebound"
+      "core": "CORE"
     }
   },
   "custom": {

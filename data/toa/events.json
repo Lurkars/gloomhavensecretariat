@@ -35,14 +35,14 @@
     "cardId": "62",
     "edition": "toa",
     "type": "city",
-    "narrative": "After spending a little more time than you intended celebrating your most recent victory at the tavern, you take what you thought to be a simple shortcut back to your lodging, but soon become lost in your altered state of mind. However, the sight of a corpse in an alley ahead—nothing new for Gloomhaven, admittedly—sobers you up quickly. It looks like an Inox took the same shortcut you did, but instead of just getting lost, she got a knife in the back. The assailant is nowhere in sight, and appears to have taken most of the Inox's belongings with it, leaving the corpse looking strangely vulnerable—something uncharacteristic for the hulking, warlike Inox.",
+    "narrative": "After spending a little more time than you intended celebrating your most recent victory at the tavern, you take what you thought to be a simple shortcut back to your lodging, but soon become lost in your altered state of mind. However, the sight of a corpse in an alley ahead-nothing new for Gloomhaven, admittedly-sobers you up quickly. It looks like an Inox took the same shortcut you did, but instead of just getting lost, she got a knife in the back. The assailant is nowhere in sight, and appears to have taken most of the Inox's belongings with it, leaving the corpse looking strangely vulnerable-something uncharacteristic for the hulking, warlike Inox.",
     "options": [
       {
         "label": "A",
-        "narrative": "Loot the corpse. Maybe something was left behind—she's not going to need it.",
+        "narrative": "Loot the corpse. Maybe something was left behind-she's not going to need it.",
         "outcomes": [
           {
-            "narrative": "You find a few coins hidden in her boots. \"Amateurs,\" you scoff, pocketing the gold. You leave the body to the rats and beggars that have gathered and head toward safer streets. You get a few dirty glares—probably because you got the money before they could.",
+            "narrative": "You find a few coins hidden in her boots. \"Amateurs,\" you scoff, pocketing the gold. You leave the body to the rats and beggars that have gathered and head toward safer streets. You get a few dirty glares-probably because you got the money before they could.",
             "effects": [
               "Gain 10 collective GOLD.",
               "Lose 1 reputation."
@@ -118,7 +118,7 @@
         "narrative": "Introduce yourselves... and get ready for a fight.",
         "outcomes": [
           {
-            "narrative": "\"Not here to fight,\" she clarifies. \"I brought a gift from the tribe. The Unsouled deserved what he got.\" With a brisk nod, she turns and heads back into the night, leaving behind the bundle—and a bemused silence.",
+            "narrative": "\"Not here to fight,\" she clarifies. \"I brought a gift from the tribe. The Unsouled deserved what he got.\" With a brisk nod, she turns and heads back into the night, leaving behind the bundle-and a bemused silence.",
             "effects": [
               "Gain 1 collective \"Matriarch’s Warhorn\" (Item ⌖116)."
             ]
@@ -138,7 +138,7 @@
           },
           {
             "condition": "otherwise",
-            "narrative": "With a frustrated growl, she scoops up the bundle and trudges back out into the rain. You have plenty of problems to worry about, but a vengeful Inox isn’t one of them—at least not tonight.",
+            "narrative": "With a frustrated growl, she scoops up the bundle and trudges back out into the rain. You have plenty of problems to worry about, but a vengeful Inox isn’t one of them-at least not tonight.",
             "returnToDeck": true,
             "effects": [
               "Lose 1 reputation."
@@ -181,7 +181,7 @@
           },
           {
             "condition": "otherwise",
-            "narrative": "The Rimehearth quickly pulls you to the side saying, \"We'll talk later—can you not see I'm busy?\"",
+            "narrative": "The Rimehearth quickly pulls you to the side saying, \"We'll talk later-can you not see I'm busy?\"",
             "effects": [
               "No effect."
             ]
@@ -375,14 +375,14 @@
     "cardId": "71",
     "edition": "toa",
     "type": "city",
-    "narrative": "You decide to unwind at the Brown Door, not because you particularly want to be here, but simply because they have beer available. Plus, Isaac over at the Sleeping Lion seems to be in a foul mood tonight—apparently one of you couldn’t hold their drink last time you were in town and made a rather unpleasant mess in a large plant pot. As the night progresses, you continue to joke about the culprit and spirits are high as you all laugh late into the night. Eventually, another patron who’s been listening to you for a while leans over and asks in a gruff voice, \"Alright now, ‘fess up. Who really did it?\"",
+    "narrative": "You decide to unwind at the Brown Door, not because you particularly want to be here, but simply because they have beer available. Plus, Isaac over at the Sleeping Lion seems to be in a foul mood tonight-apparently one of you couldn’t hold their drink last time you were in town and made a rather unpleasant mess in a large plant pot. As the night progresses, you continue to joke about the culprit and spirits are high as you all laugh late into the night. Eventually, another patron who’s been listening to you for a while leans over and asks in a gruff voice, \"Alright now, ‘fess up. Who really did it?\"",
     "options": [
       {
         "label": "A",
         "outcomes": [
           {
             "condition": "if any one player receives the most accusations (not a tie)",
-            "narrative": "\"Ah ha!\" the patron exclaims mockingly, \"I knew it had to be you. You look like the type that can’t hold their drink!\" He then joins your table buying a round of drinks as you all continue laughing about the incident. It’s more fun than you’ve had in a while, and everyone is in high spirits—well, everyone except someone who felt like they had something to prove and ended the night with their head in a plant pot...again.",
+            "narrative": "\"Ah ha!\" the patron exclaims mockingly, \"I knew it had to be you. You look like the type that can’t hold their drink!\" He then joins your table buying a round of drinks as you all continue laughing about the incident. It’s more fun than you’ve had in a while, and everyone is in high spirits-well, everyone except someone who felt like they had something to prove and ended the night with their head in a plant pot...again.",
             "effects": [
               "The character who received the most accusations starts scenario with MUDDLE.",
               "All other characters start scenario with STRENGTHEN."
@@ -404,7 +404,7 @@
     "cardId": "72",
     "edition": "toa",
     "type": "city",
-    "narrative": "Strolling home in the moonlight after an evening at the Sleeping Lion, joy is in the air. That is, until you hear a call for help coming from the Silent Bridge. As you approach the bridge, it becomes apparent that the shouts are coming from below you. Looking down, the moonlight reflecting off of the water below sets a scene that is almost romantic—that is, if there wasn’t a well-dressed Valrath beaten and wrapped in thorned brambles hanging by vines from the bridge. \"Help! That mad Orchid will be back any second,\" he calls up.",
+    "narrative": "Strolling home in the moonlight after an evening at the Sleeping Lion, joy is in the air. That is, until you hear a call for help coming from the Silent Bridge. As you approach the bridge, it becomes apparent that the shouts are coming from below you. Looking down, the moonlight reflecting off of the water below sets a scene that is almost romantic-that is, if there wasn’t a well-dressed Valrath beaten and wrapped in thorned brambles hanging by vines from the bridge. \"Help! That mad Orchid will be back any second,\" he calls up.",
     "options": [
       {
         "label": "A",
@@ -424,7 +424,7 @@
         "narrative": "Finish the job. Your old friend likely had a good reason to want rid of this guy.",
         "outcomes": [
           {
-            "narrative": "You pull him up just far enough to slit his throat before letting him go and watching his limp body fall down into the rippled reflection of the moon before silence falls across the Silent Bridge once more. You may never know exactly why the Thornreaper wanted rid of this Valrath, but for the rest of the walk home, you feel the presence of a natural magic around you—it’s as if the Thornreaper is thanking you from a distance.",
+            "narrative": "You pull him up just far enough to slit his throat before letting him go and watching his limp body fall down into the rippled reflection of the moon before silence falls across the Silent Bridge once more. You may never know exactly why the Thornreaper wanted rid of this Valrath, but for the rest of the walk home, you feel the presence of a natural magic around you-it’s as if the Thornreaper is thanking you from a distance.",
             "returnToDeck": true,
             "effects": [
               "One character gains one enhancement to any Level 1/X card."
@@ -438,7 +438,7 @@
     "cardId": "73",
     "edition": "toa",
     "type": "city",
-    "narrative": "You've spent the day visiting Talo, the elderly Inox Shaman. As you are about to leave, she pokes you with her staff and rises from her chair. \"One more thing... it's taken most of my lifetime, but I've finally harnessed the energy to manipulate the spirits of water and fire,\" Talo says as she spits on the ground and continues chewing on the leaves in her hand. \"Min' you, I can only do this on young spirits, but nonetheless, I'm goin' to pass this onto you since you decided to spend your day visiting this ol' Shaman.\" \"Choose wisely—do you wish to harness the energy of smoke and ashes, or sand and sea?\"",
+    "narrative": "You've spent the day visiting Talo, the elderly Inox Shaman. As you are about to leave, she pokes you with her staff and rises from her chair. \"One more thing... it's taken most of my lifetime, but I've finally harnessed the energy to manipulate the spirits of water and fire,\" Talo says as she spits on the ground and continues chewing on the leaves in her hand. \"Min' you, I can only do this on young spirits, but nonetheless, I'm goin' to pass this onto you since you decided to spend your day visiting this ol' Shaman.\" \"Choose wisely-do you wish to harness the energy of smoke and ashes, or sand and sea?\"",
     "options": [
       {
         "label": "A",
@@ -556,7 +556,7 @@
     "cardId": "61",
     "edition": "toa",
     "type": "road",
-    "narrative": "Close to the path, you encounter the smoldering remains of three of the largest, whitest Inox you’ve ever seen. Could these be—no, not this far south. Amidst the corpses, you see shrapnel scattered wildly about with several fragments large enough to identify: a gleaming orange shoulder pauldron, a faintly crackling energy shield, a mechanical hand with bolts protruding from between the fingers. Most of all, your gaze is drawn towards a spherical power core lying amidst the wreckage. It glows a pale blue and appears to briefly pulse with searing white light as you approach it. You have no doubt that this Unfettered is beyond your repair capabilities, and you have no means of safely carrying the power core. Nonetheless, you feel an irrepressible urge to inspect it more closely.",
+    "narrative": "Close to the path, you encounter the smoldering remains of three of the largest, whitest Inox you’ve ever seen. Could these be-no, not this far south. Amidst the corpses, you see shrapnel scattered wildly about with several fragments large enough to identify: a gleaming orange shoulder pauldron, a faintly crackling energy shield, a mechanical hand with bolts protruding from between the fingers. Most of all, your gaze is drawn towards a spherical power core lying amidst the wreckage. It glows a pale blue and appears to briefly pulse with searing white light as you approach it. You have no doubt that this Unfettered is beyond your repair capabilities, and you have no means of safely carrying the power core. Nonetheless, you feel an irrepressible urge to inspect it more closely.",
     "options": [
       {
         "label": "A",
@@ -575,7 +575,7 @@
       },
       {
         "label": "B",
-        "narrative": "Carefully bury the core—it seems dangerous, and it must not fall into the wrong hands.",
+        "narrative": "Carefully bury the core-it seems dangerous, and it must not fall into the wrong hands.",
         "outcomes": [
           {
             "narrative": "Painstakingly, you dig a hole six feet deep and carefully roll the core into the pit using a dead branch. You are tired, but you feel at peace knowing that this dangerous artifact will not soon be recovered.",
@@ -608,7 +608,7 @@
           },
           {
             "condition": "otherwise",
-            "narrative": "An apparition charges as you approach the farm. Your weapons shred it, leaving bright yellow petals in its wake. The farmer is stricken mute with grief as he sees the flowers—you quietly collect them and leave.",
+            "narrative": "An apparition charges as you approach the farm. Your weapons shred it, leaving bright yellow petals in its wake. The farmer is stricken mute with grief as he sees the flowers-you quietly collect them and leave.",
             "effects": [
               "Gain 1 collective \"Dawnbloom Nectar\" (Item 117)."
             ]
@@ -617,10 +617,10 @@
       },
       {
         "label": "B",
-        "narrative": "Keep your distance—the man is clearly too mad to be trusted.",
+        "narrative": "Keep your distance-the man is clearly too mad to be trusted.",
         "outcomes": [
           {
-            "narrative": "You pass by quickly—you aren't being paid to deal with this man's demons, literal or metaphorical. It's not until his renewed shrieks are out of earshot that you relax.",
+            "narrative": "You pass by quickly-you aren't being paid to deal with this man's demons, literal or metaphorical. It's not until his renewed shrieks are out of earshot that you relax.",
             "effects": [
               "Shuffle Road Event 64 into the top 3 cards of the deck."
             ]
@@ -675,11 +675,11 @@
     "cardId": "64",
     "edition": "toa",
     "type": "road",
-    "narrative": "On the road near Gloomhaven, you crest a gentle hill and spy a familiar farmhouse. Thankfully, the mad farmer from before seems to have taken a break from his ranting. As you approach, the only figure you see is a crude new scarecrow in the desiccated field. Perhaps built to ward off his supposed evil spirit? Stifling laughter, lest you summon the mad human, you pass the gate leading to his home without incident. But as you draw close enough to inspect the scarecrow in detail, the mockery on your lips dies—the farmer’s dead eyes gaze plaintively from under a worn straw hat and crusted blood covers its all-too-human hands.",
+    "narrative": "On the road near Gloomhaven, you crest a gentle hill and spy a familiar farmhouse. Thankfully, the mad farmer from before seems to have taken a break from his ranting. As you approach, the only figure you see is a crude new scarecrow in the desiccated field. Perhaps built to ward off his supposed evil spirit? Stifling laughter, lest you summon the mad human, you pass the gate leading to his home without incident. But as you draw close enough to inspect the scarecrow in detail, the mockery on your lips dies-the farmer’s dead eyes gaze plaintively from under a worn straw hat and crusted blood covers its all-too-human hands.",
     "options": [
       {
         "label": "A",
-        "narrative": "This road is too well-travelled to leave such a dangerous spirit nearby—hunt it down.",
+        "narrative": "This road is too well-travelled to leave such a dangerous spirit nearby-hunt it down.",
         "outcomes": [
           {
             "condition": "music-note,angry-face,spellweaver,lightning-bolt,scoundrel,cragheart",
@@ -700,7 +700,7 @@
       },
       {
         "label": "B",
-        "narrative": "Burn it all to ashes. You have no interest in seeing—or becoming—more scarecrows.",
+        "narrative": "Burn it all to ashes. You have no interest in seeing-or becoming-more scarecrows.",
         "outcomes": [
           {
             "narrative": "Soon, the flames engulf the \"scarecrow\" and house, and a final despairing wail echoes chillingly across the field.",
@@ -724,7 +724,7 @@
         "narrative": "Organize a surprise attack against the Savvas.",
         "outcomes": [
           {
-            "narrative": "Your ambush makes quick work of the unsuspecting Savvas. After the battle you notice something in one of the Savvas' hands—a small core with twisting lines of azure and scarlet.",
+            "narrative": "Your ambush makes quick work of the unsuspecting Savvas. After the battle you notice something in one of the Savvas' hands-a small core with twisting lines of azure and scarlet.",
             "effects": [
               "Lose 1 reputation.",
               "Gain 1 collective \"Circlet of Elements\" (Item 075).",
@@ -738,7 +738,7 @@
         "narrative": "Approach the Savvas unarmed.",
         "outcomes": [
           {
-            "narrative": "Before long, you learn this is a camp of your previous companion, the Rimehearth! You sit and learn about the work it is doing—teaching all kinds of Savvas a new way of life focused on balance. As you say your goodbyes, it makes an offer that only a Rimehearth and its followers could make with sincerity.",
+            "narrative": "Before long, you learn this is a camp of your previous companion, the Rimehearth! You sit and learn about the work it is doing-teaching all kinds of Savvas a new way of life focused on balance. As you say your goodbyes, it makes an offer that only a Rimehearth and its followers could make with sincerity.",
             "returnToDeck": true,
             "effects": [
               "All may gain one negative condition to generate the corresponding element."

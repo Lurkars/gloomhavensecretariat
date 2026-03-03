@@ -55,7 +55,7 @@
               "outcome": "Tras frenar al enfurecido Inox y ofreceros a reponer las bebidas de algunos de los clientes más agresivos, conseguís que la calma vuelva al lugar.<br><br>Como cabría esperar, algunos de los clientes de raza no humana siguen algo nerviosos, pero el propietario os agradece vuestros esfuerzos y os reembolsa las bebidas."
             }
           },
-          "text": "Decidís despejaros un poco en el León Durmiente, pero justo cuando empezáis a relajaros, un hombre de gran tamaño se estrella contra vuestra mesa, derramando vuestras bebidas por el suelo.<br><br>Sobre él hay un enorme inox.<br><br>—¡¿Qué has dicho de mis cuernos?! - grita el inox.<br><br>—¡He dicho que verlos me da ganas de vomitar! - grita el hombre mientras se levanta y se quita trozos de cristal de la túnica.<br><br>El inox ruge y se lanza contra el hombre, derribando más mesas. Toda la taberna estalla en una vorágine de violencia. Después de todo, cuando un hombre está bebiendo, lo último que quiere es que le derramen la bebida."
+          "text": "Decidís despejaros un poco en el León Durmiente, pero justo cuando empezáis a relajaros, un hombre de gran tamaño se estrella contra vuestra mesa, derramando vuestras bebidas por el suelo.<br><br>Sobre él hay un enorme inox.<br><br>-¡¿Qué has dicho de mis cuernos?! - grita el inox.<br><br>-¡He dicho que verlos me da ganas de vomitar! - grita el hombre mientras se levanta y se quita trozos de cristal de la túnica.<br><br>El inox ruge y se lanza contra el hombre, derribando más mesas. Toda la taberna estalla en una vorágine de violencia. Después de todo, cuando un hombre está bebiendo, lo último que quiere es que le derramen la bebida."
         },
         "2": {
           "options": {
@@ -64,7 +64,7 @@
               "effects": {
                 "1": {
                   "1": "Le entregáis el oro y cogéis el trozo de chatarra. Entre todas las manchas marrones veis varios arañazos sin sentido que probablemente hayan hecho las ratas y los insectos. Lástima, en ocasiones no merece la pena arriesgar.",
-                  "2": "—¡Bah! No tenéis suficiente dinero. ¡Volved cuando tengáis más!"
+                  "2": "-¡Bah! No tenéis suficiente dinero. ¡Volved cuando tengáis más!"
                 }
               }
             },
@@ -73,7 +73,7 @@
               "outcome": "Os reís y le hacéis un gesto al infestor indicándole que se vaya. Reconocéis a un estafador de poca monta cuando lo veis. Y ese trozo de metal... no era más que basura."
             }
           },
-          "text": "A medida que la luz del día desaparece, os encontráis deambulando por una calle del mercado medio llena de gente mirando la mercancía.<br><br>—¡Eh! ¡Vosotros! -Os giráis en dirección a la voz y veis un sucio infestor haciéndoos gestos en un callejón oscuro—.<br><br>Sí, vosotros, chicos de aspecto sombrío.<br><br>Tengo cosa que puede interesaros.<br><br>El infestor os enseña un trozo de metal cubierto de lodo.<br><br>-Encontré esto en alcantarillas. Lo que pone no entiendo, pero sé que es valioso.<br><br>¡Os doy por diez monedas de oro!"
+          "text": "A medida que la luz del día desaparece, os encontráis deambulando por una calle del mercado medio llena de gente mirando la mercancía.<br><br>-¡Eh! ¡Vosotros! -Os giráis en dirección a la voz y veis un sucio infestor haciéndoos gestos en un callejón oscuro-.<br><br>Sí, vosotros, chicos de aspecto sombrío.<br><br>Tengo cosa que puede interesaros.<br><br>El infestor os enseña un trozo de metal cubierto de lodo.<br><br>-Encontré esto en alcantarillas. Lo que pone no entiendo, pero sé que es valioso.<br><br>¡Os doy por diez monedas de oro!"
         },
         "3": {
           "options": {
@@ -91,7 +91,7 @@
               "outcome": "Os reís y le hacéis un gesto al infestor indicándole que se vaya. Reconocéis a un estafador de poca monta cuando lo veis. Y ese trozo de metal... no era más que basura."
             }
           },
-          "text": "A medida que la luz del día desaparece, os encontráis deambulando por una calle del mercado medio llena de gente mirando la mercancía.<br><br>—¡Eh! ¡Vosotros! —Os giráis en dirección a la voz y veis un sucio infestor haciéndoos gestos en un callejón oscuro—.<br><br>Sí, vosotros, chicos de aspecto sombrío. Tengo cosa que puede interesaros.<br><br>El infestor os enseña un trozo de metal cubierto de lodo.<br><br>-Encontré esto en alcantarillas. Lo que pone no entiendo, pero sé que es valioso. ¡Os doy por diez monedas de oro!"
+          "text": "A medida que la luz del día desaparece, os encontráis deambulando por una calle del mercado medio llena de gente mirando la mercancía.<br><br>-¡Eh! ¡Vosotros! -Os giráis en dirección a la voz y veis un sucio infestor haciéndoos gestos en un callejón oscuro-.<br><br>Sí, vosotros, chicos de aspecto sombrío. Tengo cosa que puede interesaros.<br><br>El infestor os enseña un trozo de metal cubierto de lodo.<br><br>-Encontré esto en alcantarillas. Lo que pone no entiendo, pero sé que es valioso. ¡Os doy por diez monedas de oro!"
         },
         "4": {
           "options": {
@@ -104,7 +104,7 @@
               "outcome": "Os acercáis valientemente a la inquietante casa. Lo cierto es que no hay nada de sobrenatural en su estructura, pero las vigas caídas y las pilas de escombros dificultan la búsqueda. Para cuando encontráis al gato escondido bajo un somier quemado, ya estáis totalmente agotados. Al menos el niño está eufórico porque habéis encontrado a su gato."
             }
           },
-          "text": "Habéis regresado hace poco de vuestra última aventura cuando se os acerca un chico de aspecto andrajoso que está llorando.<br><br>—Por favor, señores, ¿podrían ayudarme a buscar a mi gato? Se ha ido por allí, pero tengo miedo —dice el chico mientras señala con el sucio dedo hacia un edificio abandonado de aspecto decrépito—. No sé qué hacer."
+          "text": "Habéis regresado hace poco de vuestra última aventura cuando se os acerca un chico de aspecto andrajoso que está llorando.<br><br>-Por favor, señores, ¿podrían ayudarme a buscar a mi gato? Se ha ido por allí, pero tengo miedo -dice el chico mientras señala con el sucio dedo hacia un edificio abandonado de aspecto decrépito-. No sé qué hacer."
         },
         "5": {
           "options": {
@@ -140,10 +140,10 @@
             },
             "2": {
               "choice": "Seguís con vuestros asuntos. No tenéis ganas ni tiempo para este tipo de cosas.",
-              "outcome": "No tenéis ni la más mínima intención de que os molesten con asuntos tan triviales, así que continuáis con vuestras cosas mientras el capitán del barco os maldice.<br><br>—¡Malditos seáis! ¡No llegaréis muy lejos en la vida con esa actitud!"
+              "outcome": "No tenéis ni la más mínima intención de que os molesten con asuntos tan triviales, así que continuáis con vuestras cosas mientras el capitán del barco os maldice.<br><br>-¡Malditos seáis! ¡No llegaréis muy lejos en la vida con esa actitud!"
             }
           },
-          "text": "En ocasiones, vuestros tratos en la ciudad os llevan cerca de los bulliciosos muelles. Toda conversación queda ahogada por el constante ruido de los trabajadores cargando y descargando mercancías. Y es por ese motivo por el que os sorprendéis cuando escucháis una voz dirigida a vosotros por encima de todo el ruido.<br><br>—¡Eh! ¡Vosotros! ¡Los de mirada dura y brazos grandes! ¡Necesito que me ayudéis aquí! ¿Podríais ayudarme unos minutos? Así me aseguraría de salir del puerto a tiempo. ;Si no tendré que quedarme aquí hasta mañana!"
+          "text": "En ocasiones, vuestros tratos en la ciudad os llevan cerca de los bulliciosos muelles. Toda conversación queda ahogada por el constante ruido de los trabajadores cargando y descargando mercancías. Y es por ese motivo por el que os sorprendéis cuando escucháis una voz dirigida a vosotros por encima de todo el ruido.<br><br>-¡Eh! ¡Vosotros! ¡Los de mirada dura y brazos grandes! ¡Necesito que me ayudéis aquí! ¿Podríais ayudarme unos minutos? Así me aseguraría de salir del puerto a tiempo. ;Si no tendré que quedarme aquí hasta mañana!"
         },
         "8": {
           "options": {
@@ -161,7 +161,7 @@
               "outcome": "Desconfiáis de la naturaleza excesivamente exuberante del comerciante, así que rechazáis educadamente su oferta y seguís con vuestros asuntos."
             }
           },
-          "text": "De camino al Mercado Nuevo, veis una curiosa carta náutica expuesta llamativamente en el puesto de un comerciante valrath.<br><br>—¡Vaya! Veo que estáis interesados — dice mientras la sostiene en alto con mucho cuidado de no dañarla— .¡Se dice que este mapa lleva a un lugar de incontables riquezas más allá de todo lo que hayáis visto antes! —El valrath gesticula mucho con la mano que le queda libre y sonrie ampliamente—. ¿Cómo se puede decir que no a algo así? Simplemente hacedme una oferta."
+          "text": "De camino al Mercado Nuevo, veis una curiosa carta náutica expuesta llamativamente en el puesto de un comerciante valrath.<br><br>-¡Vaya! Veo que estáis interesados - dice mientras la sostiene en alto con mucho cuidado de no dañarla- .¡Se dice que este mapa lleva a un lugar de incontables riquezas más allá de todo lo que hayáis visto antes! -El valrath gesticula mucho con la mano que le queda libre y sonrie ampliamente-. ¿Cómo se puede decir que no a algo así? Simplemente hacedme una oferta."
         },
         "9": {
           "options": {
@@ -171,7 +171,7 @@
             },
             "2": {
               "choice": "Donáis los bienes a la ciudad.",
-              "outcome": "Tras descansar de la juerga de la noche anterior, os acercáis al capitán de la guardia.<br>—¡Grandes noticias! Con el aumento de la frecuencia de los ataques a la ciudad, los herreros están teniendo problemas para satisfacer nuestras demandas. Y la comida debería ser útil si en algún momento nos encontramos bajo asedio. Será de gran ayuda para la ciudad."
+              "outcome": "Tras descansar de la juerga de la noche anterior, os acercáis al capitán de la guardia.<br>-¡Grandes noticias! Con el aumento de la frecuencia de los ataques a la ciudad, los herreros están teniendo problemas para satisfacer nuestras demandas. Y la comida debería ser útil si en algún momento nos encontramos bajo asedio. Será de gran ayuda para la ciudad."
             }
           },
           "text": "Tras una intensa noche bebiendo, os perdéis mientras andáis por los callejones y os encontráis ante un tramo destrozado del camino de adoquines que conduce a un túnel subterráneo.<br><br>Movidos por la curiosidad y la valentía líquida, descendéis en busca de aventuras. Sin embargo, dar tumbos por un enorme sistema de túneles resulta infructuoso hasta que un pasadizo oculto os lleva a un alijo de armas y alimentos deshidratados que, por lo que parece, fue olvidado hace años.<br><br>Podríais sacar una buena cantidad de dinero por todo ese material en el Mercado Zozobrante, o podríais entregarlo a la guardia de la ciudad, que siempre necesita armas y raciones."

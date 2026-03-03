@@ -190,7 +190,7 @@
     "options": [
       {
         "label": "A",
-        "narrative": "Firmly demand the Harrower pay in the only currency you accept — gold coin.",
+        "narrative": "Firmly demand the Harrower pay in the only currency you accept - gold coin.",
         "outcomes": [
           {
             "narrative": "You demand the Harrower pay you in gold coin, and it hastily snatches the bag of jewels and proceeds to turn away. The rest of the day passes with no other customers visiting your stall. You return home at the end of the day, wondering what could have been.",
@@ -1376,7 +1376,7 @@
     "options": [
       {
         "label": "A",
-        "narrative": "Approach the Bombards and offer to supervise the shipment — for good coin.",
+        "narrative": "Approach the Bombards and offer to supervise the shipment - for good coin.",
         "outcomes": [
           {
             "narrative": "You approach the Bombards and offer to supervise the shipment for a fee. Happy to have found someone to watch the shipment, they offer you a hefty sum but warn you that they'll be taking inventory afterwards and will hunt you down if anything goes missing. The night proves uneventful as you proceed to supervise the shipment, ensuring all inventory remains intact. A Bombard greets you later that night at the Sleeping Lion and pays you in full for a job well done.",
@@ -2017,14 +2017,14 @@
     "cardId": "57",
     "edition": "cs",
     "type": "city",
-    "narrative": "You are strolling through the Sinking Market when suddenly you hear a loud shriek. A young Valrath mother has collapsed on the ground and before a crowd can form, someone shouts \"SNAKE!\"... Then you see them—some juvenile ghost vipers like the ones found in that pit recently. Somehow they've found their way into the city. Before you have time to process this information, you realize several more are dead. The whole area has erupted into chaos. The Viper Hunter isn't with you, and you begin to suspect something sinister has happened.",
+    "narrative": "You are strolling through the Sinking Market when suddenly you hear a loud shriek. A young Valrath mother has collapsed on the ground and before a crowd can form, someone shouts \"SNAKE!\"... Then you see them-some juvenile ghost vipers like the ones found in that pit recently. Somehow they've found their way into the city. Before you have time to process this information, you realize several more are dead. The whole area has erupted into chaos. The Viper Hunter isn't with you, and you begin to suspect something sinister has happened.",
     "options": [
       {
         "label": "A",
         "narrative": "Run to search for the Viper Hunter.",
         "outcomes": [
           {
-            "narrative": "You search in all the usual places, but the Viper Hunter is nowhere to be found. After giving up, you go back to the Sinking Market to investigate. The guards have taken care of the snake problem, but based on the bodies in the streets, it wasn't nearly quick enough. Then you notice. The Viper Hunter's lifeless body sitting on a bench nearby, looking almost peaceful. On the ground beside the bench you find a large rucksack—big enough to contain a few juvenile vipers—and a note... \"Maybe I am mad after all.\"",
+            "narrative": "You search in all the usual places, but the Viper Hunter is nowhere to be found. After giving up, you go back to the Sinking Market to investigate. The guards have taken care of the snake problem, but based on the bodies in the streets, it wasn't nearly quick enough. Then you notice. The Viper Hunter's lifeless body sitting on a bench nearby, looking almost peaceful. On the ground beside the bench you find a large rucksack-big enough to contain a few juvenile vipers-and a note... \"Maybe I am mad after all.\"",
             "effects": [
               "Immediately retire the Viper Hunter and do not add retirement events for this character.",
               "Lose 1 prosperity.",
@@ -2038,7 +2038,7 @@
         "narrative": "Fight off the vipers before they do more harm.",
         "outcomes": [
           {
-            "narrative": "You charge headstrong into the chaos and begin slaughtering the vipers. They're thankfully a little more manageable than the adults, and peace is restored again quickly. Then you notice. The Viper Hunter's lifeless body sitting on a bench nearby, looking almost peaceful. On the ground beside the bench you find a large rucksack—big enough to contain a few juvenile vipers—and a note... \"Maybe I am mad after all.\"",
+            "narrative": "You charge headstrong into the chaos and begin slaughtering the vipers. They're thankfully a little more manageable than the adults, and peace is restored again quickly. Then you notice. The Viper Hunter's lifeless body sitting on a bench nearby, looking almost peaceful. On the ground beside the bench you find a large rucksack-big enough to contain a few juvenile vipers-and a note... \"Maybe I am mad after all.\"",
             "effects": [
               "Immediately retire the Viper Hunter and do not add retirement events for this character.",
               "Lose 1 reputation.",
@@ -4142,7 +4142,7 @@
     "cardId": "56",
     "edition": "cs",
     "type": "road",
-    "narrative": "As you round a turn in the road, you're surprised to see two Savvas locked in combat, circling each other.<br><br>One of them you recognize as your former Hollowpact companion. The other figure appears to be a younger but similarly accoutred Savvas. Both have glowing amethyst stones filling their chest cavities with an otherworldly light.<br><br>The two Hollowpacts are undeterred by your presence and continue to circle each other, searching for an opening. Both are lithe and move with a duelist's grace despite their rocky forms—a notable difference in style from many of their Savvas kin. Your former companion turns slightly and addresses you, \"This one is mine. Stay out of this. Won't ask twice.\"",
+    "narrative": "As you round a turn in the road, you're surprised to see two Savvas locked in combat, circling each other.<br><br>One of them you recognize as your former Hollowpact companion. The other figure appears to be a younger but similarly accoutred Savvas. Both have glowing amethyst stones filling their chest cavities with an otherworldly light.<br><br>The two Hollowpacts are undeterred by your presence and continue to circle each other, searching for an opening. Both are lithe and move with a duelist's grace despite their rocky forms-a notable difference in style from many of their Savvas kin. Your former companion turns slightly and addresses you, \"This one is mine. Stay out of this. Won't ask twice.\"",
     "options": [
       {
         "label": "A",
@@ -4206,7 +4206,7 @@
     "cardId": "58",
     "edition": "cs",
     "type": "road",
-    "narrative": "Just outside the city gates, you hear a cacophonous roar emanate from the other side of a hill and decide to investigate. As you draw near, you recognize familiar sounds — Inox grunting, Harrowers chittering, Vermlings screeching. But something is different. Are they... cheering? You crest the hill to discover a throng of bodies from every race milling about a variety of booths hosting various competitions. \"Welcome to the Gloomhaven Games!\" a Quatryl gamemaster yells into an amplifying device. \"All are invited to enjoy the festivities!\" One booth surrounded by Valraths hollering with excitement grabs your attention. You are not surprised to see the Fire Knight emerge from the crowd with a foolish grin on his face. \"Hey, old friends! The Fire Brigade hosts a competition for the chance to win discounted gear. You should be familiar with the challenge from your visit to the station. Let's see if you remember your training!\"",
+    "narrative": "Just outside the city gates, you hear a cacophonous roar emanate from the other side of a hill and decide to investigate. As you draw near, you recognize familiar sounds - Inox grunting, Harrowers chittering, Vermlings screeching. But something is different. Are they... cheering? You crest the hill to discover a throng of bodies from every race milling about a variety of booths hosting various competitions. \"Welcome to the Gloomhaven Games!\" a Quatryl gamemaster yells into an amplifying device. \"All are invited to enjoy the festivities!\" One booth surrounded by Valraths hollering with excitement grabs your attention. You are not surprised to see the Fire Knight emerge from the crowd with a foolish grin on his face. \"Hey, old friends! The Fire Brigade hosts a competition for the chance to win discounted gear. You should be familiar with the challenge from your visit to the station. Let's see if you remember your training!\"",
     "options": [
       {
         "label": "A",

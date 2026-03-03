@@ -557,9 +557,7 @@
         "3": "เมื่อจบรอบ ถ้ามี %game.condition.invisible% ดำเนินการ:"
       },
       "ruinmaw-section-4": {
-        "1": "โดย X คือจำนวน Vermling Shaman ที่มีชีวิต",
-        "2": "%game.action.custom.cs-sated%: %game.action.push%2, +1 %game.action.attack%, %game.action.pierce%2",
-        "3": "%game.action.custom.cs-sated%: +2 %game.action.move%, +2 %game.action.attack%, Advantage, %game.condition.empower%"
+        "1": "โดย X คือจำนวน Vermling Shaman ที่มีชีวิต"
       },
       "savvas-icebound": {
         "1": "ถ้าอยู่บนแผ่น A2b กระโดดไปยัง %game.mapMarker.e% <br>ถ้าอยู่บนแผ่น A3a กระโดดไปยัง %game.mapMarker.d%"
@@ -607,7 +605,6 @@
         "4": "เมื่อใดก็ตามที่ความสามารถของคุณทำให้ศัตรูอย่างน้อยหนึ่งตัวได้ %game.condition.rupture% ทันทีหลังความสามารถนั้นดำเนินการ \"%game.action.move:1%\""
       },
       "chain-helmet": {
-        "1": "Shackle %data.characterIcon.chain-helmet%",
         "2": "ถ้าเป้าหมายถูก Shackle %data.characterIcon.chain-helmet%",
         "3": "%game.condition.disarm% ถ้าเป้าหมายถูก Shackle %data.characterIcon.chain-helmet%",
         "4": "สร้างกับดัก %game.damage:2% ในหกเหลี่ยมว่างภายใน %game.action.range:2%"
@@ -658,7 +655,6 @@
         "4": "ไม่สนใจ %game.action.retaliate% บนเป้าหมาย"
       },
       "vortex": {
-        "1": "Voidsight %data.action.custom.cs-voidsight%",
         "2": "สร้าง Void pit ในหกเหลี่ยมว่างภายใน %game.action.range:2%"
       }
     }
@@ -666,9 +662,6 @@
   "deck": {
     "scout-ally": "%data.deck.scout% (%game.ally%)",
     "shaman-ally": "%data.deck.shaman% (%game.ally%)"
-  },
-  "edition": {
-    "cs": "The Crimson Scales"
   },
   "monster": {
     "apex-demon": "ปีศาจยอด",
@@ -698,25 +691,16 @@
     "ghost-viper": "งูพิษวิญญาณ",
     "ghost-viper-extra": "สำรับ Ghost Viper เพิ่ม #39",
     "gnashing-drake": "มังกรขบเขี้ยว",
-    "goremyon-shatter-mind": "Goremyon Shatter-Mind",
     "goring-grizzly": "กริซลีขวิด",
-    "guttermaw": "Guttermaw",
     "hail-demon": "ปีศาจลูกเห็บ",
     "hanging-snake": "งูแขวน",
-    "harrower-aegis": "Harrower Aegis",
-    "harrower-icecrawlers": "Harrower Icecrawlers",
     "hydra-spirit": "วิญญาณไฮดรา",
-    "inox-bloodguard": "Inox Bloodguard",
     "king-cobra": "งูจงอาง",
     "land-leviathan": "เลวีอาธานบก",
     "lavalite": "ลาวาไลท์",
     "living-wall": "กำแพงมีชีวิต",
-    "morphling": "Morphling",
     "ravenous-gharial": "Gharial หิวโหย",
-    "rogue-hollowpact": "Rogue Hollowpact",
-    "ruinmaw": "Ruinmaw",
     "savvas-icebound": "Savvas แช่แข็ง",
-    "selandre": "Selandre",
     "shadow-demon": "ปีศาจเงา",
     "sly-wolf": "หมาป่าเจ้าเล่ห์",
     "steel-construct": "หุ่นเหล็ก",
@@ -914,7 +898,6 @@
         "13": "ถ้ำศพ",
         "14": "ถ้ำลัทธิ",
         "15": "ซุ่มโจมตีสัตว์ป่า",
-        "16": "Preto Krisanta",
         "17": "สกัดออร์บ",
         "18": "คว้าและไป",
         "19": "การทดลองธาตุ",
@@ -966,27 +949,10 @@
         "AA-AA1": "ทรัพย์แห่ง Steelsilk",
         "AA-AA2": "เสียงสะท้อนชั่วร้าย",
         "QA-QA1": "ทดสอบ Capstone",
-        "QA-QA2": "Mother Lode",
-        "RM-RM1": "Mind Your Manners",
-        "RM-RM2": "Sinking Kingpin",
         "RM-RM3": "อาณานิคมพังพินาศ",
         "RM-RM4": "ถ้ำ Terrorscale",
         "RM-RM5": "ภัยที่มองไม่เห็น",
-        "RM-RM7": "ไม่รู้จักอิ่ม",
-        "solo-56": "Disarm the Machine",
-        "solo-57": "Elemental Converter",
-        "solo-58": "Penitentiary Lockdown",
-        "solo-59": "Forest Invaders",
-        "solo-60": "Through the Fire and the Flames",
-        "solo-61": "Archaic Preservation",
-        "solo-62": "Hallow Redemption",
-        "solo-63": "A Cornered Viper",
-        "solo-64": "Glowing Crystals",
-        "solo-65": "Beyond the Grave",
-        "solo-66": "Otherworldly Strangers",
-        "solo-AA3": "Hive Guardian",
-        "solo-QA3": "Magnum Opus",
-        "solo-RM6": "The Fall of Shadow's Respite"
+        "RM-RM7": "ไม่รู้จักอิ่ม"
       }
     }
   },
@@ -1006,9 +972,6 @@
         "15A": "ถ้ำลัทธิ",
         "15B": "ถ้ำลัทธิ",
         "15C": "ถ้ำลัทธิ",
-        "17A": "Preto Krisanta",
-        "17C": "Preto Krisanta",
-        "17D": "Preto Krisanta",
         "18A": "สกัดออร์บ",
         "18B": "คว้าและไป",
         "18C": "สกัดออร์บ",
@@ -1111,14 +1074,6 @@
         "QA-1-1": "ทดสอบ Capstone",
         "QA-1-2": "ทดสอบ Capstone",
         "QA-1-3": "ทดสอบ Capstone",
-        "QA-2-3": "Mother Lode",
-        "QA-2-4": "Mother Lode",
-        "QA-2-5": "Mother Lode",
-        "QA-2-7": "Mother Lode",
-        "RM-1-1": "Mind Your Manners",
-        "RM-1-2": "Mind Your Manners",
-        "RM-2-1": "Sinking Kingpin",
-        "RM-2-2": "Sinking Kingpin",
         "RM-3-1": "อาณานิคมพังพินาศ",
         "RM-3-2": "อาณานิคมพังพินาศ",
         "RM-3-3": "อาณานิคมพังพินาศ",
@@ -1132,39 +1087,7 @@
         "RM-7-3": "ไม่รู้จักอิ่ม",
         "RM-7-4": "ไม่รู้จักอิ่ม",
         "RM-RM5-5": "รางวัล Guttermaw (ปาร์ตี้) สมบูรณ์",
-        "RM-RM5-6": "คำขอของ Feirgrin (ปาร์ตี้) สมบูรณ์",
-        "solo-3-1": "Magnum Opus",
-        "solo-3-2": "Magnum Opus",
-        "solo-6-1": "The Fall of Shadow's Respite",
-        "solo-6-2": "The Fall of Shadow's Respite",
-        "solo-6-4": "The Fall of Shadow's Respite",
-        "solo-63B": "Disarm the Machine",
-        "solo-64C": "Elemental Converter",
-        "solo-65A": "Elemental Converter",
-        "solo-65B": "Elemental Converter",
-        "solo-65C": "Elemental Converter",
-        "solo-66A": "Penitentiary Lockdown",
-        "solo-66B": "Penitentiary Lockdown",
-        "solo-66C": "Penitentiary Lockdown",
-        "solo-66D": "Penitentiary Lockdown",
-        "solo-66E": "Penitentiary Lockdown",
-        "solo-67A": "Forest Invaders",
-        "solo-67B": "Forest Invaders",
-        "solo-67D": "Through the Fire and the Flames",
-        "solo-68A": "Through the Fire and the Flames",
-        "solo-68B": "Through the Fire and the Flames",
-        "solo-69B": "Archaic Preservation",
-        "solo-69C": "Archaic Preservation",
-        "solo-70A": "Hallow Redemption",
-        "solo-71A": "Hallow Redemption",
-        "solo-71B": "Hallow Redemption",
-        "solo-72B": "Glowing Crystals",
-        "solo-72D": "Glowing Crystals",
-        "solo-73C": "Beyond the Grave",
-        "solo-73D": "Beyond the Grave",
-        "solo-74C": "Otherworldly Strangers",
-        "solo-74E": "Otherworldly Strangers",
-        "solo-74F": "Otherworldly Strangers"
+        "RM-RM5-6": "คำขอของ Feirgrin (ปาร์ตี้) สมบูรณ์"
       }
     }
   }

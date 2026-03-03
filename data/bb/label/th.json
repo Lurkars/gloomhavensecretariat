@@ -2,15 +2,8 @@
   "character": {
     "bb": {
       "bruiser": "นักต่อสู้",
-      "cragheart": "Cragheart",
-      "mindthief": "Mindthief",
-      "silent-knife": "มีดเงียบ",
-      "spellweaver": "Spellweaver",
-      "tinkerer": "Tinkerer"
+      "silent-knife": "มีดเงียบ"
     }
-  },
-  "edition": {
-    "bb": "Button & Bugs"
   },
   "items": {
     "bb-1": {
