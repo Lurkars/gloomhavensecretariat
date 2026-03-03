@@ -1,0 +1,29 @@
+{
+  "custom": {
+    "r100kc": {
+      "black-cat": {
+        "1": "โฟกัสสิ่งกีดขวางที่ว่างที่ใกล้ที่สุด<br>จนถึงเริ่มเทิร์นถัดไป แมวดำสามารถอยู่ในหกเหลี่ยมได้ จากนั้นเคลื่อนที่ไปยังหกเหลี่ยมว่างถัดไป<br><br>หากไม่มีสิ่งกีดขวาง ให้โฟกัสหกเหลี่ยมว่างที่ไกลจากตัวละครทั้งหมดมากที่สุด",
+        "2": "%game.action.target% แมวดำที่ติดกันทั้งหมด",
+        "3": "%game.action.target% แมวดำทั้งหมดใน %game.action.range% 2"
+      },
+      "evil-eyeball": {
+        "1": "ในหกเหลี่ยมเดียวกันที่เอลิทตาย"
+      },
+      "resonator-bot": {
+        "1": "โดยที่ X คือจำนวน<br>Resonator Bot<br>ภายใน %game.action.range:2%",
+        "2": "โดยที่ X คือจำนวน<br>Resonator Bot<br>ภายใน %game.action.range:3%",
+        "3": "โดยที่ X คือจำนวน<br>Resonator Bot<br>ภายใน %game.action.range:4%",
+        "4": "%game.condition.stun% Resonator Bot 1 ตัวที่ไม่มี<br>%game.condition.stun% และภายใน %game.action.range:3% เพื่อดำเนินการ:",
+        "5": "%game.condition.stun% Resonator Bot 2 ตัวที่ไม่มี<br>%game.condition.stun% และภายใน %game.action.range:3% เพื่อดำเนินการ:"
+      }
+    }
+  },
+  "edition": {
+    "r100kc": "Reddit 100k Subscriber Contest &lt;%wip%(!)&gt;"
+  },
+  "monster": {
+    "black-cat": "แมวดำ",
+    "evil-eyeball": "Evil Eyeball",
+    "resonator-bot": "Resonator Bot"
+  }
+}

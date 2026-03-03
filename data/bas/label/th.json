@@ -1,0 +1,40 @@
+{
+  "custom": {
+    "bas": {
+      "desiccated-corpse": {
+        "1": "ทำให้แห้ง",
+        "2": "ทำลายน้ำทั้งหมดที่ศัตรูที่อยู่ติดกันถืออยู่"
+      },
+      "dust-demon": {
+        "1": "%data.monster.dust-demon% เคลื่อนที่ผ่านศัตรูให้มากที่สุดเท่าที่เป็นไปได้"
+      },
+      "jackal": {
+        "1": "ฝูง"
+      },
+      "sand-spider": {
+        "1": "เพิ่ม +3 %game.action.attack% ถ้าเป้าหมายมี %game.condition.immobilize%",
+        "2": "การโจมตีทั้งหมดที่มุ่งมาที่ %data.monster.sand-spider% ในรอบนี้ได้เสียเปรียบ",
+        "3": "สร้างกับดัก %game.condition.immobilize% ในหกเหลี่ยมว่างที่อยู่ติดกันและใกล้ศัตรูที่สุด"
+      }
+    }
+  },
+  "edition": {
+    "bas": "เลือดและทราย"
+  },
+  "monster": {
+    "desiccated-corpse": "ศพแห้งผาก",
+    "dust-demon": "ปีศาจฝุ่น",
+    "giant-scorpion": "แมงป่องยักษ์",
+    "horned-lizard": "กิ้งก่าเขายาว",
+    "jackal": "สุนัขจรจัด",
+    "sand-spider": "แมงมุมทราย"
+  },
+  "scenario": {
+    "title": {
+      "bas": {
+        "1": "กระจายทั่วแผนที่",
+        "2": "น่านน้ำขุ่นเคือง"
+      }
+    }
+  }
+}

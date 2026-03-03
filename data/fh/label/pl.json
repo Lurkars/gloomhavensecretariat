@@ -2224,6 +2224,9 @@
     },
     "rules": {
       "fh": {
+        "102-1": {
+          "1": "Wszystkie postacie zwracają jedną kartę z ręki lub ze stosu kart odrzuconych do swojego stosu kart przygotowanych."
+        },
         "130-3": {
           "1": "Zyskaj korzyść na ten cel"
         },
