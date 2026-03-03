@@ -1,0 +1,101 @@
+[
+    {
+        "cardId": "2501",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.cq.prosperity%",
+                "counter": 1
+            },
+            {
+                "name": "%data.personalQuest.cq.2501.1%",
+                "counter": 2,
+                "requires": [
+                    1
+                ]
+            },
+            {
+                "name": "%data.personalQuest.cq.2501.2%",
+                "counter": 2,
+                "requires": [
+                    1
+                ]
+            },
+            {
+                "name": "%data.personalQuest.cq.2501.3%",
+                "counter": 2,
+                "requires": [
+                    1
+                ]
+            },
+            {
+                "name": "%data.personalQuest.fh.2501.4%",
+                "counter": 2,
+                "requires": [
+                    1
+                ]
+            },
+            {
+                "name": "%data.personalQuest.cq.2501.5%",
+                "counter": 2,
+                "requires": [
+                    1
+                ]
+            },
+            {
+                "name": "%data.personalQuest.cq.2501.6%",
+                "counter": 2,
+                "requires": [
+                    1
+                ]
+            }
+        ]
+    },
+    {
+        "cardId": "2502",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.cq.prosperity%",
+                "counter": 1
+            },
+            {
+                "name": "%data.personalQuest.cq.2502.1%",
+                "counter": 30,
+                "requires": [
+                    1
+                ]
+            }
+        ]
+    },
+    {
+        "cardId": "2503",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.cq.prosperity%",
+                "counter": 1
+            },
+            {
+                "name": "%data.personalQuest.cq.2503.1%",
+                "counter": 50,
+                "requires": [
+                    1
+                ]
+            }
+        ]
+    },
+    {
+        "cardId": "2504",
+        "requirements": [
+            {
+                "name": "%data.personalQuest.cq.prosperity%",
+                "counter": 1
+            },
+            {
+                "name": "%data.personalQuest.cq.2504.1%",
+                "counter": 10,
+                "requires": [
+                    1
+                ]
+            }
+        ]
+    }
+]

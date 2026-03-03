@@ -1,0 +1,8 @@
+{
+    "edition": "cq",
+    "additional": true,
+    "extends": [
+        "fh",
+        "gh2e"
+    ]
+}

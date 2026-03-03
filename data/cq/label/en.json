@@ -1,0 +1,27 @@
+{
+  "edition": {
+    "cq": "ConQuest"
+  },
+  "personalQuest": {
+    "cq": {
+      "2501": {
+        "1": "Flame Demons",
+        "2": "Frost Demons",
+        "3": "Wind Demons",
+        "4": "Earth Demons",
+        "5": "Sun Demons",
+        "6": "Night Demons"
+      },
+      "2502": {
+        "1": "Battle Goal Checkmarks"
+      },
+      "2503": {
+        "1": "Restraints gained"
+      },
+      "2504": {
+        "1": "Scenarios"
+      },
+      "prosperity": "Prosperity 5"
+    }
+  }
+}
