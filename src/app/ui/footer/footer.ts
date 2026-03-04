@@ -43,6 +43,7 @@ export class FooterComponent implements OnInit {
   lootDeckEnabeld: boolean = false;
   activeCharacter: Character | undefined;
   activeCharacterFade: boolean = false;
+  activeCharacterActiveAMs: number = 0;
 
   initiativeSetDialog: DialogRef<unknown, ConfirmDialogComponent> | "discard" | false = false;
 
@@ -119,6 +120,11 @@ export class FooterComponent implements OnInit {
       this.activeCharacter = activeCharacter;
       this.activeCharacterFade = !activeCharacter && settingsManager.settings.animations;
     }
+
+    if (this.activeCharacter) {
+      this.activeCharacterActiveAMs = this.activeCharacter.attackModifierDeck.cards.filter((am, i) => this.activeCharacter && am.active && i < this.activeCharacter.attackModifierDeck.lastVisible && !this.activeCharacter.attackModifierDeck.discarded.includes(i)).length;
+    }
+
     this.isDisabled = this.disabled();
 
     if (settingsManager.settings.initiativeRequired && settingsManager.settings.initiativeRoundConfirm && gameManager.game.state == GameState.draw && gameManager.game.scenario && !this.nextHint) {

@@ -17,13 +17,5 @@
         "5": "%game.condition.stun% Resonator Bot 2 ตัวที่ไม่มี<br>%game.condition.stun% และอยู่ใน %game.action.range:3% เพื่อทำ:"
       }
     }
-  },
-  "edition": {
-    "r100kc": "Reddit 100k Subscriber Contest &lt;%wip%(!)&gt;"
-  },
-  "monster": {
-    "black-cat": "Black Cat",
-    "evil-eyeball": "Evil Eyeball",
-    "resonator-bot": "Resonator Bot"
   }
 }
