@@ -23,7 +23,7 @@
     "Close to the Abyss": "ใกล้ขอบเหว",
     "Cold Embrace": "กอดเย็น",
     "Collateral Damage": "ความเสียหายข้างเคียง",
-    "Commanding Presence": "บุคลิกบัญชา",
+    "Commanding Presence": "บารมีบัญชา",
     "Constrict": "บีบรัด",
     "Coupled Chain": "โซ่คู่",
     "Crash Protocol": "โปรโตคอลชน",
@@ -142,7 +142,7 @@
     "Signs of the Void": "สัญญาณแห่งความว่าง",
     "Soaring Shield": "โล่บิน",
     "Spiked Pit": "หลุมหนาม",
-    "Spirit Hunger": "ความหิววิญญาณ",
+    "Spirit Hunger": "วิญญาณหิวกระหาย",
     "Stand Fast": "ยืนหยัด",
     "Stopping Power": "พลังหยุด",
     "Strangling Chain": "โซ่บีบคอ",
@@ -320,9 +320,9 @@
           "hint": "คะแนนชีวิตสูงสุดของคุณเพิ่มขึ้น 5 รักษา %game.action.heal% 10, self."
         }
       },
-      "hatchet": "ขวาน",
-      "red-guard": "ยามแดง",
-      "voidwarden": "ผู้คุ้มครองความว่าง"
+      "hatchet": "ขวานผ่า",
+      "red-guard": "ผู้พิทักษ์สีชาด",
+      "voidwarden": "ผู้คุ้มครองสุญญตา"
     }
   },
   "custom": {
@@ -919,35 +919,39 @@
   },
   "deck": {
     "boss": "บอส",
-    "imp": "อิมพ์",
+    "imp": "อิมป์",
     "monstrosity": "มอนสเตอร์"
   },
   "edition": {
-    "jotl": "ขากรรไกรแห่งราชสีห์"
+    "jotl": "คมเขี้ยวแห่งราชสีห์"
   },
   "monster": {
     "basic-giant-viper": "งูยักษ์พื้นฐาน",
     "basic-vermling-raider": "นักปล้นเวิร์มลิงพื้นฐาน",
     "basic-zealot": "ผู้คลั่งศรัทธาพื้นฐาน",
-    "black-imp": "อิมพ์ดำ",
-    "black-sludge": "โคลนดำ",
-    "blood-horror": "ความสยองเลือด",
-    "blood-imp": "อิมพ์เลือด",
-    "blood-monstrosity": "มอนสเตอร์เลือด",
-    "blood-tumor": "เนื้องอกเลือด",
-    "common-vermling-raider": "นักปล้นเวิร์มลิงทั่วไป",
-    "first-of-the-order": "คนแรกแห่งคณะ",
-    "giant-viper": "งูยักษ์",
+    "black-imp": "อิมป์ดำ",
+    "black-sludge": "โคลนทมิฬ",
+    "blood-horror": "ความสยองสีชาด",
+    "blood-imp": "อิมพ์สีชาด",
+    "blood-monstrosity": "มอนสเตอร์สีชาด",
+    "blood-tumor": "ปรสิตโลหิต",
+    "chaos-demon": "ปีศาจเคออส",
+    "common-vermling-raider": "นักปล้นเวิร์มลิง",
+    "first-of-the-order": "ผู้บัญญัติ ระดับที่ 1",
+    "giant-viper": "ไวเปอร์ยักษ์",
+    "living-corpse": "ศพมีชีวิต",
+    "living-spirit": "วิญญาณมีชีวิต",
     "monstrosity": "มอนสเตอร์",
-    "rat-monstrosity": "มอนสเตอร์หนู",
+    "rat-monstrosity": "หนูประหลาด",
     "stone-golem": "โกเลมหิน",
     "vermling-raider": "นักปล้นเวิร์มลิง",
+    "vermling-scout": "เวิร์มลิงสเกาต์",
     "zealot": "ผู้คลั่งศรัทธา"
   },
   "objective": {
     "Growth": "การเติบโต",
-    "Loot": "ล่า",
-    "Nest": "รัง",
+    "Loot": "เก็บของ",
+    "Nest": "รัง (อุปสรรค)",
     "Pillar": "เสา",
     "Pillar left": "เสาซ้าย",
     "Pillar right": "เสาขวา",
@@ -1006,8 +1010,8 @@
         "4": "พิธีในหิน",
         "5": "ความเข้าใจลึกซึ้ง",
         "6": "การวิจัยเสื่อม",
-        "7": "เนื้องอกจม",
-        "8": "เนื้องอกซ่อน",
+        "7": "ก้อนปรสิต",
+        "8": "ปรสิตที่หลบซ่อน",
         "9": "วิวัฒนาการระเบิด"
       }
     }
@@ -1015,8 +1019,8 @@
   "section": {
     "title": {
       "jotl": {
-        "9-7": "เนื้องอกจม",
-        "9-8": "เนื้องอกซ่อน"
+        "9-7": "ปรสิตจม",
+        "9-8": "ปรสิตหลบซ่อน"
       }
     }
   }

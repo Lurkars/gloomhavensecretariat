@@ -1,16 +1,16 @@
 {
   "ability": {
     "Aid from the Ether": "ความช่วยเหลือจากอีเทอร์",
-    "Alluring Serenade": "เซเรเนดดึงดูด",
+    "Alluring Serenade": "เซเรเนดหลอกลวง",
     "Arcane Bolt": "สายฟ้าเวท",
-    "Arctic Shards": "เศษน้ำแข็ง",
+    "Arctic Shards": "เศษน้ำแข็งอาร์กติก",
     "Armor of the Night": "เกราะแห่งราตรี",
-    "Arresting Gale": "ลมจับตัว",
+    "Arresting Gale": "ลมกรรโชก",
     "Auto Turret": "ป้อมปืนอัตโนมัติ",
     "Avalanche": "หิมะถล่ม",
     "Backup Ammunition": "กระสุนสำรอง",
-    "Balanced Measure": "สมดุลแห่งการวัด",
-    "Bewildering Instrumental": "เครื่องดนตรีทำให้สับสน",
+    "Balanced Measure": "ดุลยภาพ",
+    "Bewildering Instrumental": "ดนตรีทำให้สับสน",
     "Black Knives": "มีดดำ",
     "Blunt Force": "แรงทื่อ",
     "Brain Leech": "ปลิงสมอง",
@@ -18,538 +18,584 @@
     "Brute Force": "แรงดิบ",
     "Burial": "ฝังศพ",
     "Burrow": "ขุดโพรง",
-    "Call to Action": "เรียกร้องสู่การกระทำ",
-    "Captivating Performance": "การแสดงสะกดใจ",
+    "Call to Action": "เรียกสู่การกระทำ",
+    "Captivating Performance": "การแสดงดึงดูด",
     "Cataclysm": "หายนะ",
     "Chain Lightning": "สายฟ้าลูกโซ่",
     "Change Tempo": "เปลี่ยนจังหวะ",
-    "Chimeric Formula": "สูตรคิเมรา",
+    "Chimeric Formula": "สูตรไคเมรา",
     "Chromatic Explosion": "ระเบิดสี",
     "Claws of the Night": "กรงเล็บแห่งราตรี",
     "Clear the Way": "เปิดทาง",
     "Cold Fire": "ไฟเย็น",
-    "Commanding Presence": "บุคลิกบัญชา",
-    "Confluence of Elements": "การรวมตัวของธาตุ",
-    "Cool Down": "เย็นลง",
-    "Corrupting Embrace": "กอดที่เสื่อม",
+    "Commanding Presence": "บารมีบัญชา",
+    "Confluence of Elements": "จุดรวมธาตุ",
+    "Cool Down": "คลายความร้อน",
+    "Corrupting Embrace": "อ้อมกอดเสื่อม",
     "Cranium Overload": "สมองล้น",
     "Crank Bow": "คันธนูหมุน",
     "Crater": "หลุมอุกกาบาต",
-    "Crippling Offensive": "การโจมตีทำให้พิการ",
-    "Crushing Grasp": "กำหมัดบด",
+    "Crippling Offensive": "บุกทำลาย",
+    "Crushing Grasp": "กำบด",
     "Cryonic Snare": "กับดักเยือกแข็ง",
-    "Cursed Blades": "ใบมีดคำสาป",
-    "Dancing Gales": "ลมเต้นรำ",
-    "Dancing Shadows": "เงาเต้นรำ",
+    "Cursed Blades": "ดาบสาป",
+    "Dancing Gales": "ลมพายุร่ายรำ",
+    "Dancing Shadows": "เงาร่ายรำ",
     "Dangerous Contraption": "เครื่องจักรอันตราย",
-    "Dark Cloud": "เมฆดำ",
-    "Dark Frenzy": "ความบ้าคลั่งมืด",
+    "Dark Cloud": "เมฆมืด",
+    "Dark Frenzy": "คลั่งมืด",
     "Defensive Ditty": "เพลงป้องกัน",
     "Defensive Tactics": "ยุทธวิธีป้องกัน",
     "Dig Pit": "ขุดหลุม",
-    "Dirt Tornado": "พายุฝุ่น",
+    "Dirt Tornado": "พายุดิน",
     "Disintegration Beam": "ลำแสงสลาย",
-    "Disorienting Dirge": "เพลงสวดสับสน",
-    "Dissonant Rhythm": "จังหวะไม่สอดคล้อง",
+    "Disorienting Dirge": "เพลงไว้อาลัยทำให้สับสน",
+    "Dissonant Rhythm": "จังหวะไม่ประสาน",
     "Domination": "ครอบงำ",
-    "Dual Nature": "ธรรมชาติคู่",
-    "Duskstorm": "พายุพลบค่ำ",
-    "Earth's Embrace": "กอดแห่งแผ่นดิน",
+    "Dual Nature": "สองธรรมชาติ",
+    "Duskstorm": "พายุสนธยา",
+    "Earth's Embrace": "อ้อมกอดแห่งดิน",
     "Earthen Bulwark": "กำแพงดิน",
     "Earthen Clod": "ก้อนดิน",
-    "Echoing Aria": "เพลงก้อง",
-    "Elemental Juggernaut": "ยักษ์ธาตุ",
-    "Elemental Rays": "รังสีธาตุ",
+    "Echoing Aria": "อาเรียก้อง",
+    "Elemental Juggernaut": "จักรพรรดิธาตุ",
+    "Elemental Rays": "รัศมีธาตุ",
     "Emberfrost": "น้ำค้างถ่าน",
-    "Empathetic Assault": "โจมตีด้วยความเห็นอกเห็นใจ",
-    "Empowering Flame": "เปลวไฟเสริมพลัง",
+    "Empathetic Assault": "โจมตีเห็นอกเห็นใจ",
+    "Empowering Flame": "เปลวเสริมพลัง",
     "Empowering Void": "ความว่างเสริมพลัง",
     "Encompassing Shadow": "เงาครอบคลุม",
-    "Enervating Wound": "แผลอ่อนแรง",
-    "Enhancement Field": "สนามเสริม",
-    "Entomb": "ฝังศพ",
-    "Ethereal Manifestation": "การปรากฏของอีเทอร์",
+    "Enervating Wound": "บาดแผลอ่อนแรง",
+    "Enhancement Field": "สนามเสริมความแข็งแกร่ง",
+    "Entomb": "ฝังทั้งเป็น",
+    "Ethereal Manifestation": "ปรากฏจากอีเทอร์",
     "Etheric Echo": "เสียงก้องอีเทอร์",
     "Eye for an Eye": "ตาต่อตา",
     "Eye of the Hurricane": "ดวงตาพายุ",
     "Eyes of the Night": "ดวงตาแห่งราตรี",
     "Face Your End": "เผชิญจุดจบ",
     "Fearsome Blade": "ดาบน่าสะพรึง",
-    "Fearsome Taunt": "ยั่วยุขนลุก",
-    "Feedback Loop": "วงจรย้อนกลับ",
-    "Fire Orbs": "ลูกไฟ",
-    "Flame Strike": "โจมตีเปลวไฟ",
-    "Flameswell": "น้ำพุไฟ",
-    "Flamethrower": "เครื่องพ่นไฟ",
-    "Flash of Brilliance": "แสงวาบสุกใส",
-    "Formless Power": "พลังไร้รูป",
+    "Fearsome Taunt": "เย้ยน่าสะพรึง",
+    "Feedback Loop": "วงวนตอบสนอง",
+    "Fire Orbs": "ลูกบอลไฟ",
+    "Flame Strike": "ฟาดเปลว",
+    "Flameswell": "พุ่งไฟ",
+    "Flamethrower": "พ่นไฟ",
+    "Flash of Brilliance": "แวบแห่งความฉายแสง",
+    "Formless Power": "อำนาจไร้รูป",
     "Freezing Nova": "โนวาเยือกแข็ง",
-    "Freezing Vortex": "วังวนเยือกแข็ง",
-    "Frenzied Onslaught": "การโจมตีบ้าคลั่ง",
-    "Frigid Apparition": "วิญญาณเยือก",
-    "Frigid Torrent": "กระแสเยือก",
-    "Frost Strike": "โจมตีน้ำแข็ง",
-    "Frostflare Orbs": "ลูกบอลน้ำแข็งไฟ",
+    "Freezing Vortex": "วอร์เท็กซ์เยือกแข็ง",
+    "Frenzied Onslaught": "บุกคลั่ง",
+    "Frigid Apparition": "วิญญาณหนาว",
+    "Frigid Torrent": "กระแสหนาว",
+    "Frost Strike": "ฟาดน้ำแข็ง",
+    "Frostflare Orbs": "ลูกบอลน้ำแข็งเปลว",
     "Frozen Shiv": "มีดสั้นน้ำแข็ง",
-    "Gangling Abomination": "อสูรร่างยาว",
+    "Gangling Abomination": "อสูรผอมสูง",
     "Gas Canister": "กระบอกแก๊ส",
     "Gnawing Horde": "ฝูงกัดแทะ",
     "Grab and Go": "คว้าแล้วไป",
-    "Grand Finale": "จบสุดยิ่งใหญ่",
+    "Grand Finale": "จบใหญ่",
     "Gravel Guard": "ยามกรวด",
     "Gravity Bomb": "ระเบิดแรงโน้มถ่วง",
     "Harmless Contraption": "เครื่องจักรไร้ภัย",
     "Harsh Stimulants": "สารกระตุ้นรุนแรง",
     "Heatwave": "คลื่นความร้อน",
-    "Heaving Swing": "สวิงหนัก",
+    "Heaving Swing": "สวิงโถม",
     "Hidden in the Shadows": "ซ่อนในเงา",
     "Hook Gun": "ปืนตะขอ",
     "Hook and Chain": "ตะขอและโซ่",
-    "Hostile Takeover": "ยึดครองศัตรู",
+    "Hostile Takeover": "ยึดครองอย่างเป็นศัตรู",
     "Hymn to the Oak": "เพลงสรรเสริญโอ๊ก",
     "Ice Armor": "เกราะน้ำแข็ง",
     "Ice Spikes": "หนามน้ำแข็ง",
     "Icy Blast": "ระเบิดน้ำแข็ง",
-    "Immovable Phalanx": "แนวรบไม่เคลื่อน",
-    "Impaling Eruption": "ระเบิดแทง",
-    "Increase Cadence": "เพิ่มจังหวะ",
-    "Infernal Vortex": "วังวนนรก",
+    "Immovable Phalanx": "แนวรบไม่หวั่น",
+    "Impaling Eruption": "ปะทุเสียบ",
+    "Increase Cadence": "เร่งจังหวะ",
+    "Infernal Vortex": "วอร์เท็กซ์นรก",
     "Inferno": "นรก",
     "Ink Bomb": "ระเบิดหมึก",
     "Inspiring Anthem": "เพลงปลุกใจ",
-    "Intensifying Amplitude": "ความเข้มข้นเพิ่ม",
+    "Intensifying Amplitude": "เพิ่มความเข้ม",
     "Intimidating Growl": "คำรามน่าหวาดกลัว",
     "Into the Night": "สู่ราตรี",
-    "Invigorating Aerosol": "สเปรย์กระตุ้น",
-    "Jet Propulsion": "แรงขับไอพ่น",
-    "Juggernaut": "ยักษ์",
-    "Kinetic Assault": "โจมตีจลน์",
-    "Leaping Cleave": "ฟันกระโดด",
-    "Let Fly": "ปล่อย",
-    "Lingering Essence": "สาระค้าง",
-    "Lurking Ruin": "ซากซุ่ม",
+    "Invigorating Aerosol": "สเปรย์กระชุ่มกระชวย",
+    "Jet Propulsion": "ขับดันด้วยไอพ่น",
+    "Juggernaut": "จักรพรรดิ",
+    "Kinetic Assault": "โจมตีจลนศาสตร์",
+    "Leaping Cleave": "ฟันกระโจน",
+    "Let Fly": "ปล่อยไป",
+    "Lingering Essence": "สารคงค้าง",
+    "Lurking Ruin": "ซากแอบซุ่ม",
     "Magma Scales": "เกล็ดแมกมา",
-    "Malleable Evocation": "การเรียกที่ปรับได้",
+    "Malleable Evocation": "อัญเชิญปรับรูป",
     "Many as One": "หลายเป็นหนึ่ง",
-    "Marching Beat": "จังหวะเดิน",
-    "Marked for Death": "หมายถึงความตาย",
-    "Mass Hysteria": "ความตื่นตระหนกหมู่",
+    "Marching Beat": "จังหวะเดินแถว",
+    "Marked for Death": "หมายไว้ตาย",
+    "Mass Hysteria": "ฮิสทีเรียหมู่",
     "Massive Boulder": "หินยักษ์",
     "Messenger of Death": "ผู้ส่งสารแห่งความตาย",
     "Meteor": "อุกกาบาต",
     "Mobilizing Measure": "มาตรการระดม",
-    "Mud Eruption": "โคลนระเบิด",
-    "Murderous Contraption": "เครื่องจักรฆาตกรรม",
-    "Net Shooter": "ยิงตาข่าย",
+    "Mud Eruption": "ปะทุโคลน",
+    "Murderous Contraption": "เครื่องจักรสังหาร",
+    "Net Shooter": "ปืนตาข่าย",
     "Nightfall": "พลบค่ำ",
     "Noxious Vials": "ขวดพิษ",
     "Obsidian Shards": "เศษออบซิเดียน",
     "Ode to the Gambler": "โอดถึงนักพนัน",
-    "Onward to Battle": "มุ่งสู่การรบ",
-    "Opposing Strike": "โจมตีตรงข้าม",
-    "Overwhelming Assault": "โจมตีถล่ม",
-    "Pernicious Fogger": "เครื่องพ่นหมอกอันตราย",
-    "Perverse Edge": "ขอบวิปริต",
+    "Onward to Battle": "มุ่งสู่สมรภูมิ",
+    "Opposing Strike": "ฟันต้าน",
+    "Overwhelming Assault": "บุกถล่ม",
+    "Pernicious Fogger": "เครื่องพ่นหมอกมรณะ",
+    "Perverse Edge": "คมวิปริต",
     "Petrify": "ทำให้เป็นหิน",
-    "Phantasmal Killer": "ฆาตกรหลอก",
-    "Pilfer": "ขโมย",
-    "Possession": "ครอบงำ",
-    "Potent Potable": "เครื่องดื่มทรงพลัง",
-    "Potent Potables": "เครื่องดื่มทรงพลัง",
-    "Power Ballad": "เพลงพลัง",
-    "Pragmatic Reinforcement": "การเสริมอย่าง pragmatism",
-    "Prepare for the Kill": "เตรียมฆ่า",
-    "Prey on the Weak": "ล่าผู้อ่อนแอ",
-    "Primal Duality": "ความเป็นคู่ดึกดำบรรพ์",
-    "Prismatic Barrage": "ระเบิดปริซึม",
+    "Phantasmal Killer": "ฆาตกรลวงตา",
+    "Pilfer": "ลักเล็กขโมยน้อย",
+    "Possession": "เข้าสิง",
+    "Potent Potable": "น้ำดื่มทรงพลัง",
+    "Potent Potables": "น้ำดื่มทรงพลัง",
+    "Power Ballad": "บัลลาดพลัง",
+    "Pragmatic Reinforcement": "เสริมเชิงปฏิบัติ",
+    "Prepare for the Kill": "เตรียมสังหาร",
+    "Prey on the Weak": "ล่าเหยื่ออ่อนแอ",
+    "Primal Duality": "ความเป็นคู่ดั้งเดิม",
+    "Prismatic Barrage": "ระดมสีรุ้ง",
     "Provoke Terror": "ยั่วยุความหวาดกลัว",
-    "Proximity Mine": "กับดักใกล้",
+    "Proximity Mine": "กับดักระยะใกล้",
     "Psychic Blade": "ดาบจิต",
-    "Psychic Projection": "การฉายภาพจิต",
-    "Pull the Strings": "ดึงสาย",
-    "Pulsing Cores": "แก่นเต้น",
+    "Psychic Projection": "ฉายจิต",
+    "Pull the Strings": "ชักใย",
+    "Pulsing Cores": "แกนกลางเต้น",
     "Push Through": "ดันผ่าน",
-    "Quiet Frenzy": "ความบ้าคลั่งเงียบ",
+    "Quiet Frenzy": "คลั่งเงียบ",
     "Reinvigorating Elixir": "ยาอายุวัฒนะ",
     "Repulsor Gun": "ปืนผลัก",
-    "Restorative Mist": "หมอกรักษา",
+    "Restorative Mist": "หมอกบำบัด",
     "Reviving Ether": "อีเทอร์ฟื้น",
     "Rock Slide": "หินถล่ม",
-    "Rocky End": "จุดจบหิน",
-    "Rumbling Advance": "รุกดังก้อง",
-    "Run Through": "วิ่งผ่าน",
-    "Scurry": "วิ่งเร็ว",
+    "Rocky End": "จบแบบหิน",
+    "Rumbling Advance": "รุกคำราม",
+    "Run Through": "วิ่งทะลุ",
+    "Scurry": "วิ่งด่วน",
     "Searing Glacier": "ธารน้ำแข็งแผดเผา",
     "Seeping Tendrils": "หนวดซึม",
-    "Selfish Retribution": "การตอบแทนเห็นแก่ตัว",
+    "Selfish Retribution": "แก้แค้นเห็นแก่ตัว",
     "Sentient Growth": "การเติบโตมีสติ",
-    "Shadowstrike": "โจมตีเงา",
+    "Shadowstrike": "เงาฟัน",
     "Shaping the Ether": "หล่อหลอมอีเทอร์",
     "Shared Nightmare": "ฝันร้ายร่วม",
-    "Shield Bash": "ปัดโล่",
-    "Shroud in Shade": "คลุมด้วยเงา",
-    "Silent Force": "พลังเงียบ",
+    "Shield Bash": "ปะทะโล่",
+    "Shroud in Shade": "ห่อด้วยร่ม",
+    "Silent Force": "แรงเงียบ",
     "Silent Scream": "กรีดร้องเงียบ",
-    "Singing Arrow": "ธนูร้องเพลง",
+    "Singing Arrow": "ลูกศรร้องเพลง",
     "Skewer": "เสียบ",
-    "Skirmishing Maneuver": "ยุทธวิธีปะทะ",
-    "Slice Through": "เฉือนผ่าน",
-    "Solidify": "ทำให้แข็ง",
+    "Skirmishing Maneuver": "ยุทธวิธีจรยุทธ์",
+    "Slice Through": "เฉือนทะลุ",
+    "Solidify": "แข็งตัว",
     "Soothing Lullaby": "เพลงกล่อมนอน",
     "Spare Dagger": "มีดสำรอง",
     "Spell Mastery": "เชี่ยวชาญเวท",
     "Spirit of the Night": "วิญญาณแห่งราตรี",
-    "Stamina Booster": "ยาบำรุงความอดทน",
+    "Stamina Booster": "เสริมความอดทน",
     "Stoking Hail": "ลูกเห็บเร่ง",
     "Stone Pummel": "ทุบหิน",
-    "Stun Shot": "ยิงมึน",
+    "Stun Shot": "ยิงสตัน",
     "Submissive Affliction": "ความทุกข์ยอมจำนน",
     "Swallowed by Fear": "ถูกกลืนด้วยความกลัว",
     "Swallowed by Night": "ถูกกลืนด้วยราตรี",
-    "Sweeping Blow": "ตีกวาด",
-    "Symphonic Medley": "เพลงประสาน",
-    "Telepathic Command": "คำสั่งโทรจิต",
+    "Sweeping Blow": "ฟาดกวาด",
+    "Symphonic Medley": "เมดเลย์ซิมโฟนี",
+    "Telepathic Command": "บัญชาโทรจิต",
     "Teleportation Pad": "แผ่นเทเลพอร์ต",
     "Terror Blade": "ดาบความหวาดกลัว",
-    "The Mind's Weakness": "ความอ่อนแอของจิตใจ",
-    "Thrilling Solo": "โซโล่ตื่นเต้น",
-    "Toughening Trill": "เสียงร้องเสริมความแข็ง",
-    "Toxic Bolt": "สายฟ้าพิษ",
-    "Trample": "เหยียบ",
+    "The Mind's Weakness": "จุดอ่อนของจิต",
+    "Thrilling Solo": "โซโลเร้าใจ",
+    "Toughening Trill": "ทริลล์แข็งแกร่ง",
+    "Toxic Bolt": "สายพิษ",
+    "Trample": "เหยียบย่ำ",
     "Tuning the Outcome": "ปรับผลลัพธ์",
-    "Twin Beams": "ลำแสงคู่",
-    "Unseen Dread": "ความหวาดกลัวล่องหน",
-    "Unstable Upheaval": "การเปลี่ยนแปลงไม่เสถียร",
-    "Unstoppable Charge": "โจมตีหยุดไม่ได้",
+    "Twin Beams": "คู่ลำแสง",
+    "Unseen Dread": "ความหวาดกลัวที่มองไม่เห็น",
+    "Unstable Upheaval": "การพลิกผันไม่เสถียร",
+    "Unstoppable Charge": "พุ่งไม่หยุด",
     "Voice of the Night": "เสียงแห่งราตรี",
-    "Volatile Concoction": "ยาผสมระเหย",
-    "Wall of Doom": "กำแพงชะตากรรม",
-    "Warding Strength": "พลังคุ้มครอง",
-    "Warm Up": "วอร์มขึ้น",
+    "Volatile Concoction": "ยาต้มระเหย",
+    "Wall of Doom": "กำแพงหายนะ",
+    "Warding Strength": "พลังคุ้มกัน",
+    "Warm Up": "วอร์มอัป",
     "Wave of Destruction": "คลื่นทำลาย",
     "Wave of Frost": "คลื่นน้ำแข็ง",
-    "Wearying Chant": "เพลงสวดเหนื่อย",
+    "Wearying Chant": "เพลงอิดโรย",
     "Whirlwind": "พายุหมุน",
-    "Winter's Edge": "ขอบฤดูหนาว",
-    "Wistful Wounding": "แผลเศร้า",
+    "Winter's Edge": "คมฤดูหนาว",
+    "Wistful Wounding": "บาดแผลอาลัย",
     "Withering Claw": "กรงเล็บเหี่ยว"
   },
   "battleGoals": {
     "1016": {
       "": "นักบัญชี",
-      "text": "Have zero cards in your hand each time you พักผ่อน."
+      "text": "ไม่มีการ์ดในมือทุกครั้งที่พัก"
     },
     "1017": {
       "": "นักกายกรรม",
-      "text": "Lose a card to negate suffering 5 or more ความเสียหาย."
+      "text": "ทิ้งการ์ดหนึ่งใบเพื่อยกเลิกความเสียหาย 5 ขึ้นไป"
     },
     "1018": {
       "": "นักบวช",
-      "text": "Collect fewer ล่า tokens than any other character."
+      "text": "เก็บโทเค็นของปล้นได้น้อยกว่าตัวละครอื่นทุกตัว"
     },
     "1019": {
       "": "ผู้ช่วย",
-      "text": "Kill an ศัตรู attacked by any of your พรรคพวก earlier in the same รอบ."
+      "text": "ฆ่าศัตรูที่ถูกโจมตีโดยพันธมิตรของคุณก่อนหน้าในเทิร์นเดียวกัน"
     },
     "1020": {
       "": "ป้อมปราการ",
-      "text": "Occupy a door หกเหลี่ยม adjacent to two or more enemies at the end of a รอบ."
+      "text": "ยืนอยู่บน hex ประตูที่ติดกับศัตรูสองตัวขึ้นไปเมื่อจบเทิร์น"
     },
     "1021": {
-      "": "อำมาตย์",
-      "text": "Kill an ศัตรู that has two or more negative conditions."
+      "": "อันธพาล",
+      "text": "ฆ่าศัตรูที่มีสถานะลบสองอย่างขึ้นไป"
     },
     "1022": {
-      "": "ผู้ทำความสะอาด",
-      "text": "Collect three or more ล่า tokens in the same เทิร์น."
+      "": "นักเก็บ",
+      "text": "เก็บโทเค็นของปล้นได้สามอันขึ้นไปในเทิร์นเดียวกัน"
     },
     "1023": {
       "": "ผู้ปิด",
-      "text": "Kill the last ศัตรู to die in the สถานการณ์."
+      "text": "ฆ่าศัตรูตัวสุดท้ายที่ตายในฉาก"
     },
     "1024": {
-      "": "ผู้อนุรักษ์"
+      "": "ผู้รักษา",
+      "text": "ไม่ทำแอ็กชันที่มีไอคอนสูญหาย"
     },
     "1025": {
-      "": "ผู้ไม่ยอมแพ้",
-      "text": "Never have your hit point value drop below half your maximum hit point value (ปัดขึ้น)."
+      "": "ยืนหยัด",
+      "text": "อย่าให้แต้มชีวิตต่ำกว่าครึ่งหนึ่งของแต้มชีวิตสูงสุด (ปัดขึ้น)"
     },
     "1026": {
       "": "ไดนาโม",
-      "text": "Kill an ศัตรู with an โจมตี that would have caused at least 4 more points of ความเสียหาย than necessary."
+      "text": "ฆ่าศัตรูด้วยการโจมตีที่ก่อความเสียหายเกินอย่างน้อย 4 แต้ม"
     },
     "1027": {
       "": "เห็นแก่ตัว",
-      "text": "Collect more ล่า tokens than any other character."
+      "text": "เก็บโทเค็นของปล้นได้มากกว่าตัวละครอื่นทุกตัว"
     },
     "1028": {
       "": "เพชฌฆาต",
-      "text": "Kill an undamaged ศัตรู with a single โจมตี action."
+      "text": "ฆ่าศัตรูที่ยังไม่เสียหายด้วยแอ็กชันโจมตีครั้งเดียว"
     },
     "1029": {
       "": "นักพนัน",
-      "text": "Kill an ศัตรู with an โจมตี that has disadvantage."
+      "text": "ฆ่าศัตรูด้วยการโจมตีที่ disadvantage"
     },
     "1030": {
-      "": "นักล่า"
+      "": "นักล่า",
+      "text": "ฆ่าศัตรูเอลิทหนึ่งตัวขึ้นไป หรือสองตัวขึ้นไปสำหรับสี่ตัวละคร"
     },
     "1031": {
       "": "นอนไม่หลับ",
-      "text": "Suffer ความเสียหาย from an โจมตี in the same รอบ you long พักผ่อน."
+      "text": "ได้รับความเสียหายจากการโจมตีในเทิร์นเดียวกับที่คุณ long rest"
     },
     "1032": {
-      "": "ซาดิสต์",
-      "text": "End the สถานการณ์ with a hit point value of 3 or less."
+      "": "ชอบทนทุกข์",
+      "text": "จบฉากโดยมีแต้มชีวิต 3 หรือน้อยกว่า"
     },
     "1033": {
-      "": "โจร",
-      "text": "Kill an ศัตรู and ล่า the ล่า token it drops in the same รอบ."
+      "": "โจรปล้น",
+      "text": "ฆ่าศัตรูและเก็บโทเค็นของปล้นได้ที่มันทิ้งในเทิร์นเดียวกัน"
     },
     "1034": {
       "": "ผู้เปิด",
-      "text": "Kill the first ศัตรู to die in the สถานการณ์."
+      "text": "ฆ่าศัตรูตัวแรกที่ตายในฉาก"
     },
     "1035": {
       "": "มองโลกในแง่ดี",
-      "text": "ลบ a negative condition from yourself or an พรรคพวก two or more times."
+      "text": "ลบสถานะลบจากตัวเองหรือพันธมิตรสองครั้งขึ้นไป"
     },
     "1036": {
-      "": "สันติชน"
+      "": "สันติวิธี",
+      "text": "ฆ่าศัตรูไม่เกินสามตัว"
     },
     "1037": {
-      "": "ยาจก",
-      "text": "Never collect a ล่า token from end-of-เทิร์น looting."
+      "": "ขัดสน",
+      "text": "อย่าเก็บโทเค็นของปล้นได้จากการปล้นเมื่อจบเทิร์น"
     },
     "1038": {
-      "": "คนเดินถนน",
-      "text": "Never enter a หกเหลี่ยม ครอบครอง by an พรรคพวก, ศัตรู, objective, or obstacle."
+      "": "คนเดินเท้า",
+      "text": "อย่าเข้า hex ที่มีพันธมิตร ศัตรู เป้าหมาย หรือสิ่งกีดขวางอยู่"
     },
     "1039": {
       "": "สมบูรณ์แบบ",
-      "text": "End the สถานการณ์ with your hit point value equal to your maximum hit point value."
+      "text": "จบฉากโดยแต้มชีวิตเท่ากับแต้มชีวิตสูงสุด"
     },
     "1040": {
-      "": "มือล้วง",
-      "text": "Collect two or more ล่า tokens by performing a ล่า ability while adjacent to one or more enemies."
+      "": "ล้วงกระเป๋า",
+      "text": "เก็บโทเค็นของปล้นได้สองอันขึ้นไปโดยใช้ความสามารถ loot ขณะอยู่ติดกับศัตรูอย่างน้อยหนึ่งตัว"
     },
     "1041": {
-      "": "หมอนเข็ม",
-      "text": "Be targeted by โจมตี from three or more enemies in the same รอบ."
+      "": "เข็มหมอน",
+      "text": "ถูกโจมตีโดยศัตรูสามตัวขึ้นไปในเทิร์นเดียวกัน"
     },
     "1042": {
-      "": "ชนชั้นต่ำ",
-      "text": "Never kill an elite ศัตรู, named ศัตรู or boss."
+      "": "สามัญชน",
+      "text": "อย่าฆ่าศัตรูเอลิท ศัตรูมีชื่อ หรือบอส"
     },
     "1043": {
-      "": "ผู้ห้าม"
+      "": "ไม่ดื่มยาต้ม",
+      "text": "อย่าใช้ยาต้ม"
     },
     "1044": {
       "": "ผู้ส่งเสริม",
-      "text": "Perform an ability มุ่งไปที่ an พรรคพวก before your first พักผ่อน and in between each of your พักผ่อน."
+      "text": "ใช้ความสามารถที่เล็งพันธมิตรก่อนพักครั้งแรกและระหว่างแต่ละครั้งที่พัก"
     },
     "1045": {
       "": "นักเดินทาง",
-      "text": "End no more than three of your เทิร์น in the หกเหลี่ยม in which you started the เทิร์น, except when long resting."
+      "text": "จบไม่เกินสามเทิร์นบน hex ที่คุณเริ่มเทิร์น ยกเว้นเมื่อ long rest"
     },
     "1046": {
       "": "ผู้ทำลาย",
-      "text": "Perform two actions with lost icons in the same เทิร์น."
+      "text": "ทำสองแอ็กชันที่มีไอคอนสูญหายในเทิร์นเดียวกัน"
     },
     "1047": {
       "": "สันโดษ",
-      "text": "Never end your เทิร์น adjacent to any other character (gain one additional %game.checkmark% for four characters)."
+      "text": "อย่าจบเทิร์นโดยอยู่ติดกับตัวละครอื่น (ได้รับ %game.checkmark% เพิ่มหนึ่งสำหรับสี่ตัวละคร)"
     },
     "1048": {
-      "": "นักพิธีกรรม",
-      "text": "Kill an ศัตรู while three or more elements are strong or waning."
+      "": "นักบวงสรวง",
+      "text": "ฆ่าศัตรูขณะมีธาตุ strong หรือ waning อย่างน้อยสามอย่าง"
     },
     "1049": {
-      "": "ซาดิสต์"
+      "": "ซาดิสต์",
+      "text": "ฆ่าศัตรูห้าตัวขึ้นไป"
     },
     "1050": {
-      "": "ผู้รีบ",
-      "text": "Never long พักผ่อน."
+      "": "ไม่พักยาว",
+      "text": "อย่า long rest"
     },
     "1051": {
-      "": "ผู้หลบหลีก",
-      "text": "Kill an ศัตรู not adjacent to you while you are adjacent to another ศัตรู."
+      "": "ผู้หลบเลี่ยง",
+      "text": "ฆ่าศัตรูที่ไม่ได้อยู่ติดคุณขณะคุณอยู่ติดศัตรูอีกตัว"
     },
     "1052": {
-      "": "ผู้หลับ",
-      "text": "Have one or more cards in your hand each time you พักผ่อน."
+      "": "นักนอน",
+      "text": "มีการ์ดในมืออย่างน้อยหนึ่งใบทุกครั้งที่พัก"
     },
     "1053": {
-      "": "ผู้เกียจคร้าน",
-      "text": "Perform a long พักผ่อน while at your maximum hit point value, after you have already suffered ความเสียหาย."
+      "": "ขี้เกียจ",
+      "text": "ทำ long rest ขณะแต้มชีวิตเต็ม หลังจากได้รับความเสียหายแล้ว"
     },
     "1054": {
-      "": "ผู้ตามหลัง",
-      "text": "Never short พักผ่อน."
+      "": "ไม่พักสั้น",
+      "text": "อย่า short rest"
     },
     "1055": {
-      "": "ผู้กระชับ",
-      "text": "Have five or more total cards in your hand and discard pile at the end of the สถานการณ์."
+      "": "คล่องตัว",
+      "text": "มีการ์ดในมือและกองทิ้งรวมอย่างน้อยห้าใบเมื่อจบฉาก"
     },
     "1056": {
       "": "ผู้ทรมาน",
-      "text": "Apply a different negative condition to an ศัตรู that already has one or more negative conditions."
+      "text": "ให้สถานะลบชนิดต่างกับศัตรูที่ already มีสถานะลบอย่างน้อยหนึ่งอย่าง"
     },
     "1057": {
-      "": "ผู้ฟุ่มเฟือย",
-      "text": "Lose a card to negate 2 or less ความเสียหาย from an โจมตี."
+      "": "สุรุ่ยสุร่าย",
+      "text": "ทิ้งการ์ดหนึ่งใบเพื่อยกเลิกความเสียหาย 2 หรือน้อยกว่าจากการโจมตี"
     },
     "1058": {
-      "": "ผู้อ่อนแอ"
+      "": "อ่อนแอ",
+      "text": "หมดแรงก่อนตัวละครอื่นทุกตัว"
     },
     "1059": {
-      "": "ผู้ทำงานหนัก",
-      "text": "Gain 13 or more ประสบการณ์ before any bonus สถานการณ์ ประสบการณ์."
+      "": "แรงงาน",
+      "text": "ได้รับค่าประสบการณ์ 13 ขึ้นไปก่อนค่าประสบการณ์โบนัสฉาก"
     },
     "1060": {
-      "": "ผู้คลั่ง",
-      "text": "Have three or fewer total cards in your hand and discard pile while also not exhausted at the end of the สถานการณ์."
+      "": "คลั่งศาสนา",
+      "text": "มีการ์ดในมือและกองทิ้งรวมไม่เกินสามใบและยังไม่หมดแรงเมื่อจบฉาก"
     },
     "1061": {
-      "": "สัปเหร่อ",
-      "text": "Kill an ศัตรู before it takes its first เทิร์น."
+      "": "มือสังหาร",
+      "text": "ฆ่าศัตรูก่อนมันได้เทิร์นแรก"
     },
     "1062": {
-      "": "ผู้กล้า",
-      "text": "Add two cards to your lost pile before your first พักผ่อน."
+      "": "ใจกล้า",
+      "text": "เพิ่มการ์ดสองใบเข้ากองสูญหายก่อนพักครั้งแรก"
     },
     "1063": {
-      "": "ผู้เฉื่อยชา"
+      "": "เชื่องช้า",
+      "text": "อย่าใช้การ์ดที่ initiative ต่ำสุดที่เล่นเป็นการ์ด initiative"
     },
     "1064": {
       "": "นักดวล",
-      "text": "Never exit a หกเหลี่ยม adjacent to an ศัตรู except through forced movement."
+      "text": "อย่าออกจาก hex ที่ติดศัตรูนอกจากโดยการเคลื่อนที่บังคับ"
     },
     "1065": {
-      "": "ผู้ทำลายล้าง",
-      "text": "Kill one or more enemies of each มอนสเตอร์ type that appears in the สถานการณ์."
+      "": "นักทำลายล้าง",
+      "text": "ฆ่าศัตรูอย่างน้อยหนึ่งตัวของแต่ละประเภทมอนสเตอร์ที่ปรากฏในฉาก"
     },
     "1066": {
-      "": "คนขี้เกียจ",
-      "text": "Gain 7 or fewer ประสบการณ์ before any bonus สถานการณ์ ประสบการณ์."
+      "": "คนเกียจคร้าน",
+      "text": "ได้รับค่าประสบการณ์ 7 หรือน้อยกว่าก่อนค่าประสบการณ์โบนัสฉาก"
     },
     "1067": {
       "": "ขี้เหนียว",
-      "text": "Never exit a room with ล่า tokens in it."
+      "text": "อย่าออกจากห้องที่ยังมีโทเค็นของปล้นได้อยู่"
     },
     "1068": {
-      "": "ผู้เกินเป้า",
-      "text": "Kill an ศัตรู and open a door in the same เทิร์น, in either order."
+      "": "ทำเกินเป้า",
+      "text": "ฆ่าศัตรูและเปิดประตูในเทิร์นเดียวกัน ลำดับใดก็ได้"
     },
     "1069": {
-      "": "สันติชน",
-      "text": "Never kill an ศัตรู."
+      "": "รักสงบ",
+      "text": "อย่าฆ่าศัตรู"
     },
     "1070": {
-      "": "ผู้เตรียมการ",
-      "text": "Perform no โจมตี abilities in the first three รอบ."
+      "": "เตรียมพร้อม",
+      "text": "อย่าใช้ความสามารถโจมตีในสามเทิร์นแรก"
     },
     "1071": {
       "": "นักฆ่า",
-      "text": "Kill two or more enemies in the same รอบ."
+      "text": "ฆ่าศัตรูสองตัวขึ้นไปในเทิร์นเดียวกัน"
     },
     "1072": {
-      "": "คนช้า",
-      "text": "เคลื่อนที่ no more than two หกเหลี่ยม on each เทิร์น."
+      "": "เชื่องช้า",
+      "text": "เคลื่อนที่ไม่เกินสอง hex ในแต่ละเทิร์น"
     },
     "1073": {
-      "": "ผู้เชี่ยวชาญ"
+      "": "ผู้เชี่ยวชาญ",
+      "text": "อย่าทำแอ็กชันพื้นฐาน"
     },
     "1074": {
       "": "แนวหน้า",
-      "text": "Never โจมตี an ศัตรู that has already acted in the รอบ."
+      "text": "อย่าโจมตีศัตรูที่ทำการแล้วในเทิร์นนั้น"
     },
     "1075": {
-      "": "ดอกไม้กำแพง",
-      "text": "End each of your เทิร์น adjacent to a wall, obstacle, or objective."
+      "": "ติดผนัง",
+      "text": "จบแต่ละเทิร์นโดยอยู่ติดกำแพง สิ่งกีดขวาง หรือเป้าหมาย"
+    }
+  },
+  "character": {
+    "gh2e": {
+      "bruiser": "บรูเซอร์",
+      "cragheart": "แครกฮาร์ท",
+      "mindthief": "มายด์ธีฟ",
+      "silent-knife": "ไซเลนต์ไนฟ์",
+      "spellweaver": "สเปลล์วีเวอร์",
+      "tinkerer": "ทิงเคอเรอร์"
+    },
+    "traits": {
+      "arcane": "เวท",
+      "armored": "ใส่เกราะ",
+      "blackmailer": "แบล็กเมล์",
+      "carapace-combatant": "นักสู้เปลือกแข็ง",
+      "chaotic": "วุ่นวาย",
+      "educated": "มีการศึกษา",
+      "friend-of-the-hero": "มิตรของฮีโร่",
+      "friend-of-the-silent-knife": "มิตรของ Silent Knife",
+      "hero": "ฮีโร่",
+      "immunity": "ภูมิคุ้มกัน",
+      "indebted": "เป็นหนี้",
+      "intimidating": "น่าหวาดกลัว",
+      "memory-of-serenity": "ความทรงจำแห่งความสงบ",
+      "night": "ราตรี",
+      "nimble": "ว่องไว",
+      "outcast": "ผู้ถูกขับไล่",
+      "persuasive": "โน้มน้าว",
+      "resourceful": "มีทรัพยากร",
+      "strong": "แข็งแกร่ง"
     }
   },
   "custom": {
     "city-guard-saw2-solo": {
-      "2": "ลบ %data.monster.city-guard-saw2-solo% from the map after being healed fully or given a medical pack."
+      "1": "เมื่อได้รับชุดปฐมพยาบาล ให้ทำ:",
+      "2": "เอา %data.monster.city-guard-saw2-solo% ออกจากแผนที่หลังรักษาหมดหรือได้รับชุดปฐมพยาบาล"
+    },
+    "city-guard-sun2-solo": {
+      "1": "ทำทันทีหลัง %game.characterIcon.sun%"
     },
     "gh2e": {
       "ancient-artillery": {
-        "1": "Focus on the ศัตรู<br>farthest away within %game.action.range:7%",
-        "2": "All enemies adjacent to<br>the เป้าหมาย suffer %game.damage:2%."
+        "1": "โฟกัสศัตรูที่ไกลที่สุดภายใน %game.action.range:7%",
+        "2": "ศัตรูทั้งหมดที่อยู่ติดกับเป้าหมายได้รับ %game.damage:2%"
       },
       "archer": {
-        "1": "Create one %game.damage:3% กับดัก in an adjacent<br>empty หกเหลี่ยม closest to an ศัตรู."
+        "1": "สร้างกับดัก %game.damage:3% หนึ่งอันบน hex ว่างที่อยู่ติดกันและใกล้ศัตรูที่สุด"
       },
       "bruiser": {
-        "1": "Add this card to your active area. On the next โจมตี มุ่งไปที่ you performed by an adjacent ศัตรู, discard this card to gain %game.action.retaliate% 2 for the โจมตี",
-        "2": "Once each สถานการณ์, during your เทิร์น, you may perform: %game.action.loot%1, if this ability loots at least one money token, you may %game.card.recover% one %game.itemSlot:body% item",
-        "3": "Whenever you long พักผ่อน, add +1 %game.action.move% to your first เคลื่อนที่ ability the following รอบ",
-        "4": "Each character gains advantage on their first โจมตี during the first รอบ of each สถานการณ์",
-        "5": "In 3 different scenarios, kill an ศัตรู that you Pushed or Pulled that รอบ",
-        "6": "In a single สถานการณ์, across 3 consecutive รอบ, play 6 different ability cards and cause enemies to suffer 7 or more ความเสียหาย during each of those รอบ",
+        "1": "เพิ่มการ์ดนี้ไปพื้นที่แอ็กทีฟ ในการโจมตีครั้งถัดไปที่เล็งคุณโดยศัตรูที่อยู่ติดกัน ทิ้งการ์ดนี้เพื่อได้รับ %game.action.retaliate% 2 สำหรับการโจมตีนั้น",
+        "2": "ครั้งเดียวต่อฉาก ระหว่างเทิร์น คุณอาจทำ: %game.action.loot%1 ถ้าความสามารถนี้ปล้นได้โทเค็นเงินอย่างน้อยหนึ่งอัน คุณอาจ %game.card.recover% ไอเทม %game.itemSlot:body% หนึ่งชิ้น",
+        "3": "เมื่อคุณ long rest ให้เพิ่ม +1 %game.action.move% ให้ความสามารถเคลื่อนที่ครั้งแรกในเทิร์นถัดไป",
+        "4": "ตัวละครแต่ละตัวได้ advantage ในการโจมตีครั้งแรกในเทิร์นแรกของแต่ละฉาก",
+        "5": "ใน 3 ฉากต่างกัน ฆ่าศัตรูที่คุณดันหรือดึงในเทิร์นนั้น",
+        "6": "ในฉากเดียว ตลอด 3 เทิร์นติดกัน เล่นการ์ดความสามารถ 6 ใบต่างกันและทำให้ศัตรูได้รับความเสียหาย 7 ขึ้นไปในแต่ละเทิร์นนั้น",
         "abilities": {
           "1": {
-            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่เล็ง"
           },
           "11": {
-            "1": "Add +1%game.action.attack% on each undamaged เป้าหมาย."
+            "1": "เพิ่ม +1%game.action.attack% กับเป้าหมายที่ยังไม่เสียหายแต่ละตัว"
           },
           "12": {
-            "1": "Whenever an ศัตรู would โจมตี one of your adjacent พรรคพวก this รอบ, you may have that โจมตี เป้าหมาย you instead, regardless of the โจมตี's ระยะ and line-of-sight limitations."
+            "1": "เมื่อศัตรูจะโจมตีพันธมิตรที่อยู่ติดคุณในเทิร์นนี้ คุณอาจให้การโจมตีนั้นเล็งคุณแทน ไม่ว่าช่วงและเส้นสายตาของการโจมตี"
           },
           "13": {
-            "1": "ได้รับ %game.card.experience:1% the next time you ตอบโต้ this รอบ."
+            "1": "ได้รับ %game.card.experience:1% ครั้งถัดไปที่คุณตอบโต้ในเทิร์นนี้"
           },
           "14": {
-            "1": "On your nex two เคลื่อนที่ abilities, add +1%game.action.move%."
+            "1": "ในความสามารถเคลื่อนที่สองครั้งถัดไป ให้เพิ่ม +1%game.action.move%"
+          },
+          "15": {
+            "1": "ในแหล่งความเสียหาย %game.damage% สี่แหล่งถัดไปที่คุณจะได้รับ ยกเลิกความเสียหายนั้น"
           },
           "16": {
-            "1": "If you moved in a straight line in one direction with the เคลื่อนที่ ability, perform:",
-            "2": "where X is the number of หกเหลี่ยม you moved."
+            "1": "ถ้าคุณเคลื่อนที่เป็นเส้นตรงทิศเดียวด้วยความสามารถเคลื่อนที่ ให้ทำ:",
+            "2": "เมื่อ X คือจำนวน hex ที่คุณเคลื่อนที่"
           },
           "17": {
-            "1": "Add +2%game.action.attack% and gain %game.card.experience:1% if you have moved this เทิร์น."
+            "1": "เพิ่ม +2%game.action.attack% และได้รับ %game.card.experience:1% ถ้าคุณเคลื่อนที่ในเทิร์นนี้"
           },
           "18": {
-            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่เล็ง"
           },
           "19": {
-            "1": "During you next โจมตี ability this รอบ, add +1%game.action.attack% to all โจมตี."
+            "1": "ในความสามารถโจมตีครั้งถัดไปของคุณในเทิร์นนี้ ให้เพิ่ม +1%game.action.attack% ให้การโจมตีทั้งหมด"
           },
           "2": {
-            "1": "ได้รับ %game.card.experience:1% the next time you ตอบโต้ this รอบ."
+            "1": "ได้รับ %game.card.experience:1% ครั้งถัดไปที่คุณตอบโต้ในเทิร์นนี้"
           },
           "21": {
-            "1": "The first time each รอบ that you gain %game.action.shield% หรือ %game.action.retaliate% from one of your ability or โจมตี modifier cards, gain %game.action.shield:1% and %game.action.retaliate:1% for the รอบ."
+            "1": "ครั้งแรกในแต่ละเทิร์นที่คุณได้รับ %game.action.shield% หรือ %game.action.retaliate% จากการ์ดความสามารถหรือ attack modifier ของคุณ ให้ได้รับ %game.action.shield:1% และ %game.action.retaliate:1% สำหรับเทิร์นนั้น"
           },
           "22": {
-            "1": "Add +1%game.action.attack% on each undamaged เป้าหมาย."
+            "1": "เพิ่ม +1%game.action.attack% กับเป้าหมายที่ยังไม่เสียหายแต่ละตัว"
           },
           "23": {
-            "1": "Once each เทิร์น, you may treat one เคลื่อนที่ ability from your ability cards as an โจมตี ability of equal value."
+            "1": "ครั้งเดียวต่อเทิร์น คุณอาจถือความสามารถเคลื่อนที่หนึ่งอย่างจากการ์ดความสามารถเป็นความสามารถโจมตีมูลค่าเท่ากัน"
           },
           "24": {
-            "1": "Each ศัตรู occupying a หกเหลี่ยม the เป้าหมาย enters suffers %game.damage:4% and gains %game.condition.wound%."
+            "1": "ศัตรูแต่ละตัวที่อยู่บน hex ที่เป้าหมายเข้าได้รับ %game.damage:4% และได้รับ %game.condition.wound%"
           },
           "25": {
-            "1": "ได้รับ %game.card.experience:1% the next time you ตอบโต้ this รอบ."
+            "1": "ได้รับ %game.card.experience:1% ครั้งถัดไปที่คุณตอบโต้ในเทิร์นนี้"
           },
           "26": {
-            "1": "where X is the amount of %game.damage% you have dealt this เทิร์น."
+            "1": "เมื่อ X คือจำนวน %game.damage% ที่คุณก่อในเทิร์นนี้"
           },
           "28": {
-            "1": "After each โจมตี มุ่งไปที่ you this รอบ, perform:",
-            "2": "Add +1%game.action.attack% to each of your %game.action.push% and %game.action.pull%. Whenever you %game.action.push% หรือ %game.action.pull% an ศัตรู at least one หกเหลี่ยม, after the forced movement, ศัตรูนั้น and all enemies adjacent to it siffer %game.damage:1%."
+            "1": "หลังแต่ละการโจมตีที่เล็งคุณในเทิร์นนี้ ให้ทำ:",
+            "2": "เพิ่ม +1%game.action.attack% ให้ %game.action.push% และ %game.action.pull% ของคุณแต่ละอย่าง เมื่อคุณ %game.action.push% หรือ %game.action.pull% ศัตรูอย่างน้อยหนึ่ง hex หลังการเคลื่อนที่บังคับ ศัตรูนั้นและศัตรูที่อยู่ติดกันได้รับ %game.damage:1%"
           },
           "29": {
-            "1": "Add +3%game.action.attack% and gain %game.card.experience:1% if the เป้าหมาย's current hit point value is lower than yours."
+            "1": "เพิ่ม +3%game.action.attack% และได้รับ %game.card.experience:1% ถ้าเป้าหมายมีแต้มชีวิตปัจจุบันต่ำกว่าคุณ"
           },
           "5": {
-            "1": "where X is the number of หกเหลี่ยม you have moved this เทิร์น.",
-            "2": "where X is the amount of %game.damage% you have dealt this เทิร์น."
+            "1": "เมื่อ X คือจำนวน hex ที่คุณเคลื่อนที่ในเทิร์นนี้",
+            "2": "เมื่อ X คือจำนวน %game.damage% ที่คุณก่อในเทิร์นนี้"
           },
           "7": {
-            "1": "On the next six sources of %game.damage% from โจมตี มุ่งไปที่ you, gain %game.action.shield:1%, %game.action.retaliate:1% for the โจมตี."
+            "1": "ในแหล่งความเสียหายหกแหล่งถัดไปจากการโจมตีที่เล็งคุณ ให้ได้รับ %game.action.shield:1%, %game.action.retaliate:1% สำหรับการโจมตีนั้น"
           }
         }
       },
@@ -557,488 +603,711 @@
         "1": "%game.custom.advantage%"
       },
       "cragheart": {
-        "1": "Create one 1-หกเหลี่ยม obstacle tile in an empty หกเหลี่ยม adjacent to the เป้าหมาย",
-        "2": "Once each สถานการณ์, during your เทิร์น, you may destroy one 1-หกเหลี่ยม obstacle within %game.action.range:5% to %game.action.teleport% to the หกเหลี่ยม it ครอบครอง",
-        "3": "At the end of each of your พักผ่อน, you may destroy one 1-หกเหลี่ยม obstacle within %game.action.range:3% to %game.element.earth%",
-        "4": "Whenever a new room is revealed, control all enemies in the newly revealed room: %game.action.move% 1, this movement must end in an empty หกเหลี่ยม",
-        "5": "For an entire สถานการณ์, create, destroy, or เคลื่อนที่ at least one obstacle tile each รอบ",
-        "6": "In a single สถานการณ์, รักษา 8 or more hit points during a single รอบ, deal 8 or more ความเสียหาย with a ranged โจมตี ability, and deal 8 or more ความเสียหาย with a melee โจมตี ability",
+        "1": "สร้างแผ่นสิ่งกีดขวาง 1-hex หนึ่งแผ่นบน hex ว่างที่อยู่ติดกับเป้าหมาย",
+        "2": "ครั้งเดียวต่อฉาก ระหว่างเทิร์น คุณอาจทำลายสิ่งกีดขวาง 1-hex หนึ่งอันภายใน %game.action.range:5% เพื่อ %game.action.teleport% ไปยัง hex ที่มันอยู่",
+        "3": "เมื่อจบแต่ละครั้งที่พัก คุณอาจทำลายสิ่งกีดขวาง 1-hex หนึ่งอันภายใน %game.action.range:3% เพื่อ %game.element.earth%",
+        "4": "เมื่อเปิดห้องใหม่ ให้ควบคุมศัตรูทั้งหมดในห้องที่เปิด: %game.action.move% 1 การเคลื่อนที่นี้ต้องจบบน hex ว่าง",
+        "5": "ตลอดทั้งฉาก สร้าง ทำลาย หรือย้ายแผ่นสิ่งกีดขวางอย่างน้อยหนึ่งแผ่นทุกเทิร์น",
+        "6": "ในฉากเดียว รักษา 8 แต้มชีวิตขึ้นไปในเทิร์นเดียว โจมตีระยะไกล 8 ความเสียหายขึ้นไป และโจมตีประชิด 8 ความเสียหายขึ้นไป",
         "abilities": {
           "116": {
-            "1": "At the end of this an your next four เทิร์น, perform:"
+            "1": "เมื่อจบเทิร์นนี้และสี่เทิร์นถัดไป ให้ทำ:"
           },
           "117": {
-            "1": "Create a 1-หกเหลี่ยม obstacle tile in an adjacent empty หกเหลี่ยม. All พรรคพวก an enemies adjacent to the created tile suffer %game.damage:1%."
+            "1": "สร้างแผ่นสิ่งกีดขวาง 1-hex บน hex ว่างที่อยู่ติดกัน พันธมิตรและศัตรูทั้งหมดที่อยู่ติดแผ่นที่สร้างได้รับ %game.damage:1%"
           },
           "119": {
-            "1": "All adjacent พรรคพวก and enemies suffer %game.damage:1%."
+            "1": "พันธมิตรและศัตรูที่อยู่ติดกันทั้งหมดได้รับ %game.damage:1%"
           },
           "120": {
-            "1": "All พรรคพวก and enemies adjacent to the เป้าหมาย suffer %game.damage:1%."
+            "1": "พันธมิตรและศัตรูทั้งหมดที่อยู่ติดกับเป้าหมายได้รับ %game.damage:1%"
           },
           "121": {
-            "1": "On your next four เป้าหมายเดียว ranged โจมตี abilities, add +1%game.action.target%."
+            "1": "ในความสามารถโจมตีระยะไกลเล็งเดียวสี่ครั้งถัดไป ให้เพิ่ม +1%game.action.target%"
           },
           "122": {
-            "1": "Create two 1-หกเหลี่ยม obstacle tiles in empty หกเหลี่ยม within %game.action.range:3% %game.enhancement.square% .",
-            "2": "All พรรคพวก adjacent to at least one created tile suffer %game.damage:1% and gain %game.condition.ward%, %game.card.experience:1%."
+            "1": "สร้างแผ่นสิ่งกีดขวาง 1-hex สองแผ่นบน hex ว่างภายใน %game.action.range:3% %game.enhancement.square%",
+            "2": "พันธมิตรทั้งหมดที่อยู่ติดกับอย่างน้อยหนึ่งแผ่นที่สร้างได้รับ %game.damage:1% และได้รับ %game.condition.ward%, %game.card.experience:1%"
           },
           "123": {
-            "1": "all enemies up to two หกเหลี่ยม away instead",
-            "2": "All adjacent พรรคพวก suffer %game.damage:2%."
+            "1": "ศัตรูทั้งหมดภายในสอง hex แทน",
+            "2": "พันธมิตรที่อยู่ติดกันทั้งหมดได้รับ %game.damage:2%"
           },
           "124": {
-            "1": "All adjacent พรรคพวก and enemies suffer %game.damage:1%."
+            "1": "พันธมิตรและศัตรูที่อยู่ติดกันทั้งหมดได้รับ %game.damage:1%"
           },
           "125": {
-            "1": "all พรรคพวก in the red หกเหลี่ยม of the โจมตี ability."
+            "1": "พันธมิตรทั้งหมดใน hex สีแดงของความสามารถโจมตี"
           },
           "126": {
-            "1": "Add +1%game.action.attack% for each obstacle or objective adjacent to the เป้าหมาย."
+            "1": "เพิ่ม +1%game.action.attack% สำหรับแต่ละสิ่งกีดขวางหรือเป้าหมายที่อยู่ติดกับเป้าหมาย"
           },
           "127": {
-            "1": "You may ดัน the เป้าหมาย into หกเหลี่ยม containing obstacles. In each case, destroy the obstacle, the เป้าหมาย suffers %game.damage:2%, and you gain %game.card.experience:1%.",
-            "2": "Destroy an adjacent obstacle or suffer %game.damage:1% to add +3%game.action.attack% to your next melee โจมตี this รอบ."
+            "1": "คุณอาจดันเป้าหมายเข้า hex ที่มีสิ่งกีดขวาง ในแต่ละกรณี ทำลายสิ่งกีดขวาง เป้าหมายได้รับ %game.damage:2% และคุณได้รับ %game.card.experience:1%",
+            "2": "ทำลายสิ่งกีดขวางที่อยู่ติดกันหรือได้รับ %game.damage:1% เพื่อเพิ่ม +3%game.action.attack% ให้การโจมตีประชิดครั้งถัดไปในเทิร์นนี้"
           },
           "128": {
-            "1": "For each เป้าหมาย killed, gain %game.card.experience:1% and create one 1-หกเหลี่ยม obstacle tile in the featureless หกเหลี่ยม they ครอบครอง"
+            "1": "สำหรับแต่ละเป้าหมายที่ฆ่า ได้รับ %game.card.experience:1% และสร้างแผ่นสิ่งกีดขวาง 1-hex หนึ่งแผ่นบน hex เปล่าที่พวกเขาอยู่"
           },
           "130": {
-            "1": "4 enemies within 4 หกเหลี่ยม",
-            "2": "Create one 1-หกเหลี่ยม obstacle tile in the featureless หกเหลี่ยม each เป้าหมาย previously ครอบครอง"
+            "1": "ศัตรู 4 ตัวภายใน 4 hex",
+            "2": "สร้างแผ่นสิ่งกีดขวาง 1-hex หนึ่งแผ่นบน hex เปล่าที่เป้าหมายเคยอยู่"
           },
           "131": {
-            "1": "all พรรคพวก in the red หกเหลี่ยม of the โจมตี ability"
+            "1": "พันธมิตรทั้งหมดใน hex สีแดงของความสามารถโจมตี"
           },
           "132": {
-            "1": "Relocate one adjacent 1-หกเหลี่ยม obstacle tile to an empty หกเหลี่ยม within %game.action.range:4% to perform:",
-            "3": "Destroy all obstacles, hazardous terrain, difficult terrain, and traps in หกเหลี่ยม you enter."
+            "1": "ย้ายแผ่นสิ่งกีดขวาง 1-hex ที่อยู่ติดกันหนึ่งแผ่นไป hex ว่างภายใน %game.action.range:4% เพื่อทำ:",
+            "2": "ศัตรูทั้งหมดที่อยู่ติดกับแผ่นที่ย้าย",
+            "3": "ทำลายสิ่งกีดขวาง ภูมิประเทศอันตราย ภูมิประเทศยาก และกับดักทั้งหมดใน hex ที่คุณเข้า"
           },
           "134": {
-            "1": "Create three 1-หกเหลี่ยม obstacle tiles in empty หกเหลี่ยม within %game.action.range:3% %game.enhancement.square% .",
-            "2": "All พรรคพวก and enemies adjacent to at least one created tile suffer %game.damage:1% and gain %game.condition.muddle%.",
-            "3": "Designate one ศัตรู within %game.action.range:4%. Destroy all obstacles within %game.action.range:2% of the designated ศัตรู to perform:",
-            "4": "the designated ศัตรู"
+            "1": "สร้างแผ่นสิ่งกีดขวาง 1-hex สามแผ่นบน hex ว่างภายใน %game.action.range:3% %game.enhancement.square%",
+            "2": "พันธมิตรและศัตรูทั้งหมดที่อยู่ติดกับอย่างน้อยหนึ่งแผ่นที่สร้างได้รับ %game.damage:1% และได้รับ %game.condition.muddle%",
+            "3": "กำหนดศัตรูหนึ่งตัวภายใน %game.action.range:4% ทำลายสิ่งกีดขวางทั้งหมดภายใน %game.action.range:2% ของศัตรูที่กำหนดเพื่อทำ:",
+            "4": "ศัตรูที่กำหนด",
+            "5": "เมื่อ X คือสองเท่าของจำนวนสิ่งกีดขวางที่ทำลาย"
           },
           "135": {
-            "1": "All พรรคพวก and enemies adjacent to the เป้าหมาย suffer %game.damage:1%."
+            "1": "พันธมิตรและศัตรูทั้งหมดที่อยู่ติดกับเป้าหมายได้รับ %game.damage:1%"
           },
           "136": {
-            "1": "Grant one พรรคพวก within %game.action.range:3%:"
+            "1": "ให้พันธมิตรหนึ่งตัวภายใน %game.action.range:3%:",
+            "2": "ได้รับ %game.damage:1%"
           },
           "137": {
-            "1": "Whenever you โจมตี an adjacent ศัตรู, you may destroy one 1-หกเหลี่ยม obstacle adjacent to both you and ศัตรูนั้น to add +2%game.action.attack% to the โจมตี."
+            "1": "เมื่อคุณโจมตีศัตรูที่อยู่ติดกัน คุณอาจทำลายสิ่งกีดขวาง 1-hex หนึ่งอันที่อยู่ติดทั้งคุณและศัตรูนั้นเพื่อเพิ่ม +2%game.action.attack% ให้การโจมตี"
           },
           "138": {
-            "1": "Create one %game.damage:2%, %game.condition.stun% กับดัก in an adjacent empty หกเหลี่ยม.",
-            "2": "Create one 1-หกเหลี่ยม obstacle tile in an empty หกเหลี่ยม adjacent to the created กับดัก."
+            "1": "สร้างกับดัก %game.damage:2%, %game.condition.stun% หนึ่งอันบน hex ว่างที่อยู่ติดกัน",
+            "2": "สร้างแผ่นสิ่งกีดขวาง 1-hex หนึ่งแผ่นบน hex ว่างที่อยู่ติดกับกับดักที่สร้าง"
           },
           "139": {
-            "1": "all พรรคพวก in the red หกเหลี่ยม of the โจมตี ability."
+            "1": "พันธมิตรทั้งหมดใน hex สีแดงของความสามารถโจมตี"
           },
           "140": {
-            "1": "Whenever you perform a ranged โจมตี this รอบ, all พรรคพวก and enemies adjacent to the เป้าหมาย suffer %game.damage:1%, %game.card.experience:1%.",
-            "3": "All adjacent พรรคพวก and enemies suffer %game.damage:1%."
+            "1": "เมื่อคุณทำการโจมตีระยะไกลในเทิร์นนี้ พันธมิตรและศัตรูทั้งหมดที่อยู่ติดกับเป้าหมายได้รับ %game.damage:1%, %game.card.experience:1%",
+            "2": "ทำลายสิ่งกีดขวางที่อยู่ติดกันจำนวนเท่าใดก็ได้ สำหรับแต่ละอันที่ทำลาย ให้ทำ:",
+            "3": "พันธมิตรและศัตรูที่อยู่ติดกันทั้งหมดได้รับ %game.damage:1%"
           },
           "141": {
-            "1": "Add +1%game.action.attack%, +1%game.action.push% for each หกเหลี่ยม containing an obstacle or wall adjacent to you.",
-            "2": "At the start of your next four เทิร์น, perform:",
-            "3": "Add +3%game.action.attack% to your next melee โจมตี this เทิร์น."
+            "1": "เพิ่ม +1%game.action.attack%, +1%game.action.push% สำหรับแต่ละ hex ที่มีสิ่งกีดขวางหรือกำแพงอยู่ติดคุณ",
+            "2": "เมื่อเริ่มสี่เทิร์นถัดไปของคุณ ให้ทำ:",
+            "3": "เพิ่ม +3%game.action.attack% ให้การโจมตีประชิดครั้งถัดไปในเทิร์นนี้"
           },
           "142": {
-            "1": "all พรรคพวก in the red หกเหลี่ยม of the โจมตี ability",
-            "2": "Create 1-หกเหลี่ยม obstacle tiles in each empty red หกเหลี่ยม of the โจมตี ability, %game.card.experience:1%.",
-            "3": "Create 1-หกเหลี่ยม obstacle tiles in each featureless หกเหลี่ยม the เป้าหมาย exists with the ดัน."
+            "1": "พันธมิตรทั้งหมดใน hex สีแดงของความสามารถโจมตี",
+            "2": "สร้างแผ่นสิ่งกีดขวาง 1-hex ในแต่ละ hex สีแดงว่างของความสามารถโจมตี %game.card.experience:1%",
+            "3": "สร้างแผ่นสิ่งกีดขวาง 1-hex ในแต่ละ hex เปล่าที่เป้าหมายถูกดันไป"
           },
           "143": {
-            "1": "Create two 1-หกเหลี่ยม obstacle tiles in empty หกเหลี่ยม adjacent to the เป้าหมาย but not adjacent to you. All พรรคพวก and enemies adjacent to at least one created tile suffer %game.damage:1%, %game.card.experience:1%.",
-            "2": "Create 1-หกเหลี่ยม obstacle tiles in an adjacent empty หกเหลี่ยม.",
-            "3": "Destroy any number of obstacles within %game.action.range:3%. For each obstacle destroyed, give %game.condition.ward% to one พรรคพวก adjacent to the หกเหลี่ยม that obstacle ครอบครอง"
+            "1": "สร้างแผ่นสิ่งกีดขวาง 1-hex สองแผ่นบน hex ว่างที่อยู่ติดกับเป้าหมายแต่ไม่ติดคุณ พันธมิตรและศัตรูทั้งหมดที่อยู่ติดกับอย่างน้อยหนึ่งแผ่นที่สร้างได้รับ %game.damage:1%, %game.card.experience:1%",
+            "2": "สร้างแผ่นสิ่งกีดขวาง 1-hex บน hex ว่างที่อยู่ติดกัน",
+            "3": "ทำลายสิ่งกีดขวางภายใน %game.action.range:3% จำนวนเท่าใดก็ได้ สำหรับแต่ละอันที่ทำลาย ให้ %game.condition.ward% แก่พันธมิตรหนึ่งตัวที่อยู่ติด hex ที่สิ่งกีดขวางเคยอยู่"
           },
           "144": {
-            "1": "For each เป้าหมาย, add +X%game.action.attack%, where X is the %game.action.range% to the เป้าหมาย.",
-            "2": "You may enter หกเหลี่ยม containing obstacles with this movement. When you do, destroy the obstacle.",
-            "3": "Add +X%game.action.attack% to your next โจมตี this เทิร์น, where X is twice the number of obstacles destroyed with the เคลื่อนที่ ability."
+            "1": "สำหรับแต่ละเป้าหมาย ให้เพิ่ม +X%game.action.attack% เมื่อ X คือ %game.action.range% ถึงเป้าหมาย",
+            "2": "คุณอาจเข้า hex ที่มีสิ่งกีดขวางด้วยการเคลื่อนที่นี้ เมื่อทำ ให้ทำลายสิ่งกีดขวาง",
+            "3": "เพิ่ม +X%game.action.attack% ให้การโจมตีครั้งถัดไปในเทิร์นนี้ เมื่อ X คือสองเท่าของจำนวนสิ่งกีดขวางที่ทำลายด้วยความสามารถเคลื่อนที่"
           },
           "145": {
-            "1": "You may ดัน the เป้าหมาย into หกเหลี่ยม containing obstacles. In each case, destroy the obstacle, the เป้าหมาย suffers %game.damage:2%, and you gain %game.card.experience:1%.",
-            "2": "เมื่อสิ้นสุดเทิร์นของคุณแต่ละครั้ง ดำเนินการ:"
+            "1": "คุณอาจดันเป้าหมายเข้า hex ที่มีสิ่งกีดขวาง ในแต่ละกรณี ทำลายสิ่งกีดขวาง เป้าหมายได้รับ %game.damage:2% และคุณได้รับ %game.card.experience:1%",
+            "2": "เมื่อจบแต่ละเทิร์นของคุณ ให้ทำ:",
+            "3": "เมื่อ X คือจำนวนสิ่งกีดขวางที่อยู่ติดกัน"
           }
         }
       },
+      "crystal-rot": {
+        "1": "เพิ่ม %game.condition.disarm% ถ้าไม่มี Living Bones, Living Corpses หรือ Living Spirits ภายใน %game.action.range% 3"
+      },
       "cultist": {
-        "1": "If Cultist dies this รอบ, first ลบ all negative conditions and perform:",
-        "2": "where X is the amount of ความเสียหาย suffered by the เป้าหมาย of the โจมตี ability."
+        "1": "ถ้า Cultist ตายในเทิร์นนี้ ให้ลบสถานะลบทั้งหมดก่อนแล้วทำ:",
+        "2": "เมื่อ X คือความเสียหายที่เป้าหมายของความสามารถโจมตีได้รับ"
       },
       "deep-terror": {
-        "1": "If the โจมตี ability was performed",
-        "2": "in an empty หกเหลี่ยม adjacent to the เป้าหมาย<br>of the โจมตี ability"
+        "1": "ถ้าใช้ความสามารถโจมตีแล้ว",
+        "2": "บน hex ว่างที่อยู่ติดกับเป้าหมายของความสามารถโจมตี"
       },
       "flame-demon": {
-        "1": "Create one %game.damage:4% กับดัก in an adjacent<br>empty หกเหลี่ยม closest to an ศัตรู",
-        "2": "%game.damage:1%"
+        "1": "สร้างกับดัก %game.damage:4% หนึ่งอันบน hex ว่างที่อยู่ติดกันและใกล้ศัตรูที่สุด",
+        "2": "%game.damage:1%",
+        "3": "ศัตรูที่อยู่ติดกันทั้งหมดได้รับ %game.damage:2%"
       },
       "flowChartGroup": {
-        "city-guards": "ยามเมือง/The Shields",
-        "hail": "ลูกเห็บ",
+        "city-guards": "ยามเมือง/เดอะชีลด์ส",
+        "demons": "ปีศาจ/นิกาย",
+        "events": "อีเวนต์",
+        "hail": "เฮล",
         "intro": "บทนำ",
-        "personal-quests": "เป้าหมายส่วนตัว"
+        "merchant-guild": "กิลด์พ่อค้า",
+        "personal-quests": "เป้าหมายส่วนตัว",
+        "puzzle": "หนังสือปริศนา",
+        "random": "ฉากข้างสุ่ม",
+        "the-gloom": "เดอะกลูม",
+        "the-sewers": "ท่อน้ำเสีย",
+        "the-voice": "เดอะวอยซ์และเดรก"
       },
       "frost-demon": {
         "1": "%game.damage:1%"
       },
       "giant-viper": {
-        "1": "All โจมตี มุ่งไปที่ งูยักษ์ this รอบ gain disadvantage.",
-        "2": "Add +2 %game.action.attack% if the เป้าหมาย is adjacent to any of the งูยักษ์'s พรรคพวก"
+        "1": "การโจมตีทั้งหมดที่เล็ง Giant Viper ในเทิร์นนี้ได้ disadvantage",
+        "2": "เพิ่ม +2 %game.action.attack% ถ้าเป้าหมายอยู่ติดกับพันธมิตรของ Giant Viper ตัวใดตัวหนึ่ง"
       },
       "hound": {
-        "1": "Add +2 %game.action.attack% if the เป้าหมาย is adjacent<br>to any of the Hound's พรรคพวก."
+        "1": "เพิ่ม +2 %game.action.attack% ถ้าเป้าหมายอยู่ติดกับพันธมิตรของ Hound ตัวใดตัวหนึ่ง"
       },
       "living-corpse": {
-        "1": "If the เคลื่อนที่ ability was performed, Living Corpse suffers %game.damage:1%.",
-        "2": "If the โจมตี ability was performed, Living Corpse suffers %game.damage:1%.",
-        "3": "If Living Corpse dies this รอบ, all figures adjacent to the หกเหลี่ยม it ครอบครอง suffer %game.damage:1% and gain %game.condition.poison%."
+        "1": "ถ้าใช้ความสามารถเคลื่อนที่ Living Corpse ได้รับ %game.damage:1%",
+        "2": "ถ้าใช้ความสามารถโจมตี Living Corpse ได้รับ %game.damage:1%",
+        "3": "ถ้า Living Corpse ตายในเทิร์นนี้ ตัวทั้งหมดที่อยู่ติด hex ที่มันอยู่ได้รับ %game.damage:1% และได้รับ %game.condition.poison%"
       },
       "lurker": {
-        "1": "2 enemies within 2 หกเหลี่ยม"
+        "1": "ศัตรู 2 ตัวภายใน 2 hex"
       },
       "mindthief": {
-        "1": "Add +1 %game.action.attack% if the เป้าหมาย has a negative condition",
-        "2": "Where X is half the ราชาหนู's current hit point value (ปัดขึ้น).",
-        "3": "After the โจมตี ability, control the เป้าหมาย: %game.action.move% 1",
-        "4": "Add +1 %game.action.attack% for each negative condition the เป้าหมาย has",
-        "5": "Whenever you control the โจมตี of an ศัตรู, you may have the ศัตรู use your โจมตี modifier deck",
-        "6": "You are considered to be last in initiative order when determining มอนสเตอร์ focus",
-        "7": "At the end of each of your พักผ่อน, you may %game.elementHalf.consume:ice|dark% to control one ศัตรู within %game.action.range:5%: %game.action.attack% 1",
-        "8": "In a single สถานการณ์, kill 5 or more enemies with control abilities",
-        "9": "In a single สถานการณ์, trigger the on-โจมตี effect from four different Augments at least 3 times each",
+        "1": "เพิ่ม +1 %game.action.attack% ถ้าเป้าหมายมีสถานะลบ",
+        "2": "เมื่อ X คือครึ่งหนึ่งของแต้มชีวิตปัจจุบันของ Rat King (ปัดขึ้น)",
+        "3": "หลังความสามารถโจมตี ให้ควบคุมเป้าหมาย: %game.action.move% 1",
+        "4": "เพิ่ม +1 %game.action.attack% สำหรับแต่ละสถานะลบที่เป้าหมายมี",
+        "5": "เมื่อคุณควบคุมการโจมตีของศัตรู คุณอาจให้ศัตรูใช้ attack modifier deck ของคุณ",
+        "6": "คุณถือเป็นคนสุดท้ายในลำดับ initiative เมื่อกำหนดโฟกัสมอนสเตอร์",
+        "7": "เมื่อจบแต่ละครั้งที่พัก คุณอาจ %game.elementHalf.consume:ice|dark% เพื่อควบคุมศัตรูหนึ่งตัวภายใน %game.action.range:5%: %game.action.attack% 1",
+        "8": "ในฉากเดียว ฆ่าศัตรู 5 ตัวขึ้นไปด้วยความสามารถควบคุม",
+        "9": "ในฉากเดียว ทริกเกอร์เอฟเฟกต์เมื่อโจมตีจาก Augment สี่แบบต่างกันอย่างน้อย 3 ครั้งต่อแบบ",
         "abilities": {
           "146": {
-            "1": "Add +1 %game.action.attack% for each negative condition the เป้าหมาย has.",
-            "2": "Control one ศัตรู within %game.action.range:4%:",
-            "3": "The controlled ศัตรู suffers %game.damage:2%"
+            "1": "เพิ่ม +1 %game.action.attack% สำหรับแต่ละสถานะลบที่เป้าหมายมี",
+            "2": "ควบคุมศัตรูหนึ่งตัวภายใน %game.action.range:4%:",
+            "3": "ศัตรูที่ถูกควบคุมได้รับ %game.damage:2%"
           },
           "147": {
-            "1": "If the โจมตี ability killed an ศัตรู, perform:",
-            "2": "If you have not moved this รอบ, perform:",
-            "3": "You cannot perform เคลื่อนที่ abilities this รอบ. At the end of the รอบ, lose %game.condition.invisible%."
+            "1": "ถ้าความสามารถโจมตีฆ่าศัตรู ให้ทำ:",
+            "2": "ถ้าคุณยังไม่เคลื่อนที่ในเทิร์นนี้ ให้ทำ:",
+            "3": "คุณทำความสามารถเคลื่อนที่ในเทิร์นนี้ไม่ได้ เมื่อจบเทิร์น สูญเสีย %game.condition.invisible%"
           },
           "149": {
-            "1": "Add %game.condition.poison%, %game.condition.muddle% to all your melee โจมตี.",
-            "2": "Control one ศัตรู within %game.action.range:4%:"
+            "1": "เพิ่ม %game.condition.poison%, %game.condition.muddle% ให้การโจมตีประชิดทั้งหมดของคุณ",
+            "2": "ควบคุมศัตรูหนึ่งตัวภายใน %game.action.range:4%:"
           },
           "151": {
-            "1": "Add +1 %game.action.attack% to all your melee โจมตี.",
-            "2": "Control the เป้าหมาย of the โจมตี ability:"
+            "1": "เพิ่ม +1 %game.action.attack% ให้การโจมตีประชิดทั้งหมดของคุณ",
+            "2": "ควบคุมเป้าหมายของความสามารถโจมตี:"
           },
           "152": {
-            "1": "If this โจมตี does not kill the เป้าหมาย, gain a money token."
+            "1": "ถ้าการโจมตีนี้ไม่ฆ่าเป้าหมาย ได้รับโทเค็นเงินหนึ่งอัน"
           },
           "153": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% for each negative condition the เป้าหมาย has."
+            "1": "เพิ่ม +2 %game.action.attack% และได้รับ %game.card.experience:1% สำหรับแต่ละสถานะลบที่เป้าหมายมี"
           },
           "155": {
-            "1": "Your เป้าหมายเดียว melee โจมตี abilities may เป้าหมาย enemies within 2 หกเหลี่ยม (of you).",
-            "2": "Control the เป้าหมาย of the โจมตี ability:",
-            "3": "Add %game.condition.curse% to all your melee โจมตี this รอบ."
+            "1": "ความสามารถโจมตีประชิดเล็งเดียวของคุณอาจเล็งศัตรูภายใน 2 hex (จากคุณ)",
+            "2": "ควบคุมเป้าหมายของความสามารถโจมตี:",
+            "3": "เพิ่ม %game.condition.curse% ให้การโจมตีประชิดทั้งหมดของคุณในเทิร์นนี้"
           },
           "156": {
-            "1": "After each of your melee โจมตี abilities, grant one of your summons:",
-            "3": "If you end this movement in the same หกเหลี่ยม as you start, all enemies moved through gain %game.condition.muddle%."
+            "1": "หลังแต่ละความสามารถโจมตีประชิดของคุณ ให้สิ่งอัญเชิญหนึ่งตัวของคุณ:",
+            "2": "ให้สิ่งอัญเชิญหนึ่งตัวของคุณ:",
+            "3": "ถ้าคุณจบการเคลื่อนที่นี้บน hex เดียวกับที่เริ่ม ศัตรูทั้งหมดที่เคลื่อนผ่านได้รับ %game.condition.muddle%"
           },
           "157": {
-            "1": "Control one ศัตรู within %game.action.range:4%:"
+            "1": "ควบคุมศัตรูหนึ่งตัวภายใน %game.action.range:4%:",
+            "2": "ให้สิ่งอัญเชิญหนึ่งตัวของคุณ:"
           },
           "160": {
-            "1": "Place a character token on a normal or elite ศัตรู within %game.action.range:4%. This รอบ, during ศัตรูนั้น's เทิร์น, it treats its enemies as พรรคพวก and its พรรคพวก as enemies, with you controlling its abilities."
+            "1": "วางโทเค็นตัวละครบนศัตรูปกติหรือเอลิทภายใน %game.action.range:4% ในเทิร์นนี้ ระหว่างเทิร์นของศัตรูนั้น มันถือศัตรูเป็นพันธมิตรและพันธมิตรเป็นศัตรู โดยคุณควบคุมความสามารถของมัน"
           },
           "161": {
-            "1": "Control one ศัตรู within %game.action.range:4%:",
-            "2": "If you performed the โจมตี ability, perform:"
+            "1": "ควบคุมศัตรูหนึ่งตัวภายใน %game.action.range:4%:",
+            "2": "ถ้าคุณใช้ความสามารถโจมตีแล้ว ให้ทำ:"
           },
           "162": {
-            "1": "Designate a หกเหลี่ยม containing an ศัตรู within %game.action.range:4% to perform:",
-            "2": "the ศัตรู in the designated หกเหลี่ยม, %game.action.pierce:5%",
-            "3": "If the โจมตี ability killed an ศัตรู, perform:",
-            "4": "all enemies adjacent to the designated หกเหลี่ยม"
+            "1": "กำหนด hex ที่มีศัตรูภายใน %game.action.range:4% เพื่อทำ:",
+            "2": "ศัตรูใน hex ที่กำหนด %game.action.pierce:5%",
+            "3": "ถ้าความสามารถโจมตีฆ่าศัตรู ให้ทำ:",
+            "4": "ศัตรูทั้งหมดที่อยู่ติดกับ hex ที่กำหนด"
           },
           "164": {
-            "1": "After each of your melee โจมตี abilities, perform:",
-            "2": "Control one ศัตรู within %game.action.range:4%:"
+            "1": "หลังแต่ละความสามารถโจมตีประชิดของคุณ ให้ทำ:",
+            "2": "ควบคุมศัตรูหนึ่งตัวภายใน %game.action.range:4%:"
+          },
+          "165": {
+            "1": "ศัตรูทั้งหมดที่เคลื่อนผ่านได้รับ %game.condition.poison%"
           },
           "166": {
-            "1": "Add +1 %game.action.attack% if the เป้าหมาย has a negative condition."
+            "1": "เพิ่ม +1 %game.action.attack% ถ้าเป้าหมายมีสถานะลบ"
+          },
+          "167": {
+            "1": "ให้สิ่งอัญเชิญหนึ่งตัวของคุณ:"
+          },
+          "168": {
+            "1": "ควบคุมศัตรูสองตัวภายใน %game.action.range:4%:",
+            "2": "ศัตรูที่ถูกควบคุมได้รับ %game.damage:1%, %game.card.experience:1%"
+          },
+          "169": {
+            "1": "ควบคุมศัตรูสองตัวภายใน %game.action.range:4% ที่อยู่ติดกัน:",
+            "2": "คุณอาจมี %game.customAction:gh2e-augment% สองตัวแอ็กทีฟพร้อมกัน ถ้าคุณเล่น %game.customAction:gh2e-augment% ตัวที่สาม คุณต้องทิ้งหนึ่งในอีกสองตัว ถ้าคุณทิ้งการ์ดนี้และมี %game.customAction:gh2e-augment% แอ็กทีฟสองตัว คุณต้องทิ้งหนึ่งตัว"
           },
           "170": {
-            "1": "Add +1 %game.action.attack% to your melee โจมตี for each negative condition the เป้าหมาย has.",
-            "2": "Designate an unoccupied หกเหลี่ยม within %game.action.range:4%.",
-            "3": "Perform this โจมตี as though you ครอบครอง the designated หกเหลี่ยม."
+            "1": "เพิ่ม +1 %game.action.attack% ให้การโจมตีประชิดของคุณสำหรับแต่ละสถานะลบที่เป้าหมายมี",
+            "2": "กำหนด hex ที่ไม่มีตัวอยู่ภายใน %game.action.range:4%",
+            "3": "ทำการโจมตีนี้ราวกับคุณอยู่บน hex ที่กำหนด"
           },
           "172": {
-            "1": "On your next four melee โจมตี, add %game.condition.stun%, %game.condition.curse% to the โจมตี."
+            "1": "ในการโจมตีประชิดสี่ครั้งถัดไป ให้เพิ่ม %game.condition.stun%, %game.condition.curse% ให้การโจมตี"
           },
           "173": {
-            "1": "Where X is half the ราชาหนู's current hit point value (ปัดขึ้น).",
-            "2": "Each รอบ, the first of your พรรคพวก who performs a melee โจมตี ability gains the effects of each of your active %game.customAction:gh2e-augment% for that โจมตี ability."
+            "1": "เมื่อ X คือครึ่งหนึ่งของแต้มชีวิตปัจจุบันของ Rat King (ปัดขึ้น)",
+            "2": "แต่ละเทิร์น พันธมิตรคนแรกของคุณที่ทำความสามารถโจมตีประชิด ได้รับเอฟเฟกต์ของ %game.customAction:gh2e-augment% แอ็กทีฟแต่ละตัวของคุณสำหรับความสามารถโจมตีนั้น"
           },
           "174": {
-            "1": "After each of your melee โจมตี abilities, control one เป้าหมาย of the โจมตี ability:",
-            "3": "One controlled ศัตรู suffers %game.damage:3%."
+            "1": "หลังแต่ละความสามารถโจมตีประชิดของคุณ ให้ควบคุมเป้าหมายหนึ่งของความสามารถโจมตี:",
+            "2": "หลังแต่ละความสามารถควบคุมของคุณ คุณอาจทำ:",
+            "3": "ศัตรูที่ถูกควบคุมหนึ่งตัวได้รับ %game.damage:3%"
           }
-        }
+        },
+        "augment": "%game.customAction:gh2e-augment% Augment"
       },
       "night-demon": {
-        "1": "All adjacent พรรคพวก and<br>enemies suffer %game.damage:1%.",
+        "1": "พันธมิตรและศัตรูที่อยู่ติดกันทั้งหมดได้รับ %game.damage:1%",
         "2": "%game.custom.disadvantage%"
       },
+      "ooze": {
+        "1": "เมื่อ H เท่ากับแต้มชีวิตปัจจุบันของ Ooze ที่อัญเชิญ (จำกัดโดยแต้มชีวิตสูงสุดของ Ooze ธรรมดา)"
+      },
       "savvas-icestorm": {
-        "1": "Grant all พรรคพวก within %game.action.range:2% and ตนเอง:"
+        "1": "ให้พันธมิตรทั้งหมดภายใน %game.action.range:2% และตัวเอง:"
       },
       "savvas-lavaflow": {
-        "1": "All พรรคพวก and enemies adjacent<br>to the เป้าหมาย suffer %game.damage:2%"
+        "1": "พันธมิตรและศัตรูทั้งหมดที่อยู่ติดกับเป้าหมายได้รับ %game.damage:2%",
+        "2": "ศัตรูทั้งหมดภายใน %game.action.range:4% ได้รับ %game.damage:2%"
       },
       "silent-knife": {
-        "1": "Gain one money token if this โจมตี targeted an adjacent ศัตรู",
-        "2": "At the end of each of your พักผ่อน, you may place one of your money tokens in the หกเหลี่ยม ครอบครอง by an ศัตรู within %game.action.range:3% to perform: %game.action.attack% 1, %game.action.target% ศัตรูนั้น, %game.action.range:3%",
-        "3": "Whenever you complete a city event, draw an โจมตี modifier card as though you were performing an %game.action.attack% 4. Gain an amount of ทองคำ equal to the %game.damage% the โจมตี would have dealt",
-        "4": "Once each สถานการณ์, during your เทิร์น, you may perform: %game.condition.invisible%, ตนเอง",
-        "5": "For an entire สถานการณ์, only โจมตี enemies that are adjacent to one of your พรรคพวก or adjacent to none of their พรรคพวก, and perform at least 10 โจมตี"
+        "1": "ได้รับโทเค็นเงินหนึ่งอันถ้าการโจมตีนี้เล็งศัตรูที่อยู่ติดกัน",
+        "2": "เมื่อจบแต่ละครั้งที่พัก คุณอาจวางโทเค็นเงินหนึ่งอันของคุณบน hex ที่ศัตรูภายใน %game.action.range:3% อยู่ เพื่อทำ: %game.action.attack% 1, %game.action.target% ศัตรูนั้น, %game.action.range:3%",
+        "3": "เมื่อคุณทำ city event เสร็จ จั่วการ์ด attack modifier ราวกับคุณทำ %game.action.attack% 4 ได้รับทองเท่ากับ %game.damage% ที่การโจมตีจะก่อ",
+        "4": "ครั้งเดียวต่อฉาก ระหว่างเทิร์น คุณอาจทำ: %game.condition.invisible%, ตัวเอง",
+        "5": "ตลอดทั้งฉาก โจมตีเฉพาะศัตรูที่อยู่ติดกับพันธมิตรของคุณอย่างน้อยหนึ่งตัว หรือไม่ติดพันธมิตรของศัตรูเลย และทำการโจมตีอย่างน้อย 10 ครั้ง",
+        "6": "จบ 3 ฉากโดยมีโทเค็นเงิน 12 อันขึ้นไป"
       },
       "spellweaver": {
-        "2": "Once each สถานการณ์, when you would suffer %game.damage%, you may gain %game.condition.invisible% and %game.condition.stun% to negate the %game.damage%",
-        "3": "Whenever you short พักผ่อน, if <i>อีเทอร์ฟื้น</i> is in your discard pile, first %game.card.recover% it",
-        "4": "At the end of each of your เทิร์น during which you performed an action with %game.card.lost%, gain %game.condition.bless%",
-        "5": "In a single สถานการณ์, consume both %game.element.fire% and %game.element.ice% during the same เทิร์น 6 times",
-        "6": "In a single สถานการณ์, perform 4 different %game.card.lost% actions twice each",
+        "1": "เพิ่ม +2 %game.action.attack% ถ้าจั่วระหว่างแอ็กชันที่มี %game.card.lost%",
+        "2": "ครั้งเดียวต่อฉาก เมื่อคุณจะได้รับความเสียหาย คุณอาจได้รับ %game.condition.invisible% และ %game.condition.stun% เพื่อยกเลิกความเสียหาย",
+        "3": "เมื่อคุณ short rest ถ้า <i>Reviving Ether</i> อยู่ในกองทิ้ง ให้ %game.card.recover% มันก่อน",
+        "4": "เมื่อจบแต่ละเทิร์นที่คุณทำแอ็กชันที่มี %game.card.lost% ให้ได้รับ %game.condition.bless%",
+        "5": "ในฉากเดียว บริโภคทั้ง %game.element.fire% และ %game.element.ice% ในเทิร์นเดียวกัน 6 ครั้ง",
+        "6": "ในฉากเดียว ทำแอ็กชัน %game.card.lost% 4 แบบต่างกันอย่างละสองครั้ง",
         "abilities": {
+          "61": {
+            "1": "%game.card.recover% การ์ดทั้งหมดในกองสูญหาย"
+          },
           "66": {
-            "1": "When you next perform an action with %game.card.lost% this รอบ, %game.element.wild%."
+            "1": "เมื่อคุณทำแอ็กชันที่มี %game.card.lost% ครั้งถัดไปในเทิร์นนี้ %game.element.wild%"
           },
           "67": {
-            "1": "Gain advantage on all your โจมตี this รอบ, %game.card.experience:1%."
+            "1": "ได้ advantage ในการโจมตีทั้งหมดของคุณในเทิร์นนี้ %game.card.experience:1%"
           },
           "68": {
-            "1": "Grant one พรรคพวก within %game.action.range:3%"
+            "1": "ให้พันธมิตรหนึ่งตัวภายใน %game.action.range:3%"
           },
           "69": {
-            "1": "On your next four เป้าหมายเดียว ranged โจมตี abilities, add +2%game.action.attack% to the โจมตี."
+            "1": "ในความสามารถโจมตีระยะไกลเล็งเดียวสี่ครั้งถัดไป ให้เพิ่ม +2%game.action.attack% ให้การโจมตี"
           },
           "70": {
-            "1": "Place a character token on one พรรคพวก within %game.action.range:3%. On the next three sources of 2 or more %game.damage% they would suffer, negate the %game.damage%."
+            "1": "วางโทเค็นตัวละครบนพันธมิตรหนึ่งตัวภายใน %game.action.range:3% ในแหล่งความเสียหาย 2 ขึ้นไปสามแหล่งถัดไปที่พวกเขาจะได้รับ ให้ยกเลิกความเสียหาย",
+            "2": "ในแหล่งความเสียหาย 2 ขึ้นไปสามแหล่งถัดไปที่คุณจะได้รับ ให้ยกเลิกความเสียหาย"
           },
           "72": {
-            "1": "the 4 enemies closest to you within 5 หกเหลี่ยม"
+            "1": "ศัตรู 4 ตัวที่ใกล้คุณที่สุดภายใน 5 hex"
           },
           "73": {
-            "1": "Play one Level 1 card from your lost pile other than อีเทอร์ฟื้น to perform an action with %game.card.lost% of the card.",
-            "2": "When you next perform an action with %game.card.lost% this รอบ, gain %game.condition.ward%."
+            "1": "เล่นการ์ดเลเวล 1 หนึ่งใบจากกองสูญหาย (ไม่รวม Reviving Ether) เพื่อทำแอ็กชันที่มี %game.card.lost% ของการ์ดนั้น",
+            "2": "เมื่อคุณทำแอ็กชันที่มี %game.card.lost% ครั้งถัดไปในเทิร์นนี้ ได้รับ %game.condition.ward%"
           },
           "74": {
-            "1": "The เป้าหมาย add +2%game.action.attack% to their next โจมตี this รอบ."
+            "1": "เป้าหมายเพิ่ม +2%game.action.attack% ให้การโจมตีครั้งถัดไปในเทิร์นนี้"
           },
           "77": {
-            "1": "Add +1%game.action.attack% to all your โจมตี this รอบ, %game.card.experience:1%."
+            "1": "เพิ่ม +1%game.action.attack% ให้การโจมตีทั้งหมดของคุณในเทิร์นนี้ %game.card.experience:1%"
           },
           "78": {
-            "1": "On the next โจมตี ability you perform from an action with %game.card.lost%, add +1%game.action.attack% to all your โจมตี."
+            "1": "ในความสามารถโจมตีครั้งถัดไปที่คุณทำจากแอ็กชันที่มี %game.card.lost% ให้เพิ่ม +1%game.action.attack% ให้การโจมตีทั้งหมดของคุณ"
           },
           "81": {
-            "1": "When you next perform an action with %game.card.lost% this รอบ, %game.card.recover% one card from your discard pile."
+            "1": "เมื่อคุณทำแอ็กชันที่มี %game.card.lost% ครั้งถัดไปในเทิร์นนี้ %game.card.recover% การ์ดหนึ่งใบจากกองทิ้ง"
+          },
+          "82": {
+            "1": "คุณอาจเล่นการ์ดหนึ่งใบจากกองทิ้งเพื่อทำแอ็กชันที่มี %game.card.lost% ของการ์ดนั้น (การ์ดย้ายไปกองสูญหาย)"
           },
           "83": {
-            "1": "all พรรคพวก in the red หกเหลี่ยม of the โจมตี ability",
-            "2": "Choose an พรรคพวก within %game.action.range:3%. That พรรคพวก gains %game.action.shield:3% for the next โจมตี มุ่งไปที่ them this รอบ."
+            "1": "พันธมิตรทั้งหมดใน hex สีแดงของความสามารถโจมตี",
+            "2": "เลือกพันธมิตรภายใน %game.action.range:3% พันธมิตรนั้นได้รับ %game.action.shield:3% สำหรับการโจมตีครั้งถัดไปที่เล็งพวกเขาในเทิร์นนี้",
+            "3": "ผู้โจมตีได้รับ %game.damage:3%, %game.card.experience:1%"
           },
           "85": {
-            "1": "When you next perform an action with %game.card.lost% this รอบ, after the action perform:"
+            "1": "เมื่อคุณทำแอ็กชันที่มี %game.card.lost% ครั้งถัดไปในเทิร์นนี้ หลังแอ็กชันให้ทำ:"
           },
           "86": {
-            "1": "After the โจมตี ability, kill each เป้าหมาย whose hit point value is 2 or less and create one 1-หกเหลี่ยม obstacle tile in the featureless หกเหลี่ยม they ครอบครอง",
-            "2": "Designate a หกเหลี่ยม within %game.action.range:4%.",
-            "3": "all enemies within %game.action.range:4% of the designated หกเหลี่ยม",
-            "4": "ดึง toward the designated หกเหลี่ยม."
+            "1": "หลังความสามารถโจมตี ฆ่าเป้าหมายแต่ละตัวที่มีแต้มชีวิต 2 หรือน้อยกว่า และสร้างแผ่นสิ่งกีดขวาง 1-hex หนึ่งแผ่นบน hex เปล่าที่พวกเขาอยู่",
+            "2": "กำหนด hex ภายใน %game.action.range:4%",
+            "3": "ศัตรูทั้งหมดภายใน %game.action.range:4% ของ hex ที่กำหนด",
+            "4": "ดึงไปทาง hex ที่กำหนด"
           },
           "87": {
-            "1": "all enemies within 2 หกเหลี่ยม",
-            "2": "All พรรคพวก within %game.action.range:2% suffer %game.damage:2%.",
-            "3": "All พรรคพวก and enemies in the same room as you suffer %game.damage:4%."
+            "1": "ศัตรูทั้งหมดภายใน 2 hex",
+            "2": "พันธมิตรทั้งหมดภายใน %game.action.range:2% ได้รับ %game.damage:2%",
+            "3": "พันธมิตรและศัตรูทั้งหมดในห้องเดียวกับคุณได้รับ %game.damage:4%"
           }
         }
       },
       "stone-construct": {
-        "1": "If the เคลื่อนที่ ability was performed, Stone Construct suffers %game.damage:1%.",
-        "2": "If the โจมตี ability was performed, Stone Construct suffers %game.damage:1%."
+        "1": "ถ้าใช้ความสามารถเคลื่อนที่ Stone Construct ได้รับ %game.damage:1%",
+        "2": "ถ้าใช้ความสามารถโจมตี Stone Construct ได้รับ %game.damage:1%"
       },
       "tinkerer": {
-        "1": "Once each สถานการณ์, one adjacent พรรคพวก may use one of your <i>potion</i> %game.itemSlot:small% items during their เทิร์น without it becoming %game.card.lost%",
-        "3": "Whenever you long พักผ่อน, you may perform: %game.action.heal% 2, %game.action.range:3%",
-        "4": "For an entire สถานการณ์, during each of your เทิร์น, give an ศัตรู a negative condition, give an พรรคพวก a positive condition, รักษา an พรรคพวก, or grant an พรรคพวก โล่",
+        "1": "ครั้งเดียวต่อฉาก พันธมิตรที่อยู่ติดกันหนึ่งตัวอาจใช้ไอเทม <i>ยาต้ม</i> %game.itemSlot:small% ของคุณหนึ่งชิ้นระหว่างเทิร์นของพวกเขาโดยไม่กลายเป็น %game.card.lost%",
+        "2": "เมื่อคุณทำแอ็กชันที่มี %game.card.lost% คุณอาจ %game.element.wild%",
+        "3": "เมื่อคุณ long rest คุณอาจทำ: %game.action.heal% 2, %game.action.range:3%",
+        "4": "ตลอดทั้งฉาก ในแต่ละเทิร์น ให้ศัตรูมีสถานะลบ ให้พันธมิตรมีสถานะบวก รักษาพันธมิตร หรือให้โล่พันธมิตร",
+        "5": "ทำแอ็กชัน %game.card.lost% 11 แบบต่างกัน",
         "abilities": {
           "30": {
-            "1": "On your next four เป้าหมายเดียว รักษา abilities, add +1 %game.action.target%."
+            "1": "ในความสามารถรักษาเล็งเดียวสี่ครั้งถัดไป ให้เพิ่ม +1 %game.action.target%"
           },
           "32": {
-            "1": "Grant all adjacent พรรคพวก and ตนเอง:"
+            "1": "ให้พันธมิตรที่อยู่ติดกันทั้งหมดและตัวเอง:"
           },
           "33": {
-            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่เล็ง"
           },
           "34": {
-            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่เล็ง"
           },
           "35": {
-            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่เล็ง"
           },
           "37": {
-            "1": "One พรรคพวก within %game.action.range:3% may %game.card.recover% all their cards from their discard pile."
+            "1": "พันธมิตรหนึ่งตัวภายใน %game.action.range:3% อาจ %game.card.recover% การ์ดทั้งหมดจากกองทิ้งของพวกเขา"
           },
           "40": {
-            "1": "Place the \"สนามเสริม\" token in an empty หกเหลี่ยม within %game.action.range:3%.",
-            "2": "Add +1 %game.action.attack% to all โจมตี you and all พรรคพวก perform while within %game.action.range:1% of the token.",
-            "3": "You and all adjacent พรรคพวก add +1 %game.action.attack% to all โจมตี this รอบ."
+            "1": "วางโทเค็น \"Enhancement Field\" บน hex ว่างภายใน %game.action.range:3%",
+            "2": "เพิ่ม +1 %game.action.attack% ให้การโจมตีทั้งหมดที่คุณและพันธมิตรทำขณะอยู่ภายใน %game.action.range:1% ของโทเค็น",
+            "3": "คุณและพันธมิตรที่อยู่ติดกันเพิ่ม +1 %game.action.attack% ให้การโจมตีทั้งหมดในเทิร์นนี้"
           },
           "42": {
-            "1": "Create one %game.damage:4% %game.enhancement.square% ,%game.condition.muddle% กับดัก in an adjacent empty hey."
+            "1": "สร้างกับดัก %game.damage:4% %game.enhancement.square% ,%game.condition.muddle% หนึ่งอันบน hex ว่างที่อยู่ติดกัน"
           },
           "43": {
-            "1": "The เป้าหมาย may %game.card.recover% one level 1 card from their discard pile.",
-            "2": "Create one %game.damage:2% %game.enhancement.square% ,%game.condition.poison% กับดัก in an adjacent empty hey."
+            "1": "เป้าหมายอาจ %game.card.recover% การ์ดเลเวล 1 หนึ่งใบจากกองทิ้งของพวกเขา",
+            "2": "สร้างกับดัก %game.damage:2% %game.enhancement.square% ,%game.condition.poison% หนึ่งอันบน hex ว่างที่อยู่ติดกัน"
           },
           "47": {
-            "1": "Place two \"แผ่นเทเลพอร์ต\" tokens in empty หกเหลี่ยม within %game.action.range:5%.",
-            "2": "You and all พรรคพวก may threat the two หกเหลี่ยม containing the tokens as being adjacent to each other during เคลื่อนที่ abilities."
+            "1": "วางโทเค็น \"Teleportation Pad\" สองอันบน hex ว่างภายใน %game.action.range:5%",
+            "2": "คุณและพันธมิตรทั้งหมดอาจถือ hex สองอันที่มีโทเค็นว่าอยู่ติดกันระหว่างความสามารถเคลื่อนที่"
           },
           "48": {
-            "1": "One พรรคพวก within %game.action.range:3% may %game.card.recover% one card from their lost pile."
+            "1": "พันธมิตรหนึ่งตัวภายใน %game.action.range:3% อาจ %game.card.recover% การ์ดหนึ่งใบจากกองสูญหายของพวกเขา"
           },
           "49": {
-            "1": "ให้พรรคพวกที่ติดกันหนึ่งตัว:"
+            "1": "ให้พันธมิตรที่อยู่ติดกันหนึ่งตัว:"
           },
           "50": {
-            "1": "All enemies adjacent to the เป้าหมาย gain %game.condition.muddle%.",
-            "2": "Create one %game.damage:2% %game.enhancement.square% ,%game.condition.immobilize% กับดัก in an empty hey within %game.action.range:2% %game.enhancement.square% ."
+            "1": "ศัตรูทั้งหมดที่อยู่ติดกับเป้าหมายได้รับ %game.condition.muddle%",
+            "2": "สร้างกับดัก %game.damage:2% %game.enhancement.square% ,%game.condition.immobilize% หนึ่งอันบน hex ว่างภายใน %game.action.range:2% %game.enhancement.square%"
           },
           "51": {
-            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ถูกโจมตี"
+            "1": "ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่เล็ง"
           },
           "52": {
-            "1": "Kill all enemies in the targeted area whose current hit point value is less than or equal to 5. Gain %game.card.experience:1% for each ศัตรู killed."
+            "1": "ฆ่าศัตรูทั้งหมดในพื้นที่ที่เล็งที่มีแต้มชีวิตปัจจุบัน 5 หรือน้อยกว่า ได้รับ %game.card.experience:1% สำหรับแต่ละศัตรูที่ฆ่า"
           },
           "53": {
-            "1": "At the end of this and your next four เทิร์น, perform:"
+            "1": "เมื่อจบเทิร์นนี้และสี่เทิร์นถัดไป ให้ทำ:"
           },
           "54": {
-            "1": "At the end of this and your next three เทิร์น, perform the following twice:"
+            "1": "เมื่อจบเทิร์นนี้และสามเทิร์นถัดไป ทำดังต่อไปนี้สองครั้ง:"
           },
           "56": {
-            "1": "Place the \"เครื่องพ่นหมอกอันตราย\" token in an empty หกเหลี่ยม within %game.action.range:3%.",
-            "2": "At the end of each of their เทิร์น, all พรรคพวก and enemies within %game.action.range:1% of the token suffer %game.damage:2%."
+            "1": "วางโทเค็น \"Pernicious Fogger\" บน hex ว่างภายใน %game.action.range:3%",
+            "2": "เมื่อจบแต่ละเทิร์นของพวกเขา พันธมิตรและศัตรูทั้งหมดภายใน %game.action.range:1% ของโทเค็นได้รับ %game.damage:2%"
           },
           "57": {
-            "1": "Create one %game.damage:4% %game.enhancement.square% ,%game.condition.wound%, %game.condition.stun% กับดัก in an empty hey within %game.action.range:2% %game.enhancement.square% .",
-            "2": "ให้พรรคพวกที่ติดกันหนึ่งตัว:"
+            "1": "สร้างกับดัก %game.damage:4% %game.enhancement.square% ,%game.condition.wound%, %game.condition.stun% หนึ่งอันบน hex ว่างภายใน %game.action.range:2% %game.enhancement.square%",
+            "2": "ให้พันธมิตรที่อยู่ติดกันหนึ่งตัว:"
           },
           "58": {
-            "1": "Grant one พรรคพวก within %game.action.range:3%:",
-            "3": "Control one ศัตรู within %game.action.ระยะ:3 %%game.enhancement.square% :",
-            "4": "then ศัตรูนั้น gains %game.condition.stun%."
+            "1": "ให้พันธมิตรหนึ่งตัวภายใน %game.action.range:3%:",
+            "2": "ได้รับ %game.damage:2%",
+            "3": "ควบคุมศัตรูหนึ่งตัวภายใน %game.action.range:3% %game.enhancement.square%:",
+            "4": "จากนั้นศัตรูนั้นได้รับ %game.condition.stun%"
           },
           "59": {
-            "1": "Place the \"ระเบิดแรงโน้มถ่วง\" token in an empty หกเหลี่ยม within %game.action.range:4%. At the end of your next เทิร์น, perform:",
-            "3": "ดึง toward the token. Then any ศัตรู occupying the หกเหลี่ยม containing the token suffers %game.damage:5%, all enemies occupying หกเหลี่ยม adjacent to the token suffer %game.damage:1%, and you discard this card."
+            "1": "วางโทเค็น \"Gravity Bomb\" บน hex ว่างภายใน %game.action.range:4% เมื่อจบเทิร์นถัดไป ให้ทำ:",
+            "2": "ศัตรูทั้งหมดภายใน %game.action.range:2% ของโทเค็น",
+            "3": "ดึงไปทางโทเค็น จากนั้นศัตรูใดที่อยู่บน hex ที่มีโทเค็นได้รับ %game.damage:5% ศัตรูทั้งหมดที่อยู่บน hex ติดโทเค็นได้รับ %game.damage:1% และคุณทิ้งการ์ดนี้"
           },
           "60": {
-            "1": "The เป้าหมาย of the รักษา ability may immediately play up to two cards from their hand, performing at most one top and one bottom action of the cards.",
-            "2": "One พรรคพวก within %game.action.range:3% may %game.card.recover% one card from the lost pile of one พรรคพวก adjacent to them."
+            "1": "เป้าหมายของความสามารถรักษาอาจเล่นการ์ดจากมือได้ทันทีสูงสุดสองใบ ทำแอ็กชันบนอย่างมากหนึ่งอย่างและล่างอย่างมากหนึ่งอย่างของการ์ด",
+            "2": "พันธมิตรหนึ่งตัวภายใน %game.action.range:3% อาจ %game.card.recover% การ์ดหนึ่งใบจากกองสูญหายของพันธมิตรที่อยู่ติดพวกเขาหนึ่งตัว"
           }
         }
       }
     },
     "hawthorne": {
-      "1": "Adds +1 %game.action.attack% to all โจมตี while undamaged"
+      "1": "เพิ่ม +1 %game.action.attack% ให้การโจมตีทั้งหมดขณะที่ยังไม่เสียหาย"
+    },
+    "living-spirit-squidface-solo": {
+      "1": "เกราะฐานเป็น 0 ขณะที่ %data.monster.living-spirit-squidface-solo% ไม่มี %game.condition.poison%",
+      "2": "%data.monster.living-spirit-squidface-solo% ที่ไม่มี %game.condition.poison% ไม่ทำแอ็กชัน",
+      "3": "%game.characterIcon.squidface% อาจให้ %data.monster.living-spirit-squidface-solo% สูญเสีย %game.condition.poison% เพื่อเพิ่ม %game.condition.poison%"
     }
   },
   "deck": {
-    "archer": "นักธนู",
+    "archer": "ธนู",
     "boss": "บอส",
     "guard": "ยาม",
-    "imp": "อิมพ์"
+    "imp": "อิมป์",
+    "priest": "นักบวช",
+    "scout": "สเกาต์"
   },
   "edition": {
     "gh2e": {
-      "hint": "Gloomhaven 2nd Edition currently has most of the non-สถานการณ์ sections missing, as well as most of the artwork."
+      "": "Gloomhaven ฉบับที่ 2",
+      "hint": "Gloomhaven ฉบับที่ 2 ขณะนี้ยังขาดส่วนที่ไม่ใช่ฉากหลายส่วน รวมถึงงานศิลป์ส่วนใหญ่"
+    }
+  },
+  "factions": {
+    "gh2e": {
+      "demons": "ปีศาจ",
+      "merchant-guild": "กิลด์พ่อค้า",
+      "military": "ทหาร"
     }
   },
   "globalAchievements": {
+    "activating-the-device": "เปิดใช้งานอุปกรณ์",
+    "an-uneasy-peace": "สันติภาพที่ไม่มั่นคง",
     "ancient-technology": "เทคโนโลยีโบราณ",
-    "end-of-corruption": "จุดจบความเสื่อม",
-    "end-of-gloom": "จุดจบความมืด",
-    "the-drake-aided": "The Drake ได้รับความช่วยเหลือ",
-    "the-drake-slain": "The Drake ถูกสังหาร",
-    "the-power-of-enhancement": "พลังแห่งการเสริม",
+    "city-rule-demons": "กฎเมือง: ปีศาจ",
+    "city-rule-merchants": "กฎเมือง: พ่อค้า",
+    "city-rule-military": "กฎเมือง: ทหาร",
+    "elements-mastered": "เชี่ยวชาญธาตุ",
+    "end-of-corruption": "จุดจบแห่งความเสื่อม",
+    "end-of-gloom": "จุดจบแห่ง Gloom",
+    "hallowed-waters": "น้ำศักดิ์สิทธิ์",
+    "into-the-depths": "สู่ความลึก",
+    "peace-through-bloodshed": "สันติภาพผ่านเลือด",
+    "the-candle-extinguished": "เทียนดับ",
+    "the-candle-kept": "เทียนยังลุก",
+    "the-darkness-retreats": "ความมืดล่าถอย",
+    "the-drake-aided": "ช่วยเหลือ Drake",
+    "the-drake-slain": "Drake ล้ม",
+    "the-power-of-enhancement": "อำนาจการเสริมความแข็งแกร่ง",
     "the-voice-freed": "เสียงเป็นอิสระ",
-    "the-voice-silenced": "เสียงถูกปิด"
+    "the-voice-silenced": "เสียงเงียบ"
   },
   "monster": {
+    "alpha-lurker": "อัลฟา เลอร์เกอร์",
     "ancient-artillery": "ปืนใหญ่โบราณ",
-    "bandit-archer": "โจรนักธนู",
+    "arcane-construct": "อาร์เคนคอนสตรัคต์",
+    "bandit-archer": "โจรธนู",
     "bandit-archer-music-note2-solo": "%data.monster.bandit-archer%",
     "bandit-commander": "ผู้บัญชาการโจร",
+    "bandit-scout": "โจรสเกาต์",
     "bandit-scout-music-note2-solo": "%data.monster.bandit-scout%",
-    "black-imp": "อิมพ์ดำ",
+    "black-imp": "อิมป์ดำ",
+    "bloated-victim": "เหยื่อบวม",
+    "candlekeeper-trice": "แคนเดิลคีปเปอร์ ไทรซ์",
     "cave-bear": "หมีถ้ำ",
     "cave-bear-circles2-solo": "%data.monster.cave-bear%",
-    "city-archer": "นักธนูเมือง",
+    "chaos-demon": "ปีศาจเคออส",
+    "city-archer": "ธนูเมือง",
     "city-guard": "ยามเมือง",
     "city-guard-saw2-solo": "%data.monster.city-guard%",
     "city-guard-sun2-solo": "%data.monster.city-guard%",
-    "corrupt-city-guard": "Corrupt ยามเมือง",
+    "corrupt-city-guard": "ยามเมืองเสื่อม",
+    "crystal-rot": "คริสตัลรอต",
     "cultist": "ลัทธิ",
-    "deep-terror": "ความหวาดกลัวลึก",
+    "dark-ritual-cultist": "ลัทธิพิธีมืด",
+    "deep-earth-gh2e": "ดินลึก",
+    "deep-terror": "เทอร์เรอร์ลึก",
+    "disjointed-twin": "ฝาแฝดแยก",
+    "doomcannon": "ดูมแคนนอน",
     "earth-demon": "ปีศาจดิน",
-    "first-shield-harmon": "First โล่ Harmon",
+    "egg-scenario-50": "ไข่ 50",
+    "first-shield-harmon": "เฟิร์สชีลด์ ฮาร์มอน",
     "flame-demon": "ปีศาจไฟ",
-    "forest-imp": "อิมพ์ป่า",
+    "forest-imp": "อิมป์ป่า",
     "frost-demon": "ปีศาจน้ำแข็ง",
-    "giant-ooze": "เมือกยักษ์",
-    "giant-viper": "งูยักษ์",
-    "hound": "สุนัขล่า",
-    "inox-archer": "Inox นักธนู",
-    "inox-bodyguard": "Inox บอดี้การ์ด",
-    "inox-guard": "Inox ยาม",
+    "giant-ooze": "อูซยักษ์",
+    "giant-viper": "ไวเปอร์ยักษ์",
+    "harrower-infester": "ฮาร์โรเวอร์อินเฟสเตอร์",
+    "hawthorne": "ฮอว์ธอร์น",
+    "hound": "ฮาวนด์",
+    "inox-archer": "อิโน็กซ์ธนู",
+    "inox-bodyguard": "อิโน็กซ์บอดี้การ์ด",
+    "inox-guard": "อิโน็กซ์ยาม",
+    "inox-priest": "อิโน็กซ์นักบวช",
+    "jekserah": "เจคเซราห์",
+    "living-bomb": "ระเบิดมีชีวิต",
+    "living-bones": "กระดูกมีชีวิต",
+    "living-corpse": "ศพมีชีวิต",
+    "living-spirit": "วิญญาณมีชีวิต",
     "living-spirit-squidface-solo": "%data.monster.living-spirit%",
+    "lurker-soldier": "ทหารเลอร์เกอร์",
+    "merciless-taskmaster": "หัวหน้างานไร้ความปราณี",
     "night-demon": "ปีศาจราตรี",
+    "ooze": "อูซ",
+    "rending-drake": "เดรกฉีก",
+    "savvas-icestorm": "ซัฟวาส ไอซ์สตอร์ม",
+    "savvas-lavaflow": "ซัฟวาส ลาวาโฟลว์",
+    "shyreth": "ไชเรธ",
+    "spitting-drake": "เดรกพ่น",
+    "spymaster-argeise": "สไปมาสเตอร์ อาร์ไกส์",
+    "stone-construct": "สโตนคอนสตรัคต์",
     "stone-construct-tinkerer-solo": "%data.monster.stone-construct%",
-    "sun-demon": "ปีศาจดวงอาทิตย์",
+    "sun-demon": "ปีศาจตะวัน",
     "the-betrayer": "ผู้ทรยศ",
-    "the-dark-rider": "The นักขี่มืด",
-    "the-winged-horror": "The ความหวาดกลัวมีปีก",
+    "the-colorless": "ไร้สี",
+    "the-convergence": "จุดบรรจบ",
+    "the-dark-rider": "นักขี่มืด",
+    "the-elder-drake": "เอลเดอร์เดรก",
+    "the-gloom": "เดอะกลูม",
+    "the-harvester": "ผู้เก็บเกี่ยว",
+    "the-prime-demon": "ไพรม์ดีมน",
+    "the-sightless-eye": "ดวงตาบอด",
+    "the-winged-horror": "ฮอร์เรอร์มีปีก",
+    "training-dummy": "หุ่นฝึก",
+    "training-partner": "คู่ฝึก",
+    "tyrant-of-the-tides": "ทรราชคลื่น",
+    "usurper": "ยึดอำนาจ",
+    "vermling-priest": "เวิร์มลิงนักบวช",
+    "vermling-scout": "เวิร์มลิงสเกาต์",
     "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%",
     "wind-demon": "ปีศาจลม"
   },
   "personalQuest": {
     "gh2e": {
+      "01": {
+        "": "การเมืองแย่งอำนาจ",
+        "1": "คะแนนโหวต",
+        "2": "แก้ %game.section:136.1%"
+      },
+      "02": {
+        "": "โรงแรมต้อนรับ",
+        "1": "โทเค็นเงินที่ปล้นได้"
+      },
+      "03": {
+        "": "ความสามารถเสริม",
+        "1": "การเสริมความแข็งแกร่ง",
+        "2": "อ่าน %game.section:71.2%"
+      },
+      "04": {
+        "": "การล่มสลายของมนุษย์",
+        "1": "ใช้ %game.itemFh.149%",
+        "2": "อ่าน %game.section:115.2%"
+      },
+      "05": {
+        "": "ผู้แสวงหา Xorn",
+        "1": "ทำ \"Crypt Basement\" %game.scenario:57% สำเร็จ",
+        "2": "ได้รับไอเทม",
+        "3": "ได้รับ %game.condition.poison%",
+        "4": "ทำ \"Palace of Ice\" %game.scenario:58% สำเร็จ"
+      },
+      "06": {
+        "": "คลั่งเทพแห่งเลือด",
+        "1": "ฉากที่จบโดย HP สูงสุดไม่เกินครึ่ง",
+        "2": "แก้ %game.section:122.3%"
+      },
+      "07": {
+        "": "เรื่องเล่าที่ต้องบอก",
+        "1": "สมบัติที่ปล้นได้",
+        "2": "อ่าน %game.section:12.3%"
+      },
       "08": {
-        "1": "เหตุการณ์บนถนน"
+        "": "ยึดป่ากลับ",
+        "1": "อีเวนต์ทางเดิน",
+        "2": "อ่าน %game.section:64.3%"
       },
       "09": {
-        "1": "สถานการณ์ Locations",
-        "5": "Gloomhaven"
+        "": "ตามหายารักษา",
+        "1": "สถานที่ฉาก",
+        "2": "เทือกเขาคอปเปอร์เน็ค",
+        "3": "คอร์ปสวูด",
+        "4": "ป่าดักเกอร์",
+        "5": "กลูมฮาเวน",
+        "6": "บึงค้าง",
+        "7": "ทะเลหมอก",
+        "8": "เทือกเขาวอตเชอร์",
+        "9": "อ่าน %game.section:55.3%"
+      },
+      "10": {
+        "": "นักล่าพวกผิดปกติ",
+        "1": "การเสริม %game.element.wild%",
+        "2": "อ่าน %game.section:14.3%"
+      },
+      "11": {
+        "": "พ่อแม่บุญธรรม",
+        "1": "ฉากที่ปล้นโทเค็นเงินได้ 3 อันขึ้นไป",
+        "2": "อ่าน %game.section:122.5%"
+      },
+      "12": {
+        "": "อาวุธแห่งแสง",
+        "1": "ยกเลิกความเสียหาย %game.damage:4% ขึ้นไป",
+        "2": "อ่าน %game.section:82.1%"
       },
       "13": {
-        "4": "%game.items.slots.onehand% หรือ %game.items.slots.twohand% items"
+        "": "ชนชั้นพ่อค้า",
+        "1": "ไอเทม %game.items.slots.head%",
+        "2": "ไอเทม %game.items.slots.body%",
+        "3": "ไอเทม %game.items.slots.legs%",
+        "4": "ไอเทม %game.items.slots.onehand% หรือ %game.items.slots.twohand%",
+        "5": "ไอเทม %game.items.slots.small%",
+        "6": "อ่าน %game.section:129.1%"
+      },
+      "14": {
+        "": "นักเดินทางนิรันดร์",
+        "1": "ฉากที่จบ",
+        "2": "อ่าน %game.section:52.2%"
+      },
+      "15": {
+        "": "หนี Sin-Ra",
+        "1": "ฉากข้าง (> 56) ที่จบ",
+        "2": "อ่าน %game.section:128.2%"
       },
       "16": {
-        "": "The Perfect พิษ"
+        "": "พิษสมบูรณ์",
+        "1": "ศัตรูที่ได้รับ %game.condition.poison%",
+        "2": "อ่าน %game.section:8.3%"
+      },
+      "17": {
+        "": "อยู่บนขอบเหว",
+        "1": "ศัตรูได้รับ %game.damage%",
+        "2": "อ่าน %game.section:47.4%"
+      },
+      "18": {
+        "": "ตำนานสมรภูมิ",
+        "1": "ได้รับ %game.checkmark% จาก battle goal ที่ทำสำเร็จ",
+        "2": "อ่าน %game.section:23.3%"
       },
       "19": {
-        "1": "%game.items.slots.onehand% หรือ %game.items.slots.twohand% different items used"
+        "": "ศึกษาศิลปะการต่อสู้",
+        "1": "ใช้ไอเทม %game.items.slots.onehand% หรือ %game.items.slots.twohand% คนละชนิด",
+        "2": "อ่าน %game.section:67.2%"
       },
       "20": {
-        "1": "ทองคำ donated to the Temple of the Great Oak"
+        "": "ศรัทธาทุกอย่าง",
+        "1": "ทองบริจาคแด่วิหารโอ๊กใหญ่",
+        "2": "อ่าน %game.section:51.5%"
       },
       "21": {
-        "": "Pursuit of ความเชี่ยวชาญ"
+        "": "แสวงหาความเชี่ยวชาญ",
+        "1": "%game.experience% จากบัตรความสามารถ",
+        "2": "อ่าน %game.section:17.2%"
+      },
+      "22": {
+        "": "ล่าถ้วยรางวัล",
+        "1": "ประเภทมอนสเตอร์ที่ฆ่าหลากชนิด",
+        "2": "อ่าน %game.section:21.1%"
       }
     }
   },
@@ -1046,120 +1315,450 @@
     "rules": {
       "gh2e": {
         "10": {
-          "1": "Each Character occupying tile 01-D, 02-H, or any corridor tiles connecting those two tiles suffers hazardous terrain ความเสียหาย."
+          "1": "ตัวละครแต่ละตัวที่อยู่บนแผ่น 01-D, 02-H หรือแผ่นทางเดินที่เชื่อมสองแผ่นนั้นได้รับความเสียหายจากภูมิประเทศอันตราย"
         },
         "8": {
-          "1": "At the end of his เทิร์น the ผู้บัญชาการโจร Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.2% opening it.",
-          "2": "At the end of his เทิร์น the ผู้บัญชาการโจร Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.3% opening it.",
-          "3": "At the end of his เทิร์น the ผู้บัญชาการโจร Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.4% opening it.",
-          "4": "At the end of his เทิร์น the ผู้บัญชาการโจร Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.5% opening it."
+          "1": "เมื่อจบเทิร์น Bandit Commander ทำ %game.action.move% 20 %game.action.jump% ไปจบที่ประตู %game.mapMarker.2% แล้วเปิดประตู",
+          "2": "เมื่อจบเทิร์น Bandit Commander ทำ %game.action.move% 20 %game.action.jump% ไปจบที่ประตู %game.mapMarker.3% แล้วเปิดประตู",
+          "3": "เมื่อจบเทิร์น Bandit Commander ทำ %game.action.move% 20 %game.action.jump% ไปจบที่ประตู %game.mapMarker.4% แล้วเปิดประตู",
+          "4": "เมื่อจบเทิร์น Bandit Commander ทำ %game.action.move% 20 %game.action.jump% ไปจบที่ประตู %game.mapMarker.5% แล้วเปิดประตู"
         },
         "9": {
-          "1": "Draw a token and spawn the มอนสเตอร์ on %game.mapMarker.b%.",
-          "2": "Draw a token and spawn the มอนสเตอร์ on %game.mapMarker.c%."
+          "1": "จั่วโทเค็นและ spawn มอนสเตอร์บน %game.mapMarker.b%",
+          "2": "จั่วโทเค็นและ spawn มอนสเตอร์บน %game.mapMarker.c%",
+          "3": "จั่วสองโทเค็นและ spawn มอนสเตอร์บน %game.mapMarker.b% และ %game.mapMarker.c%",
+          "4": "จั่วสองโทเค็นและ spawn มอนสเตอร์บน %game.mapMarker.d% และ %game.mapMarker.e%"
         }
       }
     },
     "title": {
       "gh2e": {
-        "10": "ช่องเขา",
-        "12": "ค่าย Inox",
-        "13": "ปีน Icecrag",
-        "14": "ห้องก้อง",
-        "15": "มิติแห่งพลังธาตุ",
-        "23A": "จัตุรัส Gloomhaven A (Demon พรรคพวก)",
-        "23B": "จัตุรัส Gloomhaven A (Military พรรคพวก)",
-        "24": "จัตุรัส Gloomhaven B",
-        "25A": "Gloomhaven Battlements A (Merchant พรรคพวก)",
-        "25B": "Gloomhaven Battlements A (Military พรรคพวก)",
+        "0": "สนามฝึก",
+        "1": "ค่ายโจร",
+        "10": "ช่องเขาภูเขา",
+        "100": "ความเงียบตก",
+        "11": "ห้องพิธี",
+        "12": "ค่ายอิโน็กซ์",
+        "13": "ไอซ์แครกอัสเซนต์",
+        "14": "ห้องสะท้อน",
+        "15": "มิติอำนาจธาตุ",
+        "16": "เหมืองเพชร",
+        "17": "รอยแยกปีศาจ",
+        "18": "การสืบสวน",
+        "19": "ฐานทหาร",
+        "2": "สุสานพัง",
+        "20": "โกดังกลูมฮาเวน",
+        "21": "ป้อมผี",
+        "22": "ทำลายดูมแคนนอน",
+        "23A": "จัตุรัสกลูมฮาเวน A (พันธมิตรปีศาจ)",
+        "23B": "จัตุรัสกลูมฮาเวน A (พันธมิตรทหาร)",
+        "24": "จัตุรัสกลูมฮาเวน B",
+        "25A": "เชิงเทินกลูมฮาเวน A (พันธมิตรพ่อค้า)",
+        "25B": "เชิงเทินกลูมฮาเวน A (พันธมิตรทหาร)",
+        "26": "เชิงเทินกลูมฮาเวน B",
         "27": "บัลลังก์นรก",
-        "28": "วิหารผู้หยั่งรู้",
-        "3": "โพรงเยือกแข็ง",
-        "36": "ท่อระบายน้ำร้าง",
-        "37": "ซากปรักหักพังลึก",
+        "28": "วิหารโหร",
+        "29": "ยอดไหม้",
+        "3": "โพรงน้ำแข็ง",
+        "30": "ศาลาลึก",
+        "31": "ป่าเสื่อม",
+        "32": "คลังอาวุธซัฟวาส",
+        "33": "เครือข่ายป้องกันโบราณ",
+        "34": "สุสานโบราณ",
+        "35": "อาณาจักรเสียง",
+        "36": "ท่อน้ำเสียร้าง",
+        "37": "ซากลึก",
+        "38": "รังเดรก",
+        "39": "ถ้ำสว่าง",
+        "4": "สุสานผู้ถูกสาป",
+        "40": "ซุ่มในที่ลุ่ม",
         "41": "อ่างเก็บน้ำโบราณ",
+        "42": "หุบเขาสันโดษ",
+        "43": "ไล่ล่าความลับ",
         "44": "วิหารธาตุ",
-        "5": "สุสานที่ถูกลืม",
-        "53": "ศาลแห่งพลัง",
-        "69": "เสื่อม Cove",
-        "8": "ที่ซ่อน Barrow",
-        "83": "เกาะที่หายไป",
-        "9": "รอยแยกพังพินาศ"
+        "45": "มิติราตรี",
+        "46": "ร่องดูม",
+        "47": "คอกทาส",
+        "48": "แบ่งทรยศ",
+        "49": "บุกเผ่าตระกูล",
+        "5": "สุสานลืม",
+        "50": "ยอดฝันร้าย",
+        "51": "รังดวงตาบอด",
+        "52": "ป่ามืด",
+        "53": "ศาลาพลัง",
+        "54": "ความว่าง",
+        "55": "ยืนหยัดครั้งสุดท้าย",
+        "56": "เดอะกลูม",
+        "57": "ห้องใต้ดินสุสาน",
+        "58": "วังน้ำแข็ง",
+        "59": "พุ่มหมอก",
+        "6": "สุสานผุ",
+        "60": "ป่าโจร",
+        "61": "ป่าอันตราย",
+        "62": "ห้องทดลองแอลเคมี",
+        "63": "ประภาคารจาง",
+        "64": "รากเคออส",
+        "65": "สุสานฮีโร่",
+        "66": "เพื่อนยามวิกฤต",
+        "67": "วิหารคราส",
+        "68": "เรือจม",
+        "69": "อ่าวเสื่อม",
+        "7": "แบล็กแบริว",
+        "70": "ลากูนใต้น้ำ",
+        "71": "โรงงานกลไก",
+        "72": "บ่อเคราะห์",
+        "73": "เกาะโซ่",
+        "74": "ที่สูงลมกรรโชก",
+        "75": "สันหินถล่ม",
+        "76": "ป่าอูซ",
+        "77": "รังฮาร์โรเวอร์",
+        "78": "ห้องใต้ดินความลับ",
+        "79": "บุกเลอร์เกอร์",
+        "8": "รังแบริว",
+        "80": "วิหารหาย",
+        "81": "สุสานรก",
+        "82": "ที่ซ่อนซินดิเคต",
+        "83": "เกาะหาย",
+        "84": "ปะทะโกลาหล",
+        "85": "สถานีทางแยก",
+        "86": "หลุมแมกมา",
+        "87": "เหมืองกำมะถัน",
+        "88": "ห้องสมุดอาร์เคน",
+        "89": "บริการชุมชน",
+        "9": "รอยแยกพัง",
+        "90": "ภูเขาไฟ",
+        "91": "เงาภายใน",
+        "92": "สมอเวลา",
+        "93": "หมู่บ้านเร่งรีบ",
+        "94": "ช่วยเหลือทางน้ำ",
+        "95": "เรือสินค้า",
+        "96": "ต่อสู้ตรอกหลัง",
+        "97": "ค่ายเวิร์มลิง",
+        "98": "รอยเลื่อนแปร",
+        "99": "เตาหลอม",
+        "S": "รอยแยกผู้ท้าทาย",
+        "solo-100": "ความลับธาตุ",
+        "solo-101": "หมีในกรง",
+        "solo-102": "ทรายแห่งกาลเวลา",
+        "solo-85": "ออกกลางคืน",
+        "solo-86": "บุกรุกโชคร้าย",
+        "solo-87": "ร้านยาเสื่อม",
+        "solo-88": "เรื่องวัตถุดิบ",
+        "solo-89": "ป้องกันหิน",
+        "solo-90": "ปลดปล่อยเวิร์มลิง",
+        "solo-91": "คุ้มกันขบวน",
+        "solo-92": "ค่าที่เก็บ",
+        "solo-93": "มิติสัตว์ป่า",
+        "solo-94": "เก็บเกี่ยวราตรี",
+        "solo-95": "สุสานระบาด",
+        "solo-96": "ดูหมิ่นผิดธรรมชาติ",
+        "solo-97": "สงครามบาร์ด",
+        "solo-98": "ล่าเสื่อม",
+        "solo-99": "ผลที่ตามมา"
       }
     }
   },
   "section": {
+    "rewards": {
+      "gh2e": {
+        "68-4": {
+          "1": "เปิดหนังสือปริศนาที่หน้าคู่แรก",
+          "2": "เมื่อตัวละครตัวแรกเกษียณ อ่าน %game.section:68.4%"
+        }
+      }
+    },
     "title": {
       "gh2e": {
-        "10-3": "มิติแห่งพลังธาตุ",
-        "103-6": "ศาลแห่งพลัง",
-        "104-1": "เกาะที่หายไป",
-        "107-4": "ศาลแห่งพลัง",
-        "14-1": "ปีน Icecrag",
-        "15-1": "สุสานที่ถูกลืม",
-        "15-2": "ที่ซ่อน Barrow",
-        "15-4": "เกาะที่หายไป",
-        "16-4": "ห้องก้อง",
-        "17-4": "ค่าย Inox",
-        "19-1": "จัตุรัส Gloomhaven B",
+        "10-2": "ชื่อเสียงพ่อค้า 16",
+        "10-3": "มิติอำนาจธาตุ",
+        "101-2": "คอกทาส",
+        "101-3": "สมอเวลา",
+        "102-1": "ห้องใต้ดินสุสาน",
+        "102-2": "การชุบ 30",
+        "102-5": "บ่อเคราะห์",
+        "102-6": "คอกทาส",
+        "103-1": "สมอเวลา",
+        "103-2": "บุกเผ่าตระกูล",
+        "103-5": "ค่ายเวิร์มลิง",
+        "103-6": "ศาลาพลัง",
+        "104-1": "เกาะหาย",
+        "106-1": "ไล่ล่าความลับ",
+        "106-5": "รังฮาร์โรเวอร์",
+        "107-1": "โรงงานกลไก",
+        "107-4": "ศาลาพลัง",
+        "108-1": "ห้องใต้ดินสุสาน",
+        "108-3": "ห้องใต้ดินความลับ",
+        "108-4": "รังฮาร์โรเวอร์",
+        "109-1": "ความว่าง",
+        "11-1": "ค่ายโจร",
+        "110-1": "รังฮาร์โรเวอร์",
+        "110-3": "ที่ซ่อนซินดิเคต",
+        "111-3": "เกาะโซ่",
+        "112-1": "ที่ซ่อนซินดิเคต",
+        "113-1": "ค่ายเวิร์มลิง",
+        "113-3": "ภูเขาไฟ",
+        "113-5": "ร่องดูม",
+        "113-6": "เกาะโซ่",
+        "114-4": "เรือจม",
+        "115-1": "ห้องใต้ดินความลับ",
+        "115-3": "ห้องใต้ดินสุสาน",
+        "116-1": "ห้องทดลองแอลเคมี",
+        "116-3": "ที่ซ่อนซินดิเคต",
+        "117-1": "ภูเขาไฟ",
+        "117-5": "โรงงานกลไก",
+        "118-2": "สถานีทางแยก",
+        "119-3": "การชุบ 60",
+        "119-7": "ห้องใต้ดินความลับ",
+        "12-2": "โกดังกลูมฮาเวน",
+        "120-5": "หลุมแมกมา",
+        "121-1": "ห้องทดลองแอลเคมี",
+        "121-3": "บ่อเคราะห์",
+        "121-4": "ป่าอันตราย",
+        "123-1": "ที่ซ่อนซินดิเคต",
+        "123-3": "เหมืองกำมะถัน",
+        "123-4": "หมู่บ้านเร่งรีบ",
+        "124-3": "รังฮาร์โรเวอร์",
+        "125-3": "เงาภายใน",
+        "126-3": "หลุมแมกมา",
+        "127-1": "เหมืองกำมะถัน",
+        "128-3": "เกาะโซ่",
+        "128-5": "การชุบ 80",
+        "129-3": "ค่ายเวิร์มลิง",
+        "13-3": "บุกเผ่าตระกูล",
+        "131-3": "เหมืองกำมะถัน",
+        "132-4": "ไล่ล่าความลับ",
+        "133-2": "การชุบ 10",
+        "133-3": "เหมืองกำมะถัน",
+        "133-5": "ชื่อเสียงปีศาจ 12",
+        "134-3": "สมอเวลา",
+        "135-6": "การชุบ 70",
+        "136-2": "สันหินถล่ม",
+        "136-4": "เหมืองกำมะถัน",
+        "136-5": "ห้องทดลองแอลเคมี",
+        "14-1": "ไอซ์แครกอัสเซนต์",
+        "15-1": "สุสานลืม",
+        "15-2": "รังแบริว",
+        "15-4": "เกาะหาย",
+        "16-1": "สุสานพัง",
+        "16-4": "ห้องสะท้อน",
+        "16-5": "ความมั่งคั่ง 5",
+        "16-6": "การสืบสวน",
+        "17-1": "โกดังกลูมฮาเวน",
+        "17-4": "ค่ายอิโน็กซ์",
+        "18-2": "สุสานพัง",
+        "18-5": "โกดังกลูมฮาเวน",
+        "19-1": "จัตุรัสกลูมฮาเวน B",
+        "2-3": "ยืนหยัดครั้งสุดท้าย",
+        "2-4": "ที่สูงลมกรรโชก",
+        "2-5": "การชุบ 50",
+        "20-1": "ชื่อเสียงพ่อค้า 20",
         "20-2": "บัลลังก์นรก",
-        "21-2": "ช่องเขา",
-        "22-2": "วิหารผู้หยั่งรู้",
-        "22-3": "ที่ซ่อน Barrow",
-        "23-1": "โพรงเยือกแข็ง",
-        "24-1": "ค่าย Inox",
-        "25-1": "โพรงเยือกแข็ง",
-        "26-3": "ค่าย Inox",
-        "29-3": "จัตุรัส Gloomhaven A (Military พรรคพวก)",
-        "3-3": "จัตุรัส Gloomhaven A (Demon พรรคพวก)",
-        "31-3": "สุสานที่ถูกลืม",
-        "31-4": "ท่อระบายน้ำร้าง",
-        "32-1": "สุสานที่ถูกลืม",
-        "32-2": "เกาะที่หายไป",
-        "34-1": "ห้องก้อง",
-        "35-3": "ปีน Icecrag",
-        "37-1": "สุสานที่ถูกลืม",
-        "37-4": "ค่าย Inox",
+        "20-3": "ป้อมผี",
+        "21-2": "ช่องเขาภูเขา",
+        "22-2": "วิหารโหร",
+        "22-3": "รังแบริว",
+        "23-1": "โพรงน้ำแข็ง",
+        "24-1": "ค่ายอิโน็กซ์",
+        "24-2": "การสืบสวน",
+        "25-1": "โพรงน้ำแข็ง",
+        "26-1": "สุสานผู้ถูกสาป",
+        "26-3": "ค่ายอิโน็กซ์",
+        "28-1": "สุสานผู้ถูกสาป",
+        "28-3": "ฐานทหาร",
+        "28-5": "รังเดรก",
+        "29-1": "ชื่อเสียงปีศาจ 6",
+        "29-3": "จัตุรัสกลูมฮาเวน A (พันธมิตรทหาร)",
+        "3-3": "จัตุรัสกลูมฮาเวน A (พันธมิตรปีศาจ)",
+        "30-1": "สุสานผู้ถูกสาป",
+        "30-2": "เหมืองเพชร",
+        "30-4": "ห้องพิธี",
+        "31-1": "ฐานทหาร",
+        "31-3": "สุสานลืม",
+        "31-4": "ท่อน้ำเสียร้าง",
+        "31-5": "ชื่อเสียงทหาร 20",
+        "32-1": "สุสานลืม",
+        "32-2": "เกาะหาย",
+        "32-4": "เชิงเทินกลูมฮาเวน B",
+        "33-1": "เครือข่ายป้องกันโบราณ",
+        "34-1": "ห้องสะท้อน",
+        "34-3": "การชุบ 20",
+        "34-5": "สุสานผุ",
+        "35-3": "ไอซ์แครกอัสเซนต์",
+        "35-4": "สุสานโบราณ",
+        "36-1": "สุสานผุ",
+        "37-1": "สุสานลืม",
+        "37-2": "ทำลายดูมแคนนอน",
+        "37-4": "ค่ายอิโน็กซ์",
+        "38-1": "สุสานผุ",
+        "38-4": "ป้อมผี",
         "39-1": "บัลลังก์นรก",
-        "44-1": "ช่องเขา",
-        "44-2": "ห้องก้อง",
+        "39-2": "ถ้ำสว่าง",
+        "39-3": "ชื่อเสียงทหาร 12",
+        "4-1": "ความว่าง",
+        "40-1": "สุสานผุ",
+        "41-1": "ป่าเสื่อม",
+        "41-3": "ชื่อเสียงพ่อค้า 12",
+        "42-1": "แบล็กแบริว",
+        "42-2": "โรงงานกลไก",
+        "42-5": "การสืบสวน",
+        "43-2": "ค่ายโจร",
+        "44-1": "ช่องเขาภูเขา",
+        "44-2": "ห้องสะท้อน",
+        "44-5": "โรงงานกลไก",
+        "45-1": "ฐานทหาร",
+        "45-2": "แบล็กแบริว",
+        "46-1": "ปะทะโกลาหล",
+        "46-3": "ชื่อเสียงทหาร 6",
         "47-2": "อ่างเก็บน้ำโบราณ",
-        "48-1": "ห้องก้อง",
-        "49-3": "ที่ซ่อน Barrow",
-        "51-3": "ค่าย Inox",
-        "53-4": "จัตุรัส Gloomhaven A (Military พรรคพวก)",
-        "60-4": "จัตุรัส Gloomhaven A (Demon พรรคพวก)",
-        "61-3": "ซากปรักหักพังลึก",
-        "62-1": "ที่ซ่อน Barrow",
-        "62-2": "มิติแห่งพลังธาตุ",
+        "48-1": "ห้องสะท้อน",
+        "48-2": "ความมั่งคั่ง 3",
+        "48-3": "ป่าเสื่อม",
+        "48-5": "รังเดรก",
+        "49-1": "ชื่อเสียงพ่อค้า 6",
+        "49-3": "รังแบริว",
+        "5-2": "สนามฝึก",
+        "50-3": "ป้อมผี",
+        "50-4": "การชุบ 40",
+        "50-5": "รังเดรก",
+        "51-3": "ค่ายอิโน็กซ์",
+        "51-4": "ห้องพิธี",
+        "52-1": "สุสานฮีโร่",
+        "53-1": "ชื่อเสียงทหาร 16",
+        "53-4": "จัตุรัสกลูมฮาเวน A (พันธมิตรทหาร)",
+        "54-2": "ความมั่งคั่ง 4",
+        "54-3": "เครือข่ายป้องกันโบราณ",
+        "55-1": "คอกทาส",
+        "55-4": "ความว่าง",
+        "56-2": "ป่าโจร",
+        "58-1": "สุสานโบราณ",
+        "60-1": "เหมืองกำมะถัน",
+        "60-4": "จัตุรัสกลูมฮาเวน A (พันธมิตรปีศาจ)",
+        "61-3": "ซากลึก",
+        "62-1": "รังแบริว",
+        "62-2": "มิติอำนาจธาตุ",
+        "62-3": "ความมั่งคั่ง 6",
         "63-1": "บัลลังก์นรก",
-        "8-1": "ที่ซ่อน Barrow",
-        "80-1": "ซากปรักหักพังลึก",
-        "9-2": "จัตุรัส Gloomhaven B",
-        "91-1": "ท่อระบายน้ำร้าง",
-        "93-4": "ซากปรักหักพังลึก",
+        "64-2": "ป้อมผี",
+        "65-1": "สุสานฮีโร่",
+        "65-2": "คลังอาวุธซัฟวาส",
+        "66-3": "ประภาคารจาง",
+        "66-4": "รังเดรก",
+        "67-1": "ยืนหยัดครั้งสุดท้าย",
+        "68-1": "ซุ่มในที่ลุ่ม",
+        "68-2": "ห้องสมุดอาร์เคน",
+        "68-4": "หนังสือปริศนา",
+        "69-3": "การสืบสวน",
+        "7-1": "สนามฝึก",
+        "70-1": "ป่าเสื่อม",
+        "70-5": "โรงงานกลไก",
+        "71-1": "ยืนหยัดครั้งสุดท้าย",
+        "71-4": "คลังอาวุธซัฟวาส",
+        "72-2": "ยืนหยัดครั้งสุดท้าย",
+        "73-3": "ชื่อเสียงปีศาจ 16",
+        "74-4": "รังฮาร์โรเวอร์",
+        "75-1": "การสืบสวน",
+        "75-2": "แบ่งทรยศ",
+        "76-3": "เครือข่ายป้องกันโบราณ",
+        "77-2": "ชื่อเสียงปีศาจ 20",
+        "77-3": "ชื่อเสียงพ่อค้า 9",
+        "77-4": "ที่สูงลมกรรโชก",
+        "78-1": "บุกเผ่าตระกูล",
+        "78-2": "ป่าอันตราย",
+        "78-3": "ชื่อเสียงปีศาจ 9",
+        "79-1": "หุบเขาสันโดษ",
+        "79-4": "ห้องทดลองแอลเคมี",
+        "8-1": "รังแบริว",
+        "80-1": "ซากลึก",
+        "80-2": "ลากูนใต้น้ำ",
+        "80-3": "ไล่ล่าความลับ",
+        "81-1": "ถ้ำสว่าง",
+        "82-3": "เครือข่ายป้องกันโบราณ",
+        "82-4": "ที่สูงลมกรรโชก",
+        "83-2": "ถ้ำสว่าง",
+        "83-3": "ชื่อเสียงทหาร 9",
+        "84-1": "ถ้ำสว่าง",
+        "84-4": "บ่อเคราะห์",
+        "84-5": "สุสานโบราณ",
+        "85-1": "ป่าโจร",
+        "86-2": "ไล่ล่าความลับ",
+        "86-3": "สมอเวลา",
+        "86-4": "เรือจม",
+        "89-1": "ปะทะโกลาหล",
+        "89-4": "ประภาคารจาง",
+        "9-2": "จัตุรัสกลูมฮาเวน B",
+        "9-4": "วิหารคราส",
+        "90-3": "เรือจม",
+        "91-1": "ท่อน้ำเสียร้าง",
+        "91-3": "ลากูนใต้น้ำ",
+        "93-3": "มิติราตรี",
+        "93-4": "ซากลึก",
+        "93-5": "ยืนหยัดครั้งสุดท้าย",
+        "95-4": "โรงงานกลไก",
+        "95-5": "รังเดรก",
+        "97-2": "ภูเขาไฟ",
+        "97-4": "เครือข่ายป้องกันโบราณ",
         "97-5": "วิหารธาตุ",
-        "98-3": "ศาลแห่งพลัง",
-        "randomMonsterCard-554": "ขนร่วง",
+        "98-1": "เครือข่ายป้องกันโบราณ",
+        "98-2": "วิหารคราส",
+        "98-3": "ศาลาพลัง",
+        "randomMonsterCard-554": "กลาก",
         "randomMonsterCard-555": "จมน้ำ",
-        "randomMonsterCard-556": "สิ้นหวัง",
-        "randomMonsterCard-557": "ถูกมลทิน",
+        "randomMonsterCard-556": "หมดหวัง",
+        "randomMonsterCard-557": "มลทิน",
         "randomMonsterCard-558": "ป่า",
-        "randomMonsterCard-559": "เสริม",
-        "randomMonsterCard-560": "โหด",
+        "randomMonsterCard-559": "เสริมปราการ",
+        "randomMonsterCard-560": "เชือดคอ",
         "randomMonsterCard-561": "เน่า",
         "randomMonsterCard-562": "หมอก",
         "randomMonsterCard-563": "บด",
-        "randomMonsterCard-564": "เผ่า",
-        "randomMonsterCard-565": "น่าสะพรึง",
+        "randomMonsterCard-564": "เผ่าตระกูล",
+        "randomMonsterCard-565": "น่าสยอง",
         "randomMonsterCard-566": "โบราณ",
         "randomMonsterCard-567": "มีเกล็ด",
         "randomMonsterCard-568": "มีพิษ",
         "randomMonsterCard-569": "ไม่เสถียร",
         "randomMonsterCard-570": "เสื่อม",
         "randomMonsterCard-571": "ติดเชื้อ",
-        "randomMonsterCard-572": "เหม็น",
-        "randomMonsterCard-573": "เยือก"
+        "randomMonsterCard-572": "เน่าเหม็น",
+        "randomMonsterCard-573": "เยือกแข็ง",
+        "solo-100-1": "ความลับธาตุ",
+        "solo-100-2": "ความลับธาตุ",
+        "solo-100-3": "ความลับธาตุ",
+        "solo-100-4": "ความลับธาตุ",
+        "solo-101-1": "หมีในกรง",
+        "solo-101-2": "หมีในกรง",
+        "solo-101-3": "หมีในกรง",
+        "solo-102-1": "ทรายแห่งกาลเวลา",
+        "solo-102-2": "ทรายแห่งกาลเวลา",
+        "solo-85-1": "ออกกลางคืน",
+        "solo-85-2": "ออกกลางคืน",
+        "solo-86-1": "บุกรุกโชคร้าย",
+        "solo-86-2": "บุกรุกโชคร้าย",
+        "solo-87-1": "ร้านยาเสื่อม",
+        "solo-87-2": "ร้านยาเสื่อม",
+        "solo-88-1": "เรื่องวัตถุดิบ",
+        "solo-88-2": "เรื่องวัตถุดิบ",
+        "solo-90-1": "ปลดปล่อยเวิร์มลิง",
+        "solo-90-2": "ปลดปล่อยเวิร์มลิง",
+        "solo-91-1": "คุ้มกันขบวน",
+        "solo-91-2": "คุ้มกันขบวน",
+        "solo-92-1": "ค่าที่เก็บ",
+        "solo-92-2": "ค่าที่เก็บ",
+        "solo-92-3": "ค่าที่เก็บ",
+        "solo-93-1": "มิติสัตว์ป่า",
+        "solo-94-1": "เก็บเกี่ยวราตรี",
+        "solo-94-2": "เก็บเกี่ยวราตรี",
+        "solo-95-1": "สุสานระบาด",
+        "solo-95-2": "สุสานระบาด",
+        "solo-96-1": "ดูหมิ่นผิดธรรมชาติ",
+        "solo-96-2": "ดูหมิ่นผิดธรรมชาติ",
+        "solo-97-1": "สงครามบาร์ด",
+        "solo-97-2": "สงครามบาร์ด",
+        "solo-98-1": "ล่าเสื่อม",
+        "solo-98-2": "ล่าเสื่อม",
+        "solo-98-3": "ล่าเสื่อม",
+        "solo-98-4": "ล่าเสื่อม",
+        "solo-99-1": "ผลที่ตามมา"
       }
     }
   }

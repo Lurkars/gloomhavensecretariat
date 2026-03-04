@@ -30,7 +30,7 @@
     "Legendary - Shadows": "ตำนาน - เงา",
     "Legendary - Void": "ตำนาน - ความว่างเปล่า",
     "Lure Them In": "ล่อพวกเขาเข้ามา",
-    "Marked for Death": "หมายถึงความตาย",
+    "Marked for Death": "หมายไว้ตาย",
     "Nightmare Spheres": "ทรงกลมฝันร้าย",
     "Otherworldly Journey": "การเดินทางข้ามโลก",
     "Peer into Battle": "มองเข้าไปในการต่อสู้",
@@ -250,7 +250,7 @@
     "avatar-of-ashtar": "อวตารแห่งอัชทาร์",
     "avatar-of-thelija": "อวตารแห่งเทลิจา",
     "bear-drake-abomination": "หมี-ดราคอนอัปโมนา",
-    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% โซโล)",
     "elham": "เอลแฮม",
     "guardian-of-the-firmament": "ผู้พิทักษ์ท้องฟ้า",
     "human-commander": "ผู้บัญชาการมนุษย์",
@@ -374,7 +374,8 @@
         "97": "ตำนานที่ยังไม่เล่า",
         "98": "อดีตในเปลวไฟ",
         "99": "อาฟเตอร์ช็อก",
-        "Challenge-1": "หอคอยสู่ดวงดาว"
+        "Challenge-1": "หอคอยสู่ดวงดาว",
+        "solo-19": "พยากรณ์แห่งความหลีกไม่พ้น"
       }
     }
   },
@@ -517,7 +518,10 @@
         "Challenge-47": "โถงแห่งความสยองขวัญ",
         "Challenge-84": "ทางสู่ท้องฟ้า",
         "randomMonsterCard-622": "แห้งแล้ง",
-        "randomMonsterCard-623": "อีเทียเรียล"
+        "randomMonsterCard-623": "อีเทียเรียล",
+        "solo-19-29": "พยากรณ์แห่งความหลีกไม่พ้น",
+        "solo-19-73": "พยากรณ์แห่งความหลีกไม่พ้น",
+        "solo-19-90": "พยากรณ์แห่งความหลีกไม่พ้น"
       }
     }
   }

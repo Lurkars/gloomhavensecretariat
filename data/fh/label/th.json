@@ -1240,6 +1240,19 @@
         "melee": "ประชิด",
         "range": "ระยะไกล"
       }
+    },
+    "traits": {
+      "arcane": "เวท",
+      "armored": "ใส่เกราะ",
+      "chaotic": "วุ่นวาย",
+      "educated": "มีการศึกษา",
+      "intimidating": "น่าหวาดกลัว",
+      "night": "ราตรี",
+      "nimble": "ว่องไว",
+      "outcast": "ผู้ถูกขับไล่",
+      "persuasive": "โน้มน้าว",
+      "resourceful": "มีทรัพยากร",
+      "strong": "แข็งแกร่ง"
     }
   },
   "custom": {
@@ -1665,28 +1678,56 @@
     }
   },
   "deck": {
-    "archer": "นักธนู",
+    "archer": "ธนู",
     "boss": "บอส",
     "guard": "ยาม",
-    "imp": "อิมพ์"
+    "imp": "อิมป์",
+    "priest": "นักบวช",
+    "scout": "สเกาต์"
   },
   "edition": {
     "fh": "Frosthaven"
   },
   "monster": {
+    "abael-warlord": "Abael Warlord",
+    "algox-icespeaker-shards-solo": "Algox Icespeaker (โซโล)",
+    "algox-snowspeaker-trap-solo": "Algox Snowspeaker (โซโล)",
     "ancient-artillery": "ปืนใหญ่โบราณ",
-    "black-imp": "อิมพ์ดำ",
+    "black-imp": "อิมป์ดำ",
+    "black-imp-deathwalker-solo": "Black Imp (โซโล)",
     "blacksmith": "ช่างเหล็ก",
+    "chaos-demon": "ปีศาจเคออส",
+    "chief-of-spikes": "Chief of Spikes",
     "city-guard": "ยามเมือง",
-    "deep-terror": "ความหวาดกลัวลึก",
+    "city-guard-banner-spear-solo": "City Guard (โซโล)",
+    "deep-terror": "เทอร์เรอร์ลึก",
     "earth-demon": "ปีศาจดิน",
+    "energized-corpse": "Energized Corpse",
     "fish-king": "ราชาปลา",
     "flame-demon": "ปีศาจไฟ",
-    "forest-imp": "อิมพ์ป่า",
+    "forest-imp": "อิมป์ป่า",
     "frost-demon": "ปีศาจน้ำแข็ง",
-    "hound": "สุนัขล่า",
+    "harrower-infester": "ฮาร์โรเวอร์อินเฟสเตอร์",
+    "hollow-scholar": "Hollow Scholar",
+    "hound": "ฮาวนด์",
+    "incarnation-of-ancestors": "Incarnation of Ancestors",
+    "living-bones": "กระดูกมีชีวิต",
+    "living-spirit": "วิญญาณมีชีวิต",
+    "lost-in-seaweed": "Lost in Seaweed",
+    "lurker-soldier": "ทหารเลอร์เกอร์",
+    "mountains-heart": "Mountain's Heart",
     "night-demon": "ปีศาจราตรี",
-    "sun-demon": "ปีศาจดวงอาทิตย์",
+    "night-demon-deathwalker-solo": "Night Demon (โซโล)",
+    "ooze": "อูซ",
+    "plea-for-help-without-answer": "Plea for Help Without Answer",
+    "rending-drake": "เดรกฉีก",
+    "savvas-icestorm": "ซัฟวาส ไอซ์สตอร์ม",
+    "savvas-lavaflow": "ซัฟวาส ลาวาโฟลว์",
+    "shape-blocks-out-the-sun": "Shape Blocks Out the Sun",
+    "spitting-drake": "เดรกพ่น",
+    "sun-demon": "ปีศาจตะวัน",
+    "vermling-priest": "เวิร์มลิงนักบวช",
+    "vermling-scout": "เวิร์มลิงสเกาต์",
     "wind-demon": "ปีศาจลม"
   },
   "objective": {
@@ -1890,7 +1931,24 @@
     },
     "title": {
       "fh": {
-        "1": "เมืองในเปลวไฟ"
+        "1": "เมืองในเปลวไฟ",
+        "solo-20": "ความอัศจรรย์แห่งธรรมชาติ",
+        "solo-21": "แข่งกับเวลา",
+        "solo-22": "ซุ่มโจมตีลาดตระเวน",
+        "solo-23": "ความตายแห่งราตรี",
+        "solo-24": "กระดูกในดิน",
+        "solo-25": "แบ่งแยกและพิชิต",
+        "solo-26": "เส้นทางบรรพบุรุษ",
+        "solo-27": "ทางลงที่พังทลาย",
+        "solo-28": "ปรับความถี่เรโซแนนซ์",
+        "solo-29": "กับดักอันเลิศเลอ",
+        "solo-30": "รวมความทุกข์",
+        "solo-31": "สู้หิมะด้วยหิมะ",
+        "solo-32": "ใต้ธารน้ำแข็ง",
+        "solo-33": "เติมพลัง",
+        "solo-34": "ห้องหม้อต้ม",
+        "solo-35": "งานเปียก",
+        "solo-36": "ชนคลื่น"
       }
     }
   },
@@ -1967,7 +2025,24 @@
       "fh": {
         "196-3-1": "7 หรือน้อยกว่า embellishments",
         "196-3-2": "8 ถึง 15 embellishments",
-        "196-3-3": "16 หรือมากกว่า embellishments"
+        "196-3-3": "16 หรือมากกว่า embellishments",
+        "solo-20-1": "ความอัศจรรย์แห่งธรรมชาติ",
+        "solo-21-1": "แข่งกับเวลา",
+        "solo-21-2": "แข่งกับเวลา",
+        "solo-24-1": "กระดูกในดิน",
+        "solo-24-2": "กระดูกในดิน",
+        "solo-25-1": "แบ่งแยกและพิชิต",
+        "solo-27-1": "ทางลงที่พังทลาย",
+        "solo-27-2": "ทางลงที่พังทลาย",
+        "solo-28-1": "ปรับความถี่เรโซแนนซ์",
+        "solo-32-1": "ใต้ธารน้ำแข็ง",
+        "solo-33-1": "เติมพลัง",
+        "solo-34-1": "ห้องหม้อต้ม",
+        "solo-34-a": "ห้องหม้อต้ม",
+        "solo-35-1": "งานเปียก",
+        "solo-35-2": "งานเปียก",
+        "solo-36-1": "ชนคลื่น",
+        "solo-36-2": "ชนคลื่น"
       }
     }
   }

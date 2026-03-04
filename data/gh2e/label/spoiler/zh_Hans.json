@@ -3,7 +3,13 @@
     "gh2e": {
       "angry-face": "末日行者",
       "circles": "召唤师",
-      "crossed-swords": "刀锋领主",
+      "crossed-swords": {
+        "": "刀锋领主",
+        "call-of-the-grave": {
+          "": "墓穴呼唤",
+          "hint": "带有%game.condition.wound%的敌人在他们的回合开始时改为承受%game.damage:2%。"
+        }
+      },
       "eclipse": "胧夜客",
       "lightning": {
         "": "狂战士",

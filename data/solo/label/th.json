@@ -8,38 +8,38 @@
         "solo28": "กฎพิเศษ: \"Snowspeaker\" ควรเป็น \"Icespeaker\""
       },
       "lost-in-seaweed": {
-        "1": "โฟกัสที่ศัตรู<br>ที่ห่างที่สุดภายใน %game.action.range:6%",
-        "2": "สร้างแผ่นน้ำ 1 หกเหลี่ยม<br>ในหกเหลี่ยมว่างที่ติดกัน",
-        "3": "ในหกเหลี่ยมว่างที่ติดกัน<br>ที่มีแผ่นน้ำ"
+        "1": "โฟกัสศัตรูที่ไกลที่สุดภายใน %game.action.range:6%",
+        "2": "สร้างแผ่นน้ำ 1-hex หนึ่งแผ่น<br>บน hex ว่างที่อยู่ติดกัน",
+        "3": "บน hex ที่ว่างและอยู่ติดกัน<br>ที่มีแผ่นน้ำ"
       }
     },
     "gh": {
       "city-guard-saw-solo": {
-        "1": "ได้รับ %game.damage:1% เมื่อสิ้นสุดรอบจนกว่าจะรักษาหายสนิท"
+        "1": "ได้รับ %game.damage:1% เมื่อจบเทิร์นจนกว่าจะรักษาหมด"
       },
       "ghost-wolf": {
-        "1": "เมื่อเริ่มต้นแต่ละรอบ:"
+        "1": "เมื่อเริ่มเทิร์นแต่ละเทิร์น:"
       }
     },
     "gh2e": {
       "city-guard-saw2-solo": {
-        "1": "เมื่อได้รับ medical pack ดำเนินการ:",
-        "2": "เอา %data.monster.city-guard-saw2-solo% ออกจากแผนที่หลังรักษาหายสนิทหรือได้รับ medical pack"
+        "1": "เมื่อได้รับชุดปฐมพยาบาล ให้ทำ:",
+        "2": "เอา %data.monster.city-guard-saw2-solo% ออกจากแผนที่หลังรักษาหมดหรือได้รับชุดปฐมพยาบาล"
       },
       "city-guard-sun2-solo": {
-        "1": "ดำเนินการทันทีหลัง %game.characterIcon.sun%"
+        "1": "ทำทันทีหลัง %game.characterIcon.sun%"
       },
       "hawthorne": {
-        "1": "เพิ่ม +1 %game.action.attack% ในการโจมตีทั้งหมดขณะไม่ได้รับความเสียหาย"
+        "1": "เพิ่ม +1 %game.action.attack% ให้การโจมตีทั้งหมดขณะที่ยังไม่เสียหาย"
       },
       "living-spirit-squidface-solo": {
-        "1": "เกราะพื้นฐานเป็น 0 ขณะที่ %data.monster.living-spirit-squidface-solo% ไม่มี %game.condition.poison%",
-        "2": "%data.monster.living-spirit-squidface-solo% ที่ไม่มี %game.condition.poison% ไม่ดำเนินการ",
-        "3": "%game.characterIcon.squidface% อาจให้ %data.monster.living-spirit-squidface-solo% เสีย %game.condition.poison% เพื่อเพิ่ม %game.condition.poison%"
+        "1": "เกราะฐานเป็น 0 ขณะที่ %data.monster.living-spirit-squidface-solo% ไม่มี %game.condition.poison%",
+        "2": "%data.monster.living-spirit-squidface-solo% ที่ไม่มี %game.condition.poison% ไม่ทำการ",
+        "3": "%game.characterIcon.squidface% อาจให้ %data.monster.living-spirit-squidface-solo% สูญเสีย %game.condition.poison% เพื่อเพิ่ม %game.condition.poison%"
       }
     },
     "solo": {
-      "char-am-deck": "ใช้สำรับ AM ของตัวละคร"
+      "char-am-deck": "ใช้เด็ค AM ตัวละคร"
     },
     "toa": {
       "glacier-demon": {
@@ -49,66 +49,302 @@
         "1": "เสีย %game.action.retaliate% ถ้ามี %game.condition.chill%"
       },
       "okeda": {
-        "1": "ดำเนินการทันทีหลังอินคาร์เนต โดยทำแอ็กชันล่างและบนเหมือนอินคาร์เนต",
-        "2": "ถ้าอินคาร์เนตไม่ได้เคลื่อนที่ระหว่างแอ็กชันล่าง:",
-        "3": "ถ้าอินคาร์เนตไม่ได้โจมตีระหว่างแอ็กชันบน:"
+        "1": "ทำทันทีหลัง Incarnate โดยทำแอ็กชันล่างและบนเหมือน Incarnate",
+        "2": "ถ้า Incarnate ไม่ได้เคลื่อนที่ระหว่างแอ็กชันล่าง:",
+        "3": "ถ้า Incarnate ไม่ได้โจมตีระหว่างแอ็กชันบน:"
       }
     }
   },
   "edition": {
-    "solo": "Solo Scenarios (ทุก Edition)"
+    "solo": "ฉากโซโล (ทุกฉบับ)"
   },
   "monster": {
-    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
+    "abael-warlord": "Abael Warlord",
+    "algox-icespeaker-shards-solo": "Algox Icespeaker (โซโล)",
+    "algox-snowspeaker-trap-solo": "Algox Snowspeaker (โซโล)",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% โซโล)",
     "bandit-archer-music-note2-solo": "%data.monster.bandit-archer%",
-    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% โซโล)",
     "bandit-scout-music-note2-solo": "%data.monster.bandit-scout%",
-    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
+    "black-imp-deathwalker-solo": "Black Imp (โซโล)",
+    "bug-body": "Bug-Body",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% โซโล)",
     "cave-bear-circles2-solo": "%data.monster.cave-bear%",
-    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "chief-of-spikes": "Chief of Spikes",
+    "city-guard-banner-spear-solo": "City Guard (โซโล)",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% โซโล)",
     "city-guard-saw2-solo": "%data.monster.city-guard%",
-    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
-    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% โซโล)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% โซโล)",
     "city-guard-sun2-solo": "%data.monster.city-guard%",
-    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
-    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)",
-    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
-    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% โซโล)",
+    "deep-earth": "Deep Earth",
+    "deep-earth-gh2e": "ดินลึก",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% โซโล)",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% โซโล)",
+    "energized-corpse": "Energized Corpse",
+    "ghost-wolf": "Ghost Wolf",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% โซโล)",
+    "hawthorne": "ฮอว์ธอร์น",
+    "high-flame": "High Flame",
+    "hollow-scholar": "Hollow Scholar",
+    "incarnation-of-ancestors": "Incarnation of Ancestors",
+    "inox-necromancer": "Inox Necromancer",
+    "lieutenant": "Lieutenant",
     "living-spirit-squidface-solo": "%data.monster.living-spirit%",
+    "lost-in-seaweed": "Lost in Seaweed",
+    "mountains-heart": "Mountain's Heart",
+    "night-demon-deathwalker-solo": "Night Demon (โซโล)",
+    "plea-for-help-without-answer": "Plea for Help Without Answer",
+    "shape-blocks-out-the-sun": "Shape Blocks Out the Sun",
+    "shyreth": "ไชเรธ",
+    "song-of-the-deep": "Song of the Deep",
     "stone-construct-tinkerer-solo": "%data.monster.stone-construct%",
-    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
-    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)",
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% โซโล)",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% โซโล)",
     "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%"
   },
   "scenario": {
+    "group": {
+      "solo": "ฉากโซโล"
+    },
     "rewards": {
       "solo": {
-        "58": "ได้รับอย่างใดอย่างหนึ่งเป็นไอเทมและอีกอย่างเป็น item design: <br>\"Claw Trap\" (ไอเทม 34) <br>\"Clamp Trap\" (ไอเทม 56)",
-        "rm6": "ถ้ามี Vermling อย่างน้อยสามตัวมีชีวิตเมื่อสิ้นสุดรอบที่แปด: ทอง 5 <br>ถ้ามี Vermling อย่างน้อยห้าตัวมีชีวิตเมื่อสิ้นสุดรอบที่แปด: +1 Battle Goal"
+        "58": "ได้รับหนึ่งในสองอย่างเป็นไอเทม และอีกอย่างเป็นดีไซน์ไอเทม: <br>\"Claw Trap\" (ไอเทม 34) <br>\"Clamp Trap\" (ไอเทม 56)",
+        "rm6": "ถ้ามี Vermling อย่างน้อยสามตัวยังมีชีวิตเมื่อจบเทิร์นที่แปด: 5 ทอง <br>ถ้ามี Vermling อย่างน้อยห้าตัวยังมีชีวิตเมื่อจบเทิร์นที่แปด: +1 Battle Goal"
       }
     },
     "title": {
+      "cs": {
+        "solo-56": "ปลดอาวุธเครื่องจักร",
+        "solo-57": "เครื่องแปลงธาตุ",
+        "solo-58": "ล็อกเรือนจำ",
+        "solo-59": "ผู้รุกรานป่า",
+        "solo-60": "ผ่านไฟและเปลว",
+        "solo-61": "การอนุรักษ์โบราณ",
+        "solo-62": "การไถ่บาป",
+        "solo-63": "งูที่จนมุม",
+        "solo-64": "คริสตัลเรืองแสง",
+        "solo-65": "เหนือหลุมฝังศพ",
+        "solo-66": "คนแปลกหน้ามิติอื่น",
+        "solo-AA3": "ผู้คุ้มกันรัง",
+        "solo-QA3": "ผลงานชิ้นเอก",
+        "solo-RM6": "การล่มสลายของ Shadow's Respite"
+      },
+      "fc": {
+        "solo-19": "พยากรณ์แห่งความหลีกไม่พ้น"
+      },
+      "fh": {
+        "solo-20": "ความอัศจรรย์แห่งธรรมชาติ",
+        "solo-21": "แข่งกับเวลา",
+        "solo-22": "ซุ่มโจมตีลาดตระเวน",
+        "solo-23": "ความตายแห่งราตรี",
+        "solo-24": "กระดูกในดิน",
+        "solo-25": "แบ่งแยกและพิชิต",
+        "solo-26": "เส้นทางบรรพบุรุษ",
+        "solo-27": "ทางลงที่พังทลาย",
+        "solo-28": "ปรับความถี่เรโซแนนซ์",
+        "solo-29": "กับดักอันเลิศเลอ",
+        "solo-30": "รวมความทุกข์",
+        "solo-31": "สู้หิมะด้วยหิมะ",
+        "solo-32": "ใต้ธารน้ำแข็ง",
+        "solo-33": "เติมพลัง",
+        "solo-34": "ห้องหม้อต้ม",
+        "solo-35": "งานเปียก",
+        "solo-36": "ชนคลื่น"
+      },
+      "gh": {
+        "solo-1": "กลับไป Black Barrow",
+        "solo-10": "เก็บเกี่ยวราตรี",
+        "solo-11": "สุสานมรณะ",
+        "solo-12": "การดูหมิ่นผิดธรรมชาติ",
+        "solo-13": "ยุทธการนักร้อง",
+        "solo-14": "การล่าที่เสื่อม",
+        "solo-15": "ผลที่ตามมา",
+        "solo-16": "ความลับแห่งธาตุ",
+        "solo-17": "หมีในกรง",
+        "solo-18": "ทรายแห่งกาลเวลา",
+        "solo-2": "การบุกรุกโชคร้าย",
+        "solo-3": "ห้อง lab เสื่อม",
+        "solo-4": "ปล้นคลังอาวุธ",
+        "solo-5": "ป้องกันหิน",
+        "solo-6": "ปลดปล่อยสัตว์ฟันแทะ",
+        "solo-7": "คุ้มกันขบวน",
+        "solo-8": "ค่าจ้างเก็บของ",
+        "solo-9": "ทุ่งสัตว์ป่า"
+      },
+      "gh2e": {
+        "solo-100": "ความลับธาตุ",
+        "solo-101": "หมีในกรง",
+        "solo-102": "ทรายแห่งกาลเวลา",
+        "solo-85": "ออกกลางคืน",
+        "solo-86": "บุกรุกโชคร้าย",
+        "solo-87": "ร้านยาเสื่อม",
+        "solo-88": "เรื่องวัตถุดิบ",
+        "solo-89": "ป้องกันหิน",
+        "solo-90": "ปลดปล่อยเวิร์มลิง",
+        "solo-91": "คุ้มกันขบวน",
+        "solo-92": "ค่าที่เก็บ",
+        "solo-93": "มิติสัตว์ป่า",
+        "solo-94": "เก็บเกี่ยวราตรี",
+        "solo-95": "สุสานระบาด",
+        "solo-96": "ดูหมิ่นผิดธรรมชาติ",
+        "solo-97": "สงครามบาร์ด",
+        "solo-98": "ล่าเสื่อม",
+        "solo-99": "ผลที่ตามมา"
+      },
+      "mp": {
+        "solo-103": "ข้อตกลงน่าสยอง",
+        "solo-104": "เขาในราตรี",
+        "solo-105": "หนีจากการเสื่อม",
+        "solo-106": "ความรำคาญใหญ่"
+      },
       "toa": {
         "solo-79": "ไร้วิญญาณ",
-        "solo-80": "การรวมตัวแห่งพลัง",
-        "solo-81": "การปรากฏแห่งความเสื่อม",
+        "solo-80": "จุดรวมอำนาจ",
+        "solo-81": "การปรากฏที่เสื่อม",
         "solo-82": "ภูเขาพายุ",
         "solo-83": "ถ้ำถล่ม",
-        "solo-84": "กลับสู่สวนคริสตัล"
+        "solo-84": "กลับไป Crystal Gardens"
       }
     }
   },
   "section": {
     "title": {
+      "cs": {
+        "solo-3-1": "ผลงานชิ้นเอก",
+        "solo-3-2": "ผลงานชิ้นเอก",
+        "solo-6-1": "การล่มสลายของ Shadow's Respite",
+        "solo-6-2": "การล่มสลายของ Shadow's Respite",
+        "solo-6-4": "การล่มสลายของ Shadow's Respite",
+        "solo-63B": "ปลดอาวุธเครื่องจักร",
+        "solo-64C": "เครื่องแปลงธาตุ",
+        "solo-65A": "เครื่องแปลงธาตุ",
+        "solo-65B": "เครื่องแปลงธาตุ",
+        "solo-65C": "เครื่องแปลงธาตุ",
+        "solo-66A": "ล็อกเรือนจำ",
+        "solo-66B": "ล็อกเรือนจำ",
+        "solo-66C": "ล็อกเรือนจำ",
+        "solo-66D": "ล็อกเรือนจำ",
+        "solo-66E": "ล็อกเรือนจำ",
+        "solo-67A": "ผู้รุกรานป่า",
+        "solo-67B": "ผู้รุกรานป่า",
+        "solo-67D": "ผ่านไฟและเปลว",
+        "solo-68A": "ผ่านไฟและเปลว",
+        "solo-68B": "ผ่านไฟและเปลว",
+        "solo-69B": "การอนุรักษ์โบราณ",
+        "solo-69C": "การอนุรักษ์โบราณ",
+        "solo-70A": "การไถ่บาป",
+        "solo-71A": "การไถ่บาป",
+        "solo-71B": "การไถ่บาป",
+        "solo-72B": "คริสตัลเรืองแสง",
+        "solo-72D": "คริสตัลเรืองแสง",
+        "solo-73C": "เหนือหลุมฝังศพ",
+        "solo-73D": "เหนือหลุมฝังศพ",
+        "solo-74C": "คนแปลกหน้ามิติอื่น",
+        "solo-74E": "คนแปลกหน้ามิติอื่น",
+        "solo-74F": "คนแปลกหน้ามิติอื่น"
+      },
+      "fc": {
+        "solo-19-29": "พยากรณ์แห่งความหลีกไม่พ้น",
+        "solo-19-73": "พยากรณ์แห่งความหลีกไม่พ้น",
+        "solo-19-90": "พยากรณ์แห่งความหลีกไม่พ้น"
+      },
+      "fh": {
+        "solo-20-1": "ความอัศจรรย์แห่งธรรมชาติ",
+        "solo-21-1": "แข่งกับเวลา",
+        "solo-21-2": "แข่งกับเวลา",
+        "solo-24-1": "กระดูกในดิน",
+        "solo-24-2": "กระดูกในดิน",
+        "solo-25-1": "แบ่งแยกและพิชิต",
+        "solo-27-1": "ทางลงที่พังทลาย",
+        "solo-27-2": "ทางลงที่พังทลาย",
+        "solo-28-1": "ปรับความถี่เรโซแนนซ์",
+        "solo-32-1": "ใต้ธารน้ำแข็ง",
+        "solo-33-1": "เติมพลัง",
+        "solo-34-1": "ห้องหม้อต้ม",
+        "solo-34-a": "ห้องหม้อต้ม",
+        "solo-35-1": "งานเปียก",
+        "solo-35-2": "งานเปียก",
+        "solo-36-1": "ชนคลื่น",
+        "solo-36-2": "ชนคลื่น"
+      },
+      "gh": {
+        "solo-15-1": "ผลที่ตามมา",
+        "solo-17-1": "หมีในกรง",
+        "solo-17-2": "หมีในกรง",
+        "solo-17-3": "หมีในกรง",
+        "solo-4-A2a": "ปล้นคลังอาวุธ",
+        "solo-4-B2b": "ปล้นคลังอาวุธ",
+        "solo-4-H1b": "ปล้นคลังอาวุธ",
+        "solo-6-1": "ปลดปล่อยสัตว์ฟันแทะ",
+        "solo-6-2": "ปลดปล่อยสัตว์ฟันแทะ",
+        "solo-6-3": "ปลดปล่อยสัตว์ฟันแทะ",
+        "solo-7-1": "คุ้มกันขบวน",
+        "solo-7-2": "คุ้มกันขบวน",
+        "solo-A1b": "ยุทธการนักร้อง",
+        "solo-G2b": "ยุทธการนักร้อง",
+        "solo-I1a": "ยุทธการนักร้อง"
+      },
+      "gh2e": {
+        "solo-100-1": "ความลับธาตุ",
+        "solo-100-2": "ความลับธาตุ",
+        "solo-100-3": "ความลับธาตุ",
+        "solo-100-4": "ความลับธาตุ",
+        "solo-101-1": "หมีในกรง",
+        "solo-101-2": "หมีในกรง",
+        "solo-101-3": "หมีในกรง",
+        "solo-102-1": "ทรายแห่งกาลเวลา",
+        "solo-102-2": "ทรายแห่งกาลเวลา",
+        "solo-85-1": "ออกกลางคืน",
+        "solo-85-2": "ออกกลางคืน",
+        "solo-86-1": "บุกรุกโชคร้าย",
+        "solo-86-2": "บุกรุกโชคร้าย",
+        "solo-87-1": "ร้านยาเสื่อม",
+        "solo-87-2": "ร้านยาเสื่อม",
+        "solo-88-1": "เรื่องวัตถุดิบ",
+        "solo-88-2": "เรื่องวัตถุดิบ",
+        "solo-90-1": "ปลดปล่อยเวิร์มลิง",
+        "solo-90-2": "ปลดปล่อยเวิร์มลิง",
+        "solo-91-1": "คุ้มกันขบวน",
+        "solo-91-2": "คุ้มกันขบวน",
+        "solo-92-1": "ค่าที่เก็บ",
+        "solo-92-2": "ค่าที่เก็บ",
+        "solo-92-3": "ค่าที่เก็บ",
+        "solo-93-1": "มิติสัตว์ป่า",
+        "solo-94-1": "เก็บเกี่ยวราตรี",
+        "solo-94-2": "เก็บเกี่ยวราตรี",
+        "solo-95-1": "สุสานระบาด",
+        "solo-95-2": "สุสานระบาด",
+        "solo-96-1": "ดูหมิ่นผิดธรรมชาติ",
+        "solo-96-2": "ดูหมิ่นผิดธรรมชาติ",
+        "solo-97-1": "สงครามบาร์ด",
+        "solo-97-2": "สงครามบาร์ด",
+        "solo-98-1": "ล่าเสื่อม",
+        "solo-98-2": "ล่าเสื่อม",
+        "solo-98-3": "ล่าเสื่อม",
+        "solo-98-4": "ล่าเสื่อม",
+        "solo-99-1": "ผลที่ตามมา"
+      },
+      "mp": {
+        "solo-103-1": "ข้อตกลงน่าสยอง",
+        "solo-103-2": "ข้อตกลงน่าสยอง",
+        "solo-104-1": "เขาในราตรี",
+        "solo-104-2": "เขาในราตรี",
+        "solo-104-3": "เขาในราตรี",
+        "solo-105-1": "หนีจากการเสื่อม",
+        "solo-106-1": "ความรำคาญใหญ่",
+        "solo-106-2": "ความรำคาญใหญ่"
+      },
       "toa": {
         "solo-36B": "ไร้วิญญาณ",
         "solo-38A": "ไร้วิญญาณ",
-        "solo-40A": "การรวมตัวแห่งพลัง",
-        "solo-40C": "การรวมตัวแห่งพลัง",
-        "solo-42A": "การรวมตัวแห่งพลัง",
-        "solo-42B": "การปรากฏแห่งความเสื่อม",
-        "solo-43A": "การปรากฏแห่งความเสื่อม",
-        "solo-43C": "การปรากฏแห่งความเสื่อม",
+        "solo-40A": "จุดรวมอำนาจ",
+        "solo-40C": "จุดรวมอำนาจ",
+        "solo-42A": "จุดรวมอำนาจ",
+        "solo-42B": "การปรากฏที่เสื่อม",
+        "solo-43A": "การปรากฏที่เสื่อม",
+        "solo-43C": "การปรากฏที่เสื่อม",
         "solo-46A": "ภูเขาพายุ",
         "solo-46B": "ภูเขาพายุ",
         "solo-48A": "ถ้ำถล่ม",

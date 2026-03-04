@@ -2,23 +2,28 @@
   "custom": {
     "r100kc": {
       "black-cat": {
-        "1": "โฟกัสสิ่งกีดขวางที่ว่างที่ใกล้ที่สุด<br>จนถึงเริ่มเทิร์นถัดไป แมวดำสามารถอยู่ในหกเหลี่ยมได้ จากนั้นเคลื่อนที่ไปยังหกเหลี่ยมว่างถัดไป<br><br>หากไม่มีสิ่งกีดขวาง ให้โฟกัสหกเหลี่ยมว่างที่ไกลจากตัวละครทั้งหมดมากที่สุด",
-        "2": "%game.action.target% แมวดำที่ติดกันทั้งหมด",
-        "3": "%game.action.target% แมวดำทั้งหมดใน %game.action.range% 2"
+        "1": "โฟกัสที่สิ่งกีดขวางที่ว่างและใกล้ที่สุด<br>จนถึงต้นเทิร์นถัดไป Black Cat สามารถอยู่บน hex นั้นได้ จากนั้นเคลื่อนไปยัง hex ว่างถัดไป<br><br>ถ้าไม่มีสิ่งกีดขวาง ให้โฟกัส hex ว่างที่ไกลจากตัวละครทั้งหมดมากที่สุด",
+        "2": "%game.action.target% Black Cat ที่อยู่ติดกันทั้งหมด",
+        "3": "%game.action.target% Black Cat ทั้งหมดใน %game.action.range% 2"
       },
       "evil-eyeball": {
-        "1": "ในหกเหลี่ยมเดียวกันที่เอลิทตาย"
+        "1": "บน hex เดียวกับที่เอลิทตาย"
       },
       "resonator-bot": {
-        "1": "โดยที่ X คือจำนวน<br>Resonator Bot<br>ภายใน %game.action.range:2%",
-        "2": "โดยที่ X คือจำนวน<br>Resonator Bot<br>ภายใน %game.action.range:3%",
-        "3": "โดยที่ X คือจำนวน<br>Resonator Bot<br>ภายใน %game.action.range:4%",
-        "4": "%game.condition.stun% Resonator Bot 1 ตัวที่ไม่มี<br>%game.condition.stun% และภายใน %game.action.range:3% เพื่อดำเนินการ:",
-        "5": "%game.condition.stun% Resonator Bot 2 ตัวที่ไม่มี<br>%game.condition.stun% และภายใน %game.action.range:3% เพื่อดำเนินการ:"
+        "1": "เมื่อ X คือจำนวน<br>Resonator Bot<br>ภายใน %game.action.range:2%",
+        "2": "เมื่อ X คือจำนวน<br>Resonator Bot<br>ภายใน %game.action.range:3%",
+        "3": "เมื่อ X คือจำนวน<br>Resonator Bot<br>ภายใน %game.action.range:4%",
+        "4": "%game.condition.stun% Resonator Bot 1 ตัวที่ไม่มี<br>%game.condition.stun% และอยู่ใน %game.action.range:3% เพื่อทำ:",
+        "5": "%game.condition.stun% Resonator Bot 2 ตัวที่ไม่มี<br>%game.condition.stun% และอยู่ใน %game.action.range:3% เพื่อทำ:"
       }
     }
   },
+  "edition": {
+    "r100kc": "Reddit 100k Subscriber Contest &lt;%wip%(!)&gt;"
+  },
   "monster": {
-    "black-cat": "แมวดำ"
+    "black-cat": "Black Cat",
+    "evil-eyeball": "Evil Eyeball",
+    "resonator-bot": "Resonator Bot"
   }
 }

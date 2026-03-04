@@ -1,12 +1,23 @@
 {
   "character": {
     "fh-crossover": {
+      "brute": "จอมคลั่ง",
+      "cragheart": "ใจหินผา",
       "demolitionist": {
+        "": "นักทำลาย",
         "mech": {
-          "": "ชุดเมค",
+          "": "จักรกลเหล็กไหล",
           "hint": "ค่าพอยท์เลือดสูงสุดของคุณเพิ่มขึ้น 5 รักษา %game.action.heal% 10 ตัวคุณเอง"
         }
-      }
+      },
+      "diviner": "ผู้พยากรณ์",
+      "hatchet": "จอมขวาน",
+      "mindthief": "จอมโจร",
+      "red-guard": "ผู้พิทักษ์สีชาด",
+      "scoundrel": "จอมวายร้าย",
+      "spellweaver": "ผู้สานเวทมนตร์",
+      "tinkerer": "นักพเนจร",
+      "voidwarden": "นักเวทสุญตา"
     }
   },
   "custom": {

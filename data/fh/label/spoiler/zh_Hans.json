@@ -1761,6 +1761,10 @@
             "": "市长萨沙",
             "tooltip": "寒霜港的人类市长；因上级全灭，而“得到”了这份工作。<br>首次出现：%game.section:9.1%"
           },
+          "pinter-droman": {
+            "": "品特·多曼",
+            "tooltip": "寒霜港中的常驻工匠。"
+          },
           "putargal": {
             "": "普塔格尔",
             "tooltip": "一位年长的冰角女性，渴望战争。<br>首次出现：%game.scenarioNumber:19% %game.section:58.1%"
