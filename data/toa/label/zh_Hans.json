@@ -1,4 +1,7 @@
 {
+  "ability": {
+    "Heatwave": "热浪"
+  },
   "custom": {
     "glacier-demon": {
       "1": "如果%game.condition.wound%失去%game.action.retaliate%"

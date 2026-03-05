@@ -1,4 +1,239 @@
 {
+  "ability": {
+    "Aid from the Ether": "灵能回复",
+    "Alluring Serenade": "迷人夜曲",
+    "Arcane Bolt": "奥术闪电",
+    "Arctic Shards": "极寒碎片",
+    "Armor of the Night": "暗夜之甲",
+    "Arresting Gale": "禁锢烈风",
+    "Auto Turret": "自动炮塔",
+    "Avalanche": "雪崩",
+    "Backup Ammunition": "备用弹药",
+    "Balanced Measure": "均衡之道",
+    "Bewildering Instrumental": "困惑器乐",
+    "Black Knives": "黑刃",
+    "Blunt Force": "蓄力重击",
+    "Brain Leech": "榨取脑髓",
+    "Brutal Momentum": "残暴冲击",
+    "Brute Force": "残暴之力",
+    "Burial": "埋葬",
+    "Burrow": "掘地突进",
+    "Call to Action": "战斗号召",
+    "Captivating Performance": "迷人演艺",
+    "Cataclysm": "大灾变",
+    "Chain Lightning": "闪电链",
+    "Change Tempo": "变奏",
+    "Chimeric Formula": "嵌合方程",
+    "Chromatic Explosion": "多彩爆发",
+    "Claws of the Night": "暗夜之爪",
+    "Clear the Way": "扫清路障",
+    "Cold Fire": "零度火焰",
+    "Commanding Presence": "指挥艺术",
+    "Confluence of Elements": "元素汇流",
+    "Cool Down": "冷却",
+    "Corrupting Embrace": "腐蚀之拥",
+    "Cranium Overload": "颅顶超压",
+    "Crank Bow": "曲柄弓",
+    "Crater": "陨坑",
+    "Crippling Offensive": "致残打击",
+    "Crushing Grasp": "粉碎之握",
+    "Cryonic Snare": "寒冰陷阱",
+    "Cursed Blades": "诅咒双刃",
+    "Dancing Gales": "舞动之风",
+    "Dancing Shadows": "暗影之舞",
+    "Dangerous Contraption": "危险新发明",
+    "Dark Cloud": "黑云蔽日",
+    "Dark Frenzy": "黑暗狂热",
+    "Defensive Ditty": "防御小曲",
+    "Defensive Tactics": "防御战术",
+    "Dig Pit": "落穴陷阱",
+    "Dirt Tornado": "尘卷风",
+    "Disintegration Beam": "裂解射线",
+    "Disorienting Dirge": "迷魂挽歌",
+    "Dissonant Rhythm": "刺耳韵律",
+    "Domination": "主宰",
+    "Dual Nature": "自然双生",
+    "Duskstorm": "暮色风暴",
+    "Earth's Embrace": "大地之拥",
+    "Earthen Bulwark": "大地壁垒",
+    "Earthen Clod": "大地固",
+    "Echoing Aria": "反击咏叹调",
+    "Elemental Juggernaut": "元素主宰",
+    "Elemental Rays": "元素射线",
+    "Emberfrost": "余烬之霜",
+    "Empathetic Assault": "诡异突袭",
+    "Empowering Flame": "赋能烈焰",
+    "Empowering Void": "虚空赋能",
+    "Encompassing Shadow": "蔽体暗影",
+    "Enervating Wound": "凋零创伤",
+    "Enhancement Field": "强化力场",
+    "Entomb": "埋葬",
+    "Ethereal Manifestation": "灵能具现",
+    "Etheric Echo": "灵能回响",
+    "Eye for an Eye": "以眼还眼",
+    "Eye of the Hurricane": "风暴之眼",
+    "Eyes of the Night": "暗夜之眼",
+    "Face Your End": "直面宿命",
+    "Fearsome Blade": "恐惧之刃",
+    "Fearsome Taunt": "恐惧嘲讽",
+    "Feedback Loop": "反馈回路",
+    "Fire Orbs": "火球术",
+    "Flame Strike": "火焰击",
+    "Flameswell": "火焰喷涌",
+    "Flamethrower": "喷火器",
+    "Flash of Brilliance": "炫目闪光",
+    "Formless Power": "无形之力",
+    "Freezing Nova": "霜冻新星",
+    "Freezing Vortex": "冻结漩涡",
+    "Frenzied Onslaught": "狂攻猛击",
+    "Frigid Apparition": "寒霜幻影",
+    "Frigid Torrent": "寒霜奔流",
+    "Frost Strike": "冰霜打击",
+    "Frostflare Orbs": "霜火球",
+    "Frozen Shiv": "冰冻剃刀",
+    "Gangling Abomination": "怪异造物",
+    "Gas Canister": "气罐",
+    "Gnawing Horde": "啮噬部落",
+    "Grab and Go": "雁过拔毛",
+    "Grand Finale": "压轴绝技",
+    "Gravel Guard": "砾石守护",
+    "Gravity Bomb": "重力炸弹",
+    "Harmless Contraption": "无害新发明",
+    "Harsh Stimulants": "强效兴奋剂",
+    "Heatwave": "热浪",
+    "Heaving Swing": "新月斩",
+    "Hidden in the Shadows": "遁入阴影",
+    "Hook Gun": "钩链枪",
+    "Hook and Chain": "钩链爪",
+    "Hostile Takeover": "恶意侵吞",
+    "Hymn to the Oak": "橡树赞诗",
+    "Ice Armor": "寒冰护甲",
+    "Ice Spikes": "冰锥",
+    "Icy Blast": "冰爆术",
+    "Immovable Phalanx": "不动方阵",
+    "Impaling Eruption": "连锁暴击",
+    "Increase Cadence": "加快节奏",
+    "Infernal Vortex": "地狱涡旋",
+    "Inferno": "烬灭地狱",
+    "Ink Bomb": "墨水炸弹",
+    "Inspiring Anthem": "鼓舞圣歌",
+    "Intensifying Amplitude": "强音渐增",
+    "Intimidating Growl": "骇人咆哮",
+    "Into the Night": "遁入黑夜",
+    "Invigorating Aerosol": "治疗气雾剂",
+    "Jet Propulsion": "喷气推进器",
+    "Juggernaut": "排山倒海",
+    "Kinetic Assault": "动力拳击",
+    "Leaping Cleave": "顺劈斩",
+    "Let Fly": "破阵重斩",
+    "Lingering Essence": "存续元素",
+    "Lurking Ruin": "潜伏毁灭",
+    "Magma Scales": "熔岩鳞甲",
+    "Malleable Evocation": "百变塑元",
+    "Many as One": "万众一体",
+    "Marching Beat": "行军节拍",
+    "Marked for Death": "死亡印记",
+    "Mass Hysteria": "群体狂乱",
+    "Massive Boulder": "巨岩",
+    "Messenger of Death": "死亡信使",
+    "Meteor": "流星",
+    "Mobilizing Measure": "动员乐章",
+    "Mud Eruption": "泥浆喷发",
+    "Murderous Contraption": "杀戮新发明",
+    "Net Shooter": "网绳枪",
+    "Nightfall": "夜幕降临",
+    "Noxious Vials": "小瓶猛药",
+    "Obsidian Shards": "黑曜碎片",
+    "Ode to the Gambler": "赌徒颂歌",
+    "Onward to Battle": "勇往直前",
+    "Opposing Strike": "左右开弓",
+    "Overwhelming Assault": "力劈华山",
+    "Pernicious Fogger": "剧毒喷射器",
+    "Perverse Edge": "堕落边缘",
+    "Petrify": "石化",
+    "Phantasmal Killer": "疯狂杀手",
+    "Pilfer": "窃取",
+    "Possession": "附身",
+    "Potent Potable": "强效药剂",
+    "Potent Potables": "强效药剂",
+    "Power Ballad": "力量战歌",
+    "Pragmatic Reinforcement": "实效增援",
+    "Prepare for the Kill": "伺机待发",
+    "Prey on the Weak": "弱肉强食",
+    "Primal Duality": "原初双极",
+    "Prismatic Barrage": "虹光弹幕",
+    "Provoke Terror": "激发恐惧",
+    "Proximity Mine": "近距地雷",
+    "Psychic Blade": "心灵之刃",
+    "Psychic Projection": "精神投射",
+    "Pull the Strings": "牵线木偶",
+    "Pulsing Cores": "脉动核心",
+    "Push Through": "坚持不懈",
+    "Quiet Frenzy": "寂静狂怒",
+    "Reinvigorating Elixir": "重振灵药",
+    "Repulsor Gun": "反重力枪",
+    "Restorative Mist": "疗愈烟雾",
+    "Reviving Ether": "灵能重构",
+    "Rock Slide": "岩崩",
+    "Rocky End": "砂岩葬",
+    "Rumbling Advance": "鲁莽行军",
+    "Run Through": "贯穿刺击",
+    "Scurry": "疾跑",
+    "Searing Glacier": "灼热冰川",
+    "Seeping Tendrils": "虚空触须",
+    "Selfish Retribution": "自食恶果",
+    "Sentient Growth": "感知增长",
+    "Shadowstrike": "暗影突袭",
+    "Shaping the Ether": "灵能赋形",
+    "Shared Nightmare": "共享噩梦",
+    "Shield Bash": "盾牌猛击",
+    "Shroud in Shade": "萦绕阴影",
+    "Silent Force": "无声偷袭",
+    "Silent Scream": "沉默尖啸",
+    "Singing Arrow": "轻吟飞箭",
+    "Skewer": "穿刺",
+    "Skirmishing Maneuver": "见机行事",
+    "Slice Through": "斩断",
+    "Solidify": "硬化",
+    "Soothing Lullaby": "抚慰摇篮曲",
+    "Spare Dagger": "备用匕首",
+    "Spell Mastery": "法术大师",
+    "Spirit of the Night": "暗夜之灵",
+    "Stamina Booster": "耐力增幅器",
+    "Stoking Hail": "引火御冰",
+    "Stone Pummel": "巨石连击",
+    "Stun Shot": "眩晕射击",
+    "Submissive Affliction": "宰割之痛",
+    "Swallowed by Fear": "没顶之恐",
+    "Swallowed by Night": "暗夜吞噬",
+    "Sweeping Blow": "横扫千军",
+    "Symphonic Medley": "交响集成曲",
+    "Telepathic Command": "心灵指令",
+    "Teleportation Pad": "传送器",
+    "Terror Blade": "恐怖利刃",
+    "The Mind's Weakness": "心灵弱点",
+    "Thrilling Solo": "惊险独奏",
+    "Toughening Trill": "坚韧颤音",
+    "Toxic Bolt": "毒性电击",
+    "Trample": "践踏",
+    "Tuning the Outcome": "适时调音",
+    "Twin Beams": "双重光束",
+    "Unseen Dread": "无形恐惧",
+    "Unstable Upheaval": "乱局",
+    "Unstoppable Charge": "势不可挡",
+    "Voice of the Night": "暗夜之声",
+    "Volatile Concoction": "不稳定化合物",
+    "Wall of Doom": "末日障壁",
+    "Warding Strength": "守护之力",
+    "Warm Up": "升温",
+    "Wave of Destruction": "毁灭浪潮",
+    "Wave of Frost": "冰霜浪潮",
+    "Wearying Chant": "疲乏咏唱",
+    "Whirlwind": "旋风斩",
+    "Winter's Edge": "寒冬之锋",
+    "Wistful Wounding": "忧伤伤逝",
+    "Withering Claw": "凋零之爪"
+  },
   "battleGoals": {
     "1016": {
       "": "精算师",
@@ -273,6 +508,13 @@
     }
   },
   "custom": {
+    "city-guard-saw2-solo": {
+      "1": "当收到一个医疗包时，执行：",
+      "2": "在生命值全满或收到医疗包时，从地图中移除%data.monster.city-guard-saw2-solo%。"
+    },
+    "city-guard-sun2-solo": {
+      "1": "在%game.characterIcon.sun%之后立刻行动。"
+    },
     "gh2e": {
       "ancient-artillery": {
         "1": "目标%game.action.range:7%内最远的敌人",
@@ -295,7 +537,7 @@
       "cragheart": {
         "1": "在目标的相邻格中创造一块一格的障碍物板块",
         "2": "每个剧本限一次，在你的回合中，你可以摧毁一个%game.action.range:5%内的一格障碍物来%game.action.teleport%至该格",
-        "3": "在你每次休息结束时，你可以摧毁一个%game.action.range:5%内的一格障碍物来%game.element.earth%",
+        "3": "在你每次休息结束时，你可以摧毁一个%game.action.range:3%内的一格障碍物来%game.element.earth%",
         "4": "每当一个新房间被揭示时，控制该房间中的所有敌人：%game.action.move% 1，该次强制移动只能令敌人停留在空格上",
         "5": "在单一剧本中，每轮至少创造、摧毁或移动至少一个障碍物板块",
         "6": "在单一剧本中，在一个回合中治疗至少8点生命值，使用一次远程攻击能力造成至少8点伤害，并使用一次近战攻击能力造成至少8点伤害"
@@ -485,6 +727,7 @@
     "living-bones": "骷髅",
     "living-corpse": "行尸",
     "living-spirit": "怨灵",
+    "living-spirit-squidface-solo": "%data.monster.living-spirit%",
     "lurker-soldier": "潜伏蟹士兵",
     "merciless-taskmaster": "无情监工",
     "night-demon": "暗夜恶魔",
@@ -518,70 +761,126 @@
   "personalQuest": {
     "gh2e": {
       "01": {
-        "": "政治谋略"
+        "": "政治谋略",
+        "1": "选票数量",
+        "2": "结算%game.section:136.1%"
       },
       "02": {
-        "": "宾至如归"
+        "": "宾至如归",
+        "1": "拾取的钱币标记数"
       },
       "03": {
-        "": "附魔之力"
+        "": "附魔之力",
+        "1": "附魔计数",
+        "2": "阅读%game.section:71.2%"
       },
       "04": {
-        "": "先人陨落"
+        "": "先人陨落",
+        "1": "%game.itemFh.149%使用次数",
+        "2": "阅读%game.section:115.2%"
       },
       "05": {
-        "": "索恩追寻者"
+        "": "索恩追寻者",
+        "1": "完成“地穴密室”%game.scenario:57%",
+        "2": "获得物品",
+        "3": "获得%game.condition.poison%次数",
+        "4": "完成“冰晶宫殿”%game.scenario:58%"
       },
       "06": {
-        "": "血神信徒"
+        "": "血神信徒",
+        "1": "以不高于一半生命值完成剧本的数量",
+        "2": "结算%game.section:122.3%"
       },
       "07": {
-        "": "轶事秘闻"
+        "": "轶事秘闻",
+        "1": "拾取的财宝板块计数",
+        "2": "阅读%game.section:12.3%"
       },
       "08": {
-        "": "夺回林地"
+        "": "夺回林地",
+        "1": "结算的道路事件数量",
+        "2": "阅读%game.section:64.3%"
       },
       "09": {
-        "": "寻找解药"
+        "": "寻找解药",
+        "1": "剧本地点",
+        "2": "铜颈山脉",
+        "3": "腐化林地",
+        "4": "匕首森林",
+        "5": "幽暗港",
+        "6": "徘徊沼泽",
+        "7": "迷雾海",
+        "8": "守望山脉",
+        "9": "阅读%game.section:55.3%"
       },
       "10": {
-        "": "终结畸变"
+        "": "终结畸变",
+        "1": "附魔%game.element.wild%",
+        "2": "阅读%game.section:14.3%"
       },
       "11": {
-        "": "领养小熊"
+        "": "领养小熊",
+        "1": "完成剧本且拾取至少3个钱币标记",
+        "2": "阅读%game.section:122.5%"
       },
       "12": {
-        "": "践行圣光"
+        "": "践行圣光",
+        "1": "抵消至少%game.damage:4%的次数",
+        "2": "阅读%game.section:82.1%"
       },
       "13": {
-        "": "商人阶级"
+        "": "商人阶级",
+        "1": "%game.items.slots.head%物品",
+        "2": "%game.items.slots.body%物品",
+        "3": "%game.items.slots.legs%物品",
+        "4": "%game.items.slots.onehand%或%game.items.slots.twohand%物品",
+        "5": "%game.items.slots.small%物品",
+        "6": "阅读%game.section:129.1%"
       },
       "14": {
-        "": "永恒游荡"
+        "": "永恒游荡",
+        "1": "完成剧本数量",
+        "2": "阅读%game.section:52.2%"
       },
       "15": {
-        "": "逃离辛-拉"
+        "": "逃离辛-拉",
+        "1": "支线剧本（编号>56）完成数量",
+        "2": "阅读%game.section:128.2%"
       },
       "16": {
-        "": "完美毒药"
+        "": "完美毒药",
+        "1": "使敌人%game.condition.poison%的计数",
+        "2": "阅读%game.section:8.3%"
       },
       "17": {
-        "": "刀尖舔血"
+        "": "刀尖舔血",
+        "1": "承受过%game.damage%的敌人计数",
+        "2": "阅读%game.section:47.4%"
       },
       "18": {
-        "": "战场传奇"
+        "": "战场传奇",
+        "1": "从战斗目标中获取的%game.checkmark%计数",
+        "2": "阅读%game.section:23.3%"
       },
       "19": {
-        "": "兵器研究"
+        "": "兵器研究",
+        "1": "使用过不同%game.items.slots.onehand%或%game.items.slots.twohand%物品的计数",
+        "2": "阅读%game.section:67.2%"
       },
       "20": {
-        "": "虔敬之心"
+        "": "虔敬之心",
+        "1": "捐献给巨橡神殿的金币数量",
+        "2": "阅读%game.section:51.5%"
       },
       "21": {
-        "": "精益求精"
+        "": "精益求精",
+        "1": "从能力卡牌获得的%game.experience%计数",
+        "2": "阅读%game.section:17.2%"
       },
       "22": {
-        "": "王牌猎手"
+        "": "王牌猎手",
+        "1": "不同种类的怪物消灭计数",
+        "2": "阅读%game.section:21.1%"
       }
     }
   },
@@ -596,6 +895,12 @@
           "2": "强盗指挥官本回合行动结束后，执行%game.action.move% 20 %game.action.jump%至%game.mapMarker.3%门并将其开启。",
           "3": "强盗指挥官本回合行动结束后，执行%game.action.move% 20 %game.action.jump%至%game.mapMarker.4%门并将其开启。",
           "4": "强盗指挥官本回合行动结束后，执行%game.action.move% 20 %game.action.jump%至%game.mapMarker.5%门并将其开启。"
+        },
+        "9": {
+          "1": "抽一个标记并在%game.mapMarker.b%上召唤怪物。",
+          "2": "抽一个标记并在%game.mapMarker.c%上召唤怪物。",
+          "3": "抽两个标记并在%game.mapMarker.b%和%game.mapMarker.c%上召唤怪物。",
+          "4": "抽两个标记并在%game.mapMarker.d%和%game.mapMarker.e%上召唤怪物。"
         }
       }
     },
