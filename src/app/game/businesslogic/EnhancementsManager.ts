@@ -39,13 +39,13 @@ export class EnhancementsManager {
         }
     }
 
-    calculateCosts(action: Action, level: number = 1, special: 'summon' | 'lost' | 'persistent' | undefined, enhancements: number, temporaryOff: boolean = false): number {
+    calculateCosts(action: Action, rootAction: Action, level: number = 1, special: 'summon' | 'lost' | 'persistent' | undefined, enhancements: number, temporaryOff: boolean = false): number {
         let costs = 0;
         costs += this.calculateBaseCosts(action, special);
 
         if (costs > 0) {
             // double multi target
-            if (gameManager.actionsManager.hasMultiTarget(action)) {
+            if (gameManager.actionsManager.hasMultiTarget(rootAction)) {
                 costs *= 2;
             }
 

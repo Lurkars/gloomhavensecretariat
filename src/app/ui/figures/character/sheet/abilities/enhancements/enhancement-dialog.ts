@@ -24,6 +24,7 @@ export class EnhancementDialogComponent implements OnInit {
     Elements: Element[] = Object.values(Element);
 
     action: Action;
+    rootAction: Action;
     enhanceAction: Action;
     level: number = 1;
     enhancements: number = 0;
@@ -48,6 +49,7 @@ export class EnhancementDialogComponent implements OnInit {
         });
         this.data = data || {};
         this.action = this.data.action ? JSON.parse(JSON.stringify(this.data.action)) : new Action(ActionType.attack, 1);
+        this.rootAction = this.action;
         this.action.small = false;
         this.character = this.data.character ? JSON.parse(JSON.stringify(this.data.character)) : undefined;
         this.customAction = false;
@@ -64,7 +66,7 @@ export class EnhancementDialogComponent implements OnInit {
     ngOnInit(): void {
         if (this.data.action && this.data.actionIndex && this.data.cardId && this.data.enhancementIndex != undefined && this.data.character) {
             const ability = gameManager.deckData(this.data.character).abilities.find((ability) => ability.cardId == this.data.cardId);
-
+            const rootIndex = +this.data.actionIndex.split('-')[0];
             if (ability) {
                 this.level = typeof ability.level === 'number' ? ability.level : 1;
                 if (this.data.actionIndex.includes('bottom')) {
@@ -74,6 +76,7 @@ export class EnhancementDialogComponent implements OnInit {
                     if (ability.bottomPersistent || ability.bottomActions.find((action) => action.type == ActionType.card && action.value.toString().includes('persistent'))) {
                         this.special = 'persistent';
                     }
+                    this.rootAction = ability.bottomActions[rootIndex];
                 } else {
                     if (ability.lost || ability.actions.find((action) => action.type == ActionType.card && action.value.toString().includes('lost'))) {
                         this.special = 'lost';
@@ -81,6 +84,7 @@ export class EnhancementDialogComponent implements OnInit {
                     if (ability.persistent || ability.actions.find((action) => action.type == ActionType.card && action.value.toString().includes('persistent'))) {
                         this.special = 'persistent';
                     }
+                    this.rootAction = ability.actions[rootIndex];
                 }
 
                 if (this.data.summon) {
@@ -224,7 +228,7 @@ export class EnhancementDialogComponent implements OnInit {
     }
 
     apply(force: boolean = false) {
-        const costs = gameManager.enhancementsManager.calculateCosts(this.enhanceAction, this.level, this.special, this.enhancements);
+        const costs = gameManager.enhancementsManager.calculateCosts(this.enhanceAction, this.rootAction, this.level, this.special, this.enhancements);
         if (this.data.actionIndex && this.data.cardId && this.data.enhancementIndex != undefined && this.data.character && (this.data.character.progress.gold >= costs && (gameManager.enhancementsManager.fh || this.enhancedCards < gameManager.prosperityLevel()) || force)) {
             gameManager.stateManager.before('enhanceCard', gameManager.characterManager.characterName(this.data.character), this.data.cardId);
 
