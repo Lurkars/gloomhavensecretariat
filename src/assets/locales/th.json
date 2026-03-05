@@ -270,8 +270,7 @@
         "fly": {
           "": "%game.action.summon% %data.summon.{0}% %game.actionIcon.fly%"
         }
-      },
-      "level": "(Level {0})"
+      }
     },
     "token": "โทเค็นตัวละคร",
     "traits": "ลักษณะ",
@@ -516,24 +515,15 @@
     "action": {
       "area": "เอฟเฟกต์พื้นที่",
       "attack": "โจมตี",
-      "box": "&#91;Box&#93;",
-      "boxFhSubActions": "&#91;FH Subaction Box&#93;",
       "card": "การ์ด",
-      "concatenation": "&#91;Concatenation&#93;",
-      "concatenationSpacer": "&#91;Concatenation Spacer&#93;",
       "condition": "สถานะ",
       "custom": "กำหนดเอง",
       "damage": "ความเสียหาย",
       "element": "ธาตุ",
       "elementHalf": "ธาตุครึ่ง",
-      "extra": "&#91;FH Helper for Subactions&#93;",
       "fly": "บิน",
-      "fontSize": "&#91;Fontsize (in %)&#93;",
-      "forceBox": "&#91;FH Mandatory Box&#93;",
       "grant": "ให้",
-      "grid": "&#91;Grid&#93;",
       "heal": "รักษา",
-      "hint": "&#91;Information Board&#93;",
       "jump": "กระโดด",
       "loot": "ของที่ปล้นได้",
       "monsterType": "ประเภทมอนสเตอร์",
@@ -608,14 +598,11 @@
         "wip": "%wip%! ความสามารถพิเศษยังไม่ครบ"
       },
       "types": {
-        "bless": "Bless",
-        "curse": "Curse",
         "double": "สองเท่า",
         "invalid": "ไม่ถูกต้อง",
         "minus": "ลบ",
         "minus1": "ลบ 1",
         "minus2": "ลบ 2",
-        "null": "Null",
         "plus": "บวก",
         "plus0": "บวก 0",
         "plus1": "บวก 1",
@@ -677,23 +664,18 @@
     },
     "condition": {
       "bane": {
-        "": "Bane",
         "hint": "%game.conditionIcon.bane% Bane: ได้รับ %game.damage:10% เมื่อจบเทิร์นถัดไป แล้วลบ ลบเมื่อรักษาด้วย"
       },
       "bless": {
-        "": "Bless",
         "hint": "%game.conditionIcon.bless% Bless: สับการ์ด %game.attackmodifier.bless% เข้าเด็คตัวปรับการโจมตี"
       },
       "brittle": {
-        "": "Brittle",
         "hint": "%game.conditionIcon.brittle% Brittle: แหล่งความเสียหายครั้งถัดไปเป็นสองเท่า แล้วลบ ลบเมื่อรักษาด้วย"
       },
       "chill": {
-        "": "Chill",
         "hint": "%game.conditionIcon.chill% Chill: ได้ -1 ในการเคลื่อนที่และโจมตีทุกอย่างต่อโทเค็น ลบหนึ่งอันเมื่อจบเทิร์นถัดไป"
       },
       "curse": {
-        "": "Curse",
         "hint": "%game.conditionIcon.curse% Curse: สับการ์ด %game.attackmodifier.curse% เข้าเด็คตัวปรับการโจมตี"
       },
       "disarm": {
@@ -705,11 +687,9 @@
         "hint": "%game.conditionIcon.dodge% หลบ: ทิ้งหรือสูญเสียการ์ดหนึ่งใบเพื่อป้องกันการโจมตี แล้วลบ"
       },
       "empower": {
-        "": "Empower",
         "hint": "%game.conditionIcon.empower% Empower: สับการ์ด %game.attackmodifier.empower% เข้าเด็คตัวปรับการโจมตี"
       },
       "enfeeble": {
-        "": "Enfeeble",
         "hint": "%game.conditionIcon.enfeeble% Enfeeble: สับการ์ด %game.attackmodifier.enfeeble% เข้าเด็คตัวปรับการโจมตี"
       },
       "heal": {
@@ -725,11 +705,9 @@
         "hint": "ภูมิคุ้มกันสถานะ"
       },
       "impair": {
-        "": "Impair",
         "hint": "%game.conditionIcon.impair% Impair: ใช้ไอเทมไม่ได้ ลบเมื่อจบเทิร์นถัดไป"
       },
       "infect": {
-        "": "Infect",
         "hint": "%game.conditionIcon.infect% Infect: ได้รับโล่ไม่ได้ ลบเมื่อรักษา"
       },
       "invisible": {
@@ -757,19 +735,15 @@
         "hint": "%game.conditionIcon.poison_x:X% พิษ X: ผู้โจมตีทั้งหมดได้ +X %game.action.attack% กีดกันการรักษา ลบเมื่อรักษา"
       },
       "regenerate": {
-        "": "Regenerate",
         "hint": "%game.conditionIcon.regenerate% Regenerate: %game.action.heal% 1 เมื่อเริ่มเทิร์น ลบเมื่อเสียหาย"
       },
       "rupture": {
-        "": "Rupture",
         "hint": "%game.conditionIcon.rupture% Rupture: เมื่อเคลื่อนที่ได้รับ %game.damage:1% ลบเมื่อรักษา"
       },
       "safeguard": {
-        "": "Safeguard",
         "hint": "%game.conditionIcon.safeguard% Safeguard: ป้องกันสถานะลบครั้งถัดไป แล้วลบ"
       },
       "strengthen": {
-        "": "Strengthen",
         "hint": "%game.conditionIcon.strengthen% Strengthen: Advantage ในการโจมตีทั้งหมด ลบเมื่อจบเทิร์นถัดไป"
       },
       "stun": {
@@ -777,7 +751,6 @@
         "hint": "%game.conditionIcon.stun% สตัน: ทำความสามารถหรือใช้หรือทริกเกอร์ไอเทมไม่ได้ ลบเมื่อจบเทิร์นถัดไป"
       },
       "ward": {
-        "": "Ward",
         "hint": "%game.conditionIcon.ward% Ward: แหล่งความเสียหายครั้งถัดไปเป็นครึ่งหนึ่ง (ปัดลง) แล้วลบ"
       },
       "wound": {
@@ -790,7 +763,6 @@
       }
     },
     "custom": {
-      "advantage": "Advantage",
       "disadvantage": "ผู้โจมตีได้ Disadvantage",
       "instead": "แทน",
       "math": {
@@ -826,12 +798,8 @@
       "state": {
         "always": "เสมอ",
         "consumed": "บริโภคแล้ว",
-        "inert": "เฉื่อย",
-        "new": "strong",
-        "strong": "strong",
-        "waning": "waning"
-      },
-      "wild": "Wild"
+        "inert": "เฉื่อย"
+      }
     },
     "enemy": "ศัตรู",
     "events": {
@@ -862,7 +830,6 @@
         "payCollectiveGoldReputationGT": "{0} (ชื่อเสียง > {1})",
         "payCollectiveGoldReputationLT": "{0} (ชื่อเสียง < {1})",
         "payGold": "จ่ายทอง {0} ต่อคน",
-        "reputationFactionGT": "%data.gh2eFaction:{0}% > {1}",
         "reputationGT": "ชื่อเสียง > {0}",
         "reputationLT": "ชื่อเสียง < {0}",
         "season": "%party.campaign.sheet.{0}%",
@@ -1098,7 +1065,6 @@
     },
     "health": "แต้มชีวิต",
     "hp": "HP",
-    "initiative": "Initiative",
     "item": "ไอเทม",
     "items": {
       "": "ไอเทม",
@@ -1171,8 +1137,6 @@
     "loot": {
       "": "ของที่ปล้นได้",
       "apply": "เพิ่มให้ %data.character.{0}.{1}%",
-      "arrowvine": "Arrowvine",
-      "axenut": "Axenut",
       "chooseCharacter": "เลือกตัวละครสำหรับ +{0} {1}",
       "config": {
         "": "ตารางของปล้น",
@@ -1182,14 +1146,12 @@
         "hide": "ซ่อนตารางของปล้น",
         "show": "แสดงตารางของปล้น"
       },
-      "corpsecap": "Corpsecap",
       "deck": "เด็คของปล้น",
       "enhancements": {
         "": "การเสริมความแข็งแกร่ง",
         "add": "เพิ่มการเสริม",
         "remove": "ลบการเสริม"
       },
-      "flamefruit": "Flamefruit",
       "herb_resources": "สมุนไพร",
       "hide": "ซ่อน",
       "keep": "เก็บไว้ที่ %data.character.{0}.{1}%",
@@ -1210,8 +1172,6 @@
         "draw": "ไอเทมสุ่มสำหรับ %game.characterIconColored.{0}% {1}"
       },
       "remove": "ลบจาก %data.character.{0}.{1}%",
-      "rockroot": "Rockroot",
-      "snowthistle": "Snowthistle",
       "special": "พิเศษ",
       "special1": "การ์ดพิเศษ 1 (#1418)",
       "special2": "การ์ดพิเศษ 2 (#1419)",
@@ -1270,60 +1230,18 @@
     "maxHealth": "แต้มชีวิตสูงสุด",
     "solo": "โซโล",
     "specialTarget": {
-      "ability": "%game.target% the target of the %game.actionText.{0}% ability",
-      "all": "%game.target% all",
-      "allCharacters": "%game.target% all characters",
-      "allies": "%game.target% all allies",
-      "alliesAdjacent": "%game.target% all adjacent allies",
-      "alliesAdjacentAffect": "%game.affect% all adjacent allies",
-      "alliesAffect": "%game.affect% all allies",
-      "alliesEnemies": "%game.target% all allies and enemies",
-      "alliesRange": "%game.target% all allies within %game.action.range% {0}",
-      "alliesRangeAffect": "%game.affect% all allies within %game.action.range% {0}",
-      "ally": "%game.target% 1 ally",
-      "allyAdjacent": "%game.target% one adjacent ally",
-      "allyAffect": "%game.affect% any ally",
-      "allyAffectAdjacent": "%game.affect% one adjacent ally",
-      "allyAffectRange": "%game.affect% one ally within %game.action.range% {0}",
       "allyShort": "พันธมิตร",
-      "enemies": "%game.target% all enemies",
-      "enemiesAdjacent": "%game.target% all adjacent enemies",
-      "enemiesMovedThrough": "%game.target% all enemies moved through",
-      "enemiesMovedThroughAdjacent": "%game.target% all enemies occupying or adjacent to<br>hexes entered during the move ability",
-      "enemiesRange": "%game.target% all enemies within %game.action.range% {0}",
-      "enemiesRangeAffect": "%game.affect% all enemies within %game.action.range% {0}",
-      "enemiesRangeAffectExact": "%game.affect% all enemies at exactly %game.action.range% {0}",
-      "enemiesRangeExact": "%game.target% all enemies at exactly %game.action.range% {0}",
-      "enemy": "%game.target% one enemy",
-      "enemyAdjacent": "%game.target% one adjacent enemy",
-      "enemyAllyRange": "%game.target% one enemy or %game.affect% one ally within %game.action.range% {0}",
-      "enemyAttacked": "%game.target% the enemy that<br>attacked you",
-      "enemyOneAll": "%game.target% one enemy with all attacks",
-      "enemyRange": "%game.target% one enemy at exactly %game.action.range% {0}",
-      "figures": "%game.target% all figures",
-      "figuresAdjacent": "%game.target% all adjacent figures",
-      "figuresRange": "%game.target% all figures %game.action.range% {0}",
       "focusEnemyFarthest": "โฟกัสศัตรูที่ไกลที่สุด",
       "self": "ตัวเอง",
       "selfAllies": "ตัวเองและพันธมิตรทั้งหมด",
-      "selfAlliesAdjacentAffect": "%game.affect% self and all adjacent allies",
-      "selfAlliesAffect": "%game.affect% self and all allies",
-      "selfAlliesAffectRange": "%game.affect% self and all allies within %game.action.range% {0}",
-      "selfAlliesRange": "%game.target% self and all allies within %game.action.range% {0}",
       "selfOrAlly": "ตัวเองหรือพันธมิตร",
       "targets": "เป้าหมายทั้งหมด"
     },
     "sufferDamage": "{0} ได้รับ %game.damage:{1}%",
     "summon": {
-      "player2-3": "%game.monsterType.{0}% for two or three characters or %game.monsterType.{1}% for four characters",
-      "player3-4": "%game.monsterType.{0}% for two or %game.monsterType.{1}% for three or four characters",
-      "playerAll": "%game.monsterType.{0}% for all characters",
       "spawn": "{1} %data.monster.{0}%",
-      "spawnMarker": "{1} %data.monster.{0}% at %game.mapMarker.{2}%",
       "spawnObjective": "{1} %data.objective.{0}%",
-      "spawnObjectiveMarker": "{1} %data.objective.{0}% at %game.mapMarker.{2}%",
-      "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
-      "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%"
+      "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%"
     },
     "target": {
       "": "เป้าหมาย",
@@ -1379,24 +1297,7 @@
     "setStandees": "ตั้งสแตนดี {1} %game.monsterType.{0}%",
     "showBoss": "แสดงมอนสเตอร์บอส",
     "showHidden": "แสดงมอนสเตอร์ซ่อน",
-    "skipInteractiveActions": "ข้ามความสามารถแบบโต้ตอบสำหรับ",
-    "statEffect": {
-      "": "Special Rules apply following changes:",
-      "deck": "Use modified abilities:<br>\"{0}\""
-    },
-    "toggleAction": "Toggle applicable ability",
-    "toggleAllied": {
-      "off": "Turn <span class=\"monster-allied-off\">Allied</span> off",
-      "on": "Turn <span class=\"monster-allied-on\">Allied</span> on"
-    },
-    "toggleAlly": {
-      "off": "Switch back to <span class=\"monster-ally-off\">Enemy</span>",
-      "on": "Switch to <span class=\"monster-ally-on\">Ally</span>"
-    },
-    "toggleDormant": {
-      "off": "Switch back to active entities",
-      "on": "Switch to dormant entities"
-    }
+    "skipInteractiveActions": "ข้ามความสามารถแบบโต้ตอบสำหรับ"
   },
   "number": {
     "0": "ศูนย์",
@@ -1585,7 +1486,6 @@
     "greatOak": "วิหารโอ๊กใหญ่",
     "imbuement": "การชุบ",
     "import": "นำเข้า",
-    "inspiration": "Inspiration",
     "location": "สถานที่",
     "morale": "ขวัญ",
     "name": "ชื่อ",
@@ -2087,7 +1987,6 @@
       "spoiler": "สปอยเลอร์",
       "stats": "สถิติมอนสเตอร์"
     },
-    "showAllSections": "Show all Sections",
     "stats": {
       "": "สถิติฉาก",
       "bossKills": {
@@ -2971,7 +2870,6 @@
     },
     "theme": {
       "": "ธีม",
-      "bb": "Button & Bugs (%wip%)",
       "default": "ค่าเริ่มต้น",
       "fh": "Frosthaven",
       "hint": "เลือกธีมสำหรับพื้นหลัง แถบ และตัวอักษร",
@@ -3006,7 +2904,6 @@
       "hint": "ปลดล็อกอาคารอัตโนมัติเมื่อเปิดซอง (จากควสต์ส่วนตัว)"
     },
     "wakeLock": {
-      "": "Wake Lock",
       "hint": "Wake Lock บนอุปกรณ์ที่รองรับ จะทำให้จอไม่ดับ อาจกินแบตบนมือถือ"
     },
     "xhaDefaults": "ใช้การตั้งค่า X-haven Assistant",
@@ -3044,10 +2941,8 @@
         "summons": "%game.condition.{1}% การเรียก {0} ทั้งหมด"
       },
       "addConditions": {
-        "char": "{2}x %game.condition.{1}% {0}",
         "monster": "{3}x %game.condition.{2}% '{1}' ของ {0}",
         "monsterEntities": "{3}x %game.condition.{1}% ทั้งหมด {2}{0}",
-        "objective": "{2}x %game.condition.{1}% {0}",
         "objectiveContainer": "{3}x %game.condition.{2}% %game.objectiveMarker.{1}% ของ {0}",
         "objectives": "{2}x %game.condition.{1}% ทั้งหมด {0}",
         "summon": "{3}x %game.condition.{2}% '{1}' ของ {0}",
@@ -3581,7 +3476,6 @@
     "backToGhs": "กลับไป GHS",
     "decks": "เด็คความสามารถ",
     "feedback": {
-      "": "Feedback",
       "githubIssue": "หรือรายงานเป็น GitHub Issue",
       "reportIssue": {
         "": "รายงานปัญหา",
@@ -3589,7 +3483,6 @@
         "download": "ดาวน์โหลด data dump",
         "errorHint": "เกิดปัญหาระบบ<br>คุณช่วยพัฒนาซอฟต์แวร์ได้โดยรายงานข้อผิดพลาดนี้ให้ผู้พัฒนา<br>แนบ data dump ถ้าได้ ขอบคุณ!",
         "errorIgnore": "อย่ารายงานข้อผิดพลาดนี้อัตโนมัติอีก",
-        "errorText": "ERROR Stack Trace:\n\n{0}\n\n{1}",
         "mail": "หมายเหตุ: Microsoft จำกัดเซิร์ฟเวอร์อีเมลเล็ก จึงรับอีเมลจาก outlook.com, hotmail.com ฯลฯ ได้ แต่ตอบกลับไม่ได้!",
         "send": "ส่งปัญหา (อีเมล)",
         "specify": "ระบุรายละเอียดในข้อความ<br>ถ้าไม่แน่ใจว่าปัญหาคืออะไร โปรดดาวน์โหลดและแนบ data dump ด้านล่าง!",
@@ -3656,10 +3549,8 @@
       "am": "จั่วการ์ด AM (เด็คตามตัวที่เล่น เด็คมอนสเตอร์เมื่อไม่เล่น ปิดเมื่อ <b>จั่ว</b>)",
       "amAdvantage": "เหมือน <kbd><span>m</span></kbd> แต่จั่วแบบข้อได้เปรียบถ้าเปิด",
       "amDisadvantage": "เหมือน <kbd><span>m</span></kbd> แต่จั่วแบบข้อเสียเปรียบถ้าเปิด",
-      "backspace": "⌫",
       "ctrl": "CTRL",
       "difficulty": "เมนูความยาก/ระดับ",
-      "enter": "↵",
       "entityMenu": {
         "": "เมื่อเปิดเมนูตัว/สแตนดี ทางลัดเหล่านี้ปิด ทางลัดในเมนูตัว/สแตนดี:",
         "blessDec": "ลด Bless",

@@ -66,7 +66,7 @@ export class EnhancementDialogComponent implements OnInit {
     ngOnInit(): void {
         if (this.data.action && this.data.actionIndex && this.data.cardId && this.data.enhancementIndex != undefined && this.data.character) {
             const ability = gameManager.deckData(this.data.character).abilities.find((ability) => ability.cardId == this.data.cardId);
-            const rootIndex = +this.data.actionIndex.split('-')[0];
+            const rootIndex = +this.data.actionIndex.replace('bottom-', '').split('-')[0];
             if (ability) {
                 this.level = typeof ability.level === 'number' ? ability.level : 1;
                 if (this.data.actionIndex.includes('bottom')) {
@@ -77,6 +77,10 @@ export class EnhancementDialogComponent implements OnInit {
                         this.special = 'persistent';
                     }
                     this.rootAction = ability.bottomActions[rootIndex];
+                    if (!this.rootAction) {
+                        console.warn("invalid root action", ability.bottomActions, this.data.actionIndex, rootIndex);
+                        this.rootAction = this.action;
+                    }
                 } else {
                     if (ability.lost || ability.actions.find((action) => action.type == ActionType.card && action.value.toString().includes('lost'))) {
                         this.special = 'lost';
@@ -85,6 +89,10 @@ export class EnhancementDialogComponent implements OnInit {
                         this.special = 'persistent';
                     }
                     this.rootAction = ability.actions[rootIndex];
+                    if (!this.rootAction) {
+                        console.warn("invalid root action", ability.actions, this.data.actionIndex, rootIndex);
+                        this.rootAction = this.action;
+                    }
                 }
 
                 if (this.data.summon) {
