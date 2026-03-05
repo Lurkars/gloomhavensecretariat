@@ -134,37 +134,46 @@
     "absent": "ไม่มา",
     "add": "เพิ่มตัวละคร",
     "class": {
-      "aesther": "Aesther",
-      "algox": "Algox",
+      "aesther": "เอสเธอร์",
+      "algox": "อัลกอกซ์",
       "f": {
-        "aesther": "Aesther",
-        "algox": "Algox",
-        "harrower": "Harrower",
-        "inox": "Inox",
-        "lurker": "Lurker",
-        "orchid": "Orchid",
-        "quatryl": "Quatryl",
-        "savvas": "Savvas",
-        "valrath": "Valrath"
+        "aesther": "เอสเธอร์",
+        "algox": "อัลกอกซ์",
+        "harrower": "ฮาร์โรเวอร์",
+        "human": "มนุษย์",
+        "inox": "อิโน็กซ์",
+        "lurker": "เลอร์เกอร์",
+        "orchid": "ออร์คิด",
+        "quatryl": "ควาทริล",
+        "savvas": "ซัฟวาส",
+        "unfettered": "อันเฟตเทอร์ด",
+        "valrath": "วาลรัท",
+        "vermling": "เวิร์มลิง"
       },
-      "harrower": "Harrower",
-      "inox": "Inox",
-      "lurker": "Lurker",
+      "harrower": "ฮาร์โรเวอร์",
+      "human": "มนุษย์",
+      "inox": "อิโน็กซ์",
+      "lurker": "เลอร์เกอร์",
       "m": {
-        "aesther": "Aesther",
-        "algox": "Algox",
-        "harrower": "Harrower",
-        "inox": "Inox",
-        "lurker": "Lurker",
-        "orchid": "Orchid",
-        "quatryl": "Quatryl",
-        "savvas": "Savvas",
-        "valrath": "Valrath"
+        "aesther": "เอสเธอร์",
+        "algox": "อัลกอกซ์",
+        "harrower": "ฮาร์โรเวอร์",
+        "human": "มนุษย์",
+        "inox": "อิโน็กซ์",
+        "lurker": "เลอร์เกอร์",
+        "orchid": "ออร์คิด",
+        "quatryl": "ควาทริล",
+        "savvas": "ซัฟวาส",
+        "unfettered": "อันเฟตเทอร์ด",
+        "valrath": "วาลรัท",
+        "vermling": "เวิร์มลิง"
       },
-      "orchid": "Orchid",
-      "quatryl": "Quatryl",
-      "savvas": "Savvas",
-      "valrath": "Valrath"
+      "orchid": "ออร์คิด",
+      "quatryl": "ควาทริล",
+      "savvas": "ซัฟวาส",
+      "unfettered": "อันเฟตเทอร์ด",
+      "valrath": "วาลรัท",
+      "vermling": "เวิร์มลิง"
     },
     "filter": {
       "": "กรองตัวละคร",
@@ -261,7 +270,18 @@
         "fly": {
           "": "%game.action.summon% %data.summon.{0}% %game.actionIcon.fly%"
         }
-      }
+      },
+      "level": "(Level {0})"
+    },
+    "token": "โทเค็นตัวละคร",
+    "traits": "ลักษณะ",
+    "unlock": {
+      "": "ปลดล็อก?",
+      "confirm": "ปลดล็อก!"
+    },
+    "unlockAll": {
+      "": "ปลดล็อกทั้งหมด?",
+      "confirm": "ปลดล็อกทั้งหมด!"
     }
   },
   "close": "ปิด",
@@ -377,127 +397,951 @@
     "conditions": "สถานะที่ใช้ได้"
   },
   "editor": {
+    "": "ตัวแก้ไข [สปอยเลอร์!]",
     "action": {
+      "add": "เพิ่มแอ็กชัน",
+      "addBottom": "เพิ่มแอ็กชันล่าง",
+      "addEnhancement": "เพิ่มช่องเสริม",
+      "addSubAction": "เพิ่มซับแอ็กชัน",
+      "enhancements": "การเสริมความแข็งแกร่ง",
+      "remove": "ลบแอ็กชัน",
+      "removeEnhancement": "ลบช่องเสริม",
+      "removeSubAction": "ลบซับแอ็กชัน",
+      "small": "เล็กลง",
+      "subActions": "ซับแอ็กชัน",
+      "summon": {
+        "type": {
+          "monster": "มอนสเตอร์",
+          "summon": "ข้อมูลสิ่งอัญเชิญ"
+        }
+      },
+      "type": "ประเภทแอ็กชัน",
+      "value": "ค่าออกชัน",
       "valueType": {
-        "add": "เพิ่ม"
+        "": "ประเภทค่า",
+        "add": "เพิ่ม",
+        "fixed": "คงที่",
+        "minus": "ลบ",
+        "plus": "บวก",
+        "subtract": "หัก"
+      }
+    },
+    "character": {
+      "": "ตัวแก้ไขตัวละคร",
+      "data": {
+        "": "ข้อมูลตัวละคร",
+        "deck": "ชื่อเด็คความสามารถ",
+        "hp": {
+          "": "แต้มชีวิต",
+          "-1": "โปรไฟล์กำหนดเอง",
+          "0": "โปรไฟล์ต่ำ",
+          "1": "โปรไฟล์กลาง",
+          "2": "โปรไฟล์สูง"
+        },
+        "json": {
+          "": "ข้อมูล JSON ตัวละคร",
+          "download": "ดาวน์โหลดข้อมูลตัวละครเป็นไฟล์ JSON"
+        }
+      },
+      "edition": "ฉบับ",
+      "new": "ตัวละครใหม่"
+    },
+    "deck": {
+      "": "ตัวแก้ไขเด็คความสามารถ",
+      "abilityName": "ชื่อความสามารถ",
+      "addAbility": "เพิ่มความสามารถ",
+      "character": "เด็คตัวละคร",
+      "json": {
+        "": "ข้อมูล JSON เด็คความสามารถ",
+        "download": "ดาวน์โหลดเด็คความสามารถเป็นไฟล์ JSON"
+      },
+      "name": "ชื่อเด็ค",
+      "new": "เด็คความสามารถใหม่",
+      "removeAbility": "ลบความสามารถ"
+    },
+    "edition": {
+      "": "ตัวแก้ไขฉบับ",
+      "base": "ข้อมูลพื้นฐาน",
+      "character": {
+        "": "เพิ่มไฟล์ตัวละคร",
+        "remove": "ลบตัวละคร"
+      },
+      "conditions": {
+        "": "สถานะที่ใช้ได้",
+        "allHint": "ยกเลิกเลือกสถานะทั้งหมด",
+        "allSelected": "เลือกสถานะทั้งหมด"
+      },
+      "decks": {
+        "": "เพิ่มไฟล์เด็คความสามารถ",
+        "remove": "ลบเด็คความสามารถ"
+      },
+      "edition": "ชื่อฉบับ",
+      "extensions": "ฉบับที่จะขยาย",
+      "json": {
+        "": "ข้อมูล JSON ฉบับ",
+        "download": "ดาวน์โหลดข้อมูลฉบับเป็นไฟล์ JSON"
+      },
+      "monster": {
+        "": "เพิ่มไฟล์มอนสเตอร์",
+        "remove": "ลบมอนสเตอร์"
+      }
+    },
+    "monster": {
+      "": "ตัวแก้ไขมอนสเตอร์",
+      "new": "มอนสเตอร์ใหม่",
+      "stats": {
+        "": "สถิติมอนสเตอร์",
+        "addSpecial": "เพิ่มพิเศษ",
+        "allLevel": "ทุกระดับ",
+        "applyAll": "ใช้กับทุกระดับ",
+        "boss": "เป็นบอส",
+        "count": "จำนวนสแตนดี",
+        "deck": "ชื่อเด็คความสามารถ",
+        "flying": "บินได้",
+        "hidden": "ซ่อน",
+        "json": {
+          "": "ข้อมูล JSON สถิติมอนสเตอร์",
+          "download": "ดาวน์โหลดสถิติมอนสเตอร์เป็นไฟล์ JSON"
+        },
+        "levelSelect": "เลือกระดับ"
       }
     }
   },
+  "errata": "ภาคผนวกแก้ไข",
+  "escort": {
+    "": "คุ้มกัน",
+    "add": "เพิ่มคุ้มกัน"
+  },
   "game": {
     "action": {
+      "area": "เอฟเฟกต์พื้นที่",
       "attack": "โจมตี",
+      "box": "&#91;Box&#93;",
+      "boxFhSubActions": "&#91;FH Subaction Box&#93;",
+      "card": "การ์ด",
+      "concatenation": "&#91;Concatenation&#93;",
+      "concatenationSpacer": "&#91;Concatenation Spacer&#93;",
+      "condition": "สถานะ",
+      "custom": "กำหนดเอง",
+      "damage": "ความเสียหาย",
+      "element": "ธาตุ",
+      "elementHalf": "ธาตุครึ่ง",
+      "extra": "&#91;FH Helper for Subactions&#93;",
+      "fly": "บิน",
+      "fontSize": "&#91;Fontsize (in %)&#93;",
+      "forceBox": "&#91;FH Mandatory Box&#93;",
+      "grant": "ให้",
+      "grid": "&#91;Grid&#93;",
       "heal": "รักษา",
+      "hint": "&#91;Information Board&#93;",
+      "jump": "กระโดด",
       "loot": "ของที่ปล้นได้",
+      "monsterType": "ประเภทมอนสเตอร์",
       "move": "เคลื่อนที่",
+      "nonCalc": "แอ็กชันเดิม",
+      "pierce": "ทะลุ",
+      "pull": "ดึง",
+      "push": "ดัน",
       "range": "ระยะ",
+      "refreshItem": "รีเฟรชไอเทม",
       "retaliate": "ตอบโต้",
       "shield": "โล่",
-      "target": "เป้าหมาย"
+      "spawn": "สปอว์น",
+      "special": "พิเศษ",
+      "specialTarget": "เป้าหมายพิเศษ",
+      "sufferDamage": "ได้รับความเสียหาย",
+      "summon": "อัญเชิญ",
+      "swing": "สวิง",
+      "target": "เป้าหมาย",
+      "targets": "เป้าหมาย",
+      "teleport": "เทเลพอร์ต",
+      "trigger": "ทริกเกอร์"
+    },
+    "affect": "ส่งผลต่อ",
+    "allied": "พันธมิตร",
+    "ally": {
+      "": "พันธมิตร",
+      "addEntity": {
+        "boss": "สปอว์นพันธมิตรบอส",
+        "elite": "สปอว์นพันธมิตรเอลิท",
+        "normal": "สปอว์นพันธมิตรปกติ"
+      }
     },
     "attackModifiers": {
+      "": "เด็คตัวปรับการโจมตี",
+      "additional": {
+        "apply": "ใช้เด็คของ {0}",
+        "dialog": "เลือกเด็คตัวละครเพื่อใช้ %game.condition.{0}%",
+        "select": "เลือกตัวละคร"
+      },
+      "effects": {
+        "refreshSpentItem": "ใช้แล้ว"
+      },
+      "openDialog": "แสดงเด็คตัวปรับการโจมตี",
       "perks": {
+        "": "ความสามารถพิเศษ",
+        "additional": "{0} และ {1}",
+        "additionalTwo": "{0}, {1} และ {2}",
+        "card": "การ์ด",
         "cardLabel": "{0}{1} {2}",
         "cards": {
+          "": "ใบ",
           "1": "%number.1%",
           "2": "%number.2%",
           "3": "%number.3%",
           "4": "%number.4%",
           "5": "%number.5%"
-        }
+        },
+        "effects": {
+          "recoverRandomDiscard": "กู้ %game.card.recover% การ์ดสุ่มหนึ่งใบจากกองทิ้ง",
+          "refreshItem": "รีเฟรชไอเทม",
+          "refreshItemFh": "%game.card.recover% ไอเทมหนึ่งชิ้น",
+          "refreshSpentItem": "รีเฟรชไอเทมที่ใช้แล้ว"
+        },
+        "monsterDeck": "เข้าเด็คตัวปรับการโจมตีมอนสเตอร์",
+        "type": {
+          "add": "เพิ่ม {0}",
+          "remove": "ลบ {0}",
+          "replace": "แทนที่ {0} ด้วย {1}"
+        },
+        "warning": "เลือกความสามารถพิเศษเกินที่มี!",
+        "wip": "%wip%! ความสามารถพิเศษยังไม่ครบ"
+      },
+      "types": {
+        "bless": "Bless",
+        "curse": "Curse",
+        "double": "สองเท่า",
+        "invalid": "ไม่ถูกต้อง",
+        "minus": "ลบ",
+        "minus1": "ลบ 1",
+        "minus2": "ลบ 2",
+        "null": "Null",
+        "plus": "บวก",
+        "plus0": "บวก 0",
+        "plus1": "บวก 1",
+        "plus2": "บวก 2",
+        "plus3": "บวก 3",
+        "plus4": "บวก 4"
       }
     },
     "battleGoals": {
-      "cancel": "ยกเลิก"
+      "": "เป้าหมายการต่อสู้",
+      "all": "การ์ดปัจจุบัน",
+      "cancel": "ยกเลิก",
+      "choose": "เลือกเป้าหมายการต่อสู้สำหรับ %game.characterIconColored.{0}% {1}",
+      "chooseCard": "เลือกการ์ดที่เลือก",
+      "chosen": "เป้าหมายการต่อสู้สำหรับ %game.characterIconColored.{0}% {1}",
+      "drawCard": "จั่วการ์ดอีกใบ",
+      "drawCards": "จั่วการ์ดใหม่",
+      "drawUnavailable": "จั่วเป้าหมายการต่อสู้ครบแล้ว!",
+      "edition": "การ์ด %data.edition.{0}%",
+      "setup": {
+        "": "ตั้งค่าเป้าหมายการต่อสู้",
+        "empty": "ยังไม่ได้เลือกการ์ดเป้าหมายการต่อสู้"
+      }
     },
     "card": {
-      "lost": "สูญหาย"
+      "experience": "X ประสบการณ์",
+      "lost": "สูญหาย",
+      "persistent": "โบนัสถาวร",
+      "recover": "กู้",
+      "refresh": "รีเฟรช",
+      "round": "โบนัสเทิร์น",
+      "slot": "ใช้ช่อง",
+      "slotXp": "ใช้ช่อง X ประสบการณ์"
     },
     "cards": {
+      "confirmReveal": "คลิกอีกครั้งเพื่อเปิด!",
+      "coverAll": "ปิดทั้งหมด",
+      "defaultSort": "เรียง",
       "draw": "จั่ว",
+      "drawAdvantage": "จั่วด้วย Advantage",
+      "drawAnother": "จั่วอีกใบ",
+      "drawDisadvantage": "จั่วด้วย Disadvantage",
+      "drawExtra": "จั่วเพิ่ม",
       "edit": {
-        "": "แก้ไข"
+        "": "แก้ไข",
+        "toggleBB": "แสดงเป็นตาราง BB"
       },
+      "fullscreen": "แสดงเต็มจอ",
+      "openDialog": "แสดงการ์ดทั้งหมด",
+      "removeDrawnDiscards": "ลบการ์ดที่จั่วแล้วทิ้ง",
+      "restore": "คืนค่าเริ่มต้น",
+      "revealAll": "เปิดทั้งหมด?",
+      "revealAllConfirm": "เปิดทั้งหมด!",
       "shuffle": {
-        "": "สับ"
+        "": "สับ",
+        "allHint": "ดับเบิลคลิกเพื่อสับการ์ดทั้งหมด!",
+        "upcomingHint": "ดับเบิลคลิกเพื่อสับเฉพาะการ์ดถัดไป!"
       }
     },
     "condition": {
+      "bane": {
+        "": "Bane",
+        "hint": "%game.conditionIcon.bane% Bane: ได้รับ %game.damage:10% เมื่อจบเทิร์นถัดไป แล้วลบ ลบเมื่อรักษาด้วย"
+      },
+      "bless": {
+        "": "Bless",
+        "hint": "%game.conditionIcon.bless% Bless: สับการ์ด %game.attackmodifier.bless% เข้าเด็คตัวปรับการโจมตี"
+      },
+      "brittle": {
+        "": "Brittle",
+        "hint": "%game.conditionIcon.brittle% Brittle: แหล่งความเสียหายครั้งถัดไปเป็นสองเท่า แล้วลบ ลบเมื่อรักษาด้วย"
+      },
+      "chill": {
+        "": "Chill",
+        "hint": "%game.conditionIcon.chill% Chill: ได้ -1 ในการเคลื่อนที่และโจมตีทุกอย่างต่อโทเค็น ลบหนึ่งอันเมื่อจบเทิร์นถัดไป"
+      },
+      "curse": {
+        "": "Curse",
+        "hint": "%game.conditionIcon.curse% Curse: สับการ์ด %game.attackmodifier.curse% เข้าเด็คตัวปรับการโจมตี"
+      },
+      "disarm": {
+        "": "ปลดอาวุธ",
+        "hint": "%game.conditionIcon.disarm% ปลดอาวุธ: โจมตีไม่ได้ ลบเมื่อจบเทิร์นถัดไป"
+      },
+      "dodge": {
+        "": "หลบ",
+        "hint": "%game.conditionIcon.dodge% หลบ: ทิ้งหรือสูญเสียการ์ดหนึ่งใบเพื่อป้องกันการโจมตี แล้วลบ"
+      },
+      "empower": {
+        "": "Empower",
+        "hint": "%game.conditionIcon.empower% Empower: สับการ์ด %game.attackmodifier.empower% เข้าเด็คตัวปรับการโจมตี"
+      },
+      "enfeeble": {
+        "": "Enfeeble",
+        "hint": "%game.conditionIcon.enfeeble% Enfeeble: สับการ์ด %game.attackmodifier.enfeeble% เข้าเด็คตัวปรับการโจมตี"
+      },
       "heal": {
-        "": "รักษา"
+        "": "รักษา",
+        "hint": "ไม่ใช่สถานะ แต่ช่วยเมื่อต้องใช้ %game.action.heal% เมื่อเพิ่มแต้มชีวิต"
+      },
+      "immobilize": {
+        "": "ตรึง",
+        "hint": "%game.conditionIcon.immobilize% ตรึง: เคลื่อนที่ไม่ได้ ลบเมื่อจบเทิร์นถัดไป"
+      },
+      "immune": {
+        "": "ภูมิคุ้มกัน",
+        "hint": "ภูมิคุ้มกันสถานะ"
+      },
+      "impair": {
+        "": "Impair",
+        "hint": "%game.conditionIcon.impair% Impair: ใช้ไอเทมไม่ได้ ลบเมื่อจบเทิร์นถัดไป"
+      },
+      "infect": {
+        "": "Infect",
+        "hint": "%game.conditionIcon.infect% Infect: ได้รับโล่ไม่ได้ ลบเมื่อรักษา"
+      },
+      "invisible": {
+        "": "ล่องหน",
+        "hint": "%game.conditionIcon.invisible% ล่องหน: เล็งเป็นเป้าหมายไม่ได้ ลบเมื่อจบเทิร์นถัดไป"
+      },
+      "muddle": {
+        "": "มัดเดิล",
+        "hint": "%game.conditionIcon.muddle% มัดเดิล: Disadvantage ในการโจมตีทั้งหมด ลบเมื่อจบเทิร์นถัดไป"
+      },
+      "permanent": {
+        "": "ถาวร",
+        "hint": "สถานะถาวร"
+      },
+      "plague": {
+        "": "โทเค็น Plague",
+        "hint": "ไม่ใช่สถานะ แต่ช่วยติดตามโทเค็น %game.conditionIcon.plague% Plague"
       },
       "poison": {
-        "": "พิษ"
+        "": "พิษ",
+        "hint": "%game.conditionIcon.poison% พิษ: ผู้โจมตีทั้งหมดได้ +1 %game.action.attack% กีดกันการรักษา ลบเมื่อรักษา"
+      },
+      "poison_x": {
+        "": "พิษ {0}",
+        "hint": "%game.conditionIcon.poison_x:X% พิษ X: ผู้โจมตีทั้งหมดได้ +X %game.action.attack% กีดกันการรักษา ลบเมื่อรักษา"
+      },
+      "regenerate": {
+        "": "Regenerate",
+        "hint": "%game.conditionIcon.regenerate% Regenerate: %game.action.heal% 1 เมื่อเริ่มเทิร์น ลบเมื่อเสียหาย"
+      },
+      "rupture": {
+        "": "Rupture",
+        "hint": "%game.conditionIcon.rupture% Rupture: เมื่อเคลื่อนที่ได้รับ %game.damage:1% ลบเมื่อรักษา"
+      },
+      "safeguard": {
+        "": "Safeguard",
+        "hint": "%game.conditionIcon.safeguard% Safeguard: ป้องกันสถานะลบครั้งถัดไป แล้วลบ"
+      },
+      "strengthen": {
+        "": "Strengthen",
+        "hint": "%game.conditionIcon.strengthen% Strengthen: Advantage ในการโจมตีทั้งหมด ลบเมื่อจบเทิร์นถัดไป"
       },
       "stun": {
-        "": "สตัน"
+        "": "สตัน",
+        "hint": "%game.conditionIcon.stun% สตัน: ทำความสามารถหรือใช้หรือทริกเกอร์ไอเทมไม่ได้ ลบเมื่อจบเทิร์นถัดไป"
+      },
+      "ward": {
+        "": "Ward",
+        "hint": "%game.conditionIcon.ward% Ward: แหล่งความเสียหายครั้งถัดไปเป็นครึ่งหนึ่ง (ปัดลง) แล้วลบ"
       },
       "wound": {
-        "": "บาดแผล"
+        "": "บาดแผล",
+        "hint": "%game.conditionIcon.wound% บาดแผล: ได้รับ %game.damage:1% เมื่อเริ่มแต่ละเทิร์น ลบเมื่อรักษา"
+      },
+      "wound_x": {
+        "": "บาดแผล {0}",
+        "hint": "%game.conditionIcon.wound_x:X% บาดแผล X: ได้รับ %game.damage:X% เมื่อเริ่มแต่ละเทิร์น ลบเมื่อรักษา"
       }
     },
+    "custom": {
+      "advantage": "Advantage",
+      "disadvantage": "ผู้โจมตีได้ Disadvantage",
+      "instead": "แทน",
+      "math": {
+        "ceil": "(ปัดขึ้น)",
+        "floor": "(ปัดลง)",
+        "max": ", สูงสุดไม่เกิน %game.number.{0}%",
+        "maxCeil": "(ปัดขึ้น), สูงสุดไม่เกิน %game.number.{0}%",
+        "maxFloor": "(ปัดลง), สูงสุดไม่เกิน %game.number.{0}%",
+        "min": ", อย่างน้อย %game.number.{0}%",
+        "minCeil": "(ปัดขึ้น), อย่างน้อย %game.number.{0}%",
+        "minFloor": "(ปัดลง), อย่างน้อย %game.number.{0}%"
+      },
+      "ondeath": "เมื่อตาย:",
+      "perks": {
+        "addTarget": "เพิ่มเป้าหมาย",
+        "addTargets": "เพิ่มเป้าหมาย {0} ตัว",
+        "ignoreNegativeItem": "ไม่สนใจเอฟเฟกต์ไอเทมลบ",
+        "ignoreNegativeItemFh": "ไม่สนใจเอฟเฟกต์ไอเทม %game.card.minus1%",
+        "ignoreNegativeScenario": "ไม่สนใจเอฟเฟกต์ฉากลบ",
+        "ignoreScenario": "ไม่สนใจเอฟเฟกต์ฉาก"
+      },
+      "scenarioBook": "อ้างอิงหนังสือฉาก"
+    },
+    "damage": "{0} ความเสียหาย",
+    "dead": "ตาย",
+    "element": {
+      "air": "ลม",
+      "dark": "ความมืด",
+      "earth": "ดิน",
+      "fire": "ไฟ",
+      "ice": "น้ำแข็ง",
+      "light": "แสง",
+      "state": {
+        "always": "เสมอ",
+        "consumed": "บริโภคแล้ว",
+        "inert": "เฉื่อย",
+        "new": "strong",
+        "strong": "strong",
+        "waning": "waning"
+      },
+      "wild": "Wild"
+    },
+    "enemy": "ศัตรู",
     "events": {
+      "accept": {
+        "": "แก้ไขอีเวนต์",
+        "notApply": "แก้ไข ไม่ใช้"
+      },
+      "applyManually": "ใช้ด้วยตนเองดังนี้:",
       "conditions": {
+        "and": "และ",
         "building": "{0}",
         "campaignSticker": "%data.campaignSticker.{0}%",
         "character": "{0}",
+        "loseCollectiveGold": "สูญเสียทองรวม {0}",
+        "loseCollectiveResource": "สูญเสีย %game.resource.{1}% รวม {0}",
+        "loseCollectiveResourceType": "สูญเสียทรัพยากร %game.loot.{1}% รวม {0}",
+        "loseResource": "สูญเสีย {0} %game.resource.{1}%",
+        "loseResourceType": "สูญเสีย {0} %game.loot.{1}% ต่อคน",
+        "moraleGT": "ขวัญ > {0}",
+        "moraleLT": "ขวัญ < {0}",
+        "otherwise": "มิฉะนั้น",
+        "payCollectiveGold": "จ่ายทองรวม {0}",
         "payCollectiveGoldConditional": {
-          "connector": "หรือ"
+          "connector": "หรือ",
+          "prefix": "จ่าย",
+          "suffix": "ทองรวม"
         },
+        "payCollectiveGoldReputationGT": "{0} (ชื่อเสียง > {1})",
+        "payCollectiveGoldReputationLT": "{0} (ชื่อเสียง < {1})",
+        "payGold": "จ่ายทอง {0} ต่อคน",
+        "reputationFactionGT": "%data.gh2eFaction:{0}% > {1}",
+        "reputationGT": "ชื่อเสียง > {0}",
+        "reputationLT": "ชื่อเสียง < {0}",
         "season": "%party.campaign.sheet.{0}%",
+        "seasonLT": "ถ้า %party.campaign.sheet.{0}% เหลือ {1} สัปดาห์หรือน้อยกว่า",
         "traits": "%game.trait% {0}",
         "traitsAll": "%game.trait% {0}"
       },
+      "deck": {
+        "addCard": "เพิ่มในการ์ดถัดไปและสับเด็ค",
+        "allTypes": "แสดงเด็คทั้งหมด",
+        "draw": "จั่วการ์ด",
+        "drawn": "แก้แล้ว ({0})",
+        "filter": "ค้นหาหมายเลขการ์ด",
+        "new": "ล็อก ({0})",
+        "removeCard": "ลบจากการ์ดถัดไป",
+        "removeDrawn": "ลบจากการ์ดที่จั่วแล้ว",
+        "removeSelection": "รีเซ็ตผล",
+        "resolved": "แสดงที่แก้แล้ว",
+        "setup": "ตั้งค่าเด็คอีเวนต์",
+        "show": "แสดงการ์ดอีเวนต์เต็ม",
+        "shuffle": "สับเด็ค",
+        "upcoming": "ในเด็ค ({0})"
+      },
       "effects": {
+        "additionally": "นอกจากนี้",
+        "and": "และ",
+        "automation": "เอฟเฟกต์ถูกใช้โดยอัตโนมัติ",
+        "battleGoal": "ได้รับ {0} %game.checkmark% ต่อคน",
+        "campaignSticker": "ได้รับสติกเกอร์แคมเปญ \"%data.campaignSticker.{0}%\"",
+        "campaignStickerMap": "วางสติกเกอร์แคมเปญ \"%data.campaignSticker.{0}%\" บนแผนที่เมืองที่ตำแหน่ง {1}",
+        "campaignStickerReplace": "วางสติกเกอร์แคมเปญ \"%data.campaignSticker.{0}%\" ทับ \"%data.campaignSticker.{1}%\"",
         "choose": {
           "connector": "หรือ",
+          "prefix": "อย่างใดอย่างหนึ่ง",
           "suffix": "."
         },
+        "collectiveGold": "ได้รับทองรวม {0}",
+        "collectiveGoldAdditional": "ได้รับทองรวมเพิ่ม {0}",
+        "collectiveGoldOther": "ตัวละครอื่นทั้งหมดได้รับทองรวม {0}",
+        "collectiveItem": "ได้รับ \"%data.items.{1}-{0}%\" (ไอเทม {0}) รวม {2}",
+        "collectiveResource": "ได้รับ %game.resource.{1}% รวม {0}",
+        "collectiveResourceType": "ได้รับ %game.loot.{1}% รวม {0} อย่างใดอย่างหนึ่ง",
+        "consumeCollectiveItem": "บริโภคไอเทม %game.itemSlot:{1}% รวม {0}",
+        "consumeItem": "บริโภคไอเทม %game.itemSlot:{1}% {0} ต่อคน",
         "custom": "{0}",
+        "discard": {
+          "": "ทิ้งการ์ด {0} ใบต่อคน",
+          "fh": "ตัวละครทั้งหมดเริ่มฉากถัดไปโดยทิ้งการ์ด %number.{0}% ใบ",
+          "gh2e": "ตัวละครแต่ละตัวเริ่มฉากถัดไปโดยทิ้งการ์ด %number.{0}% ใบ"
+        },
+        "discardOne": {
+          "": "ทิ้งการ์ด 1 ใบต่อคน",
+          "fh": "ตัวละครทั้งหมดเริ่มฉากถัดไปโดยทิ้งการ์ดหนึ่งใบ",
+          "gh2e": "ตัวละครแต่ละตัวเริ่มฉากถัดไปโดยทิ้งการ์ดหนึ่งใบ"
+        },
+        "drawAnotherEvent": {
+          "": "จั่วอีเวนต์ %game.events.type.{0}% อีกใบ",
+          "fh": "แก้ไขอีเวนต์ %game.events.type.{0}% อีกใบ",
+          "gh2e": "แก้ไขอีเวนต์ %game.events.type.{0}% อีกใบ"
+        },
+        "drawEvent": "จั่วอีเวนต์ %game.events.type.{0}%",
+        "event": {
+          "": "เพิ่มอีเวนต์ %game.events.type.{0}% {1} เข้าเด็ค",
+          "fh": "เพิ่มอีเวนต์ {1} เข้าเด็ค %game.events.type.{0}%",
+          "gh2e": "เพิ่มอีเวนต์ {1} เข้าเด็ค %game.events.type.{0}%"
+        },
+        "eventReturn": "นำอีเวนต์ {1} กลับเข้าเด็ค %game.events.type.{0}%",
+        "eventsToTop": "ดูเด็ค %game.events.type.{0}% จนกว่าจะเจอ {1}, {2} หรือ {3} แล้ววางไว้บนสุดของเด็ค",
+        "experience": {
+          "": "ได้รับประสบการณ์ {0} ต่อคน",
+          "fh": "ตัวละครแต่ละตัวได้รับ {0} %game.card.experience%",
+          "gh2e": "ตัวละครแต่ละตัวได้รับ {0} %game.card.experience%"
+        },
+        "gainTrait": "ตัวละครแต่ละตัวได้รับ %game.trait:{0}%",
+        "globalAchievement": "ความสำเร็จส่วนกลาง:<br>\"%data.globalAchievements.{0}%\"",
+        "gold": "ได้รับทอง {0} ต่อคน",
+        "goldAdditional": "ได้รับทองเพิ่ม {0} ต่อคน",
+        "inspiration": "ได้รับ inspiration {0}",
+        "item": {
+          "": "ได้รับ \"%data.items.{1}-{0}%\" (ไอเทม {0})",
+          "fh": "ได้รับ \"%data.items.{1}-{0}%\" %game.itemFh.{0}%",
+          "gh2e": "ได้รับ \"%data.items.{1}-{0}%\" %game.itemFh.{0}%"
+        },
+        "itemCollective": "ได้รับ \"%data.items.{2}-{0}%\" (ไอเทม {0}) รวม {1}",
+        "itemDesign": "ได้รับดีไซน์ \"%data.items.{1}-{0}%\" (ไอเทม {0})",
+        "loseBattleGoal": "สูญเสีย {0} %game.checkmark% ต่อคน",
+        "loseCollectiveExperience": "สูญเสียประสบการณ์รวม {0}",
+        "loseCollectiveGold": "สูญเสียทองรวม {0}",
+        "loseCollectiveResource": "สูญเสีย %game.resource.{1}% รวม {0}",
+        "loseCollectiveResourceAny": "สูญเสียทรัพยากรรวม {0}",
+        "loseCollectiveResourceType": "สูญเสียทรัพยากร %game.loot.{1}% รวม {0}",
+        "loseExperience": "สูญเสียประสบการณ์ {0} ต่อคน",
+        "loseGold": "สูญเสียทอง {0} ต่อคน",
+        "loseGoldOne": "ตัวละครหนึ่งตัวสูญเสียทอง {0}",
+        "loseItem": {
+          "": "สูญเสีย \"%data.items.{1}-{0}%\" (ไอเทม {0})",
+          "fh": "สูญเสีย \"%data.items.{1}-{0}%\" %game.itemFh.{0}%",
+          "gh2e": "สูญเสีย \"%data.items.{1}-{0}%\" %game.itemFh.{0}%"
+        },
+        "loseMorale": "สูญเสียขวัญ {0}",
+        "loseProsperity": "สูญเสียความมั่งคั่ง {0}",
+        "loseReputation": "สูญเสียชื่อเสียง {0}",
+        "loseReputationFaction": "สูญเสียชื่อเสียง %data.gh2eFaction:{0}% {1}",
+        "loseResource": "สูญเสีย {0} %game.resource.{1}%",
+        "loseTrait": "ตัวละครแต่ละตัวสูญเสีย %game.trait:{0}%",
+        "morale": "ได้รับขวัญ {0}",
+        "noEffect": "ไม่มีเอฟเฟกต์",
+        "outcome": "อ่านผล %game.events.option.{0}%",
+        "outcomeSelect": "เลือกผลอย่างใดอย่างหนึ่ง %game.events.option.{0}% หรือ %game.events.option.{1}% เพื่ออ่าน",
+        "outcomes": "อ่านผลทั้ง %game.events.option.{0}% และ %game.events.option.{1}%",
         "outpostAttack": "%game.valueSign:{0}% %game.action.attack%",
-        "outpostTarget": "%game.valueSign:{0}% %game.action.target%"
+        "outpostAttackTarget": {
+          "": "%game.valueSign:{0}% %game.action.attack% สำหรับ %game.events.effects.outpostAttackTarget.{1}%",
+          "all": "เป้าหมายทั้งหมด",
+          "one": "เป้าหมายใดหนึ่งตัว"
+        },
+        "outpostTarget": "%game.valueSign:{0}% %game.action.target%",
+        "partyAchievement": "ความสำเร็จปาร์ตี้:<br>\"%data.partyAchievements.{0}%\"",
+        "prosperity": {
+          "": "ได้รับความมั่งคั่ง {0}",
+          "fh": "ได้รับ {0} %game.prosperity%",
+          "gh2e": "ได้รับ {0} %game.prosperity%"
+        },
+        "randomItem": {
+          "": "ได้รับไอเทมสุ่มหนึ่งชิ้น",
+          "fh": "ได้รับไอเทมสุ่มรวมหนึ่งชิ้น %game.itemFh.random%",
+          "gh2e": "ได้รับไอเทมสุ่มรวมหนึ่งชิ้น %game.itemFh.random%"
+        },
+        "randomItemBlueprint": "ได้รับบลูพรินต์ไอเทมสุ่มหนึ่งชิ้น %game.itemFh.random%",
+        "randomItemDesign": "ได้รับดีไซน์ไอเทมสุ่ม",
+        "randomScenario": "ได้รับฉากข้างสุ่มหนึ่งฉาก",
+        "removeEvent": {
+          "": "ลบอีเวนต์ %game.events.type.{0}% {1} ออกจากเกม",
+          "fh": "ลบอีเวนต์ {1} ออกจากเด็ค %game.events.type.{0}%",
+          "gh2e": "ลบอีเวนต์ {1} ออกจากเด็ค %game.events.type.{0}%"
+        },
+        "reputation": "ได้รับชื่อเสียง {0}",
+        "reputationAdditional": "ได้รับชื่อเสียงเพิ่ม {0}",
+        "reputationFaction": "ได้รับชื่อเสียง %data.gh2eFaction:{0}% {1}",
+        "resource": "ได้รับ {0} %game.resource.{1}% ต่อคน",
+        "resourceType": "ได้รับ %game.loot.{1}% {0} อย่างใดอย่างหนึ่งต่อคน",
+        "scenarioCondition": {
+          "": "ทั้งหมดเริ่มฉากด้วย {0}",
+          "fh": "ตัวละครทั้งหมดเริ่มฉากถัดไปด้วย {0}",
+          "gh2e": "ตัวละครแต่ละตัวเริ่มฉากถัดไปด้วย {0}"
+        },
+        "scenarioConditionOne": "ตัวละครหนึ่งตัวได้รับ %game.condition.{0}%",
+        "scenarioDamage": {
+          "": "ทั้งหมดเริ่มฉากด้วย %game.damage:{0}%",
+          "fh": "ตัวละครทั้งหมดเริ่มฉากถัดไปด้วย %game.damage:{0}%",
+          "gh2e": "ตัวละครแต่ละตัวเริ่มฉากถัดไปด้วย %game.damage:{0}%"
+        },
+        "scenarioSingleMinus1": "หนึ่งตัวเริ่มฉากด้วย %game.card.minus1% x{0}",
+        "sectionOrWeek": "เพิ่ม %game.section:{0}% หรือ {1} ในปฏิทินในหนึ่งสัปดาห์",
+        "sectionOrWeeks": "เพิ่ม %game.section:{0}% หรือ {1} ในปฏิทินใน %game.number.{2}% สัปดาห์",
+        "sectionWeek": "เพิ่ม %game.section:{0}% ในปฏิทินในหนึ่งสัปดาห์",
+        "sectionWeekSeasonFinal": "เพิ่ม %game.section:{0}% ในปฏิทินในสัปดาห์สุดท้ายของ {1} ถัดไป",
+        "sectionWeeks": "เพิ่ม %game.section:{0}% ในปฏิทินใน %game.number.{1}% สัปดาห์",
+        "sectionWeeksSeason": "เพิ่ม %game.section:{0}% ในปฏิทินใน %game.number.{1}% สัปดาห์ ถ้าสัปดาห์นั้นอยู่ใน {2} ให้เพิ่มในสัปดาห์ที่ %game.numbered.{3}% ของ {4} ถัดไปแทน",
+        "skipThreat": "อย่าแก้ไขภัยคุกคามด้านล่าง",
+        "soldier": "ได้รับทหาร 1 คน",
+        "soldiers": "ได้รับทหาร {0} คน",
+        "townGuardDeckCard": "เพิ่มการ์ด %game.townGuardAM:{0}% หนึ่งใบเข้าเด็คยามเมือง",
+        "townGuardDeckCardRemove": "ลบการ์ด %game.townGuardAM:{0}% หนึ่งใบออกจากเด็คยามเมือง",
+        "townGuardDeckCardRemovePermanently": "ลบการ์ด %game.townGuardAM:{0}% หนึ่งใบออกจากเด็คยามเมืองอย่างถาวร",
+        "townGuardDeckCards": "เพิ่มการ์ด %game.townGuardAM:{0}% %game.number.{1}% ใบเข้าเด็คยามเมือง",
+        "traitExperience": "ทุก %game.trait:{0}% ได้รับประสบการณ์ {1} ต่อคน",
+        "traitScenarioCondition": "ตัวละคร %game.trait:{0}% ทั้งหมดเริ่มฉากถัดไปด้วย {1}",
+        "traitScenarioDamage": "ตัวละคร %game.trait:{0}% ทั้งหมดเริ่มฉากถัดไปด้วย %game.damage:{1}%",
+        "unlockEnvelope": "ปลดล็อกซอง {0} ถ้ายังไม่ปลดล็อก",
+        "unlockScenario": {
+          "": "ปลดล็อก \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%",
+          "fh": "ฉากใหม่: \"%data.scenario.title.{1}.{0}%\" ({0})",
+          "gh2e": "ฉากใหม่: \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%"
+        },
+        "unlockScenarioGroup": "ปลดล็อก \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%)",
+        "upgradeBuilding": "อัปเกรด %data.buildings.{0}% ไประดับถัดไป หรือถ้า %data.buildings.{0}% อยู่ระดับ {1} แล้ว ให้ได้รับขวัญ {2} แทน",
+        "wreckBuilding": "ทำลาย %data.buildings.{0}%"
+      },
+      "option": {
+        "": "ตัวเลือก {0}:"
+      },
+      "outpostAttack": {
+        "": "โจมตีฐาน",
+        "effects": "สิ่งต่อไปนี้จะถูกใช้กับโจมตีฐาน"
+      },
+      "requirements": {
+        "": "เงื่อนไข:",
+        "partyAchievement": "%data.partyAchievements.{0}% (ปาร์ตี้) สำเร็จ",
+        "warning": "ไม่ตรงเงื่อนไข คลิกเพื่อจั่วการ์ดอีกใบ!"
+      },
+      "type": {
+        "boat": "เรือ",
+        "city": "เมือง",
+        "rift": "รอยแยก",
+        "road": "ถนน",
+        "summer-outpost": "ฐานฤดูร้อน",
+        "summer-road": "ถนนฤดูร้อน",
+        "winter-outpost": "ฐานฤดูหนาว",
+        "winter-road": "ถนนฤดูหนาว"
       }
     },
+    "exhausted": "หมดแรง",
     "experience": "ค่าประสบการณ์",
+    "figure": {
+      "endTurn": "จบเทิร์น",
+      "error": {
+        "deck": {
+          "": "ไม่มีเด็ค",
+          "hint": "ไม่พบ Ability Deck สำหรับ %{0}% '%data.{0}.{1}%'! กรุณาตรวจสอบข้อมูลเด็ค (ฉบับ: %data.edition.{2}%)"
+        },
+        "monsterEdition": {
+          "": "ฉบับมอนสเตอร์ผิด",
+          "hint": "ไม่พบมอนสเตอร์ '%data.{0}.{1}%' สำหรับฉบับ '%data.edition.{2}%' (ใช้ฉบับ '%data.edition.{3}%' แทน)! กรุณาตรวจสอบข้อมูลมอนสเตอร์สำหรับฉบับ: %data.edition.{2}%"
+        },
+        "monsterType": {
+          "": "ไม่มีประเภทมอนสเตอร์",
+          "hint": "ไม่พบ Monster Type {3} สำหรับ '%data.{0}.{1}%'! กรุณาตรวจสอบข้อมูลมอนสเตอร์ (ฉบับ: %data.edition.{2}%)"
+        },
+        "stat": {
+          "": "ไม่มีสถิติ",
+          "hint": "ไม่มีสถิติระดับ {4} สำหรับ %{0}% '%data.{0}.{1}%'! กรุณาตรวจสอบข้อมูลตัว (ฉบับ: %data.edition.{2}%)"
+        },
+        "unknown": {
+          "": "ไม่รู้จักตัว",
+          "hint": "ไม่พบข้อมูลสำหรับ %{0}% '%data.{0}.{1}%'! กรุณาตรวจสอบข้อมูลฉบับ (Edition: %data.edition.{2}%)"
+        }
+      },
+      "longRest": "ตั้ง Long Rest",
+      "longRestOff": "ปิด Long Rest",
+      "setInitiative": "ตั้ง initiative",
+      "startTurn": "เริ่มเทิร์น"
+    },
+    "health": "แต้มชีวิต",
     "hp": "HP",
+    "initiative": "Initiative",
+    "item": "ไอเทม",
     "items": {
       "": "ไอเทม",
+      "add": "เพิ่ม '{0}'",
+      "anyResource": "%game.loot.{0}% อย่างใดอย่างหนึ่ง",
       "brewing": {
-        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%"
-      }
+        "": "ต้มยาต้ม",
+        "brew": "ต้ม",
+        "brewFor": "ต้มให้ {0}",
+        "brewed": "{2} ต้ม {1} %game.itemFh.{0}%",
+        "brewedOther": "{2} ต้ม {1} %game.itemFh.{0}% ให้ {3}",
+        "disabled": "ต้มยาต้มไม่ได้ ให้สร้าง '%data.buildings.alchemist%' (35) ก่อน",
+        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
+        "noChar": "ตัวละครทุกตัวมียาต้มนี้แล้ว!",
+        "selectCharacter": "เลือกตัวละครที่จะต้มให้:"
+      },
+      "buy": "ซื้อ '{0}' ใน {1} ทอง",
+      "character": {
+        "": "การ์ดไอเทมสำหรับ %game.characterIconColored.{0}% {1}",
+        "empty": "ไม่มีไอเทม",
+        "shop": "ร้านไอเทม",
+        "toggleEquipped": "เฉพาะไอเทมที่สวม",
+        "toggleSorted": "เรียงไอเทม"
+      },
+      "choose": "เลือกไอเทม",
+      "craft": "คราฟต์ '{0}'",
+      "distilling": {
+        "": "กลั่น '{0}'",
+        "distill": "กลั่นสำหรับ 1 %game.loot.{0}%",
+        "select": "เลือกทรัพยากร"
+      },
+      "effect": "ถ้าไอเทมสวมอยู่ เอฟเฟกต์จะถูกใช้โดยอัตโนมัติ เพื่อสวมไอเทม คลิกที่ชื่อไอเทม การสวมไอเทมทำได้เฉพาะก่อนและระหว่างฉาก ดับเบิลคลิกเพื่อบังคับสวม",
+      "empty": "ไม่พบไอเทม",
+      "filter": {
+        "": "ค้นหา…",
+        "affordable": "เฉพาะไอเทมที่ซื้อได้",
+        "all": "แสดงไอเทมทั้งหมด",
+        "owned": "เฉพาะไอเทมที่มี",
+        "sorted": "เรียงแล้ว"
+      },
+      "remove": "ลบ '{0}'",
+      "sell": "ขาย '{0}' ใน {1} ทอง",
+      "shop": {
+        "": "การ์ดไอเทม",
+        "buyingDisabled": "ซื้อไอเทมไม่ได้ ให้สร้าง '%data.buildings.trading-post%' (37) ก่อน",
+        "character": "ร้านไอเทมสำหรับ %game.characterIconColored.{0}% {1}",
+        "craftingDisabled": "คราฟต์ไอเทมไม่ได้ ให้สร้าง '%data.buildings.craftsman%' (34) ก่อน"
+      },
+      "unlock": "ปลดล็อกไอเทม",
+      "unlocked": "ปลดล็อกไอเทมแล้ว",
+      "wip": "%wip%! ไอเทมสำหรับ %data.edition.{0}% ยังไม่ครบ"
     },
     "level": {
-      "": "ระดับ"
+      "": "ระดับ",
+      "bb": {
+        "monsterDifficulty": {
+          "": "ความยากตัวปรับมอนสเตอร์",
+          "0": "ง่ายมาก",
+          "1": "ง่าย",
+          "2": "มาตรฐาน",
+          "3": "ยาก",
+          "4": "ยากมาก"
+        }
+      },
+      "experience": "ประสบการณ์โบนัส",
+      "hazardousTerrain": "ความเสียหายภูมิประเทศอันตราย",
+      "loot": "แปลงทอง",
+      "trap": "ความเสียหายกับดัก"
     },
     "loot": {
       "": "ของที่ปล้นได้",
-      "lootTreasure": {
-        "confirm": "ยืนยัน"
+      "apply": "เพิ่มให้ %data.character.{0}.{1}%",
+      "arrowvine": "Arrowvine",
+      "axenut": "Axenut",
+      "chooseCharacter": "เลือกตัวละครสำหรับ +{0} {1}",
+      "config": {
+        "": "ตารางของปล้น",
+        "apply": "ใช้ตารางของปล้น",
+        "create": "สร้างตารางของปล้น",
+        "discard": "ทิ้งการเปลี่ยนแปลง",
+        "hide": "ซ่อนตารางของปล้น",
+        "show": "แสดงตารางของปล้น"
       },
+      "corpsecap": "Corpsecap",
+      "deck": "เด็คของปล้น",
+      "enhancements": {
+        "": "การเสริมความแข็งแกร่ง",
+        "add": "เพิ่มการเสริม",
+        "remove": "ลบการเสริม"
+      },
+      "flamefruit": "Flamefruit",
+      "herb_resources": "สมุนไพร",
+      "hide": "ซ่อน",
+      "keep": "เก็บไว้ที่ %data.character.{0}.{1}%",
+      "lootTreasure": {
+        "": "{0} ปล้นสมบัติ {1}?",
+        "confirm": "ยืนยัน",
+        "looted": "{0} ปล้นได้:",
+        "selectCharacter": "เลือกตัวละครสำหรับสมบัติ {0}",
+        "selectTreasure": "เลือกสมบัติสำหรับ {0}"
+      },
+      "lumber": "ไม้",
+      "material_resources": "วัสดุ",
+      "metal": "โลหะ",
+      "money": "เงิน",
+      "random_item": {
+        "": "ไอเทมสุ่ม",
+        "apply": "เลือกและสวม",
+        "draw": "ไอเทมสุ่มสำหรับ %game.characterIconColored.{0}% {1}"
+      },
+      "remove": "ลบจาก %data.character.{0}.{1}%",
+      "rockroot": "Rockroot",
+      "snowthistle": "Snowthistle",
+      "special": "พิเศษ",
+      "special1": "การ์ดพิเศษ 1 (#1418)",
+      "special2": "การ์ดพิเศษ 2 (#1419)",
       "toggleSpecial": "%game.loot.{0}%",
       "treasures": {
+        "": "สมบัติ",
         "rewards": {
+          "battleGoal": "ได้รับ {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+          "calendarSection": "เพิ่ม %data.section:{0}% ใน %number.{1}% สัปดาห์",
+          "campaignSticker": "ได้รับสติกเกอร์แคมเปญ \"{0}\"",
+          "condition": "ได้รับ {0}",
+          "damage": "ได้รับ {0}",
+          "event": {
+            "city": "เพิ่ม City Event {0} เข้าเด็ค",
+            "rift": "เพิ่ม Rift Event {0} เข้าเด็ค",
+            "road": "เพิ่ม Road Event {0} เข้าเด็ค"
+          },
+          "experience": "ได้รับประสบการณ์ {0}",
+          "experienceFh": "ได้รับ {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
+          "goal": "เป้าหมาย",
+          "gold": "ได้รับทอง {0}",
+          "goldFh": "ได้รับ {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
+          "heal": "ทำ \"รักษา {0} ตัวเอง\"",
+          "item": "ได้รับ {1} ({0})",
+          "itemBlueprint": "ได้รับบลูพรินต์ {1} %game.itemFh.{0}%",
+          "itemDesign": "ได้รับดีไซน์ {1} ({0})",
+          "itemFh": "ได้รับ {1} %game.itemFh.{0}%",
+          "loot": "ได้รับโทเค็นเงิน {0}",
+          "lootCards": "ได้รับการ์ดของปล้น %number.{0}% ใบ",
+          "partyAchievement": "ความสำเร็จปาร์ตี้: \"%data.partyAchievements.{0}%\"",
           "randomItem": {
+            "": "ได้รับไอเทมสุ่มหนึ่งชิ้น (ไอเทม {0})",
             "result": ": {1} ({0})"
           },
+          "randomItemBlueprint": {
+            "": "บลูพรินต์ไอเทมสุ่ม",
+            "result": ": บลูพรินต์ {1} ({0})"
+          },
+          "randomItemDesign": {
+            "": "ดีไซน์ไอเทมสุ่ม",
+            "result": ": ดีไซน์ {1} ({0})"
+          },
           "randomScenario": {
+            "": "ฉากข้างสุ่ม",
             "result": ": {1} %data.scenarioNumber:{0}%"
-          }
+          },
+          "randomScenarioFh": {
+            "": "ฉากข้างสุ่ม",
+            "result": ": เปิด %data.section:{0}% ปลดล็อก {2}"
+          },
+          "resource": "ได้รับ {0}",
+          "scenario": "ฉากใหม่: {1} %data.scenarioNumber:{0}%"
         }
       }
     },
+    "maxHealth": "แต้มชีวิตสูงสุด",
+    "solo": "โซโล",
+    "specialTarget": {
+      "ability": "%game.target% the target of the %game.actionText.{0}% ability",
+      "all": "%game.target% all",
+      "allCharacters": "%game.target% all characters",
+      "allies": "%game.target% all allies",
+      "alliesAdjacent": "%game.target% all adjacent allies",
+      "alliesAdjacentAffect": "%game.affect% all adjacent allies",
+      "alliesAffect": "%game.affect% all allies",
+      "alliesEnemies": "%game.target% all allies and enemies",
+      "alliesRange": "%game.target% all allies within %game.action.range% {0}",
+      "alliesRangeAffect": "%game.affect% all allies within %game.action.range% {0}",
+      "ally": "%game.target% 1 ally",
+      "allyAdjacent": "%game.target% one adjacent ally",
+      "allyAffect": "%game.affect% any ally",
+      "allyAffectAdjacent": "%game.affect% one adjacent ally",
+      "allyAffectRange": "%game.affect% one ally within %game.action.range% {0}",
+      "allyShort": "พันธมิตร",
+      "enemies": "%game.target% all enemies",
+      "enemiesAdjacent": "%game.target% all adjacent enemies",
+      "enemiesMovedThrough": "%game.target% all enemies moved through",
+      "enemiesMovedThroughAdjacent": "%game.target% all enemies occupying or adjacent to<br>hexes entered during the move ability",
+      "enemiesRange": "%game.target% all enemies within %game.action.range% {0}",
+      "enemiesRangeAffect": "%game.affect% all enemies within %game.action.range% {0}",
+      "enemiesRangeAffectExact": "%game.affect% all enemies at exactly %game.action.range% {0}",
+      "enemiesRangeExact": "%game.target% all enemies at exactly %game.action.range% {0}",
+      "enemy": "%game.target% one enemy",
+      "enemyAdjacent": "%game.target% one adjacent enemy",
+      "enemyAllyRange": "%game.target% one enemy or %game.affect% one ally within %game.action.range% {0}",
+      "enemyAttacked": "%game.target% the enemy that<br>attacked you",
+      "enemyOneAll": "%game.target% one enemy with all attacks",
+      "enemyRange": "%game.target% one enemy at exactly %game.action.range% {0}",
+      "figures": "%game.target% all figures",
+      "figuresAdjacent": "%game.target% all adjacent figures",
+      "figuresRange": "%game.target% all figures %game.action.range% {0}",
+      "focusEnemyFarthest": "โฟกัสศัตรูที่ไกลที่สุด",
+      "self": "ตัวเอง",
+      "selfAllies": "ตัวเองและพันธมิตรทั้งหมด",
+      "selfAlliesAdjacentAffect": "%game.affect% self and all adjacent allies",
+      "selfAlliesAffect": "%game.affect% self and all allies",
+      "selfAlliesAffectRange": "%game.affect% self and all allies within %game.action.range% {0}",
+      "selfAlliesRange": "%game.target% self and all allies within %game.action.range% {0}",
+      "selfOrAlly": "ตัวเองหรือพันธมิตร",
+      "targets": "เป้าหมายทั้งหมด"
+    },
+    "sufferDamage": "{0} ได้รับ %game.damage:{1}%",
     "summon": {
+      "player2-3": "%game.monsterType.{0}% for two or three characters or %game.monsterType.{1}% for four characters",
+      "player3-4": "%game.monsterType.{0}% for two or %game.monsterType.{1}% for three or four characters",
+      "playerAll": "%game.monsterType.{0}% for all characters",
       "spawn": "{1} %data.monster.{0}%",
+      "spawnMarker": "{1} %data.monster.{0}% at %game.mapMarker.{2}%",
       "spawnObjective": "{1} %data.objective.{0}%",
-      "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%"
+      "spawnObjectiveMarker": "{1} %data.objective.{0}% at %game.mapMarker.{2}%",
+      "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
+      "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%"
     },
     "target": {
-      "": "เป้าหมาย"
+      "": "เป้าหมาย",
+      "all": "ทั้งหมด"
     }
   },
   "help": "ช่วยเหลือ",
   "hints": {
+    "active": "ผลัดกันเล่น",
+    "active-full": "ผลัดกันเล่น คลิกที่รูปตัวละครแต่ละตัว",
+    "addAdditionalContent": "เพิ่มเนื้อหาเพิ่มเติม",
     "addCharacters": "%character.add%",
+    "addMonsterEntities": "ใช้ปุ่ม \"+\" เพื่อสปอว์นมอนสเตอร์",
     "addMonsters": "%monster.add%",
+    "draw": "คลิก \"%round.draw%\"",
+    "draw-full": "เลือกการ์ดความสามารถตัวละคร ตั้ง initiative แล้วคลิก \"%round.draw%\"",
+    "draw-short": "ตั้ง initiative แล้วคลิก \"%round.draw%\"",
+    "next": "คลิก \"%round.next%\"",
     "setScenario": "%scenario.set%"
   },
   "menu": {
@@ -505,209 +1349,2378 @@
     "main": "เมนูหลัก"
   },
   "monster": {
-    "cancelNumberpicker": "ยกเลิก"
+    "": "มอนสเตอร์",
+    "add": "เพิ่มมอนสเตอร์",
+    "addEntity": {
+      "boss": "สปอว์นมอนสเตอร์บอส",
+      "elite": "สปอว์นมอนสเตอร์เอลิท",
+      "normal": "สปอว์นมอนสเตอร์ปกติ"
+    },
+    "applyInteractiveActions": "ใช้ความสามารถที่ไฮไลต์สำหรับ",
+    "boss": "บอส",
+    "cancelNumberpicker": "ยกเลิก",
+    "changeStandee": "เปลี่ยนสแตนดี %game.monsterType.{0}% # {1}",
+    "changeType": "เปลี่ยนประเภทจาก %game.monsterType.{0}% เป็น %game.monsterType.{1}%",
+    "elite": "เอลิท",
+    "filter": {
+      "": "กรองมอนสเตอร์",
+      "noResult": "ไม่พบผลลัพธ์"
+    },
+    "normal": "ปกติ",
+    "remove": "ลบมอนสเตอร์",
+    "removeAll": "ลบทั้งหมด",
+    "removeUnused": "ลบที่ไม่ได้ใช้",
+    "selectStandees": {
+      "all": "เลือกสแตนดีทั้งหมด",
+      "boss": "เลือกสแตนดีบอสทั้งหมด",
+      "elite": "เลือกสแตนดีเอลิททั้งหมด",
+      "normal": "เลือกสแตนดีปกติทั้งหมด"
+    },
+    "setStandees": "ตั้งสแตนดี {1} %game.monsterType.{0}%",
+    "showBoss": "แสดงมอนสเตอร์บอส",
+    "showHidden": "แสดงมอนสเตอร์ซ่อน",
+    "skipInteractiveActions": "ข้ามความสามารถแบบโต้ตอบสำหรับ",
+    "statEffect": {
+      "": "Special Rules apply following changes:",
+      "deck": "Use modified abilities:<br>\"{0}\""
+    },
+    "toggleAction": "Toggle applicable ability",
+    "toggleAllied": {
+      "off": "Turn <span class=\"monster-allied-off\">Allied</span> off",
+      "on": "Turn <span class=\"monster-allied-on\">Allied</span> on"
+    },
+    "toggleAlly": {
+      "off": "Switch back to <span class=\"monster-ally-off\">Enemy</span>",
+      "on": "Switch to <span class=\"monster-ally-on\">Ally</span>"
+    },
+    "toggleDormant": {
+      "off": "Switch back to active entities",
+      "on": "Switch to dormant entities"
+    }
+  },
+  "number": {
+    "0": "ศูนย์",
+    "1": "หนึ่ง",
+    "2": "สอง",
+    "3": "สาม",
+    "4": "สี่",
+    "5": "ห้า",
+    "6": "หก",
+    "7": "เจ็ด",
+    "8": "แปด",
+    "9": "เก้า"
+  },
+  "numbered": {
+    "1": "แรก",
+    "10": "ที่สิบ",
+    "2": "ที่สอง",
+    "3": "ที่สาม",
+    "4": "ที่สี่",
+    "5": "ที่ห้า",
+    "6": "ที่หก",
+    "7": "ที่เจ็ด",
+    "8": "ที่แปด",
+    "9": "ที่เก้า"
+  },
+  "objective": {
+    "": "เป้าหมาย",
+    "add": "เพิ่มเป้าหมาย",
+    "addContainer": "เพิ่มคอนเทนเนอร์เป้าหมาย (%wip%)",
+    "remove": "ลบเป้าหมาย",
+    "removeAll": "ลบทั้งหมด"
   },
   "or": "หรือ",
   "party": {
+    "": "ปาร์ตี้",
+    "achievements": "ความสำเร็จ",
+    "addGlobalAchievement": {
+      "": "เพิ่มความสำเร็จส่วนกลาง",
+      "empty": "ไม่พบความสำเร็จส่วนกลางที่ตรง"
+    },
+    "addPartyAchievement": {
+      "": "เพิ่มความสำเร็จปาร์ตี้",
+      "empty": "ไม่พบความสำเร็จปาร์ตี้ที่ตรง"
+    },
     "campaign": {
+      "": "แคมเปญ",
+      "achievements": "ความสำเร็จส่วนกลาง",
+      "donations": "บริจาคแด่วิหารโอ๊กใหญ่",
+      "envelopeB": "ซอง B",
+      "items": "ไอเทมที่ปลดล็อก",
+      "manage": "จัดการแคมเปญรวม",
+      "map": "แผนที่",
+      "players": {
+        "": "ชื่อผู้เล่น",
+        "add": "เพิ่มผู้เล่น"
+      },
       "retirements": {
-        "level": "ระดับ"
+        "": "ตัวละครที่เกษียณ",
+        "character": "ตัวละคร",
+        "class": "คลาส",
+        "level": "ระดับ",
+        "masteries": "ความเชี่ยวชาญ",
+        "perks": "ความสามารถพิเศษ",
+        "player": "ผู้เล่น",
+        "reactivate": "เปิดใช้ตัวละครอีกครั้ง"
       },
       "scenarios": {
+        "": "ฉาก",
+        "addConclusion": "เพิ่มบทสรุป",
+        "addSuccess": "ทำเครื่องหมายสำเร็จ",
+        "conclusions": "บทสรุป",
+        "edition": "ฉบับ",
         "finished": "เสร็จแล้ว",
+        "group": "กลุ่ม",
         "index": "#",
-        "name": "ชื่อ"
+        "name": "ชื่อ",
+        "removeManual": "ลบจากการปลดล็อก",
+        "removeSuccess": "ลบจากที่สำเร็จ",
+        "removeSuccessCasual": "ลบจากฉากธรรมดาที่ทำเสร็จ",
+        "unlock": "ปลดล็อกฉาก"
       },
       "sheet": {
+        "": "แผ่นแคมเปญ",
         "buildings": {
+          "": "อาคาร",
+          "action": "แอ็กชัน",
+          "build": {
+            "": "สร้าง",
+            "action": "สร้าง",
+            "hint": "สร้าง (บังคับด้วยดับเบิลคลิก)"
+          },
+          "costs": "ต้นทุน",
+          "discount": "ทรัพยากรวัสดุ -1",
+          "effects": "เอฟเฟกต์",
+          "id": "หมายเลข",
+          "interactions": "การโต้ตอบ",
           "level": {
-            "": "ระดับ"
+            "": "ระดับ",
+            "hint": "แสดงโบนัส (ดับเบิลคลิกเพื่อลดระดับ)"
           },
           "name": "ชื่อ",
+          "rebuild": {
+            "": "สร้างใหม่",
+            "action": "สร้างใหม่",
+            "hint": "สร้างใหม่ (บังคับด้วยดับเบิลคลิก)"
+          },
+          "repair": {
+            "": "ซ่อมอาคาร",
+            "action": "ซ่อมอาคาร",
+            "costs": "อย่างใดอย่างหนึ่ง {0}",
+            "hint": "ซ่อมอาคาร (บังคับด้วยดับเบิลคลิก)",
+            "morale": "ขวัญ -1"
+          },
           "rewards": {
-            "section": "%data.section:{0}%"
+            "action": "ระดับ {0}",
+            "defense": "ป้องกัน +{0}",
+            "items": "เพิ่ม %game.itemFh.{0}% ถึง %game.itemFh.{1}% ในสต็อกไอเทม",
+            "loseMorale": "ขวัญ -{0}",
+            "plot": "พล็อต +{0}",
+            "plots": "พล็อต +{0}",
+            "prosperity": "ความมั่งคั่ง +{0}",
+            "section": "%data.section:{0}%",
+            "soldiers": "ทหาร +{0}"
           },
           "selectResources": {
-            "confirm": "ยืนยัน"
+            "": "เลือกทรัพยากร",
+            "confirm": "ยืนยัน",
+            "morale": "ขวัญ -1"
+          },
+          "state": {
+            "damaged": "เสียหาย",
+            "normal": "ปกติ",
+            "wrecked": "พัง"
+          },
+          "unlock": "ปลดล็อกอาคาร",
+          "upgrade": {
+            "": "อัปเกรดอาคาร",
+            "action": "อัปเกรดอาคารไประดับ {0}",
+            "hint": "อัปเกรดอาคาร (บังคับด้วยดับเบิลคลิก)"
           }
         },
+        "campaignStickers": {
+          "": "สติกเกอร์แคมเปญ",
+          "empty": "ไม่พบสติกเกอร์แคมเปญที่ตรง"
+        },
+        "defense": "ป้องกัน",
+        "disable": "ไปแผ่นปาร์ตี้ Gloomhaven",
+        "enable": "ไปแผ่นแคมเปญ Frosthaven",
+        "name": "ชื่อปาร์ตี้",
+        "nextWeek": "สัปดาห์ถัดไป (ปฏิทินใหม่)",
+        "soldierLevel": "ระดับ",
+        "soldiers": "ทหาร",
+        "summer": "ฤดูร้อน",
         "supply": {
-          "edit": "แก้ไข"
+          "": "สต็อก Frosthaven",
+          "apply": "ใช้การเปลี่ยนแปลง",
+          "edit": "แก้ไข",
+          "total": "รวม"
+        },
+        "totalDefense": "ป้องกันรวม",
+        "townGuardPerks": "ความสามารถพิเศษยามเมือง",
+        "weekSections": {
+          "": "ตั้งส่วนสำหรับสัปดาห์ {0}",
+          "addSection": "เพิ่มส่วนในสัปดาห์",
+          "calc": "{0} สัปดาห์จากสัปดาห์ปัจจุบัน",
+          "hint": "ดับเบิลคลิกเพื่อตั้ง/แก้ส่วนของสัปดาห์",
+          "lock": "ล็อกปฏิทินเพื่อกันการแก้โดยไม่ตั้งใจ ดับเบิลคลิกเพื่อล็อกแบบยืดหยุ่น ให้เพิ่มหรือลบได้หนึ่งสัปดาห์พอดี",
+          "openConclusion": "เลือกส่วนที่ดำเนินต่อ",
+          "section": "ส่วน"
+        },
+        "winter": "ฤดูหนาว"
+      },
+      "totalTime": "เล่นในฉากเป็นเวลา {0}",
+      "townGuard": "ยามเมือง",
+      "townGuardDeck": "เด็คยามเมือง",
+      "treasures": {
+        "": "สมบัติ",
+        "applySelect": "ใช้การเลือก",
+        "batchSelect": "เลือกหลายรายการ",
+        "loot": "ปล้นสมบัติ"
+      }
+    },
+    "campaignMode": "โหมดแคมเปญ",
+    "change": "เปลี่ยนปาร์ตี้",
+    "export": "ส่งออก",
+    "greatOak": "วิหารโอ๊กใหญ่",
+    "imbuement": "การชุบ",
+    "import": "นำเข้า",
+    "inspiration": "Inspiration",
+    "location": "สถานที่",
+    "morale": "ขวัญ",
+    "name": "ชื่อ",
+    "new": {
+      "": "สร้างแคมเปญใหม่",
+      "hint": "การสร้างแคมเปญใหม่ถูกปิดระหว่างเล่นฉาก จบหรือยกเลิกฉากปัจจุบันก่อนจึงจะสร้างแคมเปญใหม่ได้"
+    },
+    "notes": "หมายเหตุ",
+    "outpostAttack": {
+      "advantage": "ได้ advantage ในการโจมตีนี้เพราะเสียทหาร!",
+      "buildings": {
+        "damaged": "อาคารเสียหาย",
+        "lvl": "ระดับ {0}",
+        "wrecked": "อาคารพัง"
+      },
+      "defense": "ป้องกันฐาน:",
+      "disadvantage": "ได้ disadvantage เพราะกรมทหารพัง!",
+      "filter": {
+        "desc": "เรียงจากมากไปน้อย",
+        "distance": "ระยะทาง",
+        "even": "คู่",
+        "level": {
+          "": "ระดับ",
+          "high": "สูงไปต่ำ",
+          "low": "ต่ำไปสูง"
+        },
+        "lowerBoundary": "ขอบล่าง",
+        "odd": "คี่",
+        "parity": "คู่/คี่",
+        "randomize": "สุ่ม",
+        "upperBoundary": "ขอบบน"
+      },
+      "finish": "จบ",
+      "map": "เปิดแผนที่รวม",
+      "next": "เป้าหมายถัดไป",
+      "other": "อาคารอื่น",
+      "result": {
+        "damage": "อาคารเสียหาย<br>ล้มเหลวด้วยป้องกัน {0} กับ %game.action.attack% {2}!",
+        "success": "สำเร็จด้วยป้องกัน {0} กับ %game.action.attack% {2}!",
+        "successfull": "ป้องกันสำเร็จ!",
+        "wreck": "อาคารพัง!"
+      },
+      "sheet": "เปิดแผ่นปาร์ตี้",
+      "targets": "อาคารที่เป็นเป้า"
+    },
+    "prosperity": {
+      "": "ความมั่งคั่ง",
+      "reset": "รีเซ็ตความมั่งคั่ง",
+      "wrap": {
+        "expand": "ขยาย",
+        "shrink": "ย่อ"
+      }
+    },
+    "remove": "ลบปาร์ตี้",
+    "reputation": {
+      "": "ชื่อเสียง",
+      "additional": {
+        "": "การปลดล็อกชื่อเสียงเพิ่ม",
+        "sectionRequires": {
+          "": "อ่าน %game.section:{0}% เมื่อมีชื่อเสียง %game.gh2eFaction:{2}% อย่างน้อย {1} และทำฉาก {3} เสร็จแล้ว",
+          "multiple": "อ่าน %game.section:{0}% เมื่อมีชื่อเสียง %game.gh2eFaction:{2}% {1} และทำฉาก {3} เสร็จแล้ว"
+        },
+        "special": {
+          "city-event": "เพิ่ม C-{0} เข้าเด็ค city event เมื่อมีชื่อเสียงกับฝ่ายหนึ่งอย่างน้อย {1}"
         }
       }
     },
-    "name": "ชื่อ",
-    "outpostAttack": {
-      "filter": {
-        "level": {
-          "": "ระดับ"
-        }
-      },
-      "finish": "จบ"
+    "sheet": "แผ่นปาร์ตี้",
+    "shop": {
+      "": "ตัวปรับราคาร้าน",
+      "none": "ไม่มี"
     }
   },
   "permissions": {
-    "level": {
-      "": "ระดับ"
+    "": "สิทธิ์ของคุณ",
+    "all": {
+      "": "สิทธิ์เต็ม",
+      "hint": "สร้างสิทธิ์ใหม่ได้! เปลี่ยนภายหลังไม่ได้!"
     },
+    "attackModifiers": {
+      "": "เด็คตัวปรับการโจมตี",
+      "hint": "จั่วและแก้ไขเด็คตัวปรับการโจมตีมอนสเตอร์และพันธมิตร"
+    },
+    "characters": {
+      "": "ตัวละครทั้งหมด",
+      "hint": "อัปเดตและเปลี่ยนตัวละครกับเป้าหมายทั้งหมด"
+    },
+    "code": {
+      "": "รหัสเกมใหม่สำหรับสิทธิ์"
+    },
+    "create": "สร้างสิทธิ์ใหม่",
+    "custom": {
+      "": "กำหนดสิทธิ์ใหม่",
+      "hint": "ระบุสิทธิ์ที่ให้"
+    },
+    "elements": {
+      "": "ธาตุ",
+      "hint": "ตั้งสถานะธาตุ"
+    },
+    "hasAll": "ได้รับสิทธิ์ทั้งหมด",
+    "level": {
+      "": "ระดับ",
+      "hint": "เปลี่ยนระดับฉาก"
+    },
+    "lootDeck": {
+      "": "เด็คของปล้น",
+      "hint": "จั่วและแก้ไขเด็คของปล้น"
+    },
+    "monsters": {
+      "": "มอนสเตอร์ทั้งหมด",
+      "hint": "อัปเดตและเปลี่ยนมอนสเตอร์กับตัวมอนสเตอร์ทั้งหมด"
+    },
+    "party": {
+      "": "ปาร์ตี้",
+      "hint": "อัปเดตและเปลี่ยนความคืบหน้าปาร์ตี้กับแคมเปญ"
+    },
+    "round": {
+      "": "เทิร์น",
+      "hint": "ควบคุมเทิร์นและเทิร์นของตัว"
+    },
+    "save": "บันทึกสิทธิ์",
     "scenario": {
-      "": "ฉาก"
+      "": "ฉาก",
+      "hint": "เปลี่ยนฉบับ ฉาก และส่วน"
     }
   },
   "round": {
     "draw": "จั่ว",
     "hint": {
-      "confirm": "ยืนยัน"
+      "active": "ยังมีตัวไม่จบเทิร์น จบเทิร์นเลยไหม?",
+      "battleGoals": "ยังมีตัวละครที่ยังไม่เลือกเป้าหมายการต่อสู้ เริ่มเทิร์นเลยไหม?",
+      "confirm": "ยืนยัน",
+      "confirmFailed": "จบฉากแบบล้มเหลว",
+      "confirmFinish": "จบฉากแบบสำเร็จ",
+      "confirmReset": "รีเซ็ตฉาก",
+      "confirmTurns": "ยืนยันโดยไม่จบเทิร์น!",
+      "continueDraw": "ดำเนินการจั่ว",
+      "continueNext": "ดำเนินการเทิร์นถัดไป",
+      "empty": "กรุณาเพิ่มมอนสเตอร์และตัวละครก่อนเริ่มเทิร์น",
+      "eventDraw": "จั่วการ์ดอีเวนต์ %game.events.type.{0}%",
+      "failed": "ตัวละครทั้งหมดดูหมดแรง ต้องการเริ่มฉากใหม่ไหม?",
+      "finish": "ไม่มีมอนสเตอร์เหลือแล้ว จบฉากสำเร็จไหม?",
+      "initiativeRoundConfirm": "ตั้ง initiative ครบแล้ว เริ่มเทิร์นถัดไปไหม?",
+      "missingInitiative": "ต้องตั้ง initiative สำหรับตัวทั้งหมด!"
     },
     "next": "เทิร์นถัดไป"
   },
   "scenario": {
     "": "ฉาก",
-    "eventEffects": {
-      "drawRandomItem": {
-        "apply": "ใช้"
+    "blocked": "ถูกบล็อก",
+    "cancel": "ยกเลิกฉาก",
+    "chart": {
+      "": "ผังฉาก",
+      "campaign": {
+        "": "โหมดแคมเปญ",
+        "back": "กลับโหมดแคมเปญ",
+        "force": "ดับเบิลคลิกเพื่อบังคับแสดงผังรวมรวมสปอยเลอร์"
       },
-      "drawRandomScenario": {
-        "apply": "ใช้",
-        "scenario": "{1} %data.scenarioNumber:{0}%"
+      "legend": {
+        "": "คำอธิบาย",
+        "blocked": {
+          "": "ถูกบล็อก",
+          "hint": "เล่นฉากนี้ไม่ได้ เพราะถูกบล็อกโดยฉากอื่น"
+        },
+        "calendar": {
+          "": "ปลดล็อกโดยปฏิทิน",
+          "hint": "ฉากนี้ปลดล็อกโดยส่วนปฏิทิน"
+        },
+        "exclusive": {
+          "": "เฉพาะทาง",
+          "hint": "เส้นทางฉากนี้เป็นเฉพาะทาง จึงเลือกได้เพียงทางเดียว ทางอื่นถูกบล็อก"
+        },
+        "force-linked": {
+          "": "เชื่อมบังคับ",
+          "hint": "ฉากนี้เชื่อมและต้องเล่นต่อทันที"
+        },
+        "linked": {
+          "": "เชื่อม",
+          "hint": "ฉากนี้เชื่อมกับฉากอื่น"
+        },
+        "locked": {
+          "": "ล็อก",
+          "hint": "ฉากนี้ล็อก จึงยังเล่นไม่ได้เพราะไม่ตรงเงื่อนไข"
+        },
+        "not-campaign": {
+          "": "ไม่ใช่โหมดแคมเปญ",
+          "hint": "คุณไม่ได้อยู่ในโหมดแคมเปญ"
+        },
+        "not-unlocked": {
+          "": "ยังไม่ปลดล็อก",
+          "hint": "ฉากนี้มองเห็นแต่เล่นไม่ได้เพราะยังไม่ปลดล็อก"
+        },
+        "success": {
+          "": "สำเร็จ",
+          "hint": "ฉากนี้จบสำเร็จแล้ว"
+        },
+        "success-blocked": {
+          "": "สำเร็จ ตอนนี้ถูกบล็อก",
+          "hint": "ฉากนี้จบสำเร็จแล้ว แต่ตอนนี้ถูกบล็อก"
+        },
+        "success-locked": {
+          "": "สำเร็จ ตอนนี้ล็อก",
+          "hint": "ฉากนี้จบสำเร็จแล้ว แต่ตอนนี้ล็อก"
+        },
+        "unplayed": {
+          "": "ยังไม่เล่น",
+          "hint": "ฉากนี้ปลดล็อกแล้วและเล่นได้"
+        }
+      },
+      "setup": "แสดงการตั้งค่าฉาก",
+      "start": "เริ่มฉาก",
+      "success": "ทำเครื่องหมายว่าทำเสร็จ",
+      "treasures": {
+        "": "แสดงสมบัติ (ถ้ามี)",
+        "empty": "ไม่มีสมบัติ"
       }
     },
-    "favors": {
-      "apply": "ใช้"
+    "conclusion": "บทสรุป",
+    "custom": "กำหนดเอง",
+    "eventEffects": {
+      "": "เอฟเฟกต์อีเวนต์",
+      "campaign": "ส่งผลแคมเปญ",
+      "drawEvent": "จั่วอีเวนต์ %game.events.type.{0}%",
+      "drawRandomItem": {
+        "": "จั่วดีไซน์ไอเทมสุ่ม",
+        "apply": "ใช้",
+        "blueprint": "จั่วบลูพรินต์ไอเทมสุ่ม"
+      },
+      "drawRandomScenario": {
+        "": "จั่วฉากสุ่ม",
+        "apply": "ใช้",
+        "scenario": "{1} %data.scenarioNumber:{0}%",
+        "section": "เปิด %data.section:{0}% ปลดล็อก {2}"
+      },
+      "hint": "ใช้กับตัวที่เลือกทั้งหมด",
+      "outpostAttack": "โจมตีฐาน",
+      "progress": "ส่งผลความคืบหน้าตัวละคร",
+      "progressShare": "ส่งผลความคืบหน้าฐาน"
     },
+    "favors": {
+      "": "ภาคผนวก F: Favors",
+      "apply": "ใช้",
+      "keep": "เก็บ Favors ทุกฉาก",
+      "label": {
+        "": "%game.data.favors.{0}.{1}% (1 คะแนน)",
+        "multiple": "%game.data.favors.{0}.{1}% ({2} คะแนน)"
+      }
+    },
+    "filter": {
+      "": "กรองฉาก",
+      "noResult": "ไม่พบผลลัพธ์"
+    },
+    "filterSuccess": "เฉพาะฉากที่ยังไม่จบ",
+    "finish": {
+      "": "จบฉาก",
+      "failure": "ล้มเหลว",
+      "reset": "รีเซ็ต",
+      "success": "สำเร็จ"
+    },
+    "gh2eImbuement": {
+      "": "ภาคผนวก F: การชุบมอนสเตอร์",
+      "advancedImbuement": "การชุบขั้นสูง",
+      "imbuement": "การชุบ"
+    },
+    "level": "ระดับ {0}",
+    "locked": "ไม่ตรงเงื่อนไข",
+    "manual": {
+      "add": "ปลดล็อกฉาก",
+      "index": "หมายเลขฉาก คั่นด้วยจุลภาค"
+    },
+    "openRoom": "เปิดประตู",
+    "openRoomMarker": "เปิดประตู %game.mapMarker.{1}%",
+    "openRoomMarkerRef": "เปิดประตู %game.mapMarker.{1}% สำหรับแผ่น '{0}'",
+    "openRoomRef": "เปิดประตูสำหรับแผ่น '{0}'",
+    "random": {
+      "": "ดันเจี้ยนสุ่ม",
+      "treasure": {
+        "createTwoElements": "สร้างธาตุใดก็ได้สองอย่าง",
+        "cureConditions": "รักษาสถานะลบทั้งหมด",
+        "enemiesCondition": "ศัตรูทั้งหมดได้รับ %game.condition.{0}%",
+        "enemiesDamage": "ศัตรูทั้งหมดได้รับ %game.damage:{0}%",
+        "gold": "{0} ทอง",
+        "heal": "รักษา {0} แต้มชีวิต",
+        "lootCards": "ได้รับการ์ดของปล้น {0} ใบ",
+        "recoverCards": "กู้การ์ด {0} ใบจากกองทิ้ง",
+        "recoverLost": "กู้การ์ดที่สูญหายหนึ่งใบ",
+        "refreshItem": "รีเฟรชไอเทม %game.itemSlot:{1}% {0} ชิ้น",
+        "resource": "ได้รับ %game.resource.{0}% {1}"
+      }
+    },
+    "recap": "สรุปย่อ",
     "requirements": {
+      "": "เงื่อนไขฉาก",
+      "all": "แสดงเงื่อนไขทั้งหมด (รวมที่ครบแล้ว)",
+      "buildings": "'%data.buildings.{0}%' (อาคาร) สร้างแล้ว",
+      "buildingsLevel": "'%data.buildings.{0}%' (อาคาร) ระดับ {1} สร้างแล้ว",
+      "buildingsMissing": "'%data.buildings.{0}%' (อาคาร) ยังไม่สร้าง",
+      "campaignStickers": "'%data.campaignSticker.{0}%' (สติกเกอร์แคมเปญ) ครบ",
+      "campaignStickersCount": "'%data.campaignSticker.{0}%' (สติกเกอร์แคมเปญ) x{2} ครบ (ได้ {1})",
+      "campaignStickersMissing": "'%data.campaignSticker.{0}%' (สติกเกอร์แคมเปญ) ยังไม่ครบ",
       "cancel": "ยกเลิก",
+      "characters": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' อยู่",
+      "charactersMissing": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' ไม่อยู่",
+      "global": "'%data.globalAchievements.{0}%' (ทั่วโลก) ครบ",
+      "globalCount": "'%data.globalAchievements.{0}%' (ทั่วโลก) x{2} ครบ (ได้ {1})",
+      "globalMissing": "'%data.globalAchievements.{0}%' (ทั่วโลก) ยังไม่ครบ",
+      "party": "'%data.partyAchievements.{0}%' (ปาร์ตี้) ครบ",
+      "partyCount": "'%data.partyAchievements.{0}%' (ปาร์ตี้) x{2} ครบ (ได้ {1})",
+      "partyMissing": "'%data.partyAchievements.{0}%' (ปาร์ตี้) ยังไม่ครบ",
       "scenarios": {
+        "": "ต้องจบฉากต่อไปนี้",
+        "and": "และ",
         "or": "หรือ",
         "scenario": "%data.scenarioNumber:{0}%"
+      },
+      "solo": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' ระดับ 5 ขึ้นไป",
+      "start": "เริ่มฉากเลย"
+    },
+    "reset": "เริ่มฉากใหม่",
+    "rewards": {
+      "": "รางวัล",
+      "addWeek": {
+        "": "ปฏิทิน",
+        "next": "เลื่อนปฏิทินอัตโนมัติถึงสัปดาห์ {0}",
+        "section": "เปิด %data.section:{0}% (ใช้อัตโนมัติ)",
+        "summer": "ฤดูใหม่: ฤดูร้อน <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
+        "winter": "ฤดูใหม่: ฤดูหนาว <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
+      },
+      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> ต่อคน",
+      "bonus": "โบนัส",
+      "calendarSection": {
+        "": "ลิงก์ส่วน",
+        "add": {
+          "": "เพิ่ม %data.section:{0}% ใน %number.{1}% สัปดาห์",
+          "next": "เพิ่ม %data.section:{0}% ในปฏิทินในสัปดาห์ที่ %numbered.{1}% ของ %party.campaign.sheet.{2}% ถัดไป"
+        }
+      },
+      "campaignSticker": "สติกเกอร์แคมเปญ",
+      "chooseItem": "เลือกได้รับหนึ่งในรายการต่อไปนี้",
+      "chooseLocation": "เลือกปลดล็อกได้เพียงหนึ่งในรายการต่อไปนี้",
+      "collectiveGold": "ทองรวม {0}",
+      "collectiveResources": "ได้รับ %game.resource.{0}% รวม {1}",
+      "collectiveResourcesLose": "เสีย %game.resource.{0}% รวม {1}",
+      "envelope": "เปิดซอง {0}",
+      "event": {
+        "boat": "เพิ่มอีเวนต์ {0} ในเด็คเรือ",
+        "city": "เพิ่มอีเวนต์เมือง {0} ในเด็ค",
+        "rift": "เพิ่มอีเวนต์ริฟต์ {0} ในเด็ค",
+        "road": "เพิ่มอีเวนต์ถนน {0} ในเด็ค",
+        "summer-outpost": "เพิ่มอีเวนต์ {0} ในเด็คฐานฤดูร้อน",
+        "summer-road": "เพิ่มอีเวนต์ {0} ในเด็คถนนฤดูร้อน",
+        "winter-outpost": "เพิ่มอีเวนต์ {0} ในเด็คฐานฤดูหนาว",
+        "winter-road": "เพิ่มอีเวนต์ {0} ในเด็คถนนฤดูหนาว"
+      },
+      "experience": "ได้รับประสบการณ์ {0} ต่อคน",
+      "factionUnlock": "ชื่อเสียง %data.gh2eFaction:{0}% สามารถเพิ่มเกิน 12 ได้แล้ว",
+      "globalAchievements": "ความสำเร็จทั่วโลก",
+      "gold": "ทอง {0} ต่อคน",
+      "inspiration": "{0} แรงบันดาลใจ",
+      "item": "\"{1}\" (ไอเทม {0})",
+      "itemBlueprint": "ได้รับบลูพรินต์ \"{1}\" %game.itemFh.{0}%",
+      "itemBlueprintRange": "เพิ่มไอเทม %game.itemFh.{0}% ถึง %game.itemFh.{1}% ในสต็อกไอเทม",
+      "itemDesign": "ดีไซน์ \"{1}\" (ไอเทม {0})",
+      "itemDesignEdition": "ดีไซน์ \"{1}\" (ไอเทม {0} %data.edition.{2}%)",
+      "itemDesignRange": "เพิ่มดีไซน์ไอเทม {0}",
+      "items": "{2} \"{1}\" (ไอเทม {0})",
+      "location": "สถานที่ใหม่",
+      "locations": "สถานที่ใหม่หลายแห่ง",
+      "lootDeckCard": "เพิ่มการ์ดของปล้น {0} ในเด็คของปล้นทุกฉาก นอกจากการแจกปกติ",
+      "lostPartyAchievements": "ความสำเร็จปาร์ตี้ที่สูญหาย",
+      "morale": "{0} ขวัญ",
+      "overlayCampaignSticker": "วางสติกเกอร์แคมเปญ \"%data.campaignSticker.{0}%\" บนแผนที่เมืองที่ตำแหน่ง {1}",
+      "overlaySticker": "วางสติกเกอร์แผนที่ {0} บนแผนที่ตำแหน่ง {0} ({1})",
+      "partyAchievements": "ความสำเร็จปาร์ตี้",
+      "perks": "ได้รับ perk {0} ต่อคน",
+      "pet": "เพิ่ม %data.pets.{1}-{0}% (สัตว์เลี้ยง {0}) ในคอก เลยความจุได้",
+      "prosperity": "{0} ความมั่งคั่ง",
+      "randomItemBlueprint": "ได้รับบลูพรินต์ไอเทมสุ่มหนึ่งใบ",
+      "randomItemBlueprints": "เพิ่มไอเทม %game.itemFh.{0}% ถึง %game.itemFh.{1}% ในเด็คบลูพรินต์ไอเทมสุ่ม",
+      "randomItems": "ตัวละครแต่ละตัวได้รับไอเทมสุ่มหนึ่งชิ้น ({0}-{1})",
+      "randomSideScenario": "จั่วฉากข้างสุ่มหนึ่งฉาก",
+      "removeEvent": {
+        "boat": "เอาอีเวนต์ {0} ออกจากเด็คเรือ",
+        "city": "เอาอีเวนต์เมือง {0} ออกจากเด็ค",
+        "rift": "เอาอีเวนต์ริฟต์ {0} ออกจากเด็ค",
+        "road": "เอาอีเวนต์ถนน {0} ออกจากเด็ค",
+        "summer-outpost": "เอาอีเวนต์ {0} ออกจากเด็คฐานฤดูร้อน",
+        "summer-road": "เอาอีเวนต์ {0} ออกจากเด็คถนนฤดูร้อน",
+        "winter-outpost": "เอาอีเวนต์ {0} ออกจากเด็คฐานฤดูหนาว",
+        "winter-road": "เอาอีเวนต์ {0} ออกจากเด็คถนนฤดูหนาว"
+      },
+      "removeLootDeckCard": "เอาการ์ดของปล้น {0} ออกจากเกม ไม่เพิ่มในเด็คของปล้นฉากใดอีก",
+      "repeatScenario": "ฉากนี้เล่นซ้ำได้!",
+      "reputation": "ชื่อเสียง {0}",
+      "reputationFactions": "ได้รับชื่อเสียง %game.gh2eFaction:{0}% {1}",
+      "resources": "ได้รับ %game.resource.{0}% {1} ต่อคน",
+      "resourcesLose": "เสีย %game.resource.{0}% {1} ต่อคน",
+      "townGuardAm": "เพิ่มการ์ด %game.townGuardAm.{1}:{0}% หนึ่งใบในเด็คทหารรักษาเมือง",
+      "unlockCharacter": {
+        "": "ปลดล็อก",
+        "box": "กล่องคลาส %game.characterIcon.{0}%"
       }
     },
     "rules": {
+      "addSection": "เปิดส่วน {1}",
+      "addSectionIndex": "เปิดส่วน #{0} {1}",
+      "addSectionMarker": "เปิดส่วน {1} %game.mapMarker.{2}%",
+      "addSectionMarkerIndex": "เปิดส่วน #{0} {1} %game.mapMarker.{2}%",
+      "alwaysApply": "ใช้อัตโนมัติ",
+      "alwaysApplyTurn": {
+        "after": "เมื่อจบเทิร์นของพวกเขาแต่ละเทิร์น",
+        "turn": "เมื่อเริ่มเทิร์นของพวกเขาแต่ละเทิร์น"
+      },
       "apply": "ใช้",
+      "clearDiscarded": "ล้างกฎฉากที่ทิ้งแล้ว",
+      "dismiss": "ปิด",
       "figures": {
-        "heal": "{0} %game.action.heal% {2}"
-      }
+        "activate": "{0} เปิดใช้งาน",
+        "all": "ตัวทั้งหมด",
+        "amAdd": "{0} เพิ่ม %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% ในเด็คตัวปรับการโจมตี",
+        "amRemove": "{0} เอา %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% ออกจากเด็คตัวปรับการโจมตี",
+        "damage": "{0} ได้รับ %game.damage:{2}%",
+        "discard": "{0} ทิ้งการ์ดความสามารถ %number.{2}% ใบต่อคน",
+        "discardAbilityToBottom": "วางการ์ดความสามารถที่กองทิ้งด้านล่างสำหรับ {0}",
+        "dormant": "{0} กลายเป็นหลับ",
+        "drawAbility": "จั่วการ์ดความสามารถอีกใบสำหรับ {0}",
+        "gainCondition": "{0} ได้รับ %game.condition.{1}%",
+        "heal": "{0} %game.action.heal% {2}",
+        "loseCondition": "{0} สูญเสีย %game.condition.{1}%",
+        "permanentCondition": "{0} ได้รับ %game.condition.{1}% ถาวร",
+        "remove": "เอา {0} ออก",
+        "removeAbility": "เอาการ์ดความสามารถ '{1}' ของ {0} ออก",
+        "scenarioEffect": "เป็นเอฟเฟกต์ฉาก",
+        "setAbility": "ตั้งการ์ดความสามารถที่ใช้ของ {0} เป็น '{1}'",
+        "setHp": "{0} HP เป็น {2}",
+        "toggleOff": "{0} เป็นไม่ทำงาน",
+        "toggleOn": "{0} เป็นทำงาน",
+        "transfer": "{0} กลายเป็น %data.monster.{1}% {4}",
+        "transferEntities": "{0} กลายเป็น %data.monster.{1}% {4}"
+      },
+      "finish": {
+        "lost": "แพ้ฉาก!",
+        "round": "เทิร์นถัดไป!",
+        "won": "ชนะฉาก!"
+      },
+      "finishWithConclusion": "จบฉากด้วย #{0} {1}",
+      "hide": "ไม่แสดงอีก",
+      "openRoom": "เปิดประตู",
+      "openRoomMarker": "เปิดประตู %game.mapMarker.{0}%",
+      "randomDungeon": {
+        "dungeon": {
+          "": "จั่วการ์ดสุ่ม {0} ใบจากเด็คดันเจี้ยนสุ่ม (ทำมือ)",
+          "cards": "จั่วการ์ดสุ่ม {0} ใบจากเด็คดันเจี้ยนสุ่ม ใช้เฉพาะการ์ด: <i>{1}</i> (ทำมือ)"
+        },
+        "monster": {
+          "": "เพิ่มการ์ดสุ่ม {0} ใบจากเด็คการ์ดมอนสเตอร์สุ่ม",
+          "cards": "เพิ่มการ์ดสุ่ม {0} ใบจากเด็คการ์ดมอนสเตอร์สุ่ม ใช้เฉพาะการ์ด: <i>{1}</i>"
+        }
+      },
+      "show": {
+        "": "แสดงกฎฉาก",
+        "applied": "กฎฉากที่ใช้",
+        "discarded": "กฎฉากที่ทิ้งแล้ว"
+      },
+      "spawn": "เรียก {2}%game.monsterType.{1}% %data.monster.{0}%",
+      "spawnMarker": "เรียก {2}%game.monsterType.{1}% %data.monster.{0}% ที่ %game.mapMarker.{3}%",
+      "spawnObjective": "เรียกเป้าหมาย '{0}'",
+      "spawnObjectiveEscort": "เรียกผู้คุ้มกัน '{0}'",
+      "spawnObjectiveEscortMarker": "เรียกผู้คุ้มกัน '{0}' ที่ %game.mapMarker.{2}%",
+      "spawnObjectiveMarker": "เรียกเป้าหมาย '{0}' ที่ %game.mapMarker.{2}%",
+      "spawnObjectives": "เรียกเป้าหมาย '{0}' {1} ตัว",
+      "spawnObjectivesEscort": "เรียกผู้คุ้มกัน '{0}' {1} ตัว",
+      "spawnObjectivesEscortMarker": "เรียกผู้คุ้มกัน '{0}' {1} ตัว ที่ %game.mapMarker.{2}%",
+      "spawnObjectivesMarker": "เรียกเป้าหมาย '{0}' {1} ตัว ที่ %game.mapMarker.{2}%"
     },
     "section": {
+      "": "ส่วน",
+      "add": "เปิดส่วน {1}?",
+      "addIndex": "เปิดส่วน {1}#{0}?",
+      "addMarker": "เปิดส่วน %game.mapMarker.{1}%?",
+      "addMarkerIndex": "เปิดส่วน #{0} %game.mapMarker.{1}%?",
       "cancel": "ยกเลิก",
+      "conclusion": {
+        "": "จบฉากด้วย {0}",
+        "continue": {
+          "": "ดำเนินต่อด้วย {0}",
+          "named": "ดำเนินต่อด้วย {1} {0}"
+        },
+        "named": "จบฉากด้วย {1} {0}",
+        "select": "เลือกบทสรุป:"
+      },
       "confirm": "ยืนยัน"
     },
+    "set": "ตั้งฉาก",
+    "setup": {
+      "": "การตั้งค่าฉาก",
+      "abilities": "ความสามารถ",
+      "detailed": "แสดงสถิติมอนสเตอร์แบบละเอียด",
+      "spoiler": "สปอยเลอร์",
+      "stats": "สถิติมอนสเตอร์"
+    },
+    "showAllSections": "Show all Sections",
     "stats": {
+      "": "สถิติฉาก",
       "bossKills": {
-        "": "%game.monsterType.boss%: {0}"
+        "": "%game.monsterType.boss%: {0}",
+        "hint": "จำนวน %game.monsterType.boss% ที่ฆ่า"
+      },
+      "damage": {
+        "": "ความเสียหาย"
       },
       "dealtDamage": {
-        "": "%game.action.attack% {0}"
+        "": "%game.action.attack% {0}",
+        "hint": "ความเสียหายที่ทำให้"
       },
       "eliteKills": {
-        "": "%game.monsterType.elite%: {0}"
+        "": "%game.monsterType.elite%: {0}",
+        "hint": "จำนวน %game.monsterType.elite% ที่ฆ่า"
       },
       "gold": {
-        "": "%game.gameIcon:loot%: {0}"
+        "": "%game.gameIcon:loot%: {0}",
+        "hint": "จำนวนเหรียญ %game.gameIcon:loot% ที่ปล้นได้"
+      },
+      "heal": {
+        "": "การรักษา"
       },
       "healedDamage": {
-        "": "%game.condition.heal:{0}%"
+        "": "%game.condition.heal:{0}%",
+        "hint": "การรักษาที่ได้รับ"
       },
       "heals": {
-        "": "%game.action.heal% {0}"
+        "": "%game.action.heal% {0}",
+        "hint": "รักษาคนอื่น"
+      },
+      "kills": {
+        "": "จำนวนฆ่า"
+      },
+      "max": {
+        "": "สูงสุด"
       },
       "maxDamage": {
-        "": "%game.damage:{0}%"
+        "": "%game.damage:{0}%",
+        "hint": "ความเสียหายครั้งเดียวสูงสุดที่ได้รับ"
       },
       "maxDealtDamage": {
-        "": "%game.action.attack% {0}"
+        "": "%game.action.attack% {0}",
+        "hint": "ความเสียหายครั้งเดียวสูงสุดที่ทำให้"
       },
       "monsterDamage": {
-        "": "%game.damage:{0}%"
+        "": "%game.damage:{0}%",
+        "hint": "ความเสียหายจากศัตรู"
       },
       "normalKills": {
-        "": "%game.monsterType.normal%: {0}"
+        "": "%game.monsterType.normal%: {0}",
+        "hint": "จำนวน %game.monsterType.normal% ที่ฆ่า"
       },
       "otherDamage": {
-        "": "%game.gameIcon:trap% {0}"
+        "": "%game.gameIcon:trap% {0}",
+        "hint": "ความเสียหายอื่นที่ได้รับ"
       },
+      "progress": "ของปล้น, XP",
       "resources": {
         "": "ทรัพยากร",
         "loot": {
-          "": "%game.resource.{0}%: {1}"
+          "": "%game.resource.{0}%: {1}",
+          "hint": "จำนวน %game.resource{0}% ที่ปล้นได้"
         }
       },
+      "scenarios": "ฉาก",
+      "toggle": {
+        "hide": "ซ่อนสถิติฉาก",
+        "show": "แสดงสถิติฉาก"
+      },
+      "total": "รวม",
       "treasures": {
-        "": "%game.gameIcon:scenario/treasure%: {0}"
+        "": "%game.gameIcon:scenario/treasure%: {0}",
+        "hint": "จำนวนสมบัติ %game.gameIcon:scenario/treasure% ที่เปิด"
       },
       "xp": {
-        "": "%game.gameIcon:experience%: {0}"
+        "": "%game.gameIcon:experience%: {0}",
+        "hint": "จำนวนประสบการณ์ %game.gameIcon:experience% ที่ได้"
       }
     },
     "summary": {
+      "": "สรุปฉาก",
+      "alreadyWarning": {
+        "": "จบแล้ว",
+        "hint": "ฉากนี้จบสำเร็จในโหมดแคมเปญแล้ว ไม่ได้รับรางวัลเพิ่ม",
+        "ignore": "รับรางวัลเลย!",
+        "reapply": "เอารางวัลออก"
+      },
       "apply": "จบ",
       "cancel": "ยกเลิก",
+      "casualWarning": {
+        "": "โหมดเล่นสบาย",
+        "campaignRewards": "เปิดรางวัลแคมเปญ",
+        "fh": "โหมดเล่นสบาย Frosthaven",
+        "hintFh": "ในโหมดเล่นสบาย Frosthaven เอฟเฟกต์แคมเปญทั้งหมดถูกละเว้น ไม่แก้อีเวนต์ เวลาไม่เดิน ปาร์ตี้ไม่ได้รับประสบการณ์ ของปล้น สมบัติ เครื่องหมาย ความคืบหน้าควสต์ส่วนตัว รางวัล สิ่งที่ปลดล็อก ฯลฯ",
+        "ignore": "รับรางวัลเลย!",
+        "reapply": "กลับโหมดเล่นสบาย"
+      },
+      "challenges": {
+        "": "ความท้าทาย",
+        "complete": "ความท้าทายสำเร็จ",
+        "completed": "ความท้าทายที่ทำเสร็จ"
+      },
+      "conclusionWarning": {
+        "": "ไม่มีบทสรุป!",
+        "hint": "ดูเหมือนฉากนี้จบโดยไม่มีบทสรุป อาจทำให้พลาดรางวัลและสิ่งที่ปลดล็อก ส่วนบทสรุปมีไอคอน <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\">"
+      },
+      "forcedLinks": "%scenario.summary.links% (บังคับ)",
       "gold": "ทอง",
+      "item": "ไอเทม \"{0}\"",
+      "levelUp": "ถึงระดับ {1}",
+      "link": "ดำเนินต่อด้วย #{0}",
+      "links": "ดำเนินต่อด้วยฉากที่เชื่อม",
       "loot": "ของที่ปล้นได้",
       "name": "%character%",
-      "xp": "XP"
+      "perksUp": "ได้รับ perk ใหม่",
+      "randomItem": "ไอเทมสุ่ม",
+      "randomItemLooted": "ไอเทมสุ่มที่ปล้นได้",
+      "randomItems": "ไอเทมสุ่ม",
+      "restart": "เริ่มฉากใหม่",
+      "restartLoseLoot": "เริ่มฉากใหม่ (เสียทรัพยากร)",
+      "rewards": {
+        "": "รางวัลฉาก",
+        "collectiveGold": "%game.resource.gold% รวม",
+        "collectiveResource": "%game.resource.{0}% รวม",
+        "experience": "รางวัล XP",
+        "gold": "รางวัลทอง"
+      },
+      "solve": "ดำเนินต่อ",
+      "totalGold": "ทองรวม",
+      "totalXp": "XP รวม",
+      "treasures": "สมบัติ",
+      "xp": "XP",
+      "xpBonus": "XP โบนัส",
+      "xpChallenges": "XP ความท้าทาย",
+      "xpGained": "XP ที่ได้"
     },
+    "title": "ชื่อ",
     "tooltip": {
       "": "{0}",
       "blocked": "{0} (%scenario.blocked%)",
       "locked": "{0} (%scenario.locked%)"
     }
   },
+  "section": "เพิ่มส่วน",
+  "server": {
+    "autoconnect": "เชื่อมต่ออัตโนมัติ",
+    "blocked": "เนื่องจากไม่ได้เชื่อมต่อกับเซิร์ฟเวอร์ที่ตั้งไว้ การอัปเดตเกมถูกระงับชั่วคราว",
+    "closed": "ปิด",
+    "closing": "กำลังปิด",
+    "code": {
+      "": "รหัสเกม",
+      "hint": "รหัสเกมใช้ระบุเกมของคุณ สำหรับเกมใหม่ให้ใส่รหัสที่ต้องการหรือสร้างใหม่ ทุกคนที่ใช้รหัสเดียวกันจะเชื่อมต่อกับเกมเดียวกัน<br><br>เดิมเรียกว่า \"Password\" แต่เปลี่ยนชื่อเพื่อไม่สับสน",
+      "uuid": "สร้างรหัส (UUID)"
+    },
+    "connect": "เชื่อมต่อ",
+    "connected": "เชื่อมต่อแล้ว",
+    "connecting": "กำลังเชื่อมต่อ",
+    "connectionTries": {
+      "": "(ลอง: {0})",
+      "hint": "ดูเหมือนจะเชื่อมต่อไม่สำเร็จ ตรวจสอบการเชื่อมต่อเครือข่ายหรือการตั้งค่าเชื่อมต่อ"
+    },
+    "disconnect": "ตัดการเชื่อมต่อ",
+    "disconnected": "ไม่ได้เชื่อมต่อ",
+    "force": "อนุญาตการเปลี่ยนแปลงท้องถิ่น",
+    "forceHint": "หมายเหตุ: การเปลี่ยนแปลงท้องถิ่นจะถูกละทิ้งหลังเชื่อมต่อใหม่!",
+    "how-to-run": "สร้างเซิร์ฟเวอร์ของคุณเอง",
+    "info": {
+      "": "ข้อมูล",
+      "description": "คำอธิบาย",
+      "location": "ที่ตั้ง",
+      "privacy": "นโยบายความเป็นส่วนตัว",
+      "status": "หน้าสถานะ",
+      "version": {
+        "": "เวอร์ชันเซิร์ฟเวอร์",
+        "latest": "ล่าสุด",
+        "unknown": "ดึงเวอร์ชันล่าสุดไม่ได้",
+        "update": "เวอร์ชันล่าสุด <a target=\"_blank\" href=\"{1}\">{0}</a>"
+      },
+      "website": "เว็บไซต์"
+    },
+    "list": {
+      "deselect": "ใส่เซิร์ฟเวอร์ด้วยตนเอง",
+      "select": "เลือกเซิร์ฟเวอร์สาธารณะ"
+    },
+    "menu": {
+      "connect": "เชื่อมต่อเซิร์ฟเวอร์",
+      "connected": "การเชื่อมต่อเซิร์ฟเวอร์"
+    },
+    "ping": "พิงเซิร์ฟเวอร์",
+    "port": "พอร์ต",
+    "reconnect": "เชื่อมต่อใหม่",
+    "settings": {
+      "": "ซิงค์การตั้งค่า",
+      "hint": "ซิงค์นอกจากเกมแล้วยังซิงค์การตั้งค่าสำหรับไคลเอนต์ทั้งหมดที่ใช้ตัวเลือกนี้ แน่นอนว่า <b>ไม่ใช่</b>การตั้งค่าทุกอย่างจะถูกซิงค์ เช่นตัวเลือกภาพหรืออินเทอร์เฟซบางอย่าง"
+    },
+    "undefined": "ไม่ได้ระบุการเชื่อมต่อ",
+    "url": "โฮสต์",
+    "wss": {
+      "": "ปลอดภัย",
+      "accept": "ยอมรับ?"
+    }
+  },
   "settings": {
+    "": "การตั้งค่า",
+    "abilities": {
+      "": "การ์ดความสามารถ",
+      "hint": "จั่วการ์ดความสามารถสำหรับมอนสเตอร์ ถ้าไม่เลือก ลำดับมอนสเตอร์ต้องตั้งด้วยการลากและวางเอง"
+    },
+    "abilityNumbers": {
+      "": "แสดงหมายเลขความสามารถ",
+      "hint": "แสดงหมายเลขการ์ดบนการ์ดความสามารถ"
+    },
+    "abilityReveal": {
+      "": "เปิดเผยความสามารถทันที",
+      "hint": "ถ้าไม่เลือก ความสามารถมอนสเตอร์จะไม่เปิดจนถึงเทิร์น"
+    },
+    "activeApplyConditions": {
+      "": "ยืนยันสถานะที่ใช้ได้",
+      "auto": {
+        "": "ยืนยันอัตโนมัติ",
+        "hint": {
+          "": "ไม่ถามยืนยันและใช้สถานะเหล่านั้นอัตโนมัติ<br><br>เปิดด้วยความระมัดระวัง!",
+          "brittle": "เมื่อได้รับความเสียหาย ใช้ %game.condition.brittle% และเพิ่มความเสียหายอัตโนมัติ<br><br>ไม่ทำงานอัตโนมัติกับ %game.condition.poison%!",
+          "heal": "เมื่อเพิ่ม HP ใช้ %game.action.heal% และเอาสถานะที่ตรงออกอัตโนมัติ",
+          "shield": "เมื่อได้รับความเสียหาย ใช้ %game.action.shield% และลดความเสียหายอัตโนมัติ",
+          "ward": "เมื่อได้รับความเสียหาย ใช้ %game.condition.ward% และลดความเสียหายอัตโนมัติ<br><br>ไม่ทำงานอัตโนมัติกับ %game.condition.poison%!"
+        }
+      },
+      "hint": {
+        "": "บางสถานะต้องยืนยันก่อนใช้ เช่นเมื่อลด HP จาก Poison ยืนยันเพื่อเสีย HP เพิ่ม 1",
+        "brittle": "เมื่อได้รับความเสียหาย ถามใช้ %game.condition.brittle% และเพิ่มความเสียหาย",
+        "heal": "ไม่ใช่สถานะ แต่ช่วยเมื่อควรใช้ %game.action.heal% เมื่อเพิ่ม HP",
+        "poison": "เมื่อได้รับความเสียหาย ถามใช้ %game.action.attack% +1 จาก %game.condition.poison% (รวม %game.attackmodifier.double%)",
+        "poison_x": "เมื่อได้รับความเสียหาย ถามใช้ %game.action.attack% +X จาก %game.condition.poison_x:X% (รวม %game.attackmodifier.double%)",
+        "shield": "ไม่ใช่สถานะ แต่ช่วยเมื่อควรใช้ %game.action.shield% เมื่อรับความเสียหายและลดความเสียหาย",
+        "ward": "เมื่อได้รับความเสียหาย ถามใช้ %game.condition.ward% และลดความเสียหาย"
+      }
+    },
+    "activeStandees": {
+      "": "สแตนดีที่ทำงาน",
+      "hint": "ในเทิร์นมอนสเตอร์ สแตนดีแต่ละตัวมีสถานะทำงาน ดับเบิลคลิกเพื่อทำเครื่องหมายว่าทำแล้ว"
+    },
+    "activeSummons": {
+      "": "การเรียกที่ทำงาน",
+      "hint": "เมื่อเริ่มเทิร์นตัวละคร การเรียกจะถูกเปิดตามลำดับ ดับเบิลคลิกเพื่อสลับสถานะทำงาน"
+    },
+    "addAllMonsters": {
+      "": "เพิ่มสำหรับห้อง/ส่วนทั้งหมด",
+      "hint": "จะเพิ่มมอนสเตอร์ทั้งหมดที่ปรากฏในฉากอัตโนมัติ โปรดทราบว่าอาจสปอยห้อง/ส่วนที่ยังไม่เปิด"
+    },
+    "additional": "เกมเพลย์เพิ่มเติม",
+    "allyAttackModifierDeck": {
+      "": "เด็คตัวปรับการโจมตีสำหรับพันธมิตร",
+      "hint": "เปิดใช้เด็คตัวปรับการโจมตีสำหรับพันธมิตร"
+    },
+    "alwaysAllyAttackModifierDeck": {
+      "": "แสดงเด็คตัวปรับการโจมตีสำหรับพันธมิตรเสมอ",
+      "hint": "แสดงเด็คตัวปรับการโจมตีสำหรับพันธมิตรเสมอ"
+    },
+    "alwaysFhAdvantage": {
+      "": "กฎข้อได้เปรียบ/เสียเปรียบ Frosthaven เสมอ",
+      "hint": "ใช้กฎ Frosthaven สำหรับจั่วตัวปรับการโจมตีแบบข้อได้เปรียบหรือเสียเปรียบเสมอ (เปิดอัตโนมัติเมื่อเล่น Frosthaven)"
+    },
+    "alwaysFhEnhancements": {
+      "": "การเสริม Frosthaven เสมอ",
+      "hint": "ใช้กฎและต้นทุนการเสริมของ Frosthaven เสมอ"
+    },
+    "alwaysFhSolo": {
+      "": "กฎโซโล Frosthaven เสมอ",
+      "hint": "ใช้กฎ Frosthaven สำหรับคำนวณระดับโซโลเสมอ (เปิดอัตโนมัติเมื่อเล่น Frosthaven)"
+    },
+    "alwaysGh2eImbuement": {
+      "": "การชุบมอนสเตอร์เสมอ",
+      "hint": "เปิดตัวเลือกเพิ่มการชุบมอนสเตอร์ (ภาคผนวก F) ในเมนูเอฟเฟกต์อีเวนต์สำหรับทุกฉบับ"
+    },
+    "alwaysHazardousTerrain": {
+      "": "ภูมิอันตรายเสมอ",
+      "hint": "ใช้กฎ Frosthaven สำหรับคำนวณภูมิอันตรายเสมอ (เปิดอัตโนมัติเมื่อเล่น Frosthaven)"
+    },
+    "alwaysLootApplyDialog": {
+      "": "แสดงกล่องเลือกตัวเมื่อจั่วของปล้นเสมอ",
+      "hint": "แสดงกล่องเลือกตัวละครเมื่อจั่วการ์ดของปล้น แทนการใช้ตัวละครที่กำลังเล่น"
+    },
+    "alwaysLootDeck": {
+      "": "ใช้เด็คของปล้นเสมอ",
+      "hint": "แสดงเด็คของปล้นทุกฉาก (เปิดอัตโนมัติเมื่อเล่น Frosthaven)"
+    },
+    "amAdvantage": {
+      "": "เด็คตัวปรับการโจมตีแบบข้อได้เปรียบ/เสียเปรียบ",
+      "hint": "เพิ่มปุ่มและทางลัดข้อได้เปรียบและเสียเปรียบในเด็คตัวปรับการโจมตี"
+    },
+    "amAdvantageHouseRule": {
+      "": "กฎบ้าน Rolling ข้อได้เปรียบ/เสียเปรียบ",
+      "hint": "แทนที่จะไม่นับ rolling ในการจั่วครั้งที่สอง จั่วตัวปรับเพิ่มจนได้ใบที่ไม่ใช่ rolling"
+    },
+    "animationSpeed": {
+      "": "ความเร็วแอนิเมชัน",
+      "hint": "เปลี่ยนความเร็วแอนิเมชัน"
+    },
+    "animations": {
+      "": "แอนิเมชัน",
+      "hint": "ปิดแอนิเมชันทั้งหมดเพื่อเพิ่มประสิทธิภาพ"
+    },
+    "applyBuildingRewards": {
+      "": "ใช้โบนัสอาคาร",
+      "hint": "เมื่อสร้างหรืออัปเกรดอาคาร ใช้โบนัสที่ตรงและเปิดกล่องส่วนถ้ามี"
+    },
+    "applyConditions": {
+      "": "ใช้สถานะอัตโนมัติ",
+      "hint": {
+        "": "สถานะที่ตรงจะถูกใช้อัตโนมัติก่อนและหลังเทิร์น เช่นเมื่อตัวมี Wound จะเสีย 1 HP เมื่อเริ่มเทิร์น",
+        "bane": "ใช้ความเสียหาย %game.condition.bane% อัตโนมัติเมื่อจบเทิร์น",
+        "regenerate": "ใช้ %game.condition.regenerate% อัตโนมัติเมื่อเริ่มเทิร์น",
+        "safeguard": "ใช้ %game.condition.safeguard% อัตโนมัติเมื่อได้รับสถานะลบถัดไป",
+        "wound": "ใช้ความเสียหาย %game.condition.wound% อัตโนมัติเมื่อเริ่มเทิร์น",
+        "wound_x": "ใช้ความเสียหาย %game.condition.wound_x:X% อัตโนมัติเมื่อเริ่มเทิร์น"
+      }
+    },
+    "applyLongRest": {
+      "": "ใช้พักยาว",
+      "hint": "รักษา 2 อัตโนมัติในเทิร์นตัวละครขณะพักยาว"
+    },
+    "applyLoot": {
+      "": "ให้ของปล้นกับตัวละคร",
+      "hint": "เพิ่มของปล้นให้ตัวละครที่เล่น/ที่เลือกอัตโนมัติหลังจั่วการ์ด"
+    },
+    "applyLootRandomItem": {
+      "": "จั่วไอเทมสุ่มเมื่อได้ของปล้น",
+      "hint": "จั่วและสวมไอเทมสุ่มใหม่อัตโนมัติเมื่อได้ของปล้นไอเทมสุ่ม ให้ตัวละครที่เล่น/ที่เลือก"
+    },
+    "applyRetirement": {
+      "": "ใช้โบนัสเกษียณ",
+      "hint": "เมื่อเกษียณ เปิดกล่องใช้โบนัสเกษียณ การเกษียณทำโดยติ๊กควสต์ส่วนตัวในชีทตัวละคร"
+    },
+    "artwork": {
+      "": "งานศิลป์",
+      "hint": "งานศิลป์สำหรับมอนสเตอร์และตัวละคร"
+    },
+    "automaticAttackModifierFullscreen": {
+      "": "เปิดเด็ค AM เต็มจออัตโนมัติ",
+      "hint": "เปิดเด็คตัวปรับการโจมตี (และเด็คของปล้น) แบบเต็มจอเมื่อใช้อุปกรณ์ขนาดเล็ก"
+    },
+    "automaticFirstFigure": {
+      "": "เริ่มตัวแรกอัตโนมัติ",
+      "hint": "เริ่มเทิร์นของตัวแรกอัตโนมัติเมื่อเริ่มเทิร์นถัดไป เปิดอยู่เสมอถ้าต้องการ initiative"
+    },
+    "automaticGameClock": {
+      "": "นาฬิกาเกมอัตโนมัติ",
+      "hint": "เริ่มและหยุดนาฬิกาเกมอัตโนมัติเมื่อเปิดหรือปิดหน้าต่าง"
+    },
+    "automaticGameClockFocus": {
+      "": "นาฬิกาเกมเมื่อโฟกัส",
+      "hint": "เริ่มและหยุดนาฬิกาเกมอัตโนมัติเมื่อหน้าต่างได้หรือเสียโฟกัส"
+    },
+    "automaticPassTime": {
+      "": "เลื่อนเวลาปฏิทินอัตโนมัติ",
+      "hint": "เลื่อนเวลาอัตโนมัติโดยเพิ่มหนึ่งสัปดาห์ในปฏิทินหลังจบฉาก และเพิ่มเอฟเฟกต์ของส่วนปฏิทินในสัปดาห์นั้นอัตโนมัติ"
+    },
+    "automaticStandees": {
+      "": "สแตนดีอัตโนมัติ",
+      "hint": "เพิ่มสแตนดีอัตโนมัติ"
+    },
+    "automaticStandeesDialog": {
+      "": "กล่องสแตนดีอัตโนมัติ",
+      "hint": "เปิดกล่องเลือกหมายเลขสแตนดีอัตโนมัติสำหรับสแตนดีใหม่ทั้งหมด"
+    },
+    "automaticTheme": {
+      "": "ธีมอัตโนมัติ",
+      "hint": "ปรับธีมและสไตล์ Frosthaven อัตโนมัติเมื่อเปลี่ยนฉบับ และปรับธีมเมื่อสลับสไตล์ Frosthaven<br>(ปิดการปรับธีมบนธีมโมเดิร์น)"
+    },
+    "automaticUnlocking": {
+      "": "ปลดล็อกตัวละครอัตโนมัติ",
+      "hint": "ปลดล็อกตัวละครจากรางวัลฉากอัตโนมัติ"
+    },
+    "autoscroll": {
+      "": "เลื่อนอัตโนมัติ",
+      "hint": "เลื่อนไปตัวที่เล่นถัดไปอัตโนมัติ"
+    },
+    "backupHint": {
+      "": "แสดงคำเตือนสำรอง",
+      "hint": "แสดงคำเตือนสำรองข้อมูลเมื่อไม่มีฉากที่กำลังเล่น"
+    },
+    "barsize": {
+      "": "ขนาดแถบ",
+      "dec": "ลดขนาดแถบ",
+      "hint": "ตั้งขนาดหัวและท้าย",
+      "inc": "เพิ่มขนาดแถบ",
+      "reset": "รีเซ็ตขนาดแถบ"
+    },
+    "battleGoals": {
+      "": "เป้าหมายการต่อสู้",
+      "hint": "เปิดการจั่วและเลือกเป้าหมายการต่อสู้ก่อนเทิร์นแรกของฉาก"
+    },
+    "battleGoalsCharacter": {
+      "": "แสดงเป้าหมายการต่อสู้เสมอ",
+      "hint": "แสดงเมนูเป้าหมายการต่อสู้บนตัวละครเสมอ เปิดอัตโนมัติถ้าเด็คตัวปรับการโจมตีตัวละครปิด เพื่อเข้าถึงเมนูเป้าหมายการต่อสู้"
+    },
+    "battleGoalsFh": {
+      "": "จั่วเป้าหมายการต่อสู้ 3 ใบเสมอ",
+      "hint": "ใช้กฎ Frosthaven จั่วเป้าหมายการต่อสู้ 3 ใบเสมอ (เปิดอัตโนมัติเมื่อเล่น Frosthaven)"
+    },
+    "battleGoalsReminder": {
+      "": "เตือนเป้าหมายการต่อสู้",
+      "hint": "แสดงเตือนก่อนเทิร์นแรกถ้าตัวละครยังไม่ทุกตัวเลือกเป้าหมายการต่อสู้"
+    },
+    "bbAm": {
+      "": "ทอยลูกเต๋าสำหรับ AM",
+      "hint": "ทอยลูกเต๋าเพื่อกำหนดตัวปรับการโจมตีถัดไป ถ้าปิด ใช้การจั่วเด็คตัวปรับการโจมตีแบบสับตามปกติ"
+    },
+    "bbChars": {
+      "": "จำกัดตัวละคร",
+      "hint": "อนุญาตแค่ตัวละครเดียวแบบโซโล ถ้าปิด สามารถเพิ่มหลายตัวได้"
+    },
+    "bbRules": "กฎ Button & Bugs",
+    "bbStandeeLimit": {
+      "": "จำกัดสแตนดีมอนสเตอร์",
+      "hint": "ใช้ขีดจำกัดสแตนดี 4 ตัวต่อมอนสเตอร์ ถ้าปิด สามารถเพิ่มได้ถึง 10 ตัว"
+    },
+    "bonusAdjustment": {
+      "": "ปรับโบนัสระดับ"
+    },
     "browserNavigation": {
+      "": "ย้อนกลับ/ทำซ้ำกับเนวิเกชัน",
       "hint": "%wip%"
     },
+    "calculate": {
+      "": "แสดงสถิติที่คำนวณ",
+      "hint": "ค่าความสามารถคำนวณจากสถิติ เช่น แทนที่จะแสดง Attack +1 จะแสดง Attack 4 เมื่อค่าการโจมตีในสถิติเป็น 3"
+    },
+    "calculateAdvantageStats": {
+      "": "เพิ่มข้อได้เปรียบในความสามารถ",
+      "hint": "เพิ่ม %game.custom.advantage% ใน %game.action.attack% บนการ์ดความสามารถ"
+    },
+    "calculateShieldStats": {
+      "": "เพิ่ม Shield และ Retaliate ในความสามารถ",
+      "hint": "ค่าสถิติเริ่มต้นของ %game.action.shield% และ %game.action.retaliate% ถูกบวกเข้ากับการกระทำบนการ์ดความสามารถ จึงแสดงารวมเต็ม"
+    },
+    "calculateStats": {
+      "": "เพิ่มค่าสถิติในความสามารถ",
+      "hint": "ค่าสถิติเริ่มต้นถูกบวกเข้ากับค่าความสามารถ เช่น ค่า Range จะถูกบวกเข้ากับความสามารถโจมตีอัตโนมัติ"
+    },
+    "character": "ตัวละคร",
+    "characterAttackModifierAnimate": {
+      "": "แอนิเมชันจั่วเด็ค AM ตัวละคร",
+      "hint": "แสดงแอนิเมชันจั่วเมื่อจั่วตัวปรับการโจมตีจากเด็คตัวปรับการโจมตีตัวละครที่ปิด"
+    },
+    "characterAttackModifierDeck": {
+      "": "เด็คตัวปรับการโจมตีตัวละคร",
+      "hint": "เปิดเด็คตัวปรับการโจมตีสำหรับตัวละคร ต้องเปิดชีทตัวละครเพื่อใช้ perks"
+    },
+    "characterAttackModifierDeckActiveBottom": {
+      "": "เด็ค AM ตัวละครเหนือเด็คมอนสเตอร์",
+      "hint": "แสดงเด็คตัวปรับการโจมตีของตัวละครที่เล่นอยู่เหนือเด็คตัวปรับการโจมตีมอนสเตอร์"
+    },
+    "characterAttackModifierDeckPermanent": {
+      "": "เด็ค AM ตัวละครถาวร",
+      "hint": "แสดงเด็คตัวปรับการโจมตีถาวรใต้ตัวละคร"
+    },
+    "characterAttackModifierDeckPermanentActive": {
+      "": "เด็ค AM ที่เล่นอัตโนมัติ",
+      "hint": "สลับเด็ค AM สำหรับตัวละครที่เล่นอยู่อัตโนมัติ"
+    },
+    "characterCompact": {
+      "": "บอร์ดตัวละครแบบกระชับ",
+      "hint": "แสดงบอร์ดตัวละครแบบแคบ (ยังไม่รองรับบนธีมโมเดิร์น)"
+    },
+    "characterFullView": {
+      "": "มุมมองเต็มตัวละคร",
+      "hint": "ดับเบิลคลิกไอคอนตัวละครเพื่อแสดงมุมมองแยกสำหรับตัวละคร"
+    },
+    "characterHandSize": {
+      "": "แสดงขนาดมือและระดับ",
+      "hint": "แสดงขนาดมือและระดับบนบอร์ดตัวละคร"
+    },
+    "characterIdentities": {
+      "": "ฟอร์มตัวละคร",
+      "hint": "สลับฟอร์มตัวละครโดยคลิกไอคอนฟอร์มข้างชื่อ"
+    },
+    "characterIdentityHint": {
+      "": "คำใบ้ฟอร์ม",
+      "hint": "แสดงฟอร์มที่ใช้งานอยู่หลังชื่อตัวละคร"
+    },
+    "characterItems": {
+      "": "ไอเทมตัวละคร",
+      "hint": "จัดการสถานะไอเทมระหว่างฉากได้"
+    },
+    "characterItemsApply": {
+      "": "ใช้การกระทำไอเทม",
+      "hint": "ใช้การกระทำที่กระทบตัวเอง เช่น %game.action.heal% สถานะ การเรียก ฯลฯ เมื่อใช้ไอเทม"
+    },
+    "characterItemsPermanent": {
+      "": "ไอเทมตัวละครถาวร",
+      "hint": "แสดงไอเทมถาวรใต้ตัวละคร"
+    },
+    "characterItemsPermanentActive": {
+      "": "ไอเทมที่เล่นอัตโนมัติ",
+      "hint": "สลับไอเทมถาวรสำหรับตัวละครที่เล่นอยู่อัตโนมัติ"
+    },
+    "characterSheet": {
+      "": "ชีทตัวละคร",
+      "hint": "เปิดชีทตัวละคร เปิดโดยคลิกไอคอนตัวละครใหญ่ด้านขวา"
+    },
+    "characterSheetCompact": {
+      "": "ชีทตัวละครแบบกระชับ (%wip%)",
+      "hint": "แสดงชีทตัวละครแบบกระชับมากขึ้น ไม่ใช้เลย์เอาต์ชีทตัวละครต้นฉบับ"
+    },
+    "characterShieldRetaliate": {
+      "": "Shield และ Retaliate",
+      "hint": "ติดตามค่า %game.action.shield% และ %game.action.retaliate% ของตัวละคร"
+    },
+    "characterSortIndex": {
+      "": "เรียงตามหมายเลขผู้เล่น",
+      "hint": "เรียงตัวละครตามหมายเลขผู้เล่นระหว่างเทิร์น"
+    },
+    "characterTraits": {
+      "": "แสดง traits",
+      "hint": "แสดง traits บนบอร์ดตัวละคร"
+    },
+    "columns": {
+      "": "เลย์เอาต์คอลัมน์",
+      "hint": "เปิดเลย์เอาต์คอลัมน์เมื่อซูมและพื้นที่พอ"
+    },
+    "columnsForce": {
+      "": "ใช้คอลัมน์ที่มีทั้งหมด",
+      "hint": "กระจายตัวทั่วคอลัมน์ที่มีเสมอ"
+    },
+    "combineInteractiveAbilities": {
+      "": "รวมความสามารถแบบโต้ตอบ",
+      "hint": "ทำความสามารถแบบโต้ตอบสำหรับสแตนดีทั้งหมดครั้งเดียว"
+    },
+    "conditions": "สถานะ/ธาตุ",
+    "damageHP": {
+      "": "แสดงความเสียหายแทน HP",
+      "hint": "แสดงความเสียหายที่ทำให้แทน HP ที่เหลือ"
+    },
+    "damageHPToggle": {
+      "": "สลับความเสียหาย/HP บนบอร์ดตัวละคร",
+      "hint": "ทางลัด: ดับเบิลคลิกที่ HP บนบอร์ดตัวละครเพื่อสลับระหว่างความเสียหายกับ HP"
+    },
+    "debug": {
+      "": "การตั้งค่า/เครื่องมือดีบัก",
+      "logServerMessages": "บันทึกข้อความเซิร์ฟเวอร์",
+      "rightClick": "เปิดคลิกขวาเสมอ"
+    },
+    "dragFigures": {
+      "": "ลากและวางสำหรับตัว",
+      "hint": "ลากและวางในรายการตัว คำเตือน: ถ้าปิดและไม่ต้องการ initiative จะเรียงตัวด้วยมือไม่ได้"
+    },
+    "dragValues": {
+      "": "ลากค่า",
+      "hint": "รองรับการลากเพื่อเปลี่ยนค่า เปลี่ยน initiative โดยลากบนภาพตัวละคร สำหรับ HP ประสบการณ์ และของปล้น ลากบนค่า"
+    },
+    "dragValuesHp": "ลาก HP",
+    "dragValuesInitiative": "ลาก Initiative",
+    "dragValuesLoot": "ลากของปล้น",
+    "dragValuesXp": "ลาก XP",
+    "drawRandomItem": {
+      "": "รางวัลไอเทมสุ่ม",
+      "hint": "จั่วการ์ดไอเทมสุ่มอัตโนมัติ"
+    },
+    "drawRandomScenario": {
+      "": "รางวัลฉากสุ่ม",
+      "hint": "จั่วฉากสุ่มอัตโนมัติ"
+    },
+    "eliteFirst": {
+      "": "สแตนดี elite ก่อน",
+      "hint": "แสดงสแตนดี elite ก่อนเมื่อเรียงสแตนดี"
+    },
+    "errata": {
+      "": "แสดงคำใบ้ errata",
+      "hint": "แสดง errata ที่รู้สำหรับฉาก ส่วน ฯลฯ ในข้อมูลควรแก้แล้ว แต่คำใบ้ช่วยให้เห็นความต่างจากฉบับพิมพ์"
+    },
+    "events": {
+      "": "การ์ดอีเวนต์",
+      "hint": "รองรับเด็คการ์ดอีเวนต์"
+    },
+    "eventsApply": {
+      "": "ใช้อีเวนต์อัตโนมัติ",
+      "hint": "ใช้ผลการ์ดอีเวนต์อัตโนมัติ (ถ้าได้)"
+    },
+    "eventsDraw": {
+      "": "จั่วอีเวนต์อัตโนมัติ",
+      "hint": "จั่วอีเวนต์เช่น Road Event อัตโนมัติเมื่อเริ่มฉาก"
+    },
+    "eventsDrawReminder": {
+      "": "เตือนจั่วอีเวนต์",
+      "hint": "แสดงเตือนก่อนเทิร์นแรกให้จั่วอีเวนต์"
+    },
+    "expireConditions": {
+      "": "หมดอายุสถานะอัตโนมัติ",
+      "hint": "สถานะที่ตรงจะถูกลบอัตโนมัติหลังเทิร์นของตัว เช่น Strengthen จะถูกลบหลังเทิร์น"
+    },
+    "feedback": {
+      "": "ปิดปุ่ม Feedback"
+    },
+    "feedbackErrors": {
+      "": "Feedback อัตโนมัติ",
+      "clear": "ล้างข้อผิดพลาด Feedback อัตโนมัติที่ละเว้น",
+      "hint": "รายงานข้อผิดพลาดอัตโนมัติผ่านกล่อง Feedback"
+    },
+    "fhChallenges": {
+      "": "รองรับความท้าทาย",
+      "hint": "จั่วการ์ดความท้าทายจากเด็คความท้าทาย"
+    },
+    "fhChallengesApply": {
+      "": "ใช้ความท้าทาย",
+      "hint": "ใช้การ์ดความท้าทายที่เปิดอยู่อัตโนมัติ (ถ้าได้)"
+    },
+    "fhGarden": {
+      "": "รองรับสวน",
+      "hint": "ปลูกและเก็บสมุนไพร (อาคาร 24 สวน)"
+    },
+    "fhGhItems": {
+      "": "เพิ่มไอเทม Gloomhaven",
+      "hint": "เพิ่มไอเทมจาก Gloomhaven และ Forgotten Circles ในสต็อกตามกฎ (เฉพาะเมื่อเปิดชีทตัวละครหรือไอเทมตัวละคร)"
+    },
+    "fhPets": {
+      "": "รองรับสัตว์เลี้ยง",
+      "hint": "จับและจัดการสัตว์เลี้ยง (อาคาร 88 คอก)"
+    },
+    "fhRules": "กฎ Frosthaven",
+    "fhSecondEdition": {
+      "": "ฉบับพิมพ์ครั้งที่ 2",
+      "hint": "บางอย่างระหว่าง Frosthaven พิมพ์ครั้งที่ 1 กับ 2 ตั้งอัตโนมัติไม่ได้ โปรดติ๊กถ้าใช้ Frosthaven ฉบับพิมพ์ครั้งที่ 2"
+    },
+    "fhShareResources": {
+      "": "กฎบ้านแบ่งทรัพยากร",
+      "hint": "แบ่งทรัพยากรทั้งหมดยกเว้นทองระหว่างตัวละครกับสต็อก Frosthaven"
+    },
+    "fhStyle": {
+      "": "สไตล์ Frosthaven",
+      "hint": "แสดงการกระทำ ความสามารถ และไอคอนแบบ Frosthaven ใหม่ เปิดธีม Frosthaven อัตโนมัติ"
+    },
+    "fhTrials": {
+      "": "รองรับ Trial",
+      "favors": {
+        "": "รองรับภาคผนวก F: Favors",
+        "hint": "เลือกในเมนูเอฟเฟกต์อีเวนต์"
+      },
+      "hint": "จั่วการ์ด trial สำหรับแต่ละตัวละคร แสดงบนชีทตัวละคร!"
+    },
+    "fhTrialsApply": {
+      "": "ใช้ Trial",
+      "favors": {
+        "": "ใช้ภาคผนวก F: Favors",
+        "hint": "ใช้ Favors ที่เปิดอยู่อัตโนมัติ (ถ้าได้)"
+      },
+      "hint": "ใช้การ์ด trial ที่เปิดอยู่อัตโนมัติ (ถ้าได้)"
+    },
+    "fontsize": {
+      "": "ขนาดตัวอักษรความสามารถ",
+      "dec": "ลดขนาดตัวอักษรความสามารถ",
+      "hint": "ตั้งขนาดตัวอักษรของการ์ดความสามารถและสถิติ",
+      "inc": "เพิ่มขนาดตัวอักษรความสามารถ",
+      "reset": "รีเซ็ตขนาดตัวอักษรความสามารถ"
+    },
+    "fullscreen": {
+      "": "เต็มจอ",
+      "hint": "สลับเป็นเต็มจอ"
+    },
+    "gameClock": {
+      "": "นาฬิกาเกม",
+      "hint": "เปิดนาฬิกาเกมเพื่อติดตามเวลาที่แอปทำงาน"
+    },
+    "gameClockMerge": {
+      "": "รวมนาฬิกาเกม",
+      "hint": "รวมนาฬิกาเกมจากเกมเซิร์ฟเวอร์กับนาฬิกาท้องถิ่นเพื่อได้เวลารวม"
+    },
+    "gameplay": "เกมเพลย์",
+    "ge5Player": {
+      "": "กฎ ≥ 5 คน"
+    },
+    "gh2eImbuement": {
+      "": "เปิดการชุบมอนสเตอร์",
+      "hint": "เปิดตัวเลือกเพิ่มการชุบมอนสเตอร์ (ภาคผนวก F) ในเมนูเอฟเฟกต์อีเวนต์"
+    },
+    "gh2eImbuementKeep": {
+      "": "เก็บการชุบมอนสเตอร์",
+      "hint": "ใช้การตั้งค่าการชุบมอนสเตอร์ล่าสุดกับทุกฉากเสมอ"
+    },
+    "gh2eRules": "Gloomhaven ฉบับที่ 2",
+    "helperDefaults": {
+      "": "ใช้การตั้งค่า Helper เริ่มต้น"
+    },
+    "hideAbsent": {
+      "": "ซ่อนตัวที่ไม่อยู่",
+      "hint": "ตัวที่ไม่อยู่ไม่แสดงในรายการ"
+    },
+    "hideCharacterHP": {
+      "": "ซ่อน HP ตัวละคร",
+      "hint": "ไม่แสดง HP บนบอร์ดตัวละคร"
+    },
+    "hideCharacterLoot": {
+      "": "ซ่อนของปล้นตัวละคร",
+      "hint": "ไม่แสดงของปล้นบนบอร์ดตัวละคร"
+    },
+    "hideCharacterXP": {
+      "": "ซ่อน XP ตัวละคร",
+      "hint": "ไม่แสดงประสบการณ์บนบอร์ดตัวละคร"
+    },
+    "hideStats": {
+      "": "ซ่อนสถิติ",
+      "hint": "ซ่อนสถิติมอนสเตอร์ที่ยังไม่ได้ spawn"
+    },
+    "hints": {
+      "": "แสดงคำใบ้",
+      "hint": "แสดงทางลัดและคำใบ้ข้างเมนูหลัก"
+    },
+    "initiativeRequired": {
+      "": "ต้องมี Initiative",
+      "hint": "ถ้าไม่เลือก ลำดับตัวต้องตั้งด้วยการลากและวางเอง"
+    },
+    "initiativeRoundConfirm": {
+      "": "กล่องตั้ง Initiative",
+      "hint": "แสดงกล่องเพื่อเริ่มเทิร์นถัดไปเมื่อตั้ง initiative ครบแล้ว"
+    },
+    "interactiveAbilities": {
+      "": "ความสามารถแบบโต้ตอบ",
+      "hint": "ใช้ความสามารถที่ไฮไลต์ เช่น การเรียกหรือการกระทำธาตุ โดยคลิกบริเวณที่ตรงบนการ์ดความสามารถ"
+    },
+    "interface": "อินเทอร์เฟซ",
+    "keyboardShortcuts": {
+      "": "เปิดทางลัดแป้นพิมพ์",
+      "hint": "เปิดทางลัดแป้นพิมพ์ที่แสดง"
+    },
+    "levelAdjustment": {
+      "": "ปรับระดับฉาก"
+    },
+    "levelCalculation": {
+      "": "ระดับฉากอัตโนมัติ"
+    },
     "locale": {
+      "": "ภาษา",
+      "de": "เยอรมัน (Deutsch)",
+      "en": "อังกฤษ",
+      "es": "สเปน (Español)",
+      "fr": "ฝรั่งเศส (Français)",
       "help": {
+        "": "ช่วยแปล!",
         "hint": "<img src=\"https://i18n.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>"
       },
-      "th": "ไทย"
+      "it": "อิตาลี (Italiano)",
+      "ko": "เกาหลี (한국어)",
+      "pl": "โปแลนด์ (Polski)",
+      "pt": "โปรตุเกส (Portuguese)",
+      "ru": "รัสเซีย (Русский)",
+      "th": "ไทย",
+      "zh_Hans": "จีนตัวย่อ (简体中文)",
+      "zh_Hant": "จีนตัวเต็ม (繁體中文)"
+    },
+    "lootDeck": {
+      "": "เด็คของปล้น",
+      "hint": "เปิดเด็คของปล้น"
+    },
+    "lurkarsDefaults": "ใช้การตั้งค่าส่วนตัว Lurkars",
+    "maxUndo": {
+      "": "จำนวนย้อนกลับสูงสุด",
+      "hint": {
+        "": "เบราว์เซอร์ดูเหมือนไม่รองรับ IndexedDB หรือคุณจำกัดการใช้งาน จำนวนย้อนกลับจึงจำกัดที่ 50",
+        "firefox": "บน Firefox เปิด IndexedDB สำหรับโหมดส่วนตัวได้ที่ <a href=\"about:config\" target=\"_blank\">about:config</a> ด้วยคีย์ <i>dom.indexedDB.privateBrowsing.enabled</i>"
+      }
+    },
+    "monsterAttackModifierDeck": {
+      "": "เด็คตัวปรับการโจมตีสำหรับมอนสเตอร์",
+      "hint": "เปิดเด็คตัวปรับการโจมตีสำหรับมอนสเตอร์"
     },
     "monsters": {
-      "": "มอนสเตอร์"
+      "": "มอนสเตอร์",
+      "hint": "ถ้าปิด จะไม่แสดงมอนสเตอร์"
+    },
+    "moveElements": {
+      "": "อัปเดตสถานะธาตุอัตโนมัติ",
+      "hint": "สถานะธาตุจะเปลี่ยนอัตโนมัติก่อนแต่ละเทิร์น"
+    },
+    "partySheet": {
+      "": "ชีทปาร์ตี้",
+      "hint": "เปิดชีทปาร์ตี้และแคมเปญ ชีทแคมเปญอยู่ที่ด้านหลังชีทปาร์ตี้"
+    },
+    "pinchZoom": {
+      "": "ซูมด้วยท่าทาง",
+      "hint": "ซูมด้วยท่าทางสัมผัส"
+    },
+    "playerCount": {
+      "": "จำนวนตัวละครแบบมือ"
+    },
+    "playerNumber": {
+      "": "แสดงหมายเลขผู้เล่น",
+      "hint": "แสดงหมายเลขผู้เล่นบนบอร์ดตัวละคร"
+    },
+    "portraitMode": {
+      "": "ปรับโหมดแนวตั้ง",
+      "hint": "ปรับโหมดแนวตั้งสำหรับจอเล็ก"
+    },
+    "pressDoubleClick": {
+      "": "กดค้างแทนดับเบิลคลิก (สัมผัส)",
+      "hint": "บนจอสัมผัส ใช้กดค้างแทนดับเบิลคลิก (แนะนำเพื่อหลีกเลี่ยงคลิกผิด)"
+    },
+    "randomStandees": {
+      "": "สแตนดีสุ่ม",
+      "hint": "เพิ่มสแตนดีด้วยหมายเลขสุ่มที่ยังไม่ใช้"
+    },
+    "removeUnusedMonster": {
+      "": "เอาที่ไม่ใช้ออก",
+      "hint": "เอามอนสเตอร์ที่ไม่ได้ใช้ออกอัตโนมัติ"
+    },
+    "requires": "ต้องมี:",
+    "requiresOne": "ต้องมีอย่างใดอย่างหนึ่ง:",
+    "scenarioNumberInput": {
+      "": "ป้อนหมายเลขฉาก"
+    },
+    "scenarioRewards": {
+      "": "ใช้รางวัลฉาก",
+      "hint": "ใช้รางวัลสมบัติอัตโนมัติ: ให้ทอง XP ฯลฯ แก่ตัวละคร"
+    },
+    "scenarioRewardsItems": {
+      "": "รางวัลฉากไอเทมสุ่ม",
+      "hint": "จั่วการ์ดไอเทมสุ่มอัตโนมัติ"
+    },
+    "scenarioRooms": {
+      "": "ห้องในฉาก",
+      "hint": "ปลดล็อกห้องแยกในฉาก ถ้าไม่ตั้ง จะปิดการเพิ่มสแตนดีอัตโนมัติด้วย"
+    },
+    "scenarioRules": {
+      "": "กฎฉาก",
+      "hint": "แสดงป๊อปอัปเกี่ยวกับกฎฉากพิเศษ และเลือกใช้ได้"
+    },
+    "scenarioRulesAutoapply": {
+      "": "ใช้กฎฉากอัตโนมัติ",
+      "hint": "ใช้กฎฉากอัตโนมัติโดยไม่ต้องยืนยัน"
+    },
+    "scenarioStats": {
+      "": "สถิติฉาก",
+      "hint": "เก็บสถิติความเสียหาย ฆ่า ของปล้น XP และการรักษาระหว่างฉาก"
+    },
+    "showExpandedAbilityCard": {
+      "": "แสดงการ์ดความสามารถแบบขยาย",
+      "hint": "แสดงความสามารถทั้งหมดบนการ์ดความสามารถพร้อมกัน (แสดงชื่อการ์ดด้วยอัตโนมัติ)"
+    },
+    "showExpandedStatCard": {
+      "": "แสดงการ์ดสถิติแบบขยาย",
+      "hint": "ขยายการ์ดสถิติเพื่อแสดงเนื้อหาทั้งหมด"
+    },
+    "showFullAbilityCard": {
+      "": "แสดงชื่อการ์ดความสามารถ",
+      "hint": "แสดงการ์ดความสามารถรวมชื่อการ์ด"
+    },
+    "sortFigures": {
+      "": "เรียงตัว",
+      "hint": "เรียงตัวอัตโนมัติ ถ้าปิด ต้องเรียงด้วยการลากและวางเอง"
+    },
+    "standeeShieldRetaliate": {
+      "": "Shield และ Retaliate",
+      "hint": "ติดตามค่า %game.action.shield% และ %game.action.retaliate% เพิ่มสำหรับสแตนดีและการเรียก"
+    },
+    "standeeStats": {
+      "": "Shield และ Retaliate บนสแตนดี",
+      "hint": "แสดงค่า %game.action.shield% และ %game.action.retaliate% ปัจจุบันข้างแต่ละสแตนดี"
+    },
+    "standees": {
+      "": "สแตนดี",
+      "hint": "แสดงสแตนดี ถ้าปิด การปลดล็อกห้องและสแตนดีอัตโนมัติจะปิดด้วย"
+    },
+    "statAnimations": {
+      "": "แอนิเมชันสถิติ",
+      "hint": "เปิดแอนิเมชันไฮไลต์สถิติเช่น %game.action.shield% หรือ %game.action.retaliate%"
+    },
+    "stats": {
+      "": "การ์ดสถิติ",
+      "hint": "แสดงการ์ดสถิติสำหรับมอนสเตอร์"
+    },
+    "summons": {
+      "": "การเรียกตัวละคร",
+      "hint": "เปิดการเรียกตัวละคร"
+    },
+    "synced": "การตั้งค่าเหล่านี้ซิงค์กับเซิร์ฟเวอร์!",
+    "temporaryEnhancements": {
+      "": "การเสริมชั่วคราว",
+      "hint": "ใช้การเสริมชั่วคราวเพื่อลดต้นทุนการเสริม สำหรับ Frosthaven ใช้ตามกฎในหนังสือ ก่อนหน้านั้นใช้ต้นทุนการเสริมของ Gloomhaven Digital"
     },
     "theme": {
-      "fh": "Frosthaven"
+      "": "ธีม",
+      "bb": "Button & Bugs (%wip%)",
+      "default": "ค่าเริ่มต้น",
+      "fh": "Frosthaven",
+      "hint": "เลือกธีมสำหรับพื้นหลัง แถบ และตัวอักษร",
+      "modern": "โมเดิร์น"
+    },
+    "tooltips": {
+      "": "ทูลทิป",
+      "hint": "แสดงทูลทิป"
+    },
+    "treasures": {
+      "": "ตัวบอกสมบัติห้อง",
+      "hint": "แสดงสมบัติที่มีในฉากเมื่อเปิดห้องที่ตรง และเพิ่มกล่องเปิดสมบัติ"
+    },
+    "treasuresLoot": {
+      "": "ใช้รางวัลสมบัติ",
+      "hint": "ใช้รางวัลสมบัติอัตโนมัติ: ให้ทอง XP ฯลฯ แก่ตัวที่ปล้น จั่วฉากข้างสุ่มหรือดีไซน์ไอเทม ฯลฯ"
+    },
+    "treasuresLootItem": {
+      "": "รางวัลสมบัติไอเทมสุ่ม",
+      "hint": "จั่วการ์ดไอเทมสุ่มอัตโนมัติ"
+    },
+    "treasuresLootScenario": {
+      "": "รางวัลสมบัติฉากสุ่ม",
+      "hint": "จั่วฉากสุ่มอัตโนมัติ"
+    },
+    "turnConfirmation": {
+      "": "ยืนยันเทิร์น",
+      "hint": "แสดงเตือนเมื่อคลิก \"%round.next%\" ก่อนทุกตัวจบเทิร์น ถ้าปิด และ %settings.expireConditions% หรือ %settings.applyConditions% เปิด จะใช้อัตโนมัติกับทุกตัว"
+    },
+    "unlockEnvelopeBuildings": {
+      "": "ปลดล็อกอาคารจากซอง",
+      "hint": "ปลดล็อกอาคารอัตโนมัติเมื่อเปิดซอง (จากควสต์ส่วนตัว)"
+    },
+    "wakeLock": {
+      "": "Wake Lock",
+      "hint": "Wake Lock บนอุปกรณ์ที่รองรับ จะทำให้จอไม่ดับ อาจกินแบตบนมือถือ"
+    },
+    "xhaDefaults": "ใช้การตั้งค่า X-haven Assistant",
+    "zoom": {
+      "": "ซูม",
+      "in": "ซูมเข้า",
+      "out": "ซูมออก",
+      "reset": "รีเซ็ตซูม"
     }
   },
   "spoiler": {
+    "add": "เพิ่มสปอยเลอร์",
+    "all": "เปิดสปอยเลอร์ทั้งหมด",
     "placeholder": "???"
   },
   "state": {
+    "clear": {
+      "": "ล้าง",
+      "redos": "ล้าง Redo",
+      "undos": "ล้าง Undo"
+    },
     "currentGame": "ปัจจุบัน",
     "info": {
+      "addBuilding": "ปลดล็อกอาคาร '%data.buildings.{1}%' ({0})",
+      "addCampaignSticker": "เพิ่มสติกเกอร์แคมเปญ {0}",
+      "addChar": "เพิ่มตัวละคร {0}",
       "addCondition": {
         "char": "%game.condition.{1}% {0}",
-        "objective": "%game.condition.{1}% {0}"
+        "monster": "%game.condition.{2}% '{1}' ของ {0}",
+        "monsterEntities": "%game.condition.{1}% ทั้งหมด {2}{0}",
+        "objective": "%game.condition.{1}% {0}",
+        "objectiveContainer": "%game.condition.{2}% %game.objectiveMarker.{1}% ของ {0}",
+        "objectives": "%game.condition.{1}% ทั้งหมด {0}",
+        "summon": "%game.condition.{2}% '{1}' ของ {0}",
+        "summons": "%game.condition.{1}% การเรียก {0} ทั้งหมด"
+      },
+      "addConditions": {
+        "char": "{2}x %game.condition.{1}% {0}",
+        "monster": "{3}x %game.condition.{2}% '{1}' ของ {0}",
+        "monsterEntities": "{3}x %game.condition.{1}% ทั้งหมด {2}{0}",
+        "objective": "{2}x %game.condition.{1}% {0}",
+        "objectiveContainer": "{3}x %game.condition.{2}% %game.objectiveMarker.{1}% ของ {0}",
+        "objectives": "{2}x %game.condition.{1}% ทั้งหมด {0}",
+        "summon": "{3}x %game.condition.{2}% '{1}' ของ {0}",
+        "summons": "{2}x %game.condition.{1}% การเรียก {0} ทั้งหมด"
+      },
+      "addGameCondition": "เพิ่ม %game.condition.{0}% ในเกมปัจจุบัน",
+      "addGlobalAchievement": "เพิ่มความสำเร็จทั่วโลก '%data.globalAchievements.{0}%'",
+      "addImmunity": {
+        "char": "ภูมิคุ้มกัน %game.immunity.{1}% {0}",
+        "monster": "ภูมิคุ้มกัน %game.immunity.{2}% '{1}' ของ {0}",
+        "monsterEntities": "ภูมิคุ้มกัน %game.immunity.{1}% ทั้งหมด {2}{0}",
+        "objective": "ภูมิคุ้มกัน %game.immunity.{1}% {0}",
+        "objectiveContainer": "ภูมิคุ้มกัน %game.immunity.{2}% %game.objectiveMarker.{1}% ของ {0}",
+        "objectives": "ภูมิคุ้มกัน %game.immunity.{1}% ทั้งหมด {0}",
+        "summon": "ภูมิคุ้มกัน %game.immunity.{2}% '{1}' ของ {0}",
+        "summons": "ภูมิคุ้มกัน %game.immunity.{1}% การเรียก {0} ทั้งหมด"
+      },
+      "addItem": "เพิ่มไอเทม {1} (%data.edition.{2}%) ให้ {0}",
+      "addManualScenario": "ปลดล็อกฉาก #{0} {1} ({2})",
+      "addMarker": {
+        "char": "มาร์กเกอร์ %data.characterIconColored.{2}% {1} ให้ {0}",
+        "monster": "มาร์กเกอร์ %data.characterIconColored.{3}% {2} ให้ '{1}' ของ {0}",
+        "monsterEntities": "มาร์กเกอร์ %data.characterIconColored.{2}% {1} ให้ทั้งหมด {2}{0}",
+        "objective": "มาร์กเกอร์ %data.characterIconColored.{2}% {1} ให้ {0}",
+        "objectiveContainer": "มาร์กเกอร์ %data.characterIconColored.{3}% {2} ให้ %game.objectiveMarker.{1}% ของ {0}",
+        "objectives": "มาร์กเกอร์ %data.characterIconColored.{2}% {1} ให้ทั้งหมด {0}",
+        "summon": "มาร์กเกอร์ %data.characterIconColored.{3}% {2} ให้ '{1}' ของ {0}",
+        "summons": "มาร์กเกอร์ %data.characterIconColored.{2}% {1} ให้การเรียก {0} ทั้งหมด"
+      },
+      "addMastery": "ติ๊ก mastery {1} สำหรับ {0}",
+      "addMonster": "เพิ่มมอนสเตอร์ {0}",
+      "addNextStandee": "เพิ่มสแตนดี {1} {0}",
+      "addObjective": {
+        "": "เพิ่มเป้าหมาย",
+        "entity": "เพิ่ม %game.objectiveMarker.{0}% ให้ {1}",
+        "escort": "เพิ่มผู้คุ้มกัน"
+      },
+      "addParty": "สร้างปาร์ตี้ใหม่ '{0}'",
+      "addPartyAchievement": "เพิ่มความสำเร็จปาร์ตี้ '%data.partyAchievements.{0}%'",
+      "addPartyTownGuardPerkSection": "เพิ่มส่วน Town Guard Perk {0}",
+      "addPartyWeekSection": "เพิ่มส่วน {2} ในสัปดาห์ {1}",
+      "addRandomStandee": "เพิ่มสแตนดี {1} {0} สุ่ม {2}",
+      "addResource": "เพิ่ม +{2} {1} ให้ {0}",
+      "addSection": "เพิ่มส่วน #{0} {1} ({2})",
+      "addSpecialTags": "เพิ่มการกระทำพิเศษ {1} ให้ {0}",
+      "addSpecialTagsSummon": "เพิ่มการกระทำพิเศษ {1} ให้ {2} ของ {0}",
+      "addStandee": "เพิ่มสแตนดี {1} {0} {2}",
+      "addSummon": "เพิ่มการเรียก '{1}' ให้ {0}",
+      "addTreasure": "เพิ่มสมบัติ {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
+      "addTreasures": "เพิ่มสมบัติ {1} (%data.edition.{0}%)",
+      "applyCondition": {
+        "char": "ใช้ %game.condition.{1}% กับ {0}",
+        "monster": "ใช้ %game.condition.{2}% กับ '{1}' ของ {0}",
+        "monsterEntities": "ใช้ %game.condition.{1}% กับทั้งหมด {2}{0}",
+        "objective": "ใช้ %game.condition.{1}% กับ {0}",
+        "objectiveContainer": "ใช้ %game.condition.{2}% กับ %game.objectiveMarker.{1}% ของ {0}",
+        "summon": "ใช้ %game.condition.{2}% กับ '{1}' ของ {0}"
       },
       "applyHighlightAction": {
         "condition": "%game.condition.{0}%",
-        "heal": "%game.action.heal% {0}"
+        "elementConsume": "ใช้ {0}",
+        "elementInfuse": "เติม {0}",
+        "heal": "%game.action.heal% {0}",
+        "spawn": "เรียก",
+        "sufferDamage": "ได้รับ %game.damage:{0}%",
+        "summon": "เรียก",
+        "switchType": "สลับระหว่าง %game.monsterType.normal% กับ %game.monsterType.elite%"
       },
-      "command": {
-        "round": {
-          "state": {
-            "draw": "จั่ว"
+      "applyInteractiveActions": "ใช้ {0} สำหรับสแตนดี {1} ของ {2}",
+      "applyScenarioRule": "ใช้กฎฉาก",
+      "battleGoals": {
+        "deselect": "ยกเลิกเป้าหมายการต่อสู้ปัจจุบันของ {0}",
+        "drawCard": "จั่วการ์ดเป้าหมายการต่อสู้อีกใบให้ {0}",
+        "drawCards": "จั่วการ์ดเป้าหมายการต่อสู้ให้ {0}",
+        "select": "เลือกเป้าหมายการต่อสู้ของ {0}",
+        "setup": {
+          "addEdition": "เพิ่มการ์ดเป้าหมายการต่อสู้จากฉบับ %data.edition.{0}%",
+          "filter": {
+            "addCard": "เพิ่มการ์ดเป้าหมายการต่อสู้ '{1}' (%data.edition.{0}%) กลับในเด็ค",
+            "removeCard": "เอาการ์ดเป้าหมายการต่อสู้ '{1}' (%data.edition.{0}%) ออกจากเด็ค"
+          },
+          "removeEdition": "เอาการ์ดเป้าหมายการต่อสู้ของฉบับ %data.edition.{0}% ออก"
+        }
+      },
+      "brewPotion": "ต้มไอเทม \"%data.items.{2}-{1}%\" ให้ {0}",
+      "brewPotionOther": "{0} ต้มไอเทม \"%data.items.{2}-{1}%\" ให้ {3}",
+      "buildBuilding": "สร้างอาคาร '%data.buildings.{1}%' ({0})",
+      "buildings": {
+        "stables": {
+          "pets": {
+            "add": "เพิ่มสัตว์เลี้ยง %data.pets.{0}-{1}% ในคอก",
+            "catch": "จับสัตว์จากสแตนดี {1} {2} ของ {0}",
+            "play": "เล่นการ์ดสัตว์เลี้ยง %data.pets.{0}-{1}%",
+            "remove": "เอาสัตว์เลี้ยง %data.pets.{0}-{1}% ออกจากคอก",
+            "restore": "คืนการ์ดสัตว์เลี้ยง %data.pets.{0}-{1}%",
+            "setActive": "นำการ์ดสัตว์เลี้ยง %data.pets.{0}-{1}% เข้าฉาก",
+            "setInactive": "เอาการ์ดสัตว์เลี้ยง %data.pets.{0}-{1}% ออกจากฉาก",
+            "setName": "ตั้งชื่อสัตว์เลี้ยง %data.pets.{0}-{1}% ว่า '{2}'",
+            "unsetName": "ลบชื่อสัตว์เลี้ยง %data.pets.{0}-{1}%"
           }
         }
       },
-      "draw": "จั่ว"
-    }
+      "buyItem": "ซื้อไอเทม {1} (%data.edition.{2}%) ให้ {0}",
+      "cancelScenario": "ยกเลิกฉาก #{0} {1} ({2})",
+      "challengeDeck": {
+        "clear": "ทิ้งความท้าทายที่จั่วแล้ว",
+        "draw": "จั่วความท้าทาย",
+        "hide": "ซ่อนเด็คความท้าทาย",
+        "removeCard": "เอาการ์ดออกจากเด็คความท้าทาย",
+        "reorder": "เรียงเด็คความท้าทาย",
+        "restoreCard": "คืนการ์ด {0} ของเด็คความท้าทาย",
+        "show": "แสดงเด็คความท้าทาย",
+        "shuffle": "สับเด็คความท้าทาย",
+        "toggle": "สลับความท้าทายที่เปิดอยู่"
+      },
+      "changeBuildingState": "สถานะอาคาร '%data.buildings.{1}%' ({0}) เป็น %party.campaign.sheet.buildings.state.{2}%",
+      "changeCustomScenario": "ชื่อ '{0}' สำหรับฉากกำหนดเอง",
+      "changeEntityHp": "HP {3} สำหรับสแตนดี {1} {2} ของ {0}",
+      "changeEntityMaxHp": "HP สูงสุด {3} สำหรับสแตนดี {1} {2} ของ {0}",
+      "changeHP": "HP {1} สำหรับ {0}",
+      "changeLoot": "ของปล้น {1} สำหรับ {0}",
+      "changeMaxHP": "HP สูงสุด {1} สำหรับ {0}",
+      "changeMonsterHP": "HP {1} สำหรับทั้งหมด {2}{0}",
+      "changeMonsterType": "เปลี่ยนประเภทสแตนดี {0} {2} จาก {1} เป็น %monster.{3}%",
+      "changeObjectiveEntityHP": "HP {2} สำหรับ %game.objectiveMarker.{1}% ของ {0}",
+      "changeObjectiveEntityNumber": "เปลี่ยนมาร์กเกอร์จาก %game.objectiveMarker.{1}% เป็น %game.objectiveMarker.{2}% สำหรับ {0}",
+      "changeObjectiveHP": "HP {1} สำหรับเป้าหมาย {0}",
+      "changeObjectiveId": "ID '{1}' สำหรับ {0}",
+      "changeObjectiveMaxHp": "HP สูงสุด {1} สำหรับเป้าหมาย {0}",
+      "changeObjectivesHP": "HP {1} สำหรับทั้งหมด {0}",
+      "changeParty": "เปลี่ยนปาร์ตี้เป็น '{0}'",
+      "changeSummonAttack": "โจมตี {2} สำหรับการเรียก '{1}' ของ {0}",
+      "changeSummonHp": "HP {2} สำหรับการเรียก '{1}' ของ {0}",
+      "changeSummonMaxHp": "HP สูงสุด {2} สำหรับการเรียก '{1}' ของ {0}",
+      "changeSummonMove": "การเคลื่อนที่ {2} สำหรับการเรียก '{1}' ของ {0}",
+      "changeSummonRange": "ระยะ {2} สำหรับการเรียก '{1}' ของ {0}",
+      "changeXP": "XP {1} สำหรับ {0}",
+      "characterItemApply": {
+        "consumed": "{0} ใช้ไอเทม {1} \"{3}\" แล้ว",
+        "flipped": "{0} พลิกไอเทม {1} \"{3}\"",
+        "persistent": "{0} ไอเทมถาวร {1} \"{3}\"",
+        "slot": "{0} ทำเครื่องหมายช่องบนไอเทม {1} \"{3}\"",
+        "slotBack": "{0} ยกเครื่องหมายช่องบนไอเทม {1} \"{3}\"",
+        "spent": "{0} ใช้ไอเทม {1} \"{3}\""
+      },
+      "characterItemUnapply": {
+        "consumed": "{0} กู้ไอเทม {1} \"{3}\" คืน",
+        "flipped": "{0} พลิกไอเทม {1} \"{3}\" กลับ",
+        "persistent": "{0} ยกไอเทมถาวร {1} \"{3}\"",
+        "slot": "{0} ยกเครื่องหมายช่องบนไอเทม {1} \"{3}\"",
+        "slotBack": "{0} ทำเครื่องหมายช่องบนไอเทม {1} \"{3}\"",
+        "spent": "{0} รีเฟรชไอเทม {1} \"{3}\""
+      },
+      "characterLongRest": "ตั้งพักยาวสำหรับ {0}",
+      "characterLongRestOff": "ปิดพักยาวสำหรับ {0}",
+      "characterReplay": "เล่น {0} อีกครั้งสำหรับผู้เล่น {1}",
+      "characterSetAside": "ตั้ง {0} ไว้ข้างสำหรับผู้เล่น {1}",
+      "clearDiscardedScenarioRules": "ล้างกฎฉากที่ทิ้งแล้ว",
+      "command": {
+        "character": {
+          "initiative": "Initiative สำหรับ {0}"
+        },
+        "round": {
+          "state": {
+            "draw": "จั่ว",
+            "next": "เทิร์นถัดไป"
+          }
+        }
+      },
+      "craftItem": "คราฟต์ไอเทม {1} (%data.edition.{2}%) ให้ {0}",
+      "declineApplyCondition": {
+        "char": "ไม่ใช้ %game.condition.{1}% กับ {0}",
+        "monster": "ไม่ใช้ %game.condition.{2}% กับ '{1}' ของ {0}",
+        "monsterEntities": "ไม่ใช้ %game.condition.{1}% กับทั้งหมด {2}{0}",
+        "objective": "ไม่ใช้ %game.condition.{1}% กับ {0}",
+        "objectiveContainer": "ไม่ใช้ %game.condition.{2}% กับ %game.objectiveMarker.{1}% ของ {0}",
+        "summon": "ไม่ใช้ %game.condition.{2}% กับ '{1}' ของ {0}"
+      },
+      "disableAutomaticLevel": "ปิดการคำนวณระดับอัตโนมัติ",
+      "disableEnvelopeB": "ปิดซอง B",
+      "disablePartyCampaignMode": "ปิดโหมดแคมเปญ",
+      "disableSolo": "ปิดการคำนวณระดับโซโล",
+      "disabledGe5Player": "ปิดกฎ ≥ 5 คน",
+      "disabledManualPlayerCount": "ปิดจำนวนผู้เล่นแบบมือ",
+      "distillItem": "กลั่นไอเทม \"%data.items.{2}-{1}%\" ให้ {0}",
+      "donate": "{0} บริจาคให้ Sanctuary of the Great Oak",
+      "downgradeBuilding": "ลดระดับอาคาร '%data.buildings.{1}%' ({0}) เป็นระดับ {2}",
+      "draw": "จั่ว",
+      "drawAbility": "จั่วความสามารถให้ {0}",
+      "enableAutomaticLevel": "เปิดการคำนวณระดับอัตโนมัติ",
+      "enableEnvelopeB": "เปิดซอง B",
+      "enablePartyCampaignMode": "เปิดโหมดแคมเปญ",
+      "enableSolo": "เปิดการคำนวณระดับโซโล",
+      "enabledGe5Player": "เปิดกฎ ≥ 5 คน",
+      "enabledManualPlayerCount": "เปิดจำนวนผู้เล่นแบบมือ",
+      "endAllTurns": "จบเทิร์นทั้งหมด",
+      "entityDead": "ฆ่าสแตนดี {1} {2} ของ {0}",
+      "equipItem": "สวมไอเทม {1} (%data.edition.{2}%) ให้ {0}",
+      "eventEffect": {
+        "addCondition": "%game.condition.{0}% ให้ {1}",
+        "addImmunity": "%game.immunity.{0}% ให้ {1}",
+        "changeCharacterBattleGoals": "{0} %game.checkmark% สำหรับ {1}",
+        "changeCharacterBless": "{0} %game.condition.bless% สำหรับ {1}",
+        "changeCharacterCurse": "{0} %game.condition.curse% สำหรับ {1}",
+        "changeCharacterGold": "{0} ทอง สำหรับ {1}",
+        "changeCharacterHP": "{0} HP สำหรับ {1}",
+        "changeCharacterResource": "{1} %game.resource.{0}% สำหรับ {2}",
+        "changeCharacterXP": "{0} XP สำหรับ {1}",
+        "drawRandomItem": "จั่วดีไซน์ไอเทมสุ่ม {0} \"{2}\" (%data.edition.{1}%)",
+        "drawRandomItemBlueprint": "จั่วบลูพรินต์ไอเทมสุ่ม {0} \"{2}\" (%data.edition.{1}%)",
+        "drawRandomScenario": "จั่วฉากสุ่ม {2} %data.scenarioNumber:{0}%",
+        "drawRandomScenarioSection": "จั่วส่วนฉากสุ่ม %data.section:{0}% ปลดล็อก {3}",
+        "inspiration": "{0} แรงบันดาลใจ",
+        "morale": "{0} ขวัญ",
+        "prosperity": "{0} ความมั่งคั่ง",
+        "removeCondition": "เอา %game.condition.{0}% ออกจาก {1}",
+        "removeImmunity": "เอา %game.immunity.{0}% ออกจาก {1}",
+        "reputation": "{0} ชื่อเสียง",
+        "setConditionValue": "%game.condition.{0}% เป็น {1} สำหรับ {2}"
+      },
+      "finishConclusion": "จบบทสรุป #{0} {1} ({2})",
+      "finishScenario": {
+        "battleGoal": "ตั้งเครื่องหมายเป้าหมายการต่อสู้สำหรับ %data.character.{0}.{1}% เป็น {2}",
+        "close": "ปิดสรุปฉาก",
+        "dialog": "สรุปฉาก #{0} {1} ({2})",
+        "failure": "ฉาก #{0} {1} ({2}) ล้มเหลว",
+        "linked": "ฉาก #{0} {1} สำเร็จ ดำเนินต่อด้วย #{3} ({2})",
+        "remove": "เอาการสำเร็จฉาก #{0} {1} ({2}) ออก",
+        "restart": "เริ่มฉากที่ล้มเหลว #{0} {1} ({2}) ใหม่",
+        "success": "ฉาก #{0} {1} ({2}) สำเร็จ"
+      },
+      "gameClock": {
+        "automaticGameClockOut": "บันทึกเวลาออกอัตโนมัติ",
+        "clockIn": "บันทึกเวลาเข้า",
+        "clockOut": "บันทึกเวลาออก",
+        "merge": "รวมนาฬิกาเกม"
+      },
+      "hideScenarioRule": "ไม่แสดงกฎฉากอีก",
+      "importCharacter": "นำเข้าตัวละคร {0} จากไฟล์",
+      "importParty": "นำเข้าแคมเปญจากไฟล์",
+      "loadGameFromFile": "โหลดสถานะเกมจากไฟล์",
+      "lootCharTreasure": "{2} ปล้นสมบัติ {0}",
+      "lootDeckAddEnhancement": "เสริมการ์ดของปล้น '{1} %game.loot.{0}%'",
+      "lootDeckChangeConfig": "เปลี่ยนตารางของปล้น",
+      "lootDeckDraw": "จั่วการ์ดของปล้น",
+      "lootDeckHide": "ซ่อนเด็คของปล้น",
+      "lootDeckRemoveCard": "เอาการ์ด {0} ออกจากเด็คของปล้น",
+      "lootDeckRemoveEnhancement": "เอาการเสริมออกจากการ์ดของปล้น '{1} %game.loot.{0}%'",
+      "lootDeckReorder": "เรียงเด็คของปล้น",
+      "lootDeckShow": "แสดงเด็คของปล้น",
+      "lootDeckShuffle": "สับเด็คของปล้น",
+      "lootDeckShuffleUpcoming": "สับการ์ดที่กำลังจะจั่วของเด็คของปล้น",
+      "lootRandomItem": "{3} ปล้นไอเทมสุ่ม {0} \"{2}\" (%data.edition.{1}%)",
+      "monsterChangeEntityHp": "HP {2} สำหรับสแตนดี {1} ของ %data.monster.{0}%",
+      "monsterConsumeElement": "{0} ใช้ {1}",
+      "monsterDead": "ฆ่าทั้งหมด {1}{0}",
+      "monsterInfuseElement": "{0} เติม {1}",
+      "monsterSetEntityActive": "ตั้งสแตนดี %game.monster.{2}% {1} ของ %data.monster.{0}% เป็นทำงาน",
+      "monsterUnsetEntityActive": "ตั้งสแตนดี %game.monster.{2}% {1} ของ %data.monster.{0}% เป็นไม่ทำงาน",
+      "moveResource": "ย้าย {2} {1} จาก {0} ไปสต็อก Frosthaven",
+      "nextIdentity": "ตั้งฟอร์มของ {0} จาก %data.character.{4}.{1}.{2}% เป็น %data.character.{4}.{1}.{3}%",
+      "nextRound": "เทิร์นถัดไป",
+      "objectiveContainerChangeEntityHp": "HP {2} สำหรับ %game.objectiveMarker.{1}% ของ {0}",
+      "objectiveEntityDead": "ฆ่า %game.objectiveMarker.{1}% ของ {0}",
+      "openRoom": "เปิดประตูสำหรับแผ่น '{2}' ใน #{0} {1}",
+      "openRoomMarker": "เปิดประตู %game.mapMarker.{3}% สำหรับแผ่น '{2}' ใน #{0} {1}",
+      "rebuildBuilding": "สร้าง '%data.buildings.{1}%' ({0}) ใหม่",
+      "removeAbility": "เอาการ์ดความสามารถ \"{1}\" ออกจาก {0}",
+      "removeAllChars": "เอาตัวละครทั้งหมดออก",
+      "removeAllMonster": "เอามอนสเตอร์ทั้งหมดออก",
+      "removeAllObjectives": "เอาเป้าหมายทั้งหมดออก",
+      "removeBuilding": "เอาอาคาร '%data.buildings.{1}%' ({0}) ออก",
+      "removeCampaignSticker": "เอาสติกเกอร์แคมเปญ {0} ออก",
+      "removeChar": "เอาตัวละคร {0} ออก",
+      "removeCharTreasure": "เอาสมบัติ {1} ออกจาก {2}",
+      "removeCharacterRetaliate": "เอา %game.action.retaliate% ออกจาก {0}",
+      "removeCharacterRetaliatePersistent": "เอา %game.card.persistent% %game.action.retaliate% ออกจาก {0}",
+      "removeCharacterShield": "เอา %game.action.shield% ออกจาก {0}",
+      "removeCharacterShieldPersistent": "เอา %game.card.persistent% %game.action.shield% ออกจาก {0}",
+      "removeCondition": {
+        "char": "เอา %game.condition.{1}% ออกจาก {0}",
+        "monster": "เอา %game.condition.{2}% ออกจาก '{1}' ของ {0}",
+        "monsterEntities": "เอา %game.condition.{1}% ออกจากทั้งหมด {2}{0}",
+        "objective": "เอา %game.condition.{1}% ออกจาก {0}",
+        "objectiveContainer": "เอา %game.condition.{2}% ออกจาก %game.objectiveMarker.{1}% ของ {0}",
+        "objectives": "เอา %game.condition.{1}% ออกจากทั้งหมด {0}",
+        "summon": "เอา %game.condition.{2}% ออกจาก '{1}' ของ {0}",
+        "summons": "เอา %game.condition.{1}% ออกจากการเรียก {0} ทั้งหมด"
+      },
+      "removeConditions": {
+        "char": "เอา {2}x %game.condition.{1}% ออกจาก {0}",
+        "monster": "เอา {3}x %game.condition.{2}% ออกจาก '{1}' ของ {0}",
+        "monsterEntities": "เอา {3}x %game.condition.{1}% ออกจากทั้งหมด {2}{0}",
+        "objective": "เอา {2}x %game.condition.{1}% ออกจาก {0}",
+        "objectiveContainer": "เอา {3}x %game.condition.{2}% ออกจาก %game.objectiveMarker.{1}% ของ {0}",
+        "objectives": "เอา {2}x %game.condition.{1}% ออกจากทั้งหมด {0}",
+        "summon": "เอา {3}x %game.condition.{2}% ออกจาก '{1}' ของ {0}",
+        "summons": "เอา {2}x %game.condition.{1}% ออกจากการเรียก {0} ทั้งหมด"
+      },
+      "removeEntityMarker": {
+        "monster": "เอามาร์กเกอร์ %game.mapMarker.{2}% ออกจาก '{1}' ของ {0}",
+        "objectiveContainer": "เอามาร์กเกอร์ %game.mapMarker.{2}% ออกจาก %game.objectiveMarker.{1}% ของ {0}"
+      },
+      "removeEntityRetaliate": {
+        "char": "เอา %game.action.retaliate% ออกจาก {0}",
+        "monster": "เอา %game.action.retaliate% ออกจาก '{1}' ของ {0}",
+        "objectiveContainer": "เอา %game.action.retaliate% ออกจาก %game.objectiveMarker.{1}% ของ {0}",
+        "summon": "เอา %game.action.retaliate% ออกจาก '{1}' ของ {0}"
+      },
+      "removeEntityRetaliatePersistent": {
+        "char": "เอา %game.card.persistent% %game.action.retaliate% ออกจาก {0}",
+        "monster": "เอา %game.card.persistent% %game.action.retaliate% ออกจาก '{1}' ของ {0}",
+        "objectiveContainer": "เอา %game.card.persistent% %game.action.retaliate% ออกจาก %game.objectiveMarker.{1}% ของ {0}",
+        "summon": "เอา %game.card.persistent% %game.action.retaliate% ออกจาก '{1}' ของ {0}"
+      },
+      "removeEntityShield": {
+        "char": "เอา %game.action.shield% ออกจาก {0}",
+        "monster": "เอา %game.action.shield% ออกจาก '{1}' ของ {0}",
+        "objectiveContainer": "เอา %game.action.shield% ออกจาก %game.objectiveMarker.{1}% ของ {0}",
+        "summon": "เอา %game.action.shield% ออกจาก '{1}' ของ {0}"
+      },
+      "removeEntityShieldPersistent": {
+        "char": "เอา %game.card.persistent% %game.action.shield% ออกจาก {0}",
+        "monster": "เอา %game.card.persistent% %game.action.shield% ออกจาก '{1}' ของ {0}",
+        "objectiveContainer": "เอา %game.card.persistent% %game.action.shield% ออกจาก %game.objectiveMarker.{1}% ของ {0}",
+        "summon": "เอา %game.card.persistent% %game.action.shield% ออกจาก '{1}' ของ {0}"
+      },
+      "removeGameCondition": "เอา %game.condition.{0}% ออกจากเกมปัจจุบัน",
+      "removeGlobalAchievement": "เอาความสำเร็จทั่วโลก '%data.globalAchievements.{0}%' ออก",
+      "removeImmunity": {
+        "char": "เอาภูมิคุ้มกัน %game.immunity.{1}% ออกจาก {0}",
+        "monster": "เอาภูมิคุ้มกัน %game.immunity.{2}% ออกจาก '{1}' ของ {0}",
+        "monsterEntities": "เอาภูมิคุ้มกัน %game.immunity.{1}% ออกจากทั้งหมด {2}{0}",
+        "objective": "เอาภูมิคุ้มกัน %game.immunity.{1}% ออกจาก {0}",
+        "objectiveContainer": "เอาภูมิคุ้มกัน %game.immunity.{2}% ออกจาก %game.objectiveMarker.{1}% ของ {0}",
+        "objectives": "เอาภูมิคุ้มกัน %game.immunity.{1}% ออกจากทั้งหมด {0}",
+        "summon": "เอาภูมิคุ้มกัน %game.immunity.{2}% ออกจาก '{1}' ของ {0}",
+        "summons": "เอาภูมิคุ้มกัน %game.immunity.{1}% ออกจากการเรียก {0} ทั้งหมด"
+      },
+      "removeItem": "เอาไอเทม {1} (%data.edition.{2}%) ออกจาก {0}",
+      "removeManualScenario": "เอาฉาก #{0} {1} ({2}) ออกจากที่ปลดล็อกแล้ว",
+      "removeMarker": {
+        "char": "เอามาร์กเกอร์ %data.characterIconColored.{2}% {1} ออกจาก {0}",
+        "monster": "เอามาร์กเกอร์ %data.characterIconColored.{3}% {2} ออกจาก '{1}' ของ {0}",
+        "monsterEntities": "เอามาร์กเกอร์ %data.characterIconColored.{2}% {1} ออกจากทั้งหมด {2}{0}",
+        "objective": "เอามาร์กเกอร์ %data.characterIconColored.{2}% {1} ออกจาก {0}",
+        "objectiveContainer": "เอามาร์กเกอร์ %data.characterIconColored.{3}% {2} ออกจาก %game.objectiveMarker.{1}% ของ {0}",
+        "objectives": "เอามาร์กเกอร์ %data.characterIconColored.{2}% {1} ออกจากทั้งหมด {0}",
+        "summon": "เอามาร์กเกอร์ %data.characterIconColored.{3}% {2} ออกจาก '{1}' ของ {0}",
+        "summons": "เอามาร์กเกอร์ %data.characterIconColored.{2}% {1} ออกจากการเรียก {0} ทั้งหมด"
+      },
+      "removeMastery": "ยกติ๊ก mastery {1} สำหรับ {0}",
+      "removeMonster": "เอามอนสเตอร์ {0} ออก",
+      "removeObjective": "เอาเป้าหมาย {0} ออก",
+      "removeParty": "เอาปาร์ตี้ '{0}' ออก",
+      "removePartyAchievement": "เอาความสำเร็จปาร์ตี้ '%data.partyAchievements.{0}%' ออก",
+      "removePartyTownGuardPerkSection": "เอาส่วน Town Guard Perk {0} ออก",
+      "removePartyWeekSection": "เอาส่วน {2} ออกจากสัปดาห์ {1}",
+      "removePlayer": "เอาผู้เล่น {1} ({0}) ออก",
+      "removeResource": "-{2} {1} ของ {0}",
+      "removeScenarioRule": "เอากฎฉากออก",
+      "removeSpecialTags": "เอาการกระทำพิเศษ {1} ออกจาก {0}",
+      "removeSpecialTagsSummon": "เอาการกระทำพิเศษ {1} ออกจาก {2} ของ {0}",
+      "removeTreasure": "เอาสมบัติ {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) ออก",
+      "removeTreasures": "เอาสมบัติ {1} (%data.edition.{0}%) ออก",
+      "reorder": "เรียงตัว",
+      "reorderAbilities": "เรียงความสามารถของ {0}",
+      "repairBuilding": "ซ่อม '%data.buildings.{1}%' ({0})",
+      "resetCampaign": "รีเซ็ตแคมเปญ",
+      "resetScenario": "รีเซ็ตฉาก #{0} {1} ({2})",
+      "restoreAbility": "คืนการ์ดความสามารถ \"{1}\" ให้ {0}",
+      "restoreDefaultAbilities": "คืนความสามารถเริ่มต้นของ {0}",
+      "sellItem": "ขายไอเทม \"%data.items.{2}-{1}%\" ให้ {0}",
+      "serverSync": "เซิร์ฟเวอร์: {0}",
+      "serverSyncEmpty": "ซิงค์เซิร์ฟเวอร์",
+      "setAbsent": "{0} ไม่อยู่",
+      "setActive": "เริ่มเทิร์นสำหรับ {0}",
+      "setAllied": "{0} เป็นพันธมิตร",
+      "setAlly": "{0} เป็นพันธมิตร",
+      "setBG": "ตั้งเป้าหมายการต่อสู้ของ {0} เป็น {1}",
+      "setCharacterRetaliate": "{1} สำหรับ {0}",
+      "setCharacterRetaliatePersistent": "%game.card.persistent% {1} สำหรับ {0}",
+      "setCharacterShield": "%game.action.shield% {1} สำหรับ {0}",
+      "setCharacterShieldPersistent": "%game.card.persistent% %game.action.shield% {1} สำหรับ {0}",
+      "setCharacterTokenValue": "ตั้งโทเค็น {1} เป็น {2} สำหรับ {0}",
+      "setConditionValue": {
+        "char": "%game.condition.{1}% เป็น {2} สำหรับ {0}",
+        "monster": "%game.condition.{2}% เป็น {3} สำหรับ '{1}' ของ {0}",
+        "monsterEntities": "%game.condition.{1}% เป็น {2} สำหรับทั้งหมด {3}{0}",
+        "objective": "%game.condition.{1}% เป็น {2} สำหรับ {0}",
+        "objectiveContainer": "%game.condition.{2}% เป็น {3} สำหรับ %game.objectiveMarker.{1}% ของ {0}",
+        "summon": "%game.condition.{2}% เป็น {3} สำหรับ '{1}' ของ {0}"
+      },
+      "setCustomScenario": "ตั้งฉากกำหนดเอง",
+      "setDrawExtraAbility": "ตั้งจั่วเพิ่มสำหรับ {0}",
+      "setEdition": "ตั้งฉบับเป็น {0}",
+      "setEditionAll": "เลือกทุกฉบับ",
+      "setEntityActive": "ตั้งสแตนดี {1} ของ {0} เป็นทำงาน",
+      "setEntityRetaliate": {
+        "char": "{1} สำหรับ {0}",
+        "monster": "{2} สำหรับ '{1}' ของ {0}",
+        "objectiveContainer": "{2} สำหรับ %game.objectiveMarker.{1}% ของ {0}",
+        "summon": "{2} สำหรับ '{1}' ของ {0}"
+      },
+      "setEntityRetaliatePersistent": {
+        "char": "%game.card.persistent% {1} สำหรับ {0}",
+        "monster": "%game.card.persistent% {2} สำหรับ '{1}' ของ {0}",
+        "objectiveContainer": "%game.card.persistent% {2} สำหรับ %game.objectiveMarker.{1}% ของ {0}",
+        "summon": "%game.card.persistent% {2} สำหรับ '{1}' ของ {0}"
+      },
+      "setEntityShield": {
+        "char": "%game.action.shield% {1} สำหรับ {0}",
+        "monster": "%game.action.shield% {2} สำหรับ '{1}' ของ {0}",
+        "objectiveContainer": "%game.action.shield% {2} สำหรับ %game.objectiveMarker.{1}% ของ {0}",
+        "summon": "%game.action.shield% {2} สำหรับ '{1}' ของ {0}"
+      },
+      "setEntityShieldPersistent": {
+        "char": "%game.card.persistent% %game.action.shield% {1} สำหรับ {0}",
+        "monster": "%game.card.persistent% %game.action.shield% {2} สำหรับ '{1}' ของ {0}",
+        "objectiveContainer": "%game.card.persistent% %game.action.shield% {2} สำหรับ %game.objectiveMarker.{1}% ของ {0}",
+        "summon": "%game.card.persistent% %game.action.shield% {2} สำหรับ '{1}' ของ {0}"
+      },
+      "setEntitySummonState": "ตั้งการเรียก {3} สำหรับสแตนดี {1} {2} ของ {0}",
+      "setExhausted": "{0} หมดแรง",
+      "setGold": "ทอง {1} สำหรับ {0}",
+      "setIdentity": "ตั้งฟอร์มของ {0} เป็น %data.character.{3}.{1}.{2}%",
+      "setInitiative": "Initiative {1} สำหรับ {0}",
+      "setLevel": "ระดับ {1} สำหรับ {0}",
+      "setNotes": "โน้ต \"{1}\" สำหรับ {0}",
+      "setObjectiveEntityMarker": "ตั้งมาร์กเกอร์จาก %game.objectiveMarker.{1}% ของ {0} เป็น %game.mapMarker.{2}%",
+      "setObjectiveExhausted": "เป้าหมาย {0} หมดแรง",
+      "setObjectiveInitiative": "Initiative {1} สำหรับเป้าหมาย {0}",
+      "setPQ": "ควสต์ส่วนตัว {1} สำหรับ {0}",
+      "setPQProgress": "ตั้งตัวนับควสต์ส่วนตัว {1} เป็น {2} สำหรับ {0}",
+      "setPartyAchievements": "ความสำเร็จปาร์ตี้",
+      "setPartyDonations": "บริจาคให้ {0}",
+      "setPartyInspiration": "แรงบันดาลใจเป็น {1}",
+      "setPartyLocation": "ที่ตั้งปาร์ตี้ '{0}'",
+      "setPartyMorale": "ขวัญเป็น {0}",
+      "setPartyName": "ชื่อปาร์ตี้ '{0}'",
+      "setPartyNotes": "โน้ตปาร์ตี้",
+      "setPartyProsperity": "ความมั่งคั่งเป็น {0}",
+      "setPartyReputation": "ชื่อเสียงเป็น {0}",
+      "setPartyResource": "ตั้งสต็อก Frosthaven {1} เป็น {2}",
+      "setPartySoldiers": "ทหารเป็น {0}",
+      "setPartyTotalDefense": "ตั้งการป้องกันรวมเป็น {1}",
+      "setPartyTownGuardPerks": "Town Guard Perks เป็น {0}",
+      "setPartyWeeks": "สัปดาห์เป็น {0}",
+      "setPerk": "Perk {1} เป็น {2} สำหรับ {0}",
+      "setPlayer": "ตั้งผู้เล่น {1} เป็น {0}",
+      "setPlayerNumber": "ตั้งหมายเลขผู้เล่น {1} สำหรับ {0}",
+      "setRandomScenario": "ตั้งดันเจี้ยนสุ่ม",
+      "setResource": "ตั้ง {1} {2} สำหรับ {0}",
+      "setRetired": "{0} เกษียณ",
+      "setRetirements": "เกษียณ {1} สำหรับ {0}",
+      "setScenario": "ฉาก #{0} {1} ({2})",
+      "setScenarioLevel": "ระดับฉาก {0}",
+      "setSummonState": "ตั้งการเรียก {1} {2} สำหรับ {0}",
+      "setTitle": "ตำแหน่ง '{1}' สำหรับ {0}",
+      "setXP": "XP {1} สำหรับ {0}",
+      "shuffleAbilityDeck": "สับความสามารถของ {0}",
+      "shuffleAbilityDeckUpcoming": "สับความสามารถที่กำลังจะจั่วของ {0}",
+      "skipInteractiveActions": "ข้ามความสามารถแบบโต้ตอบสำหรับสแตนดี {1} ของ {2}",
+      "startCampaign": "เริ่มแคมเปญ {0} ใหม่",
+      "summonActive": "การเรียก '{1}' ของ {0} ทำงาน",
+      "summonDead": "ฆ่าการเรียก '{1}' ของ {0}",
+      "summonInactive": "การเรียก '{1}' ของ {0} ไม่ทำงาน",
+      "toggleTypeAll": "สลับประเภทสแตนดีมอนสเตอร์ทั้งหมดสำหรับ {0}",
+      "unequipItem": "ถอดไอเทม {1} (%data.edition.{2}%) จาก {0}",
+      "unlockChar": "ปลดล็อก {0}",
+      "unsetAbsent": "{0} อยู่",
+      "unsetActive": "จบเทิร์นของ {0}",
+      "unsetAllied": "{0} ไม่เป็นพันธมิตร",
+      "unsetAlly": "{0} เป็นศัตรู",
+      "unsetCustomScenario": "ยกตั้งฉากกำหนดเอง",
+      "unsetDrawExtraAbility": "ยกตั้งจั่วเพิ่มสำหรับ {0}",
+      "unsetEntityActive": "ตั้งสแตนดี {1} ของ {0} เป็นไม่ทำงาน",
+      "unsetExhausted": "{0} ไม่หมดแรง",
+      "unsetObjectiveExhausted": "เป้าหมาย {0} ไม่หมดแรง",
+      "unsetRetired": "ยกเลิกการเกษียณของ {0}",
+      "unsetTitle": "เอาตำแหน่ง '{1}' ออกจาก {0}",
+      "updateAttackModifierDeck": {
+        "addBless": "เพิ่ม Bless ในเด็ค AM {0}",
+        "addCard": "เพิ่มการ์ด {1} ในเด็ค AM {0}",
+        "addCardShuffled": "สับการ์ด {1} ใหม่เข้าเด็ค AM {0}",
+        "addCurse": "เพิ่ม Curse ในเด็ค AM {0}",
+        "amDeckHide": "ซ่อนเด็ค AM {0}",
+        "amDeckShow": "แสดงเด็ค AM {0}",
+        "draw": "จั่ว AM {0}",
+        "drawadvantage": "จั่ว AM {0} แบบข้อได้เปรียบ",
+        "drawdisadvantage": "จั่ว AM {0} แบบข้อเสียเปรียบ",
+        "removeBless": "เอา Bless ออกจากเด็ค AM {0}",
+        "removeCard": "เอาการ์ด {1} ออกจากเด็ค AM {0}",
+        "removeCurse": "เอา Curse ออกจากเด็ค AM {0}",
+        "removeDrawnDiscards": "เอาการ์ดที่จั่วแล้วทิ้งออกจากเด็ค AM {0}",
+        "reorder": "เรียงเด็ค AM {0}",
+        "restoreDefault": "คืนเด็ค AM {0} เริ่มต้น",
+        "shuffle": "สับเด็ค AM {0}",
+        "shuffleUpcoming": "สับการ์ดที่กำลังจะจั่วของเด็ค AM {0}"
+      },
+      "updateBonusAdjustment": "ปรับโบนัส {0}",
+      "updateElement": "ธาตุ {0} {1}",
+      "updateGlobalAchievements": "ความสำเร็จทั่วโลกเป็น {0}",
+      "updateLevelAdjustment": "ปรับระดับ {0}",
+      "updateLevelAdjustmentBb": "ตั้งความยากมอนสเตอร์เป็น %game.level.bb.monsterDifficulty.{0}%",
+      "updateManualPlayerCount": "ตั้งจำนวนผู้เล่นแบบมือเป็น {0}",
+      "updatePartyAchievements": "ความสำเร็จปาร์ตี้เป็น {0}",
+      "updateStandee": "เปลี่ยนสแตนดี {1} หมายเลข {2} เป็น {3} สำหรับ {0}",
+      "upgradeBuilding": "อัปเกรดอาคาร '%data.buildings.{1}%' ({0}) เป็นระดับ {2}"
+    },
+    "loadMore": "แสดงเพิ่ม",
+    "missing": "สถานะที่ขาด: {0}",
+    "redo": "ทำซ้ำ",
+    "reset": "รีเซ็ต",
+    "undo": "ย้อนกลับ"
   },
   "summon": {
-    "name": "ชื่อ"
-  },
-  "tools": {
-    "keyboard": {
-      "alt": "ALT",
-      "ctrl": "CTRL",
-      "esc": {
-        "": "ESC"
-      },
-      "shift": "SHIFT",
-      "space": "SPACE"
+    "": "การเรียก",
+    "addCustom": "เรียก '{0}'",
+    "name": "ชื่อ",
+    "state": {
+      "": "สถานะ",
+      "false": "ไม่ทำงาน",
+      "new": "ใหม่",
+      "true": "ทำงาน"
     }
   },
+  "tools": {
+    "": "เครื่องมือ [สปอยเลอร์!]",
+    "attackModifier": "ตัวปรับการโจมตี",
+    "backToGhs": "กลับไป GHS",
+    "decks": "เด็คความสามารถ",
+    "feedback": {
+      "": "Feedback",
+      "githubIssue": "หรือรายงานเป็น GitHub Issue",
+      "reportIssue": {
+        "": "รายงานปัญหา",
+        "automaticText": "ข้อความอัตโนมัติ",
+        "download": "ดาวน์โหลด data dump",
+        "errorHint": "เกิดปัญหาระบบ<br>คุณช่วยพัฒนาซอฟต์แวร์ได้โดยรายงานข้อผิดพลาดนี้ให้ผู้พัฒนา<br>แนบ data dump ถ้าได้ ขอบคุณ!",
+        "errorIgnore": "อย่ารายงานข้อผิดพลาดนี้อัตโนมัติอีก",
+        "errorText": "ERROR Stack Trace:\n\n{0}\n\n{1}",
+        "mail": "หมายเหตุ: Microsoft จำกัดเซิร์ฟเวอร์อีเมลเล็ก จึงรับอีเมลจาก outlook.com, hotmail.com ฯลฯ ได้ แต่ตอบกลับไม่ได้!",
+        "send": "ส่งปัญหา (อีเมล)",
+        "specify": "ระบุรายละเอียดในข้อความ<br>ถ้าไม่แน่ใจว่าปัญหาคืออะไร โปรดดาวน์โหลดและแนบ data dump ด้านล่าง!",
+        "text": "ข้อความ",
+        "type": {
+          "": "ประเภทปัญหา",
+          "abilityCard": {
+            "": "การ์ดความสามารถ",
+            "hint": "ค่าผิดบนการ์ดความสามารถ",
+            "subject": "พบปัญหาการ์ดความสามารถ"
+          },
+          "artwork": {
+            "": "งานศิลป์",
+            "hint": "งานศิลป์ผิดหรือขาด",
+            "subject": "พบปัญหางานศิลป์"
+          },
+          "automatic": {
+            "": "อัตโนมัติ",
+            "hint": "บั๊กซอฟต์แวร์ รายงานอัตโนมัติ",
+            "subject": "ปัญหาระบบอัตโนมัติ"
+          },
+          "characterStat": {
+            "": "สถิติตัวละคร",
+            "hint": "ค่าผิดบนสถิติตัวละคร",
+            "subject": "พบปัญหาสถิติตัวละคร"
+          },
+          "feedback": {
+            "": "Feedback ทั่วไป",
+            "hint": "ข้อความทั่วไปถึงผู้พัฒนา",
+            "subject": "Feedback ทั่วไป"
+          },
+          "monsterStat": {
+            "": "สถิติมอนสเตอร์",
+            "hint": "ค่าผิดบนสถิติมอนสเตอร์",
+            "subject": "พบปัญหาสถิติมอนสเตอร์"
+          },
+          "software": {
+            "": "ซอฟต์แวร์",
+            "hint": "บั๊กซอฟต์แวร์ สิ่งที่ทำงานไม่ตรงที่คาด",
+            "subject": "พบปัญหาระบบ"
+          }
+        }
+      },
+      "submitScenario": {
+        "": "ส่งฉากปัจจุบัน",
+        "index": "หมายเลขฉาก",
+        "name": "ชื่อฉาก",
+        "notes": {
+          "": "โน้ตเพิ่ม",
+          "hint": "เช่น กฎฉากพิเศษ การปรับระดับมอนสเตอร์ อีเวนต์เทิร์น หรือการคำนวณ HP…"
+        },
+        "send": "ส่งฉาก"
+      }
+    },
+    "keyboard": {
+      "": "ทางลัดแป้นพิมพ์",
+      "activeCharacter": {
+        "lootDec": "ลดโทเค็นเงินของตัวที่เล่น",
+        "lootInc": "เพิ่มโทเค็นเงินของตัวที่เล่น",
+        "xpDec": "ลด XP ของตัวที่เล่น",
+        "xpInc": "เพิ่ม XP ของตัวที่เล่น"
+      },
+      "alt": "ALT",
+      "am": "จั่วการ์ด AM (เด็คตามตัวที่เล่น เด็คมอนสเตอร์เมื่อไม่เล่น ปิดเมื่อ <b>จั่ว</b>)",
+      "amAdvantage": "เหมือน <kbd><span>m</span></kbd> แต่จั่วแบบข้อได้เปรียบถ้าเปิด",
+      "amDisadvantage": "เหมือน <kbd><span>m</span></kbd> แต่จั่วแบบข้อเสียเปรียบถ้าเปิด",
+      "backspace": "⌫",
+      "ctrl": "CTRL",
+      "difficulty": "เมนูความยาก/ระดับ",
+      "enter": "↵",
+      "entityMenu": {
+        "": "เมื่อเปิดเมนูตัว/สแตนดี ทางลัดเหล่านี้ปิด ทางลัดในเมนูตัว/สแตนดี:",
+        "blessDec": "ลด Bless",
+        "blessInc": "เพิ่ม Bless",
+        "characterSheet": "เปิดชีทตัวละคร",
+        "curseDec": "ลด Curse",
+        "curseInc": "เพิ่ม Curse",
+        "hpDec": "ลด HP ปัจจุบัน",
+        "hpInc": "เพิ่ม HP ปัจจุบัน",
+        "kill": "ฆ่า / หมดแรง",
+        "lootDec": "ลดโทเค็นเงิน",
+        "lootInc": "เพิ่มโทเค็นเงิน",
+        "maxHpDec": "ลด HP สูงสุด",
+        "maxHpInc": "เพิ่ม HP สูงสุด",
+        "toggleAbsent": "สลับตัวละครไม่อยู่",
+        "toggleCondition": "สลับสถานะ/ตัวปรับสถานะ",
+        "xpDec": "ลด XP",
+        "xpInc": "เพิ่ม XP"
+      },
+      "esc": {
+        "": "ESC",
+        "fullscreen": "ในเบราว์เซอร์ส่วนใหญ่ ESC ออกจากเต็มจอ ใช้ BACKSPACE แทน"
+      },
+      "events": "เมนูเอฟเฟกต์อีเวนต์",
+      "finish": "เมนู (จบ) ฉาก",
+      "global": "ทางลัดแป้นพิมพ์ที่มี:",
+      "globalMap": "เปิดแผนที่รวม",
+      "keyboard": "แสดงทางลัดแป้นพิมพ์",
+      "loot": "จั่วจากเด็คของปล้น",
+      "mainMenu": {
+        "": "เปิดเมนูหลัก",
+        "confirm": "ยืนยัน / เปิดเมนูย่อย",
+        "decline": "ยกเลิก / ปิดเมนู",
+        "open": "เมื่อเปิดเมนู",
+        "select": "เลือกการกระทำ"
+      },
+      "party": "เปิดชีทปาร์ตี้",
+      "redo": "ทำซ้ำ",
+      "round": "เทิร์นถัดไป / จั่ว",
+      "scenarioChart": "แสดงผังฉาก",
+      "select": "เลือกตัว/สแตนดีเพื่อเปิดเมนูด้วยปุ่มตัวเลข",
+      "selectNatural": "เลือกตัว/สแตนดีเพื่อเปิดเมนูตามลำดับด้วยปุ่มตัวเลข",
+      "shift": "SHIFT",
+      "space": "SPACE",
+      "tab": "↹",
+      "toggelTab": "สลับตัวที่เล่นเมื่อจั่ว / สลับ input initiative เมื่อโฟกัส",
+      "toggleAbsent": "สลับ <i>ซ่อนตัวที่ไม่อยู่</i>",
+      "toggleDamageHP": "สลับ <i>%settings.damageHP%</i>",
+      "toggleElements": "สลับสถานะธาตุ",
+      "toggleFullscreen": "สลับ <i>เต็มจอ</i>",
+      "toggleHandSize": "สลับ <i>แสดงขนาดมือและระดับ</i>",
+      "togglePlayerNumber": "สลับ <i>แสดงหมายเลขผู้เล่น</i>",
+      "toggleTraits": "สลับ <i>แสดง traits</i>",
+      "undo": "ย้อนกลับ",
+      "zoomIn": "ซูมเข้า",
+      "zoomOut": "ซูมออก",
+      "zoomReset": "รีเซ็ตซูม"
+    },
+    "validateEditionData": "ตรวจสอบข้อมูลฉบับ"
+  },
+  "update": "อัปเดต - โหลดใหม่",
   "welcome": {
     "": "ยินดีต้อนรับสู่ Gloomhaven Secretariat",
     "chooseCharacters": "เลือกตัวละครของคุณ",
