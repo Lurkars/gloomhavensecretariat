@@ -121,7 +121,7 @@
           },
           "270": {
             "1": "攻击后，若目标的生命值不高于2点，消灭该目标。",
-            "2": "在相邻的格子中放置一个%game.customAction:gh2e-tear%。"
+            "2": "在相邻格子中放置一个%game.customAction:gh2e-tear%。"
           },
           "271": {
             "1": "本轮中，距你%game.action.range:2%内的所有敌人的所有攻击附加-1%game.action.attack%。",
@@ -138,7 +138,7 @@
           },
           "276": {
             "1": "本轮中，你和所有盟友在攻击距你%game.action.range:1%内的敌人时，为所有攻击增加+1%game.action.attack%, %game.action.pierce:1%。",
-            "2": "在相邻的格子中放置一个%game.customAction:gh2e-tear%。"
+            "2": "在相邻格子中放置一个%game.customAction:gh2e-tear%。"
           },
           "277": {
             "1": "将你的角色标记放到%game.action.range:3%内的一个敌人上，并在该敌人的相邻格放置一个%game.customAction:gh2e-tear%。你下一次以该敌人为目标的攻击，增加+2%game.action.attack%并获得优势。",
