@@ -343,7 +343,15 @@ export class ActionsManager {
         return action.type == ActionType.monsterType && entity instanceof MonsterEntity && entity.type == (action.value as MonsterType);
     }
 
-    hasMultiTarget(action: Action): boolean {
+    hasMultiTarget(action: Action, rootAction: Action | undefined = undefined): boolean {
+        if ([ActionType.area, ActionType.target].includes(action.type)) {
+            return false;
+        }
+
+        if (!!rootAction) {
+            return this.hasMultiTarget(rootAction);
+        }
+
         return action.multiTarget || action.subActions && action.subActions.some((subAction) => this.isMultiTarget(subAction, true));
     }
 
