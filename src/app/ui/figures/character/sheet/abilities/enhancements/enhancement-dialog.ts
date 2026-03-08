@@ -37,6 +37,7 @@ export class EnhancementDialogComponent implements OnInit {
     actionTypes: ActionType[] = [];
     enhancementAction: EnhancementAction = "plus1";
     enhancementType: EnhancementType | undefined;
+    isMultiTarget: boolean = false;
 
     enhancedCards: number = 0;
 
@@ -214,6 +215,7 @@ export class EnhancementDialogComponent implements OnInit {
             this.character.progress.enhancements.push(new Enhancement(this.data.cardId, this.data.actionIndex, this.data.enhancementIndex, this.enhancementAction));
         }
 
+        this.isMultiTarget = gameManager.enhancementsManager.isMultiTarget(this.enhanceAction, this.rootAction);
         this.ghsManager.triggerUiChange();
     }
 

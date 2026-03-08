@@ -512,11 +512,6 @@
               ]
             },
             {
-              "type": "custom",
-              "value": ":",
-              "small": true
-            },
-            {
               "type": "shield",
               "value": 1
             }

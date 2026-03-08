@@ -908,7 +908,7 @@
             "1": "Gain advantage on all your attacks this round, %game.card.experience:1%."
           },
           "68": {
-            "1": "Grant one ally within %game.action.range:3%"
+            "1": "Grant one ally within %game.action.range:3% %game.enhancement.square%:"
           },
           "69": {
             "1": "On your next four single-target ranged attack abilities, add +2%game.action.attack% to the attack."

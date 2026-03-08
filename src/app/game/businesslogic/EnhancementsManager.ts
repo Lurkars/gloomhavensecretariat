@@ -39,18 +39,27 @@ export class EnhancementsManager {
         }
     }
 
+    isMultiTarget(action: Action, rootAction: Action) {
+        if (this.fh && [ActionType.target, ActionType.area, ActionType.element].includes(action.type)) {
+            return false;
+        } else if (action.type == ActionType.area) {
+            return false;
+        }
+        return gameManager.actionsManager.hasMultiTarget(rootAction);
+    }
+
     calculateCosts(action: Action, rootAction: Action, level: number = 1, special: 'summon' | 'lost' | 'persistent' | undefined, enhancements: number, temporaryOff: boolean = false): number {
         let costs = 0;
         costs += this.calculateBaseCosts(action, special);
 
         if (costs > 0) {
             // double multi target
-            if (gameManager.actionsManager.hasMultiTarget(action, rootAction)) {
+            if (this.isMultiTarget(action, rootAction)) {
                 costs *= 2;
             }
 
             if (this.fh && special == 'lost') {
-                costs /= 2;
+                costs = Math.ceil(costs / 2);
             }
 
             if (this.fh && !gameManager.gh2eRules() && special == 'persistent') {
