@@ -230,7 +230,8 @@
       "resources": {
         "": "Zasoby",
         "apply": "Przenieś zasoby",
-        "move": "Przenieś do zasobów Frosthaven"
+        "move": "Przenieś do zasobów Frosthaven",
+        "shared": "Wszystkie surowce wspólne (House Rule)"
       },
       "retired": "Emerytowany",
       "retirement": {
@@ -527,6 +528,7 @@
       "elementHalf": "Połowa żywiołu",
       "extra": "&#91;FH - pomocnik podakcji&#93;",
       "fly": "Latanie",
+      "fontSize": "&#91;Rozmiar czcionki (w %)&#93;",
       "forceBox": "&#91;FH - pole obowiązkowe&#93;",
       "grant": "Nadaj",
       "grid": "&#91;Siatka&#93;",
@@ -1109,7 +1111,7 @@
         "brewed": "{2} uwarzył {1} %game.itemFh.{0}%",
         "brewedOther": "{2} uwarzył {1} %game.itemFh.{0}% dla {3}",
         "disabled": "Nie można warzyć mikstur - najpierw odbuduj '%data.buildings.alchemist%' (35)",
-        "item": "{1} %game.itemFh.{0}%",
+        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
         "noChar": "Każda postać posiada już tę miksturę!",
         "selectCharacter": "Wybierz postać, dla której warzyć:"
       },
@@ -1268,6 +1270,7 @@
     "maxHealth": "Maksymalne punkty życia",
     "solo": "Solo",
     "specialTarget": {
+      "ability": "%game.target% celem, cel umiejętności: %game.actionText.{0}%",
       "all": "%game.target% wszystkich",
       "allCharacters": "%game.target% wszystkie postacie",
       "allies": "%game.target% wszystkich sojuszników",
@@ -1544,7 +1547,7 @@
         "enable": "Przejdź do arkusza kampanii Frosthaven",
         "name": "Nazwa drużyny",
         "nextWeek": "Następny tydzień (nowy kalendarz)",
-        "soldierLevel": "Poziom",
+        "soldierLevel": "Lvl",
         "soldiers": "Żołnierze",
         "summer": "Lato",
         "supply": {
@@ -1595,13 +1598,20 @@
       "advantage": "Zyskaj przewagę w tym ataku za utratę żołnierzy!",
       "buildings": {
         "damaged": "Uszkodzony budynek",
+        "lvl": "Lvl {0}",
         "wrecked": "Zniszczony budynek"
       },
       "defense": "Obrona bazowa:",
       "disadvantage": "Zyskaj niekorzyść, ponieważ Koszary są zniszczone!",
       "filter": {
         "desc": "Sortowanie malejące",
+        "distance": "Odległość",
         "even": "Parzyste",
+        "level": {
+          "": "Poziom",
+          "high": "Od Wysokich do Niskich",
+          "low": "Od Niskich do Wysokich"
+        },
         "lowerBoundary": "Min # Budynku",
         "odd": "Nieparzyste",
         "parity": "Parzystość?",
@@ -1740,6 +1750,20 @@
           "": "Zablokowany",
           "hint": "Tego scenariusza nie można rozegrać, ponieważ jest zablokowany przez inne."
         },
+        "calendar": {
+          "": "Odblokowany przez kalendarz",
+          "hint": "Ten scenariusz jest odblokowywany przez sekcję kalendarza."
+        },
+        "exclusive": {
+          "": ""
+        },
+        "force-linked": {
+          "hint": "Ten scenariusz jest powiązany i musi zostać rozegrany bezpośrednio po ukończeniu poprzedniego."
+        },
+        "linked": {
+          "": "Powiązane",
+          "hint": "Ten scenariusz jest powiązany."
+        },
         "locked": {
           "": "Zamknięty",
           "hint": "Scenariusz jest zamknięty i nie może być jeszcze rozegrany z powodu niespełnionych wymagań."
@@ -1796,7 +1820,8 @@
       },
       "hint": "Zastosuj do wszystkich wybranych figurek",
       "outpostAttack": "Atak na posterunek",
-      "progress": "Wpływa na postęp postaci"
+      "progress": "Wpływa na postęp postaci",
+      "progressShare": "Wpływa na postęp posterunku"
     },
     "favors": {
       "": "Aneks F: Przysługi",
@@ -1939,6 +1964,7 @@
       "randomItemBlueprint": "Zyskaj losowy schemat przedmiotu",
       "randomItemBlueprints": "Dodaj przedmioty %game.itemFh.{0}% do %game.itemFh.{1}% do talii losowych schematów przedmiotów.",
       "randomItems": "Każda postać zyskuje losowy przedmiot ({0}-{1})",
+      "randomSideScenario": "Wylosowano jeden losowy scenariusz poboczny.",
       "removeEvent": {
         "boat": "Usuń wydarzenie {0} z talii łodzi",
         "city": "Usuń Wydarzenie Miejskie {0} z talii",
@@ -2119,6 +2145,13 @@
         "hint": "Inne otrzymane obrażenia"
       },
       "progress": "Łup, PD",
+      "resources": {
+        "": "Zasoby",
+        "loot": {
+          "": "%game.resource.{0}%: {1}",
+          "hint": "Liczba zrabowanych %game.resource{0}%"
+        }
+      },
       "scenarios": "Scenariusze",
       "toggle": {
         "hide": "Ukryj statystyki scenariusza",
@@ -2506,7 +2539,8 @@
       "hint": "Włącz talię modyfikatorów ataku dla postaci. Aby używać atutów, musi być włączona karta postaci."
     },
     "characterAttackModifierDeckActiveBottom": {
-      "": "Wyświetlaj talię modyfikatorów ataku postaci powyżej talii potworów"
+      "": "Wyświetlaj talię modyfikatorów ataku postaci powyżej talii potworów",
+      "hint": "Wyświetl talię modyfikatorów ataku aktywnej postaci nad talią modyfikatorów ataku potwora."
     },
     "characterAttackModifierDeckPermanent": {
       "": "Stała talia AM postaci",
@@ -2514,7 +2548,7 @@
     },
     "characterAttackModifierDeckPermanentActive": {
       "": "Auto. aktywna talia AM",
-      "hint": "Automatycznie przełączaj stałą talię AM dla aktywnej postaci."
+      "hint": "Automatycznie przełącza talię modyfikatorów ataku dla aktywnej postaci."
     },
     "characterCompact": {
       "": "Kompaktowe plansze postaci",
@@ -2679,6 +2713,10 @@
       "": "Drugie wydanie",
       "hint": "Niektórych zmian między pierwszym a drugim wydaniem Frosthaven nie da się ustawić automatycznie. Zaznacz to, jeśli używasz drugiego wydania."
     },
+    "fhShareResources": {
+      "": "Wspólne zasoby - House rule",
+      "hint": "Współdziel wszystkie zasoby oprócz złota, między wszystkimi postaciami i zasobami Frosthaven."
+    },
     "fhStyle": {
       "": "Styl Frosthaven",
       "hint": "Wyświetlaj akcje, zdolności i ikony w nowym stylu Frosthaven; automatycznie aktywuje motyw Frosthaven."
@@ -2796,6 +2834,7 @@
       "pl": "Polski (Polski)",
       "pt": "Portugalski (Portuguese)",
       "ru": "Rosyjski (Русский)",
+      "th": "Tajski (ชาวไทย)",
       "zh_Hans": "Chiński uproszczony (简体中文)",
       "zh_Hant": "Chiński tradycyjny (繁體中文)"
     },
@@ -3615,6 +3654,7 @@
       "am": "Dobierz kartę MA (talia zależna od aktywnej figury, talia potworów gdy brak aktywnej, wyłączone podczas <b>Dobierania</b>)",
       "amAdvantage": "Jak <kbd><span>m</span></kbd>, ale dobierz z Przewagą, jeśli włączone",
       "amDisadvantage": "Jak <kbd><span>m</span></kbd>, ale dobierz z Niekorzyścią, jeśli włączone",
+      "backspace": "⌫",
       "ctrl": "CTRL",
       "difficulty": "Menu Trudności/Poziomu",
       "enter": "↵",
@@ -3637,7 +3677,10 @@
         "xpDec": "Zmniejsz PD",
         "xpInc": "Zwiększ PD"
       },
-      "esc": "ESC",
+      "esc": {
+        "": "ESC",
+        "fullscreen": "W większości przeglądarek klawisz ESC powoduje wyjście z trybu pełnoekranowego; zamiast niego należy użyć klawisza BACKSPACE."
+      },
       "events": "Menu efektów wydarzeń",
       "finish": "Menu zakończenia scenariusza",
       "global": "Dostępne skróty klawiszowe:",

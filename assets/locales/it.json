@@ -230,7 +230,8 @@
       "resources": {
         "": "Risorse",
         "apply": "Sposta risorse",
-        "move": "Sposta alle forniture di Frosthaven"
+        "move": "Sposta alle forniture di Frosthaven",
+        "shared": "Tutte le risorse condivise (regola non ufficiale)"
       },
       "retired": "Ritirato",
       "retirement": {
@@ -527,6 +528,7 @@
       "elementHalf": "Mezzo elemento",
       "extra": "&#91;FH Helper per Sottoazioni&#93;",
       "fly": "Volo",
+      "fontSize": "&#91;Grandezza carattere (in %)&#93;",
       "forceBox": "&#91;Box obbligatorio FH&#93;",
       "grant": "Accordo",
       "grid": "&#91;Griglia&#93;",
@@ -1113,7 +1115,7 @@
         "brewed": "{2} ha preparato {1} %game.itemFh.{0}%",
         "brewedOther": "{2} ha preparato {1} %game.itemFh.{0}% per {3}",
         "disabled": "Impossibile preparare le pozioni, ricostruire prima%dati.buildings.alchemist%'(35)",
-        "item": "{1} %game.itemFh.{0}%",
+        "item": "%data.items.{2}-{1} %game.itemFh.{0}%",
         "noChar": "Pozione già posseduta da ogni personaggio!",
         "selectCharacter": "Seleziona il personaggio con il quale preparare:"
       },
@@ -1272,6 +1274,7 @@
     "maxHealth": "Punti vita massimi",
     "solo": "In solitario",
     "specialTarget": {
+      "ability": "%game.target% l'obiettivo dell'abilità %game.actionText.{0}%",
       "all": "%game.target% tutti",
       "allCharacters": "%game.target% tutti i personaggi",
       "allies": "%game.target% tutti gli alleati",
@@ -1599,13 +1602,20 @@
       "advantage": "Ottieni vantaggio per questo attacco per aver perso soldati!",
       "buildings": {
         "damaged": "Edificio danneggiato",
+        "lvl": "Liv {0}",
         "wrecked": "Edificio distrutto"
       },
       "defense": "Difesa della base:",
       "disadvantage": "Ottieni svantaggio perché le caserme sono distrutte!",
       "filter": {
         "desc": "Ordine decrescente",
+        "distance": "Distanza",
         "even": "Pari",
+        "level": {
+          "": "Livello",
+          "high": "Da alto a basso",
+          "low": "Da basso ad alto"
+        },
         "lowerBoundary": "Confine inferiore",
         "odd": "Dispari",
         "parity": "Parità",
@@ -1744,6 +1754,22 @@
           "": "Bloccato",
           "hint": "Questo scenario non può essere giocato, perché è bloccato da altri."
         },
+        "calendar": {
+          "": "Sbloccato tramite calendario",
+          "hint": "Questo scenario si sblocca tramite una sezione del calendario."
+        },
+        "exclusive": {
+          "": "Esclusivo",
+          "hint": "Questo percorso scenario è esclusivo, quindi si può seguire un solo percorso e gli altri sono bloccati."
+        },
+        "force-linked": {
+          "": "Forza Collegato",
+          "hint": "Questo scenario è collegato e deve essere giocato subito dopo."
+        },
+        "linked": {
+          "": "Collegato",
+          "hint": "Questo scenario è collegato."
+        },
         "locked": {
           "": "Bloccato",
           "hint": "Questo scenario è bloccato, non può ancora essere giocato a causa di requisiti insoddisfatti."
@@ -1800,7 +1826,8 @@
       },
       "hint": "Applica a tutte le figure selezionate",
       "outpostAttack": "Attacco all'Avamposto",
-      "progress": "Colpisce il progresso del personaggio"
+      "progress": "Colpisce il progresso del personaggio",
+      "progressShare": "Influisce sul progresso dell'avamposto"
     },
     "favors": {
       "": "Appendice F: favori",
@@ -1853,6 +1880,7 @@
         "resource": "Ottieni {1} %game.resource.{0}%"
       }
     },
+    "recap": "Riepilogo",
     "requirements": {
       "": "Requisiti di scenario",
       "all": "Mostra tutti i requisiti (includi i soddisfatti)",
@@ -1942,6 +1970,7 @@
       "randomItemBlueprint": "Ottieni un progetto di oggetto casuale",
       "randomItemBlueprints": "Aggiungi gli oggetti da %game.itemFh.{0}% a %game.itemFh.{1}% al mazzo dei progetti casuali.",
       "randomItems": "Ogni personaggio ottiene un oggetto casuale ({0}-{1})",
+      "randomSideScenario": "Pesca uno scenario secondario casuale.",
       "removeEvent": {
         "boat": "Rimuovi l'evento {0} dal mazzo della barca",
         "city": "Rimuovi l'evento città {0} dal mazzo",
@@ -2122,6 +2151,13 @@
         "hint": "Altri danni ricevuti"
       },
       "progress": "Bottino, Esp",
+      "resources": {
+        "": "Risorse",
+        "loot": {
+          "": "%game.resource.{0}%: {1}",
+          "hint": "Numero di risorse %game.resource{0}% raccolte"
+        }
+      },
       "scenarios": "Scenari",
       "toggle": {
         "hide": "Nascondi le statistiche dello scenario",
@@ -2508,13 +2544,17 @@
       "": "Mazzo modificatore attacco del personaggio",
       "hint": "Abilita il mazzo modificatore di attacco per i personaggi. Per utilizzare i talenti, la scheda personaggio deve essere abilitata."
     },
+    "characterAttackModifierDeckActiveBottom": {
+      "": "Mazzo MA Personaggio sopra il Mazzo dei Mostri",
+      "hint": "Visualizza il mazzo modificatori d'attacco del personaggio attivo sopra il mazzo modificatori d'attacco dei mostri."
+    },
     "characterAttackModifierDeckPermanent": {
       "": "Mazzo MA permanente del personaggio",
       "hint": "Visualizza il mazzo modificatore di attacco permanente sotto il personaggio."
     },
     "characterAttackModifierDeckPermanentActive": {
       "": "Attiva autom. mazzo MA",
-      "hint": "Attiva automaticamente il mazzo MA permanente per il personaggio attivo."
+      "hint": "Attiva automaticamente il mazzo MA per il personaggio attivo."
     },
     "characterCompact": {
       "": "Plancia personaggio compatta",
@@ -2679,6 +2719,10 @@
       "": "2a Stampa",
       "hint": "Alcuni cambiamenti tra la prima e la seconda stampa di Frosthaven non possono essere impostati automaticamente. Quindi, per favore, controlla se si utilizza la seconda stampa di Frosthaven."
     },
+    "fhShareResources": {
+      "": "Condividi risorse regole non ufficiali",
+      "hint": "Condividi tutte le risorse tranne l'oro tra tutti i personaggi e le forniture di Frosthaven."
+    },
     "fhStyle": {
       "": "Stile di Frosthaven",
       "hint": "Visualizzare azioni, capacità e icone nel nuovo stile di Frosthaven, attiva automaticamente il tema di Frosthaven."
@@ -2796,6 +2840,7 @@
       "pl": "Polacco (Polski)",
       "pt": "Portoghese (Portuguese)",
       "ru": "Russo (Русский)",
+      "th": "Thailandese (ชาวไทย)",
       "zh_Hans": "Cinese semplificato (简体中文)",
       "zh_Hant": "Cinese tradizionale (繁體中文)"
     },
@@ -3615,6 +3660,7 @@
       "am": "Pesca una carta MA (mazzo a seconda della figura attiva, mazzo dei mostri quando non attivo, disabilitato quando <b>Pesca</b>)",
       "amAdvantage": "Lo stesso di <kbd><span>m</span></kbd>, ma pesca con vantaggio se abilitato",
       "amDisadvantage": "Lo stesso di <kbd><span>m</span></kbd>, ma pesca con svantaggio se abilitato",
+      "backspace": "⌫",
       "ctrl": "CTRL",
       "difficulty": "Menu di difficoltà/livello",
       "enter": "↵",
@@ -3637,7 +3683,10 @@
         "xpDec": "Riduci Esp",
         "xpInc": "Aumenta Esp"
       },
-      "esc": "ESC",
+      "esc": {
+        "": "ESC",
+        "fullscreen": "Nella maggior parte dei browser, il tasto ESC esce dalla modalità a schermo intero; usa invece il tasto BACKSPACE."
+      },
       "events": "Menu degli effetti degli eventi",
       "finish": "(Termina) Menu scenario",
       "global": "Attualmente sono implementate le seguenti scorciatoie da tastiera:",
