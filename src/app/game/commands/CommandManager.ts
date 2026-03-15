@@ -1,7 +1,13 @@
 import { gameManager } from "../businesslogic/GameManager";
 import { AttackModifierDeckDrawCommand } from "./attackModifierDeck/AttackModifierDeckDraw";
 import { CharacterAddCommand } from "./character/CharacterAdd";
+import { CharacterConditionCommand } from "./character/CharacterCondition";
+import { CharacterHpCommand } from "./character/CharacterHp";
+import { CharacterIdentityCommand } from "./character/CharacterIdentity";
 import { CharacterInitiativeCommand } from "./character/CharacterInitiative";
+import { CharacterLootCommand } from "./character/CharacterLoot";
+import { CharacterLootDrawCommand } from "./character/CharacterLootDraw";
+import { CharacterXpCommand } from "./character/CharacterXp";
 import { BASE_TYPE, Command, CommandExecutionError, CommandInvalidParametersError, CommandMissingParameterError, CommandUnknownError } from "./Command";
 import { FigureNextCommand } from "./figure/FigureNext";
 import { LootDeckDrawCommand } from "./lootDeck/LootDeckDraw";
@@ -16,7 +22,13 @@ export class CommandManager {
     private commandsMap: { [key: string]: new (...paramater: BASE_TYPE[]) => Command } = {
         'attackModifierDeck.draw': AttackModifierDeckDrawCommand,
         'character.add': CharacterAddCommand,
+        'character.condition': CharacterConditionCommand,
+        'character.hp': CharacterHpCommand,
+        'character.identity': CharacterIdentityCommand,
         'character.initiative': CharacterInitiativeCommand,
+        'character.loot': CharacterLootCommand,
+        'character.loot.draw': CharacterLootDrawCommand,
+        'character.xp': CharacterXpCommand,
         'figure.next': FigureNextCommand,
         'lootDeck.draw': LootDeckDrawCommand,
         'round.state': RoundStateCommand,
