@@ -1,4 +1,7 @@
 {
+  "ability": {
+    "Venom Shiv": "Venom Shiv"
+  },
   "battleGoals": {
     "458": {
       "": "Ottimizzatore",
@@ -108,6 +111,9 @@
     }
   },
   "custom": {
+    "city-guard-saw-solo": {
+      "1": "Subisci %game.damage:1% alla fine del round fino a quando non viene completamente curato"
+    },
     "gh": {
       "ancient-artillery": {
         "1": "Tutti i nemici adiacenti subiscono %game.damage:2%."
@@ -635,9 +641,6 @@
         "2": "%game.action.summon% [C] uova"
       }
     },
-    "city-guard-saw-solo": {
-      "1": "Subisci %game.damage:1% alla fine del round fino a quando non viene completamente curato"
-    },
     "ghost-wolf": {
       "1": "All'inizio di ogni round:"
     }
@@ -668,7 +671,7 @@
     "black-imp": "Imp Nero",
     "bloated-regent": "Reggente Gonfio",
     "captain-of-the-guard": "Capitano delle Guardie",
-    "cave-bear": "Orso delle Caverne",
+    "cave-bear": "Orso della Caverna",
     "city-archer": "Arciere Cittadino",
     "city-guard": "Guardia Cittadina",
     "cultist": "Cultista",

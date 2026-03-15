@@ -7,6 +7,10 @@
       "tinkerer": "Inventore"
     }
   },
+  "deck": {
+    "boss": "Boss",
+    "imp": "Imp"
+  },
   "edition": {
     "gh2e": {
       "": "Gloomhaven 2ª Edizione",
@@ -16,9 +20,14 @@
   "monster": {
     "bandit-archer": "Bandito Arciere",
     "black-imp": "Imp Nero",
+    "cave-bear": "Orso della Caverna",
     "chaos-demon": "Demone del Caos",
     "city-archer": "Arciere Cittadino",
+    "city-guard": "Guardia Cittadina",
+    "cultist": "Cultista",
     "deep-terror": "Terrore delle Profondità",
+    "earth-demon": "Demone della Terra",
+    "flame-demon": "Demone della Fiamma",
     "forest-imp": "Imp delle Foreste",
     "frost-demon": "Demone del Gelo",
     "hound": "Mastino",
@@ -29,7 +38,8 @@
     "night-demon": "Demone della Notte",
     "savvas-icestorm": "Savvas Tempesta Glaciale",
     "vermling-priest": "Vermling Sacerdote",
-    "vermling-scout": "Vermling Esploratore"
+    "vermling-scout": "Vermling Esploratore",
+    "wind-demon": "Demone del Vento"
   },
   "section": {
     "title": {

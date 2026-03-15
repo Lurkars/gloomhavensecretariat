@@ -30,7 +30,7 @@
     },
     "gh-102": {
       "": "Vesti Sacrificali",
-      "1": "Durante il tuo attacco a distanza, subisci 3 danni per aggiungere +1 %game.action.attack% all'intera azione di Attacco."
+      "1": "Durante il tuo attacco a distanza, subisci %game.damage:3% per aggiungere +1 %game.action.attack% all'intera azione di Attacco."
     },
     "gh-103": {
       "": "Armatura di Scaglie di Draco",
@@ -89,11 +89,11 @@
     },
     "gh-116": {
       "": "Falchion a Combustione",
-      "1": "Durante il tuo attacco in mischia a bersaglio singolo, il bersaglio e tutti i nemici adiacenti ad esso subiscono 1 danno"
+      "1": "Durante il tuo attacco in mischia a bersaglio singolo, il bersaglio e tutti i nemici adiacenti ad esso subiscono %game.damage:1%"
     },
     "gh-117": {
       "": "Ascia Sanguinaria",
-      "1": "Durante il tuo attacco in mischia, subisci 2 danni per aggiungere +1 %game.action.attack% all'intera azione di Attacco."
+      "1": "Durante il tuo attacco in mischia, subisci %game.damage:2% per aggiungere +1 %game.action.attack% all'intera azione di Attacco."
     },
     "gh-118": {
       "": "Bastone degli Elementi",
@@ -373,7 +373,7 @@
     "gh-60": {
       "": "Esplosivi Instabili",
       "1": "Trasforma un attacco a distanza a bersaglio singolo nel seguente:",
-      "3": "Tutti gli alleati nell'area di attacco subiscono 3 danni."
+      "3": "Tutti gli alleati nell'area di attacco subiscono %game.damage:3%."
     },
     "gh-61": {
       "": "Scudo a Muro",

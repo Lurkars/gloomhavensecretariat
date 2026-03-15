@@ -1294,11 +1294,20 @@
         "112": {
           "": "Wewnątrz skrzyni ze skarbami, głęboko w przerażającym lochu pełnym niebezpiecznych potworów, znaleźliście uroczego wilczego szczeniaka, który po prostu spokojnie spał. I jakimś cudem żył. Zamknięty w skrzyni. Może brzmi to dziwnie lub nieprawdopodobnie, ale szczeniaki są super, więc po co zadawać zbyt wiele pytań? Zabraliście go ze sobą z powrotem do Frosthaven."
         },
+        "114": {
+          "4": "Majsterkowicz z Frosthaven, <strong>%ui.tooltip:data.scenario.recap.fh.character.pinter-droman%</strong>, uważa, że niedawne osunięcie ziemi stworzyło nową okazję do wytyczenia przejścia przez Góry Miedzianej Turni. Mogłoby to zaoszczędzić kilka dni podczas każdej podróży. Pinter stworzył kilka bomb, które mają pomóc uprzątnąć pozostały gruz, jednak lokalna fauna nie patrzy przychylnym okiem na te działania. Poprosił was o podłożenie materiałów wybuchowych w wyznaczonych miejscach, ponieważ – w przeciwieństwie do jego zwykłych pracowników – wy potraficie się obronić."
+        },
+        "115": {
+          "114": "Wyszło tak dobrze, jak można było oczekiwać, biorąc pod uwagę połączenie dynamitu z niedźwiedziami polarnymi, ale odnieśliście zwycięstwo i przekazaliście plac budowy z powrotem Pinterowi.<br>Kilka tygodni później potrzebował kolejnej pomocy przy projekcie. Część drogi przebiega pod klifem; ekipa budowlana zainstalowała pylony, aby ją podtrzymać. Jednak algokscy bandyci – klan zwany [Horns of Ruin] – nie są zbyt zadowoleni z tej nowej konstrukcji. Pinter poprosił was, byście udali się tam i ochronili pylony przed atakiem."
+        },
+        "116": {
+          "115": "Gdy to zostało zrobione, Pinter i jego ekipa mogli ukończyć drogę. <strong>%ui.tooltip:data.scenario.recap.fh.character.mayor-satha%</strong> poprosiła lokalnych kupców o wykonanie kursu próbnego tym nowym skrótem oraz poprosiła was o eskortowanie pierwszych karawan zmierzających na południe."
+        },
         "118": {
           "": "Pewnego dnia Kościodziej powrócił i was zaskoczył. Poszukiwał energii z nowych sfer egzystencji - i znalazł dziwną energię znacznie bliżej domu, emanującą skądś w pobliżu Frosthaven."
         },
         "120": {
-          "": "Jakaś siła mąci w umysłach mieszkańców Frosthaven, w tym niektórych strażników - jeden z nich pchnął nożem drugiego. Kapitan Olmstead zameldował, że w tym tygodniu działo się to wielokrotnie. Jest niemal pewien, że coś zadomowiło się w opuszczonej chacie. Cokolwiek to było, próbowało następnie zmusić was, byście sami się wypatroszyli. Uznaliście, że powinniście to sprawdzić."
+          "": "Jakaś siła mąci w umysłach mieszkańców Frosthaven, w tym niektórych strażników – jeden z nich pchnął nożem drugiego. <strong>%ui.tooltip:data.scenario.recap.fh.character.captain-olmstead%</strong> zameldował, że w tym tygodniu działo się to wielokrotnie. Jest niemal pewien, że coś zadomowiło się w opuszczonej chacie. Cokolwiek to było, próbowało następnie zmusić was, byście sami się wypatroszyli. Uznaliście, że powinniście to sprawdzić."
         },
         "122": {
           "": "Podczas waszych podróży napotkaliście starszą Kwatrylkę, która pielęgnowała wyśmienicie pachnące papryczki. Nazwała je „ognistymi papryczkami” - i opowiedziała wam historię o bestii zwanej Głodną Paszczą, która żyje pod Górami Miedzianej Turni. Podobno pożera ona całe wioski, ale można ją nasycić jedynie gulaszem z ognistej papryczki. Zapytała, czy jesteście gotowi na wyzwanie."
@@ -1315,6 +1324,9 @@
         "16": {
           "8": "Biegliście przez niebezpieczną dolinę, ścigani przez wilki, aż dotarliście do Kryształowych Pól - miejsca pełnego olbrzymich kryształowych filarów wysokich niczym drzewa.<br>Dostrzegliście w oddali jeden kolec, który wyglądał dość intrygująco - był niższy i szerszy od pozostałych - i postanowiliście go zbadać."
         },
+        "17": {
+          "9": "W ostatnim pomieszczeniu Katakumb znaleźliście dziwne drzwi z zagadką, pełne kół zębatych i symboli. Nie znaczyło to dla was nic, dopóki Kwatryl, naukowiec <strong>%ui.tooltip:data.scenario.recap.fh.character.crain-tallengyr%</strong>, nie zaczął prosić was o zbadanie \"Miejsc Śmierci\" oraz dziwnych energii, które utrzymują się w niektórych częściach Północy – prawdopodobnie jako skutek wojny stoczonej przed wiekami."
+        },
         "18": {
           "10": "Algoksi, których napotkaliście, skupiali energię poprzez dziwne kryształowe kolce - przekaźniki - które wzmacniały ich moc. Pokonaliście ich, ale w oddali dostrzegliście kolejne pole takich kolców. To jest znacznie większe, więc wyruszyliście na poszukiwania ich źródła."
         },
@@ -1322,13 +1334,13 @@
           "11": "Pokonaliście potężną Śniegomówczynię, ale coś, co zrobiła, sprawiło, że Szczyt Śnieżnicy zadrżał; szybko zjechaliście na linie na dół."
         },
         "2": {
-          "1": "Pomogliście odeprzeć atak Algoksów; Burmistrzyni Satha poprosiła was o pomoc w dalszym rozprawieniu się z nimi. Valracki zwiadowca Sathy zauważył niewielką grupę kierującą się na zabójcze wschodnie zbocze Góry Śnieżnicy i podejrzewał, że znajduje się tam ukryte wejście."
+          "1": "Pomogliście odeprzeć atak Algoksów; <strong>%ui.tooltip:data.scenario.recap.fh.character.mayor-satha%</strong> poprosiła was o pomoc w dalszym rozprawieniu się z nimi. Valracki zwiadowca Sathy zauważył niewielką grupę kierującą się na zabójcze wschodnie zbocze Śnieżnicy i podejrzewał, że znajduje się tam ukryte wejście."
         },
         "21": {
           "13": "Przekroczyliście most zbudowany ze starożytnych kości i pokonaliście strzegących go Dzierzbiarzy. Postanowiliście podążyć za przyciąganiem Odłamka Koralowca dalej na północ, mając nadzieję, że dotrzecie do miejsca, do którego was prowadził."
         },
         "22": {
-          "14": "Po zmierzeniu się z koszmarem złożonym z abael, węgorzy i świń-piranii, wydobyliście z kamienia drugi Odłamek Koralowca. Z wody wyłonił się półokrąg Czychaczy, w tym jeden o imieniu Słońce w Płyciznach. Opowiedzieli wam o Koralowej Koronie, która rozpadła się na kawałki - a wraz z nią legło w gruzach wielkie Królestwo Czychaczy. Od tamtej pory większość Czychaczy wpadła w ślepy szał; zgodziliście się pomóc w ponownym scaleniu korony w nadziei, że pozwoli to odbudować cywilizację Czychaczy.<br>Psychiczne przyciąganie Odłamków Koralowca powiodło was dalej na wschód, w głębiny morza."
+          "14": "Po zmierzeniu się z koszmarem złożonym z abael, węgorzy i świń-piranii, wydobyliście z kamienia drugi Odłamek Koralowca. Z wody wyłonił się półokrąg Czychaczy, w tym jeden o imieniu <strong>%ui.tooltip:data.scenario.recap.fh.character.sun-in-shallows%</strong>. Opowiedzieli wam o Koralowej Koronie, która rozpadła się na kawałki – a wraz z nią legło w gruzach wielkie Królestwo Czychaczy. Od tamtej pory większość Czychaczy wpadła w ślepy szał; zgodziliście się pomóc w ponownym scaleniu korony w nadziei, że pozwoli to odbudować cywilizację Czychaczy.<br>Psychiczne przyciąganie Odłamków Koralowca powiodło was dalej na wschód, w głębiny morza."
         },
         "23": {
           "15": "Pokonaliście Przybocznego Chaosu strzegącego wejścia, który obwieścił, że przygotowują się do zniszczenia waszego posterunku. Znaleźliście zarówno klatkę schodową prowadzącą w dół, jak i promień światła, który mógłby zabrać was w górę. Zdecydowaliście się zejść po schodach na dół."
@@ -1337,52 +1349,93 @@
           "15": "Pokonaliście Przybocznego Chaosu strzegącego wejścia, który obwieścił, że przygotowują się do zniszczenia waszego posterunku. Znaleźliście zarówno klatkę schodową prowadzącą w dół, jak i promień światła, który mógłby zabrać was w górę. Weszliście w promień, aby zostać wciągniętym wyżej."
         },
         "28": {
-          "19": "Odkryliście, że duchy z Sali Niebios - miejsca o wielkim znaczeniu religijnym - zwróciły się przeciwko Lodomówcom. Podczas gdy wy zapewnialiście im wieczny spoczynek, Wódz Elland oświadczył, że tak dalej być nie może - że wojna sprowadza ruinę na wszystkich Algoksów. Starsza kobieta pośród nich, Putargal, zamiast tego nawoływała do zemsty na Śniegomówcach za to, co zrobili ze Śnieżnicą i Salą Niebios. Odeszła, by zaplanować atak na ich wrogów, ale wy zostaliście z Wodzem Ellandem, aby planować pokój."
+          "18": "Pokonaliście Lodomówców, ale przyprowadziliście jednego ocalałego, aby spotkał się z Przywódczynią <strong>%ui.tooltip:data.scenario.recap.fh.character.lanprul%</strong>. Ocalały doniósł, że <strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong> nasłał na nich \"Ostrzylce\" i że ma już dość tej wojny. Choć Przywódczyni Lanprul była na to otwarta, inna członkini plemienia – <strong>%ui.tooltip:data.scenario.recap.fh.character.denpang%</strong> – zachęcała do zmasowanego ataku z wami u boku Śniegomówców. Odeszła, by planować wojnę. Wy natomiast zostaliście z Przywódczynią Lanprul, by planować pokój.",
+          "19": "Odkryliście, że duchy z Sali Niebios – miejsca o wielkim znaczeniu religijnym – zwróciły się przeciwko Lodomówcom. Podczas gdy wy zapewnialiście im wieczny spoczynek, <strong>%ui.tooltip:data.scenario.recap.fh.character.chief-elland%</strong> oświadczył, że tak dalej być nie może – że wojna sprowadza ruinę na wszystkich Algoksów. Starsza kobieta pośród nich, <strong>%ui.tooltip:data.scenario.recap.fh.character.putargal%</strong>, zamiast tego nawoływała do zemsty na Śniegomówcach za to, co zrobili ze Śnieżnicą i Salą Niebios. Odeszła, by zaplanować atak na ich wrogów, ale wy zostaliście z Wodzem Ellandem, aby planować pokój."
+        },
+        "29": {
+          "18": "Pokonaliście Lodomówców, ale przyprowadziliście jednego ocalałego, aby spotkał się z Przywódczynią <strong>%ui.tooltip:data.scenario.recap.fh.character.lanprul%</strong>. Ocalały doniósł, że <strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong> nasłał na nich \"Ostrzylce\" i że ma już dość tej wojny. Choć Przywódczyni Lanprul była na to otwarta, inna członkini plemienia – <strong>%ui.tooltip:data.scenario.recap.fh.character.denpang%</strong> – zachęcała do zmasowanego ataku z wami u boku Śniegomówców. Odeszła, by planować wojnę. Odeszliście wraz z Denpang, aby wspomóc atak i zapewnić Śniegomówcom ostateczne zwycięstwo."
         },
         "3": {
-          "1": "Pomogliście odeprzeć atak Algoksów; Burmistrzyni Satha poprosiła was o pomoc w dalszym rozprawieniu się z nimi. Valracki zwiadowca Sathy zauważył niewielką grupę kierującą się na zabójcze wschodnie zbocze Góry Śnieżnicy i podejrzewał, że znajduje się tam ukryte wejście."
+          "1": "Pomogliście odeprzeć atak Algoksów; <strong>%ui.tooltip:data.scenario.recap.fh.character.mayor-satha%</strong> poprosiła was o pomoc w dalszym rozprawieniu się z nimi. Valracki zwiadowca Sathy zauważył niewielką grupę kierującą się na zabójcze wschodnie zbocze Śnieżnicy i podejrzewał, że znajduje się tam ukryte wejście."
         },
         "30": {
-          "19": "Odkryliście, że duchy z Sali Niebios - miejsca o wielkim znaczeniu religijnym - zwróciły się przeciwko Lodomówcom. Podczas gdy wy zapewnialiście im wieczny spoczynek, Wódz Elland oświadczył, że tak dalej być nie może - że wojna sprowadza ruinę na wszystkich Algoksów. Starsza kobieta pośród nich, Putargal, zamiast tego nawoływała do zemsty na Śniegomówcach za to, co zrobili ze Śnieżnicą i Salą Niebios. Odeszła, by zaplanować atak na ich wrogów; udaliście się wraz z nią, by dołączyć do bitwy."
+          "19": "Odkryliście, że duchy z Sali Niebios – miejsca o wielkim znaczeniu religijnym – zwróciły się przeciwko Lodomówcom. Podczas gdy wy zapewnialiście im wieczny spoczynek, <strong>%ui.tooltip:data.scenario.recap.fh.character.chief-elland%</strong> oświadczył, że tak dalej być nie może – że wojna sprowadza ruinę na wszystkich Algoksów. Starsza kobieta pośród nich, <strong>%ui.tooltip:data.scenario.recap.fh.character.putargal%</strong>, zamiast tego nawoływała do zemsty na Śniegomówcach za to, co zrobili ze Śnieżnicą i Salą Niebios. Odeszła, by zaplanować atak na ich wrogów; udaliście się wraz z nią, by dołączyć do bitwy."
+        },
+        "31": {
+          "20": "Aby pokonać wszystkie automaty, musieliście zniszczyć dziwną, świecącą kulę. Gdy je pokonaliście, mogliście zbadać dziwne drzwi, zamknięte przy pomocy złożonego mechanizmu z kołami zębatymi i symbolami. Nie znaczyło to dla was nic, dopóki Kwatryl, naukowiec <strong>%ui.tooltip:data.scenario.recap.fh.character.crain-tallengyr%</strong>, nie zaczął prosić was o zbadanie \"Miejsc Śmierci\" oraz dziwnych energii, które utrzymują się w niektórych częściach Północy – prawdopodobnie jako skutek wojny stoczonej przed wiekami."
         },
         "32": {
           "13": "Przekroczyliście most zbudowany ze starożytnych kości i pokonaliście strzegących go Dzierzbiarzy. Postanowiliście na razie zignorować przyciąganie Odłamka i zbadać zachodni las."
+        },
+        "33": {
+          "22": "Tam napadli na was Czychacze, zwabieni przyciąganiem Odłamków, które niesiecie. Zniszczyli waszą łódź, więc zdecydowaliście się poszukać innego środka transportu. Majsterkowicz z Frosthaven, <strong>%ui.tooltip:data.scenario.recap.fh.character.pinter-droman%</strong>, zaprojektował batysferę – jednostkę do bezpiecznego podróżowania pod wodą – lecz potrzebowała ona źródła zasilania. Sugerował, że możecie znaleźć je w sercu [Radiant Forest]."
         },
         "34": {
           "23": "Niezależnie od dokonanego wyboru, znaleźliście przynajmniej jeden sposób, by dostać się na górę - za pomocą promienia lub platformy - aby udaremnić mroczne przeznaczenie tej wieży. Wiedzieliście, że odpowiedzi znajdziecie na samym szczycie.",
           "24": "Niezależnie od waszego wyboru, znaleźliście przynajmniej jeden sposób, by dostać się na górę - za pomocą promienia lub windy - aby udaremnić mroczne przeznaczenie tej wieży. Wiedzieliście, że odpowiedzi czekają na samym szczycie."
         },
+        "35": {
+          "25": "Tam uratowaliście Kwatryla, naukowca <strong>%ui.tooltip:data.scenario.recap.fh.character.crain-tallengyr%</strong>, który badał Nieposkromionych. W Frosthaven wracał do zdrowia i uważa, że opracował urządzenie, które dezaktywowałoby Nieposkromionych. Potrzebuje jednak najpierw materiałów i poprosił was, byście zabrali go z powrotem, aby mógł znaleźć części, których potrzebuje."
+        },
+        "36": {
+          "26": "Tam uratowaliście Kwatryla, naukowca <strong>%ui.tooltip:data.scenario.recap.fh.character.crain-tallengyr%</strong>, który badał Nieposkromionych. W Frosthaven wracał do zdrowia. Pokazał wam mapy kompleksu oraz dwie możliwe ścieżki do rdzenia. Wybraliście przekradnięcie się nad nimi przez [ducts]."
+        },
+        "37": {
+          "26": "Tam uratowaliście Kwatryla, naukowca <strong>%ui.tooltip:data.scenario.recap.fh.character.crain-tallengyr%</strong>, który badał Nieposkromionych. W Frosthaven wracał do zdrowia. Pokazał wam mapy kompleksu oraz dwie możliwe ścieżki do rdzenia. Wybraliście głębszą ścieżkę, która mogła niegdyś służyć jako system transportu."
+        },
+        "38": {
+          "28": "Niezależnie od tego, po której stronie Algoksów stanęliście na początku, zgodziliście się pomóc ich wodzowi w znalezieniu pokojowego rozwiązania konfliktu. Braliście udział w tajnym spotkaniu dwóch algokskich emisariuszy, <strong>%ui.tooltip:data.scenario.recap.fh.character.gurndel%</strong> oraz <strong>%ui.tooltip:data.scenario.recap.fh.character.barduu%</strong>, jako świadkowie i ochroniarze. Zarówno Lodomówcy, jak i Śniegomówcy zaatakowali jednak spotkanie, walcząc przeciwko wam oraz swoim wrogim plemionom. Udało wam się z nimi uciec; zgodziliście się, że jedyną drogą naprzód jest odnalezienie Wyroczni w Lesie Białego Ognia, <strong>%ui.tooltip:data.scenario.recap.fh.character.marogh%</strong>."
+        },
+        "42": {
+          "33": "Tam napadli na was Czychacze, zwabieni przyciąganiem Odłamków, które niesiecie. Zniszczyli waszą łódź, więc zdecydowaliście się poszukać innego środka transportu. Majsterkowicz z Frosthaven, <strong>%ui.tooltip:data.scenario.recap.fh.character.pinter-droman%</strong>, zaprojektował batysferę – jednostkę do bezpiecznego podróżowania pod wodą – lecz potrzebowała ona źródła zasilania. Sugerował, że możecie znaleźć je w sercu [Radiant Forest].<br>Odzyskaliście Źródło Energii i wróciliście z nim do Pintera. Po kilku tygodniach batysfera była gotowa – wraz z zestawem podwodnych skafandrów. Nadszedł czas, by dalej podążać za przyciąganiem Odłamków Koralowca."
+        },
         "4A": {
-          "2": "Uratowaliście Algokską kapłankę o imieniu Lanprul podczas badania ukrytego wejścia na Szczyt Śnieżnicy. Należy ona do Śniegomówców - grupy Algoksów wierzących, że ich bóg (Geryuu) przemawia do nich poprzez padający śnieg. Toczą oni wojnę z rywalizującą grupą Algoksów, Lodomówcami, którzy z kolei wierzą, że mogą komunikować się ze swoim bóstwem poprzez lód wyłaniający się z głębi ziemi. Lodomówcy obecnie zajmują Szczyt Śnieżnicy, ale Śniegomówcy wykorzystali okazję, by go przejąć, gdy tamci wyruszyli do ataku na Frosthaven.",
-          "3": "Uratowaliście Algokską kapłankę o imieniu Lanprul podczas badania ukrytego wejścia na Szczyt Śnieżnicy. Należy ona do Śniegomówców - grupy Algoksów wierzących, że ich bóg (Geryuu) przemawia do nich poprzez padający śnieg. Toczą oni wojnę z rywalizującą grupą Algoksów, Lodomówcami, którzy z kolei wierzą, że mogą komunikować się ze swoim bóstwem poprzez lód wyłaniający się z głębi ziemi. Lodomówcy obecnie zajmują Szczyt Śnieżnicy, ale Śniegomówcy wykorzystali okazję, by go przejąć, gdy tamci wyruszyli do ataku na Frosthaven."
+          "2": "Uratowaliście algokską Kapłankę o imieniu <strong>%ui.tooltip:data.scenario.recap.fh.character.lanprul%</strong> podczas badania ukrytego wejścia na Szczyt Śnieżnicy. Należy ona do Śniegomówców – grupy Algoksów wierzących, że ich bóg (<strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong>) przemawia do nich poprzez padający śnieg. Toczą oni wojnę z rywalizującą grupą Algoksów, Lodomówcami, którzy z kolei wierzą, że mogą komunikować się ze swoim bóstwem poprzez lód wyłaniający się z głębi ziemi. Lodomówcy obecnie zajmują Szczyt Śnieżnicy, ale Śniegomówcy wykorzystali okazję, by go przejąć, gdy tamci wyruszyli do ataku na Frosthaven.",
+          "3": "Uratowaliście algokską Kapłankę o imieniu <strong>%ui.tooltip:data.scenario.recap.fh.character.lanprul%</strong> podczas badania ukrytego wejścia na Szczyt Śnieżnicy. Należy ona do Śniegomówców – grupy Algoksów wierzących, że ich bóg (<strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong>) przemawia do nich poprzez padający śnieg. Toczą oni wojnę z rywalizującą grupą Algoksów, Lodomówcami, którzy z kolei wierzą, że mogą komunikować się ze swoim bóstwem poprzez lód wyłaniający się z głębi ziemi. Lodomówcy obecnie zajmują Szczyt Śnieżnicy, ale Śniegomówcy wykorzystali okazję, by go przejąć, gdy tamci wyruszyli do ataku na Frosthaven."
         },
         "4B": {
-          "2": "Przerwaliście bitwę między dwiema rywalizującymi grupami Algoksów. Jeden z walczących Algoksów, tytułujący się Lodomówcą, przywitał was i stwierdził, że Śniegomówcy najechali ich dom, podczas gdy oni sami byli zajęci atakiem na Frosthaven. Szczyt Śnieżnicy ma ogromne znaczenie religijne zarówno dla Śniegomówców, jak i Lodomówców, którzy różnią się w swoich przekonaniach na temat tego, jak powinni komunikować się ze swoim bogiem, Geryuu.",
-          "3": "Przerwaliście bitwę między dwiema rywalizującymi grupami Algoksów. Jeden z walczących Algoksów, tytułujący się Lodomówcą, przywitał was i stwierdził, że Śniegomówcy najechali ich dom, podczas gdy oni sami byli zajęci atakiem na Frosthaven. Szczyt Śnieżnicy ma ogromne znaczenie religijne zarówno dla Śniegomówców, jak i Lodomówców, którzy różnią się w swoich przekonaniach na temat tego, jak powinni komunikować się ze swoim bogiem, Geryuu."
+          "2": "Przerwaliście bitwę między dwiema rywalizującymi grupami Algoksów. Jeden z walczących Algoksów, tytułujący się Lodomówcą, przywitał was i stwierdził, że Śniegomówcy najechali ich dom, podczas gdy oni sami byli zajęci atakiem na Frosthaven. Szczyt Śnieżnicy ma ogromne znaczenie religijne zarówno dla Śniegomówców, jak i Lodomówców, którzy różnią się w swoich przekonaniach na temat tego, jak powinni komunikować się ze swoim bogiem, <strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong>.",
+          "3": "Przerwaliście bitwę między dwiema rywalizującymi grupami Algoksów. Jeden z walczących Algoksów, tytułujący się Lodomówcą, przywitał was i stwierdził, że Śniegomówcy najechali ich dom, podczas gdy oni sami byli zajęci atakiem na Frosthaven. Szczyt Śnieżnicy ma ogromne znaczenie religijne zarówno dla Śniegomówców, jak i Lodomówców, którzy różnią się w swoich przekonaniach na temat tego, jak powinni komunikować się ze swoim bogiem, <strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong>."
         },
         "5": {
-          "4": "Opowiedzieliście się po stronie Śniegomówców w ich bitwie przeciwko Lodomówcom, zabijając wodza Lodomówców. Śniegomówcy, którzy wierzą, że komunikują się ze swoim bogiem poprzez padający śnieg, toczą wojnę z Lodomówcami, którzy z kolei wierzą, że mogą komunikować się z bogiem poprzez lód wyłaniający się z głębi ziemi. Szczyt Śnieżnicy to miejsce święte dla obu tych grup.<br>Przywódczyni Śniegomówców, Lanprul, poprosiła was o pomoc w zakończeniu wojny z Lodomówcami, aby zagwarantować bezpieczeństwo Frosthaven przed Algoksami. Zauważyła grupę Lodomówców na północ od Lasu Białego Ognia, która przypuści kontratak, jeśli nie zostanie powstrzymana."
+          "4": "Opowiedzieliście się po stronie Śniegomówców w ich bitwie przeciwko Lodomówcom, zabijając wodza Lodomówców. Śniegomówcy, którzy wierzą, że komunikują się ze swoim bogiem poprzez padający śnieg, toczą wojnę z Lodomówcami, którzy z kolei wierzą, że mogą komunikować się z bogiem poprzez lód wyłaniający się z głębi ziemi. Szczyt Śnieżnicy to miejsce święte dla obu tych grup.<br>Przywódczyni Śniegomówców, <strong>%ui.tooltip:data.scenario.recap.fh.character.lanprul%</strong>, poprosiła was o pomoc w zakończeniu wojny z Lodomówcami, aby zagwarantować bezpieczeństwo Frosthaven przed Algoksami. Zauważyła grupę Lodomówców na północ od Lasu Białego Ognia, która przypuści kontratak, jeśli nie zostanie powstrzymana."
         },
         "55": {
-          "52": "[Mar'ogh] otworzył dziwny portal, aby ukończyć rytuał. Nic jednak nie jest aż tak proste; musieliście pokonać istoty lodu i śniegu i wykorzystać ich esencję do uformowania [glyph]. Gdy to się stało, dwaj emisariusze dokończyli rytuał, łącząc lód i śnieg, by stworzyć [Unyielding Shard]. W jego wnętrzu znaleźli prawdziwe słowa Geryuu i dowiedzieli się, że Algoksi zostali zwiedzeni przez jakąś inną moc. Musieliście wrócić na Śnieżnicę, aby osadzić Odłamek w Serce Lodu, usunąć ciemność, która spadła na Algoksów, i przywrócić ich Geryuu."
+          "52": "<strong>%ui.tooltip:data.scenario.recap.fh.character.marogh%</strong> otworzył dziwny portal, aby ukończyć rytuał. Nic jednak nie jest aż tak proste; odkryliście, że musicie pokonać istoty lodu i śniegu i wykorzystać ich esencję do uformowania [glyph]. Gdy to się stało, dwaj emisariusze dokończyli rytuał, łącząc lód i śnieg, by stworzyć [Unyielding Shard]. W jego wnętrzu odnaleźli prawdziwe słowa <strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong> i dowiedzieli się, że Algoksi zostali zwiedzeni przez jakąś inną moc. Musieliście wrócić na Śnieżnicę, aby osadzić Odłamek w [Heart of Ice], usunąć ciemność, która spadła na Algoksów, i przywrócić ich Geryuu."
         },
         "6": {
-          "4": "Opowiedzieliście się po stronie Lodomówców w ich walce przeciwko Śniegomówcom, zabijając wodza Śniegomówców. Lodomówcy wierzą, że mogą komunikować się ze swoim bogiem, Geryuu, poprzez lód wyłaniający się z głębi ziemi. Toczą oni wojnę ze Śniegomówcami, którzy wierzą, że mogą komunikować się ze swoim bogiem poprzez padający śnieg. Szczyt Śnieżnicy jest świętym miejscem dla obu grup.<br>Wódz Lodomówców, Elland, wierzy, że to Geryuu sprowadził was, byście pomogli pokonać Śniegomówców, i obiecał tymczasowo zaprzestać wrogich działań przeciwko Frosthaven.<br>Potężny Śniegomówca dotarł na wierzchołek Szczytu Śnieżnicy i grozi zawaleniem całej góry. Elland zasugerował, abyście udowodnili swoją siłę i przyjaźń, pokonując tego Śniegomówcę."
+          "4": "Opowiedzieliście się po stronie Lodomówców w ich walce przeciwko Śniegomówcom, zabijając wodza Śniegomówców. Lodomówcy wierzą, że mogą komunikować się ze swoim bogiem <strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong> poprzez lód wyłaniający się z głębi ziemi. Toczą oni wojnę ze Śniegomówcami, którzy wierzą, że mogą komunikować się ze swoim bogiem Geryuu poprzez padający śnieg. Szczyt Śnieżnicy jest świętym miejscem dla obu grup.<br>Wódz Lodomówców, <strong>%ui.tooltip:data.scenario.recap.fh.character.chief-elland%</strong>, wierzy, że to Geryuu sprowadził was, byście pomogli pokonać Śniegomówców, i obiecał tymczasowo zaprzestać wrogich działań przeciwko Frosthaven.<br>Potężny Śniegomówca dotarł na wierzchołek Szczytu Śnieżnicy i grozi zawaleniem całej góry. Elland zasugerował, abyście udowodnili swoją siłę i przyjaźń, pokonując tego Śniegomówcę."
         },
         "65": {
-          "": "Estrowie są zainteresowani założeniem placówki badawczej na Północy. Wy odwalacie za nich czarną robotę. Nie ma w tym wielkiej filozofii - Scenariusz 65 sam nakreśla tutaj tło tych wydarzeń."
+          "": "Estrowie są zainteresowani założeniem placówki badawczej na Północy. Wy wykonujecie czarną robotę. Nie ma w tym wielkiej filozofii – %game.scenarioNumber:65% sam nakreśla tutaj tło tych wydarzeń."
+        },
+        "66": {
+          "65": "Grupa ośmiu Estrowów podeszła do Frosthaven, połączywszy się w jedną istotę. Głos Ósemki, ich rzecznik, poprosił was o pomoc w zamian za wiedzę. Zlokalizowali matrycę żywiołów i poprosili was o jej odzyskanie.<br>Ośmiu Estrowów odkryło, że tylko Kotwica urządzenia była wciąż nienaruszona i że potrzebuje nowych źródeł żywiołów. Kilka tygodni później donieśli, że je znaleźli i poprosili was o spotkanie przy matrycy."
         },
         "7": {
-          "4": "Po zażegnaniu bezpośredniego zagrożenia ze strony Algoksów wiszącego nad Frosthaven, Burmistrzyni Satha wspomniała, że na obrzeżach terytorium Frosthaven dostrzeżono Czychaczy. Zostaliście poproszeni o sprawdzenie tej sytuacji."
+          "4": "Po zażegnaniu bezpośredniego zagrożenia ze strony Algoksów wiszącego nad Frosthaven, <strong>%ui.tooltip:data.scenario.recap.fh.character.mayor-satha%</strong> wspomniała, że na obrzeżach terytorium Frosthaven dostrzeżono Czychaczy. Zostaliście poproszeni o sprawdzenie tej sytuacji."
         },
         "8": {
-          "4": "Po zażegnaniu bezpośredniego zagrożenia ze strony Algoksów, Burmistrzyni Satha wspomniała, że przez pustkowia maszerują dziwne metalowe konstrukty. Zwiadowcy tropili je przez Las Białego Ognia, a następnie do zamarzniętej doliny. Poprosiła was, abyście przyjrzeli się tej sprawie."
+          "4": "Po zażegnaniu bezpośredniego zagrożenia ze strony Algoksów, <strong>%ui.tooltip:data.scenario.recap.fh.character.mayor-satha%</strong> wspomniała, że przez pustkowia maszerują dziwne metalowe konstrukty. Zwiadowcy tropili je przez Las Białego Ognia, a następnie do zamarzniętej doliny. Poprosiła was, abyście przyjrzeli się tej sprawie."
         },
         "9": {
           "5": "Lodomówca, którego ścigaliście, zwabił was w swego rodzaju pułapkę - wpadliście przez ukrytą szczelinę do podziemnej krypty pełnej duchów. Po rozprawieniu się z nimi, postanowiliście podjąć się dalszej eksploracji tego podziemnego obszaru."
         },
         "99": {
           "": "\"Iskra\", sędziwa Orchidka, odnalazła was przy karczmie tuż przed snem. Bez zbędnych szczegółów - poruszała się o wiele za wolno, by w ogóle o tym myśleć - wręczyła wam worek starożytnych złotych monet i was wynajęła."
+        },
+        "character": {
+          "denpang": {
+            "tooltip": "Gniewna, młoda Algokska nawołująca do wojny.<br>Pierwsze pojawienie się: %game.scenarioNumber:18% %game.section:13.1%"
+          },
+          "lanprul": {
+            "": "Lanprul",
+            "tooltip": "Algoks, Kapłanka Śniegomówców.<br>Pierwsze pojawienie się: %game.scenarioNumber:2% %game.section:77.3%"
+          },
+          "pinter-droman": {
+            "": "Pinter Droman",
+            "tooltip": "Druciarz, Mieszkaniec Frosthaven."
+          }
         }
       }
     }

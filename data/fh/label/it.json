@@ -24,7 +24,7 @@
     "Throwing Axe": "Ascia da Lancio",
     "Twin Bolts": "Dardi Gemelli",
     "Twin Shots": "Colpi Gemelli",
-    "Venom Shiv": "Coltello Avvelenato"
+    "Venom Shiv": "Venom Shiv"
   },
   "buildings": {
     "alchemist": {
@@ -93,9 +93,27 @@
       }
     }
   },
+  "custom": {
+    "algox-snowspeaker-trap-solo": {
+      "1": "Tutti i nemici entro<br>%game.action.range:2% subiscono %game.damage:2%"
+    },
+    "errata": {
+      "solo28": "Regole speciali: \"Snowspeaker\" dovrebbe essere \"Icespeaker\""
+    },
+    "lost-in-seaweed": {
+      "1": "Concentrati sul nemico<br>più lontano entro %game.action.range:6%",
+      "2": "Crea una tessera d'acqua da 1 esagono<br>in un esagono vuoto adiacente.",
+      "3": "in un<br>esagono adiacente non occupato con una tessera d'acqua."
+    }
+  },
+  "deck": {
+    "boss": "Boss",
+    "imp": "Imp"
+  },
   "monster": {
     "abael-herder": "Abael Mandriano",
     "abael-scout": "Abael Esploratore",
+    "abael-warlord": "Condottiero Abael",
     "algox-archer": "Algox Arciere",
     "algox-guard": "Algox Guardia",
     "algox-icespeaker": "Algox Portavoce del Ghiaccio",
@@ -108,6 +126,7 @@
     "burrowing-blade": "Lama Scavatrice",
     "chaos-demon": "Demone del Caos",
     "city-guard": "Guardia Cittadina",
+    "deep-terror": "Terrore delle Profondità",
     "earth-demon": "Demone della Terra",
     "elder-ooze": "Melma Antica",
     "fish-king": "Re dei Pesci",
@@ -158,20 +177,6 @@
     "vermling-priest": "Vermling Sacerdote",
     "vermling-scout": "Vermling Esploratore",
     "vestige-of-the-imprisoned-god": "Vestigia del Dio Imprigionato",
-    "wind-demon": "Demone del Vento",
-    "abael-warlord": "Condottiero Abael"
-  },
-  "custom": {
-    "algox-snowspeaker-trap-solo": {
-      "1": "Tutti i nemici entro<br>%game.action.range:2% subiscono %game.damage:2%"
-    },
-    "errata": {
-      "solo28": "Regole speciali: \"Snowspeaker\" dovrebbe essere \"Icespeaker\""
-    },
-    "lost-in-seaweed": {
-      "1": "Concentrati sul nemico<br>più lontano entro %game.action.range:6%",
-      "2": "Crea una tessera d'acqua da 1 esagono<br>in un esagono vuoto adiacente.",
-      "3": "in un<br>esagono adiacente non occupato con una tessera d'acqua."
-    }
+    "wind-demon": "Demone del Vento"
   }
 }
