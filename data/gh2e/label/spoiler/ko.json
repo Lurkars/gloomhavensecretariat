@@ -1,4 +1,18 @@
 {
+  "character": {
+    "gh2e": {
+      "lightning": {
+        "long_rest_heal": {
+          "": "특혜 9"
+        }
+      },
+      "three-spears": {
+        "supply_tokens_perk": {
+          "": "특혜 11"
+        }
+      }
+    }
+  },
   "items": {
     "gh2e-164": {
       "1": "장착자가 아무 덱에서나 카드를 공개할 때마다, 카드 한 장을 추가로 공개."
