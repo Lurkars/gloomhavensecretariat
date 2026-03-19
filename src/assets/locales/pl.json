@@ -3260,7 +3260,7 @@
         "drawRandomScenarioSection": "Dobierz losową sekcję scenariusza %data.section:{0}%, odblokuj {3}",
         "inspiration": "{0} Inspiracji",
         "morale": "{0} Morale",
-        "prosperity": "{0} Prosperity",
+        "prosperity": "",
         "removeCondition": "Usuń %game.condition.{0}% z {1}",
         "removeImmunity": "Usuń %game.immunity.{0}% z {1}",
         "reputation": "{0} Reputacji",
@@ -3547,7 +3547,7 @@
         "shuffleUpcoming": "Potasmuj nadchodzące karty talii MA {0}"
       },
       "updateBonusAdjustment": "Dostosowanie premii {0}",
-      "updateElement": "Element {0} {1}",
+      "updateElement": "",
       "updateGlobalAchievements": "Osiągnięcie globalne na {0}",
       "updateLevelAdjustment": "Dostosowanie poziomu {0}",
       "updateLevelAdjustmentBb": "Ustaw trudność modyfikatora potworów na %game.level.bb.monsterDifficulty.{0}%",

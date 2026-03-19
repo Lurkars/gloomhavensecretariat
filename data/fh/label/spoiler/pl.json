@@ -1425,6 +1425,10 @@
           "": "\"Iskra\", sędziwa Orchidka, odnalazła was przy karczmie tuż przed snem. Bez zbędnych szczegółów - poruszała się o wiele za wolno, by w ogóle o tym myśleć - wręczyła wam worek starożytnych złotych monet i was wynajęła."
         },
         "character": {
+          "captain-olmstead": {
+            "": "Kapitan Olmsted",
+            "tooltip": "Kapitan straży miejskiej w Frosthaven."
+          },
           "denpang": {
             "tooltip": "Gniewna, młoda Algokska nawołująca do wojny.<br>Pierwsze pojawienie się: %game.scenarioNumber:18% %game.section:13.1%"
           },
