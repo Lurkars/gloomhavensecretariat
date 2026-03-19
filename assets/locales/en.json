@@ -760,6 +760,9 @@
         "": "Regenerate",
         "hint": "%game.conditionIcon.regenerate% Regenerate: %game.action.heal% 1 at start of turn. Removed when damaged."
       },
+      "roundExpire": {
+        "hint": "Remove condition at end of round"
+      },
       "rupture": {
         "": "Rupture",
         "hint": "%game.conditionIcon.rupture% Rupture: On move suffer %game.damage:1%. Remove when healed."
@@ -1945,13 +1948,13 @@
       "globalAchievements": "Global Achievements",
       "gold": "{0} gold each",
       "inspiration": "{0} inspiration",
-      "item": "\"{1}\" (Item {0})",
-      "itemBlueprint": "Gain \"{1}\" %game.itemFh.{0}% blueprint",
+      "item": "\"%data.items.{1}-{0}%\" (Item {0})",
+      "itemBlueprint": "Gain \"%data.items.{1}-{0}%\" %game.itemFh.{0}% blueprint",
       "itemBlueprintRange": "Add items %game.itemFh.{0}% to %game.itemFh.{1}% to the available item supply.",
-      "itemDesign": "\"{1}\" design (Item {0})",
-      "itemDesignEdition": "\"{1}\" design (Item {0} %data.edition.{2}%)",
+      "itemDesign": "\"%data.items.{1}-{0}%\" design (Item {0})",
+      "itemDesignEdition": "\"%data.items.{1}-{0}%\" design (Item {0} %data.edition.{1}%)",
       "itemDesignRange": "Add Item designs {0}",
-      "items": "{2} \"{1}\" (Item {0})",
+      "items": "{2} \"%data.items.{1}-{0}%\" (Item {0})",
       "location": "New Location",
       "locations": "New Locations",
       "lootDeckCard": "Add loot card {0} to every scenario loot deck in addition to the normal loot distribution.",
@@ -2198,7 +2201,7 @@
       },
       "forcedLinks": "%scenario.summary.links% (forced)",
       "gold": "Gold",
-      "item": "Item \"{0}\"",
+      "item": "Item \"%data.items.{1}-{0}%\"",
       "levelUp": "Up to Level {1}",
       "link": "Continue with #{0}",
       "links": "Continue with a linked scenario",
