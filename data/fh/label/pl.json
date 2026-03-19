@@ -1412,96 +1412,96 @@
             "2": "Przesuń żeton postaci na jednej ze swoich stałych zdolności o jedno miejsce do tyłu."
           },
           "11": {
-            "1": "If you killed an enemy with the attack ability, move the character token on one of your persistent abilities backwards one slot."
+            "1": "Jeśli zabiłeś wroga zdolnością ataku, przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce wstecz."
           },
           "13": {
-            "1": "Before applying any other bonuses, move the character token on one of your persistent abilities forward one slot: +2%game.action.range%.",
-            "2": "Whenever you kill an enemy, move the character token on one of your persistent abilities backwards one slot."
+            "1": "Zanim zastosujesz jakiekolwiek inne premie, przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce w przód: +2%game.action.range%.",
+            "2": "Za każdym razem, gdy zabijesz wroga, przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce wstecz."
           },
           "16": {
-            "1": "On your next six melee attacks targeting an enemy adjacent to any other enemy, one enemy adjacent to the target suffers %game.action.damage%2."
+            "1": "Podczas twoich następnych sześciu ataków wręcz wymierzonych we wroga sąsiadującego z dowolnym innym wrogiem, jeden wróg sąsiadujący z celem otrzymuje %game.action.damage%2."
           },
           "18": {
-            "2": "On your next six ranged attack abilities, add +1%game.action.target%."
+            "2": "Podczas twoich następnych sześciu zdolności ataku dystansowego dodaj +1%game.action.target%."
           },
           "19": {
-            "2": "Move the character token on two of your persistent abilities backwards one slot."
+            "2": "Przesuń żetony postaci na dwóch ze swoich zdolności trwałych o jedno miejsce wstecz."
           },
           "2": {
-            "1": "Move the character token on one of your persistent abilities backwards one slot.",
-            "2": "On your next six move abilities, add +2%game.action.move%."
+            "1": "Przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce wstecz.",
+            "2": "Podczas twoich następnych sześciu zdolności ruchu dodaj +2%game.action.move%."
           },
           "20": {
-            "1": "Move the character token on one of your persistent abilities backwards one slot.",
-            "2": "On the next six sources of %game.action.damage% from attacks targeting you, gain %game.action.shield:2%."
+            "1": "Przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce wstecz.",
+            "2": "Przy następnych sześciu źródłach %game.action.damage% z ataków biorących ciebie za cel, zyskaj %game.action.shield:2%."
           },
           "21": {
-            "1": "If you killed an enemy with the attack ability, move the character token on one of your persistent abilities backwards one slot.",
-            "2": "If you killed an enemy this round, move the character token on one of your persistent abilities backwards one slot."
+            "1": "Jeśli zabiłeś wroga zdolnością ataku, przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce wstecz.",
+            "2": "Jeśli zabiłeś wroga w tej rundzie, przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce wstecz."
           },
           "22": {
-            "1": "On your next six heals targeting figures without %game.condition.ward%, add %game.condition.ward%.",
-            "2": "where X is twice the number of tokens and tiles looted."
+            "1": "Podczas twoich następnych sześciu zdolności leczenia biorących za cel postaci bez %game.condition.ward%, dodaj %game.condition.ward%.",
+            "2": "gdzie X to dwukrotność liczby żetonów i kafli poddanych grabieży."
           },
           "23": {
-            "1": "Before applying any other bonuses, move the character token on one of your persistent abilities forward one slot: %game.condition.wound%",
-            "2": "If you are adjacent to at least two enemies, move the character token on one of your persistent abilities backwards one slot."
+            "1": "",
+            "2": ""
           },
           "24": {
-            "1": "On your next six attacks targeting enemies with %game.action.shield%, add %game.action.pierce:3%.",
-            "2": "Gain advantage on all your attacks this round."
+            "1": "",
+            "2": ""
           },
           "25": {
             "1": "gdzie X to ilość %game.action.damage% zadanych celom umiejętności ataku.",
-            "2": "Whenever an adjacent enemy dies this round, move the character token on one of your persistent abilities backwards one slot."
+            "2": ""
           },
           "26": {
-            "1": "Immediately after your next six heal abilities, perform %game.action.move:3% %game.action.jump%.",
-            "2": "For each ally moved through during the move ability, move the character token on one of your persistent abilities backwards one slot."
+            "1": "",
+            "2": ""
           },
           "27": {
-            "2": "Move the character token on three of your persistent abilities backwards one slot."
+            "2": ""
           },
           "28": {
             "1": "%game.action.target% wszyscy wrogowie w zasięgu 2 pól",
-            "2": "For each enemy targeted with the attack ability, Move the character token on one of your persistent abilities backwards one slot.",
-            "3": "On the next six instances of an enemy entering a hex adjacent to you, that enemy suffers %game.action.damage%3"
+            "2": "",
+            "3": ""
           },
           "29": {
-            "1": "Before applying any other bonuses, move the character token on one of your persistent abilities forward one slot: %game.condition.immobilize%"
+            "1": ""
           },
           "3": {
-            "1": "All your ranged attacks have +1%game.action.range%. On your next six ranged attacks, add +1%game.action.attack%.",
-            "2": "Move the character token on one of your persistent abilities backwards one slot."
+            "1": "",
+            "2": ""
           },
           "30": {
-            "1": "On your next four sources of 4 or less %game.action.damage% you suffer, negate the %game.action.damage%",
-            "2": "Before applying any other bonuses, move the character token on one of your persistent abilities forward one slot: +1%game.action.target%."
+            "1": "",
+            "2": ""
           },
           "31": {
-            "1": "%game.action.target% all allies adjacent to at least one enemy targeted with the attack ability",
-            "2": "where X is the number of hexes you moved during the move ability."
+            "1": "",
+            "2": ""
           },
           "4": {
-            "1": "Move the character token on one of your persistent abilities backwards one slot.",
-            "2": "On your next six heals, add +2%game.action.heal%."
+            "1": "",
+            "2": ""
           },
           "5": {
-            "1": "Move the character token on two of your persistent abilities backwards one slot.",
-            "2": "On the next six attacks targeting you performed by enemies within %game.action.range%2, gain %game.action.retaliate:2% %game.action.range%2."
+            "1": "",
+            "2": ""
           },
           "6": {
-            "1": "Move the character token on two of your persistent abilities backwards one slot.",
-            "2": "On the next six sources of %game.action.damage% from attacks targeting you, gain %game.action.shield:1%."
+            "1": "",
+            "2": ""
           },
           "8": {
-            "2": "If you are adjacent to exactly one enemy, move the character token on one of your persistent abilities backwards one slot."
+            "2": "Jeśli sąsiadujesz z dokładnie jednym wrogiem, przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce wstecz."
           }
         }
       },
       "elder-ooze": {
-        "1": "The target loses one item.",
-        "2": "All adjacent characters gain 1 slime."
+        "1": "Cel traci jeden przedmiot.",
+        "2": ""
       },
       "errata": {
         "env24": "1st Printing: Envelope 24 should list sticker 10",
@@ -1553,7 +1553,7 @@
         "lurker": "Czychacze",
         "other": "Pozostałe",
         "personal-quests": "Zadania Osobiste",
-        "puzzle-book": "Puzzle Book",
+        "puzzle-book": "Księga Zagadek",
         "random-scenarios": "Losowe Scenariusze",
         "unfettered": "Nieposkromieni"
       },
@@ -1574,13 +1574,13 @@
         "5": "Trać co najmniej jedną kartę w każdej rundzie"
       },
       "giant-piranha-pig-boss": {
-        "1": "Nothing",
-        "2": "Move all water tiles 2 hexes to the right",
-        "3": "Move all water tiles 1 hex to the right."
+        "1": "Nic specjalnego",
+        "2": "Przesuń wszystkie kafle wody o 2 pola w prawo",
+        "3": "Przesuń wszystkie kafle wody o 1 pole w prawo."
       },
       "harbinger-of-shadow": {
-        "1": "The %data.monster.harbinger-of-shadow-1% does not act.",
-        "2": "The %data.monster.harbinger-of-shadow-2% does not act."
+        "1": "%data.monster.harbinger-of-shadow-1% nie wykonuje akcji.",
+        "2": "%data.monster.harbinger-of-shadow-2% nie wykonuje akcji."
       },
       "harrower-infester": {
         "1": "Wykonaj \"%game.action.heal% X, na siebie\", gdzie X to<br>dwukrotność liczby wrogów<br>będących celem umiejętności ataku."
@@ -1595,7 +1595,7 @@
         "1": "Rotate each laser spire clockwise (if able)",
         "2": "Rotate each laser spire counterclockwise (if able)",
         "3": "All characters and character summons adjacent to a laser spire suffer hazardous terrain damage",
-        "4": "Emit laser, starting at %game.mapMarker.a%"
+        "4": "Wyemituj laser, zaczynając od %game.mapMarker.a%"
       },
       "lightning-eel": {
         "1": "Traktuje pola z wodą jako korytarze, a pola bez wody jako przeszkody"
@@ -1629,7 +1629,7 @@
       "lurker-wavethrower-scenario-131": {
         "1": "Skup się na najdalszym<br>wrogu w zasięgu %game.action.range:6%",
         "2": "Stwórz 1 pole z wodą<br> w sąsiednim pustym polu.",
-        "3": "to the leftmost empty hex if it is an odd round or rightmost if it is even"
+        "3": "na skrajnie lewe puste pole, jeśli to nieparzysta runda, lub skrajnie prawe, jeśli jest parzysta"
       },
       "night-demon": {
         "1": "Wszyscy sąsiadujący sojusznicy<br>oraz wrogowie otrzymują %game.damage:1%.",
@@ -1639,7 +1639,7 @@
         "1": "o wartości H równej aktualnej wartości punktów życia przywołującego Szlam<br>(ograniczone maksymalną wartością punktów życia zwykłego Szlamu)."
       },
       "orphan": {
-        "1": "self or glowing orb"
+        "1": ""
       },
       "piranha-pig": {
         "1": "Dodaj +1 %game.action.attack%, jeśli cel sąsiaduje<br>z którymkolwiek z sojuszników Świni Piranii.",
@@ -1652,7 +1652,7 @@
         "2": "Jedna postać traci jedną kartę z ręki (lub 2 ze stosu odrzuconych)."
       },
       "program-director": {
-        "1": "to an empty hex closest to focus",
+        "1": "na puste pole najbliżej celu skupienia",
         "2": "Sojusznik dla wszystkich potworów w tej rundzie",
         "3": "Ustaw cel skupienia na najbliższym wrogu",
         "4": "do dowolnego pustego pola najbliższego celu skupienia"
@@ -1674,9 +1674,9 @@
         "2": "Wszyscy wrogowie w %game.action.range:4% otrzymują %game.damage:2%."
       },
       "seeker-of-the-abyss": {
-        "1": "All targets lose one card.",
-        "2": "Create one %game.condition.immobilize% trap in an adjacent empty hex.",
-        "3": "All allies add +1 %game.action.attack% to all their attacks this round."
+        "1": "Wszystkie cele tracą jedną kartę.",
+        "2": "Stwórz jedną pułapkę %game.condition.immobilize% na sąsiednim pustym polu.",
+        "3": "Wszyscy sojusznicy dodają +1 %game.action.attack% do wszystkich swoich ataków w tej rundzie."
       },
       "shrike-fiend": {
         "1": "Wszyscy wrogowie w %game.action.range:3% otrzymują %game.damage:2%."
@@ -1689,12 +1689,12 @@
         "1": "%game.custom.advantage%"
       },
       "tormentor": {
-        "1": "Create 1-hex hazardous terrain in all featureless hexes adjacent to target, enemies in these hexes suffer",
-        "2": "Create 1-hex icy terrain in all featureless hexes adjacent to targets of the attack"
+        "1": "Stwórz niebezpieczny teren o wielkości 1 pola na wszystkich polach bez cech sąsiadujących z celem, wrogowie na tych polach otrzymują",
+        "2": "Stwórz teren lodowy o wielkości 1 pola na wszystkich polach bez cech sąsiadujących z celami ataku"
       },
       "vestige-of-the-imprisoned-god": {
-        "1": "Modify terrain.",
-        "2": "All characters who did not attack suffer trap damage at end of round."
+        "1": "Modyfikuj teren.",
+        "2": "Wszystkie postacie, które nie zaatakowały, otrzymują obrażenia od pułapki na koniec rundy."
       }
     },
     "lost-in-seaweed": {
@@ -1967,37 +1967,37 @@
   },
   "scenario": {
     "group": {
-      "randomMonsterCard": "Random Monster Cards"
+      "randomMonsterCard": "Losowe karty potworów"
     },
     "rewards": {
       "fh": {
-        "000": "You should now be ready to take on scenario 1 on the following page in the Scenario Book. Do not perform an Outpost Phase until you have completed scenario 1.",
-        "001": "(Gain 2+X morale, where X is the number of City Guards still on the map.)",
-        "022": "Lose 1 collective %game.resource.lumber% for each set of five hexes with water tiles on tile 7-G",
-        "033": "Gain 5 experience for each unrevealed dowsing rune",
-        "041": "Read %data.section:36.7% now",
-        "066": "Note the corresponding elements of the four doors that were opened",
-        "068": "\"Aesther Outpost\" quest complete",
-        "070": "\"The True Oak\" quest complete",
-        "071": "Damage any one even building between 71 and 89",
-        "077": "\"Threat from the Deep\" quest complete",
-        "082": "Add the following Forgotten Circles items to the Frosthaven supply: 153, 159, and 161",
-        "087": "Or 2 inspiration if both brothers survived",
-        "092": "Collectively lose 5xC/2 loot tokens (rounded down), first taken from HE-RO-IC-S' pile, then taken as evenly as possible from the characters' collected loot tokens. If any loot tokens remain in the HE-RO-IC-S pile, distribute them as evenly as possible to all characters. Loot tokens are then traded in for loot cards",
-        "113": "Gain any 4 collective herb resources",
-        "118": "Trade all numbered and lettered tokens in for loot cards",
-        "119": "Spend any remaining dust to gain the following: <br><br> Spend seven (once only): Scepter of Control Item #203 <br>Spend one: Any 1 material resource <br>Spend two: Any 1 herb resource",
-        "129": "Note the amount of remaining sun agates",
-        "137": "Add one +1 sticker to a money loot card (the card gives one extra money token when resolved)",
-        "gain2loot": "Gain 2 additional loot cards each",
-        "remove-algox": "Remove all %game.action.custom.fh-algox% events from all outpost event decks",
-        "remove-lurkers": "Remove all %game.action.custom.fh-lurkers% events from all outpost event decks",
+        "000": "Powinniście teraz być gotowi, by zmierzyć się ze scenariuszem 1 na następnej stronie w \"Księdze Scenariuszy\". Nie przeprowadzajcie \"Fazy Posterunku\", dopóki nie ukończycie scenariusza 1.",
+        "001": "(Zyskaj 2+X morale, gdzie X to liczba Strażników Miejskich pozostałych na mapie.)",
+        "022": "Utracicie 1 wspólne %game.resource.lumber% za każdy zestaw pięciu heksów z kaflami wody na kaflu 7-G",
+        "033": "Zyskaj 5 punktów doświadczenia za każdy nieodkryty żeton",
+        "041": "Przeczytaj teraz %data.section:36.7%",
+        "066": "Zanotuj odpowiadające żywioły czterech drzwi, które zostały otwarte",
+        "068": "Zadanie \"Posterunek Esterów\" ukończone",
+        "070": "Zadanie \"Prawdziwy Dąb\" ukończone",
+        "071": "Zadaj obrażenia dowolnemu parzystemu budynkowi z przedziału 71–89",
+        "077": "Zadanie \"Zagrożenie z Głębin\" ukończone",
+        "082": "Dodaj następujące przedmioty z Forgotten Circles do puli zaopatrzenia Frosthaven: 153, 159 oraz 161",
+        "087": "Lub 2 punkty inspiracji, jeśli obaj bracia przeżyli",
+        "092": "",
+        "113": "Wspólnie zyskaj 4 dowolne zasoby zielarskie",
+        "118": "Wymień wszystkie żetony z liczbami i literami na karty łupów",
+        "119": "",
+        "129": "Zanotuj liczbę pozostałych [sun agates]",
+        "137": "Dodaj jedną naklejkę +1 do karty łupu pieniędzy (ta karta daje jeden dodatkowy żeton pieniędzy po rozpatrzeniu)",
+        "gain2loot": "Każdy zyskuje 2 dodatkowe karty łupów",
+        "remove-algox": "Usuń wszystkie wydarzenia %game.action.custom.fh-algox% ze wszystkich talii wydarzeń posterunku",
+        "remove-lurkers": "Usuń wszystkie wydarzenia %game.action.custom.fh-lurkers% ze wszystkich talii wydarzeń posterunku",
         "remove-unfettered": "Usuń wszystkie %game.action.custom.fh-unfettered% wydarzenia za wszystkich talii wydarzeń posterunków"
       }
     },
     "rules": {
       "fh": {
-        "0": "Do not set up the Hound monster ability deck. Instead, each round on initiative 26, all Hounds perform %game.action.move% 2; %game.action.attack% 2.",
+        "0": "Nie przygotowuj talii zdolności potworów Ogarów. Zamiast tego, w każdej rundzie przy inicjatywie 26, wszystkie Ogary wykonują %game.action.move% 2; %game.action.attack% 2.",
         "1": "Strażnicy Miejscy nie wykonują tur, ale zamiast tego zyskują dodatkowe wrodzone %game.action.shield% 1 (w sumie %game.action.shield% 2 na poziomie 1) i %game.action.retaliate% 2, a ich inicjatywa wynosi 50 dla celów skupienia.",
         "10": "%game.action.target% wszystkie potwory w zasięgu %game.action.range:4%",
         "110": "Może zostać zniszczona tylko wtedy, gdy zrujnowana maszyna zginie na sąsiednim polu",
@@ -2015,31 +2015,31 @@
         },
         "128": {
           "1": "Wszystkie Stalowe Automaty używają talii zdolności potworów Chochlik.",
-          "2": "Whenever any Lurker Wavethrower would summon a Lightening Eel, it summons one Vermling Scout with a current hit point value of 1 instead."
+          "2": "Ilekroć jakikolwiek Czychacz Falomiot miałby przyzwać Elektrycznego Węgorza, zamiast tego przyzywa jednego Szczurka Zwiadowcę z aktualną wartością 1 punktu życia."
         },
-        "129": "All City Guards use Archer monster ability cards instead of their own.",
-        "131": "Lurker Wavethrowers add +1 %game.action.attack% to all their attacks and do not summon Lightning Eels. Instead, whenever Aid from Below is performed, all Lurker Wavethrowers perform: \" %game.action.attack% +1, %game.action.range% 4; %game.action.teleport% to the leftmost empty hex if it is an odd round or rightmost if it is even. If there are several valid hexes to teleport to, choose the hex furthest away from any character.\"",
-        "134": "The Steel Automaton has HxC/2 hit points (rounded up).",
-        "27": "When destroyed, the destroying character may return all their taken cards to their hand",
-        "44": "When destroyed, all monsters within %game.action.range%2 suffer trap damage",
-        "54": "When destroyed, reveal one numbered token and spawn the indicated monster",
-        "60": "All six Lurkers on tiles 13-B and 13-D are Fractured Lieutenants and add +1 %game.action.attack% to all their attacks.",
+        "129": "Wszyscy Strażnicy Miejscy używają kart zdolności potworów Łucznika zamiast własnych.",
+        "131": "Czychacze Falomioci dodają +1 %game.action.attack% do wszystkich swoich ataków i nie przyzywają Elektrycznych Węgorzy. Zamiast tego, ilekroć wykonywana jest akcja [Aid from Below], wszyscy Czychacze Falomioci wykonują: \"%game.action.attack% +1, %game.action.range% 4; %game.action.teleport% na najbardziej wysunięte w lewo puste pole, jeśli jest to runda nieparzysta, lub najbardziej wysunięte w prawo, jeśli jest parzysta. Jeśli istnieje kilka poprawnych pól do teleportacji, wybierz pole znajdujące się najdalej od dowolnej postaci.\"",
+        "134": "Stalowy Automaton ma HxC/2 punktów życia (zaokrąglone w górę).",
+        "27": "Po zniszczeniu, niszcząca postać może zwrócić wszystkie swoje ukradzione karty do ręki",
+        "44": "Po zniszczeniu wszystkie potwory w zasięgu %game.action.range:2% otrzymują obrażenia od pułapki",
+        "54": "Po zniszczeniu, odkryj jeden numerowany żeton i przyzwij wskazanego potwora",
+        "60": "",
         "65": "Wszyscy przeciwnicy dodają %game.action.push% 1 do swoich ataków. Jeżeli poziom scenariusza jest równy 4 albo wyższy, zwiększ tę wartość do %game.action.push% 2.",
-        "76": "Divide the Fish King's maximum hit point value by 2 (rounded down). The Fish King does not act, cannot be targeted by heal abilities, is immune to all conditions, and has an initiative of 01 for the purpose of focusing.",
+        "76": "Podziel maksymalną wartość punktów życia Rybiego Króla przez 2 (zaokrąglone w dół). Rybi Król nie wykonuje akcji, nie może być celem zdolności leczenia, jest odporny na wszystkie stany i ma inicjatywę 01 na potrzeby skupienia.",
         "77": {
-          "1": "The Fish King cannot perform any move abilities and is immune to forced movement. (Also adjusted Boss Specials!)",
-          "2": "Immune to forced movement"
+          "1": "Rybi Król nie może wykonywać żadnych zdolności ruchu i jest odporny na wymuszony ruch. (Dostosowano również Umiejętność specjalną Bossa!)",
+          "2": "Odporny na wymuszony ruch"
         },
         "80": {
-          "1": "The Relic gains:",
-          "2": "Add %game.condition.immobilize% to all attacks targeting the primary focus",
-          "3": "Change The Relic's Special 1 to:",
+          "1": "Relikt zyskuje:",
+          "2": "Dodaj %game.condition.immobilize% do wszystkich ataków wymierzonych w główny cel skupienia",
+          "3": "Zmień Umiejętność specjalną 1 Reliktu na:",
           "4": "Skup się na najdalszym wrogu którego może być celem skupienia i wykonaj:",
-          "5": "%game.action.attack%+0, %game.action.target% focus (if adjacent) and all enemies in or adjacent to hexes entered during the movement",
-          "6": "Change The Relic's Special 2 to:"
+          "5": "%game.action.attack%+0, %game.action.target% cel skupienia (jeśli sąsiaduje) oraz wszyscy wrogowie na polach przebytych podczas ruchu lub z nimi sąsiadujących",
+          "6": "Zmień Umiejętność specjalną 2 Reliktu na:"
         },
-        "86": "When suffering damage but not destroyed:",
-        "97": "To add monster abilities to a character's hand, open the Ability Cards menu and remove the cards from the deck. To play that card, simply add it back in the Edit menu."
+        "86": "Gdy otrzymuje obrażenia, ale nie zostaje zniszczony:",
+        "97": "Aby dodać zdolności potworów do ręki postaci, otwórz menu Kart Zdolności i usuń karty z talii. Aby zagrać tę kartę, po prostu dodaj ją z powrotem w menu Edycji."
       }
     },
     "title": {
@@ -2192,34 +2192,34 @@
   "section": {
     "rewards": {
       "fh": {
-        "056-3": "Manual (%wip%):Add any of the following items you have unlocked from <i>Forgotten Circles</i> to the available item supply:<br>154, 155, 157, and 163.",
-        "094-4": "Do not resolve an outpost event this week.",
-        "096-3": "\"Threat from the Deep\" quest complete",
-        "126-1": "<b>%wip%!</b> manually apply:<br>Collectively gain any 6 material resources.",
-        "128-2": "Open the Puzzle Book to the first page",
-        "132-3": "Each character gains 10 gold for each numbered token they looted",
+        "056-3": "Ręcznie (%wip%): Dodaj dowolny z poniższych przedmiotów, które odblokowałeś w \"Zapomnianych Kręgach\", do dostępnej puli zaopatrzenia:<br>154, 155, 157 oraz 163.",
+        "094-4": "W tym tygodniu nie rozpatruj wydarzenia posterunku.",
+        "096-3": "Zadanie \"Zagrożenie z Głębin\" ukończone",
+        "126-1": "<b>%wip%!</b> zastosuj ręcznie:<br>Wspólnie zyskaj 6 dowolnych zasobów materiałowych.",
+        "128-2": "Otwórz \"Księgę Zagadek\" na pierwszej stronie",
+        "132-3": "Każda postać zyskuje 10 sztuk złota za każdy numerowany żeton, który zebrała",
         "139-2": {
-          "1": "You may now play scenarios with the %game.fhIcon:boat% requirement. Name your boat, then write it on the sticker and the front of B-01 and B-02 in the blanks.",
-          "2": "Shuffle events B-01 to 13 together and use them to create the boat event deck. Store this deck in envelope B when not in use and use the card divider to separate the boat event deck from the other boat event cards."
+          "1": "Możecie teraz rozgrywać scenariusze z wymogiem %game.fhIcon:boat%. Nazwijcie swoją łódź, a następnie wpiszcie jej nazwę na naklejce oraz w wykropkowanych miejscach na przodzie B-01 i B-02.",
+          "2": "Potasuj razem wydarzenia od B-01 do 13 i użyj ich do stworzenia talii wydarzeń łodzi. Gdy talia nie jest używana, przechowuj ją w kopercie B i użyj separatora kart, aby oddzielić talię wydarzeń łodzi od pozostałych kart wydarzeń łodzi."
         },
-        "140-3": "Do not turn to the next page in the puzzle book. Instead write the solution to the next puzzle on the same page",
-        "145-2": "Open the trials deck now. Do not shuffle it. Each player draws one trial and reads it secretly.<br>Once read by a player, a trial cannot be returned to the deck and must be completed by that player. Some trials may take several scenarios to complete, and should be kept secret by the player until completed. If and when a trial is completed by a player, that player may reveal the trial to other players for the first time, then remove it from the game and draw a new trial off the top of the trials deck.",
-        "146-2": "Each character gains 10 gold for each numbered token they looted <br>All characters start the next scenario with %game.condition.muddle% and %game.condition.curse%",
-        "155-3": "<b>%wip%!</b> manually apply:<br>Collectively gain any 6 material resources.",
-        "155-4": "Unlock Personal Quest 23. Any character may abandon all progress on their current personal quest to take it now, otherwise add it to the personal quest deck.",
-        "161-1": "You may now play scenarios with the %game.fhIcon:climbing-gear% requirement.",
-        "165-4": "See Section Book",
-        "168-2": "Do not resolve an outpost event this week.",
-        "169-2": "You may now play scenarios with the %game.fhIcon:sled% requirement.",
-        "169-3": "Open the Puzzle Book to the first page",
-        "171-5": "Gain 10 collective gold for each token carried",
-        "175-2": "<b>%wip%!</b> manually apply:<br>Rebuild all wrecked buildings for free.",
-        "177-5": "Gain any X collective material resources, where X is the number of episodes overcome",
-        "181-2": "If building 88 is built, read %data.section:135.4% now.<br>Otherwise, read %data.section:33.1% now.",
-        "182-1": "Gain 5 collective gold for each token carried",
-        "188-3": "Gain any 5 collective material resources",
-        "loot-gold": "The looting character gains X gold, where X is how much gold one money token is worth at L+1 (= [2 + [(L+1)/2{$math.floor}]] gold).",
-        "material2": "Gain any 2 material resources each"
+        "140-3": "Nie przewracaj kolejnej strony w \"Księdze Zagadek\". Zamiast tego zapisz rozwiązanie następnej zagadki na tej samej stronie",
+        "145-2": "Otwórz teraz talię prób. Nie tasuj jej. Każdy gracz dobiera jedną próbę i czyta ją w tajemnicy.<br>Po przeczytaniu przez gracza, próba nie może zostać zwrócona do talii i musi zostać przez niego ukończona. Niektóre próby mogą wymagać kilku scenariuszy do ukończenia i powinny być trzymane w tajemnicy przez gracza aż do ich wykonania. Jeśli próba zostanie ukończona przez gracza, może on ujawnić ją pozostałym graczom po raz pierwszy, a następnie usunąć ją z gry i dobrać nową próbę z wierzchu talii prób.",
+        "146-2": "Każda postać zyskuje 10 sztuk złota za każdy numerowany żeton, który zebrała<br>Wszystkie postacie rozpoczynają następny scenariusz z %game.condition.muddle% oraz %game.condition.curse%",
+        "155-3": "<b>%wip%!</b> zastosuj ręcznie:<br>Wspólnie zyskaj 6 dowolnych zasobów materiałowych.",
+        "155-4": "Odblokuj Cel Osobisty 23. Każda postać może porzucić cały postęp w swoim obecnym celu osobistym, aby przyjąć ten teraz; w przeciwnym razie dodaj go do talii celów osobistych.",
+        "161-1": "Możecie teraz rozgrywać scenariusze z wymogiem %game.fhIcon:climbing-gear%.",
+        "165-4": "Zobacz \"Księgę Sekcji\"",
+        "168-2": "W tym tygodniu nie rozpatruj wydarzenia posterunku.",
+        "169-2": "Możecie teraz rozgrywać scenariusze z wymogiem %game.fhIcon:sled%.",
+        "169-3": "Otwórz \"Księgę Zagadek\" na pierwszej stronie",
+        "171-5": "Wspólnie zyskaj 10 sztuk złota za każdy niesiony żeton",
+        "175-2": "<b>%wip%!</b> zastosuj ręcznie:<br>Odbuduj wszystkie zniszczone budynki za darmo.",
+        "177-5": "Wspólnie zyskaj dowolne X zasobów materiałowych, gdzie X to liczba pokonanych epizodów",
+        "181-2": "Jeśli budynek 88 jest wybudowany, przeczytaj teraz %data.section:135.4%<br>W przeciwnym razie przeczytaj teraz %data.section:33.1%.",
+        "182-1": "Wspólnie zyskaj 5 sztuk złota za każdy niesiony żeton",
+        "188-3": "Wspólnie zyskaj 5 dowolnych zasobów materiałowych",
+        "loot-gold": "Postać, która dokonała grabieży, zyskuje X sztuk złota, gdzie X to wartość jednego żetonu pieniędzy na poziomie L+1 (= [2 + [(L+1)/2{$math.floor}]] sztuk złota).",
+        "material2": "Każdy zyskuje 2 dowolne zasoby materiałowe"
       }
     },
     "rules": {
@@ -2230,9 +2230,9 @@
         "130-3": {
           "1": "Zyskaj korzyść na ten cel"
         },
-        "146-3": "When this attack is performed, on the next round at initiative 99 instead perform:",
+        "146-3": "Kiedy ten atak zostanie wykonany, w następnej rundzie przy inicjatywie 99 wykonaj:",
         "17-2": {
-          "1": "+2 material resource",
+          "1": "+2 surowce materiałowe",
           "2": "Zyskaj dwa surowce materiałowe"
         },
         "180-3": {
@@ -2246,7 +2246,7 @@
           "1": "Zyskaj jeden Metal"
         },
         "21-1": {
-          "1": "on any empty starting hex"
+          "1": "na dowolnym pustym polu startowym"
         },
         "41-1": {
           "1": "Zyskaj jedno Drewno"

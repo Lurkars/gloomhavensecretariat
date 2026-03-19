@@ -1,6 +1,14 @@
 {
+  "ability": {
+    "Venom Shiv": "Jadowity Sztylet"
+  },
   "monster": {
     "frost-demon": "Demon Mrozu",
     "hound": "Ogar"
+  },
+  "scenario": {
+    "group": {
+      "randomMonsterCard": "Losowe karty potworów"
+    }
   }
 }
