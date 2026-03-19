@@ -766,6 +766,11 @@ export class ScenarioRulesManager {
               if (entities.length) {
                 monster.off = gameManager.monsterManager.monsterEntityCount(monster) == 0;
                 figure.off = gameManager.monsterManager.monsterEntityCount(figure) == 0;
+                if (gameManager.game.state == GameState.next && monster.ability == -1) {
+                  if (!gameManager.monsterManager.applySameDeck(monster)) {
+                    gameManager.monsterManager.drawAbility(monster);
+                  }
+                }
                 gameManager.sortFigures(monster);
               }
             }

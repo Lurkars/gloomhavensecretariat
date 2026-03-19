@@ -430,7 +430,11 @@ export class GameManager {
         return this.sortFiguresByTypeAndName(a, b);
       } else if (figure && figure != a && figure != b) {
         return 0;
-      } else if (settingsManager.settings.initiativeRequired || a.getInitiative() > 0 && b.getInitiative() > 0) {
+      } else if (settingsManager.settings.initiativeRequired || a.getInitiative() > 0 || b.getInitiative() > 0) {
+        if (a.getInitiative() <= 0 && b.getInitiative() <= 0) {
+          return 0;
+        }
+
         if (a.getInitiative() == b.getInitiative()) {
           return this.sortFiguresByTypeAndName(a, b);
         }
