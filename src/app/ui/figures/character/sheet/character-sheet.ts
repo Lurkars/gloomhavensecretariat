@@ -57,7 +57,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   gh2eSheet: boolean = false;
   csSheet: boolean = false;
 
-  donations: boolean = true;
+  donations: boolean | 'fh' = true;
 
   titles: string[] = [];
 
@@ -105,7 +105,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     this.gh2eSheet = !gameManager.fhRules() && gameManager.fhRules(true);
     this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
 
-    this.donations = !this.fhSheet;
+    this.donations = !gameManager.fhRules(false) && !gameManager.editionRules('jotl');
 
     for (let i = 0; i < 15; i++) {
       if (!this.character.progress.perks[i]) {
@@ -113,14 +113,14 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       }
     }
 
-    if (this.fhSheet) {
+    if (this.fhSheet && gameManager.fhRules(false)) {
       for (let value in LootType) {
         const lootType: LootType = value as LootType;
         this.character.progress.loot[lootType] = this.character.progress.loot[lootType] || 0;
       }
 
       if (gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'temple' && buildingModel.level > 0 && buildingModel.state != 'wrecked')) {
-        this.donations = true;
+        this.donations = 'fh';
       }
     }
 
@@ -271,7 +271,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       this.character.progress.donations += 1;
       this.character.donations += 1;
       gameManager.game.party.donations += 1;
-      this.character.progress.gold -= this.fhSheet ? 5 : 10;
+      this.character.progress.gold -= this.donations == 'fh' ? 5 : 10;
       gameManager.stateManager.after();
     }
   }

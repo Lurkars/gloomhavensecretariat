@@ -205,11 +205,14 @@ export class EventCardManager {
           results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, checks, true));
         }
 
-        if (attack) {
+        if (attack && !results.some((value) => value instanceof EventCardEffect && value.type == EventCardEffectType.skipThreat)) {
           eventCard.options.filter((option) => !option.label && option.outcomes).forEach((option) => {
             option.outcomes.forEach((outcome) => {
               if (outcome.attack) {
                 results.push(outcome.attack);
+                if (outcome.effects) {
+                  results.push(... this.applyEffects(eventCard, outcome.effects, checks, scenario));
+                }
                 if (outcome.attack.effects) {
                   results.push(... this.applyEffects(eventCard, outcome.attack.effects, checks, scenario));
                 }
@@ -244,7 +247,6 @@ export class EventCardManager {
   applyEventOutcomes(eventCard: EventCard, selected: number, subSelections: number[] = [], checks: number[], scenario: boolean = false): (EventCardEffect | EventCardCondition)[] {
     let results: (EventCardEffect | EventCardCondition)[] = [];
     const option = eventCard.options[selected];
-
     // apply effects
     if (option && option.outcomes) {
       option.outcomes.forEach((outcome, i) => {

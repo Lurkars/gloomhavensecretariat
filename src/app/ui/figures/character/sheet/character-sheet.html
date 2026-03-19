@@ -85,8 +85,8 @@
             <span class="donate">
               <span [ghs-label]="'character.progress.donate'"></span>:
               <a (click)="donate()"
-                [ngClass]="{'disabled' : character.progress.gold < (fhSheet ? 5 : 10) || gameManager.game.round > 0}"><span
-                  class="price"><img src="./assets/images/loot.svg">{{fhSheet ? 5 : 10}}</span></a>
+                [ngClass]="{'disabled' : character.progress.gold < (donations == 'fh' ? 5 : 10) || gameManager.game.round > 0}"><span
+                  class="price"><img src="./assets/images/loot.svg">{{donations == 'fh' ? 5 : 10}}</span></a>
             </span>
             }
           </div>

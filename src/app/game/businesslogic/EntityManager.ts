@@ -862,6 +862,12 @@ export class EntityManager {
     this.game.figures.forEach((figure) => {
       this.entitiesAll(figure).forEach((entity) => {
         if (settingsManager.settings.expireConditions) {
+          entity.entityConditions.forEach((entityCondition) => {
+            if (entityCondition.state == EntityConditionState.roundExpire && !entityCondition.permanent) {
+              entityCondition.expired = true;
+            }
+          })
+
           entity.entityConditions = entity.entityConditions.filter((entityCondition) => !entityCondition.expired);
           entity.entityConditions.forEach((entityCondition) => {
             if (entityCondition.types.includes(ConditionType.expire) && !entityCondition.permanent) {

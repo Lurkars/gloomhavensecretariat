@@ -53,6 +53,24 @@
       z-index: 2;
     }
 
+    &.round-overlay {
+      position: absolute;
+      top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      left: initial;
+      right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    &.expire-overlay {
+      position: absolute;
+      top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      left: initial;
+      right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      pointer-events: none;
+      z-index: 2;
+    }
+
     &::after {
       pointer-events: none;
       content: ' ';

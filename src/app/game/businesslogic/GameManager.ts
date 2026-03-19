@@ -23,6 +23,7 @@ import { ElementModel, ElementState } from "../model/data/Element";
 import { ItemData } from "../model/data/ItemData";
 import { MonsterData } from "../model/data/MonsterData";
 import { MonsterStat } from "../model/data/MonsterStat";
+import { MonsterType } from "../model/data/MonsterType";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { ActionsManager } from "./ActionsManager";
 import { AttackModifierManager } from "./AttackModifierManager";
@@ -447,7 +448,16 @@ export class GameManager {
   }
 
   sortFiguresByTypeAndName(a: Figure, b: Figure): number {
-    if (a.off && !b.off) {
+    if (a instanceof Monster && b instanceof Monster && (a.standeeShare == b.name || a.name == b.standeeShare)) {
+      const aE = a.entities.filter((e) => gameManager.entityManager.isAlive(e))[0];
+      const bE = b.entities.filter((e) => gameManager.entityManager.isAlive(e))[0];
+      if (aE && bE) {
+        if (aE.type == bE.type) {
+          return aE.number - bE.number;
+        }
+        return aE.type == MonsterType.elite ? -1 : 1;
+      }
+    } else if (a.off && !b.off) {
       return 1;
     } else if (!a.off && b.off) {
       return -1;
@@ -482,8 +492,6 @@ export class GameManager {
       return -1;
     } else if (a instanceof ObjectiveContainer && b instanceof Monster) {
       return 1;
-    } else if (a instanceof Monster && b instanceof Monster) {
-      return 0;
     } else if (a instanceof ObjectiveContainer && b instanceof ObjectiveContainer && aName == bName) {
       if (a.marker && b.marker) {
         return a.marker < b.marker ? -1 : 1;

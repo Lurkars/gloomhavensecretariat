@@ -1560,8 +1560,8 @@ export class EntityMenuDialogComponent {
 
   closeConditions() {
     if (this.data.entity) {
-      this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
-        if (this.data.entity && (entityCondition.state == EntityConditionState.new || gameManager.entityManager.hasCondition(this.data.entity, entityCondition, entityCondition.permanent))) {
+      this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.roundExpire && !entityCondition.expired || entityCondition.state == EntityConditionState.expire && !entityCondition.expired || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
+        if (this.data.entity && (entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.roundExpire || entityCondition.state == EntityConditionState.expire || gameManager.entityManager.hasCondition(this.data.entity, entityCondition, entityCondition.permanent))) {
           if (this.data.entity instanceof Character && entityCondition.name == ConditionName.muddle && entityCondition.state == EntityConditionState.new &&
             this.data.entity.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '108')) {
             entityCondition.name = ConditionName.strengthen;
@@ -1572,7 +1572,18 @@ export class EntityMenuDialogComponent {
           if (entityCondition.state == EntityConditionState.removed) {
             gameManager.entityManager.removeCondition(this.data.entity, this.data.figure, entityCondition, entityCondition.permanent);
           } else {
-            gameManager.entityManager.addCondition(this.data.entity, this.data.figure, entityCondition, entityCondition.permanent);
+            if (entityCondition.state == EntityConditionState.new || !gameManager.entityManager.hasCondition(this.data.entity, entityCondition, entityCondition.permanent)) {
+              gameManager.entityManager.addCondition(this.data.entity, this.data.figure, entityCondition, entityCondition.permanent);
+            }
+
+            if (entityCondition.state == EntityConditionState.roundExpire || entityCondition.state == EntityConditionState.expire) {
+              this.data.entity.entityConditions.forEach((condition) => {
+                if (condition.name == entityCondition.name && !entityCondition.expired) {
+                  condition.state = entityCondition.state;
+                  condition.lastState = entityCondition.lastState;
+                }
+              })
+            }
 
             if (this.data.entity instanceof Character && this.data.entity.name == 'shackles' && !this.data.entity.absent && this.data.entity.tags.includes('delayed_malady') && entityCondition.types.includes(ConditionType.negative) && !this.data.entity.immunities.includes(entityCondition.name)) {
               this.data.entity.immunities.push(entityCondition.name);

@@ -3,7 +3,7 @@
   <div class="condition-container">
     @for (condition of conditions | trackUUID; track condition._trackUUID; let i = $index) {
     <a class="item"
-      [ngClass]="{'disabled': !hasCondition(condition) && (!immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name) || isImmune(condition.name,true))}">
+      [ngClass]="{'disabled': !hasCondition(condition) && (!immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name) || isImmune(condition.name,true)) || expireEnabled && !condition.types.includes(ConditionType.expire)}">
       @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
       <img tabclick (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
         src="./assets/images/left.svg" />
@@ -23,6 +23,12 @@
       @if (isPermanent(condition.name)) {
       <span class="condition permanent permanent-overlay"></span>
       }
+      @if (isRoundExpire(condition.name)) {
+      <span class="condition round round-overlay"></span>
+      }
+      @if (isExpire(condition.name)) {
+      <span class="condition expire expire-overlay"></span>
+      }
       @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
       <img tabclick (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
       }
@@ -41,6 +47,22 @@
         <img src="./assets/images/condition/permanent.svg" />
       </span>
     </a>
+    <a class="item">
+      <span class="condition toggle" [ngClass]="{'active': roundExpireEnabled}" tabclick
+        (click)="toggleRoundExpireEnabled()" [ghs-tooltip]="'game.condition.roundExpire.hint'" [originX]="'center'"
+        [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'">
+        <img src="./assets/images/condition/round.svg" />
+      </span>
+    </a>
+    <!--
+    <a class="item">
+      <span class="condition toggle" [ngClass]="{'active': expireEnabled}" tabclick (click)="toggleExpireEnabled()"
+        [ghs-tooltip]="'game.condition.expire.hint'" [originX]="'center'" [overlayX]="'center'" [originY]="'top'"
+        [overlayY]="'bottom'">
+        <img src="./assets/images/condition/expire.svg" />
+      </span>
+    </a>
+    -->
     <a class="item">
       <span class="condition toggle" [ngClass]="{'active': immunityEnabled}" tabclick (click)="toggleImmunityEnabled()"
         [ghs-tooltip]="'game.condition.immune.hint'" [originX]="'center'" [overlayX]="'center'" [originY]="'top'"

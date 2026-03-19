@@ -762,9 +762,12 @@ export class ScenarioRulesManager {
                   figure.entities = figure.entities.filter((entity) => !entities.includes(entity));
                 }
               }
-              monster.off = gameManager.monsterManager.monsterEntityCount(monster) == 0;
-              figure.off = gameManager.monsterManager.monsterEntityCount(figure) == 0;
-              gameManager.sortFigures(monster);
+
+              if (entities.length) {
+                monster.off = gameManager.monsterManager.monsterEntityCount(monster) == 0;
+                figure.off = gameManager.monsterManager.monsterEntityCount(figure) == 0;
+                gameManager.sortFigures(monster);
+              }
             }
           } else if (figures.length == 1 && figures[0] instanceof ObjectiveContainer) {
             const figure = figures[0];

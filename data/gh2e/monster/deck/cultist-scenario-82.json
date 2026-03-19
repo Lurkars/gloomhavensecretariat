@@ -165,7 +165,7 @@
           ]
         },
         {
-          "type": "damage",
+          "type": "sufferDamage",
           "value": 1
         },
         {
@@ -200,7 +200,7 @@
           ]
         },
         {
-          "type": "damage",
+          "type": "sufferDamage",
           "value": 1
         },
         {

@@ -9,7 +9,7 @@ import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
-import { ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
+import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
@@ -47,6 +47,7 @@ export class CharacterComponent implements OnInit {
 
   GameState = GameState;
   ConditionType = ConditionType;
+  EntityConditionState = EntityConditionState;
   AttackModifierType = AttackModifierType;
   levelDialog: boolean = false;
 

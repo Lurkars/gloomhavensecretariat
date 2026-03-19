@@ -308,7 +308,7 @@
     }
     @for (itemData of rewardItems | trackUUID; track itemData._trackUUID; let itemIndex = $index) {
     <span (click)="openItemDialog(itemData)" class="head-col"><span [ghs-label]="'scenario.summary.item'"
-        [ghs-label-args]="[itemData.name]"></span></span>
+        [ghs-label-args]="[itemData.id, itemData.edition]"></span></span>
     @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
     <span>
       @if (items[index] && items[index].includes(itemIndex)) {
@@ -836,12 +836,12 @@
         <div class="item items">
           @if (item.includes(':')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.items'"
-            [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '', item.split(':')[1]]"
+            [ghs-label-args]="[item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', item.split(':')[1]]"
             (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
           }
           @if (!item.includes(':')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.item'"
-            [ghs-label-args]="[item.split('-')[0] , gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '']"
+            [ghs-label-args]="[item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '']"
             (click)="openItemDialog(gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
           }
           @if (rewards.hints && rewards.hints.items && rewards.hints.items[i]) {
@@ -856,12 +856,12 @@
           @for (item of (itemList || []); track item) {
           @if (item.includes(':')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.items'"
-            [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '', item.split(':')[1]]"
+            [ghs-label-args]="[item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', item.split(':')[1]]"
             (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
           }
           @if (!item.includes(':')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.item'"
-            [ghs-label-args]="[item.split('-')[0] , gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '']"
+            [ghs-label-args]="[item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '']"
             (click)="openItemDialog(gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
           }
           @if (rewards.hints && rewards.hints.chooseItem && rewards.hints.chooseItem[i]) {
@@ -881,12 +881,12 @@
           }
           @if (!item.includes('-') && !item.includes(':')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemDesign'"
-            [ghs-label-args]="[item, gameManager.itemManager.getItem(item.split(':')[0],item.includes(':') ? item.split(':')[1] : (scenario.edition || ''), true)?.name || '']"
+            [ghs-label-args]="[item.split(':')[0],item.includes(':') ? item.split(':')[1] : (scenario.edition || '')]"
             (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0],item.includes(':') ? item.split(':')[1] : (scenario.edition || ''), true))"></span>
           }
           @if (!item.includes('-') && item.includes(':')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemDesignEdition'"
-            [ghs-label-args]="[item.split(':')[0], gameManager.itemManager.getItem(item.split(':')[0], item.split(':')[1], true)?.name || '', item.split(':')[1]]"
+            [ghs-label-args]="[item.split(':')[0], item.split(':')[1]]"
             (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0], item.split(':')[1], true))"></span>
           }
           @if (rewards.hints && rewards.hints.itemDesigns && rewards.hints.itemDesigns[i]) {
@@ -902,7 +902,7 @@
           }
           @if (!item.includes('-')) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprint'"
-            [ghs-label-args]="[item, gameManager.itemManager.getItem(item,scenario.edition || '', true)?.name || '']"
+            [ghs-label-args]="[item,scenario.edition || '']"
             (click)="openItemDialog(gameManager.itemManager.getItem(item,scenario.edition || '', true))"></span>
           }
           @if (rewards.hints && rewards.hints.itemBlueprints && rewards.hints.itemBlueprints[i]) {
@@ -924,7 +924,7 @@
           @for (itemId of randomItemBlueprints; track itemId; let i = $index) {
           @if (itemId > 0) {
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprint'"
-            [ghs-label-args]="[itemId, gameManager.itemManager.getItem(itemId,scenario.edition || '', true)?.name || '']"
+            [ghs-label-args]="[itemId,scenario.edition || '']"
             (click)="openItemDialog(gameManager.itemManager.getItem(itemId,scenario.edition || '', true))"></span>
           }
           @if (itemId == -1) {

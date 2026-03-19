@@ -760,6 +760,9 @@
         "": "Regeneration",
         "hint": "%game.conditionIcon.regenerate% Regeneration: %game.action.heal% 1 zu Beginn des Zuges. Bei Schaden entfernen."
       },
+      "roundExpire": {
+        "hint": "Entferne Zustand am Ende der Runde"
+      },
       "rupture": {
         "": "Bruch",
         "hint": "%game.conditionIcon.rupture% Bruch: Bei jeder Bewegung, erleide %game.damage:1%. Bei Heilung entfernen."
@@ -1948,13 +1951,13 @@
       "globalAchievements": "Globale Erfolge",
       "gold": "jeweils {0} Gold",
       "inspiration": "{0} Inspiration",
-      "item": "\"{1}\" (Gegenstand {0})",
-      "itemBlueprint": "Erhalte \"{1}\" %game.itemFh.{0}% Gegenstandsplan",
+      "item": "\"%data.items.{0}-{1}%\" (Gegenstand {0})",
+      "itemBlueprint": "Erhalte \"%data.items.{1}-{0}%\" %game.itemFh.{0}% Gegenstandsplan",
       "itemBlueprintRange": "Füge Gegenstände %game.itemFh.{0}% bis %game.itemFh.{1}% zu den verfügbaren Gegenständen hinzu.",
-      "itemDesign": "\"{1}\" Design (Gegenstand {0})",
-      "itemDesignEdition": "\"{1}\" Design (Gegenstand {0} %data.edition.{2}%)",
+      "itemDesign": "\"%data.items.{1}-{0}%\" Design (Gegenstand {0})",
+      "itemDesignEdition": "\"%data.items.{1}-{0}%\" Design (Gegenstand {0} %data.edition.{1}%)",
       "itemDesignRange": "Füge Gegenstände {0} hinzu",
-      "items": "{2} \"{1}\" (Gegenstand {0})",
+      "items": "{2} \"%data.items.{0}-{1}%\" (Gegenstand {0})",
       "location": "Neuer Ort",
       "locations": "Neue Orte",
       "lootDeckCard": "Füge Beutekarte {0} in jedem Szenario zusätzlich zum vorgegebenen Beutekarten Deck hinzu.",
@@ -2201,7 +2204,7 @@
       },
       "forcedLinks": "%scenario.summary.links% (erzwungen)",
       "gold": "Gold",
-      "item": "Gegenstand \"{0}\"",
+      "item": "Gegenstand \"%data.items.{1}-{0}%\"",
       "levelUp": "Auf Level {1} gestiegen",
       "link": "Weiter mit #{0}",
       "links": "Weiter mit einem verlinktem Szenario",

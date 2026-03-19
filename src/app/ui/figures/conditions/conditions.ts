@@ -39,6 +39,8 @@ export class ConditionsComponent implements OnInit {
   monsterType: MonsterType | boolean = false;
 
   permanentEnabled: boolean = false;
+  roundExpireEnabled: boolean = false;
+  expireEnabled: boolean = false;
   immunityEnabled: boolean = false;
   timeout: any;
   numberStore: number = 0;
@@ -187,6 +189,22 @@ export class ConditionsComponent implements OnInit {
     return false;
   }
 
+  isRoundExpire(conditionName: ConditionName): boolean {
+    if (this.entityConditions) {
+      return this.entityConditions.some((entityCondition) => entityCondition.name == conditionName && entityCondition.state == EntityConditionState.roundExpire && !entityCondition.expired);
+    }
+
+    return false;
+  }
+
+  isExpire(conditionName: ConditionName): boolean {
+    if (this.entityConditions) {
+      return this.entityConditions.some((entityCondition) => entityCondition.name == conditionName && entityCondition.state == EntityConditionState.expire && !entityCondition.expired);
+    }
+
+    return false;
+  }
+
   inc(condition: Condition) {
     if (condition.name == ConditionName.plague && condition.value == 3) {
       return;
@@ -230,6 +248,40 @@ export class ConditionsComponent implements OnInit {
       } else {
         this.immunities.splice(this.immunities.indexOf(condition.name), 1);
       }
+    } else if (this.roundExpireEnabled && !permanent) {
+      let entityCondition: EntityCondition | undefined = this.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.permanent);
+      if (entityCondition) {
+        if (entityCondition.state == EntityConditionState.roundExpire) {
+          entityCondition.state = EntityConditionState.new;
+          entityCondition.lastState = EntityConditionState.normal;
+        } else {
+          entityCondition.state = EntityConditionState.roundExpire;
+          entityCondition.lastState = EntityConditionState.normal;
+        }
+        entityCondition.expired = false;
+      } else {
+        entityCondition = new EntityCondition(condition.name, condition.value);
+        entityCondition.state = EntityConditionState.roundExpire;;
+        entityCondition.lastState = EntityConditionState.normal;
+        this.entityConditions.push(entityCondition);
+      }
+    } else if (this.expireEnabled && !permanent) {
+      let entityCondition: EntityCondition | undefined = this.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.permanent);
+      if (entityCondition) {
+        if (entityCondition.state == EntityConditionState.expire) {
+          entityCondition.state = EntityConditionState.new;
+          entityCondition.lastState = EntityConditionState.normal;
+        } else {
+          entityCondition.state = EntityConditionState.expire;
+          entityCondition.lastState = EntityConditionState.normal;
+        }
+        entityCondition.expired = false;
+      } else {
+        entityCondition = new EntityCondition(condition.name, condition.value);
+        entityCondition.state = EntityConditionState.expire;;
+        entityCondition.lastState = EntityConditionState.normal;
+        this.entityConditions.push(entityCondition);
+      }
     } else {
       if (this.hasCondition(condition, permanent || this.permanentEnabled)) {
         let entityCondition: EntityCondition | undefined = this.entityConditions.find((entityCondition) => entityCondition.name == condition.name && (!permanent || entityCondition.permanent));
@@ -260,13 +312,33 @@ export class ConditionsComponent implements OnInit {
 
   togglePermanentEnabled() {
     this.permanentEnabled = !this.permanentEnabled;
+    this.roundExpireEnabled = false;
+    this.expireEnabled = false;
+    this.immunityEnabled = false;
+    this.initializeConditions();
+  }
+
+  toggleRoundExpireEnabled() {
+    this.roundExpireEnabled = !this.roundExpireEnabled;
+    this.permanentEnabled = false;
+    this.immunityEnabled = false;
+    this.expireEnabled = false;
+    this.initializeConditions();
+  }
+
+  toggleExpireEnabled() {
+    this.expireEnabled = !this.expireEnabled;
+    this.roundExpireEnabled = false;
+    this.permanentEnabled = false;
     this.immunityEnabled = false;
     this.initializeConditions();
   }
 
   toggleImmunityEnabled() {
     this.immunityEnabled = !this.immunityEnabled;
+    this.roundExpireEnabled = false;
     this.permanentEnabled = false;
+    this.expireEnabled = false;
     this.initializeConditions();
   }
 

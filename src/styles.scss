@@ -739,6 +739,44 @@ a {
   }
 }
 
+.condition.round {
+  position: relative;
+
+  &::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 80%;
+    left: -10%;
+    right: initial;
+    width: 72%;
+    height: 60%;
+    background-image: url('~src/assets/images/condition/round.svg');
+    background-size: cover;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+}
+
+.condition.expire {
+  position: relative;
+
+  &::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 80%;
+    left: -10%;
+    right: initial;
+    width: 72%;
+    height: 60%;
+    background-image: url('~src/assets/images/condition/expire.svg');
+    background-size: cover;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+}
+
 ghs-pointer-input {
   cursor: pointer;
 
