@@ -1108,10 +1108,10 @@
         "": "Warzenie mikstur",
         "brew": "Warz",
         "brewFor": "Warz dla {0}",
-        "brewed": "{2} uwarzył {1} %game.itemFh.{0}%",
-        "brewedOther": "{2} uwarzył {1} %game.itemFh.{0}% dla {3}",
+        "brewed": "{2} uwarzył %data.items.{1}-{0}% %game.itemFh.{0}%",
+        "brewedOther": "{2} uwarzył %data.items.{1}-{0}% %game.itemFh.{0}% dla {3}",
         "disabled": "Nie można warzyć mikstur - najpierw odbuduj '%data.buildings.alchemist%' (35)",
-        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
+        "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "Każda postać posiada już tę miksturę!",
         "selectCharacter": "Wybierz postać, dla której warzyć:"
       },

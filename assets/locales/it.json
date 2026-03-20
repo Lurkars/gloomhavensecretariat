@@ -1112,10 +1112,10 @@
         "": "Prepara le pozioni",
         "brew": "Prepara",
         "brewFor": "Prepara per {0}",
-        "brewed": "{2} ha preparato {1} %game.itemFh.{0}%",
-        "brewedOther": "{2} ha preparato {1} %game.itemFh.{0}% per {3}",
+        "brewed": "{2} ha preparato %data.items.{1}-{0}% %game.itemFh.{0}%",
+        "brewedOther": "{2} ha preparato %data.items.{1}-{0}% %game.itemFh.{0}% per {3}",
         "disabled": "Impossibile preparare le pozioni, ricostruire prima%dati.buildings.alchemist%'(35)",
-        "item": "%data.items.{2}-{1} %game.itemFh.{0}%",
+        "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "Pozione già posseduta da ogni personaggio!",
         "selectCharacter": "Seleziona il personaggio con il quale preparare:"
       },

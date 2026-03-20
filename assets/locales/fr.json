@@ -929,10 +929,10 @@
         "": "Préparer des potions",
         "brew": "Brassage",
         "brewFor": "Préparer pour {0}",
-        "brewed": "{2} a brassé {1} %game.itemFh.{0}%%",
-        "brewedOther": "{2} a brassé {1} %game.itemFh.{0}% pour {3}",
+        "brewed": "{2} a brassé %data.items.{1}-{0}% %game.itemFh.{0}%%",
+        "brewedOther": "{2} a brassé %data.items.{1}-{0}% %game.itemFh.{0}% pour {3}",
         "disabled": "Impossible de préparer des potions, reconstruire d’abord '%data.buildings.alchemist%' (35)",
-        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
+        "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "Potion déjà possédée par tous les personnages !",
         "selectCharacter": "Sélectionnez le personnage pour lequel vous souhaitez brasser :"
       },

@@ -1111,12 +1111,15 @@
         "": "Brew Potions",
         "brew": "Brew",
         "brewFor": "Brew for {0}",
-        "brewed": "{2} brewed {1} %game.itemFh.{0}%",
-        "brewedOther": "{2} brewed {1} %game.itemFh.{0}% for {3}",
+        "brewed": "{2} brewed %data.items.{1}-{0}% %game.itemFh.{0}%",
+        "brewedOther": "{2} brewed %data.items.{1}-{0}% %game.itemFh.{0}% for {3}",
         "disabled": "Cannot brew potions, rebuild '%data.buildings.alchemist%' (35) first",
-        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
+        "grid": "Show Brewing Grid",
+        "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "Potion already owned by every character!",
-        "selectCharacter": "Select Character to brew for:"
+        "selectCharacter": "Select Character to brew for:",
+        "special3": "2 or more the same",
+        "table": "Show Brewing Table"
       },
       "buy": "Buy '{0}' for {1} gold",
       "character": {
@@ -1144,6 +1147,11 @@
       },
       "remove": "Remove '{0}'",
       "sell": "Sell '{0}' for {1} gold",
+      "share": {
+        "": "Share '{0}'",
+        "apply": "Share Item",
+        "select": "Select Character"
+      },
       "shop": {
         "": "Itemcards",
         "buyingDisabled": "Cannot buy items, rebuild '%data.buildings.trading-post%' (37) first",
@@ -2591,6 +2599,10 @@
       "": "Auto. active Items",
       "hint": "Automatically toggle permanent Items for active Character."
     },
+    "characterItemsShareHouseRule": {
+      "": "Share Character Items Houserule",
+      "hint": "Houserule that Characters can share items between each other."
+    },
     "characterSheet": {
       "": "Character Sheet",
       "hint": "Enable the Character Sheet. To open it, click on the big character icon on the right side."
@@ -2870,6 +2882,10 @@
     "partySheet": {
       "": "Party Sheet",
       "hint": "Enables Party- and Campaign Sheet. The campaign sheet is located on the <i>backside</i> of the party sheet."
+    },
+    "passiveSummons": {
+      "": "Passive Summons",
+      "hint": "Allows summons marked as passive to skip active turn."
     },
     "pinchZoom": {
       "": "Gesture zooming",
@@ -3511,6 +3527,7 @@
       "setSummonState": "Set summon {1} {2} for {0}",
       "setTitle": "Title '{1}' for {0}",
       "setXP": "XP {1} for {0}",
+      "shareItem": "{0} shares \"%data.items.{3}-{2}%\" (Item {2}) with {1}",
       "shuffleAbilityDeck": "Shuffle abilities of {0}",
       "shuffleAbilityDeckUpcoming": "Shuffle upcoming abilities of {0}",
       "skipInteractiveActions": "Skip interactive abilities for standees {1} of {2}",

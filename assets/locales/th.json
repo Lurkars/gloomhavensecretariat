@@ -1074,10 +1074,10 @@
         "": "ต้มยาต้ม",
         "brew": "ต้ม",
         "brewFor": "ต้มให้ {0}",
-        "brewed": "{2} ต้ม {1} %game.itemFh.{0}%",
-        "brewedOther": "{2} ต้ม {1} %game.itemFh.{0}% ให้ {3}",
+        "brewed": "{2} ต้ม %data.items.{1}-{0}% %game.itemFh.{0}%",
+        "brewedOther": "{2} ต้ม %data.items.{1}-{0}% %game.itemFh.{0}% ให้ {3}",
         "disabled": "ต้มยาต้มไม่ได้ ให้สร้าง '%data.buildings.alchemist%' (35) ก่อน",
-        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
+        "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "ตัวละครทุกตัวมียาต้มนี้แล้ว!",
         "selectCharacter": "เลือกตัวละครที่จะต้มให้:"
       },
