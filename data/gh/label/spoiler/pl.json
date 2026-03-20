@@ -1,1 +1,10 @@
-{}
+{
+  "items": {
+    "gh-115": {
+      "": "Górski Młot"
+    }
+  },
+  "summon": {
+    "warrior-spirit": "Duch Wojownik"
+  }
+}

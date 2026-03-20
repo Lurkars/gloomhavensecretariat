@@ -190,6 +190,17 @@
   },
   "character": {
     "fh": {
+      "astral": {
+        "": "Infuzorka",
+        "imbue-with-life": {
+          "": "Tchnienie Życia",
+          "hint": "Ilekroć nie masz %game.condition.disarm%, zyskaj %game.condition.disarm%."
+        },
+        "veil-of-protection": {
+          "": "Zasłona Ochronna",
+          "hint": "Twoje aktualne i maksymalne wartości punktów życia zostają zwiększone o 3."
+        }
+      },
       "coral": "Miażdżąca Fala",
       "meteor": "Piroklasta",
       "shackles": "Przekaźnik Bólu",
@@ -201,6 +212,15 @@
   },
   "custom": {
     "fh": {
+      "astral": {
+        "1": "Przesuń jeden słabnący żywioł do silnej kolumny",
+        "2": "+1 %game.action.attack% za każdą parę aktywnych premii %game.action.custom.fh-infusion%",
+        "3": "Za każdym razem, gdy staniesz się wyczerpany, zachowaj wszystkie swoje aktywne premie w grze, a twoje przywołania działają z inicjatywą 99 w każdej rundzie",
+        "4": "Za każdym razem, gdy wykonujesz krótki odpoczynek, możesz %game.element.consume.wild%, aby %game.card.recover% jeden zużyty przedmiot %game.items.slots.onehand% lub %game.items.slots.twohand%",
+        "5": "Raz na scenariusz, podczas ustalania inicjatywy, po tym, jak wszystkie kart zdolności zostały ujawnione, %game.element.wild%",
+        "6": "Miej pięć aktywnych premii %game.action.custom.fh-infusion%",
+        "7": "Zabij co najmniej czterech wrogów, ale nigdy nie atakuj"
+      },
       "coral": {
         "1": "Jeśli w tej rundzie wykonałeś akcję %data.action.custom.fh-tides%, zamiast tego %game.attackmodifier.plus2%",
         "2": "Za każdym razem, gdy masz zyskać %game.condition.impair%, zapobiegnij temu stanowi",
@@ -229,6 +249,9 @@
         "6": "Zwiększ swoją maksymalną wartość punktów życia o 5",
         "7": "W trakcie jednej rundy zadaj innym figurkom obrażenia o łącznej wartości co najmniej %game.damage:40%",
         "8": "Rozpocznij turę z %game.condition.wound%,%game.condition.brittle%,%game.condition.bane%,%game.condition.poison%,%game.condition.immobilize%,%game.condition.disarm%,%game.condition.stun% oraz %game.condition.muddle%"
+      },
+      "shards": {
+        "4": "Za każdym razem, gdy wykonujesz krótki odpoczynek, możesz %game.element.consume.air%, aby wykonać %game.condition.strengthen%, %game.action.range:3% oraz %game.element.consume.light%, aby wykonać %game.condition.bless%, %game.action.range:3%"
       },
       "snowflake": {
         "1": "Jeżeli ta akcja zmusza cel do poruszenia, otrzymuje on %game.damage:1%",
@@ -1285,6 +1308,9 @@
         "101": {
           "100": "Podczas gdy wasze świadome umysły trwały we śnie, wasza podświadomość skierowała się ku rdzeniowi umysłu Zu. Okazało się, że jest to replika dawnej kryjówki jego i Iskry. Rozprawiliście się z ostatnimi urojeniami mącącymi świadomość Zu i przywróciliście mu przytomność.<br>Zu narzekał, że to miał być wyrok dożywocia i że nie odprawił jeszcze swojej pokuty. Iskra powiedziała mu, że muszą odnaleźć i pomóc pewnemu Sawasowi imieniem \"Bartlet\", oraz żeby przestał narzekać. Zu ustąpił."
         },
+        "102": {
+          "101": "Aby odnaleźć Bartleta, Iskra i Zu zaprowadzili was do starożytnej \"biblioteki\" Dreszczowców – magazynu ich wspomnień, dostępnego tylko dla innych Dreszczowców. Odkryliście miejsce pobytu Bartleta, a także dowiedzieliście się, że cała trójka (plus tajemniczy czwarty towarzysz) była niegdyś najemnikami takimi jak wy, zanim popełnili jakiegoś rodzaju błąd."
+        },
         "104": {
           "": "W skrzyni znaleźliście tęczowy klucz. Gdy go trzymaliście, w powietrzu pojawiła się dziurka od klucza, przez którą dostrzegliście słoneczny, wiosenny krajobraz. Próbowaliście użyć klucza, aby otworzyć drzwi, ale to nie zadziałało. Postanowiliście spróbować ponownie później."
         },
@@ -1314,6 +1340,9 @@
         },
         "13": {
           "7": "Ścigaliście ich do brzegu Kąsającego Morza, gdzie natknęliście się na Czychaczy w jaskini wykutej w klifie. W czaszce Ożywionych Zwłok znaleźliście osobliwy Odłamek Koralowca; przekazał wam on, że chce, abyście zabrali go na północ, daleko w morze, z dala od klifów. Uznaliście, że to właśnie tego szukali Czychacze. Zanim wypłynęliście na otwarte morze, postanowiliście podążyć za przyciąganiem odłamka drogą lądową wzdłuż północnego wybrzeża."
+        },
+        "134": {
+          "": "<strong>%ui.tooltip:data.scenario.recap.fh.character.eddica%</strong>, valracka Bibliotekarka, badała pewne magiczne księgi, napisane przez Sawasa, czarownika o imieniu Belara. Uważa, że odnalazła lokalizację Księgi Konfliktu. W starszych tekstach mowa jest o wieży, która rzekomo znajduje się w Promiennym Lesie – ale nie ma jej na żadnych nowszych mapach. Podejrzewa, że to tam można odnaleźć Księgę."
         },
         "14": {
           "7": "Ścigaliście ich do brzegu Kąsającego Morza, gdzie natknęliście się na Czychaczy w jaskini wykutej w klifie. W czaszce Ożywionych Zwłok znaleźliście osobliwy Odłamek Koralowca; przekazał wam on, że chce, abyście zabrali go na północ, daleko w morze, z dala od klifów. Uznaliście, że to właśnie tego szukali Czychacze.<br>Po zbudowaniu statku postanowiliście wypłynąć na skute lodem morze i sprawdzić, dokąd Odłamek chce was zaprowadzić."
@@ -1432,9 +1461,17 @@
           "denpang": {
             "tooltip": "Gniewna, młoda Algokska nawołująca do wojny.<br>Pierwsze pojawienie się: %game.scenarioNumber:18% %game.section:13.1%"
           },
+          "eddica": {
+            "": "Eddika",
+            "tooltip": "Valradzka bibliotekarka."
+          },
           "lanprul": {
             "": "Lanprul",
             "tooltip": "Algoks, Kapłanka Śniegomówców.<br>Pierwsze pojawienie się: %game.scenarioNumber:2% %game.section:77.3%"
+          },
+          "mayor-satha": {
+            "": "Burmistrzyni Satha",
+            "tooltip": "Człowiek, Burmistrzyni Frosthaven; 'Dostała' pracę po tym jak jej wszyscy poprzednicy zmarli. <br>Pierwsze pojawienie: %game.section:9.1%"
           },
           "pinter-droman": {
             "": "Pinter Droman",
@@ -1445,6 +1482,7 @@
     }
   },
   "summon": {
+    "animated-claymore": "Ożywiony Claymore",
     "banner-of-courage": "Sztandar Odwagi",
     "banner-of-doom": "Sztandar Zagłady",
     "banner-of-hope": "Sztandar Nadziei",
@@ -1464,6 +1502,7 @@
     "shambling-skeleton": "Człapiący Szkielet",
     "skeleton-sorcerer": "Szkielet Czarnoksiężnik",
     "snow-fox": "Śnieżny Lis",
+    "spiritbound-falchion": "Duszosplątany Falcjon",
     "stitched-atrocity": "Zszyte Okrucieństwo",
     "torch-bearer": "Nosiciel Pochodni",
     "trained-falcon": "Wyszkolony Sokół",

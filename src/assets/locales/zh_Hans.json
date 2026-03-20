@@ -760,6 +760,9 @@
         "": "再生",
         "hint": "%game.conditionIcon.regenerate% 再生：回合开始时 %game.action.heal% 1。受到伤害时移除。"
       },
+      "roundExpire": {
+        "hint": "轮次结束时移除状态"
+      },
       "rupture": {
         "": "断裂",
         "hint": "%game.conditionIcon.rupture% 断裂： 每当移动时承受 %game.damage:1%。当被治疗时移除。"
