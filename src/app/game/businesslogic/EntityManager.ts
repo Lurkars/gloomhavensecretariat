@@ -104,7 +104,7 @@ export class EntityManager {
     }
 
     if (entity instanceof Summon) {
-      return !entity.dead && !entity.dormant && (!acting || entity.state != SummonState.new);
+      return !entity.dead && !entity.dormant && (!acting || (!entity.passive || !settingsManager.settings.passiveSummons || !settingsManager.settings.activeSummons) && entity.state != SummonState.new);
     }
 
     if (entity instanceof ObjectiveEntity) {

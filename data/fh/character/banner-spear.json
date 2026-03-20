@@ -67,7 +67,8 @@
         "type": "custom",
         "value": "%data.custom.fh.banner-spear.1%",
         "small": true
-      }
+      },
+      "passive": true
     },
     {
       "name": "torch-bearer",
@@ -105,7 +106,8 @@
             ]
           }
         ]
-      }
+      },
+      "passive": true
     },
     {
       "name": "banner-of-courage",
@@ -117,7 +119,8 @@
         "type": "custom",
         "value": "%data.custom.fh.banner-spear.3%",
         "small": true
-      }
+      },
+      "passive": true
     },
     {
       "name": "trained-falcon",
@@ -142,7 +145,8 @@
         "type": "custom",
         "value": "%data.custom.fh.banner-spear.4%",
         "small": true
-      }
+      },
+      "passive": true
     },
     {
       "name": "longbowman",
@@ -168,7 +172,8 @@
         "type": "custom",
         "value": "%data.custom.fh.banner-spear.5%",
         "small": true
-      }
+      },
+      "passive": true
     }
   ],
   "perks": [

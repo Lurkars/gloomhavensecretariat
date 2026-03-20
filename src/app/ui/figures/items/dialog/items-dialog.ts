@@ -7,9 +7,11 @@ import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { CountIdentifier } from "src/app/game/model/data/Identifier";
 import { ItemData, ItemSlot } from "src/app/game/model/data/ItemData";
+import { LootType, resourceLootTypes } from "src/app/game/model/data/Loot";
 import { ghsDialogClosingHelper, ghsTextSearch } from "src/app/ui/helper/Static";
 import { ItemsBrewDialog } from "../brew/brew";
 import { ItemDistillDialogComponent } from "../character/item-distill";
+import { ItemShareDialogComponent } from "../character/item-share";
 import { ItemsCharacterDialogComponent } from "../character/items-character-dialog";
 import { ItemDialogComponent } from "./item-dialog";
 
@@ -42,6 +44,7 @@ export class ItemsDialogComponent implements OnInit {
     unlocks: ItemData[] = [];
     campaignMode: boolean = false;
     brewing: number = 0;
+    lootTypes: LootType[] = [...resourceLootTypes];
 
     ItemSlot: ItemSlot[] = Object.values(ItemSlot);
 
@@ -314,6 +317,15 @@ export class ItemsDialogComponent implements OnInit {
     distillItem(itemData: ItemData) {
         if (this.character) {
             this.dialog.open(ItemDistillDialogComponent, {
+                panelClass: ['dialog'],
+                data: { character: this.character, item: itemData }
+            })
+        }
+    }
+
+    shareItem(itemData: ItemData) {
+        if (this.character && settingsManager.settings.characterItemsShareHouseRule) {
+            this.dialog.open(ItemShareDialogComponent, {
                 panelClass: ['dialog'],
                 data: { character: this.character, item: itemData }
             })

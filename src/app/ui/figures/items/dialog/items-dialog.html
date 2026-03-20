@@ -14,61 +14,21 @@
       <div class="resources">
         <span class="resource gold"><img
             [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'loot.svg'">{{character.progress.gold}}</span>
-        @if (gameManager.fhRules()) {
+        @if (gameManager.fhRules(false)) {
         <div class="resource-grid">
-          @if (character.progress.loot.lumber) {
-          <span class="resource lumber">
-            <img src="./assets/images/fh/loot/lumber.svg">
-            {{character.progress.loot.lumber}}
+          @for (type of lootTypes; track type;) {
+          @if (settingsManager.settings.fhShareResources && gameManager.game.party.loot[type]) {
+          <span class="resource" [ngClass]="type">
+            <img [src]="'./assets/images/fh/loot/' + type +'.svg'">
+            {{gameManager.game.party.loot[type]}}
           </span>
           }
-          @if (character.progress.loot.metal) {
-          <span class="resource metal">
-            <img src="./assets/images/fh/loot/metal.svg">
-            {{character.progress.loot.metal}}
+          @if (!settingsManager.settings.fhShareResources && character.progress.loot[type]) {
+          <span class="resource" [ngClass]="type">
+            <img [src]="'./assets/images/fh/loot/' + type +'.svg'">
+            {{character.progress.loot[type]}}
           </span>
           }
-          @if (character.progress.loot.hide) {
-          <span class="resource hide">
-            <img src="./assets/images/fh/loot/hide.svg">
-            {{character.progress.loot.hide}}
-          </span>
-          }
-          @if (character.progress.loot.arrowvine) {
-          <span class="resource arrowvine">
-            <img src="./assets/images/fh/loot/arrowvine.svg">
-            {{character.progress.loot.arrowvine}}
-          </span>
-          }
-          @if (character.progress.loot.axenut) {
-          <span class="resource axenut">
-            <img src="./assets/images/fh/loot/axenut.svg">
-            {{character.progress.loot.axenut}}
-          </span>
-          }
-          @if (character.progress.loot.corpsecap) {
-          <span class="resource corpsecap">
-            <img src="./assets/images/fh/loot/corpsecap.svg">
-            {{character.progress.loot.corpsecap}}
-          </span>
-          }
-          @if (character.progress.loot.flamefruit) {
-          <span class="resource flamefruit">
-            <img src="./assets/images/fh/loot/flamefruit.svg">
-            {{character.progress.loot.flamefruit}}
-          </span>
-          }
-          @if (character.progress.loot.rockroot) {
-          <span class="resource rockroot">
-            <img src="./assets/images/fh/loot/rockroot.svg">
-            {{character.progress.loot.rockroot}}
-          </span>
-          }
-          @if (character.progress.loot.snowthistle) {
-          <span class="resource snowthistle">
-            <img src="./assets/images/fh/loot/snowthistle.svg">
-            {{character.progress.loot.snowthistle}}
-          </span>
           }
         </div>
         }
@@ -149,7 +109,8 @@
       <a class="secondary" (click)="addItem(selected, true)" [ghs-label]="'game.items.add'"
         [ghs-label-args]="selected ? ['data.items.' + selected.edition + '-' + selected.id ] : []"></a>
       }
-      @if (!selected || (selected.cost || selected.resources || selected.requiredItems) && !gameManager.itemManager.owned(selected, character)) {
+      @if (!selected || (selected.cost || selected.resources || selected.requiredItems) &&
+      !gameManager.itemManager.owned(selected, character)) {
       <a class="primary"
         [ngClass]="{'disabled' : !selected || !gameManager.itemManager.canBuy(selected, character) && !gameManager.itemManager.canCraft(selected, character)}"
         (click)="selected ? (selected.cost ? buyItem(selected): craftItem(selected)) : false"
@@ -167,6 +128,11 @@
       @if (!!selected && gameManager.itemManager.owned(selected, character) &&
       gameManager.itemManager.canDistill(selected)) {
       <a class="tertiary" (click)="distillItem(selected)" [ghs-label]="'game.items.distilling'"
+        [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id ]"></a>
+      }
+      @if (!!selected && gameManager.itemManager.owned(selected, character) &&
+      settingsManager.settings.characterItemsShareHouseRule) {
+      <a class="secondary" (click)="shareItem(selected)" [ghs-label]="'game.items.share'"
         [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id ]"></a>
       }
     </div>

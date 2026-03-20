@@ -45,6 +45,7 @@ export class StandeeComponent implements OnInit {
   entityHealth: number = 0;
   health: number = 0;
   maxHp: number = 0;
+  dead: boolean = false;
 
   activeConditions: EntityCondition[] = [];
   actionHints: ActionHint[] = [];
@@ -118,6 +119,7 @@ export class StandeeComponent implements OnInit {
 
     this.entityHealth = this.entity.health;
     this.maxHp = EntityValueFunction(this.entity.maxHealth);
+    this.dead = this.entity.dead;
 
     this.specialActionsMarker = [];
     this.entity.tags.forEach((tag) => {

@@ -45,6 +45,7 @@ export class Summon implements Entity {
   noThumbnail: boolean = false;
   dormant: boolean = false;
   revealed: boolean = false;
+  passive: boolean = false;
 
   // from entity
   active: boolean = false;
@@ -83,12 +84,13 @@ export class Summon implements Entity {
       }
       this.thumbnailUrl = summonData.thumbnailUrl;
       this.noThumbnail = summonData.noThumbnail;
+      this.passive = summonData.passive;
     }
     this.health = this.maxHealth;
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.uuid || uuidv4(), this.name, this.title, this.cardId, this.number, this.color, this.attack && this.attack + '' || '0', this.movement, this.range, this.flying, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.dormant, this.thumbnail, this.thumbnailUrl, this.noThumbnail, this.shield, this.shieldPersistent, this.retaliate, this.retaliatePersistent);
+    return new GameSummonModel(this.uuid || uuidv4(), this.name, this.title, this.cardId, this.number, this.color, this.attack && this.attack + '' || '0', this.movement, this.range, this.flying, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.dormant, this.passive, this.thumbnail, this.thumbnailUrl, this.noThumbnail, this.shield, this.shieldPersistent, this.retaliate, this.retaliatePersistent);
   }
 
   fromModel(model: GameSummonModel) {
@@ -126,6 +128,7 @@ export class Summon implements Entity {
 
     this.active = model.active;
     this.dormant = model.dormant;
+    this.passive = model.passive;
     this.thumbnail = model.thumbnail;
     this.thumbnailUrl = model.thumbnailUrl;
     this.noThumbnail = model.noThumbnail;
@@ -164,7 +167,8 @@ export class GameSummonModel {
   action: string | undefined;
   additionalAction: string | undefined;
   active: boolean = false;
-  dormant: boolean
+  dormant: boolean;
+  passive: boolean;
   thumbnail: string | undefined;
   thumbnailUrl: string | undefined;
   noThumbnail: boolean;
@@ -197,6 +201,7 @@ export class GameSummonModel {
     additionalAction: string | undefined,
     active: boolean,
     dormant: boolean,
+    passive: boolean,
     thumbnail: string | undefined,
     thumbnailUrl: string | undefined,
     noThumbnail: boolean,
@@ -227,6 +232,7 @@ export class GameSummonModel {
     this.additionalAction = additionalAction;
     this.active = active;
     this.dormant = dormant;
+    this.passive = passive;
     this.thumbnail = thumbnail;
     this.thumbnailUrl = thumbnailUrl;
     this.noThumbnail = noThumbnail;

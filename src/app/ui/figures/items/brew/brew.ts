@@ -19,7 +19,7 @@ export class ItemsBrewDialog implements OnInit {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
-    herbs: LootType[] = [LootType.arrowvine, LootType.axenut, LootType.corpsecap, LootType.flamefruit, LootType.rockroot, LootType.snowthistle];
+    herbs: LootType[] = [LootType.flamefruit, LootType.corpsecap, LootType.axenut, LootType.snowthistle, LootType.rockroot, LootType.arrowvine];
 
     brewing: number;
     characterSpent: Partial<Record<LootType, number>> = {};
@@ -31,6 +31,17 @@ export class ItemsBrewDialog implements OnInit {
     selectedCharacter: Character | undefined;
     applied: boolean = false;
     forced: boolean[] = [];
+
+    herbTotals: number[] = [];
+    gridItems2: (ItemData | undefined)[][] = [];
+    gridCellActive2: boolean[][] = [];
+    gridCellDisabled2: boolean[][] = [];
+    gridItems3: (ItemData | undefined)[][][] = [];
+    gridCellActive3: boolean[][][] = [];
+    gridCellDisabled3: boolean[][][] = [];
+    gridItemSpecial3: ItemData | undefined;
+    gridCellActiveSpecial3: boolean = false;
+    gridCellDisabledSpecial3: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog) {
         this.brewing = 0;
@@ -60,6 +71,65 @@ export class ItemsBrewDialog implements OnInit {
         });
         this.selectedCharacter = this.characters.length ? this.characters[0] : undefined;
         this.applied = false;
+        this.computeGridState();
+    }
+
+    computeGridState() {
+        this.herbTotals = this.herbs.map((herb) =>
+            (this.character.progress.loot[herb] || 0) + (gameManager.game.party.loot[herb] || 0)
+        );
+
+        this.gridItems2 = [];
+        this.gridCellActive2 = [];
+        this.gridCellDisabled2 = [];
+        for (let i = 0; i < this.herbs.length; i++) {
+            this.gridItems2[i] = [];
+            this.gridCellActive2[i] = [];
+            this.gridCellDisabled2[i] = [];
+            const leftIdx = this.herbs.length - 1 - i;
+            const leftHerb = this.herbs[leftIdx];
+            for (let j = 0; j < this.herbs.length - i; j++) {
+                const topHerb = this.herbs[j];
+                this.gridCellActive2[i][j] = this.isGridCombinationActive(leftHerb, topHerb);
+                this.gridCellDisabled2[i][j] = leftIdx === j ? this.herbTotals[leftIdx] < 2 : this.herbTotals[leftIdx] < 1 || this.herbTotals[j] < 1;
+                this.gridItems2[i][j] = this.getGridCombinationItem(leftHerb, topHerb);
+            }
+        }
+
+        this.gridItems3 = [];
+        this.gridCellActive3 = [];
+        this.gridCellDisabled3 = [];
+        for (let ci = 0; ci < 4; ci++) {
+            this.gridItems3[ci] = [];
+            this.gridCellActive3[ci] = [];
+            this.gridCellDisabled3[ci] = [];
+            const cornerIdx = ci + 2;
+            const cornerHerb = this.herbs[cornerIdx];
+            for (let li = 0; li <= ci; li++) {
+                this.gridItems3[ci][li] = [];
+                this.gridCellActive3[ci][li] = [];
+                this.gridCellDisabled3[ci][li] = [];
+                const leftIdx = ci + 1 - li;
+                const leftHerb = this.herbs[leftIdx];
+                for (let ti = 0; ti < ci + 1 - li; ti++) {
+                    const topHerb = this.herbs[ti];
+                    this.gridCellActive3[ci][li][ti] = this.isGridCombinationActive(topHerb, leftHerb, cornerHerb);
+                    this.gridCellDisabled3[ci][li][ti] = this.herbTotals[cornerIdx] < 1 || this.herbTotals[leftIdx] < 1 || this.herbTotals[ti] < 1;
+                    this.gridItems3[ci][li][ti] = this.getGridCombinationItem(topHerb, leftHerb, cornerHerb);
+                }
+            }
+        }
+
+        const specialItem = gameManager.itemManager.getItems(gameManager.currentEdition(), true).find((itemData) =>
+            (!itemData.requiredItems || !itemData.requiredItems.length) &&
+            itemData.requiredBuilding == 'alchemist' &&
+            itemData.requiredBuildingLevel >= 3 &&
+            !itemData.resources
+        );
+        this.gridItemSpecial3 = specialItem && gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + specialItem.id && identifier.edition == specialItem.edition) ? specialItem : undefined;
+        this.gridCellActiveSpecial3 = !!(this.receipe[0] && this.receipe[1] && this.receipe[2] &&
+            this.receipe.filter((h, idx, a) => h && a.indexOf(h) === idx).length < this.receipe.filter((h) => h).length);
+        this.gridCellDisabledSpecial3 = !this.herbTotals.some((total) => total >= 2);
     }
 
     addHerb(type: LootType | undefined, source: Partial<Record<LootType, number>> | false, index: number = -1, force: boolean = false) {
@@ -162,12 +232,95 @@ export class ItemsBrewDialog implements OnInit {
         }
     }
 
-    openItemDialog() {
+    openItemDialog(item: ItemData | undefined = undefined) {
         this.dialog.open(ItemDialogComponent, {
             panelClass: ['fullscreen-panel'],
             disableClose: true,
-            data: { item: this.brewed || this.item }
+            data: { item: item || this.brewed || this.item }
         })
+    }
+
+    getGridCombinationItem(herb1: LootType, herb2: LootType, herb3: LootType | undefined = undefined): ItemData | undefined {
+        const tempReceipe = herb3 ? [herb1, herb2, herb3] : [herb1, herb2];
+        const hasDuplicates = !herb3 && herb1 === herb2;
+        const item = gameManager.itemManager.getItems(gameManager.currentEdition(), true).find((itemData) =>
+            (!itemData.requiredItems || !itemData.requiredItems.length) &&
+            itemData.requiredBuilding == 'alchemist' &&
+            (herb3 ? itemData.requiredBuildingLevel >= 3 : itemData.requiredBuildingLevel < 3) &&
+            (hasDuplicates
+                ? !itemData.resources
+                : !!itemData.resources && this.herbs.every((herb) => itemData.resources && tempReceipe.filter((value) => value == herb).length == (itemData.resources[herb] || 0))
+            )
+        );
+        if (item && gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition)) {
+            return item;
+        }
+        return undefined;
+    }
+
+    isGridCombinationActive(herb1: LootType, herb2: LootType, herb3: LootType | undefined = undefined): boolean {
+        return ((this.receipe[0] == herb1 && this.receipe[1] == herb2) ||
+            (this.receipe[0] == herb2 && this.receipe[1] == herb1)) && (!herb3 || this.receipe[2] == herb3);
+    }
+
+    isGridCombinationDisabled(herb1: LootType, herb2: LootType, herb3: LootType | undefined = undefined): boolean {
+        const total1 = (this.character.progress.loot[herb1] || 0) + (gameManager.game.party.loot[herb1] || 0);
+        const total2 = (this.character.progress.loot[herb2] || 0) + (gameManager.game.party.loot[herb2] || 0);
+        if (herb1 === herb2) {
+            return total1 < 2;
+        }
+        if (herb3) {
+            const total3 = (this.character.progress.loot[herb3] || 0) + (gameManager.game.party.loot[herb3] || 0);
+            return total1 < 1 || total2 < 1 || total3 < 1;
+        }
+        return total1 < 1 || total2 < 1;
+    }
+
+    selectSpecial3(force: boolean = false) {
+        if (this.gridCellActiveSpecial3) {
+            this.characterSpent = {};
+            this.fhSupportSpent = {};
+            this.forced = [];
+            this.receipe = [undefined, undefined, undefined];
+            this.updateItem();
+        } else if (force || !this.gridCellDisabledSpecial3) {
+            this.characterSpent = {};
+            this.fhSupportSpent = {};
+            this.forced = [];
+            this.receipe = [undefined, undefined, undefined];
+            const doubleHerb = this.herbs.find((herb, i) => this.herbTotals[i] >= 2) || this.herbs[0];
+            const thirdHerb = this.herbs.find((herb, i) => herb !== doubleHerb && this.herbTotals[i] >= 1) || (this.herbTotals[this.herbs.indexOf(doubleHerb)] >= 3 ? doubleHerb : undefined) || this.herbs.find((herb) => herb !== doubleHerb) || doubleHerb;
+            this.addHerb(doubleHerb, false, 0, force);
+            this.addHerb(doubleHerb, false, 1, force);
+            this.addHerb(thirdHerb, false, 2, force);
+        } else if (this.gridItemSpecial3) {
+            this.openItemDialog(this.gridItemSpecial3);
+        }
+    }
+
+    selectGridCombo(herb1: LootType, herb2: LootType, herb3: LootType | undefined = undefined, force: boolean = false) {
+        if (this.isGridCombinationActive(herb1, herb2, herb3)) {
+            this.characterSpent = {};
+            this.fhSupportSpent = {};
+            this.forced = [];
+            this.receipe = [undefined, undefined, undefined];
+            this.updateItem();
+        } else if (force || !this.isGridCombinationDisabled(herb1, herb2, herb3)) {
+            this.characterSpent = {};
+            this.fhSupportSpent = {};
+            this.forced = [];
+            this.receipe = [undefined, undefined, undefined];
+            this.addHerb(herb1, false, 0, force);
+            this.addHerb(herb2, false, 1, force);
+            if (herb3) {
+                this.addHerb(herb3, false, 2, force);
+            }
+        } else {
+            const item = this.getGridCombinationItem(herb1, herb2, herb3);
+            if (item) {
+                this.openItemDialog(item);
+            }
+        }
     }
 
     close() {

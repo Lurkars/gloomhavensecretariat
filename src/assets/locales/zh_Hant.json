@@ -905,10 +905,10 @@
         "": "釀造藥水",
         "brew": "釀造",
         "brewFor": "釀造 {0}",
-        "brewed": "{2} 釀造 {1} %game.itemFh.{0}%",
-        "brewedOther": "{2} 為 {3} 釀造 {1} %game.itemFh.{0}% for",
+        "brewed": "{2} 釀造 %data.items.{1}-{0}% %game.itemFh.{0}%",
+        "brewedOther": "{2} 為 {3} 釀造 %data.items.{1}-{0}% %game.itemFh.{0}% for",
         "disabled": "無法釀造藥水，請先重建 '%data.buildings.alchemist%' (35)",
-        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
+        "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "所有角色均已持有該藥水!",
         "selectCharacter": "選擇獲得釀造的角色:"
       },

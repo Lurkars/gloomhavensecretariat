@@ -2,16 +2,25 @@
   [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
 
   <div class="scroll-container">
-    <label class="title">
-      <span [ghs-label]="'game.items.brewing'"></span>
+    <div class="header">
+      <div class="title">
+        <span [ghs-label]="'game.items.brewing'"></span>
+
+        <span class="grid-mode"
+          [ghs-tooltip]="'game.items.brewing.' + (settingsManager.settings.fhBrewGrid ? 'table' : 'grid')"
+          (click)="settingsManager.toggle('fhBrewGrid')">
+          <img [src]="'./assets/images/' + (settingsManager.settings.fhBrewGrid ? 'table' : 'grid') + '.svg'">
+        </span>
+      </div>
 
       @if (gameManager.itemManager.brewingDisabled()) {
       <span class="brewing-disabled">
         <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.brewing.disabled'"></span>
       </span>
       }
-    </label>
+    </div>
 
+    @if (!settingsManager.settings.fhBrewGrid) {
     <div class="table"
       [style.--ghs-summary-columns]="2 + brewing + (settingsManager.settings.fhShareResources ? -1 : 0)">
       @for (i of [] | ghsRange:brewing; track i) {
@@ -79,6 +88,104 @@
       </span>
       }
     </div>
+    }
+
+    @if (settingsManager.settings.fhBrewGrid) {
+    <div class="grid" [ngClass]="{'hidden' : receipe[0] && receipe[1] && receipe[2]}">
+      <div class="grid-row">
+        <span class="grid-corner"></span>
+        @for (herb of herbs; track herb; let hi = $index) {
+        <span class="grid-head grid-head-top" [ngClass]="{'disabled': herbTotals[hi] == 0}">
+          <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herb + '.svg'">
+        </span>
+        }
+      </div>
+      @for (i of [] | ghsRange:herbs.length; track i) {
+      <div class="grid-row">
+        <span class="grid-head grid-head-left" [ngClass]="{'disabled': herbTotals[herbs.length - 1 - i] == 0}">
+          <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herbs[herbs.length - 1 - i] + '.svg'">
+        </span>
+        @for (j of [] | ghsRange:(herbs.length - i); track j) {
+        <span class="grid-cell toggle"
+          [ngClass]="{'active': gridCellActive2[i][j], 'disabled': !gridCellActive2[i][j] && gridCellDisabled2[i][j]}"
+          ghs-pointer-input (singleClick)="selectGridCombo(herbs[herbs.length - 1 - i], herbs[j])"
+          (doubleClick)="selectGridCombo(herbs[herbs.length - 1 - i], herbs[j],undefined, true)">
+          @if (gridItems2[i][j]; as gridItem) {
+          <span class="item-name text-white"
+            [ghs-label]="'%data.items.' + gridItem.edition + '-' + gridItem.id + '%'"></span>
+          <span class="item-number text-white" [ghs-label]="'%game.itemFh.' + gridItem.id + '%'"></span>
+          }
+        </span>
+        }
+      </div>
+      }
+    </div>
+    @if (brewing == 3) {
+    <div class="brewing3-subgrids">
+      @for (ci of [] | ghsRange:4:true; track ci) {
+      <div class="grid brewing3-subgrid brewing3-subgrid-{{ci}}"
+        [ngClass]="{'hidden' : receipe[0] && receipe[1] && receipe[2] != herbs[ci + 2]}">
+        <div class="grid-row">
+          <span class="grid-corner">
+            <span class="grid-corner-container">
+              <span class="corner-herb">
+                <span class="corner-herb-icon"
+                  [style.mask-image]="'url(./assets/images/fh/loot/' + herbs[ci + 2] + '.svg)'"
+                  [style.-webkit-mask-image]="'url(./assets/images/fh/loot/' + herbs[ci + 2] + '.svg)'">
+                </span>
+              </span>
+            </span>
+          </span>
+          @for (ti of [] | ghsRange:(ci + 1); track ti) {
+          <span class="grid-head grid-head-top" [ngClass]="{'disabled': herbTotals[ti] == 0}">
+            <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herbs[ti] + '.svg'">
+          </span>
+          }
+        </div>
+        @for (li of [] | ghsRange:(ci + 1); track li) {
+        <div class="grid-row">
+          <span class="grid-head grid-head-left" [ngClass]="{'disabled': herbTotals[ci + 1 - li] == 0}">
+            <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herbs[ci + 1 - li] + '.svg'">
+          </span>
+          @for (ti of [] | ghsRange:(ci + 1 - li); track ti) {
+          <span class="grid-cell toggle"
+            [ngClass]="{'active': gridCellActive3[ci][li][ti], 'disabled': !gridCellActive3[ci][li][ti] && gridCellDisabled3[ci][li][ti]}"
+            ghs-pointer-input (singleClick)="selectGridCombo(herbs[ti], herbs[ci + 1 - li], herbs[ci + 2])"
+            (doubleClick)="selectGridCombo(herbs[ti], herbs[ci + 1 - li], herbs[ci + 2], true)">
+            @if (gridItems3[ci][li][ti]; as gridItem) {
+            <span class="item-name text-white"
+              [ghs-label]="'%data.items.' + gridItem.edition + '-' + gridItem.id + '%'"></span>
+            <span class="item-number text-white" [ghs-label]="'%game.itemFh.' + gridItem.id + '%'"></span>
+            }
+          </span>
+          }
+        </div>
+        }
+      </div>
+      }
+    </div>
+    <div class="grid brewing3-special" [ngClass]="{'hidden': receipe[0] && receipe[1] && !gridCellActiveSpecial3}">
+      <div class="grid-row">
+        <span class="grid-corner"></span>
+        <span class="grid-head grid-head-top" [ngClass]="{'disabled': gridCellDisabledSpecial3}">
+          <span class="label" [ghs-label]="'game.items.brewing.special3'"></span>
+        </span>
+      </div>
+      <div class="grid-row">
+        <span class="grid-head grid-head-left"></span>
+        <span class="grid-cell toggle"
+          [ngClass]="{'active': gridCellActiveSpecial3, 'disabled': !gridCellActiveSpecial3 && gridCellDisabledSpecial3}"
+          ghs-pointer-input (singleClick)="selectSpecial3()" (doubleClick)="selectSpecial3(true)">
+          @if (gridItemSpecial3; as gridItem) {
+          <span class="item-name text-white"
+            [ghs-label]="'%data.items.' + gridItem.edition + '-' + gridItem.id + '%'"></span>
+          <span class="item-number text-white" [ghs-label]="'%game.itemFh.' + gridItem.id + '%'"></span>
+          }
+        </span>
+      </div>
+    </div>
+    }
+    }
 
     @if (!applied) {
     <div class="receipe">
@@ -100,11 +207,11 @@
       }
       @if (!!item && !brewed ) {
       <span class="placeholder text-white item" [ghs-label]="'game.items.brewing.item'"
-        [ghs-label-args]="[item.id, item.name, item.edition]"></span>
+        [ghs-label-args]="[item.id, item.edition]"></span>
       }
       @if (!!brewed) {
       <span class="placeholder text-white item" [ghs-label]="'game.items.brewing.item'"
-        [ghs-label-args]="[brewed.id, brewed.name, brewed.edition]"></span>
+        [ghs-label-args]="[brewed.id, brewed.edition]"></span>
       }
       @if (!item && !brewed) {
       <span class="herb">
@@ -114,11 +221,17 @@
     </div>
     }
 
+    @if (!!brewed || !!item) {
+    <div class="brewed">
+      <ghs-item [item]="brewed || item" [flipped]="true" (click)="openItemDialog()"></ghs-item>
+    </div>
+    }
+
     @if (!!brewed && selectedCharacter) {
     <div class="receipe">
       <span class="placeholder text-white item"
         [ghs-label]="'game.items.brewing.brewed' + (selectedCharacter != character ? 'Other' : '')"
-        [ghs-label-args]="[brewed.id, brewed.name, gameManager.characterManager.characterName(character,true) , selectedCharacter != character ? gameManager.characterManager.characterName(selectedCharacter,true): '']"></span>
+        [ghs-label-args]="[brewed.id, brewed.edition, gameManager.characterManager.characterName(character,true) , selectedCharacter != character ? gameManager.characterManager.characterName(selectedCharacter,true): '']"></span>
     </div>
     }
 
@@ -141,12 +254,6 @@
     @if (characters.length == 0) {
     <div class="receipe">
       <span class="placeholder item already" [ghs-label]="'game.items.brewing.noChar'"></span>
-    </div>
-    }
-
-    @if (!!brewed || !!item) {
-    <div class="brewed">
-      <ghs-item [item]="brewed || item" [flipped]="true" (click)="openItemDialog()"></ghs-item>
     </div>
     }
 

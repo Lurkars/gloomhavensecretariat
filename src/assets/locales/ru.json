@@ -905,10 +905,10 @@
         "": "Варить зелья",
         "brew": "Варить",
         "brewFor": "Варить для {0}",
-        "brewed": "{2} сварил {1} %game.itemFh.{0}%",
-        "brewedOther": "{2} сварил {1} %game.itemFh.{0}% для {3}",
+        "brewed": "{2} сварил %data.items.{1}-{0}% %game.itemFh.{0}%",
+        "brewedOther": "{2} сварил %data.items.{1}-{0}% %game.itemFh.{0}% для {3}",
         "disabled": "Невозможно сварить зелье, сначала отстройте '%data.buildings.alchemist%' (35)",
-        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
+        "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "Данное зелье уже есть у каждого из персонажей!",
         "selectCharacter": "Выберите персонажа для кого будут варить зелье:"
       },

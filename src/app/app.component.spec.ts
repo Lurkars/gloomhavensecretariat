@@ -69,6 +69,7 @@ import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { ItemsBrewDialog } from './ui/figures/items/brew/brew';
 import { CharacterItemComponent } from './ui/figures/items/character/item-character';
 import { ItemDistillDialogComponent } from './ui/figures/items/character/item-distill';
+import { ItemShareDialogComponent } from './ui/figures/items/character/item-share';
 import { ItemsCharacterDialogComponent } from './ui/figures/items/character/items-character-dialog';
 import { ItemDialogComponent } from './ui/figures/items/dialog/item-dialog';
 import { ItemsDialogComponent } from './ui/figures/items/dialog/items-dialog';
@@ -297,6 +298,7 @@ describe('AppComponent', () => {
         ItemsCardsToolComponent,
         ItemsCharacterDialogComponent,
         ItemsDialogComponent,
+        ItemShareDialogComponent,
         KeyboardShortcuts,
         KeyboardShortcutsComponent,
         LevelComponent,

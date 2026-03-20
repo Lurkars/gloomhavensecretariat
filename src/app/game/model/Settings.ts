@@ -81,6 +81,7 @@ export class Settings {
   characterItemsPermanentEquipped: boolean = true;
   characterItemsPermanentSorted: boolean = true;
   characterItemsPermanentZoom: number = 1;
+  characterItemsShareHouseRule: boolean = false;
   playerNumber: boolean = false;
   characterSheet: boolean = true;
   characterSheetCompact: boolean = false;
@@ -126,6 +127,7 @@ export class Settings {
   eventsDrawReminder: boolean = false;
   feedbackErrors: boolean = true;
   feedbackErrorsIgnore: string[] = [];
+  fhBrewGrid: boolean = false;
   fhChallenges: boolean = false;
   fhChallengesApply: boolean = true;
   fhGarden: boolean = true;
@@ -163,6 +165,7 @@ export class Settings {
   monsterAttackModifierDeck: boolean = true;
   moveElements: boolean = true;
   partySheet: boolean = true;
+  passiveSummons: boolean = true;
   pinchZoom: boolean = true;
   pressDoubleClick: boolean = true;
   randomStandees: boolean = false;
@@ -212,5 +215,5 @@ export class Settings {
 }
 
 export const localSettings: string[] = [
-  "animations", "animationSpeed", "artwork", "automaticAttackModifierFullscreen", "autoBackup", "autoBackupFinish", "autoBackupUrl", "automaticGameClock", "automaticTheme", "autoscroll", "barsize", "backupHint", "browserNavigation", "buildingEffectsVisible", "buildingInteractionsVisible", "calendarLocked", "characterAttackModifierAnimate", "characterAttackModifierDeckActiveBottom", "characterAttackModifierDeckPermanent", "characterAttackModifierDeckPermanentActive", "characterFullView", "characterItemsPermanent", "characterItemsPermanentActive", "characterItemsPermanentEquipped", "characterItemsPermanentSorted", "characterItemsPermanentZoom", "characterCompact", "playerNumber", "characterSheetCompact", "characterSheetLocked", "columns", "columnsForce", "damageHPToggle", "debugEditWorldMap", "debugEventCards", "debugRightClick", "disableAnimations", "disableArtwork", "disableColumns", "disableDragFigures", "disablePinchZoom", "disableWakeLock", "dragFigures", "dragValues", "dragValuesHp", "dragValuesInitiative", "dragValuesLoot", "errata", "eventsDrawReminder", "fhStyle", "fontsize", "gameClock", "globalFontsize", "globalMapHighlighting", "feedbackErrors", "feedbackErrorsIgnore", "fullscreen", "hideCharacterHP", "hideCharacterLoot", "hideCharacterXP", "hints", "initiativeRoundConfirm", "keyboardShortcuts", "logServerMessages", "pinchZoom", "portraitMode", "pressDoubleClick", "serverAutoconnect", "serverCode", "serverPassword", "serverPing", "serverPort", "serverSettings", "serverUrl", "serverWss", "showAllSections", "showBossMonster", "showHiddenMonster", "showOnlyUnfinishedScenarios", "standaloneInitiativeAutomatic", "statAnimations", "theme", "tooltips", "wakeLock", "wrapProsperity", "zoom"
+  "animations", "animationSpeed", "artwork", "automaticAttackModifierFullscreen", "autoBackup", "autoBackupFinish", "autoBackupUrl", "automaticGameClock", "automaticTheme", "autoscroll", "barsize", "backupHint", "browserNavigation", "buildingEffectsVisible", "buildingInteractionsVisible", "calendarLocked", "characterAttackModifierAnimate", "characterAttackModifierDeckActiveBottom", "characterAttackModifierDeckPermanent", "characterAttackModifierDeckPermanentActive", "characterFullView", "characterItemsPermanent", "characterItemsPermanentActive", "characterItemsPermanentEquipped", "characterItemsPermanentSorted", "characterItemsPermanentZoom", "characterCompact", "playerNumber", "characterSheetCompact", "characterSheetLocked", "columns", "columnsForce", "damageHPToggle", "debugEditWorldMap", "debugEventCards", "debugRightClick", "disableAnimations", "disableArtwork", "disableColumns", "disableDragFigures", "disablePinchZoom", "disableWakeLock", "dragFigures", "dragValues", "dragValuesHp", "dragValuesInitiative", "dragValuesLoot", "errata", "eventsDrawReminder", "fhBrewGrid", "fhStyle", "fontsize", "gameClock", "globalFontsize", "globalMapHighlighting", "feedbackErrors", "feedbackErrorsIgnore", "fullscreen", "hideCharacterHP", "hideCharacterLoot", "hideCharacterXP", "hints", "initiativeRoundConfirm", "keyboardShortcuts", "logServerMessages", "pinchZoom", "portraitMode", "pressDoubleClick", "serverAutoconnect", "serverCode", "serverPassword", "serverPing", "serverPort", "serverSettings", "serverUrl", "serverWss", "showAllSections", "showBossMonster", "showHiddenMonster", "showOnlyUnfinishedScenarios", "standaloneInitiativeAutomatic", "statAnimations", "theme", "tooltips", "wakeLock", "wrapProsperity", "zoom"
 ];

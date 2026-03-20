@@ -1114,12 +1114,15 @@
         "": "Tränke brauen",
         "brew": "Brauen",
         "brewFor": "Braue für {0}",
-        "brewed": "{2} hat {1} %game.itemFh.{0}% gebraut",
-        "brewedOther": "{2} hat {1} %game.itemFh.{0}% für {3} gebraut",
+        "brewed": "{2} hat %data.items.{1}-{0}% %game.itemFh.{0}% gebraut",
+        "brewedOther": "{2} hat %data.items.{1}-{0}% %game.itemFh.{0}% für {3} gebraut",
         "disabled": "Brauen von Tränken nicht möglich, erst '%data.buildings.alchemist%' (35) wiederaufbauen",
-        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
+        "grid": "Alchemietafel anzeigen",
+        "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "Jeder Charakter besitzt schon diesen Trank!",
-        "selectCharacter": "Charakter auswählen, für den der Trank gebraut wird:"
+        "selectCharacter": "Charakter auswählen, für den der Trank gebraut wird:",
+        "special3": "2 oder mehr gleiche",
+        "table": "Alchemietabelle anzeigen"
       },
       "buy": "'{0}' für {1} Gold kaufen",
       "character": {
@@ -1147,6 +1150,11 @@
       },
       "remove": "'{0}' entfernen",
       "sell": "'{0}' für {1} Gold verkaufen",
+      "share": {
+        "": "'{0}' teilen",
+        "apply": "Gegenstand teilen",
+        "select": "Charakter auswählen"
+      },
       "shop": {
         "": "Gegenstandskarten",
         "buyingDisabled": "Kaufen von Items nicht möglich, erst '%data.buildings.trading-post%' (37) wiederaufbauen",
@@ -2594,6 +2602,10 @@
       "": "Auto. aktive Gegenstände",
       "hint": "Automatisch die dauerhaften Gegenstände des aktiven Charakters umschalten."
     },
+    "characterItemsShareHouseRule": {
+      "": "Hausregel Charakter Gegenstände teilen",
+      "hint": "Gegenstände können zwischen Charakteren getauscht werden. (Hausregel)"
+    },
     "characterSheet": {
       "": "Charakterbögen",
       "hint": "Aktiviert die Charakterbögen. Diese können mit einem Klick auf das große Charaktersymbol auf der rechten Seite geöffnet werden."
@@ -2873,6 +2885,10 @@
     "partySheet": {
       "": "Gruppenbogen",
       "hint": "Gruppen- und Kampagnen-Bogen aktivieren. Der Kampagnenbogen befindet sich auf der <i>Rückseite</i> des Gruppenbogens."
+    },
+    "passiveSummons": {
+      "": "Passive Beschwörungen",
+      "hint": "Den aktiven Zug von als passiv markierte Beschwörungen überspringen."
     },
     "pinchZoom": {
       "": "Gesten-Zooming",
@@ -3514,6 +3530,7 @@
       "setSummonState": "Beschwörung {1} {2} für {0}",
       "setTitle": "Titel '{1}' für {0}",
       "setXP": "EP {1} für {0}",
+      "shareItem": "{0} teilt \"%data.items.{3}-{2}%\" (Gegenstand {2}) mit {1}",
       "shuffleAbilityDeck": "Fertigkeiten mischen für {0}",
       "shuffleAbilityDeckUpcoming": "Nicht gezogene Fertigkeiten mischen für {0}",
       "skipInteractiveActions": "Interaktive Fertigkeiten auslassen für Aufsteller {1} von {2}",

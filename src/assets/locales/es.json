@@ -1096,10 +1096,10 @@
         "": "Elaborar pociones",
         "brew": "Elaborar",
         "brewFor": "Elaborar para {0}",
-        "brewed": "{2} elaborado {1} %game.itemFh.{0}%",
-        "brewedOther": "{2} elaborado {1} %game.itemFh.{0}% para {3}",
+        "brewed": "{2} elaborado %data.items.{1}-{0}% %game.itemFh.{0}%",
+        "brewedOther": "{2} elaborado %data.items.{1}-{0}% %game.itemFh.{0}% para {3}",
         "disabled": "No puedes elaborar pociones, reconstruye primero '%data.buildings.alchemist%' (35)",
-        "item": "%data.items.{2}-{1}% %game.itemFh.{0}%",
+        "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "¡Esta poción ya la tienen todos los personajes!",
         "selectCharacter": "Selecciona el personaje con el que elaborar:"
       },
