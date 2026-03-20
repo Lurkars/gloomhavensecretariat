@@ -731,9 +731,9 @@ export class RoundManager {
       } else if (figure instanceof ObjectiveContainer) {
         figure.entities = [];
       }
-
-      gameManager.sortFigures();
     })
+
+    gameManager.sortFigures();
 
     const campaignData = gameManager.campaignData();
     if (this.game.party.townGuardDeck && campaignData.townGuardPerks) {
