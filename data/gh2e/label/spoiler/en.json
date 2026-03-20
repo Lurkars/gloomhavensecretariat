@@ -637,7 +637,7 @@
     },
     "gh2e-138": {
       "": "Bloody Axe",
-      "1": "During melee attack ability, suffer %game.damage:2% to and add +1 %game.action.attack% to all attacks."
+      "1": "During your melee attack ability, suffer %game.damage:2% to add +1 %game.action.attack% to all attacks."
     },
     "gh2e-139": {
       "": "Otherworldly Scepter",
