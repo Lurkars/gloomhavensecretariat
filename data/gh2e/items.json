@@ -3042,6 +3042,12 @@
         "value": "%data.items.gh2e-138.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "damage",
+        "value": 2
+      }
     ]
   },
   {
@@ -3402,6 +3408,12 @@
         "small": true
       }
     ],
+    "effects": [
+      {
+        "type": "damage",
+        "value": 2
+      }
+    ],
     "loss": true,
     "noArtwork": true
   },
@@ -3435,6 +3447,12 @@
         "type": "custom",
         "value": "%data.items.gh2e-152.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "disarm"
       }
     ],
     "noArtwork": true
