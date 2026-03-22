@@ -8,6 +8,7 @@
     "Arresting Gale": "Arresting Gale",
     "Auto Turret": "Auto Turret",
     "Avalanche": "Avalanche",
+    "Backstab": "Backstab",
     "Backup Ammunition": "Backup Ammunition",
     "Balanced Measure": "Balanced Measure",
     "Bewildering Instrumental": "Bewildering Instrumental",
@@ -36,9 +37,12 @@
     "Crank Bow": "Crank Bow",
     "Crater": "Crater",
     "Crippling Offensive": "Crippling Offensive",
+    "Crippling Poison": "Crippling Poison",
     "Crushing Grasp": "Crushing Grasp",
     "Cryonic Snare": "Cryonic Snare",
+    "Cull the Weak": "Cull the Weak",
     "Cursed Blades": "Cursed Blades",
+    "Dance of Daggers": "Dance of Daggers",
     "Dancing Gales": "Dancing Gales",
     "Dancing Shadows": "Dancing Shadows",
     "Dangerous Contraption": "Dangerous Contraption",
@@ -53,6 +57,7 @@
     "Dissonant Rhythm": "Dissonant Rhythm",
     "Domination": "Domination",
     "Dual Nature": "Dual Nature",
+    "Duelist's Advance": "Duelist's Advance",
     "Duskstorm": "Duskstorm",
     "Earth's Embrace": "Earth's Embrace",
     "Earthen Bulwark": "Earthen Bulwark",
@@ -81,7 +86,10 @@
     "Flame Strike": "Flame Strike",
     "Flameswell": "Flameswell",
     "Flamethrower": "Flamethrower",
+    "Flanking Strike": "Flanking Strike",
     "Flash of Brilliance": "Flash of Brilliance",
+    "Flintlock": "Flintlock",
+    "Flurry of Blades": "Flurry of Blades",
     "Formless Power": "Formless Power",
     "Freezing Nova": "Freezing Nova",
     "Freezing Vortex": "Freezing Vortex",
@@ -98,11 +106,14 @@
     "Grand Finale": "Grand Finale",
     "Gravel Guard": "Gravel Guard",
     "Gravity Bomb": "Gravity Bomb",
+    "Gruesome Advantage": "Gruesome Advantage",
     "Harmless Contraption": "Harmless Contraption",
     "Harsh Stimulants": "Harsh Stimulants",
     "Heatwave": "Heatwave",
     "Heaving Swing": "Heaving Swing",
+    "Hidden Daggers": "Hidden Daggers",
     "Hidden in the Shadows": "Hidden in the Shadows",
+    "Hired Help": "Hired Help",
     "Hook Gun": "Hook Gun",
     "Hook and Chain": "Hook and Chain",
     "Hostile Takeover": "Hostile Takeover",
@@ -146,6 +157,7 @@
     "Obsidian Shards": "Obsidian Shards",
     "Ode to the Gambler": "Ode to the Gambler",
     "Onward to Battle": "Onward to Battle",
+    "Open Wound": "Open Wound",
     "Opposing Strike": "Opposing Strike",
     "Overwhelming Assault": "Overwhelming Assault",
     "Pernicious Fogger": "Pernicious Fogger",
@@ -157,6 +169,7 @@
     "Potent Potable": "Potent Potable",
     "Potent Potables": "Potent Potables",
     "Power Ballad": "Power Ballad",
+    "Practiced Reflexes": "Practiced Reflexes",
     "Pragmatic Reinforcement": "Pragmatic Reinforcement",
     "Prepare for the Kill": "Prepare for the Kill",
     "Prey on the Weak": "Prey on the Weak",
@@ -169,6 +182,7 @@
     "Pull the Strings": "Pull the Strings",
     "Pulsing Cores": "Pulsing Cores",
     "Push Through": "Push Through",
+    "Quick Hands": "Quick Hands",
     "Quiet Frenzy": "Quiet Frenzy",
     "Reinvigorating Elixir": "Reinvigorating Elixir",
     "Repulsor Gun": "Repulsor Gun",
@@ -183,6 +197,7 @@
     "Seeping Tendrils": "Seeping Tendrils",
     "Selfish Retribution": "Selfish Retribution",
     "Sentient Growth": "Sentient Growth",
+    "Serrated Arrow": "Serrated Arrow",
     "Shadowstrike": "Shadowstrike",
     "Shaping the Ether": "Shaping the Ether",
     "Shared Nightmare": "Shared Nightmare",
@@ -191,15 +206,22 @@
     "Silent Force": "Silent Force",
     "Silent Scream": "Silent Scream",
     "Singing Arrow": "Singing Arrow",
+    "Single Out": "Single Out",
+    "Sinister Opportunity": "Sinister Opportunity",
     "Skewer": "Skewer",
     "Skirmishing Maneuver": "Skirmishing Maneuver",
     "Slice Through": "Slice Through",
+    "Smoke Bomb": "Smoke Bomb",
     "Solidify": "Solidify",
     "Soothing Lullaby": "Soothing Lullaby",
     "Spare Dagger": "Spare Dagger",
+    "Special Mixture": "Special Mixture",
     "Spell Mastery": "Spell Mastery",
     "Spirit of the Night": "Spirit of the Night",
+    "Spring the Trap": "Spring the Trap",
     "Stamina Booster": "Stamina Booster",
+    "Stick to the Shadows": "Stick to the Shadows",
+    "Stiletto Storm": "Stiletto Storm",
     "Stoking Hail": "Stoking Hail",
     "Stone Pummel": "Stone Pummel",
     "Stun Shot": "Stun Shot",
@@ -207,25 +229,31 @@
     "Swallowed by Fear": "Swallowed by Fear",
     "Swallowed by Night": "Swallowed by Night",
     "Sweeping Blow": "Sweeping Blow",
+    "Swift Bow": "Swift Bow",
     "Symphonic Medley": "Symphonic Medley",
     "Telepathic Command": "Telepathic Command",
     "Teleportation Pad": "Teleportation Pad",
     "Terror Blade": "Terror Blade",
     "The Mind's Weakness": "The Mind's Weakness",
     "Thrilling Solo": "Thrilling Solo",
+    "Throwing Knives": "Throwing Knives",
     "Toughening Trill": "Toughening Trill",
     "Toxic Bolt": "Toxic Bolt",
     "Trample": "Trample",
+    "Trickster's Reversal": "Trickster's Reversal",
     "Tuning the Outcome": "Tuning the Outcome",
     "Twin Beams": "Twin Beams",
     "Unseen Dread": "Unseen Dread",
     "Unstable Upheaval": "Unstable Upheaval",
     "Unstoppable Charge": "Unstoppable Charge",
+    "Venom Shiv": "Venom Shiv",
+    "Visage of the Inevitable": "Visage of the Inevitable",
     "Voice of the Night": "Voice of the Night",
     "Volatile Concoction": "Volatile Concoction",
     "Wall of Doom": "Wall of Doom",
     "Warding Strength": "Warding Strength",
     "Warm Up": "Warm Up",
+    "Watch It Burn": "Watch It Burn",
     "Wave of Destruction": "Wave of Destruction",
     "Wave of Frost": "Wave of Frost",
     "Wearying Chant": "Wearying Chant",
@@ -888,7 +916,95 @@
         "3": "Whenever you complete a city event, draw an attack modifier card as though you were performing an %game.action.attack% 4. Gain an amount of gold equal to the %game.damage% the attack would have dealt",
         "4": "Once each scenario, during your turn, you may perform: %game.condition.invisible%, self",
         "5": "For an entire scenario, only attack enemies that are adjacent to one of your allies or adjacent to none of their allies, and perform at least 10 attacks",
-        "6": "End 3 scenarios with 12 or more money tokens"
+        "6": "End 3 scenarios with 12 or more money tokens",
+        "abilities": {
+          "100": {
+            "1": "Add %game.condition.wound% and gain %game.card.experience:1% if the target is adjacent to any of your allies."
+          },
+          "101": {
+            "1": "On your next tree attacks, add +1 %game.action.attack%, %game.condition.poison%.",
+            "2": "If you are adjacent to no enemies, gain %game.condition.invisible%. At the end of the round, lose %game.condition.invisible%."
+          },
+          "102": {
+            "1": "Add +1 %game.action.attack% on each target that is adjacent to none of its allies."
+          },
+          "103": {
+            "1": "You may place one of your money tokens in the hex occupied by the target to add +2 %game.action.attack%, %game.action.pierce:2%.",
+            "2": "Create one %game.condition.poison%, %game.condition.immobilize% trap in the empty hex of one looted money token."
+          },
+          "105": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is adjacent to any of your allies or is adjacent to none of its allies.",
+            "2": "When you next perform a melee attack targeting an enemy that has %game.condition.poison% this round, after the attack ability, perform:"
+          },
+          "107": {
+            "1": "On your next attack targeting an enemy that is both adjacent to any of your allies and none of its allies, double the value of the attack."
+          },
+          "108": {
+            "1": "Negate the %game.damage% and added effects of all attacks targeting you this round.",
+            "2": "Immediately after each attack ability targeting you this round, gain %game.card.experience:1% and perform:",
+            "3": "the enemy that attacked you",
+            "4": "Gain advantage on all your attacks this round."
+          },
+          "109": {
+            "1": "Add +1 %game.action.attack% and gain advantage, %game.card.experience:1% if the target is a normal monster.",
+            "2": "2 enemies whose current hit point value is 2 or less, %game.action.range:2%"
+          },
+          "110": {
+            "1": "If all the targets of the attack ability were adjacent to none of their allies, perform:"
+          },
+          "111": {
+            "1": "This action my be performed while you have %game.condition.stun%.",
+            "2": "Remove all negative conditions you have.",
+            "3": "Designate one adjacent trap.",
+            "4": "Relocate the designated trap to an adjacent featureless hex. If that hex is occupied by an enemy, spring the trap on that enemy and gain %game.card.experience:1%."
+          },
+          "112": {
+            "1": "Add %game.condition.disarm% and gain %game.condition.invisible%, %game.card.experience:1% if the target is both adjacent to any of your allies and none of its allies."
+          },
+          "113": {
+            "1": "Add %game.condition.poison% to all your attacks. Add +1 %game.action.attack% to all your attacks targeting enemies that have %game.condition.poison%.",
+            "2": "Add %game.condition.immobilize% to all your attacks targeting enemies adjacent to none of their allies this round."
+          },
+          "114": {
+            "1": "You may lose one of your money tokens to place a character token on an adjacent normal enemy. For the remainder of the scenario, that enemy is an ally to you and an enemy to all other monsters. You may replace its base with a blue base to more easily identify it. When that enemy dies, it drops an additional money token."
+          },
+          "115": {
+            "1": "If you attacked at least three enemies with the attack ability, gain %game.card.experience:1% and perform:",
+            "2": "During you turn, you may play this card from your hand to perform this action (in addition to the two cards you have played for the round)."
+          },
+          "88": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is adjacent to none of its allies.",
+            "2": "On your next four attacks targeting enemies adjacent to none of their allies, add +3 %game.action.attack%"
+          },
+          "89": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is adjacent to any of your allies."
+          },
+          "90": {
+            "1": "%game.action.loot% each hex you entered with the move ability."
+          },
+          "92": {
+            "1": "Add +1 %game.action.attack% if the target is adjacent to any of your allies, add +1 %game.action.attack% if the target is adjacent to none of its allies, and gain advantage and %game.card.experience:1% if both are true."
+          },
+          "93": {
+            "1": "Add %game.action.pierce:2% to all your ranged attacks this round."
+          },
+          "95": {
+            "1": "You may choose not to spring traps in hexes you enter with this movement.",
+            "2": "Destroy one trap in a hex you entered with the move ability to gain %game.card.experience:1%."
+          },
+          "97": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is adjacent to any of your allies."
+          },
+          "98": {
+            "1": "On your next attack while you have %game.condition.invisible%, double the value of the attack.",
+            "2": "Control one adjacent enemy:",
+            "3": "This movement must end in a hex adjacent to the Silent Knife."
+          },
+          "99": {
+            "1": "On your next melee attack targeting an enemy that has %game.action.shield%, add +(X+2)%game.action.attack%, where X is the %game.action.shield% value of the target.",
+            "2": "Negate the next %game.damage% you would suffer this round."
+          }
+        }
       },
       "spellweaver": {
         "1": "Add +2 %game.action.attack% if drawn during an action with %game.card.lost%",
