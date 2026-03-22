@@ -29,30 +29,6 @@
   },
   "rules": [
     {
-      "round": "R == 1",
-      "start": true,
-      "figures": [
-        {
-          "identifier": {
-            "type": "character",
-            "name": ".*"
-          },
-          "type": "gainCondition",
-          "value": "muddle",
-          "scenarioEffect": true
-        },
-        {
-          "identifier": {
-            "type": "character",
-            "name": ".*"
-          },
-          "type": "gainCondition",
-          "value": "curse",
-          "scenarioEffect": true
-        }
-      ]
-    },
-    {
       "round": "R == 4 || R == 19",
       "start": true,
       "spawns": [
