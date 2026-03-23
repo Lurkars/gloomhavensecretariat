@@ -145,6 +145,52 @@
             }
         }
 
+        .characters {
+            display: flex;
+            align-items: center;
+
+            .character {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                margin: 0.25em;
+                padding: 0.25em;
+                border: 1px solid transparent;
+
+                .name {
+                    font-family: var(--ghs-font-title);
+                    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                    color: var(--ghs-color-gray);
+                    text-shadow: var(--ghs-outline);
+                }
+
+                .icon {
+                    width: 1.5em;
+                    height: auto;
+                    margin-right: 0.2em;
+                    filter: grayscale(0.7);
+                }
+
+                &:hover {
+                    color: var(--ghs-color-darkgray);
+                    border-color: var(--ghs-color-darkgray);
+
+                    .icon {
+                        filter: grayscale(0.3);
+                    }
+                }
+
+                &.selected {
+                    color: var(--ghs-color-white);
+                    border-color: var(--ghs-color-gray);
+
+                    .icon {
+                        filter: none;
+                    }
+                }
+            }
+        }
+
         .editions {
             display: flex;
             justify-content: center;

@@ -9,6 +9,8 @@ import { LootType } from "src/app/game/model/data/Loot";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioConclusionComponent } from "src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion";
 import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
+import { ItemsBrewDialog } from "../../../items/brew/brew";
+import { ItemsDialogComponent } from "../../../items/dialog/items-dialog";
 import { Building } from "../buildings";
 import { GardenComponent } from "../garden/garden";
 import { StablesComponent } from "../stables/stables";
@@ -350,6 +352,19 @@ export class BuildingsListComponent {
                 gameManager.stateManager.after();
             }
             this.change.emit();
+        }
+    }
+
+    openInteraction(building: Building) {
+        if (building.model.name == 'craftsman') {
+            this.dialog.open(ItemsDialogComponent, {
+                panelClass: ['dialog'],
+                data: { edition: gameManager.game.edition, craftOnly: true }
+            })
+        } else if (building.model.name == 'alchemist') {
+            this.dialog.open(ItemsBrewDialog, {
+                panelClass: ['dialog']
+            })
         }
     }
 

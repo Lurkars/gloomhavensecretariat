@@ -43,7 +43,7 @@ export class ItemsBrewDialog implements OnInit {
     gridCellActiveSpecial3: boolean = false;
     gridCellDisabledSpecial3: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) public character: Character | undefined, private dialogRef: DialogRef, private dialog: Dialog) {
         this.brewing = 0;
         if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
             const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
@@ -76,7 +76,7 @@ export class ItemsBrewDialog implements OnInit {
 
     computeGridState() {
         this.herbTotals = this.herbs.map((herb) =>
-            (this.character.progress.loot[herb] || 0) + (gameManager.game.party.loot[herb] || 0)
+            (!!this.character && this.character.progress.loot[herb] || 0) + (gameManager.game.party.loot[herb] || 0)
         );
 
         this.gridItems2 = [];
@@ -136,7 +136,7 @@ export class ItemsBrewDialog implements OnInit {
         if (type) {
             if (!force) {
                 if (!source) {
-                    if (this.character.progress.loot[type] && (this.character.progress.loot[type] || 0) > (this.characterSpent[type] || 0)) {
+                    if ((!!this.character && this.character.progress.loot[type] || 0) > (this.characterSpent[type] || 0)) {
                         source = this.characterSpent;
                     } else if (gameManager.game.party.loot[type] && (gameManager.game.party.loot[type] || 0) > (this.fhSupportSpent[type] || 0)) {
                         source = this.fhSupportSpent;
@@ -183,7 +183,7 @@ export class ItemsBrewDialog implements OnInit {
             this.removeHerb(this.receipe[index], false, index);
         }
         if (add) {
-            if ((this.character.progress.loot[type] || 0) <= (this.characterSpent[type] || 0) && (gameManager.game.party.loot[type] || 0) <= (this.fhSupportSpent[type] || 0)) {
+            if ((!!this.character && this.character.progress.loot[type] || 0) <= (this.characterSpent[type] || 0) && (gameManager.game.party.loot[type] || 0) <= (this.fhSupportSpent[type] || 0)) {
                 this.removeHerb(type, false);
             }
             this.addHerb(type, false, index, force);
@@ -199,13 +199,13 @@ export class ItemsBrewDialog implements OnInit {
         if (!gameManager.itemManager.brewingDisabled() && !this.forced.includes(true) || force) {
             this.brewed = this.getItem();
             if (this.selectedCharacter && this.brewed) {
-                gameManager.stateManager.before(this.selectedCharacter == this.character ? 'brewPotion' : 'brewPotionOther', gameManager.characterManager.characterName(this.character), this.brewed.id, this.brewed.edition, gameManager.characterManager.characterName(this.selectedCharacter));
+                gameManager.stateManager.before(this.selectedCharacter == this.character ? 'brewPotion' : 'brewPotionOther', !!this.character && gameManager.characterManager.characterName(this.character) || '', this.brewed.id, this.brewed.edition, gameManager.characterManager.characterName(this.selectedCharacter));
                 if (!force) {
                     this.herbs.forEach((herb) => {
                         if (this.fhSupportSpent[herb]) {
                             gameManager.game.party.loot[herb] = (gameManager.game.party.loot[herb] || 0) - (this.fhSupportSpent[herb] || 0);
                         }
-                        if (this.characterSpent[herb]) {
+                        if (!!this.character && this.characterSpent[herb]) {
                             this.character.progress.loot[herb] = (this.character.progress.loot[herb] || 0) - (this.characterSpent[herb] || 0);
                         }
                     })
@@ -215,6 +215,7 @@ export class ItemsBrewDialog implements OnInit {
                 }
                 this.selectedCharacter.progress.items.push(new Identifier('' + this.brewed.id, this.brewed.edition));
                 this.applied = true;
+                this.computeGridState();
                 gameManager.stateManager.after();
             }
         }
@@ -264,13 +265,13 @@ export class ItemsBrewDialog implements OnInit {
     }
 
     isGridCombinationDisabled(herb1: LootType, herb2: LootType, herb3: LootType | undefined = undefined): boolean {
-        const total1 = (this.character.progress.loot[herb1] || 0) + (gameManager.game.party.loot[herb1] || 0);
-        const total2 = (this.character.progress.loot[herb2] || 0) + (gameManager.game.party.loot[herb2] || 0);
+        const total1 = (!!this.character && this.character.progress.loot[herb1] || 0) + (gameManager.game.party.loot[herb1] || 0);
+        const total2 = (!!this.character && this.character.progress.loot[herb2] || 0) + (gameManager.game.party.loot[herb2] || 0);
         if (herb1 === herb2) {
             return total1 < 2;
         }
         if (herb3) {
-            const total3 = (this.character.progress.loot[herb3] || 0) + (gameManager.game.party.loot[herb3] || 0);
+            const total3 = (!!this.character && this.character.progress.loot[herb3] || 0) + (gameManager.game.party.loot[herb3] || 0);
             return total1 < 1 || total2 < 1 || total3 < 1;
         }
         return total1 < 1 || total2 < 1;

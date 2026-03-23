@@ -1956,13 +1956,33 @@
       width: calc(var(--ghs-unit) * 120.5 * var(--ghs-dialog-factor));
     }
 
-    .toggle-fh-sheet {
-      cursor: pointer;
-      position: relative;
-      bottom: 0;
-      left: 49%;
-      transform: translateX(-50%);
-      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    .bottom-menu {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+
+      .event-effects {
+        cursor: pointer;
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0.5em;
+
+        img {
+          height: 1em;
+          width: auto;
+          margin-right: 0.2em;
+        }
+      }
+
+
+      .toggle-fh-sheet {
+        cursor: pointer;
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        margin-right: 0.5em;
+      }
     }
 
     .wip,

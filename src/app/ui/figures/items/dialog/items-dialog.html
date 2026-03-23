@@ -3,27 +3,29 @@
   <div class="scroll-container">
     <div class="header">
       @if (!character) {
-      <span class="title" [ghs-label]="'game.items.shop'"></span>
+      <span class="title" [ghs-label]="'game.items.shop' +  (craftOnly ? '.craft' : '')"></span>
       }
       @if (!!character) {
-      <span (click)="openItems()" class="title" [ghs-label]="'game.items.shop.character'"
+      <span (click)="openItems()" class="title" [ghs-label]="'game.items.shop.character' +  (craftOnly ? '.craft' : '')"
         [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"
         [ngClass]="{'management' : character.progress.items &&  character.progress.items.length}"></span>
       }
-      @if (!!character) {
       <div class="resources">
+        @if (!!character) {
         <span class="resource gold"><img
             [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'loot.svg'">{{character.progress.gold}}</span>
+        }
         @if (gameManager.fhRules(false)) {
         <div class="resource-grid">
           @for (type of lootTypes; track type;) {
-          @if (settingsManager.settings.fhShareResources && gameManager.game.party.loot[type]) {
+          @if (settingsManager.settings.fhShareResources && gameManager.game.party.loot[type] && (!!character ||
+          craftOnly)) {
           <span class="resource" [ngClass]="type">
             <img [src]="'./assets/images/fh/loot/' + type +'.svg'">
             {{gameManager.game.party.loot[type]}}
           </span>
           }
-          @if (!settingsManager.settings.fhShareResources && character.progress.loot[type]) {
+          @if (!!character && !settingsManager.settings.fhShareResources && character.progress.loot[type]) {
           <span class="resource" [ngClass]="type">
             <img [src]="'./assets/images/fh/loot/' + type +'.svg'">
             {{character.progress.loot[type]}}
@@ -38,7 +40,6 @@
             src="./assets/images/fh/brewing.svg"><span [ghs-label]="'game.items.brewing'"></span></a>
         }
       </div>
-      }
       @if (gameManager.itemManager.buyingDisabled() && !!character && !character.tags.includes('new-character') ||
       gameManager.itemManager.craftingDisabled()) {
       <div class="shop-disabled">
@@ -68,14 +69,14 @@
         <input type="text" [(ngModel)]="filter" (keyup)="update()" [ghs-label]="'game.items.filter'"
           [ghs-label-attribute]="'placeholder'">
 
-        @if (!!character) {
-        @if (!owned) {
+        @if (!!character || craftOnly) {
+        @if (!owned && (!!character || settingsManager.settings.fhShareResources && craftOnly)) {
         <label>
           <input type="checkbox" [(ngModel)]="affordable" (change)="update(true)">
           <span [ghs-label]="'game.items.filter.affordable'"></span>
         </label>
         }
-        @if (!affordable && !all) {
+        @if (!!character && !affordable && !all) {
         <label>
           <input type="checkbox" [(ngModel)]="owned" (change)="update(true)">
           <span [ghs-label]="'game.items.filter.owned'"></span>
@@ -98,6 +99,19 @@
           <input type="checkbox" [checked]="currentEdition == edition" (change)="setEdition(edition)">
           <span [ghs-label]="'data.edition.' + edition"></span>
         </label>
+        }
+      </div>
+      }
+
+      @if (craftOnly) {
+      <div class="characters">
+        @for (char of characters| trackUUID; track char._trackUUID) {
+        <div class="character" (click)="toggleCharacter(char)" [ngClass]="{'selected' : character == char}">
+          <img class="icon" [src]="char.iconUrl" />
+          <span class="name">
+            {{gameManager.characterManager.characterName(char,true)}}
+          </span>
+        </div>
         }
       </div>
       }

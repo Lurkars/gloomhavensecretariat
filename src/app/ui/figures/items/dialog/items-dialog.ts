@@ -7,7 +7,7 @@ import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { CountIdentifier } from "src/app/game/model/data/Identifier";
 import { ItemData, ItemSlot } from "src/app/game/model/data/ItemData";
-import { LootType, resourceLootTypes } from "src/app/game/model/data/Loot";
+import { LootType, materialResourceLootTypes, resourceLootTypes } from "src/app/game/model/data/Loot";
 import { ghsDialogClosingHelper, ghsTextSearch } from "src/app/ui/helper/Static";
 import { ItemsBrewDialog } from "../brew/brew";
 import { ItemDistillDialogComponent } from "../character/item-distill";
@@ -34,10 +34,12 @@ export class ItemsDialogComponent implements OnInit {
     itemsMeta: { edition: string, id: number | string, canAdd: boolean, canBuy: boolean, canCraft: boolean, owned: boolean, assigned: number, countAvailable: number }[] = [];
     selected: ItemData | undefined;
     character: Character | undefined;
+    characters: Character[] = [];
     filter: string = "";
     all: boolean = false;
     owned: boolean = false;
     affordable: boolean = false;
+    craftOnly: boolean = false;
     sorted: boolean = false;
     itemSlots: (ItemSlot | "undefined")[] = [];
     itemSlotUndefined: boolean = false;
@@ -48,17 +50,21 @@ export class ItemsDialogComponent implements OnInit {
 
     ItemSlot: ItemSlot[] = Object.values(ItemSlot);
 
-    constructor(@Inject(DIALOG_DATA) public data: { edition: string | undefined, select: Character | undefined, affordable: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
+    constructor(@Inject(DIALOG_DATA) public data: { edition: string | undefined, select: Character | undefined, affordable: boolean, craftOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
         this.ghsManager.uiChangeEffect(() => this.update());
         this.selected = undefined;
         this.character = data.select;
         this.sorted = this.character != undefined && this.character.progress.items.length > 0;
         this.edition = data.edition;
         this.affordable = data.affordable || false;
+        this.craftOnly = data.craftOnly || false;
         this.campaignMode = this.edition && gameManager.game.party.campaignMode || false;
         this.editions = this.edition ? gameManager.itemManager.itemEditions(this.edition) : gameManager.itemManager.itemEditions();
         this.all = this.edition == undefined;
         this.currentEdition = this.edition || this.editions[0];
+        if (this.craftOnly) {
+            this.lootTypes = [...materialResourceLootTypes];
+        }
     }
 
     ngOnInit() {
@@ -102,7 +108,7 @@ export class ItemsDialogComponent implements OnInit {
         this.unlocks = [];
         this.selected = undefined;
         this.brewing = 0;
-        this.items = this.editionItems.filter((itemData) => (!this.affordable || gameManager.itemManager.assigned(itemData) < itemData.count)).filter((itemData) => !this.affordable || this.character && gameManager.itemManager.canAdd(itemData, this.character) && (gameManager.itemManager.canBuy(itemData, this.character) || gameManager.itemManager.canCraft(itemData, this.character)));
+        this.items = this.editionItems.filter((itemData) => (!this.affordable || gameManager.itemManager.assigned(itemData) < itemData.count)).filter((itemData) => !this.affordable || this.character && gameManager.itemManager.canAdd(itemData, this.character) && (gameManager.itemManager.canBuy(itemData, this.character)) || gameManager.itemManager.canCraft(itemData, this.character)).filter((itemData) => !this.craftOnly || itemData.resources && (itemData.resources.metal || itemData.resources.hide || itemData.resources.lumber));
 
         if (this.character && this.edition && this.campaignMode && !this.all && !this.affordable) {
             this.character.progress.items.forEach((identifier) => {
@@ -211,6 +217,8 @@ export class ItemsDialogComponent implements OnInit {
                 return this.items.indexOf(A) - this.items.indexOf(B);
             })
         }
+
+        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
     }
 
     toggleItemSlotFilter(slot: ItemSlot | "undefined", add: boolean = false) {
@@ -341,6 +349,15 @@ export class ItemsDialogComponent implements OnInit {
             gameManager.itemManager.toggleEquippedItem(itemData, this.character, force)
             gameManager.stateManager.after();
         }
+    }
+
+    toggleCharacter(char: Character) {
+        if (this.character == char) {
+            this.character = undefined;
+        } else {
+            this.character = char;
+        }
+        this.update(this.affordable);
     }
 
     openItems(): void {

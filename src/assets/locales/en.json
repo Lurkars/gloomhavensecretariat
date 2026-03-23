@@ -1155,7 +1155,11 @@
       "shop": {
         "": "Itemcards",
         "buyingDisabled": "Cannot buy items, rebuild '%data.buildings.trading-post%' (37) first",
-        "character": "Itemshop for %game.characterIconColored.{0}% {1}",
+        "character": {
+          "": "Itemshop for %game.characterIconColored.{0}% {1}",
+          "craft": "Craft Items for %game.characterIconColored.{0}% {1}"
+        },
+        "craft": "Craft Items",
         "craftingDisabled": "Cannot craft items, rebuild '%data.buildings.craftsman%' (34) first"
       },
       "unlock": "Unlock Item",

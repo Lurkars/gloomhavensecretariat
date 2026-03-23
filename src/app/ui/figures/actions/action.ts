@@ -70,6 +70,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
   hasAOE: boolean = false;
   cardConcat: boolean = false;
 
+  statRelative: boolean = false;
   forceRelative: boolean = false;
 
   level: number = 0;
@@ -119,7 +120,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
 
     this.forceRelative = !this.monster || !this.hasEntities();
     if (this.monster && !this.relative && !this.forceRelative && settingsManager.settings.calculate && this.action && (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) && this.action.valueType != ActionValueType.minus && this.action.subActions && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && !(subAction.value + '').startsWith('self'))) {
-      this.forceRelative = true;
+      this.statRelative = true;
       this.action.valueType = ActionValueType.plus;
     }
 
@@ -240,7 +241,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       return this.action.value;
     }
 
-    if (settingsManager.settings.calculate && !this.relative && !this.forceRelative) {
+    if (settingsManager.settings.calculate && !this.relative && !this.forceRelative && !this.statRelative) {
       const stat = this.getStat(type);
       let statValue: number = 0;
       let sign: boolean = true;
@@ -299,7 +300,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       }
     }
 
-    if (settingsManager.settings.calculateStats && settingsManager.settings.calculateShieldStats && !this.relative && !this.forceRelative) {
+    if (settingsManager.settings.calculateStats && settingsManager.settings.calculateShieldStats && !this.relative && !this.forceRelative && !this.statRelative) {
       const stat = this.getStat(type);
       let statValue: number = 0;
       if (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) {
@@ -322,12 +323,14 @@ export class ActionComponent implements OnInit, AfterViewInit {
       }
     }
 
+    const value = settingsManager.settings.calculate && !this.relative && !this.forceRelative && (('' + this.action.value).match(EntityExpressionRegex) || ('' + this.action.value).match(EntityValueRegex)) ? EntityValueFunction(this.action.value, this.level) : this.action.value;
+
     if (this.action.valueType == ActionValueType.plus) {
-      return "+" + (settingsManager.settings.fhStyle ? '' : ' ') + this.action.value;
+      return "+" + (settingsManager.settings.fhStyle ? '' : ' ') + value;
     } else if (this.action.valueType == ActionValueType.minus) {
-      return "-" + (settingsManager.settings.fhStyle ? '' : ' ') + this.action.value;
+      return "-" + (settingsManager.settings.fhStyle ? '' : ' ') + value;
     } else {
-      return settingsManager.settings.calculate && (('' + this.action.value).match(EntityExpressionRegex) || ('' + this.action.value).match(EntityValueRegex)) ? EntityValueFunction(this.action.value, this.level) : this.action.value;
+      return value;
     }
   }
 

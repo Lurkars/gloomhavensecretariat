@@ -655,8 +655,8 @@
       }
     </span>
     <span class="value">
-      @if (!relative && !forceRelative) {
-      <span>
+      @if (!relative && !forceRelative && !statRelative) {
+      <span class="calculated">
         @if (hasEntitiesCache.normal || !monster) {
         <span [value-calc]="normalValue" [level]="level"></span>
         }
@@ -668,16 +668,16 @@
         }
       </span>
       }
-      @if (relative || forceRelative) {
-      <span>
+      @if (relative || forceRelative || statRelative) {
+      <span class="relative">
         @if (hasEntitiesCache.normal || !monster || forceRelative) {
-        <span [ghs-label]="normalValue+ ''" [relative]="relative || forceRelative" [style]="style"></span>
+        <span [ghs-label]="normalValue" [relative]="relative || forceRelative" [style]="style"></span>
         }
         @if (hasEntitiesCache.normal && hasEntitiesCache.elite && normalValue != eliteValue) {
         <span>/</span>
         }
         @if (hasEntitiesCache.elite && (normalValue != eliteValue || !hasEntitiesCache.normal)) {
-        <span [ngClass]="{'elite' : hasEntitiesCache.normal}" [ghs-label]="eliteValue + ''"
+        <span [ngClass]="{'elite' : hasEntitiesCache.normal}" [ghs-label]="eliteValue"
           [relative]="relative || forceRelative" [style]="style"></span>
         }
         @if (!fhStyle) {

@@ -95,20 +95,26 @@ export class EntityManager {
       return false;
     }
 
-    if (entity instanceof Character) {
-      return !entity.exhausted && !entity.absent;
+    const cast = !(entity instanceof Character) && !(entity instanceof MonsterEntity) && !(entity instanceof Summon) && !(entity instanceof ObjectiveEntity);
+
+    if (entity instanceof Character || cast && 'progress' in entity) {
+      const character = entity as Character;
+      return !character.exhausted && !character.absent;
     }
 
-    if (entity instanceof MonsterEntity) {
-      return !entity.dead && !entity.dormant && (!acting || entity.summon != SummonState.new);
+    if (entity instanceof MonsterEntity || cast && 'number' in entity && 'type' in entity) {
+      const monsterEntity = entity as MonsterEntity;
+      return !monsterEntity.dead && !monsterEntity.dormant && (!acting || monsterEntity.summon != SummonState.new);
     }
 
-    if (entity instanceof Summon) {
-      return !entity.dead && !entity.dormant && (!acting || (!entity.passive || !settingsManager.settings.passiveSummons || !settingsManager.settings.activeSummons) && entity.state != SummonState.new);
+    if (entity instanceof Summon || cast && 'name' in entity && ('attack' in entity || 'move' in entity || 'range' in entity || 'action' in entity)) {
+      const summon = entity as Summon;
+      return !summon.dead && !summon.dormant && (!acting || (!summon.passive || !settingsManager.settings.passiveSummons || !settingsManager.settings.activeSummons) && summon.state != SummonState.new);
     }
 
-    if (entity instanceof ObjectiveEntity) {
-      return !entity.dead && !entity.dormant;
+    if (entity instanceof ObjectiveEntity || cast && 'uuid' in entity && 'marker' in entity) {
+      const objectiveEntity = entity as ObjectiveEntity;
+      return !objectiveEntity.dead && !objectiveEntity.dormant;
     }
 
     return false;

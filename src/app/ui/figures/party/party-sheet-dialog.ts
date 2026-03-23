@@ -22,6 +22,7 @@ import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario
 import { ghsDialogClosingHelper, ghsInputFullScreenCheck } from "../../helper/Static";
 import { AutocompleteItem } from "../../helper/autocomplete";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
+import { EventEffectsDialog } from "../event-effects/event-effects";
 import { EventCardDeckComponent } from "../event/deck/event-card-deck";
 import { BuildingUpgradeDialog } from "./buildings/upgrade-dialog/upgrade-dialog";
 import { ScenarioRequirementsDialogComponent } from "./requirements/requirements";
@@ -721,6 +722,10 @@ export class PartySheetDialogComponent implements OnInit {
     this.itemEdition = this.partyEdition;
     this.treasureEdition = this.partyEdition;
     this.update();
+  }
+
+  openEventEffects() {
+    this.dialog.open(EventEffectsDialog, { panelClass: ['dialog'] });
   }
 
   toggleFhSheet() {

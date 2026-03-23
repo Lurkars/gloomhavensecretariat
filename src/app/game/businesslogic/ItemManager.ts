@@ -125,7 +125,7 @@ export class ItemManager {
         return gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'trading-post' && buildingModel.level > 0 && buildingModel.state == "wrecked") != undefined;
     }
 
-    canCraft(item: ItemData, character: Character, resources: Partial<Record<LootType, number>> = {}): boolean {
+    canCraft(item: ItemData, character: Character | undefined, resources: Partial<Record<LootType, number>> = {}): boolean {
         if (this.craftingDisabled()) {
             return false;
         }
@@ -140,9 +140,9 @@ export class ItemManager {
                     isCraftItem = true;
                 }
                 if (getLootClass(lootType) == LootClass.herb_resources || settingsManager.settings.fhShareResources && getLootClass(lootType) == LootClass.material_resources) {
-                    canCraft = canCraft && ((character.progress.loot[lootType] || 0) >= requiredResource || (gameManager.game.party.loot[lootType] || 0) >= requiredResource);
+                    canCraft = canCraft && ((!!character && character.progress.loot[lootType] || 0) >= requiredResource || (gameManager.game.party.loot[lootType] || 0) >= requiredResource);
                 } else {
-                    canCraft = canCraft && (character.progress.loot[lootType] || 0) >= requiredResource;
+                    canCraft = canCraft && (!!character && character.progress.loot[lootType] || 0) >= requiredResource;
                 }
             });
         }
@@ -155,7 +155,7 @@ export class ItemManager {
                         console.error("Missing required item '" + itemId + "' for item '" + item.id + "' (" + item.name + ")");
                     } else {
                         isCraftItem = true;
-                        if (!this.owned(requiredItem, character)) {
+                        if (!!character && !this.owned(requiredItem, character)) {
                             canCraft = canCraft && (this.canCraft(requiredItem, character, item.resources || {}) || this.canBuy(requiredItem, character, item.cost));
                         }
                     }

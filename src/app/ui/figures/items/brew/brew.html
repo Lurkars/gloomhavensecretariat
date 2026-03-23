@@ -22,11 +22,11 @@
 
     @if (!settingsManager.settings.fhBrewGrid) {
     <div class="table"
-      [style.--ghs-summary-columns]="2 + brewing + (settingsManager.settings.fhShareResources ? -1 : 0)">
+      [style.--ghs-summary-columns]="2 + brewing + (settingsManager.settings.fhShareResources ? -1 : 0) + (!character ? -1 : 0)">
       @for (i of [] | ghsRange:brewing; track i) {
       <span class="head-col first">{{i+1}}.</span>
       }
-      @if(!settingsManager.settings.fhShareResources) {
+      @if(!!character && !settingsManager.settings.fhShareResources) {
       <span class="first">
         <img class="icon character-icon" [src]="character.iconUrl" />
         <span class="name" [ngClass]="{'absent' : character.absent}">
@@ -38,23 +38,23 @@
 
       @for (herb of herbs; track herb) {
       <span class="head-col calc-col toggle"
-        [ngClass]="{'active' : receipe.length > 0 && receipe[0] == herb, 'disabled' : receipe[0] != herb && (character.progress.loot[herb] || 0) == 0 && (gameManager.game.party.loot[herb] || 0) == 0, 'spent' : receipe[0] != herb &&  ((characterSpent[herb] || 0) > 0  || (fhSupportSpent[herb] || 0) > 0) && (character.progress.loot[herb] || 0) <= (characterSpent[herb] || 0) && (gameManager.game.party.loot[herb] || 0) <= (fhSupportSpent[herb] || 0), 'forced': forced[0]}"
+        [ngClass]="{'active' : receipe.length > 0 && receipe[0] == herb, 'disabled' : receipe[0] != herb && (!!character && character.progress.loot[herb] || 0) == 0 && (gameManager.game.party.loot[herb] || 0) == 0, 'spent' : receipe[0] != herb &&  ((characterSpent[herb] || 0) > 0  || (fhSupportSpent[herb] || 0) > 0) && (!!character && character.progress.loot[herb] || 0) <= (characterSpent[herb] || 0) && (gameManager.game.party.loot[herb] || 0) <= (fhSupportSpent[herb] || 0), 'forced': forced[0]}"
         ghs-pointer-input (singleClick)="toggleHerb(herb, 0)" (doubleClick)="toggleHerb(herb, 0, true)">
         <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +  herb + '.svg'">
       </span>
       <span class="head-col calc-col toggle"
-        [ngClass]="{'active' : receipe.length > 1 && receipe[1] == herb, 'disabled' : receipe[1] != herb && (character.progress.loot[herb] || 0) == 0 && (gameManager.game.party.loot[herb] || 0) == 0, 'spent' : receipe[1] != herb &&  ((characterSpent[herb] || 0) > 0  || (fhSupportSpent[herb] || 0) > 0) && (character.progress.loot[herb] || 0) <= (characterSpent[herb] || 0) && (gameManager.game.party.loot[herb] || 0) <= (fhSupportSpent[herb] || 0), 'forced': forced[1]}"
+        [ngClass]="{'active' : receipe.length > 1 && receipe[1] == herb, 'disabled' : receipe[1] != herb && (!!character && character.progress.loot[herb] || 0) == 0 && (gameManager.game.party.loot[herb] || 0) == 0, 'spent' : receipe[1] != herb &&  ((characterSpent[herb] || 0) > 0  || (fhSupportSpent[herb] || 0) > 0) && (!!character && character.progress.loot[herb] || 0) <= (characterSpent[herb] || 0) && (gameManager.game.party.loot[herb] || 0) <= (fhSupportSpent[herb] || 0), 'forced': forced[1]}"
         ghs-pointer-input (singleClick)="toggleHerb(herb, 1)" (doubleClick)="toggleHerb(herb, 1,true)">
         <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +  herb + '.svg'">
       </span>
       @if (brewing == 3) {
       <span class="head-col calc-col toggle"
-        [ngClass]="{'active' : receipe.length > 2 && receipe[2] == herb, 'disabled' : receipe[2] != herb && (character.progress.loot[herb] || 0) == 0 && (gameManager.game.party.loot[herb] || 0) == 0, 'spent' : receipe[2] != herb &&  ((characterSpent[herb] || 0) > 0  || (fhSupportSpent[herb] || 0) > 0) && (character.progress.loot[herb] || 0) <= (characterSpent[herb] || 0) && (gameManager.game.party.loot[herb] || 0) <= (fhSupportSpent[herb] || 0), 'forced': forced[2]}"
+        [ngClass]="{'active' : receipe.length > 2 && receipe[2] == herb, 'disabled' : receipe[2] != herb && (!!character && character.progress.loot[herb] || 0) == 0 && (gameManager.game.party.loot[herb] || 0) == 0, 'spent' : receipe[2] != herb &&  ((characterSpent[herb] || 0) > 0  || (fhSupportSpent[herb] || 0) > 0) && (!!character && character.progress.loot[herb] || 0) <= (characterSpent[herb] || 0) && (gameManager.game.party.loot[herb] || 0) <= (fhSupportSpent[herb] || 0), 'forced': forced[2]}"
         ghs-pointer-input (singleClick)="toggleHerb(herb, 2)" (doubleClick)="toggleHerb(herb, 2, true )">
         <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +  herb + '.svg'">
       </span>
       }
-      @if(!settingsManager.settings.fhShareResources) {
+      @if(!!character && !settingsManager.settings.fhShareResources) {
       <span class="calc-col">
         @if (character.progress.loot[herb]) {
         <span class="value" [ghs-label]="'game.loot.' " [ghs-label-attribute]="'title'">
@@ -73,7 +73,8 @@
       }
       <span class="calc-col">
         @if (gameManager.game.party.loot[herb]) {
-        @if (fhSupportSpent[herb] && (character.progress.loot[herb] || 0) > (characterSpent[herb] || 0)) {
+        @if (fhSupportSpent[herb] && (!!character && character.progress.loot[herb] || 0) > (characterSpent[herb] || 0))
+        {
         <a class="button" (click)="moveHerb(herb,fhSupportSpent,characterSpent)">
           <img class="ghs-svg" src="./assets/images/left.svg">
         </a>
@@ -231,7 +232,7 @@
     <div class="receipe">
       <span class="placeholder text-white item"
         [ghs-label]="'game.items.brewing.brewed' + (selectedCharacter != character ? 'Other' : '')"
-        [ghs-label-args]="[brewed.id, brewed.edition, gameManager.characterManager.characterName(character,true) , selectedCharacter != character ? gameManager.characterManager.characterName(selectedCharacter,true): '']"></span>
+        [ghs-label-args]="[brewed.id, brewed.edition, !!character && gameManager.characterManager.characterName(character,true) || '', selectedCharacter != character ? gameManager.characterManager.characterName(selectedCharacter,true): '']"></span>
     </div>
     }
 

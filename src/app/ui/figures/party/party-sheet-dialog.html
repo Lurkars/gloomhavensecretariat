@@ -688,9 +688,14 @@
       }
 
       @if (!campaign) {
-      <span class="toggle-fh-sheet ignore-denied" (click)="toggleFhSheet()">
-        <span [ghs-label]="'party.campaign.sheet.' + (fhSheet ? 'disable': 'enable')"></span>
-      </span>
+      <div class="bottom-menu">
+        <span class="event-effects ignore-denied" (click)="openEventEffects()">
+          <img class="ghs-svg" src="./assets/images/event.svg"> <span [ghs-label]="'scenario.eventEffects'"></span>
+        </span>
+        <span class="toggle-fh-sheet ignore-denied" (click)="toggleFhSheet()">
+          <span [ghs-label]="'party.campaign.sheet.' + (fhSheet ? 'disable': 'enable')"></span>
+        </span>
+      </div>
       }
 
       <!-- CAMPAIGN -->

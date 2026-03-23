@@ -187,7 +187,7 @@ export class ActionsManager {
     calcMonsterActionHint(monster: Monster, monsterType: MonsterType, type: ActionType, actions: Action[], actionHints: ActionHint[], parentIndex: string = "") {
         actions.forEach((action, i) => {
             const index = (parentIndex ? parentIndex + '-' : '') + i;
-            if (action.type == type && action.value != 'X') {
+            if (action.type == type && action.value != 'X' && (!action.subActions || action.subActions.every((subAction) => subAction.type != ActionType.specialTarget || ('' + subAction.value).toLocaleLowerCase().includes('self')))) {
                 let actionHint: ActionHint = new ActionHint(type, EntityValueFunction(action.value));
                 if (action.subActions && action.subActions.length > 0) {
                     let rangeSubAction = action.subActions.find((subAction) => subAction.type == ActionType.range);

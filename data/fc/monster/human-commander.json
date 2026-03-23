@@ -54,7 +54,7 @@
           "valueObject": [
             {
               "monster": {
-                "name": "city-guard",
+                "name": "city-archer",
                 "player2": "normal",
                 "player3": "normal",
                 "player4": "elite"

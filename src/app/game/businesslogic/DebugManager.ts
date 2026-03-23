@@ -205,6 +205,10 @@ export class DebugManager {
             }
         })
     }
+
+    entityValueFunction(value: string | number): number {
+        return EntityValueFunction(value);
+    }
 }
 
 

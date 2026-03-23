@@ -65,7 +65,7 @@
         <span class="interactions">
             @if (building.model.state === 'normal' && building.data.interactionsAvailable &&
             building.data.interactionsAvailable[building.model.level ? building.model.level-1 : 0]) {
-            <span class="interaction">
+            <span class="interaction" (click)="openInteraction(building)">
                 <span class="icon"
                     [ghs-tooltip]="building.data.interactionsAvailable[building.model.level ? building.model.level-1 : 0]"
                     [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/interaction.svg">
