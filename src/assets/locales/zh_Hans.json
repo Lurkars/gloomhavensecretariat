@@ -1118,9 +1118,12 @@
         "brewed": "{2} 酿造 %data.items.{1}-{0}% %game.itemFh.{0}%",
         "brewedOther": "{2} 为 {3} 酿造 %data.items.{1}-{0}% %game.itemFh.{0}%",
         "disabled": "无法酿造药水，请先重建 '%data.buildings.alchemist%' (35)",
+        "grid": "显示炼金面板",
         "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "所有角色均已持有该药水！",
-        "selectCharacter": "选择获得酿造药水的角色："
+        "selectCharacter": "选择获得酿造药水的角色：",
+        "special3": "两种或以上相同草药",
+        "table": "显示炼金表"
       },
       "buy": "花费 {1} 金币购买 '{0}'",
       "character": {
@@ -1148,6 +1151,11 @@
       },
       "remove": "移除 '{0}'",
       "sell": "出售 '{0}' 以获取 {1} 金币",
+      "share": {
+        "": "给出'{0}'",
+        "apply": "分享道具",
+        "select": "选择角色"
+      },
       "shop": {
         "": "物品卡牌",
         "buyingDisabled": "不能购买物品，请先重建 '%data.buildings.trading-post%' (37)",
@@ -2598,6 +2606,10 @@
       "": "自动激活物品",
       "hint": "自动根据行动角色的切换来显示角色对应的物品."
     },
+    "characterItemsShareHouseRule": {
+      "": "共享道具村规",
+      "hint": "一种角色之间可以共享道具的村规。"
+    },
     "characterSheet": {
       "": "角色记录表",
       "hint": "启用角色记录表功能。点击角色面板右侧的大图标以打开记录表。"
@@ -2877,6 +2889,10 @@
     "partySheet": {
       "": "团队记录表",
       "hint": "启用团队记录表以及战役记录表。战役记录表位于团队表的 <i>backside</i>。"
+    },
+    "passiveSummons": {
+      "": "被动召唤物",
+      "hint": "允许标记为被动的召唤物跳过主动回合。"
     },
     "pinchZoom": {
       "": "手势缩放",
@@ -3518,6 +3534,7 @@
       "setSummonState": "为 {0} 设置召唤物 {1} {2}",
       "setTitle": "为 {0} 设置标题 '{1}'",
       "setXP": "为 {0} 设置经验值 {1}",
+      "shareItem": "{0} 将\"%data.items.{3}-{2}%\" (item {2})交给{1}",
       "shuffleAbilityDeck": "将 {0} 的能力牌堆混洗",
       "shuffleAbilityDeckUpcoming": "混洗 {0} 的尚未抽取的能力卡牌堆",
       "skipInteractiveActions": "为 {2} 的立牌 {1} 跳过互动能力",
