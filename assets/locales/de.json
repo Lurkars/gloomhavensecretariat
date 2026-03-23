@@ -1157,9 +1157,13 @@
       },
       "shop": {
         "": "Gegenstandskarten",
-        "buyingDisabled": "Kaufen von Items nicht möglich, erst '%data.buildings.trading-post%' (37) wiederaufbauen",
-        "character": "Gegenstandsladen für %game.characterIconColored.{0}% {1}",
-        "craftingDisabled": "Anfertigen von Items nicht möglich, erst '%data.buildings.craftsman%' (34) wiederaufbauen"
+        "buyingDisabled": "Kaufen von Gegenständen nicht möglich, erst '%data.buildings.trading-post%' (37) wiederaufbauen",
+        "character": {
+          "": "Gegenstandsladen für %game.characterIconColored.{0}% {1}",
+          "craft": "Gegenstände für %game.characterIconColored.{0}% {1} anfertigen"
+        },
+        "craft": "Gegenstände anfertigen",
+        "craftingDisabled": "Anfertigen von Gegenständen nicht möglich, erst '%data.buildings.craftsman%' (34) wiederaufbauen"
       },
       "unlock": "Gegenstand freischalten",
       "unlocked": "Gegenstand freigeschaltet",
@@ -1979,7 +1983,7 @@
       "prosperity": "{0} Wohlstand",
       "randomItemBlueprint": "Erhalte einen zufälligen Gegenstandsplan",
       "randomItemBlueprints": "Füge Gegenstände %game.itemFh.{0}% bis %game.itemFh.{1}% zu den zufälligen Gegenstandsblaupausen hinzu.",
-      "randomItems": "Jeder Charakter erhält ein zufälliges Item ({0}-{1})",
+      "randomItems": "Jeder Charakter erhält ein zufälligen Gegenstand ({0}-{1})",
       "randomSideScenario": "Ziehe ein zufälliges Nebenszenario.",
       "removeEvent": {
         "boat": "Entferne Ereignis {0} vom Bootdeck",
