@@ -1,0 +1,1409 @@
+{
+  "name": "silent-knife",
+  "edition": "gh2e",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Single Out",
+      "cardId": 88,
+      "level": 1,
+      "initiative": 86,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.88.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.88.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Flanking Strike",
+      "cardId": 89,
+      "level": 1,
+      "initiative": 4,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.89.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "name": "Swift Bow",
+      "cardId": 90,
+      "level": 1,
+      "initiative": 36,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.90.1%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Quick Hands",
+      "cardId": 91,
+      "level": 1,
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomXp": 1
+    },
+    {
+      "name": "Sinister Opportunity",
+      "cardId": 92,
+      "level": 1,
+      "initiative": 93,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.92.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "name": "Venom Shiv",
+      "cardId": 93,
+      "level": 1,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.93.1%",
+          "small": true
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Throwing Knives",
+      "cardId": 94,
+      "level": 1,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "pull",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Practiced Reflexes",
+      "cardId": 95,
+      "level": 1,
+      "initiative": 64,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.95.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.95.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Special Mixture",
+      "cardId": 96,
+      "level": 1,
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Backstab",
+      "cardId": 97,
+      "level": "X",
+      "initiative": 6,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 5,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "dark",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.97.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "name": "Smoke Bomb",
+      "cardId": 98,
+      "level": "X",
+      "initiative": 12,
+      "lost": true,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "invisible",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.98.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStartXp:2"
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.98.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.silent-knife.abilities.98.3%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Trickster's Reversal",
+      "cardId": 99,
+      "level": "X",
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.99.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStartXp:1"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.99.2%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Open Wound",
+      "cardId": 100,
+      "level": 2,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.100.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "name": "Stick to the Shadows",
+      "cardId": 101,
+      "level": 2,
+      "initiative": 26,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.101.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.101.2%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Hidden Daggers",
+      "cardId": 102,
+      "level": 3,
+      "initiative": 39,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.102.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Flintlock",
+      "cardId": 103,
+      "level": 3,
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.103.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "loot",
+              "value": 1
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.103.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flurry of Blades",
+      "cardId": 104,
+      "level": 4,
+      "initiative": 16,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 7,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Gruesome Advantage",
+      "cardId": 105,
+      "level": 4,
+      "initiative": 90,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.105.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.105.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "poison",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Duelist's Advance",
+      "cardId": 106,
+      "level": 5,
+      "initiative": 7,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "pull",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Serrated Arrow",
+      "cardId": 107,
+      "level": 5,
+      "initiative": 95,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.107.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStartXp:2"
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Dance of Daggers",
+      "cardId": 108,
+      "level": 6,
+      "initiative": 3,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.108.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.108.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.gh2e.silent-knife.abilities.108.3%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.108.4%",
+          "small": true
+        }
+      ],
+      "round": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Cull the Weak",
+      "cardId": 109,
+      "level": 6,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 5,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.109.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.silent-knife.abilities.109.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Stiletto Storm",
+      "cardId": 110,
+      "level": 7,
+      "initiative": 80,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.110.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Spring the Trap",
+      "cardId": 111,
+      "level": 7,
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.111.1%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.111.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.111.3%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.111.4%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Visage of the Inevitable",
+      "cardId": 112,
+      "level": 8,
+      "initiative": 88,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.silent-knife.abilities.112.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Crippling Poison",
+      "cardId": 113,
+      "level": 8,
+      "initiative": 4,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.113.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.113.2%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomRound": true
+    },
+    {
+      "name": "Hired Help",
+      "cardId": 114,
+      "level": 9,
+      "initiative": 2,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.114.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "disarm",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 2
+    },
+    {
+      "name": "Watch It Burn",
+      "cardId": 115,
+      "level": 9,
+      "initiative": 98,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.115.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ],
+              "subActions": [
+                {
+                  "type": "jump",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.silent-knife.abilities.115.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 5,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
