@@ -147,7 +147,9 @@
 
         .characters {
             display: flex;
+            justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
 
             .character {
                 cursor: pointer;
@@ -159,7 +161,7 @@
 
                 .name {
                     font-family: var(--ghs-font-title);
-                    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
                     color: var(--ghs-color-gray);
                     text-shadow: var(--ghs-outline);
                 }
