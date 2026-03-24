@@ -90,6 +90,13 @@
         {
           "monster": {
             "name": "forest-imp",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "forest-imp",
             "player3": "normal",
             "player4": "normal"
           },
@@ -114,6 +121,13 @@
             "player2": "normal",
             "player3": "normal",
             "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "rending-drake",
+            "type": "normal"
           },
           "marker": "d"
         },
