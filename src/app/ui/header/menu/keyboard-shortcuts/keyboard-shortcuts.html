@@ -8,12 +8,12 @@
 
     <ul>
         <li>
-            <kbd><span ghs-label="tools.keyboard.ctrl"></span></kbd> + <kbd><span>z</span></kbd> <span
+            <kbd><span [ghs-label]="isMac ? 'tools.keyboard.cmd' : 'tools.keyboard.ctrl'"></span></kbd> + <kbd><span>z</span></kbd> <span
                 ghs-label="tools.keyboard.undo"></span>
         </li>
         <li>
-            <kbd><span ghs-label="tools.keyboard.ctrl"></span></kbd> +
-            <kbd><span>y</span></kbd>&nbsp;|&nbsp;<kbd><span ghs-label="tools.keyboard.ctrl"></span></kbd> +
+            <kbd><span [ghs-label]="isMac ? 'tools.keyboard.cmd' : 'tools.keyboard.ctrl'"></span></kbd> +
+            <kbd><span>y</span></kbd>&nbsp;|&nbsp;<kbd><span [ghs-label]="isMac ? 'tools.keyboard.cmd' : 'tools.keyboard.ctrl'"></span></kbd> +
             <kbd><span ghs-label="tools.keyboard.shift"></span></kbd> + <kbd><span>Z</span></kbd>
             <span ghs-label="tools.keyboard.redo"></span>
         </li>
@@ -29,7 +29,7 @@
                 ghs-label="tools.keyboard.zoomOut"></span>
         </li>
         <li>
-            <kbd><span ghs-label="tools.keyboard.ctrl"></span></kbd> + <kbd><span>r</span></kbd> <span
+            <kbd><span [ghs-label]="isMac ? 'tools.keyboard.cmd' : 'tools.keyboard.ctrl'"></span></kbd> + <kbd><span>r</span></kbd> <span
                 ghs-label="tools.keyboard.zoomReset"></span>
         </li>
         <li>

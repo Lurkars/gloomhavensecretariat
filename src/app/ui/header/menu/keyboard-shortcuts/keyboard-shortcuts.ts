@@ -10,4 +10,5 @@ import { settingsManager, SettingsManager } from "src/app/game/businesslogic/Set
 export class KeyboardShortcutsComponent {
 
     settinsManager: SettingsManager = settingsManager;
+    isMac: boolean = navigator.userAgent.includes('Mac');
 }
