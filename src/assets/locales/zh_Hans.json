@@ -189,7 +189,7 @@
     "progress": {
       "": "角色记录表",
       "donate": "捐赠",
-      "donations": "向巨橡神殿所捐赠: {0}",
+      "donations": "向巨橡神殿捐赠: {0}",
       "export": "导出",
       "fh": {
         "disable": "切换到幽港迷城角色记录表",
@@ -1159,7 +1159,11 @@
       "shop": {
         "": "物品卡牌",
         "buyingDisabled": "不能购买物品，请先重建 '%data.buildings.trading-post%' (37)",
-        "character": "%game.characterIconColored.{0}% {1} 的物品商店",
+        "character": {
+          "": "道具商店%game.characterIconColored.{0}% {1}",
+          "craft": "制造道具%game.characterIconColored.{0}% {1}"
+        },
+        "craft": "制造道具",
         "craftingDisabled": "不能制作物品，请先重建 '%data.buildings.craftsman%' (34)"
       },
       "unlock": "解锁物品",

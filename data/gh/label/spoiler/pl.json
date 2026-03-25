@@ -1,7 +1,31 @@
 {
   "items": {
+    "gh-106": {
+      "": "Zębowy Naszyjnik",
+      "1": "Za każdym razem, gdy zabijesz wroga podczas swojej tury, wykonaj akcję \"%game.action.heal:1%  %game.specialTarget.self%\"."
+    },
     "gh-115": {
       "": "Górski Młot"
+    },
+    "gh-21": {
+      "": "Proch Ogłuszenia",
+      "1": "Podczas twojego ataku dodaj %game.condition.stun% do pojedynczego ataku."
+    },
+    "gh-37": {
+      "": "Szata Ewokacji",
+      "1": "Podczas twojego ataku, %game.element.consume.wild%, aby dodać +1 %game.action.attack% do całej akcji Ataku."
+    },
+    "gh-53": {
+      "": "Czarny Sztylet",
+      "1": "Podczas twojego ataku wręcz dodaj %game.condition.curse% do pojedynczego ataku."
+    },
+    "gh-93": {
+      "": "Zwój Mocy",
+      "1": "Podczas ataku sojusznika dodaj +1 %game.action.attack% do całej jego akcji ataku"
+    },
+    "gh-94": {
+      "": "Zwój Leczenia",
+      "1": "Podczas swojej tury wykonaj akcję \"%game.action.heal:3%, %game.action.range:5%\""
     }
   },
   "summon": {

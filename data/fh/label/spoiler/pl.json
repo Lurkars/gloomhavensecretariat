@@ -1418,6 +1418,12 @@
         "42": {
           "33": "Tam napadli na was Czychacze, zwabieni przyciąganiem Odłamków, które niesiecie. Zniszczyli waszą łódź, więc zdecydowaliście się poszukać innego środka transportu. Majsterkowicz z Frosthaven, <strong>%ui.tooltip:data.scenario.recap.fh.character.pinter-droman%</strong>, zaprojektował batysferę – jednostkę do bezpiecznego podróżowania pod wodą – lecz potrzebowała ona źródła zasilania. Sugerował, że możecie znaleźć je w sercu [Radiant Forest].<br>Odzyskaliście Źródło Energii i wróciliście z nim do Pintera. Po kilku tygodniach batysfera była gotowa – wraz z zestawem podwodnych skafandrów. Nadszedł czas, by dalej podążać za przyciąganiem Odłamków Koralowca."
         },
+        "45": {
+          "38": "<strong>%ui.tooltip:data.scenario.recap.fh.character.barduu%</strong> i <strong>%ui.tooltip:data.scenario.recap.fh.character.gurndel%</strong> skonsultowali się z <strong>%ui.tooltip:data.scenario.recap.fh.character.marogh%</strong>, który przemówił: \"ZEPSUCIE ZASZŁO ZBYT DALEKO. TEN, KTÓRY ŚPI, ZACZYNA SIĘ BUDZIĆ. JEGO WPŁYW PODSYCA KONFLIKT. SERCE LODU CZERNIEJE. JEGO SKAZA MUSI ZOSTAĆ WYKORZENIONA - ZASTĄPIONA.<br>UFORMUJCIE NOWE SERCE STWORZONE Z LODU I ŚNIEGU. JEDNA ŚCIEŻKA LEŻY UKRYTA W MORZU - ŻYWY LODOWIEC, ZRODZONY W MINIONYCH EPOKACH. DRUGA LEŻY NA POŁUDNIOWYCH WZGÓRZACH - ŚWIEŻY ŚNIEG, KTÓRY NIESIE PIEŚŃ NADCHODZĄCYCH DNI. RAZEM KRYJĄ W SOBIE MOC POWSTRZYMANIA ZEPSUCIA. ODSZUKAJCIE JE I POWRÓĆCIE.\"<br>Tym samym, udaliście się do Żywego Lodowca w poszukiwaniu lodu."
+        },
+        "46": {
+          "38": "<strong>%ui.tooltip:data.scenario.recap.fh.character.barduu%</strong> i <strong>%ui.tooltip:data.scenario.recap.fh.character.gurndel%</strong> skonsultowali się z <strong>%ui.tooltip:data.scenario.recap.fh.character.marogh%</strong>, który przemówił: \"ZEPSUCIE ZASZŁO ZBYT DALEKO. TEN, KTÓRY ŚPI, ZACZYNA SIĘ BUDZIĆ. JEGO WPŁYW PODSYCA KONFLIKT. SERCE LODU CZERNIEJE. JEGO SKAZA MUSI ZOSTAĆ WYKORZENIONA - ZASTĄPIONA.<br>UFORMUJCIE NOWE SERCE STWORZONE Z LODU I ŚNIEGU. JEDNA ŚCIEŻKA LEŻY UKRYTA W MORZU - ŻYWY LODOWIEC, ZRODZONY W MINIONYCH EPOKACH. DRUGA LEŻY NA POŁUDNIOWYCH WZGÓRZACH - ŚWIEŻY ŚNIEG, KTÓRY NIESIE PIEŚŃ NADCHODZĄCYCH DNI. RAZEM KRYJĄ W SOBIE MOC POWSTRZYMANIA ZEPSUCIA. ODSZUKAJCIE JE I POWRÓĆCIE.\"<br>Tym samym, udaliście się do Martwej przełęczy w poszukiwaniu Świeżego Śniegu."
+        },
         "4A": {
           "2": "Uratowaliście algokską Kapłankę o imieniu <strong>%ui.tooltip:data.scenario.recap.fh.character.lanprul%</strong> podczas badania ukrytego wejścia na Szczyt Śnieżnicy. Należy ona do Śniegomówców – grupy Algoksów wierzących, że ich bóg (<strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong>) przemawia do nich poprzez padający śnieg. Toczą oni wojnę z rywalizującą grupą Algoksów, Lodomówcami, którzy z kolei wierzą, że mogą komunikować się ze swoim bóstwem poprzez lód wyłaniający się z głębi ziemi. Lodomówcy obecnie zajmują Szczyt Śnieżnicy, ale Śniegomówcy wykorzystali okazję, by go przejąć, gdy tamci wyruszyli do ataku na Frosthaven.",
           "3": "Uratowaliście algokską Kapłankę o imieniu <strong>%ui.tooltip:data.scenario.recap.fh.character.lanprul%</strong> podczas badania ukrytego wejścia na Szczyt Śnieżnicy. Należy ona do Śniegomówców – grupy Algoksów wierzących, że ich bóg (<strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong>) przemawia do nich poprzez padający śnieg. Toczą oni wojnę z rywalizującą grupą Algoksów, Lodomówcami, którzy z kolei wierzą, że mogą komunikować się ze swoim bóstwem poprzez lód wyłaniający się z głębi ziemi. Lodomówcy obecnie zajmują Szczyt Śnieżnicy, ale Śniegomówcy wykorzystali okazję, by go przejąć, gdy tamci wyruszyli do ataku na Frosthaven."
@@ -1454,6 +1460,9 @@
           "": "\"Iskra\", sędziwa Orchidka, odnalazła was przy karczmie tuż przed snem. Bez zbędnych szczegółów - poruszała się o wiele za wolno, by w ogóle o tym myśleć - wręczyła wam worek starożytnych złotych monet i was wynajęła."
         },
         "character": {
+          "barduu": {
+            "tooltip": "Emisariusz Algoksów.<br>Pierwszy raz pojawia się w: %game.scenarioNumber:28%"
+          },
           "captain-olmstead": {
             "": "Kapitan Olmsted",
             "tooltip": "Kapitan straży miejskiej w Frosthaven."
@@ -1465,9 +1474,18 @@
             "": "Eddika",
             "tooltip": "Valradzka bibliotekarka."
           },
+          "geryuu": {
+            "tooltip": "Bóg Algoksów, czczony zarówno przez Śniegomówców, jak i Lodomówców – jednak sposób oddawania mu czci leży u podstaw religijnego rozłamu wśród Algoksów."
+          },
+          "gurndel": {
+            "tooltip": "Emisariusz Algoksów.<br>Pierwszy raz pojawia się w: %game.scenarioNumber:28%"
+          },
           "lanprul": {
             "": "Lanprul",
             "tooltip": "Algoks, Kapłanka Śniegomówców.<br>Pierwsze pojawienie się: %game.scenarioNumber:2% %game.section:77.3%"
+          },
+          "marogh": {
+            "tooltip": "Starożytna wyrocznia w Lesie Białego Ognia."
           },
           "mayor-satha": {
             "": "Burmistrzyni Satha",
