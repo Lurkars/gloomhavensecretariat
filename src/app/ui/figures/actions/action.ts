@@ -38,6 +38,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
   @Input() interactiveActions: InteractiveAction[] = [];
   @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
   @Input() statsCalculation: boolean = false;
+  @Input() shieldStats: boolean = false;
   @Input() hexSize!: number;
   @Input('index') actionIndex: string = "";
   @Input() style: 'gh' | 'fh' | false = false;
@@ -162,7 +163,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       return this.hasEntities(MonsterType.boss);
     }
 
-    return this.monster && (!this.monsterType || !type || this.monsterType == type) && this.monster.entities.some((monsterEntity) => (!type || monsterEntity.type == type) && gameManager.entityManager.isAlive(monsterEntity)) || false;
+    return this.monster && (!this.monsterType || !type || this.monsterType == type) && this.monster.entities.some((monsterEntity) => (!type || this.monsterType == type || monsterEntity.type == type) && gameManager.entityManager.isAlive(monsterEntity)) || false;
   }
 
   getNormalValue(): number | string {
@@ -300,7 +301,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       }
     }
 
-    if (settingsManager.settings.calculateStats && settingsManager.settings.calculateShieldStats && !this.relative && !this.forceRelative && !this.statRelative) {
+    if (settingsManager.settings.calculateStats && this.shieldStats && !this.relative && !this.forceRelative && !this.statRelative) {
       const stat = this.getStat(type);
       let statValue: number = 0;
       if (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) {

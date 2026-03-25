@@ -4,7 +4,8 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { EntityValueFunction } from "src/app/game/model/Entity";
+import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
+import { Figure } from "src/app/game/model/Figure";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
@@ -33,8 +34,9 @@ export class EntitiesMenuDialogComponent {
   ConditionName = ConditionName;
   ConditionType = ConditionType;
   MonsterType = MonsterType;
-  entities: (MonsterEntity | Summon | ObjectiveEntity)[];
-  allEntities: (MonsterEntity | Summon | ObjectiveEntity)[] = [];
+  figures: Figure[] = [];
+  entities: Entity[];
+  allEntities: Entity[] = [];
   entityConditions: EntityCondition[] = [];
   initialImmunities: ConditionName[] = [];
   entityImmunities: ConditionName[] = [];
@@ -46,15 +48,24 @@ export class EntitiesMenuDialogComponent {
   EntityValueFunction = EntityValueFunction;
 
   constructor(@Inject(DIALOG_DATA) public data: { monster: Monster, character: Character, objective: ObjectiveContainer, type: MonsterType | undefined }, private dialogRef: DialogRef, private ghsManager: GhsManager) {
-    if (this.data.monster) {
+    if (!!this.data && this.data.monster) {
       this.monster = this.data.monster;
       this.allEntities = this.monster.entities.filter((entity) => !data.type || entity.type == data.type);
-    } else if (this.data.character) {
+    } else if (!!this.data && this.data.character) {
       this.character = this.data.character;
       this.allEntities = this.character.summons;
-    } else if (this.data.objective) {
+    } else if (!!this.data && this.data.objective) {
       this.objective = this.data.objective;
       this.allEntities = this.objective.entities;
+    } else {
+      this.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character) || !figure.absent);
+      this.figures.forEach((figure) => {
+        if (figure instanceof Character) {
+          this.allEntities.push(figure, ...figure.summons);
+        } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
+          this.allEntities.push(...figure.entities);
+        }
+      })
     }
     this.dialogRef.closed.subscribe({
       next: (forced) => {
@@ -115,7 +126,7 @@ export class EntitiesMenuDialogComponent {
     })
   }
 
-  toggleEntity(entity: MonsterEntity | Summon | ObjectiveEntity) {
+  toggleEntity(entity: Entity) {
     if (!this.entities.includes(entity)) {
       this.entities.push(entity);
     } else {
@@ -170,7 +181,11 @@ export class EntitiesMenuDialogComponent {
       gameManager.stateManager.before("objectivesDead", gameManager.objectiveManager.objectiveName(this.objective));
     }
     this.entities.forEach((entity) => {
-      entity.dead = true;
+      if (entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) {
+        entity.dead = true;
+      } else if (entity instanceof Character) {
+        entity.exhausted = true;
+      }
     });
 
     setTimeout(() => {
@@ -299,7 +314,7 @@ export class EntitiesMenuDialogComponent {
           }
         }
 
-        if (entity.maxHealth > 0 && entity.health <= 0 || entity.dead) {
+        if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && (EntityValueFunction(entity.maxHealth) > 0 && entity.health <= 0 || entity.dead)) {
           entity.dead = entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => !entityCondition.highlight || entityCondition.types.includes(ConditionType.hidden) || !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply));
           deadEntities.push(entity);
         }
@@ -352,10 +367,10 @@ export class EntitiesMenuDialogComponent {
       }
 
       this.entities.forEach((entity) => {
-        if (entity.health == entity.maxHealth) {
+        if (entity.health == EntityValueFunction(entity.maxHealth)) {
           entity.health += this.maxHealth;
         }
-        entity.maxHealth += this.maxHealth;
+        entity.maxHealth = EntityValueFunction(entity.maxHealth) + this.maxHealth;
         if (entity.health > entity.maxHealth) {
           entity.health = entity.maxHealth;
         }

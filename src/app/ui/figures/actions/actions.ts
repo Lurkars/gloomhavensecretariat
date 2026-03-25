@@ -26,6 +26,7 @@ export class ActionsComponent implements OnInit {
   @Input() textBlack: boolean = false;
   @Input() right: boolean = false;
   @Input() statsCalculation: boolean = false;
+  @Input() shieldStats: boolean = false;
   @Input() interactiveAbilities: boolean = false;
   @Input() interactiveActions: InteractiveAction[] = [];
   @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();

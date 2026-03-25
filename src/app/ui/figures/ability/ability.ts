@@ -36,6 +36,7 @@ export class AbilityComponent implements OnInit, OnChanges {
   deckLabel: string = "";
   abilityIndex: number = -1;
   abilityLabel: string = "";
+  shieldStats: boolean = false;
   fh: boolean = false;
 
   interactiveActions: InteractiveAction[] = [];
@@ -80,6 +81,7 @@ export class AbilityComponent implements OnInit, OnChanges {
       this.abilityLabel = this.getAbilityLabel(this.ability);
     }
     this.fh = this.character && (this.character.edition == 'fh' || gameManager.editionExtensions(this.character.edition).includes('fh')) || false;
+    this.shieldStats = settingsManager.settings.calculateShieldStats;
   }
 
   getAbilityIndex(ability: Ability): number {

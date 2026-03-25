@@ -5,9 +5,9 @@
   }
   <ghs-action [action]="action" [monster]="monster" [monsterType]="monsterType" [objective]="objective"
     [inline]="inline" [right]="right" [textBlack]="textBlack" [hexSize]="hexSize" [relative]="relative"
-    [statsCalculation]="statsCalculation" [highlight]="highlightActions.includes(action.type)"
-    [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
-    (interactiveActionsChange)="onInteractiveActionsChange($event)"
+    [statsCalculation]="statsCalculation" [shieldStats]="shieldStats"
+    [highlight]="highlightActions.includes(action.type)" [interactiveAbilities]="interactiveAbilities"
+    [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
     [index]="(actionIndex ? actionIndex + '-' : '') + index" [style]="style" [character]="character" [cardId]="cardId"
     [ngClass]="{'spacing' : !noDivider && !inline && index > 0 && !divider[index] && spacing[index]}">
   </ghs-action>

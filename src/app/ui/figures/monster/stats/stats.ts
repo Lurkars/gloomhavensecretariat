@@ -52,7 +52,6 @@ export class MonsterStatsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.monsterCopy = JSON.parse(JSON.stringify(this.monster));
     this.update();
   }
 
@@ -67,9 +66,9 @@ export class MonsterStatsComponent implements OnInit {
     this.catching = this.monster.pet != undefined && gameManager.buildingsManager.petsAvailable;
     this.catched = this.catching && gameManager.buildingsManager.petsEnabled && gameManager.game.party.pets.find((value) => value.edition == this.monster.edition && value.name == this.monster.pet) != undefined;
     this.level = this.monster.level;
-    this.monsterCopy.level = this.monster.level;
     this.flying = this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled') || this.monster.statEffect != undefined && this.monster.statEffect.flying == true;
     this.setStats();
+    this.monsterCopy = JSON.parse(JSON.stringify(this.monster));
   }
 
   setStats() {

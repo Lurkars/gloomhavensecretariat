@@ -10,6 +10,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { AttackModiferDeckChange, AttackModifierDeckComponent } from '../figures/attackmodifier/attackmodifierdeck';
 import { ChallengeDeckChange } from '../figures/challenges/challenge-deck';
+import { EntitiesMenuDialogComponent } from '../figures/entities-menu/entities-menu-dialog';
 import { LootDeckChange, LootDeckComponent } from '../figures/loot/loot-deck';
 import { ConfirmDialogComponent } from '../helper/confirm/confirm';
 import { HintDialogComponent } from './hint-dialog/hint-dialog';
@@ -406,5 +407,11 @@ export class FooterComponent implements OnInit {
     this.beforeChallengeDeck(new ChallengeDeckChange(gameManager.game.challengeDeck, gameManager.game.challengeDeck.active ? 'challengeDeck.hide' : 'challengeDeck.show'));
     gameManager.game.challengeDeck.active = !gameManager.game.challengeDeck.active;
     this.afterChallengeDeck(new ChallengeDeckChange(gameManager.game.challengeDeck, !gameManager.game.challengeDeck.active ? 'challengeDeck.hide' : 'challengeDeck.show'));
+  }
+
+  openEntitiesMenu() {
+    this.dialog.open(EntitiesMenuDialogComponent, {
+      panelClass: ['dialog']
+    })
   }
 }

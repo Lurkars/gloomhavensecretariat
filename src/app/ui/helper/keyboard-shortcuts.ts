@@ -293,9 +293,9 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     if (activeFigure) {
                         let activeEntity: Entity | undefined;
                         if (activeFigure instanceof Character) {
-                            activeEntity = activeFigure.summons.find((summon) => summon.active) || activeFigure;
+                            activeEntity = settingsManager.settings.activeSummons && activeFigure.summons.find((summon) => summon.active) || activeFigure;
                         } else if (activeFigure instanceof Monster) {
-                            activeEntity = activeFigure.entities.find((entity) => entity.active);
+                            activeEntity = settingsManager.settings.activeStandees && activeFigure.entities.find((entity) => entity.active) || undefined;
                         } else if (activeFigure instanceof ObjectiveContainer) {
                             activeEntity = activeFigure.entities.find((entity) => entity.active);
                         }
