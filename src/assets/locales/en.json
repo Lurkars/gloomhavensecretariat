@@ -3681,6 +3681,7 @@
       "amAdvantage": "Same like <kbd><span>m</span></kbd>, but draw with Advantage if enabled",
       "amDisadvantage": "like <kbd><span>m</span></kbd>, but draw with Disadvantage if enabled",
       "backspace": "⌫",
+      "cmd": "⌘",
       "ctrl": "CTRL",
       "difficulty": "Difficulty/Level menu",
       "enter": "↵",

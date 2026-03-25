@@ -190,7 +190,13 @@ export class SettingsManager {
     if (setting === 'fullscreen') {
       if (value) {
         document.body.requestFullscreen && document.body.requestFullscreen();
+        if ((navigator as any).keyboard?.lock) {
+          (navigator as any).keyboard.lock(['Escape']).catch(() => { });
+        }
       } else {
+        if ((navigator as any).keyboard?.unlock) {
+          (navigator as any).keyboard.unlock();
+        }
         document.exitFullscreen && document.exitFullscreen();
       }
     } else if (setting === 'locale') {

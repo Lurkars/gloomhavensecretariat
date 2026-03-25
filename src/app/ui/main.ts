@@ -199,6 +199,9 @@ export class MainComponent implements OnInit {
       document.body.addEventListener("click", (event) => {
         if (settingsManager.settings.fullscreen && (this.swUpdate.isEnabled || this.isAppDevMode()) && !document.body.classList.contains('fullscreen')) {
           document.body.requestFullscreen && document.body.requestFullscreen();
+          if ((navigator as any).keyboard?.lock) {
+            (navigator as any).keyboard.lock(['Escape']).catch(() => { });
+          }
         }
       });
     }
