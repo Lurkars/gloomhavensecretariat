@@ -20,7 +20,24 @@
       "name": "Redthorn",
       "escort": true,
       "health": "6+(3xL)",
-      "initiative": 40
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rules": [
@@ -71,6 +88,12 @@
         {
           "name": "inox-guard",
           "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "inox-guard",

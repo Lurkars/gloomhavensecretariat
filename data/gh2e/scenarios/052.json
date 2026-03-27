@@ -63,6 +63,10 @@
           "player4": "elite"
         },
         {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
           "name": "harrower-infester",
           "player2": "normal",
           "player3": "elite",
