@@ -18,9 +18,10 @@
   ],
   "objectives": [
     {
-      "name": "Door 1",
+      "name": "Door",
       "health": 0,
       "initiative": 73,
+      "marker": "1",
       "actions": [
         {
           "type": "push",
