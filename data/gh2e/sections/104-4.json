@@ -3,9 +3,26 @@
   "edition": "gh2e",
   "parent": "51",
   "marker": "1",
+  "resetRound": "visible",
   "monsters": [
+    "deep-terror-scenario-51",
     "harrower-infester",
     "the-sightless-eye"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "deep-terror-scenario-51",
+            "type": "elite"
+          },
+          "count": 2
+        }
+      ]
+    }
   ],
   "rooms": [
     {
