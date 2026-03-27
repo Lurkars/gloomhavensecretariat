@@ -2,10 +2,30 @@
   "index": "101.1",
   "edition": "gh2e",
   "parent": "50",
+  "parentSections": [
+    [
+      "58.2"
+    ]
+  ],
   "marker": "2",
   "monsters": [
     "egg-scenario-50",
     "the-winged-horror"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 1 && R > 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "egg-scenario-50",
+            "type": "boss"
+          },
+          "count": "C"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -35,5 +55,6 @@
         }
       ]
     }
-  ]
+  ],
+  "roundReset": "visible"
 }

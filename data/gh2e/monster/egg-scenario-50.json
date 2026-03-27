@@ -5,7 +5,7 @@
   "edition": "gh2e",
   "boss": true,
   "hidden": true,
-  "count": 10,
+  "count": 20,
   "baseStat": {
     "type": "boss"
   },

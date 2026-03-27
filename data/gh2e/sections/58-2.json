@@ -8,6 +8,32 @@
     "savvas-icestorm",
     "wind-demon"
   ],
+  "objectives": [
+    {
+      "name": "Door",
+      "health": 0,
+      "initiative": 73,
+      "marker": "2",
+      "actions": [
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allCharacters",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,
@@ -18,6 +44,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
         },
         {
           "name": "savvas-icestorm",

@@ -3,6 +3,12 @@
   "name": "Slave Pens",
   "edition": "gh2e",
   "parent": "47",
+  "parentSections": [
+    [
+      "55.1"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "inox-archer",
     "inox-guard",

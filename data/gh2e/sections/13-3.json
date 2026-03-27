@@ -3,6 +3,7 @@
   "name": "Tribal Assault",
   "edition": "gh2e",
   "parent": "49",
+  "marker": "2",
   "monsters": [
     "hound",
     "inox-archer",

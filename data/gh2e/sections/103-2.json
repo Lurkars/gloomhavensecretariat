@@ -3,6 +3,7 @@
   "name": "Tribal Assault",
   "edition": "gh2e",
   "parent": "49",
+  "marker": "3",
   "monsters": [
     "hound",
     "inox-guard",
@@ -27,6 +28,10 @@
           "name": "inox-guard",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
         },
         {
           "name": "inox-priest",

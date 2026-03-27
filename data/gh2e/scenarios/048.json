@@ -20,6 +20,16 @@
   ],
   "rules": [
     {
+      "round": "true",
+      "start": true,
+      "elements": [
+        {
+          "type": "ice",
+          "state": "strong"
+        }
+      ]
+    },
+    {
       "round": "R == 1",
       "start": true,
       "figures": [
@@ -57,6 +67,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "cave-bear",
+          "player4": "normal"
         },
         {
           "name": "cultist",

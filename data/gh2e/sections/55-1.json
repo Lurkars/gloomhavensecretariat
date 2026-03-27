@@ -3,6 +3,7 @@
   "name": "Slave Pens",
   "edition": "gh2e",
   "parent": "47",
+  "marker": "1",
   "monsters": [
     "inox-guard",
     "inox-priest",
@@ -36,8 +37,12 @@
         {
           "name": "stone-construct",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "player3": "normal"
         }
       ]
     }

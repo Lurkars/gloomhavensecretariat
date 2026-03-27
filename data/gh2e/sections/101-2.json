@@ -3,6 +3,12 @@
   "name": "Slave Pens",
   "edition": "gh2e",
   "parent": "47",
+  "parentSections": [
+    [
+      "102.6"
+    ]
+  ],
+  "marker": "3",
   "monsters": [
     "inox-archer",
     "inox-guard",
@@ -27,6 +33,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
         },
         {
           "name": "inox-priest",
