@@ -17,9 +17,18 @@
         {
           "monster": {
             "name": "deep-terror-scenario-51",
-            "type": "elite"
-          },
-          "count": 2
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        },
+        {
+          "monster": {
+            "name": "deep-terror-scenario-51",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
         }
       ]
     }
