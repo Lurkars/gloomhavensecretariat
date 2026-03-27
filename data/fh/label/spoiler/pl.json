@@ -1435,6 +1435,10 @@
         "5": {
           "4": "Opowiedzieliście się po stronie Śniegomówców w ich bitwie przeciwko Lodomówcom, zabijając wodza Lodomówców. Śniegomówcy, którzy wierzą, że komunikują się ze swoim bogiem poprzez padający śnieg, toczą wojnę z Lodomówcami, którzy z kolei wierzą, że mogą komunikować się z bogiem poprzez lód wyłaniający się z głębi ziemi. Szczyt Śnieżnicy to miejsce święte dla obu tych grup.<br>Przywódczyni Śniegomówców, <strong>%ui.tooltip:data.scenario.recap.fh.character.lanprul%</strong>, poprosiła was o pomoc w zakończeniu wojny z Lodomówcami, aby zagwarantować bezpieczeństwo Frosthaven przed Algoksami. Zauważyła grupę Lodomówców na północ od Lasu Białego Ognia, która przypuści kontratak, jeśli nie zostanie powstrzymana."
         },
+        "52": {
+          "45": "Odzyskaliście zarówno odłamek żywego lodu lodowcowego, jak i świeży śnieg, i przynieśliście je z powrotem na świętą polanę, aby je połączyć.",
+          "46": "Odzyskaliście zarówno odłamek żywego lodu lodowcowego, jak i świeży śnieg, i przynieśliście je z powrotem na świętą polanę, aby je połączyć."
+        },
         "55": {
           "52": "<strong>%ui.tooltip:data.scenario.recap.fh.character.marogh%</strong> otworzył dziwny portal, aby ukończyć rytuał. Nic jednak nie jest aż tak proste; odkryliście, że musicie pokonać istoty lodu i śniegu i wykorzystać ich esencję do uformowania [glyph]. Gdy to się stało, dwaj emisariusze dokończyli rytuał, łącząc lód i śnieg, by stworzyć [Unyielding Shard]. W jego wnętrzu odnaleźli prawdziwe słowa <strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong> i dowiedzieli się, że Algoksi zostali zwiedzeni przez jakąś inną moc. Musieliście wrócić na Śnieżnicę, aby osadzić Odłamek w [Heart of Ice], usunąć ciemność, która spadła na Algoksów, i przywrócić ich Geryuu."
         },
@@ -1446,6 +1450,9 @@
         },
         "66": {
           "65": "Grupa ośmiu Estrowów podeszła do Frosthaven, połączywszy się w jedną istotę. Głos Ósemki, ich rzecznik, poprosił was o pomoc w zamian za wiedzę. Zlokalizowali matrycę żywiołów i poprosili was o jej odzyskanie.<br>Ośmiu Estrowów odkryło, że tylko Kotwica urządzenia była wciąż nienaruszona i że potrzebuje nowych źródeł żywiołów. Kilka tygodni później donieśli, że je znaleźli i poprosili was o spotkanie przy matrycy."
+        },
+        "67": {
+          "66": "Głos Ósemki i Nera, jedna z ośmiorga specjalizująca się w zaklinaniu, otworzyli dla was portale do czterech sfer żywiołów. Odzyskaliście rdzeń z każdego z nich i umieściliście je w specjalnych obudowach przygotowanych przez Estrowów. Musieli oni poświęcić czas na przekształcenie rdzeni i obiecali, że wezwą was, gdy znów będą potrzebować waszej pomocy."
         },
         "7": {
           "4": "Po zażegnaniu bezpośredniego zagrożenia ze strony Algoksów wiszącego nad Frosthaven, <strong>%ui.tooltip:data.scenario.recap.fh.character.mayor-satha%</strong> wspomniała, że na obrzeżach terytorium Frosthaven dostrzeżono Czychaczy. Zostaliście poproszeni o sprawdzenie tej sytuacji."

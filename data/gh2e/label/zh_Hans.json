@@ -37,9 +37,12 @@
     "Crank Bow": "曲柄弓",
     "Crater": "陨坑",
     "Crippling Offensive": "致残打击",
+    "Crippling Poison": "致残毒药",
     "Crushing Grasp": "粉碎之握",
     "Cryonic Snare": "寒冰陷阱",
+    "Cull the Weak": "优胜劣汰",
     "Cursed Blades": "诅咒双刃",
+    "Dance of Daggers": "匕首之舞",
     "Dancing Gales": "舞动之风",
     "Dancing Shadows": "暗影之舞",
     "Dangerous Contraption": "危险新发明",
@@ -54,6 +57,7 @@
     "Dissonant Rhythm": "刺耳韵律",
     "Domination": "主宰",
     "Dual Nature": "自然双生",
+    "Duelist's Advance": "上前单挑",
     "Duskstorm": "暮色风暴",
     "Earth's Embrace": "大地之拥",
     "Earthen Bulwark": "大地壁垒",
@@ -82,7 +86,10 @@
     "Flame Strike": "火焰击",
     "Flameswell": "火焰喷涌",
     "Flamethrower": "喷火器",
+    "Flanking Strike": "侧击",
     "Flash of Brilliance": "炫目闪光",
+    "Flintlock": "燧发枪",
+    "Flurry of Blades": "刀扇",
     "Formless Power": "无形之力",
     "Freezing Nova": "霜冻新星",
     "Freezing Vortex": "冻结漩涡",
@@ -99,11 +106,14 @@
     "Grand Finale": "压轴绝技",
     "Gravel Guard": "砾石守护",
     "Gravity Bomb": "重力炸弹",
+    "Gruesome Advantage": "四面楚歌",
     "Harmless Contraption": "无害新发明",
     "Harsh Stimulants": "强效兴奋剂",
     "Heatwave": "热浪",
     "Heaving Swing": "新月斩",
+    "Hidden Daggers": "袖里藏匕",
     "Hidden in the Shadows": "遁入阴影",
+    "Hired Help": "雇凶",
     "Hook Gun": "钩链枪",
     "Hook and Chain": "钩链爪",
     "Hostile Takeover": "恶意侵吞",
@@ -147,6 +157,7 @@
     "Obsidian Shards": "黑曜碎片",
     "Ode to the Gambler": "赌徒颂歌",
     "Onward to Battle": "勇往直前",
+    "Open Wound": "放血",
     "Opposing Strike": "左右开弓",
     "Overwhelming Assault": "力劈华山",
     "Pernicious Fogger": "剧毒喷射器",
@@ -158,6 +169,7 @@
     "Potent Potable": "强效药剂",
     "Potent Potables": "强效药剂",
     "Power Ballad": "力量战歌",
+    "Practiced Reflexes": "反射本能",
     "Pragmatic Reinforcement": "实效增援",
     "Prepare for the Kill": "伺机待发",
     "Prey on the Weak": "弱肉强食",
@@ -170,6 +182,7 @@
     "Pull the Strings": "牵线木偶",
     "Pulsing Cores": "脉动核心",
     "Push Through": "坚持不懈",
+    "Quick Hands": "眼疾手快",
     "Quiet Frenzy": "寂静狂怒",
     "Reinvigorating Elixir": "重振灵药",
     "Repulsor Gun": "反重力枪",
@@ -184,6 +197,7 @@
     "Seeping Tendrils": "虚空触须",
     "Selfish Retribution": "自食恶果",
     "Sentient Growth": "感知增长",
+    "Serrated Arrow": "锯齿箭",
     "Shadowstrike": "暗影突袭",
     "Shaping the Ether": "灵能赋形",
     "Shared Nightmare": "共享噩梦",
@@ -192,15 +206,22 @@
     "Silent Force": "无声偷袭",
     "Silent Scream": "沉默尖啸",
     "Singing Arrow": "轻吟飞箭",
+    "Single Out": "逐个击破",
+    "Sinister Opportunity": "围杀",
     "Skewer": "穿刺",
     "Skirmishing Maneuver": "见机行事",
     "Slice Through": "斩断",
+    "Smoke Bomb": "烟雾弹",
     "Solidify": "硬化",
     "Soothing Lullaby": "抚慰摇篮曲",
     "Spare Dagger": "备用匕首",
+    "Special Mixture": "独门合剂",
     "Spell Mastery": "法术大师",
     "Spirit of the Night": "暗夜之灵",
+    "Spring the Trap": "拆除陷阱",
     "Stamina Booster": "耐力增幅器",
+    "Stick to the Shadows": "影袭",
+    "Stiletto Storm": "剑刃风暴",
     "Stoking Hail": "引火御冰",
     "Stone Pummel": "巨石连击",
     "Stun Shot": "眩晕射击",
@@ -208,25 +229,31 @@
     "Swallowed by Fear": "没顶之恐",
     "Swallowed by Night": "暗夜吞噬",
     "Sweeping Blow": "横扫千军",
+    "Swift Bow": "迅箭",
     "Symphonic Medley": "交响集成曲",
     "Telepathic Command": "心灵指令",
     "Teleportation Pad": "传送器",
     "Terror Blade": "恐怖利刃",
     "The Mind's Weakness": "心灵弱点",
     "Thrilling Solo": "惊险独奏",
+    "Throwing Knives": "飞刀",
     "Toughening Trill": "坚韧颤音",
     "Toxic Bolt": "毒性电击",
     "Trample": "践踏",
+    "Trickster's Reversal": "逆转戏法",
     "Tuning the Outcome": "适时调音",
     "Twin Beams": "双重光束",
     "Unseen Dread": "无形恐惧",
     "Unstable Upheaval": "乱局",
     "Unstoppable Charge": "势不可挡",
+    "Venom Shiv": "涂毒刀刃",
+    "Visage of the Inevitable": "死神假面",
     "Voice of the Night": "暗夜之声",
     "Volatile Concoction": "不稳定化合物",
     "Wall of Doom": "末日障壁",
     "Warding Strength": "守护之力",
     "Warm Up": "升温",
+    "Watch It Burn": "烈火刀法",
     "Wave of Destruction": "毁灭浪潮",
     "Wave of Frost": "冰霜浪潮",
     "Wearying Chant": "疲乏咏唱",
@@ -889,7 +916,95 @@
         "3": "每当你结算完一个城镇事件，执行一次%game.action.attack% 4并抽取一张攻击修正卡牌。获得等同于该次攻击%game.damage%的金币数",
         "4": "每个剧本限一次，在你的回合中，你可以执行：%game.condition.invisible%，自身",
         "5": "在单一剧本中，只攻击与你的盟友相邻或没有与其盟友相邻的敌人，并执行至少10次攻击",
-        "6": "以持有至少12个钱币标记完成3个剧本"
+        "6": "以持有至少12个钱币标记完成3个剧本",
+        "abilities": {
+          "100": {
+            "1": "如果目标与你的盟友相邻，增加%game.condition.wound%并获得%game.card.experience:1%。"
+          },
+          "101": {
+            "1": "为你的下3次攻击增加+1 %game.action.attack%，%game.condition.poison%。",
+            "2": "如果你未与敌人相邻，获得%game.condition.invisible%。在本轮结束时，失去%game.condition.invisible%。"
+          },
+          "102": {
+            "1": "对每个未与其盟友相邻的敌人增加+1 %game.action.attack%。"
+          },
+          "103": {
+            "1": "你可以将你的一个钱币标记放到目标占据的格子中来增加+2 %game.action.attack%，%game.action.pierce:2%。",
+            "2": "在一个被拾取的钱币标记占据的空格中创造一个%game.condition.poison%，%game.condition.immobilize%陷阱。"
+          },
+          "105": {
+            "1": "如果目标与你的盟友相邻或未与其盟友相邻，增加+2 %game.action.attack%并获得%game.card.experience:1%。",
+            "2": "本轮中，当你下次对一个带有%game.condition.poison%的敌人执行近战攻击时，在该攻击能力后，执行："
+          },
+          "107": {
+            "1": "当你下次攻击一个与你的盟友相邻且未与其盟友相邻的敌人时，将攻击值翻倍。"
+          },
+          "108": {
+            "1": "本轮中，抵消所有以你为目标的攻击%game.damage%和附加效果。",
+            "2": "本轮中，每次以你为目标的攻击能力后，立刻获得%game.card.experience:1%并执行：",
+            "3": "攻击你的那个敌人",
+            "4": "本轮中，你的所有攻击获得优势。"
+          },
+          "109": {
+            "1": "如果目标是普通怪物，增加+1 %game.action.attack%，获得优势，%game.card.experience:1%。",
+            "2": "2个当前生命值不高于2的敌人，%game.action.range:2%"
+          },
+          "110": {
+            "1": "如果本次攻击能力的所有目标均不与其盟友相邻，执行："
+          },
+          "111": {
+            "1": "本行动可以在你带有%game.condition.stun%时执行。",
+            "2": "移除你的所有负面状态。",
+            "3": "指定一个相邻的陷阱。",
+            "4": "将指定的陷阱放置到一个相邻的无特征格子中。如果该格已被敌人占据，对该敌人触动陷阱并获得%game.card.experience:1%。"
+          },
+          "112": {
+            "1": "如果目标与你的盟友相邻且未与其盟友相邻，增加%game.condition.disarm%并获得%game.condition.invisible%，%game.card.experience:1%。"
+          },
+          "113": {
+            "1": "为你的所有攻击增加%game.condition.poison%。你攻击带有%game.condition.poison%的敌人时，为所有攻击增加+1 %game.action.attack%。",
+            "2": "本轮中，你攻击未与其盟友相邻的敌人时，所有攻击增加%game.condition.immobilize%。"
+          },
+          "114": {
+            "1": "你可以失去一个钱币标记来将一个角色标记放到一个相邻的普通敌人上。在本次剧本中，该敌人视为你的盟友及所有其他怪物的敌人。你可以将其底座换为蓝色来进一步区分。该敌人死亡时，它会掉落一个额外的钱币标记。"
+          },
+          "115": {
+            "1": "如果你通过该攻击能力攻击了至少3个敌人，获得%game.card.experience:1%并执行：",
+            "2": "在你回合期间，你可以从手牌中打出本卡牌来执行本行动（作为你已经打出的两张卡牌以外的行动）。"
+          },
+          "88": {
+            "1": "如果目标未与其盟友相邻，增加+2 %game.action.attack%并获得%game.card.experience:1%。",
+            "2": "你下4次攻击未与其盟友相邻的目标时，增加+3%game.action.attack%"
+          },
+          "89": {
+            "1": "如果目标与你的盟友相邻，增加+2 %game.action.attack%并获得%game.card.experience:1%。"
+          },
+          "90": {
+            "1": "%game.action.loot%每个你移动进入的格子。"
+          },
+          "92": {
+            "1": "如果你的目标与你的盟友相邻，增加+1 %game.action.attack%；如果你的目标未与其盟友相邻，增加+1 %game.action.attack%；若满足以上二者，获得优势和%game.card.experience:1%。"
+          },
+          "93": {
+            "1": "本轮中，你的所有远程攻击增加%game.action.pierce:2%。"
+          },
+          "95": {
+            "1": "你可以选择不触动你移动经过的陷阱。",
+            "2": "摧毁一个你移动进入的陷阱来获得%game.card.experience:1%。"
+          },
+          "97": {
+            "1": "如果目标与你的盟友相邻，增加+2 %game.action.attack%并获得%game.card.experience:1%。"
+          },
+          "98": {
+            "1": "你下一次在带有%game.condition.invisible%时执行攻击，将攻击值翻倍。",
+            "2": "控制一个相邻的敌人：",
+            "3": "本次移动必须停留在一个与凶徒相邻的格子中。"
+          },
+          "99": {
+            "1": "你下一次攻击一个带有%game.action.shield%的敌人时，增加+(X+2)%game.action.attack%，其中X是目标的%game.action.shield%值。",
+            "2": "本轮中，抵消你下一次将要承受的%game.damage%。"
+          }
+        }
       },
       "spellweaver": {
         "1": "如果在执行%game.card.lost%行动时抽取，增加+2 %game.action.attack%",
