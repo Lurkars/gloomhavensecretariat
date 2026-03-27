@@ -2,6 +2,11 @@
   "index": "52.4",
   "edition": "gh2e",
   "parent": "48",
+  "parentSections": [
+    [
+      "75.2"
+    ]
+  ],
   "marker": "1",
   "monsters": [
     "cultist",
@@ -10,8 +15,9 @@
   ],
   "objectives": [
     {
-      "name": "Altar C",
-      "health": "2+(CxL)"
+      "name": "Altar",
+      "health": "2+(CxL)",
+      "marker": "c"
     }
   ],
   "rooms": [

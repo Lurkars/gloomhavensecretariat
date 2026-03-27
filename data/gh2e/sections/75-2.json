@@ -44,6 +44,10 @@
           "name": "spitting-drake",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player4": "normal"
         }
       ]
     }

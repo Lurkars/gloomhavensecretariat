@@ -20,6 +20,16 @@
   ],
   "rules": [
     {
+      "round": "true",
+      "start": true,
+      "elements": [
+        {
+          "type": "ice",
+          "state": "strong"
+        }
+      ]
+    },
+    {
       "round": "R == 1",
       "start": true,
       "figures": [
