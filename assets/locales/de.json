@@ -2695,6 +2695,10 @@
       "": "Elite Aufsteller zuerst",
       "hint": "Zeige Elite Aufsteller zuerst an bei der Sortierung der Aufsteller"
     },
+    "entitiesMenu": {
+      "": "Menu für alle Figuren und Aufsteller",
+      "hint": "Zeige ein Menu in der Fußleiste um Änderungen an allen Figuren und Aufsteller gleichzeitig auszuführen."
+    },
     "errata": {
       "": "Zeige Hinweise zu Druckfehlern an",
       "hint": "Anzeige bekannter Druckfehler für Szenarien, Abschnitte, etc. In den Daten selbst sollten alle diese Fehler behoben sein, aber mit den Hinweisen sollte es einfacher sein, die Unterschiede zum Druck zu verstehen."
