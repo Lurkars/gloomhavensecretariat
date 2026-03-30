@@ -1,14 +1,118 @@
-@media (max-width: 600px),
-(orientation: portrait) {
+// Ensure Angular [hidden] attribute overrides display:flex/grid
+.menu-container[hidden],
+.settings-tabs[hidden] {
+    display: none !important;
+}
 
-    .menu-container.two-column {
-        display: grid;
-        grid-template-columns: auto;
-        column-gap: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+// ── Settings layout: top tab bar + content ───────────────────────────────────
 
-        .separator,
-        .span {
-            grid-column: 1 span;
+.settings-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .filter-line {
+        margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+        input {
+            font-family: var(--ghs-font-title);
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-gray);
+            background: transparent;
+            border: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);
+            padding: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+            width: 100%;
+
+            &::placeholder {
+                color: var(--ghs-color-darkgray);
+            }
+        }
+    }
+
+    .settings-tabs {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-bottom: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);
+        margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+
+        .tab-btn {
+            display: block;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+            font-family: var(--ghs-font-title);
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-gray);
+            white-space: nowrap;
+            border-bottom: calc(var(--ghs-unit) * 0.3) solid transparent;
+            margin-bottom: calc(var(--ghs-unit) * -0.1);
+            transition: color 0.15s, border-color 0.15s;
+
+            &:hover {
+                color: var(--ghs-color-white);
+            }
+
+            &.active {
+                color: var(--ghs-color-white);
+                border-bottom-color: var(--ghs-color-white);
+            }
+        }
+    }
+
+    .settings-content {
+        flex: 1;
+        min-width: 0;
+
+        .menu-container {
+            margin-left: 0;
+        }
+    }
+
+    &.filtering {
+
+        .line.title,
+        .separator {
+            display: none !important;
+        }
+
+        // Hide all non-title lines (condition pickers, zoom rows, preset buttons, etc.)
+        .settings-content .line:not(.title) {
+            display: none;
+        }
+
+        // Show matching checkbox-type settings (their host element IS a .line)
+        [ghs-setting-menu]:not(.filter-hidden) {
+            display: flex !important;
+        }
+
+        // Show child .line rows of matching radio-type settings (locale, theme)
+        [ghs-setting-menu]:not(.filter-hidden) .line:not(.filter-hidden) {
+            display: flex !important;
+        }
+
+        // Explicitly hide non-matching radio-type hosts (they have no .line class themselves)
+        [ghs-setting-menu].filter-hidden {
+            display: none;
+        }
+
+        .menu-container.two-column {
+            grid-template-columns: auto;
+
+            .span {
+                grid-column: 1 span;
+            }
+        }
+    }
+
+    // Sync icon coloring carried over from parent class
+    &.connected {
+        .line .ghs-svg {
+            &.sync-settings {
+                filter: var(--ghs-filter-green) var(--ghs-filter-outline-thin-black);
+            }
         }
     }
 }
@@ -91,5 +195,17 @@
                 filter: var(--ghs-filter-green) var(--ghs-filter-outline-thin-black);
             }
         }
+    }
+}
+
+// ── Local-only setting indicator ─────────────────────────────────────────────
+
+.hint-container {
+    .ghs-svg.local-setting {
+        height: 1.6em;
+        width: auto;
+        filter: var(--ghs-filter-disabled) var(--ghs-filter-outline-thin-black);
+        opacity: 0.7;
+        margin-right: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
     }
 }

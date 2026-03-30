@@ -29,6 +29,10 @@
                 place-content: center;
                 margin-right: 0.5em;
             }
+
+            &.missing {
+                color: var(--ghs-color-red);
+            }
         }
     }
 }

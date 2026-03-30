@@ -3,7 +3,7 @@
   "characterClass": "savvas",
   "icon": "gh-triangles",
   "edition": "gh2e",
-  "handSize": 12,
+  "handSize": 10,
   "unlockEvent": "road:42|road:43",
   "retireEvent": "road:67|road:68",
   "traits": [

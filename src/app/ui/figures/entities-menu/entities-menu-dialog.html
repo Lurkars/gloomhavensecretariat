@@ -58,64 +58,274 @@
   </div>
   }
 
-  <div class="entity-container">
-    <span class="item">
-      <ghs-pointer-input class="button" tabclick (singleClick)="changeHealth(-1)" [repeat]="true">
-        <img class="ghs-svg" src="./assets/images/minus.svg">
-      </ghs-pointer-input>
-    </span>
-    <span class="item" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">
-      <img src="./assets/images/status/health.svg" />
-      <span class="badge health-count"
-        [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
-    </span>
-    <span class="item">
-      <ghs-pointer-input class="button" tabclick (singleClick)="changeHealth(1)" [repeat]="true">
-        <img class="ghs-svg" src="./assets/images/plus.svg">
-      </ghs-pointer-input>
-    </span>
+  @if (figures.length > 1 || this.filter) {
+  <div class="filter">
+    @for (f of filters; track f) {
+    <a (click)="setFilter(f)" [ngClass]="{'active': filter == f}"
+      [ghs-label]="'entities.filter.' + (f ? f : 'all')"></a>
+    }
   </div>
-
-  @if (!!monster) {
-  <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities"
-    [figure]="monster" [type]="'monster'" [columns]="4"></ghs-conditions>
   }
 
-  @if (!!character) {
-  <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities"
-    [figure]="character" [type]="'monster'" [columns]="4"></ghs-conditions>
-  }
+  @if (figures.length) {
+  <div class="figures">
+    @for(figure of figures | trackUUID; track figure._trackUUID;) {
+    <div class="figure">
+      @if (gameManager.isCharacter(figure)) {
+      @let character = gameManager.toCharacter(figure);
+      <div class="entities">
+        <div class="entity" tabclick (click)="toggleEntity(character)"
+          [ngClass]="{'inactive' : !entities.includes(character)}">
+          <img class="icon character-icon" [src]="character.iconUrl" />
+        </div>
+        @for (entity of character.summons | trackUUID; track entity._trackUUID;) {
+        @let summon = gameManager.toSummon(entity);
+        <div class="entity" tabclick (click)="toggleEntity(entity)"
+          [ngClass]="{'inactive' : !entities.includes(entity)}">
+          <span class="summon-image"
+            [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.entityConditions.length % 2) == 0}">
+            @if (summon.color != SummonColor.fh || !settingsManager.settings.artwork || !summon.thumbnail ||
+            summon.noThumbnail) {
+            <img [src]="'./assets/images/summons/' + summon.color + '.png'">
+            }
+            @if (settingsManager.settings.artwork && (summon.thumbnail || summon.thumbnailUrl) && !summon.noThumbnail) {
+            <img
+              [src]="summon.thumbnailUrl ? summon.thumbnailUrl : './assets/images/summons/thumbnail/' + summon.thumbnail + '.png'">
+            }
+            <span class="summon-number">
+              @if (summon.number == 0) {
+              <span>-</span>
+              }
+              @if (summon.number > 0) {
+              <span>{{summon.number}}</span>
+              }</span>
+          </span>
+        </div>
+        }
+      </div>
+      }
 
-  @if (!!objective) {
-  <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities"
-    [figure]="objective" [type]="objective.escort ? 'character' : 'objective'" [columns]="4"></ghs-conditions>
-  }
+      @if (gameManager.isMonster(figure)) {
+      @let monster = gameManager.toMonster(figure);
 
-  <div class="entity-container">
-    <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
-      <a class="button" tabclick (click)="toggleDead()">
-        <img src="./assets/images/status/dead.svg" />
-      </a>
-    </span>
-    <span class="item max-health-container">
-      <ghs-pointer-input class="button" tabclick (singleClick)="changeMaxHealth(-1)" [repeat]="true">
-        <img class="ghs-svg" src="./assets/images/minus.svg">
-      </ghs-pointer-input>
-      <img src="./assets/images/status/health.svg" [ghs-label]="'game.maxHealth'" [ghs-label-attribute]="'title'" />
-      <span class="badge health-count"
-        [ngClass]="{'negative-value' : maxHealth < 0, 'positive-value' : maxHealth > 0}">{{maxHealth |
-        ghsValueSign}}</span>
-      <ghs-pointer-input class="button" tabclick (singleClick)="changeMaxHealth(1)" [repeat]="true">
-        <img class="ghs-svg" src="./assets/images/plus.svg">
-      </ghs-pointer-input>
-    </span>
+      <div class="name" [ngClass]="{'full': figures.length == 1}">
+        @if (!monster.noThumbnail && settingsManager.settings.artwork) {
+        <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
+        }
+        @if (monster.noThumbnail || !settingsManager.settings.artwork || figures.length == 1) {
+        <span [ghs-label]="'data.monster.' + monster.name"></span>&nbsp;
+        }
+        @if (monster.isAlly) {
+        <span class="ally"><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
+        }
+        @if (monster.isAllied) {
+        <span class="allied"><span [ghs-label]="'game.allied'"></span>&nbsp;</span>
+        }
+      </div>
+
+      <div class="entities">
+        @for (entity of monster.entities | trackUUID; track entity._trackUUID;) {
+        @let monsterEntity = gameManager.toMonsterEntity(entity);
+        <div class="entity {{monsterEntity.type}}" tabclick (click)="toggleEntity(entity)"
+          [ngClass]="{'inactive' : !entities.includes(entity)}">{{entity.number}}</div>
+        }
+      </div>
+      }
+
+      @if (gameManager.isObjectiveContainer(figure)) {
+      @let objective = gameManager.toObjectiveContainer(figure);
+
+      <div class="name" [ngClass]="{'full': figures.length == 1}">
+        @if (objective.marker) {
+        <span class="map-marker" [ngClass]="{'active-border' : objective.active}">{{objective.marker}}</span>
+        }
+        @if (!objective.marker) {
+        <span class="objective-icon">
+          <img [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+        </span>
+        }
+      </div>
+
+      <div class="entities">
+        @for (entity of objective.entities | trackUUID; track entity._trackUUID;) {
+        @let objectiveEntity = gameManager.toObjectiveEntity(entity);
+        <div class="entity" tabclick (click)="toggleEntity(entity)"
+          [ngClass]="{'inactive' : !entities.includes(entity)}">
+          <span class="objective-marker">
+            {{objectiveEntity.number}}
+          </span>
+        </div>
+        }
+      </div>
+      }
+    </div>
+    }
   </div>
-
-  @if (!!monster) {
-  <span class="toggle-type" tabclick (click)="toggleType()">
-    <span [ghs-label]="'%game.monsterType.normal%'"></span>
-    <img class="ghs-svg" src="./assets/images/switch.svg" />
-    <span [ghs-label]="'%game.monsterType.elite%'"></span>
-  </span>
   }
+
+  <div class="container">
+    <div class="entity-container">
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeHealth(-1)" [repeat]="true">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">
+        <img src="./assets/images/status/health.svg" />
+        <span class="badge health-count"
+          [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
+      </span>
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeHealth(1)" [repeat]="true">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+
+
+      <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
+        <a class="button" tabclick (click)="toggleDead()">
+          <img src="./assets/images/status/dead.svg" />
+        </a>
+      </span>
+      <span class="item max-health-container">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeMaxHealth(-1)" [repeat]="true">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+        <img src="./assets/images/status/health.svg" [ghs-label]="'game.maxHealth'" [ghs-label-attribute]="'title'" />
+        <span class="badge health-count"
+          [ngClass]="{'negative-value' : maxHealth < 0, 'positive-value' : maxHealth > 0}">{{maxHealth |
+          ghsValueSign}}</span>
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeMaxHealth(1)" [repeat]="true">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+
+      @if (!!monster) {
+      <span class="toggle-type" tabclick (click)="toggleType()">
+        <span [ghs-label]="'%game.monsterType.normal%'"></span>
+        <img class="ghs-svg" src="./assets/images/switch.svg" />
+        <span [ghs-label]="'%game.monsterType.elite%'"></span>
+      </span>
+      }
+    </div>
+
+    @if (!!monster) {
+    <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities"
+      [figure]="monster" [type]="'monster'" [columns]="4"></ghs-conditions>
+    }
+
+    @if (!!character) {
+    <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities"
+      [figure]="character" [type]="'monster'" [columns]="4"></ghs-conditions>
+    }
+
+    @if (!!objective) {
+    <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities"
+      [figure]="objective" [type]="objective.escort ? 'character' : 'objective'" [columns]="4"></ghs-conditions>
+    }
+
+    @if(figures.length) {
+    <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities"
+      [columns]="4"></ghs-conditions>
+    }
+
+    @if (settingsManager.settings.characterShieldRetaliate && settingsManager.settings.standeeShieldRetaliate) {
+    <div class="entity-container">
+      <span class="shield-overlay">
+        <span class="text-white" [ghs-label]="'%game.card.round%'"></span>
+      </span>
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeShield(-1)">
+          <img class=" ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item">
+        <ghs-action [action]="entityShield" [style]="'fh'"></ghs-action>
+      </span>
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeShield(1)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+      @for (realiate of entityRetaliate | trackUUID; track realiate._trackUUID; let i = $index) {
+      <span class="item column">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeRetaliate(i,-1,0)">
+          <img class=" ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+        <ghs-pointer-input class="button small" tabclick (singleClick)="changeRetaliate(i,0,-1)">
+          <img class=" ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item column">
+        <ghs-action class="remove-retaliate" [action]="realiate" [style]="'fh'"
+          (click)="changeRetaliate(i,0,0,true)"></ghs-action>
+        <ghs-action class="remove-retaliate" [action]="entityRetaliateRange[i]" [style]="'fh'"
+          (click)="changeRetaliate(i,0,0,true)"></ghs-action>
+        @if (i == entityRetaliate.length -1 && realiate.value) {
+        <ghs-pointer-input class="button add-retaliate" tabclick
+          (singleClick)="changeRetaliate(entityRetaliate.length,1,0)">
+          <img class="ghs-svg" src="./assets/images/select-arrow.svg">
+        </ghs-pointer-input>
+        }
+      </span>
+      <span class="item column">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeRetaliate(i,1, 0)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+        <ghs-pointer-input class="button small" tabclick (singleClick)="changeRetaliate(i,0, 1)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+      }
+      <div class="separator"></div>
+      <span class="shield-overlay">
+        <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
+      </span>
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeShieldPersistent(-1)">
+          <img class=" ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item">
+        <ghs-action [action]="entityShieldPersistent" [style]="'fh'"></ghs-action>
+      </span>
+      <span class="item">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeShieldPersistent(1)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+      @for (realiatePermanent of entityRetaliatePersistent | trackUUID; track realiatePermanent._trackUUID; let i =
+      $index) {
+      <span class="item column">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeRetaliatePersistent(i,-1,0)">
+          <img class=" ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+        <ghs-pointer-input class="button small" tabclick (singleClick)="changeRetaliatePersistent(i,0,-1)">
+          <img class=" ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item column">
+        <ghs-action class="remove-retaliate" [action]="realiatePermanent" [style]="'fh'"
+          (click)="changeRetaliatePersistent(i,0,0,true)"></ghs-action>
+        <ghs-action class="remove-retaliate" [action]="entityRetaliateRangePersistent[i]" [style]="'fh'"
+          (click)="changeRetaliatePersistent(i,0,0,true)"></ghs-action>
+        @if (i == entityRetaliatePersistent.length -1 && realiatePermanent.value) {
+        <ghs-pointer-input class="button add-retaliate" tabclick
+          (singleClick)="changeRetaliatePersistent(entityRetaliatePersistent.length,1,0)">
+          <img class="ghs-svg" src="./assets/images/select-arrow.svg">
+        </ghs-pointer-input>
+        }
+      </span>
+      <span class="item column">
+        <ghs-pointer-input class="button" tabclick (singleClick)="changeRetaliatePersistent(i,1, 0)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+        <ghs-pointer-input class="button small" tabclick (singleClick)="changeRetaliatePersistent(i,0, 1)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+      }
+    </div>
+    }
+  </div>
 </div>

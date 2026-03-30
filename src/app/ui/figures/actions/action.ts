@@ -17,6 +17,8 @@ export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.dam
 
 export const ActionTypesHelper: ActionType[] = [ActionType.concatenation, ActionType.concatenationSpacer, ActionType.box, ActionType.boxFhSubActions, ActionType.card, ActionType.forceBox, ActionType.grid, ActionType.nonCalc];
 
+export const ActionTypesCombine: ActionType[] = [ActionType.push, ActionType.pull, ActionType.pierce];
+
 @Component({
   standalone: false,
   selector: 'ghs-action',
@@ -26,7 +28,7 @@ export const ActionTypesHelper: ActionType[] = [ActionType.concatenation, Action
 export class ActionComponent implements OnInit, AfterViewInit {
 
   @Input() monster: Monster | undefined;
-  @Input() monsterType: MonsterType | undefined;
+  @Input('monsterType') forcedMonsterType: MonsterType | undefined;
   @Input() objective: ObjectiveContainer | undefined;
   @Input('action') origAction!: Action | undefined;
   @Input() relative: boolean = false;
@@ -56,6 +58,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
   fhStyle: boolean = false;
   flying: boolean = false;
   isInteractiveApplicableAction: boolean = false;
+  monsterType: MonsterType | undefined;
 
   settingsManager: SettingsManager = settingsManager;
   EntityValueFunction = EntityValueFunction;
@@ -112,6 +115,8 @@ export class ActionComponent implements OnInit, AfterViewInit {
       this.action.value = "";
     }
 
+    this.monsterType = this.forcedMonsterType;
+
     if (this.action && this.action.type == ActionType.monsterType) {
       this.monsterType = this.action.value as MonsterType;
     }
@@ -163,7 +168,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       return this.hasEntities(MonsterType.boss);
     }
 
-    return this.monster && (!this.monsterType || !type || this.monsterType == type) && this.monster.entities.some((monsterEntity) => (!type || this.monsterType == type || monsterEntity.type == type) && gameManager.entityManager.isAlive(monsterEntity)) || false;
+    return !settingsManager.settings.calculate || this.monster && (!this.forcedMonsterType || !type || this.forcedMonsterType == type) && this.monster.entities.some((monsterEntity) => (!type || this.forcedMonsterType == type || monsterEntity.type == type) && gameManager.entityManager.isAlive(monsterEntity)) || false;
   }
 
   getNormalValue(): number | string {
@@ -562,8 +567,26 @@ export class ActionComponent implements OnInit, AfterViewInit {
       }
     }
 
-    this.subActions = this.action.subActions.filter((action) => !action.hidden);
-    this.additionalSubActions = this.additionalSubActions.filter((action) => !action.hidden);
+    this.subActions = this.action.subActions.filter((action) => !action.hidden && (!settingsManager.settings.calculate || action.type != ActionType.monsterType || action.type == ActionType.monsterType && this.hasEntities(action.value as MonsterType)));
+    ActionTypesCombine.forEach((combineType) => {
+      const combineActions = this.subActions.filter((action) => action.type == combineType && (!action.subActions || action.subActions.length == 0) && (!action.valueType || action.valueType == ActionValueType.add || action.valueType == ActionValueType.fixed || action.valueType == ActionValueType.plus));
+      if (combineActions.length > 1) {
+        const combined = new Action(combineType, combineActions.reduce((sum, action) => sum + EntityValueFunction(action.value, this.level), 0), ActionValueType.fixed, [], combineActions.every((action) => action.small));
+        const firstIndex = this.subActions.indexOf(combineActions[0]);
+        this.subActions = this.subActions.filter((action) => !combineActions.includes(action));
+        this.subActions.splice(firstIndex, 0, combined);
+      }
+    });
+    this.additionalSubActions = this.additionalSubActions.filter((action) => !action.hidden && (!settingsManager.settings.calculate || action.type != ActionType.monsterType || action.type == ActionType.monsterType && this.hasEntities(action.value as MonsterType)));
+    ActionTypesCombine.forEach((combineType) => {
+      const combineActions = this.additionalSubActions.filter((action) => action.type == combineType && (!action.subActions || action.subActions.length == 0) && (!action.valueType || action.valueType == ActionValueType.add || action.valueType == ActionValueType.fixed || action.valueType == ActionValueType.plus));
+      if (combineActions.length > 1) {
+        const combined = new Action(combineType, combineActions.reduce((sum, action) => sum + EntityValueFunction(action.value, this.level), 0), ActionValueType.fixed, [], combineActions.every((action) => action.small));
+        const firstIndex = this.additionalSubActions.indexOf(combineActions[0]);
+        this.additionalSubActions = this.additionalSubActions.filter((action) => !combineActions.includes(action));
+        this.additionalSubActions.splice(firstIndex, 0, combined);
+      }
+    });
     this.cardConcat = this.action.type == ActionType.concatenation && this.subActions.every((subAction) => subAction.type == ActionType.card || subAction.type == ActionType.concatenationSpacer);
   }
 

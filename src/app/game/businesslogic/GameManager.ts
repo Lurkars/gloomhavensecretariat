@@ -401,11 +401,11 @@ export class GameManager {
   }
 
   conditionsForTypes(...types: string[]): Condition[] {
-    return this.conditions(this.game.edition).filter((condition) => types.every((type) => condition.types.includes(type as ConditionType)));
+    return this.conditions(this.game.edition).filter((condition) => types.every((type) => !type || condition.types.includes(type as ConditionType)));
   }
 
   allConditionsForTypes(...types: string[]): Condition[] {
-    return this.conditions().filter((condition) => types.every((type) => condition.types.includes(type as ConditionType)));
+    return this.conditions().filter((condition) => types.every((type) => !type || condition.types.includes(type as ConditionType)));
   }
 
   markers(): string[] {

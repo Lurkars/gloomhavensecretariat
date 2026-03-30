@@ -22,7 +22,7 @@ export class Settings {
   alwaysHazardousTerrain: boolean = false;
   alwaysLootApplyDialog = false;
   alwaysLootDeck: boolean = false;
-  amAdvantage: boolean = false;
+  amAdvantage: boolean = true;
   amAdvantageHouseRule: boolean = false;
   animations: boolean = true;
   animationSpeed: number = 1;

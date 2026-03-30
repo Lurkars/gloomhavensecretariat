@@ -1,492 +1,518 @@
-<div class="menu-container two-column settings"
-  [ngClass]="{'connected' : gameManager.stateManager.wsState() == WebSocket.OPEN}">
+<div class="settings-layout"
+  [ngClass]="{'connected' : gameManager.stateManager.wsState() == WebSocket.OPEN, 'filtering': !!filter}">
 
-  <div class="line hidden">
+  <div class="line filter-line">
     <input [(ngModel)]="filter" type="text" [ghs-label]="'settings.filter'" [ghs-label-attribute]="'placeholder'"
       (change)="updateFilter()" (keyup)="updateFilter()">
   </div>
 
-  <!-- GAMEPLAY -->
-  <div class="line title span" ghs-setting-title-menu="gameplay" [sync]="true"></div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="scenarioRooms"></div>
-    <div class="line" ghs-setting-menu="treasures" [requires]="['scenarioRooms']"></div>
-    <div class="line" ghs-setting-menu="scenarioRules"></div>
-    <div class="line" ghs-setting-menu="battleGoals"></div>
-    <div class="line" ghs-setting-menu="events" [requires]="['partySheet']"></div>
-  </div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="partySheet"></div>
-    <div class="line" ghs-setting-menu="characterSheet"></div>
-    <div class="line" ghs-setting-menu="characterAttackModifierDeck" [requires]="['characterSheet']"></div>
-    <div class="line" ghs-setting-menu="characterItems"></div>
-  </div>
-
-  <!-- CHARACTER -->
-  <div class="line title span" ghs-setting-title-menu="character" [sync]="true"></div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="initiativeRequired"></div>
-    <div class="line" ghs-setting-menu="hideAbsent"></div>
-    <div class="line" ghs-setting-menu="treasuresLoot" [requires]="['scenarioRooms', 'treasures']"></div>
-    <div class="line" ghs-setting-menu="drawRandomItem">
-    </div>
-    <div class="line" ghs-setting-menu="drawRandomScenario">
-    </div>
-    <div class="line" ghs-setting-menu="applyLongRest"></div>
-    <div class="line" ghs-setting-menu="applyRetirement" [requires]="['characterSheet']"></div>
-    <div class="line" ghs-setting-menu="characterItemsApply" [requires]="['characterItems']">
-    </div>
-    <div class="line" ghs-setting-menu="characterShieldRetaliate"></div>
-    <div class="line" ghs-setting-menu="characterSortIndex"></div>
-  </div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="activeSummons" [requires]="['summons']"></div>
-    <div class="line" ghs-setting-menu="passiveSummons" [requires]="['summons', 'activeSummons']"
-      [checked]="!settingsManager.settings.activeSummons"></div>
-    <div class="line" ghs-setting-menu="characterIdentities"></div>
-    <div class="line" ghs-setting-menu="characterIdentityHint" [requires]="['characterIdentities']"></div>
-    <div class="line" ghs-setting-menu="scenarioRewards"></div>
-    <div class="line" ghs-setting-menu="battleGoalsReminder" [requires]="['battleGoals']"></div>
-    <div class="line" ghs-setting-menu="battleGoalsCharacter" [requires]="['battleGoals']"></div>
-    <div class="line" ghs-setting-menu="characterHandSize"></div>
-    <div class="line" ghs-setting-menu="characterTraits"></div>
-    <div class="line" ghs-setting-menu="scenarioStats"></div>
-  </div>
-
-  <!-- MONSTERS -->
-  <div class="line title span" ghs-setting-title-menu="monsters" [sync]="true"></div>
-
-  @if (settingsManager.settings.monsters) {
-  <div class="column">
-    <div class="line" ghs-setting-menu="abilities"></div>
-    <div class="line" ghs-setting-menu="calculate" [requires]="['abilities']"></div>
-    <div class="line" ghs-setting-menu="calculateStats" [requires]="['abilities']"></div>
-    <div class="line" ghs-setting-menu="calculateShieldStats" [requires]="['abilities', 'calculateStats']"></div>
-    <div class="line" ghs-setting-menu="calculateAdvantageStats" [requires]="['abilities', 'calculateStats']"></div>
-    <div class="line" ghs-setting-menu="abilityReveal" [requires]="['abilities']"></div>
-    <div class="line" ghs-setting-menu="removeUnusedMonster"></div>
-    <div class="line" ghs-setting-menu="addAllMonsters"></div>
-  </div>
-  <div class="column">
-    <div class="line" ghs-setting-menu="interactiveAbilities" [requires]="['abilities']"></div>
-    <div class="line" ghs-setting-menu="combineInteractiveAbilities" [requires]="['abilities', 'interactiveAbilities']">
-    </div>
-    <div class="line" ghs-setting-menu="abilityNumbers" [requires]="['abilities']"></div>
-    <div class="line" ghs-setting-menu="showExpandedAbilityCard" [requires]="['abilities']">
-    </div>
-    <div class="line" ghs-setting-menu="showFullAbilityCard" [requires]="['abilities', '!showExpandedAbilityCard']"
-      [checked]="settingsManager.settings.showExpandedAbilityCard"></div>
-    <div class="line" ghs-setting-menu="stats"></div>
-    <div class="line" ghs-setting-menu="showExpandedStatCard" [requires]="['stats']"></div>
-    <div class="line" ghs-setting-menu="hideStats" [requires]="['stats']"></div>
-  </div>
-  }
-
-  <!-- STANDEES -->
-  <div class="line title span" ghs-setting-title-menu="standees" [sync]="true"></div>
-
-  <div class="column">
-    @if (settingsManager.settings.monsters) {
-    <div class="line" ghs-setting-menu="eliteFirst" [requires]="['standees']"></div>
+  <nav class="settings-tabs" [hidden]="!!filter">
+    @for (tab of tabs; track tab) {
+    <button class="tab-btn" [ngClass]="{'active': activeTab === tab}" (click)="setTab(tab)">
+      <span [ghs-label]="'settings.' + tab"></span>
+    </button>
     }
-    <div class="line" ghs-setting-menu="activeStandees" [requires]="['standees']"></div>
-    <div class="line" ghs-setting-menu="automaticStandees" [requires]="['standees', 'scenarioRooms']"></div>
-    <div class="line" ghs-setting-menu="standeeStats" [requires]="['standees']"></div>
-  </div>
+  </nav>
 
-  @if (settingsManager.settings.monsters) {
-  <div class="column">
-    <div class="line" ghs-setting-menu="automaticStandeesDialog"
-      [requires]="['standees', 'scenarioRooms', 'automaticStandees', '!randomStandees']">
+  <div class="settings-content">
+
+    <!-- GAMEPLAY -->
+    <div class="menu-container two-column" [hidden]="activeTab !== 'gameplay' && !filter">
+
+      <div class="line title span" ghs-setting-title-menu="gameplay" [sync]="true"></div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="partySheet"></div>
+        <div class="line" ghs-setting-menu="characterSheet"></div>
+        <div class="line" ghs-setting-menu="scenarioRooms"></div>
+        <div class="line" ghs-setting-menu="treasures" [requires]="['scenarioRooms']"></div>
+        <div class="line" ghs-setting-menu="scenarioRules"></div>
+        <div class="line" ghs-setting-menu="scenarioRulesAutoapply" [requires]="['scenarioRules']"></div>
+        <div class="line" ghs-setting-menu="battleGoals"></div>
+        <div class="line" ghs-setting-menu="events" [requires]="['partySheet']"></div>
+      </div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="amAdvantage"></div>
+        <div class="line" ghs-setting-menu="monsterAttackModifierDeck"></div>
+        <div class="line" ghs-setting-menu="characterAttackModifierDeck" [requires]="['characterSheet']"></div>
+        <div class="line" ghs-setting-menu="allyAttackModifierDeck"></div>
+        <div class="line" ghs-setting-menu="monsters"></div>
+        <div class="line" ghs-setting-menu="summons"></div>
+        <div class="line" ghs-setting-menu="characterItems"></div>
+        <div class="line" ghs-setting-menu="lootDeck"></div>
+      </div>
+
     </div>
-    <div class="line" ghs-setting-menu="randomStandees" [requires]="['standees']"></div>
-    <div class="line" ghs-setting-menu="standees"></div>
-    <div class="line" ghs-setting-menu="standeeShieldRetaliate" [requires]="['standees']"></div>
-  </div>
-  }
 
-  <!-- CONDITION/ELEMENTS -->
-  <div class="line title span" ghs-setting-title-menu="conditions" [sync]="true"></div>
+    <!-- AUTOMATION -->
+    <div class="menu-container two-column" [hidden]="activeTab !== 'automation' && !filter">
 
-  <div class="column">
-    <div class="line" ghs-setting-menu="expireConditions"></div>
-    <div class="line" ghs-setting-menu="applyConditions"></div>
+      <div class="line title span" ghs-setting-title-menu="automation" [sync]="true"></div>
 
-    <div class="column">
-      <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
-        <div class="condition-list">
-          @for (condition of applyConditionsExcludes | trackUUID; track condition._trackUUID; let i = $index) {
-          <div class="hint-container">
-            <div tabclick class="condition"
-              [ngClass]="{'immunity': settingsManager.settings.applyConditionsExcludes.includes(condition.name)}"
-              (click)="toggleApplyConditionsExclude(condition.name)">
-              <img
-                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-              @if (condition.types.includes(ConditionType.value)) {
-              <span class="value">X</span>
+      <div class="column">
+        <div class="line" ghs-setting-menu="scenarioRewards"></div>
+        <div class="line" ghs-setting-menu="drawRandomItem"></div>
+        <div class="line" ghs-setting-menu="drawRandomScenario"></div>
+        <div class="line" ghs-setting-menu="treasuresLoot" [requires]="['scenarioRooms', 'treasures']"></div>
+        <div class="line" ghs-setting-menu="applyLongRest"></div>
+      </div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="automaticUnlocking"></div>
+        <div class="line" ghs-setting-menu="eventsApply" [requires]="['events','partySheet']"></div>
+        <div class="line" ghs-setting-menu="eventsDraw" [requires]="['events','partySheet']"></div>
+        <div class="line" ghs-setting-menu="automaticFirstFigure" [requires]="['!initiativeRequired']"
+          [checked]="settingsManager.settings.initiativeRequired"></div>
+      </div>
+
+      <div class="line title span" ghs-setting-title-menu="conditions" [sync]="true"></div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="expireConditions"></div>
+        <div class="line" ghs-setting-menu="applyConditions"></div>
+
+        <div class="column">
+          <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
+            <div class="condition-list">
+              @for (condition of applyConditionsExcludes | trackUUID; track condition._trackUUID; let i = $index) {
+              <div class="hint-container">
+                <div tabclick class="condition"
+                  [ngClass]="{'immunity': settingsManager.settings.applyConditionsExcludes.includes(condition.name)}"
+                  (click)="toggleApplyConditionsExclude(condition.name)">
+                  <img
+                    [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+                  @if (condition.types.includes(ConditionType.value)) {
+                  <span class="value">X</span>
+                  }
+                </div>
+                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+                <span class="hint above" [ngClass]="{'right': i > 2}">
+                  <span class="text" [ghs-label]="'settings.applyConditions.hint.' + condition.name"></span>
+                </span>
+              </div>
               }
             </div>
-            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-            <span class="hint" [ngClass]="{'right': i > 2}">
-              <span class="text" [ghs-label]="'settings.applyConditions.hint.' + condition.name "></span>
-            </span>
           </div>
-          }
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="moveElements"></div>
+        <div class="line" ghs-setting-menu="activeApplyConditions" [requires]="['applyConditions']"></div>
+
+        <div class="column">
+          <div class="line">
+            <div class="condition-list">
+              @for (condition of activeApplyConditionsExcludes | trackUUID; track condition._trackUUID; let i = $index)
+              {
+              <div class="hint-container">
+                <div tabclick class="condition"
+                  [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsExcludes.includes(condition.name), 'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}"
+                  (click)="toggleActiveApplyConditionsExclude(condition.name)">
+                  <img
+                    [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+                  @if (condition.types.includes(ConditionType.value)) {
+                  <span class="value">X</span>
+                  }
+                </div>
+                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+                <span class="hint above" [ngClass]="{'right': i > 2}">
+                  <span class="text" [ghs-label]="'settings.activeApplyConditions.hint.' + condition.name"></span>
+                </span>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="line"
+            [ngClass]="{'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}">
+            <div class="hint-container inline">
+              <label [ghs-label]="'settings.activeApplyConditions.auto'"></label>
+              <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+              <span class="hint above">
+                <span class="text" [ghs-label]="'settings.activeApplyConditions.auto.hint'"></span>
+              </span>
+            </div>
+            <div class="condition-list">
+              @for (condition of activeApplyConditionsAuto | trackUUID; track condition._trackUUID; let i = $index) {
+              @if (!settingsManager.settings.activeApplyConditionsExcludes.includes(condition.name)) {
+              <div class="hint-container">
+                <div tabclick class="condition"
+                  [ngClass]="{'immunity': !settingsManager.settings.activeApplyConditionsAuto.includes(condition.name) || settingsManager.settings.activeApplyConditionsExcludes.includes(condition.name), 'disabled': settingsManager.settings.activeApplyConditionsExcludes.includes(condition.name)}"
+                  (click)="toggleActiveApplyConditionsAuto(condition.name)">
+                  <img
+                    [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+                  @if (condition.types.includes(ConditionType.value)) {
+                  <span class="value">X</span>
+                  }
+                </div>
+                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+                <span class="hint above" [ngClass]="{'right': i > 2}">
+                  <span class="text" [ghs-label]="'settings.activeApplyConditions.auto.hint.' + condition.name"></span>
+                </span>
+              </div>
+              }
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CHARACTER -->
+    <div class="menu-container two-column" [hidden]="activeTab !== 'character' && !filter">
+
+      <div class="line title span" ghs-setting-title-menu="character" [sync]="true"></div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="initiativeRequired"></div>
+        <div class="line" ghs-setting-menu="hideAbsent"></div>
+        <div class="line" ghs-setting-menu="characterShieldRetaliate"></div>
+        <div class="line" ghs-setting-menu="applyRetirement" [requires]="['characterSheet']"></div>
+        <div class="line" ghs-setting-menu="characterItemsApply" [requires]="['characterItems']"></div>
+        <div class="line" ghs-setting-menu="activeSummons" [requires]="['summons']"></div>
+        <div class="line" ghs-setting-menu="passiveSummons" [requires]="['summons', 'activeSummons']"
+          [checked]="!settingsManager.settings.activeSummons"></div>
+        <div class="line" ghs-setting-menu="scenarioStats"></div>
+
+      </div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="characterSortIndex"></div>
+        <div class="line" ghs-setting-menu="characterHandSize"></div>
+        <div class="line" ghs-setting-menu="characterTraits"></div>
+        <div class="line" ghs-setting-menu="characterIdentities"></div>
+        <div class="line" ghs-setting-menu="characterIdentityHint" [requires]="['characterIdentities']"></div>
+        <div class="line" ghs-setting-menu="battleGoalsReminder" [requires]="['battleGoals']"></div>
+        <div class="line" ghs-setting-menu="battleGoalsCharacter" [requires]="['battleGoals']"></div>
+        <div class="line" ghs-setting-menu="characterItemsShareHouseRule" [requires]="['characterItems']"></div>
+      </div>
+
+    </div>
+
+    <!-- MONSTERS -->
+    <div class="menu-container two-column" [hidden]="activeTab !== 'monsters' && !filter">
+
+      <div class="line title span" ghs-setting-title-menu="monsters" [sync]="true"></div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="abilities" [requires]="['monsters']"></div>
+        <div class="line" ghs-setting-menu="calculate" [requires]="['monsters','abilities']"></div>
+        <div class="line" ghs-setting-menu="calculateStats" [requires]="['monsters','abilities']"></div>
+        <div class="line" ghs-setting-menu="calculateShieldStats"
+          [requires]="['monsters','abilities', 'calculateStats']"></div>
+        <div class="line" ghs-setting-menu="calculateAdvantageStats"
+          [requires]="['monsters','abilities', 'calculateStats']"></div>
+        <div class="line" ghs-setting-menu="abilityReveal" [requires]="['monsters','abilities']"></div>
+        <div class="line" ghs-setting-menu="removeUnusedMonster" [requires]="['monsters']"></div>
+        <div class="line" ghs-setting-menu="addAllMonsters" [requires]="['monsters']"></div>
+      </div>
+      <div class="column">
+        <div class="line" ghs-setting-menu="interactiveAbilities" [requires]="['monsters','abilities']"></div>
+        <div class="line" ghs-setting-menu="combineInteractiveAbilities"
+          [requires]="['monsters','abilities', 'interactiveAbilities']"></div>
+        <div class="line" ghs-setting-menu="abilityNumbers" [requires]="['monsters','abilities']"></div>
+        <div class="line" ghs-setting-menu="showExpandedAbilityCard" [requires]="['monsters','abilities']"></div>
+        <div class="line" ghs-setting-menu="showFullAbilityCard"
+          [requires]="['monsters','abilities', '!showExpandedAbilityCard']"
+          [checked]="settingsManager.settings.showExpandedAbilityCard"></div>
+        <div class="line" ghs-setting-menu="stats" [requires]="['monsters']"></div>
+        <div class="line" ghs-setting-menu="showExpandedStatCard" [requires]="['monsters','stats']"></div>
+        <div class="line" ghs-setting-menu="hideStats" [requires]="['monsters','stats']"></div>
+      </div>
+
+
+      <div class="line title span" ghs-setting-title-menu="standees" [sync]="true"></div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="eliteFirst" [requires]="['monsters','standees']"></div>
+
+        <div class="line" ghs-setting-menu="activeStandees" [requires]="['standees']"></div>
+        <div class="line" ghs-setting-menu="automaticStandees" [requires]="['standees', 'scenarioRooms']"></div>
+        <div class="line" ghs-setting-menu="standeeStats" [requires]="['standees']"></div>
+      </div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="automaticStandeesDialog"
+          [requires]="['monsters','standees', 'scenarioRooms', 'automaticStandees', '!randomStandees']"></div>
+        <div class="line" ghs-setting-menu="randomStandees" [requires]="['monsters','standees']"></div>
+        <div class="line" ghs-setting-menu="standees" [requires]="['monsters']"></div>
+        <div class="line" ghs-setting-menu="standeeShieldRetaliate" [requires]="['monsters','standees']"></div>
+      </div>
+
+
+    </div>
+
+    <!-- GAME RULES -->
+    <div class="menu-container two-column" [hidden]="activeTab !== 'gamerules' && !filter">
+
+      <div class="line title span" ghs-setting-title-menu="fhRules" [sync]="true"></div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="applyLoot" [requires]="['lootDeck']"></div>
+        <div class="line" ghs-setting-menu="applyLootRandomItem"
+          [requires]="['lootDeck', 'applyLoot', 'characterItems']"></div>
+        <div class="line" ghs-setting-menu="alwaysLootApplyDialog" [requires]="['lootDeck', 'applyLoot']"></div>
+        <div class="line" ghs-setting-menu="automaticPassTime"></div>
+        <div class="line" ghs-setting-menu="applyBuildingRewards"></div>
+        <div class="line" ghs-setting-menu="unlockEnvelopeBuildings"></div>
+        <div class="line" ghs-setting-menu="fhGhItems" [requiresOne]="['characterItems', 'characterSheet']"></div>
+        @if (gameManager.challengesManager.available) {
+        <div class="line" ghs-setting-menu="fhChallenges"></div>
+        }
+        @if (gameManager.trialsManager.available) {
+        <div class="line" ghs-setting-menu="fhTrials"
+          [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''"></div>
+        }
+        @if (gameManager.buildingsManager.petsAvailable) {
+        <div class="line" ghs-setting-menu="fhPets"></div>
+        }
+      </div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="alwaysLootDeck" [disabled]="gameManager.fhRules()" [requires]="['lootDeck']"
+          [checked]="settingsManager.settings.lootDeck && gameManager.fhRules()"></div>
+        <div class="line" ghs-setting-menu="battleGoalsFh" [disabled]="gameManager.fhRules()"
+          [requires]="['battleGoals']" [checked]="settingsManager.settings.battleGoals && gameManager.fhRules()"></div>
+        <div class="line" ghs-setting-menu="alwaysAllyAttackModifierDeck"
+          [disabled]="!settingsManager.settings.allyAttackModifierDeck"></div>
+        <div class="line" ghs-setting-menu="alwaysHazardousTerrain" [disabled]="gameManager.fhRules()"
+          [checked]="gameManager.fhRules()"></div>
+        <div class="line" ghs-setting-menu="alwaysFhSolo" [disabled]="gameManager.fhRules()"
+          [checked]="gameManager.fhRules()"></div>
+        <div class="line" ghs-setting-menu="alwaysFhAdvantage" [disabled]="gameManager.fhRules()"
+          [requires]="['amAdvantage']" [checked]="settingsManager.settings.amAdvantage && gameManager.fhRules()"></div>
+        <div class="line" ghs-setting-menu="amAdvantageHouseRule" [requires]="['amAdvantage']">
+        </div>
+        <div class="line" ghs-setting-menu="fhShareResources"></div>
+        @if (gameManager.challengesManager.available) {
+        <div class="line" ghs-setting-menu="fhChallengesApply" [requires]="['fhChallenges']"></div>
+        }
+        @if (gameManager.trialsManager.available) {
+        <div class="line" ghs-setting-menu="fhTrialsApply"
+          [disabled]="!gameManager.fhRules() || !gameManager.trialsManager.trialsEnabled && !gameManager.trialsManager.favorsEnabled"
+          [requires]="['fhTrials']" [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''"></div>
+        }
+      </div>
+
+      <div class="line title span" ghs-setting-title-menu="gh2eRules" [sync]="true"></div>
+      <div class="column">
+        @if (!settingsManager.settings.alwaysGh2eImbuement && gameManager.gh2eRules() &&
+        gameManager.imbuementManager.available) {
+        <div class="line" [disabled]="settingsManager.settings.alwaysGh2eImbuement" ghs-setting-menu="gh2eImbuement">
+        </div>
+        }
+        <div class="line" ghs-setting-menu="alwaysGh2eImbuement"></div>
+      </div>
+      <div class="column">
+        @if (settingsManager.settings.alwaysGh2eImbuement || gameManager.gh2eRules() &&
+        gameManager.imbuementManager.available) {
+        <div class="line" ghs-setting-menu="gh2eImbuementKeep"></div>
+        }
+      </div>
+
+      <div class="line title span" ghs-setting-title-menu="bbRules" [sync]="true"></div>
+      <div class="column">
+        <div class="line" ghs-setting-menu="bbChars"></div>
+        <div class="line" ghs-setting-menu="bbAm" [requires]="['monsterAttackModifierDeck']"></div>
+      </div>
+      <div class="column">
+        <div class="line" ghs-setting-menu="bbStandeeLimit" [requires]="['standees']"></div>
+      </div>
+
+    </div>
+
+    <!-- DISPLAY -->
+    <div class="menu-container two-column" [hidden]="activeTab !== 'display' && !filter">
+
+      <div class="column">
+        <div class="line title" ghs-setting-title-menu="theme"></div>
+
+        <div ghs-setting-menu="theme" [values]="['default', 'fh', 'modern', 'bb']"></div>
+
+        <div class="separator span"></div>
+        <div class="line" ghs-setting-menu="automaticTheme"></div>
+        <div class="line" ghs-setting-menu="fhStyle"></div>
+        <div class="line" ghs-setting-menu="artwork"></div>
+
+        <div class="line title" ghs-setting-title-menu="animations"></div>
+        <div class="line" ghs-setting-menu="animations"></div>
+        <div class="line" ghs-setting-menu="statAnimations"></div>
+        <div class="line" ghs-setting-menu="characterAttackModifierAnimate"
+          [requires]="['characterSheet', 'characterAttackModifierDeck']"></div>
+        <div class="line" ghs-setting-menu="animationSpeed" type="range" [min]="0.3" [max]="2"
+          [requires]="['animations']"></div>
+      </div>
+
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="fullscreen"></div>
+        <div class="line">
+          <a ghs-pointer-input (singleClick)="zoomOut()" (doubleClick)="zoomOut(true)">
+            <span [ghs-label]="'settings.zoom.out'"></span>
+          </a>
+        </div>
+        <div class="line">
+          <a ghs-pointer-input (singleClick)="zoomIn()" (doubleClick)="zoomIn(true)">
+            <span [ghs-label]="'settings.zoom.in'"></span>
+          </a>
+        </div>
+        <div class="line">
+          <a (click)="resetZoom()">
+            <span [ghs-label]="'settings.zoom.reset'"></span>
+          </a>
+        </div>
+        <div class="line" ghs-setting-menu="pinchZoom"></div>
+        <div class="line" ghs-setting-menu="columns"></div>
+        <div class="line" ghs-setting-menu="columnsForce" [requires]="['columns']"></div>
+        <div class="line" ghs-setting-menu="autoscroll"></div>
+        @if (wakeLock) {
+        <div class="line" ghs-setting-menu="wakeLock"></div>
+        }
+        <div class="line" ghs-setting-menu="portraitMode"></div>
+        <div class="line" ghs-setting-menu="barsize" type="range" [min]="0.1" [max]="2"></div>
+        <div class="line" ghs-setting-menu="fontsize" type="range" [min]="0.1" [max]="2"></div>
+      </div>
+
+    </div>
+
+
+    <!-- INTERFACE -->
+    <div class="menu-container two-column" [hidden]="activeTab !== 'interface' && !filter">
+
+      <div class="line title span" ghs-setting-title-menu="interface"></div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="characterAttackModifierDeckActiveBottom"
+          [requires]="['characterSheet', 'characterAttackModifierDeck']"></div>
+        <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanent"
+          [requires]="['characterSheet', 'characterAttackModifierDeck', '!characterAttackModifierDeckActiveBottom']"
+          [disabled]="settingsManager.settings.characterAttackModifierDeckActiveBottom"></div>
+        <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanentActive"
+          [requires]="['characterSheet', 'characterAttackModifierDeck']"
+          [disabled]="!settingsManager.settings.characterAttackModifierDeckPermanent && !settingsManager.settings.characterAttackModifierDeckActiveBottom">
+        </div>
+        <div class="line" ghs-setting-menu="characterItemsPermanent" [requires]="['characterItems']"></div>
+        <div class="line" ghs-setting-menu="characterItemsPermanentActive"
+          [requires]="['characterItems','characterItemsPermanent']"></div>
+        <div class="line" ghs-setting-menu="automaticAttackModifierFullscreen" [requires]="['portraitMode']"></div>
+        <div class="line" ghs-setting-menu="damageHP"></div>
+        <div class="line" ghs-setting-menu="damageHPToggle"></div>
+      </div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="characterSheetCompact" [requires]="['characterSheet']"></div>
+        <div class="line" ghs-setting-menu="characterFullView"></div>
+        <div class="line" ghs-setting-menu="characterCompact" [disabled]="settingsManager.settings.theme == 'modern'">
+        </div>
+        <div class="line" ghs-setting-menu="hideCharacterHP"></div>
+        <div class="line" ghs-setting-menu="hideCharacterLoot"></div>
+        <div class="line" ghs-setting-menu="hideCharacterXP"></div>
+        <div class="line" ghs-setting-menu="playerNumber"></div>
+      </div>
+
+      <div class="line title span" ghs-setting-title-menu="hintsMenu"></div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="turnConfirmation" [requiresOne]="['expireConditions', 'applyConditions']">
+        </div>
+        <div class="line" ghs-setting-menu="initiativeRoundConfirm" [requires]="['initiativeRequired']"></div>
+        <div class="line" ghs-setting-menu="eventsDrawReminder" [requires]="['!eventDraw']"></div>
+        <div class="line" ghs-setting-menu="errata"></div>
+      </div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="hints"></div>
+        <div class="line" ghs-setting-menu="backupHint"></div>
+        <div class="line" ghs-setting-menu="tooltips"></div>
+      </div>
+
+      <div class="line title span" ghs-setting-title-menu="gameClock"></div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="gameClock"></div>
+        <div class="line" ghs-setting-menu="automaticGameClock" [requires]="['gameClock']"></div>
+      </div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="gameClockMerge" [requires]="['gameClock']"></div>
+        <div class="line" ghs-setting-menu="automaticGameClockFocus" [requires]="['gameClock', 'automaticGameClock']">
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="column">
-    <div class="line" ghs-setting-menu="moveElements"></div>
-    <div class="line" ghs-setting-menu="activeApplyConditions" [requires]="['applyConditions']">
-    </div>
+    <!-- LOCALE -->
+    <div class="menu-container" [hidden]="activeTab !== 'locale' && !filter">
+      <div class="line title span" ghs-setting-title-menu="locale" [sync]="true"></div>
 
-    <div class="column">
-      <div class="line">
-        <div class="condition-list">
-          @for (condition of activeApplyConditionsExcludes | trackUUID; track condition._trackUUID; let i = $index) {
-          <div class="hint-container">
-            <div tabclick class="condition"
-              [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsExcludes.includes(condition.name), 'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}"
-              (click)="toggleActiveApplyConditionsExclude(condition.name)">
-              <img
-                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-              @if (condition.types.includes(ConditionType.value)) {
-              <span class="value">X</span>
-              }
-            </div>
-            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-            <span class="hint" [ngClass]="{'right': i > 2}">
-              <span class="text" [ghs-label]="'settings.activeApplyConditions.hint.' + condition.name"></span>
-            </span>
-          </div>
-          }
+      <div class="column">
+        <div class="menu-container two-column" ghs-setting-menu="locale" [values]="settingsManager.locales"></div>
+
+        <div class="separator span"></div>
+        <div class="line">
+          <a href="https://i18n.gloomhaven-secretariat.de/" target="_blank" [ghs-tooltip]="'settings.locale.help.hint'"
+            [originY]="'top'" [overlayY]="'bottom'">
+            <img class="ghs-svg" src="./assets/images/hint.svg">&nbsp;
+            <span [ghs-label]="'settings.locale.help'"></span>
+          </a>
         </div>
       </div>
     </div>
 
+    <!-- PREFERENCES -->
+    <div class="menu-container two-column" [hidden]="activeTab !== 'preferences' && !filter">
 
-    @if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions) {
-    <div class="column">
-      <div class="line"
-        [ngClass]="{'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}">
-        <div class="hint-container inline">
-          <label [ghs-label]="'settings.activeApplyConditions.auto'"></label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.activeApplyConditions.auto.hint'"></span>
-          </span>
+      <div class="line title span" ghs-setting-title-menu="controls"></div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="maxUndo" type="number" [min]="0" [max]="storageManager.db ? '' : 50"
+          [hint]="!storageManager.db" [additionalHint]="platform.FIREFOX ? 'settings.maxUndo.hint.firefox' : ''"></div>
+        <div class="line" ghs-setting-menu="pressDoubleClick"></div>
+        <div class="line" ghs-setting-menu="dragFigures"></div>
+        <div class="line" ghs-setting-menu="dragValues"></div>
+      </div>
+
+      <div class="column">
+        <div class="line" ghs-setting-menu="dragValuesHp" [requires]="['dragValues']" [hint]="false"></div>
+        <div class="line" ghs-setting-menu="dragValuesInitiative" [requires]="['dragValues']" [hint]="false"></div>
+        <div class="line" ghs-setting-menu="dragValuesLoot" [requires]="['dragValues']" [hint]="false"></div>
+        <div class="line" ghs-setting-menu="dragValuesXp" [requires]="['dragValues']" [hint]="false"></div>
+      </div>
+
+
+      <div class="separator span"></div>
+
+      <div class="column">
+        <div class="line">
+          <a tabclick (click)="helperDefaults()">
+            <span [ghs-label]="'settings.helperDefaults'"></span>
+          </a>
         </div>
-        <div class="condition-list">
-          @for (condition of activeApplyConditionsAuto | trackUUID; track condition._trackUUID; let i = $index) {
-          @if (!settingsManager.settings.activeApplyConditionsExcludes.includes(condition.name)) {
-          <div class="hint-container">
-            <div tabclick class="condition"
-              [ngClass]="{'immunity': !settingsManager.settings.activeApplyConditionsAuto.includes(condition.name) || settingsManager.settings.activeApplyConditionsExcludes.includes(condition.name), 'disabled': settingsManager.settings.activeApplyConditionsExcludes.includes(condition.name)}"
-              (click)="toggleActiveApplyConditionsAuto(condition.name)">
-              <img
-                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-              @if (condition.types.includes(ConditionType.value)) {
-              <span class="value">X</span>
-              }
-            </div>
-            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-            <span class="hint" [ngClass]="{'right': i > 2}">
-              <span class="text" [ghs-label]="'settings.activeApplyConditions.auto.hint.' + condition.name"></span>
-            </span>
-          </div>
-          }
-          }
+        <div class="line">
+          <a tabclick (click)="lurkarsDefaults()">
+            <span [ghs-label]="'settings.lurkarsDefaults'"></span>
+          </a>
+        </div>
+        <div class="line">
+          <a tabclick (click)="xhaDefaults()">
+            <span [ghs-label]="'settings.xhaDefaults'"></span>
+          </a>
         </div>
       </div>
-    </div>
-    }
-  </div>
 
-  <div class="separator"></div>
+      <div class="column">
+        <div class="line">
+          <a tabclick (click)="setMenu.emit(SubMenu.debug)">
+            <span [ghs-label]="'settings.debug'"></span>
+          </a>
+        </div>
+      </div>
 
-  <!-- FROSTHAVEN -->
-  <div class="line title span" ghs-setting-title-menu="fhRules" [sync]="true"></div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="applyLoot" [requires]="['lootDeck']"></div>
-    <div class="line" ghs-setting-menu="applyLootRandomItem" [requires]="['lootDeck', 'applyLoot', 'characterItems']">
-    </div>
-    <div class="line" ghs-setting-menu="alwaysLootApplyDialog" [requires]="['lootDeck', 'applyLoot']"></div>
-    <div class="line" ghs-setting-menu="automaticPassTime" [disabled]="!gameManager.fhRules()"></div>
-    <div class="line" ghs-setting-menu="applyBuildingRewards" [disabled]="!gameManager.fhRules()"></div>
-    <div class="line" ghs-setting-menu="unlockEnvelopeBuildings" [disabled]="!gameManager.fhRules()"></div>
-    <div class="line" ghs-setting-menu="fhGhItems" [disabled]="!gameManager.fhRules()"
-      [requiresOne]="['characterItems', 'characterSheet']">
-    </div>
-    @if (gameManager.challengesManager.available) {
-    <div class="line" ghs-setting-menu="fhChallenges" [disabled]="!gameManager.fhRules()"></div>
-    }
-    @if (gameManager.trialsManager.available) {
-    <div class="line" ghs-setting-menu="fhTrials" [disabled]="!gameManager.fhRules()"
-      [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''">
-    </div>
-    }
-    @if (gameManager.buildingsManager.petsAvailable) {
-    <div class="line" ghs-setting-menu="fhPets" [disabled]="!gameManager.fhRules()"></div>
-    }
-  </div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="alwaysLootDeck" [disabled]="gameManager.fhRules()" [requires]="['lootDeck']"
-      [checked]="settingsManager.settings.lootDeck && gameManager.fhRules()">
-    </div>
-    <div class="line" ghs-setting-menu="battleGoalsFh" [disabled]="gameManager.fhRules()" [requires]="['battleGoals']"
-      [checked]="settingsManager.settings.battleGoals && gameManager.fhRules()">
-    </div>
-    <div class="line" ghs-setting-menu="alwaysAllyAttackModifierDeck"
-      [disabled]="!settingsManager.settings.allyAttackModifierDeck"></div>
-    <div class="line" ghs-setting-menu="alwaysHazardousTerrain" [disabled]="gameManager.fhRules()"
-      [checked]="gameManager.fhRules()"></div>
-    <div class="line" ghs-setting-menu="alwaysFhSolo" [disabled]="gameManager.fhRules()"
-      [checked]="gameManager.fhRules()"></div>
-    <div class="line" ghs-setting-menu="alwaysFhAdvantage" [disabled]="gameManager.fhRules()"
-      [requires]="['amAdvantage']" [checked]="settingsManager.settings.amAdvantage && gameManager.fhRules()"></div>
-    @if (settingsManager.settings.amAdvantage) {
-    <div class="line" ghs-setting-menu="amAdvantageHouseRule" [requires]="['amAdvantage', 'alwaysFhAdvantage']"></div>
-    }
-    <div class="line" ghs-setting-menu="fhShareResources" [disabled]="!gameManager.fhRules()"></div>
-    @if (gameManager.challengesManager.available) {
-    <div class="line" ghs-setting-menu="fhChallengesApply" [disabled]="!gameManager.fhRules()"
-      [requires]="['fhChallenges']"></div>
-    }
-    @if (gameManager.trialsManager.available) {
-    <div class="line" ghs-setting-menu="fhTrialsApply"
-      [disabled]="!gameManager.fhRules() || !gameManager.trialsManager.trialsEnabled && !gameManager.trialsManager.favorsEnabled"
-      [requires]="['fhTrials']" [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''">
-    </div>
-    }
-  </div>
-
-  <!-- GH2E -->
-  <div class="separator"></div>
-  <div class="line title span" ghs-setting-title-menu="gh2eRules" [sync]="true"></div>
-  <div class="column">
-    @if (!settingsManager.settings.alwaysGh2eImbuement && gameManager.gh2eRules() &&
-    gameManager.imbuementManager.available) {
-    <div class="line" [disabled]="settingsManager.settings.alwaysGh2eImbuement" ghs-setting-menu="gh2eImbuement"></div>
-    }
-    <div class="line" ghs-setting-menu="alwaysGh2eImbuement"></div>
-  </div>
-  <div class="column">
-    @if (settingsManager.settings.alwaysGh2eImbuement || gameManager.gh2eRules() &&
-    gameManager.imbuementManager.available) {
-    <div class="line" ghs-setting-menu="gh2eImbuementKeep"></div>
-    }
-  </div>
-
-  @if (gameManager.bbRules()) {
-  <div class="separator"></div>
-  <!-- BUTTON&BUGS -->
-  <div class="line title span" ghs-setting-title-menu="bbRules" [sync]="true"></div>
-  <div class="column">
-    <div class="line" ghs-setting-menu="bbChars"></div>
-    <div class="line" ghs-setting-menu="bbAm" [requires]="['monsterAttackModifierDeck']"></div>
-  </div>
-  <div class="column">
-    <div class="line" ghs-setting-menu="bbStandeeLimit" [requires]="['standees']"></div>
-  </div>
-  }
-
-  <div class="separator"></div>
-
-  <!-- ADDITIONAL -->
-  <div class="line title span" ghs-setting-title-menu="additional" [sync]="true"></div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="turnConfirmation" [requiresOne]="['expireConditions', 'applyConditions']"></div>
-    @if (!settingsManager.settings.initiativeRequired) {
-    <div class="line" ghs-setting-menu="automaticFirstFigure" [requires]="['!initiativeRequired']"></div>
-    }
-    <div class="line" ghs-setting-menu="scenarioRulesAutoapply" [requires]="['scenarioRules']">
-    </div>
-    <div class="line" ghs-setting-menu="automaticUnlocking"></div>
-    <div class="line" ghs-setting-menu="summons"></div>
-    <div class="line" ghs-setting-menu="eventsApply" [requires]="['events','partySheet']"></div>
-    <div class="line" ghs-setting-menu="eventsDraw" [requires]="['events','partySheet']"></div>
-  </div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="lootDeck"></div>
-    <div class="line" ghs-setting-menu="allyAttackModifierDeck"></div>
-    <div class="line" ghs-setting-menu="monsters"></div>
-    <div class="line" ghs-setting-menu="monsterAttackModifierDeck"></div>
-    <div class="line" ghs-setting-menu="amAdvantage"></div>
-    <div class="line" ghs-setting-menu="damageHP"></div>
-    <div class="line" ghs-setting-menu="characterItemsShareHouseRule" [requires]="['characterItems']"></div>
-  </div>
-  <!-- INTERFACE -->
-  <div class="line title span" ghs-setting-title-menu="interface"></div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="fhStyle"></div>
-    <div class="line" ghs-setting-menu="characterSheetCompact" [requires]="['characterSheet']">
-    </div>
-    <div class="line" ghs-setting-menu="eventsDrawReminder" [requires]="['!eventDraw']"></div>
-    <div class="line" ghs-setting-menu="damageHPToggle"></div>
-    <div class="line" ghs-setting-menu="characterAttackModifierDeckActiveBottom"
-      [requires]="['characterSheet', 'characterAttackModifierDeck']">
-    </div>
-    <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanent"
-      [requires]="['characterSheet', 'characterAttackModifierDeck', '!characterAttackModifierDeckActiveBottom']"
-      [disabled]="settingsManager.settings.characterAttackModifierDeckActiveBottom">
-    </div>
-    <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanentActive"
-      [requires]="['characterSheet', 'characterAttackModifierDeck']"
-      [disabled]="!settingsManager.settings.characterAttackModifierDeckPermanent && !settingsManager.settings.characterAttackModifierDeckActiveBottom">
-    </div>
-    <div class="line" ghs-setting-menu="characterItemsPermanent" [requires]="['characterItems']">
-    </div>
-    <div class="line" ghs-setting-menu="characterItemsPermanentActive"
-      [requires]="['characterItems','characterItemsPermanent']"></div>
-    <div class="line" ghs-setting-menu="characterAttackModifierAnimate"
-      [requires]="['characterSheet', 'characterAttackModifierDeck']">
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="automaticAttackModifierFullscreen" [requires]="['portraitMode']"></div>
-    <div class="line" ghs-setting-menu="pressDoubleClick"></div>
-    <div class="line" ghs-setting-menu="dragFigures"></div>
-    <div class="line" ghs-setting-menu="dragValues"></div>
-    <div class="line" ghs-setting-menu="dragValuesHp" [requires]="['dragValues']" [hint]="false"></div>
-    <div class="line" ghs-setting-menu="dragValuesInitiative" [requires]="['dragValues']" [hint]="false"></div>
-    <div class="line" ghs-setting-menu="dragValuesLoot" [requires]="['dragValues']" [hint]="false"></div>
-    <div class="line" ghs-setting-menu="dragValuesXp" [requires]="['dragValues']" [hint]="false"></div>
-  </div>
-
-  <div class="separator"></div>
-
-  <!-- Game clock-->
-  <div class="column">
-    <div class="line" ghs-setting-menu="gameClock"></div>
-    <div class="line" ghs-setting-menu="gameClockMerge" [requires]="['gameClock']"></div>
-  </div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="automaticGameClock" [requires]="['gameClock']"></div>
-    <div class="line" ghs-setting-menu="automaticGameClockFocus" [requires]="['gameClock', 'automaticGameClock']">
-    </div>
-  </div>
-
-  <div class="separator"></div>
-
-  <div class="column">
-    <div class="line ">
-      <a ghs-pointer-input (singleClick)="zoomOut()" (doubleClick)="zoomOut(true)">
-        <span [ghs-label]="'settings.zoom.out'"></span>
-      </a>
     </div>
 
-    <div class="line">
-      <a ghs-pointer-input (singleClick)="zoomIn()" (doubleClick)="zoomIn(true)">
-        <span [ghs-label]="'settings.zoom.in'"></span>
-      </a>
-    </div>
-
-    <div class="line">
-      <a (click)="resetZoom()">
-        <span [ghs-label]="'settings.zoom.reset'"></span>
-      </a>
-    </div>
-
-    <div class="line" ghs-setting-menu="pinchZoom"></div>
-    <div class="line" ghs-setting-menu="fullscreen"></div>
-    <div class="line" ghs-setting-menu="autoscroll"></div>
-    <div class="line" ghs-setting-menu="portraitMode"></div>
-    <div class="line" ghs-setting-menu="animations"></div>
-    <div class="line" ghs-setting-menu="statAnimations"></div>
-    <div class="line" ghs-setting-menu="animationSpeed" type="range" [min]="0.3" [max]="2" [requires]="['animations']">
-    </div>
-    <div class="line" ghs-setting-menu="barsize" type="range" [min]="0.1" [max]="2"></div>
-    <div class="line" ghs-setting-menu="fontsize" type="range" [min]="0.1" [max]="2"></div>
-  </div>
-
-  <div class="column">
-    <div class="line" ghs-setting-menu="hints"></div>
-    <div class="line" ghs-setting-menu="tooltips"></div>
-    <div class="line" ghs-setting-menu="backupHint"></div>
-    <div class="line" ghs-setting-menu="initiativeRoundConfirm" [requires]="['initiativeRequired']"></div>
-    <div class="line" ghs-setting-menu="errata"></div>
-    <div class="line" ghs-setting-menu="columns"></div>
-    <div class="line" ghs-setting-menu="columnsForce" [requires]="['columns']"></div>
-    <div class="line" ghs-setting-menu="artwork"></div>
-    @if (wakeLock) {
-    <div class="line" ghs-setting-menu="wakeLock"></div>
-    }
-  </div>
-
-  <div class="separator"></div>
-
-  <div class="line" ghs-setting-menu="maxUndo" type="number" [min]="0" [max]="storageManager.db ? '' : 50"
-    [hint]="!storageManager.db" [additionalHint]="platform.FIREFOX ? 'settings.maxUndo.hint.firefox' : ''"></div>
-
-  <div class="line" ghs-setting-menu="browserNavigation" [disabled]="true" [hint]="false"></div>
-
-  <div class="column">
-    <div class="line title" ghs-setting-title-menu="locale" [sync]="true"></div>
-    <div ghs-setting-menu="locale" [values]="settingsManager.locales"></div>
-    <div class="line">
-      <a href="https://i18n.gloomhaven-secretariat.de/" target="_blank" [ghs-tooltip]="'settings.locale.help.hint'"
-        [originY]="'top'" [overlayY]="'bottom'">
-        <img class="ghs-svg" src="./assets/images/hint.svg">&nbsp;
-        <span [ghs-label]="'settings.locale.help'"></span>
-      </a>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="line title" ghs-setting-title-menu="theme"></div>
-
-    <div ghs-setting-menu="theme" [values]="['default', 'fh', 'modern', 'bb']"></div>
-
-    <div class="separator"></div>
-
-    <div class="line" ghs-setting-menu="automaticTheme"></div>
-    <div class="line" ghs-setting-menu="characterFullView"></div>
-    <div class="line" ghs-setting-menu="characterCompact" [disabled]="settingsManager.settings.theme  == 'modern'">
-    </div>
-    <div class="line" ghs-setting-menu="playerNumber"></div>
-    <div class="line" ghs-setting-menu="hideCharacterHP"></div>
-    <div class="line" ghs-setting-menu="hideCharacterLoot"></div>
-    <div class="line" ghs-setting-menu="hideCharacterXP"></div>
-  </div>
-
-  <div class="separator"></div>
-
-  <div class="line">
-    <a tabclick (click)="helperDefaults()">
-      <span [ghs-label]="'settings.helperDefaults'"></span>
-    </a>
-  </div>
-
-  <div class="line">
-    <a tabclick (click)="lurkarsDefaults()">
-      <span [ghs-label]="'settings.lurkarsDefaults'"></span>
-    </a>
-  </div>
-
-  <div class="line">
-    <a tabclick (click)="xhaDefaults()">
-      <span [ghs-label]="'settings.xhaDefaults'"></span>
-    </a>
-  </div>
-
-  <div class="separator"></div>
-
-  <div class="line">
-    <a tabclick (click)="setMenu.emit(SubMenu.debug)">
-      <span [ghs-label]="'settings.debug'"></span>
-    </a>
   </div>
 </div>

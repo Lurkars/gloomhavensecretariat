@@ -122,7 +122,7 @@ export class ItemManager {
     }
 
     buyingDisabled(): boolean {
-        return gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'trading-post' && buildingModel.level > 0 && buildingModel.state == "wrecked") != undefined;
+        return gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'trading-post' && buildingModel.level > 0 && buildingModel.state != "wrecked") == undefined;
     }
 
     canCraft(item: ItemData, character: Character | undefined, resources: Partial<Record<LootType, number>> = {}): boolean {

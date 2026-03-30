@@ -3,10 +3,11 @@
   <div class="scroll-container">
     <div class="header">
       @if (!character) {
-      <span class="title" [ghs-label]="'game.items.shop' +  (craftOnly ? '.craft' : '')"></span>
+      <span class="title" [ghs-label]="'game.items.shop' +  (craftOnly ? '.craft' :  (buyOnly ? '.buy' : ''))"></span>
       }
       @if (!!character) {
-      <span (click)="openItems()" class="title" [ghs-label]="'game.items.shop.character' +  (craftOnly ? '.craft' : '')"
+      <span (click)="openItems()" class="title"
+        [ghs-label]="'game.items.shop.character' +  (craftOnly ? '.craft' :  (buyOnly ? '.buy' : ''))"
         [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"
         [ngClass]="{'management' : character.progress.items &&  character.progress.items.length}"></span>
       }
@@ -69,7 +70,7 @@
         <input type="text" [(ngModel)]="filter" (keyup)="update()" [ghs-label]="'game.items.filter'"
           [ghs-label-attribute]="'placeholder'">
 
-        @if (!!character || craftOnly) {
+        @if (!!character || craftOnly || buyOnly) {
         @if (!owned && (!!character || settingsManager.settings.fhShareResources && craftOnly)) {
         <label>
           <input type="checkbox" [(ngModel)]="affordable" (change)="update(true)">
@@ -103,7 +104,7 @@
       </div>
       }
 
-      @if (craftOnly) {
+      @if (craftOnly || buyOnly) {
       <div class="characters">
         @for (char of characters| trackUUID; track char._trackUUID) {
         <div class="character" (click)="toggleCharacter(char)" [ngClass]="{'selected' : character == char}">

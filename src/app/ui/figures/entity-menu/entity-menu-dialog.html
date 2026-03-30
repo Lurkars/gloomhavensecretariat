@@ -6,91 +6,92 @@
 
   <div class="name">
     @if (data.entity && gameManager.isCharacter(data.figure) && gameManager.isCharacter(data.entity)) {
+    @let character = gameManager.toCharacter(data.entity);
     <span class="spacer"></span>
-    <img tabclick (click)="toggleCharacterMarker()" class="icon character-icon"
-      [src]="gameManager.toCharacter(data.figure).iconUrl" />
+    <img tabclick (click)="toggleCharacterMarker()" class="icon character-icon" [src]="character.iconUrl" />
     <span class="character-title"
-      [ngClass]="{'absent' : gameManager.toCharacter(data.figure).absent}">{{gameManager.characterManager.characterName(gameManager.toCharacter(data.figure),true)}}</span>
+      [ngClass]="{'absent' : character.absent}">{{gameManager.characterManager.characterName(character,true)}}</span>
     <span class="spacer"></span>
-    <img class="absent"
-      [src]="'./assets/images/status/' + (gameManager.toCharacter(data.figure).absent ? 'absent': 'present') + '.svg'"
-      [ghs-label]="(gameManager.toCharacter(data.figure).absent ? 'character.present' : 'character.absent')"
-      [ghs-label-attribute]="'title'" tabclick (click)="toggleCharacterAbsent()">
+    <img class="absent" [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'"
+      [ghs-label]="(character.absent ? 'character.present' : 'character.absent')" [ghs-label-attribute]="'title'"
+      tabclick (click)="toggleCharacterAbsent()">
     }
     @if (gameManager.isObjectiveContainer(data.figure)) {
-    <img class="icon"
-      [src]="'./assets/images/objective/' + (gameManager.toObjectiveContainer(data.figure).escort ? 'escort' : 'objective') + '.svg'" />
-    @if (gameManager.toObjectiveContainer(data.figure).title) {
+    @let objective = gameManager.toObjectiveContainer(data.figure);
+    <img class="icon" [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+    @if (objective.title) {
     <span>{{
-      gameManager.toObjectiveContainer(data.figure).title}}</span>
+      objective.title}}</span>
     }
-    @if (!gameManager.toObjectiveContainer(data.figure).title && gameManager.toObjectiveContainer(data.figure).name) {
-    <span [ghs-label]="'data.objective.' + gameManager.toObjectiveContainer(data.figure).name"></span>
+    @if (!objective.title && objective.name) {
+    <span [ghs-label]="'data.objective.' + objective.name"></span>
     }
-    @if (!gameManager.toObjectiveContainer(data.figure).title && !gameManager.toObjectiveContainer(data.figure).name) {
-    <span [ghs-label]="gameManager.toObjectiveContainer(data.figure).escort ? 'escort' : 'objective'"></span>
+    @if (!objective.title && !objective.name) {
+    <span [ghs-label]="objective.escort ? 'escort' : 'objective'"></span>
     }
-    @if (gameManager.toObjectiveContainer(data.figure).title) {
+    @if (objective.title) {
     <span>
       &nbsp;(
-      <span [ghs-label]="gameManager.toObjectiveContainer(data.figure).escort ? 'escort' : 'objective'"></span>
+      <span [ghs-label]="objective.escort ? 'escort' : 'objective'"></span>
       )
     </span>
     }
     }
-    @if (gameManager.isMonster(data.figure)) {
+    @if (gameManager.isMonster(data.figure) && data.entity && gameManager.isMonsterEntity(data.entity)) {
+    @let monster = gameManager.toMonster(data.figure);
+    @let monsterEntity = gameManager.toMonsterEntity(data.entity);
     <div class="name" tabclick (click)="changeMonsterEntity()"
-      [ngClass]="{'change-entity': gameManager.monsterManager.monsterStandeeMax(gameManager.toMonster(data.figure)) > 1 || data.entity && gameManager.isMonsterEntity(data.entity) && gameManager.toMonsterEntity(data.entity).type != MonsterType.boss}">
-      @if (!gameManager.toMonster(data.figure).noThumbnail && settingsManager.settings.artwork) {
-      <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
+      [ngClass]="{'change-entity': gameManager.monsterManager.monsterStandeeMax(monster) > 1 || monsterEntity.type != MonsterType.boss}">
+      @if (!monster.noThumbnail && settingsManager.settings.artwork) {
+      <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
       }
       <span [ghs-label]="'data.monster.' + data.figure.name"></span>&nbsp;
-      @if (gameManager.toMonster(data.figure).isAlly) {
+      @if (monster.isAlly) {
       <span class="ally"><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
       }
-      @if (gameManager.toMonster(data.figure).isAllied) {
+      @if (monster.isAllied) {
       <span class="allied"><span [ghs-label]="'game.allied'"></span>&nbsp;</span>
       }
-      @if (data.entity && gameManager.isMonsterEntity(data.entity)) {
       <span class="standee-number"
-        [ngClass]="gameManager.toMonsterEntity(data.entity).type + (bb ? ' bb-' + gameManager.toMonsterEntity(data.entity).number : '') ">#{{gameManager.toMonsterEntity(data.entity).number}}</span>
-      }
+        [ngClass]="monsterEntity.type + (bb ? ' bb-' + monsterEntity.number : '') ">#{{monsterEntity.number}}</span>
     </div>
     }
 
     @if (data.entity && gameManager.isCharacter(data.figure) && gameManager.isSummon(data.entity)) {
+    @let character = gameManager.toCharacter(data.figure);
+    @let summon = gameManager.toSummon(data.entity);
     <small>
-      <img class="icon" [src]="gameManager.toCharacter(data.figure).iconUrl" />
-      @if (gameManager.toCharacter(data.figure).title) {
-      <span>{{gameManager.toCharacter(data.figure).title}}</span>
+      <img class="icon" [src]="character.iconUrl" />
+      @if (character.title) {
+      <span>{{character.title}}</span>
       }
-      @if (gameManager.toCharacter(data.figure).title) {
+      @if (character.title) {
       <span>&nbsp;(<span [ghs-label]="'data.character.' + data.figure.edition + '.'+ data.figure.name"></span>)</span>
       }
-      @if (!gameManager.toCharacter(data.figure).title) {
+      @if (!character.title) {
       <span [ghs-label]="'data.character.' + data.figure.edition + '.'+ data.figure.name"></span>
       }
     </small>
-    @if (gameManager.toSummon(data.entity).title) {
-    <span>{{gameManager.toSummon(data.entity).title}}&nbsp;</span>
+    @if (summon.title) {
+    <span>{{summon.title}}&nbsp;</span>
     }
-    @if (gameManager.toSummon(data.entity).name) {
-    <span>@if (gameManager.toSummon(data.entity).title) {
+    @if (summon.name) {
+    <span>@if (summon.title) {
       <span>(</span>
       }
-      <span [ghs-label]="'data.summon.' + gameManager.toSummon(data.entity).name"></span>
-      @if (gameManager.toSummon(data.entity).title) {
+      <span [ghs-label]="'data.summon.' + summon.name"></span>
+      @if (summon.title) {
       <span>)</span>
       }</span>
     }
-    @if (!gameManager.toSummon(data.entity).name) {
+    @if (!summon.name) {
     <span><span [ghs-label]="'game.summon'"></span></span>
     }
-    <span class="summon-icon" [ngClass]="{'fh': gameManager.toSummon(data.entity).color == SummonColor.fh}">
-      @if (gameManager.toSummon(data.entity).color != SummonColor.fh) {
-      <img src="./assets/images/summons/{{gameManager.toSummon(data.entity).color}}.png">
+    <span class="summon-icon" [ngClass]="{'fh': summon.color == SummonColor.fh}">
+      @if (summon.color != SummonColor.fh) {
+      <img [src]="'./assets/images/summons/' + summon.color + '.png'">
       }
-      <span class="summon-number">{{gameManager.toSummon(data.entity).number}}</span>
+      <span class="summon-number">{{summon.number}}</span>
     </span>
     }
   </div>
@@ -123,15 +124,15 @@
         </ghs-pointer-input>
       </span>
       @if (gameManager.isCharacter(data.entity) && !bb) {
+      @let character = gameManager.toCharacter(data.entity);
       <span class="item">
-        <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).experience + experience == 0}" tabclick
+        <ghs-pointer-input class="button" [ngClass]="{'disabled' : character.experience + experience == 0}" tabclick
           (singleClick)="changeExperience(-1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </ghs-pointer-input>
       </span>
       <span class="item" [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'">
-        <span class="badge badge-left">{{gameManager.toCharacter(data.entity).experience + experience}}</span>
+        <span class="badge badge-left">{{character.experience + experience}}</span>
         <img src="./assets/images/status/experience.svg" />
         <span class="badge badge-right" [value-sign]="experience" [hideEmpty]="true"></span>
       </span>
@@ -143,14 +144,13 @@
       @if ((!settingsManager.settings.lootDeck || !settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()) &&
       !settingsManager.settings.hideCharacterLoot) {
       <span class="item">
-        <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).loot + loot == 0}" tabclick
+        <ghs-pointer-input class="button" [ngClass]="{'disabled' : character.loot + loot == 0}" tabclick
           (singleClick)="changeLoot(-1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </ghs-pointer-input>
       </span>
       <span class="item" [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'">
-        <span class="badge badge-left">{{gameManager.toCharacter(data.entity).loot + loot}}</span>
+        <span class="badge badge-left">{{character.loot + loot}}</span>
         <img src="./assets/images/status/loot.svg" />
         <span class="badge badge-right" [value-sign]="loot" [hideEmpty]="true"></span>
       </span>
@@ -161,15 +161,14 @@
       </span>
       }
       <span class="item">
-        <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).token + characterToken == 0}" tabclick
+        <ghs-pointer-input class="button" [ngClass]="{'disabled' : character.token + characterToken == 0}" tabclick
           (singleClick)="changeCharacterToken(-1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </ghs-pointer-input>
       </span>
       <span class="item character-token" [ghs-label]="'character.token'" [ghs-label-attribute]="'title'">
-        <span class="badge badge-left">{{gameManager.toCharacter(data.entity).token + characterToken}}</span>
-        <span [ghs-label]="'%data.characterToken.' + gameManager.toCharacter(data.entity).name + '%'"></span>
+        <span class="badge badge-left">{{character.token + characterToken}}</span>
+        <span [ghs-label]="'%data.characterToken.' + character.name + '%'"></span>
         <span class="badge badge-right" [value-sign]="characterToken" [hideEmpty]="true"></span>
       </span>
       <span class="item">
@@ -177,21 +176,20 @@
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
       </span>
-      @for (token of gameManager.toCharacter(data.entity).tokens; track token; let i = $index) {
+      @for (token of character.tokens; track token; let i = $index) {
       <span class="item">
         <ghs-pointer-input class="button"
-          [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).tokenValues[i] + characterTokenValues[i] == 0}"
-          tabclick (singleClick)="changeCharacterToken(-1, i)" [repeat]="true">
+          [ngClass]="{'disabled' : character.tokenValues[i] + characterTokenValues[i] == 0}" tabclick
+          (singleClick)="changeCharacterToken(-1, i)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </ghs-pointer-input>
       </span>
       <span class="item character-token"
-        [ghs-label]="'data.character.' + gameManager.toCharacter(data.entity).edition + '.' + gameManager.toCharacter(data.entity).name + '.tokens.' + token"
+        [ghs-label]="'data.character.' + character.edition + '.' + character.name + '.tokens.' + token"
         [ghs-label-attribute]="'title'">
-        <span class="badge badge-left">{{gameManager.toCharacter(data.entity).tokenValues[i] +
+        <span class="badge badge-left">{{character.tokenValues[i] +
           characterTokenValues[i]}}</span>
-        <span
-          [ghs-label]="'%data.characterToken.' + gameManager.toCharacter(data.entity).name + '.' + token + '%'"></span>
+        <span [ghs-label]="'%data.characterToken.' + character.name + '.' + token + '%'"></span>
         <span class="badge badge-right" [value-sign]="characterTokenValues[i]" [hideEmpty]="true"></span>
       </span>
       <span class="item">
@@ -371,6 +369,7 @@
       </span>
       }
       @if (data.figure && gameManager.isObjectiveContainer(data.figure)) {
+      @let objective = gameManager.toObjectiveContainer(data.figure);
       <span class="item">
         <ghs-pointer-input class="button" tabclick (singleClick)="changeMarker(-1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/left.svg">
@@ -378,21 +377,20 @@
       </span>
       @if (!data.entity || !gameManager.isObjectiveEntity(data.entity)) {
       <span class="item">
-        <span class="map-marker"
-          [ngClass]="{'empty' : !OBJECTIV_MARKERS[(marker +
-          OBJECTIV_MARKERS.indexOf(gameManager.toObjectiveContainer(data.figure).marker)) % OBJECTIV_MARKERS.length]}">{{OBJECTIV_MARKERS[(marker
+        <span class="map-marker" [ngClass]="{'empty' : !OBJECTIV_MARKERS[(marker +
+          OBJECTIV_MARKERS.indexOf(objective.marker)) % OBJECTIV_MARKERS.length]}">{{OBJECTIV_MARKERS[(marker
           +
-          OBJECTIV_MARKERS.indexOf(gameManager.toObjectiveContainer(data.figure).marker)) %
+          OBJECTIV_MARKERS.indexOf(objective.marker)) %
           OBJECTIV_MARKERS.length]}}</span>
       </span>
       }
       @if (data.entity && gameManager.isObjectiveEntity(data.entity)) {
+      @let objectiveEntity = gameManager.toObjectiveEntity(data.entity);
       <span class="item">
-        <span class="map-marker"
-          [ngClass]="{'empty' : !OBJECTIV_MARKERS[(marker +
-          OBJECTIV_MARKERS.indexOf(gameManager.toObjectiveEntity(data.entity).marker)) % OBJECTIV_MARKERS.length]}">{{OBJECTIV_MARKERS[(marker
+        <span class="map-marker" [ngClass]="{'empty' : !OBJECTIV_MARKERS[(marker +
+          OBJECTIV_MARKERS.indexOf(objectiveEntity.marker)) % OBJECTIV_MARKERS.length]}">{{OBJECTIV_MARKERS[(marker
           +
-          OBJECTIV_MARKERS.indexOf(gameManager.toObjectiveEntity(data.entity).marker)) %
+          OBJECTIV_MARKERS.indexOf(objectiveEntity.marker)) %
           OBJECTIV_MARKERS.length]}}</span>
       </span>
       }
@@ -403,41 +401,48 @@
       </span>
       }
       @if (data.entity && gameManager.isSummon(data.entity)) {
+      @let summon = gameManager.toSummon(data.entity);
       <div class="summon-stats-container">
         <span class="stat" tabclick (click)="openLevelDialog()">
           <img class="ghs-svg" src="./assets/images/action/move.svg" />
-          <span [value-calc]="gameManager.toSummon(data.entity).movement" [empty]="true">></span>
+          <span [value-calc]="summon.movement" [empty]="true">></span>
         </span>
         <span class="stat" tabclick (click)="openLevelDialog()">
           <img class="ghs-svg" src="./assets/images/action/attack.svg" />
-          @if (gameManager.toSummon(data.entity).attack != 0) {
-          <span [ghs-label]="'' + gameManager.toSummon(data.entity).attack"></span>
+          @if (summon.attack != 0) {
+          <span [ghs-label]="'' + summon.attack"></span>
           }
-          @if (gameManager.toSummon(data.entity).attack == 0) {
+          @if (summon.attack == 0) {
           <span>-</span>
           }
         </span>
         <span class="stat" tabclick (click)="openLevelDialog()">
           <img class="ghs-svg" src="./assets/images/action/range.svg" />
-          <span [value-calc]="gameManager.toSummon(data.entity).range" [empty]="true">></span>
+          <span [value-calc]="summon.range" [empty]="true">></span>
         </span>
-        @if (gameManager.toSummon(data.entity).action) {
+        @if (summon.action) {
         <span class="action">
-          <ghs-action [action]="gameManager.toSummon(data.entity).action"></ghs-action>
+          <ghs-action [action]="summon.action"></ghs-action>
         </span>
         }
-        @if (gameManager.toSummon(data.entity).additionalAction) {
+        @if (summon.additionalAction) {
         <span class="action">
-          <ghs-action [action]="gameManager.toSummon(data.entity).additionalAction"></ghs-action>
+          <ghs-action [action]="summon.additionalAction"></ghs-action>
         </span>
         }
       </div>
       }
       @if (data.entity && gameManager.isCharacter(data.entity)) {
+      @let character = gameManager.toCharacter(data.entity);
       <span class="item" [ghs-label]="'game.exhausted'" [ghs-label-attribute]="'title'"
-        [ngClass]="{'active' : gameManager.toCharacter(data.entity).exhausted}">
+        [ngClass]="{'active' : character.exhausted}">
         <a class="exhausted" tabclick (click)="toggleExhausted()">
           <img class="ghs-svg" src="./assets/images/status/exhausted.svg" />
+        </a>
+      </span>
+      <span class="item" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'">
+        <a class="button level-button" tabclick (click)="openLevelDialog()">
+          {{character.level}} <img src="./assets/images/status/level.svg" />
         </a>
       </span>
       }
@@ -448,14 +453,8 @@
         </a>
       </span>
       }
-      @if (data.entity && gameManager.isCharacter(data.entity)) {
-      <span class="item" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'">
-        <a class="button level-button" tabclick (click)="openLevelDialog()">
-          {{data.figure.level}} <img src="./assets/images/status/level.svg" />
-        </a>
-      </span>
-      }
       @if (data.entity && gameManager.isSummon(data.entity)) {
+      @let summon = gameManager.toSummon(data.entity);
       <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
         <a class="button" tabclick (click)="toggleDead()">
           <img src="./assets/images/status/dead.svg" />
@@ -468,14 +467,14 @@
       </span>
       <span class="item">
         <a class="summon"
-          [ngClass]="{'active' : gameManager.toSummon(data.entity).state == SummonState.true, 'new' : gameManager.toSummon(data.entity).state == SummonState.new, 'fh':  gameManager.toSummon(data.entity).color == SummonColor.fh }"
+          [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'fh':  summon.color == SummonColor.fh }"
           tabclick (click)="toggleSummonStatus()">
-          @if (gameManager.toSummon(data.entity).color != SummonColor.fh) {
-          <img src="./assets/images/summons/{{gameManager.toSummon(data.entity).color}}.png">
+          @if (summon.color != SummonColor.fh) {
+          <img [src]="'./assets/images/summons/' + summon.color + '.png'">
           }
-          @if (gameManager.toSummon(data.entity).color == SummonColor.fh) {
+          @if (summon.color == SummonColor.fh) {
           <span class="summon-number">
-            {{gameManager.toSummon(data.entity).number }}
+            {{summon.number }}
           </span>
           }
         </a>
@@ -651,13 +650,13 @@
   }
 
   @if (!levelDialog && data.entity && gameManager.isCharacter(data.entity) && identities.length > 1) {
+  @let character = gameManager.toCharacter(data.entity);
   <div class="identities-container">
     @for (identity of [] | ghsRange:identities.length; track identity) {
     <a class="item" (click)="setIdentity(identity)"
-      [ghs-tooltip]="'data.character.' + gameManager.toCharacter(data.entity).edition + '.' + gameManager.toCharacter(data.entity).name + '.' +  identities[identity]"
-      [ngClass]="{'deactivated': gameManager.toCharacter(data.entity).identity == identity}">
-      <img
-        [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity).name, identity)" />
+      [ghs-tooltip]="'data.character.' + character.edition + '.' + character.name + '.' +  identities[identity]"
+      [ngClass]="{'deactivated': character.identity == identity}">
+      <img [src]="gameManager.characterManager.characterIdentityIcon(character.name, identity)" />
     </a>
     }
   </div>
@@ -687,20 +686,18 @@
 }
 
 @if (gameManager.isObjectiveContainer(data.figure)) {
+@let objective = gameManager.toObjectiveContainer(data.figure);
 <div class="objective-container">
-  <input class="title" #objectiveTitle [value]="gameManager.toObjectiveContainer(data.figure).title || ''" />
+  <input class="title" #objectiveTitle [value]="objective.title || ''" />
   @if (showMaxHealth() && data.entity && gameManager.isObjectiveEntity(data.entity)) {
   <a class="button" tabclick (click)="changeMaxHealth(-1)">
     <img class="ghs-svg" src="./assets/images/minus.svg">
   </a>
   <span class="item">
     <img src="./assets/images/status/health.svg" />
-    <span
-      class="badge badge-right max-health">{{(EntityValueFunction(gameManager.toObjectiveContainer(data.figure).health)
-      + maxHp < EntityValueFunction(gameManager.toObjectiveContainer(data.figure).health) ||
-        data.entity.health==EntityValueFunction(gameManager.toObjectiveContainer(data.figure).health) ?
-        EntityValueFunction(gameManager.toObjectiveContainer(data.figure).health) + maxHp :
-        data.entity.health)}}/{{EntityValueFunction(gameManager.toObjectiveContainer(data.figure).health) +
+    <span class="badge badge-right max-health">{{(EntityValueFunction(objective.health)
+      + maxHp < EntityValueFunction(objective.health) || data.entity.health==EntityValueFunction(objective.health) ?
+        EntityValueFunction(objective.health) + maxHp : data.entity.health)}}/{{EntityValueFunction(objective.health) +
         maxHp}}</span>
     </span>
     <a class="button" tabclick (click)="changeMaxHealth(1)">
@@ -710,8 +707,7 @@
 </div>
 <div class="decks">
   @for (deck of amDecks; track deck) {
-  <span class="deck" [ngClass]="{'active': gameManager.toObjectiveContainer(data.figure).amDeck == deck}"
-    (click)="toggleAMDeck(deck)">
+  <span class="deck" [ngClass]="{'active': objective.amDeck == deck}" (click)="toggleAMDeck(deck)">
     @if (deck == 'M') {
     m
     }
@@ -723,10 +719,10 @@
     }
   </span>
   }
-  @if (gameManager.toObjectiveContainer(data.figure).amDeck &&
-  amDecks.indexOf(gameManager.toObjectiveContainer(data.figure).amDeck ||'') == -1) {
-  <span class="deck active warning" (click)="toggleAMDeck(gameManager.toObjectiveContainer(data.figure).amDeck || '')">
-    <img [src]="gameManager.characterManager.characterIcon(gameManager.toObjectiveContainer(data.figure).amDeck || '')">
+  @if (objective.amDeck &&
+  amDecks.indexOf(objective.amDeck ||'') == -1) {
+  <span class="deck active warning" (click)="toggleAMDeck(objective.amDeck || '')">
+    <img [src]="gameManager.characterManager.characterIcon(objective.amDeck || '')">
   </span>
   }
 </div>
@@ -735,6 +731,7 @@
 @if (levelDialog) {
 <div class="level-dialog">
   @if (data.entity && gameManager.isCharacter(data.entity)) {
+  @let character = gameManager.toCharacter(data.entity);
   <div class="level-container" [ngClass]="{'bb' : bb}">
     <a (click)="levelDialog = false" class="item"><img src="./assets/images/status/level.svg" /></a>
     @for (level of [] | ghsRange:(bb ? 5 : 9); track level) {
@@ -745,14 +742,14 @@
   </div>
   <div class="char-container">
     @if (titles.length == 0 || !identities.length) {
-    <img [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(data.entity).name)">
-    <input class="title" #charactertitle type="text" [value]="gameManager.toCharacter(data.entity).title">
+    <img [src]="gameManager.characterManager.characterIcon(character)">
+    <input class="title" #charactertitle type="text" [value]="character.title">
     }
     @if (titles.length > 0 && identities.length) {
     <div class="titles-container">
       @for (i of [] | ghsRange:identities.length; track i) {
       <div class="title-container">
-        <img [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity).name,i)">
+        <img [src]="gameManager.characterManager.characterIdentityIcon(character.name,i)">
         <input class="title" type="text" [value]="titles[i]" (change)="setTitle($event, i)">
       </div>
       }
@@ -774,6 +771,7 @@
   </div>
   }
   @if (data.entity && gameManager.isSummon(data.entity)) {
+  @let summon = gameManager.toSummon(data.entity);
   <input class="title" #summonTitle />
   <div class="summon-container">
     <a class="button" tabclick (click)="changeMaxHealth(-1)"
@@ -791,43 +789,38 @@
         <img class="ghs-svg" src="./assets/images/plus.svg">
       </a>
       <a class="button" tabclick (click)="changeMovement(-1)"
-        [ngClass]="{'disabled' : gameManager.toSummon(data.entity).movement + movement == 0}">
+        [ngClass]="{'disabled' : summon.movement + movement == 0}">
         <img class="ghs-svg" src="./assets/images/minus.svg">
       </a>
       <span class="item">
         <img class="ghs-svg" src="./assets/images/action/move.svg" />
-        <span class="badge badge-right" [value-calc]="gameManager.toSummon(data.entity).movement + movement"
-          [empty]="true">></span>
+        <span class="badge badge-right" [value-calc]="summon.movement + movement" [empty]="true">></span>
       </span>
       <a class="button" tabclick (click)="changeMovement(1)">
         <img class="ghs-svg" src="./assets/images/plus.svg">
       </a>
       <a class="button" tabclick (click)="changeAttack(-1)"
-        [ngClass]="{'disabled' : gameManager.toSummon(data.entity).attack == 'X' || +gameManager.toSummon(data.entity).attack + attack == 0}">
+        [ngClass]="{'disabled' : summon.attack == 'X' || +summon.attack + attack == 0}">
         <img class="ghs-svg" src="./assets/images/minus.svg">
       </a>
       <span class="item">
         <img class="ghs-svg" src="./assets/images/action/attack.svg" />
-        @if (gameManager.toSummon(data.entity).attack != 'X') {
-        <span class="badge badge-right" [value-calc]="+gameManager.toSummon(data.entity).attack + attack"
-          [empty]="true"></span>
+        @if (summon.attack != 'X') {
+        <span class="badge badge-right" [value-calc]="+summon.attack + attack" [empty]="true"></span>
         }
-        @if (gameManager.toSummon(data.entity).attack == 'X') {
+        @if (summon.attack == 'X') {
         <span class="badge badge-right">X</span>
         }
       </span>
-      <a class="button" tabclick (click)="changeAttack(1)"
-        [ngClass]="{'disabled' : gameManager.toSummon(data.entity).attack == 'X'}">
+      <a class="button" tabclick (click)="changeAttack(1)" [ngClass]="{'disabled' : summon.attack == 'X'}">
         <img class="ghs-svg" src="./assets/images/plus.svg">
       </a>
-      <a class="button" tabclick (click)="changeRange(-1)"
-        [ngClass]="{'disabled' : gameManager.toSummon(data.entity).range + range == 0}">
+      <a class="button" tabclick (click)="changeRange(-1)" [ngClass]="{'disabled' : summon.range + range == 0}">
         <img class="ghs-svg" src="./assets/images/minus.svg">
       </a>
       <span class="item">
         <img class="ghs-svg" src="./assets/images/action/range.svg" />
-        <span class="badge badge-right" [value-calc]="gameManager.toSummon(data.entity).range + range"
-          [empty]="true">></span>
+        <span class="badge badge-right" [value-calc]="summon.range + range" [empty]="true">></span>
       </span>
       <a class="button" tabclick (click)="changeRange(1)">
         <img class="ghs-svg" src="./assets/images/plus.svg">

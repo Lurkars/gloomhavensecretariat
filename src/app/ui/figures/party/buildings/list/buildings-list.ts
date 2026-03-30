@@ -365,6 +365,11 @@ export class BuildingsListComponent {
             this.dialog.open(ItemsBrewDialog, {
                 panelClass: ['dialog']
             })
+        } else if (building.model.name == 'trading-post') {
+            this.dialog.open(ItemsDialogComponent, {
+                panelClass: ['dialog'],
+                data: { edition: gameManager.game.edition, buyOnly: true }
+            })
         }
     }
 

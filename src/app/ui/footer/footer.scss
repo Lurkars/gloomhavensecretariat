@@ -349,6 +349,25 @@ footer {
     flex-shrink: 0;
     max-width: calc(100% - (var(--ghs-unit) * 15 * var(--ghs-text-factor) * var(--ghs-barsize)) - (var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize)));
 
+    .entities-menu {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
+
+      .ghs-svg {
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+        height: calc(var(--ghs-unit) * 3.5 * var(--ghs-barsize));
+        width: auto;
+        margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
+      }
+
+      &:hover .ghs-svg {
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+      }
+    }
+
     ghs-scenario {
       height: 100%;
     }

@@ -20,6 +20,11 @@
   </div>
   <div class="flex-shrink"></div>
   <div class="level-container">
+    @if (!!gameManager.game.scenario) {
+    <div class="entities-menu" (click)="openEntitiesMenu()">
+      <img class="ghs-svg" src="./assets/images/entities.svg">
+    </div>
+    }
     <ghs-scenario #ghsScenario></ghs-scenario>
     <ghs-level #ghsLevel></ghs-level>
   </div>

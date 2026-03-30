@@ -8,7 +8,7 @@
   @if (hint) {
   <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
   }
-  <span class="hint">
+  <span class="hint above">
     <div class="text">
       <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
       <br>
@@ -19,7 +19,8 @@
       <div class="requires">
         <span class="title" [ghs-label]="'settings.requires'"></span>
         @for (require of requires; track require) {
-        <span class="require">
+        <span class="require"
+          [ngClass]="{'missing': !require.startsWith('!') && !settingsManager.get(require) || require.startsWith('!') && settingsManager.get(require.replace('!', ''))}">
           <input type="checkbox" [checked]="!require.startsWith('!')"
             [ngClass]="{'checked' : !require.startsWith('!')}">
           <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
@@ -31,7 +32,8 @@
       <div class="requires">
         <span class="title" [ghs-label]="'settings.requiresOne'"></span>
         @for (require of requiresOne; track require) {
-        <span class="require">
+        <span class="require"
+          [ngClass]="{'missing': !require.startsWith('!') && !settingsManager.get(require) || require.startsWith('!') && settingsManager.get(require.replace('!', ''))}">
           <input type="checkbox" [checked]="!require.startsWith('!')"
             [ngClass]="{'checked' : !require.startsWith('!')}">
           <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
@@ -65,7 +67,7 @@
   @if (hint) {
   <img src="./assets/images/warning.svg" class="hint-trigger ghs-svg">
   }
-  <div class="hint">
+  <div class="hint above">
     <div class="text">
       <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
       <br>
@@ -76,7 +78,8 @@
       <div class="requires">
         <span class="title" [ghs-label]="'settings.requires'"></span>
         @for (require of requires; track require) {
-        <span class="require">
+        <span class="require"
+          [ngClass]="{'missing': !require.startsWith('!') && !settingsManager.get(require) || require.startsWith('!') && settingsManager.get(require.replace('!', ''))}">
           <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
           <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
         </span>
@@ -87,7 +90,8 @@
       <div class="requires">
         <span class="title" [ghs-label]="'settings.requiresOne'"></span>
         @for (require of requiresOne; track require) {
-        <span class="require">
+        <span class="require"
+          [ngClass]="{'missing': !require.startsWith('!') && !settingsManager.get(require) || require.startsWith('!') && settingsManager.get(require.replace('!', ''))}">
           <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
           <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
         </span>
@@ -109,7 +113,7 @@
       (input)="settingsManager.apply(setting, +rangeInput.value)" />
   </label>
   <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-  <span class="hint">
+  <span class="hint above">
     <div class="text">
       <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
       <br>
@@ -120,7 +124,8 @@
       <div class="requires">
         <span class="title" [ghs-label]="'settings.requires'"></span>
         @for (require of requires; track require) {
-        <span class="require">
+        <span class="require"
+          [ngClass]="{'missing': !require.startsWith('!') && !settingsManager.get(require) || require.startsWith('!') && settingsManager.get(require.replace('!', ''))}">
           <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
           <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
         </span>
@@ -131,7 +136,8 @@
       <div class="requires">
         <span class="title" [ghs-label]="'settings.requiresOne'"></span>
         @for (require of requiresOne; track require) {
-        <span class="require">
+        <span class="require"
+          [ngClass]="{'missing': !require.startsWith('!') && !settingsManager.get(require) || require.startsWith('!') && settingsManager.get(require.replace('!', ''))}">
           <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
           <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
         </span>

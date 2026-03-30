@@ -9,6 +9,8 @@ import { ghsTextSearch } from "src/app/ui/helper/Static";
 import { SubMenu } from "../menu";
 import { SettingMenuComponent } from "./setting/setting";
 
+export type SettingsTab = 'gameplay' | 'character' | 'monsters' | 'automation' | 'gamerules' | 'display' | 'interface' | 'locale' | 'preferences';
+
 @Component({
   standalone: false,
   selector: 'ghs-settings-menu',
@@ -32,6 +34,15 @@ export class SettingsMenuComponent {
   WebSocket = WebSocket;
   ConditionType = ConditionType;
   filter: string = "";
+  activeTab: SettingsTab = 'gameplay';
+
+  tabs: SettingsTab[] = ['gameplay', 'automation', 'character', 'monsters', 'gamerules', 'display', 'interface', 'locale', 'preferences'];
+
+  setTab(tab: SettingsTab) {
+    this.activeTab = tab;
+    this.filter = '';
+    this.updateFilter();
+  }
 
   constructor(public platform: Platform) {
     this.wakeLock = 'wakeLock' in navigator;
@@ -56,15 +67,34 @@ export class SettingsMenuComponent {
 
   updateFilter() {
     this.settingMenus.forEach((item) => {
+      const host: HTMLElement = item.elementRef.nativeElement;
       if (!this.filter) {
-        item.elementRef.nativeElement.classList.remove('hidden');
-      } else if (ghsTextSearch(item.setting, this.filter) || ghsTextSearch(settingsManager.getLabel('settings.' + item.setting), this.filter) || ghsTextSearch(settingsManager.getLabel('settings.' + item.setting + '.hint'), this.filter)) {
-        item.elementRef.nativeElement.classList.remove('hidden');
+        host.classList.remove('filter-hidden');
+        host.querySelectorAll('.line').forEach((el) => el.classList.remove('filter-hidden'));
       } else {
-        item.elementRef.nativeElement.classList.add('hidden');
-      }
-    })
+        const labelMatch = ghsTextSearch(item.setting, this.filter)
+          || ghsTextSearch(settingsManager.getLabel('settings.' + item.setting), this.filter)
+          || ghsTextSearch(settingsManager.getLabel('settings.' + item.setting + '.hint'), this.filter);
 
+        if (item.values.length > 0) {
+          // Radio-type: filter individual value rows
+          const childLines = host.querySelectorAll('.line');
+          let anyVisible = false;
+          childLines.forEach((el, index) => {
+            const value = item.values[index];
+            const valueMatch = labelMatch || (value !== undefined && (
+              ghsTextSearch(value, this.filter)
+              || ghsTextSearch(settingsManager.getLabel('settings.' + item.setting + '.' + value), this.filter)
+            ));
+            el.classList.toggle('filter-hidden', !valueMatch);
+            if (valueMatch) { anyVisible = true; }
+          });
+          host.classList.toggle('filter-hidden', !anyVisible);
+        } else {
+          host.classList.toggle('filter-hidden', !labelMatch);
+        }
+      }
+    });
   }
 
   doubleClick: any = null;
