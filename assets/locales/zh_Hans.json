@@ -3688,6 +3688,7 @@
       "amAdvantage": "与 <kbd><span>m</span></kbd> 相同,但如果启用将以劣势攻击抽取",
       "amDisadvantage": "与 <kbd><span>m</span></kbd>一样, 但如果启用以劣势攻击抽取",
       "backspace": "⌫",
+      "cmd": "⌘",
       "ctrl": "CTRL",
       "difficulty": "难度 / 等级菜单",
       "enter": "↵",

@@ -507,6 +507,16 @@
       }
     }
   },
+  "entities": {
+    "filter": {
+      "all": "Alle",
+      "allies": "Verbündete",
+      "character": "Charaktere",
+      "enemies": "Gegner",
+      "monster": "Monster",
+      "objectives": "Ziele"
+    }
+  },
   "errata": "Druckfehler",
   "escort": {
     "": "Begleiter",
@@ -1157,9 +1167,11 @@
       },
       "shop": {
         "": "Gegenstandskarten",
+        "buy": "Gegenstände kaufen",
         "buyingDisabled": "Kaufen von Gegenständen nicht möglich, erst '%data.buildings.trading-post%' (37) wiederaufbauen",
         "character": {
           "": "Gegenstandsladen für %game.characterIconColored.{0}% {1}",
+          "buy": "Gegenstände für %game.characterIconColored.{0}% {1} kaufen",
           "craft": "Gegenstände für %game.characterIconColored.{0}% {1} anfertigen"
         },
         "craft": "Gegenstände anfertigen",
@@ -2446,6 +2458,7 @@
       "": "Artwork",
       "hint": "Artwork von Monstern und Charakteren anzeigen"
     },
+    "automation": "Automatisierung",
     "automaticAttackModifierFullscreen": {
       "": "Autom. Vollbild AM-Deck",
       "hint": "Angriffsmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen."
@@ -2643,6 +2656,7 @@
       "hint": "Führe die interaktiven Fertigkeiten für alle Aufsteller gleichzeitig aus."
     },
     "conditions": "Zustände/Elemente",
+    "controls": "Steuerung",
     "damageHP": {
       "": "Schaden statt TP",
       "hint": "Zeige den erleideten Schaden statt der verbleibenden Trefferpunkte an"
@@ -2656,6 +2670,7 @@
       "logServerMessages": "Servermeldungen protokollieren",
       "rightClick": "Rechtsklick immer erlauben"
     },
+    "display": "Anzeige",
     "dragFigures": {
       "": "Drag'n'Drop für Figurenliste",
       "hint": "Drag'n'Drop für die Figurenliste. Achtung, falls deaktiviert und keine Initiative gesetzt werden muss ist ein manuelles Verschieben der Figuren nicht mehr möglich."
@@ -2761,6 +2776,7 @@
       },
       "hint": "Automatisch aktive Prüfungen anwenden (wenn möglich)."
     },
+    "filter": "Suchen...",
     "fontsize": {
       "": "Fertigkeit Schriftgröße",
       "dec": "Fertigkeit Schriftgröße verringern",
@@ -2781,6 +2797,7 @@
       "hint": "Füge Spieltimer vom Serverspiel mit dem lokalen Spieltimer zusammen um die Gesamtspielzeit festzuhalten."
     },
     "gameplay": "Spielablauf",
+    "gamerules": "Spielspezifisch",
     "ge5Player": {
       "": "≥ 5 Spieler Regeln"
     },
@@ -2817,9 +2834,10 @@
       "hint": "Werte von Monstern ohne Aufsteller ausblenden"
     },
     "hints": {
-      "": "Hinweise anzeigen",
+      "": "Hinweise neben Hauptmenu",
       "hint": "Zeige Kürzel und Hinweise neben dem Hauptmenu"
     },
+    "hintsMenu": "Hinweise",
     "initiativeRequired": {
       "": "Initiative muss gesetzt werden",
       "hint": "Wenn nicht ausgewählt muss die Reihenfolge der Figuren manuell über drag&drop festgelegt werden"
@@ -2909,6 +2927,7 @@
       "": "Portraitmodus Optimierungen",
       "hint": "Optimierung des Portraitmodus für kleine Displays."
     },
+    "preferences": "Optionen",
     "pressDoubleClick": {
       "": "Lange Drücken für Doppelklick (Touch)",
       "hint": "Löse Doppelklick-Aktionen auf Touch-Screens stattdessen durch langes Gedrückthalten auf. (Empfohlen um Geisterklicks zu vermeiden)"

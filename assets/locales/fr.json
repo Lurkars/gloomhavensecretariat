@@ -2228,6 +2228,9 @@
     "errata": {
       "": "Afficher les suggestions d’errata"
     },
+    "events": {
+      "": "Cartes Événement"
+    },
     "expireConditions": {
       "": "Conditions expirant automatiquement",
       "hint": "Les conditions correspondantes seront automatiquement supprimées après le tour des unités, par exemple Renforcer sera supprimé après le tour"
@@ -2254,6 +2257,9 @@
     "fullscreen": {
       "": "Plein écran",
       "hint": "Passer en mode plein écran"
+    },
+    "gameClock": {
+      "hint": "Activez une horloge de jeu pour suivre le temps d'exécution de l'application."
     },
     "gameClockMerge": {
       "": "Fusionner les Horloges de Jeu",
@@ -2954,6 +2960,12 @@
         "send": "Envoyer le scénario"
       }
     },
+    "keyboard": {
+      "tab": "↹",
+      "zoomIn": "Zoom avant",
+      "zoomOut": "Zoom arrière",
+      "zoomReset": "Réinitialiser le Zoom"
+    },
     "validateEditionData": "Valider les données d'édition"
   },
   "update": "Mettre à jour - Recharger",
@@ -2961,7 +2973,11 @@
     "": "Bienvenue sur Gloomhaven Secretariat",
     "chooseCharacters": "Choisissez vos personnages",
     "chooseEdition": "Commencez une nouvelle campagne en choisissant votre édition :",
-    "orChooseCharacters": "ou commencer un jeu occasionnel en ajoutant des personnages directement"
+    "orChooseCharacters": "ou commencer un jeu occasionnel en ajoutant des personnages directement",
+    "settings": {
+      "": "Paramètres",
+      "text": "Utiliser différents paramètres pour tout configurer correctement :"
+    }
   },
   "wip": "En cours d'implémentation"
 }

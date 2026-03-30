@@ -507,6 +507,16 @@
       }
     }
   },
+  "entities": {
+    "filter": {
+      "all": "All",
+      "allies": "Allies",
+      "character": "Character",
+      "enemies": "Enemies",
+      "monster": "Monster",
+      "objectives": "Objectives"
+    }
+  },
   "errata": "Errata",
   "escort": {
     "": "Escort",
@@ -1154,9 +1164,11 @@
       },
       "shop": {
         "": "Itemcards",
+        "buy": "Purchase Items",
         "buyingDisabled": "Cannot buy items, rebuild '%data.buildings.trading-post%' (37) first",
         "character": {
           "": "Itemshop for %game.characterIconColored.{0}% {1}",
+          "buy": "Purchase Items for %game.characterIconColored.{0}% {1}",
           "craft": "Craft Items for %game.characterIconColored.{0}% {1}"
         },
         "craft": "Craft Items",
@@ -2443,6 +2455,7 @@
       "": "Artwork",
       "hint": "Artwork for monsters and characters"
     },
+    "automation": "Automation",
     "automaticAttackModifierFullscreen": {
       "": "Auto fullscreen AM Deck",
       "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices."
@@ -2640,6 +2653,7 @@
       "hint": "Perform Interactive Abilities for all standees at once."
     },
     "conditions": "Conditions/Elements",
+    "controls": "Controls",
     "damageHP": {
       "": "Damage instead of HP",
       "hint": "Show damage dealed instead of hitpoints left"
@@ -2653,6 +2667,7 @@
       "logServerMessages": "Log Server Messages",
       "rightClick": "Always enable Right-Click"
     },
+    "display": "Display",
     "dragFigures": {
       "": "Drag'n'drop for figures",
       "hint": "Drag'n'drop for the figure list. Warning, if disabled and no initiative is required, there is no way to re-order the figures manually."
@@ -2758,6 +2773,7 @@
       },
       "hint": "Automatically apply (if possible) active trial cards."
     },
+    "filter": "Search...",
     "fontsize": {
       "": "Ability fontsize",
       "dec": "Decrease ability fontsize",
@@ -2778,6 +2794,7 @@
       "hint": "Merge game clocks from server game with local game clock to get overall game time."
     },
     "gameplay": "Gameplay",
+    "gamerules": "Gamespecific",
     "ge5Player": {
       "": "≥ 5 player rules"
     },
@@ -2814,9 +2831,10 @@
       "hint": "Hide stats of not spawned monster"
     },
     "hints": {
-      "": "Show hints",
+      "": "Main menu hints",
       "hint": "Show shortcuts and hints next to the main menu"
     },
+    "hintsMenu": "Hints",
     "initiativeRequired": {
       "": "Initiative is required",
       "hint": "If unchecked, the order of the entities must be set manually with drag&drop"
@@ -2906,6 +2924,7 @@
       "": "Portrait-Mode Optimization",
       "hint": "Optimization of Portrait-Mode for smaller screens."
     },
+    "preferences": "Preferences",
     "pressDoubleClick": {
       "": "Long press for double click (Touch)",
       "hint": "On touchscreens, trigger double click with long press instead. (Recommended to avoid ghost clicks)"
