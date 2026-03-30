@@ -12,7 +12,7 @@ import { GameState } from 'src/app/game/model/Game';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
-import { ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
+import { ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
 import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
 import { CharacterInitiativeDialogComponent } from '../character/cards/initiative-dialog';
@@ -51,6 +51,8 @@ export class ObjectiveContainerComponent implements OnInit {
 
   interactiveActions: InteractiveAction[] = [];
   interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
+
+  EntityConditionState = EntityConditionState;
 
   constructor(private dialog: Dialog, private overlay: Overlay, private elementRef: ElementRef, private ghsManager: GhsManager) {
     this.ghsManager.uiChangeEffect(() => this.update());

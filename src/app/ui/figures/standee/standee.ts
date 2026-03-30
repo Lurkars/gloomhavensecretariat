@@ -7,7 +7,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { Character } from 'src/app/game/model/Character';
 import { ActionHint } from 'src/app/game/model/data/Action';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
-import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
+import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -65,6 +65,7 @@ export class StandeeComponent implements OnInit {
   monsterSummonClasses: Record<string, boolean> = {};
 
   EntityValueFunction = EntityValueFunction;
+  EntityConditionState = EntityConditionState;
 
   constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
     this.ghsManager.uiChangeEffect(() => this.update());

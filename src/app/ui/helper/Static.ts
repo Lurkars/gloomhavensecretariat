@@ -40,10 +40,6 @@ export function ghsTextSearch(target: string, search: string, match: boolean = f
     return target.toLowerCase() == search.toLowerCase();
   }
 
-  if (search.split(' ').every((part) => target.toLowerCase().indexOf(part.toLowerCase()) != -1)) {
-    console.log(target, search, search.split(' '));
-  }
-
   return search.split(' ').every((part) => target.toLowerCase().indexOf(part.toLowerCase()) != -1);
 }
 

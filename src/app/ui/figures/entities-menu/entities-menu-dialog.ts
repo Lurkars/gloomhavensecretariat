@@ -148,6 +148,8 @@ export class EntitiesMenuDialogComponent {
 
     this.figures = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && (!this.filter || this.filter == 'character' || this.filter == 'allies') || figure instanceof Monster && (!this.filter || this.filter == 'monster' || this.filter == 'enemies' && !figure.isAlly || this.filter == 'allies' && figure.isAlly) || figure instanceof ObjectiveContainer && (!this.filter || this.filter == 'allies' && figure.escort || this.filter == 'enemies' && !figure.escort || this.filter == 'objectives'));
 
+    this.allEntities = [];
+
     this.figures.forEach((figure) => {
       if (figure instanceof Character) {
         this.allEntities.push(figure, ...figure.summons);
@@ -327,12 +329,10 @@ export class EntitiesMenuDialogComponent {
   }
 
   close(): void {
-
     if (this.figures.length) {
       this.closeFigures();
     } else {
-
-      this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
+      this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.roundExpire && !entityCondition.expired || entityCondition.state == EntityConditionState.expire && !entityCondition.expired || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
         if (this.monster) {
           gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.monster, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), entityCondition.name, this.data.type ? 'monster.' + this.data.type + ' ' : '');
         } else if (this.character) {
@@ -350,6 +350,15 @@ export class EntitiesMenuDialogComponent {
             gameManager.entityManager.addCondition(entity, this.monster || this.character || this.objective || new Monster(new MonsterData()), entityCondition, entityCondition.permanent);
           } else if (this.objective) {
             gameManager.entityManager.addCondition(entity, this.monster || this.character || this.objective || new Monster(new MonsterData()), entityCondition, entityCondition.permanent);
+          }
+
+          if (entityCondition.state == EntityConditionState.roundExpire || entityCondition.state == EntityConditionState.expire) {
+            entity.entityConditions.forEach((condition) => {
+              if (condition.name == entityCondition.name && !entityCondition.expired) {
+                condition.state = entityCondition.state;
+                condition.lastState = entityCondition.lastState;
+              }
+            })
           }
         })
         gameManager.stateManager.after();
@@ -496,6 +505,8 @@ export class EntitiesMenuDialogComponent {
         gameManager.stateManager.after();
       }
     }
+
+    this.applyShieldAndRetaliate();
   }
 
   figureForEntity(entity: Entity): Figure {
@@ -518,7 +529,7 @@ export class EntitiesMenuDialogComponent {
   }
 
   closeFigures(): void {
-    this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
+    this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.roundExpire && !entityCondition.expired || entityCondition.state == EntityConditionState.expire && !entityCondition.expired || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
 
       gameManager.stateManager.before(entityCondition.state == EntityConditionState.removed ? "entities.removeCondition" : "entities.addCondition", entityCondition.name);
 
@@ -532,8 +543,17 @@ export class EntitiesMenuDialogComponent {
         entityCondition.expired = entityCondition.state == EntityConditionState.new;
         if (entityCondition.state == EntityConditionState.removed) {
           gameManager.entityManager.removeCondition(entity, this.figureForEntity(entity), entityCondition, entityCondition.permanent);
-        } else {
+        } else if (!gameManager.entityManager.isImmune(entity, this.figureForEntity(entity), entityCondition.name)) {
           gameManager.entityManager.addCondition(entity, this.figureForEntity(entity), entityCondition, entityCondition.permanent);
+        }
+
+        if (entityCondition.state == EntityConditionState.roundExpire || entityCondition.state == EntityConditionState.expire) {
+          entity.entityConditions.forEach((condition) => {
+            if (condition.name == entityCondition.name && !entityCondition.expired) {
+              condition.state = entityCondition.state;
+              condition.lastState = entityCondition.lastState;
+            }
+          })
         }
       })
 
@@ -633,14 +653,16 @@ export class EntitiesMenuDialogComponent {
       })
       gameManager.stateManager.after();
     }
+  }
 
+  applyShieldAndRetaliate() {
     if (this.entityShield.value) {
       gameManager.stateManager.before("entities.changeShield", this.entityShield.value);
       this.entities.forEach((entity) => {
         if (entity.shield) {
           entity.shield.value = EntityValueFunction(entity.shield.value) + EntityValueFunction(this.entityShield.value);
         } else {
-          entity.shield = this.entityShield;
+          entity.shield = gameManager.actionsManager.copyAction(this.entityShield);;
         }
         if (EntityValueFunction(entity.shield.value) <= 0) {
           entity.shield = undefined;
@@ -655,7 +677,7 @@ export class EntitiesMenuDialogComponent {
         if (entity.shieldPersistent) {
           entity.shieldPersistent.value = EntityValueFunction(entity.shieldPersistent.value) + EntityValueFunction(this.entityShieldPersistent.value);
         } else {
-          entity.shieldPersistent = this.entityShieldPersistent;
+          entity.shieldPersistent = gameManager.actionsManager.copyAction(this.entityShieldPersistent);
         }
         if (EntityValueFunction(entity.shieldPersistent.value) <= 0) {
           entity.shieldPersistent = undefined;
@@ -682,11 +704,11 @@ export class EntitiesMenuDialogComponent {
             if (existing) {
               existing.value = EntityValueFunction(existing.value) + EntityValueFunction(retaliateAction.value);
             } else {
-              entity.retaliate.push(retaliateAction);
+              entity.retaliate.push(gameManager.actionsManager.copyAction(retaliateAction));
             }
           })
         } else {
-          entity.retaliate = retaliate;
+          entity.retaliate = retaliate.map((retaliateAction) => gameManager.actionsManager.copyAction(retaliateAction));
         }
 
         entity.retaliate = entity.retaliate.filter((action) => EntityValueFunction(action.value) > 0);
@@ -694,7 +716,6 @@ export class EntitiesMenuDialogComponent {
 
       gameManager.stateManager.after();
     }
-
 
     const retaliatePersistent = this.entityRetaliatePersistent.filter((action) => action.value).map((action, index) => {
       let retaliateAction = new Action(ActionType.retaliate, action.value);
@@ -714,11 +735,11 @@ export class EntitiesMenuDialogComponent {
             if (existing) {
               existing.value = EntityValueFunction(existing.value) + EntityValueFunction(retaliateAction.value);
             } else {
-              entity.retaliatePersistent.push(retaliateAction);
+              entity.retaliatePersistent.push(gameManager.actionsManager.copyAction(retaliateAction));
             }
           })
         } else {
-          entity.retaliatePersistent = retaliatePersistent;
+          entity.retaliatePersistent = retaliatePersistent.map((retaliateAction) => gameManager.actionsManager.copyAction(retaliateAction));
         }
 
         entity.retaliatePersistent = entity.retaliatePersistent.filter((action) => EntityValueFunction(action.value) > 0);
@@ -727,5 +748,4 @@ export class EntitiesMenuDialogComponent {
       gameManager.stateManager.after();
     }
   }
-
 }

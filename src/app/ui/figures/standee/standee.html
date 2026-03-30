@@ -131,6 +131,10 @@
           <span class="condition permanent condition-overlay"
             [style.z-index]="index * 10 + entityCondition.value + 3"></span>
           }
+          @if (entityCondition.state == EntityConditionState.roundExpire) {
+          <span class="condition round condition-overlay"
+            [style.z-index]="index * 10 + entityCondition.value + 4"></span>
+          }
         </span>
       </span>
       }
