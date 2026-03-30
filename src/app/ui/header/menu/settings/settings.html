@@ -8,9 +8,9 @@
 
   <nav class="settings-tabs" [hidden]="!!filter">
     @for (tab of tabs; track tab) {
-    <button class="tab-btn" [ngClass]="{'active': activeTab === tab}" (click)="setTab(tab)">
+    <a tabclick class="tab-btn" [ngClass]="{'active': activeTab === tab}" (click)="setTab(tab)">
       <span [ghs-label]="'settings.' + tab"></span>
-    </button>
+    </a>
     }
   </nav>
 
@@ -405,6 +405,7 @@
       </div>
 
       <div class="column">
+        <div class="line" ghs-setting-menu="entitiesMenu"></div>
         <div class="line" ghs-setting-menu="characterSheetCompact" [requires]="['characterSheet']"></div>
         <div class="line" ghs-setting-menu="characterFullView"></div>
         <div class="line" ghs-setting-menu="characterCompact" [disabled]="settingsManager.settings.theme == 'modern'">

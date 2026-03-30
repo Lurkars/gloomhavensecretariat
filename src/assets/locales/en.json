@@ -2692,6 +2692,10 @@
       "": "Elite standees first",
       "hint": "Show elite standees first when ordering standees"
     },
+    "entitiesMenu": {
+      "": "All Figures and Standees Menu",
+      "hint": "Show a menu button on the footer to apply changes to all figures and standees at once."
+    },
     "errata": {
       "": "Show errata hints",
       "hint": "Display known erratas for scenarios, sections, etc. In the data itself, all these errata should be fixed, but with the hints it should be easier to understand the differences in printing."

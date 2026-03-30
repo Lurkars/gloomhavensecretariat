@@ -1,10 +1,7 @@
-// Ensure Angular [hidden] attribute overrides display:flex/grid
 .menu-container[hidden],
 .settings-tabs[hidden] {
     display: none !important;
 }
-
-// ── Settings layout: top tab bar + content ───────────────────────────────────
 
 .settings-layout {
     display: flex;
@@ -59,6 +56,10 @@
                 color: var(--ghs-color-white);
                 border-bottom-color: var(--ghs-color-white);
             }
+
+            &:focus-visible {
+                outline: 1px auto;
+            }
         }
     }
 
@@ -78,22 +79,18 @@
             display: none !important;
         }
 
-        // Hide all non-title lines (condition pickers, zoom rows, preset buttons, etc.)
         .settings-content .line:not(.title) {
             display: none;
         }
 
-        // Show matching checkbox-type settings (their host element IS a .line)
         [ghs-setting-menu]:not(.filter-hidden) {
             display: flex !important;
         }
 
-        // Show child .line rows of matching radio-type settings (locale, theme)
         [ghs-setting-menu]:not(.filter-hidden) .line:not(.filter-hidden) {
             display: flex !important;
         }
 
-        // Explicitly hide non-matching radio-type hosts (they have no .line class themselves)
         [ghs-setting-menu].filter-hidden {
             display: none;
         }
@@ -107,7 +104,6 @@
         }
     }
 
-    // Sync icon coloring carried over from parent class
     &.connected {
         .line .ghs-svg {
             &.sync-settings {
@@ -197,8 +193,6 @@
         }
     }
 }
-
-// ── Local-only setting indicator ─────────────────────────────────────────────
 
 .hint-container {
     .ghs-svg.local-setting {
