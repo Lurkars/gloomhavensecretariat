@@ -12,6 +12,7 @@
       "lightracer": "Lightracer",
       "progenitor": "Progenitor",
       "reeftender": "Reeftender",
+      "rekindled": "Rekindled",
       "rootwhisperer": "Rootwhisperer",
       "skitterclaw": "Skitterclaw",
       "wildborn": "Wildborn",
@@ -136,6 +137,18 @@
         "8": "On death, leave this card in your active area.",
         "9": "After ending a %game.action.move% or %game.action.teleport% adjacent to %game.characterIcon.reeftender%, gain %game.condition.invisible%."
       },
+      "rekindled": {
+        "1": "This summon is an active %data.action.custom.ccug-bonfire%",
+        "2": "Add +1 %game.action.attack% for each pair of active %data.action.custom.ccug-bonfire%",
+        "3": "Grant one ally: %game.action.attack:2%",
+        "4": "Add +2 %game.action.attack% if you have two or more %data.action.custom.ccug-bonfire% in your active area",
+        "5": "Place a %data.action.custom.ccug-bonfire% in a hex adjacent to or occupied by the target of the attack",
+        "6": "Whenever you rest, perform: %game.condition.strengthen%, %game.action.target% 1 ally within %game.action.range:2% of a %data.action.custom.ccug-bonfire%",
+        "7": "On your first turn each scenario, you may play three cards instead of two",
+        "8": "Once per scenario, when you would suffer damage, you may %game.action.teleport% to an unoccupied %data.action.custom.ccug-bonfire% to negate the damage",
+        "9": "Have 5 %data.action.custom.ccug-bonfire% in your active area simultaneously",
+        "10": "In a single scenario, infuse or consume %game.element.fire% during each of your turns"
+      },
       "rootwhisperer": {},
       "skitterclaw": {
         "1": "After the attack ability, grant one of your summons: %game.action.move:2%",
@@ -190,6 +203,9 @@
     "ccug": "Custom Content Unity Guild"
   },
   "summon": {
+    "bonfire-helper": "Bonfire Helper",
+    "living-bonfire": "Living Bonfire",
+    "fire-sprite": "Fire Sprite",
     "perpetual-enginebot": "Perpetual Enginebot",
     "radioactive-homunculus": "Radioactive Homunculus",
     "helper-bot": "Helper Bot",
