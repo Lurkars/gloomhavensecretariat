@@ -16,6 +16,13 @@
       "rekindled": "Rekindled",
       "rootwhisperer": "Rootwhisperer",
       "skitterclaw": "Skitterclaw",
+      "swarmshift": {
+        "": "Swarmshift",
+        "hive_tokens": {
+          "": "Hive Tokens",
+          "hint": "Gain 1 Hive Token at the start of the scenario"
+        }
+      },
       "wildborn": "Wildborn",
       "woebound": "Woebound",
       "veilpiercer": "Veilpiercer",
@@ -172,6 +179,15 @@
         "8": "Have your summons perform twelve attacks in one round",
         "9": "All attacks targeting the Latched enemy add %game.action.pierce:1%.",
         "10": "+1 %game.action.attack% for each Latched summon on self."
+      },
+      "swarmshift": {
+        "1": "Add +1 %game.action.attack% for each active Hivecall",
+        "2": "Gain 1 %data.action.custom.ccug-hive%",
+        "3": "Whenever you complete a long rest, you may gain %game.condition.poison% to gain 1 %data.action.custom.ccug-hive%.",
+        "4": "Whenever you short rest, you may -1 %data.action.custom.ccug-hive% to %game.card.recover% two of your spent items.",
+        "5": "Whenever you spend 2 or more %data.action.custom.ccug-hive% in a turn, you may %game.element.earth%.",
+        "6": "Play 3 Hivecall abilities before your first rest.",
+        "7": "Use the active part of a Hivecall ability each round for 7 rounds in a row."
       },
       "wildborn": {
         "1": "instead if you suffer %game.damage:2%",

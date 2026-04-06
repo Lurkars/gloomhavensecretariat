@@ -707,6 +707,10 @@ export class RoundManager {
             figure.tokenValues[0] += 1;
           }
 
+          if (figure.name == 'swarmshift' && figure.tags.includes('hive_tokens') && figure.primaryToken == 0) {
+            figure.tokenValues[0] += 1;
+          }
+
           if (figure.name == 'eclipse' && figure.edition == 'gh2e') {
             let eclipseInvisible = new EntityCondition(ConditionName.invisible);
             eclipseInvisible.permanent = true;
