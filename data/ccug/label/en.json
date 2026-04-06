@@ -10,6 +10,7 @@
       "jester-twins": "Jester Twins",
       "lifespeaker": "Lifespeaker",
       "lightracer": "Lightracer",
+      "powdercoat": "Powdercoat",
       "progenitor": "Progenitor",
       "reeftender": "Reeftender",
       "rekindled": "Rekindled",
@@ -115,6 +116,16 @@
         "4": "Once each scenario, you may use all of your played cards for their standard action and ignore damage from Speeds that turn",
         "5": "Play 8 unique Speed actions during your first turn across multiple scenarios.",
         "6": "For an entire scenario, have at least 2 Speed cards in your active area at the end of each of your turns."
+      },
+      "powdercoat": {
+        "1": "At end of turn, all adjacent enemies suffer %game.damage:1%.",
+        "2": "Add +2 %game.action.attack% if drawn during a %data.action.custom.ccug-munition% ability",
+        "3": "All enemies adjacent to the target suffer %game.damage:1%.",
+        "4": "You may place %data.action.custom.ccug-keg% in hexes containing difficult terrain",
+        "5": "Whenever one of your allies destroys a %data.action.custom.ccug-keg%, that figure may perform %game.action.heal:2%, self",
+        "6": "Once each scenario, when you place or relocate a %data.action.custom.ccug-keg% you may destroy it",
+        "7": "In a single scenario attack at least three enemies with each of three different area of effect attack abilities",
+        "8": "In 3 different scenarios, perform three or more %data.action.custom.ccug-munition% abilities in the same round"
       },
       "progenitor": {
         "1": "Add %game.condition.stun% and %game.condition.wound% if this attack is Ponderous",
@@ -248,6 +259,7 @@
     "endless-dray": "Endless Dray",
     "wild-boar": "Wild Boar",
     "bloodthirsty-swarm": "Bloodthirsty Swarm",
-    "being-of-pure-energy": "Being of Pure Energy"
+    "being-of-pure-energy": "Being of Pure Energy",
+    "travel-companion": "Travel Companion"
   }
 }
