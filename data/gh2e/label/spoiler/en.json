@@ -325,7 +325,100 @@
         "5": "Each City Phase after completing a scenario, your or one ally's donation to the Sanctuary of the Great Oak is free",
         "6": "At the end of each of your rests, if an ally as an active %data.action.custom.gh2e-prescription%, gain one \"Medical Pack\" ability card and move the token on one ally's active %data.action.custom.gh2e-prescription% backward one slot",
         "7": "In a single scenario, give an ally a medical pack or %data.action.custom.gh2e-prescription% each round except when performing a long rest",
-        "8": "In a single scenario, never attack an undamaged enemy while there are any damaged monsters alive, and perform at least 10 attacks"
+        "8": "In a single scenario, never attack an undamaged enemy while there are any damaged monsters alive, and perform at least 10 attacks",
+        "abilities": {
+          "411": {
+            "1": "Give one adjacent ally one medical pack to gain %game.card.experience:1%."
+          },
+          "413": {
+            "1": "Before the heal, remove one negative condition from the target.",
+            "2": "Remove one negative condition from one adjacent ally."
+          },
+          "414": {
+            "1": "Add +1 %game.action.attack%, %game.condition.wound% and gain %game.card.experience:1% if an ally has an active %data.action.custom.gh2e-prescription%."
+          },
+          "415": {
+            "1": "When you next perform a %data.action.custom.gh2e-prescription% action this round, grant all adjacent allies and self:"
+          },
+          "416": {
+            "1": "Give one adjacent ally one medical pack to gain %game.card.experience:1%."
+          },
+          "417": {
+            "1": "On the next four source of %game.damage% from attacks targeting you, gain %game.action.shield:1% for the attack."
+          },
+          "418": {
+            "1": "On the next four attacks, add +1 %game.action.attack%."
+          },
+          "420": {
+            "1": "Add +1 %game.action.attack% to all your attacks targeting damaged enemies."
+          },
+          "421": {
+            "1": "Add +1 %game.action.target% and gain %game.card.experience:1% if the target is damaged (for a maximum of one additional target).",
+            "2": "On the next three negative conditions an enemy would apply to you, prevent the condition."
+          },
+          "422": {
+            "1": "Grant one adjacent ally:"
+          },
+          "423": {
+            "1": "Add %game.condition.stun% and gain %game.card.experience:1% if the target is damaged.",
+            "2": "You may treat all your attack abilities and move abilities from your ability cards as heal abilities of equal value plus one. In such cases, ignore all added effects of those abilities. When treating a move ability as a heal ability, it has %game.action.range:1%."
+          },
+          "425": {
+            "1": "Grant all allies and self:",
+            "2": "Each ally may move the character token backward one slot on one active %data.action.custom.gh2e-prescription% they have."
+          },
+          "426": {
+            "1": "At the start of your next three turns where your current hit point value is less than your maximum hit point value, perform:"
+          },
+          "427": {
+            "1": "Where X is the amount of %game.damage% enemies suffered from the attack ability.",
+            "2": "Remove all negative conditions from the target and give them one medical pack."
+          },
+          "428": {
+            "1": "Grant one adjacent ally:",
+            "2": "If the target has an active %data.action.custom.gh2e-prescription%, gain %game.card.experience:1% and negate the next %game.damage% they would suffer this round."
+          },
+          "429": {
+            "1": "Place a character token on the target. The next three times they lose %game.condition.stun%, they gain %game.condition.stun%."
+          },
+          "430": {
+            "1": "If this attack kills the target, all enemies adjacent to the hex the target occupied gain %game.condition.wound%."
+          },
+          "431": {
+            "1": "At the start of your next four turns where you do not have %game.condition.ward%, perform:",
+            "2": "Whenever an adjacent ally would suffer %game.damage% this round, negate the %game.damage%."
+          },
+          "432": {
+            "1": "1 ally, enemy, or self",
+            "2": "the target of the heal ability"
+          },
+          "433": {
+            "1": "Grant one adjacent ally who has an active %data.action.custom.gh2e-prescription%:",
+            "2": "Remove one negative condition from one adjacent ally. If you do, gain %game.card.experience:1% and you may give one adjacent enemey the negative condition you removed."
+          },
+          "434": {
+            "1": "Give one adjacent ally one medical pack to gain %game.card.experience:1%."
+          },
+          "435": {
+            "1": "At the start of your next three turns, perform:"
+          },
+          "436": {
+            "1": "At the start of your next three turns, gain one medical pack.",
+            "2": "In initiative order, each of your allies may immediately play one \"Medical Pack\" ability card from their hand to perform one action of the card"
+          },
+          "437": {
+            "1": "Kill one adjacent damaged enemy that has at least two negative conditions and whose current hit point value is 8 or less.",
+            "2": "The target suffers %game.damage:1%."
+          },
+          "438": {
+            "1": "Before the heal, remove all negative conditions from the target.",
+            "2": "If the target of the heal ability has an active %data.action.custom.gh2e-prescription%, gain %game.card.experience:1% and grant them:",
+            "3": "Whenever you or an ally perform a heal ability on a \"Medical Pack\" ability card, that character may add +4 %game.action.attack% to their next attack that round of +4 %game.action.move% to their next move ability that round."
+          },
+          "439": {
+            "1": "Add +1 %game.action.target% to your next melee attack ability this round."
+          }
+        }
       },
       "squidface": {
         "1": "Give the target or one enemy within %game.action.range% 2 of the target %game.condition.plague%",

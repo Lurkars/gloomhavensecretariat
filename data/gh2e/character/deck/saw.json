@@ -1,0 +1,1869 @@
+{
+  "name": "saw",
+  "edition": "gh2e",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Battlefield Medicine",
+      "cardId": 411,
+      "level": 1,
+      "initiative": 83,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "disarm",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.411.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "name": "First Aid",
+      "cardId": 412,
+      "level": 1,
+      "initiative": 19,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "Curative Mixture",
+      "cardId": 413,
+      "level": 1,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond_plus"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.saw.abilities.413.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.413.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Bloody Saw",
+      "cardId": 414,
+      "level": 1,
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.414.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "safeguard",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "Prevention Is Key",
+      "cardId": 415,
+      "level": 1,
+      "initiative": 13,
+      "lost": true,
+      "actions": [
+        {
+          "type": "concatenation",
+          "value": ",",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            },
+            {
+              "type": "condition",
+              "value": "disarm",
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "all",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "safeguard",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.415.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "xp": 2,
+      "bottomRound": true
+    },
+    {
+      "name": "Hand of the Surgeon",
+      "cardId": 416,
+      "level": 1,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 1,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.416.1%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Booster Shot",
+      "cardId": 417,
+      "level": 1,
+      "initiative": 42,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-prescription% Prescription",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.417.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 1
+    },
+    {
+      "name": "Syringe",
+      "cardId": 418,
+      "level": 1,
+      "initiative": 57,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-prescription% Prescription",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.418.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 1
+    },
+    {
+      "name": "Needle Gun",
+      "cardId": 419,
+      "level": 1,
+      "initiative": 44,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": 1,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomXp": 2
+    },
+    {
+      "name": "Vital Strikes",
+      "cardId": 420,
+      "level": 1,
+      "initiative": 53,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.420.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5
+        }
+      ],
+      "persistent": true,
+      "xp": 2
+    },
+    {
+      "name": "Vaccine",
+      "cardId": 421,
+      "level": "X",
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.saw.abilities.421.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.421.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true,
+      "bottomXp": 1
+    },
+    {
+      "name": "Teamwork",
+      "cardId": 422,
+      "level": "X",
+      "initiative": 89,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.422.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.422.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Prep for Surgery",
+      "cardId": 423,
+      "level": "X",
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.saw.abilities.423.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.423.2%",
+          "small": true
+        }
+      ],
+      "bottomPersistent": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Hamstring",
+      "cardId": 424,
+      "level": 2,
+      "initiative": 72,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 6
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Precaution",
+      "cardId": 425,
+      "level": 2,
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.425.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.425.2%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "ward",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "round": true
+    },
+    {
+      "name": "Regenerative Tissue",
+      "cardId": 426,
+      "level": 3,
+      "initiative": 52,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "ward",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.saw.abilities.426.1%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true,
+      "bottomXp": 1
+    },
+    {
+      "name": "Blood Transfusion",
+      "cardId": 427,
+      "level": 3,
+      "initiative": 79,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": "X",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "ally",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.saw.abilities.427.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "safeguard",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.saw.abilities.427.2%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomXp": 1
+    },
+    {
+      "name": "Experimental Stimulants",
+      "cardId": 428,
+      "level": 4,
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.428.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.428.2%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "round": true
+    },
+    {
+      "name": "Do No Harm",
+      "cardId": 429,
+      "level": 4,
+      "initiative": 18,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "stun",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.saw.abilities.429.1%",
+              "small": true
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 2
+    },
+    {
+      "name": "Hack to Bits",
+      "cardId": 430,
+      "level": 5,
+      "initiative": 38,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.saw.abilities.430.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Fortifying Injection",
+      "cardId": 431,
+      "level": 5,
+      "initiative": 5,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-prescription% Prescription",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.saw.abilities.431.1%",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "ward",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.431.2%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 1,
+      "bottomRound": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Amputate",
+      "cardId": 432,
+      "level": 6,
+      "initiative": 86,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 7,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.saw.abilities.432.1%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.gh2e.saw.abilities.432.2%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Return the Favor",
+      "cardId": 433,
+      "level": 6,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.433.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.433.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Surgeon's Satchel",
+      "cardId": 434,
+      "level": 7,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.434.1%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Exacting Anger",
+      "cardId": 435,
+      "level": 7,
+      "initiative": 49,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-prescription% Prescription",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.saw.abilities.435.1%",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true,
+      "bottomXp": 1
+    },
+    {
+      "name": "Take Your Medicine",
+      "cardId": 436,
+      "level": 8,
+      "initiative": 6,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-prescription% Prescription",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.436.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.436.2%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 1
+    },
+    {
+      "name": "Euthanize",
+      "cardId": 437,
+      "level": 8,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.437.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound"
+                },
+                {
+                  "type": "condition",
+                  "value": "poison"
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle"
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.saw.abilities.437.2%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Secret of the Oak",
+      "cardId": 438,
+      "level": 9,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 6,
+              "enhancementTypes": [
+                "diamond_plus"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "safeguard",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.saw.abilities.438.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.438.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.438.3%",
+          "small": true
+        }
+      ],
+      "round": true,
+      "bottomRound": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Grisly Trauma",
+      "cardId": 439,
+      "level": 9,
+      "initiative": 81,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.439.1%",
+          "small": true
+        }
+      ],
+      "xp": 2,
+      "bottomRound": true
+    },
+    {
+      "name": "Medical Pack",
+      "cardId": 440,
+      "level": "M",
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 6,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Medical Pack",
+      "cardId": 441,
+      "level": "M",
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "ward",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Medical Pack",
+      "cardId": 442,
+      "level": "M",
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "safeguard",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Medical Pack",
+      "cardId": 443,
+      "level": "M",
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "bless",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Medical Pack",
+      "cardId": 444,
+      "level": "M",
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Medical Pack",
+      "cardId": 445,
+      "level": "M",
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.saw.abilities.445.1%",
+          "small": true
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
