@@ -1293,6 +1293,56 @@
       "1": "Podczas twojej tury wykonaj: %game.action.heal% 6 na siebie"
     }
   },
+  "pets": {
+    "fh-01": {
+      "": "Świniopirania",
+      "1": "Wszystkie postacie natychmiast wykonują:"
+    },
+    "fh-02": {
+      "": "Ogar",
+      "1": "W tej rundzie, wszystkie postacie dodają +1%game.action.attack% do wszystkich swoich ataków wręcz, wymierzonych we wrogów sąsiadujących z dowolnym sojusznikiem postaci."
+    },
+    "fh-03": {
+      "": "Plujący Drakon",
+      "1": "Wszystkie postacie dodają %game.condition.poison% do wszystkich swoich ataków dystansowych w tej rundzie."
+    },
+    "fh-04": {
+      "": "Rozszarpujący Drakon",
+      "1": "Wszystkie postacie dodają %game.condition.wound% do wszystkich swoich ataków wręcz w tej rundzie."
+    },
+    "fh-05": {
+      "": "Czarny Chochlik",
+      "1": "W kolejności inicjatywy, wszystkie postacie natychmiast wykonują:"
+    },
+    "fh-06": {
+      "": "Leśny Chochlik",
+      "1": "W kolejności inicjatywy, wszystkie postacie natychmiast wykonują:"
+    },
+    "fh-07": {
+      "": "Śnieżny Chochlik",
+      "1": "W kolejności inicjatywy, wszystkie postacie natychmiast wykonują:"
+    },
+    "fh-08": {
+      "": "Szlam",
+      "1": "Stwórz przeszkodę o wielkości 1, 2 lub 3 pól w dowolnym miejscu na ujawnionej części mapy."
+    },
+    "fh-09": {
+      "": "Zrujnowana Maszyna",
+      "1": "Wszystkie postacie natychmiast wykonują:"
+    },
+    "fh-10": {
+      "": "Węgorz Elektryczny",
+      "1": "Wszystkie postacie otrzymują %game.damage:2%, aby %game.card.recover% jedną ze swoich odrzuconych kart poziomu 1 lub X."
+    },
+    "fh-11": {
+      "": "BO-HA-TY-R",
+      "1": "W kolejności inicjatywy wszystkie postacie mogą indywidualnie zdecydować się na natychmiastowe wykonanie akcji:"
+    },
+    "fh-12": {
+      "": "Brummix",
+      "1": "Podczas wybierania kart ujawnij wierzchnią kartę z talii umiejętności każdego aktywnego potwora, zanim wszystkie postacie wybiorą swoje karty."
+    }
+  },
   "scenario": {
     "recap": {
       "fh": {
@@ -1453,6 +1503,12 @@
         },
         "67": {
           "66": "Głos Ósemki i Nera, jedna z ośmiorga specjalizująca się w zaklinaniu, otworzyli dla was portale do czterech sfer żywiołów. Odzyskaliście rdzeń z każdego z nich i umieściliście je w specjalnych obudowach przygotowanych przez Estrowów. Musieli oni poświęcić czas na przekształcenie rdzeni i obiecali, że wezwą was, gdy znów będą potrzebować waszej pomocy."
+        },
+        "68": {
+          "67": "Po powrocie do Posterunku Esterów zastaliście ośmiu Esterów w kłopotach. Musieliście zasilić rdzenie własną energią. Byty sfer żywiołów przybyły, aby odzyskać kamienie, a wy ich odparliście.<br>Choć wykonaliście swoje zadanie, coś poszło nie tak... Otworzyła się nowa wyrwa."
+        },
+        "69": {
+          "": "Słyszeliście plotki o Prawdziwym Dębie gdzieś na Północy, zasadzonym przez proroka z żołędzia Wielkiego Dębu w stolicy. Zbieraliście próbki drewna."
         },
         "7": {
           "4": "Po zażegnaniu bezpośredniego zagrożenia ze strony Algoksów wiszącego nad Frosthaven, <strong>%ui.tooltip:data.scenario.recap.fh.character.mayor-satha%</strong> wspomniała, że na obrzeżach terytorium Frosthaven dostrzeżono Czychaczy. Zostaliście poproszeni o sprawdzenie tej sytuacji."

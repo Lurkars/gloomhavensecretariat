@@ -1,5 +1,49 @@
 {
   "edition": {
     "bb-promotional": "Boutons & Bestioles - Contenu Promotionnel"
+  },
+  "items": {
+    "bb-41": {
+      "": "Carapace de Scarabée",
+      "1": "Si vous vous déplacez de 1 hexagone ou moins à votre tour, gagnez %game.action.shield% 1 pour le round."
+    },
+    "bb-42": {
+      "": "Croc de Rat",
+      "1": "Après vous être déplacé d'au moins 4 hexagones, ajouter +1%game.action.attack% à toutes vos attaques ce tour."
+    },
+    "bb-43": {
+      "": "Écharde Pointue",
+      "1": "Pendant votre attaque à distance, ajoutez %game.action.pierce%5."
+    },
+    "bb-44": {
+      "": "Épée courte rétrécie",
+      "1": "L'action supérieure par défaut de vos cartes Capacité est %game.action.attack%3 au lieu de %game.action.attack%2."
+    },
+    "bb-45": {
+      "": "Écaille Solaire du Frisson Éternel",
+      "1": "Pendant votre attaque, %game.elementHalf.consume:ice|light% pour gagner Avantage ou %game.condition.muddle%."
+    },
+    "bb-46": {
+      "": "Goutte de Potion de Guérison",
+      "1": "Pendant votre tour, retirez tous les états négatifs, et %game.action.heal%2 sur vous même."
+    }
+  },
+  "scenario": {
+    "rules": {
+      "bb": {
+        "20-5": {
+          "1": "Le Sorcier de l'Arène a 14 points de vie.",
+          "2": "Le Scarabée Empaleur a 13 points de vie."
+        }
+      }
+    },
+    "title": {
+      "bb": {
+        "12-5": "Le Dompteur de Vermine",
+        "2-5": "Échappée Belle",
+        "20-5": "Une Autre Aventure",
+        "5-5": "La Clameur de la Foule"
+      }
+    }
   }
 }

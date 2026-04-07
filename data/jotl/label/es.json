@@ -1,4 +1,7 @@
 {
+  "ability": {
+    "Stand Fast": "Perseverancia"
+  },
   "battleGoals": {
     "286": {
       "": "Acróbata",

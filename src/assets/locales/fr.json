@@ -404,6 +404,7 @@
       "removeEnhancement": "Retirer un Emplacement d'Amélioration",
       "removeSubAction": "Supprimer une sous-action",
       "small": "Plus petit",
+      "subActions": "Sous-actions",
       "summon": {
         "type": {
           "monster": "Monstre"
@@ -501,6 +502,16 @@
       }
     }
   },
+  "entities": {
+    "filter": {
+      "all": "Tout",
+      "allies": "Alliés",
+      "character": "Personnage",
+      "enemies": "Ennemis",
+      "monster": "Monstre",
+      "objectives": "Objectifs"
+    }
+  },
   "errata": "Errata",
   "escort": {
     "": "Escorte",
@@ -510,15 +521,16 @@
     "action": {
       "area": "Effets de Zone",
       "attack": "Attaque",
-      "box": "Boîte",
+      "box": "&#91;Boîte#93;",
       "card": "Carte",
-      "concatenation": "Concaténation",
+      "concatenation": "&#91;Concaténation&#93;",
       "condition": "Condition",
       "custom": "Personnalisé",
       "damage": "Dommage",
       "element": "Élément",
       "elementHalf": "Moitié d'Élément",
       "fly": "Vol",
+      "fontSize": "&#91;Taille de Police (in %)&#93;",
       "grant": "Accorde",
       "grid": "Grille",
       "heal": "Soin",
@@ -568,6 +580,7 @@
       "perks": {
         "": "Bénéfices",
         "additional": "{0} et {1}",
+        "additionalTwo": "{0}, {1} et {2}",
         "card": "Carte",
         "cardLabel": "{0} {2} {1}",
         "cards": {
@@ -656,6 +669,7 @@
       "revealAllConfirm": "Tout révéler !",
       "shuffle": {
         "": "Mélanger",
+        "allHint": "Double-cliquez pour mélanger toutes les cartes !",
         "upcomingHint": "Double-cliquez pour mélanger uniquement les cartes à venir !"
       }
     },
@@ -743,6 +757,9 @@
         "": "Régénération",
         "hint": "%game.conditionIcon.regenerate% Régénération : %game.action.heal% 1 au début du tour. Supprimer en cas de dégâts."
       },
+      "roundExpire": {
+        "hint": "Supprimer la condition à la fin du round"
+      },
       "rupture": {
         "": "Rupture",
         "hint": "%game.conditionIcon.rupture% Rupture : À chaque déplacement, subit %game.damage:1%. Enlever en cas de guérison."
@@ -814,6 +831,9 @@
     },
     "enemy": "Ennemi",
     "events": {
+      "accept": {
+        "": "Résoudre l'événement"
+      },
       "conditions": {
         "and": "et",
         "building": "{0}",
@@ -1969,7 +1989,7 @@
       "hint": "Au tour des monstres, chaque silhouette a un état actif, double-cliquez sur une silhouette pour la marquer comme réalisé"
     },
     "activeSummons": {
-      "": "Convocation active",
+      "": "Invocations actives",
       "hint": "Au début du tour du personnage, les invocations seront activées dans l'ordre, un double clic permet de basculer l'état actif."
     },
     "addAllMonsters": {
@@ -2102,11 +2122,24 @@
       "": "Rappel des objectifs de bataille",
       "hint": "Afficher un rappel avant le premier tour si tous les personnages n'ont pas choisi leur Objectif de la bataille."
     },
+    "bbAm": {
+      "": "Lancer de dé pour les Modificateurs d'Attaque",
+      "hint": "Lance un dé pour déterminer le prochain modificateur d’attaque. Si cette option est désactivée, l’utilisation normale des modificateurs d’attaque via un paquet mélangé est utilisée."
+    },
+    "bbChars": {
+      "": "Limite de Personnages",
+      "hint": "N'autorise qu'un seul personnage en mode solo. Si désactivé, plusieurs personnages peuvent être ajoutés."
+    },
+    "bbRules": "Règles Boutons & Bestioles",
+    "bbStandeeLimit": {
+      "": "Limite les figurines Monstres",
+      "hint": "Limite par défaut à 4 figurines pour tous les monstres. Si désactivée, il est possible d'ajouter jusqu'à 10 figurines."
+    },
     "bonusAdjustment": {
       "": "Ajuster les bonus du niveau"
     },
     "browserNavigation": {
-      "": "Défaire/Refaire par la navigation"
+      "": "Annuler/Rétablir par la navigation"
     },
     "calculate": {
       "": "Afficher les stats calculées",
@@ -2129,17 +2162,25 @@
       "": "Paquet de modificateurs d'attaque des personnages",
       "hint": "Activer le paquet de modificateurs d'attaque pour les personnages. Pour utiliser les bénéfices, la feuille de personnage doit être activée."
     },
+    "characterAttackModifierDeckActiveBottom": {
+      "": "Deck MA Personnage au dessus du Deck Monstre",
+      "hint": "Afficher le deck Modificateur d'Attaque du personnage actif au-dessus du deck Modificateurs d'Attaque du monstre."
+    },
     "characterAttackModifierDeckPermanent": {
       "": "Deck MA Permanent sous Personnage",
-      "hint": "Afficher le paquet de modificateurs d'attaque en permanence sous le personnage."
+      "hint": "Afficher le Deck Modificateur d'Attaque en permanence sous le personnage."
     },
     "characterAttackModifierDeckPermanentActive": {
       "": "Activation Auto. Paquet MA",
-      "hint": "Active automatiquement le deck de Modification d’Attaque en permanence sur le Personnage actif."
+      "hint": "Active automatiquement le deck de Modification d’Attaque sur le Personnage actif."
     },
     "characterCompact": {
       "": "Fiches de personnages compactes",
       "hint": "Affiche une planche de personnages plus étroite. (Actuellement, pas de support pour le thème Moderne)"
+    },
+    "characterFullView": {
+      "": "Fiche Complète de Personnage",
+      "hint": "Double-cliquez sur l'icône Personnage pour afficher une vue dédiée à ce personnage."
     },
     "characterHandSize": {
       "": "Afficher le nombre de cartes en main et le niveau",
@@ -2169,6 +2210,10 @@
       "": "Activation auto. des objets",
       "hint": "Basculer automatiquement les objets permanents du personnage actif."
     },
+    "characterItemsShareHouseRule": {
+      "": "Echange d'objets entre Personnage (Règle maison)",
+      "hint": "Règle maison autorisant les Personnages à échanger des objets entre eux."
+    },
     "characterSheet": {
       "": "Feuille de personnage",
       "hint": "Activez la feuille de personnage. Pour l'ouvrir, cliquez sur la grande icône du personnage sur le côté droit."
@@ -2194,7 +2239,8 @@
       "hint": "Activer la mise en page sur deux colonnes si le zoom et l'espace sont suffisants"
     },
     "columnsForce": {
-      "": "Utiliser toutes les colonnes disponibles"
+      "": "Utiliser toutes les colonnes disponibles",
+      "hint": "Toujours répartir les figurines sur toutes les colonnes disponibles."
     },
     "combineInteractiveAbilities": {
       "": "Combiner les Capacités Interactives",
@@ -2214,12 +2260,13 @@
       "logServerMessages": "Messages du serveur de journalisation",
       "rightClick": "Toujour activer le clic droit"
     },
+    "display": "Affichage",
     "dragFigures": {
-      "": "Drag'n'drop pour les unités",
-      "hint": "Drag'n'drop pour la liste des unités. Attention, si cette option est désactivée et qu'aucune initiative n'est requise, il n'est pas possible de réorganiser les unités manuellement."
+      "": "Glisser-déposer pour les unités",
+      "hint": "Glisser-déposer pour la liste des unités. Attention, si désactivée et qu'aucune initiative n'est requise, il n'est pas possible de réorganiser les unités manuellement."
     },
     "dragValues": {
-      "": "Glisser pour modifier Initiative/PV/XP/Butin"
+      "": "Glisser les valeurs"
     },
     "eliteFirst": {
       "": "Afficher les silhouettes élites en premier",
@@ -2230,6 +2277,10 @@
     },
     "events": {
       "": "Cartes Événement"
+    },
+    "eventsDrawReminder": {
+      "": "Rappel de Tirage d'Événement",
+      "hint": "Afficher un rappel avant le premier tour pour tirer au sort un événement."
     },
     "expireConditions": {
       "": "Conditions expirant automatiquement",
@@ -2247,6 +2298,7 @@
       "": "Style Frosthaven",
       "hint": "Affiche les actions, les capacités et les icônes dans le nouveau style Frosthaven, active automatiquement le thème Frosthaven."
     },
+    "filter": "Rechercher...",
     "fontsize": {
       "": "Taille police des capacités",
       "dec": "Réduire Taille police des capacités",
@@ -2259,6 +2311,7 @@
       "hint": "Passer en mode plein écran"
     },
     "gameClock": {
+      "": "Horloge de jeu",
       "hint": "Activez une horloge de jeu pour suivre le temps d'exécution de l'application."
     },
     "gameClockMerge": {
@@ -2296,6 +2349,7 @@
       "": "Afficher l'aide",
       "hint": "Afficher les raccourcis et les conseils à côté du menu principal"
     },
+    "hintsMenu": "Conseils",
     "initiativeRequired": {
       "": "Initiative requise",
       "hint": "Si la case n'est pas cochée, l'ordre des entités doit être défini manuellement par glisser-déposer"
@@ -2334,6 +2388,7 @@
       "pl": "Polonais (Polski)",
       "pt": "Portugais (Portuguese)",
       "ru": "Russe (Русский)",
+      "th": "Thai (ชาวไทย)",
       "zh_Hans": "Chinois simplifié (简体中文)",
       "zh_Hant": "Chinois traditionnel (繁體中文)"
     },
@@ -2343,7 +2398,7 @@
     },
     "lurkarsDefaults": "Appliquer les paramètres utilisateurs personnels de Lurkars'",
     "maxUndo": {
-      "": "Nombre max d'actions à défaire",
+      "": "Nombre max d'actions à annuler",
       "hint": {
         "": "Votre navigateur ne semble pas prendre en charge IndexedDB ou votre utilisation est restreinte. Par conséquent, le nombre maximum d'annulations est limité à 50.",
         "firefox": "On Firefox you can enable IndexedDB for private mode in <a href=\"about:config\" target=\"_blank\">about:config</a> with the key <i>dom.indexedDB.privateBrowsing.enabled</i>."
@@ -2365,6 +2420,10 @@
       "": "Feuille de route",
       "hint": "Permet la création d'une feuille de campagne. La feuille de campagne se trouve au <i>verso</i> de la feuille de campagne."
     },
+    "passiveSummons": {
+      "": "Invocations Passives",
+      "hint": "Permet aux invocations marquées comme passives d’ignorer leur tour actif."
+    },
     "pinchZoom": {
       "": "Zoom gestuel",
       "hint": "Zoom par gestes tactiles."
@@ -2380,6 +2439,7 @@
       "": "Optimisation du mode portrait",
       "hint": "Optimisation du mode portrait pour les petits écrans."
     },
+    "preferences": "Préferences",
     "pressDoubleClick": {
       "": "Appui long pour double-clic (Touch)",
       "hint": "Sur les écrans tactiles, déclencher le double-clic par une pression longue. (Recommandé pour éviter les clics fantômes)"
@@ -2392,6 +2452,8 @@
       "": "Retirer les monstres inutilisés",
       "hint": "Supprime automatiquement tous les monstres inutilisés."
     },
+    "requires": "Conditions requises :",
+    "requiresOne": "Une des conditions est requise :",
     "scenarioNumberInput": {
       "": "Numéro de scénario Entrée"
     },
@@ -2422,6 +2484,10 @@
     "showExpandedAbilityCard": {
       "": "Afficher les détails des cartes de capacité",
       "hint": "Affiche toutes les capacités des cartes de capacité en une seule fois (y compris le titre)."
+    },
+    "showExpandedStatCard": {
+      "": "Afficher les fiches de statistiques détaillées",
+      "hint": "Déplier les fiches statistiques pour voir tout le contenu."
     },
     "showFullAbilityCard": {
       "": "Afficher les titres des cartes de capacité",
@@ -2456,8 +2522,13 @@
       "hint": "Active les invocations de personnages"
     },
     "synced": "Ces paramètres sont synchronisés avec le serveur !",
+    "temporaryEnhancements": {
+      "": "Améliorations temporaires",
+      "hint": "Utilise les améliorations temporaires pour réduire les coûts d'amélioration. Pour Frosthaven, applique les règles telles que décrites dans le livret de règles ; dans le cas contraire, ce sont les coûts d'amélioration de Gloomhaven Digital qui s'appliquent."
+    },
     "theme": {
       "": "Thème",
+      "bb": "Boutons & Bestioles (%wip%)",
       "default": "Défaut",
       "fh": "Frosthaven",
       "hint": "Choisissez un thème pour l'arrière-plan, les barres et les polices.",
@@ -2511,7 +2582,7 @@
   "state": {
     "clear": {
       "": "Effacer",
-      "redos": "Effacer Restaurer",
+      "redos": "Effacer Rétablissement",
       "undos": "Effacer les annulations"
     },
     "currentGame": "Actuel",
@@ -2650,6 +2721,14 @@
       },
       "characterLongRest": "Effectuer un repos long pour {0}",
       "characterLongRestOff": "Désactiver le repos long pour {0}",
+      "command": {
+        "round": {
+          "state": {
+            "draw": "Piocher",
+            "next": "Prochain Round"
+          }
+        }
+      },
       "craftItem": "Fabriquer l'objet {1} (%data.edition.{2}%) pour {0}",
       "declineApplyCondition": {
         "char": "Ne pas appliquer %game.condition.{1}% à {0}",
@@ -2710,6 +2789,8 @@
       },
       "gameClock": {
         "automaticGameClockOut": "Arrêt automatique de l'horloge",
+        "clockIn": "Démarrer l’horloge",
+        "clockOut": "Arrêter l’horloge",
         "merge": "Fusionner l’horloge du jeu"
       },
       "hideScenarioRule": "Ne plus montrer la règle du scénario",
@@ -2787,6 +2868,7 @@
       "removeTreasures": "Retrait trésor {1} (%data.edition.{0}%)",
       "reorder": "Réarranger les unités",
       "reorderAbilities": "Réarranger les capacités de {0}",
+      "resetCampaign": "Réinitialiser la campagne",
       "resetScenario": "Redémarrer le scénario #{0} {1} ({2})",
       "restoreDefaultAbilities": "Restaurer les capacités pas déaut de {0}",
       "sellItem": "Vendre objet {1} (%data.edition.{2}%) pour {0}",
@@ -2836,6 +2918,7 @@
       "setPerk": "Bénéfice {1} to {2} pour {0}",
       "setPlayer": "Définir le joueur {1} à {0}",
       "setPlayerNumber": "Définir le numéro de joueur {1} pour {0}",
+      "setRandomScenario": "Générer un donjon aléatoire",
       "setResource": "Définir {1} {2} pour {0}",
       "setRetired": "{0} retraite {1}",
       "setRetirements": "{1} Retraites pour {0}",
@@ -2854,7 +2937,7 @@
       "unlockChar": "Débloquer {0}",
       "unsetAbsent": "{0} présent",
       "unsetActive": "Finir le tour de {0}",
-      "unsetAllied": "{0} not as allied",
+      "unsetAllied": "{0} n'est pas défini comme allié",
       "unsetAlly": "{0} défini comme ennemi",
       "unsetCustomScenario": "Annuler scénario personnalisé",
       "unsetDrawExtraAbility": "Annuler pioche supplémentaire pour {0}",
@@ -2868,7 +2951,11 @@
         "addCard": "Ajouter {1} carte au paquet de Modificateur d'Attaque de {0}",
         "addCardShuffled": "Ajouter une carte mélangée {1} au paquet de Modificateur d'Attaque de {0}",
         "addCurse": "Ajout de Malédiction au paquet de Modificateur d'Attaque de {0}",
+        "amDeckHide": "Cacher le deck MA de {0}",
+        "amDeckShow": "Afficher le deck MA de {0}",
         "draw": "Piocher dans le paquet de Modificateur d'Attaque de {0}",
+        "drawadvantage": "Piocher un MA avec Avantage pour {0}",
+        "drawdisadvantage": "Piocher un MA avec Désavantage pour {0}",
         "removeBless": "Retrait de Bénédiction du paquet de Modificateur d'Attaque de {0}",
         "removeCard": "Retirer carte {1} du paquet de Modificateur d'Attaque de {0}",
         "removeCurse": "Retrait de Malédiction du paquet de Modificateur d'Attaque de {0}",
@@ -2886,9 +2973,9 @@
     },
     "loadMore": "Afficher plus",
     "missing": "États manquants : {0}",
-    "redo": "Refaire",
+    "redo": "Rétablir",
     "reset": "Redémarrer",
-    "undo": "Défaire"
+    "undo": "Annuler"
   },
   "summon": {
     "": "Invocation",
@@ -2907,11 +2994,16 @@
     "backToGhs": "Retour à GHS",
     "decks": "Paquets de capacité",
     "feedback": {
-      "": "Feedback",
+      "": "Commentaires",
       "githubIssue": "Déposez plutôt un problème sur GitHub",
       "reportIssue": {
         "": "Signaler un problème",
+        "automaticText": "Texte Automatique",
         "download": "Télécharger le dumping de données",
+        "errorHint": "Une erreur logicielle s'est produite.<br>Vous pouvez contribuer à l'amélioration du logiciel en signalant cette erreur au développeur.<br>Veuillez joindre le fichier de vidage de mémoire si possible. Merci !",
+        "errorIgnore": "Ne plus signaler automatiquement cette erreur.",
+        "errorText": "ERROR Stack Trace:\n\n{0}\n\n{1}",
+        "mail": "Veuillez noter que Microsoft utilise sa position dominante sur le marché pour bloquer les petits serveurs de messagerie privés. Par conséquent, je peux recevoir des e-mails provenant de outlook.com, hotmail.com ou d'autres services Microsoft, mais je ne peux pas y répondre !",
         "send": "Envoyer la question (Email)",
         "specify": "Si vous n'êtes pas sûr de la nature exacte du problème<br>Veuillez télécharger et joindre le fichier de données ci-dessous !",
         "text": "Texte",
@@ -2961,7 +3053,28 @@
       }
     },
     "keyboard": {
+      "": "Raccourcis Clavier",
+      "activeCharacter": {
+        "lootDec": "- Argent (Personnage actif)",
+        "lootInc": "+ Argent (Personnage actif)",
+        "xpDec": "- XP (Personnage actif)",
+        "xpInc": "+ XP (Personnage actif)"
+      },
+      "alt": "ALT",
+      "backspace": "⌫",
+      "cmd": "⌘",
+      "ctrl": "CTRL",
+      "difficulty": "Menu Difficulté/Niveau",
+      "enter": "↵",
+      "entityMenu": {
+        "kill": "Mort/Épuisé"
+      },
+      "keyboard": "Afficher les raccourcis clavier",
+      "redo": "Rétablir",
+      "shift": "SHIFT",
+      "space": "ESPACE",
       "tab": "↹",
+      "undo": "Annuler",
       "zoomIn": "Zoom avant",
       "zoomOut": "Zoom arrière",
       "zoomReset": "Réinitialiser le Zoom"
@@ -2979,5 +3092,5 @@
       "text": "Utiliser différents paramètres pour tout configurer correctement :"
     }
   },
-  "wip": "En cours d'implémentation"
+  "wip": "En cours..."
 }

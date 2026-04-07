@@ -1,1 +1,28 @@
-{}
+{
+  "custom": {
+    "ir": {
+      "beast-rider": {
+        "1": "Tous les ennemis subissent %game.damage:2%",
+        "2": "Tous les ennemis subissent %game.damage:3%",
+        "3": "Tous les ennemis subissent %game.damage:4%",
+        "4": "Tous les ennemis subissent %game.damage:5%",
+        "5": "Tous les ennemis subissent %game.damage:6%",
+        "6": "Tous les ennemis subissent %game.damage:7%"
+      }
+    }
+  },
+  "monster": {
+    "thrax": "Thrax"
+  },
+  "scenario": {
+    "title": {
+      "ir": {
+        "1": "La Loutre Errante",
+        "2": "Comportements inhabituels",
+        "3": "Un navire assiégé",
+        "4": "Entrepôt Sécurisé de Gloomhaven",
+        "5": "Entrepôt Sécurisé de Gloomhaven"
+      }
+    }
+  }
+}

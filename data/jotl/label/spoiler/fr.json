@@ -6,7 +6,7 @@
     },
     "jotl-10": {
       "": "Lance ferrée",
-      "1": "Pendant votre capacité d'Attaque de mélée sur une seule cible, attaquez un adversaire situé à 2 hexagones ou moins."
+      "1": "Pendant votre capacité d'Attaque de mélée sur une seule cible, attaquez un adversaire situé à 2 hexagones ou moins"
     },
     "jotl-11": {
       "": "Potion de Soin",
@@ -90,7 +90,7 @@
     },
     "jotl-3": {
       "": "Armure de Mailles",
-      "1": "Pendant votre tour, gagnez %game.action.shield% 1 pour le reste du round."
+      "1": "Pendant votre tour, gagnez %game.action.shield% 1 pour le reste du round"
     },
     "jotl-30": {
       "": "Anneau de Hâte",
@@ -138,7 +138,7 @@
     },
     "jotl-8": {
       "": "Marteau de lancer",
-      "1": "Pendant votre attaque à distance, ajoutez %game.condition.stun% à une seule attaque."
+      "1": "Pendant votre attaque à distance, ajoutez %game.condition.stun% à une seule attaque"
     },
     "jotl-9": {
       "": "Dague Empoisonnée",

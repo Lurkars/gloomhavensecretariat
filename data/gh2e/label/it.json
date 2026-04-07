@@ -1,4 +1,7 @@
 {
+  "ability": {
+    "Venom Shiv": "Venom Shiv"
+  },
   "character": {
     "gh2e": {
       "cragheart": "Cuore di Roccia",
@@ -19,11 +22,16 @@
   },
   "monster": {
     "bandit-archer": "Bandito Arciere",
+    "bandit-archer-music-note2-solo": "%data.monster.bandit-archer%",
+    "bandit-scout-music-note2-solo": "%data.monster.bandit-scout%",
     "black-imp": "Imp Nero",
     "cave-bear": "Orso della Caverna",
+    "cave-bear-circles2-solo": "%data.monster.cave-bear%",
     "chaos-demon": "Demone del Caos",
     "city-archer": "Arciere Cittadino",
     "city-guard": "Guardia Cittadina",
+    "city-guard-saw2-solo": "%data.monster.city-guard%",
+    "city-guard-sun2-solo": "%data.monster.city-guard%",
     "cultist": "Cultista",
     "deep-terror": "Terrore delle Profondità",
     "earth-demon": "Demone della Terra",

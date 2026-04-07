@@ -99,7 +99,8 @@
       "2": "你可以给与你%game.action.range:3%内的一个盟友%game.condition.poison%来附加+1 %game.action.target%。"
     },
     "gh2e-164": {
-      "": "死神面具"
+      "": "死神面具",
+      "1": "你的当前生命值为1时，为所有近战攻击增加+2 %game.action.attack%。"
     },
     "gh2e-165": {
       "": "大师鲁特琴",

@@ -21,6 +21,23 @@
         "1": "All'inizio di ogni round:"
       }
     },
+    "gh2e": {
+      "city-guard-saw2-solo": {
+        "1": "Quando ricevi un kit medico, esegui:",
+        "2": "Rimuovi %data.monster.city-guard-saw2-solo% dalla mappa dopo essere stato completamente curato o aver ricevuto un kit medico."
+      },
+      "city-guard-sun2-solo": {
+        "1": "Agisce immediatamente dopo %game.characterIcon.sun%."
+      },
+      "hawthorne": {
+        "1": "Aggiunge +1 %game.action.attack% a tutti gli attacchi quando non si è danneggiati"
+      },
+      "living-spirit-squidface-solo": {
+        "1": "L'armatura base è 0 quando %data.monster.living-spirit-squidface-solo% non ha %game.condition.poison%",
+        "2": "%data.monster.living-spirit-squidface-solo% senza %game.condition.poison% non agiscono.",
+        "3": "%game.characterIcon.squidface% potrebbe avere il %data.monster.living-spirit-squidface-solo% perdere %game.condition.poison% per aggiungere %game.condition.poison%."
+      }
+    },
     "solo": {
       "char-am-deck": "Utilizza il mazzo MA dei personaggi"
     },
@@ -42,6 +59,27 @@
     "solo": "Scenari in solitaria (tutte le edizioni)"
   },
   "monster": {
-    "abael-warlord": "Condottiero Abael"
+    "abael-warlord": "Condottiero Abael",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
+    "bandit-archer-music-note2-solo": "%data.monster.bandit-archer%",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
+    "bandit-scout-music-note2-solo": "%data.monster.bandit-scout%",
+    "black-imp-deathwalker-solo": "Imp Nero (Solo)",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
+    "cave-bear-circles2-solo": "%data.monster.cave-bear%",
+    "city-guard-banner-spear-solo": "Guardia Cittadina (Solo)",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-saw2-solo": "%data.monster.city-guard%",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-sun2-solo": "%data.monster.city-guard%",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)"
+  },
+  "scenario": {
+    "title": {
+      "gh": {
+        "solo-18": "Le Sabbie del Tempo"
+      }
+    }
   }
 }

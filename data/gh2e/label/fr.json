@@ -1,1 +1,10 @@
-{}
+{
+  "monster": {
+    "bandit-archer": "Archer Bandit",
+    "deep-earth-gh2e": "Terre Profonde",
+    "earth-demon": "Démon de Terre",
+    "flame-demon": "Démon de Flamme",
+    "frost-demon": "Démon de Givre",
+    "wind-demon": "Démon du Vent"
+  }
+}

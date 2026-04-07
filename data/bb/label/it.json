@@ -7,6 +7,9 @@
       "tinkerer": "Inventore"
     }
   },
+  "edition": {
+    "bb": "Button & Bugs"
+  },
   "monster": {
     "bandit-guard": "Bandito Guardia",
     "earth-demon": "Demone della Terra",

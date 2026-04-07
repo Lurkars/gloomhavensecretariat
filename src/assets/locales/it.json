@@ -507,6 +507,16 @@
       }
     }
   },
+  "entities": {
+    "filter": {
+      "all": "Tutti",
+      "allies": "Alleati",
+      "character": "Personaggio",
+      "enemies": "Nemici",
+      "monster": "Mostro",
+      "objectives": "Obbiettivi"
+    }
+  },
   "errata": "Errata",
   "escort": {
     "": "Scorta",
@@ -759,6 +769,9 @@
       "regenerate": {
         "": "Rigenerazione",
         "hint": "%game.conditionIcon.regenerate% Rigenerazione: %game.action.heal% 1 all'inizio del turno. Rimuovi quando ricevi danno."
+      },
+      "roundExpire": {
+        "hint": "Rimuovi condizione alla fine del round"
       },
       "rupture": {
         "": "Frattura",
@@ -1115,9 +1128,12 @@
         "brewed": "{2} ha preparato %data.items.{1}-{0}% %game.itemFh.{0}%",
         "brewedOther": "{2} ha preparato %data.items.{1}-{0}% %game.itemFh.{0}% per {3}",
         "disabled": "Impossibile preparare le pozioni, ricostruire prima%dati.buildings.alchemist%'(35)",
+        "grid": "Mostra griglia dell'alchimia",
         "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "Pozione già posseduta da ogni personaggio!",
-        "selectCharacter": "Seleziona il personaggio con il quale preparare:"
+        "selectCharacter": "Seleziona il personaggio con il quale preparare:",
+        "special3": "2 o più uguali",
+        "table": "Mostra Tavolo dell'alchimia"
       },
       "buy": "Compra '{0}' per {1} oro",
       "character": {
@@ -1145,10 +1161,21 @@
       },
       "remove": "Rimuovi '{0}'",
       "sell": "Vendi '{0}' per {1} oro",
+      "share": {
+        "": "Condividi '{0}'",
+        "apply": "Condividi Oggetto",
+        "select": "Seleziona Personaggio"
+      },
       "shop": {
         "": "Carte oggetto",
+        "buy": "Acquista gli articoli",
         "buyingDisabled": "Impossibile acquistare articoli, ricostruisci prima '%data.buildings.Trading-Post%' (37)",
-        "character": "Negozio per %game.characterIconColored.{0}% {1}",
+        "character": {
+          "": "Negozio di articoli per %game.characterIconColored.{0}% {1}",
+          "buy": "Acquista articoli per %game.characterIconColored.{0}% {1}",
+          "craft": "Crea oggetti per %game.characterIconColored.{0}% {1}"
+        },
+        "craft": "Crea oggetti",
         "craftingDisabled": "Non è possibile creare oggetti, ricostruisci prima '%data.buildings.craftsman%' (34)"
       },
       "unlock": "Sblocca oggetto",
@@ -2468,6 +2495,7 @@
       "": "Sblocco automatico dei personaggi",
       "hint": "Sblocca automaticamente i personaggi dai premi dello scenario."
     },
+    "automation": "Automazione",
     "autoscroll": {
       "": "Scrolling automatico",
       "hint": "Scorrimento automatico alla figura attiva successiva"
@@ -2592,6 +2620,10 @@
       "": "Oggetti autom. attivi",
       "hint": "Attiva automaticamente gli oggetti permanenti per il personaggio attivo."
     },
+    "characterItemsShareHouseRule": {
+      "": "Condividi oggetti del personaggio (regola non ufficiale)",
+      "hint": "Regola non ufficiale che consente lo scambio di oggetti tra i personaggi."
+    },
     "characterSheet": {
       "": "Scheda del personaggio",
       "hint": "Abilita la scheda del personaggio. Per aprirla, fai clic sull'icona grande del personaggio sul lato destro."
@@ -2625,6 +2657,7 @@
       "hint": "Effettua capacità interattive per tutte le pedine contemporaneamente."
     },
     "conditions": "Condizioni/elementi",
+    "controls": "Controlli",
     "damageHP": {
       "": "Danno invece di PV",
       "hint": "Mostra danni inferti al posto dei punti ferita rimanenti"
@@ -2638,6 +2671,7 @@
       "logServerMessages": "Registro messaggi del server",
       "rightClick": "Abilita sempre il tasto destro del mouse"
     },
+    "display": "Schermo",
     "dragFigures": {
       "": "Drag'n'Drop per le unità",
       "hint": "Drag'n'Drop per l'elenco delle unità. Avvertenza, se disabilitato e non è richiesta alcuna iniziativa, non c'è modo di riordinare manualmente le unità."
@@ -2661,6 +2695,10 @@
     "eliteFirst": {
       "": "Prima le pedine elite",
       "hint": "Mostra prima le pedine elite quando si ordinano le pedine"
+    },
+    "entitiesMenu": {
+      "": "Menu di tutte le figure e dei segnalini",
+      "hint": "Mostra un pulsante nel menu sul piè di pagina per applicare modifiche a tutte le figure e ai segnalini contemporaneamente."
     },
     "errata": {
       "": "Mostra suggerimenti Errata",
@@ -2743,6 +2781,7 @@
       },
       "hint": "Applica automaticamente (se possibile) le carte delle prove attive."
     },
+    "filter": "Cerca...",
     "fontsize": {
       "": "Grandezza carattere delle Capacità",
       "dec": "Riduci il carattere delle capacità",
@@ -2763,6 +2802,7 @@
       "hint": "Unisci l'orologio di gioco del server con l'orologio di gioco locale per ottenere il tempo di gioco complessivo."
     },
     "gameplay": "Gameplay",
+    "gamerules": "Specifico del gioco",
     "ge5Player": {
       "": "Regole giocatori ≥ 5"
     },
@@ -2799,9 +2839,10 @@
       "hint": "Nascondi le statistiche dei mostri non generati"
     },
     "hints": {
-      "": "Mostra suggerimenti",
+      "": "Suggerimenti sul menu principale",
       "hint": "Mostra scorciatoie e suggerimenti accanto al menu principale"
     },
+    "hintsMenu": "Suggerimenti",
     "initiativeRequired": {
       "": "È richiesta l'iniziativa",
       "hint": "Se non selezionato, l'ordine delle entità deve essere impostato manualmente con il Drag & Drop"
@@ -2872,6 +2913,10 @@
       "": "Scheda gruppo",
       "hint": "Abilita le schede gruppo e campagna. La scheda campagna si trova sul lato <i>posteriore</i> della scheda gruppo."
     },
+    "passiveSummons": {
+      "": "Evocazioni passive",
+      "hint": "Permette alle evocazioni contrassegnate come passive di saltare il turno attivo."
+    },
     "pinchZoom": {
       "": "Zoom gestuale",
       "hint": "Zoom tramite gesti touch."
@@ -2887,6 +2932,7 @@
       "": "Ottimizzazione in modalità ritratto",
       "hint": "Ottimizzazione della modalità ritratto per schermi più piccoli."
     },
+    "preferences": "Preferenze",
     "pressDoubleClick": {
       "": "Premi a lungo per doppio clic (touch)",
       "hint": "Sui touchscreen, esegui un doppio clic solo con una lunga pressione. (Consigliato per evitare i clic fantasma)"
@@ -3512,6 +3558,7 @@
       "setSummonState": "Imposta evocazione {1} {2} per {0}",
       "setTitle": "Titolo '{1}' per {0}",
       "setXP": "Esp {1} per {0}",
+      "shareItem": "{0} condivide \"%data.items.{3}-{2}%\" (Oggetto {2}) con {1}",
       "shuffleAbilityDeck": "Mescola le capacità di {0}",
       "shuffleAbilityDeckUpcoming": "Mescola le capacità in arrivo di {0}",
       "skipInteractiveActions": "Salta le capacità interattive per le pedine {1} di {2}",
@@ -3661,6 +3708,7 @@
       "amAdvantage": "Lo stesso di <kbd><span>m</span></kbd>, ma pesca con vantaggio se abilitato",
       "amDisadvantage": "Lo stesso di <kbd><span>m</span></kbd>, ma pesca con svantaggio se abilitato",
       "backspace": "⌫",
+      "cmd": "⌘",
       "ctrl": "CTRL",
       "difficulty": "Menu di difficoltà/livello",
       "enter": "↵",

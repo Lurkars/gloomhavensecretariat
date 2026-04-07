@@ -1,1 +1,9 @@
-{}
+{
+  "custom": {
+    "perks": {
+      "wildborn": {
+        "4": "En tu próximo ataque comandado, descarta esta carta para añadir +2"
+      }
+    }
+  }
+}

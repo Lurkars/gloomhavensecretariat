@@ -1,1 +1,238 @@
-{}
+{
+  "character": {
+    "bb": {
+      "bruiser": "Brute",
+      "cragheart": "Cœur de Roche",
+      "mindthief": "Perce-Esprit",
+      "silent-knife": "Crapule",
+      "spellweaver": "Tisse-Sort",
+      "tinkerer": "Bricoleur"
+    }
+  },
+  "edition": {
+    "bb": "Boutons & Bestioles"
+  },
+  "items": {
+    "bb-1": {
+      "": "Coutelas Épine-de-rose",
+      "1": "Pendant votre attaque, pour %game.elementHalf.consume:ice|earth% ajouter 1 %game.action.pierce%."
+    },
+    "bb-10": {
+      "": "Fouet de Racines",
+      "1": "Pendant votre attaque, %game.elementHalf.consume:earth|light% pour ajouter %game.condition.immobilize%."
+    },
+    "bb-11": {
+      "": "Aiguille Aimantée",
+      "1": "Pendant votre tour, contrôlez un adversaire à %game.action.range% 5 ou moins : %game.action.move% 2."
+    },
+    "bb-12": {
+      "": "Reliefs de Repas",
+      "1": "Pendant votre tour, %game.action.heal% 1 sur vous-même."
+    },
+    "bb-13": {
+      "": "Flèches à Plumes de Rouge-gorge",
+      "1": "Pendant votre attaque à distance sur une seule cible, %game.elementHalf.consume:fire|air% pour ajouter +1 %game.action.range%, %game.action.pierce% 1."
+    },
+    "bb-14": {
+      "": "Pollen de Belladone",
+      "1": "Après l’attaque d’un adversaire, %game.elementHalf.consume:earth|dark% pour %game.condition.poison% cet adversaire."
+    },
+    "bb-15": {
+      "": "Goutte de Potion de Soin",
+      "1": "Pendant votre tour, %game.action.heal% 3 sur vous-même."
+    },
+    "bb-16": {
+      "": "Poudre Explosive",
+      "1": "Pendant votre attaque à distance sur une seule cible, ajoutez :"
+    },
+    "bb-17": {
+      "": "Hameçon et Fil de Pêche",
+      "1": "Pendant votre attaque à distance, ajoutez %game.action.pierce% 2, %game.action.pull% 2."
+    },
+    "bb-18": {
+      "": "Bouclier Bogue-de-marron",
+      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.shield% 1 et %game.action.retaliate% 1."
+    },
+    "bb-19": {
+      "": "Rouage en Laiton",
+      "1": "Après avoir déterminé l’initiative, augmentez ou réduisez votre valeur d’initiative de 10."
+    },
+    "bb-2": {
+      "": "Crochet Venimeux",
+      "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.poison%."
+    },
+    "bb-20": {
+      "": "Huile Lubrifiante",
+      "1": "Pendant votre déplacement, ajoutez +2 %game.action.move%."
+    },
+    "bb-21": {
+      "": "Goutte de Potion Élémentaire",
+      "1": "Pendant votre tour, générez %game.element.wild% %game.element.wild%."
+    },
+    "bb-22": {
+      "": "Goutte de Potion d’Endurance",
+      "1": "Pendant votre tour, %game.card.recover% une carte de niveau 1 de votre main ou de votre défausse face A."
+    },
+    "bb-23": {
+      "": "Pincée de Poudre du Chaos",
+      "1": "Pendant votre attaque, ajoutez %game.condition.disarm%, %game.condition.poison%."
+    },
+    "bb-24": {
+      "": "Aiguilles à Coudre",
+      "1": "Pendant votre attaque, ajoutez %game.action.pierce% 1."
+    },
+    "bb-25": {
+      "": "Crayon Pointu",
+      "1": "Pendant votre attaque de mêlée sur une seule cible, ajoutez :"
+    },
+    "bb-26": {
+      "": "Écu- monnaie",
+      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.shield% 2."
+    },
+    "bb-27": {
+      "": "Arc Long Rétréci",
+      "1": "Pendant l’attaque d’un adversaire, gagnez +1 %game.action.attack%, %game.action.pierce% 1."
+    },
+    "bb-28": {
+      "": "Épée Longue Rétrécie",
+      "1": "Pendant votre attaque à distance, ajoutez +1 %game.action.attack%."
+    },
+    "bb-29": {
+      "": "Chardon Ardent",
+      "1": "Pendant l’attaque d’un adversaire, %game.elementHalf.consume:fire|earth% pour %game.condition.wound% cet adversaire."
+    },
+    "bb-3": {
+      "": "Bottes Patinées Rétrécies",
+      "1": "Pendant votre déplacement, ajoutez +1 %game.action.move%."
+    },
+    "bb-30": {
+      "": "Bille OEil-de-chat",
+      "1": "Pendant votre attaque, considérez votre modificateur d’attaque %game.bbAm.0% comme un %game.bbAm.1%."
+    },
+    "bb-31": {
+      "": "Éclat de Verre",
+      "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.wound%."
+    },
+    "bb-32": {
+      "": "Bouclier Carte-à-jouer",
+      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.shield% 4."
+    },
+    "bb-33": {
+      "": "Goutte d’Élixir de Hâte",
+      "1": "Après avoir effectué l’action supérieure d’une carte Capacité, effectuez également son action inférieure."
+    },
+    "bb-34": {
+      "": "Goutte d’Élixir d’Endurance",
+      "1": "Pendant votre tour, %game.card.recover% une carte de votre main ou de votre défausse face A."
+    },
+    "bb-35": {
+      "": "Gemme Iridescente",
+      "1": "Pendant votre attaque, %game.element.consume.wild% pour ajouter +1 %game.action.attack%."
+    },
+    "bb-36": {
+      "": "Goutte de Potion de Force",
+      "1": "Pendant votre tour, %game.condition.strengthen% sur vous-même."
+    },
+    "bb-37": {
+      "": "Gemme de Brume Crépusculaire",
+      "1": "Pendant l’attaque d’un adversaire, %game.elementHalf.consume:air|dark% pour gagner %game.action.shield% 1 et %game.condition.muddle% cet adversaire."
+    },
+    "bb-38": {
+      "": "Gemme Lumineuse Envoûtante",
+      "1": "Après votre attaque, %game.elementHalf.consume:air|light% pour contrôler la cible de l’attaque : %game.action.move% 1."
+    },
+    "bb-39": {
+      "": "Bouclier Coquillage Nacré",
+      "1": "Pendant votre tour, gagnez %game.action.shield% 1 pour tout le round. Générez %game.element.wild%."
+    },
+    "bb-4": {
+      "": "Vieux Ressort",
+      "1": "Pendant votre tour, ajoutez %game.action.jump% to all your movement."
+    },
+    "bb-40": {
+      "": "Couteau de Poche",
+      "1": "Pendant votre attaque de mêlée, ajoutez +1 %game.action.attack%, %game.action.pierce% 2, %game.condition.wound%."
+    },
+    "bb-41": {
+      "": "Casque Dé-à-coudre",
+      "1": "Pendant l’attaque d’un adversaire, considérez son modificateur d’attaque %game.bbAm.2% comme un %game.bbAm.1%."
+    },
+    "bb-42": {
+      "": "Heaume Crâne-de-moineau",
+      "1": "Pendant votre attaque, gagnez Avantage."
+    },
+    "bb-5": {
+      "": "Goutte de Potion de Puissance",
+      "1": "Pendant votre tour, ajoutez +1 %game.action.attack% à toutes vos attaques."
+    },
+    "bb-6": {
+      "": "Goutte d’Eau Pure",
+      "1": "Pendant votre tour, %game.elementHalf.consume:ice|air% pour retirer un état négatif."
+    },
+    "bb-7": {
+      "": "Marteau Ressort",
+      "1": "Pendant votre attaque de mêlée, ajoutez %game.action.push% 2."
+    },
+    "bb-8": {
+      "": "Bouclier Bouton",
+      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.shield% 1."
+    },
+    "bb-9": {
+      "": "Clou de Fer",
+      "1": "Pendant votre tour, ajoutez %game.action.pierce% 2 à toutes vos attaques de mêlée."
+    }
+  },
+  "monster": {
+    "arena-sorcerer": "Sorcier de l'Arène",
+    "bandit-archer": "Archer Bandit",
+    "bandit-guard": "Garde Bandit",
+    "demon-prince": "Prince-Démon",
+    "earth-demon": "Démon de Terre",
+    "flame-demon": "Démon de Flamme",
+    "frost-demon": "Démon de Givre",
+    "gloomtoad": "Crapaud de la Nuit",
+    "goring-beetle": "Scarabée Empaleur",
+    "harrowing-infestation": "Infestation Terrifiante",
+    "king-button": "Le Roi Bouton",
+    "mounted-prince": "Prince-charmant",
+    "mouse": "Souris",
+    "rending-beetle": "Scarabée Écorcheur",
+    "sewer-rat": "Rat d'Égout",
+    "spitting-moth": "Phalène Cracheuse",
+    "stuffed-construct": "Ours en Peluche",
+    "tattered-construct": "Ours en Lambeaux",
+    "venomous-centipede": "Mille-pattes Venimeux",
+    "wind-demon": "Démon du Vent"
+  },
+  "scenario": {
+    "rules": {
+      "bb": {
+        "15": "Au début du scénario, retournez toutes vos cartes Capacité face B."
+      }
+    },
+    "title": {
+      "bb": {
+        "1": "Un Accueil Brutal",
+        "10": "Dans la Nuit Ténébreuse",
+        "11": "Une Petite Escalade",
+        "12": "Grappin de Fortune",
+        "13": "Sur la Corde à Linge",
+        "14": "Le Portier",
+        "15": "Pour qui Sonne le Glas",
+        "16": "Infusée Éclairante",
+        "17": "La Longue Traversée",
+        "18": "À Grands Coups d'Épaule",
+        "19": "Cache-Cache",
+        "2": "Si Loin Si Proche",
+        "20": "L'Épreuve de Force",
+        "3": "Dans les Murs",
+        "4": "Une Entrée en Force",
+        "5": "L'Arène du Roi Bouton",
+        "6": "Vermine à tous les Étages",
+        "7": "Contrôle Mental",
+        "8": "Des Bâtons dans les Milles-pattes",
+        "9": "De Retour dans les Murs"
+      }
+    }
+  }
+}

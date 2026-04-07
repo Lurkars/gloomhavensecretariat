@@ -68,6 +68,136 @@
     "Weakening Bite": "Morsure Affaiblissante",
     "Whirlwind": "Tourbillon"
   },
+  "battleGoals": {
+    "286": {
+      "": "Acrobate",
+      "text": "Perdre une carte pour éviter de subir 5 dégats ou plus."
+    },
+    "287": {
+      "": "Agoraphobe",
+      "text": "Terminer tous vos tours adjacent à u mur ou à un obstacle."
+    },
+    "288": {
+      "": "Altruiste",
+      "text": "Ammasser moins de pions Monnaie que tout autre aventurier."
+    },
+    "289": {
+      "": "Assistant",
+      "text": "Éliminer un monstre précédemment attaqué par un de vos alliés durant le même round."
+    },
+    "290": {
+      "": "Compétiteur",
+      "text": "Ne jamais quitter un hexagone adjacent à un monstre."
+    },
+    "291": {
+      "": "Fin de Match",
+      "text": "Être le dernier à éliminer un monstre lors de ce scénario."
+    },
+    "292": {
+      "": "Conservateur",
+      "text": "Ne jamais perdre une carte pour éviter de subir des dégâts."
+    },
+    "293": {
+      "": "Dur à cuire",
+      "text": "Ne jamais laisser votre nombre de points de vie descendre sous la moitié de votre valeur maximale de points de vie (arrondie au supérieur)."
+    },
+    "294": {
+      "": "Égoïste",
+      "text": "Amasser plus de pions Monnaie que tout autre aventurier."
+    },
+    "295": {
+      "": "Vite sur pied",
+      "text": "Terminer le scénario avec un nombre de points de vie égal à votre valeur maximale de points de vie."
+    },
+    "296": {
+      "": "Joueur",
+      "text": "Éliminer un monsdtre grâce à une attaque avec Désavantage."
+    },
+    "297": {
+      "": "Tête brûlée",
+      "text": "Effectuer deux actions présentant l'icône Perdue avant votre premier repos."
+    },
+    "298": {
+      "": "Insomniaque",
+      "text": "Subir des dégâts d'une attaque intervenant le même round où vous prenez un repos long."
+    },
+    "299": {
+      "": "Masochiste",
+      "text": "Terminer le scénario avec 3 points de vie au maximum."
+    },
+    "300": {
+      "": "Coupe-jarret",
+      "text": "Éliminer un monstre et piller le pion Monnaie qu'il laisse tomber au cours du même tour."
+    },
+    "301": {
+      "": "Premier sang",
+      "text": "Être le premier à éliminer un monstre lors de ce scénario."
+    },
+    "302": {
+      "": "Pacifiste",
+      "text": "Éliminer au maximum trois monstres."
+    },
+    "303": {
+      "": "Vol à la tire",
+      "text": "Ramasser au moins un pion Monnaie en effectuant une action Pillage lorsque vous êtes sur un hexagone adjacent à deux monstres ou plus."
+    },
+    "304": {
+      "": "Pelotes à épingles",
+      "text": "Être la cible d'attaques d'au moins trois monstres durant le même round."
+    },
+    "305": {
+      "": "Plébéien",
+      "text": "Ne jamais éliminer un monstre d'élite ou un Boss."
+    },
+    "306": {
+      "": "Abstinent",
+      "text": "Ne jamais consommer de potion."
+    },
+    "307": {
+      "": "Maraudeur",
+      "text": "Effectuer deux actions présentant l'icône Perdue durant le même round."
+    },
+    "308": {
+      "": "Reclus",
+      "text": "Ne jamais terminer votre tour adjacent à un de vos alliés."
+    },
+    "309": {
+      "": "Sadique",
+      "text": "Éliminer au moins cinq monstres."
+    },
+    "310": {
+      "": "Hyperactif",
+      "text": "Ne jamais prendre de repos long."
+    },
+    "311": {
+      "": "Ombre",
+      "text": "Terminer tous vos tours adjacent à un de vos alliés."
+    },
+    "312": {
+      "": "Feinteur",
+      "text": "Éliminer un monstre qui ne vous est pas adjacent alors que vous êtes adjacent à un autre."
+    },
+    "313": {
+      "": "Spécialiste",
+      "text": "Ne jamais entreprendre d'action par défaut."
+    },
+    "314": {
+      "": "Traînard",
+      "text": "Na jamais prendre de repos court."
+    },
+    "315": {
+      "": "Pionnier",
+      "text": "Ouvrir une porte et terminer le même tour dans la salle révélée."
+    },
+    "316": {
+      "": "Vecteur",
+      "text": "Appliquer un état négatif à un monstre alors que vous êtes vous-même sous le coup d'un état négatif."
+    },
+    "317": {
+      "": "Gringalet",
+      "text": "Finir épuisé avant tout autre aventurier."
+    }
+  },
   "character": {
     "jotl": {
       "demolitionist": {
@@ -198,6 +328,14 @@
         "7": "La Tumeur Engloutie",
         "8": "La Tumeur Cachée",
         "9": "Évolution explosive"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "jotl": {
+        "9-7": "La Tumeur Engloutie",
+        "9-8": "La Tumeur Cachée"
       }
     }
   }

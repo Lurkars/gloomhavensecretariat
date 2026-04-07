@@ -2458,7 +2458,6 @@
       "": "Artwork",
       "hint": "Artwork von Monstern und Charakteren anzeigen"
     },
-    "automation": "Automatisierung",
     "automaticAttackModifierFullscreen": {
       "": "Autom. Vollbild AM-Deck",
       "hint": "Angriffsmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen."
@@ -2495,6 +2494,7 @@
       "": "Automatische Charakter Freischaltung",
       "hint": "Automatisches Charaktere durch Szenario Belohnungen freischalten."
     },
+    "automation": "Automatisierung",
     "autoscroll": {
       "": "Automatisch Scrollen",
       "hint": "Automatisch zur nächsten aktiven Figur scrollen"

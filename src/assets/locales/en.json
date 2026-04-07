@@ -2459,7 +2459,6 @@
       "": "Artwork",
       "hint": "Artwork for monsters and characters"
     },
-    "automation": "Automation",
     "automaticAttackModifierFullscreen": {
       "": "Auto fullscreen AM Deck",
       "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices."
@@ -2496,6 +2495,7 @@
       "": "Automatic Character Unlock",
       "hint": "Automatically unlock characters from scenario rewards."
     },
+    "automation": "Automation",
     "autoscroll": {
       "": "Autoscroll",
       "hint": "Automatic scroll to next active figure"
@@ -3710,7 +3710,7 @@
       "reorder": "Reorder figures",
       "reorderAbilities": "Reorder abilities of {0}",
       "repairBuilding": "Repair '%data.buildings.{1}%' ({0})",
-      "resetCampaign": "Reset campagin",
+      "resetCampaign": "Reset campaign",
       "resetScenario": "Reset scenario #{0} {1} ({2})",
       "restoreAbility": "Restore ability \"{1}\" for {0}",
       "restoreDefaultAbilities": "Restore default abilities of {0}",

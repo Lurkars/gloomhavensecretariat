@@ -1,5 +1,12 @@
 {
   "edition": {
     "gh-envx": "Gloomhaven Enveloppe X"
+  },
+  "scenario": {
+    "title": {
+      "gh": {
+        "solo-18": "Les Sables du Temps"
+      }
+    }
   }
 }

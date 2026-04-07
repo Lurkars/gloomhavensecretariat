@@ -1,13 +1,16 @@
 {
   "character": {
     "fh-crossover": {
+      "brute": "Bruto",
       "cragheart": "Cuore di Roccia",
       "demolitionist": {
         "": "Demolitore"
       },
       "hatchet": "Ascia da Guerra",
+      "mindthief": "Ladro Mentale",
       "red-guard": "Guardia Rossa",
       "scoundrel": "Canaglia",
+      "spellweaver": "Tessimagie",
       "tinkerer": "Inventore"
     }
   }
