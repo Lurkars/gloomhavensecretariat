@@ -10,10 +10,19 @@
       "jester-twins": "Jester Twins",
       "lifespeaker": "Lifespeaker",
       "lightracer": "Lightracer",
+      "powdercoat": "Powdercoat",
       "progenitor": "Progenitor",
       "reeftender": "Reeftender",
+      "rekindled": "Rekindled",
       "rootwhisperer": "Rootwhisperer",
       "skitterclaw": "Skitterclaw",
+      "swarmshift": {
+        "": "Swarmshift",
+        "hive_tokens": {
+          "": "Hive Tokens",
+          "hint": "Gain 1 Hive Token at the start of the scenario"
+        }
+      },
       "wildborn": "Wildborn",
       "woebound": "Woebound",
       "veilpiercer": "Veilpiercer",
@@ -115,6 +124,16 @@
         "5": "Play 8 unique Speed actions during your first turn across multiple scenarios.",
         "6": "For an entire scenario, have at least 2 Speed cards in your active area at the end of each of your turns."
       },
+      "powdercoat": {
+        "1": "At end of turn, all adjacent enemies suffer %game.damage:1%.",
+        "2": "Add +2 %game.action.attack% if drawn during a %data.action.custom.ccug-munition% ability",
+        "3": "All enemies adjacent to the target suffer %game.damage:1%.",
+        "4": "You may place %data.action.custom.ccug-keg% in hexes containing difficult terrain",
+        "5": "Whenever one of your allies destroys a %data.action.custom.ccug-keg%, that figure may perform %game.action.heal:2%, self",
+        "6": "Once each scenario, when you place or relocate a %data.action.custom.ccug-keg% you may destroy it",
+        "7": "In a single scenario attack at least three enemies with each of three different area of effect attack abilities",
+        "8": "In 3 different scenarios, perform three or more %data.action.custom.ccug-munition% abilities in the same round"
+      },
       "progenitor": {
         "1": "Add %game.condition.stun% and %game.condition.wound% if this attack is Ponderous",
         "2": "Add %game.attackmodifier.plus1% instead if this attack is Ponderous",
@@ -136,6 +155,18 @@
         "8": "On death, leave this card in your active area.",
         "9": "After ending a %game.action.move% or %game.action.teleport% adjacent to %game.characterIcon.reeftender%, gain %game.condition.invisible%."
       },
+      "rekindled": {
+        "1": "This summon is an active %data.action.custom.ccug-bonfire%",
+        "2": "Add +1 %game.action.attack% for each pair of active %data.action.custom.ccug-bonfire%",
+        "3": "Grant one ally: %game.action.attack:2%",
+        "4": "Add +2 %game.action.attack% if you have two or more %data.action.custom.ccug-bonfire% in your active area",
+        "5": "Place a %data.action.custom.ccug-bonfire% in a hex adjacent to or occupied by the target of the attack",
+        "6": "Whenever you rest, perform: %game.condition.strengthen%, %game.action.target% 1 ally within %game.action.range:2% of a %data.action.custom.ccug-bonfire%",
+        "7": "On your first turn each scenario, you may play three cards instead of two",
+        "8": "Once per scenario, when you would suffer damage, you may %game.action.teleport% to an unoccupied %data.action.custom.ccug-bonfire% to negate the damage",
+        "9": "Have 5 %data.action.custom.ccug-bonfire% in your active area simultaneously",
+        "10": "In a single scenario, infuse or consume %game.element.fire% during each of your turns"
+      },
       "rootwhisperer": {},
       "skitterclaw": {
         "1": "After the attack ability, grant one of your summons: %game.action.move:2%",
@@ -148,6 +179,15 @@
         "8": "Have your summons perform twelve attacks in one round",
         "9": "All attacks targeting the Latched enemy add %game.action.pierce:1%.",
         "10": "+1 %game.action.attack% for each Latched summon on self."
+      },
+      "swarmshift": {
+        "1": "Add +1 %game.action.attack% for each active Hivecall",
+        "2": "Gain 1 %data.action.custom.ccug-hive%",
+        "3": "Whenever you complete a long rest, you may gain %game.condition.poison% to gain 1 %data.action.custom.ccug-hive%.",
+        "4": "Whenever you short rest, you may -1 %data.action.custom.ccug-hive% to %game.card.recover% two of your spent items.",
+        "5": "Whenever you spend 2 or more %data.action.custom.ccug-hive% in a turn, you may %game.element.earth%.",
+        "6": "Play 3 Hivecall abilities before your first rest.",
+        "7": "Use the active part of a Hivecall ability each round for 7 rounds in a row."
       },
       "wildborn": {
         "1": "instead if you suffer %game.damage:2%",
@@ -190,6 +230,9 @@
     "ccug": "Custom Content Unity Guild"
   },
   "summon": {
+    "bonfire-helper": "Bonfire Helper",
+    "living-bonfire": "Living Bonfire",
+    "fire-sprite": "Fire Sprite",
     "perpetual-enginebot": "Perpetual Enginebot",
     "radioactive-homunculus": "Radioactive Homunculus",
     "helper-bot": "Helper Bot",
@@ -232,6 +275,7 @@
     "endless-dray": "Endless Dray",
     "wild-boar": "Wild Boar",
     "bloodthirsty-swarm": "Bloodthirsty Swarm",
-    "being-of-pure-energy": "Being of Pure Energy"
+    "being-of-pure-energy": "Being of Pure Energy",
+    "travel-companion": "Travel Companion"
   }
 }
