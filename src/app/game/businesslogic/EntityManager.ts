@@ -1,6 +1,7 @@
 import { Character } from "../model/Character";
 import { ActionType } from "../model/data/Action";
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/data/Condition";
+import { MonsterData } from "../model/data/MonsterData";
 import { Entity, EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
@@ -387,6 +388,21 @@ export class EntityManager {
         return this.isImmune(entity, figure, ConditionName.poison, ignoreManual);
       } else if (conditionName == ConditionName.chill) {
         return this.isImmune(entity, figure, ConditionName.immobilize, ignoreManual) || this.isImmune(entity, figure, ConditionName.muddle, ignoreManual);
+      }
+    }
+
+    if (!immune && !(new Condition(conditionName).types.includes(ConditionType.entity))) {
+      let type: ConditionType | undefined;
+      if (entity instanceof Character) {
+        type = ConditionType.character;
+      } else if (entity instanceof MonsterEntity || entity instanceof Summon) {
+        type = ConditionType.monster;
+      } else if (entity instanceof ObjectiveEntity && figure instanceof ObjectiveContainer && figure.escort) {
+        type = ConditionType.objective;
+      }
+
+      if (!type || !(new Condition(conditionName).types.includes(type))) {
+        immune = true;
       }
     }
 
@@ -847,21 +863,96 @@ export class EntityManager {
     }
   }
 
-  undoInfos(entity: Entity | undefined, figure: Figure, prefix: string): string[] {
-    let infos: string[] = [];
-    if (entity instanceof Character && figure instanceof Character) {
-      infos.push(prefix + ".char", gameManager.characterManager.characterName(entity))
-    } else if (entity instanceof Summon && figure instanceof Character) {
-      infos.push(prefix + ".summon", gameManager.characterManager.characterName(figure), "data.summon." + entity.name)
-    } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
-      infos.push(prefix + ".objectiveContainer", figure.title || figure.name && 'data.objective.' + figure.name || figure.escort ? 'escort' : 'objective', "" + entity.number)
-    } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
-      infos.push(prefix + ".monster", "data.monster." + figure.name, "" + entity.number)
-    } else if (figure instanceof Monster) {
-      infos.push(prefix + ".monsterEntities", "data.monster." + figure.name)
+  figureForEntity(entity: Entity): Figure {
+    let result: Figure | undefined;
+    if (entity instanceof Character) {
+      result = entity;
+    } else if (entity instanceof Summon) {
+      result = this.game.figures.find((figure) => figure instanceof Character && figure.summons.includes(entity));
+    } else if (entity instanceof MonsterEntity) {
+      result = this.game.figures.find((figure) => figure instanceof Monster && figure.entities.includes(entity));
+    } else if (entity instanceof ObjectiveEntity) {
+      result = this.game.figures.find((figure) => figure instanceof ObjectiveContainer && figure.entities.includes(entity));
     }
 
+    if (!result) {
+      console.warn("No figure found for entity:", entity);
+      return new Monster(new MonsterData());
+    }
+    return result;
+  }
+
+  before(entity: Entity, figure: Figure, info: string, ...values: (string | number | boolean)[]) {
+    this.beforeEntities(entity, figure, [], info, ...values);
+  }
+
+  beforeEntities(entity: Entity | undefined, figure: Figure | undefined, entities: Entity[], info: string, ...values: (string | number | boolean)[]) {
+    let type = '';
+    if (entity instanceof MonsterEntity) {
+      type = '.monsterEntity';
+    } else if (entity instanceof Character) {
+      type = '.character';
+    } else if (entity instanceof Summon) {
+      type = '.summon';
+    } else if (entity instanceof ObjectiveEntity) {
+      type = '.objectiveEntity';
+    } else if (figure instanceof Monster) {
+      type = '.monsters';
+    } else if (figure instanceof Character) {
+      type = '.summons';
+    } else if (figure instanceof ObjectiveContainer && entities.length > 1) {
+      type = '.objectives';
+    } else if (figure instanceof ObjectiveContainer) {
+      type = '.objective';
+    }
+
+    gameManager.stateManager.before('entities.' + info + type, ...values, ...this.titleInfo(entity, figure), entities.map((entity) => this.titleInfo(entity, undefined)).join(', '));
+  }
+
+
+  undoInfos(entity: Entity | undefined, figure: Figure, prefix: string): (string | number | boolean)[] {
+    let infos: (string | number | boolean)[] = [];
+    if (entity instanceof Character && figure instanceof Character) {
+      infos.push(prefix + ".char");
+    } else if (entity instanceof Summon && figure instanceof Character) {
+      infos.push(prefix + ".summon")
+    } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
+      infos.push(prefix + ".objectiveContainer")
+    } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
+      infos.push(prefix + ".monster")
+    } else if (figure instanceof Monster) {
+      infos.push(prefix + ".monsterEntities")
+    }
+
+    infos.push(...this.titleInfo(entity, figure));
+
     return infos;
+  }
+
+  titleInfo(entity: Entity | undefined, figure: Figure | undefined): (string | number | boolean)[] {
+    if (entity instanceof Character) {
+      return [gameManager.characterManager.characterName(entity, true, true)];
+    } else if (entity instanceof Summon && figure instanceof Character) {
+      return [gameManager.characterManager.characterName(figure, true, true), entity.name ? '%data.summon.' + entity.name + '%' : entity.number];
+    } else if (entity instanceof Summon) {
+      return ["%data.summon." + entity.name + '%'];
+    } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
+      return ['%game.objectiveIcon.' + (figure.escort ? 'escort' : 'objective') + '% ' + (figure.title || figure.name && '%data.objective.' + figure.name + '%' || (figure.escort ? '%escort%' : '%objective%')), '%game.objectiveMarker.' + entity.number + '%'];
+    } else if (entity instanceof ObjectiveEntity) {
+      return ['%game.objectiveMarker.' + entity.number + '%'];
+    } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
+      return ['%data.monster.' + figure.name + '%', '%game.monsterType.' + entity.type + '.' + entity.number + '%'];
+    } if (entity instanceof MonsterEntity) {
+      return ['%game.monsterType.' + entity.type + '.' + entity.number + '%'];
+    } else if (figure instanceof Character) {
+      return [gameManager.characterManager.characterName(figure, true, true)];
+    } else if (figure instanceof Monster) {
+      return ["%data.monster." + figure.name + '%'];
+    } else if (figure instanceof ObjectiveContainer) {
+      return ['%game.objectiveIcon.' + (figure.escort ? 'escort' : 'objective') + '% ' + (figure.title || figure.name && '%data.objective.' + figure.name + '%' || (figure.escort ? '%escort%' : '%objective%'))];
+    }
+
+    return [];
   }
 
   next() {

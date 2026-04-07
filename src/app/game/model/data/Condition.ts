@@ -118,6 +118,7 @@ export class Condition {
     }
 
     if ([ConditionName.chill, ConditionName.plague, ConditionName.bless, ConditionName.curse, ConditionName.enfeeble, ConditionName.empower].includes(this.name)) {
+      this.types.push(ConditionType.entity);
       this.types.push(ConditionType.stackable);
     }
 

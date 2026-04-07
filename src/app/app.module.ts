@@ -49,8 +49,10 @@ import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-
 import { CharacterRetirementDialog } from './ui/figures/character/sheet/retirement-dialog';
 import { ConditionsComponent } from './ui/figures/conditions/conditions';
 import { ConditionHighlightAnimationDirective, HighlightConditionsComponent } from './ui/figures/conditions/highlight';
+import { AdditionalAMSelectDialogComponent } from './ui/figures/entities-menu/additional-am-select/additional-am-select';
 import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities-menu-dialog';
-import { AdditionalAMSelectDialogComponent } from './ui/figures/entity-menu/additional-am-select/additional-am-select';
+import { CharacterLevelDialogComponent } from './ui/figures/entities-menu/level-dialog/level-dialog';
+import { SummonDialogComponent } from './ui/figures/entities-menu/summon-dialog/summon-dialog';
 import { EntityMenuDialogComponent } from './ui/figures/entity-menu/entity-menu-dialog';
 import { FigureErrorsComponent, FigureErrorsDialogComponent } from './ui/figures/errors/errors';
 import { EventEffectsDialog } from './ui/figures/event-effects/event-effects';
@@ -230,6 +232,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     CharacterItemComponent,
     CharacterItemListComponent,
     CharacterItemsComponent,
+    CharacterLevelDialogComponent,
     CharacterLootCardsDialog,
     CharacterMenuComponent,
     CharacterMoveResourcesDialog,
@@ -365,6 +368,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     StandeeComponent,
     StatisticsDialogComponent,
     StatsListComponent,
+    SummonDialogComponent,
     SummonSheetComponent,
     TabClickDirective,
     TrackUUIDPipe,

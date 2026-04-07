@@ -6,10 +6,10 @@ import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Monster } from 'src/app/game/model/Monster';
 import { ActionType } from 'src/app/game/model/data/Action';
-import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
+import { MonsterStat, MonsterStatEffect } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
-import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog';
+import { EntitiesMenuDialogComponent } from '../../entities-menu/entities-menu-dialog';
 import { MonsterLevelDialogComponent } from '../dialogs/level-dialog';
 import { MonsterStatDialogComponent } from './stat-dialog';
 import { MonsterStatsDialogComponent } from './stats-dialog';
@@ -42,6 +42,7 @@ export class MonsterStatsComponent implements OnInit {
   catched: boolean = false;
   flying: boolean = false;
   level: number = 0;
+  statEffect: MonsterStatEffect | undefined;
   monsterCopy!: Monster;
 
   @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
@@ -66,7 +67,8 @@ export class MonsterStatsComponent implements OnInit {
     this.catching = this.monster.pet != undefined && gameManager.buildingsManager.petsAvailable;
     this.catched = this.catching && gameManager.buildingsManager.petsEnabled && gameManager.game.party.pets.find((value) => value.edition == this.monster.edition && value.name == this.monster.pet) != undefined;
     this.level = this.monster.level;
-    this.flying = this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled') || this.monster.statEffect != undefined && this.monster.statEffect.flying == true;
+    this.statEffect = this.monster.statEffect;
+    this.flying = this.monster.flying && (!this.statEffect || this.statEffect.flying != 'disabled') || this.statEffect != undefined && this.statEffect.flying == true;
     this.setStats();
     this.monsterCopy = JSON.parse(JSON.stringify(this.monster));
   }
@@ -136,13 +138,14 @@ export class MonsterStatsComponent implements OnInit {
     }
   }
 
-  openEntityMenu(event: any): void {
+  openEntityMenu(): void {
     if (!this.noClick) {
-      this.dialog.open(EntityMenuDialogComponent, {
+      this.dialog.open(EntitiesMenuDialogComponent, {
         panelClass: ['dialog'],
         data: {
           entity: undefined,
-          figure: this.monster
+          figure: this.monster,
+          positionElement: this.element
         },
         positionStrategy: this.overlay.position().flexibleConnectedTo(this.element).withPositions(ghsDefaultDialogPositions())
       });

@@ -71,7 +71,7 @@ export class MonsterComponent implements OnInit {
     this.dialog.open(EntitiesMenuDialogComponent, {
       panelClass: ['dialog'],
       data: {
-        monster: this.monster,
+        figure: this.monster,
         type: type
       },
       positionStrategy: this.overlay.position().flexibleConnectedTo(event.target).withPositions(ghsDefaultDialogPositions())

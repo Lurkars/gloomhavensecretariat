@@ -324,6 +324,32 @@ export class MonsterManager {
     }
   }
 
+  changeType(entity: MonsterEntity, monster: Monster) {
+    const normalStat = gameManager.monsterManager.getStat(monster, MonsterType.normal);
+    const eliteStat = gameManager.monsterManager.getStat(monster, MonsterType.elite);
+    if (normalStat && eliteStat) {
+      entity.type = entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal;
+      entity.maxHealth = EntityValueFunction(entity.type == MonsterType.normal ? normalStat.health : eliteStat.health, monster.level)
+      if (entity.health > entity.maxHealth) {
+        entity.health = entity.maxHealth;
+      } else if (entity.health < entity.maxHealth && entity.health == EntityValueFunction(entity.type == MonsterType.normal ? eliteStat.health : normalStat.health, monster.level)) {
+        entity.health = entity.maxHealth;
+      }
+
+      if (monster.bb) {
+        if (monster.entities.every((entity) => entity.type == MonsterType.elite)) {
+          if (!monster.tags.includes('bb-elite')) {
+            monster.tags.push('bb-elite');
+          }
+        } else if (monster.tags.includes('bb-elite')) {
+          monster.tags = monster.tags.filter((tag) => tag != 'bb-elite');
+        }
+      }
+    } else {
+      console.warn("Missing stats!", monster);
+    }
+  }
+
   monsterEntityCount(monster: Monster, standee: boolean = false, type: MonsterType | undefined = undefined): number {
     return monster.entities.filter((monsterEntity) => (gameManager.entityManager.isAlive(monsterEntity, standee) || monsterEntity.dormant) && (!standee || monsterEntity.number > 0) && (!type || monsterEntity.type == type)).length;
   }

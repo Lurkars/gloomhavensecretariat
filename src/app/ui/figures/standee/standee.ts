@@ -16,8 +16,8 @@ import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
-import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
-import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
+import { ghsDefaultDialogPositions, ghsValueSign } from 'src/app/ui/helper/Static';
+import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
 import { MonsterNumberPickerDialog } from '../monster/dialogs/numberpicker-dialog';
 
 @Component({
@@ -213,7 +213,8 @@ export class StandeeComponent implements OnInit {
           name = this.figure.escort ? '%escort%' : '%objective%';
         }
       }
-      gameManager.stateManager.before(this.figure.type + "ChangeEntityHp", name, "" + this.entity.number, "" + this.health, this.additionalType());
+
+      gameManager.entityManager.before(this.entity, this.figure, "changeHP", ghsValueSign(this.health));
       gameManager.entityManager.changeHealth(this.entity, this.figure, this.health);
 
       if (this.figure instanceof Monster && this.figure.entities.every((monsterEntity) => monsterEntity.dead)) {
@@ -232,7 +233,7 @@ export class StandeeComponent implements OnInit {
   }
 
   removeCondition(entityCondition: EntityCondition) {
-    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "removeCondition"), entityCondition.name, this.entity instanceof MonsterEntity ? 'monster.' + this.entity.type + ' ' : '');
+    gameManager.entityManager.before(this.entity, this.figure, "removeCondition", entityCondition.name);
     if (entityCondition.types.indexOf(ConditionType.stackable) && entityCondition.value > 1) {
       entityCondition.value--;
     } else {
@@ -243,17 +244,16 @@ export class StandeeComponent implements OnInit {
 
   removeMarker() {
     if ((this.entity instanceof MonsterEntity || this.entity instanceof ObjectiveEntity) && this.entity.marker) {
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "removeEntityMarker"), this.marker);
+      gameManager.entityManager.before(this.entity, this.figure, "unsetObjectiveMarker", this.entity.marker);
       this.entity.marker = "";
       gameManager.stateManager.after();
     }
   }
 
   removeCharacterMarker(marker: string) {
-    const markerChar = new Character(gameManager.getCharacterData(marker), 1);
-    const markerName = gameManager.characterManager.characterName(markerChar);
-    const characterIcon = markerChar.name;
-    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "removeMarker"), markerName, characterIcon);
+    const edition = marker.split('-')[0];
+    const name = marker.split('-').slice(1).join('-');
+    gameManager.entityManager.before(this.entity, this.figure, "removeCharacterMarker", marker, edition + '.' + name);
     this.entity.markers = this.entity.markers.filter((value) => value != marker);
     gameManager.stateManager.after();
   }
@@ -318,7 +318,7 @@ export class StandeeComponent implements OnInit {
         })
       }
     } else {
-      const dialogRef = this.dialog.open(EntityMenuDialogComponent, {
+      const dialogRef = this.dialog.open(EntitiesMenuDialogComponent, {
         panelClass: ['dialog'],
         data: {
           entity: this.entity,

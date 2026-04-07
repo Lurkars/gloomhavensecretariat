@@ -229,22 +229,19 @@
       <div class="line title span" ghs-setting-title-menu="standees" [sync]="true"></div>
 
       <div class="column">
+        <div class="line" ghs-setting-menu="standees" [requires]="['monsters']"></div>
         <div class="line" ghs-setting-menu="eliteFirst" [requires]="['monsters','standees']"></div>
-
-        <div class="line" ghs-setting-menu="activeStandees" [requires]="['standees']"></div>
-        <div class="line" ghs-setting-menu="automaticStandees" [requires]="['standees', 'scenarioRooms']"></div>
+        <div class="line" ghs-setting-menu="standeeShieldRetaliate" [requires]="['monsters','standees']"></div>
         <div class="line" ghs-setting-menu="standeeStats" [requires]="['standees']"></div>
       </div>
 
       <div class="column">
+        <div class="line" ghs-setting-menu="randomStandees" [requires]="['monsters','standees']"></div>
+        <div class="line" ghs-setting-menu="automaticStandees" [requires]="['standees', 'scenarioRooms']"></div>
         <div class="line" ghs-setting-menu="automaticStandeesDialog"
           [requires]="['monsters','standees', 'scenarioRooms', 'automaticStandees', '!randomStandees']"></div>
-        <div class="line" ghs-setting-menu="randomStandees" [requires]="['monsters','standees']"></div>
-        <div class="line" ghs-setting-menu="standees" [requires]="['monsters']"></div>
-        <div class="line" ghs-setting-menu="standeeShieldRetaliate" [requires]="['monsters','standees']"></div>
+        <div class="line" ghs-setting-menu="activeStandees" [requires]="['standees']"></div>
       </div>
-
-
     </div>
 
     <!-- GAME RULES -->
@@ -455,8 +452,8 @@
 
         <div class="separator span"></div>
         <div class="line">
-          <a href="https://i18n.gloomhaven-secretariat.de/" target="_blank" [ghs-tooltip]="'settings.locale.help.hint'"
-            [originY]="'top'" [overlayY]="'bottom'">
+          <a href="https://i18n.gloomhaven-secretariat.de/engage/gloomhavensecretariat/" target="_blank"
+            [ghs-tooltip]="'settings.locale.help.hint'" [originY]="'top'" [overlayY]="'bottom'">
             <img class="ghs-svg" src="./assets/images/hint.svg">&nbsp;
             <span [ghs-label]="'settings.locale.help'"></span>
           </a>

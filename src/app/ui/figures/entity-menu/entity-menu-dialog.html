@@ -1,5 +1,8 @@
 <div class="entity-menu-dialog scroll-container">
 
+  <span class="migrate" (click)="openEntitiesMenu()" [ghs-tooltip]="'entities.migrate.new'" [originX]="'start'"
+    [overlayX]="'end'" [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/switch.svg" /></span>
+
   @if (data.entityIndexKey && data.entity) {
   <ghs-entity-index-key [entity]="data.entity" [show]="true"></ghs-entity-index-key>
   }
@@ -449,7 +452,7 @@
       @if (data.entity && gameManager.isObjectiveEntity(data.entity)) {
       <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
         <a class="button" tabclick (click)="toggleDead()">
-          <img src="./assets/images/status/dead.svg" />
+          <img class="ghs-svg" src="./assets/images/status/dead.svg" />
         </a>
       </span>
       }
@@ -457,7 +460,7 @@
       @let summon = gameManager.toSummon(data.entity);
       <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
         <a class="button" tabclick (click)="toggleDead()">
-          <img src="./assets/images/status/dead.svg" />
+          <img class="ghs-svg" src="./assets/images/status/dead.svg" />
         </a>
       </span>
       <span class="item" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'">
@@ -483,7 +486,7 @@
       @if (data.entity && gameManager.isMonsterEntity(data.entity)) {
       <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
         <a class="button" tabclick (click)="toggleDead()">
-          <img src="./assets/images/status/dead.svg" />
+          <img class="ghs-svg" src="./assets/images/status/dead.svg" />
         </a>
       </span>
       @if (EntityValueFunction(data.entity.maxHealth) > 0) {

@@ -209,7 +209,7 @@ export class MainMenuComponent implements OnInit {
 
   addObjectiveContainer(escort: boolean = false) {
     gameManager.stateManager.before("addObjective" + (escort ? '.escort' : ''));
-    const objectiveContainer = gameManager.objectiveManager.addObjective(new ObjectiveData("", escort ? 3 : 7, escort), escort ? '%escort%' : '%objective%');
+    const objectiveContainer = gameManager.objectiveManager.addObjective(new ObjectiveData("", escort ? 3 : 7, escort));
     gameManager.objectiveManager.addObjectiveEntity(objectiveContainer);
     this.close();
     gameManager.stateManager.after();

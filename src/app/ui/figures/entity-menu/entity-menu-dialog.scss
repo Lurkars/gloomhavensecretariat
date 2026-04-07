@@ -8,6 +8,19 @@
     left: 0;
   }
 
+  .migrate {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+
+    img {
+      width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      height: auto;
+      filter: var(--ghs-filter-white);
+    }
+  }
+
   .name {
     display: flex;
     flex-wrap: wrap;

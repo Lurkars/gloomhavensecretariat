@@ -1,12 +1,11 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Character } from 'src/app/game/model/Character';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
@@ -17,7 +16,6 @@ import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
 import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
 import { CharacterInitiativeDialogComponent } from '../character/cards/initiative-dialog';
 import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
-import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 
 @Component({
   standalone: false,
@@ -54,7 +52,7 @@ export class ObjectiveContainerComponent implements OnInit {
 
   EntityConditionState = EntityConditionState;
 
-  constructor(private dialog: Dialog, private overlay: Overlay, private elementRef: ElementRef, private ghsManager: GhsManager) {
+  constructor(private dialog: Dialog, private overlay: Overlay, private elementRef: ElementRef, private ghsManager: GhsManager, private cdr: ChangeDetectorRef) {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 
@@ -120,7 +118,7 @@ export class ObjectiveContainerComponent implements OnInit {
     }
 
     this.initiative = value;
-    this.ghsManager.triggerUiChange();
+    this.cdr.markForCheck();
   }
 
   dragInitiativeEnd(value: number) {
@@ -155,7 +153,7 @@ export class ObjectiveContainerComponent implements OnInit {
 
   dragHpEnd(value: number) {
     if (this.health != 0 && this.entity) {
-      gameManager.stateManager.before("changeObjectiveEntityHP", gameManager.objectiveManager.objectiveName(this.objective), ghsValueSign(this.health), this.entity.number);
+      gameManager.entityManager.before(this.entity, this.objective, "changeHP", ghsValueSign(this.health));
       gameManager.entityManager.changeHealth(this.entity, this.objective, this.health);
       if (this.entity.health <= 0 && this.entity.maxHealth > 0) {
         gameManager.objectiveManager.removeObjective(this.objective)
@@ -170,10 +168,12 @@ export class ObjectiveContainerComponent implements OnInit {
   }
 
   openEntityMenu(): void {
-    this.dialog.open(EntityMenuDialogComponent, {
+    this.dialog.open(EntitiesMenuDialogComponent, {
       panelClass: ['dialog'], data: {
         entity: this.entity,
-        figure: this.objective
+        figure: this.objective,
+        objectiveOnly: !this.entity,
+        positionElement: this.elementRef.nativeElement.querySelector('.image-container')
       },
       positionStrategy: this.overlay.position().flexibleConnectedTo(this.elementRef.nativeElement.querySelector('.image-container')).withPositions(ghsDefaultDialogPositions())
     });
@@ -187,7 +187,7 @@ export class ObjectiveContainerComponent implements OnInit {
     this.dialog.open(EntitiesMenuDialogComponent, {
       panelClass: ['dialog'],
       data: {
-        objective: this.objective
+        figure: this.objective
       },
       positionStrategy: this.overlay.position().flexibleConnectedTo(event.target).withPositions(ghsDefaultDialogPositions())
     });
@@ -220,7 +220,7 @@ export class ObjectiveContainerComponent implements OnInit {
 
   removeCondition(entityCondition: EntityCondition) {
     if (this.entity) {
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeCondition"), entityCondition.name);
+      gameManager.entityManager.before(this.entity, this.objective, "removeCondition", entityCondition.name);
       if (entityCondition.types.indexOf(ConditionType.stackable) && entityCondition.value > 1) {
         entityCondition.value--;
       } else {
@@ -232,10 +232,9 @@ export class ObjectiveContainerComponent implements OnInit {
 
   removeMarker(marker: string) {
     if (this.entity) {
-      const markerChar = new Character(gameManager.getCharacterData(marker), 1);
-      const markerName = gameManager.characterManager.characterName(markerChar);
-      const characterIcon = markerChar.name;
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeMarker"), markerName, characterIcon);
+      const edition = marker.split('-')[0];
+      const name = marker.split('-').slice(1).join('-');
+      gameManager.entityManager.before(this.entity, this.objective, "removeCharacterMarker", marker, edition + '.' + name);
       this.entity.markers = this.entity.markers.filter((value) => value != marker);
       gameManager.stateManager.after();
     }

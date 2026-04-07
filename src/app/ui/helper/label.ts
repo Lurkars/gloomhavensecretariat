@@ -146,6 +146,13 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
           const rollingImage = townGuardAM.rolling ? '<img  src="./assets/images/attackmodifier/rolling.svg" class="icon">' : "";
           replace = '<span class="placeholder-townguard-attackmodifier">' + effectImage + amImage + rollingImage + '</span>';
         }
+      } else if (type == "amDeck" && split.length == 3) {
+        const deck = split[2];
+        image = deck;
+        if (deck != 'M' && deck != 'A') {
+          image = '<img src="' + gameManager.characterManager.characterIcon(deck) + '" class="icon">';
+        }
+        replace = '<span class="placeholder-am-deck">' + image + '</span>';
       } else if (type == "customAction" && value) {
         const effectImage = '<img  src="./assets/images/action/custom/' + value + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-custom-action">' + effectImage + '</span>';
@@ -215,6 +222,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="objective-marker">' + split[2] + '</span>';
       } else if (type == "scenarioNumber") {
         replace = '<span class="scenario-number">' + value + '</span>';
+      } else if (type == "objectiveIcon" && split.length == 3) {
+        image = '<img  src="./assets/images/objective/' + split[2] + '.svg" class="icon">';
+        replace = '<span class="objective-icon">' + image + '</span>';
       } else if (fh && type == "target" && split.length == 2) {
         image = '<img  src="./assets/images/fh/action/target.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-action">' + image + '</span>';
@@ -259,6 +269,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="placeholder-fh-icon">' + image + '</span>';
       } else if (type == "gameIcon" && value) {
         image = '<img src="./assets/images/' + value + '.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-game-icon">' + image + '</span>';
+      } else if (type == "statusIcon" && value) {
+        image = '<img src="./assets/images/status/' + value + '.svg" class="icon">';
         replace = '<span class="placeholder-game-icon">' + image + '</span>';
       } else if (type == "trait") {
         image = '<img src="./assets/images/fh/character/traits/trait.svg" class="icon ghs-svg">';

@@ -3,7 +3,6 @@ import { ChangeDetectorRef, Component, HostListener, inject, Inject, OnInit } fr
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { EntityValueFunction } from "src/app/game/model/Entity";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
@@ -200,32 +199,9 @@ export class MonsterNumberPickerDialog implements OnInit {
 
     toggleMonsterType() {
         if (this.entity && (this.entity.type == MonsterType.normal || this.entity.type == MonsterType.elite)) {
-            const normalStat = gameManager.monsterManager.getStat(this.monster, MonsterType.normal);
-            const eliteStat = gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
-            if (normalStat && eliteStat) {
-                gameManager.stateManager.before("changeMonsterType", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, this.entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal);
-                this.entity.type = this.entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal;
-                this.entity.maxHealth = EntityValueFunction(this.entity.type == MonsterType.normal ? normalStat.health : eliteStat.health, this.monster.level)
-                if (this.entity.health > this.entity.maxHealth) {
-                    this.entity.health = this.entity.maxHealth;
-                } else if (this.entity.health < this.entity.maxHealth && this.entity.health == EntityValueFunction(this.entity.type == MonsterType.normal ? eliteStat.health : normalStat.health, this.monster.level)) {
-                    this.entity.health = this.entity.maxHealth;
-                }
-
-                if (this.monster.bb) {
-                    if (this.monster.entities.every((entity) => entity.type == MonsterType.elite)) {
-                        if (!this.monster.tags.includes('bb-elite')) {
-                            this.monster.tags.push('bb-elite');
-                        }
-                    } else if (this.monster.tags.includes('bb-elite')) {
-                        this.monster.tags = this.monster.tags.filter((tag) => tag != 'bb-elite');
-                    }
-                }
-
-                gameManager.stateManager.after();
-            } else {
-                console.warn("Missing stats!", this.monster);
-            }
+            gameManager.stateManager.before("changeMonsterType", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, this.entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal);
+            gameManager.monsterManager.changeType(this.entity, this.monster);
+            gameManager.stateManager.after();
         }
     }
 

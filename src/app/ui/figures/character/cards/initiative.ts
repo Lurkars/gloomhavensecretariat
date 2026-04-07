@@ -1,6 +1,6 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Overlay } from "@angular/cdk/overlay";
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
@@ -18,7 +18,7 @@ import { CharacterInitiativeDialogComponent } from "./initiative-dialog";
   templateUrl: 'initiative.html',
   styleUrls: ['./initiative.scss']
 })
-export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
+export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterViewInit {
 
   @Input() figure!: Character | ObjectiveContainer;
   @Input() initiative: number = -1;
@@ -37,15 +37,26 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   initiativeValue: string = '';
   min: number = 0;
 
-  constructor(private dialog: Dialog, private overlay: Overlay, public elementRef: ElementRef, private ghsManager: GhsManager) {
+  constructor(private dialog: Dialog, private overlay: Overlay, public elementRef: ElementRef, private ghsManager: GhsManager, private cdr: ChangeDetectorRef) {
     this.ghsManager.uiChangeEffect(() => {
       this.id = 'initiative-input-' + this.tabindex();
-      this.initiativeHidden = gameManager.game.state == GameState.draw && this.figure instanceof Character && !this.figure.initiativeVisible;
-      this.hidden = this.figure.initiative > 0 && this.initiativeHidden && !this.reveal;
-      this.initiativeValue = this.formatInitiative();
-      this.min = gameManager.game.state == GameState.draw ? 0 : 1;
+      this.updateDisplay();
     })
   };
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['initiative']) {
+      this.updateDisplay();
+      this.cdr.markForCheck();
+    }
+  }
+
+  private updateDisplay(): void {
+    this.initiativeHidden = gameManager.game.state == GameState.draw && this.figure instanceof Character && !this.figure.initiativeVisible;
+    this.hidden = this.figure.initiative > 0 && this.initiativeHidden && !this.reveal;
+    this.initiativeValue = this.formatInitiative();
+    this.min = gameManager.game.state == GameState.draw ? 0 : 1;
+  }
 
   ngOnInit(): void {
     if (this.figure instanceof Character) {

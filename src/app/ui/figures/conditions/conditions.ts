@@ -2,10 +2,13 @@ import { ChangeDetectorRef, Component, EventEmitter, HostListener, inject, Input
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Character } from "src/app/game/model/Character";
 import { Entity } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
+import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
+import { Summon } from "src/app/game/model/Summon";
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 
@@ -55,6 +58,16 @@ export class ConditionsComponent implements OnInit {
       const types = this.entities.map((entity) => entity instanceof MonsterEntity && entity.type).filter((type, index, self) => type && self.indexOf(type) == index);
       if (types.length == 1) {
         this.monsterType = types[0];
+      }
+
+      if (!this.type) {
+        if (this.entities.every((entity) => entity instanceof Character)) {
+          this.type = 'character';
+        } else if (this.entities.every((entity) => entity instanceof MonsterEntity || entity instanceof Summon)) {
+          this.type = 'monster';
+        } else if (this.entities.every((entity) => entity instanceof ObjectiveEntity)) {
+          this.type = 'objective';
+        }
       }
     }
   }

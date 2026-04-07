@@ -1,0 +1,47 @@
+<div class="level-dialog">
+
+  <span class="name" (click)="back()">
+    <img class="icon character-icon" [src]="character.iconUrl" />
+    <span class="character-title"
+      [ngClass]="{'absent' : character.absent}">{{gameManager.characterManager.characterName(character,true)}}</span>
+  </span>
+
+  <div class="level-container" [ngClass]="{'bb' : bb}">
+    <a (click)="back()" class="item"><img src="./assets/images/status/level.svg" /></a>
+    @for (l of [] | ghsRange:(bb ? 5 : 9); track l) {
+    <span class="item">
+      <a class="level" [ngClass]="{'old': l + 1 == character.level, 'active' : l + 1 == level}" tabclick
+        (click)="setLevel(l + 1)">{{l + 1}}</a>
+    </span>
+    }
+  </div>
+  <div class="char-container">
+    @if (titles.length == 0 || !identities.length) {
+    <img [src]="gameManager.characterManager.characterIcon(character)">
+    <input class="title" #charactertitle type="text" [value]="character.title">
+    }
+    @if (titles.length > 0 && identities.length) {
+    <div class="titles-container">
+      @for (i of [] | ghsRange:identities.length; track i) {
+      <div class="title-container">
+        <img [src]="gameManager.characterManager.characterIdentityIcon(character.name, i)">
+        <input class="title" type="text" [value]="titles[i]" (change)="setTitle($event, i)">
+      </div>
+      }
+    </div>
+    }
+    <a class="button" tabclick (click)="changeMaxHealth(-1)">
+      <img class="ghs-svg" src="./assets/images/minus.svg">
+    </a>
+    <span class="item" [ghs-label]="'game.maxHealth'" [ghs-label-attribute]="'title'">
+      <img src="./assets/images/status/health.svg" />
+      <span class="badge badge-right max-health">{{(EntityValueFunction(character.maxHealth) + maxHp <
+          EntityValueFunction(character.maxHealth) || character.health==EntityValueFunction(character.maxHealth) ?
+          EntityValueFunction(character.maxHealth) + maxHp :
+          character.health)}}/{{EntityValueFunction(character.maxHealth) + maxHp}}</span>
+      </span>
+      <a class="button" tabclick (click)="changeMaxHealth(1)">
+        <img class="ghs-svg" src="./assets/images/plus.svg">
+      </a>
+  </div>
+</div>

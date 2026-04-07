@@ -24,8 +24,9 @@ import { PetIdentifier } from "src/app/game/model/data/PetCard";
 import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsModulo, ghsValueSign } from "../../helper/Static";
 import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
+import { AdditionalAMSelectDialogComponent } from "../entities-menu/additional-am-select/additional-am-select";
+import { EntitiesMenuDialogComponent } from "../entities-menu/entities-menu-dialog";
 import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialog";
-import { AdditionalAMSelectDialogComponent } from "./additional-am-select/additional-am-select";
 
 @Component({
   standalone: false,
@@ -1560,7 +1561,7 @@ export class EntityMenuDialogComponent {
 
   closeConditions() {
     if (this.data.entity) {
-      this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.roundExpire && !entityCondition.expired || entityCondition.state == EntityConditionState.expire && !entityCondition.expired || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
+      this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || (entityCondition.state == EntityConditionState.roundExpire && !entityCondition.expired || entityCondition.state == EntityConditionState.expire && !entityCondition.expired) && this.data.entity && !this.data.entity.entityConditions.some((condition) => condition.name == entityCondition.name && condition.state == entityCondition.state) || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
         if (this.data.entity && (entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.roundExpire || entityCondition.state == EntityConditionState.expire || gameManager.entityManager.hasCondition(this.data.entity, entityCondition, entityCondition.permanent))) {
           if (this.data.entity instanceof Character && entityCondition.name == ConditionName.muddle && entityCondition.state == EntityConditionState.new &&
             this.data.entity.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '108')) {
@@ -1621,6 +1622,21 @@ export class EntityMenuDialogComponent {
         }
       })
     }
+  }
+
+  openEntitiesMenu() {
+    this.dialog.open(EntitiesMenuDialogComponent, {
+      panelClass: ['dialog'],
+      data: {
+        figure: this.data.figure,
+        entity: this.data.entity,
+        objectiveOnly: this.data.figure instanceof ObjectiveContainer && !this.data.entity,
+        positionElement: this.data.positionElement,
+        entityIndexKey: this.data.entityIndexKey
+      },
+      positionStrategy: this.data.positionElement && this.overlay.position().flexibleConnectedTo(this.data.positionElement).withPositions(ghsDefaultDialogPositions())
+    });
+    this.dialogRef.close(true);
   }
 
 }

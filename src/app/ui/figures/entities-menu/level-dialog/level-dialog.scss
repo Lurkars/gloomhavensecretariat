@@ -1,0 +1,79 @@
+.level-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .level-container {
+    display: grid;
+    grid-template-columns: repeat(5, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
+    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+    &.bb {
+      grid-template-columns: repeat(3, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
+    }
+
+    .level {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+      width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+      cursor: pointer;
+      font-family: var(--ghs-font-title);
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      color: var(--ghs-color-white);
+      text-shadow: var(--ghs-outline);
+
+      &.old {
+        border: calc(var(--ghs-unit) / 4) var(--ghs-color-darkgray) solid;
+        border-radius: 100%;
+      }
+
+      &.active {
+        pointer-events: none;
+        border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
+        border-radius: 100%;
+      }
+
+      &:hover {
+        border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
+        border-radius: 100%;
+      }
+    }
+  }
+
+  .char-container {
+    display: flex;
+    align-items: center;
+    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+    .titles-container {
+      display: flex;
+      flex-direction: column;
+
+      .title-container {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .max-health {
+      right: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    }
+  }
+
+  input.title {
+    max-width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
+    margin: 0 calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    color: var(--ghs-color-white);
+    background-color: var(--form-background);
+    border-width: calc(var(--ghs-unit) * 0.1);
+    border-style: solid;
+    border-color: var(--ghs-color-gray);
+    border-radius: calc(var(--ghs-unit) * 1);
+    user-select: auto;
+    -webkit-user-select: auto;
+    font-family: var(--ghs-font-text);
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  }
+}

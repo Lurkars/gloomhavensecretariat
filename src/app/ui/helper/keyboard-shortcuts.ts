@@ -10,7 +10,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { SummonState } from 'src/app/game/model/Summon';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
-import { EntityMenuDialogComponent } from '../figures/entity-menu/entity-menu-dialog';
+import { EntitiesMenuDialogComponent } from '../figures/entities-menu/entities-menu-dialog';
 import { PartySheetDialogComponent } from '../figures/party/party-sheet-dialog';
 import { ScenarioChartDialogComponent } from '../figures/party/scenario-chart/scenario-chart';
 import { WorldMapComponent } from '../figures/party/world-map/world-map';
@@ -52,7 +52,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         gameManager.stateManager.keyboardSelecting = false;
         gameManager.stateManager.keyboardSelect = -1;
         if (selectedIndex > 0 && selectedIndex <= entities.length) {
-            this.dialog.open(EntityMenuDialogComponent, {
+            this.dialog.open(EntitiesMenuDialogComponent, {
                 panelClass: ['dialog'],
                 data: {
                     entity: entities[selectedIndex - 1].entity,
@@ -300,7 +300,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                             activeEntity = activeFigure.entities.find((entity) => entity.active);
                         }
                         if (activeEntity) {
-                            this.dialog.open(EntityMenuDialogComponent, {
+                            this.dialog.open(EntitiesMenuDialogComponent, {
                                 panelClass: ['dialog'],
                                 data: { entity: activeEntity, figure: activeFigure, entityIndexKey: false }
                             });

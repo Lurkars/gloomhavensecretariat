@@ -18,15 +18,14 @@
 
   <div class="name-container" ghs-pointer-input (singleClick)="openStatsPopup()" (doubleClick)="openStatPopup()">
     <span class="name">
-      <span
-        [ghs-label]="'data.monster.' + (monster.statEffect && monster.statEffect.name ? monster.statEffect.name : monster.name)"></span>
-      @if (monster.statEffect && monster.statEffect.name) {
+      <span [ghs-label]="'data.monster.' + (statEffect && statEffect.name ? statEffect.name : monster.name)"></span>
+      @if (statEffect && statEffect.name) {
       <span>&nbsp;(<span [ghs-label]="'data.monster.' + monster.name"></span>)</span>
       }
       @if (monster.tags.includes('bb-elite')) {
       <span class="elite">&nbsp;<span [ghs-label]="'%game.monsterType.elite%'"></span></span>
       }
-      @if (monster.statEffect) {
+      @if (statEffect) {
       <span class="stat-effect">*</span>
       }
       @if (monster.isAlly) {
@@ -83,7 +82,7 @@
   }
 
   @if (!settingsManager.settings.standees && gameManager.gameplayFigure(monster)) {
-  <ghs-pointer-input class="entity-menu" [ngClass]="{'boss' : monster.boss}" (singleClick)="openEntityMenu($event)">
+  <ghs-pointer-input class="entity-menu" [ngClass]="{'boss' : monster.boss}" (singleClick)="openEntityMenu()">
   </ghs-pointer-input>
   }
 

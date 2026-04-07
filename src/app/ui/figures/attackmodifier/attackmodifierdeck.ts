@@ -63,6 +63,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
   type: AttackModifierType = AttackModifierType.minus1;
   current: number = -1;
   lastVisible: number = 0;
+  deckLength: number = 0;
   drawing: boolean = false;
   drawTimeout: any = null;
   queue: number = 0;
@@ -239,6 +240,8 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
 
     this.activeAMs = this.deck.cards.filter((am, i) => am.active && i < this.deck.lastVisible && !this.deck.discarded.includes(i));
+
+    this.deckLength = this.deck.cards.length;
   }
 
   drawQueue() {
