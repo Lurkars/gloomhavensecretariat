@@ -82,12 +82,18 @@ export class HealthHelper {
 
   close() {
     if (this.component.health != 0) {
-      this.component.before('changeHP', ghsValueSign(this.component.health));
+      this.component.before(this.component.trackDamage || settingsManager.settings.damageHP ? 'changeDamage' : 'changeHP', ghsValueSign(this.component.health));
       let deadEntities: (MonsterEntity | Summon | ObjectiveEntity)[] = [];
       this.component.entities.forEach((entity) => {
-        if (this.component.health != 0) {
-          gameManager.entityManager.changeHealth(entity, this.component.figureForEntity(entity), this.component.health);
+        const figure = this.component.figureForEntity(entity);
+
+        let invertDamage = false;
+        if (entity instanceof ObjectiveEntity && figure instanceof ObjectiveContainer && figure.objectiveId) {
+          const objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId);
+          invertDamage = !this.component.trackDamage && !!objectiveData && objectiveData.trackDamage;
         }
+
+        gameManager.entityManager.changeHealth(entity, figure, !settingsManager.settings.damageHP && invertDamage || !invertDamage && !this.component.trackDamage && settingsManager.settings.damageHP ? -this.component.health : this.component.health);
 
         if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && (EntityValueFunction(entity.maxHealth) > 0 && entity.health <= 0 || entity.dead)) {
           entity.dead = entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => !entityCondition.highlight || entityCondition.types.includes(ConditionType.hidden) || !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply));

@@ -19,6 +19,8 @@ export class ObjectiveHelper {
     } else {
       this.component.objectiveData = undefined;
     }
+
+    this.component.trackDamage = !!this.component.objectiveData && this.component.objectiveData.trackDamage;
   }
 
   showMaxHealth(): boolean {

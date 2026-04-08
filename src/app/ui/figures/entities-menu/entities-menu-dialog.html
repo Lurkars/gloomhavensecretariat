@@ -193,22 +193,27 @@
 
       <!-- HP -->
       <span class="item">
-        <ghs-pointer-input class="button" tabclick (singleClick)="healthHelper.changeHealth(-1)" [repeat]="true">
+        <ghs-pointer-input class="button" tabclick (singleClick)="healthHelper.changeHealth(-1)" [repeat]="true"
+          [ngClass]="{'disabled': !!entity && (trackDamage && entity.health + health == 0 || settingsManager.settings.damageHP && entity.health - health == EntityValueFunction(entity.maxHealth)) }">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </ghs-pointer-input>
       </span>
       <span class="item" [ghs-tooltip]="'game.health'">
-        @if (!!entity) {
+        @if (!!entity && (!settingsManager.settings.damageHP || trackDamage)) {
         <span class="badge badge-left">{{entity.health + health | ghsMinZero}}</span>
         }
-        <img src="./assets/images/status/health.svg" />
+        @if (!!entity && settingsManager.settings.damageHP && !trackDamage) {
+        <span class="badge badge-left">{{entity.health - health | ghsMinZero}}</span>
+        }
+        <img [ngClass]="{'damage': trackDamage || settingsManager.settings.damageHP}"
+          [src]="trackDamage || settingsManager.settings.damageHP ? './assets/images/action/damage.svg' : './assets/images/status/health.svg'" />
         <span class="badge badge-right health-count"
-          [value-sign]="!!entity && (entity.health + health) >= EntityValueFunction(entity.maxHealth) ? maxHealth : health"
-          [hideEmpty]="true"></span>
+          [value-sign]="!trackDamage && !settingsManager.settings.damageHP && !!entity && (entity.health + health) >= EntityValueFunction(entity.maxHealth) ? maxHealth : health"
+          [hideEmpty]="true" [invert]="trackDamage || settingsManager.settings.damageHP"></span>
       </span>
       <span class="item">
         <ghs-pointer-input class="button" tabclick (singleClick)="healthHelper.changeHealth(1)" [repeat]="true"
-          [ngClass]="{'disabled' : !!entity && (entity.health + health) == (Math.max(EntityValueFunction(entity.maxHealth), specialTags.includes('unbridled-power') ? 26 : 0) + maxHealth)}">
+          [ngClass]="{'disabled' : !trackDamage && !settingsManager.settings.damageHP && !!entity && (entity.health + health) == (Math.max(EntityValueFunction(entity.maxHealth), specialTags.includes('unbridled-power') ? 26 : 0) + maxHealth)}">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
       </span>
@@ -447,26 +452,6 @@
           tabclick
           (singleClick)="!enfeebleChar ? amHelper.selectAdditionalAM(AttackModifierType.enfeeble) : enfeeble+=1"
           [repeat]="true">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </ghs-pointer-input>
-      </span>
-      }
-
-      <!-- TRACK DAMAGE (objectives with 0 max health but trackDamage) -->
-      @if (!!entity && gameManager.isObjectiveEntity(entity) && EntityValueFunction(entity.maxHealth) == 0 &&
-      objectiveData && objectiveData.trackDamage) {
-      <span class="item">
-        <ghs-pointer-input class="button" tabclick (singleClick)="health-=1" [repeat]="true">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </ghs-pointer-input>
-      </span>
-      <span class="item" [ghs-tooltip]="'game.health'">
-        <span class="badge badge-left">{{entity.health + health | ghsMinZero}}</span>
-        <img class="damage" src="./assets/images/action/damage.svg" />
-        <span class="badge badge-right health-count" [value-sign]="health" [hideEmpty]="true" [invert]="true"></span>
-      </span>
-      <span class="item">
-        <ghs-pointer-input class="button" tabclick (singleClick)="health+=1" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
       </span>

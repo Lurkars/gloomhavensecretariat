@@ -109,7 +109,7 @@ export class SpecialActionsHelper {
         gameManager.stateManager.after();
       }
 
-      const specialTagsToAdd = this.component.specialTags.filter((specialTag) => character && !character.tags.includes(specialTag));
+      const specialTagsToAdd = this.component.specialTags.filter((specialTag) => entity && !entity.tags.includes(specialTag));
 
       if (specialTagsToAdd.length) {
         this.component.before("addSpecialTags", specialTagsToAdd.map((specialTag) => '%data.character.' + character.edition + '.' + character.name + '.' + specialTag + '%').join(','));
@@ -202,6 +202,22 @@ export class SpecialActionsHelper {
                 entity.entityConditions.push(disarm);
               }
             }
+          }
+        }
+
+        if (entity instanceof Summon) {
+          if (character.tags.includes('autoapply_mode') && specialTagsToAdd.includes('prism_mode')) {
+            const damage = entity.health - entity.maxHealth;
+            gameManager.entityManager.changeHealth(character, character, damage);
+            entity.health = entity.maxHealth;
+            entity.entityConditions.forEach((summonCondition) => {
+              if (!summonCondition.expired && summonCondition.state != EntityConditionState.expire && summonCondition.state != EntityConditionState.removed && !gameManager.entityManager.isImmune(character, character, summonCondition.name)) {
+                gameManager.entityManager.addCondition(character, character, new Condition(summonCondition.name));
+              }
+            });
+            entity.entityConditions = [];
+
+            character.summons.forEach((summon) => summon.tags = summon.tags.filter((tag) => tag != 'prism_mode'));
           }
         }
 

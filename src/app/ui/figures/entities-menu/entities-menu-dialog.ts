@@ -106,6 +106,7 @@ export class EntitiesMenuDialogComponent {
   objectiveData: ObjectiveData | undefined;
   amDecks: string[] = [];
   objectiveOnly: boolean = false;
+  trackDamage: boolean = false;
 
   // figures and entities
   figure: Figure | undefined;

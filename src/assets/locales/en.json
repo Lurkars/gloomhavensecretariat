@@ -3340,6 +3340,16 @@
           "character": "Add special actions {0} for {1}",
           "summon": "Add special actions {0} for {2} of {1}"
         },
+        "changeDamage": {
+          "": "{0} %game.action.damage% for selection",
+          "character": "{0} %game.action.damage% for {1}",
+          "monsterEntity": "{0} %game.action.damage% for '{2}' of {1}",
+          "monsters": "{0} %game.action.damage% for {2} of {1}",
+          "objectiveEntity": "{0} %game.action.damage% for {2} of {1}",
+          "objectives": "{0} %game.action.damage% for {2} of {1}",
+          "summon": "{0} %game.action.damage% for '{2}' of {1}",
+          "summons": "{0} %game.action.damage% for summons {2} of {1}"
+        },
         "changeHP": {
           "": "{0} %game.statusIcon:health% HP for selection",
           "character": "{0} %game.statusIcon:health% HP for {1}",

@@ -152,6 +152,13 @@ export class EntityManager {
         entity.dead = false;
       }
     }
+
+    if (entity instanceof ObjectiveEntity && figure instanceof ObjectiveContainer && figure.objectiveId) {
+      const objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId);
+      if (!!objectiveData && objectiveData.trackDamage && entity.health <= 0) {
+        entity.health = 0;
+      }
+    }
   }
 
   changeHealth(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
