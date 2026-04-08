@@ -3340,6 +3340,16 @@
           "character": "Add special actions {0} for {1}",
           "summon": "Add special actions {0} for {2} of {1}"
         },
+        "changeDamage": {
+          "": "{0} %game.action.damage% for selection",
+          "character": "{0} %game.action.damage% for {1}",
+          "monsterEntity": "{0} %game.action.damage% for '{2}' of {1}",
+          "monsters": "{0} %game.action.damage% for {2} of {1}",
+          "objectiveEntity": "{0} %game.action.damage% for {2} of {1}",
+          "objectives": "{0} %game.action.damage% for {2} of {1}",
+          "summon": "{0} %game.action.damage% for '{2}' of {1}",
+          "summons": "{0} %game.action.damage% for summons {2} of {1}"
+        },
         "changeHP": {
           "": "{0} %game.statusIcon:health% HP for selection",
           "character": "{0} %game.statusIcon:health% HP for {1}",
@@ -3481,6 +3491,9 @@
           "character": "Remove special actions {0} from {1}",
           "summon": "Remove special actions {0} from {2} of {1}"
         },
+        "setAbsent": {
+          "character": "{0} absent"
+        },
         "setConditionValue": {
           "": "%game.condition.{0}% to {1} for selection",
           "character": "%game.condition.{0}% to {1} for {2}",
@@ -3490,6 +3503,13 @@
           "objectives": "%game.condition.{0}% to {1} for {3} of {2}",
           "summon": "%game.condition.{0}% to {1} for '{3}' of {2}",
           "summons": "%game.condition.{0}% summons to {1} for {3} of {2}"
+        },
+        "setInitiative": {
+          "character": "Initiative {0} for {1}",
+          "objective": "Initiative {0} for {1}"
+        },
+        "setLevel": {
+          "character": "Level {0} for {1}"
         },
         "setObjectiveAmDeck": {
           "objective": "Set Attack Modifier Deck to %game.amDeck.{0}% for {1}",
@@ -3518,6 +3538,9 @@
           "": "Toggle all monster standee types for selection",
           "monsterEntity": "Toggle all monster standee types for '{1}' of {0}",
           "monsters": "Toggle all monster standee types for {1} of {0}"
+        },
+        "unsetAbsent": {
+          "character": "{0} present"
         },
         "unsetObjectiveAmDeck": {
           "objective": "Unset Attack Modifier Deck for {1}",
