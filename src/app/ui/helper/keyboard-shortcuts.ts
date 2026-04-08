@@ -141,10 +141,10 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                         if (settingsManager.settings.characterAttackModifierDeck) {
                             if (settingsManager.settings.characterAttackModifierDeckActiveBottom && gameManager.game.figures.find((figure) => figure instanceof Character && figure.attackModifierDeckVisible) != undefined) {
                                 const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.attackModifierDeckVisible) as Character;
-                                gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), gameManager.characterManager.characterName(character));
+                                gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), gameManager.characterManager.characterName(character, true, true));
                                 deck = character.attackModifierDeck;
                             } else if (activeFigure.attackModifierDeckVisible) {
-                                gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), gameManager.characterManager.characterName(activeFigure));
+                                gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), gameManager.characterManager.characterName(activeFigure, true, true));
                                 deck = activeFigure.attackModifierDeck;
                             } else {
                                 activeFigure.attackModifierDeckVisible = true;
@@ -164,7 +164,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                             const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == activeFigure.amDeck) as Character;
                             if (character && settingsManager.settings.characterAttackModifierDeck) {
                                 if (character.attackModifierDeckVisible) {
-                                    gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), gameManager.characterManager.characterName(character));
+                                    gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), gameManager.characterManager.characterName(character, true, true));
                                     deck = character.attackModifierDeck;
                                 } else {
                                     character.attackModifierDeckVisible = true;
@@ -316,11 +316,11 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) as Character;
                     if (character) {
                         if (event.altKey) {
-                            gameManager.stateManager.before("changeXP", gameManager.characterManager.characterName(character), ghsValueSign(1));
+                            gameManager.entityManager.before(character, character, 'changeXP', ghsValueSign(1));
                             character.experience += 1;
                             gameManager.stateManager.after();
                         } else if (event.shiftKey) {
-                            gameManager.stateManager.before("changeXP", gameManager.characterManager.characterName(character), ghsValueSign(-1));
+                            gameManager.entityManager.before(character, character, 'changeXP', ghsValueSign(-1));
                             character.experience -= 1;
                             if (character.experience < 0) {
                                 character.experience = 0;
@@ -333,12 +333,12 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     if (character && !gameManager.fhRules()) {
                         switch (event.key) {
                             case 'l':
-                                gameManager.stateManager.before("changeLoot", gameManager.characterManager.characterName(character), ghsValueSign(1));
+                                gameManager.entityManager.before(character, character, 'changeLoot', ghsValueSign(1));
                                 character.loot += 1;
                                 gameManager.stateManager.after();
                                 break;
                             case 'L':
-                                gameManager.stateManager.before("changeLoot", gameManager.characterManager.characterName(character), ghsValueSign(-1));
+                                gameManager.entityManager.before(character, character, 'changeLoot', ghsValueSign(-1));
                                 character.loot -= 1;
                                 if (character.loot < 0) {
                                     character.loot = 0;
@@ -402,12 +402,12 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                 const activeSummon = activeFigure.summons.find((summon) => summon.active);
                 const csSprits = activeFigure.summons.filter((summon) => summon.tags.includes('cs-skull-spirit'));
                 if (settingsManager.settings.activeSummons && !activeSummon && activeFigure.active && csSprits.length && !csSprits.find((summon) => summon.active)) {
-                    gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(activeFigure), "data.summon." + csSprits[0].name);
+                    gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(activeFigure, true, true), "data.summon." + csSprits[0].name);
                     csSprits.forEach((spirit) => spirit.tags.push('cs-skull-spirit-turn'));
                 } else if (settingsManager.settings.activeSummons && activeFigure.active && activeSummon) {
-                    gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(activeFigure), "data.summon." + activeSummon.name);
+                    gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(activeFigure, true, true), "data.summon." + activeSummon.name);
                 } else {
-                    gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", gameManager.characterManager.characterName(activeFigure));
+                    gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", gameManager.characterManager.characterName(activeFigure, true, true));
                 }
                 gameManager.roundManager.toggleFigure(activeFigure);
                 gameManager.stateManager.after();
@@ -418,13 +418,13 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     let activeEntity = entities.find((entity) => entity.active);
                     if (!activeEntity && entities.length > 0 && reverse && activeFigure.active) {
                         activeEntity = entities[entities.length - 1];
-                        gameManager.stateManager.before(activeEntity ? "unsetEntityActive" : "setEntityActive", "data.monster." + activeFigure.name, "monster." + activeEntity.type, "" + activeEntity.number);
+                        gameManager.stateManager.before(activeEntity ? "unsetEntityActive" : "setEntityActive", "data.monster." + activeFigure.name, "monster." + activeEntity.type, activeEntity.number);
                         gameManager.monsterManager.toggleActive(activeFigure, activeEntity);
                         activeEntity.active = true;
                         toggleFigure = false;
                         gameManager.stateManager.after();
                     } else if (activeEntity && !reverse) {
-                        gameManager.stateManager.before(activeEntity ? "unsetEntityActive" : "setEntityActive", "data.monster." + activeFigure.name, "monster." + activeEntity.type, "" + activeEntity.number);
+                        gameManager.stateManager.before(activeEntity ? "unsetEntityActive" : "setEntityActive", "data.monster." + activeFigure.name, "monster." + activeEntity.type, activeEntity.number);
                         gameManager.monsterManager.toggleActive(activeFigure, activeEntity);
                         if (entities.indexOf(activeEntity) < entities.length - 1) {
                             entities[entities.indexOf(activeEntity) + 1].active = true;

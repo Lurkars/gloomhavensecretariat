@@ -46,14 +46,14 @@ export class TreasuresDialogComponent implements OnInit {
             let treasures: number[] = gameManager.scenarioManager.getAllTreasures(scenarioData).filter((value) => typeof value === 'number').map((value) => +value);
 
             if (!this.batchSelect) {
-                treasures = treasures.filter((value) => !this.hasTreasure('' + value, this.edition));
+                treasures = treasures.filter((value) => !this.hasTreasure(value, this.edition));
             }
 
             if (treasures.length > 0) {
                 this.scenarios.push(scenarioData);
                 this.treasures[scenarioData.index] = treasures;
                 treasures.forEach((value) => {
-                    if (this.hasTreasure('' + value, this.edition)) {
+                    if (this.hasTreasure(value, this.edition)) {
                         this.looted.push(value);
                     }
                 })
@@ -88,8 +88,8 @@ export class TreasuresDialogComponent implements OnInit {
 
     }
 
-    hasTreasure(treasure: string, edition: string): boolean {
-        return gameManager.game.party.treasures && gameManager.game.party.treasures.some((identifier) => identifier.name == treasure && identifier.edition == edition);
+    hasTreasure(treasure: string | number, edition: string): boolean {
+        return gameManager.game.party.treasures && gameManager.game.party.treasures.some((identifier) => identifier.name == '' + treasure && identifier.edition == edition);
     }
 
 
@@ -104,7 +104,7 @@ export class TreasuresDialogComponent implements OnInit {
 
         if (addTreasures.length > 0) {
             gameManager.stateManager.before("addTreasures", this.edition, '[' + addTreasures.join(',') + ']');
-            gameManager.game.party.treasures.push(...addTreasures.map((index) => new Identifier('' + index, this.edition)));
+            gameManager.game.party.treasures.push(...addTreasures.map((index) => new Identifier(index, this.edition)));
             gameManager.stateManager.after();
         }
 

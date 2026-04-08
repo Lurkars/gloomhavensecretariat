@@ -43,7 +43,7 @@ export class CharacterItemComponent {
     toggleEquippedItem(force: boolean = false) {
         const owned = this.character.progress.items.find((identifier) => identifier.name == '' + this.item.id && identifier.edition == this.item.edition) != undefined;
         if ((this.setup || force) && (owned || !this.bbBlocked() || force)) {
-            gameManager.stateManager.before(this.equipped() ? 'unequipItem' : 'equipItem', gameManager.characterManager.characterName(this.character), this.item.id, this.item.edition)
+            gameManager.stateManager.before(this.equipped() ? 'unequipItem' : 'equipItem', gameManager.characterManager.characterName(this.character, true, true), this.item.id, this.item.edition)
             gameManager.itemManager.toggleEquippedItem(this.item, this.character, force);
             if (gameManager.bbRules()) {
                 if (!this.equipped() && owned) {
@@ -77,7 +77,7 @@ export class CharacterItemComponent {
             const equipped = this.equipped();
             if (equipped && (gameManager.itemManager.itemUsable(this.item) || force)) {
                 equipped.tags = equipped.tags || [];
-                gameManager.stateManager.before((!equipped.tags.includes(flag) ? 'characterItemApply.' : 'characterItemUnapply.') + flag, gameManager.characterManager.characterName(this.character), this.item.id, this.item.edition, this.item.name)
+                gameManager.stateManager.before((!equipped.tags.includes(flag) ? 'characterItemApply.' : 'characterItemUnapply.') + flag, gameManager.characterManager.characterName(this.character, true, true), this.item.id, this.item.edition, this.item.name)
                 if (!equipped.tags.includes(flag)) {
                     if (!force && gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1507, 'fh') && flag == ItemFlags.spent) {
                         equipped.tags.push(ItemFlags.consumed);
@@ -109,7 +109,7 @@ export class CharacterItemComponent {
             if (equipped) {
                 equipped.tags = equipped.tags || [];
                 const count = this.countFlag(flag);
-                gameManager.stateManager.before((count <= index ? 'characterItemApply.' : 'characterItemUnapply.') + flag, gameManager.characterManager.characterName(this.character), this.item.id, this.item.edition, this.item.name);
+                gameManager.stateManager.before((count <= index ? 'characterItemApply.' : 'characterItemUnapply.') + flag, gameManager.characterManager.characterName(this.character, true, true), this.item.id, this.item.edition, this.item.name);
                 if (count <= index) {
                     for (let i = count; i <= index; i++) {
                         equipped.tags.push(flag);

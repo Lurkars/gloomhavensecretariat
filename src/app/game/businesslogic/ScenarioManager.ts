@@ -242,7 +242,7 @@ export class ScenarioManager {
                   for (let i = from; i <= to; i++) {
                     const itemData = gameManager.itemManager.getItem(i, scenario.edition, true);
                     if (itemData && (!itemData.unlockScenario || itemData.unlockScenario.edition != scenario.edition || itemData.unlockScenario.name != scenario.index)) {
-                      this.game.party.unlockedItems.push(new CountIdentifier(itemData.id + '', scenario.edition));
+                      this.game.party.unlockedItems.push(new CountIdentifier(itemData.id, scenario.edition));
                     }
                   }
                 } else {
@@ -252,7 +252,7 @@ export class ScenarioManager {
                   }
                   const itemData = gameManager.itemManager.getItem((item.split(':')[0]), itemEdition, true);
                   if (itemData && (!itemData.unlockScenario || itemData.unlockScenario.edition != scenario.edition || itemData.unlockScenario.name != scenario.index)) {
-                    this.game.party.unlockedItems.push(new CountIdentifier(itemData.id + '', itemData.edition));
+                    this.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
                   }
                 }
               })
@@ -264,7 +264,7 @@ export class ScenarioManager {
                   const from = +item.split('-')[0];
                   const to = +item.split('-')[1];
                   for (let i = from; i <= to; i++) {
-                    this.game.party.unlockedItems.push(new CountIdentifier(i + '', scenario.edition));
+                    this.game.party.unlockedItems.push(new CountIdentifier(i, scenario.edition));
                   }
                 } else {
                   let itemEdition = scenario.edition;

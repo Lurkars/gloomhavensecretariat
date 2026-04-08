@@ -27,7 +27,7 @@ export class CharacterLootDrawCommand extends CommandImpl {
     override before(): BASE_TYPE[] {
         const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == this.parameters[0]) as Character;
         if (character) {
-            return ['command.' + this.id, gameManager.characterManager.characterName(character, true, true, false)];
+            return ['command.' + this.id, gameManager.characterManager.characterName(character, true, true)];
         }
 
         return ['command.invalid.' + this.id, ...this.parameters];

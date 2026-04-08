@@ -122,6 +122,7 @@
 
     .hint-container {
       width: 100%;
+      flex-wrap: nowrap;
 
       &.inline {
         width: initial;
@@ -434,6 +435,10 @@
 (orientation: portrait) {
 
   .menu-container.two-column {
+
+    grid-template-columns: auto;
+
+    .column,
     .span-xs {
       grid-column: 2 span;
     }

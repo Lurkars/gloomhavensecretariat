@@ -43,7 +43,7 @@ export class ItemShareDialogComponent {
 
     apply() {
         if (this.selected) {
-            gameManager.stateManager.before('shareItem', gameManager.characterManager.characterName(this.character), gameManager.characterManager.characterName(this.selected), this.item.id, this.item.edition)
+            gameManager.stateManager.before('shareItem', gameManager.characterManager.characterName(this.character, true, true), gameManager.characterManager.characterName(this.selected, true, true), this.item.id, this.item.edition)
             gameManager.itemManager.removeItem(this.item, this.character);
             gameManager.itemManager.addItem(this.item, this.selected);
             gameManager.stateManager.after();

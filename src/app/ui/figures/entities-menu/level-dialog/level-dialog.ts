@@ -93,7 +93,7 @@ export class CharacterLevelDialogComponent {
 
   close() {
     if (this.level != this.character.level) {
-      gameManager.stateManager.before("setLevel", gameManager.characterManager.characterName(this.character), this.level);
+      gameManager.entityManager.before(this.character, this.character, 'setLevel', this.level);
       gameManager.characterManager.setLevel(this.character, this.level);
       gameManager.stateManager.after();
     }

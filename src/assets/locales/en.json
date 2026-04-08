@@ -3481,6 +3481,9 @@
           "character": "Remove special actions {0} from {1}",
           "summon": "Remove special actions {0} from {2} of {1}"
         },
+        "setAbsent": {
+          "character": "{0} absent"
+        },
         "setConditionValue": {
           "": "%game.condition.{0}% to {1} for selection",
           "character": "%game.condition.{0}% to {1} for {2}",
@@ -3490,6 +3493,13 @@
           "objectives": "%game.condition.{0}% to {1} for {3} of {2}",
           "summon": "%game.condition.{0}% to {1} for '{3}' of {2}",
           "summons": "%game.condition.{0}% summons to {1} for {3} of {2}"
+        },
+        "setInitiative": {
+          "character": "Initiative {0} for {1}",
+          "objective": "Initiative {0} for {1}"
+        },
+        "setLevel": {
+          "character": "Level {0} for {1}"
         },
         "setObjectiveAmDeck": {
           "objective": "Set Attack Modifier Deck to %game.amDeck.{0}% for {1}",
@@ -3518,6 +3528,9 @@
           "": "Toggle all monster standee types for selection",
           "monsterEntity": "Toggle all monster standee types for '{1}' of {0}",
           "monsters": "Toggle all monster standee types for {1} of {0}"
+        },
+        "unsetAbsent": {
+          "character": "{0} present"
         },
         "unsetObjectiveAmDeck": {
           "objective": "Unset Attack Modifier Deck for {1}",

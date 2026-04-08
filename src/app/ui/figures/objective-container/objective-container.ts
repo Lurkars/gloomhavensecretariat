@@ -134,7 +134,7 @@ export class ObjectiveContainerComponent implements OnInit {
 
     if (this.objective.initiative != this.initiative) {
       this.objective.initiative = this.initiative;
-      gameManager.stateManager.before("setObjectiveInitiative", gameManager.objectiveManager.objectiveName(this.objective), "" + value);
+      gameManager.entityManager.before(undefined, this.objective, 'setInitiative', value);
       this.objective.initiative = value;
       this.initiative = -1;
       if (gameManager.game.state == GameState.next) {

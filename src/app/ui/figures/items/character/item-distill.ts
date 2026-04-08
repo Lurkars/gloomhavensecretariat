@@ -46,7 +46,7 @@ export class ItemDistillDialogComponent {
 
     distill() {
         if (this.selectedResource) {
-            gameManager.stateManager.before('distillItem', gameManager.characterManager.characterName(this.character), this.item.id, this.item.edition)
+            gameManager.stateManager.before('distillItem', gameManager.characterManager.characterName(this.character, true, true), this.item.id, this.item.edition)
             gameManager.itemManager.removeItem(this.item, this.character);
             this.character.progress.loot[this.selectedResource] = (this.character.progress.loot[this.selectedResource] || 0) + 1;
             gameManager.stateManager.after();

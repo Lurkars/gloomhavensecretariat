@@ -205,7 +205,7 @@ export class LootManager {
             }
             const item = gameManager.itemManager.getItem(itemId, itemEdition, true);
             if (item) {
-              const identifier = new CountIdentifier('' + item.id, item.edition);
+              const identifier = new CountIdentifier(item.id, item.edition);
               if (reward.type == TreasureRewardType.item || reward.type == TreasureRewardType.itemFh) {
                 if (settingsManager.settings.characterItems || settingsManager.settings.characterSheet) {
                   if (character.progress.items.find((existing) => existing.name == identifier.name && existing.edition == identifier.edition)) {
@@ -289,9 +289,9 @@ export class LootManager {
 
           if (itemData) {
             if (reward.type == TreasureRewardType.randomItem) {
-              character.progress.items.push(new Identifier('' + itemData.id, itemData.edition));
+              character.progress.items.push(new Identifier(itemData.id, itemData.edition));
             } else {
-              gameManager.game.party.unlockedItems.push(new CountIdentifier('' + itemData.id, itemData.edition));
+              gameManager.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
             }
             result.push('' + itemData.id, 'data.items.' + itemData.name, itemData.edition);
           } else {

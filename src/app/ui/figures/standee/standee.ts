@@ -262,7 +262,7 @@ export class StandeeComponent implements OnInit {
     if (this.entity.revealed) {
       this.entity.revealed = false;
     } else if (settingsManager.settings.activeStandees && this.entity instanceof MonsterEntity) {
-      gameManager.stateManager.before(this.figure.type + (this.entity.active ? "UnsetEntityActive" : "SetEntityActive"), this.figure.name, "" + this.entity.number, this.additionalType());
+      gameManager.stateManager.before(this.figure.type + (this.entity.active ? "UnsetEntityActive" : "SetEntityActive"), this.figure.name, this.entity.number, this.additionalType());
       gameManager.entityManager.toggleActive(this.figure, this.entity);
       gameManager.stateManager.after();
     } else if (settingsManager.settings.activeSummons && this.entity instanceof Summon) {
@@ -274,7 +274,7 @@ export class StandeeComponent implements OnInit {
   toggleActive() {
     if (this.entity instanceof Summon && this.figure instanceof Character) {
       if (this.entity.active) {
-        gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(this.figure), "data.summon." + this.entity.name);
+        gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(this.figure, true, true), "data.summon." + this.entity.name);
         if (settingsManager.settings.activeSummons && this.figure.active) {
           gameManager.roundManager.toggleFigure(this.figure);
         } else {
@@ -282,7 +282,7 @@ export class StandeeComponent implements OnInit {
         }
         gameManager.stateManager.after();
       } else {
-        gameManager.stateManager.before("summonActive", gameManager.characterManager.characterName(this.figure), "data.summon." + this.entity.name);
+        gameManager.stateManager.before("summonActive", gameManager.characterManager.characterName(this.figure, true, true), "data.summon." + this.entity.name);
         const activeSummon = this.figure.summons.find((summon) => summon.active);
         if (settingsManager.settings.activeSummons && this.figure.active && gameManager.entityManager.isAlive(this.entity, true) && (!activeSummon || this.figure.summons.indexOf(activeSummon) < this.figure.summons.indexOf(this.entity))) {
           while (!this.entity.active) {
@@ -301,7 +301,7 @@ export class StandeeComponent implements OnInit {
     if (this.entity.number < 0 && this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
       if (settingsManager.settings.randomStandees) {
         const number = gameManager.monsterManager.monsterRandomStandee(this.figure);
-        gameManager.stateManager.before("addRandomStandee", "data.monster." + this.figure.name, "monster." + this.entity.type, "" + number);
+        gameManager.stateManager.before("addRandomStandee", "data.monster." + this.figure.name, "monster." + this.entity.type, number);
         this.entity.number = number;
         gameManager.stateManager.after();
       } else {

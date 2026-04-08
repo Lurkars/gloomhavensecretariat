@@ -32,7 +32,7 @@ export class CharacterIdentityCommand extends CommandImpl {
         const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == this.parameters[0]) as Character;
         const identity = this.parameters[1] as number;
         if (character) {
-            return ['command.' + this.id, gameManager.characterManager.characterName(character, true, true, false), 'data.character.' + character.edition + '.' + character.name + '.' + character.identities[identity]];
+            return ['command.' + this.id, gameManager.characterManager.characterName(character, true, true), 'data.character.' + character.edition + '.' + character.name + '.' + character.identities[identity]];
         }
 
         return ['command.invalid.' + this.id, ...this.parameters];

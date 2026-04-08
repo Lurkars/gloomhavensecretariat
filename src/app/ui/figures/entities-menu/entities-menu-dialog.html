@@ -34,8 +34,8 @@
         @if (!bb && !!entity && gameManager.isCharacter(entity)) {
         @let character = gameManager.toCharacter(entity);
         <img class="absent" [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'"
-          [ghs-label]="(character.absent ? 'character.present' : 'character.absent')" [ghs-label-attribute]="'title'"
-          tabclick (click)="characterHelper.toggleAbsent()">
+          [ghs-tooltip]="(character.absent ? 'character.present' : 'character.absent')" tabclick
+          (click)="characterHelper.toggleAbsent()">
         }
       </span>
       }
@@ -265,7 +265,7 @@
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </ghs-pointer-input>
       </span>
-      <span class="item character-token" [ghs-label]="'character.token'" [ghs-label-attribute]="'title'">
+      <span class="item character-token" [ghs-tooltip]="'character.token'">
         <span class="badge badge-left">{{character.token + characterToken}}</span>
         <span [ghs-label]="'%data.characterToken.' + character.name + '%'"></span>
         <span class="badge badge-right" [value-sign]="characterToken" [hideEmpty]="true"></span>
@@ -285,8 +285,7 @@
         </ghs-pointer-input>
       </span>
       <span class="item character-token"
-        [ghs-label]="'data.character.' + character.edition + '.' + character.name + '.tokens.' + token"
-        [ghs-label-attribute]="'title'">
+        [ghs-tooltip]="'data.character.' + character.edition + '.' + character.name + '.tokens.' + token">
         <span class="badge badge-left">{{character.tokenValues[i] +
           characterTokenValues[i]}}</span>
         <span [ghs-label]="'%data.characterToken.' + character.name + '.' + token + '%'"></span>
@@ -589,8 +588,18 @@
       @if (!bb) {
       <div class="marker-container">
 
+        @if (catching) {
+        <span class="item level-button" [ghs-tooltip]="'data.buildings.stables.pets.catch'">
+          <ghs-pointer-input class="button" tabclick (singleClick)="monsterHelper.catchMonster()"
+            (doubleClick)="monsterHelper.catchMonster(true)"
+            [ngClass]="{'disabled soft' : catchingDisabled || !!entity && entity.health + health > 2}">
+            <img class="ghs-svg" src="./assets/images/fh/catching.svg" />
+          </ghs-pointer-input>
+        </span>
+        }
+
         @if (!!entity && gameManager.isCharacter(entity)) {
-        <span class="item level-button" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'">
+        <span class="item level-button" [ghs-tooltip]="'game.level'">
           <a class="button" tabclick (click)="characterHelper.openLevelDialog()">
             {{entity.level}} <img src="./assets/images/status/level.svg" />
           </a>

@@ -52,7 +52,7 @@ export class TrialsManager {
                         } else if (this.game.party.trials < editionData.trials.length - 1) {
                             this.game.party.trials++;
                             const trialCard = editionData.trials[this.game.party.trials];
-                            figure.progress.trial = new Identifier('' + trialCard.cardId, trialCard.edition);
+                            figure.progress.trial = new Identifier(trialCard.cardId, trialCard.edition);
                         }
                     }
                 })

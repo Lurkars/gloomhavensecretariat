@@ -158,14 +158,14 @@ export class AbilityCardsDialogComponent implements OnInit {
     }
 
     undoLastCard() {
-        gameManager.stateManager.before("character.undoLastCard", gameManager.characterManager.characterName(this.character));
+        gameManager.stateManager.before("character.undoLastCard", gameManager.characterManager.characterName(this.character, true, true));
         this.character.progress.deck.splice(-1, 1);
         gameManager.stateManager.after();
         this.update();
     }
 
     resetDeck() {
-        gameManager.stateManager.before("character.resetDeck", gameManager.characterManager.characterName(this.character));
+        gameManager.stateManager.before("character.resetDeck", gameManager.characterManager.characterName(this.character, true, true));
         this.character.progress.deck = [];
         gameManager.stateManager.after();
         this.update();
@@ -184,10 +184,10 @@ export class AbilityCardsDialogComponent implements OnInit {
         const inDeck = this.character.progress.deck.indexOf(this.abilities.indexOf(ability)) != -1;
         if (inDeck || force || this.levelToPick >= +ability.level && this.cardsToPick > 0) {
             if (inDeck) {
-                gameManager.stateManager.before("character.cardFromDeck", gameManager.characterManager.characterName(this.character), ability.name || ability.cardId || '');
+                gameManager.stateManager.before("character.cardFromDeck", gameManager.characterManager.characterName(this.character, true, true), ability.name || ability.cardId || '');
                 this.character.progress.deck = this.character.progress.deck.filter((value) => value != this.abilities.indexOf(ability));
             } else {
-                gameManager.stateManager.before("character.cardToDeck", gameManager.characterManager.characterName(this.character), ability.name || ability.cardId || '');
+                gameManager.stateManager.before("character.cardToDeck", gameManager.characterManager.characterName(this.character, true, true), ability.name || ability.cardId || '');
                 this.character.progress.deck.push(this.abilities.indexOf(ability));
             }
             gameManager.stateManager.after();

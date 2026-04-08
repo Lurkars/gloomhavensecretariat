@@ -30,7 +30,8 @@
 
     display: grid;
     grid-template-columns: repeat(3, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor) * var(--ghs-text-factor)));
-
+    justify-items: center;
+    justify-content: center;
 
     .value {
       display: flex;

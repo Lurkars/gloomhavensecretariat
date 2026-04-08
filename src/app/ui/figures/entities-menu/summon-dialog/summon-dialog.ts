@@ -104,7 +104,7 @@ export class SummonDialogComponent implements AfterViewInit {
 
   private closeInit() {
     gameManager.characterManager.removeSummon(this.character, this.summon);
-    gameManager.stateManager.before("addSummon", gameManager.characterManager.characterName(this.character), this.summon.name);
+    gameManager.stateManager.before("addSummon", gameManager.characterManager.characterName(this.character, true, true), this.summon.name);
     this.summon.init = false;
     if (this.health != 0) {
       gameManager.entityManager.changeHealth(this.summon, this.character, this.health);
@@ -144,22 +144,22 @@ export class SummonDialogComponent implements AfterViewInit {
     }
 
     if (this.maxHp) {
-      gameManager.stateManager.before("changeSummonMaxHp", gameManager.characterManager.characterName(this.character), this.summon.title ? this.summon.title : "data.summon." + this.summon.name, ghsValueSign(this.maxHp));
+      gameManager.stateManager.before("changeSummonMaxHp", gameManager.characterManager.characterName(this.character, true, true), this.summon.title ? this.summon.title : "data.summon." + this.summon.name, ghsValueSign(this.maxHp));
       this.summon.maxHealth += this.maxHp;
       gameManager.stateManager.after();
     }
     if (this.attack != 0 && typeof this.summon.attack == 'number') {
-      gameManager.stateManager.before("changeSummonAttack", gameManager.characterManager.characterName(this.character), this.summon.title ? this.summon.title : "data.summon." + this.summon.name, ghsValueSign(this.attack));
+      gameManager.stateManager.before("changeSummonAttack", gameManager.characterManager.characterName(this.character, true, true), this.summon.title ? this.summon.title : "data.summon." + this.summon.name, ghsValueSign(this.attack));
       this.summon.attack += this.attack;
       gameManager.stateManager.after();
     }
     if (this.movement != 0) {
-      gameManager.stateManager.before("changeSummonMove", gameManager.characterManager.characterName(this.character), this.summon.title ? this.summon.title : "data.summon." + this.summon.name, ghsValueSign(this.movement));
+      gameManager.stateManager.before("changeSummonMove", gameManager.characterManager.characterName(this.character, true, true), this.summon.title ? this.summon.title : "data.summon." + this.summon.name, ghsValueSign(this.movement));
       this.summon.movement += this.movement;
       gameManager.stateManager.after();
     }
     if (this.range != 0) {
-      gameManager.stateManager.before("changeSummonRange", gameManager.characterManager.characterName(this.character), this.summon.title ? this.summon.title : "data.summon." + this.summon.name, ghsValueSign(this.range));
+      gameManager.stateManager.before("changeSummonRange", gameManager.characterManager.characterName(this.character, true, true), this.summon.title ? this.summon.title : "data.summon." + this.summon.name, ghsValueSign(this.range));
       this.summon.range += this.range;
       gameManager.stateManager.after();
     }

@@ -31,7 +31,7 @@ export class ChallengeDeck {
         model.current = this.current;
         model.finished = this.finished;
         model.keep = this.keep && JSON.parse(JSON.stringify(this.keep)) || [];
-        model.cards = this.cards.map((challengeCard) => new Identifier('' + challengeCard.cardId, challengeCard.edition));
+        model.cards = this.cards.map((challengeCard) => new Identifier(challengeCard.cardId, challengeCard.edition));
         model.active = this.active;
         return model;
     }

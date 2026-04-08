@@ -9,6 +9,7 @@
     width: 100%;
 
     .filter-line {
+        margin-left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
         input {
@@ -31,6 +32,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         border-bottom: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);
+        margin-left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
         .tab-btn {

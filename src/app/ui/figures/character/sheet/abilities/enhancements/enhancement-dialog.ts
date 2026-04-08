@@ -240,7 +240,7 @@ export class EnhancementDialogComponent implements OnInit {
     apply(force: boolean = false) {
         const costs = gameManager.enhancementsManager.calculateCosts(this.enhanceAction, this.rootAction, this.level, this.special, this.enhancements);
         if (this.data.actionIndex && this.data.cardId && this.data.enhancementIndex != undefined && this.data.character && (this.data.character.progress.gold >= costs && (gameManager.enhancementsManager.fh || this.enhancedCards < gameManager.prosperityLevel()) || force)) {
-            gameManager.stateManager.before('enhanceCard', gameManager.characterManager.characterName(this.data.character), this.data.cardId);
+            gameManager.stateManager.before('enhanceCard', gameManager.characterManager.characterName(this.data.character, true, true), this.data.cardId);
 
             if (!this.data.character.progress.enhancements) {
                 this.data.character.progress.enhancements = [];

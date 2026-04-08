@@ -70,7 +70,7 @@ export class CharacterBattleGoalsDialog {
 
   drawCards() {
     if (this.redrawAvailable) {
-      gameManager.stateManager.before("battleGoals.drawCards", gameManager.characterManager.characterName(this.character));
+      gameManager.stateManager.before("battleGoals.drawCards", gameManager.characterManager.characterName(this.character, true, true));
       this.character.battleGoals = [];
       this.character.battleGoal = false;
       gameManager.battleGoalManager.drawBattleGoal(this.character);
@@ -99,7 +99,7 @@ export class CharacterBattleGoalsDialog {
 
   drawCard() {
     if (this.available) {
-      gameManager.stateManager.before("battleGoals.drawCard", gameManager.characterManager.characterName(this.character));
+      gameManager.stateManager.before("battleGoals.drawCard", gameManager.characterManager.characterName(this.character, true, true));
       gameManager.battleGoalManager.drawBattleGoal(this.character, this.trial356);
       gameManager.stateManager.after();
     }
@@ -138,7 +138,7 @@ export class CharacterBattleGoalsDialog {
 
   accept() {
     if ((this.selected != -1 || this.trial349) && !this.character.battleGoal || this.selected != 0 && this.character.battleGoal) {
-      gameManager.stateManager.before("battleGoals." + (this.selected != -1 || this.trial349 ? 'select' : 'deselect'), gameManager.characterManager.characterName(this.character));
+      gameManager.stateManager.before("battleGoals." + (this.selected != -1 || this.trial349 ? 'select' : 'deselect'), gameManager.characterManager.characterName(this.character, true, true));
       if (this.trial349) {
         this.character.battleGoal = true;
       } else if (this.selected != -1) {

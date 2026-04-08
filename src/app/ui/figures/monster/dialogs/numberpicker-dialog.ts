@@ -146,7 +146,7 @@ export class MonsterNumberPickerDialog implements OnInit {
             } else if (automatic) {
                 undoType = "addNextStandee";
             }
-            gameManager.stateManager.before(undoType, "data.monster." + this.monster.name, "monster." + this.type, "" + number);
+            gameManager.stateManager.before(undoType, "data.monster." + this.monster.name, "monster." + this.type, number);
             const dead = this.monster.entities.find((monsterEntity) => monsterEntity.number == number);
             if (dead) {
                 gameManager.monsterManager.removeMonsterEntity(this.monster, dead);
@@ -178,7 +178,7 @@ export class MonsterNumberPickerDialog implements OnInit {
                 this.nextStandee();
             }
         } else if (this.change && this.entity && this.entity.number != number) {
-            gameManager.stateManager.before("updateStandee", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + number);
+            gameManager.stateManager.before("updateStandee", "data.monster." + this.monster.name, "monster." + this.entity.type, this.entity.number, number);
             let existing = gameManager.monsterManager.monsterStandeeUsed(this.monster, number);
             if (existing) {
                 let otherNumber = -1;
@@ -199,7 +199,7 @@ export class MonsterNumberPickerDialog implements OnInit {
 
     toggleMonsterType() {
         if (this.entity && (this.entity.type == MonsterType.normal || this.entity.type == MonsterType.elite)) {
-            gameManager.stateManager.before("changeMonsterType", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, this.entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal);
+            gameManager.stateManager.before("changeMonsterType", "data.monster." + this.monster.name, "monster." + this.entity.type, this.entity.number, this.entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal);
             gameManager.monsterManager.changeType(this.entity, this.monster);
             gameManager.stateManager.after();
         }

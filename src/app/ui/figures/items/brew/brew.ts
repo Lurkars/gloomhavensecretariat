@@ -199,7 +199,7 @@ export class ItemsBrewDialog implements OnInit {
         if (!gameManager.itemManager.brewingDisabled() && !this.forced.includes(true) || force) {
             this.brewed = this.getItem();
             if (this.selectedCharacter && this.brewed) {
-                gameManager.stateManager.before(this.selectedCharacter == this.character ? 'brewPotion' : 'brewPotionOther', !!this.character && gameManager.characterManager.characterName(this.character) || '', this.brewed.id, this.brewed.edition, gameManager.characterManager.characterName(this.selectedCharacter));
+                gameManager.stateManager.before(this.selectedCharacter == this.character ? 'brewPotion' : 'brewPotionOther', !!this.character && gameManager.characterManager.characterName(this.character, true, true) || '', this.brewed.id, this.brewed.edition, gameManager.characterManager.characterName(this.selectedCharacter, true, true));
                 if (!force) {
                     this.herbs.forEach((herb) => {
                         if (this.fhSupportSpent[herb]) {
@@ -211,9 +211,9 @@ export class ItemsBrewDialog implements OnInit {
                     })
                 }
                 if (!gameManager.game.party.unlockedItems.find((identitfier) => this.brewed && identitfier.name == '' + this.brewed.id && identitfier.edition == this.brewed.edition)) {
-                    gameManager.game.party.unlockedItems.push(new CountIdentifier('' + this.brewed.id, this.brewed.edition));
+                    gameManager.game.party.unlockedItems.push(new CountIdentifier(this.brewed.id, this.brewed.edition));
                 }
-                this.selectedCharacter.progress.items.push(new Identifier('' + this.brewed.id, this.brewed.edition));
+                this.selectedCharacter.progress.items.push(new Identifier(this.brewed.id, this.brewed.edition));
                 this.applied = true;
                 this.computeGridState();
                 gameManager.stateManager.after();

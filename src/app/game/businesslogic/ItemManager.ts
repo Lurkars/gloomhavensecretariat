@@ -221,12 +221,12 @@ export class ItemManager {
 
 
     addItem(item: ItemData, character: Character) {
-        character.progress.items.push(new Identifier(item.id + "", item.edition));
+        character.progress.items.push(new Identifier(item.id, item.edition));
     }
 
     buyItem(item: ItemData, character: Character) {
         character.progress.gold -= (item.cost + this.pricerModifier());
-        character.progress.items.push(new Identifier(item.id + "", item.edition));
+        character.progress.items.push(new Identifier(item.id, item.edition));
     }
 
 
@@ -274,7 +274,7 @@ export class ItemManager {
 
     craftItem(item: ItemData, character: Character) {
         this.craftItemResources(item, character);
-        character.progress.items.push(new Identifier(item.id + "", item.edition));
+        character.progress.items.push(new Identifier(item.id, item.edition));
     }
 
 
@@ -304,7 +304,7 @@ export class ItemManager {
             if (countAvailable + assigend < itemData.count) {
                 const unlocked = gameManager.game.party.unlockedItems.find((identifier) => +identifier.name == itemData.id && identifier.edition == itemData.edition);
                 if (!unlocked) {
-                    gameManager.game.party.unlockedItems.push(new CountIdentifier('' + itemData.id, itemData.edition, 1));
+                    gameManager.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition, 1));
                 } else {
                     unlocked.count += 1;
                     if (unlocked.count == itemData.count) {
@@ -411,7 +411,7 @@ export class ItemManager {
             equippedItems.push(item);
         }
 
-        character.progress.equippedItems = equippedItems.map((itemData) => new AdditionalIdentifier(itemData.id + '', itemData.edition));
+        character.progress.equippedItems = equippedItems.map((itemData) => new AdditionalIdentifier(itemData.id, itemData.edition));
 
         if (item.minusOne && !gameManager.characterManager.ignoreNegativeItemEffects(character)) {
             character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character);

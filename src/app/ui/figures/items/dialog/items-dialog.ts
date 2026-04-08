@@ -258,7 +258,7 @@ export class ItemsDialogComponent implements OnInit {
             gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems || [];
             if (!this.unlocked(item)) {
                 gameManager.stateManager.before("addUnlockedItem", item.edition, item.id, item.name);
-                gameManager.game.party.unlockedItems.push(new CountIdentifier('' + item.id, item.edition));
+                gameManager.game.party.unlockedItems.push(new CountIdentifier(item.id, item.edition));
                 gameManager.stateManager.after();
                 this.updateEditionItems();
             }
@@ -278,7 +278,7 @@ export class ItemsDialogComponent implements OnInit {
 
     addItem(itemData: ItemData, force: boolean = false) {
         if (this.character && (gameManager.itemManager.canAdd(itemData, this.character) || force)) {
-            gameManager.stateManager.before("addItem", gameManager.characterManager.characterName(this.character), itemData.id + "", itemData.edition);
+            gameManager.stateManager.before("addItem", gameManager.characterManager.characterName(this.character, true, true), itemData.id, itemData.edition);
             gameManager.itemManager.addItem(itemData, this.character);
             gameManager.stateManager.after();
             this.update();
@@ -287,7 +287,7 @@ export class ItemsDialogComponent implements OnInit {
 
     buyItem(itemData: ItemData) {
         if (this.character && gameManager.itemManager.canBuy(itemData, this.character)) {
-            gameManager.stateManager.before("buyItem", gameManager.characterManager.characterName(this.character), itemData.id + "", itemData.edition);
+            gameManager.stateManager.before("buyItem", gameManager.characterManager.characterName(this.character, true, true), itemData.id, itemData.edition);
             gameManager.itemManager.buyItem(itemData, this.character);
             gameManager.stateManager.after();
             this.update();
@@ -297,7 +297,7 @@ export class ItemsDialogComponent implements OnInit {
 
     craftItem(itemData: ItemData) {
         if (this.character && gameManager.itemManager.canCraft(itemData, this.character)) {
-            gameManager.stateManager.before("craftItem", gameManager.characterManager.characterName(this.character), itemData.id + "", itemData.edition);
+            gameManager.stateManager.before("craftItem", gameManager.characterManager.characterName(this.character, true, true), itemData.id, itemData.edition);
             gameManager.itemManager.craftItem(itemData, this.character);
             gameManager.stateManager.after();
             this.update();
@@ -309,7 +309,7 @@ export class ItemsDialogComponent implements OnInit {
         const item = this.character && this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
         if (item && this.character) {
             const index = this.character.progress.items.indexOf(item)
-            gameManager.stateManager.before("removeItem", gameManager.characterManager.characterName(this.character), this.character.progress.items[index].name, this.character.progress.items[index].edition);
+            gameManager.stateManager.before("removeItem", gameManager.characterManager.characterName(this.character, true, true), this.character.progress.items[index].name, this.character.progress.items[index].edition);
             gameManager.itemManager.removeItem(itemData, this.character);
             gameManager.stateManager.after();
             this.update();
@@ -320,7 +320,7 @@ export class ItemsDialogComponent implements OnInit {
         const item = this.character && this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
         if (this.character && item && gameManager.itemManager.itemSellValue(itemData)) {
             const index = this.character.progress.items.indexOf(item)
-            gameManager.stateManager.before("sellItem", gameManager.characterManager.characterName(this.character), this.character.progress.items[index].name, this.character.progress.items[index].edition);
+            gameManager.stateManager.before("sellItem", gameManager.characterManager.characterName(this.character, true, true), this.character.progress.items[index].name, this.character.progress.items[index].edition);
             gameManager.itemManager.sellItem(itemData, this.character)
             gameManager.stateManager.after();
             this.update();
@@ -350,7 +350,7 @@ export class ItemsDialogComponent implements OnInit {
         if (this.character && (!disabled || force)) {
             let equippedItems: ItemData[] = this.character.progress.equippedItems.map((identifier) => this.items.find((itemData) => identifier.name == '' + itemData.id && itemData.edition == identifier.edition)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
             const equipIndex = equippedItems.indexOf(itemData);
-            gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', gameManager.characterManager.characterName(this.character), itemData.name, itemData.edition)
+            gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', gameManager.characterManager.characterName(this.character, true, true), itemData.name, itemData.edition)
             gameManager.itemManager.toggleEquippedItem(itemData, this.character, force)
             gameManager.stateManager.after();
         }

@@ -380,7 +380,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
           if (result) {
             const itemData = result as ItemData;
             gameManager.stateManager.before("eventEffect.drawRandomItem" + (blueprint ? 'Blueprint' : ''), itemData.id, itemData.edition, itemData.name);
-            gameManager.game.party.unlockedItems.push(new CountIdentifier('' + itemData.id, itemData.edition));
+            gameManager.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
             gameManager.stateManager.after();
           }
         }
@@ -403,7 +403,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
             if (section) {
               const unlocks = scenarioData.unlocks ? scenarioData.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ') : '';
               gameManager.stateManager.before("eventEffect.drawRandomScenarioSection", scenarioData.index, scenarioData.edition, scenarioData.name, unlocks);
-              gameManager.game.party.conclusions.push(new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group));
+              gameManager.game.party.conclusions.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
               gameManager.stateManager.after();
             } else {
               gameManager.stateManager.before("eventEffect.drawRandomScenario", scenarioData.index, scenarioData.edition, scenarioData.name);
@@ -500,7 +500,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
     this.entityConditions.forEach((condition) => {
       if (this.activeCharacters.find((character) => character.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired && entityCondition.value != condition.value))) {
-        gameManager.stateManager.before("eventEffect.setConditionValue", condition.name, "" + condition.value, characterIcons);
+        gameManager.stateManager.before("eventEffect.setConditionValue", condition.name, condition.value, characterIcons);
         this.activeCharacters.forEach((character) => {
           const entityCondition = character.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
           if (entityCondition && entityCondition.value != condition.value) {

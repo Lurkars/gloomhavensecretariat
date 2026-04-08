@@ -338,6 +338,10 @@ export class EntityManager {
   isImmune(entity: Entity, figure: Figure, conditionName: ConditionName, ignoreManual: boolean = false): boolean {
     let immune: boolean = false;
 
+    if (entity instanceof ObjectiveEntity && figure instanceof ObjectiveContainer && !figure.escort) {
+      return true;
+    }
+
     if (entity.immunities && entity.immunities.includes(conditionName) && !ignoreManual) {
       return true;
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
@@ -882,7 +886,7 @@ export class EntityManager {
     return result;
   }
 
-  before(entity: Entity, figure: Figure, info: string, ...values: (string | number | boolean)[]) {
+  before(entity: Entity | undefined, figure: Figure | undefined, info: string, ...values: (string | number | boolean)[]) {
     this.beforeEntities(entity, figure, [], info, ...values);
   }
 

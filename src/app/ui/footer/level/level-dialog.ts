@@ -108,7 +108,7 @@ export class LevelDialogComponent implements OnInit {
     }
 
     setLevel(level: number) {
-        gameManager.stateManager.before("setScenarioLevel", "" + level);
+        gameManager.stateManager.before("setScenarioLevel", level);
         gameManager.levelManager.setLevel(level);
         gameManager.game.levelCalculation = false;
         gameManager.stateManager.after();

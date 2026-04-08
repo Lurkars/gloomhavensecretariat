@@ -122,7 +122,7 @@ export class CharacterComponent implements OnInit {
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
-    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, gameManager.characterManager.characterName(this.character), ...change.values);
+    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, gameManager.characterManager.characterName(this.character, true, true), ...change.values);
   }
 
   afterAttackModifierDeck(change: AttackModiferDeckChange) {
@@ -159,7 +159,7 @@ export class CharacterComponent implements OnInit {
 
     if (this.character.initiative != this.initiative) {
       this.character.initiative = this.initiative;
-      gameManager.stateManager.before("setInitiative", gameManager.characterManager.characterName(this.character), "" + value);
+      gameManager.entityManager.before(this.character, this.character, "setInitiative", value);
       this.character.initiative = value;
       if (value == 99) {
         this.character.longRest = true;
@@ -181,12 +181,12 @@ export class CharacterComponent implements OnInit {
         const activeSummon = this.character.summons.find((summon) => summon.active);
         const csSprits = this.character.summons.filter((summon) => summon.tags.includes('cs-skull-spirit'));
         if (settingsManager.settings.activeSummons && !activeSummon && this.character.active && csSprits.length && !csSprits.find((summon) => summon.active)) {
-          gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(this.character), "data.summon." + csSprits[0].name);
+          gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(this.character, true, true), "data.summon." + csSprits[0].name);
           csSprits.forEach((spirit) => spirit.tags.push('cs-skull-spirit-turn'));
         } else if (settingsManager.settings.activeSummons && this.character.active && activeSummon) {
-          gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(this.character), "data.summon." + activeSummon.name);
+          gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(this.character, true, true), "data.summon." + activeSummon.name);
         } else {
-          gameManager.stateManager.before(this.character.active ? "unsetActive" : "setActive", gameManager.characterManager.characterName(this.character));
+          gameManager.stateManager.before(this.character.active ? "unsetActive" : "setActive", gameManager.characterManager.characterName(this.character, true, true));
         }
         gameManager.roundManager.toggleFigure(this.character);
         gameManager.stateManager.after();
@@ -210,7 +210,7 @@ export class CharacterComponent implements OnInit {
         next = 0;
       }
 
-      gameManager.stateManager.before("nextIdentity", gameManager.characterManager.characterName(this.character, false, false, false), this.character.name, this.character.identities[this.character.identity], this.character.identities[next], this.character.edition);
+      gameManager.entityManager.before(this.character, this.character, 'identity', this.character.edition, this.character.name, next, this.character.identities[next]);
       this.character.identity = next;
       gameManager.stateManager.after();
       event.preventDefault();

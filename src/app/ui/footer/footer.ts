@@ -222,7 +222,7 @@ export class FooterComponent implements OnInit {
   }
 
   beforeCharacterAttackModifierDeck(character: Character, change: AttackModiferDeckChange) {
-    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, gameManager.characterManager.characterName(character), ...change.values);
+    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, gameManager.characterManager.characterName(character, true, true), ...change.values);
   }
 
   afterCharacterAttackModifierDeck(character: Character, change: AttackModiferDeckChange) {

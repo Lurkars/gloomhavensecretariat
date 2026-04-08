@@ -116,7 +116,7 @@ export class CharacterRetirementDialog {
     apply() {
         ghsDialogClosingHelper(this.dialogRef, true);
 
-        gameManager.stateManager.before("setRetired", gameManager.characterManager.characterName(this.character));
+        gameManager.stateManager.before("setRetired", gameManager.characterManager.characterName(this.character, true, true));
         this.character.progress.retired = true;
         gameManager.game.party.retirements.push(this.character.toModel());
         gameManager.characterManager.removeCharacter(this.character, true);
@@ -144,7 +144,7 @@ export class CharacterRetirementDialog {
             }
 
             if (this.characterItemDesign) {
-                gameManager.game.party.unlockedItems.push(new CountIdentifier('' + this.characterItemDesign.id, this.characterItemDesign.edition));
+                gameManager.game.party.unlockedItems.push(new CountIdentifier(this.characterItemDesign.id, this.characterItemDesign.edition));
 
             }
         }
@@ -155,14 +155,14 @@ export class CharacterRetirementDialog {
             }
 
             if (this.additionalCharacterItemDesign) {
-                gameManager.game.party.unlockedItems.push(new CountIdentifier('' + this.additionalCharacterItemDesign.id, this.additionalCharacterItemDesign.edition));
+                gameManager.game.party.unlockedItems.push(new CountIdentifier(this.additionalCharacterItemDesign.id, this.additionalCharacterItemDesign.edition));
 
             }
         }
 
         if (this.envelopeAlreadyUnlocked) {
             if (this.envelopeSection && this.envelopeSection != true) {
-                gameManager.game.party.conclusions.push(new GameScenarioModel('' + this.envelopeSection.index, this.envelopeSection.edition, this.envelopeSection.group));
+                gameManager.game.party.conclusions.push(new GameScenarioModel(this.envelopeSection.index, this.envelopeSection.edition, this.envelopeSection.group));
                 if (this.envelopeSection.unlocks) {
                     this.envelopeSection.unlocks.forEach((unlock) => {
                         if (this.envelopeSection && this.envelopeSection != true) {
@@ -175,7 +175,7 @@ export class CharacterRetirementDialog {
             }
 
             if (this.envelopeItemBlueprint && this.envelopeItemBlueprint != true) {
-                gameManager.game.party.unlockedItems.push(new CountIdentifier('' + this.envelopeItemBlueprint.id, this.envelopeItemBlueprint.edition));
+                gameManager.game.party.unlockedItems.push(new CountIdentifier(this.envelopeItemBlueprint.id, this.envelopeItemBlueprint.edition));
             } else {
                 gameManager.game.party.inspiration += 1;
             }
@@ -183,7 +183,7 @@ export class CharacterRetirementDialog {
 
         if (this.additionalEnvelopeAlreadyUnlocked) {
             if (this.additionalEnvelopeSection && this.additionalEnvelopeSection != true) {
-                gameManager.game.party.conclusions.push(new GameScenarioModel('' + this.additionalEnvelopeSection.index, this.additionalEnvelopeSection.edition, this.additionalEnvelopeSection.group));
+                gameManager.game.party.conclusions.push(new GameScenarioModel(this.additionalEnvelopeSection.index, this.additionalEnvelopeSection.edition, this.additionalEnvelopeSection.group));
                 if (this.additionalEnvelopeSection.unlocks) {
                     this.additionalEnvelopeSection.unlocks.forEach((unlock) => {
                         if (this.additionalEnvelopeSection && this.additionalEnvelopeSection != true) {
@@ -196,7 +196,7 @@ export class CharacterRetirementDialog {
             }
 
             if (this.additionalEnvelopeItemBlueprint && this.additionalEnvelopeItemBlueprint != true) {
-                gameManager.game.party.unlockedItems.push(new CountIdentifier('' + this.additionalEnvelopeItemBlueprint.id, this.additionalEnvelopeItemBlueprint.edition));
+                gameManager.game.party.unlockedItems.push(new CountIdentifier(this.additionalEnvelopeItemBlueprint.id, this.additionalEnvelopeItemBlueprint.edition));
             } else {
                 gameManager.game.party.inspiration += 1;
             }

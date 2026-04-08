@@ -139,7 +139,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
     }
 
     beforeAttackModifierDeck(change: AttackModiferDeckChange) {
-        gameManager.stateManager.before("updateAttackModifierDeck." + change.type, this.activeDeckIndex > 0 ? gameManager.characterManager.characterName(this.characters[this.activeDeckIndex - 1]) : (this.activeDeckIndex == 0 ? "ally" : "monster"), ...change.values);
+        gameManager.stateManager.before("updateAttackModifierDeck." + change.type, this.activeDeckIndex > 0 ? gameManager.characterManager.characterName(this.characters[this.activeDeckIndex - 1], true, true) : (this.activeDeckIndex == 0 ? "ally" : "monster"), ...change.values);
     }
 
     afterAttackModifierDeck(change: AttackModiferDeckChange) {

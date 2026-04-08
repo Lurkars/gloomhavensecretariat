@@ -4,6 +4,7 @@ import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
 import { ItemFlags } from 'src/app/game/model/data/ItemData';
 import { MonsterType } from "src/app/game/model/data/MonsterType";
+import { PetIdentifier } from "src/app/game/model/data/PetCard";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
@@ -75,4 +76,39 @@ export class MonsterHelper {
             }
         }
     }
+
+    catchMonster(force: boolean = false) {
+        if (this.component.figure instanceof Monster && this.component.entity instanceof MonsterEntity && this.component.catching && (!this.component.catchingDisabled || force)) {
+            gameManager.stateManager.before('buildings.stables.pets.catch', 'data.monster.' + this.component.figure.name, '%game.monsterType.' + this.component.entity.type + '%', '%game.monsterType.' + this.component.entity.type + '.' + this.component.entity.number + '%');
+
+            this.component.entity.dead = true;
+
+            if (this.component.figure.entities.every((monsterEntity) => monsterEntity.dead)) {
+                if (this.component.figure.active) {
+                    gameManager.roundManager.toggleFigure(this.component.figure);
+                }
+            }
+
+            if (gameManager.game.party.pets.find((value) => this.component.figure instanceof Monster && value.edition == this.component.figure.edition && value.name == this.component.figure.pet) == undefined) {
+                gameManager.game.party.pets.push(new PetIdentifier(this.component.figure.pet, this.component.figure.edition));
+                const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.equippedItems.find((item) => item.edition == 'fh' && item.name == '247' && (!item.tags || !item.tags.includes(ItemFlags.consumed)))) as Character;
+                if (character && !force) {
+                    const item = character.progress.equippedItems.find((item) => item.edition == 'fh' && item.name == '247' && (!item.tags || !item.tags.includes(ItemFlags.consumed)));
+                    if (item) {
+                        item.tags = item.tags || [];
+                        item.tags.push(ItemFlags.consumed);
+                    }
+                }
+            }
+
+            setTimeout(() => {
+                if (this.component.figure instanceof Monster && this.component.entity instanceof MonsterEntity) {
+                    gameManager.monsterManager.removeMonsterEntity(this.component.figure, this.component.entity);
+                    gameManager.stateManager.after();
+                }
+            }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
+            ghsDialogClosingHelper(this.component.dialogRef, true);
+        }
+    }
+
 }

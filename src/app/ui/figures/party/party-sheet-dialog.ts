@@ -445,7 +445,7 @@ export class PartySheetDialogComponent implements OnInit {
     }).closed.subscribe({
       next: () => {
         if (characterModel.progress && JSON.stringify(characterModel.progress.enhancements) != JSON.stringify(character.progress.enhancements)) {
-          gameManager.stateManager.before("changeRetiredCharacterEnhancements", gameManager.characterManager.characterName(character, true));
+          gameManager.stateManager.before("changeRetiredCharacterEnhancements", gameManager.characterManager.characterName(character, true, true));
           characterModel.progress.enhancements = character.progress.enhancements;
           const current = gameManager.game.figures.find((figure) => figure instanceof Character && figure.edition == character.edition && figure.name == character.name) as Character;
           if (current) {
@@ -505,7 +505,7 @@ export class PartySheetDialogComponent implements OnInit {
       value = 0;
     }
 
-    gameManager.stateManager.before("setPartyDonations", "" + value);
+    gameManager.stateManager.before("setPartyDonations", value);
     this.party.donations = value;
     if (value < 10) {
       this.party.envelopeB = false;
@@ -534,7 +534,7 @@ export class PartySheetDialogComponent implements OnInit {
       value = 0;
     }
 
-    gameManager.stateManager.before("setPartyProsperity", "" + value);
+    gameManager.stateManager.before("setPartyProsperity", value);
     this.party.prosperity = value;
     gameManager.stateManager.after();
 
@@ -555,7 +555,7 @@ export class PartySheetDialogComponent implements OnInit {
       value = 0;
     }
 
-    gameManager.stateManager.before("setPartyImbuement", "" + value);
+    gameManager.stateManager.before("setPartyImbuement", value);
     this.party.imbuement = value;
     gameManager.stateManager.after();
 
@@ -1206,7 +1206,7 @@ export class PartySheetDialogComponent implements OnInit {
       this.openConclusions(conclusion, value);
     })
 
-    gameManager.stateManager.before("setPartyWeeks", "" + value);
+    gameManager.stateManager.before("setPartyWeeks", value);
     for (let week = this.party.weeks; week < value; week++) {
       const sectionsForWeeks = [...this.sectionsForWeekFixed(week), ...this.sectionsForWeek(week)]
       sectionsForWeeks.forEach((section) => {
@@ -1277,7 +1277,7 @@ export class PartySheetDialogComponent implements OnInit {
     }
 
     if (value < this.party.soldiers || force) {
-      gameManager.stateManager.before("setPartySoldiers", "" + value);
+      gameManager.stateManager.before("setPartySoldiers", value);
       this.party.soldiers = value;
       gameManager.stateManager.after();
     } else if (this.soldierAvailable() && value == this.party.soldiers + 1) {
@@ -1291,7 +1291,7 @@ export class PartySheetDialogComponent implements OnInit {
       }).closed.subscribe({
         next: (result) => {
           if (result) {
-            gameManager.stateManager.before("setPartySoldiers", "" + value);
+            gameManager.stateManager.before("setPartySoldiers", value);
             this.party.soldiers = value;
             if (result instanceof SelectResourceResult) {
               gameManager.lootManager.applySelectResources(result);
@@ -1334,7 +1334,7 @@ export class PartySheetDialogComponent implements OnInit {
       value = 20;
     }
 
-    gameManager.stateManager.before("setPartyMorale", "" + value);
+    gameManager.stateManager.before("setPartyMorale", value);
 
     this.party.morale = value;
     const campaignData = gameManager.campaignData();
@@ -1363,7 +1363,7 @@ export class PartySheetDialogComponent implements OnInit {
       value = 0;
     }
 
-    gameManager.stateManager.before("setPartyTownGuardPerks", "" + value);
+    gameManager.stateManager.before("setPartyTownGuardPerks", value);
     this.party.townGuardPerks = value;
     gameManager.stateManager.after();
   }

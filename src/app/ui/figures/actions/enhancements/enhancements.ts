@@ -86,7 +86,7 @@ export class ActionEnhancementsComponent implements OnInit {
             if (this.character && this.cardId && this.enhancements[this.slotIndex != undefined ? this.slotIndex : index]) {
                 const enhancement = this.character.progress.enhancements.find((e) => e.cardId == this.cardId && (!this.wipSpecialIndex && e.actionIndex == this.actionIndex || this.wipSpecialIndex && e.actionIndex == this.wipSpecialIndex) && e.index == index)
                 if (enhancement && !enhancement.inherited) {
-                    gameManager.stateManager.before('removeEnhancement', gameManager.characterManager.characterName(this.character), this.cardId);
+                    gameManager.stateManager.before('removeEnhancement', gameManager.characterManager.characterName(this.character, true, true), this.cardId);
                     this.character.progress.enhancements = this.character.progress.enhancements.filter((e) => e != enhancement);
                     gameManager.stateManager.after();
                 }

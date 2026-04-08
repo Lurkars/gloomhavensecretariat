@@ -29,7 +29,7 @@ export class CharacterXpCommand extends CommandImpl {
     override before(): BASE_TYPE[] {
         const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == this.parameters[0]) as Character;
         if (character) {
-            return ['command.' + this.id, gameManager.characterManager.characterName(character, true, true, false), this.parameters[1]];
+            return ['command.' + this.id, gameManager.characterManager.characterName(character, true, true), this.parameters[1]];
         }
 
         return ['command.invalid.' + this.id, ...this.parameters];

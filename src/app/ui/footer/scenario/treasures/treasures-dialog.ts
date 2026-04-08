@@ -95,7 +95,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
 
     removeTreasure(character: Character, treasure: string | number) {
         if (typeof treasure === 'number') {
-            gameManager.stateManager.before('removeCharTresure', treasure >= 0 ? '' + treasure : '???', this.edition, gameManager.characterManager.characterName(character));
+            gameManager.stateManager.before('removeCharTresure', treasure >= 0 ? '' + treasure : '???', this.edition, gameManager.characterManager.characterName(character, true, true));
             this.looted.splice(this.treasures.indexOf(treasure), 1);
         } else {
             gameManager.stateManager.before('removeCharTresure', 'G', this.edition);
@@ -114,7 +114,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
             this.rewardResults = [];
             const treasure = this.treasures[this.treasureIndex];
             if (this.character && treasure && !this.character.treasures.includes(treasure == 'G' ? 'G-' + this.treasureIndex : treasure)) {
-                gameManager.stateManager.before('lootCharTreasure', ('' + treasure).startsWith('G') || +treasure >= 0 ? '' + treasure : '???', this.edition, gameManager.characterManager.characterName(this.character));
+                gameManager.stateManager.before('lootCharTreasure', ('' + treasure).startsWith('G') || +treasure >= 0 ? treasure : '???', this.edition, gameManager.characterManager.characterName(this.character, true, true));
                 this.looted.push(this.treasureIndex);
                 if (treasure != 'G' && settingsManager.settings.treasuresLoot) {
                     this.rewardResults = gameManager.lootManager.lootTreasure(this.character, treasure - 1, this.edition);
@@ -123,7 +123,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
                 this.character.treasures.push(treasure == 'G' ? 'G-' + this.treasureIndex : this.rewardResults.some((rewardResult) => rewardResult.length > 0) ? treasure + ':' + this.rewardResults.map((reward) => reward.join('+')).join('|') : treasure);
 
                 if (typeof treasure === 'number') {
-                    gameManager.game.party.treasures.push(new Identifier('' + treasure, this.edition));
+                    gameManager.game.party.treasures.push(new Identifier(treasure, this.edition));
                 }
 
                 gameManager.stateManager.after();

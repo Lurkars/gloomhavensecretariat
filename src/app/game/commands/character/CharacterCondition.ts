@@ -51,7 +51,7 @@ export class CharacterConditionCommand extends CommandImpl {
         const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == this.parameters[0]) as Character;
         const condition = this.conditions[this.parameters[1] as number];
         if (character && condition) {
-            return ['command.' + this.id, gameManager.characterManager.characterName(character, true, true, false), 'game.condition.' + condition];
+            return ['command.' + this.id, gameManager.characterManager.characterName(character, true, true), 'game.condition.' + condition];
         }
 
         return ['command.invalid.' + this.id, ...this.parameters];
