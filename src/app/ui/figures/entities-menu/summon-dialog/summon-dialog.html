@@ -7,26 +7,42 @@
   </span>
 
   <span class="name full">
-    @if (summon.title) {
-    <span>{{summon.title}}&nbsp;</span>
-    }
-    @if (summon.name) {
-    <span>@if (summon.title) {
-      <span>(</span>
-      }
-      <span [ghs-label]="'data.summon.' + summon.name"></span>
+    <span class="name full">
       @if (summon.title) {
-      <span>)</span>
-      }</span>
-    }
-    @if (!summon.name) {
-    <span><span [ghs-label]="'game.summon'"></span></span>
-    }
-    <span class="summon-icon" [ngClass]="{'fh': summon.color == SummonColor.fh}">
-      @if (summon.color != SummonColor.fh) {
-      <img [src]="'./assets/images/summons/' + summon.color + '.png'">
+      <span>{{summon.title}}&nbsp;</span>
       }
-      <span class="summon-number">{{summon.number}}</span>
+      @if (summon.name) {
+      <span>@if (summon.title) {
+        <span>(</span>
+        }
+        <span [ghs-label]="'data.summon.' + summon.name"></span>
+        @if (summon.title) {
+        <span>)</span>
+        }</span>
+      }
+      @if (!summon.name) {
+      <span><span [ghs-label]="'summon'"></span></span>
+      }
+      <span class="summon-entity"
+        [ngClass]="{ 'thumbnail' : settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)}">
+        <span class="summon-state" [ngClass]="{'fh': summon.color == SummonColor.fh}">
+          @if (summon.color != SummonColor.fh) {
+          <img src="./assets/images/summons/{{summon.color}}.png">
+          }
+          <span class="summon-number">
+            @if (summon.number == 0) {
+            <span>-</span>
+            }
+            @if (summon.number > 0) {
+            <span>{{summon.number}}</span>
+            }</span>
+        </span>
+        @if (settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)) {
+        <div class="background-image"
+          [style.background-image]="summon.thumbnailUrl ? 'url(' +  summon.thumbnailUrl + ')' : 'url(./assets/images/summons/thumbnail/' + summon.thumbnail + '.png)'">
+        </div>
+        }
+      </span>
     </span>
   </span>
 

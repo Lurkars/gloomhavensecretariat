@@ -1,8 +1,5 @@
 <div class="entity-menu-dialog scroll-container">
 
-  <span class="migrate" (click)="openEntitiesMenu()" [ghs-tooltip]="'entities.migrate.new'" [originX]="'start'"
-    [overlayX]="'end'" [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/switch.svg" /></span>
-
   @if (data.entityIndexKey && data.entity) {
   <ghs-entity-index-key [entity]="data.entity" [show]="true"></ghs-entity-index-key>
   }
@@ -832,4 +829,10 @@
   }
 </div>
 }
+
+<span class="migrate" (click)="openEntitiesMenu()" [ghs-tooltip]="'entities.migrate.new'" [originX]="'start'"
+  [overlayX]="'end'" [originY]="'top'" [overlayY]="'bottom'">
+  <img src="./assets/images/switch.svg" />
+</span>
+
 </div>

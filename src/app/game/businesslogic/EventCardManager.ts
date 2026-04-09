@@ -275,7 +275,7 @@ export class EventCardManager {
     let results: (EventCardEffect | EventCardCondition)[] = [];
     effects.forEach((effect, i) => {
       if (typeof effect === 'string') {
-        results.push(new EventCardEffect(EventCardEffectType.custom, [effect]));
+        !scenario && results.push(new EventCardEffect(EventCardEffectType.custom, [effect]));
       } else {
         if (this.applicableEffect(effect) && (!effect.condition || this.resolvableCondition(effect.condition))) {
           let characters = gameManager.characterManager.getActiveCharacters();
@@ -291,7 +291,7 @@ export class EventCardManager {
           }
 
           if (effect.type == EventCardEffectType.and || effect.type == EventCardEffectType.additionally) {
-            results.push(...this.applyEffects(eventCard, effect.values.filter((e) => typeof e !== 'number' && typeof e !== 'string'), checks, scenario));
+            !scenario && results.push(...this.applyEffects(eventCard, effect.values.filter((e) => typeof e !== 'number' && typeof e !== 'string'), checks, scenario));
           } else if (scenario) {
             switch (effect.type) {
               case EventCardEffectType.scenarioCondition:
@@ -385,7 +385,7 @@ export class EventCardManager {
                 break
               case EventCardEffectType.checkbox:
                 if (checks[i] && !!effect.values && effect.values.length) {
-                  results.push(...this.applyEffects(eventCard, effect.values.filter((e) => typeof e !== 'number'), checks, scenario));
+                  !scenario && results.push(...this.applyEffects(eventCard, effect.values.filter((e) => typeof e !== 'number'), checks, scenario));
                 }
                 break;
               case EventCardEffectType.drawAnotherEvent:
@@ -590,11 +590,11 @@ export class EventCardManager {
                     }
                   } else {
                     console.warn("Building not found to apply event effect", effect, scenario);
-                    results.push(effect);
+                    !scenario && results.push(effect);
                   }
                 } else {
                   console.warn("Building not found to apply event effect", effect, scenario);
-                  results.push(effect);
+                  !scenario && results.push(effect);
                 }
                 break;
               }
@@ -615,7 +615,7 @@ export class EventCardManager {
                   }
                 } else {
                   console.warn("Building not found to apply event effect", effect, scenario);
-                  results.push(effect);
+                  !scenario && results.push(effect);
                 }
                 break;
               }
@@ -628,14 +628,12 @@ export class EventCardManager {
                 break;
               }
               default:
-                results.push(effect);
+                !scenario && results.push(effect);
                 break;
             }
           }
         } else if (effect.type != EventCardEffectType.noEffect) {
-          if (!scenario) {
-            results.push(effect);
-          }
+          !scenario && results.push(effect);
           if (effect.type != EventCardEffectType.outpostAttack && effect.type != EventCardEffectType.outpostTarget) {
             console.warn("Missing implementation for applying effect", effect, scenario);
           }

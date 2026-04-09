@@ -125,9 +125,9 @@
       </a>
     </div>
     }
-    @if (isUpdateAvailable()) {
+    @if (isUpdateAvailable) {
     <div class="line separator">
-      <a tabclick (click)="update()">&lt;<span [ghs-label]="'update'"></span>(!)&gt;</a>
+      <a tabclick (click)="updateApplication()">&lt;<span [ghs-label]="'update'"></span>(!)&gt;</a>
     </div>
     }
   </div>

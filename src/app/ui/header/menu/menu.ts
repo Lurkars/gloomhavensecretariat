@@ -56,9 +56,10 @@ export class MainMenuComponent implements OnInit {
   undoInfo: string[] = [];
   undoOffset: number = 0;
   redoInfo: string[] = [];
+  isUpdateAvailable: boolean = false;
 
   constructor(@Inject(DIALOG_DATA) data: { subMenu: SubMenu, standalone: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private swUpdate: SwUpdate, private ghsManager: GhsManager) {
-    this.ghsManager.uiChangeEffect(() => this.updateUndoRedo());
+    this.ghsManager.uiChangeEffect(() => this.update());
     this.active = data.subMenu;
     this.standalone = data.standalone;
     this.dialogRef.overlayRef.hostElement.style.zIndex = '999';
@@ -68,16 +69,14 @@ export class MainMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.updateUndoRedo();
-
+    this.update();
   }
-
 
   close() {
     ghsDialogClosingHelper(this.dialogRef);
   }
 
-  updateUndoRedo() {
+  update() {
     const undos = gameManager.stateManager.undos;
     const redos = gameManager.stateManager.redos;
     const undoInfos = gameManager.stateManager.undoInfos;
@@ -116,6 +115,8 @@ export class MainMenuComponent implements OnInit {
     } else {
       this.redoInfo = [];
     }
+
+    this.isUpdateAvailable = ((window as any).electron) ? (window as any).electron.updateAvailable : gameManager.stateManager.hasUpdate;
   }
 
   openUndoDialog(event: any) {
@@ -261,15 +262,8 @@ export class MainMenuComponent implements OnInit {
     }) != undefined
   }
 
-  isUpdateAvailable(): boolean {
-    if ((window as any).electron) {
-      return (window as any).electron.updateAvailable;
-    }
-    return gameManager.stateManager.hasUpdate;
-  }
-
-  update(force: boolean = false): void {
-    if (this.isUpdateAvailable() || force) {
+  updateApplication(force: boolean = false): void {
+    if (this.isUpdateAvailable || force) {
       if ((window as any).electron) {
         (window as any).electron.quitAndInstall();
       } else if (this.swUpdate.isEnabled) {

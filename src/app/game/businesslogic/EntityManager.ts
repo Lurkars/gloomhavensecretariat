@@ -940,25 +940,26 @@ export class EntityManager {
     return infos;
   }
 
-  titleInfo(entity: Entity | undefined, figure: Figure | undefined): (string | number | boolean)[] {
+  titleInfo(entity: Entity | undefined = undefined, figure: Figure | undefined = undefined): (string | number | boolean)[] {
+    const statEffect = figure instanceof Monster && !!figure.statEffect && figure.statEffect.name;
     if (entity instanceof Character) {
       return [gameManager.characterManager.characterName(entity, true, true)];
     } else if (entity instanceof Summon && figure instanceof Character) {
       return [gameManager.characterManager.characterName(figure, true, true), entity.name ? '%data.summon.' + entity.name + '%' : entity.number];
     } else if (entity instanceof Summon) {
-      return ["%data.summon." + entity.name + '%'];
+      return ['%data.summon.' + entity.name + '%'];
     } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
       return ['%game.objectiveIcon.' + (figure.escort ? 'escort' : 'objective') + '% ' + (figure.title || figure.name && '%data.objective.' + figure.name + '%' || (figure.escort ? '%escort%' : '%objective%')), '%game.objectiveMarker.' + entity.number + '%'];
     } else if (entity instanceof ObjectiveEntity) {
       return ['%game.objectiveMarker.' + entity.number + '%'];
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
-      return ['%data.monster.' + figure.name + '%', '%game.monsterType.' + entity.type + '.' + entity.number + '%'];
+      return [(statEffect ? '%data.monster.' + statEffect + '%&nbsp(' : '') + '%data.monster.' + figure.name + '%' + (statEffect ? ')' : ''), '%game.monsterType.' + entity.type + '.' + entity.number + '%'];
     } if (entity instanceof MonsterEntity) {
       return ['%game.monsterType.' + entity.type + '.' + entity.number + '%'];
     } else if (figure instanceof Character) {
       return [gameManager.characterManager.characterName(figure, true, true)];
     } else if (figure instanceof Monster) {
-      return ["%data.monster." + figure.name + '%'];
+      return [(statEffect ? '%data.monster.' + statEffect + '%&nbsp(' : '') + '%data.monster.' + figure.name + '%' + (statEffect ? ')' : '')];
     } else if (figure instanceof ObjectiveContainer) {
       return ['%game.objectiveIcon.' + (figure.escort ? 'escort' : 'objective') + '% ' + (figure.title || figure.name && '%data.objective.' + figure.name + '%' || (figure.escort ? '%escort%' : '%objective%'))];
     }

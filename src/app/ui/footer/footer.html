@@ -21,7 +21,8 @@
   <div class="flex-shrink"></div>
   <div class="level-container">
     @if (settingsManager.settings.entitiesMenu && !!gameManager.game.scenario) {
-    <div class="entities-menu" (click)="openEntitiesMenu()">
+    <div class="entities-menu" (click)="openEntitiesMenu()" [ghs-tooltip]="'entities.event.entities'"
+      [originX]="'center'" [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'">
       <img class="ghs-svg" src="./assets/images/entities.svg">
     </div>
     }

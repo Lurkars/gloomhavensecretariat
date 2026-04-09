@@ -6,7 +6,7 @@ import { GhsManager } from "src/app/game/businesslogic/GhsManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EventCard, EventCardIdentifier } from "src/app/game/model/data/EventCard";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
-import { EventEffectsDialog } from "../../event-effects/event-effects";
+import { EntitiesMenuDialogComponent } from "../../entities-menu/entities-menu-dialog";
 import { EventCardDialogComponent } from "../dialog/event-card-dialog";
 import { EventCardDrawComponent } from "../draw/event-card-draw";
 
@@ -152,7 +152,7 @@ export class EventCardDeckComponent {
         }).closed.subscribe({
             next: (results: any) => {
                 if (settingsManager.settings.eventsApply && results && results.length) {
-                    this.dialog.open(EventEffectsDialog, {
+                    this.dialog.open(EntitiesMenuDialogComponent, {
                         panelClass: ['dialog'],
                         data: { eventResults: results }
                     });

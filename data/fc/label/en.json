@@ -434,6 +434,11 @@
         },
         "72": {
           "1": "adjacent and to the right of any door %game.mapMarker.3%"
+        },
+        "84": {
+          "1": "The Aesther Ashblade is Elham.",
+          "2": "All Savvas Icestorms and Lavaflows are Guardians of the Firmament.",
+          "3": "All named monsters are immune to %game.condition.stun% and have Advantage on all their attacks."
         }
       }
     },

@@ -614,6 +614,6 @@ export class ActionsManager {
     }
 
     copyAction(action: Action): Action {
-        return new Action(action.type, action.value, action.valueType, action.subActions.map((subAction) => this.copyAction(subAction)), action.small, action.hidden);
+        return new Action(action.type, action.value, action.valueType, !!action.subActions ? action.subActions.map((subAction) => this.copyAction(subAction)) : [], action.small, action.hidden);
     }
 }

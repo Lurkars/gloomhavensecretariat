@@ -913,7 +913,10 @@ export class ScenarioRulesManager {
 
               statEffect.note = statEffectRule.note;
 
-              if (statEffect.absolute || (statEffect.health || statEffect.movement || statEffect.attack || statEffect.range || statEffect.initiative || statEffect.actions && statEffect.actions.length || statEffect.immunities && statEffect.immunities.length || statEffect.deck || statEffect.name || statEffect.flying != undefined)) {
+              if (statEffect.absolute || (statEffect.name || statEffect.health || statEffect.movement || statEffect.attack || statEffect.range || statEffect.initiative || statEffect.actions && statEffect.actions.length || statEffect.immunities && statEffect.immunities.length || statEffect.deck || statEffect.name || statEffect.flying != undefined)) {
+                if (!!figure.statEffect && figure.statEffect.name && !statEffect.name) {
+                  statEffect.name = figure.statEffect.name;
+                }
                 figure.statEffect = statEffect;
               } else {
                 figure.statEffect = undefined;

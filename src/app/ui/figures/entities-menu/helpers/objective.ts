@@ -89,7 +89,7 @@ export class ObjectiveHelper {
 
     const newId = entity.number + this.component.objectiveId;
     if (newId != entity.number) {
-      this.component.before("changeEntityNumber", newId, entity.number);
+      this.component.before("changeEntityNumber", entity.number, newId);
       entity.number = newId;
       gameManager.stateManager.after();
     }

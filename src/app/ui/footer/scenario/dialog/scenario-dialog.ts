@@ -6,8 +6,8 @@ import { Scenario } from "src/app/game/model/Scenario";
 import { EditionData } from "src/app/game/model/data/EditionData";
 import { RoomData } from "src/app/game/model/data/RoomData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { EventEffectsDialog } from "src/app/ui/figures/event-effects/event-effects";
-import { FavorsComponent } from "src/app/ui/figures/event-effects/favors/favors";
+import { EntitiesMenuDialogComponent } from "src/app/ui/figures/entities-menu/entities-menu-dialog";
+import { FavorsComponent } from "src/app/ui/figures/entities-menu/favors/favors";
 import { ScenarioRecapDialogComponent } from "src/app/ui/figures/scenario-recap/scenario-recap";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { ScenarioRulesDialogComponent } from "../../scenario-rules/dialog/scenario-rules-dialog";
@@ -107,7 +107,10 @@ export class ScenarioDialogComponent {
     }
 
     openEventEffects(event: any) {
-        this.dialog.open(EventEffectsDialog, { panelClass: ['dialog'] });
+        this.dialog.open(EntitiesMenuDialogComponent, {
+            panelClass: ['dialog'],
+            data: { eventMenu: true }
+        });
         this.close();
     }
 

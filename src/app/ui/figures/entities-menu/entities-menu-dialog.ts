@@ -16,15 +16,20 @@ import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Act
 import { AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { CharacterSpecialAction } from "src/app/game/model/data/CharacterStat";
 import { ConditionName, ConditionType, EntityCondition } from "src/app/game/model/data/Condition";
+import { EventCardCondition, EventCardEffect } from "src/app/game/model/data/EventCard";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsModulo } from "../../helper/Static";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
 import { EntityMenuDialogComponent } from "../entity-menu/entity-menu-dialog";
+import { EventEffectsDialog } from "../event-effects/event-effects";
 import { AttackModifierHelper } from "./helpers/attack-modifiers";
+import { CampaignHelper } from "./helpers/campaign";
 import { CharacterHelper } from "./helpers/character";
+import { CharacterProgressHelper } from "./helpers/character-progress";
 import { ConditionHelper } from "./helpers/conditions";
+import { EventHelper } from "./helpers/event";
 import { HealthHelper } from "./helpers/health";
 import { MarkerHelper } from "./helpers/marker";
 import { MonsterHelper } from "./helpers/monster";
@@ -105,7 +110,6 @@ export class EntitiesMenuDialogComponent {
   objectiveTitle: string | undefined;
   objectiveData: ObjectiveData | undefined;
   amDecks: string[] = [];
-  objectiveOnly: boolean = false;
   trackDamage: boolean = false;
 
   // figures and entities
@@ -116,9 +120,12 @@ export class EntitiesMenuDialogComponent {
   allEntities: Entity[] = [];
   filter: 'character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined;
   filters: ('character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined)[] = [undefined, 'character', 'monster', 'objectives', 'allies', 'enemies'];
-  entityIndexKey: boolean = false;
 
   // helper
+  entityIndexKey: boolean = false;
+  eventMenu: boolean = false;
+  forceEventMenu: boolean = false;
+  objectiveOnly: boolean = false;
   shieldAndRetaliate: boolean = false;
 
   ConditionName = ConditionName;
@@ -135,29 +142,42 @@ export class EntitiesMenuDialogComponent {
   catchingDisabled: boolean = true;
 
   // helpers
-  shieldRetaliateHelper: ShieldRetaliateHelper;
   amHelper: AttackModifierHelper;
+  campaignHelper: CampaignHelper;
   characterHelper: CharacterHelper;
+  characterProgressHelper: CharacterProgressHelper;
   conditionHelper: ConditionHelper;
+  eventHelper: EventHelper;
   healthHelper: HealthHelper;
   markerHelper: MarkerHelper;
   monsterHelper: MonsterHelper;
   objectiveHelper: ObjectiveHelper;
+  shieldRetaliateHelper: ShieldRetaliateHelper;
   specialActionsHelper: SpecialActionsHelper;
 
-  constructor(@Inject(DIALOG_DATA) public data: { figure: Figure | undefined, entity: Entity | undefined, type: MonsterType | undefined, objectiveOnly: boolean, filter: 'character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined, positionElement: ElementRef, entityIndexKey: boolean }, public dialogRef: DialogRef, public dialog: Dialog, public overlay: Overlay, public ghsManager: GhsManager) {
-    this.shieldRetaliateHelper = new ShieldRetaliateHelper(this);
+  constructor(@Inject(DIALOG_DATA) public data: { figure: Figure | undefined, entity: Entity | undefined, type: MonsterType | undefined, objectiveOnly: boolean, filter: 'character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined, entityIndexKey: boolean, eventMenu: boolean, eventResults: (EventCardEffect | EventCardCondition)[], positionElement: ElementRef }, public dialogRef: DialogRef, public dialog: Dialog, public overlay: Overlay, public ghsManager: GhsManager) {
     this.amHelper = new AttackModifierHelper(this);
+    this.campaignHelper = new CampaignHelper(this);
     this.characterHelper = new CharacterHelper(this);
+    this.characterProgressHelper = new CharacterProgressHelper(this);
     this.conditionHelper = new ConditionHelper(this);
+    this.eventHelper = new EventHelper(this);
     this.healthHelper = new HealthHelper(this);
     this.markerHelper = new MarkerHelper(this);
     this.monsterHelper = new MonsterHelper(this);
     this.objectiveHelper = new ObjectiveHelper(this);
+    this.shieldRetaliateHelper = new ShieldRetaliateHelper(this);
     this.specialActionsHelper = new SpecialActionsHelper(this);
     this.filter = !!this.data ? this.data.filter : undefined;
-    this.objectiveOnly = !!this.data && this.data.objectiveOnly;
     this.entityIndexKey = !!this.data && this.data.entityIndexKey;
+    if (!!this.data && !!this.data.eventResults) {
+      this.eventHelper.createEventResults(this.data.eventResults);
+    }
+    this.eventMenu = !!this.data && (this.data.eventMenu || !!this.data.eventResults);
+    if (this.eventMenu) {
+      this.filter = 'character';
+    }
+    this.objectiveOnly = !!this.data && this.data.objectiveOnly;
     if (!!this.data && this.data.figure) {
       this.figure = this.data.figure;
       this.figures = [this.figure];
@@ -239,8 +259,10 @@ export class EntitiesMenuDialogComponent {
       }
     })
 
-    this.entities = [];
-    this.allEntities.forEach((entity) => this.entities.push(entity));
+    if (!this.entities || this.entities.length) {
+      this.entities = [];
+      this.allEntities.forEach((entity) => this.entities.push(entity));
+    }
     this.update();
   }
 
@@ -248,8 +270,11 @@ export class EntitiesMenuDialogComponent {
     this.amHelper.updateAmDecks();
     this.amHelper.updateCurseBless();
     this.amHelper.updateEmpowerEnfeeble();
-    this.conditionHelper.update();
+    this.campaignHelper.update();
     this.characterHelper.update();
+    this.characterProgressHelper.update();
+    this.conditionHelper.update();
+    this.eventHelper.update();
     this.markerHelper.update();
     this.monsterHelper.update();
     this.objectiveHelper.update();
@@ -297,13 +322,23 @@ export class EntitiesMenuDialogComponent {
     }
   }
 
+  toggleAll(select: boolean) {
+    this.entities = [];
+    if (select) {
+      this.allEntities.forEach((entity) => this.entities.push(entity));
+    }
+  }
+
   before(info: string, ...values: (string | number | boolean)[]) {
     gameManager.entityManager.beforeEntities(this.entity, this.figure, this.entities, info, ...values);
   }
 
   close(): void {
     this.healthHelper.close();
+    this.campaignHelper.close();
     this.characterHelper.close();
+    this.characterProgressHelper.close();
+    this.eventHelper.close();
     this.specialActionsHelper.close();
     this.shieldRetaliateHelper.close();
     this.amHelper.close();
@@ -382,16 +417,22 @@ export class EntitiesMenuDialogComponent {
   }
 
   openEntityMenu() {
-    this.dialog.open(EntityMenuDialogComponent, {
-      panelClass: ['dialog'],
-      data: {
-        figure: this.data.figure,
-        entity: this.data.entity,
-        positionElement: this.data.positionElement,
-        entityIndexKey: this.entityIndexKey
-      },
-      positionStrategy: this.data.positionElement && this.overlay.position().flexibleConnectedTo(this.data.positionElement).withPositions(ghsDefaultDialogPositions())
-    });
+    if (this.eventMenu) {
+      this.dialog.open(EventEffectsDialog, {
+        panelClass: ['dialog']
+      });
+    } else {
+      this.dialog.open(EntityMenuDialogComponent, {
+        panelClass: ['dialog'],
+        data: {
+          figure: this.data.figure,
+          entity: this.data.entity,
+          positionElement: this.data.positionElement,
+          entityIndexKey: this.entityIndexKey
+        },
+        positionStrategy: this.data.positionElement && this.overlay.position().flexibleConnectedTo(this.data.positionElement).withPositions(ghsDefaultDialogPositions())
+      });
+    }
     this.dialogRef.close(true);
   }
 }

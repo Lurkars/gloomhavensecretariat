@@ -28,16 +28,7 @@
             "name": "aesther-ashblade"
           },
           "statEffect": {
-            "name": "elham",
-            "actions": [
-              {
-                "type": "custom",
-                "value": "%game.custom.advantage%"
-              }
-            ],
-            "immunities": [
-              "stun"
-            ]
+            "name": "elham"
           },
           "note": "%data.section.rules.fc.84.1%"
         },
@@ -48,7 +39,16 @@
             "name": "savvas-.*"
           },
           "statEffect": {
-            "name": "guardian-of-the-firmament",
+            "name": "guardian-of-the-firmament"
+          },
+          "note": "%data.section.rules.fc.84.2%"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "savvas-.*|aesther-ashblade|elham|guardian-of-the-firmament"
+          },
+          "statEffect": {
             "actions": [
               {
                 "type": "custom",
@@ -59,7 +59,7 @@
               "stun"
             ]
           },
-          "note": "%data.section.rules.fc.84.2%"
+          "note": "%data.section.rules.fc.84.3%"
         }
       ]
     },

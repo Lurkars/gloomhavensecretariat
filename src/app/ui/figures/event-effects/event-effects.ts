@@ -1,4 +1,4 @@
-import { Dialog, DIALOG_DATA } from '@angular/cdk/dialog';
+import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -16,13 +16,14 @@ import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
 import { CharacterSheetDialog } from '../character/dialogs/character-sheet-dialog';
+import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
+import { FavorsComponent } from '../entities-menu/favors/favors';
+import { OutpostAttackComponent } from '../entities-menu/outpost-attack/outpost-attack';
+import { EventRandomItemDialogComponent } from '../entities-menu/random-item/random-item-dialog';
+import { EventRandomScenarioDialogComponent } from '../entities-menu/random-scenario/random-scenario-dialog';
 import { EventCardDeckComponent } from '../event/deck/event-card-deck';
 import { EventCardDrawComponent } from '../event/draw/event-card-draw';
 import { PartySheetDialogComponent } from '../party/party-sheet-dialog';
-import { FavorsComponent } from './favors/favors';
-import { OutpostAttackComponent } from './outpost-attack/outpost-attack';
-import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
-import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
 
 @Component({
   standalone: false,
@@ -63,7 +64,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   eventConditionManual: EventCardCondition[] = [];
   eventAttack: EventCardAttack | undefined;
 
-  constructor(@Inject(DIALOG_DATA) data: { menu: boolean, eventResults: (EventCardEffect | EventCardCondition)[] }, private dialog: Dialog, private ghsManager: GhsManager) {
+  constructor(@Inject(DIALOG_DATA) data: { menu: boolean, eventResults: (EventCardEffect | EventCardCondition)[] }, private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.menu = data && data.menu || false;
     this.createEventResults(data && data.eventResults || [], true);
@@ -756,5 +757,13 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       panelClass: ['dialog-invert'],
       data: { character: character }
     });
+  }
+
+  openEntitiesMenu() {
+    this.dialog.open(EntitiesMenuDialogComponent, {
+      panelClass: ['dialog'],
+      data: { eventMenu: true }
+    });
+    this.dialogRef.close(true);
   }
 }

@@ -23,9 +23,9 @@ export class ConditionsComponent implements OnInit {
 
   @Input() entityConditions!: EntityCondition[];
   @Input() immunities!: ConditionName[];
-  @Input() entity!: Entity;
+  @Input() entity: Entity | undefined;
   @Input() entities!: Entity[];
-  @Input() figure!: Figure;
+  @Input() figure: Figure | undefined;
   @Input() type!: string;
   @Input() columns: number = 3;
   @Input() empower: boolean = false;
@@ -111,7 +111,7 @@ export class ConditionsComponent implements OnInit {
         this.immunityEnabled = !this.immunityEnabled;
         this.permanentEnabled = false;
       }
-      if (condition && (!this.isImmune(condition.name) || this.immunityEnabled && !gameManager.entityManager.isImmune(this.entity, this.figure, condition.name, true))) {
+      if (condition && (!this.isImmune(condition.name) || this.immunityEnabled && !!this.entity && !!this.figure && !gameManager.entityManager.isImmune(this.entity, this.figure, condition.name, true))) {
         this.toggleCondition(condition);
       }
     }
@@ -184,10 +184,10 @@ export class ConditionsComponent implements OnInit {
     }
 
     if (!immune) {
-      if (this.entity) {
+      if (!!this.entity && !!this.figure) {
         immune = gameManager.entityManager.isImmune(this.entity, this.figure, conditionName, true);
-      } else if (this.entities) {
-        immune = this.entities.every((entity) => gameManager.entityManager.isImmune(entity, this.figure, conditionName, true));
+      } else if (this.entities && !!this.figure) {
+        immune = this.entities.every((entity) => !!this.figure && gameManager.entityManager.isImmune(entity, this.figure, conditionName, true));
       }
     }
 

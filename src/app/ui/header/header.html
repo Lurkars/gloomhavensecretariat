@@ -91,7 +91,8 @@
   <span class="spacer"></span>
   @if (!gameManager.bbRules() && !!gameManager.game.scenario && (characterCount > 0
   || settingsManager.settings.partySheet)) {
-  <div class="event-effects" (click)="openEventEffects()">
+  <div class="event-effects" (click)="openEventEffects()" [ghs-tooltip]="'entities.event.menu'" [originX]="'center'"
+    [overlayX]="'center'" [originY]="'bottom'" [overlayY]="'top'">
     <img class="ghs-svg"
       [src]="'./assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state == GameState.next ? '-effects' : '') + '.svg'">
   </div>

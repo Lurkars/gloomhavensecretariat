@@ -7,7 +7,7 @@ import { EditionData } from 'src/app/game/model/data/EditionData';
 import { RoomData } from 'src/app/game/model/data/RoomData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
-import { EventEffectsDialog } from '../../figures/event-effects/event-effects';
+import { EntitiesMenuDialogComponent } from '../../figures/entities-menu/entities-menu-dialog';
 import { EventCardDrawComponent } from '../../figures/event/draw/event-card-draw';
 import { ScenarioRecapDialogComponent } from '../../figures/scenario-recap/scenario-recap';
 import { RandomMonsterCardDialogComponent } from './dialog/random-monster-card/random-monster-card-dialog';
@@ -64,7 +64,7 @@ export class ScenarioComponent {
       }).closed.subscribe({
         next: (results: any) => {
           if (settingsManager.settings.eventsApply && results && results.length) {
-            this.dialog.open(EventEffectsDialog, {
+            this.dialog.open(EntitiesMenuDialogComponent, {
               panelClass: ['dialog'],
               data: { eventResults: results }
             });
@@ -91,7 +91,10 @@ export class ScenarioComponent {
     if (gameManager.game.scenario) {
       this.dialog.open(ScenarioDialogComponent, { data: gameManager.game.scenario, panelClass: ['dialog'] });
     } else {
-      this.dialog.open(EventEffectsDialog, { panelClass: ['dialog'] });
+      this.dialog.open(EntitiesMenuDialogComponent, {
+        panelClass: ['dialog'],
+        data: { eventMenu: true }
+      });
     }
   }
 

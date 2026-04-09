@@ -44,6 +44,7 @@ import { CharacterFullViewComponent } from './ui/figures/character/fullview/full
 import { CharacterItemListComponent } from './ui/figures/character/item-list/item-list';
 import { AbilityCardsDialogComponent } from './ui/figures/character/sheet/abilities/ability-cards-dialog';
 import { EnhancementDialogComponent } from './ui/figures/character/sheet/abilities/enhancements/enhancement-dialog';
+import { EnhancementsComponent } from './ui/figures/character/sheet/abilities/enhancements/enhancements';
 import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
 import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-resources';
 import { CharacterRetirementDialog } from './ui/figures/character/sheet/retirement-dialog';
@@ -51,15 +52,15 @@ import { ConditionsComponent } from './ui/figures/conditions/conditions';
 import { ConditionHighlightAnimationDirective, HighlightConditionsComponent } from './ui/figures/conditions/highlight';
 import { AdditionalAMSelectDialogComponent } from './ui/figures/entities-menu/additional-am-select/additional-am-select';
 import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities-menu-dialog';
+import { FavorsComponent } from './ui/figures/entities-menu/favors/favors';
 import { CharacterLevelDialogComponent } from './ui/figures/entities-menu/level-dialog/level-dialog';
+import { OutpostAttackComponent } from './ui/figures/entities-menu/outpost-attack/outpost-attack';
+import { EventRandomItemDialogComponent } from './ui/figures/entities-menu/random-item/random-item-dialog';
+import { EventRandomScenarioDialogComponent } from './ui/figures/entities-menu/random-scenario/random-scenario-dialog';
 import { SummonDialogComponent } from './ui/figures/entities-menu/summon-dialog/summon-dialog';
 import { EntityMenuDialogComponent } from './ui/figures/entity-menu/entity-menu-dialog';
 import { FigureErrorsComponent, FigureErrorsDialogComponent } from './ui/figures/errors/errors';
 import { EventEffectsDialog } from './ui/figures/event-effects/event-effects';
-import { FavorsComponent } from './ui/figures/event-effects/favors/favors';
-import { OutpostAttackComponent } from './ui/figures/event-effects/outpost-attack/outpost-attack';
-import { EventRandomItemDialogComponent } from './ui/figures/event-effects/random-item/random-item-dialog';
-import { EventRandomScenarioDialogComponent } from './ui/figures/event-effects/random-scenario/random-scenario-dialog';
 import { EventCardAttackComponent } from './ui/figures/event/attack/event-card-attack';
 import { EventCardConditionComponent } from './ui/figures/event/condition/event-card-condition';
 import { EventCardDeckComponent } from './ui/figures/event/deck/event-card-deck';
@@ -180,6 +181,7 @@ import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
 import { ItemsCardsToolComponent } from './ui/tools/items/items-cards-tool';
 import { RandomMonsterCardsToolComponent } from './ui/tools/random-monster-cards/random-monster-cards-tool';
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier/attackmodifier-standalone';
+import { EnhancementCalculatorStandaloneComponent } from './ui/tools/standalone/enhancement-calculator/enhancement-calculator';
 import { InitiativeStandaloneComponent } from './ui/tools/standalone/initiative/initiative-standalone';
 import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck/loot-deck-standalone';
 import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
@@ -250,7 +252,9 @@ describe('AppComponent', () => {
         EditorActionDialogComponent,
         ElementComponent,
         ElementIconComponent,
+        EnhancementCalculatorStandaloneComponent,
         EnhancementDialogComponent,
+        EnhancementsComponent,
         EntitiesMenuDialogComponent,
         EntityAnimationDirective,
         EntityIndexKeyComponent,
