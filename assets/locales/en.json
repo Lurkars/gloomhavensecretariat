@@ -508,17 +508,35 @@
     }
   },
   "entities": {
+    "event": {
+      "entities": "Entities Menu",
+      "menu": "Event Effects Menu"
+    },
     "filter": {
       "all": "All",
       "allies": "Allies",
       "character": "Character",
       "enemies": "Enemies",
       "monster": "Monster",
-      "objectives": "Objectives"
+      "objectives": "Objectives",
+      "select": {
+        "all": "Select all",
+        "none": "Select none"
+      }
     },
     "migrate": {
       "new": "Back to new Entities Menu!",
-      "old": "Fallback to old Entity Menu"
+      "newEvent": "Back to new Event Effects Menu!",
+      "old": "Fallback to old Entity Menu",
+      "oldEvent": "Fallback to old Event Effects Menu"
+    },
+    "title": {
+      "character": "{0}",
+      "monster": "{0}",
+      "monsterEntity": "%game.monsterType.{2}% Standee {1} of {0}",
+      "objective": "{0}",
+      "objectiveEntity": "{1} of {0}",
+      "summon": "Summon {1} of {0}"
     }
   },
   "errata": "Errata",
@@ -1682,7 +1700,8 @@
         "special": {
           "city-event": "Add C-{0} to the city event deck once you have at least {1} reputation with one faction."
         }
-      }
+      },
+      "faction": "%game.gh2eFaction:{0}% Reputation"
     },
     "sheet": "Party Sheet",
     "shop": {
@@ -3350,6 +3369,11 @@
           "summon": "{0} %game.action.damage% for '{2}' of {1}",
           "summons": "{0} %game.action.damage% for summons {2} of {1}"
         },
+        "changeEntityNumber": {
+          "monsterEntity": "Change %game.monsterType.{0}% standee from %game.monsterType.{0}.{1}% to %game.monsterType.{0}.{2}% for {3}",
+          "objective": "Change marker from %game.objectiveMarker.{0}% to %game.objectiveMarker.{1}% for {2}",
+          "objectiveEntity": "Change marker from %game.objectiveMarker.{0}% to %game.objectiveMarker.{1}% for {3} of {2}"
+        },
         "changeHP": {
           "": "{0} %game.statusIcon:health% HP for selection",
           "character": "{0} %game.statusIcon:health% HP for {1}",
@@ -3577,6 +3601,7 @@
         "drawRandomItemBlueprint": "Draw Random Item Blueprint {0} \"{2}\" (%data.edition.{1}%)",
         "drawRandomScenario": "Draw Random Scenario {2} %data.scenarioNumber:{0}%",
         "drawRandomScenarioSection": "Draw Random Scenario Section %data.section:{0}%, unlock {3}",
+        "factionReputation": "{0} %game.gh2eFaction:{1}% Reputation",
         "inspiration": "{0} Inspiration",
         "morale": "{0} Morale",
         "prosperity": "{0} Prosperity",

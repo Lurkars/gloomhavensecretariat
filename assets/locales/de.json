@@ -508,13 +508,35 @@
     }
   },
   "entities": {
+    "event": {
+      "entities": "Figuren und Aufsteller Menu",
+      "menu": "Ereigniseffekte Menu"
+    },
     "filter": {
       "all": "Alle",
       "allies": "Verbündete",
       "character": "Charaktere",
       "enemies": "Gegner",
       "monster": "Monster",
-      "objectives": "Ziele"
+      "objectives": "Ziele",
+      "select": {
+        "all": "Alle auswählen",
+        "none": "Keine auswählen"
+      }
+    },
+    "migrate": {
+      "new": "Zurück zum neuen Figuren und Aufsteller Menu!",
+      "newEvent": "Zurück zum neuen Ereigniseffekte Menu!",
+      "old": "Alternativ zurück zum alten Figuren und Aufsteller Menu",
+      "oldEvent": "Alternativ zurück zum alten Ereigniseffekte Menu"
+    },
+    "title": {
+      "character": "{0}",
+      "monster": "{0}",
+      "monsterEntity": "%game.monsterType.{2}% Aufsteller {1} von {0}",
+      "objective": "{0}",
+      "objectiveEntity": "{1} von {0}",
+      "summon": "Beschwörung {1} von {0}"
     }
   },
   "errata": "Druckfehler",
@@ -3293,6 +3315,277 @@
       "enabledGe5Player": "≥ 5 Spieler Regel einschalten",
       "enabledManualPlayerCount": "Manuelle Charakter Anzahl einschalten",
       "endAllTurns": "Alle Züge beenden",
+      "entities": {
+        "addCharacterMarker": {
+          "": "%data.characterIconColored.{0}% %data.character.{1}% Markierung auf Auswahl",
+          "character": "%data.characterIconColored.{0}% %data.character.{1}% Markierung auf {2}",
+          "monsterEntity": "%data.characterIconColored.{0}% %data.character.{1}% Markierung auf '{3}' von {2}",
+          "monsters": "%data.characterIconColored.{0}% %data.character.{1}% Markierung auf {3} von {2}",
+          "objectiveEntity": "%data.characterIconColored.{0}% %data.character.{1}% Markierung auf {3} von {2}",
+          "objectives": "%data.characterIconColored.{0}% %data.character.{1}% Markierung auf {3} von {2}",
+          "summon": "%data.characterIconColored.{0}% %data.character.{1}% Markierung auf '{3}' von {2}",
+          "summons": "%data.characterIconColored.{0}% %data.character.{0}% Markierung auf Beschwörungen {3} von {2}"
+        },
+        "addCondition": {
+          "": "%game.condition.{0}% Auswahl",
+          "character": "%game.condition.{0}% {1}",
+          "monsterEntity": "%game.condition.{0}% '{2}' von {1}",
+          "monsters": "%game.condition.{0}% {2} von {1}",
+          "objectiveEntity": "%game.condition.{0}% {2} von {1}",
+          "objectives": "%game.condition.{0}% {2} von {1}",
+          "summon": "%game.condition.{0}% '{2}' von {1}",
+          "summons": "%game.condition.{0}% Beschwörungen {2} von {1}"
+        },
+        "addConditions": {
+          "": "{1}x %game.condition.{0}% Auswahl",
+          "character": "{1}x %game.condition.{0}% {2}",
+          "monsterEntity": "{1}x %game.condition.{0}% '{3}' von {2}",
+          "monsters": "{1}x %game.condition.{0}% {3} von {2}",
+          "objectiveEntity": "{1}x %game.condition.{0}% {3} von {2}",
+          "objectives": "{1}x %game.condition.{0}% {3} von {2}",
+          "summon": "{1}x %game.condition.{0}% '{3}' von {2}",
+          "summons": "{1}x %game.condition.{0}% Beschwörungen {3} von {2}"
+        },
+        "addImmunity": {
+          "": "%game.immunity.{0}% für Auswahl",
+          "character": "%game.immunity.{0}% für {1}",
+          "monsterEntity": "%game.immunity.{0}% für '{2}' von {1}",
+          "monsters": "%game.immunity.{0}% für {2} von {1}",
+          "objectiveEntity": "%game.immunity.{0}% für {2} von {1}",
+          "objectives": "%game.immunity.{0}% für {2} von {1}",
+          "summon": "%game.immunity.{0}% für '{2}' von {1}",
+          "summons": "%game.immunity.{0}% für Beschwörungen {2} von {1}"
+        },
+        "addSpecialTags": {
+          "character": "Aktiviere Spezialaction {0} für {1}",
+          "summon": "Aktiviere Spezialaction {0} für {2} von {1}"
+        },
+        "changeDamage": {
+          "": "{0} %game.action.damage% für Auswahl",
+          "character": "{0} %game.action.damage% für {1}",
+          "monsterEntity": "{0} %game.action.damage% für '{2}' von {1}",
+          "monsters": "{0} %game.action.damage% für {2} von {1}",
+          "objectiveEntity": "{0} %game.action.damage% für {2} von {1}",
+          "objectives": "{0} %game.action.damage% für {2} von {1}",
+          "summon": "{0} %game.action.damage% für '{2}' von {1}",
+          "summons": "{0} %game.action.damage% für Beschwörungen {2} von {1}"
+        },
+        "changeEntityNumber": {
+          "monsterEntity": "Ändere %game.monsterType.{0}% Aufsteller von %game.monsterType.{0}.{1}% auf %game.monsterType.{0}.{2}% für {3}",
+          "objective": "Ändere Marker von %game.objectiveMarker.{0}% auf %game.objectiveMarker.{1}% für {2}",
+          "objectiveEntity": "Ändere Marker von %game.objectiveMarker.{0}% auf %game.objectiveMarker.{1}% für {3} von {2}"
+        },
+        "changeHP": {
+          "": "{0} %game.statusIcon:health% TP für Auswahl",
+          "character": "{0} %game.statusIcon:health% TP für {1}",
+          "monsterEntity": "{0} %game.statusIcon:health% TP für '{2}' von {1}",
+          "monsters": "{0} %game.statusIcon:health% TP für {2} von {1}",
+          "objectiveEntity": "{0} %game.statusIcon:health% TP für {2} von {1}",
+          "objectives": "{0} %game.statusIcon:health% TP für {2} von {1}",
+          "summon": "{0} %game.statusIcon:health% TP für '{2}' von {1}",
+          "summons": "{0} %game.statusIcon:health% TP für Beschwörungen {2} von {1}"
+        },
+        "changeLoot": {
+          "character": "{0} %game.statusIcon:loot% für {1}"
+        },
+        "changeMaxHP": {
+          "": "Max. %game.statusIcon:health% TP {0} für Auswahl",
+          "character": "Max. %game.statusIcon:health% TP {0} für {1}",
+          "monsterEntity": "Max. %game.statusIcon:health% TP {0} für '{2}' von {1}",
+          "monsters": "Max. %game.statusIcon:health% TP {0} für {2} von {1}",
+          "objectiveEntity": "Max. %game.statusIcon:health% TP {0} für {2} von {1}",
+          "objectives": "Max. %game.statusIcon:health% TP {0} für {2} von {1}",
+          "summon": "Max. %game.statusIcon:health% TP {0} für '{2}' von {1}",
+          "summons": "Max. %game.statusIcon:health% TP {0} für Beschwörungen {2} von {1}"
+        },
+        "changeRetaliate": {
+          "": "{0} für Auswahl",
+          "character": "{0} für {1}",
+          "monsterEntity": "{0} für '{2}' von {1}",
+          "monsters": "%{0} für {2} von {1}",
+          "objectiveEntity": "{0} für {2} von {1}",
+          "objectives": "{0} für {2} von {1}",
+          "summon": "{0} für '{2}' von {1}",
+          "summons": "{0} für Beschwörungen {2} von {1}"
+        },
+        "changeRetaliatePersistent": {
+          "": "%game.card.persistent% {0} für Auswahl",
+          "character": "%game.card.persistent% {0} für {1}",
+          "monsterEntity": "%game.card.persistent% {0} für '{2}' von {1}",
+          "monsters": "%game.card.persistent% {0} für {2} von {1}",
+          "objectiveEntity": "%game.card.persistent% {0} für {2} von {1}",
+          "objectives": "%game.card.persistent% {0} für {2} von {1}",
+          "summon": "%game.card.persistent% {0} für '{2}' von {1}",
+          "summons": "%game.card.persistent% {0} für Beschwörungen {2} von {1}"
+        },
+        "changeShield": {
+          "": "%game.action.shield% {0} für Auswahl",
+          "character": "%game.action.shield% {0} für {1}",
+          "monsterEntity": "%game.action.shield% {0} für '{2}' von {1}",
+          "monsters": "%game.action.shield% {0} für {2} von {1}",
+          "objectiveEntity": "%game.action.shield% {0} für {2} von {1}",
+          "objectives": "%game.action.shield% {0} für {2} von {1}",
+          "summon": "%game.action.shield% {0} für '{2}' von {1}",
+          "summons": "%game.action.shield% {0} für Beschwörungen {2} von {1}"
+        },
+        "changeShieldPersistent": {
+          "": "%game.card.persistent% %game.action.shield% {0} für Auswahl",
+          "character": "%game.card.persistent% %game.action.shield% {0} für {1}",
+          "monsterEntity": "%game.card.persistent% %game.action.shield% {0} für '{2}' von {1}",
+          "monsters": "%game.card.persistent% %game.action.shield% {0} für {2} von {1}",
+          "objectiveEntity": "%game.card.persistent% %game.action.shield% {0} für {2} von {1}",
+          "objectives": "%game.card.persistent% %game.action.shield% {0} für {2} von {1}",
+          "summon": "%game.card.persistent% %game.action.shield% {0} für '{2}' von {1}",
+          "summons": "%game.card.persistent% %game.action.shield% {0} für Beschwörungen {2} von {1}"
+        },
+        "changeXP": {
+          "character": "{0} %game.statusIcon:experience% für {1}"
+        },
+        "characterToken": {
+          "character": "Token %data.characterToken.{0}% auf {1} für {2}"
+        },
+        "characterTokenValue": {
+          "character": "Token %data.characterToken.{0}.{1}% auf {2} für {3}"
+        },
+        "dead": {
+          "": "Auswahl tot/erschöpft",
+          "character": "{0} erschöpft",
+          "monsterEntity": "Töte {1} Aufsteller {2} von {0} ",
+          "monsters": "Töte {1} von {0}",
+          "objectiveEntity": "Töte {1} von {0}",
+          "objectives": "Töte {1} von {0}",
+          "summon": "Töte Beschwörung '{1}' von {0}",
+          "summons": "Töte Beschwörungen {1} von {0}"
+        },
+        "disableCharacterMarker": {
+          "character": "Permanent verfügbare Markierung für {0} deaktivieren"
+        },
+        "enableCharacterMarker": {
+          "character": "Permanent verfügbare Markierung für {0} aktivieren"
+        },
+        "exhausted": {
+          "character": "{0} erschöpft"
+        },
+        "identity": {
+          "character": "Form von {4} auf %game.characterIconIdentityColored.{1}.{2}% %data.character.{0}.{1}.{3}%"
+        },
+        "notExhausted": {
+          "character": "{0} nicht mehr erschöpft"
+        },
+        "removeCharacterMarker": {
+          "": "%data.characterIconColored.{0}% %data.character.{1}% Markierung von Auswahl entfernen",
+          "character": "%data.characterIconColored.{0}% %data.character.{1}% Markierung von {2} entfernen",
+          "monsterEntity": "%data.characterIconColored.{0}% %data.character.{1}% Markierung von '{3}' von {2} entfernen",
+          "monsters": "%data.characterIconColored.{0}% %data.character.{1}% Markierung von {3} von {2} entfernen",
+          "objectiveEntity": "%data.characterIconColored.{0}% %data.character.{1}% Markierung von {3} von {2} entfernen",
+          "objectives": "%data.characterIconColored.{0}% %data.character.{1}% Markierung von {3} von {2} entfernen",
+          "summon": "%data.characterIconColored.{0}% %data.character.{1}% Markierung von '{3}' von {2} entfernen",
+          "summons": "%data.characterIconColored.{0}% %data.character.{1}% Markierung von Beschwörungen {3} von {2} entfernen"
+        },
+        "removeCondition": {
+          "": "%game.condition.{0}% von Auswahl entfernen",
+          "character": "%game.condition.{0}% von {1} entfernen",
+          "monsterEntity": "%game.condition.{0}% '{2}' von {1} entfernen",
+          "monsters": "%game.condition.{0}% von {2} von {1} entfernen",
+          "objectiveEntity": "%game.condition.{0}% von {2} von {1} entfernen",
+          "objectives": "%game.condition.{0}% von {2} von {1} entfernen",
+          "summon": "%game.condition.{0}% von '{2}' von {1} entfernen",
+          "summons": "%game.condition.{0}% von Beschwörungen {2} von {1} entfernen"
+        },
+        "removeConditions": {
+          "": "{1}x %game.condition.{0}% von Auswahl entfernen",
+          "character": "{1}x %game.condition.{0}% von {2} entfernen",
+          "monsterEntity": "{1}x %game.condition.{0}% '{3}' von {2} entfernen",
+          "monsters": "{1}x %game.condition.{0}% von {3} von {2} entfernen",
+          "objectiveEntity": "{1}x %game.condition.{0}% von {3} von {2} entfernen",
+          "objectives": "{1}x %game.condition.{0}% von {3} von {2} entfernen",
+          "summon": "{1}x %game.condition.{0}% von '{3}' von {2} entfernen",
+          "summons": "{1}x %game.condition.{0}% von Beschwörungen {3} von {2} entfernen"
+        },
+        "removeImmunity": {
+          "": "%game.immunity.{0}% von Auswahl entfernen",
+          "character": "%game.immunity.{0}% von {1} entfernen",
+          "monsterEntity": "%game.immunity.{0}% '{2}' von {1} entfernen",
+          "monsters": "%game.immunity.{0}% von {2} von {1} entfernen",
+          "objectiveEntity": "%game.immunity.{0}% von {2} von {1} entfernen",
+          "objectives": "%game.immunity.{0}% von {2} von {1} entfernen",
+          "summon": "%game.immunity.{0}% von '{2}' von {1} entfernen",
+          "summons": "%game.immunity.{0}% von Beschwörungen {2} von {1} entfernen"
+        },
+        "removeSpecialTags": {
+          "character": "Spezialactionen {0} von {1} entfernen",
+          "summon": "Spezialactionen {0} von {2} von {1} entfernen"
+        },
+        "setAbsent": {
+          "character": "{0} abwesend"
+        },
+        "setConditionValue": {
+          "": "%game.condition.{0}% auf {1} für Auswahl",
+          "character": "%game.condition.{0}% auf {1} für {2}",
+          "monsterEntity": "%game.condition.{0}% auf {1} für '{3}' von {2}",
+          "monsters": "%game.condition.{0}% auf {1} für {3} von {1}",
+          "objectiveEntity": "%game.condition.{0}% auf {1} für {3} von {2}",
+          "objectives": "%game.condition.{0}% auf {1} für {3} von {2}",
+          "summon": "%game.condition.{0}% auf {1} für '{3}' von {2}",
+          "summons": "%game.condition.{0}% Beschwörungen auf {1} für {3} von {2}"
+        },
+        "setInitiative": {
+          "character": "Initiative {0} für {1}",
+          "objective": "Initiative {0} für {1}"
+        },
+        "setLevel": {
+          "character": "Level {0} für {1}"
+        },
+        "setObjectiveAmDeck": {
+          "objective": "Angriffsmodifikatordeck auf %game.amDeck.{0}% für {1}",
+          "objectiveEntity": "Angriffsmodifikatordeck auf %game.amDeck.{0}% für {2} von {1}",
+          "objectives": "Angriffsmodifikatordeck auf %game.amDeck.{0}% für {2} von {1}"
+        },
+        "setObjectiveMarker": {
+          "monsterEntity": "Markierung auf %game.mapMarker.{0}% für {2} von {1}",
+          "objective": "Markierung auf %game.mapMarker.{0}% für {1}",
+          "objectiveEntity": "Markierung auf %game.mapMarker.{0}% für {2} von {1}",
+          "objectives": "Markierung auf %game.mapMarker.{0}% für {2} von {1}"
+        },
+        "setSummonState": {
+          "monster": "Beschwörung %summon.state.{0}% für {2} von {1}",
+          "monsterEntity": "Beschwörung %summon.state.{0}% für {2} von {1}",
+          "summon": "Beschwörung %summon.state.{0}% für {2} von {1}"
+        },
+        "setTitle": {
+          "character": "Titel '{0}' für {1}",
+          "objective": "Titel '{0}' für {1}",
+          "objectiveEntity": "Titel '{0}' für {1}",
+          "objectives": "Titel '{0}' für {1}",
+          "summon": "Titel '{0}' für {2} von {1}"
+        },
+        "toggleType": {
+          "": "Monstertypen tauschen für Auswahl",
+          "monsterEntity": "Monstertypen tauschen für Aufsteller '{1}' von {0}",
+          "monsters": "Monstertypen tauschen für Aufsteller {1} von {0}"
+        },
+        "unsetAbsent": {
+          "character": "{0} anwesend"
+        },
+        "unsetObjectiveAmDeck": {
+          "objective": "Angriffsmodifikatordeck für {1} entfernen",
+          "objectiveEntity": "Angriffsmodifikatordeck für {2} von {1} entfernen",
+          "objectives": "Angriffsmodifikatordeck für {2} von {1} entfernen"
+        },
+        "unsetObjectiveMarker": {
+          "monsterEntity": "Markierung %game.mapMarker.{0}% für {2} von {1} entfernen",
+          "objective": "Markierung %game.mapMarker.{0}% für {1} entfernen",
+          "objectiveEntity": "Markierung %game.mapMarker.{0}% für {2} von {1} entfernen",
+          "objectives": "Markierung %game.mapMarker.{0}% für {2} von {1} entfernen"
+        },
+        "unsetTitle": {
+          "character": "Titel '{0}' von {1} entfernen",
+          "objective": "Titel '{0}' von {1} entfernen",
+          "objectiveEntity": "Titel '{0}' von {1} entfernen",
+          "objectives": "Titel '{0}' von {1} entfernen",
+          "summon": "Titel '{0}' von {2} von {1] entfernen"
+        }
+      },
       "entityDead": "Töte {1} Aufsteller {2} von {0}",
       "equipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} anlegen",
       "eventEffect": {
