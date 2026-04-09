@@ -515,6 +515,10 @@
       "enemies": "敌人",
       "monster": "怪物",
       "objectives": "目标点"
+    },
+    "migrate": {
+      "new": "返回新实体菜单！",
+      "old": "回退到旧实体菜单"
     }
   },
   "errata": "勘误",
@@ -2877,7 +2881,8 @@
       "fr": "法语 (Français)",
       "help": {
         "": "翻译求助!",
-        "hint": "<img src=\"https://i18n.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>"
+        "hint": "<img src=\"https://i18n.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>",
+        "stats": "<img src=\"https://i18n.gloomhaven-secretariat.de/widget/gloomhavensecretariat/-/{0}/svg-badge.svg\"/>"
       },
       "it": "意大利语（Italiano）",
       "ko": "韩语 (한국어)",
