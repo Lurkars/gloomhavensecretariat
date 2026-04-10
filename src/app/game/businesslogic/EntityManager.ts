@@ -402,7 +402,7 @@ export class EntityManager {
       }
     }
 
-    if (!immune && !(new Condition(conditionName).types.includes(ConditionType.entity))) {
+    if (!immune && !(new Condition(conditionName).types.includes(ConditionType.entity)) && !(new Condition(conditionName).types.includes(ConditionType.hidden))) {
       let type: ConditionType | undefined;
       if (entity instanceof Character) {
         type = ConditionType.character;

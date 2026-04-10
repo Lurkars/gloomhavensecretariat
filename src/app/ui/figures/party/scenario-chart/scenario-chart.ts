@@ -463,7 +463,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                     parent = parent.parentElement;
                 }
                 if (parent && 'id' in parent) {
-                    const scenarioId = parent.id.split('-').length > 1 ? parent.id.split('-')[1] : '';
+                    const scenarioId = parent.id.split('-').length > 2 ? parent.id.split('-')[2] : '';
                     if (scenarioId) {
                         const scenarioData = gameManager.scenarioData(this.edition).find((scenarioData) => parent && scenarioData.group == this.group && scenarioData.index == scenarioId);
                         if (scenarioData) {
