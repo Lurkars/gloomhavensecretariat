@@ -15,7 +15,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,active)|(1,1,target)|(2,1,target)|(3,1,enhance)",
+              "value": "(0,1,active)|(1,1,target)|(2,0,custom:gh2e-tear)|(2,1,target)|(3,1,enhance)",
               "enhancementTypes": [
                 "hex"
               ]
@@ -353,7 +353,7 @@
             },
             {
               "type": "area",
-              "value": "(0,0,active)|(1,0,target)"
+              "value": "(0,0,active)|(1,0,target)|(2,0,custom:gh2e-tear)"
             }
           ]
         }
@@ -942,7 +942,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,target)|(0,2,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)|(3,0,enhance)|(3,1,enhance)|(3,2,enhance)",
+              "value": "(0,0,custom:gh2e-tear)|(0,1,target)|(0,2,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)|(3,0,enhance)|(3,1,enhance)|(3,2,enhance)",
               "enhancementTypes": [
                 "hex",
                 "hex",
@@ -1053,7 +1053,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,active)|(1,0,target)|(1,2,target)"
+              "value": "(0,1,active)|(1,0,target)|(1,1,custom:gh2e-tear)|(1,2,target)"
             }
           ]
         },
@@ -1578,7 +1578,7 @@
             },
             {
               "type": "area",
-              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(2,1,enhance)",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(2,0,custom:gh2e-tear)|(2,1,enhance)",
               "enhancementTypes": [
                 "hex"
               ]
@@ -1770,7 +1770,7 @@
             },
             {
               "type": "area",
-              "value": "(0,1,target)|(0,2,active)|(1,1,target)|(1,2,target)|(2,0,enhance)|(2,1,enhance)",
+              "value": "(0,1,target)|(0,2,active)|(1,0,custom:gh2e-tear)|(1,1,target)|(1,2,target)|(2,0,enhance)|(2,1,enhance)|(2,2,custom:gh2e-tear)",
               "enhancementTypes": [
                 "hex",
                 "hex"

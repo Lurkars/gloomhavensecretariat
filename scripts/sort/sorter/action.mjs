@@ -32,7 +32,7 @@ export const sortAction = function (action) {
         let hexes = [];
 
         action.value.split('|').forEach((hexString) => {
-            let groups = new RegExp(/^\((\d+),(\d+),(active|target|conditional|ally|blank|enhance|invisible)(\:(\w*))?\)$/).exec(hexString);
+            let groups = new RegExp(/^\((\d+),(\d+),(active|target|conditional|ally|blank|enhance|invisible|custom)(\:([\w-]*))?\)$/).exec(hexString);
             if (groups == null) {
                 return null;
             }
