@@ -339,12 +339,12 @@ export class EntitiesMenuDialogComponent {
     this.characterHelper.close();
     this.characterProgressHelper.close();
     this.eventHelper.close();
-    this.specialActionsHelper.close();
     this.shieldRetaliateHelper.close();
     this.amHelper.close();
     this.markerHelper.close();
     this.objectiveHelper.close();
     this.conditionHelper.close();
+    this.specialActionsHelper.close();
   }
 
   @HostListener('document:keydown', ['$event'])

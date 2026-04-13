@@ -211,13 +211,14 @@ export class SpecialActionsHelper {
             gameManager.entityManager.changeHealth(character, character, damage);
             entity.health = entity.maxHealth;
             entity.entityConditions.forEach((summonCondition) => {
-              if (!summonCondition.expired && summonCondition.state != EntityConditionState.expire && summonCondition.state != EntityConditionState.removed && !gameManager.entityManager.isImmune(character, character, summonCondition.name)) {
+              if (!summonCondition.expired && summonCondition.state != EntityConditionState.removed && !gameManager.entityManager.isImmune(character, character, summonCondition.name)) {
                 gameManager.entityManager.addCondition(character, character, new Condition(summonCondition.name));
               }
             });
             entity.entityConditions = [];
 
             character.summons.forEach((summon) => summon.tags = summon.tags.filter((tag) => tag != 'prism_mode'));
+            entity.tags.push('prism_mode');
           }
         }
 
