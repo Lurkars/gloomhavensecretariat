@@ -514,7 +514,11 @@
       "character": "캐릭터",
       "enemies": "적",
       "monster": "몬스터",
-      "objectives": "목표물"
+      "objectives": "목표물",
+      "select": {
+        "all": "모두 선택",
+        "none": "선택 모두 취소"
+      }
     }
   },
   "errata": "오류",
@@ -708,7 +712,7 @@
         "hint": "%game.conditionIcon.dodge% 회피: 카드 1장을 버리거나 소실시켜 공격을 무효화합니다. 그런다음 제거."
       },
       "empower": {
-        "": "권능",
+        "": "증강",
         "hint": "%game.conditionIcon.empower% Empower: 공격 보정 덱에 EMPOWER 카드를 섞어 넣음."
       },
       "enfeeble": {
@@ -776,7 +780,7 @@
       },
       "ward": {
         "": "가호",
-        "hint": "%game.conditionIcon.ward% 보호: 다음 번 %game.damage% 피해 원천에 대해 절반 내림만 받음. 그런 다음, 제거."
+        "hint": "%game.conditionIcon.ward% 가호: 다음 번 %game.damage% 피해 원천에 대해 절반 내림만 받음. 그런 다음, 제거."
       },
       "wound": {
         "": "부상",
@@ -1302,8 +1306,8 @@
       "on": "<span class=\"monster-ally-on\">아군</span>으로 전환"
     },
     "toggleDormant": {
-      "off": "활성화 상태로 전환",
-      "on": "비활성화 상태로 전환"
+      "off": "활성 가능 상태로 전환",
+      "on": "활성 불가 상태로 전환"
     }
   },
   "number": {
@@ -1622,6 +1626,62 @@
     "cancel": "시나리오 취소",
     "chart": {
       "": "시나리오 흐름도",
+      "campaign": {
+        "": "캠페인 모드",
+        "back": "캠페인 모드로 돌아가기",
+        "force": "더블 클릭하면 스포일러를 포함한 전체 시나리오 흐름도가 보여집니다."
+      },
+      "legend": {
+        "": "기호 설명",
+        "blocked": {
+          "": "폐쇄됨",
+          "hint": "이 시나리오는 다른 시나리오로 인해 폐쇄되었으므로, 플레이할 수 없습니다."
+        },
+        "calendar": {
+          "": "달력으로 잠김 해제",
+          "hint": "이 시나리오는 달력 섹션에 의해 잠김 해제됩니다."
+        },
+        "exclusive": {
+          "": "분기점",
+          "hint": "이 시나리오 경로는 분기점이므로, 하나의 경로만 선택할 수 있고 다른 경로는 폐쇄됩니다."
+        },
+        "force-linked": {
+          "": "강제 연결됨",
+          "hint": "이 시나리오는 강제 연결되어 있으므로 반드시 바로 이어서 플레이해야 합니다."
+        },
+        "linked": {
+          "": "연결됨",
+          "hint": "이 시나리오는 연결되어 있습니다."
+        },
+        "locked": {
+          "": "잠김",
+          "hint": "이 시나리오는 아직 요구 조건이 충족되지 않아 잠겨있으므로 플레이할 수 없습니다."
+        },
+        "not-campaign": {
+          "": "캠페인 모드 아님",
+          "hint": "캠페인 모드가 아닙니다"
+        },
+        "not-unlocked": {
+          "": "잠김 해제되지 않음",
+          "hint": "이 시나리오는 표시되어 있지만, 아직 잠김 상태이므로 플레이할 수 없습니다."
+        },
+        "success": {
+          "": "완료됨",
+          "hint": "이 시나리오는 성공적으로 완료되었습니다."
+        },
+        "success-blocked": {
+          "": "완료됨, 현재 폐쇄됨",
+          "hint": "이 시나리오는 성공적으로 완료되었지만, 지금은 폐쇄되었습니다."
+        },
+        "success-locked": {
+          "": "완료됨, 현재 잠김",
+          "hint": "이 시나리오는 성공적으로 완료되었지만, 지금은 잠겼습니다."
+        },
+        "unplayed": {
+          "": "미완료됨",
+          "hint": "이 시나리오는 잠기지 않았고 플레이할 수 있습니다."
+        }
+      },
       "setup": "시나리오 초기 세팅 보기",
       "start": "시나리오 시작",
       "success": "완료로 표시",
@@ -1647,7 +1707,7 @@
         "scenario": "{1} %data.scenarioNumber:{0}%",
         "section": "%data.section:{0}% 열기, {2} 해금"
       },
-      "hint": "선택된 모든 캐릭터에게 적용",
+      "hint": "선택된 모든 피규어에게 적용",
       "outpostAttack": "전초기지 공격",
       "progress": "캐릭터 진행 사항에 영향"
     },
@@ -1677,6 +1737,7 @@
     "openRoomMarkerRef": "%game.mapMarker.{1}% 위치의 '{0}' 타일 문 열기",
     "openRoomRef": "'{0}' 타일 문 열기",
     "random": {
+      "": "무작위 던전",
       "treasure": {
         "enemiesCondition": "모든 적에게 %game.condition.{0}% 적용",
         "enemiesDamage": "모든 적에게 피해 %game.damage:{0}%",
@@ -1687,7 +1748,7 @@
         "recoverLost": "소실 카드 회수"
       }
     },
-    "recap": "요약",
+    "recap": "줄거리",
     "requirements": {
       "": "시나리오 조건",
       "all": "모든 조건 보기 (달성된 조건 포함)",
@@ -2261,15 +2322,15 @@
     },
     "calculate": {
       "": "계산된 능력치로 보기",
-      "hint": "능력 값은 능력치를 기반으로 계산되기 때문에, 공격 수치 3에서의 ‘공격 +1’ 대신에 ‘공격 4’로 표시됩니다."
+      "hint": "능력 수치는 능력치를 기반으로 계산되므로, 기본 공격 수치 3에서의 ‘공격 +1’은 ‘공격 4’로 표시됩니다."
     },
     "calculateShieldStats": {
       "": "방어 및 반격 능력 추가",
       "hint": "기본 능력 값인 %game.action.shield% 및 %game.action.retaliate% 효과는 능력 카드의 %game.action.shield% 및 %game.action.retaliate% 행동에 추가되므로 전체 능력값이 표시됩니다."
     },
     "calculateStats": {
-      "": "능력에 능력치 값 추가",
-      "hint": "기본 능력치 값이 능력에 추가됩니다. 예를 들어, 범위 값이 공격 능력에 자동으로 추가됩니다"
+      "": "능력에 능력치 수치 추가",
+      "hint": "기본 능력치 수치가 능력 수치에 추가됩니다. 예를 들어, 사정거리 수치가 공격 능력에 자동으로 추가됩니다"
     },
     "character": "캐릭터",
     "characterAttackModifierAnimate": {
@@ -2298,15 +2359,15 @@
     },
     "characterHandSize": {
       "": "손패 크기 및 레벨 표시",
-      "hint": "캐릭터 보드의 손패 크기와 레벨을 표시합니다."
+      "hint": "캐릭터 보드에 손패 크기와 레벨을 표시합니다."
     },
     "characterIdentities": {
-      "": "캐릭터 양식",
-      "hint": "이름 옆에 있는 양식 캐릭터 아이콘을 클릭하여 캐릭터 양식을 전환할 수 있습니다."
+      "": "캐릭터 형태",
+      "hint": "이름 옆에 있는 캐릭터 형태 아이콘을 클릭하여 캐릭터 형태를 전환할 수 있습니다."
     },
     "characterIdentityHint": {
-      "": "양식 힌트",
-      "hint": "캐릭터 이름 뒤에 현재 활성 여부를 표시합니다."
+      "": "형태 알림",
+      "hint": "캐릭터 이름 뒤에 현재 활성된 형태를 표시합니다."
     },
     "characterItems": {
       "": "캐릭터 아이템",
@@ -2346,7 +2407,7 @@
     },
     "characterTraits": {
       "": "특성 표시",
-      "hint": "캐릭터 보드의 특성을 표시합니다."
+      "hint": "캐릭터 보드에 특성을 표시합니다."
     },
     "columns": {
       "": "세로 열로 배치하기",
@@ -2405,7 +2466,7 @@
       "hint": "모든 피규어와 말의 변경 사항을 한 번에 적용할 수 있는 메뉴 버튼을 하단에 표시합니다."
     },
     "errata": {
-      "": "오류 표시",
+      "": "오류 알림 표시",
       "hint": "시나리오, 섹션 등 게임 진행에 차질이 될만한 오류를 팝업창으로 표시합니다."
     },
     "events": {
@@ -2502,7 +2563,7 @@
       "hint": "서버의 게임 시간 기록을 로컬의 게임 시간 기록과 병합하여 전체 게임 시간 기록을 얻습니다."
     },
     "gameplay": "게임 플레이",
-    "gamerules": "게임별 특수 규칙",
+    "gamerules": "게임별 규칙",
     "ge5Player": {
       "": "5인 이상 규칙"
     },
@@ -2516,24 +2577,25 @@
     },
     "hideCharacterHP": {
       "": "캐릭터 체력 숨기기",
-      "hint": "캐릭터 보드의 체력을 표시하지 않습니다."
+      "hint": "캐릭터 보드에 체력을 표시하지 않습니다."
     },
     "hideCharacterLoot": {
       "": "캐릭터 노획 숨기기",
-      "hint": "캐릭터 보드의 노획을 표시하지 않습니다."
+      "hint": "캐릭터 보드에 노획을 표시하지 않습니다."
     },
     "hideCharacterXP": {
       "": "캐릭터 경험치 숨기기",
-      "hint": "캐릭터 보드의 경험치를 표시하지 않습니다."
+      "hint": "캐릭터 보드에 경험치를 표시하지 않습니다."
     },
     "hideStats": {
       "": "능력치 숨기기",
       "hint": "출현하지 않은 몬스터의 능력치 항목을 숨깁니다."
     },
     "hints": {
-      "": "힌트 보기",
-      "hint": "메인 메뉴 옆의 공간에 바로 가기와 힌트를 표시합니다."
+      "": "메인 메뉴 알림 표시",
+      "hint": "메인 메뉴 옆에 바로가기와 알림을 표시합니다."
     },
+    "hintsMenu": "알림",
     "initiativeRequired": {
       "": "주도권 필요",
       "hint": "비활성화 시, 각 항목의 순서는 수동으로 설정해야 합니다"
@@ -2608,7 +2670,8 @@
       "": "수동 캐릭터 수"
     },
     "playerNumber": {
-      "": "플레이어 번호 표시"
+      "": "플레이어 번호 표시",
+      "hint": "캐릭터 보드에 플레이어 번호를 표시합니다."
     },
     "portraitMode": {
       "": "초상화 모드 최적화",
@@ -2661,7 +2724,8 @@
       "hint": "능력 카드에 있는 모든 능력을 전부 표시합니다."
     },
     "showExpandedStatCard": {
-      "": "확장된 능력치 카드 보기"
+      "": "확장된 능력치 카드 보기",
+      "hint": "능력치 카드를 확장시켜 모든 내용을 표시합니다."
     },
     "showFullAbilityCard": {
       "": "모든 능력 카드 보기",
@@ -2923,7 +2987,7 @@
       "disableAutomaticLevel": "자동 레벨 계산 비활성화",
       "disableEnvelopeB": "봉투 B 비활성화",
       "disablePartyCampaignMode": "캠페인 모드 비활성화",
-      "disableSolo": "단독 레벨 계산 비활성화",
+      "disableSolo": "1인 레벨 계산 비활성화",
       "disabledGe5Player": "5인 이상 규칙 비활성화",
       "disabledManualPlayerCount": "수동 플레이어 수 비활성화",
       "donate": "위대한 떡갈나무 성지에 {0}개 기부",
@@ -2932,7 +2996,7 @@
       "enableAutomaticLevel": "자동 레벨 계산 활성화",
       "enableEnvelopeB": "봉투 B 열기",
       "enablePartyCampaignMode": "캠페인 모드 활성화",
-      "enableSolo": "단독 레벨 계산 활성화",
+      "enableSolo": "1인 레벨 계산 활성화",
       "enabledGe5Player": "5인 이상 규칙 활성화",
       "enabledManualPlayerCount": "수동 플레이어 수 활성화",
       "endAllTurns": "모든 차례 종료",
@@ -3124,7 +3188,7 @@
       "setDrawExtraAbility": "{0}의 추가 뽑기",
       "setEdition": "{0} 에디션으로 전환",
       "setEditionAll": "모든 에디션 선택",
-      "setEntityActive": "{0} {1}번 말을 활성화 상태로 설정",
+      "setEntityActive": "{0} {1}번 말을 활성 가능으로 설정",
       "setEntityRetaliate": {
         "char": "{0}에게 {1}",
         "monster": "{0} '{1}번'에게 {2}",
@@ -3193,7 +3257,7 @@
       "unsetAlly": "{0} 적으로 설정",
       "unsetCustomScenario": "커스텀 시나리오 설정 해제",
       "unsetDrawExtraAbility": "{0}의 추가 뽑기 설정 해제",
-      "unsetEntityActive": "{0}의 {1} 몬스터 말을 비활성 상태로 설정",
+      "unsetEntityActive": "{0}의 {1} 몬스터 말을 활성 불가로 설정",
       "unsetExhausted": "{0} 탈진 해제",
       "unsetObjectiveExhausted": "목표물 {0} 탈진 해제",
       "unsetRetired": "{0}의 은퇴 철회",
@@ -3271,7 +3335,7 @@
           },
           "characterStat": {
             "": "캐릭터 능력치",
-            "hint": "캐릭터 능력치에 잘못된 값.",
+            "hint": "캐릭터 능력치의 수치가 잘못되었습니다.",
             "subject": "캐릭터 능력치에서 문제 발견"
           },
           "feedback": {
@@ -3281,7 +3345,7 @@
           },
           "monsterStat": {
             "": "몬스터 능력치",
-            "hint": "몬스터 능력치에 잘못된 값.",
+            "hint": "몬스터 능력치의 수치가 잘못되었습니다.",
             "subject": "몬스터 능력치에서 문제 발견"
           },
           "software": {
@@ -3340,7 +3404,7 @@
     "chooseEdition": "보유한 에디션 중 하나를 골라 새로운 캠페인을 시작하세요:",
     "orChooseCharacters": "또는 직접 캐릭터를 추가하여 캐주얼 게임을 시작하세요.",
     "settings": {
-      "": "환경 설정",
+      "": "설정",
       "text": "여러분의 여정에 맞도록 모든 설정 항목을 살펴 보세요:"
     }
   },
