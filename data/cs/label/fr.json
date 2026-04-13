@@ -8,5 +8,23 @@
         "": "Maître d’Armes"
       }
     }
+  },
+  "scenario": {
+    "title": {
+      "cs": {
+        "1": "Le Lac Sombre",
+        "10": "L’Antre de la Monstruosité",
+        "11": "L'Expédition de la Mer Brumeuse",
+        "12": "La Découverte de la Source",
+        "13": "La Caverne aux Cadavres",
+        "2": "Les Canaux Souterrains",
+        "3": "La Caverne Inondée",
+        "4": "Les Guerriers Infestés",
+        "5": "Le Sang des Gelées",
+        "6": "Les Eaux empoisonnées",
+        "8": "La Forteresse Brisée",
+        "9": "La Mission de Sauvetage"
+      }
+    }
   }
 }

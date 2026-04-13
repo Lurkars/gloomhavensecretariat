@@ -604,6 +604,9 @@
     }
   },
   "custom": {
+    "city-guard-saw-solo": {
+      "1": "매 라운드 종료 시, 완전히 치료되지 않은 모든 도시 경비병이%game.damage:1%점을 입습니다"
+    },
     "gh": {
       "ancient-artillery": {
         "1": "인접한 모든 적이 피해 %game.damage:2%점을 입는다."
@@ -735,9 +738,6 @@
         "2": "알 %game.action.summon% [C]"
       }
     },
-    "city-guard-saw-solo": {
-      "1": "매 라운드 종료 시, 완전히 치료되지 않은 모든 도시 경비병이%game.damage:1%점을 입습니다"
-    },
     "ghost-wolf": {
       "1": "매번 라운드 시작에:"
     }
@@ -751,7 +751,9 @@
     "shaman": "주술사"
   },
   "edition": {
-    "gh": "글룸헤이븐"
+    "gh": {
+      "hint": "이것은 글룸헤이븐 1판입니다!"
+    }
   },
   "globalAchievements": {
     "ancient-technology": "고대 기술",
@@ -780,33 +782,47 @@
     "ancient-artillery": "고대 대포",
     "arcane-golem": "신비한 골렘",
     "bandit-archer": "강도 궁수",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
     "bandit-commander": "강도 두목",
     "bandit-guard": "강도 경비병",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
     "black-imp": "검은 임프",
     "bloated-regent": "부어오른 섭정",
     "captain-of-the-guard": "경비대장",
     "cave-bear": "동굴 곰",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
     "city-archer": "도시 궁수",
     "city-guard": "도시 경비병",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
     "cultist": "광신도",
     "dark-rider": "어둠의 기수",
+    "deep-earth": "깊은 대지",
     "deep-terror": "심연의 공포",
     "earth-demon": "대지 악마",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
     "elder-drake": "장로 드레이크",
     "flame-demon": "화염 악마",
     "forest-imp": "숲 임프",
     "frost-demon": "서리 악마",
+    "ghost-wolf": "유령 늑대",
     "giant-ooze": "거대 점액",
     "giant-viper": "거대 독사",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
     "harrower-infester": "해로어 확산자",
+    "high-flame": "높은 화염",
     "hound": "사냥개",
     "hungry-soul": "굶주린 영혼",
     "infiltrator": "첩자",
     "inox-archer": "이녹스 궁수",
     "inox-bodyguard": "이녹스 경호원",
     "inox-guard": "이녹스 경비병",
+    "inox-necromancer": "이녹스 강령술사",
     "inox-shaman": "이녹스 주술사",
     "jekserah": "젝세라",
+    "lieutenant": "부관",
     "living-bones": "살아있는 뼈",
     "living-corpse": "살아있는 시체",
     "living-spirit": "살아있는 영혼",
@@ -821,8 +837,10 @@
     "savvas-icestorm": "사바스 얼음폭풍",
     "savvas-lavaflow": "사바스 용암류",
     "siege-cannon": "공성포",
+    "song-of-the-deep": "심연의 노래",
     "spitting-drake": "분비액 드레이크",
     "stone-golem": "돌 골렘",
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
     "sun-demon": "태양 악마",
     "the-betrayer": "변절자",
     "the-colorless": "색이 없는 자",
@@ -830,26 +848,10 @@
     "the-harvester": "수확자",
     "the-sightless-eye": "보이지 않는 눈",
     "vermling-scout": "버믈링 정찰병",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)",
     "vermling-shaman": "버믈링 주술사",
     "wind-demon": "바람 악마",
-    "winged-horror": "날개 달린 공포",
-    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
-    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
-    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
-    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
-    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
-    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
-    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
-    "deep-earth": "깊은 대지",
-    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
-    "ghost-wolf": "유령 늑대",
-    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
-    "high-flame": "높은 화염",
-    "inox-necromancer": "이녹스 강령술사",
-    "lieutenant": "부관",
-    "song-of-the-deep": "심연의 노래",
-    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
-    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)"
+    "winged-horror": "날개 달린 공포"
   },
   "objective": {
     "Hail": "헤일",
