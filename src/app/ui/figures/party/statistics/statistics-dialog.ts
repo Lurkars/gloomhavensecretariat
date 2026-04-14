@@ -62,6 +62,10 @@ export class StatisticsDialogComponent implements OnInit {
             }
         }
 
+        if (!!this.scenario) {
+            this.characters = this.characters.filter((character) => character.progress.scenarioStats.some((value) => !!this.scenario && value.scenario && value.scenario.index == this.scenario.index && value.scenario.edition == this.scenario.edition && value.scenario.group == this.scenario.group && value.success));
+        }
+
         this.characters.forEach((character, index) => {
             character.scenarioStats = new ScenarioStats();
             this.scenarios[index] = [0, 0, 0];

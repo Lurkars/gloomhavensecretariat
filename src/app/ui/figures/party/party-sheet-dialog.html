@@ -794,6 +794,10 @@
                   <span (click)="scenarioRewards(scenarioData)" class="rewards"
                     [ghs-tooltip]="'scenario.summary.rewards'"><img class="ghs-svg"
                       src="./assets/images/scenario/conclusion.svg"></span>
+                  @if (settingsManager.settings.scenarioStats) {
+                  <span (click)="statistics(scenarioData)" class="rewards stats" [ghs-tooltip]="'scenario.stats'"><img
+                      class="ghs-svg" src="./assets/images/stats.svg"></span>
+                  }
                   }
                   @for (success of [] | ghsRange:countFinished(scenarioData); track success) {
                   <span>

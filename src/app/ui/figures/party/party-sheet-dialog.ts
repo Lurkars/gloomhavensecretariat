@@ -1493,9 +1493,10 @@ export class PartySheetDialogComponent implements OnInit {
     });
   }
 
-  statistics() {
+  statistics(scenarioData: ScenarioData | undefined = undefined) {
     this.dialog.open(StatisticsDialogComponent, {
-      panelClass: ['dialog-invert']
+      panelClass: ['dialog-invert'],
+      data: { scenario: scenarioData }
     })
   }
 
