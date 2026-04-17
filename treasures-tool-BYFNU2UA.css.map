@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/tools/treasures/treasures-tool.scss"],
+  "sourcesContent": [".container {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n\n  ghs-header {\n    z-index: 2;\n  }\n}\n\n.treasures {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  overflow: auto;\n\n  .treasure {\n    display: flex;\n    margin: 10px;\n    padding: 10px;\n    background-color: var(--ghs-color-darkgray);\n    color: var(--ghs-color-white);\n    font-size: 2em;\n\n    .index {\n      margin-right: 5px;\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,UACE,MAAA,MACA,OAAA,MACA,QAAA,KACA,eAAA,OAEA,CANF,UAME,WACE,QAAA,EAIJ,CAAA,UACE,QAAA,KACA,sBAAA,IAAA,IACA,SAAA,KAEA,CALF,UAKE,CAAA,SACE,QAAA,KAjBJ,OAkBI,KAlBJ,QAmBI,KACA,iBAAA,IAAA,sBACA,MAAA,IAAA,mBACA,UAAA,IAEA,CAbJ,UAaI,CARF,SAQE,CAAA,MACE,aAAA",
+  "names": []
+}

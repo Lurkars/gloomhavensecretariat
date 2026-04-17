@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/header/party/party-sheet.scss"],
+  "sourcesContent": [".button {\n  cursor: pointer;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-family: var(--ghs-font-title);\n  color: var(--ghs-color-gray);\n  font-size: calc(var(--ghs-unit) * 3 * var(--ghs-small-text-factor) * var(--ghs-barsize));\n  text-shadow: var(--ghs-outline);\n\n  &:hover {\n    color: var(--ghs-color-white);\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,OACE,OAAA,QACA,OAAA,KACA,QAAA,KACA,gBAAA,OACA,YAAA,OACA,YAAA,IAAA,kBACA,MAAA,IAAA,kBACA,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,yBAAA,EAAA,IAAA,gBACA,YAAA,IAAA,eAEA,CAXF,MAWE,OACE,MAAA,IAAA",
+  "names": []
+}

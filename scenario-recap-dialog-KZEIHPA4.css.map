@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/scenario-recap/scenario-recap-dialog.scss"],
+  "sourcesContent": [".recap-dialog {\n  color: var(--ghs-color-white);\n  font-size: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));\n  max-width: calc(var(--ghs-unit) * 60 * var(--ghs-text-factor));\n\n  .header {\n    font-size: calc(var(--ghs-unit) * 3.2 * var(--ghs-text-factor));\n    border-bottom: calc(var(--ghs-unit) * 0.3 * var(--ghs-text-factor)) solid var(--ghs-color-white);\n    padding-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));\n    margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));\n  }\n\n  ghs-scenario-recap {\n    font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-text-factor));\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,aACE,MAAA,IAAA,mBACA,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,oBACA,UAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,oBAEA,CALF,aAKE,CAAA,OACE,UAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,oBACA,cAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,oBAAA,MAAA,IAAA,mBACA,eAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,oBACA,cAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,oBAGF,CAZF,aAYE,mBACE,UAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA",
+  "names": []
+}

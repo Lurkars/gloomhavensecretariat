@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/loot/loot-deck-fullscreen.scss"],
+  "sourcesContent": [".loot-deck-fullscreen {\n  width: 100vw;\n  height: 100vh;\n  overflow-x: auto;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  align-items: center;\n  z-index: 3;\n\n  ghs-loot-deck {\n    display: flex;\n    width: 99vw;\n    max-width: 600px;\n    height: 100vw;\n    max-height: 420px;\n    z-index: 4;\n    margin-top: 2em;\n    margin-left: 1%;\n  }\n\n  &.vertical {\n    overflow-y: auto;\n    overflow-x: hidden;\n\n    ghs-loot-deck {\n      width: 98vw;\n      margin-right: 1%;\n      height: 132vw;\n      max-height: 800px;\n      transform: none;\n    }\n  }\n\n  .close-container {\n    cursor: zoom-out;\n    position: absolute;\n    display: flex;\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    top: 0;\n    left: 0;\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,qBACE,MAAA,MACA,OAAA,MACA,WAAA,KACA,WAAA,KACA,QAAA,KACA,eAAA,OACA,gBAAA,WACA,YAAA,OACA,QAAA,EAEA,CAXF,qBAWE,cACE,QAAA,KACA,MAAA,KACA,UAAA,MACA,OAAA,MACA,WAAA,MACA,QAAA,EACA,WAAA,IACA,YAAA,GAGF,CAtBF,oBAsBE,CAAA,SACE,WAAA,KACA,WAAA,OAEA,CA1BJ,oBA0BI,CAJF,SAIE,cACE,MAAA,KACA,aAAA,GACA,OAAA,MACA,WAAA,MACA,UAAA,KAIJ,CAnCF,qBAmCE,CAAA,gBACE,OAAA,SACA,SAAA,SACA,QAAA,KACA,MAAA,KACA,OAAA,KACA,QAAA,EACA,IAAA,EACA,KAAA",
+  "names": []
+}

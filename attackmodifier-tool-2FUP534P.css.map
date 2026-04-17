@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/tools/attackmodifier/attackmodifier-tool.scss"],
+  "sourcesContent": [".container {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n\n  ghs-header {\n    z-index: 2;\n  }\n}\n\n.characters {\n  display: flex;\n  overflow: auto;\n\n  .character {\n    display: flex;\n    flex-direction: column;\n\n    ghs-attackmodifier {\n      width: 300px;\n      min-width: 300px;\n      height: 200px;\n      min-height: 200px;\n      margin: 10px;\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,UACE,MAAA,MACA,OAAA,MACA,QAAA,KACA,eAAA,OAEA,CANF,UAME,WACE,QAAA,EAIJ,CAAA,WACE,QAAA,KACA,SAAA,KAEA,CAJF,WAIE,CAAA,UACE,QAAA,KACA,eAAA,OAEA,CARJ,WAQI,CAJF,UAIE,mBACE,MAAA,MACA,UAAA,MACA,OAAA,MACA,WAAA,MAvBN,OAwBM",
+  "names": []
+}

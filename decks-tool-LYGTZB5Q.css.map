@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/tools/decks/decks-tool.scss"],
+  "sourcesContent": [".container {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n\n  ghs-header {\n    z-index: 2;\n  }\n}\n\n.menu {\n  display: flex;\n  flex-wrap: wrap;\n\n  label {\n    display: flex;\n  }\n}\n\n.decks {\n  flex: 1 1 auto;\n  width: 100%;\n  overflow: auto;\n  display: flex;\n  margin-top: 20px;\n\n  .deck {\n    display: flex;\n    flex-direction: column;\n\n    h2,\n    h3 {\n      text-align: center;\n      margin: 0;\n    }\n\n    ghs-ability {\n      flex-shrink: 0;\n      width: 400px;\n      height: 255px;\n      margin: 10px;\n\n      &.bottom-actions {\n        height: 540px;\n      }\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,UACE,MAAA,MACA,OAAA,MACA,QAAA,KACA,eAAA,OAEA,CANF,UAME,WACE,QAAA,EAIJ,CAAA,KACE,QAAA,KACA,UAAA,KAEA,CAJF,KAIE,MACE,QAAA,KAIJ,CAAA,MACE,KAAA,EAAA,EAAA,KACA,MAAA,KACA,SAAA,KACA,QAAA,KACA,WAAA,KAEA,CAPF,MAOE,CAAA,KACE,QAAA,KACA,eAAA,OAEA,CAXJ,MAWI,CAJF,KAIE,GAAA,CAXJ,MAWI,CAJF,KAIE,GAEE,WAAA,OAjCN,OAkCM,EAGF,CAjBJ,MAiBI,CAVF,KAUE,YACE,YAAA,EACA,MAAA,MACA,OAAA,MAxCN,OAyCM,KAEA,CAvBN,MAuBM,CAhBJ,KAgBI,WAAA,CAAA,eACE,OAAA",
+  "names": []
+}

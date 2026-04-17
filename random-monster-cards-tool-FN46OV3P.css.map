@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/tools/random-monster-cards/random-monster-cards-tool.scss"],
+  "sourcesContent": [".container {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n\n  ghs-header {\n    z-index: 2;\n  }\n}\n\n.sections {\n  display: flex;\n  flex-wrap: wrap;\n\n  .section {\n    display: flex;\n    margin: 10px;\n    padding: 10px;\n    background-color: var(--ghs-color-darkgray);\n\n    ghs-random-monster-card {\n      display: block;\n      width: calc(var(--ghs-unit) * 40);\n      height: calc(var(--ghs-unit) * 60);\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,UACE,MAAA,MACA,OAAA,MACA,QAAA,KACA,eAAA,OAEA,CANF,UAME,WACE,QAAA,EAIJ,CAAA,SACE,QAAA,KACA,UAAA,KAEA,CAJF,SAIE,CAAA,QACE,QAAA,KAhBJ,OAiBI,KAjBJ,QAkBI,KACA,iBAAA,IAAA,sBAEA,CAVJ,SAUI,CANF,QAME,wBACE,QAAA,MACA,MAAA,KAAA,IAAA,YAAA,EAAA,IACA,OAAA,KAAA,IAAA,YAAA,EAAA",
+  "names": []
+}

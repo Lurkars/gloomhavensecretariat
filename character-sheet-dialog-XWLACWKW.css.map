@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/character/dialogs/character-sheet-dialog.scss"],
+  "sourcesContent": [".character-sheet-dialog {\n  position: relative;\n  background-color: var(--ghs-color-white);\n\n  ghs-character-sheet {\n    display: block;\n  }\n\n  .lock-toggle {\n    position: sticky;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 0;\n    overflow: visible;\n    display: flex;\n    justify-content: flex-end;\n    z-index: 2;\n\n    a {\n      cursor: pointer;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      width: calc(var(--ghs-unit) * 3.2 * var(--ghs-dialog-factor));\n      height: calc(var(--ghs-unit) * 3.2 * var(--ghs-dialog-factor));\n\n      img {\n        width: 100%;\n        height: auto;\n      }\n    }\n\n    &.permissive {\n      opacity: 0.6;\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,uBACE,SAAA,SACA,iBAAA,IAAA,mBAEA,CAJF,uBAIE,oBACE,QAAA,MAGF,CARF,uBAQE,CAAA,YACE,SAAA,OACA,IAAA,EACA,KAAA,EACA,MAAA,KACA,OAAA,EACA,SAAA,QACA,QAAA,KACA,gBAAA,SACA,QAAA,EAEA,CAnBJ,uBAmBI,CAXF,YAWE,EACE,OAAA,QACA,QAAA,KACA,gBAAA,OACA,YAAA,OACA,MAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,sBACA,OAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,sBAEA,CA3BN,uBA2BM,CAnBJ,YAmBI,EAAA,IACE,MAAA,KACA,OAAA,KAIJ,CAjCJ,uBAiCI,CAzBF,WAyBE,CAAA,WACE,QAAA",
+  "names": []
+}

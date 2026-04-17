@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/header/element/element-icon.scss"],
+  "sourcesContent": [".element-svg {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n\n  svg {\n    width: 100%;\n    height: 100%;\n  }\n\n  #bg {\n    transition: clip-path calc(var(--ghs-animation-speed) * 1000ms);\n  }\n\n  &.inert {\n    #bg {\n      clip-path: inset(100% 0px 0px 0px);\n    }\n  }\n\n  &.full,\n  &.always,\n  &.new {\n    #bg {\n      clip-path: inset(0% 0px 0px 0px);\n    }\n  }\n\n  &.new {\n    opacity: 0.7;\n  }\n\n  &.consumed {\n    #bg {\n      opacity: 0.3 !important;\n    }\n  }\n\n  &.half {\n    #bg {\n      clip-path: inset(50% 0px 0px 0px);\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,YACE,QAAA,KACA,gBAAA,OACA,YAAA,OACA,MAAA,KACA,OAAA,KAEA,CAPF,YAOE,IACE,MAAA,KACA,OAAA,KAGF,CAZF,YAYE,CAAA,GACE,WAAA,UAAA,KAAA,IAAA,uBAAA,EAAA,IAIA,CAjBJ,WAiBI,CAAA,MAAA,CALF,GAMI,UAAA,MAAA,KAAA,IAAA,IAAA,KAOF,CAzBJ,WAyBI,CAAA,KAAA,CAbF,GAaE,CAzBJ,WAyBI,CAAA,OAAA,CAbF,GAaE,CAzBJ,WAyBI,CAAA,IAAA,CAbF,GAcI,UAAA,MAAA,GAAA,IAAA,IAAA,KAIJ,CA9BF,WA8BE,CALE,IAMA,QAAA,GAIA,CAnCJ,WAmCI,CAAA,SAAA,CAvBF,GAwBI,QAAA,aAKF,CAzCJ,WAyCI,CAAA,KAAA,CA7BF,GA8BI,UAAA,MAAA,IAAA,IAAA,IAAA",
+  "names": []
+}

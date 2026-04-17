@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/actions/actions.scss"],
+  "sourcesContent": [".actions {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  height: 100%;\n  position: relative;\n\n  &.inline {\n    align-items: flex-start;\n  }\n\n  &.right {\n    align-items: flex-end;\n    text-align: right;\n\n    ghs-action {\n      margin-left: auto;\n    }\n  }\n\n  ghs-action {\n    position: relative;\n    width: 100%;\n\n    &.spacing {\n      margin-top: 0.7em;\n    }\n  }\n\n  .divider {\n    width: 2em;\n    border-top: 0.11em var(--ghs-color-white) dotted;\n    margin: 0.1em;\n  }\n\n  :first-child {\n    margin-top: auto;\n  }\n\n  :last-child {\n    margin-bottom: auto;\n  }\n\n  &.fh {\n    .divider {\n      width: 3em;\n      height: 0.06em;\n      min-height: 0.06em;\n      border-top: none;\n      background: linear-gradient(90deg, transparent 0%, var(--ghs-color-white) 50%, transparent 100%);\n      margin: 0.2em;\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,QACE,QAAA,KACA,eAAA,OACA,YAAA,OACA,OAAA,KACA,SAAA,SAEA,CAPF,OAOE,CAAA,OACE,YAAA,WAGF,CAXF,OAWE,CAAA,MACE,YAAA,SACA,WAAA,MAEA,CAfJ,OAeI,CAJF,MAIE,WACE,YAAA,KAIJ,CApBF,QAoBE,WACE,SAAA,SACA,MAAA,KAEA,CAxBJ,QAwBI,UAAA,CAAA,QACE,WAAA,KAIJ,CA7BF,QA6BE,CAAA,QACE,MAAA,IACA,WAAA,MAAA,IAAA,mBAAA,OA/BJ,OAgCI,KAGF,CAnCF,QAmCE,aACE,WAAA,KAGF,CAvCF,QAuCE,YACE,cAAA,KAIA,CA5CJ,OA4CI,CAAA,GAAA,CAfF,QAgBI,MAAA,IACA,OAAA,MACA,WAAA,MACA,WAAA,KACA,WAAA,gBAAA,KAAA,CAAA,YAAA,EAAA,CAAA,IAAA,mBAAA,GAAA,CAAA,YAAA,MAjDN,OAkDM",
+  "names": []
+}

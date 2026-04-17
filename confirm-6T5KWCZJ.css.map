@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/helper/confirm/confirm.scss"],
+  "sourcesContent": [".confirm-dialog {\n  position: relative;\n  color: var(--ghs-color-white);\n\n  .title {\n    font-family: var(--ghs-font-title);\n    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));\n  }\n\n  .menu {\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n\n    a {\n      cursor: pointer;\n      font-size: 2em;\n      padding: 0.3em;\n\n      &.cancel {\n        color: var(--ghs-color-red);\n      }\n\n      &.confirm {\n        color: var(--ghs-color-green);\n      }\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,eACE,SAAA,SACA,MAAA,IAAA,mBAEA,CAJF,eAIE,CAAA,MACE,YAAA,IAAA,kBACA,UAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,sBAGF,CATF,eASE,CAAA,KACE,QAAA,KACA,gBAAA,aACA,YAAA,OAEA,CAdJ,eAcI,CALF,KAKE,EACE,OAAA,QACA,UAAA,IAhBN,QAiBM,KAEA,CAnBN,eAmBM,CAVJ,KAUI,CAAA,CAAA,OACE,MAAA,IAAA,iBAGF,CAvBN,eAuBM,CAdJ,KAcI,CAAA,CAAA,QACE,MAAA,IAAA",
+  "names": []
+}

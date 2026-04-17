@@ -4,8 +4,14 @@
     "forceUpdate": "Force Update",
     "ip": "Gloomhaven and all related properties, images and text are owned by {0}.",
     "license": "Licensed under {0}.",
-    "sourceCode": "Source Code",
-    "support": "Support the dev",
+    "sourceCode": {
+      "": "Source Code",
+      "author": "Original Source Code"
+    },
+    "support": {
+      "": "Support the developer",
+      "author": "Support the original developer"
+    },
     "version": {
       "latest": "Latest",
       "unknown": "Could not fetch latest version",
@@ -1268,7 +1274,7 @@
       "treasures": {
         "": "Treasures",
         "rewards": {
-          "battleGoal": "gain {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+          "battleGoal": "gain {0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\">",
           "calendarSection": "add %data.section:{0}% in %number.{1}% weeks",
           "campaignSticker": "gain \"{0}\" campaign sticker",
           "condition": "gain {0}",
@@ -1279,10 +1285,10 @@
             "road": "add Road Event {0} to the deck"
           },
           "experience": "gain {0} experience",
-          "experienceFh": "gain {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
+          "experienceFh": "gain {0} <img class=\"icon ghs-svg\" src=\"/assets/images/experience.svg\">",
           "goal": "Goal",
           "gold": "gain {0} gold",
-          "goldFh": "gain {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
+          "goldFh": "gain {0} <img class=\"icon ghs-svg\" src=\"/assets/images/fh/loot.svg\">",
           "heal": "perform \"Heal {0}, Self\"",
           "item": "gain {1} ({0})",
           "itemBlueprint": "gain {1} blueprint %game.itemFh.{0}%",
@@ -1961,10 +1967,10 @@
         "": "Calendar",
         "next": "Automatic pass calendar time to week {0}",
         "section": "Open %data.section:{0}% (applied automatically)",
-        "summer": "New season: Summer <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
-        "winter": "New season: Winter <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
+        "summer": "New season: Summer <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/summer.svg\">",
+        "winter": "New season: Winter <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/winter.svg\">"
       },
-      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> each",
+      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\"> each",
       "bonus": "Bonus",
       "calendarSection": {
         "": "Section Links",
@@ -2244,7 +2250,7 @@
       },
       "conclusionWarning": {
         "": "Missing Solution!",
-        "hint": "It seems that this scenario is finished without a conclusion. This may lead to missing rewards and unlocks. Conclusion sections are marked with a <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\"> icon."
+        "hint": "It seems that this scenario is finished without a conclusion. This may lead to missing rewards and unlocks. Conclusion sections are marked with a <img class=\"icon ghs-svg\" src=\"/assets/images/scenario/conclusion.svg\"> icon."
       },
       "forcedLinks": "%scenario.summary.links% (forced)",
       "gold": "Gold",

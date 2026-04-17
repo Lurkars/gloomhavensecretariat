@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/tools/standalone/enhancement-calculator/enhancement-calculator.scss"],
+  "sourcesContent": [".container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n\n  .dialog {\n    max-width: 800px;\n    width: 100vw;\n    max-height: 100vh;\n    overflow: auto;\n    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));\n    color: var(--ghs-color-white);\n\n    .dialog-container {\n      margin: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,UACE,QAAA,KACA,gBAAA,OACA,YAAA,OACA,OAAA,MAEA,CANF,UAME,CAAA,OACE,UAAA,MACA,MAAA,MACA,WAAA,MACA,SAAA,KACA,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,oBACA,MAAA,IAAA,mBAEA,CAdJ,UAcI,CARF,OAQE,CAAA,iBACE,OAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA",
+  "names": []
+}

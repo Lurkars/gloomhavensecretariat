@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/footer/scenario-rules/dialog/scenario-rules-dialog.scss"],
+  "sourcesContent": ["h2 {\n  font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));\n  color: var(--ghs-color-darkgray);\n  margin: 0;\n  padding: 0;\n}\n\n.applied ghs-scenario-rule {\n  cursor: zoom-out;\n\n  &:hover {\n    opacity: 0.6;\n  }\n}\n\n.menu {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n\n  a {\n    cursor: pointer;\n    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));\n\n    &:hover {\n      opacity: 0.6;\n    }\n  }\n}\n"],
+  "mappings": "AAAA,GACE,UAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,oBACA,MAAA,IAAA,sBAFF,OAGE,EAHF,QAIE,EAGF,CAAA,QAAA,kBACE,OAAA,SAEA,CAHF,QAGE,iBAAA,OACE,QAAA,GAIJ,CAAA,KACE,QAAA,KACA,eAAA,OACA,gBAAA,OACA,YAAA,OAEA,CANF,KAME,EACE,OAAA,QACA,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBAEA,CAVJ,KAUI,CAAA,OACE,QAAA",
+  "names": []
+}

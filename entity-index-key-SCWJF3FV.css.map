@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/standee/entity-index-key/entity-index-key.scss"],
+  "sourcesContent": [".key-container {\n  position: absolute;\n  display: flex;\n  min-width: calc(var(--ghs-unit) * 10);\n  max-width: calc(var(--ghs-unit) * 10);\n  font-size: calc(var(--ghs-unit) * 2.5);\n  z-index: 999;\n}\n"],
+  "mappings": "AAAA,CAAA,cACE,SAAA,SACA,QAAA,KACA,UAAA,KAAA,IAAA,YAAA,EAAA,IACA,UAAA,KAAA,IAAA,YAAA,EAAA,IACA,UAAA,KAAA,IAAA,YAAA,EAAA,KACA,QAAA",
+  "names": []
+}

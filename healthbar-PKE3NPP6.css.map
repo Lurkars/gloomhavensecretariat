@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/healthbar/healthbar.scss"],
+  "sourcesContent": [".health-bar {\n  width: 100%;\n  height: 100%;\n  border: none;\n  background-color: transparent;\n\n  .health-bar-value {\n    height: 100%;\n    max-width: 1000%;\n    transition: width calc(var(--ghs-animation-speed) * 500ms);\n    background-color: var(--ghs-color-lightgreen);\n  }\n\n  &.critical {\n    .health-bar-value {\n      background-color: var(--ghs-color-red);\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,WACE,MAAA,KACA,OAAA,KACA,OAAA,KACA,iBAAA,YAEA,CANF,WAME,CAAA,iBACE,OAAA,KACA,UAAA,MACA,WAAA,MAAA,KAAA,IAAA,uBAAA,EAAA,KACA,iBAAA,IAAA,wBAIA,CAdJ,UAcI,CAAA,SAAA,CARF,iBASI,iBAAA,IAAA",
+  "names": []
+}

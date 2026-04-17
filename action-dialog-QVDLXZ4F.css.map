@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/tools/editor/action/action-dialog.scss"],
+  "sourcesContent": [":host {\n  display: block;\n  font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-fontsize));\n  width: 500px;\n}\n\nghs-action {\n  font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-fontsize));\n}\n\n.ghs-icon {\n  height: 1em;\n  width: auto;\n\n  filter: var(--ghs-filter-white) var(--ghs-filter-shadow);\n}\n\na {\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n\n  .ghs-icon:nth-child(1) {\n    margin-right: 0.2em;\n  }\n}\n"],
+  "mappings": "AAAA,MACE,QAAA,MACA,UAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,iBACA,MAAA,MAGF,WACE,UAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,iBAGF,CAAA,SACE,OAAA,IACA,MAAA,KAEA,OAAA,IAAA,oBAAA,IAAA,qBAGF,EACE,OAAA,QACA,QAAA,KACA,YAAA,OAEA,EAAA,CAZF,QAYE,cACE,aAAA",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/footer/scenario/treasures/label/label.scss"],
+  "sourcesContent": [".treasure-label {\n  display: inline-block;\n  line-height: 1em;\n\n  &::first-letter {\n    text-transform: uppercase;\n  }\n\n  .items {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-items: center;\n\n    ghs-item {\n      position: relative;\n      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));\n      width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,eACE,QAAA,aACA,YAAA,IAEA,CAJF,cAIE,cACE,eAAA,UAGF,CARF,eAQE,CAAA,MACE,QAAA,KACA,UAAA,KACA,gBAAA,OACA,YAAA,OAEA,CAdJ,eAcI,CANF,MAME,SACE,SAAA,SACA,OAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,MAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA",
+  "names": []
+}

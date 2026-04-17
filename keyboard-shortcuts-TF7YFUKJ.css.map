@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/header/menu/keyboard-shortcuts/keyboard-shortcuts.scss"],
+  "sourcesContent": [".scroll-container {\n  color: var(--ghs-color-white);\n  font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));\n}\n\nli {\n  display: flex;\n  align-items: center;\n\n  kbd {\n    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));\n  }\n\n  .hint {\n    margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));\n    font-style: italic;\n    font-size: 0.8em;\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,iBACE,MAAA,IAAA,mBACA,UAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,sBAGF,GACE,QAAA,KACA,YAAA,OAEA,GAAA,IACE,OAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBAGF,GAAA,CAAA,KACE,YAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBACA,WAAA,OACA,UAAA",
+  "names": []
+}

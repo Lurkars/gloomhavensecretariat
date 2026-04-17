@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/character/sheet/abilities/enhancements/enhancement-dialog.scss"],
+  "sourcesContent": [".enhancement-dialog {\n  font-size: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));\n  color: var(--ghs-color-white);\n}\n"],
+  "mappings": "AAAA,CAAA,mBACE,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,oBACA,MAAA,IAAA",
+  "names": []
+}

@@ -1254,7 +1254,7 @@
       "treasures": {
         "": "财宝",
         "rewards": {
-          "battleGoal": "获得 {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+          "battleGoal": "获得 {0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\">",
           "calendarSection": "添加 %data.section:{0}% 至 %number.{1}% 周",
           "campaignSticker": "获得 \"{0}\" 战役贴纸",
           "condition": "获得 {0}",
@@ -1265,10 +1265,10 @@
             "road": "添加道路事件 {0} 至相应牌堆"
           },
           "experience": "获得 {0} 经验值",
-          "experienceFh": "获得 {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
+          "experienceFh": "获得 {0} <img class=\"icon ghs-svg\" src=\"/assets/images/experience.svg\">",
           "goal": "目标",
           "gold": "获得 {0} 金币",
-          "goldFh": "获得 {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
+          "goldFh": "获得 {0} <img class=\"icon ghs-svg\" src=\"/assets/images/fh/loot.svg\">",
           "heal": "执行 \"治疗 {0}, 自身\"",
           "item": "获得 {1} ({0})",
           "itemBlueprint": "获得 {1} %game.itemFh.{0}% 设计蓝图",
@@ -1949,10 +1949,10 @@
         "": "日历",
         "next": "日历自动推进到第 {0} 周",
         "section": "打开 %data.section:{0}% （自动执行）",
-        "summer": "新季节：夏季 <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
-        "winter": "新季节：冬季<img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
+        "summer": "新季节：夏季 <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/summer.svg\">",
+        "winter": "新季节：冬季<img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/winter.svg\">"
       },
-      "battleGoals": "每人{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+      "battleGoals": "每人{0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\">",
       "bonus": "奖励",
       "calendarSection": {
         "": "段落链接",
@@ -2232,7 +2232,7 @@
       },
       "conclusionWarning": {
         "": "缺少解决方案!",
-        "hint": "该剧本似乎是以没有结局的方式完成.这可能会导致奖励以及解锁内容的丢失.结局段落用<img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\"> 图标标记."
+        "hint": "该剧本似乎是以没有结局的方式完成.这可能会导致奖励以及解锁内容的丢失.结局段落用<img class=\"icon ghs-svg\" src=\"/assets/images/scenario/conclusion.svg\"> 图标标记."
       },
       "forcedLinks": "%scenario.summary.links% (强制)",
       "gold": "金币",

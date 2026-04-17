@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/tools/items/items-cards-tool.scss"],
+  "sourcesContent": [".menu {\n  display: flex;\n  flex-wrap: wrap;\n\n  label {\n    display: flex;\n  }\n}\n\n.container {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n\n  ghs-header {\n    z-index: 2;\n  }\n}\n\n.items {\n  display: flex;\n  flex-wrap: wrap;\n  overflow: auto;\n\n  ghs-item {\n    width: 200px;\n    min-width: 200px;\n    height: 300px;\n    min-height: 300px;\n    margin: 10px;\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,KACE,QAAA,KACA,UAAA,KAEA,CAJF,KAIE,MACE,QAAA,KAIJ,CAAA,UACE,MAAA,MACA,OAAA,MACA,QAAA,KACA,eAAA,OAEA,CANF,UAME,WACE,QAAA,EAIJ,CAAA,MACE,QAAA,KACA,UAAA,KACA,SAAA,KAEA,CALF,MAKE,SACE,MAAA,MACA,UAAA,MACA,OAAA,MACA,WAAA,MA7BJ,OA8BI",
+  "names": []
+}

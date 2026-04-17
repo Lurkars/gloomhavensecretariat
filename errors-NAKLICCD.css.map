@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/errors/errors.scss"],
+  "sourcesContent": [".button {\n  cursor: pointer;\n  font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));\n\n  display: flex;\n  width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));\n  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));\n  filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);\n\n  a {\n    display: flex;\n    width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));\n    height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,OACE,OAAA,QACA,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBAEA,QAAA,KACA,MAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBACA,OAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBACA,OAAA,IAAA,qBAAA,IAAA,qBAEA,CATF,OASE,EACE,QAAA,KACA,MAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBACA,OAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA",
+  "names": []
+}

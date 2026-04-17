@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/helper/number-input/number-input.scss"],
+  "sourcesContent": [".number-input-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 1em;\n\n  .value-container {\n    display: flex;\n\n    .value {\n      cursor: pointer;\n      font-size: 1em;\n      margin: 0.2em;\n      filter: brightness(0.8);\n\n      &:hover {\n        filter: brightness(1.5);\n      }\n\n      &.disabled {\n        pointer-events: none;\n        visibility: hidden;\n      }\n    }\n  }\n\n  .current {\n    font-size: 1.5em;\n    margin: 0.2em;\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,uBACE,QAAA,KACA,gBAAA,OACA,YAAA,OACA,UAAA,IAEA,CANF,uBAME,CAAA,gBACE,QAAA,KAEA,CATJ,uBASI,CAHF,gBAGE,CAAA,MACE,OAAA,QACA,UAAA,IAXN,OAYM,KACA,OAAA,WAAA,IAEA,CAfN,uBAeM,CATJ,gBASI,CANF,KAME,OACE,OAAA,WAAA,KAGF,CAnBN,uBAmBM,CAbJ,gBAaI,CAVF,KAUE,CAAA,SACE,eAAA,KACA,WAAA,OAKN,CA1BF,uBA0BE,CAAA,QACE,UAAA,MA3BJ,OA4BI",
+  "names": []
+}

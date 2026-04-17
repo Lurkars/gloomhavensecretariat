@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/header/menu/settings/setting/setting.scss"],
+  "sourcesContent": [".hint-container {\n  label {\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n  }\n\n  .requires {\n    font-family: var(--ghs-normal);\n    font-size: 0.9em;\n    display: flex;\n    flex-direction: column;\n    margin-top: 1em;\n\n    .title {\n      margin-bottom: 0.3em;\n    }\n\n    .require {\n      display: flex;\n      align-items: center;\n\n      input[type='checkbox'] {\n        width: 1.5em;\n        height: 1.5em;\n        border-width: 0.1em;\n        border-style: solid;\n        display: grid;\n        place-content: center;\n        margin-right: 0.5em;\n      }\n\n      &.missing {\n        color: var(--ghs-color-red);\n      }\n    }\n  }\n}\n"],
+  "mappings": "AACE,CAAA,eAAA,MACE,OAAA,QACA,QAAA,KACA,YAAA,OAGF,CANA,eAMA,CAAA,SACE,YAAA,IAAA,cACA,UAAA,KACA,QAAA,KACA,eAAA,OACA,WAAA,IAEA,CAbF,eAaE,CAPF,SAOE,CAAA,MACE,cAAA,KAGF,CAjBF,eAiBE,CAXF,SAWE,CAAA,QACE,QAAA,KACA,YAAA,OAEA,CArBJ,eAqBI,CAfJ,SAeI,CAJF,QAIE,KAAA,CAAA,eACE,MAAA,MACA,OAAA,MACA,aAAA,KACA,aAAA,MACA,QAAA,KACA,cAAA,OACA,aAAA,KAGF,CA/BJ,eA+BI,CAzBJ,SAyBI,CAdF,OAcE,CAAA,QACE,MAAA,IAAA",
+  "names": []
+}

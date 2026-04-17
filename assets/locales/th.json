@@ -1179,7 +1179,7 @@
       "treasures": {
         "": "สมบัติ",
         "rewards": {
-          "battleGoal": "ได้รับ {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+          "battleGoal": "ได้รับ {0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\">",
           "calendarSection": "เพิ่ม %data.section:{0}% ใน %number.{1}% สัปดาห์",
           "campaignSticker": "ได้รับสติกเกอร์แคมเปญ \"{0}\"",
           "condition": "ได้รับ {0}",
@@ -1190,10 +1190,10 @@
             "road": "เพิ่ม Road Event {0} เข้าเด็ค"
           },
           "experience": "ได้รับประสบการณ์ {0}",
-          "experienceFh": "ได้รับ {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
+          "experienceFh": "ได้รับ {0} <img class=\"icon ghs-svg\" src=\"/assets/images/experience.svg\">",
           "goal": "เป้าหมาย",
           "gold": "ได้รับทอง {0}",
-          "goldFh": "ได้รับ {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
+          "goldFh": "ได้รับ {0} <img class=\"icon ghs-svg\" src=\"/assets/images/fh/loot.svg\">",
           "heal": "ทำ \"รักษา {0} ตัวเอง\"",
           "item": "ได้รับ {1} ({0})",
           "itemBlueprint": "ได้รับบลูพรินต์ {1} %game.itemFh.{0}%",
@@ -1811,10 +1811,10 @@
         "": "ปฏิทิน",
         "next": "เลื่อนปฏิทินอัตโนมัติถึงสัปดาห์ {0}",
         "section": "เปิด %data.section:{0}% (ใช้อัตโนมัติ)",
-        "summer": "ฤดูใหม่: ฤดูร้อน <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
-        "winter": "ฤดูใหม่: ฤดูหนาว <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
+        "summer": "ฤดูใหม่: ฤดูร้อน <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/summer.svg\">",
+        "winter": "ฤดูใหม่: ฤดูหนาว <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/winter.svg\">"
       },
-      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> ต่อคน",
+      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\"> ต่อคน",
       "bonus": "โบนัส",
       "calendarSection": {
         "": "ลิงก์ส่วน",
@@ -2093,7 +2093,7 @@
       },
       "conclusionWarning": {
         "": "ไม่มีบทสรุป!",
-        "hint": "ดูเหมือนฉากนี้จบโดยไม่มีบทสรุป อาจทำให้พลาดรางวัลและสิ่งที่ปลดล็อก ส่วนบทสรุปมีไอคอน <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\">"
+        "hint": "ดูเหมือนฉากนี้จบโดยไม่มีบทสรุป อาจทำให้พลาดรางวัลและสิ่งที่ปลดล็อก ส่วนบทสรุปมีไอคอน <img class=\"icon ghs-svg\" src=\"/assets/images/scenario/conclusion.svg\">"
       },
       "forcedLinks": "%scenario.summary.links% (บังคับ)",
       "gold": "ทอง",

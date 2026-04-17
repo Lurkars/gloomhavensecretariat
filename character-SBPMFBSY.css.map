@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/tools/editor/character/character.scss"],
+  "sourcesContent": [".container {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n\n  ghs-header {\n    z-index: 2;\n  }\n}\n\n.character-editor {\n  margin: calc(var(--ghs-unit) * 2);\n}\n\n.character-data {\n  display: flex;\n  flex-direction: column;\n\n  .hp-grid {\n    max-width: 600px;\n    display: grid;\n    grid-auto-flow: column;\n    grid-template-rows: 1fr 1fr;\n\n    span,\n    input {\n      text-align: center;\n    }\n\n    input {\n      background-color: transparent;\n      border: 1px solid var(--ghs-color-red);\n      color: var(--ghs-color-red);\n      min-width: 40px;\n      font-size: 1em;\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,UACE,MAAA,MACA,OAAA,MACA,QAAA,KACA,eAAA,OAEA,CANF,UAME,WACE,QAAA,EAIJ,CAAA,iBACE,OAAA,KAAA,IAAA,YAAA,EAAA,GAGF,CAAA,eACE,QAAA,KACA,eAAA,OAEA,CAJF,eAIE,CAAA,QACE,UAAA,MACA,QAAA,KACA,eAAA,OACA,mBAAA,IAAA,IAEA,CAVJ,eAUI,CANF,QAME,KAAA,CAVJ,eAUI,CANF,QAME,MAEE,WAAA,OAGF,CAfJ,eAeI,CAXF,QAWE,MACE,iBAAA,YACA,OAAA,IAAA,MAAA,IAAA,iBACA,MAAA,IAAA,iBACA,UAAA,KACA,UAAA",
+  "names": []
+}

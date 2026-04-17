@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/errors/errors-dialog.scss"],
+  "sourcesContent": [".figure-errors {\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n\n  .figure-error {\n    display: flex;\n    flex-direction: column;\n    padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;\n\n    .error {\n      font-family: var(--ghs-font-text);\n      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));\n      color: var(--ghs-color-red);\n    }\n\n    .hint {\n      font-family: var(--ghs-font-normal);\n      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));\n      color: var(--ghs-color-white);\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,cACE,QAAA,KACA,eAAA,OACA,WAAA,OAEA,CALF,cAKE,CAAA,aACE,QAAA,KACA,eAAA,OACA,QAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBAAA,EAEA,CAVJ,cAUI,CALF,aAKE,CAAA,MACE,YAAA,IAAA,iBACA,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBACA,MAAA,IAAA,iBAGF,CAhBJ,cAgBI,CAXF,aAWE,CAAA,KACE,YAAA,IAAA,mBACA,UAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,sBACA,MAAA,IAAA",
+  "names": []
+}

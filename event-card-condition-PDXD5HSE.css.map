@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/event/condition/event-card-condition.scss"],
+  "sourcesContent": [".condition {\n  font-family: var(--ghs-font-text);\n\n  &.fh {\n    font-family: var(--ghs-font-fh-normal);\n  }\n\n  .disabled {\n    opacity: 0.4;\n  }\n\n  .text.debug {\n    color: red;\n  }\n\n  &.narrative {\n    font-style: italic;\n    text-transform: uppercase;\n\n    .condition-character {\n      font-size: 1.1em;\n    }\n\n    .lowercase {\n      text-transform: initial;\n    }\n  }\n\n  .condition-object {\n    .and-container,\n    .conditional-container {\n      ghs-event-card-condition {\n        margin: 0 0.2em;\n      }\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,UACE,YAAA,IAAA,iBAEA,CAHF,SAGE,CAAA,GACE,YAAA,IAAA,sBAGF,CAPF,UAOE,CAAA,SACE,QAAA,GAGF,CAXF,UAWE,CAAA,IAAA,CAAA,MACE,MAAA,IAGF,CAfF,SAeE,CAAA,UACE,WAAA,OACA,eAAA,UAEA,CAnBJ,SAmBI,CAJF,UAIE,CAAA,oBACE,UAAA,MAGF,CAvBJ,SAuBI,CARF,UAQE,CAAA,UACE,eAAA,QAOA,CA/BN,UA+BM,CAAA,iBAAA,CAAA,cAAA,yBAAA,CA/BN,UA+BM,CAAA,iBAAA,CAAA,sBAAA,yBA/BN,OAgCQ,EAAA",
+  "names": []
+}

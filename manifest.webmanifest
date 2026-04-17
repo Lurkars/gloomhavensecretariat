@@ -7,8 +7,9 @@
     "utilities"
   ],
   "background_color": "#000000",
+  "theme_color": "#936658",
   "display": "standalone",
-  "orienatation": "any",
+  "orientation": "any",
   "dir": "auto",
   "scope": "./",
   "start_url": "./index.html",

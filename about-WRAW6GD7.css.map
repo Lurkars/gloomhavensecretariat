@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/header/menu/about/about.scss"],
+  "sourcesContent": [".version-info {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-family: var(--ghs-font-title);\n  font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));\n  color: var(--ghs-color-gray);\n  margin-left: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));\n\n  span {\n    margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));\n\n    &.unknown {\n      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));\n      color: var(--ghs-color-darkgray);\n    }\n\n    &.latest {\n      color: var(--ghs-color-darkgreen);\n    }\n\n    &.update {\n      color: var(--ghs-color-yellow);\n    }\n  }\n\n  .force {\n    margin-left: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,aACE,QAAA,KACA,gBAAA,OACA,YAAA,OACA,YAAA,IAAA,kBACA,UAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,sBACA,MAAA,IAAA,kBACA,YAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,sBAEA,CATF,aASE,KACE,aAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBAEA,CAZJ,aAYI,IAAA,CAAA,QACE,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBACA,MAAA,IAAA,sBAGF,CAjBJ,aAiBI,IAAA,CAAA,OACE,MAAA,IAAA,uBAGF,CArBJ,aAqBI,IAAA,CAAA,OACE,MAAA,IAAA,oBAIJ,CA1BF,aA0BE,CAAA,MACE,YAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA",
+  "names": []
+}

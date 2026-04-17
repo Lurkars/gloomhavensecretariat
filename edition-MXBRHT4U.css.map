@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/tools/editor/edition.scss"],
+  "sourcesContent": [".files {\n  .file-list {\n    display: flex;\n    flex-direction: column;\n\n    .file {\n      font-size: 1.5em;\n      cursor: pointer;\n\n      &:hover {\n        text-decoration: line-through;\n      }\n    }\n  }\n}\n\n.conditions {\n  display: flex;\n  flex-direction: column;\n\n  a {\n    font-size: 0.7em;\n  }\n}\n"],
+  "mappings": "AACE,CAAA,MAAA,CAAA,UACE,QAAA,KACA,eAAA,OAEA,CAJF,MAIE,CAJF,UAIE,CAAA,KACE,UAAA,MACA,OAAA,QAEA,CARJ,MAQI,CARJ,UAQI,CAJF,IAIE,OACE,gBAAA,aAMR,CAAA,WACE,QAAA,KACA,eAAA,OAEA,CAJF,WAIE,EACE,UAAA",
+  "names": []
+}
