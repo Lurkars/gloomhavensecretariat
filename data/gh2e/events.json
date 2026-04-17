@@ -2148,7 +2148,7 @@
     "cardId": "C-33",
     "edition": "gh2e",
     "type": "city",
-    "narrative": "Do not allow anyone else to see this card.<br><br><img class=\"placeholder-image\" src=\"./assets/artwork/events/gh2e-C-33-front.png\">",
+    "narrative": "Do not allow anyone else to see this card.<br><br><img class=\"placeholder-image\" src=\"/assets/artwork/events/gh2e-C-33-front.png\">",
     "options": [
       {
         "label": "",
@@ -2156,7 +2156,7 @@
         "outcomes": [
           {
             "effects": [
-              "When you have determined the face of the purse-snatcher, read %game.section:81.3%.<br><br><img class=\"placeholder-image\" src=\"./assets/artwork/events/gh2e-C-33-back.png\">"
+              "When you have determined the face of the purse-snatcher, read %game.section:81.3%.<br><br><img class=\"placeholder-image\" src=\"/assets/artwork/events/gh2e-C-33-back.png\">"
             ]
           }
         ]
@@ -2637,7 +2637,7 @@
         ]
       }
     ],
-    "footer": "<img class=\"placeholder-image\" src=\"./assets/artwork/events/gh2e-C-41.png\">"
+    "footer": "<img class=\"placeholder-image\" src=\"/assets/artwork/events/gh2e-C-41.png\">"
   },
   {
     "cardId": "C-42",
@@ -2694,7 +2694,7 @@
         ]
       }
     ],
-    "footer": "<img class=\"placeholder-image\" src=\"./assets/artwork/events/gh2e-C-42.png\">"
+    "footer": "<img class=\"placeholder-image\" src=\"/assets/artwork/events/gh2e-C-42.png\">"
   },
   {
     "cardId": "C-43",
@@ -7052,7 +7052,7 @@
     "cardId": "R-10",
     "edition": "gh2e",
     "type": "road",
-    "narrative": "The distant whine of machinery draws you to a curious contraption: impossibly embedded into the mountainside is a metal doorway and several blinking crystals. A plaque at the top reads \"Emergency Temporal Stash.\"<br><br><img class=\"placeholder-image\" src=\"./assets/artwork/events/gh2e-R-10.png\">",
+    "narrative": "The distant whine of machinery draws you to a curious contraption: impossibly embedded into the mountainside is a metal doorway and several blinking crystals. A plaque at the top reads \"Emergency Temporal Stash.\"<br><br><img class=\"placeholder-image\" src=\"/assets/artwork/events/gh2e-R-10.png\">",
     "options": [
       {
         "label": "A",
@@ -7955,7 +7955,7 @@
     "cardId": "R-24",
     "edition": "gh2e",
     "type": "road",
-    "narrative": "You've taken a \"shortcut\" through the sewers to get outside the city wall, but a wrong turn leaves you lost. The only way forward is through a wall of pipes. You pry one off, but a burst of water pressure knocks you to the ground and seals the door. The water is rapidly rising! There's no time to talk. In order to escape, you need to select the correct valve to turn off the flow, and you need to do it fast.<br><br><img class=\"placeholder-image\" src=\"./assets/artwork/events/gh2e-R-24.png\">",
+    "narrative": "You've taken a \"shortcut\" through the sewers to get outside the city wall, but a wrong turn leaves you lost. The only way forward is through a wall of pipes. You pry one off, but a burst of water pressure knocks you to the ground and seals the door. The water is rapidly rising! There's no time to talk. In order to escape, you need to select the correct valve to turn off the flow, and you need to do it fast.<br><br><img class=\"placeholder-image\" src=\"/assets/artwork/events/gh2e-R-24.png\">",
     "options": [
       {
         "narrative": "Set this card on the table. Players may no longer communicate in any way. Once you have selected which valve to close, raise your hand. When all players' hands are raised, each player simultaneously says their chosen valve's letter aloud. Then, flip this card.",

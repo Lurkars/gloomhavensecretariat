@@ -1,25 +1,28 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { Component, HostListener, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { ghsDialogClosingHelper } from '../Static';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
-  standalone: false,
+  imports: [GhsLabelDirective],
   selector: 'ghs-confirm-dialog',
   templateUrl: './confirm.html',
   styleUrls: ['./confirm.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConfirmDialogComponent {
-
   label: string;
-  args: (string | number | boolean)[]
+  args: (string | number | boolean)[];
 
-  constructor(@Inject(DIALOG_DATA) data: { label: string, args: (string | number | boolean)[] | undefined }, private dialogRef: DialogRef) {
-    if (!data.label) {
+  data: { label: string; args: (string | number | boolean)[] | undefined } = inject(DIALOG_DATA);
+
+  constructor(private dialogRef: DialogRef) {
+    if (!this.data.label) {
       this.dialogRef.close();
     }
-    this.label = data.label;
-    this.args = data.args || [];
+    this.label = this.data.label;
+    this.args = this.data.args || [];
   }
 
   cancel() {

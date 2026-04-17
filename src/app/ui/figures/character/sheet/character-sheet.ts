@@ -1,34 +1,50 @@
-import { Dialog, DialogRef } from "@angular/cdk/dialog";
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character, GameCharacterModel } from "src/app/game/model/Character";
-import { CharacterProgress } from "src/app/game/model/CharacterProgress";
-import { EntityValueFunction } from "src/app/game/model/Entity";
-import { GameState } from "src/app/game/model/Game";
-import { Identifier } from "src/app/game/model/data/Identifier";
-import { LootType } from "src/app/game/model/data/Loot";
-import { PerkType } from "src/app/game/model/data/Perks";
-import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
-import { ghsDialogClosingHelper, ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
-import { PartySheetDialogComponent } from "../../party/party-sheet-dialog";
-import { StatisticsDialogComponent } from "../../party/statistics/statistics-dialog";
-import { TrialDialogComponent } from "../../trials/dialog/trial-dialog";
-import { AbilityCardsDialogComponent } from "./abilities/ability-cards-dialog";
-import { CharacterMoveResourcesDialog } from "./move-resources";
-import { CharacterRetirementDialog } from "./retirement-dialog";
-
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
+import { NgClass } from '@angular/common';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character, GameCharacterModel } from 'src/app/game/model/Character';
+import { CharacterProgress } from 'src/app/game/model/CharacterProgress';
+import { Identifier } from 'src/app/game/model/data/Identifier';
+import { LootType } from 'src/app/game/model/data/Loot';
+import { PerkType } from 'src/app/game/model/data/Perks';
+import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { GameState } from 'src/app/game/model/Game';
+import { PerkLabelComponent } from 'src/app/ui/figures/attackmodifier/perk/label';
+import { AbilityCardsDialogComponent } from 'src/app/ui/figures/character/sheet/abilities/ability-cards-dialog';
+import { CharacterMoveResourcesDialog } from 'src/app/ui/figures/character/sheet/move-resources';
+import { CharacterRetirementDialog } from 'src/app/ui/figures/character/sheet/retirement-dialog';
+import { CharacterItemsComponent } from 'src/app/ui/figures/items/items';
+import { PartySheetDialogComponent } from 'src/app/ui/figures/party/party-sheet-dialog';
+import { StatisticsDialogComponent } from 'src/app/ui/figures/party/statistics/statistics-dialog';
+import { TrialDialogComponent } from 'src/app/ui/figures/trials/dialog/trial-dialog';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { ghsDialogClosingHelper, ghsInputFullScreenCheck, ghsValueSign } from 'src/app/ui/helper/Static';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CharacterItemsComponent,
+    GhsLabelDirective,
+    GhsRangePipe,
+    GhsTooltipDirective,
+    NgClass,
+    PerkLabelComponent,
+    PointerInputDirective,
+    TrackUUIDPipe
+  ],
   selector: 'ghs-character-sheet',
   templateUrl: 'character-sheet.html',
   styleUrls: ['./character-sheet.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class CharacterSheetComponent implements OnInit, AfterViewInit {
-
   @Input() character!: Character;
   @Input() editable: boolean = true;
   @Input() forceEdit: boolean = false;
@@ -61,9 +77,21 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   titles: string[] = [];
 
-  constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+  constructor(
+    private dialog: Dialog,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect(() => {
-      this.availablePerks = this.character.level + Math.min(6, Math.floor(this.character.progress.battleGoals / 3)) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
+      this.availablePerks =
+        this.character.level +
+        Math.min(6, Math.floor(this.character.progress.battleGoals / 3)) -
+        (this.character.progress.perks && this.character.progress.perks.length > 0
+          ? this.character.progress.perks.reduce((a, b) => a + b)
+          : 0) -
+        1 +
+        this.character.progress.extraPerks +
+        this.character.progress.retirements +
+        this.character.progress.masteries.length;
       for (let i = 0; i < 15; i++) {
         if (!this.character.progress.perks[i]) {
           this.character.progress.perks[i] = 0;
@@ -72,7 +100,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       this.retireEnabled = false;
       if (!gameManager.game.scenario) {
         if (this.personalQuest) {
-          this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter));
+          this.retireEnabled = this.personalQuest.requirements.every(
+            (requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter)
+          );
         } else {
           this.retireEnabled = true;
         }
@@ -103,7 +133,8 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
     this.fhSheet = gameManager.fhRules(true);
     this.gh2eSheet = !gameManager.fhRules() && gameManager.fhRules(true);
-    this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
+    this.csSheet =
+      !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
 
     this.donations = !gameManager.fhRules(false) && !gameManager.editionRules('jotl');
 
@@ -114,12 +145,16 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     }
 
     if (this.fhSheet && gameManager.fhRules(false)) {
-      for (let value in LootType) {
+      for (const value in LootType) {
         const lootType: LootType = value as LootType;
         this.character.progress.loot[lootType] = this.character.progress.loot[lootType] || 0;
       }
 
-      if (gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'temple' && buildingModel.level > 0 && buildingModel.state != 'wrecked')) {
+      if (
+        gameManager.game.party.buildings.find(
+          (buildingModel) => buildingModel.name == 'temple' && buildingModel.level > 0 && buildingModel.state != 'wrecked'
+        )
+      ) {
         this.donations = 'fh';
       }
     }
@@ -128,10 +163,22 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       this.character.progress.experience = gameManager.characterManager.xpMap[this.character.level - 1];
     }
 
-    this.availablePerks = this.character.level + Math.min(6, Math.floor(this.character.progress.battleGoals / 3)) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
+    this.availablePerks =
+      this.character.level +
+      Math.min(6, Math.floor(this.character.progress.battleGoals / 3)) -
+      (this.character.progress.perks && this.character.progress.perks.length > 0
+        ? this.character.progress.perks.reduce((a, b) => a + b)
+        : 0) -
+      1 +
+      this.character.progress.extraPerks +
+      this.character.progress.retirements +
+      this.character.progress.masteries.length;
 
     if (this.character.progress.personalQuest) {
-      this.personalQuest = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), this.character.progress.personalQuest);
+      this.personalQuest = gameManager.characterManager.personalQuestByCard(
+        gameManager.currentEdition(),
+        this.character.progress.personalQuest
+      );
       if (!this.character.progress.personalQuestProgress) {
         this.character.progress.personalQuestProgress = [];
       }
@@ -139,20 +186,24 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
     if (!gameManager.game.scenario) {
       if (this.personalQuest) {
-        this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter));
+        this.retireEnabled = this.personalQuest.requirements.every(
+          (requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter)
+        );
       } else {
         this.retireEnabled = true;
       }
     }
 
     this.hasAbilities = gameManager.deckData(this.character, true).abilities.length > 0;
-    this.replayable = !gameManager.game.scenario && gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == this.character.name && figure.number == this.character.number) == undefined;
-
+    this.replayable =
+      !gameManager.game.scenario &&
+      gameManager.game.figures.find(
+        (figure) => figure instanceof Character && figure.name == this.character.name && figure.number == this.character.number
+      ) == undefined;
   }
 
-
   applyValues() {
-    let title = "";
+    let title = '';
 
     if (this.titleInput) {
       title = this.titleInput.nativeElement.value;
@@ -160,7 +211,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
     if (this.titles.length > 0) {
       for (let i = 0; i < this.titles.length; i++) {
-        if (this.titles[i] == settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())) {
+        if (
+          this.titles[i] == settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())
+        ) {
           this.titles[i] = '';
         }
       }
@@ -177,12 +230,11 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
         this.character.title = title;
         gameManager.stateManager.after();
       }
-    } else if (this.character.title != "") {
+    } else if (this.character.title != '') {
       gameManager.entityManager.before(this.character, this.character, 'unsetTitle', this.character.title);
-      this.character.title = "";
+      this.character.title = '';
       gameManager.stateManager.after();
     }
-
   }
 
   titleChange() {
@@ -193,7 +245,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     if (this.titleInput) {
-      this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
+      this.titleInput.nativeElement.value =
+        this.character.title ||
+        settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
     }
   }
 
@@ -234,8 +288,17 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
         this.xpTimeout = null;
       }
       this.xpTimeout = setTimeout(() => {
-        gameManager.entityManager.before(this.character, this.character, 'changeXP', ghsValueSign(+event.target.value - this.character.progress.experience));
-        gameManager.characterManager.addXP(this.character, event.target.value - this.character.progress.experience, !gameManager.game.scenario && gameManager.roundManager.firstRound);
+        gameManager.entityManager.before(
+          this.character,
+          this.character,
+          'changeXP',
+          ghsValueSign(+event.target.value - this.character.progress.experience)
+        );
+        gameManager.characterManager.addXP(
+          this.character,
+          event.target.value - this.character.progress.experience,
+          !gameManager.game.scenario && gameManager.roundManager.firstRound
+        );
         gameManager.stateManager.after();
         this.xpTimeout = null;
       }, 500);
@@ -249,7 +312,11 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
         this.goldTimeout = null;
       }
       this.goldTimeout = setTimeout(() => {
-        gameManager.stateManager.before("setGold", gameManager.characterManager.characterName(this.character, true, true), event.target.value);
+        gameManager.stateManager.before(
+          'setGold',
+          gameManager.characterManager.characterName(this.character, true, true),
+          event.target.value
+        );
         this.character.progress.gold = +event.target.value;
         gameManager.stateManager.after();
         this.goldTimeout = null;
@@ -259,7 +326,12 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   setResource(type: LootType, event: any) {
     if (!settingsManager.settings.fhShareResources && !isNaN(+event.target.value)) {
-      gameManager.stateManager.before("setResource", gameManager.characterManager.characterName(this.character, true, true), "game.loot." + type, event.target.value);
+      gameManager.stateManager.before(
+        'setResource',
+        gameManager.characterManager.characterName(this.character, true, true),
+        'game.loot.' + type,
+        event.target.value
+      );
       this.character.progress.loot[type] = +event.target.value;
       gameManager.stateManager.after();
     }
@@ -267,7 +339,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   donate() {
     if (gameManager.game.round < 1 && this.character.progress.gold > 9) {
-      gameManager.stateManager.before("donate", gameManager.characterManager.characterName(this.character, true, true));
+      gameManager.stateManager.before('donate', gameManager.characterManager.characterName(this.character, true, true));
       this.character.progress.donations += 1;
       this.character.donations += 1;
       gameManager.game.party.donations += 1;
@@ -278,13 +350,18 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   setPersonalQuest(event: any) {
     if (this.character.progress.personalQuest != event.target.value) {
-      gameManager.stateManager.before("setPQ", gameManager.characterManager.characterName(this.character, true, true), event.target.value);
+      gameManager.stateManager.before('setPQ', gameManager.characterManager.characterName(this.character, true, true), event.target.value);
       this.character.progress.personalQuest = event.target.value;
       this.character.progress.personalQuestProgress = [];
-      this.personalQuest = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), this.character.progress.personalQuest);
+      this.personalQuest = gameManager.characterManager.personalQuestByCard(
+        gameManager.currentEdition(),
+        this.character.progress.personalQuest
+      );
       if (this.personalQuest) {
         this.character.progress.personalQuest = this.personalQuest.cardId;
-        this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter));
+        this.retireEnabled = this.personalQuest.requirements.every(
+          (requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter)
+        );
       }
 
       gameManager.stateManager.after();
@@ -309,14 +386,20 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       value--;
     }
 
-    gameManager.stateManager.before("setPQProgress", gameManager.characterManager.characterName(this.character, true, true), (index + 1), value);
+    gameManager.stateManager.before(
+      'setPQProgress',
+      gameManager.characterManager.characterName(this.character, true, true),
+      index + 1,
+      value
+    );
     this.character.progress.personalQuestProgress[index] = value;
     gameManager.stateManager.after();
 
     if (!gameManager.game.scenario) {
       const retiredEnabled = this.retireEnabled;
       if (this.personalQuest) {
-        this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter)
+        this.retireEnabled = this.personalQuest.requirements.every(
+          (requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter)
         );
       }
 
@@ -355,21 +438,26 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   retire(force: boolean = false, dialogOnly: boolean = false) {
     if (force || this.retireEnabled) {
       if (settingsManager.settings.applyRetirement && gameManager.game.party.campaignMode) {
-        this.dialog.open(CharacterRetirementDialog, {
-          panelClass: ['dialog'],
-          data: this.character
-        }).closed.subscribe({
-          next: (retired) => {
-            if (retired && this.dialogRef) {
-              ghsDialogClosingHelper(this.dialogRef);
+        this.dialog
+          .open(CharacterRetirementDialog, {
+            panelClass: ['dialog'],
+            data: this.character
+          })
+          .closed.subscribe({
+            next: (retired) => {
+              if (retired && this.dialogRef) {
+                ghsDialogClosingHelper(this.dialogRef);
+              }
             }
-          }
-        });
+          });
       } else if (!dialogOnly) {
         if (this.dialogRef) {
           ghsDialogClosingHelper(this.dialogRef);
         }
-        gameManager.stateManager.before(this.character.progress.retired ? "setRetired" : "unsetRetired", gameManager.characterManager.characterName(this.character, true, true));
+        gameManager.stateManager.before(
+          this.character.progress.retired ? 'setRetired' : 'unsetRetired',
+          gameManager.characterManager.characterName(this.character, true, true)
+        );
         this.character.progress.retired = true;
         if (gameManager.game.party.campaignMode) {
           gameManager.game.party.retirements.push(this.character.toModel());
@@ -381,12 +469,25 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   personalQuestRequirementUnlocked(index: number): boolean {
-    return this.personalQuest != undefined && this.personalQuest.requirements[index] != undefined && this.personalQuest.requirements[index].requires && this.personalQuest.requirements[index].requires.every((requireIndex) => this.personalQuest && this.getPersonalQuestCount(requireIndex - 1) >= EntityValueFunction(this.personalQuest.requirements[requireIndex - 1].counter));
+    return (
+      this.personalQuest != undefined &&
+      this.personalQuest.requirements[index] != undefined &&
+      this.personalQuest.requirements[index].requires &&
+      this.personalQuest.requirements[index].requires.every(
+        (requireIndex) =>
+          this.personalQuest &&
+          this.getPersonalQuestCount(requireIndex - 1) >= EntityValueFunction(this.personalQuest.requirements[requireIndex - 1].counter)
+      )
+    );
   }
 
   setExtraPerks(event: any) {
     if (!isNaN(+event.target.value) && this.character.progress.extraPerks != +event.target.value) {
-      gameManager.stateManager.before("setExtraPerks", gameManager.characterManager.characterName(this.character, true, true), event.target.value);
+      gameManager.stateManager.before(
+        'setExtraPerks',
+        gameManager.characterManager.characterName(this.character, true, true),
+        event.target.value
+      );
       this.character.progress.extraPerks = +event.target.value;
       gameManager.stateManager.after();
     }
@@ -394,15 +495,23 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   setRetirements(event: any) {
     if (!isNaN(+event.target.value) && this.character.progress.retirements != +event.target.value) {
-      gameManager.stateManager.before("setRetirements", gameManager.characterManager.characterName(this.character, true, true), event.target.value);
+      gameManager.stateManager.before(
+        'setRetirements',
+        gameManager.characterManager.characterName(this.character, true, true),
+        event.target.value
+      );
       this.character.progress.retirements = +event.target.value;
       gameManager.stateManager.after();
     }
   }
 
   setPlayerNumber(event: any) {
-    if (!isNaN(+event.target.value) && this.character.number != +event.target.value && (+event.target.value > 0)) {
-      gameManager.stateManager.before("setPlayerNumber", gameManager.characterManager.characterName(this.character, true, true), event.target.value);
+    if (!isNaN(+event.target.value) && this.character.number != +event.target.value && +event.target.value > 0) {
+      gameManager.stateManager.before(
+        'setPlayerNumber',
+        gameManager.characterManager.characterName(this.character, true, true),
+        event.target.value
+      );
       const existing = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == +event.target.value);
       if (existing) {
         (existing as Character).number = this.character.number;
@@ -422,7 +531,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       battleGoals = 18;
     }
     if (this.character.progress.battleGoals != battleGoals) {
-      gameManager.stateManager.before("setBG", gameManager.characterManager.characterName(this.character, true, true), battleGoals);
+      gameManager.stateManager.before('setBG', gameManager.characterManager.characterName(this.character, true, true), battleGoals);
       this.character.progress.battleGoals = battleGoals;
       gameManager.stateManager.after();
     }
@@ -430,7 +539,11 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   setNotes(event: any) {
     if (this.character.progress.notes != event.target.value) {
-      gameManager.stateManager.before("setNotes", gameManager.characterManager.characterName(this.character, true, true), event.target.value);
+      gameManager.stateManager.before(
+        'setNotes',
+        gameManager.characterManager.characterName(this.character, true, true),
+        event.target.value
+      );
       this.character.progress.notes = event.target.value;
       gameManager.stateManager.after();
     }
@@ -442,10 +555,10 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     }
 
     if (!this.character.progress.masteries.includes(index)) {
-      gameManager.stateManager.before("addMastery", gameManager.characterManager.characterName(this.character, true, true), index);
+      gameManager.stateManager.before('addMastery', gameManager.characterManager.characterName(this.character, true, true), index);
       this.character.progress.masteries.push(index);
     } else {
-      gameManager.stateManager.before("removeMastery", gameManager.characterManager.characterName(this.character, true, true), index);
+      gameManager.stateManager.before('removeMastery', gameManager.characterManager.characterName(this.character, true, true), index);
       this.character.progress.masteries.splice(this.character.progress.masteries.indexOf(index), 1);
     }
     gameManager.stateManager.after();
@@ -461,7 +574,10 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       value = this.character.progress.perks[index] - 1;
     }
 
-    const disabled: boolean = gameManager.game.state != GameState.draw || gameManager.game.round > 0 || this.availablePerks == 0 && !this.character.progress.perks[index];
+    const disabled: boolean =
+      gameManager.game.state != GameState.draw ||
+      gameManager.game.round > 0 ||
+      (this.availablePerks == 0 && !this.character.progress.perks[index]);
 
     if (!force && disabled && value > 1) {
       value = 0;
@@ -471,11 +587,14 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   addPerk(index: number, value: number, force: boolean = false) {
-    const disabled: boolean = !this.forceEdit && (gameManager.game.state != GameState.draw || gameManager.game.round > 0) || this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index];
+    const disabled: boolean =
+      (!this.forceEdit && (gameManager.game.state != GameState.draw || gameManager.game.round > 0)) ||
+      (this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index]);
 
-    if (!disabled || force && !settingsManager.settings.characterSheetLocked && this.editable) {
-      gameManager.stateManager.before("setPerk", gameManager.characterManager.characterName(this.character, true, true), index, value);
-      const lowerShacklesHP = this.character.name == 'shackles' && this.character.edition == 'fh' && index == 11 && this.character.progress.perks[index] == 2;
+    if (!disabled || (force && !settingsManager.settings.characterSheetLocked && this.editable)) {
+      gameManager.stateManager.before('setPerk', gameManager.characterManager.characterName(this.character, true, true), index, value);
+      const lowerShacklesHP =
+        this.character.name == 'shackles' && this.character.edition == 'fh' && index == 11 && this.character.progress.perks[index] == 2;
       if (this.character.progress.perks[index] && this.character.progress.perks[index] == value) {
         this.character.progress.perks[index]--;
       } else {
@@ -487,7 +606,10 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
         gameManager.game.monsterAttackModifierDeck = gameManager.attackModifierManager.buildMonsterAttackModifierDeck();
         gameManager.attackModifierManager.shuffleModifiers(gameManager.game.monsterAttackModifierDeck);
       } else {
-        gameManager.attackModifierManager.mergeAttackModifierDeck(this.character.attackModifierDeck, gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character));
+        gameManager.attackModifierManager.mergeAttackModifierDeck(
+          this.character.attackModifierDeck,
+          gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character)
+        );
         gameManager.attackModifierManager.shuffleModifiers(this.character.attackModifierDeck);
 
         if (this.character.name == 'shackles' && this.character.edition == 'fh' && index == 11) {
@@ -510,7 +632,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
         this.dialogRef.close();
       }
       this.dialog.open(PartySheetDialogComponent, {
-        panelClass: ['dialog-invert'],
+        panelClass: ['dialog-invert']
       });
     } else {
       this.dialog.open(CharacterMoveResourcesDialog, {
@@ -522,8 +644,11 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   exportCharacter() {
     const downloadButton = document.createElement('a');
-    downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.character.toModel())));
-    downloadButton.setAttribute('download', (this.character.title ? this.character.title + "_" : "") + this.character.name + ".json");
+    downloadButton.setAttribute(
+      'href',
+      'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.character.toModel()))
+    );
+    downloadButton.setAttribute('download', (this.character.title ? this.character.title + '_' : '') + this.character.name + '.json');
     document.body.appendChild(downloadButton);
     downloadButton.click();
     document.body.removeChild(downloadButton);
@@ -531,15 +656,18 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   importCharacter(event: any) {
     const parent = event.target.parentElement;
-    parent.classList.remove("error");
+    parent.classList.remove('error');
     try {
       const reader = new FileReader();
       reader.addEventListener('load', (event: any) => {
-        const characterModel: GameCharacterModel = Object.assign(new Character(this.character, this.character.level).toModel(), JSON.parse(event.target.result));
+        const characterModel: GameCharacterModel = Object.assign(
+          new Character(this.character, this.character.level).toModel(),
+          JSON.parse(event.target.result)
+        );
         if (characterModel.name != this.character.name || characterModel.edition != this.character.edition) {
-          parent.classList.add("error");
+          parent.classList.add('error');
         } else {
-          gameManager.stateManager.before("importCharacter", gameManager.characterManager.characterName(this.character, true, true));
+          gameManager.stateManager.before('importCharacter', gameManager.characterManager.characterName(this.character, true, true));
           this.character.fromModel(characterModel);
           gameManager.stateManager.after();
         }
@@ -548,12 +676,18 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       reader.readAsText(event.target.files[0]);
     } catch (e: any) {
       console.warn(e);
-      parent.classList.add("error");
+      parent.classList.add('error');
     }
   }
 
   setAside() {
-    gameManager.stateManager.before("characterSetAside", gameManager.characterManager.characterName(this.character, true, true), gameManager.game.party.players[this.character.number - 1] ? gameManager.game.party.players[this.character.number - 1] : this.character.number);
+    gameManager.stateManager.before(
+      'characterSetAside',
+      gameManager.characterManager.characterName(this.character, true, true),
+      gameManager.game.party.players[this.character.number - 1]
+        ? gameManager.game.party.players[this.character.number - 1]
+        : this.character.number
+    );
     gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters || [];
     gameManager.game.party.availableCharacters.push(this.character.toModel());
     gameManager.characterManager.removeCharacter(this.character);
@@ -565,14 +699,25 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   replay() {
     if (this.replayable) {
-      gameManager.stateManager.before("characterReplay", gameManager.characterManager.characterName(this.character, true, true), gameManager.game.party.players[this.character.number - 1] ? gameManager.game.party.players[this.character.number - 1] : this.character.number);
-      gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters.filter((availableCharacter) => availableCharacter.name != this.character.name || availableCharacter.edition != this.character.edition || availableCharacter.number != this.character.number);
+      gameManager.stateManager.before(
+        'characterReplay',
+        gameManager.characterManager.characterName(this.character, true, true),
+        gameManager.game.party.players[this.character.number - 1]
+          ? gameManager.game.party.players[this.character.number - 1]
+          : this.character.number
+      );
+      gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters.filter(
+        (availableCharacter) =>
+          availableCharacter.name != this.character.name ||
+          availableCharacter.edition != this.character.edition ||
+          availableCharacter.number != this.character.number
+      );
       gameManager.game.figures.forEach((figure) => {
         if (figure instanceof Character && figure.number == this.character.number) {
           gameManager.game.party.availableCharacters.push(figure.toModel());
           gameManager.characterManager.removeCharacter(figure);
         }
-      })
+      });
       gameManager.game.figures.push(this.character);
       gameManager.stateManager.after();
       if (this.dialogRef) {
@@ -584,7 +729,8 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   toggleFhSheet() {
     this.fhSheet = !this.fhSheet;
     this.gh2eSheet = this.gh2eSheet ? false : !gameManager.fhRules() && gameManager.fhRules(true);
-    this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
+    this.csSheet =
+      !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
   }
 
   openAbilityCards() {
@@ -598,7 +744,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     this.dialog.open(StatisticsDialogComponent, {
       panelClass: ['dialog-invert'],
       data: { character: this.character }
-    })
+    });
   }
 
   openTrial() {
@@ -609,7 +755,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
           edition: this.character.progress.trial.edition,
           trial: +this.character.progress.trial.name
         }
-      })
+      });
     }
   }
 
@@ -620,24 +766,53 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       trial = gameManager.trialsManager.cardIdSecondPrinting(trial);
     }
     if (!this.character.progress.trial || this.character.progress.trial.name != '' + trial) {
-      const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.currentEdition() && editionData.trials && editionData.trials.length);
+      const editionData = gameManager.editionData.find(
+        (editionData) => editionData.edition == gameManager.currentEdition() && editionData.trials && editionData.trials.length
+      );
       if (editionData) {
-        const trialCard = editionData.trials.find((trialCard) => trialCard.cardId == trial && trialCard.edition == gameManager.currentEdition());
+        const trialCard = editionData.trials.find(
+          (trialCard) => trialCard.cardId == trial && trialCard.edition == gameManager.currentEdition()
+        );
         if (trialCard) {
           event.target.classList.remove('error');
           event.target.classList.add('warning');
-          if (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.trial && figure.progress.trial.edition == gameManager.currentEdition() && figure.progress.trial.name == '' + trial)) {
-            gameManager.stateManager.before("setTrial", gameManager.characterManager.characterName(this.character, true, true), event.target.value);
+          if (
+            !gameManager.game.figures.find(
+              (figure) =>
+                figure instanceof Character &&
+                figure.progress.trial &&
+                figure.progress.trial.edition == gameManager.currentEdition() &&
+                figure.progress.trial.name == '' + trial
+            )
+          ) {
+            gameManager.stateManager.before(
+              'setTrial',
+              gameManager.characterManager.characterName(this.character, true, true),
+              event.target.value
+            );
             this.character.progress.trial = new Identifier(trial, gameManager.currentEdition());
-            const currentTrialIndex = Math.max(...gameManager.game.figures.filter((figure) => figure instanceof Character).map((character) =>
-              editionData.trials.find((trialCard) => character.progress.trial && trialCard.cardId == +character.progress.trial.name && trialCard.edition == character.progress.trial.edition)).map((trialCard) => trialCard ? editionData.trials.indexOf(trialCard) : -1));
+            const currentTrialIndex = Math.max(
+              ...gameManager.game.figures
+                .filter((figure) => figure instanceof Character)
+                .map((character) =>
+                  editionData.trials.find(
+                    (trialCard) =>
+                      character.progress.trial &&
+                      trialCard.cardId == +character.progress.trial.name &&
+                      trialCard.edition == character.progress.trial.edition
+                  )
+                )
+                .map((trialCard) => (trialCard ? editionData.trials.indexOf(trialCard) : -1))
+            );
             if (!gameManager.game.party.trials || gameManager.game.party.trials != currentTrialIndex) {
               gameManager.game.party.trials = currentTrialIndex;
             }
             event.target.classList.remove('warning');
             gameManager.stateManager.after();
           } else if (this.character.progress.trial) {
-            trial = settingsManager.settings.fhSecondEdition ? gameManager.trialsManager.cardIdSecondPrinting(+this.character.progress.trial.name) : +this.character.progress.trial.name;
+            trial = settingsManager.settings.fhSecondEdition
+              ? gameManager.trialsManager.cardIdSecondPrinting(+this.character.progress.trial.name)
+              : +this.character.progress.trial.name;
             event.target.value = trial;
           }
         }

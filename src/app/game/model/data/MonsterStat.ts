@@ -1,6 +1,6 @@
-import { Action } from "./Action";
-import { ConditionName } from "./Condition";
-import { MonsterType } from "./MonsterType";
+import { Action } from 'src/app/game/model/data/Action';
+import { ConditionName } from 'src/app/game/model/data/Condition';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
 
 export class MonsterStat {
   type: MonsterType;
@@ -14,7 +14,8 @@ export class MonsterStat {
   special: Action[][];
   note: string;
 
-  constructor(type: MonsterType,
+  constructor(
+    type: MonsterType,
     level: number = 0,
     health: number | string = 0,
     movement: number | string = 0,
@@ -23,7 +24,7 @@ export class MonsterStat {
     actions: Action[] = [],
     immunities: ConditionName[] = [],
     special: Action[][] = [],
-    note: string = ""
+    note: string = ''
   ) {
     this.type = type;
     this.level = level;
@@ -39,7 +40,6 @@ export class MonsterStat {
 }
 
 export class MonsterStatEffect {
-
   name: string | undefined;
   health: number | string = 0;
   movement: number | string = 0;
@@ -52,6 +52,5 @@ export class MonsterStatEffect {
   special: Action[][] = [];
   deck: string | undefined = undefined;
   absolute: boolean = false;
-  note: string = "";
-
+  note: string = '';
 }

@@ -1,10 +1,9 @@
-import { Action } from "./Action";
+import { Action } from 'src/app/game/model/data/Action';
 
 export class SummonData {
-
-  name: string = "";
-  cardId: string = "";
-  edition: string = "";
+  name: string = '';
+  cardId: string = '';
+  edition: string = '';
   health: number | string = 0;
   attack: number | string = 0;
   movement: number | string = 0;
@@ -15,10 +14,9 @@ export class SummonData {
   level: number | undefined;
   special: boolean = false;
   count: number = 1;
-  enhancements: ("heal" | "attack" | "move" | "range")[] = [];
+  enhancements: ('heal' | 'attack' | 'move' | 'range')[] = [];
   thumbnail: boolean = false;
   thumbnailUrl: string | undefined;
   noThumbnail: boolean = false;
   passive: boolean = false;
-
 }

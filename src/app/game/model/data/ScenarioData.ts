@@ -1,18 +1,17 @@
-import { GameScenarioModel } from "../Scenario";
-import { Editional } from "./Editional";
-import { Identifier } from "./Identifier";
-import { LootDeckConfig, LootType } from "./Loot";
-import { ObjectiveData } from "./ObjectiveData";
-import { RoomData } from "./RoomData";
-import { ScenarioFigureRule, ScenarioRule } from "./ScenarioRule";
-import { Spoilable } from "./Spoilable";
-import { WorldMapCoordinates, WorldMapOverlay } from "./WorldMap";
+import { Editional } from 'src/app/game/model/data/Editional';
+import { Identifier } from 'src/app/game/model/data/Identifier';
+import { LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
+import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
+import { RoomData } from 'src/app/game/model/data/RoomData';
+import { ScenarioFigureRule, ScenarioRule } from 'src/app/game/model/data/ScenarioRule';
+import { Spoilable } from 'src/app/game/model/data/Spoilable';
+import { WorldMapCoordinates, WorldMapOverlay } from 'src/app/game/model/data/WorldMap';
+import { GameScenarioModel } from 'src/app/game/model/Scenario';
 
 export class ScenarioData implements Editional, Spoilable {
-
-  name: string = "";
-  index: string = "";
-  errata: string = "";
+  name: string = '';
+  index: string = '';
+  errata: string = '';
   coordinates: WorldMapCoordinates | undefined;
   unlocks: string[] = [];
   blocks: string[] = [];
@@ -27,8 +26,8 @@ export class ScenarioData implements Editional, Spoilable {
   allied: string[] = [];
   drawExtra: string[] = [];
   objectives: ObjectiveData[] = [];
-  rooms: RoomData[] = [] = [];
-  marker: string = "";
+  rooms: RoomData[] = ([] = []);
+  marker: string = '';
   rules: ScenarioRule[] = [];
   initial: boolean = false;
   random: boolean = false;
@@ -39,9 +38,9 @@ export class ScenarioData implements Editional, Spoilable {
   parent: string | undefined;
   parentSections: string[][] = [];
   blockedSections: string[] = [];
-  resetRound: "visible" | "visibleKeep" | "hidden" | "hiddenKeep" | undefined; // "Keep" suffix will reset even rounds to round 2 instead of round 1
+  resetRound: 'visible' | 'visibleKeep' | 'hidden' | 'hiddenKeep' | undefined; // "Keep" suffix will reset even rounds to round 2 instead of round 1
   rewards: ScenarioRewards | undefined;
-  retirement: string = "";
+  retirement: string = '';
   conclusion: boolean = false;
   repeatable: boolean = false;
   named: boolean = false;
@@ -53,7 +52,7 @@ export class ScenarioData implements Editional, Spoilable {
   recaps: ScenarioRecap[] = [];
 
   // from Editional
-  edition: string = "";
+  edition: string = '';
 
   // from Spoilable
   spoiler: boolean = false;
@@ -111,7 +110,6 @@ export class ScenarioRecap {
 }
 
 export class ScenarioRequirement {
-
   global: string[] | undefined;
   party: string[] | undefined;
   buildings: string[] | undefined;
@@ -122,7 +120,6 @@ export class ScenarioRequirement {
 }
 
 export class ScenarioRewards {
-
   globalAchievements: string[] = [];
   partyAchievements: string[] = [];
   lostPartyAchievements: string[] = [];
@@ -144,37 +141,35 @@ export class ScenarioRewards {
   removeEvents: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: number = 0;
-  randomItemBlueprints: string = "";
-  randomItem: string = "";
-  randomItems: string = "";
-  morale: number | string = "";
-  inspiration: number | string = "";
-  resources: { type: LootType, value: number | string }[] = [];
-  collectiveResources: { type: LootType, value: number | string }[] = [];
+  randomItemBlueprints: string = '';
+  randomItem: string = '';
+  randomItems: string = '';
+  morale: number | string = '';
+  inspiration: number | string = '';
+  resources: { type: LootType; value: number | string }[] = [];
+  collectiveResources: { type: LootType; value: number | string }[] = [];
   calendarSection: string[] = [];
   calendarSectionConditional: string[] = [];
-  calendarSectionManual: { section: string, hint: string }[] = [];
+  calendarSectionManual: { section: string; hint: string }[] = [];
   calendarIgnore: boolean = false;
   lootDeckCards: number[] = [];
   removeLootDeckCards: number[] = [];
   townGuardAm: string[] = [];
-  unlockCharacter: string = "";
+  unlockCharacter: string = '';
   chooseUnlockCharacter: string[] = [];
   lootingGold: number | string | undefined = undefined;
-  custom: string = "";
+  custom: string = '';
   ignoredBonus: string[] = [];
   overlaySticker: WorldMapOverlay | undefined = undefined;
   overlayCampaignSticker: WorldMapOverlay | undefined = undefined;
   pet: string | undefined = undefined;
   repeatScenario: boolean = false;
   reputationFactions: string[] = [];
-  factionUnlock: string = "";
+  factionUnlock: string = '';
   randomSideScenario: boolean = false;
   hints: ScenarioRewardHints | undefined = undefined;
   valueMapping: Record<string, ScenarioFigureRule> | undefined = undefined;
-
 }
-
 
 export class ScenarioRewardHints {
   globalAchievements: string[] = [];
@@ -182,13 +177,13 @@ export class ScenarioRewardHints {
   lostPartyAchievements: string[] = [];
   campaignSticker: string[] = [];
   envelopes: string[] = [];
-  gold: string = "";
-  experience: string = "";
-  collectiveGold: string = "";
-  reputation: string = "";
-  prosperity: string = "";
-  perks: string = "";
-  battleGoals: string = "";
+  gold: string = '';
+  experience: string = '';
+  collectiveGold: string = '';
+  reputation: string = '';
+  prosperity: string = '';
+  perks: string = '';
+  battleGoals: string = '';
   items: string[] = [];
   chooseItem: string[] = [];
   chooseLocation: string[] = [];
@@ -197,11 +192,11 @@ export class ScenarioRewardHints {
   eventDecks: string[] = [];
   removeEvents: string[] = [];
   itemBlueprints: string[] = [];
-  randomItemBlueprint: string = "";
-  randomItem: string = "";
-  randomItems: string = "";
-  morale: string = "";
-  inspiration: string = "";
+  randomItemBlueprint: string = '';
+  randomItem: string = '';
+  randomItems: string = '';
+  morale: string = '';
+  inspiration: string = '';
   resources: string[] = [];
   collectiveResources: string[] = [];
   calendarSection: string[] = [];
@@ -209,17 +204,16 @@ export class ScenarioRewardHints {
   lootDeckCards: string[] = [];
   removeLootDeckCards: string[] = [];
   townGuardAm: string[] = [];
-  unlockCharacter: string = "";
+  unlockCharacter: string = '';
   chooseUnlockCharacter: string[] = [];
-  overlaySticker: string = "";
-  overlayCampaignSticker: string = "";
+  overlaySticker: string = '';
+  overlayCampaignSticker: string = '';
   reputationFactions: string[] = [];
-  randomSideScenario: string = "";
-  pet: string = "";
+  randomSideScenario: string = '';
+  pet: string = '';
 }
 
 export class ScenarioFinish {
-
   conclusion: GameScenarioModel | undefined;
   success: boolean = false;
   battleGoals: number[] = [];
@@ -238,15 +232,12 @@ export class ScenarioFinish {
   randomItemBlueprints: number[] = [];
   randomSideScenario: Identifier | undefined = undefined;
   trials: boolean[] = [];
-
 }
 
 export class ScenarioOverlay {
-
-  type: "obstacle" | "difficultTerrain" | "hazardousTerrain" | "trap" | "treasure" | "loot" | undefined;
-  value: string = "";
+  type: 'obstacle' | 'difficultTerrain' | 'hazardousTerrain' | 'trap' | 'treasure' | 'loot' | undefined;
+  value: string = '';
   count: number = 1;
   values: (string | number | boolean)[] = [];
-  marker: string = "";
-
+  marker: string = '';
 }

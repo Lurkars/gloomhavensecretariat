@@ -1,19 +1,24 @@
-import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { ChangeDetectorRef, Component, inject, Input, OnInit } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { storageManager } from "src/app/game/businesslogic/StorageManager";
-import { EditionData } from "src/app/game/model/data/EditionData";
-import { GameModel } from "src/app/game/model/Game";
-import { Settings } from "src/app/game/model/Settings";
-import { ghsInputFullScreenCheck } from "src/app/ui/helper/Static";
+import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input, OnInit } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { storageManager } from 'src/app/game/businesslogic/StorageManager';
+import { EditionData } from 'src/app/game/model/data/EditionData';
+import { GameModel } from 'src/app/game/model/Game';
+import { Settings } from 'src/app/game/model/Settings';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { ghsInputFullScreenCheck } from 'src/app/ui/helper/Static';
+import { TabClickDirective } from 'src/app/ui/helper/tabclick';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  standalone: false,
+  imports: [NgClass, DragDropModule, GhsLabelDirective, TabClickDirective, TrackUUIDPipe],
   selector: 'ghs-datamanagement-menu',
   templateUrl: 'datamanagement.html',
-  styleUrls: ['../menu.scss', 'datamanagement.scss']
+  styleUrls: ['../menu.scss', 'datamanagement.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DatamanagementMenuComponent implements OnInit {
   private cdr = inject(ChangeDetectorRef);
@@ -24,10 +29,10 @@ export class DatamanagementMenuComponent implements OnInit {
   gameManager: GameManager = gameManager;
   backups: number = 0;
   ghsInputFullScreenCheck = ghsInputFullScreenCheck;
-  confirm: string = "";
-  working: string = ""
+  confirm: string = '';
+  working: string = '';
 
-  constructor(private ghsManager: GhsManager) { }
+  constructor(private ghsManager: GhsManager) {}
 
   async ngOnInit() {
     try {
@@ -36,7 +41,7 @@ export class DatamanagementMenuComponent implements OnInit {
         this.backups = backups.length;
       }
       this.cdr.markForCheck();
-    } catch (e) {
+    } catch {
       this.backups = 0;
       this.cdr.markForCheck();
     }
@@ -44,19 +49,19 @@ export class DatamanagementMenuComponent implements OnInit {
 
   async addEditionDataUrl(target: any) {
     if (target.value) {
-      target.classList.remove("error");
+      target.classList.remove('error');
       target.disabled = true;
       const success = await settingsManager.addEditionDataUrl(target.value);
 
       if (success) {
-        target.value = "";
+        target.value = '';
         target.disabled = false;
         this.settingsManager.addEdition(success.edition);
       } else {
         setTimeout(() => {
-          target.classList.add("error");
+          target.classList.add('error');
           target.disabled = false;
-        }, 1)
+        }, 1);
       }
     }
   }
@@ -84,13 +89,15 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   hasDefaultEditionData(): boolean {
-    return this.settingsManager.defaultEditionDataUrls.every((editionDataUrl) => settingsManager.settings.editionDataUrls.includes(editionDataUrl));
+    return this.settingsManager.defaultEditionDataUrls.every((editionDataUrl) =>
+      settingsManager.settings.editionDataUrls.includes(editionDataUrl)
+    );
   }
 
   addSpoiler(target: any): void {
     if (target.value) {
       settingsManager.addSpoiler(target.value);
-      target.value = "";
+      target.value = '';
     }
   }
 
@@ -108,35 +115,35 @@ export class DatamanagementMenuComponent implements OnInit {
         edition = target.value.split(':')[0];
         characterName = target.value.split(':')[1];
       }
-      target.classList.remove("error");
+      target.classList.remove('error');
       target.disabled = true;
       let characterData = gameManager.getCharacterData(characterName, edition || gameManager.currentEdition());
       if (!characterData) {
         characterData = gameManager.getCharacterData(characterName);
       }
       if (characterData && !gameManager.game.unlockedCharacters.includes(characterData.edition + ':' + characterData.name)) {
-        gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterData.name);
+        gameManager.stateManager.before('unlockChar', 'data.character.' + characterData.edition + '.' + characterData.name);
         gameManager.game.unlockedCharacters.push(characterData.edition + ':' + characterData.name);
         if (settingsManager.settings.events) {
           if (characterData.unlockEvent) {
             characterData.unlockEvent.split('|').forEach((unlockEvent) => {
               if (unlockEvent.split(':').length > 1) {
-                gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true)
+                gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
               } else {
                 gameManager.eventCardManager.addEvent('city', unlockEvent, true);
                 gameManager.eventCardManager.addEvent('road', unlockEvent, true);
               }
-            })
+            });
           }
         }
         gameManager.stateManager.after();
-        target.value = "";
+        target.value = '';
         target.disabled = false;
       } else {
         setTimeout(() => {
-          target.classList.add("error");
+          target.classList.add('error');
           target.disabled = false;
-        }, 1)
+        }, 1);
       }
     }
   }
@@ -145,7 +152,7 @@ export class DatamanagementMenuComponent implements OnInit {
     if (characterName.split(':').length > 1) {
       const characterData = gameManager.getCharacterData(characterName.split(':')[1], characterName.split(':')[0]);
       if (characterName && gameManager.game.unlockedCharacters.includes(characterName) && characterData) {
-        gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterData.name);
+        gameManager.stateManager.before('unlockChar', 'data.character.' + characterData.edition + '.' + characterData.name);
         gameManager.game.unlockedCharacters.splice(gameManager.game.unlockedCharacters.indexOf(characterName), 1);
         gameManager.stateManager.after();
       }
@@ -153,13 +160,13 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   removeAllUnlocks() {
-    gameManager.stateManager.before("removeAllUnlocks");
+    gameManager.stateManager.before('removeAllUnlocks');
     gameManager.game.unlockedCharacters = [];
     gameManager.stateManager.after();
   }
 
   cancelConfirm() {
-    this.confirm = "";
+    this.confirm = '';
   }
 
   async exportGame() {
@@ -173,8 +180,8 @@ export class DatamanagementMenuComponent implements OnInit {
         downloadButton.click();
         document.body.removeChild(downloadButton);
       }
-    } catch (e) {
-      console.warn("No game found");
+    } catch {
+      console.warn('No game found');
     }
   }
 
@@ -185,13 +192,16 @@ export class DatamanagementMenuComponent implements OnInit {
         const backup = backups[backups.length - 1];
         const downloadButton = document.createElement('a');
         downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(backup)));
-        downloadButton.setAttribute('download', 'ghs-game' + (backup.party.name ? '_' + backup.party.name : '') + '-rev' + backup.revision + '.json');
+        downloadButton.setAttribute(
+          'download',
+          'ghs-game' + (backup.party.name ? '_' + backup.party.name : '') + '-rev' + backup.revision + '.json'
+        );
         document.body.appendChild(downloadButton);
         downloadButton.click();
         document.body.removeChild(downloadButton);
       }
-    } catch (e) {
-      console.warn("No backup found");
+    } catch {
+      console.warn('No backup found');
     }
   }
 
@@ -202,20 +212,23 @@ export class DatamanagementMenuComponent implements OnInit {
         backups.forEach((backup) => {
           const downloadButton = document.createElement('a');
           downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(backup)));
-          downloadButton.setAttribute('download', 'ghs-game' + (backup.party.name ? '_' + backup.party.name : '') + '-rev' + backup.revision + '.json');
+          downloadButton.setAttribute(
+            'download',
+            'ghs-game' + (backup.party.name ? '_' + backup.party.name : '') + '-rev' + backup.revision + '.json'
+          );
           document.body.appendChild(downloadButton);
           downloadButton.click();
           document.body.removeChild(downloadButton);
-        })
+        });
       }
-    } catch (e) {
-      console.warn("No backups found");
+    } catch {
+      console.warn('No backups found');
     }
   }
 
   deleteBackups() {
-    if (this.confirm != "deleteBackups") {
-      this.confirm = "deleteBackups";
+    if (this.confirm != 'deleteBackups') {
+      this.confirm = 'deleteBackups';
     } else {
       storageManager.clear('game-backup');
       this.backups = 0;
@@ -223,11 +236,11 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   importFileCheck(event: any) {
-    event.target.classList.remove("warning");
-    event.target.parentElement.classList.remove("warning");
-    if (this.confirm != "importFile") {
+    event.target.classList.remove('warning');
+    event.target.parentElement.classList.remove('warning');
+    if (this.confirm != 'importFile') {
       setTimeout(() => {
-        this.confirm = "importFile";
+        this.confirm = 'importFile';
         this.cdr.markForCheck();
       }, 100);
     } else {
@@ -236,8 +249,8 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   importFile(inputEvent: any) {
-    this.working = "importFile";
-    inputEvent.target.parentElement.classList.remove("warning");
+    this.working = 'importFile';
+    inputEvent.target.parentElement.classList.remove('warning');
     const reader = new FileReader();
     try {
       reader.addEventListener('load', async (event: any) => {
@@ -246,39 +259,42 @@ export class DatamanagementMenuComponent implements OnInit {
           this.importGame(Object.assign(new GameModel(), data));
         } else if (typeof data.zoom === 'number') {
           this.importSettings(Object.assign(new Settings(), data));
-        } else if (data.game && data.settings || typeof data === 'object' && data['ghs-game'] && data['ghs-settings']) {
+        } else if ((data.game && data.settings) || (typeof data === 'object' && data['ghs-game'] && data['ghs-settings'])) {
           this.importDataDump(data);
         } else {
-          inputEvent.target.parentElement.classList.add("warning");
+          inputEvent.target.parentElement.classList.add('warning');
         }
-        this.working = "";
-      })
+        this.working = '';
+      });
 
       if (inputEvent.target.files.length > 0) {
         reader.readAsText(inputEvent.target.files[0]);
-        inputEvent.target.value = "";
+        inputEvent.target.value = '';
       }
     } catch (e: any) {
       console.warn(e);
-      inputEvent.target.parentElement.classList.add("warning");
-      this.working = "";
+      inputEvent.target.parentElement.classList.add('warning');
+      this.working = '';
     }
   }
 
   importGame(gameModel: GameModel) {
-    gameManager.stateManager.before("loadGameFromFile");
+    gameManager.stateManager.before('loadGameFromFile');
     if (gameModel.revision < gameManager.game.revision) {
       storageManager.addBackup(gameManager.game.toModel());
       gameModel.revision = gameManager.game.revision;
       gameModel.revisionOffset = gameManager.game.revisionOffset;
+    }
+    if (!!gameModel.edition) {
+      settingsManager.automaticTheme(gameModel.edition, gameManager.game.edition);
     }
     gameManager.game.fromModel(gameModel);
     gameManager.stateManager.after();
   }
 
   resetGame(): void {
-    if (this.confirm != "resetGame") {
-      this.confirm = "resetGame";
+    if (this.confirm != 'resetGame') {
+      this.confirm = 'resetGame';
     } else {
       gameManager.stateManager.reset();
       gameManager.stateManager.after();
@@ -292,13 +308,13 @@ export class DatamanagementMenuComponent implements OnInit {
       if (settings) {
         const downloadButton = document.createElement('a');
         downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(settings)));
-        downloadButton.setAttribute('download', "ghs-settings.json");
+        downloadButton.setAttribute('download', 'ghs-settings.json');
         document.body.appendChild(downloadButton);
         downloadButton.click();
         document.body.removeChild(downloadButton);
       }
-    } catch (e) {
-      console.warn("No settings found");
+    } catch {
+      console.warn('No settings found');
     }
   }
 
@@ -308,8 +324,8 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   resetSettings(): void {
-    if (this.confirm != "resetSettings") {
-      this.confirm = "resetSettings";
+    if (this.confirm != 'resetSettings') {
+      this.confirm = 'resetSettings';
     } else {
       settingsManager.reset();
       window.location.reload();
@@ -317,7 +333,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   async exportDataDump() {
-    await gameManager.stateManager.autoBackup("ghs-data-dump-" + new Date().toISOString() + ".json", true);
+    await gameManager.stateManager.autoBackup('ghs-data-dump-' + new Date().toISOString() + '.json', true);
   }
 
   async importDataDump(data: any) {
@@ -348,19 +364,18 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   async clearAllData() {
-    if (this.confirm != "clearAllData") {
-      this.confirm = "clearAllData";
+    if (this.confirm != 'clearAllData') {
+      this.confirm = 'clearAllData';
     } else {
       try {
-        console.warn("clear storage");
+        console.warn('clear storage');
         await storageManager.clear();
         gameManager.stateManager.storageBlocked = true;
-        console.info("Reload...");
+        console.info('Reload...');
         window.location.reload();
-      } catch (e) {
-        console.error("Could clear storage");
+      } catch {
+        console.error('Could clear storage');
       }
     }
   }
-
 }

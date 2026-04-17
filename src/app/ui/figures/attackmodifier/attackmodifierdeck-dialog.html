@@ -1,278 +1,378 @@
 <div class="attack-modifiers-dialog">
   <div class="scroll-container">
-    <div class="menu" #menu
-      [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]), 'has-deleted': edit && deletedCards.length}">
+    <div
+      class="menu"
+      #menu
+      [ngClass]="{
+        denied:
+          gameManager.stateManager.permissions &&
+          !gameManager.stateManager.permissions.attackModifiers &&
+          (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]),
+        'has-deleted': edit && deletedCards.length
+      }"
+    >
       <a (click)="reveal = (reveal + 1) % 3">
         <span
-          [ghs-label]="(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ? 'game.cards.revealAll' : 'game.cards.revealAllConfirm'))"></span>
+          [ghs-label]="reveal == 2 ? 'game.cards.coverAll' : reveal == 0 ? 'game.cards.revealAll' : 'game.cards.revealAllConfirm'"
+        ></span>
       </a>
-      <a ghs-pointer-input (singleClick)="shuffle()" (doubleClick)="shuffle(true)"
-        [ghs-tooltip]="'game.cards.shuffle.upcomingHint'" [overlayX]="'center'"><span
-          [ghs-label]="'game.cards.shuffle'"></span></a>
+      <a
+        ghs-pointer-input
+        (singleClick)="shuffle()"
+        (doubleClick)="shuffle(true)"
+        [ghs-tooltip]="'game.cards.shuffle.upcomingHint'"
+        [overlayX]="'center'"
+        ><span [ghs-label]="'game.cards.shuffle'"></span
+      ></a>
       @if (hasDrawnDiscards()) {
-      <a (click)="removeDrawnDiscards()"><span [ghs-label]="'game.cards.removeDrawnDiscards'"></span></a>
+        <a (click)="removeDrawnDiscards()"><span [ghs-label]="'game.cards.removeDrawnDiscards'"></span></a>
       }
 
       @if (!gameManager.bbRules() || !settingsManager.settings.bbAm) {
-      <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit"><span
-          [ghs-label]="'game.cards.edit'"></span></label>
+        <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit" /><span [ghs-label]="'game.cards.edit'"></span></label>
       }
 
       @if (gameManager.bbRules() && settingsManager.settings.bbAm) {
-      <label><input type="checkbox" (click)="toggleBB()" [checked]="bbTable"><span
-          [ghs-label]="'game.cards.edit.toggleBB'"></span></label>
+        <label
+          ><input type="checkbox" (click)="toggleBB()" [checked]="bbTable" /><span [ghs-label]="'game.cards.edit.toggleBB'"></span
+        ></label>
       }
 
       @if (!gameManager.bbRules() && !edit && !townGuard) {
-      <div class="curse-bless">
-        <span class="item">
-          <a class="button" [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) == 0}"
-            (click)="changeBless(-1)">
-            <img class="ghs-svg" src="./assets/images/minus.svg">
-          </a>
-        </span>
-        <span class="item" [ghs-label]="'game.condition.bless'" [ghs-label-attribute]="'title'">
-          <img src="./assets/images/status/bless.svg" />
-          <span class="badge bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless)}}</span>
-          @if (gameManager.attackModifierManager.countUpcomingBlesses() > 10) {
-          <span class="warning">
-            <img src="./assets/images/warning.svg" />
+        <div class="curse-bless">
+          <span class="item">
+            <a
+              class="button"
+              [ngClass]="{ disabled: countUpcomingAttackModifier(AttackModifierType.bless) == 0 }"
+              (click)="changeBless(-1)"
+            >
+              <img class="ghs-svg" src="/assets/images/minus.svg" />
+            </a>
           </span>
-          }
-        </span>
-        <span class="item">
-          <a class="button" [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingBlesses() >= 10}"
-            (click)="changeBless(1)">
-            <img class="ghs-svg" src="./assets/images/plus.svg">
-          </a>
-        </span>
-        <span class="item">
-          <a class="button" [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) == 0}"
-            (click)="changeCurse(-1)">
-            <img class="ghs-svg" src="./assets/images/minus.svg">
-          </a>
-        </span>
-        <span class="item" [ghs-label]="'game.condition.curse'" [ghs-label-attribute]="'title'">
-          <img src="./assets/images/status/curse.svg" />
-          <span class="badge curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse)}}</span>
-          @if (gameManager.attackModifierManager.countUpcomingCurses((!character && !ally)) > 10) {
-          <span class="warning">
-            <img src="./assets/images/warning.svg" />
+          <span class="item" [ghs-label]="'game.condition.bless'" [ghs-label-attribute]="'title'">
+            <img src="/assets/images/status/bless.svg" />
+            <span class="badge bless-count">{{ countUpcomingAttackModifier(AttackModifierType.bless) }}</span>
+            @if (gameManager.attackModifierManager.countUpcomingBlesses() > 10) {
+              <span class="warning">
+                <img src="/assets/images/warning.svg" />
+              </span>
+            }
           </span>
-          }
-        </span>
-        <span class="item">
-          <a class="button"
-            [ngClass]="{'disabled' :gameManager.attackModifierManager.countUpcomingCurses((!character && !ally)) >= 10}"
-            (click)="changeCurse(1)">
-            <img class="ghs-svg" src="./assets/images/plus.svg">
-          </a>
-        </span>
-        <span class="item">
-          <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.minus1extra) ==  0}"
-            (click)="changeMinus1Extra(-1)">
-            <img class="ghs-svg" src="./assets/images/minus.svg">
-          </a>
-        </span>
-        <span class="item" [ghs-label]="'game.attackmodifiers.types.minus1'" [ghs-label-attribute]="'title'">
-          <img src="./assets/images/attackmodifier/icons/minus1.png" />
-          <span class="badge minus1-count">{{countAttackModifier(AttackModifierType.minus1extra)}}</span>
-          @if (gameManager.attackModifierManager.countExtraMinus1() > 15) {
-          <span class="warning">
-            <img src="./assets/images/warning.svg" />
+          <span class="item">
+            <a
+              class="button"
+              [ngClass]="{ disabled: gameManager.attackModifierManager.countUpcomingBlesses() >= 10 }"
+              (click)="changeBless(1)"
+            >
+              <img class="ghs-svg" src="/assets/images/plus.svg" />
+            </a>
           </span>
-          }
-        </span>
-        <span class="item">
-          <a class="button" [ngClass]="{'disabled' : gameManager.attackModifierManager.countExtraMinus1() >= 15}"
-            (click)="changeMinus1Extra(1)">
-            <img class="ghs-svg" src="./assets/images/plus.svg">
-          </a>
-        </span>
-      </div>
+          <span class="item">
+            <a
+              class="button"
+              [ngClass]="{ disabled: countUpcomingAttackModifier(AttackModifierType.curse) == 0 }"
+              (click)="changeCurse(-1)"
+            >
+              <img class="ghs-svg" src="/assets/images/minus.svg" />
+            </a>
+          </span>
+          <span class="item" [ghs-label]="'game.condition.curse'" [ghs-label-attribute]="'title'">
+            <img src="/assets/images/status/curse.svg" />
+            <span class="badge curse-count">{{ countUpcomingAttackModifier(AttackModifierType.curse) }}</span>
+            @if (gameManager.attackModifierManager.countUpcomingCurses(!character && !ally) > 10) {
+              <span class="warning">
+                <img src="/assets/images/warning.svg" />
+              </span>
+            }
+          </span>
+          <span class="item">
+            <a
+              class="button"
+              [ngClass]="{ disabled: gameManager.attackModifierManager.countUpcomingCurses(!character && !ally) >= 10 }"
+              (click)="changeCurse(1)"
+            >
+              <img class="ghs-svg" src="/assets/images/plus.svg" />
+            </a>
+          </span>
+          <span class="item">
+            <a
+              class="button"
+              [ngClass]="{ disabled: countAttackModifier(AttackModifierType.minus1extra) == 0 }"
+              (click)="changeMinus1Extra(-1)"
+            >
+              <img class="ghs-svg" src="/assets/images/minus.svg" />
+            </a>
+          </span>
+          <span class="item" [ghs-label]="'game.attackmodifiers.types.minus1'" [ghs-label-attribute]="'title'">
+            <img src="/assets/images/attackmodifier/icons/minus1.png" />
+            <span class="badge minus1-count">{{ countAttackModifier(AttackModifierType.minus1extra) }}</span>
+            @if (gameManager.attackModifierManager.countExtraMinus1() > 15) {
+              <span class="warning">
+                <img src="/assets/images/warning.svg" />
+              </span>
+            }
+          </span>
+          <span class="item">
+            <a
+              class="button"
+              [ngClass]="{ disabled: gameManager.attackModifierManager.countExtraMinus1() >= 15 }"
+              (click)="changeMinus1Extra(1)"
+            >
+              <img class="ghs-svg" src="/assets/images/plus.svg" />
+            </a>
+          </span>
+        </div>
       }
       @if (!edit && !townGuard && (empowerChars.length || enfeebleChars.length)) {
-      <div class="additional-modifier">
-        @for (empowerChar of empowerChars | trackUUID; track empowerChar._trackUUID; let i = $index) {
-        <span class="item">
-          <a class="button"
-            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower, 'additional-' + empowerChar.name) == 0}"
-            (click)="changeEmpower(i,-1)">
-            <img class="ghs-svg" src="./assets/images/minus.svg">
-          </a>
-        </span>
-        <span class="item" [ghs-label]="'game.attackmodifiers.types.empower'" [ghs-label-attribute]="'title'">
-          <img src="./assets/images/attackmodifier/icons/empower.png" />
-          <span class="badge">{{countUpcomingAttackModifier(AttackModifierType.empower, 'additional-' +
-            empowerChar.name)}}</span>
-          <span class="badge badge-character-icon">
-            <img [src]="empowerChar.iconUrl" />
-          </span>
-        </span>
-        <span class="item">
-          <a class="button" (click)="changeEmpower(i,1)" [ngClass]="{'disabled' : countEmpower(i) ==  0}">
-            <img class="ghs-svg" src="./assets/images/plus.svg">
-          </a>
-        </span>
-        }
-        @for (enfeebleChar of enfeebleChars | trackUUID; track enfeebleChar._trackUUID; let i = $index) {
-        <span class="item">
-          <a class="button" (click)="changeEnfeeble(i,-1)"
-            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble, 'additional-' + enfeebleChar.name) == 0}">
-            <img class="ghs-svg" src="./assets/images/minus.svg">
-          </a>
-        </span>
-        <span class="item" [ghs-label]="'game.attackmodifiers.types.enfeeble'" [ghs-label-attribute]="'title'">
-          <img src="./assets/images/attackmodifier/icons/enfeeble.png" />
-          <span class="badge">{{countUpcomingAttackModifier(AttackModifierType.enfeeble, 'additional-' +
-            enfeebleChar.name)}}</span>
-          <span class="badge badge-character-icon">
-            <img [src]="enfeebleChar.iconUrl" />
-          </span>
-        </span>
-        <span class="item">
-          <a class="button" (click)="changeEnfeeble(i,1)" [ngClass]="{'disabled' : countEnfeeble(i) ==  0}">
-            <img class="ghs-svg" src="./assets/images/plus.svg">
-          </a>
-        </span>
-        }
-      </div>
+        <div class="additional-modifier">
+          @for (empowerChar of empowerChars | trackUUID; track empowerChar._trackUUID; let i = $index) {
+            <span class="item">
+              <a
+                class="button"
+                [ngClass]="{ disabled: countUpcomingAttackModifier(AttackModifierType.empower, 'additional-' + empowerChar.name) == 0 }"
+                (click)="changeEmpower(i, -1)"
+              >
+                <img class="ghs-svg" src="/assets/images/minus.svg" />
+              </a>
+            </span>
+            <span class="item" [ghs-label]="'game.attackmodifiers.types.empower'" [ghs-label-attribute]="'title'">
+              <img src="/assets/images/attackmodifier/icons/empower.png" />
+              <span class="badge">{{ countUpcomingAttackModifier(AttackModifierType.empower, 'additional-' + empowerChar.name) }}</span>
+              <span class="badge badge-character-icon">
+                <img [src]="empowerChar.iconUrl" />
+              </span>
+            </span>
+            <span class="item">
+              <a class="button" (click)="changeEmpower(i, 1)" [ngClass]="{ disabled: countEmpower(i) == 0 }">
+                <img class="ghs-svg" src="/assets/images/plus.svg" />
+              </a>
+            </span>
+          }
+          @for (enfeebleChar of enfeebleChars | trackUUID; track enfeebleChar._trackUUID; let i = $index) {
+            <span class="item">
+              <a
+                class="button"
+                (click)="changeEnfeeble(i, -1)"
+                [ngClass]="{ disabled: countUpcomingAttackModifier(AttackModifierType.enfeeble, 'additional-' + enfeebleChar.name) == 0 }"
+              >
+                <img class="ghs-svg" src="/assets/images/minus.svg" />
+              </a>
+            </span>
+            <span class="item" [ghs-label]="'game.attackmodifiers.types.enfeeble'" [ghs-label-attribute]="'title'">
+              <img src="/assets/images/attackmodifier/icons/enfeeble.png" />
+              <span class="badge">{{ countUpcomingAttackModifier(AttackModifierType.enfeeble, 'additional-' + enfeebleChar.name) }}</span>
+              <span class="badge badge-character-icon">
+                <img [src]="enfeebleChar.iconUrl" />
+              </span>
+            </span>
+            <span class="item">
+              <a class="button" (click)="changeEnfeeble(i, 1)" [ngClass]="{ disabled: countEnfeeble(i) == 0 }">
+                <img class="ghs-svg" src="/assets/images/plus.svg" />
+              </a>
+            </span>
+          }
+        </div>
       }
 
       @if (edit) {
-      <a (click)="restoreDefault()"><span [ghs-label]="'game.cards.restore'"></span></a>
+        <a (click)="restoreDefault()"><span [ghs-label]="'game.cards.restore'"></span></a>
       }
       @if (edit && !townGuard) {
-      <div class="insert-menu">
-        <a class="icon-button" (click)="newFirst(type)"><img class="ghs-svg" src="./assets/images/plus.svg"></a>
-        <a class="icon-button" (click)="changeType(true)"><img class="ghs-svg" src="./assets/images/left.svg"></a>
-        <span class="attack-modifier"><img src="./assets/images/attackmodifier/{{type}}.png" /></span>
-        <a class="icon-button" (click)="changeType()"><img class="ghs-svg" src="./assets/images/right.svg"></a>
-        <a class="icon-button" (click)="newShuffle(type)"><img class="ghs-svg" src="./assets/images/shuffle.svg"></a>
-      </div>
+        <div class="insert-menu">
+          <a class="icon-button" (click)="newFirst(type)"><img class="ghs-svg" src="/assets/images/plus.svg" /></a>
+          <a class="icon-button" (click)="changeType(true)"><img class="ghs-svg" src="/assets/images/left.svg" /></a>
+          <span class="attack-modifier"><img src="/assets/images/attackmodifier/{{ type }}.png" /></span>
+          <a class="icon-button" (click)="changeType()"><img class="ghs-svg" src="/assets/images/right.svg" /></a>
+          <a class="icon-button" (click)="newShuffle(type)"><img class="ghs-svg" src="/assets/images/shuffle.svg" /></a>
+        </div>
       }
 
       @if (edit && townGuard) {
-      <div class="insert-menu">
-        <a class="icon-button" (click)="addModifier()"><img class="ghs-svg" src="./assets/images/plus.svg"></a>
-        <a class="icon-button" (click)="changeType(true)"><img class="ghs-svg" src="./assets/images/left.svg"></a>
-        <span class="attack-modifier"><ghs-attackmodifier class="drag-hidden" [attackModifier]="tgAM" [flipped]="true"
-            [newStyle]="true" [characterIcon]="characterIcon" [ally]="ally" [townGuard]="townGuard">
-          </ghs-attackmodifier>
-        </span>
-        <a class="icon-button" (click)="changeType()"><img class="ghs-svg" src="./assets/images/right.svg"></a>
-        <a class="icon-button" (click)="addModifierShuffle()"><img class="ghs-svg"
-            src="./assets/images/shuffle.svg"></a>
-      </div>
+        <div class="insert-menu">
+          <a class="icon-button" (click)="addModifier()"><img class="ghs-svg" src="/assets/images/plus.svg" /></a>
+          <a class="icon-button" (click)="changeType(true)"><img class="ghs-svg" src="/assets/images/left.svg" /></a>
+          <span class="attack-modifier"
+            ><ghs-attackmodifier
+              class="drag-hidden"
+              [attackModifier]="tgAM"
+              [flipped]="true"
+              [newStyle]="true"
+              [characterIcon]="characterIcon"
+              [ally]="ally"
+              [townGuard]="townGuard"
+            >
+            </ghs-attackmodifier>
+          </span>
+          <a class="icon-button" (click)="changeType()"><img class="ghs-svg" src="/assets/images/right.svg" /></a>
+          <a class="icon-button" (click)="addModifierShuffle()"><img class="ghs-svg" src="/assets/images/shuffle.svg" /></a>
+        </div>
       }
 
-      @if(!!character && gameManager.gh2eRules() && (edit || !!gameManager.game.scenario && gameManager.game.round == 0
-      && gameManager.game.state == 'draw')) {
-      <div class="factions-modifier">
-        <div class="factions">
-          @for (faction of gameManager.gh2eFactionUnlocks(); track faction) {
-          <a class="faction" [ngClass]="{'active': faction == activeFaction}" (click)="toggleFaction(faction)">
-            <img class="ghs-svg" [src]="'./assets/images/gh2e/faction/' + faction + '.svg'">
-          </a>
-          }
-        </div>
-        <div class="attack-modifier-list">
-          @for (am of factionAttackModifier | trackUUID; track am._trackUUID;) {
-          <div class="am" [ngClass]="{'active': hasFactionModifier(am), 'disabled': anyHasFactionModifier(am)}"
-            ghs-pointer-input (singleClick)="toggleFactionAm(am)" (doubleClick)="toggleFactionAm(am,true)">
-            <ghs-attackmodifier [attackModifier]="am" [flipped]="true" [newStyle]="true"></ghs-attackmodifier>
+      @if (
+        !!character &&
+        gameManager.gh2eRules() &&
+        (edit || (!!gameManager.game.scenario && gameManager.game.round == 0 && gameManager.game.state == 'draw'))
+      ) {
+        <div class="factions-modifier">
+          <div class="factions">
+            @for (faction of gameManager.gh2eFactionUnlocks(); track faction) {
+              <a class="faction" [ngClass]="{ active: faction == activeFaction }" (click)="toggleFaction(faction)">
+                <img class="ghs-svg" [src]="'/assets/images/gh2e/faction/' + faction + '.svg'" />
+              </a>
+            }
           </div>
-          }
+          <div class="attack-modifier-list">
+            @for (am of factionAttackModifier | trackUUID; track am._trackUUID) {
+              <div
+                class="am"
+                [ngClass]="{ active: hasFactionModifier(am), disabled: anyHasFactionModifier(am) }"
+                ghs-pointer-input
+                (singleClick)="toggleFactionAm(am)"
+                (doubleClick)="toggleFactionAm(am, true)"
+              >
+                <ghs-attackmodifier [attackModifier]="am" [flipped]="true" [newStyle]="true"></ghs-attackmodifier>
+              </div>
+            }
+          </div>
         </div>
-      </div>
       }
     </div>
     @if (!bbTable) {
-    <div class="attack-modifiers-container" [style.maxHeight]="maxHeight"
-      [ngClass]="{'has-deleted': edit && deletedCards.length}">
-      <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
-        [cdkDropListConnectedTo]="discardedList" (cdkDropListDropped)="dropUpcoming($event)"
-        [cdkDropListAutoScrollStep]="20"
-        [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])}">
-        @if (upcomingCards.length == 0) {
-        <div class="empty"></div>
-        }
-        @for (attackModifier of upcomingCards | trackUUID; track attackModifier._trackUUID; let index = $index) {
-        <div class="attack-modifier-container" cdkDrag>
-          <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
-            [reveal]="true" [flipped]="reveal == 2 || attackModifier.revealed" [newStyle]="newStyle"
-            [characterIcon]="characterIcon" [ally]="ally" [townGuard]="townGuard"
-            [bbIndex]="deck.bb ? (index + deck.current + 1) % 3 : -1">
-          </ghs-attackmodifier>
-          @if (edit) {
-          <a class="button-remove" (click)="remove(index + deck.current + 1)">
-            <img class="ghs-svg" src="./assets/images/minus.svg"></a>
+      <div class="attack-modifiers-container" [style.maxHeight]="maxHeight" [ngClass]="{ 'has-deleted': edit && deletedCards.length }">
+        <div
+          class="upcoming drop-list"
+          cdkDropList
+          [cdkDropListDisabled]="!edit"
+          #upcomingList="cdkDropList"
+          [cdkDropListConnectedTo]="discardedList"
+          (cdkDropListDropped)="dropUpcoming($event)"
+          [cdkDropListAutoScrollStep]="20"
+          [ngClass]="{
+            denied:
+              gameManager.stateManager.permissions &&
+              !gameManager.stateManager.permissions.attackModifiers &&
+              (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])
+          }"
+        >
+          @if (upcomingCards.length == 0) {
+            <div class="empty"></div>
           }
-          @if (edit) {
-          <div cdkDragHandle class="drag-handle"></div>
-          }
-        </div>
-        }
-      </div>
-      <div class="discarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #discardedList="cdkDropList"
-        [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDiscarded($event)"
-        [cdkDropListAutoScrollStep]="20">
-        <div class="empty"></div>
-        @for (attackModifier of discardedCards | trackUUID; track attackModifier._trackUUID; let index = $index) {
-        <div class="attack-modifier-container" cdkDrag>
-          <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
-            [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally" [townGuard]="townGuard"
-            [bbIndex]="deck.bb ? ( deck.current -index) % 3 : -1"></ghs-attackmodifier>
-          @if (edit) {
-          <a class="button-remove" (click)="remove(deck.current - index)">
-            <img class="ghs-svg" src="./assets/images/minus.svg"></a>
-          }
-          @if (edit) {
-          <div cdkDragHandle class="drag-handle"></div>
-          }
-        </div>
-        }
-      </div>
-      @if (edit && deletedCards.length) {
-      <div class="deleted">
-        @for (attackModifier of deletedCards | trackUUID; track attackModifier._trackUUID; let index = $index) {
-        <div class="attack-modifier-container" cdkDrag>
-          <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
-            [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally"
-            [townGuard]="townGuard"></ghs-attackmodifier>
-          @if (edit) {
-          <a class="button-restore" (click)="restore(index)">
-            <img class="ghs-svg" src="./assets/images/plus.svg"></a>
-          }
-          @if (edit) {
-          <div cdkDragHandle class="drag-handle"></div>
+          @for (attackModifier of upcomingCards | trackUUID; track attackModifier._trackUUID; let index = $index) {
+            <div class="attack-modifier-container" cdkDrag>
+              <ghs-attackmodifier
+                class="drag-hidden"
+                [attackModifier]="attackModifier"
+                [numeration]="numeration"
+                [reveal]="true"
+                [flipped]="reveal == 2 || attackModifier.revealed"
+                [newStyle]="newStyle"
+                [characterIcon]="characterIcon"
+                [ally]="ally"
+                [townGuard]="townGuard"
+                [bbIndex]="deck.bb ? (index + deck.current + 1) % 3 : -1"
+              >
+              </ghs-attackmodifier>
+              @if (edit) {
+                <a class="button-remove" (click)="remove(index + deck.current + 1)">
+                  <img class="ghs-svg" src="/assets/images/minus.svg"
+                /></a>
+              }
+              @if (edit) {
+                <div cdkDragHandle class="drag-handle"></div>
+              }
+            </div>
           }
         </div>
+        <div
+          class="discarded drop-list"
+          cdkDropList
+          [cdkDropListDisabled]="!edit"
+          #discardedList="cdkDropList"
+          [cdkDropListConnectedTo]="upcomingList"
+          (cdkDropListDropped)="dropDiscarded($event)"
+          [cdkDropListAutoScrollStep]="20"
+        >
+          <div class="empty"></div>
+          @for (attackModifier of discardedCards | trackUUID; track attackModifier._trackUUID; let index = $index) {
+            <div class="attack-modifier-container" cdkDrag>
+              <ghs-attackmodifier
+                class="drag-hidden"
+                [attackModifier]="attackModifier"
+                [numeration]="numeration"
+                [flipped]="true"
+                [newStyle]="newStyle"
+                [characterIcon]="characterIcon"
+                [ally]="ally"
+                [townGuard]="townGuard"
+                [bbIndex]="deck.bb ? (deck.current - index) % 3 : -1"
+              ></ghs-attackmodifier>
+              @if (edit) {
+                <a class="button-remove" (click)="remove(deck.current - index)"> <img class="ghs-svg" src="/assets/images/minus.svg" /></a>
+              }
+              @if (edit) {
+                <div cdkDragHandle class="drag-handle"></div>
+              }
+            </div>
+          }
+        </div>
+        @if (edit && deletedCards.length) {
+          <div class="deleted">
+            @for (attackModifier of deletedCards | trackUUID; track attackModifier._trackUUID; let index = $index) {
+              <div class="attack-modifier-container" cdkDrag>
+                <ghs-attackmodifier
+                  class="drag-hidden"
+                  [attackModifier]="attackModifier"
+                  [numeration]="numeration"
+                  [flipped]="true"
+                  [newStyle]="newStyle"
+                  [characterIcon]="characterIcon"
+                  [ally]="ally"
+                  [townGuard]="townGuard"
+                ></ghs-attackmodifier>
+                @if (edit) {
+                  <a class="button-restore" (click)="restore(index)"> <img class="ghs-svg" src="/assets/images/plus.svg" /></a>
+                }
+                @if (edit) {
+                  <div cdkDragHandle class="drag-handle"></div>
+                }
+              </div>
+            }
+          </div>
         }
       </div>
-      }
-    </div>
     }
     @if (bbTable) {
-    <div class="bb-table">
-      <div class="header">
-        <img class="ghs-svg" src="./assets/images/bb/attackmodifier/0.svg">
+      <div class="bb-table">
+        <div class="header">
+          <img class="ghs-svg" src="/assets/images/bb/attackmodifier/0.svg" />
+        </div>
+        <div class="header">
+          <img class="ghs-svg" src="/assets/images/bb/attackmodifier/1.svg" />
+        </div>
+        <div class="header">
+          <img class="ghs-svg" src="/assets/images/bb/attackmodifier/2.svg" />
+        </div>
+        @for (attackModifier of deck.cards | trackUUID; track attackModifier._trackUUID; let i = $index) {
+          <div
+            class="attack-modifier-container"
+            [ngClass]="{
+              drawn: i != deck.current && i != deck.lastVisible && i < bbDrawnIndex,
+              current: i == deck.current || i == deck.lastVisible
+            }"
+          >
+            <ghs-attackmodifier
+              class="drag-hidden"
+              [attackModifier]="attackModifier"
+              [numeration]="numeration"
+              [flipped]="true"
+              [newStyle]="newStyle"
+              [characterIcon]="characterIcon"
+              [ally]="ally"
+              [townGuard]="townGuard"
+            ></ghs-attackmodifier>
+          </div>
+        }
       </div>
-      <div class="header">
-        <img class="ghs-svg" src="./assets/images/bb/attackmodifier/1.svg">
-      </div>
-      <div class="header">
-        <img class="ghs-svg" src="./assets/images/bb/attackmodifier/2.svg">
-      </div>
-      @for (attackModifier of deck.cards | trackUUID; track attackModifier._trackUUID; let i = $index;) {
-      <div class="attack-modifier-container"
-        [ngClass]="{'drawn' : i != deck.current && i != deck.lastVisible && i < bbDrawnIndex, 'current': i == deck.current || i == deck.lastVisible}">
-        <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
-          [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally"
-          [townGuard]="townGuard"></ghs-attackmodifier>
-      </div>
-      }
-    </div>
     }
   </div>
 </div>

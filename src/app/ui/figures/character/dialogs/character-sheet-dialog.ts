@@ -1,24 +1,27 @@
-import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { Component, Inject, ViewChild } from "@angular/core";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character } from "src/app/game/model/Character";
-import { CharacterSheetComponent } from "../sheet/character-sheet";
-
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, ViewChild } from '@angular/core';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { CharacterSheetComponent } from 'src/app/ui/figures/character/sheet/character-sheet';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 
 @Component({
-  standalone: false,
+  imports: [NgClass, GhsTooltipDirective, PointerInputDirective, CharacterSheetComponent],
   selector: 'ghs-character-sheet-dialog',
   templateUrl: 'character-sheet-dialog.html',
-  styleUrls: ['./character-sheet-dialog.scss']
+  styleUrls: ['./character-sheet-dialog.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterSheetDialog {
-
   @ViewChild('characterSheet') characterSheet!: CharacterSheetComponent;
 
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(@Inject(DIALOG_DATA) public data: { character: Character, viewOnly: boolean, forceEdit: boolean }, public dialogRef: DialogRef) {
+  data: { character: Character; viewOnly: boolean; forceEdit: boolean } = inject(DIALOG_DATA);
 
+  constructor(public dialogRef: DialogRef) {
     this.dialogRef.closed.subscribe({
       next: () => {
         this.characterSheet.applyValues();

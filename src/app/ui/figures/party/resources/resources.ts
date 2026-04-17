@@ -1,20 +1,24 @@
-
-import { Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component, OnInit } from "@angular/core";
-import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { Character } from "src/app/game/model/Character";
-import { LootType, resourceLootTypes } from "src/app/game/model/data/Loot";
-import { Party } from "src/app/game/model/Party";
-import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { Character } from 'src/app/game/model/Character';
+import { LootType, resourceLootTypes } from 'src/app/game/model/data/Loot';
+import { Party } from 'src/app/game/model/Party';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  standalone: false,
+  imports: [NgClass, FormsModule, GhsLabelDirective, GhsTooltipDirective, TrackUUIDPipe],
   selector: 'ghs-party-resources',
   templateUrl: 'resources.html',
-  styleUrls: ['./resources.scss']
+  styleUrls: ['./resources.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PartyResourcesDialogComponent implements OnInit {
-
   gameManager: GameManager = gameManager;
 
   party: Party = new Party();
@@ -27,13 +31,18 @@ export class PartyResourcesDialogComponent implements OnInit {
   edit: boolean = false;
   edited: boolean = false;
 
-  constructor(private dialogRef: DialogRef, private dialog: Dialog) {
+  constructor(
+    private dialogRef: DialogRef,
+    private dialog: Dialog
+  ) {
     this.edit = dialogRef.disableClose || false;
   }
 
   ngOnInit(): void {
     this.party = JSON.parse(JSON.stringify(gameManager.game.party));
-    this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => JSON.parse(JSON.stringify(figure)));
+    this.characters = gameManager.game.figures
+      .filter((figure) => figure instanceof Character)
+      .map((figure) => JSON.parse(JSON.stringify(figure)));
     this.update();
   }
 
@@ -53,11 +62,12 @@ export class PartyResourcesDialogComponent implements OnInit {
 
   update() {
     this.lootColumns.forEach((type) => {
-      this.total[type] = (gameManager.game.party.loot[type] || 0);
+      this.total[type] = gameManager.game.party.loot[type] || 0;
       if (this.characters.length > 0) {
-        this.total[type] = (this.total[type] || 0) + this.characters.map((character) => character.progress.loot[type] || 0).reduce((a, b) => a + b);
+        this.total[type] =
+          (this.total[type] || 0) + this.characters.map((character) => character.progress.loot[type] || 0).reduce((a, b) => a + b);
       }
-    })
+    });
     if (this.characters.length) {
       this.totalGold = this.characters.map((character) => character.progress.gold || 0).reduce((a, b) => a + b);
       this.totalXP = this.characters.map((character) => character.progress.experience || 0).reduce((a, b) => a + b);
@@ -87,14 +97,16 @@ export class PartyResourcesDialogComponent implements OnInit {
   }
 
   apply() {
-    gameManager.stateManager.before("applyResourceChange");
+    gameManager.stateManager.before('applyResourceChange');
     gameManager.game.party.loot = this.party.loot;
-    gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure) => {
-      const character = this.characters.find((character) => character.edition == figure.edition && character.name == figure.name);
-      if (character) {
-        figure.progress = character.progress;
-      }
-    })
+    gameManager.game.figures
+      .filter((figure) => figure instanceof Character)
+      .forEach((figure) => {
+        const character = this.characters.find((character) => character.edition == figure.edition && character.name == figure.name);
+        if (character) {
+          figure.progress = character.progress;
+        }
+      });
     gameManager.stateManager.after();
     ghsDialogClosingHelper(this.dialogRef);
   }

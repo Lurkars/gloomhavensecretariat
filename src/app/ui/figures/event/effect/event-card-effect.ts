@@ -1,96 +1,125 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { EventCardEffect, EventCardEffectType } from "src/app/game/model/data/EventCard";
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
+import { EventCardConditionComponent } from 'src/app/ui/figures/event/condition/event-card-condition';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 
 @Component({
-    standalone: false,
-    selector: 'ghs-event-card-effect',
-    templateUrl: './event-card-effect.html',
-    styleUrls: ['./event-card-effect.scss']
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    NgClass,
+    GhsLabelDirective,
+    PointerInputDirective,
+    GhsTooltipDirective,
+    EventCardConditionComponent,
+    forwardRef(() => EventCardEffectComponent)
+  ],
+  selector: 'ghs-event-card-effect',
+  templateUrl: './event-card-effect.html',
+  styleUrls: ['./event-card-effect.scss']
 })
 export class EventCardEffectComponent implements OnInit {
+  @Input() effect: string | EventCardEffect | undefined;
+  @Input() edition!: string;
+  @Input() eventType!: string;
+  @Input() light: boolean = true;
+  @Input() concatenated: boolean = false;
+  @Input() inline: boolean = false;
+  @Input() selected: boolean = false;
+  @Input() checks: number = 0;
 
-    @Input() effect: string | EventCardEffect | undefined;
-    @Input() edition!: string;
-    @Input() eventType!: string;
-    @Input() light: boolean = true;
-    @Input() concatenated: boolean = false;
-    @Input() inline: boolean = false;
-    @Input() selected: boolean = false;
-    @Input() checks: number = 0;
+  @Input() debug: boolean = false;
 
-    @Input() debug: boolean = false;
+  @Output() checked: EventEmitter<number> = new EventEmitter<number>();
 
-    @Output() onCheck: EventEmitter<number> = new EventEmitter<number>();
+  effectString: string | undefined;
+  effectObject: EventCardEffect | undefined;
+  labelArgs: (string | number)[] = [];
+  effects: (string | EventCardEffect)[] = [];
+  disabled: boolean = false;
+  applicable: boolean = false;
 
-    effectString: string | undefined;
-    effectObject: EventCardEffect | undefined;
-    labelArgs: (string | number)[] = [];
-    effects: (string | EventCardEffect)[] = [];
-    disabled: boolean = false;
-    applicable: boolean = false;
+  settingsManager: SettingsManager = settingsManager;
 
-    settingsManager: SettingsManager = settingsManager;
+  special: EventCardEffectType[] = [
+    EventCardEffectType.additionally,
+    EventCardEffectType.and,
+    EventCardEffectType.checkbox,
+    EventCardEffectType.choose
+  ];
 
-    special: EventCardEffectType[] = [EventCardEffectType.additionally, EventCardEffectType.and, EventCardEffectType.checkbox, EventCardEffectType.choose];
+  ngOnInit(): void {
+    if (typeof this.effect === 'string') {
+      this.effectString = this.effect;
+    } else if (this.effect) {
+      this.effectObject = this.effect;
+      this.labelArgs = this.effectObject.values
+        ? this.effectObject.values.filter((v) => typeof v === 'number' || typeof v === 'string')
+        : [];
+      this.effects = this.effectObject.values ? this.effectObject.values.filter((v) => typeof v !== 'number') : [];
+      this.applicable = gameManager.eventCardManager.applicableEffect(this.effectObject);
 
-    ngOnInit(): void {
-        if (typeof this.effect === 'string') {
-            this.effectString = this.effect;
-        } else if (this.effect) {
-            this.effectObject = this.effect;
-            this.labelArgs = this.effectObject.values ? this.effectObject.values.filter((v) => typeof v === 'number' || typeof v === 'string') : [];
-            this.effects = this.effectObject.values ? this.effectObject.values.filter((v) => typeof v !== 'number') : [];
-            this.applicable = gameManager.eventCardManager.applicableEffect(this.effectObject);
+      if (
+        this.effectObject.type == EventCardEffectType.and ||
+        this.effectObject.type == EventCardEffectType.additionally ||
+        this.effectObject.type == EventCardEffectType.checkbox
+      ) {
+        this.applicable = this.effects.some((e) => typeof e === 'object' && gameManager.eventCardManager.applicableEffect(e));
+      }
 
-            if (this.effectObject.type == EventCardEffectType.and || this.effectObject.type == EventCardEffectType.additionally || this.effectObject.type == EventCardEffectType.checkbox) {
-                this.applicable = this.effects.some((e) => typeof e === 'object' && gameManager.eventCardManager.applicableEffect(e));
-            }
+      this.disabled =
+        (this.effectObject.condition && !gameManager.eventCardManager.resolvableCondition(this.effectObject.condition)) || false;
 
-            this.disabled = this.effectObject.condition && !gameManager.eventCardManager.resolvableCondition(this.effectObject.condition) || false;
-
-            if (this.effectObject.type == EventCardEffectType.scenarioCondition || this.effectObject.type == EventCardEffectType.traitScenarioCondition) {
-                let concat = "";
-                let values = this.effectObject.values || [];
-                if (this.effectObject.type == EventCardEffectType.traitScenarioCondition) {
-                    values = values.slice(1);
-                }
-                values.filter((v) => typeof v === 'string').map((condition) => {
-                    const values = condition.split(':');
-                    if (values.length == 2) {
-                        return '%game.condition.' + values[0] + '% x' + values[1];
-                    }
-                    return '%game.condition.' + values[0] + '%';
-                }).forEach((condition, index, values) => {
-                    concat += condition;
-                    if (values.length > 1) {
-                        if (index < values.length - 2) {
-                            concat += ', ';
-                        } else if (index < values.length - 1) {
-                            concat += ' %and% ';
-                        }
-                    }
-                })
-                this.labelArgs = [concat];
-                if (this.effectObject.type == EventCardEffectType.traitScenarioCondition && typeof this.effectObject.values[0] === 'string') {
-                    this.labelArgs.unshift(this.effectObject.values[0]);
-                }
-            }
-
-            this.labelArgs.push(this.edition);
+      if (
+        this.effectObject.type == EventCardEffectType.scenarioCondition ||
+        this.effectObject.type == EventCardEffectType.traitScenarioCondition
+      ) {
+        let concat = '';
+        let values = this.effectObject.values || [];
+        if (this.effectObject.type == EventCardEffectType.traitScenarioCondition) {
+          values = values.slice(1);
         }
-    }
-
-    check(index: number) {
-        if (this.selected) {
-            if (this.checks == index + 1) {
-                this.checks = index;
-            } else {
-                this.checks = index + 1;
+        values
+          .filter((v) => typeof v === 'string')
+          .map((condition) => {
+            const values = condition.split(':');
+            if (values.length == 2) {
+              return '%game.condition.' + values[0] + '% x' + values[1];
             }
-            this.onCheck.emit(this.checks);
+            return '%game.condition.' + values[0] + '%';
+          })
+          .forEach((condition, index, values) => {
+            concat += condition;
+            if (values.length > 1) {
+              if (index < values.length - 2) {
+                concat += ', ';
+              } else if (index < values.length - 1) {
+                concat += ' %and% ';
+              }
+            }
+          });
+        this.labelArgs = [concat];
+        if (this.effectObject.type == EventCardEffectType.traitScenarioCondition && typeof this.effectObject.values[0] === 'string') {
+          this.labelArgs.unshift(this.effectObject.values[0]);
         }
-    }
+      }
 
+      this.labelArgs.push(this.edition);
+    }
+  }
+
+  check(index: number) {
+    if (this.selected) {
+      if (this.checks == index + 1) {
+        this.checks = index;
+      } else {
+        this.checks = index + 1;
+      }
+      this.checked.emit(this.checks);
+    }
+  }
 }

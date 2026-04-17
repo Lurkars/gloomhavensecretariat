@@ -2,14 +2,13 @@ import { Directive, ElementRef, EventEmitter, Input, OnInit, Output } from '@ang
 import autocomplete, { AutocompleteEvent } from 'autocompleter';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 
-
 export class AutocompleteItem {
   label: string;
   value: string;
   revelead: boolean;
   group: string;
 
-  constructor(label: string, value: string = "", revealed: boolean = false, group: string = "") {
+  constructor(label: string, value: string = '', revealed: boolean = false, group: string = '') {
     this.label = label;
     this.value = value;
     this.revelead = revealed;
@@ -18,43 +17,45 @@ export class AutocompleteItem {
 }
 
 @Directive({
-  standalone: false,
   selector: '[autocomplete]'
 })
 export class AutocompleteDirective implements OnInit {
-
   @Input('autocomplete') values: AutocompleteItem[] = [];
-  @Input('spoiler') spoiler: boolean = false;
-  @Input('emptyLabel') emptyLabel: string = "";
-  @Output('keyup.enter') select: EventEmitter<string> = new EventEmitter<string>();
+  @Input() spoiler: boolean = false;
+  @Input() emptyLabel: string = '';
+  @Output('keyup.enter') selected: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef) {}
 
   ngOnInit(): void {
-    let container = document.createElement("div");
+    const container = document.createElement('div');
     this.el.nativeElement.after(container);
-    const select = this.select;
+    const select = this.selected;
     autocomplete({
       input: this.el.nativeElement,
       container: container,
-      emptyMsg: this.emptyLabel ? settingsManager.getLabel(this.emptyLabel) : "",
+      emptyMsg: this.emptyLabel ? settingsManager.getLabel(this.emptyLabel) : '',
       minLength: 3,
       disableAutoSelect: true,
       fetch: (text: string, update: (items: AutocompleteItem[] | false) => void) => {
-        update(this.values.filter((value) => value.label && value.label.toLowerCase().startsWith(text.toLowerCase())).sort((a, b) => {
-          if (a.revelead && !b.revelead) {
-            return -1;
-          } else if (b.revelead && !a.revelead) {
-            return 1;
-          }
-          return 0;
-        }));
+        update(
+          this.values
+            .filter((value) => value.label && value.label.toLowerCase().startsWith(text.toLowerCase()))
+            .sort((a, b) => {
+              if (a.revelead && !b.revelead) {
+                return -1;
+              } else if (b.revelead && !a.revelead) {
+                return 1;
+              }
+              return 0;
+            })
+        );
       },
       onSelect: (item: AutocompleteItem) => {
         this.el.nativeElement.value = item.label || '';
         select.emit(item.label);
       },
-      render: (item: AutocompleteItem, currentValue: string, index: number): HTMLDivElement | undefined => {
+      render: (item: AutocompleteItem): HTMLDivElement | undefined => {
         const itemElement = document.createElement('div');
         itemElement.textContent = item.label;
         if (item.revelead) {
@@ -97,7 +98,7 @@ export class AutocompleteDirective implements OnInit {
         }
       },
       keyup: (e: AutocompleteEvent<KeyboardEvent>) => {
-        var key = e.event.key;
+        const key = e.event.key;
         switch (key) {
           case 'ArrowUp':
           case 'ArrowDown':
@@ -122,5 +123,4 @@ export class AutocompleteDirective implements OnInit {
       }
     });
   }
-
 }

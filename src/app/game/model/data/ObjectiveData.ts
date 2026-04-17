@@ -1,7 +1,6 @@
-import { Action } from "./Action";
+import { Action } from 'src/app/game/model/data/Action';
 
 export class ObjectiveData {
-
   id: number;
   marker: string;
   name: string;
@@ -14,7 +13,15 @@ export class ObjectiveData {
   initiativeShare: string | undefined;
   trackDamage: boolean = false;
 
-  constructor(name: string, health: number | string, escort: boolean = false, id: number = -1, marker: string = "", tags: string[] = [], initiative: number | undefined = undefined) {
+  constructor(
+    name: string,
+    health: number | string,
+    escort: boolean = false,
+    id: number = -1,
+    marker: string = '',
+    tags: string[] = [],
+    initiative: number | undefined = undefined
+  ) {
     this.name = name;
     this.health = health;
     this.escort = escort;
@@ -23,12 +30,11 @@ export class ObjectiveData {
     this.tags = tags;
     this.initiative = initiative;
   }
-
 }
 
 export class ScenarioObjectiveIdentifier {
-  edition: string = "";
-  scenario: string = "";
+  edition: string = '';
+  scenario: string = '';
   group: string | undefined;
   section: boolean = false;
   index: number = 0;

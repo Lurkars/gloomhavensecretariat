@@ -1,120 +1,118 @@
 .items-dialog {
-    position: relative;
+  position: relative;
 
-    .scroll-container {
-        overflow-x: hidden;
-        max-height: calc(90vh - var(--ghs-unit) * 6);
+  .scroll-container {
+    overflow-x: hidden;
+    max-height: calc(90vh - var(--ghs-unit) * 6);
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      font-family: var(--ghs-font-title);
+      font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+      color: var(--ghs-color-white);
+      cursor: pointer;
+    }
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: var(--ghs-color-white);
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
     }
 
-    .header {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .shop {
+      cursor: pointer;
+      font-family: var(--ghs-font-normal);
+      font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+      color: var(--ghs-color-white);
 
-        .title {
-            font-family: var(--ghs-font-title);
-            font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
-            color: var(--ghs-color-white);
-            cursor: pointer;
-        }
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .item-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    min-height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
+
+    .empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: var(--ghs-font-text);
+      font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+      color: var(--ghs-color-yellow);
     }
 
-    .menu {
-        display: flex;
-        flex-wrap: wrap;
-        font-family: var(--ghs-font-title);
-        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-        justify-content: center;
-        align-items: center;
+    .item {
+      position: relative;
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
+
+      .open-item {
+        position: absolute;
+        top: calc(var(--ghs-unit) * 0.75 * var(--ghs-dialog-factor));
+        left: calc(var(--ghs-unit) * 0.75 * var(--ghs-dialog-factor));
+        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        height: auto;
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+        cursor: zoom-in;
+        z-index: 2;
+      }
+
+      ghs-character-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: all calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
         z-index: 1;
 
-        label {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            color: var(--ghs-color-white);
-            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        &.spent {
+          transform: rotate(90deg);
+          margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 7.25 * var(--ghs-dialog-factor));
         }
-
-        .shop {
-            cursor: pointer;
-            font-family: var(--ghs-font-normal);
-            font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
-            color: var(--ghs-color-white);
-
-            &:hover {
-                opacity: 0.7;
-            }
-        }
+      }
     }
 
-    .item-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        min-height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
-
-        .empty {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: var(--ghs-font-text);
-            font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
-            color: var(--ghs-color-yellow);
-        }
-
-        .item {
-            position: relative;
-            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-            width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
-            height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
-
-            .open-item {
-                position: absolute;
-                top: calc(var(--ghs-unit) * 0.75 * var(--ghs-dialog-factor));
-                left: calc(var(--ghs-unit) * 0.75 * var(--ghs-dialog-factor));
-                width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-                height: auto;
-                filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-                cursor: zoom-in;
-                z-index: 2;
-            }
-
-
-            ghs-character-item {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                transition: all calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
-                z-index: 1;
-
-                &.spent {
-                    transform: rotate(90deg);
-                    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 7.25 * var(--ghs-dialog-factor));
-                }
-            }
-        }
-
-        @media (max-width: 600px),
-        (orientation: portrait) {
-            flex-direction: column;
-            align-items: center;
-        }
+    @media (max-width: 600px), (orientation: portrait) {
+      flex-direction: column;
+      align-items: center;
     }
+  }
 
-    &.fh {
-        .menu {
-            background-image: url('~src/assets/images/fh/dialog_background_fh.png');
-        }
+  &.fh {
+    .menu {
+      background-image: url('/assets/images/fh/dialog_background_fh.png');
     }
+  }
 
-    &.modern {
-        .menu {
-            background-image: url('~src/assets/images/modern/dialog_background_modern.png');
-        }
+  &.modern {
+    .menu {
+      background-image: url('/assets/images/modern/dialog_background_modern.png');
     }
+  }
 }

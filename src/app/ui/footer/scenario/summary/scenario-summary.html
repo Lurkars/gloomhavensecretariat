@@ -1,1218 +1,1561 @@
 <div class="scroll-container">
   <div class="header">
     <span class="title">
-      <span
-        [ghs-label]="conclusionOnly ? 'scenario.conclusion' : (rewardsOnly ? 'scenario.summary.rewards' : 'scenario.summary')"></span>
+      <span [ghs-label]="conclusionOnly ? 'scenario.conclusion' : rewardsOnly ? 'scenario.summary.rewards' : 'scenario.summary'"></span>
       <span class="name">
         @if (scenario.index && !scenario.hideIndex) {
-        <span>#{{scenario.index}}&nbsp;</span>
+          <span>#{{ scenario.index }}&nbsp;</span>
         }
-        <span class="text-white"
-          [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario, conclusionOnly)"></span>
+        <span class="text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario, conclusionOnly)"></span>
       </span>
     </span>
     @if (success && !conclusionOnly && !rewardsOnly) {
-    <span class="success"><span [ghs-label]="'scenario.finish.success'"></span></span>
+      <span class="success"><span [ghs-label]="'scenario.finish.success'"></span></span>
     }
     @if (!!conclusion && conclusion != scenario) {
-    <span class="conclusion">
-      <span class="text-white" [ghs-label]="(conclusion.name ? gameManager.scenarioManager.scenarioTitle(conclusion,true) :
-      '%scenario.section% #' + conclusion.index)"></span>
-    </span>
+      <span class="conclusion">
+        <span
+          class="text-white"
+          [ghs-label]="
+            conclusion.name ? gameManager.scenarioManager.scenarioTitle(conclusion, true) : '%scenario.section% #' + conclusion.index
+          "
+        ></span>
+      </span>
     }
     @if (success && !gameManager.game.party.campaignMode && !rewardsOnly) {
-    <span class="casual">
-      <span [ghs-label]="'scenario.summary.casualWarning'"></span></span>
+      <span class="casual"> <span [ghs-label]="'scenario.summary.casualWarning'"></span></span>
     }
     @if (!success) {
-    <span class="failure"><span [ghs-label]="'scenario.finish.failure'"></span></span>
+      <span class="failure"><span [ghs-label]="'scenario.finish.failure'"></span></span>
     }
   </div>
 
-  <div class="main"
-    [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
-    @if (characters.length > 0 && (characterProgress || forceCampaign) && settingsManager.settings.characterSheet &&
-    !conclusionOnly && !rewardsOnly && !gameManager.bbRules()) {
-    <div class="table" [style.--ghs-summary-columns]="1 + characters.length">
-      <span class="head-col first"><span [ghs-label]="'scenario.summary.name'"></span></span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      <span class="first">
-        <img class="icon character-icon" (click)="openCharacterSheet(character)" [src]="character.iconUrl" />
-        <span class="name" [ngClass]="{'absent' : character.absent}">
-          {{gameManager.characterManager.characterName(character,true)}}
-        </span>
-        <span class="absent-icon-container"
-          [ngClass]="{'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
-          <img class="ghs-svg absent-icon"
-            [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'"
-            [ghs-label]="(character.absent ? 'character.present' : 'character.absent')" [ghs-label-attribute]="'title'"
-            (click)="toggleAbsent(character)">
-        </span>
-      </span>
-      }
-      <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.loot'"></span></span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      <span class="calc-col">
-        @if (!gameManager.game.lootDeck.cards.length) {
-        <span>{{character.loot | ghsValueSign}}</span>
-        }
-        @if (gameManager.game.lootDeck.cards.length) {
-        <span>{{character.lootCards.length}}/{{gameManager.game.lootDeck.cards.length}}</span>
-        }
-      </span>
-      }
-      @if (success && !!rewards && rewards.gold) {
-      <span class="head-col calc-col">
-        <span [ghs-label]="'scenario.summary.rewards.gold'"></span>
-      </span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      <span class="calc-col">
-        {{rewards.gold | ghsValueSign}}
-      </span>
-      }
-      }
-      @if (success && !!rewards && rewards.collectiveGold) {
-      <span class="head-col"><span class="text-white"
-          [ghs-label]="'scenario.summary.rewards.collectiveGold'"></span></span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      <span class="calc-col">
-        <input type="number" min="0" [max]="collectiveGold[index] + availableCollectiveGold()"
-          [value]="collectiveGold[index]" (change)="changeCollectiveGold($event, index)">
-      </span>
-      }
-      }
-      @if (success && !!rewards && rewards.collectiveResources && !settingsManager.settings.fhShareResources) {
-      @for (value of rewards.collectiveResources; track value) {
-      <span class="head-col"><span class="text-white" [ghs-label]="'scenario.summary.rewards.collectiveResource'"
-          [ghs-label-args]="[value.type]"></span></span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      <span class="calc-col">
-        <input type="number" min="0"
-          [max]="(collectiveResources[index] && collectiveResources[index][value.type] || 0) + availableCollectiveResource(value.type)"
-          [value]="(collectiveResources[index] && collectiveResources[index][value.type] || 0)"
-          (change)="changeCollectiveResource($event, index, value.type)">
-      </span>
-      }
-      }
-      }
-      @if (success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply &&
-      wealthFavor) {
-      <span class="head-col calc-col">
-        <span [ghs-label]="'data.favors.fh.wealth.reward'" [ghs-tooltip]="'data.favors.fh.wealth.text'"></span>
-        @if (wealthFavor > 1) {
-        <span>&nbsp;({{wealthFavor}}x)</span>
-        }
-      </span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      <span class="calc-col">
-        @if (character.loot) {
-        <span class="gold">{{(character.loot*wealthFavor) |
-          ghsValueSign}}</span>
-        @if (wealthFavor > 1) {
-        &nbsp;
-        <span>(</span>
-        @for (i of [] | ghsRange:wealthFavor; track i) {
-        <span>{{character.loot
-          | ghsValueSign}}</span>
-        }
-        <span>)</span>
-        }
-        }
-        @if (!character.loot) {
-        <span>0</span>
-        }
-      </span>
-      }
-      }
-      <span class="head-col">
-        @if (!totalGold) {
-        <span [ghs-label]="'scenario.summary.gold'"></span>
-        }
-        @if (totalGold) {
-        <img class="ghs-svg" src="./assets/images/fh/loot/money.svg">
-        {{lootedGold}}/{{totalGold}}
-        }
-      </span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      @if (!character.absent) {
-      <span>
-        <span class="gold">{{(success && rewards && rewards.gold ? rewards.gold : 0) + (collectiveGold[index] ?
-          collectiveGold[index] : 0) + (character.loot *
-          lootMultiplier) + (gameManager.trialsManager.favorsEnabled &&
-          gameManager.trialsManager.apply
-          ? character.loot *wealthFavor : 0) | ghsValueSign}}</span>
-        ({{character.progress.gold + (success && rewards && rewards.gold ? rewards.gold : 0)+ (collectiveGold[index] ?
-        collectiveGold[index] : 0) + character.loot *
-        lootMultiplier + (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
-        ? character.loot *wealthFavor : 0)}})
-      </span>
-      }
-      @if (character.absent) {
-      <span>
-        <span>/</span>
-        ({{character.progress.gold}})
-      </span>
-      }
-      }
-      @for (lootType of lootColumns; track lootType; let i = $index) {
-      <span class="head-col">
-        <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'">
-        {{lootColumnsLooted[i]}}/{{lootColumnsTotal[i]}}
-      </span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      @if (!character.absent) {
-      <span>
-        <span class="loot">{{lootValue(character, lootType) | ghsValueSign}}</span>
-        ({{(character.progress.loot[lootType] || 0) + lootValue(character, lootType)}})
-      </span>
-      }
-      @if (character.absent) {
-      <span>
-        <span class="loot">/</span>
-        ({{character.progress.loot[lootType] || 0}})
-      </span>
-      }
-      }
-      }
-      <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpGained'"></span></span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      <span class="calc-col">
-        {{character.experience | ghsValueSign}}
-      </span>
-      }
-      @if (success &&
-      (!rewards || !rewards.ignoredBonus || !rewards.ignoredBonus.includes('experience'))) {
-      <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpBonus'"></span></span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      <span class="calc-col">
-        @if (!character.absent) {
-        <span>{{experienceBonus
-          | ghsValueSign}}</span>
-        }
-        @if (character.absent) {
-        <span>/</span>
-        }
-      </span>
-      }
-      @if (success && rewards && rewards.experience) {
-      <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.rewards.experience'"></span></span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      <span class="calc-col">
-        {{rewards.experience | ghsValueSign}}
-      </span>
-      }
-      }
-      }
-      @if (success && challenges > 0) {
-      <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpChallenges'"></span></span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      <span class="calc-col">
-        @if (!character.absent) {
-        <span>{{(2*challenges) | ghsValueSign}}</span>
-        }
-        @if (character.absent) {
-        <span>/</span>
-        }
-      </span>
-      }
-      }
-      @if (success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
-      &&knowledgeFavor) {
-      <span class="head-col calc-col">
-        <span [ghs-label]="'data.favors.fh.knowledge.reward'" [ghs-tooltip]="'data.favors.fh.knowledge.text'"></span>
-        @if (knowledgeFavor > 1) {
-        <span>&nbsp;({{knowledgeFavor}}x)</span>
-        }
-      </span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      <span class="calc-col">
-        @if (battleGoals[index]) {
-        <span class="xp">{{(3*knowledgeFavor) | ghsValueSign}}</span>
-        @if (knowledgeFavor > 1) {
-        &nbsp;
-        <span>(</span>
-        @for (i of [] | ghsRange:knowledgeFavor; track i) {
-        <span>+3</span>
-        }
-        <span>)</span>
-        }
-        }
-        @if (!battleGoals[index]) {
-        <span>0</span>
-        }
-      </span>
-      }
-      }
-      <span class="head-col"><span [ghs-label]="'scenario.summary.xp'"></span></span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      @if (!character.absent) {
-      <span>
-        @if (success) {
-        <span class="xp">{{((rewards && rewards.experience ? rewards.experience : 0) + challenges * 2
-          +
-          character.experience + ( (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') ==
-          -1) ? experienceBonus : 0)) | ghsValueSign}}</span>
-        }
-        @if (!success) {
-        <span class="xp">{{character.experience | ghsValueSign}}</span>
-        }
-        ({{character.progress.experience + challenges * 2 + character.experience + (success && rewards &&
-        rewards.experience ?
-        rewards.experience : 0) + ((success && (!rewards || !rewards.ignoredBonus ||
-        !rewards.ignoredBonus.includes('experience')) ? experienceBonus : 0)) +
-        (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && battleGoals[index]
-        ? 3 *knowledgeFavor : 0)
-        }})
-        @if (levelUp[index]) {
-        <span class="level-up" [ghs-tooltip]="'scenario.summary.levelUp'"
-          [ghs-label-args]="[character.level, (character.level + 1)]">
-          <img class="ghs-svg" src="./assets/images/arrow-up.svg">
-        </span>
-        }
-      </span>
-      }
-      @if (character.absent) {
-      <span>
-        <span class="xp">/</span>
-        ({{character.progress.experience}})
-      </span>
-      }
-      }
-      @if (gameManager.scenarioManager.getTreasures(scenario,gameManager.game.sections).length > 0) {
-      <span class="head-col"><span [ghs-label]="'scenario.summary.treasures'"></span></span>
-      @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-      <span class="treasures">
-        @for (treasure of character.treasures || []; track treasure) {
-        <div class="hint-container">
-          <span class="treasure hint-trigger">
-            @if (('' + treasure).startsWith('G') || +('' +treasure).split(':')[0] >= 0) {
-            <span>
-              @if (!('' + treasure).startsWith('G') && +('' +treasure).split(':')[0] < 10) { <span>0</span>
-            }
-            {{('' + treasure).startsWith('G-') ? 'G' : ('' +treasure).split(':')[0]}}</span>
-          }
-          @if (!('' + treasure).startsWith('G') && +('' +treasure).split(':')[0] < 0) { <span>???
-      </span>
-      }
-      </span>
-      <span class="hint above center">
-        @if (!('' + treasure).startsWith('G-')) {
-        <ghs-treasure-label class="text placeholder text-white" [edition]="scenario.edition"
-          [index]="+(''+treasure).split(':')[0] -1"
-          [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"></ghs-treasure-label>
-        }</span>
-    </div>
-    }
-    </span>
-    }
-    }
-    @for (itemData of rewardItems | trackUUID; track itemData._trackUUID; let itemIndex = $index) {
-    <span (click)="openItemDialog(itemData)" class="head-col"><span [ghs-label]="'scenario.summary.item'"
-        [ghs-label-args]="[itemData.id, itemData.edition]"></span></span>
-    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-    <span>
-      @if (items[index] && items[index].includes(itemIndex)) {
-      <ghs-item (click)="openItemDialog(itemData)" [item]="itemData" [flipped]="true"></ghs-item>
-      }
-      <input type="checkbox" [disabled]="itemDistributed(index, itemIndex)"
-        [checked]="items[index] && items[index].includes(itemIndex)" (change)="toggleItem($event, index, itemIndex)">
-    </span>
-    }
-    }
-    @if (!!randomItem) {
-    <span class="head-col"><span [ghs-label]="'scenario.summary.randomItem'"
-        [ghs-label-args]="[randomItem.name]"></span></span>
-    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-    <span>
-      @if (randomItemIndex == index) {
-      <ghs-item (click)="openItemDialog(randomItem)" [item]="randomItem" [flipped]="true"></ghs-item>
-      }
-      <input type="checkbox" [disabled]="randomItemIndex > -1 && randomItemIndex != index"
-        [checked]="randomItemIndex == index" (change)="toggleRandomItem($event,index)">
-    </span>
-    }
-    }
-    @if (!!randomItems && randomItems.length > 0) {
-    <span class="head-col"><span [ghs-label]="'scenario.summary.randomItems'"></span></span>
-    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-    <span>
-      @if (!!randomItems[index]) {
-      <ghs-item (click)="openItemDialog(randomItems[index])" [item]="randomItems[index]" [flipped]="true"></ghs-item>
-      }
-    </span>
-    }
-    }
-    @if (success) {
-    <span class="head-col"><span [ghs-label]="'game.battleGoals'"></span></span>
-    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-    <span>
-      <span class="battlegoals">
-        @if (settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 &&
-        character != trial349 && character != trial356) {
-        <span class="battlegoal" (click)="openBattleGoals(character)">
-          <ghs-battlegoal [identifier]="character.battleGoal && character.battleGoals[0]"
-            [flipped]="character.battleGoal"></ghs-battlegoal>
-        </span>
-        }
-        @if (settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 &&
-        character == trial349) {
-        <div class="battlegoal-list">
-          @for (battleGoal of character.battleGoals | trackUUID; track battleGoal._trackUUID) {
-          <span class="battlegoal" (click)="openBattleGoals(character)">
-            <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
-          </span>
-          }
-        </div>
-        }
-        @if (settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 2 &&
-        character == trial356) {
-        <div class="battlegoal-list">
-          @for (battleGoal of character.battleGoals.slice(0,character.battleGoals.length - 2) | trackUUID; track
-          battleGoal._trackUUID) {
-          <span class="battlegoal" (click)="openBattleGoals(character)">
-            <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
-          </span>
-          }
-        </div>
-        }
-        <span class="checkmarks">
-          @if (!!rewards && rewards.battleGoals) {
-          @for (bg of [] | ghsRange:rewards.battleGoals; track bg) {
-          <input type="checkbox" [disabled]="true" [checked]="true">
-          }
-          }
-          <input type="checkbox" [disabled]="character.absent" [checked]="!character.absent && battleGoals[index] > 0"
-            (change)="toggleBattleGoal($event, index, 1)">
-          @if (!character.absent && battleGoals[index] > 0) {
-          <input type="checkbox" [checked]="battleGoals[index] > 1" (change)="toggleBattleGoal($event, index, 2)">
-          }
-          @if (!character.absent && character == trial349 && battleGoals[index] > 1) {
-          @for (i of [] | ghsRange:battleGoals[index]-1; track i) {
-          <input type="checkbox" [checked]="battleGoals[index] > 2+ i"
-            (change)="toggleBattleGoal($event, index, 3 + i)">
-          }
-          }
-        </span>
-        @if (perksUp[index]) {
-        <span class="level-up" [ghs-tooltip]="'scenario.summary.perksUp'">
-          <img class="ghs-svg" src="./assets/images/arrow-up.svg">
-        </span>
-        }
-      </span>
-    </span>
-    }
-    }
-    @if (success && gameManager.trialsManager.trialsEnabled) {
-    <span class="head-col"><span [ghs-label]="'character.progress.trial'"></span></span>
-    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-    <span>
-      <span class="trials">
-        @if (character.progress.trial) {
-        <span class="trial" (click)="openTrial(character)">
-          <img src="./assets/images/fh/trials/trial.png">
-        </span>
-        }
-        <span class="checkmark">
-          <input type="checkbox" [disabled]="character.absent" [checked]="!character.absent && trials[index]"
-            (change)="toggleTrial($event, index)">
-        </span>
-        <span class="trial"></span>
-      </span>
-    </span>
-    }
-    }
-    @if (settingsManager.settings.scenarioStats) {
-    <span class="head-col stats-toggle" [ghs-label]="'scenario.stats.toggle.' +  (stats ? 'hide': 'show')"
-      (click)="stats = !stats"></span>
-    <span class="stats-header" [style.grid-column]="'span ' + (characters.length - 1)"></span>
-    }
-    @if (stats) {
-    <span class="head-col"><span [ghs-label]="'scenario.stats.damage'"></span></span>
-    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-    <span class="scenario-stats">
-      <span class="text-white" [ghs-label]="'scenario.stats.dealtDamage'"
-        [ghs-label-args]="[character.scenarioStats.dealtDamage]" [style]="'fh'"
-        [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"></span>
-      <span class="text-white" [ghs-label]="'scenario.stats.monsterDamage'"
-        [ghs-label-args]="[character.scenarioStats.monsterDamage]" [style]="'fh'"
-        [ghs-tooltip]="'scenario.stats.monsterDamage.hint'"></span>
-      <span class="text-white" [ghs-label]="'scenario.stats.otherDamage'"
-        [ghs-label-args]="[character.scenarioStats.otherDamage]" [style]="'fh'"
-        [ghs-tooltip]="'scenario.stats.otherDamage.hint'"></span>
-    </span>
-    }
-    <span class="head-col"><span [ghs-label]="'scenario.stats.heal'"></span></span>
-    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-    <span class="scenario-stats">
-      <span class="text-white" [ghs-label]="'scenario.stats.heals'" [ghs-label-args]="[character.scenarioStats.heals]"
-        [style]="'fh'" [ghs-tooltip]="'scenario.stats.heals.hint'"></span>
-      <span class="text-white" [ghs-label]="'scenario.stats.healedDamage'"
-        [ghs-label-args]="[character.scenarioStats.healedDamage]" [style]="'fh'"
-        [ghs-tooltip]="'scenario.stats.healedDamage.hint'"></span>
-    </span>
-    }
-    <span class="head-col"><span [ghs-label]="'scenario.stats.kills'"></span></span>
-    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-    <span class="scenario-stats">
-      @if (character.scenarioStats.normalKills) {
-      <span class="text-white" [ghs-label]="'scenario.stats.normalKills'"
-        [ghs-label-args]="[character.scenarioStats.normalKills]" [style]="'fh'"
-        [ghs-tooltip]="'scenario.stats.normalKills.hint'"></span>
-      }
-      @if (character.scenarioStats.eliteKills) {
-      <span class="text-white" [ghs-label]="'scenario.stats.eliteKills'"
-        [ghs-label-args]="[character.scenarioStats.eliteKills]" [style]="'fh'"
-        [ghs-tooltip]="'scenario.stats.eliteKills.hint'"></span>
-      }
-      @if (character.scenarioStats.bossKills) {
-      <span class="text-white" [ghs-label]="'scenario.stats.bossKills'"
-        [ghs-label-args]="[character.scenarioStats.bossKills]" [style]="'fh'"
-        [ghs-tooltip]="'scenario.stats.bossKills.hint'"></span>
-      }
-    </span>
-    }
-    <span class="head-col"><span [ghs-label]="'scenario.stats.max'"></span></span>
-    @for (character of characters| trackUUID; track character._trackUUID; let index = $index) {
-    <span class="scenario-stats">
-      <span class="text-white" [ghs-label]="'scenario.stats.maxDealtDamage'"
-        [ghs-label-args]="[character.scenarioStats.maxDealtDamage]" [style]="'fh'"
-        [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"></span>
-      <span class="text-white" [ghs-label]="'scenario.stats.maxDamage'"
-        [ghs-label-args]="[character.scenarioStats.maxDamage]" [style]="'fh'"
-        [ghs-tooltip]="'scenario.stats.maxDamage.hint'"></span>
-    </span>
-    }
-    }
-  </div>
-  }
-
-  <div class="rewards">
-
-    @if (!conclusionOnly && alreadyWarning && gameManager.game.party.campaignMode) {
-    <div class="reward warning">
-      <label><span [ghs-label]="'scenario.summary.alreadyWarning'"></span></label>
-      <div class="list">
-        @if (!forceCampaign) {
-        <div class="item">
-          <span><span [ghs-label]="'scenario.summary.alreadyWarning.hint'"></span></span>
-        </div>
-        }
-        <div class="item">
-          <a (click)="updateState(!forceCampaign)"><span
-              [ghs-label]="'scenario.summary.alreadyWarning.' + (forceCampaign ? 'reapply' : 'ignore')"></span></a>
-        </div>
-      </div>
-    </div>
-    }
-
-    @if ((!conclusionOnly && !gameManager.game.party.campaignMode)) {
-    <div class="reward warning">
-      <label><span
-          [ghs-label]="('scenario.summary.casualWarning' + (gameManager.fhRules() ? '.fh' : ''))"></span></label>
-      <div class="list">
-        @if (!characterProgress && gameManager.fhRules()) {
-        <div class="item">
-          <span><span [ghs-label]="'scenario.summary.casualWarning.hintFh'"></span></span>
-        </div>
-        }
-        @if (forceCampaign || gameManager.fhRules()) {
-        <div class="item">
-          <a (click)="characterProgress = gameManager.fhRules() ? !characterProgress : true; updateState()"><span
-              [ghs-label]="'scenario.summary.casualWarning.' + (!characterProgress && !forceCampaign
-              ? 'ignore' : 'reapply')"></span></a>
-        </div>
-        }
-        @if (!forceCampaign) {
-        <div class="item">
-          <a (click)="updateState(true)"><span
-              [ghs-label]="'scenario.summary.casualWarning.campaignRewards'"></span></a>
-        </div>
-        }
-      </div>
-    </div>
-    }
-
-    @if (!alreadyWarning && gameManager.game.party.campaignMode || forceCampaign) {
-    @if (conclusionWarning) {
-    <div class="reward warning">
-      <label><span [ghs-label]="'scenario.summary.conclusionWarning'"></span></label>
-      <div class="list">
-        <div class="item">
-          <span class="placeholder text-white" [ghs-label]="'scenario.summary.conclusionWarning.hint'"></span>
-        </div>
-      </div>
-    </div>
-    }
-    @if (success && (scenario.unlocks && scenario.unlocks.length > 0 || !!rewards && !!rewards.chooseLocation &&
-    rewards.chooseLocation.length > 0)) {
-    <div class="reward locations">
-      <label><span [ghs-label]="(scenario.unlocks && scenario.unlocks.length > 1 || rewards && rewards.chooseLocation &&
-            rewards.chooseLocation.length > 1 ?
-            'scenario.rewards.locations' :
-            'scenario.rewards.location')"></span></label>
-      @if (scenario.unlocks) {
-      <div class="list">
-        @for (location of scenario.unlocks; track location; let i = $index) {
-        @if (gameManager.scenarioManager.getScenario(location,scenario.edition,
-        scenario.group)) {
-        <div class="item location">
-          <span
-            [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span>
-          <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
-          @if (scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1) { <span>,</span>
-            }
-        </div>
-        }
-        }
-      </div>
-      }
-      @if (!!rewards && rewards.chooseLocation && rewards.chooseLocation.length) {
-      <div class="list">
-        <div class="item"><span [ghs-label]="'scenario.rewards.chooseLocation'"></span>:</div>
-        @for (location of rewards.chooseLocation; track location; let i = $index) {
-        <label class="item location choose">
-          <input type="radio" name="chooseLocation" (change)="selectLocation(location)" [value]="location"
-            [checked]="chooseLocation == location">
-          <span
-            [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span>
-          <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
-        </label>
-        }
-      </div>
-      }
-    </div>
-    }
-    @if (success && !!conclusion && !!conclusion.unlocks && conclusion.unlocks.length > 0) {
-    <div class="reward locations">
-      <label><span [ghs-label]="(conclusion.unlocks.length > 1 ? 'scenario.rewards.locations' :
-            'scenario.rewards.location')"></span></label>
-      <div class="list">
-        @for (location of conclusion.unlocks; track location; let i = $index) {
-        @if (gameManager.scenarioManager.getScenario(location,conclusion.edition,
-        conclusion.group)) {
-        <div class="item location">
-          <span
-            [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span>
-          <span [ghs-label]="'%data.scenarioNumber:' + location + '%'"></span>
-          @if (conclusion.unlocks.length > 1 && i < conclusion.unlocks.length - 1) { <span>,</span>
-            }
-        </div>
-        }
-        }
-      </div>
-    </div>
-    }
-    @if (!!rewards && !!rewards.globalAchievements && rewards.globalAchievements.length > 0) {
-    <div class="reward achievements">
-      <label><span [ghs-label]="'scenario.rewards.globalAchievements'"></span>:</label>
-      <div class="list">
-        @for (achievement of rewards.globalAchievements; track achievement; let i = $index) {
-        <div class="item achievement">
-          <span><span [ghs-label]="'data.globalAchievements.' + achievement"></span></span>
-          @if (rewards.hints && rewards.hints.globalAchievements && rewards.hints.globalAchievements[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.globalAchievements[i]"></span>
-          }
-        </div>
-        }
-      </div>
-    </div>
-    }
-    @if (!!rewards && !!rewards.lostPartyAchievements && rewards.lostPartyAchievements.length > 0) {
-    <div class="reward achievements">
-      <label><span [ghs-label]="'scenario.rewards.lostPartyAchievements'"></span>:</label>
-      <div class="list">
-        @for (achievement of rewards.lostPartyAchievements; track achievement; let i = $index) {
-        <div class="item achievement">
-          <span><span [ghs-label]="'data.partyAchievements.' + achievement"></span></span>
-          @if (rewards.hints && rewards.hints.lostPartyAchievements && rewards.hints.lostPartyAchievements[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.lostPartyAchievements[i]"></span>
-          }
-        </div>
-        }
-      </div>
-    </div>
-    }
-    @if (!!rewards && !!rewards.partyAchievements && rewards.partyAchievements.length > 0) {
-    <div class="reward achievements">
-      <label><span [ghs-label]="'scenario.rewards.partyAchievements'"></span>:</label>
-      <div class="list">
-        @for (achievement of rewards.partyAchievements; track achievement; let i = $index) {
-        <div class="item achievement">
-          <span><span [ghs-label]="'data.partyAchievements.' + achievement"></span></span>
-          @if (rewards.hints && rewards.hints.partyAchievements && rewards.hints.partyAchievements[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.partyAchievements[i]"></span>
-          }
-        </div>
-        }
-      </div>
-    </div>
-    }
-    @if (!!rewards && !!rewards.campaignSticker && rewards.campaignSticker.length > 0) {
-    <div class="reward achievements">
-      <label><span [ghs-label]="'scenario.rewards.campaignSticker'"></span>:</label>
-      <div class="list">
-        @for (sticker of rewards.campaignSticker; track sticker; let i = $index) {
-        <div class="item achievement">
-          <span><span [ghs-label]="'data.campaignSticker.' + sticker"></span></span>
-          @if (rewards.hints && rewards.hints.campaignSticker && rewards.hints.campaignSticker[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.campaignSticker[i]"></span>
-          }
-        </div>
-        }
-      </div>
-    </div>
-    }
-    @if (!!rewards && !!rewards.calendarSection && rewards.calendarSection.length > 0) {
-    <div class="reward achievements">
-      <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
-      <div class="list">
-        @for (calendarSection of rewards.calendarSection; track calendarSection; let i = $index) {
-        <div class="item achievement">
-          <span class="placeholder text-white"
-            [ghs-label]="'scenario.rewards.calendarSection.add' + (calendarSection.split('-')[1].split(':').length > 1 ? '.next' : '')"
-            [ghs-label-args]="[calendarSection.split('-')[0], calendarSection.split('-')[1].split(':').length > 1 ? calendarSection.split('-')[1].split(':')[1] : calendarSection.split('-')[1], calendarSection.split('-')[1].split(':').length > 1 ? calendarSection.split('-')[1].split(':')[0] : '']"></span>
-          @if (rewards.hints && rewards.hints.calendarSection && rewards.hints.calendarSection[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.calendarSection[i]"></span>
-          }
-        </div>
-        }
-      </div>
-    </div>
-    }
-    @if (!!rewards && !!rewards.calendarSectionManual && rewards.calendarSectionManual.length > 0) {
-    <div class="reward achievements">
-      <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
-      <div class="list">
-        @for (calendarSection of rewards.calendarSectionManual | trackUUID; track calendarSection._trackUUID; let i =
-        $index) {
-        <div class="item achievement">
-          <span class="placeholder text-white" [ghs-label]="calendarSection.hint"></span>
-          <input type="number" min="-1" [value]="calendarSectionManual[i] || -1"
-            (change)="changeCalendarSectionManual($event, i)">
-        </div>
-        }
-      </div>
-    </div>
-    }
-    @if (!!rewards && hasRewards()) {
-    <div class="reward">
-      <label><span [ghs-label]="'scenario.rewards'"></span>:</label>
-      <div class="list">
-        @for (envelope of (rewards.envelopes || []); track envelope; let i = $index) {
-        <div class="item envelope">
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.envelope'"
-            [ghs-label-args]="[envelope]"></span>
-          @if (rewards.hints && rewards.hints.envelopes && rewards.hints.envelopes[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.envelopes[i]"></span>
-          }
-        </div>
-        }
-        @if (rewards.gold) {
-        <div class="item gold">
-          <span><span [ghs-label]="'scenario.rewards.gold'" [ghs-label-args]="[''+rewards.gold]"></span></span>
-          @if (rewards.hints && rewards.hints.gold) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.gold"></span>
-          }
-        </div>
-        }
-        @if (rewards.experience) {
-        <div class="item experience">
-          <span><span [ghs-label]="'scenario.rewards.experience'"
-              [ghs-label-args]="[''+rewards.experience]"></span></span>
-          @if (rewards.hints && rewards.hints.experience) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.experience"></span>
-          }
-        </div>
-        }
-        @if (rewards.collectiveGold) {
-        <div class="item collectiveGold">
-          <span><span [ghs-label]="'scenario.rewards.collectiveGold'"
-              [ghs-label-args]="[''+rewards.collectiveGold]"></span></span>
-          @if (rewards.hints && rewards.hints.collectiveGold) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.collectiveGold"></span>
-          }
-        </div>
-        }
-        @if (!!rewards.resources && rewards.resources.length) {
-        <div class="item resources">
-          @for (item of rewards.resources | trackUUID; track item._trackUUID; let i = $index) {
-          @if (item.value) {
-          <span class="placeholder text-white"
-            [ghs-label]="'scenario.rewards.resources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
-            [ghs-label-args]="[item.type, ''+  EntityValueFunction(item.value)]"></span>
-          }
-          @if (rewards.hints && rewards.hints.resources && rewards.hints.resources[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.resources[i]"></span>
-          }
-          }
-        </div>
-        }
-        @if (!!rewards.collectiveResources && rewards.collectiveResources.length) {
-        <div class="item collective-resources">
-          @for (item of rewards.collectiveResources | trackUUID; track item._trackUUID; let i = $index) {
-          @if (item.value) {
-          <span class="placeholder text-white"
-            [ghs-label]="'scenario.rewards.collectiveResources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
-            [ghs-label-args]="[item.type, EntityValueFunction(item.value)]"></span>
-          }
-          @if (rewards.hints && rewards.hints.resources && rewards.hints.resources[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.resources[i]"></span>
-          }
-          }
-        </div>
-        }
-        @if (rewards.reputation) {
-        <div class="item reputation">
-          <span><span class="text-white" [ghs-label]="'scenario.rewards.reputation'"
-              [ghs-label-args]="[(rewards.reputation | ghsValueSign)]"></span></span>
-          @if (rewards.hints && rewards.hints.reputation) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.reputation"></span>
-          }
-        </div>
-        }
-        @if (!!rewards.reputationFactions && rewards.reputationFactions.length) {
-        <div class="item reputation faction">
-          @for (reputationFaction of rewards.reputationFactions; track reputationFaction; let i = $index) {
-          <span><span class="text-white" [ghs-label]="'scenario.rewards.reputationFactions'"
-              [ghs-label-args]="[reputationFaction.split(':')[0], reputationFaction.split(':')[1]]"></span></span>
-          @if (rewards.hints && rewards.hints.reputationFactions[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.reputationFactions[i]"></span>
-          }
-          }
-        </div>
-        }
-        @if (rewards.prosperity) {
-        <div class="item prosperity">
-          <span><span class="placeholder text-white" [ghs-label]="'scenario.rewards.prosperity'"
-              [ghs-label-args]="[''+(rewards.prosperity | ghsValueSign)]"></span></span>
-          @if (rewards.hints && rewards.hints.prosperity) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.prosperity"></span>
-          }
-        </div>
-        }
-        @if (rewards.inspiration) {
-        <div class="item inspiration">
-          <span><span class="placeholder text-white" [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="[(EntityValueFunction(rewards.inspiration) |
-                ghsValueSign) ]"></span></span>
-          @if (rewards.hints && rewards.hints.inspiration) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.inspiration"></span>
-          }
-        </div>
-        }
-        @if (rewards.morale) {
-        <div class="item morale">
-          <span><span class="placeholder text-white" [ghs-label]="'scenario.rewards.morale'" [ghs-label-args]="[(EntityValueFunction(rewards.morale) |
-                ghsValueSign) ]"></span> </span>
-          @if (rewards.hints && rewards.hints.morale) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.morale"></span>
-          }
-        </div>
-        }
-        @if (rewards.perks) {
-        <div class="item perks">
-          <span><span class="placeholder text-white" [ghs-label]="'scenario.rewards.perks'"
-              [ghs-label-args]="[''+rewards.perks]"></span></span>
-          @if (rewards.hints && rewards.hints.perks) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.perks"></span>
-          }
-        </div>
-        }
-        @if (rewards.battleGoals) {
-        <div class="item battleGoals">
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.battleGoals'"
-            [ghs-label-args]="[''+rewards.battleGoals]"></span>
-          @if (rewards.hints && rewards.hints.battleGoals) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.battleGoals"></span>
-          }
-        </div>
-        }
-        @if (rewards.factionUnlock) {
-        <div class="item prosperity">
-          <span><span class="placeholder text-white" [ghs-label]="'scenario.rewards.factionUnlock'"
-              [ghs-label-args]="[rewards.factionUnlock]"></span></span>
-        </div>
-        }
-        @for (item of (rewards.items || []); track item; let i = $index) {
-        <div class="item items">
-          @if (item.includes(':')) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.items'"
-            [ghs-label-args]="[item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', item.split(':')[1]]"
-            (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
-          }
-          @if (!item.includes(':')) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.item'"
-            [ghs-label-args]="[item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '']"
-            (click)="openItemDialog(gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
-          }
-          @if (rewards.hints && rewards.hints.items && rewards.hints.items[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.items[i]"></span>
-          }
-        </div>
-        }
-        @if (!!rewards.chooseItem && rewards.chooseItem.length > 0) {
-        <div class="item chooseItem">
-          <span><span [ghs-label]="'scenario.rewards.chooseItem'"></span></span>
-          @for (itemList of (rewards.chooseItem || []); track itemList; let i = $index) {
-          @for (item of (itemList || []); track item) {
-          @if (item.includes(':')) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.items'"
-            [ghs-label-args]="[item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', item.split(':')[1]]"
-            (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
-          }
-          @if (!item.includes(':')) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.item'"
-            [ghs-label-args]="[item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '']"
-            (click)="openItemDialog(gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
-          }
-          @if (rewards.hints && rewards.hints.chooseItem && rewards.hints.chooseItem[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.chooseItem[i]"></span>
-          }
-          }
-          @if (i < rewards.chooseItem.length -1) { <span class="placeholder text-white" [ghs-label]="'or'"></span>
-            }
-            }
-        </div>
-        }
-        @for (item of (rewards.itemDesigns || []); track item; let i = $index) {
-        <div class="item item-designs">
-          @if (item.includes('-')) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemDesignRange'"
-            [ghs-label-args]="[item]"></span>
-          }
-          @if (!item.includes('-') && !item.includes(':')) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemDesign'"
-            [ghs-label-args]="[item.split(':')[0],item.includes(':') ? item.split(':')[1] : (scenario.edition || '')]"
-            (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0],item.includes(':') ? item.split(':')[1] : (scenario.edition || ''), true))"></span>
-          }
-          @if (!item.includes('-') && item.includes(':')) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemDesignEdition'"
-            [ghs-label-args]="[item.split(':')[0], item.split(':')[1]]"
-            (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0], item.split(':')[1], true))"></span>
-          }
-          @if (rewards.hints && rewards.hints.itemDesigns && rewards.hints.itemDesigns[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.itemDesigns[i]"></span>
-          }
-        </div>
-        }
-        @for (item of (rewards.itemBlueprints || []); track item; let i = $index) {
-        <div class="item item-blueprints">
-          @if (item.includes('-')) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprintRange'"
-            [ghs-label-args]="item.split('-')"></span>
-          }
-          @if (!item.includes('-')) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprint'"
-            [ghs-label-args]="[item,scenario.edition || '']"
-            (click)="openItemDialog(gameManager.itemManager.getItem(item,scenario.edition || '', true))"></span>
-          }
-          @if (rewards.hints && rewards.hints.itemBlueprints && rewards.hints.itemBlueprints[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.itemBlueprints[i]"></span>
-          }
-        </div>
-        }
-        @if (rewards.randomItemBlueprints) {
-        <div class="item item-blueprints">
-          @if (rewards.randomItemBlueprints.includes('-')) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomItemBlueprints'"
-            [ghs-label-args]="rewards.randomItemBlueprints.split('-')"></span>
-          }
-        </div>
-        }
-        @if (rewards.randomItemBlueprint) {
-        <div class="item item-blueprints">
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomItemBlueprint'"></span>
-          @for (itemId of randomItemBlueprints; track itemId; let i = $index) {
-          @if (itemId > 0) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprint'"
-            [ghs-label-args]="[itemId,scenario.edition || '']"
-            (click)="openItemDialog(gameManager.itemManager.getItem(itemId,scenario.edition || '', true))"></span>
-          }
-          @if (itemId == -1) {
-          <span> <span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['+1']"></span>
-          </span>
-          }
-          @if (rewards.hints && rewards.hints.randomItemBlueprint) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.randomItemBlueprint"></span>
-          }
-          }
-        </div>
-        }
-        @if (rewards.randomSideScenario) {
-        <div class="item random-scenario">
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomSideScenario'"></span>
-          @if(randomSideScenario) {
-          <div class="draw">
-            <span class="placeholder"
-              [ghs-label]="'%data.scenarioNumber:' + this.randomSideScenario.index + '%'"></span>
-            <span class="placeholder text-white"
-              [ghs-label]="'%data.scenario.title.' + this.randomSideScenario.edition + '.'+this.randomSideScenario.index + '%'"></span>
-          </div>
-          }
-        </div>
-        }
-        @for (event of (rewards.events || []); track event; let i = $index) {
-        <div class="item events">
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.event.' + event.split(':')[0]"
-            [ghs-label-args]="[event.split(':')[1]]"></span>
-          @if (rewards.hints && rewards.hints.events && rewards.hints.events[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.events[i]"></span>
-          }
-        </div>
-        }
-        @for (event of (rewards.removeEvents || []); track event; let i = $index) {
-        <div class="item events">
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.removeEvent.' + event.split(':')[0]"
-            [ghs-label-args]="[event.split(':')[1]]"></span>
-          @if (rewards.hints && rewards.hints.removeEvents && rewards.hints.removeEvents[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.removeEvents[i]"></span>
-          }
-        </div>
-        }
-        @if (rewards.overlayCampaignSticker) {
-        <div class="item overlay-sticker">
-          @if (rewards.hints && rewards.hints.overlayCampaignSticker) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.overlayCampaignSticker"></span>
-          }
-          @if (!rewards.hints || !rewards.hints.overlayCampaignSticker) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.overlayCampaignSticker'"
-            [ghs-label-args]="[rewards.overlayCampaignSticker.name, rewards.overlayCampaignSticker.location]"></span>
-          }
-        </div>
-        }
-        @if (rewards.overlaySticker) {
-        <div class="item overlay-sticker">
-          @if (rewards.hints && rewards.hints.overlaySticker) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.overlaySticker"></span>
-          }
-          @if (!rewards.hints || !rewards.hints.overlaySticker) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.overlaySticker'"
-            [ghs-label-args]="[rewards.overlaySticker.name, rewards.overlaySticker.location]"></span>
-          }
-        </div>
-        }
-        @if (rewards.pet) {
-        <div class="item overlay-sticker">
-          @if (rewards.hints && rewards.hints.pet) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.pet"></span>
-          }
-          @if (!rewards.hints || !rewards.hints.pet) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.pet'"
-            [ghs-label-args]="[rewards.pet, scenario.edition]"></span>
-          }
-        </div>
-        }
-        @if (!!rewards && !!rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length > 0) {
-        <div class="list-inline unlock-character">
-          <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
-          @for (character of rewards.chooseUnlockCharacter; track character; let i = $index) {
-          <label class="item character choose"
-            [ngClass]="{'unlocked': unlocked(character), 'disabled': !settingsManager.settings.automaticUnlocking}">
-            @if (settingsManager.settings.automaticUnlocking) {
-            <input type="radio" name="chooseUnlockCharacter" (change)="selectCharacter(character)" [value]="character"
-              [checked]="chooseUnlockCharacter == character">
-            }
-            <span class="placeholder text-white" [ghs-label]="'scenario.rewards.unlockCharacter.box'"
-              [ghs-label-args]="[character]"></span>
-            @if (i < rewards.chooseUnlockCharacter.length - 1) { <span><span [ghs-label]="'or'"></span></span>
-              }
-          </label>
-          }
-        </div>
-        }
-        @if (!!rewards && rewards.unlockCharacter) {
-        <div class="item character">
-          <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.unlockCharacter.box'"
-            [ghs-label-args]="[rewards.unlockCharacter]"></span>
-        </div>
-        }
-        @if (rewards.custom) {
-        <div class="item custom">
-          <span class="placeholder text-white" [ghs-label]="rewards.custom"></span>
-        </div>
-        }
-        @if (rewards.repeatScenario) {
-        <div class="item custom">
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.repeatScenario'"></span>
-        </div>
-        }
-        @if (!!rewards.eventDecks && rewards.eventDecks.length) {
-        <div class="item event-deck">
-          @for (eventDeck of rewards.eventDecks; track eventDeck; let i = $index) {
-          @if (!rewards.hints || !rewards.hints.eventDecks || !rewards.hints.eventDecks[i]) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.eventDeck'"
-            [ghs-label-args]="[eventDeck.split(':')[0], eventDeck.split(':')[1].split('|')[0], eventDeck.split(':')[1].split('|')[1]]"></span>
-          }
-          @if (rewards.hints && rewards.hints.eventDecks && rewards.hints.eventDecks[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.eventDecks[i]"></span>
-          }
-          }
-        </div>
-        }
-        @for (lootDeckCard of (rewards.lootDeckCards || []); track lootDeckCard; let i = $index) {
-        <div class="item loot-deck-cards">
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.lootDeckCard'"
-            [ghs-label-args]="[lootDeckCard]"></span>
-          @if (rewards.hints && rewards.hints.lootDeckCards && rewards.hints.lootDeckCards[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.lootDeckCards[i]"></span>
-          }
-        </div>
-        }
-        @for (lootDeckCard of (rewards.removeLootDeckCards || []); track lootDeckCard; let i = $index) {
-        <div class="item loot-deck-cards">
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.removeLootDeckCard'"
-            [ghs-label-args]="[lootDeckCard]"></span>
-          @if (rewards.hints && rewards.hints.removeLootDeckCards && rewards.hints.removeLootDeckCards[i]) {
-          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.removeLootDeckCards[i]"></span>
-          }
-        </div>
-        }
-        @if (!!townGuardAMs && townGuardAMs.length > 0) {
-        <div class="item town-guard-am">
-          @for (townGuardAm of townGuardAMs | trackUUID; track townGuardAm._trackUUID) {
-          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.townGuardAm'"
-            [ghs-label-args]="[townGuardAm.value, townGuardAm.valueType]"></span>
-          }
-        </div>
-        }
-      </div>
-    </div>
-    }
-    }
-
-    @if (hasBonus()) {
-    <div class="reward">
-      <label><span [ghs-label]="'scenario.rewards.bonus'"></span>:</label>
-      <div class="list">
-        @if (gameManager.fhRules() && EntityValueFunction('4-C') && (!rewards || !rewards.ignoredBonus ||
-        !rewards.ignoredBonus.includes('inspiration'))) {
-        <div class="item inspiration">
-          <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="[(EntityValueFunction('4-C') |
-              ghsValueSign) ]"></span> </span>
-        </div>
-        }
-        @if (numberChallenges > 0) {
-        <div class="item challenges">
-          <div class="menu">
+  <div class="main" [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }">
+    @if (
+      characters.length > 0 &&
+      (characterProgress || forceCampaign) &&
+      settingsManager.settings.characterSheet &&
+      !conclusionOnly &&
+      !rewardsOnly &&
+      !gameManager.bbRules()
+    ) {
+      <div class="table" [style.--ghs-summary-columns]="1 + characters.length">
+        <span class="head-col first"><span [ghs-label]="'scenario.summary.name'"></span></span>
+        @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+          <span class="first">
+            <img class="icon character-icon" (click)="openCharacterSheet(character)" [src]="character.iconUrl" />
+            <span class="name" [ngClass]="{ absent: character.absent }">
+              {{ gameManager.characterManager.characterName(character, true) }}
+            </span>
             <span
-              [ghs-label]="('scenario.summary.challenges.' + (numberChallenges > 1 ? 'completed' : 'complete'))"></span>
-            @if (!gameManager.challengesManager.enabled) {
-            <input type="checkbox" [checked]="challenges > 0" (change)="toggleChallenges($event)">
+              class="absent-icon-container"
+              [ngClass]="{ denied: !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] }"
+            >
+              <img
+                class="ghs-svg absent-icon"
+                [src]="'/assets/images/status/' + (character.absent ? 'absent' : 'present') + '.svg'"
+                [ghs-label]="character.absent ? 'character.present' : 'character.absent'"
+                [ghs-label-attribute]="'title'"
+                (click)="toggleAbsent(character)"
+              />
+            </span>
+          </span>
+        }
+        <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.loot'"></span></span>
+        @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+          <span class="calc-col">
+            @if (!gameManager.game.lootDeck.cards.length) {
+              <span>{{ character.loot | ghsValueSign }}</span>
             }
-            @if (!gameManager.challengesManager.enabled && numberChallenges > 1) {
-            <input type="checkbox" [checked]="challenges > 1" (change)="toggleChallenges($event,true)">
+            @if (gameManager.game.lootDeck.cards.length) {
+              <span>{{ character.lootCards.length }}/{{ gameManager.game.lootDeck.cards.length }}</span>
             }
-          </div>
-          @if (gameManager.challengesManager.enabled) {
-          <div class="cards">
-            <div class="card">
-              <ghs-challenge-card
-                [challenge]="gameManager.game.challengeDeck.cards[gameManager.game.challengeDeck.keep[0]]"
-                [flipped]="true" (click)="openChallenge(gameManager.game.challengeDeck.keep[0])"></ghs-challenge-card>
-              <input type="checkbox" [checked]="challenges > 0" (change)="toggleChallenges($event)">
-            </div>
-            @if (numberChallenges > 1) {
-            <div class="card">
-              <ghs-challenge-card
-                [challenge]="gameManager.game.challengeDeck.cards[gameManager.game.challengeDeck.keep[1]]"
-                [flipped]="true" (click)="openChallenge(gameManager.game.challengeDeck.keep[1])"></ghs-challenge-card>
-              <input type="checkbox" [checked]="challenges > 1" (change)="toggleChallenges($event,true)">
-            </div>
-            }
-          </div>
+          </span>
+        }
+        @if (success && !!rewards && rewards.gold) {
+          <span class="head-col calc-col">
+            <span [ghs-label]="'scenario.summary.rewards.gold'"></span>
+          </span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span class="calc-col">
+              {{ rewards.gold | ghsValueSign }}
+            </span>
           }
-        </div>
+        }
+        @if (success && !!rewards && rewards.collectiveGold) {
+          <span class="head-col"><span class="text-white" [ghs-label]="'scenario.summary.rewards.collectiveGold'"></span></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span class="calc-col">
+              <input
+                type="number"
+                min="0"
+                [max]="collectiveGold[index] + availableCollectiveGold()"
+                [value]="collectiveGold[index]"
+                (change)="changeCollectiveGold($event, index)"
+              />
+            </span>
+          }
+        }
+        @if (success && !!rewards && rewards.collectiveResources && !settingsManager.settings.fhShareResources) {
+          @for (value of rewards.collectiveResources; track value) {
+            <span class="head-col"
+              ><span class="text-white" [ghs-label]="'scenario.summary.rewards.collectiveResource'" [ghs-label-args]="[value.type]"></span
+            ></span>
+            @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+              <span class="calc-col">
+                <input
+                  type="number"
+                  min="0"
+                  [max]="
+                    ((collectiveResources[index] && collectiveResources[index][value.type]) || 0) + availableCollectiveResource(value.type)
+                  "
+                  [value]="(collectiveResources[index] && collectiveResources[index][value.type]) || 0"
+                  (change)="changeCollectiveResource($event, index, value.type)"
+                />
+              </span>
+            }
+          }
+        }
+        @if (success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && wealthFavor) {
+          <span class="head-col calc-col">
+            <span [ghs-label]="'data.favors.fh.wealth.reward'" [ghs-tooltip]="'data.favors.fh.wealth.text'"></span>
+            @if (wealthFavor > 1) {
+              <span>&nbsp;({{ wealthFavor }}x)</span>
+            }
+          </span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span class="calc-col">
+              @if (character.loot) {
+                <span class="gold">{{ character.loot * wealthFavor | ghsValueSign }}</span>
+                @if (wealthFavor > 1) {
+                  &nbsp;
+                  <span>(</span>
+                  @for (i of [] | ghsRange: wealthFavor; track i) {
+                    <span>{{ character.loot | ghsValueSign }}</span>
+                  }
+                  <span>)</span>
+                }
+              }
+              @if (!character.loot) {
+                <span>0</span>
+              }
+            </span>
+          }
+        }
+        <span class="head-col">
+          @if (!totalGold) {
+            <span [ghs-label]="'scenario.summary.gold'"></span>
+          }
+          @if (totalGold) {
+            <img class="ghs-svg" src="/assets/images/fh/loot/money.svg" />
+            {{ lootedGold }}/{{ totalGold }}
+          }
+        </span>
+        @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+          @if (!character.absent) {
+            <span>
+              <span class="gold">{{
+                (success && rewards && rewards.gold ? rewards.gold : 0) +
+                  (collectiveGold[index] ? collectiveGold[index] : 0) +
+                  character.loot * lootMultiplier +
+                  (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply ? character.loot * wealthFavor : 0)
+                  | ghsValueSign
+              }}</span>
+              ({{
+                character.progress.gold +
+                  (success && rewards && rewards.gold ? rewards.gold : 0) +
+                  (collectiveGold[index] ? collectiveGold[index] : 0) +
+                  character.loot * lootMultiplier +
+                  (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply ? character.loot * wealthFavor : 0)
+              }})
+            </span>
+          }
+          @if (character.absent) {
+            <span>
+              <span>/</span>
+              ({{ character.progress.gold }})
+            </span>
+          }
+        }
+        @for (lootType of lootColumns; track lootType; let i = $index) {
+          <span class="head-col">
+            <img class="ghs-svg" [src]="'/assets/images/fh/loot/' + lootType + '.svg'" />
+            {{ lootColumnsLooted[i] }}/{{ lootColumnsTotal[i] }}
+          </span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            @if (!character.absent) {
+              <span>
+                <span class="loot">{{ lootValue(character, lootType) | ghsValueSign }}</span>
+                ({{ (character.progress.loot[lootType] || 0) + lootValue(character, lootType) }})
+              </span>
+            }
+            @if (character.absent) {
+              <span>
+                <span class="loot">/</span>
+                ({{ character.progress.loot[lootType] || 0 }})
+              </span>
+            }
+          }
+        }
+        <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpGained'"></span></span>
+        @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+          <span class="calc-col">
+            {{ character.experience | ghsValueSign }}
+          </span>
+        }
+        @if (success && (!rewards || !rewards.ignoredBonus || !rewards.ignoredBonus.includes('experience'))) {
+          <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpBonus'"></span></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span class="calc-col">
+              @if (!character.absent) {
+                <span>{{ experienceBonus | ghsValueSign }}</span>
+              }
+              @if (character.absent) {
+                <span>/</span>
+              }
+            </span>
+          }
+          @if (success && rewards && rewards.experience) {
+            <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.rewards.experience'"></span></span>
+            @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+              <span class="calc-col">
+                {{ rewards.experience | ghsValueSign }}
+              </span>
+            }
+          }
+        }
+        @if (success && challenges > 0) {
+          <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpChallenges'"></span></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span class="calc-col">
+              @if (!character.absent) {
+                <span>{{ 2 * challenges | ghsValueSign }}</span>
+              }
+              @if (character.absent) {
+                <span>/</span>
+              }
+            </span>
+          }
+        }
+        @if (success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && knowledgeFavor) {
+          <span class="head-col calc-col">
+            <span [ghs-label]="'data.favors.fh.knowledge.reward'" [ghs-tooltip]="'data.favors.fh.knowledge.text'"></span>
+            @if (knowledgeFavor > 1) {
+              <span>&nbsp;({{ knowledgeFavor }}x)</span>
+            }
+          </span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span class="calc-col">
+              @if (battleGoals[index]) {
+                <span class="xp">{{ 3 * knowledgeFavor | ghsValueSign }}</span>
+                @if (knowledgeFavor > 1) {
+                  &nbsp;
+                  <span>(</span>
+                  @for (i of [] | ghsRange: knowledgeFavor; track i) {
+                    <span>+3</span>
+                  }
+                  <span>)</span>
+                }
+              }
+              @if (!battleGoals[index]) {
+                <span>0</span>
+              }
+            </span>
+          }
+        }
+        <span class="head-col"><span [ghs-label]="'scenario.summary.xp'"></span></span>
+        @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+          @if (!character.absent) {
+            <span>
+              @if (success) {
+                <span class="xp">{{
+                  (rewards && rewards.experience ? rewards.experience : 0) +
+                    challenges * 2 +
+                    character.experience +
+                    (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1 ? experienceBonus : 0)
+                    | ghsValueSign
+                }}</span>
+              }
+              @if (!success) {
+                <span class="xp">{{ character.experience | ghsValueSign }}</span>
+              }
+              ({{
+                character.progress.experience +
+                  challenges * 2 +
+                  character.experience +
+                  (success && rewards && rewards.experience ? rewards.experience : 0) +
+                  (success && (!rewards || !rewards.ignoredBonus || !rewards.ignoredBonus.includes('experience')) ? experienceBonus : 0) +
+                  (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && battleGoals[index]
+                    ? 3 * knowledgeFavor
+                    : 0)
+              }})
+              @if (levelUp[index]) {
+                <span class="level-up" [ghs-tooltip]="'scenario.summary.levelUp'" [ghs-label-args]="[character.level, character.level + 1]">
+                  <img class="ghs-svg" src="/assets/images/arrow-up.svg" />
+                </span>
+              }
+            </span>
+          }
+          @if (character.absent) {
+            <span>
+              <span class="xp">/</span>
+              ({{ character.progress.experience }})
+            </span>
+          }
+        }
+        @if (gameManager.scenarioManager.getTreasures(scenario, gameManager.game.sections).length > 0) {
+          <span class="head-col"><span [ghs-label]="'scenario.summary.treasures'"></span></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span class="treasures">
+              @for (treasure of character.treasures || []; track treasure) {
+                <div class="hint-container">
+                  <span class="treasure hint-trigger">
+                    @if (('' + treasure).startsWith('G') || +('' + treasure).split(':')[0] >= 0) {
+                      <span>
+                        @if (!('' + treasure).startsWith('G') && +('' + treasure).split(':')[0] < 10) {
+                          <span>0</span>
+                        }
+                        {{ ('' + treasure).startsWith('G-') ? 'G' : ('' + treasure).split(':')[0] }}</span
+                      >
+                    }
+                    @if (!('' + treasure).startsWith('G') && +('' + treasure).split(':')[0] < 0) {
+                      <span>??? </span>
+                    }
+                  </span>
+                  <span class="hint above center">
+                    @if (!('' + treasure).startsWith('G-')) {
+                      <ghs-treasure-label
+                        class="text placeholder text-white"
+                        [edition]="scenario.edition"
+                        [index]="+('' + treasure).split(':')[0] - 1"
+                        [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"
+                      ></ghs-treasure-label>
+                    }
+                  </span>
+                </div>
+              }
+            </span>
+          }
+        }
+        @for (itemData of rewardItems | trackUUID; track itemData._trackUUID; let itemIndex = $index) {
+          <span (click)="openItemDialog(itemData)" class="head-col"
+            ><span [ghs-label]="'scenario.summary.item'" [ghs-label-args]="[itemData.id, itemData.edition]"></span
+          ></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span>
+              @if (items[index] && items[index].includes(itemIndex)) {
+                <ghs-item (click)="openItemDialog(itemData)" [item]="itemData" [flipped]="true"></ghs-item>
+              }
+              <input
+                type="checkbox"
+                [disabled]="itemDistributed(index, itemIndex)"
+                [checked]="items[index] && items[index].includes(itemIndex)"
+                (change)="toggleItem($event, index, itemIndex)"
+              />
+            </span>
+          }
+        }
+        @if (!!randomItem) {
+          <span class="head-col"><span [ghs-label]="'scenario.summary.randomItem'" [ghs-label-args]="[randomItem.name]"></span></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span>
+              @if (randomItemIndex == index) {
+                <ghs-item (click)="openItemDialog(randomItem)" [item]="randomItem" [flipped]="true"></ghs-item>
+              }
+              <input
+                type="checkbox"
+                [disabled]="randomItemIndex > -1 && randomItemIndex != index"
+                [checked]="randomItemIndex == index"
+                (change)="toggleRandomItem($event, index)"
+              />
+            </span>
+          }
+        }
+        @if (!!randomItems && randomItems.length > 0) {
+          <span class="head-col"><span [ghs-label]="'scenario.summary.randomItems'"></span></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span>
+              @if (!!randomItems[index]) {
+                <ghs-item (click)="openItemDialog(randomItems[index])" [item]="randomItems[index]" [flipped]="true"></ghs-item>
+              }
+            </span>
+          }
+        }
+        @if (success) {
+          <span class="head-col"><span [ghs-label]="'game.battleGoals'"></span></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span>
+              <span class="battlegoals">
+                @if (
+                  settingsManager.settings.battleGoals &&
+                  character.battleGoal &&
+                  character.battleGoals.length > 0 &&
+                  character != trial349 &&
+                  character != trial356
+                ) {
+                  <span class="battlegoal" (click)="openBattleGoals(character)">
+                    <ghs-battlegoal
+                      [identifier]="character.battleGoal && character.battleGoals[0]"
+                      [flipped]="character.battleGoal"
+                    ></ghs-battlegoal>
+                  </span>
+                }
+                @if (
+                  settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 && character == trial349
+                ) {
+                  <div class="battlegoal-list">
+                    @for (battleGoal of character.battleGoals | trackUUID; track battleGoal._trackUUID) {
+                      <span class="battlegoal" (click)="openBattleGoals(character)">
+                        <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
+                      </span>
+                    }
+                  </div>
+                }
+                @if (
+                  settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 2 && character == trial356
+                ) {
+                  <div class="battlegoal-list">
+                    @for (
+                      battleGoal of character.battleGoals.slice(0, character.battleGoals.length - 2) | trackUUID;
+                      track battleGoal._trackUUID
+                    ) {
+                      <span class="battlegoal" (click)="openBattleGoals(character)">
+                        <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
+                      </span>
+                    }
+                  </div>
+                }
+                <span class="checkmarks">
+                  @if (!!rewards && rewards.battleGoals) {
+                    @for (bg of [] | ghsRange: rewards.battleGoals; track bg) {
+                      <input type="checkbox" [disabled]="true" [checked]="true" />
+                    }
+                  }
+                  <input
+                    type="checkbox"
+                    [disabled]="character.absent"
+                    [checked]="!character.absent && battleGoals[index] > 0"
+                    (change)="toggleBattleGoal($event, index, 1)"
+                  />
+                  @if (!character.absent && battleGoals[index] > 0) {
+                    <input type="checkbox" [checked]="battleGoals[index] > 1" (change)="toggleBattleGoal($event, index, 2)" />
+                  }
+                  @if (!character.absent && character == trial349 && battleGoals[index] > 1) {
+                    @for (i of [] | ghsRange: battleGoals[index] - 1; track i) {
+                      <input type="checkbox" [checked]="battleGoals[index] > 2 + i" (change)="toggleBattleGoal($event, index, 3 + i)" />
+                    }
+                  }
+                </span>
+                @if (perksUp[index]) {
+                  <span class="level-up" [ghs-tooltip]="'scenario.summary.perksUp'">
+                    <img class="ghs-svg" src="/assets/images/arrow-up.svg" />
+                  </span>
+                }
+              </span>
+            </span>
+          }
+        }
+        @if (success && gameManager.trialsManager.trialsEnabled) {
+          <span class="head-col"><span [ghs-label]="'character.progress.trial'"></span></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span>
+              <span class="trials">
+                @if (character.progress.trial) {
+                  <span class="trial" (click)="openTrial(character)">
+                    <img src="/assets/images/fh/trials/trial.png" />
+                  </span>
+                }
+                <span class="checkmark">
+                  <input
+                    type="checkbox"
+                    [disabled]="character.absent"
+                    [checked]="!character.absent && trials[index]"
+                    (change)="toggleTrial($event, index)"
+                  />
+                </span>
+                <span class="trial"></span>
+              </span>
+            </span>
+          }
+        }
+        @if (settingsManager.settings.scenarioStats) {
+          <span
+            class="head-col stats-toggle"
+            [ghs-label]="'scenario.stats.toggle.' + (stats ? 'hide' : 'show')"
+            (click)="stats = !stats"
+          ></span>
+          <span class="stats-header" [style.grid-column]="'span ' + (characters.length - 1)"></span>
+        }
+        @if (stats) {
+          <span class="head-col"><span [ghs-label]="'scenario.stats.damage'"></span></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span class="scenario-stats">
+              <span
+                class="text-white"
+                [ghs-label]="'scenario.stats.dealtDamage'"
+                [ghs-label-args]="[character.scenarioStats.dealtDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"
+              ></span>
+              <span
+                class="text-white"
+                [ghs-label]="'scenario.stats.monsterDamage'"
+                [ghs-label-args]="[character.scenarioStats.monsterDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.monsterDamage.hint'"
+              ></span>
+              <span
+                class="text-white"
+                [ghs-label]="'scenario.stats.otherDamage'"
+                [ghs-label-args]="[character.scenarioStats.otherDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.otherDamage.hint'"
+              ></span>
+            </span>
+          }
+          <span class="head-col"><span [ghs-label]="'scenario.stats.heal'"></span></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span class="scenario-stats">
+              <span
+                class="text-white"
+                [ghs-label]="'scenario.stats.heals'"
+                [ghs-label-args]="[character.scenarioStats.heals]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.heals.hint'"
+              ></span>
+              <span
+                class="text-white"
+                [ghs-label]="'scenario.stats.healedDamage'"
+                [ghs-label-args]="[character.scenarioStats.healedDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.healedDamage.hint'"
+              ></span>
+            </span>
+          }
+          <span class="head-col"><span [ghs-label]="'scenario.stats.kills'"></span></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span class="scenario-stats">
+              @if (character.scenarioStats.normalKills) {
+                <span
+                  class="text-white"
+                  [ghs-label]="'scenario.stats.normalKills'"
+                  [ghs-label-args]="[character.scenarioStats.normalKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.normalKills.hint'"
+                ></span>
+              }
+              @if (character.scenarioStats.eliteKills) {
+                <span
+                  class="text-white"
+                  [ghs-label]="'scenario.stats.eliteKills'"
+                  [ghs-label-args]="[character.scenarioStats.eliteKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.eliteKills.hint'"
+                ></span>
+              }
+              @if (character.scenarioStats.bossKills) {
+                <span
+                  class="text-white"
+                  [ghs-label]="'scenario.stats.bossKills'"
+                  [ghs-label-args]="[character.scenarioStats.bossKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.bossKills.hint'"
+                ></span>
+              }
+            </span>
+          }
+          <span class="head-col"><span [ghs-label]="'scenario.stats.max'"></span></span>
+          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+            <span class="scenario-stats">
+              <span
+                class="text-white"
+                [ghs-label]="'scenario.stats.maxDealtDamage'"
+                [ghs-label-args]="[character.scenarioStats.maxDealtDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"
+              ></span>
+              <span
+                class="text-white"
+                [ghs-label]="'scenario.stats.maxDamage'"
+                [ghs-label-args]="[character.scenarioStats.maxDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.maxDamage.hint'"
+              ></span>
+            </span>
+          }
         }
       </div>
-    </div>
     }
 
-
-    @if (addWeek()) {
-    <div class="reward">
-      <label><span [ghs-label]="'scenario.rewards.addWeek'"></span>:</label>
-      <div class="list">
-        <div class="item week">
-          <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.next'"
-              [ghs-label-args]="[(gameManager.game.party.weeks + 1)]"></span></span>
-        </div>
-        @if (gameManager.game.party.weeks % 20 < 10 && (gameManager.game.party.weeks + 1) % 20>= 10) {
-          <div class="item winter">
-            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.winter'"></span></span>
+    <div class="rewards">
+      @if (!conclusionOnly && alreadyWarning && gameManager.game.party.campaignMode) {
+        <div class="reward warning">
+          <label><span [ghs-label]="'scenario.summary.alreadyWarning'"></span></label>
+          <div class="list">
+            @if (!forceCampaign) {
+              <div class="item">
+                <span><span [ghs-label]="'scenario.summary.alreadyWarning.hint'"></span></span>
+              </div>
+            }
+            <div class="item">
+              <a (click)="updateState(!forceCampaign)"
+                ><span [ghs-label]="'scenario.summary.alreadyWarning.' + (forceCampaign ? 'reapply' : 'ignore')"></span
+              ></a>
+            </div>
           </div>
-          }
-          @if (gameManager.game.party.weeks % 20 >= 10 && (gameManager.game.party.weeks + 1) % 20 < 10) { <div
-            class="item summer">
-            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.summer'"></span></span>
-      </div>
+        </div>
       }
-      @if (weekSections().length) {
-      <div class="item week-sections">
-        @for (weekSection of weekSections() | trackUUID; track weekSection._trackUUID) {
-        <span class="week-section text-white" (click)="showWeekConclusion(weekSection)"
-          [ghs-label]="'scenario.rewards.addWeek.section'" [ghs-label-args]="[weekSection.index]"></span>
+
+      @if (!conclusionOnly && !gameManager.game.party.campaignMode) {
+        <div class="reward warning">
+          <label><span [ghs-label]="'scenario.summary.casualWarning' + (gameManager.fhRules() ? '.fh' : '')"></span></label>
+          <div class="list">
+            @if (!characterProgress && gameManager.fhRules()) {
+              <div class="item">
+                <span><span [ghs-label]="'scenario.summary.casualWarning.hintFh'"></span></span>
+              </div>
+            }
+            @if (forceCampaign || gameManager.fhRules()) {
+              <div class="item">
+                <a (click)="characterProgress = gameManager.fhRules() ? !characterProgress : true; updateState()"
+                  ><span
+                    [ghs-label]="'scenario.summary.casualWarning.' + (!characterProgress && !forceCampaign ? 'ignore' : 'reapply')"
+                  ></span
+                ></a>
+              </div>
+            }
+            @if (!forceCampaign) {
+              <div class="item">
+                <a (click)="updateState(true)"><span [ghs-label]="'scenario.summary.casualWarning.campaignRewards'"></span></a>
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      @if ((!alreadyWarning && gameManager.game.party.campaignMode) || forceCampaign) {
+        @if (conclusionWarning) {
+          <div class="reward warning">
+            <label><span [ghs-label]="'scenario.summary.conclusionWarning'"></span></label>
+            <div class="list">
+              <div class="item">
+                <span class="placeholder text-white" [ghs-label]="'scenario.summary.conclusionWarning.hint'"></span>
+              </div>
+            </div>
+          </div>
         }
-      </div>
+        @if (
+          success &&
+          ((scenario.unlocks && scenario.unlocks.length > 0) ||
+            (!!rewards && !!rewards.chooseLocation && rewards.chooseLocation.length > 0))
+        ) {
+          <div class="reward locations">
+            <label
+              ><span
+                [ghs-label]="
+                  (scenario.unlocks && scenario.unlocks.length > 1) ||
+                  (rewards && rewards.chooseLocation && rewards.chooseLocation.length > 1)
+                    ? 'scenario.rewards.locations'
+                    : 'scenario.rewards.location'
+                "
+              ></span
+            ></label>
+            @if (scenario.unlocks) {
+              <div class="list">
+                @for (location of scenario.unlocks; track location; let i = $index) {
+                  @if (gameManager.scenarioManager.getScenario(location, scenario.edition, scenario.group)) {
+                    <div class="item location">
+                      <span
+                        [ghs-label]="
+                          gameManager.scenarioManager.scenarioTitle(
+                            gameManager.scenarioManager.getScenario(location, scenario.edition, scenario.group)
+                          )
+                        "
+                      ></span>
+                      <span [ghs-label]="'%data.scenarioNumber:' + location + '%'"></span>
+                      @if (scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1) {
+                        <span>,</span>
+                      }
+                    </div>
+                  }
+                }
+              </div>
+            }
+            @if (!!rewards && rewards.chooseLocation && rewards.chooseLocation.length) {
+              <div class="list">
+                <div class="item"><span [ghs-label]="'scenario.rewards.chooseLocation'"></span>:</div>
+                @for (location of rewards.chooseLocation; track location; let i = $index) {
+                  <label class="item location choose">
+                    <input
+                      type="radio"
+                      name="chooseLocation"
+                      (change)="selectLocation(location)"
+                      [value]="location"
+                      [checked]="chooseLocation == location"
+                    />
+                    <span
+                      [ghs-label]="
+                        gameManager.scenarioManager.scenarioTitle(
+                          gameManager.scenarioManager.getScenario(location, scenario.edition, scenario.group)
+                        )
+                      "
+                    ></span>
+                    <span [ghs-label]="'%data.scenarioNumber:' + location + '%'"></span>
+                  </label>
+                }
+              </div>
+            }
+          </div>
+        }
+        @if (success && !!conclusion && !!conclusion.unlocks && conclusion.unlocks.length > 0) {
+          <div class="reward locations">
+            <label
+              ><span [ghs-label]="conclusion.unlocks.length > 1 ? 'scenario.rewards.locations' : 'scenario.rewards.location'"></span
+            ></label>
+            <div class="list">
+              @for (location of conclusion.unlocks; track location; let i = $index) {
+                @if (gameManager.scenarioManager.getScenario(location, conclusion.edition, conclusion.group)) {
+                  <div class="item location">
+                    <span
+                      [ghs-label]="
+                        gameManager.scenarioManager.scenarioTitle(
+                          gameManager.scenarioManager.getScenario(location, scenario.edition, scenario.group)
+                        )
+                      "
+                    ></span>
+                    <span [ghs-label]="'%data.scenarioNumber:' + location + '%'"></span>
+                    @if (conclusion.unlocks.length > 1 && i < conclusion.unlocks.length - 1) {
+                      <span>,</span>
+                    }
+                  </div>
+                }
+              }
+            </div>
+          </div>
+        }
+        @if (!!rewards && !!rewards.globalAchievements && rewards.globalAchievements.length > 0) {
+          <div class="reward achievements">
+            <label><span [ghs-label]="'scenario.rewards.globalAchievements'"></span>:</label>
+            <div class="list">
+              @for (achievement of rewards.globalAchievements; track achievement; let i = $index) {
+                <div class="item achievement">
+                  <span><span [ghs-label]="'data.globalAchievements.' + achievement"></span></span>
+                  @if (rewards.hints && rewards.hints.globalAchievements && rewards.hints.globalAchievements[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.globalAchievements[i]"></span>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+        @if (!!rewards && !!rewards.lostPartyAchievements && rewards.lostPartyAchievements.length > 0) {
+          <div class="reward achievements">
+            <label><span [ghs-label]="'scenario.rewards.lostPartyAchievements'"></span>:</label>
+            <div class="list">
+              @for (achievement of rewards.lostPartyAchievements; track achievement; let i = $index) {
+                <div class="item achievement">
+                  <span><span [ghs-label]="'data.partyAchievements.' + achievement"></span></span>
+                  @if (rewards.hints && rewards.hints.lostPartyAchievements && rewards.hints.lostPartyAchievements[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.lostPartyAchievements[i]"></span>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+        @if (!!rewards && !!rewards.partyAchievements && rewards.partyAchievements.length > 0) {
+          <div class="reward achievements">
+            <label><span [ghs-label]="'scenario.rewards.partyAchievements'"></span>:</label>
+            <div class="list">
+              @for (achievement of rewards.partyAchievements; track achievement; let i = $index) {
+                <div class="item achievement">
+                  <span><span [ghs-label]="'data.partyAchievements.' + achievement"></span></span>
+                  @if (rewards.hints && rewards.hints.partyAchievements && rewards.hints.partyAchievements[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.partyAchievements[i]"></span>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+        @if (!!rewards && !!rewards.campaignSticker && rewards.campaignSticker.length > 0) {
+          <div class="reward achievements">
+            <label><span [ghs-label]="'scenario.rewards.campaignSticker'"></span>:</label>
+            <div class="list">
+              @for (sticker of rewards.campaignSticker; track sticker; let i = $index) {
+                <div class="item achievement">
+                  <span><span [ghs-label]="'data.campaignSticker.' + sticker"></span></span>
+                  @if (rewards.hints && rewards.hints.campaignSticker && rewards.hints.campaignSticker[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.campaignSticker[i]"></span>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+        @if (!!rewards && !!rewards.calendarSection && rewards.calendarSection.length > 0) {
+          <div class="reward achievements">
+            <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
+            <div class="list">
+              @for (calendarSection of rewards.calendarSection; track calendarSection; let i = $index) {
+                <div class="item achievement">
+                  <span
+                    class="placeholder text-white"
+                    [ghs-label]="
+                      'scenario.rewards.calendarSection.add' + (calendarSection.split('-')[1].split(':').length > 1 ? '.next' : '')
+                    "
+                    [ghs-label-args]="[
+                      calendarSection.split('-')[0],
+                      calendarSection.split('-')[1].split(':').length > 1
+                        ? calendarSection.split('-')[1].split(':')[1]
+                        : calendarSection.split('-')[1],
+                      calendarSection.split('-')[1].split(':').length > 1 ? calendarSection.split('-')[1].split(':')[0] : ''
+                    ]"
+                  ></span>
+                  @if (rewards.hints && rewards.hints.calendarSection && rewards.hints.calendarSection[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.calendarSection[i]"></span>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+        @if (!!rewards && !!rewards.calendarSectionManual && rewards.calendarSectionManual.length > 0) {
+          <div class="reward achievements">
+            <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
+            <div class="list">
+              @for (calendarSection of rewards.calendarSectionManual | trackUUID; track calendarSection._trackUUID; let i = $index) {
+                <div class="item achievement">
+                  <span class="placeholder text-white" [ghs-label]="calendarSection.hint"></span>
+                  <input
+                    type="number"
+                    min="-1"
+                    [value]="calendarSectionManual[i] || -1"
+                    (change)="changeCalendarSectionManual($event, i)"
+                  />
+                </div>
+              }
+            </div>
+          </div>
+        }
+        @if (!!rewards && hasRewards()) {
+          <div class="reward">
+            <label><span [ghs-label]="'scenario.rewards'"></span>:</label>
+            <div class="list">
+              @for (envelope of rewards.envelopes || []; track envelope; let i = $index) {
+                <div class="item envelope">
+                  <span class="placeholder text-white" [ghs-label]="'scenario.rewards.envelope'" [ghs-label-args]="[envelope]"></span>
+                  @if (rewards.hints && rewards.hints.envelopes && rewards.hints.envelopes[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.envelopes[i]"></span>
+                  }
+                </div>
+              }
+              @if (rewards.gold) {
+                <div class="item gold">
+                  <span><span [ghs-label]="'scenario.rewards.gold'" [ghs-label-args]="['' + rewards.gold]"></span></span>
+                  @if (rewards.hints && rewards.hints.gold) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.gold"></span>
+                  }
+                </div>
+              }
+              @if (rewards.experience) {
+                <div class="item experience">
+                  <span><span [ghs-label]="'scenario.rewards.experience'" [ghs-label-args]="['' + rewards.experience]"></span></span>
+                  @if (rewards.hints && rewards.hints.experience) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.experience"></span>
+                  }
+                </div>
+              }
+              @if (rewards.collectiveGold) {
+                <div class="item collectiveGold">
+                  <span
+                    ><span [ghs-label]="'scenario.rewards.collectiveGold'" [ghs-label-args]="['' + rewards.collectiveGold]"></span
+                  ></span>
+                  @if (rewards.hints && rewards.hints.collectiveGold) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.collectiveGold"></span>
+                  }
+                </div>
+              }
+              @if (!!rewards.resources && rewards.resources.length) {
+                <div class="item resources">
+                  @for (item of rewards.resources | trackUUID; track item._trackUUID; let i = $index) {
+                    @if (item.value) {
+                      <span
+                        class="placeholder text-white"
+                        [ghs-label]="'scenario.rewards.resources' + (EntityValueFunction(item.value) < 0 ? 'Lose' : '')"
+                        [ghs-label-args]="[item.type, '' + EntityValueFunction(item.value)]"
+                      ></span>
+                    }
+                    @if (rewards.hints && rewards.hints.resources && rewards.hints.resources[i]) {
+                      <span class="placeholder text-white hint" [ghs-label]="rewards.hints.resources[i]"></span>
+                    }
+                  }
+                </div>
+              }
+              @if (!!rewards.collectiveResources && rewards.collectiveResources.length) {
+                <div class="item collective-resources">
+                  @for (item of rewards.collectiveResources | trackUUID; track item._trackUUID; let i = $index) {
+                    @if (item.value) {
+                      <span
+                        class="placeholder text-white"
+                        [ghs-label]="'scenario.rewards.collectiveResources' + (EntityValueFunction(item.value) < 0 ? 'Lose' : '')"
+                        [ghs-label-args]="[item.type, EntityValueFunction(item.value)]"
+                      ></span>
+                    }
+                    @if (rewards.hints && rewards.hints.resources && rewards.hints.resources[i]) {
+                      <span class="placeholder text-white hint" [ghs-label]="rewards.hints.resources[i]"></span>
+                    }
+                  }
+                </div>
+              }
+              @if (rewards.reputation) {
+                <div class="item reputation">
+                  <span
+                    ><span
+                      class="text-white"
+                      [ghs-label]="'scenario.rewards.reputation'"
+                      [ghs-label-args]="[rewards.reputation | ghsValueSign]"
+                    ></span
+                  ></span>
+                  @if (rewards.hints && rewards.hints.reputation) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.reputation"></span>
+                  }
+                </div>
+              }
+              @if (!!rewards.reputationFactions && rewards.reputationFactions.length) {
+                <div class="item reputation faction">
+                  @for (reputationFaction of rewards.reputationFactions; track reputationFaction; let i = $index) {
+                    <span
+                      ><span
+                        class="text-white"
+                        [ghs-label]="'scenario.rewards.reputationFactions'"
+                        [ghs-label-args]="[reputationFaction.split(':')[0], reputationFaction.split(':')[1]]"
+                      ></span
+                    ></span>
+                    @if (rewards.hints && rewards.hints.reputationFactions[i]) {
+                      <span class="placeholder text-white hint" [ghs-label]="rewards.hints.reputationFactions[i]"></span>
+                    }
+                  }
+                </div>
+              }
+              @if (rewards.prosperity) {
+                <div class="item prosperity">
+                  <span
+                    ><span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.prosperity'"
+                      [ghs-label-args]="['' + (rewards.prosperity | ghsValueSign)]"
+                    ></span
+                  ></span>
+                  @if (rewards.hints && rewards.hints.prosperity) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.prosperity"></span>
+                  }
+                </div>
+              }
+              @if (rewards.inspiration) {
+                <div class="item inspiration">
+                  <span
+                    ><span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.inspiration'"
+                      [ghs-label-args]="[EntityValueFunction(rewards.inspiration) | ghsValueSign]"
+                    ></span
+                  ></span>
+                  @if (rewards.hints && rewards.hints.inspiration) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.inspiration"></span>
+                  }
+                </div>
+              }
+              @if (rewards.morale) {
+                <div class="item morale">
+                  <span
+                    ><span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.morale'"
+                      [ghs-label-args]="[EntityValueFunction(rewards.morale) | ghsValueSign]"
+                    ></span>
+                  </span>
+                  @if (rewards.hints && rewards.hints.morale) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.morale"></span>
+                  }
+                </div>
+              }
+              @if (rewards.perks) {
+                <div class="item perks">
+                  <span
+                    ><span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.perks'"
+                      [ghs-label-args]="['' + rewards.perks]"
+                    ></span
+                  ></span>
+                  @if (rewards.hints && rewards.hints.perks) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.perks"></span>
+                  }
+                </div>
+              }
+              @if (rewards.battleGoals) {
+                <div class="item battleGoals">
+                  <span
+                    class="placeholder text-white"
+                    [ghs-label]="'scenario.rewards.battleGoals'"
+                    [ghs-label-args]="['' + rewards.battleGoals]"
+                  ></span>
+                  @if (rewards.hints && rewards.hints.battleGoals) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.battleGoals"></span>
+                  }
+                </div>
+              }
+              @if (rewards.factionUnlock) {
+                <div class="item prosperity">
+                  <span
+                    ><span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.factionUnlock'"
+                      [ghs-label-args]="[rewards.factionUnlock]"
+                    ></span
+                  ></span>
+                </div>
+              }
+              @for (item of rewards.items || []; track item; let i = $index) {
+                <div class="item items">
+                  @if (item.includes(':')) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.items'"
+                      [ghs-label-args]="[
+                        item.split(':')[0].split('-')[0],
+                        item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '',
+                        item.split(':')[1]
+                      ]"
+                      (click)="
+                        openItemDialog(
+                          gameManager.itemManager.getItem(
+                            item.split(':')[0].split('-')[0],
+                            item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '',
+                            true
+                          )
+                        )
+                      "
+                    ></span>
+                  }
+                  @if (!item.includes(':')) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.item'"
+                      [ghs-label-args]="[item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '']"
+                      (click)="
+                        openItemDialog(
+                          gameManager.itemManager.getItem(
+                            item.split('-')[0],
+                            item.split('-').slice(1).join('-') || scenario.edition || '',
+                            true
+                          )
+                        )
+                      "
+                    ></span>
+                  }
+                  @if (rewards.hints && rewards.hints.items && rewards.hints.items[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.items[i]"></span>
+                  }
+                </div>
+              }
+              @if (!!rewards.chooseItem && rewards.chooseItem.length > 0) {
+                <div class="item chooseItem">
+                  <span><span [ghs-label]="'scenario.rewards.chooseItem'"></span></span>
+                  @for (itemList of rewards.chooseItem || []; track itemList; let i = $index) {
+                    @for (item of itemList || []; track item) {
+                      @if (item.includes(':')) {
+                        <span
+                          class="placeholder text-white"
+                          [ghs-label]="'scenario.rewards.items'"
+                          [ghs-label-args]="[
+                            item.split(':')[0].split('-')[0],
+                            item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '',
+                            item.split(':')[1]
+                          ]"
+                          (click)="
+                            openItemDialog(
+                              gameManager.itemManager.getItem(
+                                item.split(':')[0].split('-')[0],
+                                item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '',
+                                true
+                              )
+                            )
+                          "
+                        ></span>
+                      }
+                      @if (!item.includes(':')) {
+                        <span
+                          class="placeholder text-white"
+                          [ghs-label]="'scenario.rewards.item'"
+                          [ghs-label-args]="[item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '']"
+                          (click)="
+                            openItemDialog(
+                              gameManager.itemManager.getItem(
+                                item.split('-')[0],
+                                item.split('-').slice(1).join('-') || scenario.edition || '',
+                                true
+                              )
+                            )
+                          "
+                        ></span>
+                      }
+                      @if (rewards.hints && rewards.hints.chooseItem && rewards.hints.chooseItem[i]) {
+                        <span class="placeholder text-white hint" [ghs-label]="rewards.hints.chooseItem[i]"></span>
+                      }
+                    }
+                    @if (i < rewards.chooseItem.length - 1) {
+                      <span class="placeholder text-white" [ghs-label]="'or'"></span>
+                    }
+                  }
+                </div>
+              }
+              @for (item of rewards.itemDesigns || []; track item; let i = $index) {
+                <div class="item item-designs">
+                  @if (item.includes('-')) {
+                    <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemDesignRange'" [ghs-label-args]="[item]"></span>
+                  }
+                  @if (!item.includes('-') && !item.includes(':')) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.itemDesign'"
+                      [ghs-label-args]="[item.split(':')[0], item.includes(':') ? item.split(':')[1] : scenario.edition || '']"
+                      (click)="
+                        openItemDialog(
+                          gameManager.itemManager.getItem(
+                            item.split(':')[0],
+                            item.includes(':') ? item.split(':')[1] : scenario.edition || '',
+                            true
+                          )
+                        )
+                      "
+                    ></span>
+                  }
+                  @if (!item.includes('-') && item.includes(':')) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.itemDesignEdition'"
+                      [ghs-label-args]="[item.split(':')[0], item.split(':')[1]]"
+                      (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0], item.split(':')[1], true))"
+                    ></span>
+                  }
+                  @if (rewards.hints && rewards.hints.itemDesigns && rewards.hints.itemDesigns[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.itemDesigns[i]"></span>
+                  }
+                </div>
+              }
+              @for (item of rewards.itemBlueprints || []; track item; let i = $index) {
+                <div class="item item-blueprints">
+                  @if (item.includes('-')) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.itemBlueprintRange'"
+                      [ghs-label-args]="item.split('-')"
+                    ></span>
+                  }
+                  @if (!item.includes('-')) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.itemBlueprint'"
+                      [ghs-label-args]="[item, scenario.edition || '']"
+                      (click)="openItemDialog(gameManager.itemManager.getItem(item, scenario.edition || '', true))"
+                    ></span>
+                  }
+                  @if (rewards.hints && rewards.hints.itemBlueprints && rewards.hints.itemBlueprints[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.itemBlueprints[i]"></span>
+                  }
+                </div>
+              }
+              @if (rewards.randomItemBlueprints) {
+                <div class="item item-blueprints">
+                  @if (rewards.randomItemBlueprints.includes('-')) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.randomItemBlueprints'"
+                      [ghs-label-args]="rewards.randomItemBlueprints.split('-')"
+                    ></span>
+                  }
+                </div>
+              }
+              @if (rewards.randomItemBlueprint) {
+                <div class="item item-blueprints">
+                  <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomItemBlueprint'"></span>
+                  @for (itemId of randomItemBlueprints; track itemId; let i = $index) {
+                    @if (itemId > 0) {
+                      <span
+                        class="placeholder text-white"
+                        [ghs-label]="'scenario.rewards.itemBlueprint'"
+                        [ghs-label-args]="[itemId, scenario.edition || '']"
+                        (click)="openItemDialog(gameManager.itemManager.getItem(itemId, scenario.edition || '', true))"
+                      ></span>
+                    }
+                    @if (itemId == -1) {
+                      <span> <span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['+1']"></span> </span>
+                    }
+                    @if (rewards.hints && rewards.hints.randomItemBlueprint) {
+                      <span class="placeholder text-white hint" [ghs-label]="rewards.hints.randomItemBlueprint"></span>
+                    }
+                  }
+                </div>
+              }
+              @if (rewards.randomSideScenario) {
+                <div class="item random-scenario">
+                  <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomSideScenario'"></span>
+                  @if (randomSideScenario) {
+                    <div class="draw">
+                      <span class="placeholder" [ghs-label]="'%data.scenarioNumber:' + this.randomSideScenario.index + '%'"></span>
+                      <span
+                        class="placeholder text-white"
+                        [ghs-label]="'%data.scenario.title.' + this.randomSideScenario.edition + '.' + this.randomSideScenario.index + '%'"
+                      ></span>
+                    </div>
+                  }
+                </div>
+              }
+              @for (event of rewards.events || []; track event; let i = $index) {
+                <div class="item events">
+                  <span
+                    class="placeholder text-white"
+                    [ghs-label]="'scenario.rewards.event.' + event.split(':')[0]"
+                    [ghs-label-args]="[event.split(':')[1]]"
+                  ></span>
+                  @if (rewards.hints && rewards.hints.events && rewards.hints.events[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.events[i]"></span>
+                  }
+                </div>
+              }
+              @for (event of rewards.removeEvents || []; track event; let i = $index) {
+                <div class="item events">
+                  <span
+                    class="placeholder text-white"
+                    [ghs-label]="'scenario.rewards.removeEvent.' + event.split(':')[0]"
+                    [ghs-label-args]="[event.split(':')[1]]"
+                  ></span>
+                  @if (rewards.hints && rewards.hints.removeEvents && rewards.hints.removeEvents[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.removeEvents[i]"></span>
+                  }
+                </div>
+              }
+              @if (rewards.overlayCampaignSticker) {
+                <div class="item overlay-sticker">
+                  @if (rewards.hints && rewards.hints.overlayCampaignSticker) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.overlayCampaignSticker"></span>
+                  }
+                  @if (!rewards.hints || !rewards.hints.overlayCampaignSticker) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.overlayCampaignSticker'"
+                      [ghs-label-args]="[rewards.overlayCampaignSticker.name, rewards.overlayCampaignSticker.location]"
+                    ></span>
+                  }
+                </div>
+              }
+              @if (rewards.overlaySticker) {
+                <div class="item overlay-sticker">
+                  @if (rewards.hints && rewards.hints.overlaySticker) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.overlaySticker"></span>
+                  }
+                  @if (!rewards.hints || !rewards.hints.overlaySticker) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.overlaySticker'"
+                      [ghs-label-args]="[rewards.overlaySticker.name, rewards.overlaySticker.location]"
+                    ></span>
+                  }
+                </div>
+              }
+              @if (rewards.pet) {
+                <div class="item overlay-sticker">
+                  @if (rewards.hints && rewards.hints.pet) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.pet"></span>
+                  }
+                  @if (!rewards.hints || !rewards.hints.pet) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.pet'"
+                      [ghs-label-args]="[rewards.pet, scenario.edition]"
+                    ></span>
+                  }
+                </div>
+              }
+              @if (!!rewards && !!rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length > 0) {
+                <div class="list-inline unlock-character">
+                  <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
+                  @for (character of rewards.chooseUnlockCharacter; track character; let i = $index) {
+                    <label
+                      class="item character choose"
+                      [ngClass]="{ unlocked: unlocked(character), disabled: !settingsManager.settings.automaticUnlocking }"
+                    >
+                      @if (settingsManager.settings.automaticUnlocking) {
+                        <input
+                          type="radio"
+                          name="chooseUnlockCharacter"
+                          (change)="selectCharacter(character)"
+                          [value]="character"
+                          [checked]="chooseUnlockCharacter == character"
+                        />
+                      }
+                      <span
+                        class="placeholder text-white"
+                        [ghs-label]="'scenario.rewards.unlockCharacter.box'"
+                        [ghs-label-args]="[character]"
+                      ></span>
+                      @if (i < rewards.chooseUnlockCharacter.length - 1) {
+                        <span><span [ghs-label]="'or'"></span></span>
+                      }
+                    </label>
+                  }
+                </div>
+              }
+              @if (!!rewards && rewards.unlockCharacter) {
+                <div class="item character">
+                  <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
+                  <span
+                    class="placeholder text-white"
+                    [ghs-label]="'scenario.rewards.unlockCharacter.box'"
+                    [ghs-label-args]="[rewards.unlockCharacter]"
+                  ></span>
+                </div>
+              }
+              @if (rewards.custom) {
+                <div class="item custom">
+                  <span class="placeholder text-white" [ghs-label]="rewards.custom"></span>
+                </div>
+              }
+              @if (rewards.repeatScenario) {
+                <div class="item custom">
+                  <span class="placeholder text-white" [ghs-label]="'scenario.rewards.repeatScenario'"></span>
+                </div>
+              }
+              @if (!!rewards.eventDecks && rewards.eventDecks.length) {
+                <div class="item event-deck">
+                  @for (eventDeck of rewards.eventDecks; track eventDeck; let i = $index) {
+                    @if (!rewards.hints || !rewards.hints.eventDecks || !rewards.hints.eventDecks[i]) {
+                      <span
+                        class="placeholder text-white"
+                        [ghs-label]="'scenario.rewards.eventDeck'"
+                        [ghs-label-args]="[
+                          eventDeck.split(':')[0],
+                          eventDeck.split(':')[1].split('|')[0],
+                          eventDeck.split(':')[1].split('|')[1]
+                        ]"
+                      ></span>
+                    }
+                    @if (rewards.hints && rewards.hints.eventDecks && rewards.hints.eventDecks[i]) {
+                      <span class="placeholder text-white hint" [ghs-label]="rewards.hints.eventDecks[i]"></span>
+                    }
+                  }
+                </div>
+              }
+              @for (lootDeckCard of rewards.lootDeckCards || []; track lootDeckCard; let i = $index) {
+                <div class="item loot-deck-cards">
+                  <span
+                    class="placeholder text-white"
+                    [ghs-label]="'scenario.rewards.lootDeckCard'"
+                    [ghs-label-args]="[lootDeckCard]"
+                  ></span>
+                  @if (rewards.hints && rewards.hints.lootDeckCards && rewards.hints.lootDeckCards[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.lootDeckCards[i]"></span>
+                  }
+                </div>
+              }
+              @for (lootDeckCard of rewards.removeLootDeckCards || []; track lootDeckCard; let i = $index) {
+                <div class="item loot-deck-cards">
+                  <span
+                    class="placeholder text-white"
+                    [ghs-label]="'scenario.rewards.removeLootDeckCard'"
+                    [ghs-label-args]="[lootDeckCard]"
+                  ></span>
+                  @if (rewards.hints && rewards.hints.removeLootDeckCards && rewards.hints.removeLootDeckCards[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.removeLootDeckCards[i]"></span>
+                  }
+                </div>
+              }
+              @if (!!townGuardAMs && townGuardAMs.length > 0) {
+                <div class="item town-guard-am">
+                  @for (townGuardAm of townGuardAMs | trackUUID; track townGuardAm._trackUUID) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.townGuardAm'"
+                      [ghs-label-args]="[townGuardAm.value, townGuardAm.valueType]"
+                    ></span>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+      }
+
+      @if (hasBonus()) {
+        <div class="reward">
+          <label><span [ghs-label]="'scenario.rewards.bonus'"></span>:</label>
+          <div class="list">
+            @if (
+              gameManager.fhRules() &&
+              EntityValueFunction('4-C') &&
+              (!rewards || !rewards.ignoredBonus || !rewards.ignoredBonus.includes('inspiration'))
+            ) {
+              <div class="item inspiration">
+                <span
+                  ><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="[EntityValueFunction('4-C') | ghsValueSign]"></span>
+                </span>
+              </div>
+            }
+            @if (numberChallenges > 0) {
+              <div class="item challenges">
+                <div class="menu">
+                  <span [ghs-label]="'scenario.summary.challenges.' + (numberChallenges > 1 ? 'completed' : 'complete')"></span>
+                  @if (!gameManager.challengesManager.enabled) {
+                    <input type="checkbox" [checked]="challenges > 0" (change)="toggleChallenges($event)" />
+                  }
+                  @if (!gameManager.challengesManager.enabled && numberChallenges > 1) {
+                    <input type="checkbox" [checked]="challenges > 1" (change)="toggleChallenges($event, true)" />
+                  }
+                </div>
+                @if (gameManager.challengesManager.enabled) {
+                  <div class="cards">
+                    <div class="card">
+                      <ghs-challenge-card
+                        [challenge]="gameManager.game.challengeDeck.cards[gameManager.game.challengeDeck.keep[0]]"
+                        [flipped]="true"
+                        (click)="openChallenge(gameManager.game.challengeDeck.keep[0])"
+                      ></ghs-challenge-card>
+                      <input type="checkbox" [checked]="challenges > 0" (change)="toggleChallenges($event)" />
+                    </div>
+                    @if (numberChallenges > 1) {
+                      <div class="card">
+                        <ghs-challenge-card
+                          [challenge]="gameManager.game.challengeDeck.cards[gameManager.game.challengeDeck.keep[1]]"
+                          [flipped]="true"
+                          (click)="openChallenge(gameManager.game.challengeDeck.keep[1])"
+                        ></ghs-challenge-card>
+                        <input type="checkbox" [checked]="challenges > 1" (change)="toggleChallenges($event, true)" />
+                      </div>
+                    }
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      @if (addWeek()) {
+        <div class="reward">
+          <label><span [ghs-label]="'scenario.rewards.addWeek'"></span>:</label>
+          <div class="list">
+            <div class="item week">
+              <span
+                ><span
+                  class="text-white"
+                  [ghs-label]="'scenario.rewards.addWeek.next'"
+                  [ghs-label-args]="[gameManager.game.party.weeks + 1]"
+                ></span
+              ></span>
+            </div>
+            @if (gameManager.game.party.weeks % 20 < 10 && (gameManager.game.party.weeks + 1) % 20 >= 10) {
+              <div class="item winter">
+                <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.winter'"></span></span>
+              </div>
+            }
+            @if (gameManager.game.party.weeks % 20 >= 10 && (gameManager.game.party.weeks + 1) % 20 < 10) {
+              <div class="item summer">
+                <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.summer'"></span></span>
+              </div>
+            }
+            @if (weekSections().length) {
+              <div class="item week-sections">
+                @for (weekSection of weekSections() | trackUUID; track weekSection._trackUUID) {
+                  <span
+                    class="week-section text-white"
+                    (click)="showWeekConclusion(weekSection)"
+                    [ghs-label]="'scenario.rewards.addWeek.section'"
+                    [ghs-label-args]="[weekSection.index]"
+                  ></span>
+                }
+              </div>
+            }
+          </div>
+        </div>
       }
     </div>
   </div>
-  }
-</div>
-</div>
 
-@if ((!conclusionOnly || !alreadyWarning) && !rewardsOnly) {
-<div class="buttons"
-  [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.round  || !gameManager.stateManager.permissions.scenario || !gameManager.stateManager.permissions.characters)}">
-  <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.summary.cancel'"></span></a>
-  @if (success && (gameManager.game.party.campaignMode || forceCampaign) && (!!scenario.links && scenario.links.length >
-  0 || !!scenario.forcedLinks && scenario.forcedLinks.length > 0 || !!conclusion && !!conclusion.forcedLinks &&
-  conclusion.forcedLinks.length > 0)) {
-  <span class="links">
-    @if (!!scenario.forcedLinks && scenario.forcedLinks.length > 0) {
-    <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
-    @for (index of scenario.forcedLinks; track index) {
-    <a class="apply forced-link" (click)="finish(index, true)">
-      <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
-    </a>
-    }
-    }
-    @if (!!conclusion && !!conclusion.forcedLinks && conclusion.forcedLinks.length > 0) {
-    <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
-    @for (index of conclusion.forcedLinks; track index) {
-    <a class="apply forced-link" (click)="finish(index, true)">
-      <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
-    </a>
-    }
-    }
-    @if ((!scenario.forcedLinks || scenario.forcedLinks.length == 0) && (!conclusion || !conclusion.forcedLinks ||
-    conclusion.forcedLinks.length == 0)) {
-    <span class="text"><span [ghs-label]="'scenario.summary.links'"></span></span>
-    @for (index of scenario.links; track index) {
-    <a class="link" (click)="finish(index)">
-      <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
-    </a>
-    }
-    @if (!!conclusion && conclusion.links) {
-    @for (index of conclusion.links; track index) {
-    <a class="link" (click)="finish(index)">
-      <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
-    </a>
-    }
-    }
-    }
-  </span>
+  @if ((!conclusionOnly || !alreadyWarning) && !rewardsOnly) {
+    <div
+      class="buttons"
+      [ngClass]="{
+        denied:
+          gameManager.stateManager.permissions &&
+          (!gameManager.stateManager.permissions.round ||
+            !gameManager.stateManager.permissions.scenario ||
+            !gameManager.stateManager.permissions.characters)
+      }"
+    >
+      <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.summary.cancel'"></span></a>
+      @if (
+        success &&
+        (gameManager.game.party.campaignMode || forceCampaign) &&
+        ((!!scenario.links && scenario.links.length > 0) ||
+          (!!scenario.forcedLinks && scenario.forcedLinks.length > 0) ||
+          (!!conclusion && !!conclusion.forcedLinks && conclusion.forcedLinks.length > 0))
+      ) {
+        <span class="links">
+          @if (!!scenario.forcedLinks && scenario.forcedLinks.length > 0) {
+            <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
+            @for (index of scenario.forcedLinks; track index) {
+              <a class="apply forced-link" (click)="finish(index, true)">
+                <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+              </a>
+            }
+          }
+          @if (!!conclusion && !!conclusion.forcedLinks && conclusion.forcedLinks.length > 0) {
+            <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
+            @for (index of conclusion.forcedLinks; track index) {
+              <a class="apply forced-link" (click)="finish(index, true)">
+                <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+              </a>
+            }
+          }
+          @if (
+            (!scenario.forcedLinks || scenario.forcedLinks.length == 0) &&
+            (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0)
+          ) {
+            <span class="text"><span [ghs-label]="'scenario.summary.links'"></span></span>
+            @for (index of scenario.links; track index) {
+              <a class="link" (click)="finish(index)">
+                <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+              </a>
+            }
+            @if (!!conclusion && conclusion.links) {
+              @for (index of conclusion.links; track index) {
+                <a class="link" (click)="finish(index)">
+                  <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+                </a>
+              }
+            }
+          }
+        </span>
+      }
+      @if (
+        !success ||
+        !gameManager.game.party.campaignMode ||
+        alreadyWarning ||
+        forceCampaign ||
+        ((!scenario.forcedLinks || scenario.forcedLinks.length == 0) &&
+          (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0))
+      ) {
+        <a class="apply" (click)="finish()"
+          ><span [ghs-label]="conclusionOnly ? 'scenario.summary.solve' : 'scenario.summary.apply'"></span
+        ></a>
+      }
+      @if (!success) {
+        <a class="restart" (click)="restart()"
+          ><span [ghs-label]="lootColumns.length > 0 ? 'scenario.summary.restartLoseLoot' : 'scenario.summary.restart'"></span
+        ></a>
+      }
+    </div>
   }
-  @if (!success || !gameManager.game.party.campaignMode || alreadyWarning || forceCampaign || ((!scenario.forcedLinks ||
-  scenario.forcedLinks.length == 0) && (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0)))
-  {
-  <a class="apply" (click)="finish()"><span
-      [ghs-label]="conclusionOnly ? 'scenario.summary.solve' : 'scenario.summary.apply'"></span></a>
-  }
-  @if (!success) {
-  <a class="restart" (click)="restart()"><span [ghs-label]="(lootColumns.length > 0 ?
-      'scenario.summary.restartLoseLoot'
-      : 'scenario.summary.restart')"></span></a>
-  }
-</div>
-}
 </div>

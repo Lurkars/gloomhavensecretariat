@@ -1015,7 +1015,7 @@
       "treasures": {
         "": "Сокровища",
         "rewards": {
-          "battleGoal": "получите {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+          "battleGoal": "получите {0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\">",
           "calendarSection": "добавьте %data.section:{0}% через %number.{1}% недель",
           "campaignSticker": "получите наклейку кампании «{0}»",
           "condition": "получите состояние {0}",
@@ -1026,10 +1026,10 @@
             "road": "добавьте дорожное событие {0} в колоду"
           },
           "experience": "получите {0} опыта",
-          "experienceFh": "получите {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
+          "experienceFh": "получите {0} <img class=\"icon ghs-svg\" src=\"/assets/images/experience.svg\">",
           "goal": "Задача",
           "gold": "получите {0} золота",
-          "goldFh": "получите {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
+          "goldFh": "получите {0} <img class=\"icon ghs-svg\" src=\"/assets/images/fh/loot.svg\">",
           "heal": "выполните «Лечение {0} (на себя)»",
           "item": "получите {1} ({0})",
           "itemBlueprint": "получите чертёж {1} %game.itemFh.{0}%",
@@ -1620,10 +1620,10 @@
         "": "Календарь",
         "next": "Автоматический пропуск календарного времени до {0} недели",
         "section": "Открыть %data.section:{0}% (применяется автоматически)",
-        "summer": "Новый сезон: Лето <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
-        "winter": "Новый сезон: Зима <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
+        "summer": "Новый сезон: Лето <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/summer.svg\">",
+        "winter": "Новый сезон: Зима <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/winter.svg\">"
       },
-      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> каждому",
+      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\"> каждому",
       "bonus": "Бонус",
       "calendarSection": {
         "": "Связи секций",
@@ -1892,7 +1892,7 @@
       },
       "conclusionWarning": {
         "": "Отсутствует заключение!",
-        "hint": "Похоже, что этот сценарий завершен без заключения. Это может привести к отсутствию наград и разблокировок. Разделы заключения отмечены значком <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\">."
+        "hint": "Похоже, что этот сценарий завершен без заключения. Это может привести к отсутствию наград и разблокировок. Разделы заключения отмечены значком <img class=\"icon ghs-svg\" src=\"/assets/images/scenario/conclusion.svg\">."
       },
       "forcedLinks": "%scenario.summary.links% (принудительно)",
       "gold": "Золото",

@@ -1,15 +1,15 @@
-import { ghsShuffleArray } from "src/app/ui/helper/Static";
-import { Character } from "../model/Character";
-import { SelectResourceResult } from "../model/data/BuildingData";
-import { Condition, ConditionName } from "../model/data/Condition";
-import { CountIdentifier, Identifier } from "../model/data/Identifier";
-import { ItemData } from "../model/data/ItemData";
-import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "../model/data/Loot";
-import { TreasureData, TreasureReward, TreasureRewardType } from "../model/data/RoomData";
-import { Game } from "../model/Game";
-import { GameScenarioModel } from "../model/Scenario";
-import { gameManager } from "./GameManager";
-import { settingsManager } from "./SettingsManager";
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { SelectResourceResult } from 'src/app/game/model/data/BuildingData';
+import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
+import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
+import { ItemData } from 'src/app/game/model/data/ItemData';
+import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
+import { TreasureData, TreasureReward, TreasureRewardType } from 'src/app/game/model/data/RoomData';
+import { Game } from 'src/app/game/model/Game';
+import { GameScenarioModel } from 'src/app/game/model/Scenario';
+import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 export class LootManager {
   game: Game;
@@ -32,7 +32,9 @@ export class LootManager {
       }
 
       if (loot.type == LootType.random_item && this.game.scenario && this.game.party.campaignMode) {
-        this.game.party.randomItemLooted.push(new GameScenarioModel(this.game.scenario.index, this.game.scenario.edition, this.game.scenario.group));
+        this.game.party.randomItemLooted.push(
+          new GameScenarioModel(this.game.scenario.index, this.game.scenario.edition, this.game.scenario.group)
+        );
       }
     }
 
@@ -44,7 +46,13 @@ export class LootManager {
     character.lootCards = character.lootCards || [];
     if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {
       character.loot += this.getValue(loot);
-    } else if (loot.type == LootType.random_item && this.game.scenario && this.game.party.campaignMode && settingsManager.settings.characterItems && settingsManager.settings.applyLootRandomItem) {
+    } else if (
+      loot.type == LootType.random_item &&
+      this.game.scenario &&
+      this.game.party.campaignMode &&
+      settingsManager.settings.characterItems &&
+      settingsManager.settings.applyLootRandomItem
+    ) {
       result = gameManager.itemManager.drawRandomItem(this.game.scenario.edition);
       if (!result) {
         character.loot += 3;
@@ -54,9 +62,16 @@ export class LootManager {
     character.lootCards.push(index);
 
     if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled) {
-      const trialCharacter = this.game.figures.find((figure) => figure instanceof Character && figure != character && figure.progress.trial && figure.progress.trial.edition == 'fh' && figure.progress.trial.name == '351') as Character;
+      const trialCharacter = this.game.figures.find(
+        (figure) =>
+          figure instanceof Character &&
+          figure != character &&
+          figure.progress.trial &&
+          figure.progress.trial.edition == 'fh' &&
+          figure.progress.trial.name == '351'
+      ) as Character;
       if (trialCharacter) {
-        gameManager.entityManager.changeHealth(trialCharacter, trialCharacter, - Math.ceil(this.game.level / 3), true);
+        gameManager.entityManager.changeHealth(trialCharacter, trialCharacter, -Math.ceil(this.game.level / 3), true);
       }
     }
 
@@ -65,7 +80,7 @@ export class LootManager {
 
   shuffleDeck(deck: LootDeck, onlyUpcoming: boolean = false) {
     const current = deck.current;
-    let restoreCards: Loot[] = onlyUpcoming && current > -1 ? deck.cards.splice(0, current + 1) : [];
+    const restoreCards: Loot[] = onlyUpcoming && current > -1 ? deck.cards.splice(0, current + 1) : [];
     deck.current = -1;
     ghsShuffleArray(deck.cards);
     if (onlyUpcoming) {
@@ -95,7 +110,7 @@ export class LootManager {
   }
 
   lootTreasure(character: Character, index: number, edition: string): string[][] {
-    let rewardResults: string[][] = [];
+    const rewardResults: string[][] = [];
     const editionData = gameManager.editionData.find((editionData) => editionData.edition == edition);
     if (editionData && editionData.treasures) {
       index = index < 0 ? index : index - (editionData.treasureOffset || 0);
@@ -123,11 +138,14 @@ export class LootManager {
   }
 
   hasTreasure(character: Character, treasure: string | number, index: number): boolean {
-    return character.treasures.some((value) => value == treasure || typeof value === 'string' && (value.startsWith(treasure + ':') || treasure == 'G' && value == 'G-' + index));
+    return character.treasures.some(
+      (value) =>
+        value == treasure || (typeof value === 'string' && (value.startsWith(treasure + ':') || (treasure == 'G' && value == 'G-' + index)))
+    );
   }
 
   applyTreasureReward(character: Character, reward: TreasureReward, edition: string): string[] {
-    let result: string[] = [];
+    const result: string[] = [];
     switch (reward.type) {
       case TreasureRewardType.gold:
       case TreasureRewardType.goldFh:
@@ -149,7 +167,7 @@ export class LootManager {
       case TreasureRewardType.damage:
         if (typeof reward.value === 'number') {
           character.health -= reward.value;
-        } else if (reward.value == "terrain") {
+        } else if (reward.value == 'terrain') {
           character.health -= gameManager.levelManager.terrain();
         }
         if (character.health <= 0) {
@@ -177,7 +195,7 @@ export class LootManager {
             const resource = resourceValue.split('-')[0] as LootType;
             const value = +resourceValue.split('-')[1];
             character.progress.loot[resource] = (character.progress.loot[resource] || 0) + value;
-          })
+          });
         }
         break;
       case TreasureRewardType.condition:
@@ -186,7 +204,7 @@ export class LootManager {
             if (!gameManager.entityManager.hasCondition(character, new Condition(condition as ConditionName))) {
               gameManager.entityManager.addCondition(character, character, new Condition(condition as ConditionName));
             }
-          })
+          });
         }
         break;
       case TreasureRewardType.item:
@@ -196,9 +214,9 @@ export class LootManager {
         if (reward.value) {
           ('' + reward.value).split('+').forEach((itemValue) => {
             let itemEdition = edition;
-            let itemId = -1
+            let itemId = -1;
             if (isNaN(+itemValue)) {
-              itemId = +itemValue.split('-')[0]
+              itemId = +itemValue.split('-')[0];
               itemEdition = itemValue.split('-')[1];
             } else {
               itemId = +itemValue;
@@ -208,7 +226,9 @@ export class LootManager {
               const identifier = new CountIdentifier(item.id, item.edition);
               if (reward.type == TreasureRewardType.item || reward.type == TreasureRewardType.itemFh) {
                 if (settingsManager.settings.characterItems || settingsManager.settings.characterSheet) {
-                  if (character.progress.items.find((existing) => existing.name == identifier.name && existing.edition == identifier.edition)) {
+                  if (
+                    character.progress.items.find((existing) => existing.name == identifier.name && existing.edition == identifier.edition)
+                  ) {
                     character.progress.gold += gameManager.itemManager.itemSellValue(item);
                   } else {
                     character.progress.items.push(identifier);
@@ -219,13 +239,13 @@ export class LootManager {
                 gameManager.game.party.unlockedItems.push(identifier);
               }
             }
-          })
+          });
         }
         break;
       case TreasureRewardType.calendarSection:
         if (reward.value && typeof reward.value === 'string' && reward.value.split('-').length > 1) {
           const section = reward.value.split('-')[0];
-          const week = gameManager.game.party.weeks + (+reward.value.split('-')[1]);
+          const week = gameManager.game.party.weeks + +reward.value.split('-')[1];
           gameManager.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
         }
         break;
@@ -251,26 +271,47 @@ export class LootManager {
       case TreasureRewardType.scenario:
         if (reward.value) {
           const scenario = new GameScenarioModel('' + reward.value, edition);
-          if (!gameManager.game.party.manualScenarios.find((scenarioModel) => scenarioModel.index == scenario.index && scenarioModel.edition == scenario.edition && scenarioModel.group == scenario.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenario.index && scenarioModel.edition == scenario.edition && scenarioModel.group == scenario.group && !scenarioModel.custom)) {
+          if (
+            !gameManager.game.party.manualScenarios.find(
+              (scenarioModel) =>
+                scenarioModel.index == scenario.index &&
+                scenarioModel.edition == scenario.edition &&
+                scenarioModel.group == scenario.group &&
+                !scenarioModel.custom
+            ) &&
+            !gameManager.game.party.scenarios.find(
+              (scenarioModel) =>
+                scenarioModel.index == scenario.index &&
+                scenarioModel.edition == scenario.edition &&
+                scenarioModel.group == scenario.group &&
+                !scenarioModel.custom
+            )
+          ) {
             gameManager.game.party.manualScenarios.push(scenario);
           }
         }
         break;
       case TreasureRewardType.randomScenario:
         if (settingsManager.settings.drawRandomScenario) {
-          let scenarioData = gameManager.scenarioManager.drawRandomScenario(edition);
+          const scenarioData = gameManager.scenarioManager.drawRandomScenario(edition);
           if (scenarioData) {
-            gameManager.game.party.manualScenarios.push(new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group));
+            gameManager.game.party.manualScenarios.push(
+              new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group)
+            );
             result.push(scenarioData.index, gameManager.scenarioManager.scenarioTitle(scenarioData));
           }
         }
         break;
       case TreasureRewardType.randomScenarioFh:
         if (settingsManager.settings.drawRandomScenario) {
-          let sectionData = gameManager.scenarioManager.drawRandomScenarioSection(edition);
+          const sectionData = gameManager.scenarioManager.drawRandomScenarioSection(edition);
           if (sectionData) {
             gameManager.game.party.conclusions.push(new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group));
-            result.push(sectionData.index, gameManager.scenarioManager.scenarioTitle(sectionData, true), sectionData.unlocks ? sectionData.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ') : '');
+            result.push(
+              sectionData.index,
+              gameManager.scenarioManager.scenarioTitle(sectionData, true),
+              sectionData.unlocks ? sectionData.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ') : ''
+            );
           }
         }
         break;
@@ -281,11 +322,16 @@ export class LootManager {
           let from = -1;
           let to = -1;
           if (typeof reward.value === 'string' && reward.value.includes('-')) {
-            from = + reward.value.split('-')[0];
-            to = + reward.value.split('-')[1];
+            from = +reward.value.split('-')[0];
+            to = +reward.value.split('-')[1];
           }
 
-          let itemData: ItemData | undefined = gameManager.itemManager.drawRandomItem(edition, reward.type == TreasureRewardType.randomItemBlueprint, from, to);
+          const itemData: ItemData | undefined = gameManager.itemManager.drawRandomItem(
+            edition,
+            reward.type == TreasureRewardType.randomItemBlueprint,
+            from,
+            to
+          );
 
           if (itemData) {
             if (reward.type == TreasureRewardType.randomItem) {
@@ -328,30 +374,39 @@ export class LootManager {
     if (settingsManager.settings.fhShareResources) {
       this.game.figures.forEach((figure) => {
         if (figure instanceof Character) {
-          for (let key of Object.keys(figure.progress.loot)) {
+          for (const key of Object.keys(figure.progress.loot)) {
             const loot = key as LootType;
             this.game.party.loot[loot] = (this.game.party.loot[loot] || 0) + (figure.progress.loot[loot] || 0);
             figure.progress.loot[loot] = 0;
           }
         }
-      })
+      });
     }
   }
 
   fullLootDeck(): Loot[] {
-    let availableCards: Loot[] = JSON.parse(JSON.stringify(fullLootDeck));
+    const availableCards: Loot[] = JSON.parse(JSON.stringify(fullLootDeck));
 
     this.game.lootDeckEnhancements.forEach((loot) => {
       if (loot.enhancements > 0) {
-        const replacement = availableCards.find((other) => other.type == loot.type && other.value2P == loot.value2P && other.value3P == loot.value3P && other.value4P == loot.value4P && other.enhancements == 0);
+        const replacement = availableCards.find(
+          (other) =>
+            other.type == loot.type &&
+            other.value2P == loot.value2P &&
+            other.value3P == loot.value3P &&
+            other.value4P == loot.value4P &&
+            other.enhancements == 0
+        );
         if (!replacement) {
-          console.warn('Enhancement of non-available loot card: ' + loot.type + ':' + loot.value4P + ':' + loot.value3P + ':' + loot.value2P);
+          console.warn(
+            'Enhancement of non-available loot card: ' + loot.type + ':' + loot.value4P + ':' + loot.value3P + ':' + loot.value2P
+          );
           return;
         }
 
         availableCards.splice(availableCards.indexOf(replacement), 1, JSON.parse(JSON.stringify(loot)));
       }
-    })
+    });
 
     return availableCards;
   }
@@ -371,30 +426,42 @@ export class LootManager {
       } else if (count > 0) {
         const loot: Loot = availableTypes[0];
         deck.cards.push(loot);
-        if (!this.game.lootDeckFixed.includes(loot.type) && (type != LootType.special2 || !this.game.party.conclusions.find((value) => value.edition == 'fh' && value.index == '128.5')) && (type != LootType.special1 || !this.game.party.conclusions.find((value) => value.edition == 'fh' && value.index == '133.4'))) {
+        if (
+          !this.game.lootDeckFixed.includes(loot.type) &&
+          (type != LootType.special2 || !this.game.party.conclusions.find((value) => value.edition == 'fh' && value.index == '128.5')) &&
+          (type != LootType.special1 || !this.game.party.conclusions.find((value) => value.edition == 'fh' && value.index == '133.4'))
+        ) {
           this.game.lootDeckFixed.push(loot.type);
         }
       } else {
         this.game.lootDeckFixed = this.game.lootDeckFixed.filter((lootType) => lootType != type);
         deck.cards = deck.cards.filter((loot) => loot.type != type);
       }
-    })
+    });
     this.shuffleDeck(deck);
   }
 
   randomItemLooted(): boolean {
-    return gameManager.game.party.randomItemLooted.find((model) => this.game.scenario && model.index == this.game.scenario.index && model.edition == this.game.scenario.edition && model.group == this.game.scenario.group) != undefined;
+    return (
+      gameManager.game.party.randomItemLooted.find(
+        (model) =>
+          this.game.scenario &&
+          model.index == this.game.scenario.index &&
+          model.edition == this.game.scenario.edition &&
+          model.group == this.game.scenario.group
+      ) != undefined
+    );
   }
 
   valueLabel(loot: Loot): string {
     if (loot.value4P == loot.value3P && loot.value3P == loot.value2P) {
-      return "" + (loot.value4P > 0 ? loot.value4P : "")
+      return '' + (loot.value4P > 0 ? loot.value4P : '');
     } else if (loot.value4P == loot.value3P && loot.value3P != loot.value2P) {
-      return "%game.loot.player.3-4% +" + loot.value4P + "/%game.loot.player.2% +" + loot.value2P;
+      return '%game.loot.player.3-4% +' + loot.value4P + '/%game.loot.player.2% +' + loot.value2P;
     } else if (loot.value4P != loot.value3P && loot.value3P == loot.value2P) {
-      return "%game.loot.player.4% +" + loot.value4P + "/%game.loot.player.2-3% +" + loot.value2P;
+      return '%game.loot.player.4% +' + loot.value4P + '/%game.loot.player.2-3% +' + loot.value2P;
     } else {
-      return "%game.loot.player.4% +" + loot.value4P + "/%game.loot.player.3% +" + loot.value3P + "/%game.loot.player.2% +" + loot.value2P;
+      return '%game.loot.player.4% +' + loot.value4P + '/%game.loot.player.3% +' + loot.value3P + '/%game.loot.player.2% +' + loot.value2P;
     }
   }
 
@@ -404,27 +471,26 @@ export class LootManager {
         character.progress.gold -= result.characterSpent[index].gold;
       }
       if (result.characterSpent[index].hide) {
-        character.progress.loot[LootType.hide] = (character.progress.loot[LootType.hide] || 0) - (result.characterSpent[index].hide);
+        character.progress.loot[LootType.hide] = (character.progress.loot[LootType.hide] || 0) - result.characterSpent[index].hide;
       }
       if (result.characterSpent[index].lumber) {
-        character.progress.loot[LootType.lumber] = (character.progress.loot[LootType.lumber] || 0) - (result.characterSpent[index].lumber);
+        character.progress.loot[LootType.lumber] = (character.progress.loot[LootType.lumber] || 0) - result.characterSpent[index].lumber;
       }
       if (result.characterSpent[index].metal) {
-        character.progress.loot[LootType.metal] = (character.progress.loot[LootType.metal] || 0) - (result.characterSpent[index].metal);
+        character.progress.loot[LootType.metal] = (character.progress.loot[LootType.metal] || 0) - result.characterSpent[index].metal;
       }
-    })
+    });
     if (result.fhSupportSpent.hide) {
-      gameManager.game.party.loot[LootType.hide] = (gameManager.game.party.loot[LootType.hide] || 0) - (result.fhSupportSpent.hide);
+      gameManager.game.party.loot[LootType.hide] = (gameManager.game.party.loot[LootType.hide] || 0) - result.fhSupportSpent.hide;
     }
     if (result.fhSupportSpent.lumber) {
-      gameManager.game.party.loot[LootType.lumber] = (gameManager.game.party.loot[LootType.lumber] || 0) - (result.fhSupportSpent.lumber);
+      gameManager.game.party.loot[LootType.lumber] = (gameManager.game.party.loot[LootType.lumber] || 0) - result.fhSupportSpent.lumber;
     }
     if (result.fhSupportSpent.metal) {
-      gameManager.game.party.loot[LootType.metal] = (gameManager.game.party.loot[LootType.metal] || 0) - (result.fhSupportSpent.metal);
+      gameManager.game.party.loot[LootType.metal] = (gameManager.game.party.loot[LootType.metal] || 0) - result.fhSupportSpent.metal;
     }
     if (result.fhSupportSpent.manual) {
       gameManager.game.party.inspiration -= result.fhSupportSpent.manual;
     }
   }
-
 }

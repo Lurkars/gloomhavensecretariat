@@ -1,24 +1,23 @@
-import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
-import { Character } from "../model/Character";
-import { ScenarioStats } from "../model/CharacterProgress";
-import { EntityValueFunction } from "../model/Entity";
-import { Figure } from "../model/Figure";
-import { Game, GameState } from "../model/Game";
-import { Monster } from "../model/Monster";
-import { MonsterEntity } from "../model/MonsterEntity";
-import { ObjectiveContainer } from "../model/ObjectiveContainer";
-import { Scenario } from "../model/Scenario";
-import { Summon, SummonState } from "../model/Summon";
-import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/data/Condition";
-import { Element, ElementState } from "../model/data/Element";
-import { ItemFlags } from "../model/data/ItemData";
-import { LootDeck } from "../model/data/Loot";
-import { ScenarioData } from "../model/data/ScenarioData";
-import { gameManager } from "./GameManager";
-import { settingsManager } from "./SettingsManager";
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { ScenarioStats } from 'src/app/game/model/CharacterProgress';
+import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { Element, ElementState } from 'src/app/game/model/data/Element';
+import { ItemFlags } from 'src/app/game/model/data/ItemData';
+import { LootDeck } from 'src/app/game/model/data/Loot';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { Figure } from 'src/app/game/model/Figure';
+import { Game, GameState } from 'src/app/game/model/Game';
+import { Monster } from 'src/app/game/model/Monster';
+import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { Scenario } from 'src/app/game/model/Scenario';
+import { Summon, SummonState } from 'src/app/game/model/Summon';
 
 export class RoundManager {
-
   game: Game;
   working: boolean = false;
   firstRound: boolean = false;
@@ -28,8 +27,17 @@ export class RoundManager {
   }
 
   drawAvailable(): boolean {
-    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure) => figure instanceof Monster || figure instanceof ObjectiveContainer && (figure.getInitiative() > 0 || !settingsManager.settings.initiativeRequired) || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired)
-    ));
+    return (
+      this.game.figures.length > 0 &&
+      (this.game.state == GameState.next ||
+        this.game.figures.every(
+          (figure) =>
+            figure instanceof Monster ||
+            (figure instanceof ObjectiveContainer && (figure.getInitiative() > 0 || !settingsManager.settings.initiativeRequired)) ||
+            (figure instanceof Character &&
+              (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired))
+        ))
+    );
   }
 
   nextGameState(force: boolean = false) {
@@ -57,7 +65,13 @@ export class RoundManager {
             } else {
               if (element.state == ElementState.strong || element.state == ElementState.new) {
                 // GH2E Triangles Perk 12
-                if (![Element.fire, Element.ice, Element.air, Element.earth].includes(element.type) || !this.game.figures.find((figure) => figure instanceof Character && !figure.absent && figure.name == 'triangles' && figure.tags.includes('element_waning'))) {
+                if (
+                  ![Element.fire, Element.ice, Element.air, Element.earth].includes(element.type) ||
+                  !this.game.figures.find(
+                    (figure) =>
+                      figure instanceof Character && !figure.absent && figure.name == 'triangles' && figure.tags.includes('element_waning')
+                  )
+                ) {
                   element.state = ElementState.waning;
                 }
               } else if (element.state == ElementState.waning) {
@@ -65,7 +79,7 @@ export class RoundManager {
               }
             }
           }
-        })
+        });
       }
 
       gameManager.sortFigures();
@@ -73,7 +87,6 @@ export class RoundManager {
       this.game.figures.forEach((figure) => {
         figure.active = false;
       });
-
     } else if (this.drawAvailable() || force) {
       if (this.firstRound) {
         gameManager.attackModifierManager.firstRound();
@@ -102,7 +115,7 @@ export class RoundManager {
               figure.scenarioStats = new ScenarioStats();
             }
           }
-        })
+        });
       }
       this.game.state = GameState.next;
       this.game.round++;
@@ -115,7 +128,7 @@ export class RoundManager {
           if (element.state == ElementState.new) {
             element.state = ElementState.strong;
           }
-        })
+        });
       }
 
       gameManager.sortFigures();
@@ -136,17 +149,20 @@ export class RoundManager {
           this.toggleFigure(firstFigure, true);
         }
       }
-
     }
 
     if (settingsManager.settings.removeUnusedMonster) {
-      this.game.figures.filter((figure) => figure instanceof Monster && figure.off && figure.entities.length == 0 && !figure.tags.includes('addedManually')).forEach((figure) => {
-        gameManager.monsterManager.removeMonster(figure as Monster);
-      })
+      this.game.figures
+        .filter(
+          (figure) => figure instanceof Monster && figure.off && figure.entities.length == 0 && !figure.tags.includes('addedManually')
+        )
+        .forEach((figure) => {
+          gameManager.monsterManager.removeMonster(figure as Monster);
+        });
     }
 
     gameManager.triggerUiChange(false);
-    setTimeout(() => this.working = false, 1);
+    setTimeout(() => (this.working = false), 1);
   }
 
   toggleFigure(toggleFigure: Figure, initial: boolean = false) {
@@ -172,7 +188,7 @@ export class RoundManager {
     const skipObjectives = toggleFigure.active || !gameManager.objectiveManager.skipObjective(toggleFigure) || initial;
 
     if (index == -1) {
-      console.error("Invalid figure");
+      console.error('Invalid figure');
       return;
     }
 
@@ -183,7 +199,10 @@ export class RoundManager {
     if (settingsManager.settings.activeSummons && toggleFigure instanceof Character && !toggleFigure.absent) {
       const activeSummon = toggleFigure.summons.find((summon) => summon.active || summon.tags.includes('cs-skull-spirit-turn'));
       const csSprits = toggleFigure.summons.filter((summon) => summon.tags.includes('cs-skull-spirit'));
-      if (activeSummon && (!csSprits.includes(activeSummon) || !activeSummon.active || csSprits.indexOf(activeSummon) < csSprits.length - 1)) {
+      if (
+        activeSummon &&
+        (!csSprits.includes(activeSummon) || !activeSummon.active || csSprits.indexOf(activeSummon) < csSprits.length - 1)
+      ) {
         nextFigure = false;
       }
     }
@@ -233,7 +252,6 @@ export class RoundManager {
     }
   }
 
-
   beforeTurn(figure: Figure) {
     if (figure.off || figure.active) {
       figure.off = false;
@@ -251,19 +269,19 @@ export class RoundManager {
           gameManager.entityManager.unapplyConditionsAfter(entity, figure);
           if (killReset && !entity.dead) {
             const identifier = gameManager.additionalIdentifier(figure, entity);
-            let counter = gameManager.entityCounter(identifier);
+            const counter = gameManager.entityCounter(identifier);
             if (counter) {
               counter.killed--;
             }
           }
         }
-      })
+      });
 
       gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
         if (settingsManager.settings.expireConditions) {
           gameManager.entityManager.restoreConditions(entity);
         }
-      })
+      });
 
       if (figure instanceof Character && !figure.absent) {
         if (figure.name == 'music-note' && figure.tags.includes('song_active')) {
@@ -271,12 +289,14 @@ export class RoundManager {
         }
 
         if (!figure.active && figure.name == 'skull' && figure.tags.includes('spirits')) {
-          figure.summons.filter((summon) => summon.tags.includes('cs-skull-spirit')).forEach((summon) => {
-            if (summon.maxHealth) {
-              summon.health += 1;
-              gameManager.entityManager.checkHealth(summon, figure);
-            }
-          })
+          figure.summons
+            .filter((summon) => summon.tags.includes('cs-skull-spirit'))
+            .forEach((summon) => {
+              if (summon.maxHealth) {
+                summon.health += 1;
+                gameManager.entityManager.checkHealth(summon, figure);
+              }
+            });
         }
       }
     } else if (figure instanceof Monster && !figure.entities.find((entity) => entity.active)) {
@@ -295,7 +315,9 @@ export class RoundManager {
     }
 
     if (figure instanceof Character && figure.longRest && settingsManager.settings.applyLongRest) {
-      const healCondition = figure.entityConditions.find((condition) => condition.name == ConditionName.heal && condition.value && condition.expired);
+      const healCondition = figure.entityConditions.find(
+        (condition) => condition.name == ConditionName.heal && condition.value && condition.expired
+      );
       if (healCondition) {
         figure.entityConditions = figure.entityConditions.filter((condition) => condition != healCondition);
       }
@@ -309,7 +331,7 @@ export class RoundManager {
               identifier.tags = identifier.tags.filter((tag) => tag != ItemFlags.slot && tag != ItemFlags.slotBack);
             }
           }
-        })
+        });
       }
     }
 
@@ -320,7 +342,6 @@ export class RoundManager {
   }
 
   turn(figure: Figure, skipSummons: boolean = false) {
-
     figure.active = true;
 
     gameManager.scenarioRulesManager.addActiveFigureRule(figure);
@@ -333,32 +354,54 @@ export class RoundManager {
       });
     }
 
-    if (settingsManager.settings.characterAttackModifierDeckActiveBottom && settingsManager.settings.characterAttackModifierDeckPermanentActive) {
-      gameManager.game.figures.forEach((c) => { if (c instanceof Character) { c.attackModifierDeckVisible = false; } });
+    if (
+      settingsManager.settings.characterAttackModifierDeckActiveBottom &&
+      settingsManager.settings.characterAttackModifierDeckPermanentActive
+    ) {
+      gameManager.game.figures.forEach((c) => {
+        if (c instanceof Character) {
+          c.attackModifierDeckVisible = false;
+        }
+      });
     }
 
     if (figure instanceof Character && gameManager.entityManager.isAlive(figure)) {
-      if (settingsManager.settings.characterAttackModifierDeckActiveBottom && settingsManager.settings.characterAttackModifierDeckPermanentActive) {
+      if (
+        settingsManager.settings.characterAttackModifierDeckActiveBottom &&
+        settingsManager.settings.characterAttackModifierDeckPermanentActive
+      ) {
         figure.attackModifierDeckVisible = true;
         figure.attackModifierDeck.active = true;
       }
       if (!skipSummons && settingsManager.settings.activeSummons) {
         const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
-        const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true) && !summon.tags.includes('prism_mode') && ((!activeSummon || !activeSummon.tags.includes('cs-skull-spirit')) && !summon.tags.includes('cs-skull-spirit') || summon.tags.includes('cs-skull-spirit-turn')));
-        figure.summons.slice(activeSummon ? figure.summons.indexOf(activeSummon) : 0, nextSummon ? figure.summons.indexOf(nextSummon) : figure.summons.length).forEach((prevSummon, index, self) => {
-          prevSummon.active = false;
-          prevSummon.tags = prevSummon.tags.filter((tag) => tag != 'cs-skull-spirit-turn');
-          if (settingsManager.settings.expireConditions) {
-            gameManager.entityManager.expireConditions(prevSummon, figure);
-          }
-          if (settingsManager.settings.scenarioRules) {
-            gameManager.scenarioRulesManager.applyScenarioRulesTurn(prevSummon, true);
-          }
-          if (settingsManager.settings.applyConditions && (!activeSummon || index > 0)) {
-            gameManager.entityManager.applyConditionsTurn(prevSummon, figure);
-            gameManager.entityManager.applyConditionsAfter(prevSummon, figure);
-          }
-        })
+        const nextSummon = figure.summons.find(
+          (summon, index, self) =>
+            (!activeSummon || index > self.indexOf(activeSummon)) &&
+            gameManager.entityManager.isAlive(summon, true) &&
+            !summon.tags.includes('prism_mode') &&
+            (((!activeSummon || !activeSummon.tags.includes('cs-skull-spirit')) && !summon.tags.includes('cs-skull-spirit')) ||
+              summon.tags.includes('cs-skull-spirit-turn'))
+        );
+        figure.summons
+          .slice(
+            activeSummon ? figure.summons.indexOf(activeSummon) : 0,
+            nextSummon ? figure.summons.indexOf(nextSummon) : figure.summons.length
+          )
+          .forEach((prevSummon, index) => {
+            prevSummon.active = false;
+            prevSummon.tags = prevSummon.tags.filter((tag) => tag != 'cs-skull-spirit-turn');
+            if (settingsManager.settings.expireConditions) {
+              gameManager.entityManager.expireConditions(prevSummon, figure);
+            }
+            if (settingsManager.settings.scenarioRules) {
+              gameManager.scenarioRulesManager.applyScenarioRulesTurn(prevSummon, true);
+            }
+            if (settingsManager.settings.applyConditions && (!activeSummon || index > 0)) {
+              gameManager.entityManager.applyConditionsTurn(prevSummon, figure);
+              gameManager.entityManager.applyConditionsAfter(prevSummon, figure);
+            }
+          });
 
         if (nextSummon) {
           nextSummon.active = true;
@@ -376,7 +419,7 @@ export class RoundManager {
             if (element.state == ElementState.new) {
               element.state = ElementState.strong;
             }
-          })
+          });
           figure.summons.forEach((summon) => {
             if (summon.active) {
               summon.active = false;
@@ -399,7 +442,7 @@ export class RoundManager {
           if (settingsManager.settings.scenarioRules) {
             gameManager.scenarioRulesManager.applyScenarioRulesTurn(summon);
           }
-        })
+        });
 
         if (figure.name == 'lightning' && figure.tags.includes('blood-pact')) {
           if (figure.edition != 'gh2e' || figure.health > 1) {
@@ -414,7 +457,7 @@ export class RoundManager {
       if (element.state == ElementState.new) {
         element.state = ElementState.strong;
       }
-    })
+    });
 
     if (!(figure instanceof Character) || skipSummons) {
       gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
@@ -425,7 +468,7 @@ export class RoundManager {
         if (settingsManager.settings.scenarioRules) {
           gameManager.scenarioRulesManager.applyScenarioRulesTurn(entity);
         }
-      })
+      });
     } else if (!skipSummons && !figure.summons.some((summon) => summon.active)) {
       if (settingsManager.settings.applyConditions) {
         gameManager.entityManager.applyConditionsTurn(figure, figure);
@@ -446,15 +489,28 @@ export class RoundManager {
           gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.heal, 2));
           gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
           figure.tags.push('roundAction-repair_mode');
-        } if (figure.tags.includes('spider_mode') && !figure.tags.includes('roundAction-spider_mode')) {
+        }
+        if (figure.tags.includes('spider_mode') && !figure.tags.includes('roundAction-spider_mode')) {
           gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.ward));
           figure.tags.push('roundAction-spider_mode');
         }
       }
     }
 
-    if (figure instanceof Character && !figure.absent && settingsManager.settings.applyLongRest && figure.longRest && (skipSummons || !figure.summons.some((summon) => summon.active))) {
-      if (figure.health < figure.maxHealth || figure.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.types.includes(ConditionType.clearHeal) && !entityCondition.permanent)) {
+    if (
+      figure instanceof Character &&
+      !figure.absent &&
+      settingsManager.settings.applyLongRest &&
+      figure.longRest &&
+      (skipSummons || !figure.summons.some((summon) => summon.active))
+    ) {
+      if (
+        figure.health < figure.maxHealth ||
+        figure.entityConditions.find(
+          (entityCondition) =>
+            !entityCondition.expired && entityCondition.types.includes(ConditionType.clearHeal) && !entityCondition.permanent
+        )
+      ) {
         let heal = 2;
 
         if (figure.name == 'lightning' && figure.edition == 'fh-crossover' && figure.tags.includes('rapid_recovery')) {
@@ -468,19 +524,28 @@ export class RoundManager {
         gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
       }
 
-      if (figure.name == 'three-spears' && figure.tags.includes('supply_tokens_perk') && figure.primaryToken == 0 && figure.tokenValues[0] < 5 && figure.progress.perks[10] >= 2) {
+      if (
+        figure.name == 'three-spears' &&
+        figure.tags.includes('supply_tokens_perk') &&
+        figure.primaryToken == 0 &&
+        figure.tokenValues[0] < 5 &&
+        figure.progress.perks[10] >= 2
+      ) {
         figure.tokenValues[0] += 1;
       }
     }
 
-    if (figure instanceof Character && !gameManager.entityManager.isAlive(figure) || figure instanceof Monster && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure instanceof ObjectiveContainer && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
+    if (
+      (figure instanceof Character && !gameManager.entityManager.isAlive(figure)) ||
+      (figure instanceof Monster && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) ||
+      (figure instanceof ObjectiveContainer && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)))
+    ) {
       this.toggleFigure(figure);
     }
   }
 
   afterTurn(figure: Figure) {
     if (!figure.off) {
-
       gameManager.scenarioRulesManager.addActiveFigureRule(figure, true);
 
       if (figure instanceof Monster) {
@@ -515,19 +580,30 @@ export class RoundManager {
               }
             }
           }
-        })
+        });
 
         if (figure.name == 'skull' && !figure.absent && figure.tags.includes('spirits')) {
-          figure.summons.filter((summon) => summon.tags.includes('cs-skull-spirit')).forEach((summon) => {
-            if (summon.maxHealth) {
-              summon.health -= 1;
-              gameManager.entityManager.checkHealth(summon, figure);
-            }
-          })
+          figure.summons
+            .filter((summon) => summon.tags.includes('cs-skull-spirit'))
+            .forEach((summon) => {
+              if (summon.maxHealth) {
+                summon.health -= 1;
+                gameManager.entityManager.checkHealth(summon, figure);
+              }
+            });
         }
       }
 
-      if (figure instanceof Character && !figure.absent && figure.name == 'fist' && figure.tags.includes('gift-of-the-mountain') && (figure.health < EntityValueFunction(figure.maxHealth, figure.level) || figure.entityConditions.find((condition) => condition.types.includes(ConditionType.clearHeal) && !condition.permanent && !condition.expired))) {
+      if (
+        figure instanceof Character &&
+        !figure.absent &&
+        figure.name == 'fist' &&
+        figure.tags.includes('gift-of-the-mountain') &&
+        (figure.health < EntityValueFunction(figure.maxHealth, figure.level) ||
+          figure.entityConditions.find(
+            (condition) => condition.types.includes(ConditionType.clearHeal) && !condition.permanent && !condition.expired
+          ))
+      ) {
         let heal = figure.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.heal);
         if (!heal) {
           heal = new EntityCondition(ConditionName.heal, 2);
@@ -540,7 +616,13 @@ export class RoundManager {
         gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
       }
 
-      if (figure instanceof Character && !figure.absent && figure.name == 'shards' && figure.tags.includes('resonance_tokens') && figure.tokenValues[0] < 5) {
+      if (
+        figure instanceof Character &&
+        !figure.absent &&
+        figure.name == 'shards' &&
+        figure.tags.includes('resonance_tokens') &&
+        figure.tokenValues[0] < 5
+      ) {
         figure.tokenValues[0] += 1;
       }
 
@@ -569,7 +651,7 @@ export class RoundManager {
           if (settingsManager.settings.scenarioRules) {
             gameManager.scenarioRulesManager.applyScenarioRulesTurn(entity, true);
           }
-        })
+        });
       }
     }
 
@@ -580,7 +662,7 @@ export class RoundManager {
       if (element.state == ElementState.consumed || element.state == ElementState.partlyConsumed) {
         element.state = ElementState.inert;
       }
-    })
+    });
 
     figure.off = true;
     figure.active = false;
@@ -610,20 +692,27 @@ export class RoundManager {
     this.game.roundResetsHidden = [];
     this.game.eventDraw = undefined;
     this.game.state = GameState.draw;
-    this.game.elementBoard.forEach((element) => element.state = ElementState.inert);
+    this.game.elementBoard.forEach((element) => (element.state = ElementState.inert));
 
     gameManager.game.monsterAttackModifierDeck = gameManager.attackModifierManager.buildMonsterAttackModifierDeck();
     gameManager.game.allyAttackModifierDeck = gameManager.attackModifierManager.buildMonsterAttackModifierDeck(true);
 
     if (gameManager.bbRules()) {
-      const editionData = gameManager.editionData.find((editionData) => editionData.edition == 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length);
+      const editionData = gameManager.editionData.find(
+        (editionData) => editionData.edition == 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length
+      );
       if (editionData) {
         const monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();
-        this.game.monsterAttackModifierDeck = new AttackModifierDeck(editionData.monsterAmTables[monsterDifficulty].map((value) => new AttackModifier(value as AttackModifierType)), settingsManager.settings.bbAm);
+        this.game.monsterAttackModifierDeck = new AttackModifierDeck(
+          editionData.monsterAmTables[monsterDifficulty].map((value) => new AttackModifier(value as AttackModifierType)),
+          settingsManager.settings.bbAm
+        );
       }
     }
 
-    this.game.figures = this.game.figures.filter((figure) => figure instanceof Character || this.game.scenario && this.game.scenario.custom);
+    this.game.figures = this.game.figures.filter(
+      (figure) => figure instanceof Character || (this.game.scenario && this.game.scenario.custom)
+    );
     this.game.entitiesCounter = [];
     this.game.lootDeck.fromModel(new LootDeck());
     this.game.challengeDeck.active = false;
@@ -679,7 +768,10 @@ export class RoundManager {
           figure.progress.gold = 0;
         }
 
-        figure.tags = figure.tags.filter((tag) => tag != 'new-character' && !figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.expire));
+        figure.tags = figure.tags.filter(
+          (tag) =>
+            tag != 'new-character' && !figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.expire)
+        );
 
         if (figure.defaultIdentity != undefined) {
           figure.identity = figure.defaultIdentity;
@@ -712,20 +804,22 @@ export class RoundManager {
           }
 
           if (figure.name == 'eclipse' && figure.edition == 'gh2e') {
-            let eclipseInvisible = new EntityCondition(ConditionName.invisible);
+            const eclipseInvisible = new EntityCondition(ConditionName.invisible);
             eclipseInvisible.permanent = true;
             figure.entityConditions.push(eclipseInvisible);
           }
         }
 
-        figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
+        figure.availableSummons
+          .filter((summonData) => summonData.special)
+          .forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
 
         figure.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(figure);
         figure.lootCardsVisible = false;
 
-        figure.progress.equippedItems = figure.progress.equippedItems.filter((value) => value.marker != "loot-random-item");
+        figure.progress.equippedItems = figure.progress.equippedItems.filter((value) => value.marker != 'loot-random-item');
 
-        figure.progress.equippedItems.forEach((identifier) => identifier.tags = []);
+        figure.progress.equippedItems.forEach((identifier) => (identifier.tags = []));
         gameManager.characterManager.applyDonations(figure);
       } else if (figure instanceof Monster) {
         figure.entities = [];
@@ -735,7 +829,7 @@ export class RoundManager {
       } else if (figure instanceof ObjectiveContainer) {
         figure.entities = [];
       }
-    })
+    });
 
     gameManager.sortFigures();
 
@@ -750,7 +844,7 @@ export class RoundManager {
     if (this.game.party.pets) {
       this.game.party.pets.forEach((value) => {
         value.lost = false;
-      })
+      });
     }
 
     gameManager.trialsManager.applyTrialCards();

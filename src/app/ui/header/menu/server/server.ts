@@ -1,26 +1,31 @@
-import { ChangeDetectorRef, Component, inject, OnInit } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character } from "src/app/game/model/Character";
-import { Identifier } from "src/app/game/model/data/Identifier";
-import { Monster } from "src/app/game/model/Monster";
-import { Permissions } from "src/app/game/model/Permissions";
-import { ServerInfo } from "src/app/game/model/ServerInfo";
-import { v4 as uuidv4 } from 'uuid';
-
+import { KeyValuePipe, NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { Identifier } from 'src/app/game/model/data/Identifier';
+import { Monster } from 'src/app/game/model/Monster';
+import { Permissions } from 'src/app/game/model/Permissions';
+import { ServerInfo } from 'src/app/game/model/ServerInfo';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { TabClickDirective } from 'src/app/ui/helper/tabclick';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
+import { environment } from 'src/environments/environment';
 
 @Component({
-  standalone: false,
+  imports: [KeyValuePipe, NgClass, GhsLabelDirective, TabClickDirective, TrackUUIDPipe],
   selector: 'ghs-server-menu',
   templateUrl: 'server.html',
-  styleUrls: ['../menu.scss', 'server.scss']
+  styleUrls: ['../menu.scss', 'server.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServerMenuComponent implements OnInit {
   private cdr = inject(ChangeDetectorRef);
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  branded = environment.branded;
 
   tryConnect: boolean = false;
 
@@ -34,34 +39,34 @@ export class ServerMenuComponent implements OnInit {
 
   createPermissions: boolean = false;
 
-  serverUpdateVersion: { latest: boolean, version: string, url: string } | undefined;
+  serverUpdateVersion: { latest: boolean; version: string; url: string } | undefined;
 
   constructor(private ghsManager: GhsManager) {
     this.ghsManager.uiChangeEffect(() => this.checkServerVersion());
   }
 
   async ngOnInit() {
-
-    try {
-      await fetch('./assets/server.json')
-        .then(response => {
-          if (!response.ok) {
-            throw Error();
-          }
-          return response.json();
-        }).then((value: ServerInfo[]) => {
-          this.publicServer = value;
-          this.cdr.markForCheck();
-        });
-    } catch (error) {
-      this.publicServer = [];
+    if (this.branded) {
+      try {
+        await fetch('/assets/server.json')
+          .then((response) => {
+            if (!response.ok) {
+              throw Error();
+            }
+            return response.json();
+          })
+          .then((value: ServerInfo[]) => {
+            this.publicServer = value;
+            this.cdr.markForCheck();
+          });
+      } catch {
+        this.publicServer = [];
+      }
     }
 
     this.updateServer();
     this.checkServerVersion();
-
   }
-
 
   connect(url: string, port: string, code: string): void {
     if (url && !isNaN(+port) && code) {
@@ -79,7 +84,7 @@ export class ServerMenuComponent implements OnInit {
   }
 
   createUUID() {
-    settingsManager.settings.serverCode = uuidv4();
+    settingsManager.settings.serverCode = crypto.randomUUID();
   }
 
   disconnect() {
@@ -96,7 +101,7 @@ export class ServerMenuComponent implements OnInit {
   selectServer(event: any) {
     this.selectedServerIndex = -1;
     if (!isNaN(+event.target.value)) {
-      gameManager.stateManager.serverVersion = "";
+      gameManager.stateManager.serverVersion = '';
       this.selectedServerIndex = +event.target.value;
       if (this.selectedServerIndex > -1 && this.selectedServerIndex < this.publicServer.length) {
         const server = this.publicServer[this.selectedServerIndex];
@@ -110,24 +115,35 @@ export class ServerMenuComponent implements OnInit {
   updateServer() {
     this.selectedServerIndex = -1;
     this.publicServer.forEach((server, index) => {
-      if (settingsManager.settings.serverUrl == server.url && settingsManager.settings.serverPort == server.port && settingsManager.settings.serverWss == server.secure) {
+      if (
+        settingsManager.settings.serverUrl == server.url &&
+        settingsManager.settings.serverPort == server.port &&
+        settingsManager.settings.serverWss == server.secure
+      ) {
         this.selectedServerIndex = index;
         return;
       }
-    })
+    });
   }
 
   async checkServerVersion() {
-    this.serverUpdateVersion = undefined
+    this.serverUpdateVersion = undefined;
+    if (!this.branded) return;
     if (gameManager.stateManager.serverVersion) {
       await fetch('https://api.github.com/repos/lurkars/ghs-server/releases/latest')
-        .then(response => {
+        .then((response) => {
           if (!response.ok) {
             throw Error();
           }
           return response.json();
-        }).then((value: any) => {
-          this.serverUpdateVersion = { latest: value.tag_name == gameManager.stateManager.serverVersion || value.tag_name == 'v' + gameManager.stateManager.serverVersion, version: value.tag_name, url: value.html_url };
+        })
+        .then((value: any) => {
+          this.serverUpdateVersion = {
+            latest:
+              value.tag_name == gameManager.stateManager.serverVersion || value.tag_name == 'v' + gameManager.stateManager.serverVersion,
+            version: value.tag_name,
+            url: value.html_url
+          };
           this.cdr.markForCheck();
         });
     }
@@ -175,12 +191,17 @@ export class ServerMenuComponent implements OnInit {
   }
 
   hasCharacter(character: Character): boolean {
-    return this.permissions != undefined && this.permissions.character.some((value) => value.name == character.name && value.edition == character.edition);
+    return (
+      this.permissions != undefined &&
+      this.permissions.character.some((value) => value.name == character.name && value.edition == character.edition)
+    );
   }
 
   toggleCharacter(character: Character) {
     if (this.permissions) {
-      const value: Identifier | undefined = this.permissions.character.find((value) => value.name == character.name && value.edition == character.edition);
+      const value: Identifier | undefined = this.permissions.character.find(
+        (value) => value.name == character.name && value.edition == character.edition
+      );
       if (value) {
         this.permissions.character.splice(this.permissions.character.indexOf(value, 1));
       } else {
@@ -194,12 +215,17 @@ export class ServerMenuComponent implements OnInit {
   }
 
   hasMonster(monster: Monster): boolean {
-    return this.permissions != undefined && this.permissions.monster.some((value) => value.name == monster.name && value.edition == monster.edition);
+    return (
+      this.permissions != undefined &&
+      this.permissions.monster.some((value) => value.name == monster.name && value.edition == monster.edition)
+    );
   }
 
   toggleMonster(monster: Monster) {
     if (this.permissions) {
-      const value: Identifier | undefined = this.permissions.monster.find((value) => value.name == monster.name && value.edition == monster.edition);
+      const value: Identifier | undefined = this.permissions.monster.find(
+        (value) => value.name == monster.name && value.edition == monster.edition
+      );
       if (value) {
         this.permissions.monster.splice(this.permissions.monster.indexOf(value, 1));
       } else {

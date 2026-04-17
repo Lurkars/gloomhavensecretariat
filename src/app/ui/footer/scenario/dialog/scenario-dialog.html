@@ -1,142 +1,155 @@
-<div class="scenario-popup"
-  [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
+<div class="scenario-popup" [ngClass]="{ denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario }">
   <div class="scroll-container">
     <div class="title">
       @if (scenario.index && !scenario.hideIndex) {
-      <span class="index">#{{scenario.index}}</span>
+        <span class="index">#{{ scenario.index }}</span>
       }
       <span class="name">
         <span
-          [ghs-label]="(scenario.name ? gameManager.scenarioManager.scenarioTitle(scenario) : (scenario.custom ? 'scenario.custom' : 'scenario'))"></span>
+          [ghs-label]="
+            scenario.name ? gameManager.scenarioManager.scenarioTitle(scenario) : scenario.custom ? 'scenario.custom' : 'scenario'
+          "
+        ></span>
       </span>
       @if (scenario.level) {
-      <span class="scenario-level-container">
-        <span class="scenario-level" [ghs-label]="'scenario.level'" [ghs-label-args]="[scenario.level + '']"
-          [ngClass]="'level-' +  scenario.level"></span>
-      </span>
+        <span class="scenario-level-container">
+          <span
+            class="scenario-level"
+            [ghs-label]="'scenario.level'"
+            [ghs-label-args]="[scenario.level + '']"
+            [ngClass]="'level-' + scenario.level"
+          ></span>
+        </span>
       }
-      @if (settingsManager.settings.scenarioRooms && settingsManager.settings.treasures &&
-      gameManager.scenarioManager.getTreasures(scenario, gameManager.game.sections).length > 0) {
-      <span tabclick class="treasures" (click)="openTreasures($event)">
-        <img class="ghs-svg" src="./assets/images/scenario/treasure.svg">
-      </span>
+      @if (
+        settingsManager.settings.scenarioRooms &&
+        settingsManager.settings.treasures &&
+        gameManager.scenarioManager.getTreasures(scenario, gameManager.game.sections).length > 0
+      ) {
+        <span tabclick class="treasures" (click)="openTreasures()">
+          <img class="ghs-svg" src="/assets/images/scenario/treasure.svg" />
+        </span>
       }
     </div>
 
-    @if (setup || gameManager.game.round < 1) { <ghs-scenario-setup #setupComponent [scenario]="scenario">
-      </ghs-scenario-setup>
+    @if (setup || gameManager.game.round < 1) {
+      <ghs-scenario-setup #setupComponent [scenario]="scenario"> </ghs-scenario-setup>
+    }
+
+    @if (gameManager.game.round < 1 && gameManager.trialsManager.favorsEnabled) {
+      <a class="favors" (click)="openFavors()">
+        <span [ghs-label]="'scenario.favors'"></span>
+      </a>
+    }
+
+    <div class="sections">
+      @for (roomData of openRooms | trackUUID; track roomData._trackUUID) {
+        <span class="section room">
+          <img class="ghs-svg" src="/assets/images/scenario/door-open.svg" />
+          {{ roomData.ref }}
+          @if (roomData.marker) {
+            <span class="marker" [ghs-label]="'%game.mapMarker.' + roomData.marker + '%'"></span>
+          }
+        </span>
       }
 
-      @if (gameManager.game.round < 1 && gameManager.trialsManager.favorsEnabled) { <a class="favors"
-        (click)="openFavors()">
+      @for (section of gameManager.game.sections | trackUUID; track section._trackUUID) {
+        <span
+          class="section"
+          [ngClass]="{ 'random-monster-card': section.group == 'randomMonsterCard' }"
+          (click)="openRandomMonsterCard(section)"
+        >
+          #{{ section.index }}
+          @if (!scenario || section.name != scenario.name) {
+            <span> &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section, true)"></span> </span>
+          }
+          @if (section.marker) {
+            <span class="marker" [ghs-label]="'%game.mapMarker.' + section.marker + '%'"></span>
+          }
+        </span>
+      }
+    </div>
+
+    <div class="open-sections">
+      @for (roomData of closedRooms | trackUUID; track roomData._trackUUID) {
+        <span tabclick class="section room available" (click)="openRoom(roomData)">
+          <img class="ghs-svg" src="/assets/images/scenario/door.svg" />
+          <span
+            [ghs-label]="roomData.marker ? 'scenario.openRoomMarkerRef' : 'scenario.openRoomRef'"
+            [ghs-label-args]="[roomData.ref, roomData.marker || '']"
+          ></span>
+        </span>
+      }
+      @for (section of availableSections | trackUUID; track section._trackUUID) {
+        <span tabclick class="section available" (click)="addSection(section)">
+          @if (!section.conclusion) {
+            <img class="ghs-svg" src="/assets/images/lock.svg" />
+          }
+          @if (section.conclusion) {
+            <img class="ghs-svg" src="/assets/images/scenario/conclusion.svg" />
+          }
+          @if (!section.conclusion || !section.name) {
+            <span>#{{ section.index }}</span>
+          }
+          @if (section.marker) {
+            <span class="marker" [ghs-label]="'%game.mapMarker.' + section.marker + '%'"></span>
+          }
+          @if (section.conclusion && section.name) {
+            <span class="name"> &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section, true)"></span> </span>
+          }
+        </span>
+      }
+    </div>
+
+    @if (gameManager.game.round > 0) {
+      <label class="setup-checkbox">
+        <input type="checkbox" [(ngModel)]="setup" (change)="setupComponent && setupComponent.updateMonster()" /><span
+          [ghs-label]="'scenario.setup'"
+        ></span>
+      </label>
+    }
+
+    @if (gameManager.game.round > 0 && gameManager.trialsManager.favorsEnabled) {
+      <a class="favors" (click)="openFavors()">
         <span [ghs-label]="'scenario.favors'"></span>
-        </a>
-        }
+      </a>
+    }
 
-        <div class="sections">
-          @for (roomData of openRooms | trackUUID; track roomData._trackUUID) {
-          <span class="section room">
-            <img class="ghs-svg" src="./assets/images/scenario/door-open.svg">
-            {{roomData.ref}}
-            @if (roomData.marker) {
-            <span class="marker" [ghs-label]="'%game.mapMarker.' + roomData.marker +'%'"></span>
-            }
-          </span>
-          }
+    @if (scenario.recaps && scenario.recaps.length) {
+      <a class="recap" (click)="openRecapDialog()">
+        <span [ghs-label]="'scenario.recap'"></span>
+      </a>
+    }
 
-          @for (section of gameManager.game.sections | trackUUID; track section._trackUUID) {
-          <span class="section" [ngClass]="{'random-monster-card': section.group == 'randomMonsterCard'}"
-            (click)="openRandomMonsterCard(section)">
-            #{{section.index}}
-            @if (!scenario || section.name != scenario.name) {
-            <span>
-              &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section,true)"></span>
-            </span>
-            }
-            @if (section.marker) {
-            <span class="marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>
-            }
-          </span>
-          }
-        </div>
+    <div class="additional">
+      @if (gameManager.game.appliedScenarioRules.length || gameManager.game.discardedScenarioRules.length) {
+        <a (click)="showScenarioRules()"><span [ghs-label]="'scenario.rules.show'"></span> </a>
+      }
+    </div>
 
-        <div class="open-sections">
-          @for (roomData of closedRooms | trackUUID; track roomData._trackUUID) {
-          <span tabclick class="section room available" (click)="openRoom(roomData)">
-            <img class="ghs-svg" src="./assets/images/scenario/door.svg">
-            <span [ghs-label]="roomData.marker ? 'scenario.openRoomMarkerRef' : 'scenario.openRoomRef'"
-              [ghs-label-args]="[roomData.ref, roomData.marker || '']"></span>
-          </span>
-          }
-          @for (section of availableSections | trackUUID; track section._trackUUID) {
-          <span tabclick class="section available" (click)="addSection(section)">
-            @if (!section.conclusion) {
-            <img class="ghs-svg" src="./assets/images/lock.svg">
-            }
-            @if (section.conclusion) {
-            <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
-            }
-            @if (!section.conclusion || !section.name) {
-            <span>#{{section.index}}</span>
-            }
-            @if (section.marker) {
-            <span class="marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>
-            }
-            @if (section.conclusion && section.name) {
-            <span class="name">
-              &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section,true)"></span>
-            </span>
-            }
-          </span>
-          }
-        </div>
+    <div class="menu">
+      <label><span [ghs-label]="'scenario.finish'"></span></label>
+      <div class="buttons">
+        <a class="failure" tabclick (click)="finishScenario(false)"><span [ghs-label]="'scenario.finish.failure'"></span></a>
+        <span class="spacer"></span>
+        <a class="success" tabclick (click)="finishScenario(true)"><span [ghs-label]="'scenario.finish.success'"></span></a>
+      </div>
+      <div class="cancel">
+        <a tabclick (click)="cancelScenario()"><span [ghs-label]="'scenario.cancel'"></span></a>
+        <a tabclick (click)="resetScenario()"><span [ghs-label]="'scenario.reset'"></span></a>
+      </div>
+    </div>
 
-        @if (gameManager.game.round > 0) {
-        <label class="setup-checkbox">
-          <input type="checkbox" [(ngModel)]="setup" (change)="setupComponent && setupComponent.updateMonster()"><span
-            [ghs-label]="'scenario.setup'"></span>
-        </label>
-        }
+    @if (settingsManager.settings.partySheet || characterCount > 0) {
+      <div class="event-effects">
+        <a tabclick (click)="openEventEffects(false)"
+          ><img class="ghs-svg" src="/assets/images/entities.svg" /> <span [ghs-label]="'entities.event.entities'"></span
+        ></a>
 
-        @if (gameManager.game.round > 0 && gameManager.trialsManager.favorsEnabled) {
-        <a class="favors" (click)="openFavors()">
-          <span [ghs-label]="'scenario.favors'"></span>
-        </a>
-        }
-
-        @if (scenario.recaps && scenario.recaps.length) {
-        <a class="recap" (click)="openRecapDialog()">
-          <span [ghs-label]="'scenario.recap'"></span>
-        </a>
-        }
-
-        <div class="additional">
-          @if (gameManager.game.appliedScenarioRules.length || gameManager.game.discardedScenarioRules.length) {
-          <a (click)="showScenarioRules()"><span [ghs-label]="'scenario.rules.show'"></span>
-          </a>
-          }
-        </div>
-
-        <div class="menu">
-          <label><span [ghs-label]="'scenario.finish'"></span></label>
-          <div class="buttons">
-            <a class="failure" tabclick (click)="finishScenario(false)"><span
-                [ghs-label]="'scenario.finish.failure'"></span></a>
-            <span class="spacer"></span>
-            <a class="success" tabclick (click)="finishScenario(true)"><span
-                [ghs-label]="'scenario.finish.success'"></span></a>
-          </div>
-          <div class="cancel">
-            <a tabclick (click)="cancelScenario()"><span [ghs-label]="'scenario.cancel'"></span></a>
-            <a tabclick (click)="resetScenario()"><span [ghs-label]="'scenario.reset'"></span></a>
-          </div>
-        </div>
-
-        @if ((settingsManager.settings.partySheet || characterCount > 0)) {
-        <div class="event-effects">
-          <a tabclick (click)="openEventEffects($event)"><img class="ghs-svg" src="./assets/images/event.svg"> <span
-              [ghs-label]="'scenario.eventEffects'"></span></a>
-        </div>
-        }
+        <a tabclick (click)="openEventEffects()"
+          ><img class="ghs-svg" src="/assets/images/event.svg" /> <span [ghs-label]="'scenario.eventEffects'"></span
+        ></a>
+      </div>
+    }
   </div>
 </div>

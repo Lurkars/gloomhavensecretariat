@@ -1,20 +1,39 @@
-import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, Inject, OnInit, ViewChild } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character } from "src/app/game/model/Character";
-import { GameState } from "src/app/game/model/Game";
-import { enhancableLootTypes, Loot, LootDeck, LootDeckConfig, LootType } from "src/app/game/model/data/Loot";
-import { ghsDialogClosingHelper } from "../../helper/Static";
-import { LootDeckChange } from "./loot-deck";
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, OnInit, ViewChild } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { enhancableLootTypes, Loot, LootDeck, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
+import { GameState } from 'src/app/game/model/Game';
+import { LootComponent } from 'src/app/ui/figures/loot/loot-card';
+import { LootDeckChange } from 'src/app/ui/figures/loot/loot-deck';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  standalone: false,
+  imports: [
+    NgClass,
+    GhsLabelDirective,
+    PointerInputDirective,
+    GhsTooltipDirective,
+    TrackUUIDPipe,
+    GhsRangePipe,
+    LootComponent,
+    CdkDropList,
+    CdkDrag,
+    CdkDragHandle
+  ],
   selector: 'ghs-loot-deck-dialog',
   templateUrl: './loot-deck-dialog.html',
-  styleUrls: ['./loot-deck-dialog.scss',]
+  styleUrls: ['./loot-deck-dialog.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LootDeckDialogComponent implements OnInit {
   private cdr = inject(ChangeDetectorRef);
@@ -25,7 +44,7 @@ export class LootDeckDialogComponent implements OnInit {
   reveal: number = 0;
   edit: boolean = false;
   apply: boolean = true;
-  maxHeight: string = "";
+  maxHeight: string = '';
 
   deck: LootDeck;
   before: EventEmitter<LootDeckChange>;
@@ -46,21 +65,30 @@ export class LootDeckDialogComponent implements OnInit {
   discardedCards: Loot[] = [];
   enhancementDeck: Loot[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, characters: boolean, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange>, apply: boolean }, public dialogRef: DialogRef, private ghsManager: GhsManager) {
+  data: { deck: LootDeck; characters: boolean; before: EventEmitter<LootDeckChange>; after: EventEmitter<LootDeckChange>; apply: boolean } =
+    inject(DIALOG_DATA);
+
+  constructor(
+    public dialogRef: DialogRef,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect(() => this.update());
-    this.deck = data.deck;
-    this.characters = data.characters;
-    this.before = data.before;
-    this.after = data.after;
-    this.apply = data.apply;
-  };
+    this.deck = this.data.deck;
+    this.characters = this.data.characters;
+    this.before = this.data.before;
+    this.after = this.data.after;
+    this.apply = this.data.apply;
+  }
 
   ngOnInit(): void {
     this.currentConfig();
-    setTimeout(() => {
-      this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
-      this.cdr.markForCheck();
-    }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0);
+    setTimeout(
+      () => {
+        this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+        this.cdr.markForCheck();
+      },
+      settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0
+    );
     if (this.deck.cards.length == 0) {
       this.edit = true;
       this.configuration = true;
@@ -68,18 +96,20 @@ export class LootDeckDialogComponent implements OnInit {
 
     this.dialogRef.closed.subscribe({
       next: () => {
-        let deck = new LootDeck();
+        const deck = new LootDeck();
         if (JSON.stringify(this.startlootDeckConfig) != JSON.stringify(this.lootDeckConfig)) {
           gameManager.lootManager.apply(deck, this.lootDeckConfig);
           this.applyConfig();
         }
       }
-    })
+    });
 
-    this.enhancementDeck = gameManager.lootManager.fullLootDeck().filter((loot) => enhancableLootTypes.includes(loot.type)).sort((a, b) => a.cardId - b.cardId);
+    this.enhancementDeck = gameManager.lootManager
+      .fullLootDeck()
+      .filter((loot) => enhancableLootTypes.includes(loot.type))
+      .sort((a, b) => a.cardId - b.cardId);
     this.update();
   }
-
 
   update() {
     this.upcomingCards = this.deck.cards.filter((loot, index) => index > this.deck.current);
@@ -145,7 +175,6 @@ export class LootDeckDialogComponent implements OnInit {
     this.update();
   }
 
-
   maxValue(type: LootType): number {
     return gameManager.lootManager.fullLootDeck().filter((loot) => loot.type == type).length;
   }
@@ -158,7 +187,7 @@ export class LootDeckDialogComponent implements OnInit {
       } else {
         this.lootDeckConfig[type] = undefined;
       }
-    })
+    });
 
     this.startlootDeckConfig = JSON.parse(JSON.stringify(this.lootDeckConfig));
   }
@@ -173,7 +202,7 @@ export class LootDeckDialogComponent implements OnInit {
         if (this.lootDeckConfig[type] == 0) {
           this.lootDeckConfig[type] = undefined;
         }
-      })
+      });
       this.after.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
       if (this.deck.cards.length > 0) {
         if (empty) {
@@ -195,17 +224,16 @@ export class LootDeckDialogComponent implements OnInit {
   }
 
   shuffle(upcoming: boolean = false): void {
-    this.before.emit(new LootDeckChange(this.deck, 'lootDeckShuffle' + (upcoming ? "Upcoming" : "")));
+    this.before.emit(new LootDeckChange(this.deck, 'lootDeckShuffle' + (upcoming ? 'Upcoming' : '')));
     gameManager.lootManager.shuffleDeck(this.deck, upcoming);
     gameManager.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
         figure.lootCards = figure.lootCards.filter((number) => number <= this.deck.current);
       }
-    })
-    this.after.emit(new LootDeckChange(this.deck, 'lootDeckShuffle' + (upcoming ? "Upcoming" : "")));
+    });
+    this.after.emit(new LootDeckChange(this.deck, 'lootDeckShuffle' + (upcoming ? 'Upcoming' : '')));
     this.update();
   }
-
 
   dropUpcoming(event: CdkDragDrop<Loot[]>) {
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
@@ -227,24 +255,26 @@ export class LootDeckDialogComponent implements OnInit {
 
     gameManager.game.figures.forEach((figure) => {
       if (figure instanceof Character && figure.lootCards) {
-        figure.lootCards = figure.lootCards.map((index) => {
-          if (prev < cur && index > prev && index <= cur) {
-            index--;
-          } else if (prev > cur && index >= cur && index < prev) {
-            index++;
-          } else if (index == prev) {
-            index = cur;
-          }
-          return index;
-        }).sort((a, b) => a - b);
+        figure.lootCards = figure.lootCards
+          .map((index) => {
+            if (prev < cur && index > prev && index <= cur) {
+              index--;
+            } else if (prev > cur && index >= cur && index < prev) {
+              index++;
+            } else if (index == prev) {
+              index = cur;
+            }
+            return index;
+          })
+          .sort((a, b) => a - b);
       }
-    })
+    });
 
     gameManager.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
         figure.lootCards = figure.lootCards.filter((value) => value <= this.deck.current);
       }
-    })
+    });
 
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
     this.update();
@@ -270,18 +300,20 @@ export class LootDeckDialogComponent implements OnInit {
 
     gameManager.game.figures.forEach((figure) => {
       if (figure instanceof Character && figure.lootCards) {
-        figure.lootCards = figure.lootCards.map((index) => {
-          if (prev < cur && index > prev && index <= cur) {
-            index--;
-          } else if (prev > cur && index >= cur && index < prev) {
-            index++;
-          } else if (index == prev) {
-            index = cur;
-          }
-          return index;
-        }).sort((a, b) => a - b);
+        figure.lootCards = figure.lootCards
+          .map((index) => {
+            if (prev < cur && index > prev && index <= cur) {
+              index--;
+            } else if (prev > cur && index >= cur && index < prev) {
+              index++;
+            } else if (index == prev) {
+              index = cur;
+            }
+            return index;
+          })
+          .sort((a, b) => a - b);
       }
-    })
+    });
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
     this.update();
   }
@@ -317,13 +349,13 @@ export class LootDeckDialogComponent implements OnInit {
 
   getCharacter(index: number): string {
     if (this.characters) {
-      const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.lootCards && figure.lootCards.includes(index));
+      const character = gameManager.game.figures.find(
+        (figure) => figure instanceof Character && figure.lootCards && figure.lootCards.includes(index)
+      );
       if (character) {
         return character.name;
       }
     }
-    return "";
+    return '';
   }
-
 }
-

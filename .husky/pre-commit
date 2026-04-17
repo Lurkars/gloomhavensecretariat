@@ -1,2 +1,3 @@
 node ./scripts/pre-commit.mjs ./data/
+npx lint-staged
 git add ./data/*

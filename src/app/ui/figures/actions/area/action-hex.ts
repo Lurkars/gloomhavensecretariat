@@ -1,23 +1,26 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from "@angular/core";
-import { ActionHex, ActionHexFromString, ActionHexToString, ActionHexType } from "src/app/game/model/ActionHex";
-import { Character } from "src/app/game/model/Character";
-import { Action } from "src/app/game/model/data/Action";
-import { ConditionName } from "src/app/game/model/data/Condition";
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, OnChanges, Output } from '@angular/core';
+import { ActionHex, ActionHexFromString, ActionHexToString, ActionHexType } from 'src/app/game/model/ActionHex';
+import { Character } from 'src/app/game/model/Character';
+import { Action } from 'src/app/game/model/data/Action';
+import { ConditionName } from 'src/app/game/model/data/Condition';
+import { ActionEnhancementsComponent } from 'src/app/ui/figures/actions/enhancements/enhancements';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgClass, TrackUUIDPipe, forwardRef(() => ActionEnhancementsComponent)],
   selector: 'ghs-action-hex',
   templateUrl: './action-hex.html',
   styleUrls: ['./action-hex.scss']
 })
 export class ActionHexComponent implements OnChanges {
-
   @Input() action!: Action;
   @Input() value!: string;
   @Input() size!: number;
-  @Input('index') actionIndex: string = "";
-  @Input('cardId') cardId: number | undefined;
-  @Input('character') character: Character | undefined;
+  @Input('index') actionIndex: string = '';
+  @Input() cardId: number | undefined;
+  @Input() character: Character | undefined;
   @Output() clickCallback: EventEmitter<ActionHex> = new EventEmitter<ActionHex>();
   @Output() doubleclickCallback: EventEmitter<ActionHex> = new EventEmitter<ActionHex>();
   hexes: ActionHex[] = [];
@@ -30,7 +33,7 @@ export class ActionHexComponent implements OnChanges {
 
   doubleClick: any = null;
 
-  ngOnChanges(changes: any) {
+  ngOnChanges() {
     this.hexes = [];
     this.enhanceHexes = [];
     this.enhancedHexes = [];
@@ -43,7 +46,16 @@ export class ActionHexComponent implements OnChanges {
         this.hexes.push(hex);
         if (hex.type == ActionHexType.enhance) {
           this.enhanceHexes.push(hex);
-          if (this.character && this.cardId && this.actionIndex && this.character.progress.enhancements && this.character.progress.enhancements.find((e) => e.cardId == this.cardId && e.actionIndex == this.actionIndex && e.index == this.enhanceHexes.length - 1 && e.action == 'hex')) {
+          if (
+            this.character &&
+            this.cardId &&
+            this.actionIndex &&
+            this.character.progress.enhancements &&
+            this.character.progress.enhancements.find(
+              (e) =>
+                e.cardId == this.cardId && e.actionIndex == this.actionIndex && e.index == this.enhanceHexes.length - 1 && e.action == 'hex'
+            )
+          ) {
             this.enhancedHexes.push(hex);
           }
         }
@@ -51,9 +63,9 @@ export class ActionHexComponent implements OnChanges {
           this.editMode = true;
         }
       }
-    })
+    });
 
-    this.edit = this.character && this.character.tags.includes('edit-abilities') || false;
+    this.edit = (this.character && this.character.tags.includes('edit-abilities')) || false;
   }
 
   click(hex: ActionHex) {
@@ -67,12 +79,11 @@ export class ActionHexComponent implements OnChanges {
           this.clickCallback.emit(hex);
           this.doubleClick = null;
         }
-      }, 200)
+      }, 200);
     }
   }
 
   hasCondition(hex: ActionHex): boolean {
-    return hex.value && Object.keys(ConditionName).includes(hex.value) || false;
+    return (hex.value && Object.keys(ConditionName).includes(hex.value)) || false;
   }
-
 }

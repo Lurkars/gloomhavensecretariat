@@ -1,7 +1,11 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, protocol, net } = require('electron');
 const { autoUpdater } = require('electron-updater');
+const path = require('path');
+const { pathToFileURL } = require('url');
 
 let mainWindow;
+
+const distPath = path.join(__dirname, 'dist', 'gloomhavensecretariat');
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -33,6 +37,15 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
+  // Redirect absolute /assets/ paths to the dist folder for Electron (file://)
+  protocol.handle('file', (request) => {
+    const filePath = decodeURIComponent(new URL(request.url).pathname);
+    if (filePath.startsWith('/assets/')) {
+      return net.fetch(pathToFileURL(path.join(distPath, filePath)).href, { bypassCustomProtocolHandlers: true });
+    }
+    return net.fetch(request.url, { bypassCustomProtocolHandlers: true });
+  });
+
   createWindow();
 
   app.on('activate', () => {

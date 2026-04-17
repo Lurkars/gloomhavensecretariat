@@ -18,17 +18,17 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/gloomhavensecretariat",
+            "outputPath": {
+              "base": "dist/gloomhavensecretariat",
+              "browser": ""
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [],
             "allowedCommonJsDependencies": [
-              "autocompleter",
               "leaflet",
-              "mermaid",
-              "debug",
               "vscode-jsonrpc",
               "vscode-languageserver-protocol",
               "cytoscape-fcose",
@@ -49,8 +49,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "serviceWorker": "ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -80,14 +79,40 @@
               "outputHashing": "all",
               "sourceMap": {
                 "scripts": true,
-                "styles": false,
                 "hidden": false
               },
-              "namedChunks": false,
-              "extractLicenses": false,
-              "vendorChunk": true,
-              "commonChunk": true,
-              "buildOptimizer": true
+              "extractLicenses": true
+            },
+            "unbranded": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "6mb",
+                  "maximumError": "12mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "256kb",
+                  "maximumError": "512kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.unbranded.ts"
+                }
+              ],
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": true
+              },
+              "outputHashing": "all",
+              "sourceMap": {
+                "scripts": true,
+                "hidden": false
+              },
+              "extractLicenses": true
             },
             "electron": {
               "budgets": [
@@ -116,29 +141,23 @@
               "outputHashing": "all",
               "sourceMap": {
                 "scripts": true,
-                "styles": false,
                 "hidden": false
               },
-              "namedChunks": false,
-              "extractLicenses": false,
-              "vendorChunk": true,
-              "commonChunk": true,
-              "buildOptimizer": true
+              "extractLicenses": true
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
-              "commonChunk": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
+          "options": {
+            "allowedHosts": true
+          },
           "configurations": {
             "production": {
               "buildTarget": "gloomhavensecretariat:build:production"
@@ -153,27 +172,16 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "@angular/build:extract-i18n",
           "options": {
             "buildTarget": "gloomhavensecretariat:build"
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "polyfills": [],
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
+            "buildTarget": "gloomhavensecretariat:build:development"
           }
         }
       }

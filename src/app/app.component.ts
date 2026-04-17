@@ -1,14 +1,17 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
-import { Component, inject, isDevMode, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, isDevMode, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
-import { GhsManager } from './game/businesslogic/GhsManager';
-import { settingsManager } from './game/businesslogic/SettingsManager';
-import { ghsDialogClosingHelper, ghsFilterInputFocus } from './ui/helper/Static';
+import { RouterOutlet } from '@angular/router';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { ghsDialogClosingHelper, ghsFilterInputFocus } from 'src/app/ui/helper/Static';
 @Component({
-  standalone: false,
+  imports: [NgClass, RouterOutlet],
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   title = 'gloomhavensecretariat';
@@ -18,21 +21,28 @@ export class AppComponent implements OnInit {
 
   private ghsManager = inject(GhsManager);
 
-  constructor(private meta: Meta, private dialog: Dialog) {
+  constructor(
+    private meta: Meta,
+    private dialog: Dialog
+  ) {
     this.ghsManager.uiChangeEffect(() => {
       this.applyStyle();
       this.applyAnimations();
     });
     this.dialog.afterOpened.subscribe({
       next: (dialogRef: DialogRef) => {
-        if (dialogRef.overlayRef.backdropElement && dialog.openDialogs.length > 1 && !dialogRef.overlayRef.backdropElement.classList.contains('fullscreen-backdrop')) {
+        if (
+          dialogRef.overlayRef.backdropElement &&
+          dialog.openDialogs.length > 1 &&
+          !dialogRef.overlayRef.backdropElement.classList.contains('fullscreen-backdrop')
+        ) {
           dialogRef.overlayRef.backdropElement.style.opacity = '0';
         }
 
         if (!dialogRef.disableClose) {
-          let closeIcon = document.createElement('img');
-          closeIcon.src = './assets/images/close_dialog.svg';
-          let closeElement = document.createElement('a');
+          const closeIcon = document.createElement('img');
+          closeIcon.src = '/assets/images/close_dialog.svg';
+          const closeElement = document.createElement('a');
           closeElement.classList.add('dialog-close-button');
           closeElement.appendChild(closeIcon);
           closeElement.addEventListener('pointerdown', () => {
@@ -50,14 +60,20 @@ export class AppComponent implements OnInit {
             });
           }
 
-          dialogRef.keydownEvents.subscribe(event => {
-            if (settingsManager.settings.keyboardShortcuts && !event.ctrlKey && !event.shiftKey && !event.altKey && (event.key === "Escape" || ghsFilterInputFocus(event) && event.key === "Backspace")) {
+          dialogRef.keydownEvents.subscribe((event) => {
+            if (
+              settingsManager.settings.keyboardShortcuts &&
+              !event.ctrlKey &&
+              !event.shiftKey &&
+              !event.altKey &&
+              (event.key === 'Escape' || (ghsFilterInputFocus() && event.key === 'Backspace'))
+            ) {
               ghsDialogClosingHelper(dialogRef);
             }
           });
         }
       }
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -68,7 +84,6 @@ export class AppComponent implements OnInit {
     document.addEventListener('gesturechange', preventDefault);
     document.addEventListener('gestureend', preventDefault);
   }
-
 
   applyStyle() {
     this.theme = settingsManager.settings.theme;
@@ -102,7 +117,7 @@ export class AppComponent implements OnInit {
 
     if (!this.isAppDevMode() && !settingsManager.settings.debugRightClick) {
       if (!document.body.classList.contains('disable-context-menu-touch')) {
-        document.body.classList.add('disable-context-menu-touch')
+        document.body.classList.add('disable-context-menu-touch');
       }
     } else if (document.body.classList.contains('disable-context-menu-touch')) {
       document.body.classList.remove('disable-context-menu-touch');
@@ -115,7 +130,7 @@ export class AppComponent implements OnInit {
         document.body.classList.remove(className);
       }
     }
-    document.body.classList.add('locale-' + this.locale)
+    document.body.classList.add('locale-' + this.locale);
   }
 
   applyAnimations() {

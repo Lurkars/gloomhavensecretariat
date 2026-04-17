@@ -43,9 +43,9 @@
 
   &.modern {
     border-radius: 0;
-    mask: url('~src/assets/images/modern/character/char-image-mask.png');
+    mask: url('/assets/images/modern/character/char-image-mask.png');
     mask-size: 100% 100%;
-    
+
     &.active-border {
       border: none !important;
       box-shadow: none;
@@ -54,10 +54,8 @@
 }
 
 .number-container {
-
   display: grid;
   grid-template-columns: repeat(3, calc(var(--ghs-unit) * 8));
-
 
   .value {
     display: flex;
@@ -86,6 +84,5 @@
     &:hover {
       color: var(--ghs-color-white);
     }
-
   }
 }

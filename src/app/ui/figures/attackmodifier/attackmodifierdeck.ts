@@ -1,49 +1,64 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
-import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { NgClass } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  inject,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { GameState } from 'src/app/game/model/Game';
-import { CharacterBattleGoalsDialog } from '../battlegoal/dialog/battlegoal-dialog';
-import { AttackModifierDeckDialogComponent } from './attackmodifierdeck-dialog';
-import { AttackModifierDeckFullscreenComponent } from './attackmodifierdeck-fullscreen';
+import { AttackModifierComponent } from 'src/app/ui/figures/attackmodifier/attackmodifier';
+import { AttackModifierDeckDialogComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck-dialog';
+import { AttackModifierDeckFullscreenComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck-fullscreen';
+import { CharacterBattleGoalsDialog } from 'src/app/ui/figures/battlegoal/dialog/battlegoal-dialog';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 export class AttackModiferDeckChange {
-
   deck: AttackModifierDeck;
   type: string;
   values: (string | number | boolean)[];
 
-  constructor(deck: AttackModifierDeck,
-    type: string, ...values: (string | number | boolean)[]) {
+  constructor(deck: AttackModifierDeck, type: string, ...values: (string | number | boolean)[]) {
     this.deck = deck;
     this.type = type;
     this.values = values;
   }
-
 }
 
 @Component({
-  standalone: false,
+  imports: [AttackModifierComponent, GhsLabelDirective, NgClass, TrackUUIDPipe],
   selector: 'ghs-attackmodifier-deck',
   templateUrl: './attackmodifierdeck.html',
-  styleUrls: ['./attackmodifierdeck.scss']
+  styleUrls: ['./attackmodifierdeck.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttackModifierDeckComponent implements OnInit, OnChanges {
   private cdr = inject(ChangeDetectorRef);
 
-  @Input('deck') deck!: AttackModifierDeck;
-  @Input('character') character: Character | undefined;
+  @Input() deck!: AttackModifierDeck;
+  @Input() character: Character | undefined;
   @Input() ally: boolean = false;
-  @Input('numeration') numeration: string = "";
-  @Input('bottom') bottom: boolean = false;
-  @Output('before') before: EventEmitter<AttackModiferDeckChange> = new EventEmitter<AttackModiferDeckChange>();
-  @Output('after') after: EventEmitter<AttackModiferDeckChange> = new EventEmitter<AttackModiferDeckChange>();
+  @Input() numeration: string = '';
+  @Input() bottom: boolean = false;
+  @Output() before: EventEmitter<AttackModiferDeckChange> = new EventEmitter<AttackModiferDeckChange>();
+  @Output() after: EventEmitter<AttackModiferDeckChange> = new EventEmitter<AttackModiferDeckChange>();
   @ViewChild('menu') menuElement!: ElementRef;
-  @Input('fullscreen') fullscreen: boolean = true;
-  @Input('vertical') vertical: boolean = false;
+  @Input() fullscreen: boolean = true;
+  @Input() vertical: boolean = false;
   @Input() townGuard: boolean = false;
   @Input() battleGoals: boolean = true;
   @Input() standalone: boolean = false;
@@ -56,8 +71,8 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
   GameState = GameState;
   reveal: number = 0;
   edit: boolean = false;
-  maxHeight: string = "";
-  characterIcon: string = "";
+  maxHeight: string = '';
+  characterIcon: string = '';
 
   AttackModifierType = AttackModifierType;
   type: AttackModifierType = AttackModifierType.minus1;
@@ -81,31 +96,40 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
 
   @ViewChild('drawCard') drawCard!: ElementRef;
 
-  constructor(public element: ElementRef, private dialog: Dialog, private ghsManager: GhsManager) {
+  constructor(
+    public element: ElementRef,
+    private dialog: Dialog,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect((fromServer: boolean) => {
       this.update(fromServer);
     });
     this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
-      let elements = document.elementsFromPoint(event.clientX, event.clientY);
+      const elements = document.elementsFromPoint(event.clientX, event.clientY);
       if (elements[0].classList.contains('attack-modifiers') && elements.length > 2) {
         (elements[2] as HTMLElement).click();
       }
-    })
-  };
+    });
+  }
 
   ngOnInit(): void {
     if (this.character) {
       this.deck = this.character.attackModifierDeck;
       this.edition = this.character.edition;
-      this.numeration = "" + this.character.number;
+      this.numeration = '' + this.character.number;
       this.characterIcon = this.character.iconUrl;
     } else {
       this.battleGoals = false;
-      this.characterIcon = "";
+      this.characterIcon = '';
     }
     this.current = this.deck.current;
     this.lastVisible = this.deck.lastVisible;
-    this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
+    this.compact =
+      !this.drawing &&
+      this.fullscreen &&
+      settingsManager.settings.automaticAttackModifierFullscreen &&
+      settingsManager.settings.portraitMode &&
+      (window.innerWidth < 800 || window.innerHeight < 400);
 
     if (this.deck.bb) {
       this.bbCurrent = Math.ceil((this.deck.current + 1) / 3);
@@ -113,15 +137,17 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     }
 
     if (!this.init) {
-      this.drawTimeout = setTimeout(() => {
-        this.current = this.deck.current;
-        this.lastVisible = this.deck.lastVisible;
-        this.drawTimeout = null;
-        this.init = true;
-        this.cdr.markForCheck();
-      }, settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0)
+      this.drawTimeout = setTimeout(
+        () => {
+          this.current = this.deck.current;
+          this.lastVisible = this.deck.lastVisible;
+          this.drawTimeout = null;
+          this.init = true;
+          this.cdr.markForCheck();
+        },
+        settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0
+      );
     }
-
 
     if (this.edition && !this.newStyle) {
       this.newStyle = gameManager.newAmStyle(this.edition);
@@ -131,21 +157,28 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
       this.newStyle = true;
     }
 
-    this.disabled = !this.standalone && (!this.townGuard && gameManager.game.state == GameState.draw || this.townGuard && gameManager.game.scenario != undefined);
+    this.disabled =
+      !this.standalone &&
+      ((!this.townGuard && gameManager.game.state == GameState.draw) || (this.townGuard && gameManager.game.scenario != undefined));
 
-    window.addEventListener('resize', (event) => {
-      this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
+    window.addEventListener('resize', () => {
+      this.compact =
+        settingsManager.settings.automaticAttackModifierFullscreen &&
+        settingsManager.settings.portraitMode &&
+        (window.innerWidth < 800 || window.innerHeight < 400);
     });
 
-    window.addEventListener('fullscreenchange', (event) => {
-      this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
+    window.addEventListener('fullscreenchange', () => {
+      this.compact =
+        settingsManager.settings.automaticAttackModifierFullscreen &&
+        settingsManager.settings.portraitMode &&
+        (window.innerWidth < 800 || window.innerHeight < 400);
     });
   }
 
-
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['deck']) {
-      this.update()
+      this.update();
     } else if (changes['character']) {
       this.initCharacter();
     }
@@ -155,7 +188,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     if (this.character) {
       this.deck = this.character.attackModifierDeck;
       this.edition = this.character.edition;
-      this.numeration = "" + this.character.number;
+      this.numeration = '' + this.character.number;
       this.characterIcon = this.character.iconUrl;
       this.queue = 0;
       this.drawing = false;
@@ -168,13 +201,15 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     if (this.character) {
       this.deck = this.character.attackModifierDeck;
       this.edition = this.character.edition;
-      this.numeration = "" + this.character.number;
+      this.numeration = '' + this.character.number;
       this.characterIcon = this.character.iconUrl;
     } else {
       this.battleGoals = false;
-      this.characterIcon = "";
+      this.characterIcon = '';
     }
-    this.disabled = !this.standalone && (!this.townGuard && gameManager.game.state == GameState.draw || this.townGuard && gameManager.game.scenario != undefined);
+    this.disabled =
+      !this.standalone &&
+      ((!this.townGuard && gameManager.game.state == GameState.draw) || (this.townGuard && gameManager.game.scenario != undefined));
 
     if (this.character && this.deck != this.character.attackModifierDeck) {
       this.deck = this.character.attackModifierDeck;
@@ -237,7 +272,10 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
       this.bbRows = Math.ceil(this.deck.cards.length / 3);
     }
 
-    this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
+    this.compact =
+      settingsManager.settings.automaticAttackModifierFullscreen &&
+      settingsManager.settings.portraitMode &&
+      (window.innerWidth < 800 || window.innerHeight < 400);
 
     this.activeAMs = this.deck.cards.filter((am, i) => am.active && i < this.deck.lastVisible && !this.deck.discarded.includes(i));
 
@@ -247,42 +285,49 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
   drawQueue() {
     this.drawing = true;
     this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.add('drawing');
-    this.queueTimeout = setTimeout(() => {
-      this.drawing = false;
-      this.queueTimeout = null;
-      if (this.queue > 0) {
-        this.queue--;
-        this.current++;
-        this.drawQueue();
-      } else {
-        this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.remove('drawing');
-        if (this.queue < 0) {
-          this.queue = 0;
+    this.queueTimeout = setTimeout(
+      () => {
+        this.drawing = false;
+        this.queueTimeout = null;
+        if (this.queue > 0) {
+          this.queue--;
+          this.current++;
+          this.drawQueue();
+        } else {
+          this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.remove('drawing');
+          if (this.queue < 0) {
+            this.queue = 0;
+          }
         }
-      }
-      this.cdr.markForCheck();
-    }, settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0);
+        this.cdr.markForCheck();
+      },
+      settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0
+    );
   }
 
   draw(event: any, state: 'advantage' | 'disadvantage' | undefined = undefined) {
     if (this.compact && this.fullscreen) {
       this.openFullscreen(event);
     } else if (!this.disabled) {
-      if (!this.drawTimeout && this.deck.current < (this.deck.cards.length - (this.queue == 0 ? 0 : 1))) {
-        this.drawTimeout = setTimeout(() => {
-          this.before.emit(new AttackModiferDeckChange(this.deck, "draw" + (state ? state : '')));
-          gameManager.attackModifierManager.drawModifier(this.deck, state);
-          this.after.emit(new AttackModiferDeckChange(this.deck, "draw" + (state ? state : '')));
-          this.drawTimeout = null;
-        }, settingsManager.settings.animations ? 150 * settingsManager.settings.animationSpeed : 0)
+      if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue == 0 ? 0 : 1)) {
+        this.drawTimeout = setTimeout(
+          () => {
+            this.before.emit(new AttackModiferDeckChange(this.deck, 'draw' + (state ? state : '')));
+            gameManager.attackModifierManager.drawModifier(this.deck, state);
+            this.after.emit(new AttackModiferDeckChange(this.deck, 'draw' + (state ? state : '')));
+            this.drawTimeout = null;
+          },
+          settingsManager.settings.animations ? 150 * settingsManager.settings.animationSpeed : 0
+        );
       } else if (!this.drawTimeout && this.deck.current >= this.deck.cards.length) {
-        this.before.emit(new AttackModiferDeckChange(this.deck, "shuffle"));
+        this.before.emit(new AttackModiferDeckChange(this.deck, 'shuffle'));
         gameManager.attackModifierManager.shuffleModifiers(this.deck);
-        this.after.emit(new AttackModiferDeckChange(this.deck, "shuffle"));
+        this.after.emit(new AttackModiferDeckChange(this.deck, 'shuffle'));
       }
     } else {
       this.dialog.open(AttackModifierDeckDialogComponent, {
-        panelClass: ['dialog'], data: {
+        panelClass: ['dialog'],
+        data: {
           deck: this.deck,
           character: this.character,
           ally: this.ally,
@@ -330,9 +375,9 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     if (!this.drawing || index > this.current) {
       const am: AttackModifier = this.deck.cards[index];
       if (am.active && !this.deck.discarded.includes(index)) {
-        this.before.emit(new AttackModiferDeckChange(this.deck, "discard", index));
+        this.before.emit(new AttackModiferDeckChange(this.deck, 'discard', index));
         this.deck.discarded.push(index);
-        this.after.emit(new AttackModiferDeckChange(this.deck, "discard", index));
+        this.after.emit(new AttackModiferDeckChange(this.deck, 'discard', index));
       } else {
         this.open(event);
       }
@@ -340,11 +385,18 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
   }
 
   open(event: any) {
-    if (gameManager.game.state == GameState.next && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400)) {
+    if (
+      gameManager.game.state == GameState.next &&
+      this.fullscreen &&
+      settingsManager.settings.automaticAttackModifierFullscreen &&
+      settingsManager.settings.portraitMode &&
+      (window.innerWidth < 800 || window.innerHeight < 400)
+    ) {
       this.openFullscreen(event);
     } else {
       this.dialog.open(AttackModifierDeckDialogComponent, {
-        panelClass: ['dialog'], data: {
+        panelClass: ['dialog'],
+        data: {
           deck: this.deck,
           character: this.character,
           ally: this.ally,
@@ -359,5 +411,4 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
       event.stopPropagation();
     }
   }
-
 }

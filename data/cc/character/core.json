@@ -1,8 +1,8 @@
 {
   "name": "core",
   "characterClass": "unfettered",
-  "iconUrl": "./assets/images/character/icons/cc-core.svg",
-  "thumbnailUrl": "./assets/images/character/thumbnail/cc-core.png",
+  "iconUrl": "/assets/images/character/icons/cc-core.svg",
+  "thumbnailUrl": "/assets/images/character/thumbnail/cc-core.png",
   "edition": "fh",
   "handSize": 9,
   "color": "#de7519",

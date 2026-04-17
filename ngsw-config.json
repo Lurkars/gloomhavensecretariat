@@ -25,7 +25,8 @@
         "files": [
           "/assets/**",
           "/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)",
-          "!/assets/artwork/**"
+          "!/assets/artwork/**",
+          "!/assets/data/**"
         ]
       }
     }
@@ -39,7 +40,18 @@
       "cacheConfig": {
         "strategy": "freshness",
         "maxSize": 100,
-        "maxAge": "3d"
+        "maxAge": "365d"
+      }
+    },
+    {
+      "name": "artwork",
+      "urls": [
+        "/assets/artwork/**"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 9999,
+        "maxAge": "365d"
       }
     }
   ]

@@ -10,22 +10,20 @@
     justify-content: center;
     align-items: center;
     z-index: 999;
-    background-image: url('~src/assets/images/dialog_background.png');
+    background-image: url('/assets/images/dialog_background.png');
 
     &.fh {
-      background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+      background-image: url('/assets/images/fh/dialog_background_fh.png');
     }
 
     &.modern {
-      background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+      background-image: url('/assets/images/modern/dialog_background_modern.png');
     }
 
     .title {
-
       display: flex;
       justify-content: center;
       align-items: center;
-
 
       .image {
         position: relative;
@@ -148,7 +146,6 @@
       }
     }
 
-
     .ability {
       cursor: pointer !important;
       position: relative;
@@ -168,7 +165,5 @@
         height: auto;
       }
     }
-
   }
-
 }

@@ -1,26 +1,42 @@
-import { Dialog, DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { Component, EventEmitter, Inject, Input, OnInit, Output } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ActionHex, ActionHexFromString, ActionHexToString, ActionHexType } from "src/app/game/model/ActionHex";
-import { Character } from "src/app/game/model/Character";
-import { Action, ActionCardType, ActionSpecialTarget, ActionType, ActionValueType } from "src/app/game/model/data/Action";
-import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
-import { Element } from "src/app/game/model/data/Element";
-import { EnhancementType } from "src/app/game/model/data/Enhancement";
-import { MonsterType } from "src/app/game/model/data/MonsterType";
-import { SummonData } from "src/app/game/model/data/SummonData";
+import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
+import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, inject, Input, OnInit, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { ActionHex, ActionHexFromString, ActionHexToString, ActionHexType } from 'src/app/game/model/ActionHex';
+import { Character } from 'src/app/game/model/Character';
+import { Action, ActionCardType, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
+import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
+import { Element } from 'src/app/game/model/data/Element';
+import { EnhancementType } from 'src/app/game/model/data/Enhancement';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { SummonData } from 'src/app/game/model/data/SummonData';
+import { ActionComponent } from 'src/app/ui/figures/actions/action';
+import { ActionHexComponent } from 'src/app/ui/figures/actions/area/action-hex';
+import { ActionSummonComponent } from 'src/app/ui/figures/actions/summon/action-summon';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  standalone: false,
+  imports: [
+    DragDropModule,
+    FormsModule,
+    GhsRangePipe,
+    GhsLabelDirective,
+    TrackUUIDPipe,
+    ActionHexComponent,
+    ActionSummonComponent,
+    forwardRef(() => EditorActionComponent)
+  ],
   selector: 'ghs-editor-action',
   templateUrl: './action.html',
-  styleUrls: ['./action.scss']
+  styleUrls: ['./action.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditorActionComponent implements OnInit {
-
   @Input() action!: Action;
   @Input() actionTypes: ActionType[] = Object.values(ActionType);
   @Input() hideValues: boolean = false;
@@ -40,7 +56,7 @@ export class EditorActionComponent implements OnInit {
   ActionCardTypes: ActionCardType[] = Object.values(ActionCardType);
   MonsterTypes: MonsterType[] = Object.values(MonsterType);
   EnhancementTypes: EnhancementType[] = Object.values(EnhancementType);
-  hexAction: Action = new Action(ActionType.area, "(0,0,invisible)");
+  hexAction: Action = new Action(ActionType.area, '(0,0,invisible)');
   value: string = '';
   subValue: string = '';
   summon: SummonData | undefined;
@@ -48,23 +64,31 @@ export class EditorActionComponent implements OnInit {
   monsterType: MonsterType | undefined;
   monsters: string[] = [];
 
-  constructor(private dialog: Dialog, private ghsManager: GhsManager) { }
+  constructor(
+    private dialog: Dialog,
+    private ghsManager: GhsManager
+  ) {}
 
   ngOnInit(): void {
     this.monsters = gameManager.monstersData().map((monsterData) => monsterData.name);
     if (this.action && this.action.type == ActionType.area) {
       this.hexAction.value = this.action.value ? '' + this.action.value : '(0,0,invisible)';
-      let hexes: ActionHex[] = [];
+      const hexes: ActionHex[] = [];
       this.hexAction.value.split('|').forEach((hexValue) => {
         const hex: ActionHex | null = ActionHexFromString(hexValue);
         if (hex != null) {
           hexes.push(hex);
         }
-      })
+      });
       hexes.forEach((other) => this.fillHexes(other, hexes));
       this.hexAction.value = hexes.map((hex) => ActionHexToString(hex)).join('|');
       this.ghsManager.triggerUiChange();
-    } else if (this.action.type == ActionType.condition || this.action.type == ActionType.specialTarget || this.action.type == ActionType.card || this.action.type == ActionType.elementHalf) {
+    } else if (
+      this.action.type == ActionType.condition ||
+      this.action.type == ActionType.specialTarget ||
+      this.action.type == ActionType.card ||
+      this.action.type == ActionType.elementHalf
+    ) {
       if (('' + this.action.value).includes(':')) {
         this.value = ('' + this.action.value).split(':')[0];
         this.subValue = ('' + this.action.value).split(':')[1];
@@ -72,13 +96,13 @@ export class EditorActionComponent implements OnInit {
         this.value = '' + this.action.value;
       }
       if (this.action.type == ActionType.elementHalf) {
-        this.HalfElementsLeft = this.Elements.filter((e) => e != Element.wild && (!this.subValue || e != this.subValue as Element));
-        this.HalfElementsRight = this.Elements.filter((e) => e != Element.wild && (!this.value || e != this.value as Element));
+        this.HalfElementsLeft = this.Elements.filter((e) => e != Element.wild && (!this.subValue || e != (this.subValue as Element)));
+        this.HalfElementsRight = this.Elements.filter((e) => e != Element.wild && (!this.value || e != (this.value as Element)));
       }
     } else if (this.action.type == ActionType.summon && this.action.valueObject) {
       try {
         this.summon = Object.assign(new SummonData(), this.action.valueObject);
-      } catch (e) {
+      } catch {
         this.summon = undefined;
         const summonValue = (this.action.value + '').split(':');
         this.monster = summonValue[0];
@@ -93,7 +117,7 @@ export class EditorActionComponent implements OnInit {
     if (!isNaN(+value)) {
       return +value;
     }
-    return value || "";
+    return value || '';
   }
 
   addSubAction() {
@@ -108,7 +132,7 @@ export class EditorActionComponent implements OnInit {
     this.action.subActions[index] = subAction;
     setTimeout(() => {
       this.change();
-    })
+    });
   }
 
   removeSubAction(index: number) {
@@ -122,17 +146,20 @@ export class EditorActionComponent implements OnInit {
       this.action.type = actionType;
       this.action.valueType = ActionValueType.fixed;
       if (this.action.type == ActionType.area) {
-        this.hexAction.value = "(0,0,invisible)";
-        let hexes: ActionHex[] = [];
+        this.hexAction.value = '(0,0,invisible)';
+        const hexes: ActionHex[] = [];
         this.hexAction.value.split('|').forEach((hexValue) => {
           const hex: ActionHex | null = ActionHexFromString(hexValue);
           if (hex != null) {
             hexes.push(hex);
           }
-        })
+        });
         hexes.forEach((other) => this.fillHexes(other, hexes));
         this.hexAction.value = hexes.map((hex) => ActionHexToString(hex)).join('|');
-        this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHexToString(hex)).join('|');
+        this.action.value = hexes
+          .filter((hex) => hex.type != ActionHexType.invisible)
+          .map((hex) => ActionHexToString(hex))
+          .join('|');
       } else if (this.action.type == ActionType.condition) {
         this.value = this.conditionNames[0];
         this.changeCondition();
@@ -142,7 +169,7 @@ export class EditorActionComponent implements OnInit {
         this.value = this.ActionCardTypes[0];
         this.changeCard();
       } else if ([ActionType.area, ActionType.condition, ActionType.element, ActionType.card].includes(oldType)) {
-        this.action.value = "1";
+        this.action.value = '1';
       }
       this.change();
     }
@@ -178,13 +205,13 @@ export class EditorActionComponent implements OnInit {
         break;
     }
 
-    let hexes: ActionHex[] = [];
+    const hexes: ActionHex[] = [];
     ('' + this.hexAction.value).split('|').forEach((hexValue) => {
       const hex: ActionHex | null = ActionHexFromString(hexValue);
       if (hex != null) {
         hexes.push(hex);
       }
-    })
+    });
 
     const same = hexes.find((other) => hex.x == other.x && hex.y == other.y);
 
@@ -197,37 +224,41 @@ export class EditorActionComponent implements OnInit {
     this.fillHexes(hex, hexes);
 
     this.hexAction.value = hexes.map((hex) => ActionHexToString(hex)).join('|');
-    this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHexToString(hex)).join('|');
+    this.action.value = hexes
+      .filter((hex) => hex.type != ActionHexType.invisible)
+      .map((hex) => ActionHexToString(hex))
+      .join('|');
     this.change();
   }
 
   changeHex(value: string) {
     if (value != this.hexAction.value) {
       this.hexAction.value = value;
-      let hexes: ActionHex[] = [];
+      const hexes: ActionHex[] = [];
       ('' + this.hexAction.value).split('|').forEach((hexValue) => {
         const hex: ActionHex | null = ActionHexFromString(hexValue);
         if (hex != null) {
           hexes.push(hex);
         }
-      })
+      });
 
       this.hexAction.value = hexes.map((hex) => ActionHexToString(hex)).join('|');
-      this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHexToString(hex)).join('|');
+      this.action.value = hexes
+        .filter((hex) => hex.type != ActionHexType.invisible)
+        .map((hex) => ActionHexToString(hex))
+        .join('|');
       this.change();
     }
   }
 
-
   removeHex(hex: ActionHex) {
-
-    let hexes: ActionHex[] = [];
+    const hexes: ActionHex[] = [];
     ('' + this.hexAction.value).split('|').forEach((hexValue) => {
       const hex: ActionHex | null = ActionHexFromString(hexValue);
       if (hex != null) {
         hexes.push(hex);
       }
-    })
+    });
 
     const same = hexes.find((other) => hex.x == other.x && hex.y == other.y);
     if (same) {
@@ -240,7 +271,7 @@ export class EditorActionComponent implements OnInit {
       for (let x = -1; x < 2; x++) {
         for (let y = -1; y < 2; y++) {
           if ((hex.x + x != hex.x || hex.y + y != hex.y) && hex.x + x >= 0 && hex.y + y >= 0) {
-            let other = hexes.find((other) => hex.x + x == other.x && hex.y + y == other.y && other.type == ActionHexType.invisible);
+            const other = hexes.find((other) => hex.x + x == other.x && hex.y + y == other.y && other.type == ActionHexType.invisible);
             if (other && (other.x != 0 || other.y != 0)) {
               hexes.splice(hexes.indexOf(other), 1);
             }
@@ -252,7 +283,10 @@ export class EditorActionComponent implements OnInit {
     hexes.filter((other) => other.type != ActionHexType.invisible).forEach((other) => this.fillHexes(other, hexes));
 
     this.hexAction.value = hexes.map((hex) => ActionHexToString(hex)).join('|');
-    this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHexToString(hex)).join('|');
+    this.action.value = hexes
+      .filter((hex) => hex.type != ActionHexType.invisible)
+      .map((hex) => ActionHexToString(hex))
+      .join('|');
     this.change();
   }
 
@@ -261,7 +295,7 @@ export class EditorActionComponent implements OnInit {
       for (let y = -1; y < 2; y++) {
         if ((hex.x + x != hex.x || hex.y + y != hex.y) && hex.x + x >= 0 && hex.y + y >= 0) {
           if (!hexes.find((other) => hex.x + x == other.x && hex.y + y == other.y)) {
-            hexes.push(new ActionHex(hex.x + x, hex.y + y, ActionHexType.invisible, ""));
+            hexes.push(new ActionHex(hex.x + x, hex.y + y, ActionHexType.invisible, ''));
           }
         }
       }
@@ -277,7 +311,7 @@ export class EditorActionComponent implements OnInit {
 
     this.value = value;
     this.subValue = subValue;
-    this.action.value = this.value + (this.subValue ? ":" + this.subValue : '');
+    this.action.value = this.value + (this.subValue ? ':' + this.subValue : '');
     this.change();
   }
 
@@ -286,7 +320,7 @@ export class EditorActionComponent implements OnInit {
       if (!this.subValue) {
         this.subValue = '1';
       }
-      this.action.value = this.value + ":" + this.subValue;
+      this.action.value = this.value + ':' + this.subValue;
     } else {
       this.action.value = this.value;
       this.subValue = '';
@@ -295,7 +329,13 @@ export class EditorActionComponent implements OnInit {
   }
 
   hasCardValue(value: string): boolean {
-    return value == ActionCardType.experience || value == ActionCardType.slotXp || value == ActionCardType.slotXpFh || value == ActionCardType.slotEndXp || value == ActionCardType.slotStartXp;
+    return (
+      value == ActionCardType.experience ||
+      value == ActionCardType.slotXp ||
+      value == ActionCardType.slotXpFh ||
+      value == ActionCardType.slotEndXp ||
+      value == ActionCardType.slotStartXp
+    );
   }
 
   changeCard() {
@@ -303,7 +343,7 @@ export class EditorActionComponent implements OnInit {
       if (!this.subValue) {
         this.subValue = '1';
       }
-      this.action.value = this.value + ":" + this.subValue;
+      this.action.value = this.value + ':' + this.subValue;
     } else {
       this.action.value = this.value;
       this.subValue = '';
@@ -312,12 +352,12 @@ export class EditorActionComponent implements OnInit {
   }
 
   changeElementHalf() {
-    this.HalfElementsLeft = this.Elements.filter((e) => e != Element.wild && (!this.subValue || e != this.subValue as Element));
-    this.HalfElementsRight = this.Elements.filter((e) => e != Element.wild && (!this.value || e != this.value as Element));
+    this.HalfElementsLeft = this.Elements.filter((e) => e != Element.wild && (!this.subValue || e != (this.subValue as Element)));
+    this.HalfElementsRight = this.Elements.filter((e) => e != Element.wild && (!this.value || e != (this.value as Element)));
     this.value = this.value || this.HalfElementsLeft[0];
     this.subValue = this.subValue || this.HalfElementsRight[0];
     if (this.Elements.includes(this.value as Element) && this.Elements.includes(this.subValue as Element)) {
-      this.action.value = this.value + ":" + this.subValue;
+      this.action.value = this.value + ':' + this.subValue;
     }
     this.change();
   }
@@ -328,7 +368,7 @@ export class EditorActionComponent implements OnInit {
   }
 
   changeSummonType(event: any) {
-    this.monster = "";
+    this.monster = '';
     this.monsterType = undefined;
     if (event.target.value == 'monster') {
       this.summon = undefined;
@@ -370,8 +410,7 @@ export class EditorActionComponent implements OnInit {
           }
           this.changeSummon();
         }
-      })
-
+      });
     }
   }
 
@@ -393,7 +432,7 @@ export class EditorActionComponent implements OnInit {
           }
           this.changeSummon();
         }
-      })
+      });
     }
   }
 
@@ -411,19 +450,20 @@ export class EditorActionComponent implements OnInit {
   }
 }
 
-
 @Component({
-  standalone: false,
+  imports: [GhsLabelDirective, forwardRef(() => ActionComponent), EditorActionComponent],
   selector: 'ghs-editor-action-dialog',
   templateUrl: './action-dialog.html',
-  styleUrls: ['./action-dialog.scss']
+  styleUrls: ['./action-dialog.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditorActionDialogComponent {
-
   relative: boolean = true;
   noPreview: ActionType[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public data: { action: Action, character: Character, cardId: number }, private dialogRef: DialogRef) { }
+  data: { action: Action; character: Character; cardId: number } = inject(DIALOG_DATA);
+
+  constructor(private dialogRef: DialogRef) {}
 
   deleteAction() {
     this.dialogRef.close(false);

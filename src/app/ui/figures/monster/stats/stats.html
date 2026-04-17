@@ -1,213 +1,264 @@
-<div class="stats-container"
-  [ngClass]="{'boss' : monster.boss, 'bb' : monster.bb, 'fh' : settingsManager.settings.fhStyle, 'no-click': noClick, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}"
-  #card [style.fontSize]="card.offsetWidth * 0.03 + 'px'">
+<div
+  class="stats-container"
+  [ngClass]="{
+    boss: monster.boss,
+    bb: monster.bb,
+    fh: settingsManager.settings.fhStyle,
+    'no-click': noClick,
+    denied: gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]
+  }"
+  #card
+  [style.fontSize]="card.offsetWidth * 0.03 + 'px'"
+>
   @if (!monster.bb) {
-  <div #levelButton (click)="openLevelDialog()" class="level" [ghs-label]="'game.level'"
-    [ghs-label-attribute]="'title'">{{level}}
-  </div>
+    <div #levelButton (click)="openLevelDialog()" class="level" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'">{{ level }}</div>
   }
 
   @if (!settingsManager.settings.standees && hideStats) {
-  <div class="filter-stats normal">
-  </div>
+    <div class="filter-stats normal"></div>
   }
   @if (!settingsManager.settings.standees && hideEliteStats) {
-  <div class="filter-stats elite">
-  </div>
+    <div class="filter-stats elite"></div>
   }
 
   <div class="name-container" ghs-pointer-input (singleClick)="openStatsPopup()" (doubleClick)="openStatPopup()">
     <span class="name">
       <span [ghs-label]="'data.monster.' + (statEffect && statEffect.name ? statEffect.name : monster.name)"></span>
       @if (statEffect && statEffect.name) {
-      <span>&nbsp;(<span [ghs-label]="'data.monster.' + monster.name"></span>)</span>
+        <span>&nbsp;(<span [ghs-label]="'data.monster.' + monster.name"></span>)</span>
       }
       @if (monster.tags.includes('bb-elite')) {
-      <span class="elite">&nbsp;<span [ghs-label]="'%game.monsterType.elite%'"></span></span>
+        <span class="elite">&nbsp;<span [ghs-label]="'%game.monsterType.elite%'"></span></span>
       }
       @if (statEffect) {
-      <span class="stat-effect">*</span>
+        <span class="stat-effect">*</span>
       }
       @if (monster.isAlly) {
-      <span class="ally"><span [ghs-label]="'game.ally'"></span></span>
+        <span class="ally"><span [ghs-label]="'game.ally'"></span></span>
       }
       @if (monster.isAllied) {
-      <span class="allied"><span [ghs-label]="'game.allied'"></span></span>
+        <span class="allied"><span [ghs-label]="'game.allied'"></span></span>
       }
     </span>
     @if (flying) {
-    <span class="flying"><img
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
+      <span class="flying"><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
     }
     @if (edition) {
-    <span class="edition">[<span [ghs-label]="'data.edition.' + edition"></span>]</span>
+      <span class="edition">[<span [ghs-label]="'data.edition.' + edition"></span>]</span>
     }
     @if (catching) {
-    <span class="catching" [ngClass]="{'catched': catched}"><img class="ghs-svg"
-        src="./assets/images/fh/catching.svg"></span>
+      <span class="catching" [ngClass]="{ catched: catched }"><img class="ghs-svg" src="/assets/images/fh/catching.svg" /></span>
     }
   </div>
 
-  <span class="toggle-ally"
-    [ngClass]="{'is-ally' : monster.isAlly, 'is-allied' : monster.isAllied, 'bb': monster.bb}"><img
-      [src]="monster.bb ? './assets/images/bb/monster.svg' : './assets/images/monster/enemy.png'" /></span>
+  <span class="toggle-ally" [ngClass]="{ 'is-ally': monster.isAlly, 'is-allied': monster.isAllied, bb: monster.bb }"
+    ><img [src]="monster.bb ? '/assets/images/bb/monster.svg' : '/assets/images/monster/enemy.png'"
+  /></span>
 
   @if (monster.boss || monster.bb) {
-  <div class="stats boss" [ngClass]="{'hidden' : hideStats, 'range' : hideStats || stats.range}">
-    <span class="stat boss bordered" [ngClass]="{'hidden' : hideStats}">
-      <span class="value" [value-calc]="stats.health" [level]="level" [empty]="true"></span>
-    </span>
-    <span class="stat-icon"><img
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" /></span>
-    @if (monster.boss) {
-    <span class="stat boss bordered" [ngClass]="{'hidden' : hideStats}">
-      <span class="value" [value-calc]="stats.movement" [level]="level" [empty]="true"></span>
-    </span>
-    <span class="stat-icon"><img
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (flying ? 'fly' : 'move') + '.svg'" /></span>
-    <span class="stat boss" [ngClass]="{'hidden' : hideStats, 'bordered' : hideStats || stats.range }">
-      <span class="value" [value-calc]="stats.attack" [level]="level" [empty]="true"></span>
-    </span>
-    <span class="stat-icon"><img
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'" /></span>
-    @if (hideStats || stats.range) {
-    <span class="stat boss" [ngClass]="{'hidden' : hideStats}">
-      <span class="value" [value-calc]="stats.range" [level]="level" [empty]="true"></span>
-    </span>
-    <span class="stat-icon"><img
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'" /></span>
-    }
-    }
-  </div>
+    <div class="stats boss" [ngClass]="{ hidden: hideStats, range: hideStats || stats.range }">
+      <span class="stat boss bordered" [ngClass]="{ hidden: hideStats }">
+        <span class="value" [value-calc]="stats.health" [level]="level" [empty]="true"></span>
+      </span>
+      <span class="stat-icon"><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" /></span>
+      @if (monster.boss) {
+        <span class="stat boss bordered" [ngClass]="{ hidden: hideStats }">
+          <span class="value" [value-calc]="stats.movement" [level]="level" [empty]="true"></span>
+        </span>
+        <span class="stat-icon"
+          ><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (flying ? 'fly' : 'move') + '.svg'"
+        /></span>
+        <span class="stat boss" [ngClass]="{ hidden: hideStats, bordered: hideStats || stats.range }">
+          <span class="value" [value-calc]="stats.attack" [level]="level" [empty]="true"></span>
+        </span>
+        <span class="stat-icon"
+          ><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'"
+        /></span>
+        @if (hideStats || stats.range) {
+          <span class="stat boss" [ngClass]="{ hidden: hideStats }">
+            <span class="value" [value-calc]="stats.range" [level]="level" [empty]="true"></span>
+          </span>
+          <span class="stat-icon"
+            ><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'"
+          /></span>
+        }
+      }
+    </div>
   }
 
   @if (!settingsManager.settings.standees && gameManager.gameplayFigure(monster)) {
-  <ghs-pointer-input class="entity-menu" [ngClass]="{'boss' : monster.boss}" (singleClick)="openEntityMenu()">
-  </ghs-pointer-input>
+    <ghs-pointer-input class="entity-menu" [ngClass]="{ boss: monster.boss }" (singleClick)="openEntityMenu()"> </ghs-pointer-input>
   }
 
   @if (!monster.boss && !monster.bb) {
-  <div class="stats" [ngClass]="{'range' : hideStats && hideEliteStats || stats.range || eliteStats.range}">
-    <span class="stat normal bordered" [ngClass]="{'hidden' : hideStats}">
-      <span class="value" [value-calc]="stats.health" [level]="level" [empty]="true"></span>
-    </span>
-    <span class="stat-icon"><img
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" /></span>
-    <span class="stat elite bordered" [ngClass]="{'hidden' : hideEliteStats}">
-      <span class="value" [value-calc]="eliteStats.health" [level]="level" [empty]="true"></span>
-    </span>
-    <span class="stat normal bordered" [ngClass]="{'hidden' : hideStats}">
-      <span class="value" [value-calc]="stats.movement" [level]="level" [empty]="true"></span>
-    </span>
-    <span class="stat-icon"><img
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (flying ? 'fly' : 'move') + '.svg'" /></span>
-    <span class="stat elite bordered" [ngClass]="{'hidden' : hideEliteStats}">
-      <span class="value" [value-calc]="eliteStats.movement" [level]="level" [empty]="true"></span>
-    </span>
-    <span class="stat normal"
-      [ngClass]="{'hidden' : hideStats, 'bordered' : hideStats && hideStats || stats.range || eliteStats.range}">
-      <span class="value" [value-calc]="stats.attack" [level]="level" [empty]="true"></span>
-    </span>
-    <span class="stat-icon"><img
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'" /></span>
-    <span class="stat elite"
-      [ngClass]="{'hidden' : hideEliteStats, 'bordered' : hideStats && hideStats || stats.range || eliteStats.range}">
-      <span class="value" [value-calc]="eliteStats.attack" [level]="level" [empty]="true"></span>
-    </span>
-    @if (hideStats && hideEliteStats || stats.range || eliteStats.range) {
-    <span class="stat normal" [ngClass]="{'hidden' : hideStats}">
-      <span class="value" [value-calc]="stats.range" [level]="level" [empty]="true"></span>
-    </span>
-    <span class="stat-icon"><img
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'" />
-    </span>
-    <span class="stat elite" [ngClass]="{'hidden' : hideEliteStats}">
-      <span class="value" [value-calc]="eliteStats.range" [level]="level" [empty]="true"></span>
-    </span>
-    }
-  </div>
+    <div class="stats" [ngClass]="{ range: (hideStats && hideEliteStats) || stats.range || eliteStats.range }">
+      <span class="stat normal bordered" [ngClass]="{ hidden: hideStats }">
+        <span class="value" [value-calc]="stats.health" [level]="level" [empty]="true"></span>
+      </span>
+      <span class="stat-icon"><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" /></span>
+      <span class="stat elite bordered" [ngClass]="{ hidden: hideEliteStats }">
+        <span class="value" [value-calc]="eliteStats.health" [level]="level" [empty]="true"></span>
+      </span>
+      <span class="stat normal bordered" [ngClass]="{ hidden: hideStats }">
+        <span class="value" [value-calc]="stats.movement" [level]="level" [empty]="true"></span>
+      </span>
+      <span class="stat-icon"
+        ><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (flying ? 'fly' : 'move') + '.svg'"
+      /></span>
+      <span class="stat elite bordered" [ngClass]="{ hidden: hideEliteStats }">
+        <span class="value" [value-calc]="eliteStats.movement" [level]="level" [empty]="true"></span>
+      </span>
+      <span class="stat normal" [ngClass]="{ hidden: hideStats, bordered: (hideStats && hideStats) || stats.range || eliteStats.range }">
+        <span class="value" [value-calc]="stats.attack" [level]="level" [empty]="true"></span>
+      </span>
+      <span class="stat-icon"
+        ><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'"
+      /></span>
+      <span
+        class="stat elite"
+        [ngClass]="{ hidden: hideEliteStats, bordered: (hideStats && hideStats) || stats.range || eliteStats.range }"
+      >
+        <span class="value" [value-calc]="eliteStats.attack" [level]="level" [empty]="true"></span>
+      </span>
+      @if ((hideStats && hideEliteStats) || stats.range || eliteStats.range) {
+        <span class="stat normal" [ngClass]="{ hidden: hideStats }">
+          <span class="value" [value-calc]="stats.range" [level]="level" [empty]="true"></span>
+        </span>
+        <span class="stat-icon"
+          ><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'" />
+        </span>
+        <span class="stat elite" [ngClass]="{ hidden: hideEliteStats }">
+          <span class="value" [value-calc]="eliteStats.range" [level]="level" [empty]="true"></span>
+        </span>
+      }
+    </div>
   }
 
   @if (!monster.boss && !monster.bb) {
-  <div class="extra normal" [ngClass]="{'hidden' : hideStats}">
-    <div class="notes" [ghs-label]="stats.note"></div>
-    <div class="additional">
-      <ghs-actions [actions]="stats.actions" [inline]="true" [statsCalculation]="settingsManager.settings.calculate"
-        [right]="true" [hexSize]="0.5" [highlightActions]="highlightActions" [monster]="monsterCopy"
-        [monsterType]="MonsterType.normal">
-      </ghs-actions>
+    <div class="extra normal" [ngClass]="{ hidden: hideStats }">
+      <div class="notes" [ghs-label]="stats.note"></div>
+      <div class="additional">
+        <ghs-actions
+          [actions]="stats.actions"
+          [inline]="true"
+          [statsCalculation]="settingsManager.settings.calculate"
+          [right]="true"
+          [hexSize]="0.5"
+          [highlightActions]="highlightActions"
+          [monster]="monsterCopy"
+          [monsterType]="MonsterType.normal"
+        >
+        </ghs-actions>
+      </div>
+      @for (special of stats.special; track index; let index = $index) {
+        <div class="specials">
+          <span class="special">{{ index + 1 }}:</span>
+          <ghs-actions
+            [actions]="special"
+            [inline]="true"
+            [statsCalculation]="settingsManager.settings.calculate"
+            [right]="true"
+            [hexSize]="0.5"
+            [monster]="monsterCopy"
+            [monsterType]="MonsterType.normal"
+          >
+          </ghs-actions>
+        </div>
+      }
     </div>
-    @for (special of (stats.special); track index; let index = $index) {
-    <div class="specials">
-      <span class="special">{{index+1}}:</span>
-      <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="settingsManager.settings.calculate"
-        [right]="true" [hexSize]="0.5" [monster]="monsterCopy" [monsterType]="MonsterType.normal">
-      </ghs-actions>
+    <div class="immunities normal" [ngClass]="{ hidden: hideStats }">
+      @for (immunity of stats.immunities; track immunity) {
+        <span class="immunity">
+          <img
+            class="icon"
+            [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity + '.svg'"
+          />
+        </span>
+      }
     </div>
-    }
-  </div>
-  <div class="immunities normal" [ngClass]="{'hidden' : hideStats}">
-    @for (immunity of stats.immunities; track immunity) {
-    <span class="immunity">
-      <img class="icon"
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity+ '.svg'" />
-    </span>
-    }
-  </div>
-  <div class="extra elite" [ngClass]="{'hidden' : hideEliteStats}">
-    <div class="notes text-white" [ghs-label]="eliteStats.note"></div>
-    <div class="additional">
-      <ghs-actions [actions]="eliteStats.actions" [inline]="true"
-        [statsCalculation]="settingsManager.settings.calculate" [hexSize]="0.5" [highlightActions]="highlightActions"
-        [monster]="monsterCopy" [monsterType]="MonsterType.elite">
-      </ghs-actions>
+    <div class="extra elite" [ngClass]="{ hidden: hideEliteStats }">
+      <div class="notes text-white" [ghs-label]="eliteStats.note"></div>
+      <div class="additional">
+        <ghs-actions
+          [actions]="eliteStats.actions"
+          [inline]="true"
+          [statsCalculation]="settingsManager.settings.calculate"
+          [hexSize]="0.5"
+          [highlightActions]="highlightActions"
+          [monster]="monsterCopy"
+          [monsterType]="MonsterType.elite"
+        >
+        </ghs-actions>
+      </div>
+      @for (special of eliteStats.special; track index; let index = $index) {
+        <div class="specials">
+          <span class="special">{{ index + 1 }}:</span>
+          <ghs-actions
+            [actions]="special"
+            [inline]="true"
+            [statsCalculation]="settingsManager.settings.calculate"
+            [hexSize]="0.5"
+            [monster]="monsterCopy"
+            [monsterType]="MonsterType.elite"
+          >
+          </ghs-actions>
+        </div>
+      }
     </div>
-    @for (special of (eliteStats.special); track index; let index = $index) {
-    <div class="specials">
-      <span class="special">{{index+1}}:</span>
-      <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="settingsManager.settings.calculate"
-        [hexSize]="0.5" [monster]="monsterCopy" [monsterType]="MonsterType.elite">
-      </ghs-actions>
+    <div class="immunities elite" [ngClass]="{ hidden: hideEliteStats }">
+      @for (immunity of eliteStats.immunities; track immunity) {
+        <span class="immunity">
+          <img
+            class="icon"
+            [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity + '.svg'"
+          />
+        </span>
+      }
     </div>
-    }
-  </div>
-  <div class="immunities elite" [ngClass]="{'hidden' : hideEliteStats}">
-    @for (immunity of eliteStats.immunities; track immunity) {
-    <span class="immunity">
-      <img class="icon"
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity+ '.svg'" />
-    </span>
-    }
-  </div>
   }
 
   @if (monster.boss || monster.bb) {
-  <div class="extra boss" [ngClass]="{'hidden' : hideStats}">
-    <div class="notes text-white" [ghs-label]="stats.note"></div>
-    <div class="additional">
-      <ghs-actions [actions]="stats.actions" [inline]="true" [statsCalculation]="settingsManager.settings.calculate"
-        [hexSize]="0.5" [highlightActions]="highlightActions" [monster]="monsterCopy" [monsterType]="MonsterType.boss">
-      </ghs-actions>
+    <div class="extra boss" [ngClass]="{ hidden: hideStats }">
+      <div class="notes text-white" [ghs-label]="stats.note"></div>
+      <div class="additional">
+        <ghs-actions
+          [actions]="stats.actions"
+          [inline]="true"
+          [statsCalculation]="settingsManager.settings.calculate"
+          [hexSize]="0.5"
+          [highlightActions]="highlightActions"
+          [monster]="monsterCopy"
+          [monsterType]="MonsterType.boss"
+        >
+        </ghs-actions>
+      </div>
+      @for (special of stats.special; track index; let index = $index) {
+        <div class="specials">
+          <span class="special">{{ index + 1 }}:</span>
+          <ghs-actions
+            [actions]="special"
+            [inline]="true"
+            [statsCalculation]="settingsManager.settings.calculate"
+            [hexSize]="0.5"
+            [monster]="monsterCopy"
+            [monsterType]="MonsterType.boss"
+          >
+          </ghs-actions>
+        </div>
+      }
     </div>
-    @for (special of (stats.special); track index; let index = $index) {
-    <div class="specials">
-      <span class="special">{{index+1}}:</span>
-      <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="settingsManager.settings.calculate"
-        [hexSize]="0.5" [monster]="monsterCopy" [monsterType]="MonsterType.boss">
-      </ghs-actions>
-    </div>
-    }
-  </div>
   }
 
   @if (monster.boss || monster.bb) {
-  <div class="immunities boss" [ngClass]="{'hidden' : hideStats}">
-    @for (immunity of stats.immunities; track immunity) {
-    <span class="immunity">
-      <img class="icon"
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity+ '.svg'" />
-    </span>
-    }
-  </div>
+    <div class="immunities boss" [ngClass]="{ hidden: hideStats }">
+      @for (immunity of stats.immunities; track immunity) {
+        <span class="immunity">
+          <img
+            class="icon"
+            [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity + '.svg'"
+          />
+        </span>
+      }
+    </div>
   }
 </div>

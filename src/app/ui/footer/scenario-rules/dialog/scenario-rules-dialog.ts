@@ -1,75 +1,87 @@
-import { DialogRef } from "@angular/cdk/dialog";
-import { Component, OnInit } from "@angular/core";
-import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { ScenarioRule, ScenarioRuleIdentifier } from "src/app/game/model/data/ScenarioRule";
-import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { DialogRef } from '@angular/cdk/dialog';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { ScenarioRule, ScenarioRuleIdentifier } from 'src/app/game/model/data/ScenarioRule';
+import { ScenarioRuleComponent } from 'src/app/ui/footer/scenario-rules/scenario-rule';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-    standalone: false,
-    selector: 'ghs-scenario-rules-dialog',
-    templateUrl: './scenario-rules-dialog.html',
-    styleUrls: ['./scenario-rules-dialog.scss']
+  imports: [GhsLabelDirective, TrackUUIDPipe, ScenarioRuleComponent],
+  selector: 'ghs-scenario-rules-dialog',
+  templateUrl: './scenario-rules-dialog.html',
+  styleUrls: ['./scenario-rules-dialog.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioRulesDialogComponent implements OnInit {
+  gameManager: GameManager = gameManager;
 
-    gameManager: GameManager = gameManager;
+  appliedScenarioRules: { identifier: ScenarioRuleIdentifier; rule: ScenarioRule }[] = [];
+  discardedScenarioRules: { identifier: ScenarioRuleIdentifier; rule: ScenarioRule }[] = [];
 
-    appliedScenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
-    discardedScenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
+  constructor(
+    private dialogRef: DialogRef,
+    private ghsManager: GhsManager
+  ) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
-    constructor(private dialogRef: DialogRef, private ghsManager: GhsManager) {
-        this.ghsManager.uiChangeEffect(() => this.update());
-    }
+  ngOnInit(): void {
+    this.update();
+  }
 
-    ngOnInit(): void {
-        this.update();
-    }
-
-
-    update() {
-        this.appliedScenarioRules = [];
-        gameManager.game.appliedScenarioRules.forEach((identifier) => {
-            const scenario = gameManager.scenarioRulesManager.getScenarioForRule((identifier)).scenario;
-            if (scenario) {
-                if (scenario.rules && scenario.rules.length > identifier.index && identifier.index >= 0) {
-                    if (scenario.rules[identifier.index].spawns) {
-                        scenario.rules[identifier.index].spawns.forEach((spawn) => { if (spawn.manual && !spawn.count) { spawn.count = "1"; } });
-                    }
-                    this.appliedScenarioRules.push({ identifier: identifier, rule: scenario.rules[identifier.index] });
-                }
-            }
-        })
-        this.discardedScenarioRules = [];
-        gameManager.game.discardedScenarioRules.forEach((identifier) => {
-            const scenario = gameManager.scenarioRulesManager.getScenarioForRule((identifier)).scenario;
-            if (scenario) {
-                if (scenario.rules && scenario.rules.length > identifier.index && identifier.index >= 0) {
-                    if (scenario.rules[identifier.index].spawns) {
-                        scenario.rules[identifier.index].spawns.forEach((spawn) => { if (spawn.manual && !spawn.count) { spawn.count = "1"; } });
-                    }
-                    this.discardedScenarioRules.push({ identifier: identifier, rule: scenario.rules[identifier.index] });
-                }
-            }
-        })
-        if (!this.appliedScenarioRules.length && !this.discardedScenarioRules.length) {
-            ghsDialogClosingHelper(this.dialogRef);
+  update() {
+    this.appliedScenarioRules = [];
+    gameManager.game.appliedScenarioRules.forEach((identifier) => {
+      const scenario = gameManager.scenarioRulesManager.getScenarioForRule(identifier).scenario;
+      if (scenario) {
+        if (scenario.rules && scenario.rules.length > identifier.index && identifier.index >= 0) {
+          if (scenario.rules[identifier.index].spawns) {
+            scenario.rules[identifier.index].spawns.forEach((spawn) => {
+              if (spawn.manual && !spawn.count) {
+                spawn.count = '1';
+              }
+            });
+          }
+          this.appliedScenarioRules.push({ identifier: identifier, rule: scenario.rules[identifier.index] });
         }
-    }
-
-
-    clearDiscardedScenarioRules() {
-        gameManager.stateManager.before("clearDiscardedScenarioRules");
-        gameManager.game.discardedScenarioRules = [];
-        gameManager.stateManager.after();
-    }
-
-    discardScenarioRule(ruleModel: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }) {
-        gameManager.stateManager.before("removeScenarioRule");
-        gameManager.game.appliedScenarioRules.splice(gameManager.game.appliedScenarioRules.indexOf(ruleModel.identifier), 1);
-        if (ruleModel.rule.once || ruleModel.rule.alwaysApplyTurn) {
-            gameManager.game.discardedScenarioRules.push(ruleModel.identifier);
+      }
+    });
+    this.discardedScenarioRules = [];
+    gameManager.game.discardedScenarioRules.forEach((identifier) => {
+      const scenario = gameManager.scenarioRulesManager.getScenarioForRule(identifier).scenario;
+      if (scenario) {
+        if (scenario.rules && scenario.rules.length > identifier.index && identifier.index >= 0) {
+          if (scenario.rules[identifier.index].spawns) {
+            scenario.rules[identifier.index].spawns.forEach((spawn) => {
+              if (spawn.manual && !spawn.count) {
+                spawn.count = '1';
+              }
+            });
+          }
+          this.discardedScenarioRules.push({ identifier: identifier, rule: scenario.rules[identifier.index] });
         }
-        gameManager.stateManager.after();
+      }
+    });
+    if (!this.appliedScenarioRules.length && !this.discardedScenarioRules.length) {
+      ghsDialogClosingHelper(this.dialogRef);
     }
+  }
+
+  clearDiscardedScenarioRules() {
+    gameManager.stateManager.before('clearDiscardedScenarioRules');
+    gameManager.game.discardedScenarioRules = [];
+    gameManager.stateManager.after();
+  }
+
+  discardScenarioRule(ruleModel: { identifier: ScenarioRuleIdentifier; rule: ScenarioRule }) {
+    gameManager.stateManager.before('removeScenarioRule');
+    gameManager.game.appliedScenarioRules.splice(gameManager.game.appliedScenarioRules.indexOf(ruleModel.identifier), 1);
+    if (ruleModel.rule.once || ruleModel.rule.alwaysApplyTurn) {
+      gameManager.game.discardedScenarioRules.push(ruleModel.identifier);
+    }
+    gameManager.stateManager.after();
+  }
 }

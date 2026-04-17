@@ -5,12 +5,15 @@
   width: calc(var(--ghs-unit) * 98);
   height: calc(var(--ghs-unit) * 14);
   background-color: var(--ghs-color-green);
-  background-image: url('~src/assets/images/character/char-mat.png'), url('~src/assets/images/character/char-mat.png');
+  background-image: url('/assets/images/character/char-mat.png'), url('/assets/images/character/char-mat.png');
   background-blend-mode: multiply, overlay;
   background-size: 100% 100%;
   display: flex;
   border-radius: calc(var(--ghs-unit) * 0.5);
-  transition: background-color calc(var(--ghs-animation-speed) * 150ms) ease-in-out, background-image calc(var(--ghs-animation-speed) * 150ms) ease-in-out, background-blend-mode calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
+  transition:
+    background-color calc(var(--ghs-animation-speed) * 150ms) ease-in-out,
+    background-image calc(var(--ghs-animation-speed) * 150ms) ease-in-out,
+    background-blend-mode calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
 
   &.escort {
     background-color: var(--ghs-color-red);
@@ -25,7 +28,7 @@
 
   &.off {
     background-color: var(--ghs-color-gray);
-    background-image: url('~src/assets/images/character/char-mat.png');
+    background-image: url('/assets/images/character/char-mat.png');
     background-blend-mode: multiply;
 
     .title,
@@ -211,7 +214,6 @@
     }
   }
 
-
   .actions-container {
     display: flex;
     margin: calc(var(--ghs-unit) * 1.5) 0;
@@ -268,7 +270,6 @@
       border-radius: 100%;
       background-color: var(--ghs-color-darkgray);
       background: radial-gradient(circle, var(--ghs-color-black) 0%, var(--ghs-color-darkgray) 70%, var(--ghs-color-gray) 100%);
-
 
       img {
         height: calc(var(--ghs-unit) * 8);
@@ -369,7 +370,6 @@
     }
   }
 
-
   .add-entity,
   .short-menu {
     position: relative;
@@ -411,7 +411,7 @@
   &.short:not(.compact) {
     width: calc(var(--ghs-unit) * 57);
     height: calc(var(--ghs-unit) * 28);
-    background-image: url('~src/assets/images/character/char-mat-short.png'), url('~src/assets/images/character/char-mat-short.png');
+    background-image: url('/assets/images/character/char-mat-short.png'), url('/assets/images/character/char-mat-short.png');
 
     .image-container {
       margin: calc(var(--ghs-unit) * 2.8) calc(var(--ghs-unit) * 2);
@@ -453,12 +453,11 @@
         margin-right: calc(var(--ghs-unit) * 2);
       }
     }
-
   }
 
   &.compact {
     height: calc(var(--ghs-unit) * 10.25);
-    background-image: url('~src/assets/images/character/char-mat_compact.png'), url('~src/assets/images/character/char-mat_compact.png');
+    background-image: url('/assets/images/character/char-mat_compact.png'), url('/assets/images/character/char-mat_compact.png');
 
     .drag-initiative {
       position: absolute;
@@ -468,7 +467,6 @@
       height: calc(var(--ghs-unit) * 5);
     }
 
-
     .image-container {
       width: calc(var(--ghs-unit) * 6.5);
       height: calc(var(--ghs-unit) * 6.5);
@@ -476,7 +474,6 @@
       .objective-icon {
         width: calc(var(--ghs-unit) * 6.5);
         height: calc(var(--ghs-unit) * 6.5);
-
 
         img {
           height: calc(var(--ghs-unit) * 8);
@@ -493,9 +490,7 @@
       }
     }
 
-
     .stats {
-
       .column {
         flex-direction: row;
         justify-content: flex-start;
@@ -529,11 +524,8 @@
       }
     }
 
-
-
     &.short {
       width: calc(var(--ghs-unit) * 57);
-
 
       .image-container {
         left: calc(var(--ghs-unit) * 1);
@@ -544,7 +536,6 @@
         .objective-icon {
           width: calc(var(--ghs-unit) * 4.5);
           height: calc(var(--ghs-unit) * 4.5);
-
 
           img {
             height: calc(var(--ghs-unit) * 6);
@@ -607,7 +598,6 @@
       }
 
       &.menu {
-
         .column.col-1,
         .drag-initiative,
         ghs-highlight-conditions {

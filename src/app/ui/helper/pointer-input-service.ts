@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { PointerInputDirective } from "./pointer-input";
+import { Injectable } from '@angular/core';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 
 export const doubleClickTreshhold: number = 250;
 export const longPressTreshhold: number = 550;
@@ -12,10 +12,9 @@ export const dragWidthFactor: number = 0.4;
 export const maxElementDepth: number = 50;
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class PointerInputService {
-
   directives: PointerInputDirective[] = [];
   active: PointerInputDirective | undefined;
   behindActive: PointerInputDirective | undefined;
@@ -71,23 +70,27 @@ export class PointerInputService {
       }
     });
 
-    window.addEventListener('pointermove', (event: PointerEvent) => {
-      if (settingsManager.settings.pinchZoom && this.activePointers.size >= 2) {
-        this.activePointers.set(event.pointerId, event);
-        this.handlePinchZoom();
-        this.currentPinchZoom = true;
-        return;
-      }
-      if (this.active && event.isPrimary && !this.active.isDragElement) {
-        this.active.pointermove(event);
-        window.document.body.classList.add('dragging');
-        window.document.body.classList.add('no-pointer');
-        if (this.behindActive) {
-          this.behindActive.cancel();
-          this.behindActive = undefined;
+    window.addEventListener(
+      'pointermove',
+      (event: PointerEvent) => {
+        if (settingsManager.settings.pinchZoom && this.activePointers.size >= 2) {
+          this.activePointers.set(event.pointerId, event);
+          this.handlePinchZoom();
+          this.currentPinchZoom = true;
+          return;
         }
-      }
-    }, { passive: true });
+        if (this.active && event.isPrimary && !this.active.isDragElement) {
+          this.active.pointermove(event);
+          window.document.body.classList.add('dragging');
+          window.document.body.classList.add('no-pointer');
+          if (this.behindActive) {
+            this.behindActive.cancel();
+            this.behindActive = undefined;
+          }
+        }
+      },
+      { passive: true }
+    );
 
     window.addEventListener('pointerup', (event: PointerEvent) => {
       this.activePointers.delete(event.pointerId);
@@ -104,7 +107,12 @@ export class PointerInputService {
         this.behindActive.pointerup(event);
         this.behindActive = undefined;
       }
-      if (settingsManager.settings.pinchZoom && this.activePointers.size < 2 && this.zoomDiff > -1 && settingsManager.settings.zoom != this.currentZoom) {
+      if (
+        settingsManager.settings.pinchZoom &&
+        this.activePointers.size < 2 &&
+        this.zoomDiff > -1 &&
+        settingsManager.settings.zoom != this.currentZoom
+      ) {
         this.zoomDiff = -1;
         settingsManager.setZoom(this.currentZoom);
       }
@@ -160,7 +168,7 @@ export class PointerInputService {
   // Helper: count active touch pointers
   private countActiveTouches(): number {
     let count = 0;
-    this.activePointers.forEach(ev => {
+    this.activePointers.forEach((ev) => {
       if (ev.pointerType === 'touch') count++;
     });
     return count;
@@ -168,7 +176,7 @@ export class PointerInputService {
 
   // Helper: get distance between two active touch pointers
   private getTouchDistance(): number {
-    const touches = Array.from(this.activePointers.values()).filter(ev => ev.pointerType === 'touch');
+    const touches = Array.from(this.activePointers.values()).filter((ev) => ev.pointerType === 'touch');
     if (touches.length < 2) return 0;
     const [a, b] = touches;
     return Math.abs(a.clientX - b.clientX);
@@ -177,7 +185,7 @@ export class PointerInputService {
   // Handle pinch-zoom gesture
   private handlePinchZoom() {
     if (!settingsManager.settings.pinchZoom) return;
-    const touches = Array.from(this.activePointers.values()).filter(ev => ev.pointerType === 'touch');
+    const touches = Array.from(this.activePointers.values()).filter((ev) => ev.pointerType === 'touch');
     if (touches.length === 2) {
       const curDiff = Math.abs(touches[0].clientX - touches[1].clientX);
       if (this.zoomDiff > 0) {

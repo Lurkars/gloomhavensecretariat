@@ -1,161 +1,159 @@
 .treasures-dialog {
-    color: var(--ghs-color-white);
-    min-width: 25vw;
+  color: var(--ghs-color-white);
+  min-width: 25vw;
 
-    .header {
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      font-family: var(--ghs-font-title);
+      font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+      color: var(--ghs-color-yellow);
+
+      .icon {
+        height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+        width: auto;
+        margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        filter: var(--ghs-filter-yellow);
+      }
+    }
+
+    label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: var(--ghs-color-white);
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    }
+  }
+
+  .scenarios {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-height: 70vh;
+
+    .scenario {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+    }
+
+    .treasures {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .treasure {
+        cursor: pointer;
+        position: relative;
         display: flex;
         justify-content: center;
-        align-items: center;
+        background-image: url('/assets/images/scenario/treasure.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-black);
+        width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        transition: translate calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
 
-        .title {
-            font-family: var(--ghs-font-title);
-            font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
-            color: var(--ghs-color-yellow);
+        .overlay {
+          display: none;
+          position: absolute;
+          top: 30%;
+          left: 50%;
+          transform: translateX(-50%);
+          height: 50%;
+          width: auto;
 
-            .icon {
-                height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
-                width: auto;
-                margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-                filter: var(--ghs-filter-yellow);
+          &.check {
+            filter: var(--ghs-filter-green);
+          }
+
+          &.uncheck {
+            filter: var(--ghs-filter-red);
+          }
+        }
+
+        &:hover {
+          opacity: 0.8;
+          transform: scale(1.1);
+        }
+
+        &.looted {
+          cursor: initial;
+          opacity: 0.4;
+
+          .check {
+            display: block;
+          }
+        }
+
+        &.highlight {
+          .check {
+            display: block;
+          }
+
+          &.looted {
+            .check {
+              display: none;
             }
-        }
 
-        label {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            color: var(--ghs-color-white);
-            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            .uncheck {
+              display: block;
+            }
+          }
         }
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    justify-content: space-evenly;
+    align-items: center;
+
+    a {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+
+      &:hover {
+        opacity: 0.6;
+      }
     }
 
-    .scenarios {
-        display: flex;
-        flex-direction: column;
-        overflow: auto;
-        max-height: 70vh;
-
-        .scenario {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-        }
-
-
-        .treasures {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-
-            .treasure {
-                cursor: pointer;
-                position: relative;
-                display: flex;
-                justify-content: center;
-                background-image: url('~src/assets/images/scenario/treasure.png');
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-position: center;
-                font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-                color: var(--ghs-color-black);
-                width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
-                height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
-                margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-                transition: translate calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
-
-                .overlay {
-                    display: none;
-                    position: absolute;
-                    top: 30%;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    height: 50%;
-                    width: auto;
-
-                    &.check {
-                        filter: var(--ghs-filter-green);
-                    }
-
-                    &.uncheck {
-                        filter: var(--ghs-filter-red);
-                    }
-                }
-
-                &:hover {
-                    opacity: 0.8;
-                    transform: scale(1.1);
-                }
-
-                &.looted {
-                    cursor: initial;
-                    opacity: 0.4;
-
-                    .check {
-                        display: block;
-                    }
-                }
-
-                &.highlight {
-                    .check {
-                        display: block;
-                    }
-
-                    &.looted {
-                        .check {
-                            display: none;
-                        }
-
-                        .uncheck {
-                            display: block;
-                        }
-                    }
-                }
-            }
-        }
-
+    .cancel {
+      color: var(--ghs-color-red);
     }
 
-    .buttons {
-        display: flex;
-        margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        font-family: var(--ghs-font-title);
-        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-        justify-content: space-evenly;
-        align-items: center;
-
-        a {
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-
-            &:hover {
-                opacity: 0.6;
-            }
-        }
-
-        .cancel {
-            color: var(--ghs-color-red);
-        }
-
-        .apply {
-            color: var(--ghs-color-green);
-        }
-
-        .disabled {
-            pointer-events: none;
-            color: var(--ghs-color-gray);
-        }
-
-        .loot {
-            color: var(--ghs-color-yellow);
-
-            &.disabled {
-                color: var(--ghs-color-darkgray);
-            }
-        }
+    .apply {
+      color: var(--ghs-color-green);
     }
+
+    .disabled {
+      pointer-events: none;
+      color: var(--ghs-color-gray);
+    }
+
+    .loot {
+      color: var(--ghs-color-yellow);
+
+      &.disabled {
+        color: var(--ghs-color-darkgray);
+      }
+    }
+  }
 }

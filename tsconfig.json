@@ -1,7 +1,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "paths": {
+      "src/*": [
+        "./src/*"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "moduleResolution": "bundler",
     "moduleDetection": "force",
@@ -22,8 +26,6 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
     "importHelpers": true
   },
   "angularCompilerOptions": {

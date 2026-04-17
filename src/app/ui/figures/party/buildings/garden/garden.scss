@@ -1,249 +1,246 @@
 .garden-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--ghs-color-white);
+
+  .menu {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    color: var(--ghs-color-white);
 
+    .title {
+      text-align: center;
+      font-family: var(--ghs-font-title);
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    }
 
-    .menu {
+    .state-menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .state {
+        font-size: 1.3em;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .title {
-            text-align: center;
-            font-family: var(--ghs-font-title);
-            font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      .hint-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ghs-action {
+          cursor: pointer;
+          font-size: 1.6em;
+          margin-right: 0.5em;
+
+          &.disabled {
+            cursor: initial;
+            filter: grayscale(0.5);
+          }
         }
 
-        .state-menu {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        label {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
 
-            .state {
-                font-size: 1.3em;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .hint-container {
-
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                ghs-action {
-                    cursor: pointer;
-                    font-size: 1.6em;
-                    margin-right: 0.5em;
-
-                    &.disabled {
-                        cursor: initial;
-                        filter: grayscale(0.5);
-                    }
-                }
-
-                label {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    cursor: pointer;
-
-                    &.disabled {
-                        cursor: not-allowed;
-                    }
-                }
-            }
-
-            a {
-                cursor: pointer;
-                font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-            }
+          &.disabled {
+            cursor: not-allowed;
+          }
         }
+      }
 
-        .herbs,
-        .sources {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            .herb,
-            .source {
-                cursor: pointer;
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-                font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                color: var(--ghs-color-gray);
-
-                img {
-                    width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-                    height: auto;
-
-                    &.ghs-svg {
-                        filter: var(--ghs-filter-gray);
-                    }
-
-                    &.character-icon {
-                        filter: grayscale(0.2) brightness(0.6);
-                    }
-                }
-
-                &.active {
-                    color: var(--ghs-color-white);
-
-                    .ghs-svg {
-                        filter: var(--ghs-filter-white);
-                    }
-
-                    .character-icon {
-                        filter: none;
-                    }
-                }
-
-                &:hover {
-                    color: var(--ghs-color-white);
-
-                    .ghs-svg {
-                        filter: var(--ghs-filter-white);
-                    }
-
-                    .character-icon {
-                        filter: none;
-                    }
-                }
-
-                &.disabled {
-                    cursor: initial;
-                    color: var(--ghs-color-darkgray);
-
-                    .ghs-svg {
-                        filter: var(--ghs-filter-darkgray);
-                    }
-
-                    .character-icon {
-                        filter: brightness(0) var(--ghs-filter-darkgray);
-                    }
-
-                    &:hover {
-                        .ghs-svg {
-                            filter: var(--ghs-filter-darkgray);
-                        }
-
-                        .character-icon {
-                            filter: brightness(0) var(--ghs-filter-darkgray);
-                        }
-
-                        .value {
-                            color: var(--ghs-color-darkgray);
-                        }
-                    }
-                }
-            }
-        }
+      a {
+        cursor: pointer;
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+      }
     }
 
-    .garden {
-        position: relative;
-        display: block;
-        width: calc(var(--ghs-unit) * 31 * var(--ghs-dialog-factor));
-        height: calc(var(--ghs-unit) * 27.1 * var(--ghs-dialog-factor));
-        margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-        background-repeat: no-repeat;
+    .herbs,
+    .sources {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .herb,
+      .source {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-gray);
+
+        img {
+          width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+          height: auto;
+
+          &.ghs-svg {
+            filter: var(--ghs-filter-gray);
+          }
+
+          &.character-icon {
+            filter: grayscale(0.2) brightness(0.6);
+          }
+        }
+
+        &.active {
+          color: var(--ghs-color-white);
+
+          .ghs-svg {
+            filter: var(--ghs-filter-white);
+          }
+
+          .character-icon {
+            filter: none;
+          }
+        }
+
+        &:hover {
+          color: var(--ghs-color-white);
+
+          .ghs-svg {
+            filter: var(--ghs-filter-white);
+          }
+
+          .character-icon {
+            filter: none;
+          }
+        }
+
+        &.disabled {
+          cursor: initial;
+          color: var(--ghs-color-darkgray);
+
+          .ghs-svg {
+            filter: var(--ghs-filter-darkgray);
+          }
+
+          .character-icon {
+            filter: brightness(0) var(--ghs-filter-darkgray);
+          }
+
+          &:hover {
+            .ghs-svg {
+              filter: var(--ghs-filter-darkgray);
+            }
+
+            .character-icon {
+              filter: brightness(0) var(--ghs-filter-darkgray);
+            }
+
+            .value {
+              color: var(--ghs-color-darkgray);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .garden {
+    position: relative;
+    display: block;
+    width: calc(var(--ghs-unit) * 31 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 27.1 * var(--ghs-dialog-factor));
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &.level-1 {
+      background-image: url('/assets/images/world-map/fh/buildings/fh-24-garden-1.png');
+    }
+
+    &.level-2 {
+      background-image: url('/assets/images/world-map/fh/buildings/fh-24-garden-2.png');
+    }
+
+    &.level-3 {
+      background-image: url('/assets/images/world-map/fh/buildings/fh-24-garden-3.png');
+    }
+
+    &.level-4 {
+      background-image: url('/assets/images/world-map/fh/buildings/fh-24-garden-4.png');
+    }
+
+    .plot {
+      position: absolute;
+      display: block;
+      width: calc(var(--ghs-unit) * 5.7 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 9.9 * var(--ghs-dialog-factor));
+      background-repeat: no-repeat;
+      background-size: 0;
+      transform: rotate(-45deg);
+      cursor: pointer;
+
+      &:hover {
         background-size: contain;
+        filter: brightness(1.2);
+      }
 
-        &.level-1 {
-            background-image: url('~src/assets/images/world-map/fh/buildings/fh-24-garden-1.png');
+      &.disabled {
+        cursor: initial;
+
+        &:hover {
+          filter: brightness(0.7) grayscale(0.3);
         }
+      }
 
-        &.level-2 {
-            background-image: url('~src/assets/images/world-map/fh/buildings/fh-24-garden-2.png');
-        }
+      &.arrowvine,
+      &.plant-arrowvine:hover {
+        background-image: url('/assets/images/world-map/fh/overlays/fh-24-garden-arrowvine.png');
+      }
 
-        &.level-3 {
-            background-image: url('~src/assets/images/world-map/fh/buildings/fh-24-garden-3.png');
-        }
+      &.axenut,
+      &.plant-axenut:hover {
+        background-image: url('/assets/images/world-map/fh/overlays/fh-24-garden-axenut.png');
+      }
 
-        &.level-4 {
-            background-image: url('~src/assets/images/world-map/fh/buildings/fh-24-garden-4.png');
-        }
+      &.corpsecap,
+      &.plant-corpsecap:hover {
+        background-image: url('/assets/images/world-map/fh/overlays/fh-24-garden-corpsecap.png');
+      }
 
-        .plot {
-            position: absolute;
-            display: block;
-            width: calc(var(--ghs-unit) * 5.7 * var(--ghs-dialog-factor));
-            height: calc(var(--ghs-unit) * 9.9 * var(--ghs-dialog-factor));
-            background-repeat: no-repeat;
-            background-size: 0;
-            transform: rotate(-45deg);
-            cursor: pointer;
+      &.flamefruit,
+      &.plant-flamefruit:hover {
+        background-image: url('/assets/images/world-map/fh/overlays/fh-24-garden-flamefruit.png');
+      }
 
-            &:hover {
-                background-size: contain;
-                filter: brightness(1.2);
-            }
+      &.rockroot,
+      &.plant-rockroot:hover {
+        background-image: url('/assets/images/world-map/fh/overlays/fh-24-garden-rockroot.png');
+      }
 
-            &.disabled {
-                cursor: initial;
+      &.snowthistle,
+      &.plant-snowthistle:hover {
+        background-image: url('/assets/images/world-map/fh/overlays/fh-24-garden-snowthistle.png');
+      }
 
-                &:hover {
-                    filter: brightness(0.7) grayscale(0.3);
-                }
-            }
+      &.harvest {
+        background-size: contain;
+      }
 
-            &.arrowvine,
-            &.plant-arrowvine:hover {
-                background-image: url('~src/assets/images/world-map/fh/overlays/fh-24-garden-arrowvine.png');
-            }
+      &.plot-1 {
+        top: calc(var(--ghs-unit) * 14.3 * var(--ghs-dialog-factor));
+        left: calc(var(--ghs-unit) * 12.5 * var(--ghs-dialog-factor));
+      }
 
-            &.axenut,
-            &.plant-axenut:hover {
-                background-image: url('~src/assets/images/world-map/fh/overlays/fh-24-garden-axenut.png');
-            }
+      &.plot-2 {
+        top: calc(var(--ghs-unit) * 7.2 * var(--ghs-dialog-factor));
+        left: calc(var(--ghs-unit) * 5.5 * var(--ghs-dialog-factor));
+      }
 
-            &.corpsecap,
-            &.plant-corpsecap:hover {
-                background-image: url('~src/assets/images/world-map/fh/overlays/fh-24-garden-corpsecap.png');
-            }
-
-            &.flamefruit,
-            &.plant-flamefruit:hover {
-                background-image: url('~src/assets/images/world-map/fh/overlays/fh-24-garden-flamefruit.png');
-            }
-
-            &.rockroot,
-            &.plant-rockroot:hover {
-                background-image: url('~src/assets/images/world-map/fh/overlays/fh-24-garden-rockroot.png');
-            }
-
-            &.snowthistle,
-            &.plant-snowthistle:hover {
-                background-image: url('~src/assets/images/world-map/fh/overlays/fh-24-garden-snowthistle.png');
-            }
-
-            &.harvest {
-                background-size: contain;
-            }
-
-            &.plot-1 {
-                top: calc(var(--ghs-unit) * 14.3 * var(--ghs-dialog-factor));
-                left: calc(var(--ghs-unit) * 12.5 * var(--ghs-dialog-factor));
-            }
-
-            &.plot-2 {
-                top: calc(var(--ghs-unit) * 7.2 * var(--ghs-dialog-factor));
-                left: calc(var(--ghs-unit) * 5.5 * var(--ghs-dialog-factor));
-            }
-
-            &.plot-3 {
-                top: calc(var(--ghs-unit) * 3.6 * var(--ghs-dialog-factor));
-                left: calc(var(--ghs-unit) * 10.5 * var(--ghs-dialog-factor));
-            }
-        }
+      &.plot-3 {
+        top: calc(var(--ghs-unit) * 3.6 * var(--ghs-dialog-factor));
+        left: calc(var(--ghs-unit) * 10.5 * var(--ghs-dialog-factor));
+      }
     }
-
+  }
 }

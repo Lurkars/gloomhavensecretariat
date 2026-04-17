@@ -1,19 +1,20 @@
-import { Dialog } from "@angular/cdk/dialog";
-import { Component } from "@angular/core";
-import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { PartySheetDialogComponent } from "../../figures/party/party-sheet-dialog";
+import { Dialog } from '@angular/cdk/dialog';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { PartySheetDialogComponent } from 'src/app/ui/figures/party/party-sheet-dialog';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
 
 @Component({
-  standalone: false,
+  imports: [GhsLabelDirective],
   selector: 'ghs-party-sheet',
   templateUrl: 'party-sheet.html',
-  styleUrls: ['./party-sheet.scss']
+  styleUrls: ['./party-sheet.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PartySheetComponent {
-
   gameManager: GameManager = gameManager;
 
-  constructor(private dialog: Dialog) { }
+  constructor(private dialog: Dialog) {}
 
   open(): void {
     this.dialog.open(PartySheetDialogComponent, {

@@ -1,213 +1,213 @@
 .summon-container {
-    position: relative;
-    width: 100%;
-    padding-top: 38%;
-    background-image: url('~src/assets/images/character/abilities/character-ability-summon1.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    text-shadow: none;
+  position: relative;
+  width: 100%;
+  padding-top: 38%;
+  background-image: url('/assets/images/character/abilities/character-ability-summon1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-shadow: none;
+
+  .summon-label {
+    font-family: var(--ghs-font-text);
+  }
+
+  .thumbnail {
+    position: absolute;
+    width: 15%;
+    height: 53%;
+    top: 11%;
+    left: 0;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      width: 127%;
+      height: auto;
+      top: 2%;
+      right: 7%;
+      border-radius: 100%;
+    }
+  }
+
+  .name {
+    font-size: 1.1em;
+    letter-spacing: -0.04em;
+    position: absolute;
+    top: 6%;
+    left: 14%;
+    width: 86%;
+    height: 34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .summon-label {
-        font-family: var(--ghs-font-text);
+      font-family: var(--ghs-font-normal);
     }
 
-    .thumbnail {
-        position: absolute;
-        width: 15%;
-        height: 53%;
-        top: 11%;
-        left: 0;
-        overflow: hidden;
+    .flying {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      margin-left: calc(var(--ghs-unit) * 0.5);
 
-        img {
-            position: absolute;
-            width: 127%;
-            height: auto;
-            top: 2%;
-            right: 7%;
-            border-radius: 100%;
-        }
+      img {
+        height: 1em;
+        width: auto;
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+      }
     }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 45% 25% 30%;
+    grid-template-rows: 50% 50%;
+    position: absolute;
+    top: 34%;
+    left: 0;
+    width: 100%;
+    height: 60%;
+
+    .item {
+      display: grid;
+      grid-template-columns: 1fr 0.5fr 1.5fr 1.5fr;
+      justify-content: flex-start;
+      align-items: center;
+
+      :nth-child(1) {
+        justify-self: end;
+      }
+
+      :nth-child(2) {
+        justify-self: center;
+      }
+
+      :nth-child(3) {
+        justify-self: start;
+      }
+
+      :nth-child(4) {
+        justify-self: start;
+      }
+
+      .placeholder {
+        display: flex;
+      }
+
+      ghs-action-enhancements {
+        margin-left: -25%;
+      }
+    }
+
+    .health,
+    .attack {
+      padding-left: 3em;
+    }
+
+    .action,
+    .additionalAction {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.85em;
+
+      &.xs {
+        font-size: 0.75em;
+      }
+    }
+
+    .action {
+      grid-row: 2 span;
+    }
+
+    .ghs-svg {
+      height: 0.9em;
+      width: auto;
+      filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+    }
+  }
+
+  &.additional {
+    background-image: url('/assets/images/character/abilities/character-ability-summon2.png');
+
+    .grid .action {
+      grid-row: 1 span;
+    }
+  }
+
+  &.item {
+    background-image: url('/assets/images/items/summon-item.png');
 
     .name {
-        font-size: 1.1em;
-        letter-spacing: -0.04em;
-        position: absolute;
-        top: 6%;
-        left: 14%;
-        width: 86%;
-        height: 34%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .summon-label {
-            font-family: var(--ghs-font-normal);
-        }
-
-        .flying {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: auto;
-            margin-left: calc(var(--ghs-unit) * 0.5);
-
-            img {
-                height: 1em;
-                width: auto;
-                filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-            }
-        }
+      font-size: 1em;
     }
 
     .grid {
-        display: grid;
-        grid-template-columns: 45% 25% 30%;
-        grid-template-rows: 50% 50%;
+      grid-template-columns: 65% 25% 0%;
+
+      .action {
+        grid-row: 1 span;
+      }
+    }
+  }
+
+  &.fh {
+    background-image: url('/assets/images/fh/character/abilities/character-ability-summon1.png');
+
+    .thumbnail {
+      top: 1.8em;
+      width: 4.3em;
+      height: 4em;
+      clip-path: polygon(0em 0em, 3.3em 0em, 4.3em 2em, 3.3em 4em, 0em 4em);
+      background-color: var(--ghs-ability-color);
+
+      .thumbnail-border {
         position: absolute;
-        top: 34%;
-        left: 0;
-        width: 100%;
-        height: 60%;
+        top: 0.1em;
+        left: 0.1em;
+        width: 4.3em;
+        height: 4em;
+        clip-path: polygon(0em 0em, 3.1em 0em, 4em 1.9em, 3.1em 3.8em, 0em 3.8em);
 
-        .item {
-            display: grid;
-            grid-template-columns: 1fr 0.5fr 1.5fr 1.5fr;
-            justify-content: flex-start;
-            align-items: center;
-
-            :nth-child(1) {
-                justify-self: end;
-            }
-
-            :nth-child(2) {
-                justify-self: center;
-            }
-
-            :nth-child(3) {
-                justify-self: start;
-            }
-
-            :nth-child(4) {
-                justify-self: start;
-            }
-
-            .placeholder {
-                display: flex;
-            }
-
-            ghs-action-enhancements {
-                margin-left: -25%;
-            }
+        img {
+          left: -1.9em;
+          top: -0.3em;
+          width: 155%;
         }
+      }
+    }
 
-        .health,
-        .attack {
-            padding-left: 3em;
-        }
+    .grid {
+      top: 38%;
+      grid-template-columns: 60% 40% 0%;
 
-        .action,
-        .additionalAction {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.85em;
+      .health,
+      .attack {
+        padding-left: 5em;
+      }
+    }
 
-            &.xs {
-                font-size: 0.75em;
-            }
-        }
+    &.action {
+      background-image: url('/assets/images/fh/character/abilities/character-ability-summon2.png');
 
-        .action {
-            grid-row: 2 span;
-        }
-
-        .ghs-svg {
-            height: 0.9em;
-            width: auto;
-            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-        }
+      .grid {
+        grid-template-columns: 55% 20% 25%;
+      }
     }
 
     &.additional {
-        background-image: url('~src/assets/images/character/abilities/character-ability-summon2.png');
+      background-image: url('/assets/images/fh/character/abilities/character-ability-summon3.png');
 
-        .grid .action {
-            grid-row: 1 span;
+      .grid {
+        grid-template-columns: 45% 20% 35%;
+
+        .health,
+        .attack {
+          padding-left: 4.5em;
         }
+      }
     }
-
-    &.item {
-        background-image: url('~src/assets/images/items/summon-item.png');
-
-        .name {
-            font-size: 1em;
-        }
-
-        .grid {
-            grid-template-columns: 65% 25% 0%;
-
-            .action {
-                grid-row: 1 span;
-            }
-        }
-    }
-
-    &.fh {
-        background-image: url('~src/assets/images/fh/character/abilities/character-ability-summon1.png');
-
-        .thumbnail {
-            top: 1.8em;
-            width: 4.3em;
-            height: 4em;
-            clip-path: polygon(0em 0em, 3.3em 0em, 4.3em 2em, 3.3em 4em, 0em 4em);
-            background-color: var(--ghs-ability-color);
-
-            .thumbnail-border {
-                position: absolute;
-                top: 0.1em;
-                left: 0.1em;
-                width: 4.3em;
-                height: 4em;
-                clip-path: polygon(0em 0em, 3.1em 0em, 4em 1.9em, 3.1em 3.8em, 0em 3.8em);
-
-                img {
-                    left: -1.9em;
-                    top: -0.3em;
-                    width: 155%;
-                }
-            }
-        }
-
-        .grid {
-            top: 38%;
-            grid-template-columns: 60% 40% 0%;
-
-            .health,
-            .attack {
-                padding-left: 5em;
-            }
-        }
-
-        &.action {
-            background-image: url('~src/assets/images/fh/character/abilities/character-ability-summon2.png');
-
-            .grid {
-                grid-template-columns: 55% 20% 25%;
-            }
-        }
-
-        &.additional {
-            background-image: url('~src/assets/images/fh/character/abilities/character-ability-summon3.png');
-
-            .grid {
-                grid-template-columns: 45% 20% 35%;
-
-                .health,
-                .attack {
-                    padding-left: 4.5em;
-                }
-            }
-        }
-    }
+  }
 }

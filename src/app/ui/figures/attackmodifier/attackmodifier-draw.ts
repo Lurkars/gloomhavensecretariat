@@ -1,21 +1,37 @@
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
-import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { NgClass } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  inject,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
-
+import { AttackModifierComponent } from 'src/app/ui/figures/attackmodifier/attackmodifier';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  standalone: false,
+  imports: [AttackModifierComponent, NgClass, TrackUUIDPipe],
   selector: 'ghs-attackmodifier-draw',
   templateUrl: './attackmodifier-draw.html',
-  styleUrls: ['./attackmodifier-draw.scss']
+  styleUrls: ['./attackmodifier-draw.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttackModifierDrawComponent implements OnInit, OnChanges {
   private cdr = inject(ChangeDetectorRef);
 
-  @Input('character') character!: Character;
+  @Input() character!: Character;
   @Output('drawing') drawingEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() initTimeout: number = 1500;
 
@@ -23,8 +39,8 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
   settingsManager: SettingsManager = settingsManager;
 
   deck!: AttackModifierDeck;
-  numeration: string = "";
-  characterIcon: string = "";
+  numeration: string = '';
+  characterIcon: string = '';
 
   AttackModifierType = AttackModifierType;
   current: number = -1;
@@ -36,38 +52,37 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
 
   @ViewChild('drawCard') drawCard!: ElementRef;
 
-  constructor(public element: ElementRef, private ghsManager: GhsManager) {
+  constructor(
+    public element: ElementRef,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
-      let elements = document.elementsFromPoint(event.clientX, event.clientY);
+      const elements = document.elementsFromPoint(event.clientX, event.clientY);
       if (elements[0].classList.contains('attack-modifiers') && elements.length > 2) {
         (elements[2] as HTMLElement).click();
       }
-    })
-  };
+    });
+  }
 
   ngOnInit(): void {
     if (this.character) {
       this.deck = this.character.attackModifierDeck;
       this.characterIcon = this.character.iconUrl;
-      this.numeration = "" + this.character.number;
+      this.numeration = '' + this.character.number;
       this.newStyle = gameManager.newAmStyle(this.character.edition);
     }
-
 
     if (settingsManager.settings.fhStyle) {
       this.newStyle = true;
     }
 
     this.current = this.deck.current;
-
-
   }
-
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['deck']) {
-      this.update()
+      this.update();
     }
   }
 
@@ -99,21 +114,24 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
     this.drawing = true;
     this.drawingEmitter.emit(true);
     this.element.nativeElement.getElementsByClassName('attack-modifier-draw')[0].classList.add('drawing');
-    this.queueTimeout = setTimeout(() => {
-      this.drawing = false;
-      this.drawingEmitter.emit(false);
-      this.queueTimeout = null;
-      if (this.queue > 0) {
-        this.queue--;
-        this.current++;
-        this.drawQueue();
-      } else {
-        this.element.nativeElement.getElementsByClassName('attack-modifier-draw')[0].classList.remove('drawing');
-        if (this.queue < 0) {
-          this.queue = 0;
+    this.queueTimeout = setTimeout(
+      () => {
+        this.drawing = false;
+        this.drawingEmitter.emit(false);
+        this.queueTimeout = null;
+        if (this.queue > 0) {
+          this.queue--;
+          this.current++;
+          this.drawQueue();
+        } else {
+          this.element.nativeElement.getElementsByClassName('attack-modifier-draw')[0].classList.remove('drawing');
+          if (this.queue < 0) {
+            this.queue = 0;
+          }
         }
-      }
-      this.cdr.markForCheck();
-    }, settingsManager.settings.animations ? 2500 * settingsManager.settings.animationSpeed : 0);
+        this.cdr.markForCheck();
+      },
+      settingsManager.settings.animations ? 2500 * settingsManager.settings.animationSpeed : 0
+    );
   }
 }

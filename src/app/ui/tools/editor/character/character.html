@@ -1,7 +1,6 @@
 <div class="container">
   <ghs-header [standalone]="true"></ghs-header>
 
-
   <div class="character-editor">
     <h1><span [ghs-label]="'editor.character'"></span> (<span [ghs-label]="'wip'"></span>)</h1>
     <div class="columns">
@@ -12,52 +11,72 @@
           <div class="base-data dialog">
             <div class="dialog-container">
               <label><span [ghs-label]="'editor.character.data.name'"></span></label>
-              <input [(ngModel)]="characterData.name" [ghs-label]="'editor.character.data.name'"
-                [ghs-label-attribute]="'placeholder'" (change)="characterDataToJson()" (keyup)="characterDataToJson()">
+              <input
+                [(ngModel)]="characterData.name"
+                [ghs-label]="'editor.character.data.name'"
+                [ghs-label-attribute]="'placeholder'"
+                (change)="characterDataToJson()"
+                (keyup)="characterDataToJson()"
+              />
 
               <label><span [ghs-label]="'edition'"></span></label>
-              <input [(ngModel)]="characterData.edition" [ghs-label]="'edition'" [ghs-label-attribute]="'placeholder'"
-                (change)="characterDataToJson()" (keyup)="characterDataToJson()">
+              <input
+                [(ngModel)]="characterData.edition"
+                [ghs-label]="'edition'"
+                [ghs-label-attribute]="'placeholder'"
+                (change)="characterDataToJson()"
+                (keyup)="characterDataToJson()"
+              />
 
               <label><span [ghs-label]="'editor.character.data.color'"></span></label>
-              <input [(ngModel)]="characterData.color" type="color" [ghs-label]="'editor.character.data.color'"
-                [ghs-label-attribute]="'placeholder'" (change)="characterDataToJson()" (keyup)="characterDataToJson()">
+              <input
+                [(ngModel)]="characterData.color"
+                type="color"
+                [ghs-label]="'editor.character.data.color'"
+                [ghs-label-attribute]="'placeholder'"
+                (change)="characterDataToJson()"
+                (keyup)="characterDataToJson()"
+              />
 
               <label><span [ghs-label]="'editor.character.data.spoiler'"></span></label>
-              <input type="checkbox" [(ngModel)]="characterData.spoiler" (change)="characterDataToJson()">
+              <input type="checkbox" [(ngModel)]="characterData.spoiler" (change)="characterDataToJson()" />
 
               <label><span [ghs-label]="'editor.character.data.deck'"></span></label>
-              <input [(ngModel)]="characterData.deck" [ghs-label]="'editor.character.data.deck'"
-                [ghs-label-attribute]="'placeholder'" (change)="characterDataToJson()" (keyup)="characterDataToJson()">
-
+              <input
+                [(ngModel)]="characterData.deck"
+                [ghs-label]="'editor.character.data.deck'"
+                [ghs-label-attribute]="'placeholder'"
+                (change)="characterDataToJson()"
+                (keyup)="characterDataToJson()"
+              />
 
               <label><span [ghs-label]="'editor.character.data.class'"></span></label>
               <select [(ngModel)]="characterData.characterClass" (change)="characterDataToJson()">
                 @for (class of CharacterClasses; track class) {
-                <option [value]="class" [selected]="characterData.characterClass == class"><span
-                    [ghs-label]="'character.class.' + class"></span>
-                </option>
+                  <option [value]="class" [selected]="characterData.characterClass == class">
+                    <span [ghs-label]="'character.class.' + class"></span>
+                  </option>
                 }
               </select>
 
               <label><span [ghs-label]="'editor.character.data.hp'"></span></label>
               <div class="hp-container">
                 <select [(ngModel)]="hpIndex" (change)="changeHpIndex()">
-                  @for (index of [] | ghsRange:4; track index) {
-                  <option [value]="index-1">
-                    <span [ghs-label]="'editor.character.data.hp.' + (index-1)"></span>
-                  </option>
+                  @for (index of [] | ghsRange: 4; track index) {
+                    <option [value]="index - 1">
+                      <span [ghs-label]="'editor.character.data.hp.' + (index - 1)"></span>
+                    </option>
                   }
                 </select>
                 <div class="hp-grid">
                   @for (stat of characterData.stats; track stat) {
-                  <span>{{stat.level}}</span>
-                  @if (hpIndex != -1) {
-                  <input disabled [(ngModel)]="stat.health">
-                  }
-                  @if (hpIndex == -1) {
-                  <input type="number" [(ngModel)]="stat.health">
-                  }
+                    <span>{{ stat.level }}</span>
+                    @if (hpIndex != -1) {
+                      <input disabled [(ngModel)]="stat.health" />
+                    }
+                    @if (hpIndex == -1) {
+                      <input type="number" [(ngModel)]="stat.health" />
+                    }
                   }
                 </div>
               </div>
@@ -67,44 +86,46 @@
       </div>
 
       <div class="output">
-        <h2><span [ghs-label]="'editor.character.data.json'"></span>
+        <h2>
+          <span [ghs-label]="'editor.character.data.json'"></span>
 
           <select (change)="loadCharacterData($event)">
             <option [value]="-1">&lt;<span [ghs-label]="'editor.character.new'"></span>&gt;</option>
             @for (cD of charactersData | trackUUID; track cD._trackUUID; let index = $index) {
-            <option [value]="index" [selected]="cD.edition == characterData.edition && cD.name == characterData.name">
-              @if (isSpoiled(cD)) {
-              <span [ghs-label]="'data.character.' + cD.edition + '.' + cD.name"></span>
-              }
-              {{cD.name}}
-              (<span [ghs-label]="'data.edition.' + cD.edition"></span>)
-              [{{cD.name}}]
-            </option>
+              <option [value]="index" [selected]="cD.edition == characterData.edition && cD.name == characterData.name">
+                @if (isSpoiled(cD)) {
+                  <span [ghs-label]="'data.character.' + cD.edition + '.' + cD.name"></span>
+                }
+                {{ cD.name }}
+                (<span [ghs-label]="'data.edition.' + cD.edition"></span>) [{{ cD.name }}]
+              </option>
             }
           </select>
 
           <select (change)="selectEdition($event)">
             <option></option>
             @for (edition of editions; track edition) {
-            <option [value]="edition">
-              <span [ghs-label]="'data.edition.' + edition"></span>
-            </option>
+              <option [value]="edition">
+                <span [ghs-label]="'data.edition.' + edition"></span>
+              </option>
             }
           </select>
         </h2>
 
-        <div> {{characterError}} </div>
+        <div>{{ characterError }}</div>
         <textarea #inputCharacterData></textarea>
 
-        <a class="button" [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputCharacterData.value)"
-          [download]="characterData.name + '.json'"><img class="ghs-icon" src="./assets/images/export.svg">
-          <span [ghs-label]="'editor.character.data.json.download'"></span></a>
+        <a
+          class="button"
+          [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputCharacterData.value)"
+          [download]="characterData.name + '.json'"
+          ><img class="ghs-icon" src="/assets/images/export.svg" /> <span [ghs-label]="'editor.character.data.json.download'"></span
+        ></a>
       </div>
     </div>
 
     @if (init) {
-    <ghs-deck-editor [character]="getCharacter()" [standalone]="false" [edition]="edition">
-    </ghs-deck-editor>
+      <ghs-deck-editor [character]="getCharacter()" [standalone]="false" [edition]="edition"> </ghs-deck-editor>
     }
   </div>
 </div>

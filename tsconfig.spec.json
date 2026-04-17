@@ -4,7 +4,7 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      "jasmine",
+      "vitest/globals",
       "dom-screen-wake-lock"
     ]
   },
@@ -12,6 +12,6 @@
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts",
-    "**/*.ts"
+    "src/**/*.ts"
   ]
 }

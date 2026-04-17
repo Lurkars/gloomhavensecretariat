@@ -1,133 +1,194 @@
 <div class="rule">
   @if (rule.noteTop) {
-  <p class="text-white" [ghs-label]="rule.noteTop"></p>
+    <p class="text-white" [ghs-label]="rule.noteTop"></p>
   }
   @if (gameManager.scenarioRulesManager.spawns(rule).length > 0) {
-  <div class="spawns">
-    @for (spawn of gameManager.scenarioRulesManager.spawns(rule) | trackUUID; track spawn._trackUUID; let i = $index) {
-    @if (i > 0) {
-    <span class="and" [ghs-label]="'and'"></span>
-    }
-    <span class="text-white text" [ghs-label]="'scenario.rules.spawn' + (spawn.marker ? 'Marker' : '')"
-      [ghs-label-args]="[spawn.monster.name, gameManager.scenarioRulesManager.spawnType(spawn.monster) || '', spawn.count ? gameManager.scenarioRulesManager.spawnCount(rule, spawn) + ' ' : '', spawn.marker]"></span>
-    @if (spawn.manual) {
-    <input type="number" [(ngModel)]="spawn.count" [min]="spawn.manualMin || 0" [max]="spawn.manualMax || ''">
-    }
-    }
-  </div>
+    <div class="spawns">
+      @for (spawn of gameManager.scenarioRulesManager.spawns(rule) | trackUUID; track spawn._trackUUID; let i = $index) {
+        @if (i > 0) {
+          <span class="and" [ghs-label]="'and'"></span>
+        }
+        <span
+          class="text-white text"
+          [ghs-label]="'scenario.rules.spawn' + (spawn.marker ? 'Marker' : '')"
+          [ghs-label-args]="[
+            spawn.monster.name,
+            gameManager.scenarioRulesManager.spawnType(spawn.monster) || '',
+            spawn.count ? gameManager.scenarioRulesManager.spawnCount(rule, spawn) + ' ' : '',
+            spawn.marker
+          ]"
+        ></span>
+        @if (spawn.manual) {
+          <input type="number" [(ngModel)]="spawn.count" [min]="spawn.manualMin || 0" [max]="spawn.manualMax || ''" />
+        }
+      }
+    </div>
   }
   @if (!!rule.objectiveSpawns && rule.objectiveSpawns.length > 0) {
-  <div class="objective-spawns">
-    @for (spawn of rule.objectiveSpawns | trackUUID; track spawn._trackUUID; let i = $index) {
-    @if (i > 0) {
-    <span class="and" [ghs-label]="'and'"></span>
-    }
-    <span class="text-white text"
-      [ghs-label]="'scenario.rules.spawnObjective' + ( EntityValueFunction(spawn.count || 1) > 1 ? 's' : '') + (spawn.objective.escort ? 'Escort' : '') + (spawn.marker ? 'Marker' : '')"
-      [ghs-label-args]="[spawn.objective.name ? 'data.objective.' + spawn.objective.name : '',  EntityValueFunction(spawn.count || 1) + ' ', spawn.marker]"></span>
-    @if (spawn.manual) {
-    <input type="number" [(ngModel)]="spawn.count" [min]="spawn.manualMin || 0" [max]="spawn.manualMax || ''"
-      [value]="EntityValueFunction(spawn.count || 1)">
-    }
-    }
-  </div>
+    <div class="objective-spawns">
+      @for (spawn of rule.objectiveSpawns | trackUUID; track spawn._trackUUID; let i = $index) {
+        @if (i > 0) {
+          <span class="and" [ghs-label]="'and'"></span>
+        }
+        <span
+          class="text-white text"
+          [ghs-label]="
+            'scenario.rules.spawnObjective' +
+            (EntityValueFunction(spawn.count || 1) > 1 ? 's' : '') +
+            (spawn.objective.escort ? 'Escort' : '') +
+            (spawn.marker ? 'Marker' : '')
+          "
+          [ghs-label-args]="[
+            spawn.objective.name ? 'data.objective.' + spawn.objective.name : '',
+            EntityValueFunction(spawn.count || 1) + ' ',
+            spawn.marker
+          ]"
+        ></span>
+        @if (spawn.manual) {
+          <input
+            type="number"
+            [(ngModel)]="spawn.count"
+            [min]="spawn.manualMin || 0"
+            [max]="spawn.manualMax || ''"
+            [value]="EntityValueFunction(spawn.count || 1)"
+          />
+        }
+      }
+    </div>
   }
   @if (!!rule.elements && rule.elements.length > 0) {
-  <div class="elements">
-    @for (element of rule.elements; track element; let i = $index) {
-    @if (i > 0) {
-    <span class="and">,</span>
-    }
-    <span class="element">
-      <ghs-element-icon [element]="element"></ghs-element-icon>
-      <span><span [ghs-label]="'game.element.' + element.type"></span></span>
-      <span><span [ghs-label]="'game.element.state.' + element.state"></span></span>
-    </span>
-    }
-  </div>
+    <div class="elements">
+      @for (element of rule.elements; track element; let i = $index) {
+        @if (i > 0) {
+          <span class="and">,</span>
+        }
+        <span class="element">
+          <ghs-element-icon [element]="element"></ghs-element-icon>
+          <span><span [ghs-label]="'game.element.' + element.type"></span></span>
+          <span><span [ghs-label]="'game.element.state.' + element.state"></span></span>
+        </span>
+      }
+    </div>
   }
   @if (rooms().length > 0) {
-  <div class="sections rooms">
-    @for (roomData of rooms() | trackUUID; track roomData._trackUUID; let i = $index) {
-    <span class="section room">
-      <img class="ghs-svg" src="./assets/images/scenario/door.svg">
-      <span class="text-white"
-        [ghs-label]="roomData.marker ? 'scenario.rules.openRoomMarker' : 'scenario.rules.openRoom'"
-        [ghs-label-args]="[roomData.marker || '']"></span>
-    </span>
-    }
-  </div>
+    <div class="sections rooms">
+      @for (roomData of rooms() | trackUUID; track roomData._trackUUID; let i = $index) {
+        <span class="section room">
+          <img class="ghs-svg" src="/assets/images/scenario/door.svg" />
+          <span
+            class="text-white"
+            [ghs-label]="roomData.marker ? 'scenario.rules.openRoomMarker' : 'scenario.rules.openRoom'"
+            [ghs-label-args]="[roomData.marker || '']"
+          ></span>
+        </span>
+      }
+    </div>
   }
   @if (sections().length > 0) {
-  <div class="sections">
-    @for (sectionData of sections() | trackUUID; track sectionData._trackUUID; let i = $index) {
-    @if (i > 0) {
-    <span class="and">,</span>
-    }
-    <span class="section">
-      <img class="ghs-svg" src="./assets/images/lock.svg">
-      @if (!sectionData.conclusion) {
-      <span class="text-white"
-        [ghs-label]="(sectionData.marker ? 'scenario.rules.addSectionMarker' : 'scenario.rules.addSection') + (sectionData.hideIndex ? '' : 'Index')"
-        [ghs-label-args]="[sectionData.index, gameManager.scenarioManager.scenarioTitle(sectionData,true), sectionData.marker || '']"></span>
+    <div class="sections">
+      @for (sectionData of sections() | trackUUID; track sectionData._trackUUID; let i = $index) {
+        @if (i > 0) {
+          <span class="and">,</span>
+        }
+        <span class="section">
+          <img class="ghs-svg" src="/assets/images/lock.svg" />
+          @if (!sectionData.conclusion) {
+            <span
+              class="text-white"
+              [ghs-label]="
+                (sectionData.marker ? 'scenario.rules.addSectionMarker' : 'scenario.rules.addSection') +
+                (sectionData.hideIndex ? '' : 'Index')
+              "
+              [ghs-label-args]="[sectionData.index, gameManager.scenarioManager.scenarioTitle(sectionData, true), sectionData.marker || '']"
+            ></span>
+          }
+          @if (sectionData.conclusion) {
+            <span
+              class="text-white"
+              [ghs-label]="'scenario.rules.finishWithConclusion'"
+              [ghs-label-args]="[sectionData.index, gameManager.scenarioManager.scenarioTitle(sectionData, true), sectionData.marker || '']"
+            ></span>
+          }
+        </span>
       }
-      @if (sectionData.conclusion) {
-      <span class="text-white" [ghs-label]=" 'scenario.rules.finishWithConclusion'"
-        [ghs-label-args]="[sectionData.index, gameManager.scenarioManager.scenarioTitle(sectionData,true), sectionData.marker || '']"></span>
-      }
-    </span>
-    }
-  </div>
+    </div>
   }
   @if (figureRules().length > 0) {
-  <div class="figures">
-    @for (figureRule of figureRules() | trackUUID; track figureRule._trackUUID) {
-    <span class="figure">
-      <span class="text-white" [ghs-label]="'scenario.rules.figures.' + figureRule.type"
-        [ghs-label-args]="[figureNames(figureRule), figureRule.value || '', (settingsManager.settings.calculate && (figureRule.type == 'damage' && figureRule.value && !figureRule.value.includes('H') || (figureRule.type == 'setHp' || figureRule.type == 'heal') && figureRule.value && !figureRule.value.includes('H'))) ? EntityValueFunction(figureRule.value || '') : (figureRule.value || ''), (figureRule.type == 'amAdd' || figureRule.type == 'amRemove') ? figureRule.value.split(':')[0] : '', (figureRule.type == 'amAdd' || figureRule.type == 'amRemove' || figureRule.type == 'transfer' && figureRule.value && figureRule.value.split(':').length > 1) ? figureRule.value.split(':')[1] : '', figureRule.type == 'transferEntities' && figureRule.identifier && figureRule.identifier.number ? figureRule.identifier.number : '']"></span>
-      @if (figureRule.scenarioEffect) {
-      <span class="text-white">
-        <span [ghs-label]="'scenario.rules.figures.scenarioEffect'"></span>
-      </span>
+    <div class="figures">
+      @for (figureRule of figureRules() | trackUUID; track figureRule._trackUUID) {
+        <span class="figure">
+          <span
+            class="text-white"
+            [ghs-label]="'scenario.rules.figures.' + figureRule.type"
+            [ghs-label-args]="[
+              figureNames(figureRule),
+              figureRule.value || '',
+              settingsManager.settings.calculate &&
+              ((figureRule.type == 'damage' && figureRule.value && !figureRule.value.includes('H')) ||
+                ((figureRule.type == 'setHp' || figureRule.type == 'heal') && figureRule.value && !figureRule.value.includes('H')))
+                ? EntityValueFunction(figureRule.value || '')
+                : figureRule.value || '',
+              figureRule.type == 'amAdd' || figureRule.type == 'amRemove' ? figureRule.value.split(':')[0] : '',
+              figureRule.type == 'amAdd' ||
+              figureRule.type == 'amRemove' ||
+              (figureRule.type == 'transfer' && figureRule.value && figureRule.value.split(':').length > 1)
+                ? figureRule.value.split(':')[1]
+                : '',
+              figureRule.type == 'transferEntities' && figureRule.identifier && figureRule.identifier.number
+                ? figureRule.identifier.number
+                : ''
+            ]"
+          ></span>
+          @if (figureRule.scenarioEffect) {
+            <span class="text-white">
+              <span [ghs-label]="'scenario.rules.figures.scenarioEffect'"></span>
+            </span>
+          }
+        </span>
       }
-    </span>
-    }
-  </div>
+    </div>
   }
   @if (rule.randomDungeon) {
-  <div class="random-dungeon">
-    @if (rule.randomDungeon.dungeonCount) {
-    <p class="text-white"
-      [ghs-label]="'scenario.rules.randomDungeon.dungeon' + (rule.randomDungeon.dungeonCards && rule.randomDungeon.dungeonCards.length ? '.cards' : '')"
-      [ghs-label-args]="[rule.randomDungeon.dungeonCount, randomDungeonsDungeonLabel().toString()]">
-    </p>
-    }
-    @if (rule.randomDungeon.dungeonCount && rule.randomDungeon.monsterCount) {
-    <br>
-    }
-    @if (rule.randomDungeon.monsterCount) {
-    <p class="text-white"
-      [ghs-label]="'scenario.rules.randomDungeon.monster' + (rule.randomDungeon.monsterCards && rule.randomDungeon.monsterCards.length ? '.cards' : '')"
-      [ghs-label-args]="[rule.randomDungeon.monsterCount, randomDungeonsMonsterLabel(rule).toString()]">
-    </p>
-    }
-  </div>
+    <div class="random-dungeon">
+      @if (rule.randomDungeon.dungeonCount) {
+        <p
+          class="text-white"
+          [ghs-label]="
+            'scenario.rules.randomDungeon.dungeon' +
+            (rule.randomDungeon.dungeonCards && rule.randomDungeon.dungeonCards.length ? '.cards' : '')
+          "
+          [ghs-label-args]="[rule.randomDungeon.dungeonCount, randomDungeonsDungeonLabel().toString()]"
+        ></p>
+      }
+      @if (rule.randomDungeon.dungeonCount && rule.randomDungeon.monsterCount) {
+        <br />
+      }
+      @if (rule.randomDungeon.monsterCount) {
+        <p
+          class="text-white"
+          [ghs-label]="
+            'scenario.rules.randomDungeon.monster' +
+            (rule.randomDungeon.monsterCards && rule.randomDungeon.monsterCards.length ? '.cards' : '')
+          "
+          [ghs-label-args]="[rule.randomDungeon.monsterCount, randomDungeonsMonsterLabel(rule).toString()]"
+        ></p>
+      }
+    </div>
   }
   @if (!!rule.statEffects && rule.statEffects.length) {
-  <div class="stat-effects">
-    @for (statEffectRule of rule.statEffects | trackUUID; track statEffectRule._trackUUID) {
-    <div class="text text-white" [ghs-label]="statEffectRule.note">
+    <div class="stat-effects">
+      @for (statEffectRule of rule.statEffects | trackUUID; track statEffectRule._trackUUID) {
+        <div class="text text-white" [ghs-label]="statEffectRule.note"></div>
+      }
     </div>
-    }
-  </div>
   }
   @if (rule.finish) {
-  <p class="text-white" [ghs-label]="'scenario.rules.finish.' + rule.finish"></p>
+    <p class="text-white" [ghs-label]="'scenario.rules.finish.' + rule.finish"></p>
   }
   @if (rule.note) {
-  <p class="text-white" [ghs-label]="rule.note"></p>
+    <p class="text-white" [ghs-label]="rule.note"></p>
   }
   @if (rule.alwaysApplyTurn) {
-  <p class="text-white" [ghs-label]="'scenario.rules.alwaysApplyTurn.' + rule.alwaysApplyTurn"></p>
+    <p class="text-white" [ghs-label]="'scenario.rules.alwaysApplyTurn.' + rule.alwaysApplyTurn"></p>
   }
 </div>

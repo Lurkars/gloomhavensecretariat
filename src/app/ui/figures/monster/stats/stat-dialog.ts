@@ -1,25 +1,29 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { Component, Inject, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Monster } from 'src/app/game/model/Monster';
+import { MonsterStatsComponent } from 'src/app/ui/figures/monster/stats/stats';
 
 @Component({
-  standalone: false,
+  imports: [NgClass, forwardRef(() => MonsterStatsComponent)],
   selector: 'ghs-stat-dialog',
   templateUrl: './stat-dialog.html',
-  styleUrls: ['./stat-dialog.scss']
+  styleUrls: ['./stat-dialog.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonsterStatDialogComponent implements OnInit {
-
   opened: boolean = false;
   monster: Monster;
   forceStats: boolean;
 
-  constructor(@Inject(DIALOG_DATA) public data: { monster: Monster, forceStats: boolean }, private dialogRef: DialogRef) {
-    this.monster = data.monster;
-    this.forceStats = data.forceStats;
+  data: { monster: Monster; forceStats: boolean } = inject(DIALOG_DATA);
+
+  constructor(private dialogRef: DialogRef) {
+    this.monster = this.data.monster;
+    this.forceStats = this.data.forceStats;
   }
 
   ngOnInit(): void {
@@ -27,14 +31,17 @@ export class MonsterStatDialogComponent implements OnInit {
   }
 
   close() {
-    this.opened = false
-    setTimeout(() => {
-      this.dialogRef.close();
-    }, settingsManager.settings.animations ? 1000 * settingsManager.settings.animationSpeed : 0);
+    this.opened = false;
+    setTimeout(
+      () => {
+        this.dialogRef.close();
+      },
+      settingsManager.settings.animations ? 1000 * settingsManager.settings.animationSpeed : 0
+    );
   }
 
   getBackside(): Monster {
-    let monster: Monster = new Monster(this.monster);
+    const monster: Monster = new Monster(this.monster);
     if (monster.boss) {
       gameManager.monsterManager.addMonsterEntity(monster, 1, MonsterType.boss);
     } else {

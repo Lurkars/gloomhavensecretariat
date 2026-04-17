@@ -40,7 +40,6 @@
 }
 
 .menu-container {
-
   position: relative;
   display: flex;
   flex-direction: column;
@@ -112,7 +111,6 @@
       filter: var(--ghs-filter-white);
     }
 
-
     button {
       border: 0;
       box-shadow: none;
@@ -183,13 +181,13 @@
         color: var(--ghs-color-red);
       }
 
-      &~input,
-      &~select {
+      & ~ input,
+      & ~ select {
         margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       }
     }
 
-    &>a {
+    & > a {
       text-decoration: none;
     }
 
@@ -302,18 +300,17 @@
     &.sticky {
       position: sticky;
       top: 0;
-      background-image: url('~src/assets/images/dialog_background.png');
+      background-image: url('/assets/images/dialog_background.png');
       z-index: 1;
 
       &.fh {
-        background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+        background-image: url('/assets/images/fh/dialog_background_fh.png');
       }
 
       &.modern {
-        background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+        background-image: url('/assets/images/modern/dialog_background_modern.png');
       }
     }
-
   }
 
   .disabled {
@@ -325,9 +322,8 @@
       color: var(--ghs-color-disabled);
     }
 
-    input[type="checkbox"],
-    input[type="radio"] {
-
+    input[type='checkbox'],
+    input[type='radio'] {
       color: var(--ghs-color-disabled);
 
       &::before {
@@ -337,7 +333,6 @@
   }
 
   .denied {
-
     a,
     label {
       color: var(--ghs-color-disabled);
@@ -349,7 +344,7 @@
   }
 
   .spoilers {
-    &>.spoiler {
+    & > .spoiler {
       margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       border-top: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);
 
@@ -368,7 +363,7 @@
       }
     }
 
-    &>.spoiler~.spoiler {
+    & > .spoiler ~ .spoiler {
       margin-top: 0;
       border-top: none;
     }
@@ -428,14 +423,10 @@
       background-color: var(--ghs-color-darkgray);
     }
   }
-
 }
 
-@media (max-width: 600px),
-(orientation: portrait) {
-
+@media (max-width: 600px), (orientation: portrait) {
   .menu-container.two-column {
-
     grid-template-columns: auto;
 
     .column,

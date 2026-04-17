@@ -31,4 +31,4 @@ jobs:
       - name: npm i and npm test
         run: |
           npm ci
-          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+          npm test -- --watch=false

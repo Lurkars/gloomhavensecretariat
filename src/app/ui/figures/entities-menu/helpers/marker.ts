@@ -1,24 +1,25 @@
-import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { Character } from "src/app/game/model/Character";
-import type { EntitiesMenuDialogComponent } from '../entities-menu-dialog';
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { Character } from 'src/app/game/model/Character';
+import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 
 export class MarkerHelper {
-
-  constructor(private component: EntitiesMenuDialogComponent) { }
+  constructor(private component: EntitiesMenuDialogComponent) {}
 
   update() {
-    this.component.characterMarker = [...gameManager.markers(), ...this.component.entities.flatMap((entity) => entity.markers)].filter((marker, index, self) => index == self.indexOf(marker));
+    this.component.characterMarker = [...gameManager.markers(), ...this.component.entities.flatMap((entity) => entity.markers)].filter(
+      (marker, index, self) => index == self.indexOf(marker)
+    );
 
     this.component.characterMarker.forEach((marker) => {
       if (this.component.entities.every((entity) => entity.markers.includes(marker))) {
         this.component.characterMarkerToAdd.push(marker);
       }
-    })
+    });
   }
 
   toggleCharacterMarker() {
     if (this.component.entity instanceof Character) {
-      this.component.before(this.component.entity.marker ? "disableCharacterMarker" : "enableCharacterMarker");
+      this.component.before(this.component.entity.marker ? 'disableCharacterMarker' : 'enableCharacterMarker');
       this.component.entity.marker = !this.component.entity.marker;
       gameManager.stateManager.after();
       this.update();
@@ -44,12 +45,12 @@ export class MarkerHelper {
           this.component.before('addCharacterMarker', marker, edition + '.' + name);
           this.component.entities.forEach((entity) => {
             if (!entity.markers.includes(marker)) {
-              entity.markers.push(marker)
+              entity.markers.push(marker);
             }
-          })
+          });
           gameManager.stateManager.after();
         }
-      })
+      });
     }
 
     if (this.component.characterMarkerToRemove.length) {
@@ -60,10 +61,10 @@ export class MarkerHelper {
           this.component.before('removeCharacterMarker', marker, edition + '.' + name);
           this.component.entities.forEach((entity) => {
             entity.markers = entity.markers.filter((m) => m != marker);
-          })
+          });
           gameManager.stateManager.after();
         }
-      })
+      });
     }
   }
 }

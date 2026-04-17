@@ -1,59 +1,66 @@
-import { signal, WritableSignal } from "@angular/core";
-import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
-import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
-import { ghsShuffleArray } from "src/app/ui/helper/Static";
-import { Character } from "../model/Character";
-import { Entity, EntityCounter } from "../model/Entity";
-import { Figure } from "../model/Figure";
-import { Game, GameClockTimestamp, GameState } from "../model/Game";
-import { Monster } from "../model/Monster";
-import { MonsterEntity } from "../model/MonsterEntity";
-import { ObjectiveContainer } from "../model/ObjectiveContainer";
-import { ObjectiveEntity } from "../model/ObjectiveEntity";
-import { Party } from "../model/Party";
-import { Summon } from "../model/Summon";
-import { Ability } from "../model/data/Ability";
-import { Action, ActionType } from "../model/data/Action";
-import { ChallengeCard } from "../model/data/Challenges";
-import { CharacterData } from "../model/data/CharacterData";
-import { Condition, ConditionName, Conditions, ConditionType } from "../model/data/Condition";
-import { DeckData } from "../model/data/DeckData";
-import { CampaignData, EditionData, FH_PROSPERITY_STEPS, GH2E_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "../model/data/EditionData";
-import { ElementModel, ElementState } from "../model/data/Element";
-import { ItemData } from "../model/data/ItemData";
-import { MonsterData } from "../model/data/MonsterData";
-import { MonsterStat } from "../model/data/MonsterStat";
-import { MonsterType } from "../model/data/MonsterType";
-import { ScenarioData } from "../model/data/ScenarioData";
-import { ActionsManager } from "./ActionsManager";
-import { AttackModifierManager } from "./AttackModifierManager";
-import { BattleGoalManager } from "./BattleGoalManager";
-import { BuildingsManager } from "./BuildingsManager";
-import { ChallengesManager } from "./ChallengesManager";
-import { CharacterManager } from "./CharacterManager";
-import { EnhancementsManager } from "./EnhancementsManager";
-import { EntityManager } from "./EntityManager";
-import { EventCardManager } from "./EventCardManager";
-import { ImbuementManager } from "./ImbuementManager";
-import { ItemManager } from "./ItemManager";
-import { LevelManager } from "./LevelManager";
-import { LootManager } from "./LootManager";
-import { MonsterManager } from "./MonsterManager";
-import { ObjectiveManager } from "./ObjectiveManager";
-import { RoundManager } from "./RoundManager";
-import { ScenarioManager } from "./ScenarioManager";
-import { ScenarioRulesManager } from "./ScenarioRulesManager";
-import { ScenarioStatsManager } from "./ScenarioStatsManager";
-import { settingsManager } from "./SettingsManager";
-import { StateManager } from "./StateManager";
-import { TrialsManager } from "./TrialsManager";
+import { signal, WritableSignal } from '@angular/core';
+import { ActionsManager } from 'src/app/game/businesslogic/ActionsManager';
+import { AttackModifierManager } from 'src/app/game/businesslogic/AttackModifierManager';
+import { BattleGoalManager } from 'src/app/game/businesslogic/BattleGoalManager';
+import { BuildingsManager } from 'src/app/game/businesslogic/BuildingsManager';
+import { ChallengesManager } from 'src/app/game/businesslogic/ChallengesManager';
+import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
+import { EnhancementsManager } from 'src/app/game/businesslogic/EnhancementsManager';
+import { EntityManager } from 'src/app/game/businesslogic/EntityManager';
+import { EventCardManager } from 'src/app/game/businesslogic/EventCardManager';
+import { ImbuementManager } from 'src/app/game/businesslogic/ImbuementManager';
+import { ItemManager } from 'src/app/game/businesslogic/ItemManager';
+import { LevelManager } from 'src/app/game/businesslogic/LevelManager';
+import { LootManager } from 'src/app/game/businesslogic/LootManager';
+import { MonsterManager } from 'src/app/game/businesslogic/MonsterManager';
+import { ObjectiveManager } from 'src/app/game/businesslogic/ObjectiveManager';
+import { RoundManager } from 'src/app/game/businesslogic/RoundManager';
+import { ScenarioManager } from 'src/app/game/businesslogic/ScenarioManager';
+import { ScenarioRulesManager } from 'src/app/game/businesslogic/ScenarioRulesManager';
+import { ScenarioStatsManager } from 'src/app/game/businesslogic/ScenarioStatsManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { StateManager } from 'src/app/game/businesslogic/StateManager';
+import { TrialsManager } from 'src/app/game/businesslogic/TrialsManager';
+import { Character } from 'src/app/game/model/Character';
+import { Ability } from 'src/app/game/model/data/Ability';
+import { Action, ActionType } from 'src/app/game/model/data/Action';
+import { ChallengeCard } from 'src/app/game/model/data/Challenges';
+import { CharacterData } from 'src/app/game/model/data/CharacterData';
+import { Condition, ConditionName, Conditions, ConditionType } from 'src/app/game/model/data/Condition';
+import { DeckData } from 'src/app/game/model/data/DeckData';
+import {
+  CampaignData,
+  EditionData,
+  FH_PROSPERITY_STEPS,
+  GH_PROSPERITY_STEPS,
+  GH2E_PROSPERITY_STEPS
+} from 'src/app/game/model/data/EditionData';
+import { ElementModel, ElementState } from 'src/app/game/model/data/Element';
+import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
+import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
+import { ItemData } from 'src/app/game/model/data/ItemData';
+import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
+import { Entity, EntityCounter } from 'src/app/game/model/Entity';
+import { Figure } from 'src/app/game/model/Figure';
+import { Game, GameClockTimestamp, GameState } from 'src/app/game/model/Game';
+import { Monster } from 'src/app/game/model/Monster';
+import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
+import { Party } from 'src/app/game/model/Party';
+import { Summon } from 'src/app/game/model/Summon';
+import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 declare global {
-  interface Window { gameManager: GameManager }
+  interface Window {
+    gameManager: GameManager;
+  }
 }
 
 export class GameManager {
-
   game: Game = new Game();
   editionData: EditionData[] = [];
   editionMapping: Record<string, string[]> = {};
@@ -87,7 +94,7 @@ export class GameManager {
 
   triggerUiChange(fromServer: boolean = false): void {
     this.uiChangeFromServer.set(fromServer);
-    this.uiChangeSignal.update(v => v + 1);
+    this.uiChangeSignal.update((v) => v + 1);
   }
 
   constructor() {
@@ -115,7 +122,11 @@ export class GameManager {
   }
 
   editions(all: boolean = false, additional: boolean = false): string[] {
-    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.includes(editionData.edition)) && (additional || !editionData.additional)).map((editionData) => editionData.edition);
+    return this.editionData
+      .filter(
+        (editionData) => (all || settingsManager.settings.editions.includes(editionData.edition)) && (additional || !editionData.additional)
+      )
+      .map((editionData) => editionData.edition);
   }
 
   editionsData(all: boolean = false, additional: boolean = false): EditionData[] {
@@ -128,7 +139,7 @@ export class GameManager {
     if (editionData && editionData.logoUrl) {
       return editionData.logoUrl;
     }
-    return "";
+    return '';
   }
 
   currentEditions(additional: boolean = false): string[] {
@@ -158,7 +169,6 @@ export class GameManager {
   }
 
   editionExtensions(edition: string, all: boolean = false): string[] {
-
     if (all && this.editionMappingAll[edition]) {
       return this.editionMappingAll[edition];
     } else if (!all && this.editionMapping[edition]) {
@@ -166,7 +176,7 @@ export class GameManager {
     }
 
     const editionData = this.editionData.find((editionData) => editionData.edition == edition);
-    let extensions: string[] = [];
+    const extensions: string[] = [];
     if (editionData && editionData.extensions) {
       editionData.extensions.forEach((extension) => {
         if (!extensions.includes(extension) && this.editions(all, true).includes(extension)) {
@@ -176,15 +186,17 @@ export class GameManager {
           if (!extensions.includes(extExt) && this.editions(all, true).includes(extension)) {
             extensions.push(extExt);
           }
-        })
-      })
+        });
+      });
     }
 
-    this.editionData.filter((ed) => ed.edition != edition && ed.extends && ed.extends.includes(edition)).forEach((editionData) => {
-      if (!extensions.includes(editionData.edition)) {
-        extensions.push(editionData.edition);
-      }
-    })
+    this.editionData
+      .filter((ed) => ed.edition != edition && ed.extends && ed.extends.includes(edition))
+      .forEach((editionData) => {
+        if (!extensions.includes(editionData.edition)) {
+          extensions.push(editionData.edition);
+        }
+      });
 
     if (all) {
       this.editionMappingAll[edition] = extensions;
@@ -196,14 +208,23 @@ export class GameManager {
   }
 
   editionScenarioExtensions(edition: string, all: boolean = false): string[] {
-
     if (all && this.editionScenarioMappingAll[edition]) {
       return this.editionScenarioMappingAll[edition];
     } else if (!all && this.editionScenarioMapping[edition]) {
       return this.editionScenarioMapping[edition];
     }
 
-    const extensions = this.editionData.filter((additional) => (all || settingsManager.settings.editions.includes(additional.edition)) && additional.additional && additional.scenarios && additional.scenarios.length && additional.scenarios.some((scenarioData) => scenarioData.edition == additional.edition) && additional.extensions.includes(edition)).map((additional) => additional.edition);
+    const extensions = this.editionData
+      .filter(
+        (additional) =>
+          (all || settingsManager.settings.editions.includes(additional.edition)) &&
+          additional.additional &&
+          additional.scenarios &&
+          additional.scenarios.length &&
+          additional.scenarios.some((scenarioData) => scenarioData.edition == additional.edition) &&
+          additional.extensions.includes(edition)
+      )
+      .map((additional) => additional.edition);
 
     if (all) {
       this.editionScenarioMappingAll[edition] = extensions;
@@ -223,7 +244,10 @@ export class GameManager {
 
   newItemStyle(edition: string): boolean {
     const editionData = this.editionData.find((editionData) => editionData.edition == edition);
-    if (editionData && (editionData.newItemStyle || editionData.extensions && editionData.extensions.some((edition) => this.newItemStyle(edition)))) {
+    if (
+      editionData &&
+      (editionData.newItemStyle || (editionData.extensions && editionData.extensions.some((edition) => this.newItemStyle(edition))))
+    ) {
       return true;
     }
 
@@ -232,7 +256,10 @@ export class GameManager {
 
   newAmStyle(edition: string): boolean {
     const editionData = this.editionData.find((editionData) => editionData.edition == edition);
-    if (editionData && (editionData.newAmStyle || editionData.extensions && editionData.extensions.some((edition) => this.newAmStyle(edition)))) {
+    if (
+      editionData &&
+      (editionData.newAmStyle || (editionData.extensions && editionData.extensions.some((edition) => this.newAmStyle(edition))))
+    ) {
       return true;
     }
 
@@ -240,92 +267,187 @@ export class GameManager {
   }
 
   charactersData(edition: string | undefined = undefined): CharacterData[] {
-    const characters = this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.includes(editionData.edition)) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).includes(edition))).flatMap((editionData) => editionData.characters);
+    const characters = this.editionData
+      .filter(
+        (editionData) =>
+          (!edition || settingsManager.settings.editions.includes(editionData.edition)) &&
+          (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).includes(edition))
+      )
+      .flatMap((editionData) => editionData.characters);
 
     const merges = characters.filter((characterData) => characterData.merge);
 
-    return characters.filter((characterData) => (!edition || characterData.edition == edition) && !characterData.merge && (characterData.replace || !characterData.replace && !characters.find((characterDataReplacement) => characterDataReplacement.replace && characterDataReplacement.name === characterData.name && characterDataReplacement.edition === characterData.edition))).map((characterData) => {
-      const merge = merges.find((characterDataMerge) => characterDataMerge.name === characterData.name && characterDataMerge.edition === characterData.edition);
-      if (merge) {
-        return Object.assign(new CharacterData(characterData), merge);
-      }
+    return characters
+      .filter(
+        (characterData) =>
+          (!edition || characterData.edition == edition) &&
+          !characterData.merge &&
+          (characterData.replace ||
+            (!characterData.replace &&
+              !characters.find(
+                (characterDataReplacement) =>
+                  characterDataReplacement.replace &&
+                  characterDataReplacement.name === characterData.name &&
+                  characterDataReplacement.edition === characterData.edition
+              )))
+      )
+      .map((characterData) => {
+        const merge = merges.find(
+          (characterDataMerge) => characterDataMerge.name === characterData.name && characterDataMerge.edition === characterData.edition
+        );
+        if (merge) {
+          return Object.assign(new CharacterData(characterData), merge);
+        }
 
-      return new CharacterData(characterData);
-    });
+        return new CharacterData(characterData);
+      });
   }
 
   monstersData(edition: string | undefined = undefined): MonsterData[] {
-    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.includes(editionData.edition)) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).includes(edition))).flatMap((editionData) => editionData.monsters).filter((monsterData, index, monsters) => (!edition || monsterData.edition == edition) && (monsterData.replace || !monsterData.replace && !monsters.find((monsterDataReplacement) => monsterDataReplacement.replace && monsterDataReplacement.name == monsterData.name && monsterDataReplacement.edition == monsterData.edition)));
+    return this.editionData
+      .filter(
+        (editionData) =>
+          (!edition || settingsManager.settings.editions.includes(editionData.edition)) &&
+          (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).includes(edition))
+      )
+      .flatMap((editionData) => editionData.monsters)
+      .filter(
+        (monsterData, index, monsters) =>
+          (!edition || monsterData.edition == edition) &&
+          (monsterData.replace ||
+            (!monsterData.replace &&
+              !monsters.find(
+                (monsterDataReplacement) =>
+                  monsterDataReplacement.replace &&
+                  monsterDataReplacement.name == monsterData.name &&
+                  monsterDataReplacement.edition == monsterData.edition
+              )))
+      );
   }
 
   decksData(edition: string | undefined = undefined): DeckData[] {
-    const decks = this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.includes(editionData.edition)) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).includes(edition))).flatMap((editionData) => editionData.decks);
+    const decks = this.editionData
+      .filter(
+        (editionData) =>
+          (!edition || settingsManager.settings.editions.includes(editionData.edition)) &&
+          (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).includes(edition))
+      )
+      .flatMap((editionData) => editionData.decks);
 
     const replaces = decks.filter((deckData) => deckData.abilities.some((ability) => ability.replace));
 
-    return decks.filter((deckData) => !replaces.includes(deckData)).map((deckData) => {
-      const replace = replaces.find((other) => other.edition == deckData.edition && other.name == deckData.name);
-      if (!replace) {
-        return deckData;
-      }
-      let newDeckData = new DeckData(deckData.edition, deckData.name, deckData.character);
+    return decks
+      .filter((deckData) => !replaces.includes(deckData))
+      .map((deckData) => {
+        const replace = replaces.find((other) => other.edition == deckData.edition && other.name == deckData.name);
+        if (!replace) {
+          return deckData;
+        }
+        const newDeckData = new DeckData(deckData.edition, deckData.name, deckData.character);
 
-      newDeckData.abilities = deckData.abilities.map((ability) =>
-        Object.assign(new Ability(), replace.abilities.find((other) => other.cardId == ability.cardId && other.replace) || ability)
-      )
+        newDeckData.abilities = deckData.abilities.map((ability) =>
+          Object.assign(new Ability(), replace.abilities.find((other) => other.cardId == ability.cardId && other.replace) || ability)
+        );
 
-      return newDeckData;
-    })
+        return newDeckData;
+      });
   }
 
   scenarioData(edition: string | undefined = undefined): ScenarioData[] {
-    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.includes(editionData.edition)) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).includes(edition))).flatMap((editionData) => editionData.scenarios).filter((scenarioData) => !edition || scenarioData.edition == edition);
+    return this.editionData
+      .filter(
+        (editionData) =>
+          (!edition || settingsManager.settings.editions.includes(editionData.edition)) &&
+          (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).includes(edition))
+      )
+      .flatMap((editionData) => editionData.scenarios)
+      .filter((scenarioData) => !edition || scenarioData.edition == edition);
   }
 
   sectionData(edition: string | undefined = undefined, extension: boolean = false): ScenarioData[] {
-    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.includes(editionData.edition)) && (!edition || editionData.edition == edition || editionData.additional && this.editionExtensions(editionData.edition).includes(edition) || extension && this.editionExtensions(edition).includes(editionData.edition))).flatMap((editionData) => editionData.sections).filter((sectionData) => !edition || sectionData.edition == edition || extension).map((sectionData) => {
-      if (!settingsManager.settings.fhSecondEdition || sectionData.edition != 'fh') {
+    return this.editionData
+      .filter(
+        (editionData) =>
+          (!edition || settingsManager.settings.editions.includes(editionData.edition)) &&
+          (!edition ||
+            editionData.edition == edition ||
+            (editionData.additional && this.editionExtensions(editionData.edition).includes(edition)) ||
+            (extension && this.editionExtensions(edition).includes(editionData.edition)))
+      )
+      .flatMap((editionData) => editionData.sections)
+      .filter((sectionData) => !edition || sectionData.edition == edition || extension)
+      .map((sectionData) => {
+        if (!settingsManager.settings.fhSecondEdition || sectionData.edition != 'fh') {
+          return sectionData;
+        } else if (sectionData.index == '6.2') {
+          const section = new ScenarioData(sectionData);
+          section.index = '60.2';
+          return section;
+        } else if (sectionData.index == '60.2') {
+          const section = new ScenarioData(sectionData);
+          section.index = '6.2';
+          return section;
+        }
         return sectionData;
-      } else if (sectionData.index == '6.2') {
-        let section = new ScenarioData(sectionData);
-        section.index = "60.2";
-        return section;
-      } else if (sectionData.index == '60.2') {
-        let section = new ScenarioData(sectionData);
-        section.index = "6.2";
-        return section;
-      }
-      return sectionData;
-    });
+      });
   }
 
   itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {
-    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.includes(editionData.edition)) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition, true).includes(edition))).flatMap((editionData) => editionData.items).filter((itemData, index, items) => (itemData.replace || !itemData.replace && !items.find((itemDataReplacement) => itemDataReplacement.replace && itemDataReplacement.id == itemData.id && itemDataReplacement.edition == itemData.edition)));
+    return this.editionData
+      .filter(
+        (editionData) =>
+          (all || settingsManager.settings.editions.includes(editionData.edition)) &&
+          (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition, true).includes(edition))
+      )
+      .flatMap((editionData) => editionData.items)
+      .filter(
+        (itemData, index, items) =>
+          itemData.replace ||
+          (!itemData.replace &&
+            !items.find(
+              (itemDataReplacement) =>
+                itemDataReplacement.replace && itemDataReplacement.id == itemData.id && itemDataReplacement.edition == itemData.edition
+            ))
+      );
   }
 
   challengesData(edition: string | undefined = undefined, all: boolean = false): ChallengeCard[] {
-    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.includes(editionData.edition)) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition, true).includes(edition))).flatMap((editionData) => editionData.challenges);
+    return this.editionData
+      .filter(
+        (editionData) =>
+          (all || settingsManager.settings.editions.includes(editionData.edition)) &&
+          (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition, true).includes(edition))
+      )
+      .flatMap((editionData) => editionData.challenges);
   }
 
   conditions(edition: string | undefined = undefined, forceEdition: boolean = false): Condition[] {
-
     let conditions: Condition[] = [];
     let conditionNames: (ConditionName | string)[] = [];
 
     if (edition) {
-      conditionNames = this.editionData.filter((editionData) => (editionData.edition == edition || this.editionExtensions(edition).includes(editionData.edition)) && editionData.conditions && editionData.conditions.length > 0).flatMap((other) => other.conditions);
+      conditionNames = this.editionData
+        .filter(
+          (editionData) =>
+            (editionData.edition == edition || this.editionExtensions(edition).includes(editionData.edition)) &&
+            editionData.conditions &&
+            editionData.conditions.length > 0
+        )
+        .flatMap((other) => other.conditions);
 
       if (!forceEdition && this.game.conditions) {
         conditionNames.push(...this.game.conditions);
       }
 
-      conditions.push(...conditionNames.map((value) => {
-        if (value.split(':').length > 1) {
-          return new Condition(value.split(':')[0], + value.split(':')[1]);
-        } else {
-          return new Condition(value);
-        }
-      }));
+      conditions.push(
+        ...conditionNames.map((value) => {
+          if (value.split(':').length > 1) {
+            return new Condition(value.split(':')[0], +value.split(':')[1]);
+          } else {
+            return new Condition(value);
+          }
+        })
+      );
     } else {
       conditions = Conditions;
     }
@@ -333,14 +455,23 @@ export class GameManager {
     conditions = conditions.filter((condition) => !condition.types.includes(ConditionType.special));
 
     if (!forceEdition) {
-      this.game.figures.filter((figure) => figure instanceof Character && figure.specialConditions && figure.specialConditions.length && !figure.absent && gameManager.gameplayFigure(figure)).forEach((figure) => (figure as Character).specialConditions.forEach((name) => conditions.push(new Condition(name))));
+      this.game.figures
+        .filter(
+          (figure) =>
+            figure instanceof Character &&
+            figure.specialConditions &&
+            figure.specialConditions.length &&
+            !figure.absent &&
+            gameManager.gameplayFigure(figure)
+        )
+        .forEach((figure) => (figure as Character).specialConditions.forEach((name) => conditions.push(new Condition(name))));
     }
 
     return conditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) == i);
   }
 
   figureConditions(figure: Figure, entity: Entity | undefined = undefined): ConditionName[] {
-    let conditions: ConditionName[] = [];
+    const conditions: ConditionName[] = [];
 
     if (figure instanceof Character) {
       if (figure.summons) {
@@ -350,7 +481,7 @@ export class GameManager {
               if (!conditions.find((name) => name == condition)) {
                 conditions.push(condition);
               }
-            })
+            });
           }
 
           if (summon.additionalAction) {
@@ -358,9 +489,9 @@ export class GameManager {
               if (!conditions.find((name) => name == condition)) {
                 conditions.push(condition);
               }
-            })
+            });
           }
-        })
+        });
       }
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
       const stat: MonsterStat = gameManager.monsterManager.getStat(figure, entity.type);
@@ -371,8 +502,8 @@ export class GameManager {
             if (!conditions.find((name) => name == condition)) {
               conditions.push(condition);
             }
-          })
-        })
+          });
+        });
       }
     }
 
@@ -380,7 +511,7 @@ export class GameManager {
   }
 
   actionConditions(action: Action, stat: MonsterStat | undefined = undefined): ConditionName[] {
-    let conditions: ConditionName[] = [];
+    const conditions: ConditionName[] = [];
     if (action.type == ActionType.condition) {
       conditions.push(action.value as ConditionName);
     } else if (stat && action.type == ActionType.attack && stat.actions) {
@@ -388,20 +519,22 @@ export class GameManager {
         if (statAction.type == ActionType.condition) {
           conditions.push(statAction.value as ConditionName);
         }
-      })
+      });
     }
 
     if (action.subActions) {
       action.subActions.forEach((subAction) => {
         conditions.push(...this.actionConditions(subAction, stat));
-      })
+      });
     }
 
     return conditions;
   }
 
   conditionsForTypes(...types: string[]): Condition[] {
-    return this.conditions(this.game.edition).filter((condition) => types.every((type) => !type || condition.types.includes(type as ConditionType)));
+    return this.conditions(this.game.edition).filter((condition) =>
+      types.every((type) => !type || condition.types.includes(type as ConditionType))
+    );
   }
 
   allConditionsForTypes(...types: string[]): Condition[] {
@@ -409,15 +542,21 @@ export class GameManager {
   }
 
   markers(): string[] {
-    return this.game.figures.filter((figure) => figure instanceof Character && !figure.absent && (figure.marker || this.game.state == GameState.next && figure.active)).map((figure) => figure as Character).sort((a, b) => {
-      if (a.marker && !b.marker) {
-        return -1;
-      } else if (!a.marker && b.marker) {
-        return 1;
-      }
+    return this.game.figures
+      .filter(
+        (figure) => figure instanceof Character && !figure.absent && (figure.marker || (this.game.state == GameState.next && figure.active))
+      )
+      .map((figure) => figure as Character)
+      .sort((a, b) => {
+        if (a.marker && !b.marker) {
+          return -1;
+        } else if (!a.marker && b.marker) {
+          return 1;
+        }
 
-      return 0;
-    }).map((figure) => (figure as Character).edition + '-' + figure.name);
+        return 0;
+      })
+      .map((figure) => (figure as Character).edition + '-' + figure.name);
   }
 
   sortFigures(figure: Figure | undefined = undefined) {
@@ -473,7 +612,9 @@ export class GameManager {
     } else if (a instanceof Monster) {
       aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
     } else if (a instanceof ObjectiveContainer) {
-      aName = (a.title ? a.title : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : (a.escort ? 'escort' : 'objective')).toLowerCase());
+      aName = a.title
+        ? a.title
+        : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : a.escort ? 'escort' : 'objective').toLowerCase();
     }
 
     let bName = b.name.toLowerCase();
@@ -482,7 +623,9 @@ export class GameManager {
     } else if (b instanceof Monster) {
       bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
     } else if (b instanceof ObjectiveContainer) {
-      bName = (b.title ? b.title : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : (b.escort ? 'escort' : 'objective')).toLowerCase());
+      bName = b.title
+        ? b.title
+        : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : b.escort ? 'escort' : 'objective').toLowerCase();
     }
     if (a instanceof Character && b instanceof Monster) {
       return -1;
@@ -514,13 +657,24 @@ export class GameManager {
   }
 
   deckData(figure: Monster | Character, ignoreError: boolean = false): DeckData {
-    let deckData: DeckData | undefined
+    let deckData: DeckData | undefined;
 
     // find stat effect deck
     if (figure instanceof Monster && figure.statEffect && figure.statEffect.deck) {
-      deckData = this.decksData().find((deck) => (figure instanceof Monster && figure.statEffect && figure.statEffect.deck && figure.statEffect.deck == deck.name) && (deck.edition == figure.edition || deck.edition == gameManager.currentEdition() || this.editionExtensions(deck.edition).indexOf(gameManager.currentEdition(figure.edition)) != -1));
+      deckData = this.decksData().find(
+        (deck) =>
+          figure instanceof Monster &&
+          figure.statEffect &&
+          figure.statEffect.deck &&
+          figure.statEffect.deck == deck.name &&
+          (deck.edition == figure.edition ||
+            deck.edition == gameManager.currentEdition() ||
+            this.editionExtensions(deck.edition).indexOf(gameManager.currentEdition(figure.edition)) != -1)
+      );
       if (deckData && figure.abilities.length != deckData.abilities.length) {
-        figure.abilities = deckData.abilities.filter((ability) => isNaN(+ability.level) || +ability.level <= (figure && figure.level || 0)).map((ability) => deckData ? deckData.abilities.indexOf(ability) : -1);
+        figure.abilities = deckData.abilities
+          .filter((ability) => isNaN(+ability.level) || +ability.level <= ((figure && figure.level) || 0))
+          .map((ability) => (deckData ? deckData.abilities.indexOf(ability) : -1));
         ghsShuffleArray(figure.abilities);
         if (this.game.state == GameState.next) {
           figure.ability = 0;
@@ -529,12 +683,14 @@ export class GameManager {
     }
 
     if (!deckData) {
-      deckData = this.decksData(figure.edition).find((deck) => (deck.name == figure.deck || deck.name == figure.name));
+      deckData = this.decksData(figure.edition).find((deck) => deck.name == figure.deck || deck.name == figure.name);
     }
 
     // find extensions decks
     if (!deckData) {
-      deckData = this.decksData().find((deck) => (deck.name == figure.deck || deck.name == figure.name) && this.editionExtensions(figure.edition).includes(deck.edition));
+      deckData = this.decksData().find(
+        (deck) => (deck.name == figure.deck || deck.name == figure.name) && this.editionExtensions(figure.edition).includes(deck.edition)
+      );
     }
 
     // find other
@@ -544,9 +700,21 @@ export class GameManager {
 
     if (!deckData) {
       figure.errors = figure.errors || [];
-      if (!ignoreError && !figure.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !figure.errors.find((figureError) => figureError.type == FigureErrorType.deck)) {
-        console.error("Unknwon deck: " + figure.name + (figure.deck ? "[" + figure.deck + "]" : "") + " for " + figure.edition);
-        figure.errors.push(new FigureError(FigureErrorType.deck, figure instanceof Character ? "character" : "monster", figure.name, figure.edition, figure.deck));
+      if (
+        !ignoreError &&
+        !figure.errors.find((figureError) => figureError.type == FigureErrorType.unknown) &&
+        !figure.errors.find((figureError) => figureError.type == FigureErrorType.deck)
+      ) {
+        console.error('Unknwon deck: ' + figure.name + (figure.deck ? '[' + figure.deck + ']' : '') + ' for ' + figure.edition);
+        figure.errors.push(
+          new FigureError(
+            FigureErrorType.deck,
+            figure instanceof Character ? 'character' : 'monster',
+            figure.name,
+            figure.edition,
+            figure.deck
+          )
+        );
       }
       return new DeckData();
     }
@@ -559,7 +727,7 @@ export class GameManager {
   }
 
   hasBottomAbility(ability: Ability | undefined): boolean {
-    return ability && ability.bottomActions && ability.bottomActions.length > 0 || false;
+    return (ability && ability.bottomActions && ability.bottomActions.length > 0) || false;
   }
 
   getCharacterData(name: string, edition: string = ''): CharacterData {
@@ -585,7 +753,7 @@ export class GameManager {
         characterData.errors = characterData.errors || [];
         if (!characterData.errors.find((figureError) => figureError.type == FigureErrorType.unknown)) {
           console.error("unknown character '" + name + "' for edition '" + edition + "'");
-          characterData.errors.push(new FigureError(FigureErrorType.unknown, "character", name, edition));
+          characterData.errors.push(new FigureError(FigureErrorType.unknown, 'character', name, edition));
         }
       }
       return characterData;
@@ -641,16 +809,19 @@ export class GameManager {
     return entity as ObjectiveEntity;
   }
 
-  getEdition(figure: any, fallback: string = ""): string {
+  getEdition(figure: any, fallback: string = ''): string {
     const edition = this.currentEdition(fallback);
     if (figure.edition != edition && !this.editionExtensions(edition).includes(figure.edition)) {
       return figure.edition;
     }
-    return "";
+    return '';
   }
 
   gameplayFigure(figure: Figure) {
-    return (figure instanceof Monster || figure instanceof ObjectiveContainer) && this.entityManager.entitiesAll(figure, true).length > 0 || figure instanceof Character && gameManager.entityManager.isAlive(figure);
+    return (
+      ((figure instanceof Monster || figure instanceof ObjectiveContainer) && this.entityManager.entitiesAll(figure, true).length > 0) ||
+      (figure instanceof Character && gameManager.entityManager.isAlive(figure))
+    );
   }
 
   figuresByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean = false, figures: Figure[] = []): Figure[] {
@@ -659,25 +830,46 @@ export class GameManager {
     }
     if (identifier && identifier.type) {
       const type = identifier.type;
-      if (type == "all") {
-        return scenarioEffect ? figures.filter((figure) => {
-          if (!(figure instanceof Character)) {
-            return true
-          } else {
-            return !this.characterManager.ignoreNegativeScenarioffects(figure);
-          }
-        }) : figures;
+      if (type == 'all') {
+        return scenarioEffect
+          ? figures.filter((figure) => {
+              if (!(figure instanceof Character)) {
+                return true;
+              } else {
+                return !this.characterManager.ignoreNegativeScenarioffects(figure);
+              }
+            })
+          : figures;
       }
       if (identifier.name) {
         const edition = identifier.edition;
         const name = new RegExp('^' + identifier.name + '$');
         switch (type) {
-          case "monster":
-            return figures.filter((figure) => figure instanceof Monster && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tags || identifier.tags.length == 0 || figure.entities.some((entity) => identifier.tags && identifier.tags.every((tag) => entity.tags && entity.tags.includes(tag)))));
-          case "character":
-          case "characterWithSummon":
+          case 'monster':
+            return figures.filter(
+              (figure) =>
+                figure instanceof Monster &&
+                (!edition || figure.edition == edition) &&
+                figure.name.match(name) &&
+                (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) &&
+                (!identifier.tags ||
+                  identifier.tags.length == 0 ||
+                  figure.entities.some(
+                    (entity) => identifier.tags && identifier.tags.every((tag) => entity.tags && entity.tags.includes(tag))
+                  ))
+            );
+          case 'character':
+          case 'characterWithSummon':
             return figures.filter((figure) => {
-              if (figure instanceof Character && !figure.absent && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags && identifier.tags.every((tag) => figure.tags && figure.tags.includes(tag)))) {
+              if (
+                figure instanceof Character &&
+                !figure.absent &&
+                (!edition || figure.edition == edition) &&
+                figure.name.match(name) &&
+                (!identifier.tags ||
+                  identifier.tags.length == 0 ||
+                  (identifier.tags && identifier.tags.every((tag) => figure.tags && figure.tags.includes(tag))))
+              ) {
                 if (scenarioEffect) {
                   return !this.characterManager.ignoreNegativeScenarioffects(figure);
                 } else {
@@ -687,8 +879,19 @@ export class GameManager {
                 return false;
               }
             });
-          case "objective":
-            return this.game.figures.filter((figure) => figure instanceof ObjectiveContainer && figure.name.match(name) && (edition != "escort" || figure.escort) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tags || identifier.tags.length == 0 || figure.entities.some((entity) => identifier.tags && identifier.tags.every((tag) => entity.tags && entity.tags.includes(tag)))));
+          case 'objective':
+            return this.game.figures.filter(
+              (figure) =>
+                figure instanceof ObjectiveContainer &&
+                figure.name.match(name) &&
+                (edition != 'escort' || figure.escort) &&
+                (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) &&
+                (!identifier.tags ||
+                  identifier.tags.length == 0 ||
+                  figure.entities.some(
+                    (entity) => identifier.tags && identifier.tags.every((tag) => entity.tags && entity.tags.includes(tag))
+                  ))
+            );
         }
       }
     }
@@ -697,19 +900,29 @@ export class GameManager {
   }
 
   entitiesByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean): Entity[] {
-    let figures = this.figuresByIdentifier(identifier, scenarioEffect);
-    return figures.map((figure) => {
-      if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
-        return figure.entities;
-      } else if (figure instanceof Character) {
-        if (identifier && identifier.type == "characterWithSummon") {
-          return [figure as Entity, ...figure.summons];
+    const figures = this.figuresByIdentifier(identifier, scenarioEffect);
+    return figures
+      .map((figure) => {
+        if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
+          return figure.entities;
+        } else if (figure instanceof Character) {
+          if (identifier && identifier.type == 'characterWithSummon') {
+            return [figure as Entity, ...figure.summons];
+          }
+          return figure as Entity;
+        } else {
+          return undefined;
         }
-        return figure as Entity;
-      } else {
-        return undefined;
-      }
-    }).flat().filter((value) => value != undefined).map((value) => value as Entity).filter((entity) => !identifier || (!identifier.marker || !(entity instanceof MonsterEntity) || entity.marker == identifier.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entity.tags.includes(tag))));
+      })
+      .flat()
+      .filter((value) => value != undefined)
+      .map((value) => value as Entity)
+      .filter(
+        (entity) =>
+          !identifier ||
+          ((!identifier.marker || !(entity instanceof MonsterEntity) || entity.marker == identifier.marker) &&
+            (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entity.tags.includes(tag))))
+      );
   }
 
   getMonsterData(name: string, edition: string): MonsterData {
@@ -723,7 +936,7 @@ export class GameManager {
         monsterData.edition = edition;
         if (!monsterData.errors.find((figureError) => figureError.type == FigureErrorType.unknown)) {
           console.error("unknown monster '" + name + "' for edition '" + edition + "'");
-          monsterData.errors.push(new FigureError(FigureErrorType.unknown, "monster", name, edition));
+          monsterData.errors.push(new FigureError(FigureErrorType.unknown, 'monster', name, edition));
         }
       }
       return monsterData;
@@ -744,7 +957,7 @@ export class GameManager {
       if (this.prosperityTicks() > step) {
         prosperityLevel++;
       }
-    })
+    });
     return prosperityLevel;
   }
 
@@ -768,7 +981,7 @@ export class GameManager {
   }
 
   fhRules(gh2e: boolean = false): boolean {
-    return this.editionRules('fh') || gh2e && this.gh2eRules();
+    return this.editionRules('fh') || (gh2e && this.gh2eRules());
   }
 
   gh2eRules(): boolean {
@@ -781,25 +994,25 @@ export class GameManager {
 
   editionRules(edition: string, current: boolean = true): boolean {
     const currentEdition = current ? this.currentEdition() : this.game.edition;
-    return currentEdition && (currentEdition == edition || this.editionExtensions(currentEdition).includes(edition)) || false;
+    return (currentEdition && (currentEdition == edition || this.editionExtensions(currentEdition).includes(edition))) || false;
   }
 
   additionalIdentifier(figure: Figure, entity: Entity | undefined = undefined): AdditionalIdentifier {
     if (figure instanceof Character) {
-      return new AdditionalIdentifier(figure.name, figure.edition, "character", undefined, figure.tags);
+      return new AdditionalIdentifier(figure.name, figure.edition, 'character', undefined, figure.tags);
     } else if (figure instanceof Monster) {
       if (entity instanceof MonsterEntity) {
-        return new AdditionalIdentifier(figure.name, figure.edition, "monster", entity.marker, entity.tags);
+        return new AdditionalIdentifier(figure.name, figure.edition, 'monster', entity.marker, entity.tags);
       }
-      return new AdditionalIdentifier(figure.name, figure.edition, "monster", undefined, figure.tags);
+      return new AdditionalIdentifier(figure.name, figure.edition, 'monster', undefined, figure.tags);
     } else if (figure instanceof ObjectiveContainer) {
       if (entity instanceof ObjectiveEntity) {
-        return new AdditionalIdentifier(figure.name, figure.escort ? "escort" : "objective", "objective", entity.marker, entity.tags);
+        return new AdditionalIdentifier(figure.name, figure.escort ? 'escort' : 'objective', 'objective', entity.marker, entity.tags);
       }
-      return new AdditionalIdentifier(figure.name, figure.escort ? "escort" : "objective", "objective", undefined, []);
+      return new AdditionalIdentifier(figure.name, figure.escort ? 'escort' : 'objective', 'objective', undefined, []);
     }
 
-    return new AdditionalIdentifier(figure.name, figure.edition, undefined, undefined, entity && entity.tags || []);
+    return new AdditionalIdentifier(figure.name, figure.edition, undefined, undefined, (entity && entity.tags) || []);
   }
 
   entityCounter(identifier: AdditionalIdentifier): EntityCounter | undefined {
@@ -808,21 +1021,24 @@ export class GameManager {
 
   entityCounters(identifier: AdditionalIdentifier): EntityCounter[] {
     const name = new RegExp('^' + identifier.name + '$');
-    return this.game.entitiesCounter.filter((entityCounter) =>
-      // match type
-      (!identifier.type || identifier.type == entityCounter.identifier.type) &&
-      // match name
-      entityCounter.identifier.name.match(name) &&
-      // match edition
-      (!identifier.edition || identifier.edition == entityCounter.identifier.edition) &&
-      // match marker
-      (!identifier.marker || identifier.marker == entityCounter.identifier.marker) &&
-      // match tags
-      (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entityCounter.identifier.tags && entityCounter.identifier.tags.includes(tag))));
+    return this.game.entitiesCounter.filter(
+      (entityCounter) =>
+        // match type
+        (!identifier.type || identifier.type == entityCounter.identifier.type) &&
+        // match name
+        entityCounter.identifier.name.match(name) &&
+        // match edition
+        (!identifier.edition || identifier.edition == entityCounter.identifier.edition) &&
+        // match marker
+        (!identifier.marker || identifier.marker == entityCounter.identifier.marker) &&
+        // match tags
+        (!identifier.tags ||
+          identifier.tags.length == 0 ||
+          identifier.tags.every((tag) => entityCounter.identifier.tags && entityCounter.identifier.tags.includes(tag)))
+    );
   }
 
   addEntityCount(figure: Figure, entity: Entity | undefined = undefined) {
-
     const identifier = this.additionalIdentifier(figure, entity);
     let counter = this.entityCounter(identifier);
 
@@ -845,10 +1061,9 @@ export class GameManager {
           if (this.entityManager.isAlive(entity) && !this.entityCounter(this.additionalIdentifier(figure, entity))) {
             this.addEntityCount(figure, entity);
           }
-
-        })
+        });
       }
-    })
+    });
 
     this.game.entitiesCounter.forEach((entityCounter) => {
       let figures = this.figuresByIdentifier(entityCounter.identifier);
@@ -858,30 +1073,52 @@ export class GameManager {
         if (figures.every((figure) => figure instanceof Character)) {
           figures = figures.filter((figure) => figure instanceof Character && this.entityManager.isAlive(figure));
           if (figures.length + entityCounter.killed < entityCounter.total) {
-            entityCounter.killed = entityCounter.total - figures.length
+            entityCounter.killed = entityCounter.total - figures.length;
           } else if (figures.length + entityCounter.killed > entityCounter.total) {
-            console.warn("More killed then figures counted", entityCounter.identifier, "total: " + entityCounter.total, "killed: " + entityCounter.killed, "current: " + figures.length);
+            console.warn(
+              'More killed then figures counted',
+              entityCounter.identifier,
+              'total: ' + entityCounter.total,
+              'killed: ' + entityCounter.killed,
+              'current: ' + figures.length
+            );
             entityCounter.total = figures.length + entityCounter.killed;
           }
         } else if (figures.every((figure) => figure instanceof Monster)) {
-          const count = figures.map((figure) => this.monsterManager.monsterEntityCountIdentifier(figure as Monster, entityCounter.identifier)).reduce((a, b) => a + b);
+          const count = figures
+            .map((figure) => this.monsterManager.monsterEntityCountIdentifier(figure as Monster, entityCounter.identifier))
+            .reduce((a, b) => a + b);
           if (count + entityCounter.killed < entityCounter.total) {
-            entityCounter.killed = entityCounter.total - count
+            entityCounter.killed = entityCounter.total - count;
           } else if (count + entityCounter.killed > entityCounter.total) {
-            console.warn("More killed then figures counted", entityCounter.identifier, "total: " + entityCounter.total, "killed: " + entityCounter.killed, "current: " + count);
+            console.warn(
+              'More killed then figures counted',
+              entityCounter.identifier,
+              'total: ' + entityCounter.total,
+              'killed: ' + entityCounter.killed,
+              'current: ' + count
+            );
             entityCounter.total = count + entityCounter.killed;
           }
         } else if (figures.every((figure) => figure instanceof ObjectiveContainer)) {
-          const count = figures.map((figure) => this.objectiveManager.objectiveEntityCountIdentifier(figure as ObjectiveContainer, entityCounter.identifier)).reduce((a, b) => a + b);
+          const count = figures
+            .map((figure) => this.objectiveManager.objectiveEntityCountIdentifier(figure as ObjectiveContainer, entityCounter.identifier))
+            .reduce((a, b) => a + b);
           if (count + entityCounter.killed < entityCounter.total) {
-            entityCounter.killed = entityCounter.total - count
+            entityCounter.killed = entityCounter.total - count;
           } else if (count + entityCounter.killed > entityCounter.total) {
-            console.warn("More killed then figures counted", entityCounter.identifier, "total: " + entityCounter.total, "killed: " + entityCounter.killed, "current: " + count);
+            console.warn(
+              'More killed then figures counted',
+              entityCounter.identifier,
+              'total: ' + entityCounter.total,
+              'killed: ' + entityCounter.killed,
+              'current: ' + count
+            );
             entityCounter.total = count + entityCounter.killed;
           }
         }
       }
-    })
+    });
   }
 
   nextElementState(element: ElementModel, double: boolean = false, draw: boolean = false): ElementState {
@@ -917,7 +1154,8 @@ export class GameManager {
         if (!double) {
           return ElementState.strong;
         }
-      } if (element.state == ElementState.strong) {
+      }
+      if (element.state == ElementState.strong) {
         if (double) {
           return ElementState.waning;
         }
@@ -945,7 +1183,10 @@ export class GameManager {
       return Object.assign(new CampaignData(), editionData.campaign);
     }
 
-    const extensionCampaign = this.editionExtensions(edition).map((e) => this.editionData.find((editionData) => editionData.edition == e)).map((editionData) => editionData ? editionData.campaign : undefined).find((campaignData) => campaignData);
+    const extensionCampaign = this.editionExtensions(edition)
+      .map((e) => this.editionData.find((editionData) => editionData.edition == e))
+      .map((editionData) => (editionData ? editionData.campaign : undefined))
+      .find((campaignData) => campaignData);
     if (extensionCampaign) {
       return Object.assign(new CampaignData(), extensionCampaign);
     }
@@ -954,15 +1195,13 @@ export class GameManager {
   }
 
   changeParty(party: Party) {
-    if (settingsManager.settings.automaticTheme) {
-      if (this.game.edition != 'fh' && party.edition == 'fh' || this.game.edition != 'gh2e' && party.edition == 'gh2e') {
-        settingsManager.set('fhStyle', true);
-      } else if (this.game.edition == 'fh' && party.edition != 'fh') {
-        settingsManager.set('fhStyle', false);
-      }
+    if (!!party.edition) {
+      settingsManager.automaticTheme(party.edition, this.game.edition);
     }
 
-    this.game.party.characters = this.game.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel()));
+    this.game.party.characters = this.game.figures
+      .filter((figure) => figure instanceof Character)
+      .map((figure) => (figure as Character).toModel());
     this.game.party.edition = this.game.edition;
     this.game.party.conditions = this.game.conditions;
     this.game.party.battleGoalEditions = this.game.battleGoalEditions;
@@ -970,7 +1209,7 @@ export class GameManager {
     this.game.party.unlockedCharacters = this.game.unlockedCharacters;
     this.game.party.level = this.game.level;
     this.game.party.levelCalculation = this.game.levelCalculation;
-    this.game.party.levelAdjustment = this.game.levelAdjustment
+    this.game.party.levelAdjustment = this.game.levelAdjustment;
     this.game.party.bonusAdjustment = this.game.bonusAdjustment;
     this.game.party.ge5Player = this.game.ge5Player;
     this.game.party.playerCount = this.game.playerCount;
@@ -986,7 +1225,8 @@ export class GameManager {
     this.game.filteredBattleGoals = this.game.party.filteredBattleGoals || [];
     this.game.unlockedCharacters = this.game.party.unlockedCharacters || [];
     this.game.level = this.game.party.level == 0 ? 0 : this.game.party.level || this.game.level;
-    this.game.levelCalculation = this.game.party.levelCalculation == false ? false : this.game.party.levelCalculation || this.game.levelCalculation;
+    this.game.levelCalculation =
+      this.game.party.levelCalculation == false ? false : this.game.party.levelCalculation || this.game.levelCalculation;
     this.game.levelAdjustment = this.game.party.levelAdjustment == 0 ? 0 : this.game.party.levelAdjustment || this.game.levelAdjustment;
     this.game.bonusAdjustment = this.game.party.bonusAdjustment == 0 ? 0 : this.game.party.bonusAdjustment || this.game.bonusAdjustment;
     this.game.ge5Player = this.game.party.ge5Player == false ? false : this.game.party.ge5Player || this.game.ge5Player;
@@ -999,7 +1239,7 @@ export class GameManager {
     this.game.figures = this.game.figures.filter((figure) => !(figure instanceof Character));
     this.scenarioManager.setScenario(undefined);
     party.characters.forEach((value) => {
-      let character = new Character(this.getCharacterData(value.name, value.edition), value.level);
+      const character = new Character(this.getCharacterData(value.name, value.edition), value.level);
       character.fromModel(value);
       this.game.figures.push(character);
     });
@@ -1008,8 +1248,8 @@ export class GameManager {
   resetCampaign() {
     this.game.figures = [];
     this.game.party.characters = [];
-    this.game.party.location = "";
-    this.game.party.achievements = "";
+    this.game.party.location = '';
+    this.game.party.achievements = '';
     this.game.party.achievementsList = [];
     this.game.party.reputation = 0;
     this.game.party.prosperity = 0;
@@ -1017,7 +1257,7 @@ export class GameManager {
     this.game.party.conclusions = [];
     this.game.party.casualScenarios = [];
     this.game.party.manualScenarios = [];
-    this.game.party.globalAchievements = "";
+    this.game.party.globalAchievements = '';
     this.game.party.globalAchievementsList = [];
     this.game.party.treasures = [];
     this.game.party.donations = 0;
@@ -1048,7 +1288,7 @@ export class GameManager {
     let last: GameClockTimestamp | undefined = this.game.gameClock.length ? this.game.gameClock[0] : undefined;
     if (last) {
       if (!last.clockIn) {
-        console.warn("Timestamp with invalid clock:", last);
+        console.warn('Timestamp with invalid clock:', last);
         last.clockIn = new Date().getTime();
       } else if (!last.clockOut) {
         last.clockOut = new Date().getTime();
@@ -1064,39 +1304,49 @@ export class GameManager {
   }
 
   mergeGameClocks(gameClockA: GameClockTimestamp[], gameClockB: GameClockTimestamp[]): GameClockTimestamp[] {
-    let gameClock: GameClockTimestamp[] = [];
+    const gameClock: GameClockTimestamp[] = [];
 
     gameClockA.forEach((value) => {
-      const matchingValue = gameClockB.find((other) => other.clockIn <= value.clockIn && (other.clockOut && value.clockOut && other.clockOut >= value.clockOut || !other.clockOut));
+      const matchingValue = gameClockB.find(
+        (other) =>
+          other.clockIn <= value.clockIn && ((other.clockOut && value.clockOut && other.clockOut >= value.clockOut) || !other.clockOut)
+      );
       if (matchingValue) {
         gameClock.push(matchingValue);
       } else {
         gameClock.push(value);
       }
-    })
+    });
 
     gameClockB.forEach((value) => {
-      if (!gameClock.find(((other) => other.clockIn <= value.clockIn && (other.clockOut && value.clockOut && other.clockOut >= value.clockOut || !other.clockOut)))) {
+      if (
+        !gameClock.find(
+          (other) =>
+            other.clockIn <= value.clockIn && ((other.clockOut && value.clockOut && other.clockOut >= value.clockOut) || !other.clockOut)
+        )
+      ) {
         gameClock.push(value);
       }
-    })
+    });
 
     return gameClock.sort((a, b) => b.clockIn - a.clockIn);
   }
 
   gh2eFactionUnlocks(): string[] {
-    return this.game.party.conclusions.map((c) => gameManager.scenarioManager.sectionDataForModel(c)).filter((sectionData) => {
-      if (sectionData) {
-        return sectionData.rewards && sectionData.rewards.factionUnlock;
-      }
-      return false;
-    }).map((sectionData) => sectionData && sectionData.rewards && sectionData.rewards.factionUnlock || '');
+    return this.game.party.conclusions
+      .map((c) => gameManager.scenarioManager.sectionDataForModel(c))
+      .filter((sectionData) => {
+        if (sectionData) {
+          return sectionData.rewards && sectionData.rewards.factionUnlock;
+        }
+        return false;
+      })
+      .map((sectionData) => (sectionData && sectionData.rewards && sectionData.rewards.factionUnlock) || '');
   }
 
   gh2eFactionUnlock(faction: string): boolean {
     return this.gh2eFactionUnlocks().includes(faction);
   }
-
 }
 
 export const gameManager: GameManager = new GameManager();

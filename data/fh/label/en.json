@@ -1232,10 +1232,14 @@
       "blinkblade": {
         "": "Blinkblade",
         "fast": "Fast",
+        "overdrive": {
+          "": "Overdrive",
+          "hint": "Gain %game.action.shield% 1 while %game.characterIconIdentityColored.blinkblade.0%"
+        },
         "slow": "Slow",
         "time_tokens": {
           "": "%data.characterToken.blinkblade.time% Time Tokens",
-          "hint": "Automatically add/remove time tokens at start of round after defining slow/fast before"
+          "hint": "Automatically add/remove time tokens at start of round after defining %game.characterIconIdentityColored.blinkblade.0%/%game.characterIconIdentityColored.blinkblade.1% before"
         },
         "tokens": {
           "time": "Time Token"

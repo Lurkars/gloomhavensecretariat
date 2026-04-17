@@ -1,21 +1,24 @@
-import { Dialog, DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { Overlay } from "@angular/cdk/overlay";
-import { Component, ElementRef, Inject, ViewChild } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character } from "src/app/game/model/Character";
-import { EntityValueFunction } from "src/app/game/model/Entity";
-import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsValueSign } from "src/app/ui/helper/Static";
-import { EntitiesMenuDialogComponent } from "../entities-menu-dialog";
+import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { Overlay } from '@angular/cdk/overlay';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
+import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsValueSign } from 'src/app/ui/helper/Static';
 
 @Component({
-  standalone: false,
+  imports: [NgClass, GhsLabelDirective, GhsRangePipe],
   selector: 'ghs-character-level-dialog',
   templateUrl: 'level-dialog.html',
-  styleUrls: ['../entities-menu-dialog.scss', './level-dialog.scss']
+  styleUrls: ['../entities-menu-dialog.scss', './level-dialog.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterLevelDialogComponent {
-
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   EntityValueFunction = EntityValueFunction;
@@ -25,20 +28,27 @@ export class CharacterLevelDialogComponent {
 
   character: Character;
   bb: boolean;
-  level: number
+  level: number;
   maxHp: number = 0;
   titles: string[] = [];
   identities: string[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public data: { character: Character, positionElement: ElementRef }, private dialogRef: DialogRef, private dialog: Dialog, public overlay: Overlay) {
-    this.character = data.character;
+  data: { character: Character; positionElement: ElementRef } = inject(DIALOG_DATA);
+
+  constructor(
+    private dialogRef: DialogRef,
+    private dialog: Dialog,
+    public overlay: Overlay
+  ) {
+    this.character = this.data.character;
     this.bb = this.character.bb;
     this.level = this.character.level;
     this.identities = settingsManager.settings.characterIdentities ? [...this.character.identities] : [];
 
-
     if (this.characterTitleInput) {
-      this.characterTitleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
+      this.characterTitleInput.nativeElement.value =
+        this.character.title ||
+        settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
     }
 
     this.titles = [];
@@ -85,7 +95,9 @@ export class CharacterLevelDialogComponent {
         entity: this.character,
         positionElement: this.data.positionElement
       },
-      positionStrategy: this.data.positionElement && this.overlay.position().flexibleConnectedTo(this.data.positionElement).withPositions(ghsDefaultDialogPositions())
+      positionStrategy:
+        this.data.positionElement &&
+        this.overlay.position().flexibleConnectedTo(this.data.positionElement).withPositions(ghsDefaultDialogPositions())
     });
 
     ghsDialogClosingHelper(this.dialogRef);
@@ -99,7 +111,7 @@ export class CharacterLevelDialogComponent {
     }
 
     if (this.maxHp) {
-      gameManager.entityManager.before(this.character, this.character, "changeMaxHP", ghsValueSign(this.maxHp));
+      gameManager.entityManager.before(this.character, this.character, 'changeMaxHP', ghsValueSign(this.maxHp));
       if (this.character.maxHealth + this.maxHp < this.character.maxHealth || this.character.health == this.character.maxHealth) {
         this.character.health = this.character.maxHealth + this.maxHp;
       }
@@ -116,7 +128,9 @@ export class CharacterLevelDialogComponent {
 
     if (this.titles.length > 0) {
       for (let i = 0; i < this.titles.length; i++) {
-        if (this.titles[i] == settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())) {
+        if (
+          this.titles[i] == settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())
+        ) {
           this.titles[i] = '';
         }
       }
@@ -133,9 +147,9 @@ export class CharacterLevelDialogComponent {
         this.character.title = title;
         gameManager.stateManager.after();
       }
-    } else if (this.character.title != "") {
+    } else if (this.character.title != '') {
       gameManager.entityManager.before(this.character, this.character, 'unsetTitle', title);
-      this.character.title = "";
+      this.character.title = '';
       gameManager.stateManager.after();
     }
   }

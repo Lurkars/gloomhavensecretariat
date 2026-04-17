@@ -1,13 +1,12 @@
-import { Character } from "../model/Character";
-import { EntityValueFunction } from "../model/Entity";
-import { Game } from "../model/Game";
-import { Monster } from "../model/Monster";
-import { ObjectiveContainer } from "../model/ObjectiveContainer";
-import { gameManager } from "./GameManager";
-import { settingsManager } from "./SettingsManager";
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { Game } from 'src/app/game/model/Game';
+import { Monster } from 'src/app/game/model/Monster';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 
 export class LevelManager {
-
   game: Game;
 
   constructor(game: Game) {
@@ -27,7 +26,11 @@ export class LevelManager {
   }
 
   adjustedLevel(): number {
-    const level = this.game.level - this.ge5PlayerOffset() - (this.game.solo && !gameManager.fhRules(true) && !settingsManager.settings.alwaysFhSolo ? 1 : 0) + this.game.bonusAdjustment;
+    const level =
+      this.game.level -
+      this.ge5PlayerOffset() -
+      (this.game.solo && !gameManager.fhRules(true) && !settingsManager.settings.alwaysFhSolo ? 1 : 0) +
+      this.game.bonusAdjustment;
     if (level < 0) {
       return 0;
     } else if (level > 7) {
@@ -88,10 +91,21 @@ export class LevelManager {
       return 1;
     }
 
-    const charLevel = this.game.figures.some((figure) => figure instanceof Character) ? this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).map((figure) => (figure as Character).level).reduce((a, b) => a + b) : 1;
+    const charLevel = this.game.figures.some((figure) => figure instanceof Character)
+      ? this.game.figures
+          .filter((figure) => figure instanceof Character && !figure.absent)
+          .map((figure) => (figure as Character).level)
+          .reduce((a, b) => a + b)
+      : 1;
 
-
-    return Math.ceil(((charLevel / charCount) + (this.game.solo && ((gameManager.fhRules(true) || settingsManager.settings.alwaysFhSolo ? 1 : 0)) ? 1 : 0)) / 2) + (this.game.solo && !gameManager.fhRules(true) && !settingsManager.settings.alwaysFhSolo ? 1 : 0) + this.ge5PlayerOffset();
+    return (
+      Math.ceil(
+        (charLevel / charCount + (this.game.solo && (gameManager.fhRules(true) || settingsManager.settings.alwaysFhSolo ? 1 : 0) ? 1 : 0)) /
+          2
+      ) +
+      (this.game.solo && !gameManager.fhRules(true) && !settingsManager.settings.alwaysFhSolo ? 1 : 0) +
+      this.ge5PlayerOffset()
+    );
   }
 
   calculateScenarioLevel() {
@@ -123,15 +137,15 @@ export class LevelManager {
           } else if (figure.level < 0) {
             figure.level = 0;
           }
-          gameManager.monsterManager.setLevel(figure, figure.level)
+          gameManager.monsterManager.setLevel(figure, figure.level);
         } else if (figure instanceof ObjectiveContainer) {
           figure.entities.forEach((objectiveEntity) => {
             if (objectiveEntity.health > EntityValueFunction(figure.health)) {
               figure.health = EntityValueFunction(figure.health);
             }
-          })
+          });
         }
-      })
+      });
     }
   }
 }

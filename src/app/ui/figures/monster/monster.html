@@ -1,35 +1,81 @@
-<div class="monster"
-  [ngClass]="{'off' : off || nonDead == 0, 'full-ability'  : settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard, 'full-stats': settingsManager.settings.showExpandedStatCard, 'modern': settingsManager.settings.theme == 'modern', 'short': !settingsManager.settings.abilities || !settingsManager.settings.stats, 'short-abilities': !settingsManager.settings.stats, 'short-stats': !settingsManager.settings.abilities}">
-  <ghs-monster-image [monster]="monster"
-    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
+<div
+  class="monster"
+  [ngClass]="{
+    off: off || nonDead == 0,
+    'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard,
+    'full-stats': settingsManager.settings.showExpandedStatCard,
+    modern: settingsManager.settings.theme == 'modern',
+    short: !settingsManager.settings.abilities || !settingsManager.settings.stats,
+    'short-abilities': !settingsManager.settings.stats,
+    'short-stats': !settingsManager.settings.abilities
+  }"
+>
+  <ghs-monster-image
+    [monster]="monster"
+    [ngClass]="{
+      denied:
+        gameManager.stateManager.permissions &&
+        !gameManager.stateManager.permissions.round &&
+        !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]
+    }"
+  >
   </ghs-monster-image>
   @if (settingsManager.settings.abilities) {
-  <ghs-monster-ability-card [monster]="monster"></ghs-monster-ability-card>
+    <ghs-monster-ability-card [monster]="monster"></ghs-monster-ability-card>
   }
 
-  <div class="stats-container"
-    [ngClass]="{'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard, 'full-stats': settingsManager.settings.showExpandedStatCard}">
+  <div
+    class="stats-container"
+    [ngClass]="{
+      'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard,
+      'full-stats': settingsManager.settings.showExpandedStatCard
+    }"
+  >
     @if (settingsManager.settings.stats) {
-    <ghs-monster-stats [monster]="monster"></ghs-monster-stats>
+      <ghs-monster-stats [monster]="monster"></ghs-monster-stats>
     }
 
     @if (!monster.boss) {
-    <ghs-monster-numberpicker class="normal" [monster]="monster" [type]="MonsterType.normal" [nonDead]="nonDead"
-      [count]="count"
-      [ngClass]="{'disabled' : settingsManager.settings.standees && nonDead >= count, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
-    </ghs-monster-numberpicker>
+      <ghs-monster-numberpicker
+        class="normal"
+        [monster]="monster"
+        [type]="MonsterType.normal"
+        [nonDead]="nonDead"
+        [count]="count"
+        [ngClass]="{
+          disabled: settingsManager.settings.standees && nonDead >= count,
+          denied: gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]
+        }"
+      >
+      </ghs-monster-numberpicker>
     }
     @if (!monster.boss && !monster.bb) {
-    <ghs-monster-numberpicker class="elite" [monster]="monster" [type]="MonsterType.elite" [nonDead]="nonDead"
-      [count]="count"
-      [ngClass]="{'disabled' : settingsManager.settings.standees && nonDead >= count,'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
-    </ghs-monster-numberpicker>
+      <ghs-monster-numberpicker
+        class="elite"
+        [monster]="monster"
+        [type]="MonsterType.elite"
+        [nonDead]="nonDead"
+        [count]="count"
+        [ngClass]="{
+          disabled: settingsManager.settings.standees && nonDead >= count,
+          denied: gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]
+        }"
+      >
+      </ghs-monster-numberpicker>
     }
     @if (monster.boss) {
-    <ghs-monster-numberpicker class="boss" [monster]="monster" [type]="MonsterType.boss" [nonDead]="nonDead"
-      [count]="count"
-      [ngClass]="{'disabled' : settingsManager.settings.standees && nonDead >= count, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
-    </ghs-monster-numberpicker>
+      <ghs-monster-numberpicker
+        class="boss"
+        [monster]="monster"
+        [type]="MonsterType.boss"
+        [nonDead]="nonDead"
+        [count]="count"
+        [ngClass]="{
+          disabled: settingsManager.settings.standees && nonDead >= count,
+          denied: gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]
+        }"
+      >
+      </ghs-monster-numberpicker>
     }
   </div>
 
@@ -37,37 +83,58 @@
 </div>
 
 @if (settingsManager.settings.standees) {
-<div class="entities-container"
-  [ngClass]="{'empty' : nonDead == 0, 'full-ability'  : settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition] }">
-  <div class="spacer" [ngClass]="{'disabled' : nonDead < 2}">
-    <a class="entities-menu all" (click)="entitiesMenu($event)" [ghs-label]="'monster.selectStandees.all'"
-      [ghs-label-attribute]="'title'">
-      <img src="./assets/images/up.svg">
-    </a>
-    @if (hasEntitiesCache.boss) {
-    <a class="entities-menu boss" (click)="entitiesMenu($event, MonsterType.boss)"
-      [ghs-label]="'monster.selectStandees.boss'" [ghs-label-attribute]="'title'">
-      <img src="./assets/images/up.svg">
-    </a>
-    }
-    @if (hasEntitiesCache.elite) {
-    <a class="entities-menu elite" (click)="entitiesMenu($event, MonsterType.elite)"
-      [ghs-label]="'monster.selectStandees.elite'" [ghs-label-attribute]="'title'">
-      <img src="./assets/images/up.svg">
-    </a>
-    }
-    @if (hasEntitiesCache.normal) {
-    <a class="entities-menu normal" (click)="entitiesMenu($event, MonsterType.normal)"
-      [ghs-label]="'monster.selectStandees.normal'" [ghs-label-attribute]="'title'">
-      <img src="./assets/images/up.svg">
-    </a>
-    }
+  <div
+    class="entities-container"
+    [ngClass]="{
+      empty: nonDead == 0,
+      'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard,
+      denied: gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]
+    }"
+  >
+    <div class="spacer" [ngClass]="{ disabled: nonDead < 2 }">
+      <a
+        class="entities-menu all"
+        (click)="entitiesMenu($event)"
+        [ghs-label]="'monster.selectStandees.all'"
+        [ghs-label-attribute]="'title'"
+      >
+        <img src="/assets/images/up.svg" />
+      </a>
+      @if (hasEntitiesCache.boss) {
+        <a
+          class="entities-menu boss"
+          (click)="entitiesMenu($event, MonsterType.boss)"
+          [ghs-label]="'monster.selectStandees.boss'"
+          [ghs-label-attribute]="'title'"
+        >
+          <img src="/assets/images/up.svg" />
+        </a>
+      }
+      @if (hasEntitiesCache.elite) {
+        <a
+          class="entities-menu elite"
+          (click)="entitiesMenu($event, MonsterType.elite)"
+          [ghs-label]="'monster.selectStandees.elite'"
+          [ghs-label-attribute]="'title'"
+        >
+          <img src="/assets/images/up.svg" />
+        </a>
+      }
+      @if (hasEntitiesCache.normal) {
+        <a
+          class="entities-menu normal"
+          (click)="entitiesMenu($event, MonsterType.normal)"
+          [ghs-label]="'monster.selectStandees.normal'"
+          [ghs-label-attribute]="'title'"
+        >
+          <img src="/assets/images/up.svg" />
+        </a>
+      }
+    </div>
+    <div class="entities">
+      @for (entity of sortedEntites | trackUUID; track entity._trackUUID) {
+        <ghs-standee [figure]="monster" [entity]="entity"> </ghs-standee>
+      }
+    </div>
   </div>
-  <div class="entities">
-    @for (entity of sortedEntites | trackUUID; track entity._trackUUID) {
-    <ghs-standee [figure]="monster" [entity]="entity">
-    </ghs-standee>
-    }
-  </div>
-</div>
 }

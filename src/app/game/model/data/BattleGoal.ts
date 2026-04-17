@@ -1,12 +1,12 @@
-import { Editional } from "./Editional";
-import { Identifier } from "./Identifier";
+import { Editional } from 'src/app/game/model/data/Editional';
+import { Identifier } from 'src/app/game/model/data/Identifier';
 
 export class BattleGoal implements Editional {
-    cardId: string = "";
-    name: string = "";
-    checks: number = 1;
-    alias: Identifier | undefined;
+  cardId: string = '';
+  name: string = '';
+  checks: number = 1;
+  alias: Identifier | undefined;
 
-    // from Editional
-    edition: string = "";
+  // from Editional
+  edition: string = '';
 }

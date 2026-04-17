@@ -1,248 +1,271 @@
-import { Editional } from "./Editional";
-import { WorldMapCoordinates } from "./WorldMap";
+import { Editional } from 'src/app/game/model/data/Editional';
+import { WorldMapCoordinates } from 'src/app/game/model/data/WorldMap';
 
 export class EventCard implements Editional {
-    cardId: string;
-    edition: string;
-    type: string;
-    narrative: string;
-    footer: string;
-    options: EventCardOption[];
-    attack?: EventCardAttack;
-    requirement: EventCardRequirement | undefined;
+  cardId: string;
+  edition: string;
+  type: string;
+  narrative: string;
+  footer: string;
+  options: EventCardOption[];
+  attack?: EventCardAttack;
+  requirement: EventCardRequirement | undefined;
 
-    constructor(cardId: string, edition: string, type: string, narrative: string, footer: string, options: EventCardOption[], attack?: EventCardAttack) {
-        this.cardId = cardId;
-        this.edition = edition;
-        this.type = type;
-        this.narrative = narrative;
-        this.footer = footer;
-        this.options = options;
-        if (attack) {
-            this.attack = attack;
-        }
+  constructor(
+    cardId: string,
+    edition: string,
+    type: string,
+    narrative: string,
+    footer: string,
+    options: EventCardOption[],
+    attack?: EventCardAttack
+  ) {
+    this.cardId = cardId;
+    this.edition = edition;
+    this.type = type;
+    this.narrative = narrative;
+    this.footer = footer;
+    this.options = options;
+    if (attack) {
+      this.attack = attack;
     }
+  }
 }
 
 export class EventCardIdentifier {
-    cardId: string;
-    edition: string;
-    type: string;
-    selected: number;
-    subSelections: number[];
-    checks: number[];
-    scenarioApply: boolean;
-    attack: boolean;
+  cardId: string;
+  edition: string;
+  type: string;
+  selected: number;
+  subSelections: number[];
+  checks: number[];
+  scenarioApply: boolean;
+  attack: boolean;
 
-    constructor(cardId: string, edition: string, type: string, selected: number,
-        subSelections: number[], checks: number[], attack: boolean, scenarioApply: boolean) {
-        this.cardId = cardId;
-        this.edition = edition;
-        this.type = type;
-        this.selected = selected;
-        this.subSelections = subSelections;
-        this.checks = checks;
-        this.scenarioApply = scenarioApply;
-        this.attack = attack;
-    }
+  constructor(
+    cardId: string,
+    edition: string,
+    type: string,
+    selected: number,
+    subSelections: number[],
+    checks: number[],
+    attack: boolean,
+    scenarioApply: boolean
+  ) {
+    this.cardId = cardId;
+    this.edition = edition;
+    this.type = type;
+    this.selected = selected;
+    this.subSelections = subSelections;
+    this.checks = checks;
+    this.scenarioApply = scenarioApply;
+    this.attack = attack;
+  }
 }
 
 export class EventCardOption {
-    label: string;
-    narrative: string;
-    returnToDeck?: boolean;
-    removeFromDeck?: boolean;
-    outcomes: EventCardOutcome[];
+  label: string;
+  narrative: string;
+  returnToDeck?: boolean;
+  removeFromDeck?: boolean;
+  outcomes: EventCardOutcome[];
 
-    constructor(label: string, narrative: string, outcomes: EventCardOutcome[], removeFromDeck?: boolean, returnToDeck?: boolean) {
-        this.label = label;
-        this.narrative = narrative;
-        this.outcomes = outcomes;
-        if (removeFromDeck !== undefined) this.removeFromDeck = removeFromDeck;
-        if (returnToDeck !== undefined) this.returnToDeck = returnToDeck;
-    }
+  constructor(label: string, narrative: string, outcomes: EventCardOutcome[], removeFromDeck?: boolean, returnToDeck?: boolean) {
+    this.label = label;
+    this.narrative = narrative;
+    this.outcomes = outcomes;
+    if (removeFromDeck !== undefined) this.removeFromDeck = removeFromDeck;
+    if (returnToDeck !== undefined) this.returnToDeck = returnToDeck;
+  }
 }
 
 export class EventCardOutcome {
-    narrative: string = "";
-    returnToDeck?: boolean;
-    removeFromDeck?: boolean;
-    condition: string | EventCardCondition | undefined;
-    inlineEffects?: boolean;
-    effects: (string | EventCardEffect)[] = [];
-    attack: EventCardAttack | undefined;
+  narrative: string = '';
+  returnToDeck?: boolean;
+  removeFromDeck?: boolean;
+  condition: string | EventCardCondition | undefined;
+  inlineEffects?: boolean;
+  effects: (string | EventCardEffect)[] = [];
+  attack: EventCardAttack | undefined;
 }
 
 export enum EventCardConditionType {
-    and = "and",
-    building = "building",
-    campaignSticker = "campaignSticker",
-    character = "character",
-    loseCollectiveResource = "loseCollectiveResource",
-    loseCollectiveResourceType = "loseCollectiveResourceType",
-    loseResource = "loseResource",
-    loseResourceType = "loseResourceType",
-    moraleGT = "moraleGT",
-    moraleLT = "moraleLT",
-    otherwise = "otherwise",
-    payGold = "payGold",
-    payCollectiveGold = "payCollectiveGold",
-    payCollectiveGoldConditional = "payCollectiveGoldConditional",
-    payCollectiveGoldReputationGT = "payCollectiveGoldReputationGT",
-    payCollectiveGoldReputationLT = "payCollectiveGoldReputationLT",
-    payCollectiveItem = "payCollectiveItem",
-    reputationFactionGT = "reputationFactionGT",
-    reputationGT = "reputationGT",
-    reputationLT = "reputationLT",
-    season = "season",
-    seasonLT = "seasonLT",
-    traits = "traits",
-    traitsAll = "traitsAll"
+  and = 'and',
+  building = 'building',
+  campaignSticker = 'campaignSticker',
+  character = 'character',
+  loseCollectiveResource = 'loseCollectiveResource',
+  loseCollectiveResourceType = 'loseCollectiveResourceType',
+  loseResource = 'loseResource',
+  loseResourceType = 'loseResourceType',
+  moraleGT = 'moraleGT',
+  moraleLT = 'moraleLT',
+  otherwise = 'otherwise',
+  payGold = 'payGold',
+  payCollectiveGold = 'payCollectiveGold',
+  payCollectiveGoldConditional = 'payCollectiveGoldConditional',
+  payCollectiveGoldReputationGT = 'payCollectiveGoldReputationGT',
+  payCollectiveGoldReputationLT = 'payCollectiveGoldReputationLT',
+  payCollectiveItem = 'payCollectiveItem',
+  reputationFactionGT = 'reputationFactionGT',
+  reputationGT = 'reputationGT',
+  reputationLT = 'reputationLT',
+  season = 'season',
+  seasonLT = 'seasonLT',
+  traits = 'traits',
+  traitsAll = 'traitsAll'
 }
 
 export enum EventCardEffectType {
-    additionally = "additionally",
-    and = "and",
-    battleGoal = "battleGoal",
-    campaignSticker = "campaignSticker",
-    campaignStickerMap = "campaignStickerMap",
-    campaignStickerReplace = "campaignStickerReplace",
-    checkbox = "checkbox",
-    choose = "choose",
-    collectiveGold = "collectiveGold",
-    collectiveGoldAdditional = "collectiveGoldAdditional",
-    collectiveGoldOther = "collectiveGoldOther",
-    collectiveItem = "collectiveItem",
-    collectiveResource = "collectiveResource",
-    collectiveResourceType = "collectiveResourceType",
-    consumeItem = "consumeItem",
-    consumeCollectiveItem = "consumeCollectiveItem",
-    custom = "custom",
-    discard = "discard",
-    discardOne = "discardOne",
-    drawAnotherEvent = "drawAnotherEvent",
-    drawEvent = "drawEvent",
-    event = "event",
-    eventReturn = "eventReturn",
-    eventsToTop = "eventsToTop",
-    experience = "experience",
-    globalAchievement = "globalAchievement",
-    gold = "gold",
-    goldAdditional = "goldAdditional",
-    gainTrait = "gainTrait",
-    inspiration = "inspiration",
-    item = "item",
-    itemDesign = "itemDesign",
-    loseBattleGoal = "loseBattleGoal",
-    loseCollectiveExperience = "loseCollectiveExperience",
-    loseCollectiveGold = "loseCollectiveGold",
-    loseCollectiveResource = "loseCollectiveResource",
-    loseCollectiveResourceAny = "loseCollectiveResourceAny",
-    loseCollectiveResourceType = "loseCollectiveResourceType",
-    loseExperience = "loseExperience",
-    loseGold = "loseGold",
-    loseGoldOne = "loseGoldOne",
-    loseItem = "loseItem",
-    loseMorale = "loseMorale",
-    loseProsperity = "loseProsperity",
-    loseReputation = "loseReputation",
-    loseReputationFaction = "loseReputationFaction",
-    loseResource = "loseResource",
-    loseTrait = "loseTrait",
-    morale = "morale",
-    noEffect = "noEffect",
-    outcome = "outcome",
-    outcomes = "outcomes",
-    outcomeSelect = "outcomeSelect",
-    outpostAttack = "outpostAttack",
-    outpostTarget = "outpostTarget",
-    randomItem = "randomItem",
-    randomItemBlueprint = "randomItemBlueprint",
-    randomItemDesign = "randomItemDesign",
-    randomScenario = "randomScenario",
-    removeEvent = "removeEvent",
-    reputation = "reputation",
-    reputationFaction = "reputationFaction",
-    reputationAdditional = "reputationAdditional",
-    resource = "resource",
-    resourceType = "resourceType",
-    partyAchievement = "partyAchievement",
-    prosperity = "prosperity",
-    scenarioCondition = "scenarioCondition",
-    scenarioDamage = "scenarioDamage",
-    scenarioSingleMinus1 = "scenarioSingleMinus1",
-    sectionWeek = "sectionWeek",
-    sectionWeeks = "sectionWeeks",
-    sectionWeekSeasonFinal = "sectionWeekSeasonFinal",
-    sectionWeeksSeason = "sectionWeeksSeason",
-    skipThreat = "skipThreat",
-    soldier = "soldier",
-    soldiers = "soldiers",
-    townGuardDeckCard = "townGuardDeckCard",
-    townGuardDeckCardRemove = "townGuardDeckCardRemove",
-    townGuardDeckCardRemovePermanently = "townGuardDeckCardRemovePermanently",
-    townGuardDeckCards = "townGuardDeckCards",
-    traitExperience = "traitExperience",
-    traitScenarioCondition = "traitScenarioCondition",
-    traitScenarioDamage = "traitScenarioDamage",
-    unlockEnvelope = "unlockEnvelope",
-    unlockScenario = "unlockScenario",
-    unlockScenarioGroup = "unlockScenarioGroup",
-    upgradeBuilding = "upgradeBuilding",
-    wreckBuilding = "wreckBuilding"
+  additionally = 'additionally',
+  and = 'and',
+  battleGoal = 'battleGoal',
+  campaignSticker = 'campaignSticker',
+  campaignStickerMap = 'campaignStickerMap',
+  campaignStickerReplace = 'campaignStickerReplace',
+  checkbox = 'checkbox',
+  choose = 'choose',
+  collectiveGold = 'collectiveGold',
+  collectiveGoldAdditional = 'collectiveGoldAdditional',
+  collectiveGoldOther = 'collectiveGoldOther',
+  collectiveItem = 'collectiveItem',
+  collectiveResource = 'collectiveResource',
+  collectiveResourceType = 'collectiveResourceType',
+  consumeItem = 'consumeItem',
+  consumeCollectiveItem = 'consumeCollectiveItem',
+  custom = 'custom',
+  discard = 'discard',
+  discardOne = 'discardOne',
+  drawAnotherEvent = 'drawAnotherEvent',
+  drawEvent = 'drawEvent',
+  event = 'event',
+  eventReturn = 'eventReturn',
+  eventsToTop = 'eventsToTop',
+  experience = 'experience',
+  globalAchievement = 'globalAchievement',
+  gold = 'gold',
+  goldAdditional = 'goldAdditional',
+  gainTrait = 'gainTrait',
+  inspiration = 'inspiration',
+  item = 'item',
+  itemDesign = 'itemDesign',
+  loseBattleGoal = 'loseBattleGoal',
+  loseCollectiveExperience = 'loseCollectiveExperience',
+  loseCollectiveGold = 'loseCollectiveGold',
+  loseCollectiveResource = 'loseCollectiveResource',
+  loseCollectiveResourceAny = 'loseCollectiveResourceAny',
+  loseCollectiveResourceType = 'loseCollectiveResourceType',
+  loseExperience = 'loseExperience',
+  loseGold = 'loseGold',
+  loseGoldOne = 'loseGoldOne',
+  loseItem = 'loseItem',
+  loseMorale = 'loseMorale',
+  loseProsperity = 'loseProsperity',
+  loseReputation = 'loseReputation',
+  loseReputationFaction = 'loseReputationFaction',
+  loseResource = 'loseResource',
+  loseTrait = 'loseTrait',
+  morale = 'morale',
+  noEffect = 'noEffect',
+  outcome = 'outcome',
+  outcomes = 'outcomes',
+  outcomeSelect = 'outcomeSelect',
+  outpostAttack = 'outpostAttack',
+  outpostTarget = 'outpostTarget',
+  randomItem = 'randomItem',
+  randomItemBlueprint = 'randomItemBlueprint',
+  randomItemDesign = 'randomItemDesign',
+  randomScenario = 'randomScenario',
+  removeEvent = 'removeEvent',
+  reputation = 'reputation',
+  reputationFaction = 'reputationFaction',
+  reputationAdditional = 'reputationAdditional',
+  resource = 'resource',
+  resourceType = 'resourceType',
+  partyAchievement = 'partyAchievement',
+  prosperity = 'prosperity',
+  scenarioCondition = 'scenarioCondition',
+  scenarioDamage = 'scenarioDamage',
+  scenarioSingleMinus1 = 'scenarioSingleMinus1',
+  sectionWeek = 'sectionWeek',
+  sectionWeeks = 'sectionWeeks',
+  sectionWeekSeasonFinal = 'sectionWeekSeasonFinal',
+  sectionWeeksSeason = 'sectionWeeksSeason',
+  skipThreat = 'skipThreat',
+  soldier = 'soldier',
+  soldiers = 'soldiers',
+  townGuardDeckCard = 'townGuardDeckCard',
+  townGuardDeckCardRemove = 'townGuardDeckCardRemove',
+  townGuardDeckCardRemovePermanently = 'townGuardDeckCardRemovePermanently',
+  townGuardDeckCards = 'townGuardDeckCards',
+  traitExperience = 'traitExperience',
+  traitScenarioCondition = 'traitScenarioCondition',
+  traitScenarioDamage = 'traitScenarioDamage',
+  unlockEnvelope = 'unlockEnvelope',
+  unlockScenario = 'unlockScenario',
+  unlockScenarioGroup = 'unlockScenarioGroup',
+  upgradeBuilding = 'upgradeBuilding',
+  wreckBuilding = 'wreckBuilding'
 }
 
 export class EventCardEffect {
-    condition: string | EventCardCondition | undefined;
-    type: EventCardEffectType = EventCardEffectType.noEffect;
-    values: (string | number | EventCardEffect)[] = [];
-    alt: string | false = false;
+  condition: string | EventCardCondition | undefined;
+  type: EventCardEffectType = EventCardEffectType.noEffect;
+  values: (string | number | EventCardEffect)[] = [];
+  alt: string | false = false;
 
-    constructor(type: EventCardEffectType, values: (string | number | EventCardEffect)[] = []) {
-        this.type = type;
-        this.values = values;
-    }
+  constructor(type: EventCardEffectType, values: (string | number | EventCardEffect)[] = []) {
+    this.type = type;
+    this.values = values;
+  }
 }
 
 export class EventCardCondition {
-    type: EventCardConditionType = EventCardConditionType.otherwise;
-    values: (string | number | EventCardCondition)[] = [];
-    effect: EventCardEffect | undefined;
+  type: EventCardConditionType = EventCardConditionType.otherwise;
+  values: (string | number | EventCardCondition)[] = [];
+  effect: EventCardEffect | undefined;
 }
 
 export class EventCardAttack {
-    attackValue: string | number;
-    targetNumber: string | number;
-    target: EventCardAttackTarget;
-    targetDescription: string;
-    narrative: string;
-    effects: string[];
+  attackValue: string | number;
+  targetNumber: string | number;
+  target: EventCardAttackTarget;
+  targetDescription: string;
+  narrative: string;
+  effects: string[];
 
-    constructor(attackValue: string | number, targetNumber: string | number, target: EventCardAttackTarget, targetDescription: string, narrative: string, effects: string[]) {
-        this.attackValue = attackValue;
-        this.targetNumber = targetNumber;
-        this.target = target;
-        this.targetDescription = targetDescription;
-        this.narrative = narrative;
-        this.effects = effects;
-    }
+  constructor(
+    attackValue: string | number,
+    targetNumber: string | number,
+    target: EventCardAttackTarget,
+    targetDescription: string,
+    narrative: string,
+    effects: string[]
+  ) {
+    this.attackValue = attackValue;
+    this.targetNumber = targetNumber;
+    this.target = target;
+    this.targetDescription = targetDescription;
+    this.narrative = narrative;
+    this.effects = effects;
+  }
 }
 
 export class EventCardAttackTarget {
-    lowerBoundary: number = 0;
-    upperBoundary: number = 0;
-    parity: 0 | 'even' | 'odd' = 0;
-    level: 0 | 'low' | 'high' = 0;
-    desc: boolean = false;
-    randomize: boolean = false;
-    manual: boolean = false;
-    distance: "previousTarget" | string | WorldMapCoordinates | undefined;
+  lowerBoundary: number = 0;
+  upperBoundary: number = 0;
+  parity: 0 | 'even' | 'odd' = 0;
+  level: 0 | 'low' | 'high' = 0;
+  desc: boolean = false;
+  randomize: boolean = false;
+  manual: boolean = false;
+  distance: 'previousTarget' | string | WorldMapCoordinates | undefined;
 
-    constructor(manual: boolean = true) {
-        this.manual = manual;
-    }
+  constructor(manual: boolean = true) {
+    this.manual = manual;
+  }
 }
 
 export class EventCardRequirement {
-    partyAchievement: string | undefined;
+  partyAchievement: string | undefined;
 }

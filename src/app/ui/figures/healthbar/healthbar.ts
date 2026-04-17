@@ -1,15 +1,16 @@
-import { Component, Input } from "@angular/core";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
 
 @Component({
-  standalone: false,
+  imports: [NgClass],
   selector: 'ghs-healthbar',
   templateUrl: './healthbar.html',
-  styleUrls: ['./healthbar.scss']
+  styleUrls: ['./healthbar.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HealthbarComponent {
-
+export class HealthbarComponent implements OnInit {
   @Input() entity!: Entity;
   @Input() diff: number = 0;
 
@@ -28,5 +29,4 @@ export class HealthbarComponent {
     this.health = this.entity.health;
     this.maxHealth = EntityValueFunction(this.entity.maxHealth);
   }
-
 }

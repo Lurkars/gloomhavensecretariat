@@ -1,24 +1,33 @@
-import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { Component, Inject } from "@angular/core";
-import { Character } from "src/app/game/model/Character";
-import { Action } from "src/app/game/model/data/Action";
-import { SummonData } from "src/app/game/model/data/SummonData";
-import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
+import { Character } from 'src/app/game/model/Character';
+import { Action } from 'src/app/game/model/data/Action';
+import { SummonData } from 'src/app/game/model/data/SummonData';
+import { EnhancementsComponent } from 'src/app/ui/figures/character/sheet/abilities/enhancements/enhancements';
+import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
-    standalone: false,
-    selector: 'ghs-enhancement-dialog',
-    templateUrl: 'enhancement-dialog.html',
-    styleUrls: ['./enhancement-dialog.scss']
+  imports: [forwardRef(() => EnhancementsComponent)],
+  selector: 'ghs-enhancement-dialog',
+  templateUrl: 'enhancement-dialog.html',
+  styleUrls: ['./enhancement-dialog.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EnhancementDialogComponent {
+  data: {
+    action: Action | undefined;
+    actionIndex: string | undefined;
+    enhancementIndex: number | undefined;
+    cardId: number | undefined;
+    character: Character | undefined;
+    summon: SummonData | undefined;
+  } = inject(DIALOG_DATA);
 
-    constructor(@Inject(DIALOG_DATA) public data: { action: Action | undefined, actionIndex: string | undefined, enhancementIndex: number | undefined, cardId: number | undefined, character: Character | undefined, summon: SummonData | undefined }, private dialogRef: DialogRef) {
-        this.data = data || {};
-    }
+  constructor(private dialogRef: DialogRef) {
+    this.data = this.data || {};
+  }
 
-    close() {
-        ghsDialogClosingHelper(this.dialogRef);
-    }
-
+  close() {
+    ghsDialogClosingHelper(this.dialogRef);
+  }
 }

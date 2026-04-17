@@ -37,7 +37,6 @@
   }
 
   &.active {
-
     @keyframes monster-entity-active-focus {
       0% {
         box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.3) var(--ghs-color-red);
@@ -54,7 +53,6 @@
     }
 
     &.active-focus {
-
       .monster-standee,
       .objective-standee {
         animation: monster-entity-active-focus calc(var(--ghs-animation-speed) * 1000ms) ease-in-out infinite;
@@ -67,7 +65,6 @@
     }
 
     &.active-turn {
-
       .monster-standee,
       .objective-standee {
         box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.5) var(--ghs-color-blue);
@@ -76,7 +73,6 @@
   }
 
   &.revealed {
-
     @keyframes monster-entity-revealed {
       0% {
         box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.1) var(--ghs-color-white);
@@ -123,7 +119,6 @@
     }
 
     .entity {
-
       .monster-standee,
       .objective-standee {
         box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.3) var(--ghs-color-white);
@@ -143,7 +138,6 @@
     }
 
     &.revealed-active .entity {
-
       .monster-standee,
       .objective-standee {
         animation: monster-entity-revealed calc(var(--ghs-animation-speed) * 1000ms) ease-in-out infinite;
@@ -257,7 +251,6 @@
         }
       }
 
-
       .health {
         font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
         position: relative;
@@ -266,13 +259,13 @@
         height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
 
         &::before {
-          content: " ";
+          content: ' ';
           position: absolute;
           left: 50%;
           top: calc(var(--ghs-unit) * -0.9 * var(--ghs-text-factor));
           width: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
           height: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
-          background-image: url('~src/assets/images/status/health.svg');
+          background-image: url('/assets/images/status/health.svg');
           background-size: contain;
           background-repeat: no-repeat;
           transform: translateX(-50%);
@@ -282,7 +275,7 @@
           font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
 
           &::before {
-            background-image: url('~src/assets/images/action/damage.svg');
+            background-image: url('/assets/images/action/damage.svg');
             width: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
             filter: var(--ghs-filter-red) brightness(0.7) var(--ghs-filter-outline-thin-black);
           }
@@ -412,9 +405,7 @@
           }
         }
 
-
         &:nth-child(even) {
-
           .condition,
           .summon {
             &:hover {
@@ -424,7 +415,6 @@
         }
 
         &:nth-child(odd) {
-
           .condition,
           .summon {
             &:hover {
@@ -501,12 +491,12 @@
 
       .summon {
         &.new::before {
-          content: " ";
+          content: ' ';
           display: block;
           position: absolute;
           width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
           height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-          background-image: url('~src/assets/images/summons/minus.svg');
+          background-image: url('/assets/images/summons/minus.svg');
           background-size: cover;
         }
       }
@@ -554,7 +544,6 @@
     }
 
     .standee .number {
-
       &.bb-1 {
         background-color: var(--ghs-color-bb-1);
       }
@@ -615,7 +604,6 @@
 
   &.dormant {
     .entity {
-
       filter: grayscale(0.4);
 
       .background-image-container,
@@ -652,7 +640,9 @@
 
       .summon-standee {
         background-color: var(--ghs-color-darkgray);
-        transition: height calc(var(--ghs-animation-speed) * 500ms) ease-out, width calc(var(--ghs-animation-speed) * 500ms) ease-out;
+        transition:
+          height calc(var(--ghs-animation-speed) * 500ms) ease-out,
+          width calc(var(--ghs-animation-speed) * 500ms) ease-out;
 
         .number {
           display: none;
@@ -664,15 +654,17 @@
           left: 0;
           width: calc(var(--ghs-unit) * 4);
           height: calc(var(--ghs-unit) * 4);
-          transition: top calc(var(--ghs-animation-speed) * 500ms) ease-out, left calc(var(--ghs-animation-speed) * 500ms) ease-out;
+          transition:
+            top calc(var(--ghs-animation-speed) * 500ms) ease-out,
+            left calc(var(--ghs-animation-speed) * 500ms) ease-out;
 
           &.new::before {
-            content: " ";
+            content: ' ';
             display: block;
             position: absolute;
             width: calc(var(--ghs-unit) * 4);
             height: calc(var(--ghs-unit) * 4);
-            background-image: url('~src/assets/images/summons/minus.svg');
+            background-image: url('/assets/images/summons/minus.svg');
             background-size: cover;
             z-index: 2;
           }
@@ -703,7 +695,9 @@
             border-bottom-left-radius: calc(var(--ghs-unit) * 4);
             z-index: 3;
             opacity: 0.9;
-            transition: top calc(var(--ghs-animation-speed) * 500ms) ease-out, left calc(var(--ghs-animation-speed) * 500ms) ease-out;
+            transition:
+              top calc(var(--ghs-animation-speed) * 500ms) ease-out,
+              left calc(var(--ghs-animation-speed) * 500ms) ease-out;
           }
 
           &.fh {
@@ -716,7 +710,7 @@
               top: calc(var(--ghs-unit) * 0.8);
               width: calc(var(--ghs-unit) * 2);
               height: calc(var(--ghs-unit) * 2);
-              background-image: url('~src/assets/images/fh/summons/minus.svg');
+              background-image: url('/assets/images/fh/summons/minus.svg');
               z-index: 4;
             }
 
@@ -733,7 +727,11 @@
         }
 
         .background-image-container {
-          transition: height calc(var(--ghs-animation-speed) * 500ms) ease-out, width calc(var(--ghs-animation-speed) * 500ms) ease-out, top calc(var(--ghs-animation-speed) * 500ms) ease-out, left calc(var(--ghs-animation-speed) * 500ms) ease-out;
+          transition:
+            height calc(var(--ghs-animation-speed) * 500ms) ease-out,
+            width calc(var(--ghs-animation-speed) * 500ms) ease-out,
+            top calc(var(--ghs-animation-speed) * 500ms) ease-out,
+            left calc(var(--ghs-animation-speed) * 500ms) ease-out;
 
           .background-image {
             top: calc(var(--ghs-unit) * -1.3 * var(--ghs-text-factor));
@@ -742,7 +740,11 @@
             height: 150%;
             background-size: 100% AUTO;
             background-color: transparent;
-            transition: height calc(var(--ghs-animation-speed) * 500ms) ease-out, width calc(var(--ghs-animation-speed) * 500ms) ease-out, top calc(var(--ghs-animation-speed) * 500ms) ease-out, left calc(var(--ghs-animation-speed) * 500ms) ease-out;
+            transition:
+              height calc(var(--ghs-animation-speed) * 500ms) ease-out,
+              width calc(var(--ghs-animation-speed) * 500ms) ease-out,
+              top calc(var(--ghs-animation-speed) * 500ms) ease-out,
+              left calc(var(--ghs-animation-speed) * 500ms) ease-out;
           }
         }
 
@@ -750,7 +752,9 @@
           position: absolute;
           top: calc(var(--ghs-unit) * 1.2 * var(--ghs-text-factor));
           left: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-          transition: top calc(var(--ghs-animation-speed) * 500ms) ease-out, left calc(var(--ghs-animation-speed) * 500ms) ease-out;
+          transition:
+            top calc(var(--ghs-animation-speed) * 500ms) ease-out,
+            left calc(var(--ghs-animation-speed) * 500ms) ease-out;
         }
       }
 
@@ -766,7 +770,6 @@
   }
 
   &.active.summon {
-
     z-index: 15;
 
     .entity {
@@ -793,7 +796,6 @@
             left: -35%;
             width: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
           }
-
         }
 
         ghs-summon-sheet {
@@ -828,7 +830,6 @@
 
     &.fh {
       .entity .summon-standee {
-
         .background-image-container {
           top: 25%;
           height: 85%;
@@ -840,7 +841,6 @@
             width: calc(var(--ghs-unit) * 9.5 * var(--ghs-text-factor));
           }
         }
-
 
         .health {
           left: calc(var(--ghs-unit) * 2);
@@ -882,7 +882,6 @@
       }
 
       &.active-turn {
-
         .monster-standee,
         .objective-standee {
           box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.5) var(--ghs-color-red);

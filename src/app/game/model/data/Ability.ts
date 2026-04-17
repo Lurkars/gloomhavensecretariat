@@ -1,4 +1,4 @@
-import { Action } from "./Action";
+import { Action } from 'src/app/game/model/data/Action';
 
 export class Ability {
   cardId: number | undefined;
@@ -22,9 +22,15 @@ export class Ability {
   revealed: boolean = false;
   replace: boolean = false;
 
-  constructor(cardId: number | undefined = undefined, name: string | undefined = undefined, initiative: number = 0,
+  constructor(
+    cardId: number | undefined = undefined,
+    name: string | undefined = undefined,
+    initiative: number = 0,
     actions: Action[] = [],
-    shuffle: boolean = false, bottomActions: Action[] = [], level: number = 0) {
+    shuffle: boolean = false,
+    bottomActions: Action[] = [],
+    level: number = 0
+  ) {
     this.cardId = cardId;
     this.name = name;
     this.initiative = initiative;

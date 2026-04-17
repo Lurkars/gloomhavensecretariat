@@ -1125,8 +1125,8 @@
     },
     "fh-253": {
       "": "双生假面",
-      "1": "在你是%game.characterIconIdentity.geminate.1%的远程攻击能力期间，一次攻击获得优势，并将本卡牌翻面。",
-      "2": "当你是%game.characterIconIdentity.geminate.0%且受到攻击时，该次攻击获得劣势，并将本卡牌翻面。"
+      "1": "在你是%game.characterIconIdentityColored.geminate.1%的远程攻击能力期间，一次攻击获得优势，并将本卡牌翻面。",
+      "2": "当你是%game.characterIconIdentityColored.geminate.0%且受到攻击时，该次攻击获得劣势，并将本卡牌翻面。"
     },
     "fh-254": {
       "": "先祖魂刃",

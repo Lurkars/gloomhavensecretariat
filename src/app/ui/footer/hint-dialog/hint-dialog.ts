@@ -1,153 +1,194 @@
-import { Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component, HostListener } from "@angular/core";
-import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character } from "src/app/game/model/Character";
-import { GameState } from "src/app/game/model/Game";
-import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
-import { ghsDialogClosingHelper } from "../../helper/Static";
-import { ScenarioConclusionComponent } from "../scenario/scenario-conclusion/scenario-conclusion";
-import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
+import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { GameState } from 'src/app/game/model/Game';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
+import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
-    standalone: false,
-    selector: 'ghs-hint-dialog',
-    templateUrl: './hint-dialog.html',
-    styleUrls: ['./hint-dialog.scss']
+  imports: [GhsLabelDirective],
+  selector: 'ghs-hint-dialog',
+  templateUrl: './hint-dialog.html',
+  styleUrls: ['./hint-dialog.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HintDialogComponent {
+  gameManager: GameManager = gameManager;
+  GameState = GameState;
 
-    gameManager: GameManager = gameManager;
-    GameState = GameState;
+  isEmpty: boolean = false;
+  isMissingInitiative: boolean = false;
+  isActive: boolean = false;
+  isBattleGoals: boolean = false;
+  isEventDraw: boolean = false;
+  isFinish: boolean = false;
+  isFailed: boolean = false;
 
-    isEmpty: boolean = false;
-    isMissingInitiative: boolean = false;
-    isActive: boolean = false;
-    isBattleGoals: boolean = false;
-    isEventDraw: boolean = false;
-    isFinish: boolean = false;
-    isFailed: boolean = false;
+  constructor(
+    private dialogRef: DialogRef,
+    private dialog: Dialog,
+    private ghsManager: GhsManager
+  ) {
+    this.ghsManager.uiChangeEffect(() => {
+      this.isEmpty = this.empty();
+      this.isMissingInitiative = this.missingInitiative();
+      this.isActive = this.active();
+      this.isBattleGoals = this.battleGoals();
+      this.isEventDraw = this.eventDraw();
+      this.isFinish = this.finish();
+      this.isFailed = this.failed();
+    });
+  }
 
-    constructor(private dialogRef: DialogRef, private dialog: Dialog, private ghsManager: GhsManager) {
-        this.ghsManager.uiChangeEffect(() => {
-            this.isEmpty = this.empty();
-            this.isMissingInitiative = this.missingInitiative();
-            this.isActive = this.active();
-            this.isBattleGoals = this.battleGoals();
-            this.isEventDraw = this.eventDraw();
-            this.isFinish = this.finish();
-            this.isFailed = this.failed();
-        });
+  confirm() {
+    const active = gameManager.game.figures.find((figure) => figure.active);
+    if (active) {
+      gameManager.stateManager.before('endAllTurns');
+      gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
+      gameManager.stateManager.after();
     }
+    this.next();
+  }
 
-    confirm() {
-        const active = gameManager.game.figures.find((figure) => figure.active);
-        if (active) {
-            gameManager.stateManager.before("endAllTurns");
-            gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
-            gameManager.stateManager.after();
-        }
-        this.next();
-    }
+  next() {
+    ghsDialogClosingHelper(this.dialogRef, true);
+  }
 
-    next() {
-        ghsDialogClosingHelper(this.dialogRef, true);
-    }
-
-    finishScenario(success: boolean) {
+  finishScenario(success: boolean) {
+    if (gameManager.game.scenario) {
+      const conclusions = gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => {
         if (gameManager.game.scenario) {
-            const conclusions = gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => {
-                if (gameManager.game.scenario) {
-                    return sectionData.edition == gameManager.game.scenario.edition && sectionData.parent == gameManager.game.scenario.index && sectionData.group == gameManager.game.scenario.group && sectionData.conclusion && gameManager.scenarioManager.getRequirements(sectionData).length == 0;
-                }
-                return false;
-            });
-
-            if (conclusions.length == 0 || !success) {
-                this.dialog.open(ScenarioSummaryComponent, {
-                    panelClass: ['dialog'],
-                    data: {
-                        scenario: gameManager.game.scenario,
-                        success: success
-                    }
-                })
-            } else {
-                this.dialog.open(ScenarioConclusionComponent, {
-                    panelClass: ['dialog'],
-                    data: { conclusions: conclusions, parent: gameManager.game.scenario }
-                }).closed.subscribe({
-                    next: (conclusion) => {
-                        if (conclusion) {
-                            this.dialog.open(ScenarioSummaryComponent, {
-                                panelClass: ['dialog'],
-                                data: {
-                                    scenario: gameManager.game.scenario,
-                                    conclusion: conclusion,
-                                    success: success
-                                }
-                            })
-                        }
-                    }
-                });
-            }
-            ghsDialogClosingHelper(this.dialogRef, false);
+          return (
+            sectionData.edition == gameManager.game.scenario.edition &&
+            sectionData.parent == gameManager.game.scenario.index &&
+            sectionData.group == gameManager.game.scenario.group &&
+            sectionData.conclusion &&
+            gameManager.scenarioManager.getRequirements(sectionData).length == 0
+          );
         }
-    }
-
-    resetScenario() {
-        gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
-        gameManager.roundManager.resetScenario();
-        gameManager.scenarioManager.setScenario(gameManager.game.scenario);
-        gameManager.stateManager.after();
-        ghsDialogClosingHelper(this.dialogRef);
-    }
-
-    empty(): boolean {
-        return gameManager.game.figures.length == 0;
-    }
-
-    missingInitiative(): boolean {
-        return gameManager.game.figures.some((figure) => settingsManager.settings.initiativeRequired && (figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent || figure instanceof ObjectiveContainer) && figure.getInitiative() <= 0);
-    }
-
-    active(): boolean {
-        return gameManager.game.figures.find((figure) => figure.active && !figure.off) != undefined;
-    }
-
-    battleGoals(): boolean {
-        return !this.missingInitiative() && settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsReminder && gameManager.game.scenario != undefined && gameManager.roundManager.firstRound && !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent) && !gameManager.bbRules();
-    }
-
-    eventDraw(): boolean {
-        return !this.missingInitiative() && !settingsManager.settings.eventsDraw && settingsManager.settings.eventsDrawReminder && gameManager.game.scenario != undefined && gameManager.roundManager.firstRound && gameManager.game.eventDraw != undefined;
-    }
-
-    finish(): boolean {
         return false;
-    }
+      });
 
-    failed(): boolean {
-        return !this.active() && !this.empty() && gameManager.game.figures.some((figure) => figure instanceof Character) && gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure instanceof Character && (!gameManager.entityManager.isAlive(figure) || figure.absent));
-    }
-
-
-    @HostListener('document:keydown', ['$event'])
-    onKeyEnter(event: KeyboardEvent) {
-        if (settingsManager.settings.keyboardShortcuts && event.key === 'Enter') {
-            if (this.isActive) {
-                this.confirm();
-            } else if (this.isFinish) {
-                this.finishScenario(true);
-            } else if (this.isFailed) {
-                this.finishScenario(false);
-            } else if (this.isBattleGoals) {
-                this.confirm();
-            } else if (this.isEventDraw) {
-                this.confirm();
+      if (conclusions.length == 0 || !success) {
+        this.dialog.open(ScenarioSummaryComponent, {
+          panelClass: ['dialog'],
+          data: {
+            scenario: gameManager.game.scenario,
+            success: success
+          }
+        });
+      } else {
+        this.dialog
+          .open(ScenarioConclusionComponent, {
+            panelClass: ['dialog'],
+            data: { conclusions: conclusions, parent: gameManager.game.scenario }
+          })
+          .closed.subscribe({
+            next: (conclusion) => {
+              if (conclusion) {
+                this.dialog.open(ScenarioSummaryComponent, {
+                  panelClass: ['dialog'],
+                  data: {
+                    scenario: gameManager.game.scenario,
+                    conclusion: conclusion,
+                    success: success
+                  }
+                });
+              }
             }
-            event.preventDefault();
-            event.stopPropagation();
-        }
+          });
+      }
+      ghsDialogClosingHelper(this.dialogRef, false);
     }
+  }
+
+  resetScenario() {
+    gameManager.stateManager.before('resetScenario', ...gameManager.scenarioManager.scenarioUndoArgs());
+    gameManager.roundManager.resetScenario();
+    gameManager.scenarioManager.setScenario(gameManager.game.scenario);
+    gameManager.stateManager.after();
+    ghsDialogClosingHelper(this.dialogRef);
+  }
+
+  empty(): boolean {
+    return gameManager.game.figures.length == 0;
+  }
+
+  missingInitiative(): boolean {
+    return gameManager.game.figures.some(
+      (figure) =>
+        settingsManager.settings.initiativeRequired &&
+        ((figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent) ||
+          figure instanceof ObjectiveContainer) &&
+        figure.getInitiative() <= 0
+    );
+  }
+
+  active(): boolean {
+    return gameManager.game.figures.find((figure) => figure.active && !figure.off) != undefined;
+  }
+
+  battleGoals(): boolean {
+    return (
+      !this.missingInitiative() &&
+      settingsManager.settings.battleGoals &&
+      settingsManager.settings.battleGoalsReminder &&
+      gameManager.game.scenario != undefined &&
+      gameManager.roundManager.firstRound &&
+      !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent) &&
+      !gameManager.bbRules()
+    );
+  }
+
+  eventDraw(): boolean {
+    return (
+      !this.missingInitiative() &&
+      !settingsManager.settings.eventsDraw &&
+      settingsManager.settings.eventsDrawReminder &&
+      gameManager.game.scenario != undefined &&
+      gameManager.roundManager.firstRound &&
+      gameManager.game.eventDraw != undefined
+    );
+  }
+
+  finish(): boolean {
+    return false;
+  }
+
+  failed(): boolean {
+    return (
+      !this.active() &&
+      !this.empty() &&
+      gameManager.game.figures.some((figure) => figure instanceof Character) &&
+      gameManager.game.figures.every(
+        (figure) =>
+          !(figure instanceof Character) || (figure instanceof Character && (!gameManager.entityManager.isAlive(figure) || figure.absent))
+      )
+    );
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onKeyEnter(event: KeyboardEvent) {
+    if (settingsManager.settings.keyboardShortcuts && event.key === 'Enter') {
+      if (this.isActive) {
+        this.confirm();
+      } else if (this.isFinish) {
+        this.finishScenario(true);
+      } else if (this.isFailed) {
+        this.finishScenario(false);
+      } else if (this.isBattleGoals) {
+        this.confirm();
+      } else if (this.isEventDraw) {
+        this.confirm();
+      }
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
 }

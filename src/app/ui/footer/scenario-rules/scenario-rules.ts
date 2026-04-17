@@ -1,247 +1,341 @@
-import { Dialog } from "@angular/cdk/dialog";
-import { Component } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
-import { Condition } from "src/app/game/model/data/Condition";
-import { RoomData } from "src/app/game/model/data/RoomData";
-import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { HiddenScenarioFigureRuleTypes, ScenarioFigureRule, ScenarioRule, ScenarioRuleIdentifier } from "src/app/game/model/data/ScenarioRule";
-import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
+import { Dialog } from '@angular/cdk/dialog';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Condition } from 'src/app/game/model/data/Condition';
+import { RoomData } from 'src/app/game/model/data/RoomData';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
+import {
+  HiddenScenarioFigureRuleTypes,
+  ScenarioFigureRule,
+  ScenarioRule,
+  ScenarioRuleIdentifier
+} from 'src/app/game/model/data/ScenarioRule';
+import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
+import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
+import { ScenarioRuleComponent } from 'src/app/ui/footer/scenario-rules/scenario-rule';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-    standalone: false,
-    selector: 'ghs-scenario-rules',
-    templateUrl: './scenario-rules.html',
-    styleUrls: ['./scenario-rules.scss']
+  imports: [NgClass, GhsLabelDirective, TrackUUIDPipe, ScenarioRuleComponent],
+  selector: 'ghs-scenario-rules',
+  templateUrl: './scenario-rules.html',
+  styleUrls: ['./scenario-rules.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioRulesComponent {
+  gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
+  EntityValueFunction = EntityValueFunction;
 
-    gameManager: GameManager = gameManager;
-    settingsManager: SettingsManager = settingsManager;
-    EntityValueFunction = EntityValueFunction;
+  scenarioRules: { identifier: ScenarioRuleIdentifier; rule: ScenarioRule }[] = [];
 
-    scenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
+  constructor(
+    private dialog: Dialog,
+    private ghsManager: GhsManager
+  ) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
-    constructor(private dialog: Dialog, private ghsManager: GhsManager) {
-        this.ghsManager.uiChangeEffect(() => this.update());
+  update(): void {
+    this.scenarioRules = [...gameManager.game.scenarioRules];
+  }
+
+  randomDungeonsMonsterLabel(rule: ScenarioRule): string[] {
+    if (!rule.randomDungeon || !rule.randomDungeon.monsterCards || !rule.randomDungeon.monsterCards.length) {
+      return [];
     }
 
-    update(): void {
-        this.scenarioRules = [...gameManager.game.scenarioRules];
-    }
-
-    randomDungeonsMonsterLabel(rule: ScenarioRule): string[] {
-        if (!rule.randomDungeon || !rule.randomDungeon.monsterCards || !rule.randomDungeon.monsterCards.length) {
-            return [];
+    return rule.randomDungeon.monsterCards
+      .filter(
+        (cardId) =>
+          !gameManager.game.scenario ||
+          !gameManager.game.scenario.additionalSections ||
+          !gameManager.game.scenario.additionalSections.includes(cardId)
+      )
+      .map((cardId) => {
+        if (gameManager.game.scenario) {
+          const section = gameManager
+            .sectionData(gameManager.game.scenario.edition, true)
+            .find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomMonsterCard');
+          if (section) {
+            return '&nbsp%' + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ')';
+          }
         }
 
-        return rule.randomDungeon.monsterCards.filter((cardId) => !gameManager.game.scenario || !gameManager.game.scenario.additionalSections || !gameManager.game.scenario.additionalSections.includes(cardId)).map((cardId) => {
-            if (gameManager.game.scenario) {
-                const section = gameManager.sectionData(gameManager.game.scenario.edition, true).find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomMonsterCard');
-                if (section) {
-                    return "&nbsp%" + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ")";
+        return '&nbsp' + cardId;
+      });
+  }
+
+  randomDungeonsDungeonLabel(rule: ScenarioRule): string[] {
+    if (!rule.randomDungeon || !rule.randomDungeon.dungeonCards || !rule.randomDungeon.dungeonCards.length) {
+      return [];
+    }
+
+    return rule.randomDungeon.dungeonCards
+      .filter(
+        (cardId) =>
+          !gameManager.game.scenario ||
+          !gameManager.game.scenario.additionalSections ||
+          !gameManager.game.scenario.additionalSections.includes(cardId)
+      )
+      .map((cardId) => {
+        if (gameManager.game.scenario) {
+          const section = gameManager
+            .sectionData(gameManager.game.scenario.edition, true)
+            .find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomDungeonCard');
+          if (section) {
+            return '&nbsp%' + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ')';
+          }
+        }
+
+        return '&nbsp' + cardId;
+      });
+  }
+
+  prevent(event: any) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  sections(index: number): ScenarioData[] {
+    if (gameManager.game.scenarioRules[index]) {
+      const scenario = gameManager.scenarioRulesManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
+      if (scenario) {
+        const rule = gameManager.game.scenarioRules[index].rule;
+        if (rule && rule.sections) {
+          return gameManager
+            .sectionData(scenario.edition)
+            .filter(
+              (sectionData) =>
+                !gameManager.game.sections.find(
+                  (active) => active.edition == sectionData.edition && active.group == scenario.group && active.index == sectionData.index
+                ) &&
+                sectionData.group == scenario.group &&
+                rule.sections.includes(sectionData.index)
+            );
+        }
+      }
+    }
+    return [];
+  }
+
+  rooms(index: number): RoomData[] {
+    const rooms: RoomData[] = [];
+    if (gameManager.game.scenarioRules[index]) {
+      const scenario = gameManager.scenarioRulesManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
+      if (scenario) {
+        const rule = gameManager.game.scenarioRules[index].rule;
+        if (rule && rule.rooms) {
+          rule.rooms.forEach((roomNumber) => {
+            const roomData = scenario.rooms.find((roomData) => roomData.roomNumber == roomNumber);
+            if (roomData && gameManager.game.scenario && !gameManager.game.scenario.revealedRooms.includes(roomNumber)) {
+              rooms.push(roomData);
+            }
+          });
+        }
+      }
+    }
+    return rooms;
+  }
+
+  figureRules(rule: ScenarioRule): ScenarioFigureRule[] {
+    return (
+      (rule.figures &&
+        rule.figures.filter((figureRule) => {
+          if (HiddenScenarioFigureRuleTypes.includes(figureRule.type)) {
+            return false;
+          }
+
+          const figures = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
+          if (figures.length == 0) {
+            return false;
+          }
+
+          if (figureRule.type == 'gainCondition' || figureRule.type == 'permanentCondition' || figureRule.type == 'loseCondition') {
+            return figures.some((figure) => {
+              if (figureRule.type == 'gainCondition') {
+                const entities: Entity[] = gameManager.entityManager.entities(figure);
+                const gainCondition = new Condition(figureRule.value);
+                if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition))) {
+                  return false;
                 }
-            }
-
-            return '&nbsp' + cardId;
-        })
-    }
-
-    randomDungeonsDungeonLabel(rule: ScenarioRule): string[] {
-        if (!rule.randomDungeon || !rule.randomDungeon.dungeonCards || !rule.randomDungeon.dungeonCards.length) {
-            return [];
-        }
-
-        return rule.randomDungeon.dungeonCards.filter((cardId) => !gameManager.game.scenario || !gameManager.game.scenario.additionalSections || !gameManager.game.scenario.additionalSections.includes(cardId)).map((cardId) => {
-            if (gameManager.game.scenario) {
-                const section = gameManager.sectionData(gameManager.game.scenario.edition, true).find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomDungeonCard');
-                if (section) {
-                    return "&nbsp%" + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ")";
+              } else if (figureRule.type == 'permanentCondition') {
+                const entities: Entity[] = gameManager.entityManager.entities(figure);
+                const gainCondition = new Condition(figureRule.value);
+                if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition, true))) {
+                  return false;
                 }
-            }
-
-            return '&nbsp' + cardId;
-        })
-    }
-
-    prevent(event: any) {
-        event.preventDefault();
-        event.stopPropagation();
-    }
-
-    sections(index: number): ScenarioData[] {
-        if (gameManager.game.scenarioRules[index]) {
-            const scenario = gameManager.scenarioRulesManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
-            if (scenario) {
-                const rule = gameManager.game.scenarioRules[index].rule;
-                if (rule && rule.sections) {
-                    return gameManager.sectionData(scenario.edition).filter((sectionData) => !gameManager.game.sections.find((active) => active.edition == sectionData.edition && active.group == scenario.group && active.index == sectionData.index) && sectionData.group == scenario.group && rule.sections.includes(sectionData.index));
+              } else if (figureRule.type == 'loseCondition') {
+                const entities: Entity[] = gameManager.entityManager.entities(figure);
+                const loseCondition = new Condition(figureRule.value);
+                if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, loseCondition))) {
+                  return false;
                 }
-            }
-        }
-        return [];
-    }
+              }
+              return true;
+            });
+          } else if (figureRule.type == 'toggleOn' || figureRule.type == 'toggleOff') {
+            return figures.some((figure) => figure.off == (figureRule.type == 'toggleOn'));
+          }
 
-    rooms(index: number): RoomData[] {
-        let rooms: RoomData[] = [];
-        if (gameManager.game.scenarioRules[index]) {
-            const scenario = gameManager.scenarioRulesManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
-            if (scenario) {
-                const rule = gameManager.game.scenarioRules[index].rule;
-                if (rule && rule.rooms) {
-                    rule.rooms.forEach((roomNumber) => {
-                        const roomData = scenario.rooms.find((roomData) => roomData.roomNumber == roomNumber);
-                        if (roomData && gameManager.game.scenario && !gameManager.game.scenario.revealedRooms.includes(roomNumber)) {
-                            rooms.push(roomData);
-                        }
-                    })
-                }
-            }
-        }
-        return rooms;
-    }
+          return true;
+        })) ||
+      []
+    );
+  }
 
-    figureRules(rule: ScenarioRule): ScenarioFigureRule[] {
-        return rule.figures && rule.figures.filter((figureRule) => {
-            if (HiddenScenarioFigureRuleTypes.includes(figureRule.type)) {
-                return false;
-            }
+  visible(index: number): boolean {
+    if (gameManager.game.scenarioRules[index]) {
+      const rule = gameManager.game.scenarioRules[index].rule;
 
-            const figures = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
-            if (figures.length == 0) {
-                return false;
-            }
-
-            if (figureRule.type == "gainCondition" || figureRule.type == "permanentCondition" || figureRule.type == "loseCondition") {
-                return figures.some((figure) => {
-                    if (figureRule.type == "gainCondition") {
-                        let entities: Entity[] = gameManager.entityManager.entities(figure);
-                        let gainCondition = new Condition(figureRule.value);
-                        if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition))) {
-                            return false
-                        }
-                    } else if (figureRule.type == "permanentCondition") {
-                        let entities: Entity[] = gameManager.entityManager.entities(figure);
-                        let gainCondition = new Condition(figureRule.value);
-                        if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition, true))) {
-                            return false
-                        }
-                    } else if (figureRule.type == "loseCondition") {
-                        let entities: Entity[] = gameManager.entityManager.entities(figure);
-                        let loseCondition = new Condition(figureRule.value);
-                        if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, loseCondition))) {
-                            return false
-                        }
-                    }
-                    return true;
-                });
-            } else if (figureRule.type == "toggleOn" || figureRule.type == "toggleOff") {
-                return figures.some((figure) => figure.off == (figureRule.type == "toggleOn"));
-            }
-
-            return true;
-        }) || [];
-    }
-
-    visible(index: number): boolean {
-        if (gameManager.game.scenarioRules[index]) {
-            const rule = gameManager.game.scenarioRules[index].rule;
-
-            if (rule.disablingRules && rule.disablingRules.length > 0 && rule.disablingRules.some((value) => gameManager.game.scenarioRules.find((ruleModel, otherRuleIndex) => index != otherRuleIndex && value.edition == ruleModel.identifier.edition && value.group == ruleModel.identifier.group && (value.index == ruleModel.identifier.index || value.index == -1) && value.scenario == ruleModel.identifier.scenario && value.section == ruleModel.identifier.section && this.visible(otherRuleIndex)))) {
-                return false;
-            }
-
-            if (gameManager.scenarioRulesManager.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 && rule.elements.some((elementModel) => gameManager.game.elementBoard.find((element) => element.type == elementModel.type)?.state != elementModel.state) || this.sections(index).length > 0 || this.rooms(index).length > 0 || this.figureRules(rule).length > 0 || rule.note || rule.finish || rule.randomDungeon || rule.statEffects && rule.statEffects.length) {
-                return true;
-            }
-        }
+      if (
+        rule.disablingRules &&
+        rule.disablingRules.length > 0 &&
+        rule.disablingRules.some((value) =>
+          gameManager.game.scenarioRules.find(
+            (ruleModel, otherRuleIndex) =>
+              index != otherRuleIndex &&
+              value.edition == ruleModel.identifier.edition &&
+              value.group == ruleModel.identifier.group &&
+              (value.index == ruleModel.identifier.index || value.index == -1) &&
+              value.scenario == ruleModel.identifier.scenario &&
+              value.section == ruleModel.identifier.section &&
+              this.visible(otherRuleIndex)
+          )
+        )
+      ) {
         return false;
+      }
+
+      if (
+        gameManager.scenarioRulesManager.spawns(rule).length > 0 ||
+        (rule.objectiveSpawns && rule.objectiveSpawns.length > 0) ||
+        (rule.elements &&
+          rule.elements.length > 0 &&
+          rule.elements.some(
+            (elementModel) =>
+              gameManager.game.elementBoard.find((element) => element.type == elementModel.type)?.state != elementModel.state
+          )) ||
+        this.sections(index).length > 0 ||
+        this.rooms(index).length > 0 ||
+        this.figureRules(rule).length > 0 ||
+        rule.note ||
+        rule.finish ||
+        rule.randomDungeon ||
+        (rule.statEffects && rule.statEffects.length)
+      ) {
+        return true;
+      }
     }
+    return false;
+  }
 
-    apply(rule: ScenarioRule) {
-        return gameManager.scenarioRulesManager.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 || rule.finish || settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0 || rule.sections && rule.sections.length > 0 || rule.randomDungeon || rule.figures && rule.figures.length > 0 && rule.figures.some((figureRule) => !HiddenScenarioFigureRuleTypes.includes(figureRule.type)) || rule.statEffects && rule.statEffects.length;
-    }
+  apply(rule: ScenarioRule) {
+    return (
+      gameManager.scenarioRulesManager.spawns(rule).length > 0 ||
+      (rule.objectiveSpawns && rule.objectiveSpawns.length > 0) ||
+      (rule.elements && rule.elements.length > 0) ||
+      rule.finish ||
+      (settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0) ||
+      (rule.sections && rule.sections.length > 0) ||
+      rule.randomDungeon ||
+      (rule.figures &&
+        rule.figures.length > 0 &&
+        rule.figures.some((figureRule) => !HiddenScenarioFigureRuleTypes.includes(figureRule.type))) ||
+      (rule.statEffects && rule.statEffects.length)
+    );
+  }
 
-    applyRule(element: HTMLElement, index: number) {
-        if (gameManager.game.scenarioRules[index]) {
-            const rule = gameManager.game.scenarioRules[index].rule;
-            const identifier = gameManager.game.scenarioRules[index].identifier;
-            const scenario = gameManager.scenarioRulesManager.getScenarioForRule(identifier).scenario;
-            if (scenario) {
-                gameManager.stateManager.before("applyScenarioRule");
-                if (!rule.alwaysApplyTurn) {
-                    gameManager.scenarioRulesManager.applyRule(rule, identifier);
+  applyRule(element: HTMLElement, index: number) {
+    if (gameManager.game.scenarioRules[index]) {
+      const rule = gameManager.game.scenarioRules[index].rule;
+      const identifier = gameManager.game.scenarioRules[index].identifier;
+      const scenario = gameManager.scenarioRulesManager.getScenarioForRule(identifier).scenario;
+      if (scenario) {
+        gameManager.stateManager.before('applyScenarioRule');
+        if (!rule.alwaysApplyTurn) {
+          gameManager.scenarioRulesManager.applyRule(rule, identifier);
 
-                    if (rule.rooms) {
-                        this.rooms(index).forEach((roomData) => {
-                            gameManager.scenarioManager.openRoom(roomData, scenario, gameManager.game.scenarioRules[index].identifier.section);
-                        })
-                    }
+          if (rule.rooms) {
+            this.rooms(index).forEach((roomData) => {
+              gameManager.scenarioManager.openRoom(roomData, scenario, gameManager.game.scenarioRules[index].identifier.section);
+            });
+          }
 
-                    if (rule.sections) {
-                        this.sections(index).forEach((sectionData) => {
-                            if (sectionData.conclusion) {
-                                this.dialog.open(ScenarioSummaryComponent, {
-                                    panelClass: ['dialog'],
-                                    data: {
-                                        scenario: gameManager.game.scenario,
-                                        success: true,
-                                        conclusion: sectionData
-                                    }
-                                })
-                            } else {
-                                gameManager.scenarioManager.addSection(sectionData);
-                            }
-                        })
-                    }
+          if (rule.sections) {
+            this.sections(index).forEach((sectionData) => {
+              if (sectionData.conclusion) {
+                this.dialog.open(ScenarioSummaryComponent, {
+                  panelClass: ['dialog'],
+                  data: {
+                    scenario: gameManager.game.scenario,
+                    success: true,
+                    conclusion: sectionData
+                  }
+                });
+              } else {
+                gameManager.scenarioManager.addSection(sectionData);
+              }
+            });
+          }
 
-                    if (rule.finish && ["won", "lost"].includes(rule.finish)) {
-                        this.dialog.open(ScenarioSummaryComponent, {
-                            panelClass: ['dialog'],
-                            data: { scenario: scenario, success: rule.finish == "won" }
-                        })
-                    }
-                }
-
-                element.classList.add('closed');
-                setTimeout(() => {
-                    if (rule.once || rule.alwaysApply || rule.alwaysApplyTurn) {
-                        gameManager.game.appliedScenarioRules.push(identifier);
-                    }
-                    gameManager.game.scenarioRules.splice(index, 1);
-
-                    if (rule.finish == "round") {
-                        gameManager.roundManager.nextGameState();
-                    }
-
-                    gameManager.stateManager.after();
-                }, settingsManager.settings.animations ? 100 * settingsManager.settings.animationSpeed : 0)
-            }
+          if (rule.finish && ['won', 'lost'].includes(rule.finish)) {
+            this.dialog.open(ScenarioSummaryComponent, {
+              panelClass: ['dialog'],
+              data: { scenario: scenario, success: rule.finish == 'won' }
+            });
+          }
         }
-    }
 
-
-    hideRule(element: HTMLElement, index: number) {
         element.classList.add('closed');
-        setTimeout(() => {
-            gameManager.stateManager.before("hideScenarioRule");
-            const ruleModel = gameManager.game.scenarioRules.splice(index, 1)[0];
-            gameManager.game.discardedScenarioRules.push(ruleModel.identifier);
-            gameManager.stateManager.after();
-        }, settingsManager.settings.animations ? 100 * settingsManager.settings.animationSpeed : 0)
-    }
-
-    close(element: HTMLElement, index: number) {
-        element.classList.add('closed');
-        setTimeout(() => {
-            gameManager.stateManager.before("removeScenarioRule");
-            const ruleModel = gameManager.game.scenarioRules.splice(index, 1)[0];
-            if (ruleModel.rule.once || ruleModel.rule.alwaysApplyTurn || ruleModel.rule.alwaysApply) {
-                gameManager.game.discardedScenarioRules.push(ruleModel.identifier);
+        setTimeout(
+          () => {
+            if (rule.once || rule.alwaysApply || rule.alwaysApplyTurn) {
+              gameManager.game.appliedScenarioRules.push(identifier);
             }
+            gameManager.game.scenarioRules.splice(index, 1);
+
+            if (rule.finish == 'round') {
+              gameManager.roundManager.nextGameState();
+            }
+
             gameManager.stateManager.after();
-        }, settingsManager.settings.animations ? 100 * settingsManager.settings.animationSpeed : 0)
+          },
+          settingsManager.settings.animations ? 100 * settingsManager.settings.animationSpeed : 0
+        );
+      }
     }
+  }
+
+  hideRule(element: HTMLElement, index: number) {
+    element.classList.add('closed');
+    setTimeout(
+      () => {
+        gameManager.stateManager.before('hideScenarioRule');
+        const ruleModel = gameManager.game.scenarioRules.splice(index, 1)[0];
+        gameManager.game.discardedScenarioRules.push(ruleModel.identifier);
+        gameManager.stateManager.after();
+      },
+      settingsManager.settings.animations ? 100 * settingsManager.settings.animationSpeed : 0
+    );
+  }
+
+  close(element: HTMLElement, index: number) {
+    element.classList.add('closed');
+    setTimeout(
+      () => {
+        gameManager.stateManager.before('removeScenarioRule');
+        const ruleModel = gameManager.game.scenarioRules.splice(index, 1)[0];
+        if (ruleModel.rule.once || ruleModel.rule.alwaysApplyTurn || ruleModel.rule.alwaysApply) {
+          gameManager.game.discardedScenarioRules.push(ruleModel.identifier);
+        }
+        gameManager.stateManager.after();
+      },
+      settingsManager.settings.animations ? 100 * settingsManager.settings.animationSpeed : 0
+    );
+  }
 }

@@ -1,17 +1,21 @@
 <div class="section-popup">
-
   <div class="header">
-    <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
+    <img class="ghs-svg" src="/assets/images/scenario/conclusion.svg" />
     <span [ghs-label]="'scenario.section.conclusion.select'"></span>
   </div>
 
   <div class="conclusions">
     @for (sectionData of data.conclusions | trackUUID; track sectionData._trackUUID) {
-    <span class="placeholder text-white conclusion"
-      [ghs-label]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' :  '') + (sectionData.named ? '.named' : '')"
-      [ghs-label-args]="['%data.section:' + sectionData.index + '%', sectionData.named ? gameManager.scenarioManager.scenarioTitle(sectionData,true) : '']"
-      (click)="close(sectionData)">
-    </span>
+      <span
+        class="placeholder text-white conclusion"
+        [ghs-label]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' : '') + (sectionData.named ? '.named' : '')"
+        [ghs-label-args]="[
+          '%data.section:' + sectionData.index + '%',
+          sectionData.named ? gameManager.scenarioManager.scenarioTitle(sectionData, true) : ''
+        ]"
+        (click)="close(sectionData)"
+      >
+      </span>
     }
   </div>
 

@@ -1,17 +1,17 @@
-import { BattleGoal } from "./BattleGoal";
-import { BuildingData } from "./BuildingData";
-import { ChallengeCard } from "./Challenges";
-import { CharacterData } from "./CharacterData";
-import { DeckData } from "./DeckData";
-import { Editional } from "./Editional";
-import { EventCard } from "./EventCard";
-import { ItemData } from "./ItemData";
-import { MonsterData } from "./MonsterData";
-import { Perk } from "./Perks";
-import { PersonalQuest } from "./PersonalQuest";
-import { PetCard } from "./PetCard";
-import { ScenarioData } from "./ScenarioData";
-import { Favor, TrialCard } from "./Trials";
+import { BattleGoal } from 'src/app/game/model/data/BattleGoal';
+import { BuildingData } from 'src/app/game/model/data/BuildingData';
+import { ChallengeCard } from 'src/app/game/model/data/Challenges';
+import { CharacterData } from 'src/app/game/model/data/CharacterData';
+import { DeckData } from 'src/app/game/model/data/DeckData';
+import { Editional } from 'src/app/game/model/data/Editional';
+import { EventCard } from 'src/app/game/model/data/EventCard';
+import { ItemData } from 'src/app/game/model/data/ItemData';
+import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { Perk } from 'src/app/game/model/data/Perks';
+import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
+import { PetCard } from 'src/app/game/model/data/PetCard';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
+import { Favor, TrialCard } from 'src/app/game/model/data/Trials';
 
 export const GH_PROSPERITY_STEPS = [3, 8, 14, 21, 29, 38, 49, 63];
 export const FH_PROSPERITY_STEPS = [5, 14, 26, 41, 59, 80, 104, 131];
@@ -35,12 +35,12 @@ export class EditionData implements Editional {
   trials: TrialCard[] = [];
   favors: Favor[] = [];
   pets: PetCard[] = [];
-  worldMap: { width: number, height: number } | undefined;
+  worldMap: { width: number; height: number } | undefined;
   extendWorldMap: string | undefined;
   label: any = {};
   labelSpoiler: any = {};
-  url: string = "";
-  logoUrl: string = "";
+  url: string = '';
+  logoUrl: string = '';
   additional: boolean = false;
   extensions: string[] = [];
   extends: string[] = [];
@@ -51,7 +51,9 @@ export class EditionData implements Editional {
   treasureOffset: number = 0;
   monsterAmTables: string[][] = [];
 
-  constructor(edition: string, characters: CharacterData[],
+  constructor(
+    edition: string,
+    characters: CharacterData[],
     monsters: MonsterData[],
     decks: DeckData[],
     scenarios: ScenarioData[],
@@ -62,7 +64,8 @@ export class EditionData implements Editional {
     events: EventCard[] = [],
     personalQuests: PersonalQuest[] = [],
     additional: boolean = false,
-    extensions: string[] = []) {
+    extensions: string[] = []
+  ) {
     this.edition = edition;
     this.characters = characters;
     this.monsters = monsters;
@@ -79,11 +82,9 @@ export class EditionData implements Editional {
     this.additional = additional;
     this.extensions = extensions;
   }
-
 }
 
 export class CampaignData {
-
   events: Partial<Record<string, string[]>> = {};
 
   // FH
@@ -101,9 +102,8 @@ export class CampaignData {
   imbuementSections: Record<number, string> = {};
   reputationSections: ReputationSection[] = [];
   prosperitySections: Record<number, string> = {};
-
 }
 
-export type TownGuardPerk = { "sections": string[], "perk": Perk };
+export type TownGuardPerk = { sections: string[]; perk: Perk };
 
-export type ReputationSection = { "faction": string, "value": number, "section": string, "requires"?: string[] };
+export type ReputationSection = { faction: string; value: number; section: string; requires?: string[] };

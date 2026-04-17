@@ -1,218 +1,297 @@
 <ghs-header #header></ghs-header>
-<main [ngClass]="{'compact' : footer.compact, 'modern' : settingsManager.settings.theme == 'modern'}"
-  ghs-keyboard-shortcuts [header]="header" [footer]="footer">
-  @if (gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl &&
-  settingsManager.settings.serverPort && settingsManager.settings.serverCode) {
-  <div class="dialog blocked">
-    <div class="dialog-container">
-      <span [ghs-label]="'server.blocked'"></span>
-      <div class="buttons">
-        <a class="force" (click)="gameManager.stateManager.forceUpdateState()">
-          <span [ghs-label]="'server.force'"></span>
-          <span class="force-hint"><span [ghs-label]="'server.forceHint'"></span></span>
-        </a>
-        <a class="connect" (click)="gameManager.stateManager.connect()">
-          <span [ghs-label]="'server.connect'"></span>
-          @if (gameManager.stateManager.connectionTries > 0) {
-          <span class="tries">
-            <span [ghs-label]="'server.connectionTries'"
-              [ghs-label-args]="[gameManager.stateManager.connectionTries]"></span>
-          </span>
-          }
-          @if (gameManager.stateManager.connectionTries > 4) {
-          <span class="tries-hint">
-            <span [ghs-label]="'server.connectionTries.hint'"></span>
-          </span>
-          }
-        </a>
-      </div>
-    </div>
-  </div>
-  }
-  @if (!fullviewChar && welcome) {
-  <div class="welcome"
-    [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
-    <img class="ghs-logo" src="./assets/images/logo-transparent.svg">
-    @if (gameManager.stateManager.installPrompt) {
-    <a class="install" (click)="gameManager.stateManager.install()">
-      <img class="ghs-svg" src="./assets/images/install.svg"> <span [ghs-label]="'app.install'"></span></a>
-    }
-    <h2><span [ghs-label]="'welcome'"></span></h2>
-    @if (!gameManager.game.edition) {
-    <div class="container-row bordered">
-      <p [ghs-label]="'welcome.chooseEdition'"></p>
-      <div class="editions">
-        @for (editionData of gameManager.editionsData() | trackUUID; track editionData._trackUUID) {
-        <a tabclick class="edition" (click)="startCampaign(editionData.edition)">
-          @if (editionData.logoUrl) {
-          <img [src]="editionData.logoUrl" [ghs-tooltip]="'data.edition.' + editionData.edition">
-          }
-          <span class="text" [ngClass]="{'small': editionData.logoUrl}">
-            <span [ghs-label]="'data.edition.' + editionData.edition"></span>
-          </span>
-        </a>
-        }
-        @if (!gameManager.game.edition && this.welcomeOtherEditions) {
-        <a tabclick class="edition add-additional-content" (click)="header.openMenu(SubMenu.editions)">
-          <img class="ghs-svg" src="./assets/images/plus.svg"> <span [ghs-label]="'hints.addAdditionalContent'"></span>
-        </a>
-        }
-      </div>
-    </div>
-    }
-    @if (gameManager.game.edition) {
-    <div class="container-row bordered">
-      <div class="editions">
-        <a tabclick class="edition selected" (click)="cancelCampaign(gameManager.game.edition)">
-          @if (gameManager.editionLogo(gameManager.game.edition)) {
-          <img [src]="gameManager.editionLogo(gameManager.game.edition)"
-            [ghs-tooltip]="'data.edition.' + gameManager.game.edition">
-          }
-          <span class="text" [ngClass]="{'small': gameManager.editionLogo(gameManager.game.edition)}">
-            <span [ghs-label]="'data.edition.' + gameManager.game.edition"></span>
-          </span>
-        </a>
-      </div>
-      @if (gameManager.game.edition == 'fh') {
-      <div class="fh-second-edition">
-        <div class="hint-container">
-          <label>
-            <input tabclick type="checkbox" [checked]="settingsManager.settings['fhSecondEdition']"
-              (change)="settingsManager.toggle('fhSecondEdition')">
-            <span [ghs-label]="'settings.fhSecondEdition' "></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <div class="text">
-              <span [ghs-label]="'settings.fhSecondEdition.hint'"></span>
-            </div>
-          </span>
+<main
+  [ngClass]="{ compact: footer.compact, modern: settingsManager.settings.theme == 'modern' }"
+  ghs-keyboard-shortcuts
+  [header]="header"
+  [footer]="footer"
+>
+  @if (
+    gameManager.stateManager.updateBlocked &&
+    settingsManager.settings.serverUrl &&
+    settingsManager.settings.serverPort &&
+    settingsManager.settings.serverCode
+  ) {
+    <div class="dialog blocked">
+      <div class="dialog-container">
+        <span [ghs-label]="'server.blocked'"></span>
+        <div class="buttons">
+          <a class="force" (click)="gameManager.stateManager.forceUpdateState()">
+            <span [ghs-label]="'server.force'"></span>
+            <span class="force-hint"><span [ghs-label]="'server.forceHint'"></span></span>
+          </a>
+          <a class="connect" (click)="gameManager.stateManager.connect()">
+            <span [ghs-label]="'server.connect'"></span>
+            @if (gameManager.stateManager.connectionTries > 0) {
+              <span class="tries">
+                <span [ghs-label]="'server.connectionTries'" [ghs-label-args]="[gameManager.stateManager.connectionTries]"></span>
+              </span>
+            }
+            @if (gameManager.stateManager.connectionTries > 4) {
+              <span class="tries-hint">
+                <span [ghs-label]="'server.connectionTries.hint'"></span>
+              </span>
+            }
+          </a>
         </div>
       </div>
+    </div>
+  }
+  @if (!fullviewChar && welcome) {
+    <div class="welcome" [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }">
+      <img class="ghs-logo" src="/assets/images/logo-transparent.svg" />
+      @if (gameManager.stateManager.installPrompt) {
+        <a class="install" (click)="gameManager.stateManager.install()">
+          <img class="ghs-svg" src="/assets/images/install.svg" /> <span [ghs-label]="'app.install'"></span
+        ></a>
       }
-      <div class="edition-hint">
-        @if (welcomeEditionHint) {
-        <p [ghs-label]="'data.edition.' + gameManager.game.edition + '.hint'"></p>
+      <h2><span [ghs-label]="'welcome'"></span></h2>
+      @if (!gameManager.game.edition) {
+        <div class="container-row bordered">
+          <p [ghs-label]="'welcome.chooseEdition'"></p>
+          <div class="editions">
+            @for (editionData of gameManager.editionsData() | trackUUID; track editionData._trackUUID) {
+              <a tabclick class="edition" (click)="startCampaign(editionData.edition)">
+                @if (editionData.logoUrl) {
+                  <img [src]="editionData.logoUrl" [ghs-tooltip]="'data.edition.' + editionData.edition" />
+                }
+                <span class="text" [ngClass]="{ small: editionData.logoUrl }">
+                  <span [ghs-label]="'data.edition.' + editionData.edition"></span>
+                </span>
+              </a>
+            }
+            @if (!gameManager.game.edition && this.welcomeOtherEditions) {
+              <a tabclick class="edition add-additional-content" (click)="header.openMenu(SubMenu.editions)">
+                <img class="ghs-svg" src="/assets/images/plus.svg" /> <span [ghs-label]="'hints.addAdditionalContent'"></span>
+              </a>
+            }
+          </div>
+        </div>
+      }
+      @if (gameManager.game.edition) {
+        <div class="container-row bordered">
+          <div class="editions">
+            <a tabclick class="edition selected" (click)="cancelCampaign(gameManager.game.edition)">
+              @if (gameManager.editionLogo(gameManager.game.edition)) {
+                <img [src]="gameManager.editionLogo(gameManager.game.edition)" [ghs-tooltip]="'data.edition.' + gameManager.game.edition" />
+              }
+              <span class="text" [ngClass]="{ small: gameManager.editionLogo(gameManager.game.edition) }">
+                <span [ghs-label]="'data.edition.' + gameManager.game.edition"></span>
+              </span>
+            </a>
+          </div>
+          @if (gameManager.game.edition == 'fh') {
+            <div class="fh-second-edition">
+              <div class="hint-container">
+                <label>
+                  <input
+                    tabclick
+                    type="checkbox"
+                    [checked]="settingsManager.settings['fhSecondEdition']"
+                    (change)="settingsManager.toggle('fhSecondEdition')"
+                  />
+                  <span [ghs-label]="'settings.fhSecondEdition'"></span>
+                </label>
+                <img src="/assets/images/hint.svg" class="hint-trigger ghs-svg" />
+                <span class="hint">
+                  <div class="text">
+                    <span [ghs-label]="'settings.fhSecondEdition.hint'"></span>
+                  </div>
+                </span>
+              </div>
+            </div>
+          }
+          <div class="edition-hint">
+            @if (welcomeEditionHint) {
+              <p [ghs-label]="'data.edition.' + gameManager.game.edition + '.hint'"></p>
+            }
+            <label>
+              <input tabclick type="checkbox" [checked]="gameManager.game.party.campaignMode" (change)="toggleCampaignMode()" />
+              <span [ghs-label]="'party.campaignMode'"></span>
+            </label>
+          </div>
+        </div>
+      }
+      <div class="container-row bordered">
+        @if (!gameManager.game.edition) {
+          <p [ghs-label]="'welcome.orChooseCharacters'"></p>
         }
+        @if (gameManager.game.edition) {
+          <p [ghs-label]="'welcome.chooseCharacters'"></p>
+        }
+        <a tabclick class="add-characters" (click)="header.openMenu(SubMenu.character_add)">
+          <span [ghs-label]="'hints.addCharacters'"></span>
+        </a>
+      </div>
+      <div class="container-row settings">
+        <p [ghs-label]="'welcome.settings.text'"></p>
+        <a tabclick class="settings-menu" (click)="header.openMenu(SubMenu.settings)">
+          <span [ghs-label]="'welcome.settings'"></span>
+        </a>
+      </div>
+      @if (loading) {
+        <span><span [ghs-label]="'app.loading'"></span></span>
+        <div class="loading-bar-container">
+          <div class="loading-bar"></div>
+        </div>
+        @if (cancelLoading) {
+          <a class="loading-cancel" (click)="loading = false"><span [ghs-label]="'app.loading.cancel'"></span></a>
+        }
+      }
+    </div>
+  }
+  @if (!fullviewChar && !welcome) {
+    <div
+      class="figures"
+      cdkDropListGroup
+      [ngClass]="{
+        'loot-deck': footer.lootDeckEnabeld,
+        'ally-deck': footer.hasAllyAttackModifierDeck,
+        'drag-disabled': !settingsManager.settings.dragFigures,
+        'backup-hint-spacer': showBackupHint
+      }"
+      (scroll)="onFigureScroll()"
+    >
+      @for (figure of figures | trackUUID; track figure._trackUUID; let i = $index) {
+        <div
+          class="figure"
+          [figure-autoscroll]="figure"
+          [block]="i == this.lastScroll || i == this.lastScrollColumn ? 'end' : 'center'"
+          [cdkDropListData]="i"
+          cdkDropList
+          (cdkDropListDropped)="drop($event)"
+          cdkDropListAutoScrollStep="20"
+          (cdkDropListEntered)="entered()"
+          (cdkDropListExited)="exited()"
+          [cdkDropListDisabled]="
+            !settingsManager.settings.dragFigures ||
+            (gameManager.stateManager.permissions &&
+              !gameManager.stateManager.permissions.characters &&
+              !gameManager.stateManager.permissions.monsters)
+          "
+          [ngClass]="{
+            last: (grid.includes(i + 1) && grid.indexOf(i + 1) != grid.length - 1) || i == figures.length - 1,
+            short: (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern'
+          }"
+        >
+          <div
+            cdkDrag
+            #figureDrag
+            [cdkDragStartDelay]="isTouch ? 250 : 0"
+            [ngClass]="{ enabled: draggingEnabled }"
+            (cdkDragStarted)="startedDrag($event, figureDrag)"
+            (cdkDragReleased)="releasedDrag($event, figureDrag)"
+          >
+            @if (
+              !gameManager.stateManager.permissions ||
+              gameManager.stateManager.permissions.characters ||
+              gameManager.stateManager.permissions.monsters
+            ) {
+              <div
+                cdkDragHandle
+                class="handle"
+                [ngClass]="{
+                  character: gameManager.isCharacter(figure),
+                  monster: gameManager.isMonster(figure),
+                  'objective-container': gameManager.isObjectiveContainer(figure),
+                  'monster-full': settingsManager.settings.showFullAbilityCard,
+                  'permanent-am':
+                    gameManager.isCharacter(figure) &&
+                    gameManager.toCharacter(figure).attackModifierDeckVisible &&
+                    settingsManager.settings.characterAttackModifierDeckPermanent,
+                  compact: gameManager.isCharacter(figure) && settingsManager.settings.characterCompact,
+                  short:
+                    (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern'
+                }"
+                ghs-pointer-input
+                [clickBehind]="true"
+              ></div>
+            }
+            @if (gameManager.isCharacter(figure)) {
+              <ghs-character [character]="gameManager.toCharacter(figure)"> </ghs-character>
+            }
+            @if (gameManager.isMonster(figure)) {
+              <ghs-monster [monster]="gameManager.toMonster(figure)"> </ghs-monster>
+            }
+            @if (gameManager.isObjectiveContainer(figure)) {
+              <ghs-objective-container [objective]="gameManager.toObjectiveContainer(figure)"> </ghs-objective-container>
+            }
+            @if (
+              !gameManager.stateManager.permissions ||
+              gameManager.stateManager.permissions.characters ||
+              gameManager.stateManager.permissions.monsters
+            ) {
+              <div
+                cdkDragHandle
+                class="handle right"
+                [ngClass]="{
+                  character: gameManager.isCharacter(figure),
+                  monster: gameManager.isMonster(figure),
+                  'objective-container': gameManager.isObjectiveContainer(figure),
+                  'monster-full': settingsManager.settings.showFullAbilityCard,
+                  'permanent-am':
+                    gameManager.isCharacter(figure) &&
+                    gameManager.toCharacter(figure).attackModifierDeckVisible &&
+                    settingsManager.settings.characterAttackModifierDeckPermanent,
+                  compact: gameManager.isCharacter(figure) && settingsManager.settings.characterCompact,
+                  short:
+                    (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern'
+                }"
+                ghs-pointer-input
+                [clickBehind]="true"
+              ></div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  }
+  @if (gameManager.stateManager.backupError) {
+    <div class="dialog backup-error" (click)="gameManager.stateManager.backupError = 0">
+      <div class="dialog-container">
+        <h2 [ghs-label]="'datamanagement.backup.auto.uploadUrl.error'"></h2>
+        @if (gameManager.stateManager.backupError > 0) {
+          <p
+            [ghs-label]="'datamanagement.backup.auto.uploadUrl.error.status'"
+            [ghs-label-args]="[gameManager.stateManager.backupError]"
+          ></p>
+        }
+        @if (gameManager.stateManager.backupError == -1) {
+          <p [ghs-label]="'datamanagement.backup.auto.uploadUrl.error.unknown'"></p>
+        }
+      </div>
+    </div>
+  }
+  @if (showBackupHint) {
+    <div class="dialog backup-hint">
+      <div class="dialog-container">
+        <div class="hide" (click)="settingsManager.set('backupHint', false)">
+          <span [ghs-label]="'datamanagement.backup.download.hint.hide'"></span>
+          <img src="/assets/images/close.svg" />
+        </div>
+        <h2 [ghs-label]="'datamanagement.backup'"></h2>
+        <p
+          [ghs-label]="'datamanagement.backup.download.hint'"
+          [ghs-tooltip]="'datamanagement.backup.download.hint.text'"
+          [originY]="'top'"
+          [overlayY]="'bottom'"
+        ></p>
+        <a (click)="exportDataDump()">
+          <img class="ghs-svg" src="/assets/images/export.svg" />
+          <span [ghs-label]="'datamanagement.backup.download'"></span>
+        </a>
         <label>
-          <input tabclick type="checkbox" [checked]="gameManager.game.party.campaignMode"
-            (change)="toggleCampaignMode()">
-          <span [ghs-label]="'party.campaignMode'"></span>
+          <input
+            type="checkbox"
+            [checked]="settingsManager.settings.autoBackupFinish"
+            (change)="settingsManager.setAutoBackupFinish(!settingsManager.settings.autoBackupFinish)"
+          />
+          <span [ghs-label]="'datamanagement.backup.download.onFinish'"></span>
         </label>
       </div>
     </div>
-    }
-    <div class="container-row bordered">
-      @if (!gameManager.game.edition) {
-      <p [ghs-label]="'welcome.orChooseCharacters'"></p>
-      }
-      @if (gameManager.game.edition) {
-      <p [ghs-label]="'welcome.chooseCharacters'"></p>
-      }
-      <a tabclick class="add-characters" (click)="header.openMenu(SubMenu.character_add)">
-        <span [ghs-label]="'hints.addCharacters'"></span>
-      </a>
-    </div>
-    <div class="container-row settings">
-      <p [ghs-label]="'welcome.settings.text'"></p>
-      <a tabclick class="settings-menu" (click)="header.openMenu(SubMenu.settings)">
-        <span [ghs-label]="'welcome.settings'"></span>
-      </a>
-    </div>
-    @if (loading) {
-    <span><span [ghs-label]="'app.loading'"></span></span>
-    <div class="loading-bar-container">
-      <div class="loading-bar"></div>
-    </div>
-    @if (cancelLoading) {
-    <a class="loading-cancel" (click)="loading = false"><span [ghs-label]="'app.loading.cancel'"></span></a>
-    }
-    }
-  </div>
-  }
-  @if (!fullviewChar && !welcome) {
-  <div class="figures" cdkDropListGroup
-    [ngClass]="{'loot-deck' : footer.lootDeckEnabeld, 'ally-deck' :  footer.hasAllyAttackModifierDeck, 'drag-disabled': !settingsManager.settings.dragFigures, 'backup-hint-spacer' : showBackupHint}"
-    (scroll)="onFigureScroll($event)">
-    @for (figure of figures | trackUUID; track figure._trackUUID; let i = $index) {
-    <div class="figure" [figure-autoscroll]="figure"
-      [block]="i == this.lastScroll || i == this.lastScrollColumn ? 'end' : 'center'" [cdkDropListData]="i" cdkDropList
-      (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20" (cdkDropListEntered)="entered($event)"
-      (cdkDropListExited)="exited($event)"
-      [cdkDropListDisabled]="!settingsManager.settings.dragFigures || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters"
-      [ngClass]="{'last' : grid.includes(i+1) && grid.indexOf(i+1) != grid.length -1 || i == figures.length - 1, 'short': (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern'}">
-      <div cdkDrag #figureDrag [cdkDragStartDelay]="isTouch ? 250 : 0" [ngClass]="{'enabled' : draggingEnabled}"
-        (cdkDragStarted)="startedDrag($event, figureDrag)" (cdkDragReleased)="releasedDrag($event, figureDrag)">
-        @if (!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters ||
-        gameManager.stateManager.permissions.monsters) {
-        <div cdkDragHandle class="handle"
-          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective-container' : gameManager.isObjectiveContainer(figure),'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeckVisible && settingsManager.settings.characterAttackModifierDeckPermanent, 'compact' : gameManager.isCharacter(figure) && settingsManager.settings.characterCompact, 'short': (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern'}"
-          ghs-pointer-input [clickBehind]="true">
-        </div>
-        }
-        @if (gameManager.isCharacter(figure)) {
-        <ghs-character [character]="gameManager.toCharacter(figure)">
-        </ghs-character>
-        }
-        @if (gameManager.isMonster(figure)) {
-        <ghs-monster [monster]="gameManager.toMonster(figure)">
-        </ghs-monster>
-        }
-        @if (gameManager.isObjectiveContainer(figure)) {
-        <ghs-objective-container [objective]="gameManager.toObjectiveContainer(figure)">
-        </ghs-objective-container>
-        }
-        @if ( !gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters ||
-        gameManager.stateManager.permissions.monsters) {
-        <div cdkDragHandle class="handle right"
-          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective-container' : gameManager.isObjectiveContainer(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeckVisible && settingsManager.settings.characterAttackModifierDeckPermanent, 'compact' : gameManager.isCharacter(figure) && settingsManager.settings.characterCompact, 'short': (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern'}"
-          ghs-pointer-input [clickBehind]="true">
-        </div>
-        }
-      </div>
-    </div>
-    }
-  </div>
-  }
-  @if (gameManager.stateManager.backupError) {
-  <div class="dialog backup-error" (click)="gameManager.stateManager.backupError = 0">
-    <div class="dialog-container">
-      <h2 [ghs-label]="'datamanagement.backup.auto.uploadUrl.error'"></h2>
-      @if (gameManager.stateManager.backupError > 0) {
-      <p [ghs-label]="'datamanagement.backup.auto.uploadUrl.error.status'"
-        [ghs-label-args]="[gameManager.stateManager.backupError]"></p>
-      }
-      @if (gameManager.stateManager.backupError == -1) {
-      <p [ghs-label]="'datamanagement.backup.auto.uploadUrl.error.unknown'"></p>
-      }
-    </div>
-  </div>
-  }
-  @if (showBackupHint) {
-  <div class="dialog backup-hint">
-    <div class="dialog-container">
-      <div class="hide" (click)="settingsManager.set('backupHint', false)"><span
-          [ghs-label]="'datamanagement.backup.download.hint.hide'"></span>
-        <img src="./assets/images/close.svg">
-      </div>
-      <h2 [ghs-label]="'datamanagement.backup'"></h2>
-      <p [ghs-label]="'datamanagement.backup.download.hint'" [ghs-tooltip]="'datamanagement.backup.download.hint.text'"
-        [originY]="'top'" [overlayY]="'bottom'">
-      </p>
-      <a (click)="exportDataDump()">
-        <img class="ghs-svg" src="./assets/images/export.svg">
-        <span [ghs-label]="'datamanagement.backup.download'"></span>
-      </a>
-      <label>
-        <input type="checkbox" [checked]="settingsManager.settings.autoBackupFinish"
-          (change)="settingsManager.setAutoBackupFinish(!settingsManager.settings.autoBackupFinish)">
-        <span [ghs-label]="'datamanagement.backup.download.onFinish'"></span>
-      </label>
-    </div>
-  </div>
   }
   @if (fullviewChar) {
-  <ghs-character-fullview [character]="fullviewChar"></ghs-character-fullview>
+    <ghs-character-fullview [character]="fullviewChar"></ghs-character-fullview>
   }
 </main>
 <ghs-footer #footer></ghs-footer>

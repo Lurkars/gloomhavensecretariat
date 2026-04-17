@@ -1,4 +1,4 @@
-import { Editional } from "./data/Editional";
+import { Editional } from 'src/app/game/model/data/Editional';
 
 export interface Figure extends Editional {
   name: string;

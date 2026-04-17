@@ -1,8 +1,9 @@
-import { gameManager } from "../businesslogic/GameManager";
-import { Action } from "./data/Action";
-import { ConditionName, EntityCondition } from "./data/Condition";
-import { AdditionalIdentifier } from "./data/Identifier";
-import { GameState } from "./Game";
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { Action } from 'src/app/game/model/data/Action';
+import { ConditionName, EntityCondition } from 'src/app/game/model/data/Condition';
+import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
+import { GameState } from 'src/app/game/model/Game';
+import { evaluateExpression } from 'src/app/game/util/ExpressionEvaluator';
 
 export interface Entity {
   active: boolean;
@@ -21,14 +22,13 @@ export interface Entity {
   retaliatePersistent: Action[];
 }
 
-export type EntityCounter = { identifier: AdditionalIdentifier, total: number, killed: number };
+export type EntityCounter = { identifier: AdditionalIdentifier; total: number; killed: number };
 
 export const EntityExpressionRegex = /^([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)$/;
 export const EntityValueRegex = /\[([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)(\{(.*)\})?\]/;
 export const EntityValueRegexExtended = /\[([a-zA-Z0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)(\{(.*)\})?\]/;
 
 export function EntityValueFunction(value: string | number, L: number | undefined = undefined): number {
-
   if (!value) {
     return 0;
   }
@@ -55,17 +55,16 @@ export function EntityValueFunction(value: string | number, L: number | undefine
     L = gameManager.game.level;
   }
 
-  expression = expression.replace(/[x]/g, "*");
-  expression = expression.replace(/[C]/g, "" + Math.max(2, gameManager.characterManager.characterCount()));
-  expression = expression.replace(/[L]/g, "" + L);
-  expression = expression.replace(/[P]/g, "" + gameManager.prosperityLevel());
-  expression = expression.replace(/[R]/g, "" + (gameManager.game.round + (gameManager.game.state == GameState.draw ? 1 : 0)));
-
   let result = 0;
   try {
-    result = eval(expression) as number;
+    result = evaluateExpression(expression, {
+      C: Math.max(2, gameManager.characterManager.characterCount()),
+      L: L,
+      P: gameManager.prosperityLevel(),
+      R: gameManager.game.round + (gameManager.game.state == GameState.draw ? 1 : 0)
+    });
   } catch (e) {
-    console.warn("Could not evaluate expression: " + expression, e);
+    console.warn('Could not evaluate expression: ' + expression, e);
     return 0;
   }
 
@@ -105,7 +104,7 @@ export function EntityValueFunction(value: string | number, L: number | undefine
         result = Math.floor(Math.max(result, funcValue));
         break;
       default:
-        console.error("Unknown expression: " + func + "(" + match + ")");
+        console.error('Unknown expression: ' + func + '(' + match + ')');
         break;
     }
   }

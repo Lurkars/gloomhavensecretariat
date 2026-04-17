@@ -1,27 +1,35 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { Component, Inject } from '@angular/core';
-import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ItemData } from 'src/app/game/model/data/ItemData';
+import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
+import { ItemComponent } from 'src/app/ui/figures/items/item/item';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
-import { ItemDialogComponent } from '../../items/dialog/item-dialog';
 
 @Component({
-  standalone: false,
+  imports: [NgClass, GhsLabelDirective, ItemComponent],
   selector: 'ghs-event-random-item-dialog',
   templateUrl: './random-item-dialog.html',
   styleUrls: ['./random-item-dialog.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventRandomItemDialogComponent {
-
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
   item: ItemData;
   blueprint: boolean = false;
 
-  constructor(@Inject(DIALOG_DATA) public data: { item: ItemData, blueprint: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
-    this.item = data.item;
-    this.blueprint = data.blueprint;
+  data: { item: ItemData; blueprint: boolean } = inject(DIALOG_DATA);
+
+  constructor(
+    private dialogRef: DialogRef,
+    private dialog: Dialog
+  ) {
+    this.item = this.data.item;
+    this.blueprint = this.data.blueprint;
   }
 
   close() {
@@ -39,5 +47,4 @@ export class EventRandomItemDialogComponent {
   apply() {
     ghsDialogClosingHelper(this.dialogRef, this.item);
   }
-
 }

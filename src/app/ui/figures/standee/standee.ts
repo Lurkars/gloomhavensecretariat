@@ -1,6 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -16,18 +17,41 @@ import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
+import { HighlightConditionsComponent } from 'src/app/ui/figures/conditions/highlight';
+import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
+import { HealthbarComponent } from 'src/app/ui/figures/healthbar/healthbar';
+import { MonsterNumberPickerDialog } from 'src/app/ui/figures/monster/dialogs/numberpicker-dialog';
+import { EntityIndexKeyComponent } from 'src/app/ui/figures/standee/entity-index-key/entity-index-key';
+import { SummonSheetComponent } from 'src/app/ui/figures/standee/sheet/summon-sheet';
+import { EntityAnimationDirective } from 'src/app/ui/helper/EntityAnimation';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { GhsMinZeroPipe, GhsRangePipe } from 'src/app/ui/helper/Pipes';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { ghsDefaultDialogPositions, ghsValueSign } from 'src/app/ui/helper/Static';
-import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
-import { MonsterNumberPickerDialog } from '../monster/dialogs/numberpicker-dialog';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
+import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
 
 @Component({
-  standalone: false,
+  imports: [
+    NgClass,
+    GhsLabelDirective,
+    PointerInputDirective,
+    ValueSignDirective,
+    EntityAnimationDirective,
+    GhsMinZeroPipe,
+    GhsRangePipe,
+    TrackUUIDPipe,
+    EntityIndexKeyComponent,
+    HealthbarComponent,
+    HighlightConditionsComponent,
+    SummonSheetComponent
+  ],
   selector: 'ghs-standee',
   templateUrl: './standee.html',
-  styleUrls: ['./standee.scss']
+  styleUrls: ['./standee.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StandeeComponent implements OnInit {
-
   @ViewChild('standee') standee!: ElementRef;
 
   gameManager: GameManager = gameManager;
@@ -51,7 +75,7 @@ export class StandeeComponent implements OnInit {
   actionHints: ActionHint[] = [];
   activeIndex: number = -1;
   activeTurn: boolean = false;
-  marker: string = "";
+  marker: string = '';
   specialActionsMarker: string[] = [];
   objectiveData: ObjectiveData | undefined;
   entityBorderClasses: Record<string, boolean> = {};
@@ -67,7 +91,12 @@ export class StandeeComponent implements OnInit {
   EntityValueFunction = EntityValueFunction;
   EntityConditionState = EntityConditionState;
 
-  constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
+  constructor(
+    private element: ElementRef,
+    private dialog: Dialog,
+    private overlay: Overlay,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 
@@ -75,9 +104,8 @@ export class StandeeComponent implements OnInit {
     this.update();
   }
 
-
   additionalType(): string {
-    return this.entity instanceof MonsterEntity ? this.entity.type : (this.entity instanceof Summon ? this.entity.name : "");
+    return this.entity instanceof MonsterEntity ? this.entity.type : this.entity instanceof Summon ? this.entity.name : '';
   }
 
   update(): void {
@@ -86,7 +114,7 @@ export class StandeeComponent implements OnInit {
       if (!this.activeConditions.find((entityCondition) => entityCondition.name == immunity)) {
         this.activeConditions.push(new EntityCondition(immunity));
       }
-    })
+    });
     this.actionHints = [];
 
     if (settingsManager.settings.standeeStats) {
@@ -105,9 +133,12 @@ export class StandeeComponent implements OnInit {
         }
       }
     }
-    this.marker = (this.entity instanceof MonsterEntity || this.entity instanceof ObjectiveEntity) ? this.entity.marker : "";
-    if (this.figure instanceof ObjectiveContainer && this.figure.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) == 0)) {
-      this.marker = "";
+    this.marker = this.entity instanceof MonsterEntity || this.entity instanceof ObjectiveEntity ? this.entity.marker : '';
+    if (
+      this.figure instanceof ObjectiveContainer &&
+      this.figure.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) == 0)
+    ) {
+      this.marker = '';
     }
 
     this.activeTurn = false;
@@ -124,12 +155,16 @@ export class StandeeComponent implements OnInit {
 
     this.specialActionsMarker = [];
     this.entity.tags.forEach((tag) => {
-      if (this.figure instanceof Character && this.figure.name == 'prism' && this.figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.summon)) {
+      if (
+        this.figure instanceof Character &&
+        this.figure.name == 'prism' &&
+        this.figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.summon)
+      ) {
         if (tag == 'prism_mode') {
           this.specialActionsMarker.push('mode');
         }
       }
-    })
+    });
 
     if (this.figure instanceof ObjectiveContainer && this.figure.objectiveId) {
       this.objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(this.figure.objectiveId);
@@ -141,21 +176,40 @@ export class StandeeComponent implements OnInit {
     const isMonster = gameManager.isMonster(this.figure);
 
     this.entityBorderClasses = {
-      'dead': this.entity.dead,
-      'off': !this.entity.dormant && this.entity.off,
-      'dormant': this.entity.dormant,
-      'revealed': !this.entity.dormant && this.entity.revealed && settingsManager.settings.scenarioRooms,
-      'revealed-active': this.figure.active && !this.entity.dormant && this.entity.revealed && settingsManager.settings.scenarioRooms && settingsManager.settings.activeStandees,
-      'active': !this.entity.dormant && (isMonsterEntity && this.entity.active && settingsManager.settings.activeStandees || isSummon && this.entity.active && settingsManager.settings.activeSummons),
+      dead: this.entity.dead,
+      off: !this.entity.dormant && this.entity.off,
+      dormant: this.entity.dormant,
+      revealed: !this.entity.dormant && this.entity.revealed && settingsManager.settings.scenarioRooms,
+      'revealed-active':
+        this.figure.active &&
+        !this.entity.dormant &&
+        this.entity.revealed &&
+        settingsManager.settings.scenarioRooms &&
+        settingsManager.settings.activeStandees,
+      active:
+        !this.entity.dormant &&
+        ((isMonsterEntity && this.entity.active && settingsManager.settings.activeStandees) ||
+          (isSummon && this.entity.active && settingsManager.settings.activeSummons)),
       'active-focus': !this.entity.dormant && this.entity.active && settingsManager.settings.activeStandees && !this.figure.active,
       'active-turn': this.activeTurn,
-      'monster': isMonsterEntity,
-      'objective': isObjectiveEntity,
-      'summon': isSummon,
-      'denied': isMonster && !gameManager.stateManager.monsterPermissions[this.figure.name + '|' + this.figure.edition] || gameManager.isObjectiveContainer(this.figure) && gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters || gameManager.isCharacter(this.figure) && !gameManager.stateManager.characterPermissions[this.figure.name + '|' + this.figure.edition],
-      'action-hint-border': this.actionHints.length > 0 && (this.actionHints.length % 2) == 1 && this.activeConditions.length == 0 && (isObjectiveEntity && isMonsterEntity && gameManager.toMonsterEntity(this.entity).summon == SummonState.false || isSummon && gameManager.toSummon(this.entity).state == SummonState.false),
-      'fh': settingsManager.settings.theme == 'fh',
-      'modern': settingsManager.settings.theme == 'modern'
+      monster: isMonsterEntity,
+      objective: isObjectiveEntity,
+      summon: isSummon,
+      denied:
+        (isMonster && !gameManager.stateManager.monsterPermissions[this.figure.name + '|' + this.figure.edition]) ||
+        (gameManager.isObjectiveContainer(this.figure) &&
+          gameManager.stateManager.permissions &&
+          !gameManager.stateManager.permissions.characters) ||
+        (gameManager.isCharacter(this.figure) &&
+          !gameManager.stateManager.characterPermissions[this.figure.name + '|' + this.figure.edition]),
+      'action-hint-border':
+        this.actionHints.length > 0 &&
+        this.actionHints.length % 2 == 1 &&
+        this.activeConditions.length == 0 &&
+        ((isObjectiveEntity && isMonsterEntity && gameManager.toMonsterEntity(this.entity).summon == SummonState.false) ||
+          (isSummon && gameManager.toSummon(this.entity).state == SummonState.false)),
+      fh: settingsManager.settings.theme == 'fh',
+      modern: settingsManager.settings.theme == 'modern'
     };
 
     this.entityTypeClass = isMonsterEntity ? gameManager.toMonsterEntity(this.entity).type : '';
@@ -164,48 +218,65 @@ export class StandeeComponent implements OnInit {
       'monster-standee': isMonsterEntity,
       'objective-standee': isObjectiveEntity,
       'summon-standee': isSummon,
-      'bb-elite': isMonster && gameManager.toMonster(this.figure).bb && isMonsterEntity && gameManager.toMonsterEntity(this.entity).type == MonsterType.elite
+      'bb-elite':
+        isMonster &&
+        gameManager.toMonster(this.figure).bb &&
+        isMonsterEntity &&
+        gameManager.toMonsterEntity(this.entity).type == MonsterType.elite
     };
 
-    this.numberClasses = (isMonster && gameManager.toMonster(this.figure).bb ? 'bb-' + this.entity.number : '') + (this.entity.number < 1 && settingsManager.settings.animations ? ' highlight' : '');
+    this.numberClasses =
+      (isMonster && gameManager.toMonster(this.figure).bb ? 'bb-' + this.entity.number : '') +
+      (this.entity.number < 1 && settingsManager.settings.animations ? ' highlight' : '');
     this.numberDisplay = this.entity.number < 0 ? '?' : this.entity.number;
 
     if (isSummon) {
       const summon = gameManager.toSummon(this.entity);
       this.summonStateClasses = {
-        'active': summon.state == SummonState.true,
-        'new': summon.state == SummonState.new,
-        'center': (summon.entityConditions.length % 2) == 0,
-        'fh': summon.color == SummonColor.fh
+        active: summon.state == SummonState.true,
+        new: summon.state == SummonState.new,
+        center: summon.entityConditions.length % 2 == 0,
+        fh: summon.color == SummonColor.fh
       };
     }
 
     this.healthClasses = {
-      'damage': settingsManager.settings.damageHP || !!(this.objectiveData && this.objectiveData.trackDamage)
+      damage: settingsManager.settings.damageHP || !!(this.objectiveData && this.objectiveData.trackDamage)
     };
 
-    this.conditionCenterBase = (isMonsterEntity && gameManager.toMonsterEntity(this.entity).summon == SummonState.false || isSummon || isObjectiveEntity);
+    this.conditionCenterBase =
+      (isMonsterEntity && gameManager.toMonsterEntity(this.entity).summon == SummonState.false) || isSummon || isObjectiveEntity;
 
     if (isMonsterEntity) {
       const me = gameManager.toMonsterEntity(this.entity);
       this.monsterSummonClasses = {
-        'active': me.summon == SummonState.true,
-        'new': me.summon == SummonState.new
+        active: me.summon == SummonState.true,
+        new: me.summon == SummonState.new
       };
     }
   }
 
   dragHpMove(value: number) {
-    if ((EntityValueFunction(this.entity.maxHealth) > 0 || this.objectiveData && this.objectiveData.trackDamage) && (!(this.figure instanceof Monster) || !this.figure.immortal)) {
+    if (
+      (EntityValueFunction(this.entity.maxHealth) > 0 || (this.objectiveData && this.objectiveData.trackDamage)) &&
+      (!(this.figure instanceof Monster) || !this.figure.immortal)
+    ) {
       this.health = value;
-      if ((!this.objectiveData || !this.objectiveData.trackDamage) && this.entity.health + this.health > EntityValueFunction(this.entity.maxHealth)) {
+      if (
+        (!this.objectiveData || !this.objectiveData.trackDamage) &&
+        this.entity.health + this.health > EntityValueFunction(this.entity.maxHealth)
+      ) {
         this.health = EntityValueFunction(this.entity.maxHealth) - this.entity.health;
       }
     }
   }
 
-  dragHpEnd(value: number) {
-    if (this.health != 0 && (EntityValueFunction(this.entity.maxHealth) > 0 || this.objectiveData && this.objectiveData.trackDamage) && (!(this.figure instanceof Monster) || !this.figure.immortal)) {
+  dragHpEnd() {
+    if (
+      this.health != 0 &&
+      (EntityValueFunction(this.entity.maxHealth) > 0 || (this.objectiveData && this.objectiveData.trackDamage)) &&
+      (!(this.figure instanceof Monster) || !this.figure.immortal)
+    ) {
       let name = this.figure.name;
       if (!name && this.figure instanceof ObjectiveContainer) {
         name = this.figure.title;
@@ -214,7 +285,7 @@ export class StandeeComponent implements OnInit {
         }
       }
 
-      gameManager.entityManager.before(this.entity, this.figure, "changeHP", ghsValueSign(this.health));
+      gameManager.entityManager.before(this.entity, this.figure, 'changeHP', ghsValueSign(this.health));
       gameManager.entityManager.changeHealth(this.entity, this.figure, this.health);
 
       if (this.figure instanceof Monster && this.figure.entities.every((monsterEntity) => monsterEntity.dead)) {
@@ -228,12 +299,12 @@ export class StandeeComponent implements OnInit {
     this.health = 0;
   }
 
-  dragHpCancel(value: number) {
+  dragHpCancel() {
     this.health = 0;
   }
 
   removeCondition(entityCondition: EntityCondition) {
-    gameManager.entityManager.before(this.entity, this.figure, "removeCondition", entityCondition.name);
+    gameManager.entityManager.before(this.entity, this.figure, 'removeCondition', entityCondition.name);
     if (entityCondition.types.indexOf(ConditionType.stackable) && entityCondition.value > 1) {
       entityCondition.value--;
     } else {
@@ -244,8 +315,8 @@ export class StandeeComponent implements OnInit {
 
   removeMarker() {
     if ((this.entity instanceof MonsterEntity || this.entity instanceof ObjectiveEntity) && this.entity.marker) {
-      gameManager.entityManager.before(this.entity, this.figure, "unsetObjectiveMarker", this.entity.marker);
-      this.entity.marker = "";
+      gameManager.entityManager.before(this.entity, this.figure, 'unsetObjectiveMarker', this.entity.marker);
+      this.entity.marker = '';
       gameManager.stateManager.after();
     }
   }
@@ -253,16 +324,21 @@ export class StandeeComponent implements OnInit {
   removeCharacterMarker(marker: string) {
     const edition = marker.split('-')[0];
     const name = marker.split('-').slice(1).join('-');
-    gameManager.entityManager.before(this.entity, this.figure, "removeCharacterMarker", marker, edition + '.' + name);
+    gameManager.entityManager.before(this.entity, this.figure, 'removeCharacterMarker', marker, edition + '.' + name);
     this.entity.markers = this.entity.markers.filter((value) => value != marker);
     gameManager.stateManager.after();
   }
 
-  doubleClick(event: any): void {
+  doubleClick(): void {
     if (this.entity.revealed) {
       this.entity.revealed = false;
     } else if (settingsManager.settings.activeStandees && this.entity instanceof MonsterEntity) {
-      gameManager.stateManager.before(this.figure.type + (this.entity.active ? "UnsetEntityActive" : "SetEntityActive"), this.figure.name, this.entity.number, this.additionalType());
+      gameManager.stateManager.before(
+        this.figure.type + (this.entity.active ? 'UnsetEntityActive' : 'SetEntityActive'),
+        this.figure.name,
+        this.entity.number,
+        this.additionalType()
+      );
       gameManager.entityManager.toggleActive(this.figure, this.entity);
       gameManager.stateManager.after();
     } else if (settingsManager.settings.activeSummons && this.entity instanceof Summon) {
@@ -270,11 +346,14 @@ export class StandeeComponent implements OnInit {
     }
   }
 
-
   toggleActive() {
     if (this.entity instanceof Summon && this.figure instanceof Character) {
       if (this.entity.active) {
-        gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(this.figure, true, true), "data.summon." + this.entity.name);
+        gameManager.stateManager.before(
+          'summonInactive',
+          gameManager.characterManager.characterName(this.figure, true, true),
+          'data.summon.' + this.entity.name
+        );
         if (settingsManager.settings.activeSummons && this.figure.active) {
           gameManager.roundManager.toggleFigure(this.figure);
         } else {
@@ -282,14 +361,23 @@ export class StandeeComponent implements OnInit {
         }
         gameManager.stateManager.after();
       } else {
-        gameManager.stateManager.before("summonActive", gameManager.characterManager.characterName(this.figure, true, true), "data.summon." + this.entity.name);
+        gameManager.stateManager.before(
+          'summonActive',
+          gameManager.characterManager.characterName(this.figure, true, true),
+          'data.summon.' + this.entity.name
+        );
         const activeSummon = this.figure.summons.find((summon) => summon.active);
-        if (settingsManager.settings.activeSummons && this.figure.active && gameManager.entityManager.isAlive(this.entity, true) && (!activeSummon || this.figure.summons.indexOf(activeSummon) < this.figure.summons.indexOf(this.entity))) {
+        if (
+          settingsManager.settings.activeSummons &&
+          this.figure.active &&
+          gameManager.entityManager.isAlive(this.entity, true) &&
+          (!activeSummon || this.figure.summons.indexOf(activeSummon) < this.figure.summons.indexOf(this.entity))
+        ) {
           while (!this.entity.active) {
             gameManager.roundManager.toggleFigure(this.figure);
           }
         } else {
-          this.figure.summons.forEach((summon) => summon.active = false);
+          this.figure.summons.forEach((summon) => (summon.active = false));
           this.entity.active = true;
         }
         gameManager.stateManager.after();
@@ -297,11 +385,11 @@ export class StandeeComponent implements OnInit {
     }
   }
 
-  openEntityMenu(event: any): void {
+  openEntityMenu(): void {
     if (this.entity.number < 0 && this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
       if (settingsManager.settings.randomStandees) {
         const number = gameManager.monsterManager.monsterRandomStandee(this.figure);
-        gameManager.stateManager.before("addRandomStandee", "data.monster." + this.figure.name, "monster." + this.entity.type, number);
+        gameManager.stateManager.before('addRandomStandee', 'data.monster.' + this.figure.name, 'monster.' + this.entity.type, number);
         this.entity.number = number;
         gameManager.stateManager.after();
       } else {
@@ -315,7 +403,7 @@ export class StandeeComponent implements OnInit {
             entities: this.figure.entities
           },
           positionStrategy: this.overlay.position().flexibleConnectedTo(this.standee).withPositions(ghsDefaultDialogPositions())
-        })
+        });
       }
     } else {
       const dialogRef = this.dialog.open(EntitiesMenuDialogComponent, {
@@ -335,11 +423,7 @@ export class StandeeComponent implements OnInit {
             this.ghsManager.triggerUiChange();
           }
         }
-      })
+      });
     }
   }
-
-
-
-
 }

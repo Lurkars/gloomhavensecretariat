@@ -1,22 +1,43 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
+import { NgClass } from '@angular/common';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewEncapsulation
+} from '@angular/core';
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import {
+  AttackModifier,
+  AttackModifierEffect,
+  AttackModifierEffectType,
+  AttackModifierType,
+  AttackModifierValueType
+} from 'src/app/game/model/data/AttackModifier';
+import { AttackModifierEffectComponent } from 'src/app/ui/figures/attackmodifier/attackmodifier-effect';
+import { CardRevealDirective } from 'src/app/ui/helper/CardReveal';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  standalone: false,
+  imports: [AttackModifierEffectComponent, CardRevealDirective, GhsLabelDirective, NgClass, TrackUUIDPipe],
   selector: 'ghs-attackmodifier',
   templateUrl: './attackmodifier.html',
   styleUrls: ['./attackmodifier.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AttackModifierComponent implements OnInit, OnChanges {
-
+export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() attackModifier!: AttackModifier;
   @Input() characterIcon!: string;
   @Input() ally: boolean = false;
-  @Input() numeration: string = "";
+  @Input() numeration: string = '';
   @Input() number: number = 0;
   @Input() reveal: boolean = false;
   @Input() disableFlip: boolean = false;
@@ -24,7 +45,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   @Input() newStyle: boolean = false;
   @Input() townGuard: boolean = false;
   @Input() bbIndex: number = -1;
-  effectClasses: string = "";
+  effectClasses: string = '';
   AttackModifierType = AttackModifierType;
   AttackModifierValueType = AttackModifierValueType;
   AttackModifierEffectType = AttackModifierEffectType;
@@ -41,7 +62,10 @@ export class AttackModifierComponent implements OnInit, OnChanges {
 
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(public elementRef: ElementRef, private ghsManager: GhsManager) {
+  constructor(
+    public elementRef: ElementRef,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect(() => this.adjustFontSize());
   }
 
@@ -54,39 +78,68 @@ export class AttackModifierComponent implements OnInit, OnChanges {
     this.adjustFontSize();
   }
 
-
   adjustFontSize() {
-    this.elementRef.nativeElement.style.fontSize = (this.elementRef.nativeElement.offsetWidth * 0.08) + 'px';
+    this.elementRef.nativeElement.style.fontSize = this.elementRef.nativeElement.offsetWidth * 0.08 + 'px';
   }
 
   init() {
     if (this.attackModifier) {
-      this.csOak = this.attackModifier.id && this.attackModifier.id.startsWith('cs-oak') || false;
+      this.csOak = (this.attackModifier.id && this.attackModifier.id.startsWith('cs-oak')) || false;
       this.imbue = this.attackModifier.type == AttackModifierType.imbue || this.attackModifier.type == AttackModifierType.advancedImbue;
-      this.newStyle = this.newStyle || this.attackModifier.type == AttackModifierType.empower || this.attackModifier.type == AttackModifierType.enfeeble || this.imbue;
+      this.newStyle =
+        this.newStyle ||
+        this.attackModifier.type == AttackModifierType.empower ||
+        this.attackModifier.type == AttackModifierType.enfeeble ||
+        this.imbue;
       this.multipe = false;
       this.wildElement = false;
       this.mixedElement = undefined;
       this.orTypeEffect = undefined;
 
       if (!this.characterIcon && this.attackModifier.character && this.attackModifier.id.startsWith('challenge-fh-1503-')) {
-        this.characterIcon = gameManager.characterManager.characterIcon(this.attackModifier.id.replace('challenge-fh-1503-', '').split('-')[0]);
+        this.characterIcon = gameManager.characterManager.characterIcon(
+          this.attackModifier.id.replace('challenge-fh-1503-', '').split('-')[0]
+        );
       }
 
       if (this.attackModifier.effects) {
-        if (this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element) && this.attackModifier.effects.some((effect) => effect.type != AttackModifierEffectType.element)) {
+        if (
+          this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element) &&
+          this.attackModifier.effects.some((effect) => effect.type != AttackModifierEffectType.element)
+        ) {
           this.mixedElement = this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element);
         }
 
         if (this.townGuard) {
-          this.townGuardEffectIcon = this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.custom && effect.icon);
+          this.townGuardEffectIcon = this.attackModifier.effects.find(
+            (effect) => effect.type == AttackModifierEffectType.custom && effect.icon
+          );
         }
 
-        this.effects = (this.mixedElement ? this.attackModifier.effects.filter((effect) => effect != this.mixedElement) : this.attackModifier.effects).filter((effect) => !this.townGuard || effect.type != AttackModifierEffectType.custom || !effect.icon);
+        this.effects = (
+          this.mixedElement ? this.attackModifier.effects.filter((effect) => effect != this.mixedElement) : this.attackModifier.effects
+        ).filter((effect) => !this.townGuard || effect.type != AttackModifierEffectType.custom || !effect.icon);
 
-        this.multipe = this.effects.length > 1 && this.effects.every((effect) => effect.type == AttackModifierEffectType.element) || this.effects.length > 1 && this.effects.every((effect) => effect.type == AttackModifierEffectType.condition || effect.type == AttackModifierEffectType.pierce || effect.type == AttackModifierEffectType.pull || effect.type == AttackModifierEffectType.push) || this.effects.length == 1 && this.effects.every((effect) => effect.type == AttackModifierEffectType.elementHalf) || false;
+        this.multipe =
+          (this.effects.length > 1 && this.effects.every((effect) => effect.type == AttackModifierEffectType.element)) ||
+          (this.effects.length > 1 &&
+            this.effects.every(
+              (effect) =>
+                effect.type == AttackModifierEffectType.condition ||
+                effect.type == AttackModifierEffectType.pierce ||
+                effect.type == AttackModifierEffectType.pull ||
+                effect.type == AttackModifierEffectType.push
+            )) ||
+          (this.effects.length == 1 && this.effects.every((effect) => effect.type == AttackModifierEffectType.elementHalf)) ||
+          false;
 
-        this.wildElement = this.effects.length == 1 && this.effects.every((effect) => (effect.type == AttackModifierEffectType.element || effect.type == AttackModifierEffectType.elementConsume) && effect.value == 'wild');
+        this.wildElement =
+          this.effects.length == 1 &&
+          this.effects.every(
+            (effect) =>
+              (effect.type == AttackModifierEffectType.element || effect.type == AttackModifierEffectType.elementConsume) &&
+              effect.value == 'wild'
+          );
 
         this.orTypeEffect = this.effects.find((effect) => effect.type == AttackModifierEffectType.or);
 
@@ -94,12 +147,16 @@ export class AttackModifierComponent implements OnInit, OnChanges {
           if (effect.type != AttackModifierEffectType.heal && effect.type != AttackModifierEffectType.shield) {
             this.defaultType = false;
           }
-          if (effect.type == AttackModifierEffectType.condition || effect.type == AttackModifierEffectType.element || effect.type == AttackModifierEffectType.elementHalf) {
-            this.effectClasses += " " + effect.value.replaceAll('|', '-').replaceAll(':', '-');
+          if (
+            effect.type == AttackModifierEffectType.condition ||
+            effect.type == AttackModifierEffectType.element ||
+            effect.type == AttackModifierEffectType.elementHalf
+          ) {
+            this.effectClasses += ' ' + effect.value.replaceAll('|', '-').replaceAll(':', '-');
           } else {
-            this.effectClasses += " " + effect.type;
+            this.effectClasses += ' ' + effect.type;
           }
-        })
+        });
       }
     }
   }
@@ -123,13 +180,23 @@ export class AttackModifierComponent implements OnInit, OnChanges {
     if (effect.effects) {
       const specialTarget = effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.specialTarget);
       if (specialTarget) {
-        return "" + specialTarget.value;
+        return '' + specialTarget.value;
       }
     }
-    return "";
+    return '';
   }
 
   filter(effect: AttackModifierEffect): boolean {
-    return [AttackModifierEffectType.element, AttackModifierEffectType.elementConsume, AttackModifierEffectType.elementHalf, AttackModifierEffectType.condition, AttackModifierEffectType.custom, AttackModifierEffectType.pull, , AttackModifierEffectType.push, AttackModifierEffectType.pierce].includes(effect.type);
+    return [
+      AttackModifierEffectType.element,
+      AttackModifierEffectType.elementConsume,
+      AttackModifierEffectType.elementHalf,
+      AttackModifierEffectType.condition,
+      AttackModifierEffectType.custom,
+      AttackModifierEffectType.pull,
+      ,
+      AttackModifierEffectType.push,
+      AttackModifierEffectType.pierce
+    ].includes(effect.type);
   }
-} 
+}

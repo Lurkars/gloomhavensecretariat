@@ -27,18 +27,17 @@
   }
 
   .draw {
-
     .am {
       cursor: pointer;
       background-position: center;
       background-size: 100% auto;
       background-repeat: no-repeat;
-      background-image: url('~src/assets/images/attackmodifier/am-back.png');
+      background-image: url('/assets/images/attackmodifier/am-back.png');
       border-radius: 5%;
       transition: filter calc(var(--ghs-animation-speed) * 2000ms) ease-in-out;
 
       &.town-guard {
-        background-image: url('~src/assets/images/attackmodifier/town-guard/back.png');
+        background-image: url('/assets/images/attackmodifier/town-guard/back.png');
       }
 
       &.disabled {
@@ -92,7 +91,7 @@
         background-position: center;
         background-size: 100% auto;
         background-repeat: no-repeat;
-        background-image: url('~src/assets/images/attackmodifier/am-character-icon.png');
+        background-image: url('/assets/images/attackmodifier/am-character-icon.png');
 
         &.character-icon {
           align-items: center;
@@ -104,7 +103,6 @@
           }
         }
       }
-
 
       &.open-dialog {
         cursor: help;
@@ -128,7 +126,7 @@
       background-position: center;
       background-size: 100% auto;
       background-repeat: no-repeat;
-      background-image: url('~src/assets/images/attackmodifier/am-character-icon.png');
+      background-image: url('/assets/images/attackmodifier/am-character-icon.png');
       transition: transform calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
       transform: scale(1.2);
 
@@ -210,7 +208,6 @@
     }
 
     &.denied .am {
-
       .number,
       .number *,
       .fullscreen,
@@ -388,18 +385,19 @@
   }
 
   .disabled {
-
     filter: grayscale(0.8);
 
     &:hover {
-      transition: filter calc(var(--ghs-animation-speed) * 250ms) linear, transform calc(var(--ghs-animation-speed) * 800ms) cubic-bezier(0.75, 0, 0.85, 1), top calc(var(--ghs-animation-speed) * 500ms) linear, left calc(var(--ghs-animation-speed) * 500ms) linear;
+      transition:
+        filter calc(var(--ghs-animation-speed) * 250ms) linear,
+        transform calc(var(--ghs-animation-speed) * 800ms) cubic-bezier(0.75, 0, 0.85, 1),
+        top calc(var(--ghs-animation-speed) * 500ms) linear,
+        left calc(var(--ghs-animation-speed) * 500ms) linear;
       filter: grayscale(15%);
     }
   }
 
-
   &.drawing {
-
     .draw,
     ghs-attackmodifier {
       cursor: wait !important;
@@ -413,7 +411,6 @@
       &.bottom {
         animation: attackmodifier-draw-bottom calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
       }
-
     }
 
     .last {
@@ -443,12 +440,11 @@
 }
 
 .vertical {
-
   .am-container {
     top: 0;
     left: 0;
     width: 60%;
-    padding-top: 40%
+    padding-top: 40%;
   }
 
   .current {
@@ -506,7 +502,6 @@
   }
 
   &.drawing {
-
     .current {
       animation: attackmodifier-draw-vertical calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
     }

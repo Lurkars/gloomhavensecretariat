@@ -1,164 +1,180 @@
-import { Component, OnInit } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { GardenModel } from "src/app/game/model/Building";
-import { Character } from "src/app/game/model/Character";
-import { Action, ActionType } from "src/app/game/model/data/Action";
-import { herbResourceLootTypes, LootType } from "src/app/game/model/data/Loot";
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GardenModel } from 'src/app/game/model/Building';
+import { Character } from 'src/app/game/model/Character';
+import { Action, ActionType } from 'src/app/game/model/data/Action';
+import { herbResourceLootTypes, LootType } from 'src/app/game/model/data/Loot';
+import { ActionComponent } from 'src/app/ui/figures/actions/action';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-    standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [ActionComponent, GhsLabelDirective, GhsRangePipe, GhsTooltipDirective, NgClass, PointerInputDirective, TrackUUIDPipe],
 
-    selector: 'ghs-garden',
-    templateUrl: 'garden.html',
-    styleUrls: ['./garden.scss'],
+  selector: 'ghs-garden',
+  templateUrl: 'garden.html',
+  styleUrls: ['./garden.scss']
 })
 export class GardenComponent implements OnInit {
+  level: number = 0;
+  slots: number = 0;
+  garden!: GardenModel;
+  herbs: LootType[] = herbResourceLootTypes;
+  activeHerb: LootType | undefined;
+  disabled: boolean = false;
+  resources: Partial<Record<LootType, number>> = {};
+  currentResources: number[] = [];
+  characters: Character[] = [];
+  currentSource: number = -1;
+  harvested: boolean = false;
 
-    level: number = 0;
-    slots: number = 0;
-    garden!: GardenModel;
-    herbs: LootType[] = herbResourceLootTypes;
-    activeHerb: LootType | undefined;
-    disabled: boolean = false;
-    resources: Partial<Record<LootType, number>> = {};
-    currentResources: number[] = [];
-    characters: Character[] = [];
-    currentSource: number = -1;
-    harvested: boolean = false;
+  flipAction = new Action(ActionType.card, 'flip');
 
-    flipAction = new Action(ActionType.card, "flip");
+  settingsManager: SettingsManager = settingsManager;
 
-    settingsManager: SettingsManager = settingsManager;
+  constructor(private ghsManager: GhsManager) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
-    constructor(private ghsManager: GhsManager) {
-        this.ghsManager.uiChangeEffect(() => this.update());
+  ngOnInit(): void {
+    this.update();
+  }
+
+  update() {
+    this.garden = gameManager.game.party.garden || new GardenModel();
+    const garden = gameManager.game.party.buildings.find((value) => value.name == 'garden' && value.level);
+    if (garden) {
+      this.level = garden.level;
+      switch (this.level) {
+        case 1:
+          this.slots = 1;
+          break;
+        case 2:
+        case 3:
+          this.slots = 2;
+          break;
+        case 4:
+          this.slots = 3;
+          break;
+      }
+      if (garden.level > 2 && this.garden.flipped) {
+        this.garden.flipped = false;
+      }
     }
+    this.disabled = gameManager.game.scenario != undefined;
+    this.resources = {};
+    this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
+    this.herbs.forEach((type) => {
+      this.resources[type] = gameManager.game.party.loot[type] || 0;
+      this.characters.forEach((character) => {
+        this.resources[type] = (this.resources[type] || 0) + (character.progress.loot[type] || 0);
+      });
+      if (!this.activeHerb && this.resources[type]) {
+        this.activeHerb = type;
+      }
+    });
 
-    ngOnInit(): void {
-        this.update();
-    }
-
-
-    update() {
-        this.garden = gameManager.game.party.garden || new GardenModel();
-        const garden = gameManager.game.party.buildings.find((value) => value.name == 'garden' && value.level);
-        if (garden) {
-            this.level = garden.level;
-            switch (this.level) {
-                case 1:
-                    this.slots = 1;
-                    break;
-                case 2:
-                case 3:
-                    this.slots = 2;
-                    break;
-                case 4:
-                    this.slots = 3;
-                    break;
+    if (this.activeHerb) {
+      this.currentResources = [];
+      this.currentSource = -1;
+      if (!settingsManager.settings.fhShareResources) {
+        this.characters.forEach((character, index) => {
+          if (this.activeHerb) {
+            this.currentResources[index] = character.progress.loot[this.activeHerb] || 0;
+            if (this.currentResources[index] && this.currentSource == -1) {
+              this.currentSource = index;
             }
-            if (garden.level > 2 && this.garden.flipped) {
-                this.garden.flipped = false;
-            }
-        }
-        this.disabled = gameManager.game.scenario != undefined;
-        this.resources = {};
-        this.characters = gameManager.game.figures.filter((figure) => (figure instanceof Character)).map((figure) => figure as Character);
-        this.herbs.forEach((type) => {
-            this.resources[type] = (gameManager.game.party.loot[type] || 0);
-            this.characters.forEach((character) => {
-                this.resources[type] = (this.resources[type] || 0) + (character.progress.loot[type] || 0);
-            })
-            if (!this.activeHerb && this.resources[type]) {
-                this.activeHerb = type;
-            }
-        })
-
-        if (this.activeHerb) {
-            this.currentResources = [];
-            this.currentSource = -1;
-            if (!settingsManager.settings.fhShareResources) {
-                this.characters.forEach((character, index) => {
-                    if (this.activeHerb) {
-                        this.currentResources[index] = (character.progress.loot[this.activeHerb] || 0);
-                        if (this.currentResources[index] && this.currentSource == -1) {
-                            this.currentSource = index;
-                        }
-                    }
-                })
-            }
-            this.currentResources[this.characters.length] = (gameManager.game.party.loot[this.activeHerb] || 0);
-            if (this.currentResources[this.characters.length]) {
-                this.currentSource = this.characters.length;
-            }
-        }
+          }
+        });
+      }
+      this.currentResources[this.characters.length] = gameManager.game.party.loot[this.activeHerb] || 0;
+      if (this.currentResources[this.characters.length]) {
+        this.currentSource = this.characters.length;
+      }
     }
+  }
 
-    setActive(herb: LootType, force: boolean = false) {
-        if (this.activeHerb == herb || this.resources[herb] || force) {
-            if (this.activeHerb == herb) {
-                this.activeHerb = undefined;
-            } else {
-                this.activeHerb = herb;
-            }
+  setActive(herb: LootType, force: boolean = false) {
+    if (this.activeHerb == herb || this.resources[herb] || force) {
+      if (this.activeHerb == herb) {
+        this.activeHerb = undefined;
+      } else {
+        this.activeHerb = herb;
+      }
+    }
+    this.update();
+  }
+
+  selectSource(index: number) {
+    if (this.currentResources[index]) {
+      this.currentSource = index;
+    }
+  }
+
+  plantHerb(slot: number, force: boolean = false) {
+    if (
+      this.activeHerb &&
+      ((!this.disabled &&
+        (this.level > 2 || !this.garden.flipped) &&
+        this.currentSource != -1 &&
+        this.currentResources[this.currentSource]) ||
+        force) &&
+      slot >= 0 &&
+      slot < this.slots &&
+      this.herbs.includes(this.activeHerb) &&
+      this.garden.plots[slot] != this.activeHerb
+    ) {
+      gameManager.stateManager.before('buildings.garden.plant', this.activeHerb, slot);
+      this.garden.plots = this.garden.plots || [];
+      this.garden.plots[slot] = this.activeHerb;
+
+      if (!force) {
+        if (this.currentSource == this.characters.length) {
+          gameManager.game.party.loot[this.activeHerb] = (gameManager.game.party.loot[this.activeHerb] || 1) - 1;
+        } else {
+          const char = this.characters[this.currentSource];
+          if (char) {
+            char.progress.loot[this.activeHerb] = (char.progress.loot[this.activeHerb] || 1) - 1;
+          }
         }
-        this.update();
+      }
+      gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
+      gameManager.stateManager.after();
     }
+  }
 
-    selectSource(index: number) {
-        if (this.currentResources[index]) {
-            this.currentSource = index;
-        }
+  flipGarden(force: boolean = false) {
+    if ((!this.disabled || force) && this.level && this.level < 3) {
+      gameManager.stateManager.before('buildings.garden.' + (this.garden.flipped ? 'flipPlant' : 'flipHarvest'));
+      this.garden.flipped = !this.garden.flipped;
+      gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
+      gameManager.stateManager.after();
     }
+  }
 
-    plantHerb(slot: number, force: boolean = false) {
-        if (this.activeHerb && (!this.disabled && (this.level > 2 || !this.garden.flipped) && this.currentSource != -1 && this.currentResources[this.currentSource] || force) && slot >= 0 && slot < this.slots && this.herbs.includes(this.activeHerb) && this.garden.plots[slot] != this.activeHerb) {
-            gameManager.stateManager.before('buildings.garden.plant', this.activeHerb, slot);
-            this.garden.plots = this.garden.plots || [];
-            this.garden.plots[slot] = this.activeHerb;
-
-            if (!force) {
-                if (this.currentSource == this.characters.length) {
-                    gameManager.game.party.loot[this.activeHerb] = (gameManager.game.party.loot[this.activeHerb] || 1) - 1;
-                } else {
-                    const char = this.characters[this.currentSource];
-                    if (char) {
-                        char.progress.loot[this.activeHerb] = (char.progress.loot[this.activeHerb] || 1) - 1;
-                    }
-                }
-            }
-            gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
-            gameManager.stateManager.after();
-        }
+  toggleAutomation() {
+    if (settingsManager.settings.automaticPassTime) {
+      gameManager.stateManager.before('buildings.garden.' + (this.garden.automated ? 'automationOff' : 'automationOn'));
+      this.garden.automated = !this.garden.automated;
+      gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
+      gameManager.stateManager.after();
     }
+  }
 
-    flipGarden(force: boolean = false) {
-        if ((!this.disabled || force) && this.level && this.level < 3) {
-            gameManager.stateManager.before('buildings.garden.' + (this.garden.flipped ? 'flipPlant' : 'flipHarvest'));
-            this.garden.flipped = !this.garden.flipped;
-            gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
-            gameManager.stateManager.after();
-        }
-    }
-
-    toggleAutomation() {
-        if (settingsManager.settings.automaticPassTime) {
-            gameManager.stateManager.before('buildings.garden.' + (this.garden.automated ? 'automationOff' : 'automationOn'));
-            this.garden.automated = !this.garden.automated;
-            gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
-            gameManager.stateManager.after();
-        }
-    }
-
-    harvest() {
-        gameManager.stateManager.before('buildings.garden.harvest');
-        this.garden.plots.forEach((herb) => {
-            gameManager.game.party.loot[herb] = (gameManager.game.party.loot[herb] || 0) + 1;
-        })
-        this.harvested = true;
-        this.update();
-        gameManager.stateManager.after();
-    }
-
+  harvest() {
+    gameManager.stateManager.before('buildings.garden.harvest');
+    this.garden.plots.forEach((herb) => {
+      gameManager.game.party.loot[herb] = (gameManager.game.party.loot[herb] || 0) + 1;
+    });
+    this.harvested = true;
+    this.update();
+    gameManager.stateManager.after();
+  }
 }

@@ -1,27 +1,30 @@
-import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { Component, EventEmitter, Inject, OnInit } from "@angular/core";
-import { LootDeck } from "src/app/game/model/data/Loot";
-import { ghsDialogClosingHelper } from "../../helper/Static";
-import { LootDeckChange } from "./loot-deck";
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, inject, OnInit } from '@angular/core';
+import { LootDeck } from 'src/app/game/model/data/Loot';
+import { LootDeckChange, LootDeckComponent } from 'src/app/ui/figures/loot/loot-deck';
+import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
-  standalone: false,
+  imports: [NgClass, forwardRef(() => LootDeckComponent)],
   selector: 'ghs-loot-deck-fullscreen',
   templateUrl: './loot-deck-fullscreen.html',
-  styleUrls: ['./loot-deck-fullscreen.scss',]
+  styleUrls: ['./loot-deck-fullscreen.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LootDeckFullscreenComponent implements OnInit {
-
   configuration: boolean = false;
   deck: LootDeck;
   before: EventEmitter<LootDeckChange>;
   after: EventEmitter<LootDeckChange>;
 
-  constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange> }, public dialogRef: DialogRef) {
-    this.deck = data.deck;
-    this.before = data.before;
-    this.after = data.after;
-  };
+  data: { deck: LootDeck; before: EventEmitter<LootDeckChange>; after: EventEmitter<LootDeckChange> } = inject(DIALOG_DATA);
+
+  constructor(public dialogRef: DialogRef) {
+    this.deck = this.data.deck;
+    this.before = this.data.before;
+    this.after = this.data.after;
+  }
 
   ngOnInit(): void {
     if (this.deck.cards.length == 0) {
@@ -32,7 +35,6 @@ export class LootDeckFullscreenComponent implements OnInit {
   vertical(): boolean {
     return window.innerWidth < 800;
   }
-
 
   beforeLootDeck(change: LootDeckChange) {
     this.before.emit(change);
@@ -45,6 +47,4 @@ export class LootDeckFullscreenComponent implements OnInit {
   close() {
     ghsDialogClosingHelper(this.dialogRef);
   }
-
 }
-

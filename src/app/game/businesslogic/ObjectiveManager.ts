@@ -1,21 +1,18 @@
-import { v4 as uuidv4 } from 'uuid';
-import { EntityValueFunction } from "../model/Entity";
-import { Figure } from "../model/Figure";
-import { Game, GameState } from "../model/Game";
-import { Monster } from "../model/Monster";
-import { ObjectiveContainer } from "../model/ObjectiveContainer";
-import { ObjectiveEntity } from "../model/ObjectiveEntity";
-import { ActionType } from "../model/data/Action";
-import { AdditionalIdentifier } from "../model/data/Identifier";
-import { MonsterType } from "../model/data/MonsterType";
-import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
-import { ObjectiveSpawnData } from "../model/data/ScenarioRule";
-import { gameManager } from "./GameManager";
-import { settingsManager } from './SettingsManager';
-
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { ActionType } from 'src/app/game/model/data/Action';
+import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { ObjectiveData, ScenarioObjectiveIdentifier } from 'src/app/game/model/data/ObjectiveData';
+import { ObjectiveSpawnData } from 'src/app/game/model/data/ScenarioRule';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { Figure } from 'src/app/game/model/Figure';
+import { Game, GameState } from 'src/app/game/model/Game';
+import { Monster } from 'src/app/game/model/Monster';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 
 export class ObjectiveManager {
-
   game: Game;
 
   constructor(game: Game) {
@@ -23,28 +20,46 @@ export class ObjectiveManager {
   }
 
   objectiveName(objective: ObjectiveContainer) {
-    return objective.title || objective.name && "data.objective." + objective.name || objective.escort ? 'escort' : 'objective';
+    return objective.title || (objective.name && 'data.objective.' + objective.name) || objective.escort ? 'escort' : 'objective';
   }
 
-  addObjective(objectiveData: ObjectiveData | undefined = undefined, name: string | undefined = undefined, objectiveId: AdditionalIdentifier | ScenarioObjectiveIdentifier | undefined = undefined): ObjectiveContainer {
-    let objectiveContainer = gameManager.game.figures.find((figure) => figure instanceof ObjectiveContainer && (!objectiveId && objectiveData && !figure.objectiveId && figure.name == objectiveData.name && figure.health == EntityValueFunction("" + objectiveData.health) && figure.escort == objectiveData.escort && figure.initiative == (objectiveData.initiative || 99) || objectiveId && figure.objectiveId && this.objectiveDataByObjectiveIdentifier(objectiveId) == this.objectiveDataByObjectiveIdentifier(figure.objectiveId))) as ObjectiveContainer;
+  addObjective(
+    objectiveData: ObjectiveData | undefined = undefined,
+    name: string | undefined = undefined,
+    objectiveId: AdditionalIdentifier | ScenarioObjectiveIdentifier | undefined = undefined
+  ): ObjectiveContainer {
+    let objectiveContainer = gameManager.game.figures.find(
+      (figure) =>
+        figure instanceof ObjectiveContainer &&
+        ((!objectiveId &&
+          objectiveData &&
+          !figure.objectiveId &&
+          figure.name == objectiveData.name &&
+          figure.health == EntityValueFunction('' + objectiveData.health) &&
+          figure.escort == objectiveData.escort &&
+          figure.initiative == (objectiveData.initiative || 99)) ||
+          (objectiveId &&
+            figure.objectiveId &&
+            this.objectiveDataByObjectiveIdentifier(objectiveId) == this.objectiveDataByObjectiveIdentifier(figure.objectiveId)))
+    ) as ObjectiveContainer;
 
     if (!objectiveContainer) {
-      objectiveContainer = new ObjectiveContainer(uuidv4(), objectiveId);
+      objectiveContainer = new ObjectiveContainer(crypto.randomUUID(), objectiveId);
       if (objectiveData) {
         objectiveContainer.marker = objectiveData.marker;
         objectiveContainer.name = objectiveData.name;
         if (name) {
           objectiveContainer.name = name;
         }
-        objectiveContainer.health = EntityValueFunction("" + objectiveData.health);
+        objectiveContainer.health = EntityValueFunction('' + objectiveData.health);
         objectiveContainer.escort = objectiveData.escort;
         if (objectiveData.initiative) {
           objectiveContainer.initiative = objectiveData.initiative;
         }
 
         if (objectiveContainer.escort) {
-          objectiveContainer.amDeck = settingsManager.settings.allyAttackModifierDeck && (objectiveData.allyDeck || gameManager.fhRules(true)) ? 'A' : 'M';
+          objectiveContainer.amDeck =
+            settingsManager.settings.allyAttackModifierDeck && (objectiveData.allyDeck || gameManager.fhRules(true)) ? 'A' : 'M';
         }
       }
       objectiveContainer.edition = objectiveContainer.escort ? 'escort' : 'objective';
@@ -63,7 +78,12 @@ export class ObjectiveManager {
     }
   }
 
-  addObjectiveEntity(objectiveContainer: ObjectiveContainer, number: number | undefined = undefined, objectiveData: ObjectiveData | undefined = undefined, marker: string = ""): ObjectiveEntity {
+  addObjectiveEntity(
+    objectiveContainer: ObjectiveContainer,
+    number: number | undefined = undefined,
+    objectiveData: ObjectiveData | undefined = undefined,
+    marker: string = ''
+  ): ObjectiveEntity {
     if (!number || objectiveContainer.entities.find((objectiveEntity) => objectiveEntity.number == number)) {
       const objectiveCount = objectiveContainer.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
       number = objectiveCount % 12;
@@ -74,7 +94,12 @@ export class ObjectiveManager {
       }
     }
 
-    let entity: ObjectiveEntity = new ObjectiveEntity(uuidv4(), number + 1, objectiveContainer, marker || objectiveData && objectiveData.marker || objectiveContainer.marker);
+    const entity: ObjectiveEntity = new ObjectiveEntity(
+      crypto.randomUUID(),
+      number + 1,
+      objectiveContainer,
+      marker || (objectiveData && objectiveData.marker) || objectiveContainer.marker
+    );
 
     if (objectiveData) {
       entity.tags = objectiveData.tags;
@@ -91,7 +116,10 @@ export class ObjectiveManager {
 
   removeObjectiveEntity(objectiveCOntainer: ObjectiveContainer, objectiveEntity: ObjectiveEntity) {
     objectiveCOntainer.entities.splice(objectiveCOntainer.entities.indexOf(objectiveEntity), 1);
-    if (objectiveCOntainer.entities.length == 0 || objectiveCOntainer.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
+    if (
+      objectiveCOntainer.entities.length == 0 ||
+      objectiveCOntainer.entities.every((entity) => !gameManager.entityManager.isAlive(entity))
+    ) {
       if (!objectiveCOntainer.off && gameManager.game.state == GameState.next) {
         if (objectiveCOntainer.active) {
           gameManager.roundManager.toggleFigure(objectiveCOntainer);
@@ -105,11 +133,19 @@ export class ObjectiveManager {
   }
 
   objectiveEntityCountIdentifier(objective: ObjectiveContainer, identifier: AdditionalIdentifier): number {
-    if (identifier.type != 'all' && (identifier.name != objective.name || identifier.edition != objective.edition) || identifier.type != 'objective') {
+    if (
+      (identifier.type != 'all' && (identifier.name != objective.name || identifier.edition != objective.edition)) ||
+      identifier.type != 'objective'
+    ) {
       return 0;
     }
 
-    return objective.entities.filter((entity) => gameManager.entityManager.isAlive(entity) && (!identifier.marker || identifier.marker == entity.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entity.tags.includes(tag)))).length;
+    return objective.entities.filter(
+      (entity) =>
+        gameManager.entityManager.isAlive(entity) &&
+        (!identifier.marker || identifier.marker == entity.marker) &&
+        (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entity.tags.includes(tag)))
+    ).length;
   }
 
   skipObjective(figure: Figure): boolean {
@@ -129,7 +165,7 @@ export class ObjectiveManager {
   }
 
   objectiveDataByObjectiveIdentifier(objectiveIdentifier: AdditionalIdentifier | ScenarioObjectiveIdentifier): ObjectiveData | undefined {
-    if (!("scenario" in objectiveIdentifier)) {
+    if (!('scenario' in objectiveIdentifier)) {
       // TODO: generalize code, now specialized for Elder Drake
       const figures = gameManager.figuresByIdentifier(objectiveIdentifier);
       if (figures.length == 1) {
@@ -139,19 +175,27 @@ export class ObjectiveManager {
           const bossStats = gameManager.monsterManager.getStat(figure, MonsterType.boss);
           bossStats.special.forEach((special) => {
             special.forEach((action) => {
-              if (!result && (action.type == ActionType.summon || action.type == ActionType.spawn) && action.value == "objectiveSpawn") {
+              if (!result && (action.type == ActionType.summon || action.type == ActionType.spawn) && action.value == 'objectiveSpawn') {
                 result = (action.valueObject as ObjectiveSpawnData[])[0].objective as ObjectiveData;
               }
-            })
-          })
+            });
+          });
         }
         return result;
       }
     } else {
-      const scenarioData = (objectiveIdentifier.section ? gameManager.sectionData(objectiveIdentifier.edition).find((sectionData) => sectionData.index == objectiveIdentifier.scenario && sectionData.group == objectiveIdentifier.group) : gameManager.scenarioData(objectiveIdentifier.edition).find((scenarioData) => scenarioData.index == objectiveIdentifier.scenario && scenarioData.group == objectiveIdentifier.group));
+      const scenarioData = objectiveIdentifier.section
+        ? gameManager
+            .sectionData(objectiveIdentifier.edition)
+            .find((sectionData) => sectionData.index == objectiveIdentifier.scenario && sectionData.group == objectiveIdentifier.group)
+        : gameManager
+            .scenarioData(objectiveIdentifier.edition)
+            .find((scenarioData) => scenarioData.index == objectiveIdentifier.scenario && scenarioData.group == objectiveIdentifier.group);
       if (scenarioData) {
         if (objectiveIdentifier.section && !scenarioData.objectives) {
-          const parent = gameManager.scenarioData(objectiveIdentifier.edition).find((scenario) => scenario.index == scenarioData.parent && scenario.group == scenarioData.group);
+          const parent = gameManager
+            .scenarioData(objectiveIdentifier.edition)
+            .find((scenario) => scenario.index == scenarioData.parent && scenario.group == scenarioData.group);
           if (parent && parent.objectives && parent.objectives.length > objectiveIdentifier.index) {
             return parent.objectives[objectiveIdentifier.index];
           }
@@ -170,7 +214,7 @@ export class ObjectiveManager {
         figure.off = false;
         this.setInitiativeShare(figure);
       }
-    })
+    });
   }
 
   setInitiativeShare(figure: ObjectiveContainer) {
@@ -186,7 +230,12 @@ export class ObjectiveManager {
 
         const monster = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.name == name);
         if (monster) {
-          figure.initiative = gameManager.game.state == GameState.next && monster.getInitiative() && monster.getInitiative() < 100 ? (offset < 0 ? Math.ceil(monster.getInitiative() + offset) : Math.floor(monster.getInitiative() + offset)) : 0;
+          figure.initiative =
+            gameManager.game.state == GameState.next && monster.getInitiative() && monster.getInitiative() < 100
+              ? offset < 0
+                ? Math.ceil(monster.getInitiative() + offset)
+                : Math.floor(monster.getInitiative() + offset)
+              : 0;
         }
       }
     }
@@ -200,8 +249,6 @@ export class ObjectiveManager {
         }
         this.setInitiativeShare(figure);
       }
-    })
+    });
   }
-
-
 }

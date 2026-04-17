@@ -1,4 +1,5 @@
-{  "conditions": [
+{
+  "conditions": [
     "stun",
     "immobilize",
     "disarm",
@@ -15,5 +16,5 @@
   "newAmStyle": true,
   "newItemStyle": true,
   "edition": "gh2e",
-  "logoUrl": "./assets/images/logos/gh2e.png"
+  "logoUrl": "/assets/images/logos/gh2e.png"
 }

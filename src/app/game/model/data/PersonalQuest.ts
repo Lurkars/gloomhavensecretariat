@@ -1,26 +1,23 @@
-import { Editional } from "./Editional";
+import { Editional } from 'src/app/game/model/data/Editional';
 
 export class PersonalQuest implements Editional {
-    cardId: string = "";
-    altId: string = "";
-    spoiler: boolean = false;
-    requirements: PersonalQuestRequirement[] = [];
-    unlockCharacter: string = "";
-    openEnvelope: string = "";
-    unlockPQ: string = "";
-    errata: string = "";
+  cardId: string = '';
+  altId: string = '';
+  spoiler: boolean = false;
+  requirements: PersonalQuestRequirement[] = [];
+  unlockCharacter: string = '';
+  openEnvelope: string = '';
+  unlockPQ: string = '';
+  errata: string = '';
 
-    // from Editional
-    edition: string = "";
+  // from Editional
+  edition: string = '';
 }
 
-
 export class PersonalQuestRequirement {
-
-    name: string = "";
-    counter: number | string = 1;
-    checkbox: string[] = [];
-    autoautotrack: string | undefined;
-    requires: number[] = [];
-
+  name: string = '';
+  counter: number | string = 1;
+  checkbox: string[] = [];
+  autoautotrack: string | undefined;
+  requires: number[] = [];
 }

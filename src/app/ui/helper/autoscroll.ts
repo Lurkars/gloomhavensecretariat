@@ -4,14 +4,12 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Figure } from 'src/app/game/model/Figure';
 
 @Directive({
-  standalone: false,
   selector: '[autoscroll]'
 })
 export class AutoscrollDirective implements OnChanges {
-
   @Input('autoscroll') active: boolean = false;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['active'] && changes['active'].currentValue && changes['active'].currentValue != changes['active'].previousValue) {
@@ -24,37 +22,37 @@ export class AutoscrollDirective implements OnChanges {
       }, 5);
     }
   }
-
 }
 
-
 @Directive({
-  standalone: false,
   selector: '[figure-autoscroll]'
 })
 export class FigureAutoscrollDirective implements OnInit {
-
   @Input('figure-autoscroll') figure!: Figure;
-  @Input('block') block: ScrollLogicalPosition = 'center';
-  @Input('inline') inline: ScrollLogicalPosition = 'center';
+  @Input() block: ScrollLogicalPosition = 'center';
+  @Input() inline: ScrollLogicalPosition = 'center';
   active: boolean = false;
 
-  constructor(private el: ElementRef, private ghsManager: GhsManager) {
+  constructor(
+    private el: ElementRef,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect(() => {
-      setTimeout(() => {
-        if (settingsManager.settings.autoscroll && !this.active && this.figure.active) {
-          this.el.nativeElement.scrollIntoView({
-            behavior: !settingsManager.settings.animations ? 'auto' : 'smooth',
-            block: this.block,
-            inline: this.inline
-          });
-        }
-        this.active = this.figure.active;
-      }, settingsManager.settings.animations ? 300 * settingsManager.settings.animationSpeed : 5);
+      setTimeout(
+        () => {
+          if (settingsManager.settings.autoscroll && !this.active && this.figure.active) {
+            this.el.nativeElement.scrollIntoView({
+              behavior: !settingsManager.settings.animations ? 'auto' : 'smooth',
+              block: this.block,
+              inline: this.inline
+            });
+          }
+          this.active = this.figure.active;
+        },
+        settingsManager.settings.animations ? 300 * settingsManager.settings.animationSpeed : 5
+      );
     });
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

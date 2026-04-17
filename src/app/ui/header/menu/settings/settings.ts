@@ -1,24 +1,51 @@
-import { Platform } from "@angular/cdk/platform";
-import { Component, EventEmitter, Output, QueryList, ViewChildren } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { StorageManager, storageManager } from "src/app/game/businesslogic/StorageManager";
-import { GameState } from "src/app/game/model/Game";
-import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
-import { ghsTextSearch } from "src/app/ui/helper/Static";
-import { SubMenu } from "../menu";
-import { SettingMenuComponent } from "./setting/setting";
+import { Platform } from '@angular/cdk/platform';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output, QueryList, ViewChildren } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { StorageManager, storageManager } from 'src/app/game/businesslogic/StorageManager';
+import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
+import { GameState } from 'src/app/game/model/Game';
+import { SubMenu } from 'src/app/ui/header/menu/menu';
+import { SettingMenuComponent, SettingMenuTitleComponent } from 'src/app/ui/header/menu/settings/setting/setting';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { ghsTextSearch } from 'src/app/ui/helper/Static';
+import { TabClickDirective } from 'src/app/ui/helper/tabclick';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
+import { environment } from 'src/environments/environment';
 
-export type SettingsTab = 'gameplay' | 'character' | 'monsters' | 'automation' | 'gamerules' | 'display' | 'interface' | 'locale' | 'preferences';
+export type SettingsTab =
+  | 'gameplay'
+  | 'character'
+  | 'monsters'
+  | 'automation'
+  | 'gamerules'
+  | 'display'
+  | 'interface'
+  | 'locale'
+  | 'preferences';
 
 @Component({
-  standalone: false,
+  imports: [
+    NgClass,
+    FormsModule,
+    GhsLabelDirective,
+    PointerInputDirective,
+    TabClickDirective,
+    TrackUUIDPipe,
+    GhsTooltipDirective,
+    SettingMenuComponent,
+    SettingMenuTitleComponent
+  ],
   selector: 'ghs-settings-menu',
   templateUrl: 'settings.html',
-  styleUrls: ['../menu.scss', 'settings.scss']
+  styleUrls: ['../menu.scss', 'settings.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsMenuComponent {
-
   @ViewChildren(SettingMenuComponent) settingMenus!: QueryList<SettingMenuComponent>;
   @Output() setMenu: EventEmitter<SubMenu> = new EventEmitter<SubMenu>();
 
@@ -33,7 +60,8 @@ export class SettingsMenuComponent {
   activeApplyConditionsExcludes: Condition[] = [];
   WebSocket = WebSocket;
   ConditionType = ConditionType;
-  filter: string = "";
+  branded = environment.branded;
+  filter: string = '';
   activeTab: SettingsTab = 'gameplay';
 
   tabs: SettingsTab[] = ['gameplay', 'automation', 'character', 'monsters', 'gamerules', 'display', 'interface', 'locale', 'preferences'];
@@ -49,8 +77,19 @@ export class SettingsMenuComponent {
 
     Object.keys(ConditionName).forEach((conditionName) => {
       const condition = new Condition(conditionName);
-      if (!gameManager.game.edition || gameManager.conditions(gameManager.game.edition).map((condition) => condition.name).includes(condition.name) || condition.types.includes(ConditionType.hidden)) {
-        if (condition.types.includes(ConditionType.turn) || condition.types.includes(ConditionType.afterTurn) || condition.types.includes(ConditionType.autoApply) && !condition.types.includes(ConditionType.apply)) {
+      if (
+        !gameManager.game.edition ||
+        gameManager
+          .conditions(gameManager.game.edition)
+          .map((condition) => condition.name)
+          .includes(condition.name) ||
+        condition.types.includes(ConditionType.hidden)
+      ) {
+        if (
+          condition.types.includes(ConditionType.turn) ||
+          condition.types.includes(ConditionType.afterTurn) ||
+          (condition.types.includes(ConditionType.autoApply) && !condition.types.includes(ConditionType.apply))
+        ) {
           this.applyConditionsExcludes.push(condition);
         }
 
@@ -62,7 +101,7 @@ export class SettingsMenuComponent {
           this.activeApplyConditionsExcludes.push(condition);
         }
       }
-    })
+    });
   }
 
   updateFilter() {
@@ -72,9 +111,10 @@ export class SettingsMenuComponent {
         host.classList.remove('filter-hidden');
         host.querySelectorAll('.line').forEach((el) => el.classList.remove('filter-hidden'));
       } else {
-        const labelMatch = ghsTextSearch(item.setting, this.filter)
-          || ghsTextSearch(settingsManager.getLabel('settings.' + item.setting), this.filter)
-          || ghsTextSearch(settingsManager.getLabel('settings.' + item.setting + '.hint'), this.filter);
+        const labelMatch =
+          ghsTextSearch(item.setting, this.filter) ||
+          ghsTextSearch(settingsManager.getLabel('settings.' + item.setting), this.filter) ||
+          ghsTextSearch(settingsManager.getLabel('settings.' + item.setting + '.hint'), this.filter);
 
         if (item.values.length > 0) {
           // Radio-type: filter individual value rows
@@ -82,12 +122,15 @@ export class SettingsMenuComponent {
           let anyVisible = false;
           childLines.forEach((el, index) => {
             const value = item.values[index];
-            const valueMatch = labelMatch || (value !== undefined && (
-              ghsTextSearch(value, this.filter)
-              || ghsTextSearch(settingsManager.getLabel('settings.' + item.setting + '.' + value), this.filter)
-            ));
+            const valueMatch =
+              labelMatch ||
+              (value !== undefined &&
+                (ghsTextSearch(value, this.filter) ||
+                  ghsTextSearch(settingsManager.getLabel('settings.' + item.setting + '.' + value), this.filter)));
             el.classList.toggle('filter-hidden', !valueMatch);
-            if (valueMatch) { anyVisible = true; }
+            if (valueMatch) {
+              anyVisible = true;
+            }
           });
           host.classList.toggle('filter-hidden', !anyVisible);
         } else {
@@ -100,7 +143,7 @@ export class SettingsMenuComponent {
   doubleClick: any = null;
 
   toggleApplyConditionsExclude(condition: ConditionName) {
-    let index = settingsManager.settings.applyConditionsExcludes.indexOf(condition);
+    const index = settingsManager.settings.applyConditionsExcludes.indexOf(condition);
     if (index == -1) {
       settingsManager.settings.applyConditionsExcludes.push(condition);
     } else {
@@ -110,7 +153,7 @@ export class SettingsMenuComponent {
   }
 
   toggleActiveApplyConditionsAuto(condition: ConditionName) {
-    let index = settingsManager.settings.activeApplyConditionsAuto.indexOf(condition);
+    const index = settingsManager.settings.activeApplyConditionsAuto.indexOf(condition);
     if (index == -1) {
       settingsManager.settings.activeApplyConditionsAuto.push(condition);
     } else {
@@ -120,7 +163,7 @@ export class SettingsMenuComponent {
   }
 
   toggleActiveApplyConditionsExclude(condition: ConditionName) {
-    let index = settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition);
+    const index = settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition);
     if (index == -1) {
       settingsManager.settings.activeApplyConditionsExcludes.push(condition);
     } else {
@@ -270,11 +313,7 @@ export class SettingsMenuComponent {
     settingsManager.settings.abilityNumbers = true;
     settingsManager.settings.abilityReveal = true;
     settingsManager.settings.activeApplyConditions = true;
-    settingsManager.settings.activeApplyConditionsExcludes = [
-      ConditionName.shield,
-      ConditionName.poison,
-      ConditionName.poison_x
-    ];
+    settingsManager.settings.activeApplyConditionsExcludes = [ConditionName.shield, ConditionName.poison, ConditionName.poison_x];
     settingsManager.settings.activeStandees = false;
     settingsManager.settings.activeSummons = true;
     settingsManager.settings.addAllMonsters = false;

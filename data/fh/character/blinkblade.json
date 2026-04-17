@@ -20,6 +20,10 @@
   "specialActions": [
     {
       "name": "time_tokens"
+    },
+    {
+      "name": "overdrive",
+      "expire": true
     }
   ],
   "stats": [

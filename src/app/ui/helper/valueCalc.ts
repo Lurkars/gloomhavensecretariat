@@ -1,25 +1,23 @@
-import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
-import { ghsLabelRegex } from "./label";
-
+import { Directive, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
+import { ghsLabelRegex } from 'src/app/ui/helper/label';
 
 export function valueCalc(value: string | number, level: number | undefined = undefined, empty: boolean = false): string | number {
-
-  if (typeof value === "number") {
+  if (typeof value === 'number') {
     if (empty && value == 0) {
-      return "-";
+      return '-';
     }
 
     return value;
   }
 
-  if (typeof value === "string" && value == '0') {
-    return "-";
+  if (typeof value === 'string' && value == '0') {
+    return '-';
   } else if (!value) {
-    return empty ? "-" : "";
+    return empty ? '-' : '';
   }
 
   let L = gameManager.game.level;
@@ -27,12 +25,11 @@ export function valueCalc(value: string | number, level: number | undefined = un
     L = level;
   }
 
-
   if (settingsManager.settings.calculate && (value.match(EntityExpressionRegex) || value.match(EntityValueRegex))) {
     try {
-      return EntityValueFunction(value, L)
-    } catch (e) {
-      console.error("Could not calculate value for: ", value);
+      return EntityValueFunction(value, L);
+    } catch {
+      console.error('Could not calculate value for: ', value);
       return value;
     }
   }
@@ -52,33 +49,37 @@ export function valueCalc(value: string | number, level: number | undefined = un
     return funcLabel ? match[1] + ' ' + settingsManager.getLabel('game.custom.' + func, funcArgs) : match[1];
   }
 
-
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
       return settingsManager.getLabel(args[0]);
     });
   }
 
-  return value ? value : (empty ? '-' : '');
+  return value ? value : empty ? '-' : '';
 }
 
 @Directive({
-  standalone: false,
   selector: ' [value-calc]'
 })
 export class ValueCalcDirective implements OnInit, OnChanges {
-
   @Input('value-calc') value!: string | number;
-  @Input('level') level: number | undefined;
-  @Input('empty') empty: boolean = false;
+  @Input() level: number | undefined;
+  @Input() empty: boolean = false;
 
   private C: number;
   private L: number;
   private calc: boolean;
 
-  constructor(private el: ElementRef, private ghsManager: GhsManager) {
+  constructor(
+    private el: ElementRef,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect(() => {
-      if (this.calc != settingsManager.settings.calculate || this.C != Math.max(2, gameManager.characterManager.characterCount()) || this.L != gameManager.game.level) {
+      if (
+        this.calc != settingsManager.settings.calculate ||
+        this.C != Math.max(2, gameManager.characterManager.characterCount()) ||
+        this.L != gameManager.game.level
+      ) {
         this.C = Math.max(2, gameManager.characterManager.characterCount());
         this.L = gameManager.game.level;
         this.calc = settingsManager.settings.calculate;
@@ -90,16 +91,11 @@ export class ValueCalcDirective implements OnInit, OnChanges {
     this.calc = settingsManager.settings.calculate;
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
   }
-
 
   ngOnInit(): void {
     this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
   }
-
-
-
-
 }

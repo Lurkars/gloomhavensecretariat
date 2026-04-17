@@ -1,91 +1,136 @@
-<div class="abilities-dialog" [ngClass]="{ 'edit' : edit}">
-  <div #menu class="menu"
-    [ngClass]="{'denied' : monster && gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
-    <a (click)="reveal = (reveal + 1) % 3"><span [ghs-label]="(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
-      'game.cards.revealAll' : 'game.cards.revealAllConfirm'))"></span></a>
-    <a ghs-pointer-input (singleClick)="shuffle()" (doubleClick)="shuffle(true)"
-      [ghs-tooltip]="'game.cards.shuffle.upcomingHint'" [overlayX]="'center'"><span
-        [ghs-label]="'game.cards.shuffle'"></span></a>
-    <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit"><span
-        [ghs-label]="'game.cards.edit'"></span></label>
+<div class="abilities-dialog" [ngClass]="{ edit: edit }">
+  <div
+    #menu
+    class="menu"
+    [ngClass]="{
+      denied:
+        monster &&
+        gameManager.stateManager.permissions &&
+        !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]
+    }"
+  >
+    <a (click)="reveal = (reveal + 1) % 3"
+      ><span [ghs-label]="reveal == 2 ? 'game.cards.coverAll' : reveal == 0 ? 'game.cards.revealAll' : 'game.cards.revealAllConfirm'"></span
+    ></a>
+    <a
+      ghs-pointer-input
+      (singleClick)="shuffle()"
+      (doubleClick)="shuffle(true)"
+      [ghs-tooltip]="'game.cards.shuffle.upcomingHint'"
+      [overlayX]="'center'"
+      ><span [ghs-label]="'game.cards.shuffle'"></span
+    ></a>
+    <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit" /><span [ghs-label]="'game.cards.edit'"></span></label>
     <div class="insert-menu">
       @if (edit || bottomActions) {
-      <a (click)="draw()"><span [ghs-label]="'game.cards.drawAnother'"></span></a>
+        <a (click)="draw()"><span [ghs-label]="'game.cards.drawAnother'"></span></a>
       }
       @if (edit) {
-      <a (click)="restoreDefault()"><span [ghs-label]="'game.cards.restore'"></span></a>
+        <a (click)="restoreDefault()"><span [ghs-label]="'game.cards.restore'"></span></a>
       }
       @if (edit) {
-      <a (click)="defaultSort()"><span [ghs-label]="'game.cards.defaultSort'"></span></a>
+        <a (click)="defaultSort()"><span [ghs-label]="'game.cards.defaultSort'"></span></a>
       }
       @if (gameManager.monsterManager.getSameDeckMonster(monster)) {
-      <label><input type="checkbox" (click)="toggleDrawExtra()" [checked]="monster.drawExtra">
-        <span [ghs-label]="'game.cards.drawExtra'"></span>
-      </label>
+        <label
+          ><input type="checkbox" (click)="toggleDrawExtra()" [checked]="monster.drawExtra" />
+          <span [ghs-label]="'game.cards.drawExtra'"></span>
+        </label>
       }
     </div>
   </div>
   <div class="scroll-container">
-    <div class="abilities-container" [style.maxHeight]="maxHeight"
-      [ngClass]="{'has-deleted' : edit && deletedCards.length}">
-      <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
-        [cdkDropListConnectedTo]="discardedList" (cdkDropListDropped)="dropUpcoming($event)"
-        [cdkDropListAutoScrollStep]="20">
+    <div class="abilities-container" [style.maxHeight]="maxHeight" [ngClass]="{ 'has-deleted': edit && deletedCards.length }">
+      <div
+        class="upcoming drop-list"
+        cdkDropList
+        [cdkDropListDisabled]="!edit"
+        #upcomingList="cdkDropList"
+        [cdkDropListConnectedTo]="discardedList"
+        (cdkDropListDropped)="dropUpcoming($event)"
+        [cdkDropListAutoScrollStep]="20"
+      >
         @if (upcomingCards.length == 0) {
-        <div class="empty"></div>
+          <div class="empty"></div>
         }
         @for (ability of upcomingCards | trackUUID; track ability._trackUUID; let index = $index) {
-        <div class="container drag-hidden" cdkDrag
-          [ngClass]="{'expanded-ability': settingsManager.settings.showExpandedAbilityCard && (reveal == 2 || ability.revealed), 'bottom-actions' : gameManager.hasBottomAbility(ability), 'drawn' : index < gameManager.monsterManager.drawnAbilities(monster) - monster.ability - 1}">
-          <ghs-ability [ability]="ability" [monster]="monster"
-            [flipped]="reveal == 2 || index < gameManager.monsterManager.drawnAbilities(monster) - monster.ability - 1"
-            [reveal]="true">
-          </ghs-ability>
-          @if (edit) {
-          <div cdkDragHandle class="drag-handle"></div>
-          }
-          @if (edit) {
-          <a class="button-remove" (click)="remove(index + monster.ability + 1)">
-            <img class="ghs-svg" src="./assets/images/minus.svg"></a>
-          }
-        </div>
+          <div
+            class="container drag-hidden"
+            cdkDrag
+            [ngClass]="{
+              'expanded-ability': settingsManager.settings.showExpandedAbilityCard && (reveal == 2 || ability.revealed),
+              'bottom-actions': gameManager.hasBottomAbility(ability),
+              drawn: index < gameManager.monsterManager.drawnAbilities(monster) - monster.ability - 1
+            }"
+          >
+            <ghs-ability
+              [ability]="ability"
+              [monster]="monster"
+              [flipped]="reveal == 2 || index < gameManager.monsterManager.drawnAbilities(monster) - monster.ability - 1"
+              [reveal]="true"
+            >
+            </ghs-ability>
+            @if (edit) {
+              <div cdkDragHandle class="drag-handle"></div>
+            }
+            @if (edit) {
+              <a class="button-remove" (click)="remove(index + monster.ability + 1)">
+                <img class="ghs-svg" src="/assets/images/minus.svg"
+              /></a>
+            }
+          </div>
         }
       </div>
 
-      <div class="discarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #discardedList="cdkDropList"
-        [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDiscarded($event)"
-        [cdkDropListAutoScrollStep]="20">
+      <div
+        class="discarded drop-list"
+        cdkDropList
+        [cdkDropListDisabled]="!edit"
+        #discardedList="cdkDropList"
+        [cdkDropListConnectedTo]="upcomingList"
+        (cdkDropListDropped)="dropDiscarded($event)"
+        [cdkDropListAutoScrollStep]="20"
+      >
         <div class="empty"></div>
         @for (ability of discardedCards | trackUUID; track ability._trackUUID; let index = $index) {
-        <div class="container drag-hidden" cdkDrag
-          [ngClass]="{'expanded-ability': settingsManager.settings.showExpandedAbilityCard, 'bottom-actions' : gameManager.hasBottomAbility(ability)}">
-          <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true">
-          </ghs-ability>
-          @if (edit) {
-          <div cdkDragHandle class="drag-handle"></div>
-          }
-          @if (edit) {
-          <a class="button-remove" (click)="remove(discardedCards.length - index - 1)">
-            <img class="ghs-svg" src="./assets/images/minus.svg"></a>
-          }
-        </div>
+          <div
+            class="container drag-hidden"
+            cdkDrag
+            [ngClass]="{
+              'expanded-ability': settingsManager.settings.showExpandedAbilityCard,
+              'bottom-actions': gameManager.hasBottomAbility(ability)
+            }"
+          >
+            <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true"> </ghs-ability>
+            @if (edit) {
+              <div cdkDragHandle class="drag-handle"></div>
+            }
+            @if (edit) {
+              <a class="button-remove" (click)="remove(discardedCards.length - index - 1)">
+                <img class="ghs-svg" src="/assets/images/minus.svg"
+              /></a>
+            }
+          </div>
         }
       </div>
 
       @if (edit && deletedCards.length) {
-      <div class="deleted drop-list">
-        @for (ability of deletedCards | trackUUID; track ability._trackUUID; let index = $index) {
-        <div class="container"
-          [ngClass]="{'expanded-ability': settingsManager.settings.showExpandedAbilityCard, 'bottom-actions' : gameManager.hasBottomAbility(ability)}">
-          <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true">
-          </ghs-ability>
-          @if (edit) {
-          <a class="button-restore" (click)="restore(ability)">
-            <img class="ghs-svg" src="./assets/images/plus.svg"></a>
+        <div class="deleted drop-list">
+          @for (ability of deletedCards | trackUUID; track ability._trackUUID; let index = $index) {
+            <div
+              class="container"
+              [ngClass]="{
+                'expanded-ability': settingsManager.settings.showExpandedAbilityCard,
+                'bottom-actions': gameManager.hasBottomAbility(ability)
+              }"
+            >
+              <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true"> </ghs-ability>
+              @if (edit) {
+                <a class="button-restore" (click)="restore(ability)"> <img class="ghs-svg" src="/assets/images/plus.svg" /></a>
+              }
+            </div>
           }
         </div>
-        }
-      </div>
       }
     </div>
   </div>

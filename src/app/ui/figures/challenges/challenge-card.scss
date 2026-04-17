@@ -1,133 +1,130 @@
 .challenge {
-    position: relative;
+  position: relative;
+  width: 100%;
+  padding-bottom: 147%;
+
+  .card {
+    position: absolute;
     width: 100%;
-    padding-bottom: 147%;
+    height: 100%;
+    border: 5% solid transparent;
+    border-radius: 5%;
+    transition: transform calc(var(--ghs-animation-speed) * 500ms) cubic-bezier(0.75, 0, 0.85, 1);
 
-    .card {
+    .card-front {
+      background-size: 100% 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 5%;
+      background-image: url('/assets/images/fh/challenges/challenge-front.png');
+
+      .title {
         position: absolute;
+        top: 6%;
+        left: 0;
         width: 100%;
-        height: 100%;
-        border: 5% solid transparent;
-        border-radius: 5%;
-        transition: transform calc(var(--ghs-animation-speed) * 500ms) cubic-bezier(0.75, 0, 0.85, 1);
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+        font-family: var(--ghs-font-title);
+        font-size: 0.85em;
+        transform: rotate(-3deg);
 
-        .card-front {
-            background-size: 100% 100%;
-            background-position: center center;
-            background-repeat: no-repeat;
-            border-radius: 5%;
-            background-image: url('~src/assets/images/fh/challenges/challenge-front.png');
-
-            .title {
-                position: absolute;
-                top: 6%;
-                left: 0;
-                width: 100%;
-                height: 20%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                margin: 0;
-                font-family: var(--ghs-font-title);
-                font-size: 0.85em;
-                transform: rotate(-3deg);
-
-                p {
-                    max-width: 60%;
-                    margin: 0;
-                }
-
-                .automation,
-                .hint {
-                    display: flex;
-                    align-items: center;
-                    width: 20%;
-
-                    .ghs-svg {
-                        cursor: help;
-                    }
-
-                    &.automation {
-                        justify-content: flex-end;
-
-                        .ghs-svg {
-                            margin-right: 0.2em;
-                            width: 1.5em;
-                            height: auto;
-                            filter: var(--ghs-filter-darkgray);
-                        }
-                    }
-
-                    &.hint {
-                        justify-content: flex-start;
-
-                        .ghs-svg {
-                            margin-left: 0.2em;
-                            width: 1.3em;
-                            height: auto;
-                            filter: var(--ghs-filter-yellow);
-                        }
-                    }
-
-                }
-            }
-
-            .text {
-                position: absolute;
-                top: 30%;
-                left: 17.5%;
-                width: 65%;
-                height: 60%;
-                margin: 0;
-                font-family: var(--ghs-font-normal);
-                font-size: 0.75em;
-                line-height: 0.9em;
-                text-align: center;
-                transform: rotate(-3deg);
-
-                p {
-                    margin: 0;
-                }
-            }
-
-            .card-id {
-                position: absolute;
-                bottom: 1%;
-                right: 8%;
-                text-align: right;
-                font-family: var(--ghs-font-normal);
-                font-size: 0.5em;
-                color: var(--ghs-color-white);
-                filter: var(--ghs-filter-outline);
-            }
-
+        p {
+          max-width: 60%;
+          margin: 0;
         }
 
-        .card-back {
-            background-size: 100% 100%;
-            background-position: center center;
-            background-repeat: no-repeat;
-            border-radius: 5%;
-            background-image: url('~src/assets/images/fh/challenges/challenge-back.png');
-        }
+        .automation,
+        .hint {
+          display: flex;
+          align-items: center;
+          width: 20%;
 
+          .ghs-svg {
+            cursor: help;
+          }
+
+          &.automation {
+            justify-content: flex-end;
+
+            .ghs-svg {
+              margin-right: 0.2em;
+              width: 1.5em;
+              height: auto;
+              filter: var(--ghs-filter-darkgray);
+            }
+          }
+
+          &.hint {
+            justify-content: flex-start;
+
+            .ghs-svg {
+              margin-left: 0.2em;
+              width: 1.3em;
+              height: auto;
+              filter: var(--ghs-filter-yellow);
+            }
+          }
+        }
+      }
+
+      .text {
+        position: absolute;
+        top: 30%;
+        left: 17.5%;
+        width: 65%;
+        height: 60%;
+        margin: 0;
+        font-family: var(--ghs-font-normal);
+        font-size: 0.75em;
+        line-height: 0.9em;
+        text-align: center;
+        transform: rotate(-3deg);
+
+        p {
+          margin: 0;
+        }
+      }
+
+      .card-id {
+        position: absolute;
+        bottom: 1%;
+        right: 8%;
+        text-align: right;
+        font-family: var(--ghs-font-normal);
+        font-size: 0.5em;
+        color: var(--ghs-color-white);
+        filter: var(--ghs-filter-outline);
+      }
     }
 
-    .confirm {
-        .revealed {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--ghs-color-black);
-            font-size: 1.3em;
-            filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-white));
-
-            .text {
-                text-align: center;
-            }
-        }
+    .card-back {
+      background-size: 100% 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 5%;
+      background-image: url('/assets/images/fh/challenges/challenge-back.png');
     }
+  }
+
+  .confirm {
+    .revealed {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--ghs-color-black);
+      font-size: 1.3em;
+      filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-white));
+
+      .text {
+        text-align: center;
+      }
+    }
+  }
 }

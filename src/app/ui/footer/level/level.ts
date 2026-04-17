@@ -1,19 +1,20 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { LevelDialogComponent } from './level-dialog';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { LevelDialogComponent } from 'src/app/ui/footer/level/level-dialog';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
 
 @Component({
-  standalone: false,
+  imports: [GhsLabelDirective],
   selector: 'ghs-level',
   templateUrl: './level.html',
-  styleUrls: ['./level.scss']
+  styleUrls: ['./level.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LevelComponent implements OnInit {
-
   @ViewChild('levelButton') levelButton!: ElementRef;
 
   gameManager: GameManager = gameManager;
@@ -25,25 +26,22 @@ export class LevelComponent implements OnInit {
   hazardousTerrain: number = 0;
   monsterDifficulty: number = 0;
 
-  constructor(private dialog: Dialog, private overlay: Overlay, private ghsManager: GhsManager) {
+  constructor(
+    private dialog: Dialog,
+    private overlay: Overlay,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect(() => this.calculateValues());
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 
   open() {
     const positions = [
-      new ConnectionPositionPair(
-        { originX: 'center', originY: 'top' },
-        { overlayX: 'center', overlayY: 'bottom' }),
-      new ConnectionPositionPair(
-        { originX: 'start', originY: 'top' },
-        { overlayX: 'start', overlayY: 'bottom' }),
-      new ConnectionPositionPair(
-        { originX: 'end', originY: 'top' },
-        { overlayX: 'end', overlayY: 'bottom' })];
+      new ConnectionPositionPair({ originX: 'center', originY: 'top' }, { overlayX: 'center', overlayY: 'bottom' }),
+      new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'bottom' }),
+      new ConnectionPositionPair({ originX: 'end', originY: 'top' }, { overlayX: 'end', overlayY: 'bottom' })
+    ];
 
     this.dialog.open(LevelDialogComponent, {
       panelClass: ['dialog'],
@@ -63,5 +61,4 @@ export class LevelComponent implements OnInit {
       this.loot += gameManager.trialsManager.activeFavor('fh', 'wealth');
     }
   }
-
 }

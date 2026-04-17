@@ -1,23 +1,25 @@
-import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { Component, EventEmitter, Inject } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { Character } from "src/app/game/model/Character";
-import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
-import { ghsDialogClosingHelper } from "../../helper/Static";
-import { AttackModiferDeckChange } from "./attackmodifierdeck";
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, inject } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { Character } from 'src/app/game/model/Character';
+import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
+import { AttackModiferDeckChange, AttackModifierDeckComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
-  standalone: false,
+  imports: [NgClass, GhsLabelDirective, forwardRef(() => AttackModifierDeckComponent)],
   selector: 'ghs-attackmodifier-deck-fullscreen',
   templateUrl: './attackmodifierdeck-fullscreen.html',
-  styleUrls: ['./attackmodifierdeck-fullscreen.scss',]
+  styleUrls: ['./attackmodifierdeck-fullscreen.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttackModifierDeckFullscreenComponent {
-
   deck: AttackModifierDeck;
   character: Character;
   ally: boolean;
-  numeration: string = "";
+  numeration: string = '';
   newStyle: boolean = false;
   townGuard: boolean = false;
   before: EventEmitter<AttackModiferDeckChange>;
@@ -25,16 +27,27 @@ export class AttackModifierDeckFullscreenComponent {
 
   gameManager: GameManager = gameManager;
 
-  constructor(@Inject(DIALOG_DATA) data: { deck: AttackModifierDeck, character: Character, ally: boolean, numeration: string, newStyle: boolean, townGuard: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
-    this.deck = data.deck;
-    this.character = data.character;
-    this.ally = data.ally;
-    this.numeration = data.numeration;
-    this.newStyle = data.newStyle;
-    this.townGuard = data.townGuard;
-    this.before = data.before;
-    this.after = data.after;
-  };
+  data: {
+    deck: AttackModifierDeck;
+    character: Character;
+    ally: boolean;
+    numeration: string;
+    newStyle: boolean;
+    townGuard: boolean;
+    before: EventEmitter<AttackModiferDeckChange>;
+    after: EventEmitter<AttackModiferDeckChange>;
+  } = inject(DIALOG_DATA);
+
+  constructor(public dialogRef: DialogRef) {
+    this.deck = this.data.deck;
+    this.character = this.data.character;
+    this.ally = this.data.ally;
+    this.numeration = this.data.numeration;
+    this.newStyle = this.data.newStyle;
+    this.townGuard = this.data.townGuard;
+    this.before = this.data.before;
+    this.after = this.data.after;
+  }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
     this.before.emit(change);
@@ -52,4 +65,3 @@ export class AttackModifierDeckFullscreenComponent {
     ghsDialogClosingHelper(this.dialogRef);
   }
 }
-

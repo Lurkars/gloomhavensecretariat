@@ -10,7 +10,7 @@
   .container {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
     height: 100%;
-    background-image: url('~src/assets/images/character/character-sheet.svg');
+    background-image: url('/assets/images/character/character-sheet.svg');
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -40,7 +40,6 @@
           display: flex;
         }
       }
-
     }
 
     label {
@@ -101,7 +100,6 @@
         display: grid;
         grid-template-columns: repeat(9, 1fr);
 
-
         .level-item {
           cursor: pointer;
           position: relative;
@@ -144,14 +142,14 @@
             top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
             width: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-            background-image: url('~src/assets/images/initiative.svg');
+            background-image: url('/assets/images/initiative.svg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
           }
 
           &.checked::after {
-            content: " ";
+            content: ' ';
             position: absolute;
             top: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
             width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
@@ -198,7 +196,7 @@
           margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
           &:hover {
-            color: var(--ghs-color-black)
+            color: var(--ghs-color-black);
           }
 
           &.disabled {
@@ -264,8 +262,8 @@
             .checkbox {
               margin-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
               margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-              width: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor) * var(--ghs-text-factor)* var(--ghs-text-factor));
-              height: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor) * var(--ghs-text-factor)* var(--ghs-text-factor));
+              width: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor) * var(--ghs-text-factor) * var(--ghs-text-factor));
+              height: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor) * var(--ghs-text-factor) * var(--ghs-text-factor));
 
               &.disabled {
                 pointer-events: initial;
@@ -390,7 +388,7 @@
               margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             }
 
-            input[type="number"] {
+            input[type='number'] {
               margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
               width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
               min-width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
@@ -455,9 +453,7 @@
             height: auto;
           }
         }
-
       }
-
     }
 
     .notes {
@@ -506,7 +502,7 @@
           font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         }
 
-        input[type="number"] {
+        input[type='number'] {
           flex-grow: 1;
           flex-basis: 0;
           min-width: auto;
@@ -535,14 +531,13 @@
     }
 
     .import-export {
-
       display: flex;
       justify-content: space-around;
 
       label {
         cursor: pointer;
 
-        input[type="file"] {
+        input[type='file'] {
           width: 0;
           height: 0;
           margin: 0;
@@ -592,7 +587,8 @@
       height: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
       border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
       border-radius: calc(var(--ghs-unit) * 0.15 * var(--ghs-dialog-factor));
-      box-shadow: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 0.15 * var(--ghs-dialog-factor)) var(--ghs-color-gray);
+      box-shadow: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 0.15 * var(--ghs-dialog-factor))
+        var(--ghs-color-gray);
       z-index: 2;
 
       &::before {
@@ -606,7 +602,7 @@
         transform-origin: top left;
         transition: transform calc(var(--ghs-animation-speed) * 120ms) ease-in-out;
         z-index: 1;
-        background-image: url('~src/assets/images/checkmark.svg');
+        background-image: url('/assets/images/checkmark.svg');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -630,7 +626,7 @@
       }
     }
 
-    input[type="text"] {
+    input[type='text'] {
       margin: 0;
       margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       color: var(--ghs-color-black);
@@ -646,7 +642,7 @@
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
     }
 
-    input[type="number"] {
+    input[type='number'] {
       margin: 0;
       margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       color: var(--ghs-color-black);
@@ -682,20 +678,18 @@
         width: auto;
       }
 
-      input[type="text"] {
+      input[type='text'] {
         min-width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       }
     }
-
   }
 
   &.cs-sheet {
     .container {
-      background-image: url('~src/assets/images/cs/character/character-sheet.svg');
+      background-image: url('/assets/images/cs/character/character-sheet.svg');
     }
 
     .columns .column.column-right {
-
       .perks {
         margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 70 * var(--ghs-dialog-factor));
@@ -717,7 +711,7 @@
 
   &.fh-sheet {
     .container {
-      background-image: url('~src/assets/images/fh/character/character-sheet.svg');
+      background-image: url('/assets/images/fh/character/character-sheet.svg');
     }
 
     .xp-gold-container {
@@ -828,12 +822,10 @@
           grid-template-columns: repeat(3, calc(var(--ghs-unit) * 11.1 * var(--ghs-dialog-factor)));
 
           .resource {
-
             height: calc(var(--ghs-unit) * 4.7 * var(--ghs-dialog-factor));
           }
         }
       }
-
     }
 
     .masteries {
@@ -900,14 +892,12 @@
         flex-direction: column;
         justify-content: flex-start;
       }
-
     }
-
   }
 
   &.gh2e-sheet {
     .container {
-      background-image: url('~src/assets/images/gh2e/character/character-sheet.svg');
+      background-image: url('/assets/images/gh2e/character/character-sheet.svg');
     }
 
     .columns .column.column-right .battlegoals {
@@ -927,7 +917,6 @@
   }
 
   &.compact {
-
     .container {
       background-image: none;
       width: initial;
@@ -948,8 +937,8 @@
         height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor)) !important;
       }
 
-      input[type="number"],
-      input[type="text"] {
+      input[type='number'],
+      input[type='text'] {
         font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
       }
 
@@ -1000,7 +989,6 @@
             }
 
             .resource-table {
-
               .materials,
               .herbs {
                 grid-template-columns: repeat(3, 1fr);
@@ -1077,7 +1065,6 @@
   }
 
   .scroll-container.denied {
-
     .export,
     .export * {
       pointer-events: initial;
@@ -1110,7 +1097,7 @@
       bottom: 0;
       right: 0;
       background-color: var(--ghs-character-color);
-      mask-image: url('~src/assets/images/character/hand-size.svg');
+      mask-image: url('/assets/images/character/hand-size.svg');
       mask-size: 100%;
       mask-repeat: no-repeat;
       z-index: -1;

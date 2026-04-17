@@ -1,23 +1,26 @@
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
-import { InteractiveAction } from "src/app/game/businesslogic/ActionsManager";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character } from "src/app/game/model/Character";
-import { Monster } from "src/app/game/model/Monster";
-import { Ability } from "src/app/game/model/data/Ability";
-import { ActionValueType } from "src/app/game/model/data/Action";
-import { applyPlaceholder } from "../../helper/label";
-
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit } from '@angular/core';
+import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { Ability } from 'src/app/game/model/data/Ability';
+import { ActionValueType } from 'src/app/game/model/data/Action';
+import { Monster } from 'src/app/game/model/Monster';
+import { ActionsComponent } from 'src/app/ui/figures/actions/actions';
+import { InteractiveActionsComponent } from 'src/app/ui/figures/actions/interactive/interactive-actions';
+import { CardRevealDirective } from 'src/app/ui/helper/CardReveal';
+import { applyPlaceholder, GhsLabelDirective } from 'src/app/ui/helper/label';
 
 @Component({
-  standalone: false,
+  imports: [NgClass, GhsLabelDirective, CardRevealDirective, ActionsComponent, InteractiveActionsComponent],
   selector: 'ghs-ability',
   templateUrl: './ability.html',
-  styleUrls: ['./ability.scss']
+  styleUrls: ['./ability.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AbilityComponent implements OnInit, OnChanges {
-
   @Input() ability: Ability | undefined;
   @Input() abilities!: Ability[];
   @Input() monster: Monster | undefined;
@@ -33,9 +36,9 @@ export class AbilityComponent implements OnInit, OnChanges {
   settingsManager: SettingsManager = settingsManager;
   ActionValueType = ActionValueType;
 
-  deckLabel: string = "";
+  deckLabel: string = '';
   abilityIndex: number = -1;
-  abilityLabel: string = "";
+  abilityLabel: string = '';
   shieldStats: boolean = false;
   fh: boolean = false;
 
@@ -44,9 +47,12 @@ export class AbilityComponent implements OnInit, OnChanges {
   interactiveBottomActions: InteractiveAction[] = [];
   interactiveBottomActionsChange = new EventEmitter<InteractiveAction[]>();
 
-  fontsize: string = "";
+  fontsize: string = '';
 
-  constructor(public elementRef: ElementRef, private ghsManager: GhsManager) {
+  constructor(
+    public elementRef: ElementRef,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 
@@ -54,15 +60,19 @@ export class AbilityComponent implements OnInit, OnChanges {
     this.update();
   }
 
-
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     this.update();
   }
 
   update() {
-    this.fontsize = (this.elementRef.nativeElement.offsetWidth * 0.04) + 'px'
+    this.fontsize = this.elementRef.nativeElement.offsetWidth * 0.04 + 'px';
     if (this.monster) {
-      const deck = this.monster.statEffect && this.monster.statEffect.deck && !this.monster.statEffect.deck.startsWith(this.monster.name) ? this.monster.statEffect.deck : (this.monster.deck ? this.monster.deck : this.monster.name);
+      const deck =
+        this.monster.statEffect && this.monster.statEffect.deck && !this.monster.statEffect.deck.startsWith(this.monster.name)
+          ? this.monster.statEffect.deck
+          : this.monster.deck
+            ? this.monster.deck
+            : this.monster.name;
       this.deckLabel = 'data.deck.' + deck;
       if (deck == settingsManager.getLabel(this.deckLabel)) {
         this.deckLabel = 'data.monster.' + deck;
@@ -75,12 +85,13 @@ export class AbilityComponent implements OnInit, OnChanges {
       }
     }
     this.abilityIndex = -1;
-    this.abilityLabel = "";
+    this.abilityLabel = '';
     if (this.ability) {
       this.abilityIndex = this.getAbilityIndex(this.ability);
       this.abilityLabel = this.getAbilityLabel(this.ability);
     }
-    this.fh = this.character && (this.character.edition == 'fh' || gameManager.editionExtensions(this.character.edition).includes('fh')) || false;
+    this.fh =
+      (this.character && (this.character.edition == 'fh' || gameManager.editionExtensions(this.character.edition).includes('fh'))) || false;
     this.shieldStats = settingsManager.settings.calculateShieldStats;
   }
 
@@ -94,7 +105,7 @@ export class AbilityComponent implements OnInit, OnChanges {
   }
 
   getAbilityLabel(ability: Ability): string {
-    let label = ability.name || "";
+    let label = ability.name || '';
 
     if (label) {
       label = 'data.ability.' + label;
@@ -124,5 +135,4 @@ export class AbilityComponent implements OnInit, OnChanges {
       this.interactiveBottomActions = change;
     }
   }
-
 }

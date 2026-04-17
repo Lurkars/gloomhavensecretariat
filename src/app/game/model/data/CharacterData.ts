@@ -1,38 +1,35 @@
-import { AttackModifier } from "./AttackModifier";
-import { CharacterSpecialAction, CharacterStat } from "./CharacterStat";
-import { ConditionName } from "./Condition";
-import { Editional } from "./Editional";
-import { FigureError } from "./FigureError";
-import { Perk, PerkCard } from "./Perks";
-import { Spoilable } from "./Spoilable";
-import { SummonData } from "./SummonData";
+import { AttackModifier } from 'src/app/game/model/data/AttackModifier';
+import { CharacterSpecialAction, CharacterStat } from 'src/app/game/model/data/CharacterStat';
+import { ConditionName } from 'src/app/game/model/data/Condition';
+import { Editional } from 'src/app/game/model/data/Editional';
+import { FigureError } from 'src/app/game/model/data/FigureError';
+import { Perk, PerkCard } from 'src/app/game/model/data/Perks';
+import { Spoilable } from 'src/app/game/model/data/Spoilable';
+import { SummonData } from 'src/app/game/model/data/SummonData';
 
 export enum CharacterClass {
-
-  algox = "algox",
-  aesther = "aesther",
-  harrower = "harrower",
-  human = "human",
-  inox = "inox",
-  lurker = "lurker",
-  orchid = "orchid",
-  quatryl = "quatryl",
-  savvas = "savvas",
-  unfettered = "unfettered",
-  valrath = "valrath",
-  vermling = "vermling"
-
+  algox = 'algox',
+  aesther = 'aesther',
+  harrower = 'harrower',
+  human = 'human',
+  inox = 'inox',
+  lurker = 'lurker',
+  orchid = 'orchid',
+  quatryl = 'quatryl',
+  savvas = 'savvas',
+  unfettered = 'unfettered',
+  valrath = 'valrath',
+  vermling = 'vermling'
 }
 
 export enum CharacterGender {
-  male = "m",
-  female = "f",
-  unknown = ""
+  male = 'm',
+  female = 'f',
+  unknown = ''
 }
 
-
 export class CharacterData implements Editional, Spoilable {
-  name: string = "";
+  name: string = '';
   stats: CharacterStat[] = [];
   characterClass: CharacterClass | undefined;
   gender: CharacterGender = CharacterGender.unknown;
@@ -41,8 +38,8 @@ export class CharacterData implements Editional, Spoilable {
   tokens: string[] = [];
   primaryToken: number = -1;
   handSize: number | string = 0;
-  unlockEvent: string = "";
-  retireEvent: string = "";
+  unlockEvent: string = '';
+  retireEvent: string = '';
   traits: string[] = [];
   availableSummons: SummonData[] = [];
   specialActions: CharacterSpecialAction[] = [];
@@ -52,13 +49,13 @@ export class CharacterData implements Editional, Spoilable {
   iconUrl: string = '';
   thumbnail: string | undefined;
   thumbnailUrl: string | undefined;
-  color: string = "#aaaaaa";
+  color: string = '#aaaaaa';
 
   noThumbnail: boolean = false;
 
   marker: boolean = false;
 
-  deck: string = "";
+  deck: string = '';
 
   perkWarning: boolean = false;
   perks: Perk[] = [];
@@ -68,10 +65,10 @@ export class CharacterData implements Editional, Spoilable {
   masteries: string[] = [];
 
   bb: boolean = false;
-  amTables: (AttackModifier | String)[][] = [];
+  amTables: (AttackModifier | string)[][] = [];
 
   // from Editional
-  edition: string = "";
+  edition: string = '';
   // from Spoilable
   spoiler: boolean = false;
   locked: boolean = false;
@@ -94,23 +91,23 @@ export class CharacterData implements Editional, Spoilable {
       this.tokens = characterData.tokens || [];
       this.primaryToken = characterData.primaryToken >= 0 ? characterData.primaryToken : -1;
       this.handSize = characterData.handSize || 0;
-      this.unlockEvent = characterData.unlockEvent || "";
-      this.retireEvent = characterData.retireEvent || "";
+      this.unlockEvent = characterData.unlockEvent || '';
+      this.retireEvent = characterData.retireEvent || '';
       this.traits = characterData.traits || [];
       this.availableSummons = characterData.availableSummons || [];
-      this.edition = characterData.edition || "";
+      this.edition = characterData.edition || '';
       this.icon = characterData.icon || characterData.edition + '-' + characterData.name;
-      this.iconUrl = characterData.iconUrl || './assets/images/character/icons/' + this.icon + '.svg';
+      this.iconUrl = characterData.iconUrl || '/assets/images/character/icons/' + this.icon + '.svg';
       this.thumbnail = characterData.thumbnail || undefined;
       this.thumbnailUrl = characterData.thumbnailUrl || undefined;
       this.noThumbnail = characterData.noThumbnail;
-      this.color = characterData.color || "#aaaaaa";
+      this.color = characterData.color || '#aaaaaa';
       this.marker = characterData.marker || false;
       this.spoiler = characterData.spoiler || false;
       this.specialActions = characterData.specialActions || [];
       this.specialConditions = characterData.specialConditions || [];
       this.locked = characterData.locked || false;
-      this.deck = characterData.deck || "";
+      this.deck = characterData.deck || '';
       this.perkWarning = characterData.perkWarning;
       this.perks = characterData.perks || [];
       this.additionalModifier = characterData.additionalModifier || [];
@@ -121,4 +118,4 @@ export class CharacterData implements Editional, Spoilable {
       this.amTables = characterData.amTables || [];
     }
   }
-} 
+}

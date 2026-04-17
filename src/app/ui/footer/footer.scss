@@ -98,7 +98,7 @@ footer {
         background-position: center;
         background-size: 100% auto;
         background-repeat: no-repeat;
-        background-image: url('~src/assets/images/attackmodifier/am-character-icon.png');
+        background-image: url('/assets/images/attackmodifier/am-character-icon.png');
 
         img {
           height: 60%;
@@ -229,7 +229,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('~src/assets/images/bar.jpg');
+    background-image: url('/assets/images/bar.jpg');
     background-size: 100% 105%;
     background-position: bottom right;
     background-repeat: no-repeat;
@@ -238,15 +238,15 @@ footer {
   }
 
   &.fh::before {
-    background-image: url('~src/assets/images/fh/bar.jpg');
+    background-image: url('/assets/images/fh/bar.jpg');
   }
 
   &.modern::before {
-    background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+    background-image: url('/assets/images/modern/dialog_background_modern.png');
   }
 
   &.bb::before {
-    background-image: url('~src/assets/images/bb/bar.jpg');
+    background-image: url('/assets/images/bb/bar.jpg');
   }
 
   &.modern::after {
@@ -256,7 +256,13 @@ footer {
     left: 0;
     width: 100%;
     height: 4%;
-    background: linear-gradient(90deg, var(--ghs-color-darkgray) 0%, var(--ghs-color-white) 35%, var(--ghs-color-white) 65%, var(--ghs-color-darkgray) 100%);
+    background: linear-gradient(
+      90deg,
+      var(--ghs-color-darkgray) 0%,
+      var(--ghs-color-white) 35%,
+      var(--ghs-color-white) 65%,
+      var(--ghs-color-darkgray) 100%
+    );
     opacity: 0.2;
   }
 
@@ -320,7 +326,6 @@ footer {
     }
 
     &:hover {
-
       a,
       .round {
         color: var(--ghs-color-white);
@@ -330,7 +335,6 @@ footer {
     &.disabled {
       cursor: help;
     }
-
   }
 
   ghs-scenario-rules {
@@ -347,7 +351,10 @@ footer {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    max-width: calc(100% - (var(--ghs-unit) * 15 * var(--ghs-text-factor) * var(--ghs-barsize)) - (var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize)));
+    max-width: calc(
+      100% - (var(--ghs-unit) * 15 * var(--ghs-text-factor) * var(--ghs-barsize)) -
+        (var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize))
+    );
 
     .entities-menu {
       cursor: pointer;
@@ -377,14 +384,10 @@ footer {
       margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
       margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
-
   }
 }
 
-
-
 footer.compact {
-
   .attack-modifier-spacer {
     display: none;
   }

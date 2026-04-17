@@ -1,100 +1,131 @@
-import { Dialog } from "@angular/cdk/dialog";
-import { Component, Input, OnInit } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character } from "src/app/game/model/Character";
-import { Action } from "src/app/game/model/data/Action";
-import { ConditionName } from "src/app/game/model/data/Condition";
-import { Element } from "src/app/game/model/data/Element";
-import { EnhancementAction, EnhancementType } from "src/app/game/model/data/Enhancement";
-import { SummonData } from "src/app/game/model/data/SummonData";
-import { EnhancementDialogComponent } from "../../character/sheet/abilities/enhancements/enhancement-dialog";
+import { Dialog } from '@angular/cdk/dialog';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { Action } from 'src/app/game/model/data/Action';
+import { ConditionName } from 'src/app/game/model/data/Condition';
+import { Element } from 'src/app/game/model/data/Element';
+import { EnhancementAction, EnhancementType } from 'src/app/game/model/data/Enhancement';
+import { SummonData } from 'src/app/game/model/data/SummonData';
+import { EnhancementDialogComponent } from 'src/app/ui/figures/character/sheet/abilities/enhancements/enhancement-dialog';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 
 @Component({
-    standalone: false,
-    selector: 'ghs-action-enhancements',
-    templateUrl: './enhancements.html',
-    styleUrls: ['./enhancements.scss']
+  imports: [GhsLabelDirective, GhsTooltipDirective, NgClass, PointerInputDirective],
+  selector: 'ghs-action-enhancements',
+  templateUrl: './enhancements.html',
+  styleUrls: ['./enhancements.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ActionEnhancementsComponent implements OnInit {
+  @Input() action!: Action;
+  @Input('index') actionIndex: string = '';
+  @Input() cardId: number | undefined;
+  @Input() character: Character | undefined;
+  @Input('slot') slotIndex: number | undefined;
+  @Input() summon: SummonData | undefined;
 
-    @Input('action') action!: Action;
-    @Input('index') actionIndex: string = "";
-    @Input('cardId') cardId: number | undefined;
-    @Input('character') character: Character | undefined;
-    @Input('slot') slotIndex: number | undefined;
-    @Input('summon') summon: SummonData | undefined;
+  Elements: EnhancementAction[] = Object.values(Element);
+  Conditions: EnhancementAction[] = Object.values(ConditionName);
 
-    Elements: EnhancementAction[] = Object.values(Element);
-    Conditions: EnhancementAction[] = Object.values(ConditionName);
+  slots: EnhancementType[] = [];
+  enhancements: EnhancementAction[] = [];
+  wipSpecialIndex: string = '';
+  edit: boolean = false;
 
-    slots: EnhancementType[] = [];
-    enhancements: EnhancementAction[] = [];
-    wipSpecialIndex: string = "";
-    edit: boolean = false;
+  gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
 
-    gameManager: GameManager = gameManager;
-    settingsManager: SettingsManager = settingsManager;
+  constructor(
+    private dialog: Dialog,
+    private ghsManager: GhsManager
+  ) {
+    this.ghsManager.uiChangeEffect(() => this.update());
+  }
 
-    constructor(private dialog: Dialog, private ghsManager: GhsManager) {
-        this.ghsManager.uiChangeEffect(() => this.update());
-    }
+  ngOnInit() {
+    this.update();
+  }
 
-    ngOnInit() {
-        this.update();
-    }
-
-
-    update() {
-        this.slots = [];
-        if (this.action.enhancementTypes) {
-            this.slots = this.slotIndex != undefined ? [this.action.enhancementTypes[this.slotIndex]] : [...this.action.enhancementTypes];
-            this.wipSpecialIndex = this.slots[0] == EnhancementType.any ? (!this.actionIndex.includes('bottom') ? 'custom' : 'custom-bottom') : '';
-            this.enhancements = [];
-            if (this.character && this.cardId && this.character.progress && this.character.progress.enhancements) {
-                this.character.progress.enhancements.filter((e) => e.cardId == this.cardId && (!this.wipSpecialIndex && e.actionIndex == this.actionIndex || this.wipSpecialIndex && e.actionIndex == this.wipSpecialIndex)).forEach((e) => {
-                    this.enhancements[e.index] = e.action;
-                    if (this.wipSpecialIndex) {
-                        this.slots[e.index] = EnhancementType.any;
-                    }
-                });
+  update() {
+    this.slots = [];
+    if (this.action.enhancementTypes) {
+      this.slots = this.slotIndex != undefined ? [this.action.enhancementTypes[this.slotIndex]] : [...this.action.enhancementTypes];
+      this.wipSpecialIndex =
+        this.slots[0] == EnhancementType.any ? (!this.actionIndex.includes('bottom') ? 'custom' : 'custom-bottom') : '';
+      this.enhancements = [];
+      if (this.character && this.cardId && this.character.progress && this.character.progress.enhancements) {
+        this.character.progress.enhancements
+          .filter(
+            (e) =>
+              e.cardId == this.cardId &&
+              ((!this.wipSpecialIndex && e.actionIndex == this.actionIndex) ||
+                (this.wipSpecialIndex && e.actionIndex == this.wipSpecialIndex))
+          )
+          .forEach((e) => {
+            this.enhancements[e.index] = e.action;
+            if (this.wipSpecialIndex) {
+              this.slots[e.index] = EnhancementType.any;
             }
+          });
+      }
 
-            if (this.wipSpecialIndex && this.enhancements.length > 0) {
-                this.slots[this.enhancements.length] = EnhancementType.any;
-            }
+      if (this.wipSpecialIndex && this.enhancements.length > 0) {
+        this.slots[this.enhancements.length] = EnhancementType.any;
+      }
+    }
+    this.edit = (this.character && this.character.tags.includes('edit-abilities')) || false;
+  }
+
+  enhance(index: number, event: any) {
+    if (this.edit) {
+      if (!this.enhancements[this.slotIndex != undefined ? this.slotIndex : index]) {
+        this.dialog.open(EnhancementDialogComponent, {
+          panelClass: ['dialog'],
+          data: {
+            action: this.action,
+            actionIndex: this.wipSpecialIndex || this.actionIndex,
+            cardId: this.cardId,
+            enhancementIndex: index,
+            character: this.character,
+            summon: this.summon
+          }
+        });
+      }
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  }
+
+  removeEnhancement(index: number, event: any) {
+    if (this.edit) {
+      if (this.character && this.cardId && this.enhancements[this.slotIndex != undefined ? this.slotIndex : index]) {
+        const enhancement = this.character.progress.enhancements.find(
+          (e) =>
+            e.cardId == this.cardId &&
+            ((!this.wipSpecialIndex && e.actionIndex == this.actionIndex) ||
+              (this.wipSpecialIndex && e.actionIndex == this.wipSpecialIndex)) &&
+            e.index == index
+        );
+        if (enhancement && !enhancement.inherited) {
+          gameManager.stateManager.before(
+            'removeEnhancement',
+            gameManager.characterManager.characterName(this.character, true, true),
+            this.cardId
+          );
+          this.character.progress.enhancements = this.character.progress.enhancements.filter((e) => e != enhancement);
+          gameManager.stateManager.after();
         }
-        this.edit = this.character && this.character.tags.includes('edit-abilities') || false;
+      } else if (this.wipSpecialIndex) {
+        this.slots.push(EnhancementType.any);
+      }
+      event.stopPropagation();
+      event.preventDefault();
     }
-
-    enhance(index: number, event: any) {
-        if (this.edit) {
-            if (!this.enhancements[this.slotIndex != undefined ? this.slotIndex : index]) {
-                this.dialog.open(EnhancementDialogComponent, {
-                    panelClass: ['dialog'],
-                    data: { action: this.action, actionIndex: this.wipSpecialIndex || this.actionIndex, cardId: this.cardId, enhancementIndex: index, character: this.character, summon: this.summon }
-                });
-            }
-            event.stopPropagation();
-            event.preventDefault();
-        }
-    }
-
-    removeEnhancement(index: number, event: any) {
-        if (this.edit) {
-            if (this.character && this.cardId && this.enhancements[this.slotIndex != undefined ? this.slotIndex : index]) {
-                const enhancement = this.character.progress.enhancements.find((e) => e.cardId == this.cardId && (!this.wipSpecialIndex && e.actionIndex == this.actionIndex || this.wipSpecialIndex && e.actionIndex == this.wipSpecialIndex) && e.index == index)
-                if (enhancement && !enhancement.inherited) {
-                    gameManager.stateManager.before('removeEnhancement', gameManager.characterManager.characterName(this.character, true, true), this.cardId);
-                    this.character.progress.enhancements = this.character.progress.enhancements.filter((e) => e != enhancement);
-                    gameManager.stateManager.after();
-                }
-            } else if (this.wipSpecialIndex) {
-                this.slots.push(EnhancementType.any);
-            }
-            event.stopPropagation();
-            event.preventDefault();
-        }
-    }
+  }
 }

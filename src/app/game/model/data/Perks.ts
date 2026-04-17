@@ -1,11 +1,10 @@
-import { AttackModifier, AttackModifierType } from "./AttackModifier";
+import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 
 export class Perk {
-
   type: PerkType = PerkType.custom;
   count: number = 0;
   combined: boolean = false;
-  custom: string = "";
+  custom: string = '';
   immunity: string | undefined;
   cards: PerkCard[] = [];
   replaceCount: number | undefined;
@@ -18,8 +17,8 @@ export class PerkCard {
 }
 
 export enum PerkType {
-  add = "add",
-  remove = "remove",
-  replace = "replace",
-  custom = "custom",
+  add = 'add',
+  remove = 'remove',
+  replace = 'replace',
+  custom = 'custom'
 }

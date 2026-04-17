@@ -10,16 +10,21 @@
         <div class="base-data dialog">
           <div class="dialog-container">
             <label><span [ghs-label]="'editor.edition.edition'"></span></label>
-            <input [(ngModel)]="editionData.edition" [ghs-label]="'editor.edition.edition'"
-              [ghs-label-attribute]="'placeholder'" (change)="editionDataToJson()" (keyup)="editionDataToJson()">
+            <input
+              [(ngModel)]="editionData.edition"
+              [ghs-label]="'editor.edition.edition'"
+              [ghs-label-attribute]="'placeholder'"
+              (change)="editionDataToJson()"
+              (keyup)="editionDataToJson()"
+            />
 
             <label><span [ghs-label]="'editor.edition.extensions'"></span></label>
             <select [(ngModel)]="editionData.extensions" multiple (change)="editionDataToJson()">
               @for (editionData of gameManager.editionData | trackUUID; track editionData._trackUUID) {
-              <option [value]="editionData.edition">
-                <span [ghs-label]="'data.edition.' + editionData.edition"></span>
-                [{{editionData.edition}}]
-              </option>
+                <option [value]="editionData.edition">
+                  <span [ghs-label]="'data.edition.' + editionData.edition"></span>
+                  [{{ editionData.edition }}]
+                </option>
               }
             </select>
 
@@ -27,14 +32,19 @@
 
             <div class="conditions">
               <a (click)="toggleAllConditions(conditionSelect)">
-                <span [ghs-label]="(editionData.conditions.length != Conditions.length ?
-                            'editor.edition.conditions.allSelected': 'editor.edition.conditions.allHint')"></span>
+                <span
+                  [ghs-label]="
+                    editionData.conditions.length != Conditions.length
+                      ? 'editor.edition.conditions.allSelected'
+                      : 'editor.edition.conditions.allHint'
+                  "
+                ></span>
               </a>
               <select #conditionSelect [(ngModel)]="editionData.conditions" multiple (change)="editionDataToJson()">
                 @for (condition of Conditions; track condition) {
-                <option [value]="condition">
-                  <span [ghs-label]="'game.condition.' + condition" [ghs-label-args]="['X']"></span>
-                </option>
+                  <option [value]="condition">
+                    <span [ghs-label]="'game.condition.' + condition" [ghs-label-args]="['X']"></span>
+                  </option>
                 }
               </select>
             </div>
@@ -43,73 +53,73 @@
       </div>
 
       <div class="files">
-
         <h2><span [ghs-label]="'editor.edition.character'"></span></h2>
 
         <div class="file-list characters">
           @for (characterData of editionData.characters | trackUUID; track characterData._trackUUID; let index = $index) {
-          <span class="file" [ghs-label]="'editor.edition.character.remove'" [ghs-label-attribute]="'title'"
-            (click)="removeCharacter(index)">
-            <span [ghs-label]="'data.character.' + characterData.edition + '.' + characterData.name"></span>
-            [{{characterData.name}}]</span>
+            <span
+              class="file"
+              [ghs-label]="'editor.edition.character.remove'"
+              [ghs-label-attribute]="'title'"
+              (click)="removeCharacter(index)"
+            >
+              <span [ghs-label]="'data.character.' + characterData.edition + '.' + characterData.name"></span>
+              [{{ characterData.name }}]</span
+            >
           }
         </div>
 
-        <input type="file" multiple accept="application/json" (change)="addCharacterJson($event)">
+        <input type="file" multiple accept="application/json" (change)="addCharacterJson($event)" />
       </div>
 
       <div class="files">
-
         <h2><span [ghs-label]="'editor.edition.monster'"></span></h2>
 
         <div class="file-list monsters">
           @for (monsterData of editionData.monsters | trackUUID; track monsterData._trackUUID; let index = $index) {
-          <span class="file" [ghs-label]="'editor.edition.monster.remove'" [ghs-label-attribute]="'title'"
-            (click)="removeMonster(index)">
-            <span [ghs-label]="'data.monster.' + monsterData.name"></span>
-            [{{monsterData.name}}]</span>
+            <span class="file" [ghs-label]="'editor.edition.monster.remove'" [ghs-label-attribute]="'title'" (click)="removeMonster(index)">
+              <span [ghs-label]="'data.monster.' + monsterData.name"></span>
+              [{{ monsterData.name }}]</span
+            >
           }
         </div>
 
-        <input type="file" multiple accept="application/json" (change)="addMonsterJson($event)">
+        <input type="file" multiple accept="application/json" (change)="addMonsterJson($event)" />
       </div>
 
       <div class="files">
-
         <h2><span [ghs-label]="'editor.edition.decks'"></span></h2>
 
         <div class="file-list decks">
           @for (deckData of editionData.decks | trackUUID; track deckData._trackUUID; let index = $index) {
-          <span class="file" [ghs-label]="'editor.edition.decks.remove'" [ghs-label-attribute]="'title'"
-            (click)="removeDeck(index)">
-            <span [ghs-label]="'data.deck.' + deckData.name"></span>
-            [{{deckData.name}}]</span>
+            <span class="file" [ghs-label]="'editor.edition.decks.remove'" [ghs-label-attribute]="'title'" (click)="removeDeck(index)">
+              <span [ghs-label]="'data.deck.' + deckData.name"></span>
+              [{{ deckData.name }}]</span
+            >
           }
         </div>
 
-        <input type="file" multiple accept="application/json" (change)="addDeckJson($event)">
+        <input type="file" multiple accept="application/json" (change)="addDeckJson($event)" />
       </div>
     </div>
     <div class="output">
-      <h2><span [ghs-label]="'editor.edition.json'"></span>
+      <h2>
+        <span [ghs-label]="'editor.edition.json'"></span>
 
         <select (change)="loadEditionData($event)">
           <option [value]="-1">&lt;<span [ghs-label]="'editor.edition.new'"></span>&gt;</option>
           @for (editionData of gameManager.editionData | trackUUID; track editionData._trackUUID; let index = $index) {
-          <option [value]="index">
-            <span [ghs-label]="'data.edition.' + editionData.edition"></span> [{{editionData.edition}}]
-          </option>
+            <option [value]="index"><span [ghs-label]="'data.edition.' + editionData.edition"></span> [{{ editionData.edition }}]</option>
           }
         </select>
-
       </h2>
 
-      <div> {{editionError}} </div>
+      <div>{{ editionError }}</div>
       <textarea #inputEditionData></textarea>
 
-      <a class="button" [href]="'data:application/json;charset=utf-8,' + jsonDownload()"
-        [download]="editionData.edition + '.json'"><img class="ghs-icon" src="./assets/images/export.svg">
-        <span [ghs-label]="'editor.edition.json.download'"></span></a>
+      <a class="button" [href]="'data:application/json;charset=utf-8,' + jsonDownload()" [download]="editionData.edition + '.json'"
+        ><img class="ghs-icon" src="/assets/images/export.svg" /> <span [ghs-label]="'editor.edition.json.download'"></span
+      ></a>
     </div>
   </div>
 </div>

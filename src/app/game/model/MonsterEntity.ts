@@ -1,16 +1,16 @@
-import { gameManager } from "../businesslogic/GameManager";
-import { Entity, EntityValueFunction } from "./Entity";
-import { Monster } from "./Monster";
-import { SummonState } from "./Summon";
-import { Action } from "./data/Action";
-import { ConditionName, EntityCondition, GameEntityConditionModel } from "./data/Condition";
-import { FigureError, FigureErrorType } from "./data/FigureError";
-import { MonsterStat } from "./data/MonsterStat";
-import { MonsterType } from "./data/MonsterType";
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { Action } from 'src/app/game/model/data/Action';
+import { ConditionName, EntityCondition, GameEntityConditionModel } from 'src/app/game/model/data/Condition';
+import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
+import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
+import { Monster } from 'src/app/game/model/Monster';
+import { SummonState } from 'src/app/game/model/Summon';
 
 export class MonsterEntity implements Entity {
   number: number;
-  marker: string = "";
+  marker: string = '';
   type: MonsterType;
   stat: MonsterStat;
   dead: boolean = false;
@@ -42,9 +42,12 @@ export class MonsterEntity implements Entity {
     if (!stat) {
       this.stat = new MonsterStat(type, monster.level);
       monster.errors = monster.errors || [];
-      if (!monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
-        console.error("Could not find '" + type + "' stats for monster: " + monster.name + " level: " + monster.level);
-        monster.errors.push(new FigureError(FigureErrorType.stat, "monster", monster.name, monster.edition, type, "" + monster.level));
+      if (
+        !monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) &&
+        !monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)
+      ) {
+        console.error("Could not find '" + type + "' stats for monster: " + monster.name + ' level: ' + monster.level);
+        monster.errors.push(new FigureError(FigureErrorType.stat, 'monster', monster.name, monster.edition, type, '' + monster.level));
       }
     } else {
       this.stat = stat;
@@ -59,7 +62,27 @@ export class MonsterEntity implements Entity {
   }
 
   toModel(): GameMonsterEntityModel {
-    return new GameMonsterEntityModel(this.number, this.marker, this.type, this.dead, this.summon, this.active, this.off, this.revealed, this.dormant, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.shield, this.shieldPersistent, this.retaliate, this.retaliatePersistent);
+    return new GameMonsterEntityModel(
+      this.number,
+      this.marker,
+      this.type,
+      this.dead,
+      this.summon,
+      this.active,
+      this.off,
+      this.revealed,
+      this.dormant,
+      this.health,
+      this.maxHealth,
+      this.entityConditions.map((condition) => condition.toModel()),
+      this.immunities,
+      this.markers,
+      this.tags || [],
+      this.shield,
+      this.shieldPersistent,
+      this.retaliate,
+      this.retaliatePersistent
+    );
   }
 
   fromModel(model: GameMonsterEntityModel) {
@@ -75,7 +98,7 @@ export class MonsterEntity implements Entity {
     this.entityConditions = [];
     if (model.entityConditions) {
       this.entityConditions = model.entityConditions.map((gecm) => {
-        let condition = new EntityCondition(gecm.name, gecm.value);
+        const condition = new EntityCondition(gecm.name, gecm.value);
         condition.fromModel(gecm);
         return condition;
       });
@@ -89,8 +112,6 @@ export class MonsterEntity implements Entity {
     this.retaliate = (model.retaliate || []).map((value) => JSON.parse(value));
     this.retaliatePersistent = (model.retaliatePersistent || []).map((value) => JSON.parse(value));
   }
-
-
 }
 
 export class GameMonsterEntityModel {
@@ -114,7 +135,8 @@ export class GameMonsterEntityModel {
   retaliate: string[];
   retaliatePersistent: string[];
 
-  constructor(number: number,
+  constructor(
+    number: number,
     marker: string,
     type: MonsterType,
     dead: boolean,
@@ -132,7 +154,8 @@ export class GameMonsterEntityModel {
     shield: Action | undefined,
     shieldPersistent: Action | undefined,
     retaliate: Action[],
-    retaliatePersistent: Action[]) {
+    retaliatePersistent: Action[]
+  ) {
     this.number = number;
     this.marker = marker;
     this.type = type;
@@ -148,8 +171,8 @@ export class GameMonsterEntityModel {
     this.immunities = JSON.parse(JSON.stringify(immunities));
     this.markers = JSON.parse(JSON.stringify(markers));
     this.tags = JSON.parse(JSON.stringify(tags));
-    this.shield = shield ? JSON.stringify(shield) : "";
-    this.shieldPersistent = shieldPersistent ? JSON.stringify(shieldPersistent) : "";
+    this.shield = shield ? JSON.stringify(shield) : '';
+    this.shieldPersistent = shieldPersistent ? JSON.stringify(shieldPersistent) : '';
     this.retaliate = retaliate.map((action) => JSON.stringify(action));
     this.retaliatePersistent = retaliatePersistent.map((action) => JSON.stringify(action));
   }

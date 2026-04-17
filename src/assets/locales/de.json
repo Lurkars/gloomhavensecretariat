@@ -4,8 +4,14 @@
     "forceUpdate": "Update erzwingen",
     "ip": "Gloomhaven und alle bezogenen Schutzrechte, Bilder und Texte gehören {0}.",
     "license": "Lizensiert unter {0}.",
-    "sourceCode": "Quelltext",
-    "support": "Entwickler unterstützen",
+    "sourceCode": {
+      "": "Quelltext",
+      "author": "Ursprünglicher Quelltest"
+    },
+    "support": {
+      "": "Entwickler unterstützen",
+      "author": "Ursprünglichen Entwickler unterstützen"
+    },
     "version": {
       "latest": "Aktuell",
       "unknown": "Konnte neuste Version nicht abfragen",
@@ -1271,7 +1277,7 @@
       "treasures": {
         "": "Schätze",
         "rewards": {
-          "battleGoal": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+          "battleGoal": "erhalte {0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\">",
           "calendarSection": "füge %data.section:{0}% in %number.{1}% Wochen hinzu",
           "campaignSticker": "erhalte \"{0}\" Kampagnenbogensticker",
           "condition": "erhalte {0}",
@@ -1282,10 +1288,10 @@
             "road": "füge Weg-Ereignis {0} zum Deck hinzu"
           },
           "experience": "erhalte {0} Erfahrung",
-          "experienceFh": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
+          "experienceFh": "erhalte {0} <img class=\"icon ghs-svg\" src=\"/assets/images/experience.svg\">",
           "goal": "Ziel",
           "gold": "erhalte {0} Gold",
-          "goldFh": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
+          "goldFh": "erhalte {0} <img class=\"icon ghs-svg\" src=\"/assets/images/fh/loot.svg\">",
           "heal": "Führe \"Heilen {0}, Selbst\" aus",
           "item": "Erhalte {1} ({0})",
           "itemBlueprint": "erhalte {1} Gegenstandsplan %game.itemFh.{0}%",
@@ -1963,10 +1969,10 @@
         "": "Kalender",
         "next": "Automatisch Kalender Wochen verstreichen zu Woche {0}",
         "section": "Öffne %data.section:{0}% (automatisch angewendet)",
-        "summer": "Neue Saison: Sommer <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
-        "winter": "Neue Saison: Winter <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
+        "summer": "Neue Saison: Sommer <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/summer.svg\">",
+        "winter": "Neue Saison: Winter <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/winter.svg\">"
       },
-      "battleGoals": "jeweils {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+      "battleGoals": "jeweils {0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\">",
       "bonus": "Bonus",
       "calendarSection": {
         "": "Verlinkte Sektionen",
@@ -2246,7 +2252,7 @@
       },
       "conclusionWarning": {
         "": "Keine Lösung!",
-        "hint": "Es scheint das Szenario wurde ohne entsprechende Lösung beendet. Dies kann zu fehlenden Belohnungen und Freischaltungen führen. Lösungen sind Sektionen die mit einem <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\"> Symbole gekennzeichnet sind."
+        "hint": "Es scheint das Szenario wurde ohne entsprechende Lösung beendet. Dies kann zu fehlenden Belohnungen und Freischaltungen führen. Lösungen sind Sektionen die mit einem <img class=\"icon ghs-svg\" src=\"/assets/images/scenario/conclusion.svg\"> Symbole gekennzeichnet sind."
       },
       "forcedLinks": "%scenario.summary.links% (erzwungen)",
       "gold": "Gold",

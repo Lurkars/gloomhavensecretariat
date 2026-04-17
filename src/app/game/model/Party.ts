@@ -1,26 +1,25 @@
-import { gameManager } from "../businesslogic/GameManager";
-import { settingsManager } from "../businesslogic/SettingsManager";
-import { BuildingModel, GardenModel } from "./Building";
-import { GameCharacterModel } from "./Character";
-import { GameAttackModifierDeckModel } from "./data/AttackModifier";
-import { ConditionName } from "./data/Condition";
-import { EventCardIdentifier } from "./data/EventCard";
-import { CountIdentifier, Identifier } from "./data/Identifier";
-import { Loot, LootType } from "./data/Loot";
-import { PetIdentifier } from "./data/PetCard";
-import { GameScenarioModel } from "./Scenario";
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { BuildingModel, GardenModel } from 'src/app/game/model/Building';
+import { GameCharacterModel } from 'src/app/game/model/Character';
+import { GameAttackModifierDeckModel } from 'src/app/game/model/data/AttackModifier';
+import { ConditionName } from 'src/app/game/model/data/Condition';
+import { EventCardIdentifier } from 'src/app/game/model/data/EventCard';
+import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
+import { Loot, LootType } from 'src/app/game/model/data/Loot';
+import { PetIdentifier } from 'src/app/game/model/data/PetCard';
+import { GameScenarioModel } from 'src/app/game/model/Scenario';
 
 export class Party {
-
   id: number = 0;
-  name: string = "";
+  name: string = '';
   edition: string | undefined;
   conditions: ConditionName[] = [];
   battleGoalEditions: string[] = [];
   filteredBattleGoals: Identifier[] = [];
-  location: string = "";
-  notes: string = "";
-  achievements: string = "";
+  location: string = '';
+  notes: string = '';
+  achievements: string = '';
   achievementsList: string[] = [];
   reputation: number = 0;
   prosperity: number = 0;
@@ -29,7 +28,7 @@ export class Party {
   casualScenarios: GameScenarioModel[] = [];
   manualScenarios: GameScenarioModel[] = [];
   campaignMode: boolean = false;
-  globalAchievements: string = "";
+  globalAchievements: string = '';
   globalAchievementsList: string[] = [];
   treasures: Identifier[] = [];
   donations: number = 0;
@@ -77,14 +76,19 @@ export class Party {
   factionReputation: Partial<Record<string, number>> = {};
   imbuement: number = 0;
 
-
   migrate() {
     // migration
     if (this.achievementsList) {
       const partyAchievementsLabel = settingsManager.label.data.partyAchievements;
       let partyAchievementsLabelEn = settingsManager.label.data.globalAchievements;
       if (settingsManager.settings.locale != settingsManager.defaultLocale) {
-        partyAchievementsLabelEn = gameManager.editionData.map((editionData) => editionData.label[settingsManager.defaultLocale] && editionData.label[settingsManager.defaultLocale].globalAchievements || {}).reduce((a, b) => Object.assign(a, b));
+        partyAchievementsLabelEn = gameManager.editionData
+          .map(
+            (editionData) =>
+              (editionData.label[settingsManager.defaultLocale] && editionData.label[settingsManager.defaultLocale].globalAchievements) ||
+              {}
+          )
+          .reduce((a, b) => Object.assign(a, b));
       }
       this.achievementsList = this.achievementsList.filter((item) => item);
       this.achievementsList = this.achievementsList.map((value) => {
@@ -98,19 +102,25 @@ export class Party {
           } else if (partyAchievementsLabelEn[key] && partyAchievementsLabelEn[key].toLowerCase() == achievement.toLowerCase()) {
             achievement = key;
           }
-        })
+        });
         if (value.startsWith('!')) {
           achievement = '!' + achievement;
         }
         return achievement;
-      })
+      });
     }
 
     if (this.globalAchievementsList) {
       const globalAchievementsLabel = settingsManager.label.data.globalAchievements;
       let globalAchievementsLabelEn = settingsManager.label.data.globalAchievements;
       if (settingsManager.settings.locale != settingsManager.defaultLocale) {
-        globalAchievementsLabelEn = gameManager.editionData.map((editionData) => editionData.label[settingsManager.defaultLocale] && editionData.label[settingsManager.defaultLocale].globalAchievements || {}).reduce((a, b) => Object.assign(a, b));
+        globalAchievementsLabelEn = gameManager.editionData
+          .map(
+            (editionData) =>
+              (editionData.label[settingsManager.defaultLocale] && editionData.label[settingsManager.defaultLocale].globalAchievements) ||
+              {}
+          )
+          .reduce((a, b) => Object.assign(a, b));
       }
       this.globalAchievementsList = this.globalAchievementsList.filter((item) => item);
       this.globalAchievementsList = this.globalAchievementsList.map((value) => {
@@ -124,41 +134,52 @@ export class Party {
           } else if (globalAchievementsLabelEn[key] && globalAchievementsLabelEn[key].toLowerCase() == achievement.toLowerCase()) {
             achievement = key;
           }
-        })
+        });
         if (value.startsWith('!')) {
           achievement = '!' + achievement;
         }
         return achievement;
-      })
+      });
     }
 
     if (this.campaignStickers) {
-      this.campaignStickers = this.campaignStickers.filter((item) => item).map((value) => {
-        let sticker = value;
-        Object.keys(settingsManager.label.data.campaignSticker).forEach((key) => {
-          if (settingsManager.label.data.campaignSticker[key] == sticker) {
-            sticker = key;
-            return;
-          }
-        })
-        return sticker;
-      })
+      this.campaignStickers = this.campaignStickers
+        .filter((item) => item)
+        .map((value) => {
+          let sticker = value;
+          Object.keys(settingsManager.label.data.campaignSticker).forEach((key) => {
+            if (settingsManager.label.data.campaignSticker[key] == sticker) {
+              sticker = key;
+              return;
+            }
+          });
+          return sticker;
+        });
     }
 
     // migrate randomScenarios to randomScenariosFh
     if (this.manualScenarios) {
-      let removeManual: GameScenarioModel[] = [];
+      const removeManual: GameScenarioModel[] = [];
       this.manualScenarios.forEach((model) => {
         if (model.edition == 'fh' && !model.group && !model.custom) {
-          const conclusion = gameManager.sectionData('fh').find((sectionData) => sectionData.random && sectionData.unlocks && sectionData.unlocks.includes(model.index));
+          const conclusion = gameManager
+            .sectionData('fh')
+            .find((sectionData) => sectionData.random && sectionData.unlocks && sectionData.unlocks.includes(model.index));
           if (conclusion) {
-            if (!this.conclusions.find((conclusionModel) => conclusionModel.edition == conclusion.edition && conclusionModel.group == conclusion.group && conclusionModel.index == conclusion.index)) {
+            if (
+              !this.conclusions.find(
+                (conclusionModel) =>
+                  conclusionModel.edition == conclusion.edition &&
+                  conclusionModel.group == conclusion.group &&
+                  conclusionModel.index == conclusion.index
+              )
+            ) {
               this.conclusions.push(new GameScenarioModel('' + conclusion.index, conclusion.edition, conclusion.group));
               removeManual.push(model);
             }
           }
         }
-      })
+      });
       this.manualScenarios = this.manualScenarios.filter((model) => !removeManual.includes(model));
     }
 
@@ -176,9 +197,12 @@ export class Party {
     this.eventCards.forEach((value) => {
       if (Object.keys(!value).includes('attack')) {
         const eventCard = gameManager.eventCardManager.getEventCardForEdition(value.edition, value.type, value.cardId);
-        value.attack = eventCard && eventCard.options && eventCard.options.some((option) => option.outcomes && option.outcomes.some((outcome) => outcome.attack)) || false;
+        value.attack =
+          (eventCard &&
+            eventCard.options &&
+            eventCard.options.some((option) => option.outcomes && option.outcomes.some((outcome) => outcome.attack))) ||
+          false;
       }
-    })
+    });
   }
-
 }

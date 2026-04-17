@@ -1,26 +1,23 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ScenarioCache } from 'src/app/game/model/Scenario';
-import { ghsDurationLabel, ghsValueSign } from './Static';
+import { ghsDurationLabel, ghsValueSign } from 'src/app/ui/helper/Static';
 
 @Pipe({
-  standalone: false,
   name: 'ghsValueSign'
 })
 export class GhsValueSignPipe implements PipeTransform {
-
   transform(value: number, ...args: any[]): string {
-    return ghsValueSign(value, args.includes("empty"))
+    return ghsValueSign(value, args.includes('empty'));
   }
 }
 
 @Pipe({
-  standalone: false,
   name: 'ghsRange'
 })
 export class GhsRangePipe implements PipeTransform {
   transform(items: any[], quantity: number, reverse: boolean = false): number[] {
-    let result: number[] = [];
+    const result: number[] = [];
     for (let i = 0; i < quantity; i++) {
       result.push(reverse ? quantity - i - 1 : i);
     }
@@ -29,7 +26,6 @@ export class GhsRangePipe implements PipeTransform {
 }
 
 @Pipe({
-  standalone: false,
   name: 'ghsFloor'
 })
 export class GhsFloorPipe implements PipeTransform {
@@ -39,7 +35,6 @@ export class GhsFloorPipe implements PipeTransform {
 }
 
 @Pipe({
-  standalone: false,
   name: 'ghsCeil'
 })
 export class GhsCeilPipe implements PipeTransform {
@@ -49,7 +44,6 @@ export class GhsCeilPipe implements PipeTransform {
 }
 
 @Pipe({
-  standalone: false,
   name: 'ghsMinZero'
 })
 export class GhsMinZeroPipe implements PipeTransform {
@@ -59,7 +53,6 @@ export class GhsMinZeroPipe implements PipeTransform {
 }
 
 @Pipe({
-  standalone: false,
   name: 'ghsDurationLabel'
 })
 export class GhsDurationLabelPipe implements PipeTransform {
@@ -68,9 +61,7 @@ export class GhsDurationLabelPipe implements PipeTransform {
   }
 }
 
-
 @Pipe({
-  standalone: false,
   name: 'ghsScenarioSearch'
 })
 export class GhsScenarioSearch implements PipeTransform {
@@ -81,7 +72,7 @@ export class GhsScenarioSearch implements PipeTransform {
           return true;
         }
         search = search.toLowerCase();
-        let index = scenarioData.index.toLowerCase()
+        let index = scenarioData.index.toLowerCase();
 
         let zeros = 0;
 
@@ -101,10 +92,9 @@ export class GhsScenarioSearch implements PipeTransform {
           return true;
         }
 
-        return settingsManager.getLabel(scenarioData.name).toLowerCase().includes(search)
+        return settingsManager.getLabel(scenarioData.name).toLowerCase().includes(search);
       });
     }
     return [];
   }
 }
-

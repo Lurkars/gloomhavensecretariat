@@ -1,30 +1,43 @@
 <div class="container">
-  <div class="summons-container"
-    [ngClass]="{'empty' : summonCount == 0, 'off' : character.off || character.exhausted || character.health <= 0  }">
+  <div
+    class="summons-container"
+    [ngClass]="{ empty: summonCount == 0, off: character.off || character.exhausted || character.health <= 0 }"
+  >
     <span class="spacer"></span>
-    <span class="icon" [ngClass]="{'empty' : summonCount == 0}" [entityAnimation]="summonCount == 0">
+    <span class="icon" [ngClass]="{ empty: summonCount == 0 }" [entityAnimation]="summonCount == 0">
       <img [src]="character.iconUrl" />
     </span>
     <div class="summons">
-      @for (summon of character.summons | trackUUID; track summon._trackUUID;) {
-      <ghs-standee [figure]="character" [entity]="summon">
-      </ghs-standee>
+      @for (summon of character.summons | trackUUID; track summon._trackUUID) {
+        <ghs-standee [figure]="character" [entity]="summon"> </ghs-standee>
       }
     </div>
   </div>
 
   <div class="fullview">
     <div class="row">
-      <ghs-character-image [character]="character"
-        [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
+      <ghs-character-image
+        [character]="character"
+        [ngClass]="{ denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }"
+      >
       </ghs-character-image>
 
-      <ghs-pointer-input class="drag-initiative"
+      <ghs-pointer-input
+        class="drag-initiative"
         (dragMove)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && dragInitiativeMove($event)"
         (dragEnd)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && dragInitiativeEnd($event)"
-        [draggingDisabled]="!settingsManager.settings.dragValuesInitiative" (singleClick)="toggleFigure($event)"
-        (doubleClick)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && initiativeDoubleClick($event)"
-        [ngClass]="{'outer-denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round && !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
+        [draggingDisabled]="!settingsManager.settings.dragValuesInitiative"
+        (singleClick)="toggleFigure($event)"
+        (doubleClick)="
+          gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && initiativeDoubleClick($event)
+        "
+        [ngClass]="{
+          'outer-denied':
+            gameManager.stateManager.permissions &&
+            !gameManager.stateManager.permissions.round &&
+            !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]
+        }"
+      >
       </ghs-pointer-input>
 
       <ghs-character-initiative [figure]="character"></ghs-character-initiative>
@@ -34,21 +47,25 @@
 
     <div class="row">
       <div class="conditions">
-        @for (entityCondition of activeConditions | trackUUID; track entityCondition._trackUUID;) {
-        <span class="condition">
-          <img
-            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
-            [style.z-index]="entityCondition.value" />
-          @if (entityCondition.types.includes(ConditionType.stack)) {
-          @for (i of [] | ghsRange:(entityCondition.value - 1); track i) {
-          <img class="stack" [style.z-index]="entityCondition.value - i - 1"
-            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
-          }
-          }
-          @if (entityCondition.types.includes(ConditionType.value)) {
-          <span class="value">{{entityCondition.value}}</span>
-          }
-        </span>
+        @for (entityCondition of activeConditions | trackUUID; track entityCondition._trackUUID) {
+          <span class="condition">
+            <img
+              [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
+              [style.z-index]="entityCondition.value"
+            />
+            @if (entityCondition.types.includes(ConditionType.stack)) {
+              @for (i of [] | ghsRange: entityCondition.value - 1; track i) {
+                <img
+                  class="stack"
+                  [style.z-index]="entityCondition.value - i - 1"
+                  [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
+                />
+              }
+            }
+            @if (entityCondition.types.includes(ConditionType.value)) {
+              <span class="value">{{ entityCondition.value }}</span>
+            }
+          </span>
         }
       </div>
     </div>
@@ -56,8 +73,14 @@
     <div class="row">
       <div class="dialog">
         <div class="dialog-container">
-          <ghs-conditions [entity]="character" [figure]="character" [entityConditions]="character.entityConditions"
-            [immunities]="character.immunities" type="character" [columns]="6">
+          <ghs-conditions
+            [entity]="character"
+            [figure]="character"
+            [entityConditions]="character.entityConditions"
+            [immunities]="character.immunities"
+            type="character"
+            [columns]="6"
+          >
           </ghs-conditions>
         </div>
       </div>
@@ -66,10 +89,9 @@
     <div class="row sheet">
       <ghs-character-sheet [character]="character" [standalone]="true"></ghs-character-sheet>
     </div>
-
   </div>
 
-  <a class="wip" (click)="cancel()"><img class="ghs-svg" src="./assets/images/warning.svg">
-    <span [ghs-label]="'wip'"></span>!&nbsp;<span [ghs-label]="'cancel'"></span>!
+  <a class="wip" (click)="cancel()"
+    ><img class="ghs-svg" src="/assets/images/warning.svg" /> <span [ghs-label]="'wip'"></span>!&nbsp;<span [ghs-label]="'cancel'"></span>!
   </a>
 </div>

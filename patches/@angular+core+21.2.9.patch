@@ -1,0 +1,23 @@
+diff --git a/node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs b/node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs
+index aaf7fce..afdee61 100755
+--- a/node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs
++++ b/node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs
+@@ -5661,6 +5661,9 @@ function runEffectsInView(view) {
+   }
+   let tryFlushEffects = true;
+   while (tryFlushEffects) {
++    if (view[EFFECTS] === null) {
++      break;
++    }
+     let foundDirtyEffect = false;
+     for (const effect of view[EFFECTS]) {
+       if (!effect.dirty) {
+@@ -5673,7 +5676,7 @@ function runEffectsInView(view) {
+         effect.zone.run(() => effect.run());
+       }
+     }
+-    tryFlushEffects = foundDirtyEffect && !!(view[FLAGS] & 8192);
++    tryFlushEffects = foundDirtyEffect && !!(view[FLAGS] & 8192) && view[EFFECTS] !== null;
+   }
+ }
+ 

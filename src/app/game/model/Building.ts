@@ -1,23 +1,20 @@
-import { LootType } from "./data/Loot";
+import { LootType } from 'src/app/game/model/data/Loot';
 
 export class BuildingModel {
-    name: string;
-    level: number;
-    state: "normal" | "damaged" | "wrecked";
-    attacked: true | undefined;
+  name: string;
+  level: number;
+  state: 'normal' | 'damaged' | 'wrecked';
+  attacked: true | undefined;
 
-    constructor(name: string = "", level: number = 1, state: "normal" | "damaged" | "wrecked" = "normal") {
-        this.name = name;
-        this.level = level;
-        this.state = state;
-    }
+  constructor(name: string = '', level: number = 1, state: 'normal' | 'damaged' | 'wrecked' = 'normal') {
+    this.name = name;
+    this.level = level;
+    this.state = state;
+  }
 }
 
-
 export class GardenModel {
-
-    flipped: boolean = false;
-    automated: boolean = true;
-    plots: LootType[] = [];
-
+  flipped: boolean = false;
+  automated: boolean = true;
+  plots: LootType[] = [];
 }

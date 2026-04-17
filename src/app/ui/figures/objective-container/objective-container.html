@@ -1,259 +1,299 @@
-<div class="objective"
-  [ngClass]="{'off' : objective.off, 'escort' : objective.escort, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters, 'compact': compact, 'short': short, 'menu': shortMenu, 'actions': !!objectiveData && objectiveData.actions}">
-  <a class="image-container" [ngClass]="{'entity' : entity}">
+<div
+  class="objective"
+  [ngClass]="{
+    off: objective.off,
+    escort: objective.escort,
+    denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters,
+    compact: compact,
+    short: short,
+    menu: shortMenu,
+    actions: !!objectiveData && objectiveData.actions
+  }"
+>
+  <a class="image-container" [ngClass]="{ entity: entity }">
     @if (!!entity) {
-    @if (entity.marker) {
-    <span class="map-marker" [ngClass]="{'active-border' : objective.active}">{{entity.marker}}</span>
-    }
-    <span class="objective-marker">
-      {{entity.number}}
-    </span>
+      @if (entity.marker) {
+        <span class="map-marker" [ngClass]="{ 'active-border': objective.active }">{{ entity.marker }}</span>
+      }
+      <span class="objective-marker">
+        {{ entity.number }}
+      </span>
     }
     @if (marker) {
-    <span class="map-marker" [ngClass]="{'active-border' : objective.active}">{{marker}}</span>
+      <span class="map-marker" [ngClass]="{ 'active-border': objective.active }">{{ marker }}</span>
     }
     @if (!marker && (!entity || !entity.marker)) {
-    <span class="objective-icon" [ngClass]="{'active-border' : objective.active}">
-      <img [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
-    </span>
+      <span class="objective-icon" [ngClass]="{ 'active-border': objective.active }">
+        <img [src]="'/assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+      </span>
     }
   </a>
 
-  <ghs-pointer-input class="drag-initiative"
+  <ghs-pointer-input
+    class="drag-initiative"
     (dragMove)="(!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters) && dragInitiativeMove($event)"
     (dragEnd)="(!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters) && dragInitiativeEnd($event)"
-    [draggingDisabled]="!settingsManager.settings.dragValuesInitiative" (singleClick)="toggleFigure($event)"
-    (doubleClick)="(!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters) && openInitiativeDialog($event)"
-    [ngClass]="{'outer-denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
+    [draggingDisabled]="!settingsManager.settings.dragValuesInitiative"
+    (singleClick)="toggleFigure($event)"
+    (doubleClick)="
+      (!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters) && openInitiativeDialog($event)
+    "
+    [ngClass]="{ 'outer-denied': gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }"
+  >
   </ghs-pointer-input>
 
   @if (!short) {
-  <ghs-character-initiative [figure]="objective" [initiative]="initiative"></ghs-character-initiative>
+    <ghs-character-initiative [figure]="objective" [initiative]="initiative"></ghs-character-initiative>
   }
 
   @if (!!entity) {
-  <ghs-highlight-conditions [entity]="entity"></ghs-highlight-conditions>
+    <ghs-highlight-conditions [entity]="entity"></ghs-highlight-conditions>
   }
   <div class="stats">
     @if (!!entity) {
-    <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
-    <div class="column col-1">
       <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
-      @if (short) {
-      <ghs-character-initiative class="initiative" [figure]="objective"
-        [initiative]="initiative"></ghs-character-initiative>
-      }
-      <div class="bar-container">
-        <div class="title-container" ghs-pointer-input (singleClick)="openEntityMenu()">
-          <div class="title">
-            @if (entity.marker) {
-            <img class="icon"
-              [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
-            }
-            @if (objective.title) {
-            <span>
-              {{objective.title}}</span>
-            }
-            @if (!objective.title) {
-            <span [ghs-label]="objective.name ? ('data.objective.' + objective.name) :
-          (objective.escort ? 'escort' : 'objective')"></span>
-            }
-            <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
-          </div>
-          @if (settingsManager.settings.characterShieldRetaliate) {
-          <span class="actions">
-            @if (entity.shield) {
-            <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeShield()">
-              <ghs-action [action]="entity.shield" [style]="'fh'"></ghs-action>
-            </span>
-            }
-            @for (retaliate of entity.retaliate | trackUUID; track retaliate._trackUUID; let i = $index) {
-            <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeRetaliate(i)">
-              <ghs-action [action]="retaliate" [style]="'fh'"></ghs-action>
-            </span>
-            }
-            @if (entity.shieldPersistent) {
-            <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()"
-              (doubleClick)="removeShieldPersistent()">
-              <span class="action-overlay">
-                <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
+      <div class="column col-1">
+        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
+        @if (short) {
+          <ghs-character-initiative class="initiative" [figure]="objective" [initiative]="initiative"></ghs-character-initiative>
+        }
+        <div class="bar-container">
+          <div class="title-container" ghs-pointer-input (singleClick)="openEntityMenu()">
+            <div class="title">
+              @if (entity.marker) {
+                <img class="icon" [src]="'/assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+              }
+              @if (objective.title) {
+                <span> {{ objective.title }}</span>
+              }
+              @if (!objective.title) {
+                <span [ghs-label]="objective.name ? 'data.objective.' + objective.name : objective.escort ? 'escort' : 'objective'"></span>
+              }
+              <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
+            </div>
+            @if (settingsManager.settings.characterShieldRetaliate) {
+              <span class="actions">
+                @if (entity.shield) {
+                  <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeShield()">
+                    <ghs-action [action]="entity.shield" [style]="'fh'"></ghs-action>
+                  </span>
+                }
+                @for (retaliate of entity.retaliate | trackUUID; track retaliate._trackUUID; let i = $index) {
+                  <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeRetaliate(i)">
+                    <ghs-action [action]="retaliate" [style]="'fh'"></ghs-action>
+                  </span>
+                }
+                @if (entity.shieldPersistent) {
+                  <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeShieldPersistent()">
+                    <span class="action-overlay">
+                      <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
+                    </span>
+                    <ghs-action [action]="entity.shieldPersistent" [style]="'fh'"></ghs-action>
+                  </span>
+                }
+                @for (retaliatePersistent of entity.retaliatePersistent | trackUUID; track retaliatePersistent._trackUUID; let i = $index) {
+                  <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeRetaliatePersistent(i)">
+                    <span class="action-overlay">
+                      <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
+                    </span>
+                    <ghs-action [action]="retaliatePersistent" [style]="'fh'"></ghs-action>
+                  </span>
+                }
               </span>
-              <ghs-action [action]="entity.shieldPersistent" [style]="'fh'"></ghs-action>
-            </span>
-            }
-            @for (retaliatePersistent of entity.retaliatePersistent | trackUUID; track retaliatePersistent._trackUUID;
-            let i = $index) {
-            <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()"
-              (doubleClick)="removeRetaliatePersistent(i)">
-              <span class="action-overlay">
-                <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
-              </span>
-              <ghs-action [action]="retaliatePersistent" [style]="'fh'"></ghs-action>
-            </span>
-            }
-          </span>
-          }
-        </div>
-        <div class="status-bar">
-          <div class="health" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="toggleDamageHP()"
-            (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" (dragCancel)="dragHpCancel($event)"
-            [draggingDisabled]="!settingsManager.settings.dragValuesHp" [relative]="true" [screenWidth]="true"
-            [fastShift]="true">
-            <img
-              [ngClass]="{'damage' : objectiveData && objectiveData.trackDamage || settingsManager.settings.damageHP}"
-              [src]="'./assets/images/' + (objectiveData && objectiveData.trackDamage || settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')" />
-            @if (objectiveData && objectiveData.trackDamage || entity.maxHealth > 0) {
-            @if (!settingsManager.settings.damageHP && (!objectiveData || !objectiveData.trackDamage)) {
-            <span>
-              {{(entity.health + health) | ghsMinZero}}/{{entity.maxHealth}}
-            </span>
-            }
-            @if (settingsManager.settings.damageHP) {
-            <span>
-              {{entity.maxHealth}}/{{entity.maxHealth - (entity.health + health) | ghsMinZero}}
-            </span>
-            }
-            @if (objectiveData && objectiveData.trackDamage) {
-            <span>
-              {{(entity.health + health) | ghsMinZero}}
-            </span>
-            }
-            <span class="value-overlay" [value-sign]="health" [hideEmpty]="true"
-              [reverse]="settingsManager.settings.damageHP" [container]="true"
-              [invert]="!!objectiveData && objectiveData.trackDamage"></span>
-            }
-            @if ((!objectiveData || !objectiveData.trackDamage) && entity.maxHealth == 0) {
-            <span>-</span>
             }
           </div>
-          <div class="markers">
-            @for (marker of entity.markers; track marker) {
-            <span class="marker" ghs-pointer-input (doubleClick)="removeMarker(marker)">
-              <img [src]="gameManager.characterManager.characterIcon(marker)" />
-            </span>
-            }
-          </div>
-          <div class="conditions">
-            @for (entityCondition of activeConditions | trackUUID; track entityCondition._trackUUID; let index =
-            $index) {
-            <span class="condition" ghs-pointer-input (doubleClick)="removeCondition(entityCondition)"
-              [ngClass]="{'fh': settingsManager.settings.fhStyle}">
+          <div class="status-bar">
+            <div
+              class="health"
+              ghs-pointer-input
+              (singleClick)="openEntityMenu()"
+              (doubleClick)="toggleDamageHP()"
+              (dragMove)="dragHpMove($event)"
+              (dragEnd)="dragHpEnd()"
+              (dragCancel)="dragHpCancel()"
+              [draggingDisabled]="!settingsManager.settings.dragValuesHp"
+              [relative]="true"
+              [screenWidth]="true"
+              [fastShift]="true"
+            >
               <img
-                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
-                [style.z-index]="index * 10 + entityCondition.value" />
-              @if (entityCondition.types.includes(ConditionType.stack)) {
-              @for (i of [] | ghsRange:(entityCondition.value - 1); track i) {
-              <img class="stack" [style.z-index]="index * 10 + entityCondition.value - i - 1"
-                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
+                [ngClass]="{ damage: (objectiveData && objectiveData.trackDamage) || settingsManager.settings.damageHP }"
+                [src]="
+                  '/assets/images/' +
+                  ((objectiveData && objectiveData.trackDamage) || settingsManager.settings.damageHP
+                    ? 'action/damage.svg'
+                    : 'status/health.svg')
+                "
+              />
+              @if ((objectiveData && objectiveData.trackDamage) || entity.maxHealth > 0) {
+                @if (!settingsManager.settings.damageHP && (!objectiveData || !objectiveData.trackDamage)) {
+                  <span> {{ entity.health + health | ghsMinZero }}/{{ entity.maxHealth }} </span>
+                }
+                @if (settingsManager.settings.damageHP) {
+                  <span> {{ entity.maxHealth }}/{{ entity.maxHealth - (entity.health + health) | ghsMinZero }} </span>
+                }
+                @if (objectiveData && objectiveData.trackDamage) {
+                  <span>
+                    {{ entity.health + health | ghsMinZero }}
+                  </span>
+                }
+                <span
+                  class="value-overlay"
+                  [value-sign]="health"
+                  [hideEmpty]="true"
+                  [reverse]="settingsManager.settings.damageHP"
+                  [container]="true"
+                  [invert]="!!objectiveData && objectiveData.trackDamage"
+                ></span>
               }
+              @if ((!objectiveData || !objectiveData.trackDamage) && entity.maxHealth == 0) {
+                <span>-</span>
               }
-              @if (entityCondition.types.includes(ConditionType.value) &&
-              !entityCondition.types.includes(ConditionType.stack)) {
-              <span class="value"
-                [style.z-index]="index * 10 + entityCondition.value +1">{{entityCondition.value}}</span>
+            </div>
+            <div class="markers">
+              @for (marker of entity.markers; track marker) {
+                <span class="marker" ghs-pointer-input (doubleClick)="removeMarker(marker)">
+                  <img [src]="gameManager.characterManager.characterIcon(marker)" />
+                </span>
               }
-              @if (entity.immunities.includes(entityCondition.name)) {
-              <span class="condition immunity condition-overlay"
-                [style.z-index]="index * 10 + entityCondition.value + 2"></span>
+            </div>
+            <div class="conditions">
+              @for (entityCondition of activeConditions | trackUUID; track entityCondition._trackUUID; let index = $index) {
+                <span
+                  class="condition"
+                  ghs-pointer-input
+                  (doubleClick)="removeCondition(entityCondition)"
+                  [ngClass]="{ fh: settingsManager.settings.fhStyle }"
+                >
+                  <img
+                    [src]="
+                      '/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'
+                    "
+                    [style.z-index]="index * 10 + entityCondition.value"
+                  />
+                  @if (entityCondition.types.includes(ConditionType.stack)) {
+                    @for (i of [] | ghsRange: entityCondition.value - 1; track i) {
+                      <img
+                        class="stack"
+                        [style.z-index]="index * 10 + entityCondition.value - i - 1"
+                        [src]="
+                          '/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'
+                        "
+                      />
+                    }
+                  }
+                  @if (entityCondition.types.includes(ConditionType.value) && !entityCondition.types.includes(ConditionType.stack)) {
+                    <span class="value" [style.z-index]="index * 10 + entityCondition.value + 1">{{ entityCondition.value }}</span>
+                  }
+                  @if (entity.immunities.includes(entityCondition.name)) {
+                    <span class="condition immunity condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 2"></span>
+                  }
+                  @if (entityCondition.permanent) {
+                    <span class="condition permanent condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 3"></span>
+                  }
+                  @if (entityCondition.state == EntityConditionState.roundExpire) {
+                    <span class="condition round condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 4"></span>
+                  }
+                </span>
               }
-              @if (entityCondition.permanent) {
-              <span class="condition permanent condition-overlay"
-                [style.z-index]="index * 10 + entityCondition.value + 3"></span>
-              }
-              @if (entityCondition.state == EntityConditionState.roundExpire) {
-              <span class="condition round condition-overlay"
-                [style.z-index]="index * 10 + entityCondition.value + 4"></span>
-              }
-            </span>
-            }
+            </div>
           </div>
         </div>
       </div>
-    </div>
     }
 
     @if (!entity) {
-    <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
-    <div class="column col-1">
       <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
-      @if (short) {
-      <ghs-character-initiative class="initiative" [figure]="objective"
-        [initiative]="initiative"></ghs-character-initiative>
-      }
-      <div class="bar-container">
-        <div class="title-container" ghs-pointer-input (singleClick)="openEntityMenu()">
-          <div class="title">
-            @if (objective.marker) {
-            <img class="icon"
-              [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
-            }
-            @if (objective.title) {
-            <span>
-              {{objective.title}}</span>
-            }
-            @if (!objective.title) {
-            <span [ghs-label]="objective.name ? ('data.objective.' + objective.name) :
-          (objective.escort ? 'escort' : 'objective')"></span>
-            }
+      <div class="column col-1">
+        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
+        @if (short) {
+          <ghs-character-initiative class="initiative" [figure]="objective" [initiative]="initiative"></ghs-character-initiative>
+        }
+        <div class="bar-container">
+          <div class="title-container" ghs-pointer-input (singleClick)="openEntityMenu()">
+            <div class="title">
+              @if (objective.marker) {
+                <img class="icon" [src]="'/assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+              }
+              @if (objective.title) {
+                <span> {{ objective.title }}</span>
+              }
+              @if (!objective.title) {
+                <span [ghs-label]="objective.name ? 'data.objective.' + objective.name : objective.escort ? 'escort' : 'objective'"></span>
+              }
+            </div>
           </div>
         </div>
       </div>
-    </div>
     }
     <div class="actions-container">
       @if (!!objectiveData && objectiveData.actions) {
-      <div class="actions" ghs-pointer-input (singleClick)="openEntityMenu()">
-        <ghs-actions [objective]="objective" [actions]="objectiveData.actions" [interactiveActions]="interactiveActions"
-          (interactiveActionsChange)="onInteractiveActionsChange($event)"></ghs-actions>
-      </div>
+        <div class="actions" ghs-pointer-input (singleClick)="openEntityMenu()">
+          <ghs-actions
+            [objective]="objective"
+            [actions]="objectiveData.actions"
+            [interactiveActions]="interactiveActions"
+            (interactiveActionsChange)="onInteractiveActionsChange($event)"
+          ></ghs-actions>
+        </div>
       }
       @if (interactiveActions.length) {
-      <div class="bottom-spacer">
-      </div>
+        <div class="bottom-spacer"></div>
       }
     </div>
 
     @if (!!objectiveData && objectiveData.actions) {
-    <ghs-interactive-actions [figure]="objective" [actions]="objectiveData.actions"
-      [(interactiveActions)]="interactiveActions"></ghs-interactive-actions>
+      <ghs-interactive-actions
+        [figure]="objective"
+        [actions]="objectiveData.actions"
+        [(interactiveActions)]="interactiveActions"
+      ></ghs-interactive-actions>
     }
 
     <span class="spacer" (click)="openEntityMenu()"></span>
 
     @if (compact && short) {
-    <div class="short-menu">
-      <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
-      <a class="toggle-menu" ghs-pointer-input (singleClick)="shortMenu=!shortMenu">
-        <img class="ghs-svg" src="./assets/images/menu.svg">
-      </a>
-    </div>
+      <div class="short-menu">
+        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
+        <a class="toggle-menu" ghs-pointer-input (singleClick)="shortMenu = !shortMenu">
+          <img class="ghs-svg" src="/assets/images/menu.svg" />
+        </a>
+      </div>
     }
 
     <div class="add-entity">
-      <a class="add-entity-button" ghs-pointer-input (singleClick)="addEntity()" [ghs-label]="'objective.addEntity'"
-        [ghs-label-attribute]="'title'">
-        <img class="ghs-svg" src="./assets/images/plus.svg">
+      <a
+        class="add-entity-button"
+        ghs-pointer-input
+        (singleClick)="addEntity()"
+        [ghs-label]="'objective.addEntity'"
+        [ghs-label-attribute]="'title'"
+      >
+        <img class="ghs-svg" src="/assets/images/plus.svg" />
       </a>
     </div>
 
     <div class="icon-container" (click)="openEntityMenu()">
-      <img [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+      <img [src]="'/assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
     </div>
   </div>
 </div>
 
-<div class="entities-container" [ngClass]="{'empty' : nonDead < 2}">
+<div class="entities-container" [ngClass]="{ empty: nonDead < 2 }">
   <span class="spacer"></span>
-  <span class="entities-menu" [ngClass]="{'empty' : nonDead == 0, 'disabled' : nonDead < 2}"
-    [entityAnimation]="nonDead == 0" (click)="openEntitiesMenu($event)">
-    <img class="menu" src="./assets/images/up.svg">
+  <span
+    class="entities-menu"
+    [ngClass]="{ empty: nonDead == 0, disabled: nonDead < 2 }"
+    [entityAnimation]="nonDead == 0"
+    (click)="openEntitiesMenu($event)"
+  >
+    <img class="menu" src="/assets/images/up.svg" />
   </span>
   @if (nonDead > 1) {
-  <div class="entities">
-    @for (entity of objective.entities | trackUUID; track entity._trackUUID) {
-    <ghs-standee [figure]="objective" [entity]="entity">
-    </ghs-standee>
-    }
-  </div>
+    <div class="entities">
+      @for (entity of objective.entities | trackUUID; track entity._trackUUID) {
+        <ghs-standee [figure]="objective" [entity]="entity"> </ghs-standee>
+      }
+    </div>
   }
 </div>

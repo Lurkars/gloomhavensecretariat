@@ -1,10 +1,10 @@
-import { BuildingModel, GardenModel } from "../model/Building";
-import { Game } from "../model/Game";
-import { BuildingData, BuildingRewards } from "../model/data/BuildingData";
-import { ScenarioData } from "../model/data/ScenarioData";
-import { WorldMapCoordinates } from "../model/data/WorldMap";
-import { gameManager } from "./GameManager";
-import { settingsManager } from "./SettingsManager";
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { BuildingModel, GardenModel } from 'src/app/game/model/Building';
+import { BuildingData, BuildingRewards } from 'src/app/game/model/data/BuildingData';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
+import { WorldMapCoordinates } from 'src/app/game/model/data/WorldMap';
+import { Game } from 'src/app/game/model/Game';
 
 export class BuildingsManager {
   game: Game;
@@ -20,11 +20,17 @@ export class BuildingsManager {
   }
 
   update() {
-    this.petsAvailable = gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name == 'stables' && value.level) != undefined;
+    this.petsAvailable =
+      gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name == 'stables' && value.level) != undefined;
     this.petsEnabled = this.petsAvailable && settingsManager.settings.fhPets;
-    this.gardenAvailable = gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name == 'garden' && value.level) != undefined;
+    this.gardenAvailable =
+      gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name == 'garden' && value.level) != undefined;
     this.gardenEnabled = this.gardenAvailable && settingsManager.settings.fhGarden;
-    this.distillAvailable = (settingsManager.settings.characterItems || settingsManager.settings.characterSheet) && gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name == 'alchemist' && value.level > 1 && value.state != 'wrecked') != undefined;
+    this.distillAvailable =
+      (settingsManager.settings.characterItems || settingsManager.settings.characterSheet) &&
+      gameManager.fhRules() &&
+      gameManager.game.party.buildings.find((value) => value.name == 'alchemist' && value.level > 1 && value.state != 'wrecked') !=
+        undefined;
   }
 
   applyRewards(rewards: BuildingRewards) {
@@ -63,11 +69,23 @@ export class BuildingsManager {
   }
 
   rewardSection(section: ScenarioData): ScenarioData | undefined {
-    if (gameManager.game.party.conclusions.find((model) => model.edition == section.edition && model.index == section.index && model.group == section.group)) {
+    if (
+      gameManager.game.party.conclusions.find(
+        (model) => model.edition == section.edition && model.index == section.index && model.group == section.group
+      )
+    ) {
       return section;
     }
 
-    const conclusions = gameManager.sectionData(section.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section.index)));
+    const conclusions = gameManager
+      .sectionData(section.edition)
+      .filter(
+        (sectionData) =>
+          sectionData.conclusion &&
+          !sectionData.parent &&
+          sectionData.parentSections &&
+          sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section.index))
+      );
 
     if (conclusions.length == 0) {
       return undefined;
@@ -77,18 +95,30 @@ export class BuildingsManager {
         if (!result) {
           result = this.rewardSection(conclusion);
         }
-      })
+      });
 
       return result;
     }
   }
 
   initialBuilding(buildingData: BuildingData): boolean {
-    return buildingData.costs.prosperity == 0 && buildingData.costs.lumber == 0 && buildingData.costs.metal == 0 && buildingData.costs.hide == 0 && buildingData.costs.gold == 0;
+    return (
+      buildingData.costs.prosperity == 0 &&
+      buildingData.costs.lumber == 0 &&
+      buildingData.costs.metal == 0 &&
+      buildingData.costs.hide == 0 &&
+      buildingData.costs.gold == 0
+    );
   }
 
   availableBuilding(buildingData: BuildingData): boolean {
-    return buildingData.prosperityUnlock && buildingData.costs.prosperity <= gameManager.prosperityLevel() && !gameManager.game.party.buildings.find((model) => buildingData.name == model.name && model.level) && (!buildingData.requires || gameManager.game.party.buildings.find((model) => model.name == buildingData.requires && model.level) != undefined);
+    return (
+      buildingData.prosperityUnlock &&
+      buildingData.costs.prosperity <= gameManager.prosperityLevel() &&
+      !gameManager.game.party.buildings.find((model) => buildingData.name == model.name && model.level) &&
+      (!buildingData.requires ||
+        gameManager.game.party.buildings.find((model) => model.name == buildingData.requires && model.level) != undefined)
+    );
   }
 
   nextWeek() {
@@ -105,7 +135,7 @@ export class BuildingsManager {
         if (this.game.party.garden.automated && (gardenBuilding.level > 2 || this.game.party.garden.flipped)) {
           this.game.party.garden.plots.forEach((herb) => {
             this.game.party.loot[herb] = (this.game.party.loot[herb] || 0) + 1;
-          })
+          });
         }
       }
     }
@@ -132,7 +162,6 @@ export class BuildingsManager {
 
     return buildingData.coordinates[level] || undefined;
   }
-
 
   distanceBetween(a: BuildingModel, b: BuildingModel): number | undefined {
     const coordsA = this.coordinatesFromModel(a);

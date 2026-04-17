@@ -1,7 +1,6 @@
-import { ConditionName } from "./data/Condition";
+import { ConditionName } from 'src/app/game/model/data/Condition';
 
 export class Settings {
-
   [index: string]: any;
 
   abilities: boolean = true;
@@ -36,7 +35,16 @@ export class Settings {
   artwork: boolean = true;
   autoBackup: number = -1;
   autoBackupFinish: boolean = false;
-  autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string | undefined, password: string | undefined, authorization: string | undefined } | undefined;
+  autoBackupUrl:
+    | {
+        url: string;
+        method: string;
+        fileUpload: boolean;
+        username: string | undefined;
+        password: string | undefined;
+        authorization: string | undefined;
+      }
+    | undefined;
   automaticAttackModifierFullscreen: boolean = true;
   automaticFirstFigure: boolean = true;
   automaticGameClock: boolean = true;
@@ -157,7 +165,7 @@ export class Settings {
   initiativeRoundConfirm: boolean = false;
   interactiveAbilities: boolean = true;
   keyboardShortcuts: boolean = true;
-  locale: string = "en";
+  locale: string = 'en';
   logServerMessages: boolean = false;
   lootDeck: boolean = true;
   maxUndo: number = 100;
@@ -202,7 +210,7 @@ export class Settings {
   stats: boolean = true;
   summons: boolean = true;
   temporaryEnhancements: boolean = false;
-  theme: string = "";
+  theme: string = '';
   tooltips: boolean = true;
   treasures: boolean = true;
   treasuresLoot: boolean = true;
@@ -216,5 +224,92 @@ export class Settings {
 }
 
 export const localSettings: string[] = [
-  "animations", "animationSpeed", "artwork", "automaticAttackModifierFullscreen", "autoBackup", "autoBackupFinish", "autoBackupUrl", "automaticGameClock", "automaticTheme", "autoscroll", "barsize", "backupHint", "browserNavigation", "buildingEffectsVisible", "buildingInteractionsVisible", "calendarLocked", "characterAttackModifierAnimate", "characterAttackModifierDeckActiveBottom", "characterAttackModifierDeckPermanent", "characterAttackModifierDeckPermanentActive", "characterFullView", "characterItemsPermanent", "characterItemsPermanentActive", "characterItemsPermanentEquipped", "characterItemsPermanentSorted", "characterItemsPermanentZoom", "characterCompact", "playerNumber", "characterSheetCompact", "characterSheetLocked", "columns", "columnsForce", "damageHPToggle", "debugEditWorldMap", "debugEventCards", "debugRightClick", "disableAnimations", "disableArtwork", "disableColumns", "disableDragFigures", "disablePinchZoom", "disableWakeLock", "dragFigures", "dragValues", "dragValuesHp", "dragValuesInitiative", "dragValuesLoot", "entitiesMenu", "errata", "eventsDrawReminder", "fhBrewGrid", "fhStyle", "fontsize", "gameClock", "globalFontsize", "globalMapHighlighting", "feedbackErrors", "feedbackErrorsIgnore", "fullscreen", "hideCharacterHP", "hideCharacterLoot", "hideCharacterXP", "hints", "initiativeRoundConfirm", "keyboardShortcuts", "logServerMessages", "pinchZoom", "portraitMode", "pressDoubleClick", "serverAutoconnect", "serverCode", "serverPassword", "serverPing", "serverPort", "serverSettings", "serverUrl", "serverWss", "showAllSections", "showBossMonster", "showHiddenMonster", "showOnlyUnfinishedScenarios", "standaloneInitiativeAutomatic", "statAnimations", "theme", "tooltips", "wakeLock", "wrapProsperity", "zoom"
+  'animations',
+  'animationSpeed',
+  'artwork',
+  'automaticAttackModifierFullscreen',
+  'autoBackup',
+  'autoBackupFinish',
+  'autoBackupUrl',
+  'automaticGameClock',
+  'automaticTheme',
+  'autoscroll',
+  'barsize',
+  'backupHint',
+  'browserNavigation',
+  'buildingEffectsVisible',
+  'buildingInteractionsVisible',
+  'calendarLocked',
+  'characterAttackModifierAnimate',
+  'characterAttackModifierDeckActiveBottom',
+  'characterAttackModifierDeckPermanent',
+  'characterAttackModifierDeckPermanentActive',
+  'characterFullView',
+  'characterItemsPermanent',
+  'characterItemsPermanentActive',
+  'characterItemsPermanentEquipped',
+  'characterItemsPermanentSorted',
+  'characterItemsPermanentZoom',
+  'characterCompact',
+  'playerNumber',
+  'characterSheetCompact',
+  'characterSheetLocked',
+  'columns',
+  'columnsForce',
+  'damageHPToggle',
+  'debugEditWorldMap',
+  'debugEventCards',
+  'debugRightClick',
+  'disableAnimations',
+  'disableArtwork',
+  'disableColumns',
+  'disableDragFigures',
+  'disablePinchZoom',
+  'disableWakeLock',
+  'dragFigures',
+  'dragValues',
+  'dragValuesHp',
+  'dragValuesInitiative',
+  'dragValuesLoot',
+  'entitiesMenu',
+  'errata',
+  'eventsDrawReminder',
+  'fhBrewGrid',
+  'fhStyle',
+  'fontsize',
+  'gameClock',
+  'globalFontsize',
+  'globalMapHighlighting',
+  'feedbackErrors',
+  'feedbackErrorsIgnore',
+  'fullscreen',
+  'hideCharacterHP',
+  'hideCharacterLoot',
+  'hideCharacterXP',
+  'hints',
+  'initiativeRoundConfirm',
+  'keyboardShortcuts',
+  'logServerMessages',
+  'pinchZoom',
+  'portraitMode',
+  'pressDoubleClick',
+  'serverAutoconnect',
+  'serverCode',
+  'serverPassword',
+  'serverPing',
+  'serverPort',
+  'serverSettings',
+  'serverUrl',
+  'serverWss',
+  'showAllSections',
+  'showBossMonster',
+  'showHiddenMonster',
+  'showOnlyUnfinishedScenarios',
+  'standaloneInitiativeAutomatic',
+  'statAnimations',
+  'theme',
+  'tooltips',
+  'wakeLock',
+  'wrapProsperity',
+  'zoom'
 ];

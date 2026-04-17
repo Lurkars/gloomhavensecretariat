@@ -1,6 +1,6 @@
-import { Directive, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { PointerInputService } from "./pointer-input-service";
+import { DestroyRef, Directive, ElementRef, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { PointerInputService } from 'src/app/ui/helper/pointer-input-service';
 
 export const doubleClickTreshhold: number = 250;
 export const longPressTreshhold: number = 550;
@@ -12,10 +12,10 @@ export const dragWidthFactor: number = 0.4;
 export const maxElementDepth: number = 50;
 
 @Directive({
-  standalone: false,
   selector: 'ghs-pointer-input, [ghs-pointer-input]'
 })
-export class PointerInputDirective implements OnInit, OnDestroy {
+export class PointerInputDirective implements OnInit {
+  private destroyRef = inject(DestroyRef);
 
   @Input() clickBehind: boolean = false;
   @Input() relative: boolean = false;
@@ -27,12 +27,12 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   @Input() forceDoubleClick: boolean = false;
   @Input() onRelease: boolean = false;
   @Input() fastShift: boolean = false;
-  @Output('dragMove') dragMove = new EventEmitter<number>();
-  @Output('dragEnd') dragEnd = new EventEmitter<number>();
-  @Output('dragCancel') dragCancel = new EventEmitter<number>();
+  @Output() dragMove = new EventEmitter<number>();
+  @Output() dragEnd = new EventEmitter<number>();
+  @Output() dragCancel = new EventEmitter<number>();
 
-  @Output('singleClick') singleClick: EventEmitter<any> = new EventEmitter<any>();
-  @Output('doubleClick') doubleClick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() singleClick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() doubleClick: EventEmitter<any> = new EventEmitter<any>();
 
   timeout: any = null;
   relativeValue: number = -1;
@@ -48,10 +48,14 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   lastX: number = 0;
   isDragElement: boolean = false;
 
-  constructor(public elementRef: ElementRef, private service: PointerInputService) {
+  constructor(
+    public elementRef: ElementRef,
+    private service: PointerInputService
+  ) {
     this.value = -1;
     this.elementRef.nativeElement.style['touch-action'] = 'pan-y';
-    this.isDragElement = elementRef.nativeElement.hasAttribute('cdkdrag') ||
+    this.isDragElement =
+      elementRef.nativeElement.hasAttribute('cdkdrag') ||
       elementRef.nativeElement.hasAttribute('cdkdraghandle') ||
       elementRef.nativeElement.classList.contains('cdk-drag') ||
       elementRef.nativeElement.classList.contains('cdk-drag-handle') ||
@@ -61,10 +65,7 @@ export class PointerInputDirective implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.service.register(this);
-  }
-
-  ngOnDestroy(): void {
-    this.service.unregister(this);
+    this.destroyRef.onDestroy(() => this.service.unregister(this));
   }
 
   pointerdown(event: PointerEvent) {
@@ -75,7 +76,14 @@ export class PointerInputDirective implements OnInit, OnDestroy {
     if (!this.move && this.repeat && !this.doubleClick.observed) {
       this.repeats = -1;
       this.repeatTimeout(event);
-    } else if (this.forcePress || settingsManager.settings.pressDoubleClick && !this.forceDoubleClick && this.doubleClick.observed && !this.move && event.pointerType === 'touch') {
+    } else if (
+      this.forcePress ||
+      (settingsManager.settings.pressDoubleClick &&
+        !this.forceDoubleClick &&
+        this.doubleClick.observed &&
+        !this.move &&
+        event.pointerType === 'touch')
+    ) {
       this.timeout = setTimeout(() => {
         if (event.pointerType === 'mouse' || !this.onRelease) {
           this.doubleClick.emit(event);
@@ -91,7 +99,7 @@ export class PointerInputDirective implements OnInit, OnDestroy {
       const x = event.clientX;
       const y = event.clientY;
       if (!this.move && Math.max(Math.abs(this.startX - x), Math.abs(this.startY - y)) > moveTreshhold) {
-        this.panstart(event);
+        this.panstart();
       } else if (this.move) {
         this.panmove(event);
       }
@@ -120,13 +128,16 @@ export class PointerInputDirective implements OnInit, OnDestroy {
             this.doubleClick.emit(event);
             this.clicks = 0;
           } else {
-            this.timeout = setTimeout(() => {
-              if (this.clicks > 0 && (!this.repeat || this.doubleClick.observed)) {
-                this.singleClick.emit(event);
-              }
-              this.clicks = 0;
-              this.timeout = null;
-            }, this.doubleClick.observed ? doubleClickTreshhold : 0)
+            this.timeout = setTimeout(
+              () => {
+                if (this.clicks > 0 && (!this.repeat || this.doubleClick.observed)) {
+                  this.singleClick.emit(event);
+                }
+                this.clicks = 0;
+                this.timeout = null;
+              },
+              this.doubleClick.observed ? doubleClickTreshhold : 0
+            );
           }
         } else if (event.pointerType === 'touch' && this.onRelease && this.clicks == 2) {
           this.doubleClick.emit(event);
@@ -144,12 +155,17 @@ export class PointerInputDirective implements OnInit, OnDestroy {
       } else {
         this.clicks = 0;
       }
-      this.panend(event);
+      this.panend();
     }
   }
 
-  panstart(event: PointerEvent) {
-    if (!this.disabled && !this.draggingDisabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
+  panstart() {
+    if (
+      !this.disabled &&
+      !this.draggingDisabled &&
+      settingsManager.settings.dragValues &&
+      (this.dragMove.observed || this.dragEnd.observed)
+    ) {
       this.elementRef.nativeElement.classList.add('dragging');
     }
     this.move = true;
@@ -160,26 +176,34 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   }
 
   panmove(event: PointerEvent) {
-    if (!this.disabled && !this.draggingDisabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
+    if (
+      !this.disabled &&
+      !this.draggingDisabled &&
+      settingsManager.settings.dragValues &&
+      (this.dragMove.observed || this.dragEnd.observed)
+    ) {
       const rect = this.elementRef.nativeElement.getBoundingClientRect();
       const x = event.clientX;
       if (this.screenWidth) {
         if (document.body.clientWidth > dragWidthThreshold) {
-          this.value = Math.min(99, Math.max(0, x * (dragWidthThreshold / document.body.clientWidth) / document.body.clientWidth * 100));
+          this.value = Math.min(
+            99,
+            Math.max(0, ((x * (dragWidthThreshold / document.body.clientWidth)) / document.body.clientWidth) * 100)
+          );
         } else {
-          this.value = Math.min(99, Math.max(0, x / document.body.clientWidth * 100));
+          this.value = Math.min(99, Math.max(0, (x / document.body.clientWidth) * 100));
           if (this.relative) {
             this.value = this.value * dragWidthFactor;
           }
         }
       } else {
-        this.value = Math.min(99, Math.max(0, (x - rect.left) / rect.width * 100));
+        this.value = Math.min(99, Math.max(0, ((x - rect.left) / rect.width) * 100));
       }
       if (this.relative && this.relativeValue == -1) {
         this.relativeValue = this.value;
       }
       if (this.fast) {
-        this.fastOffset += (x - this.lastX) < 0 ? -1 : 1;
+        this.fastOffset += x - this.lastX < 0 ? -1 : 1;
       }
       this.value = Math.floor(this.relative ? this.value - this.relativeValue : this.value) + this.fastOffset;
       this.lastX = x;
@@ -187,8 +211,14 @@ export class PointerInputDirective implements OnInit, OnDestroy {
     }
   }
 
-  panend(event: PointerEvent) {
-    if (!this.disabled && !this.draggingDisabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed) && (this.value >= 0 || this.relative)) {
+  panend() {
+    if (
+      !this.disabled &&
+      !this.draggingDisabled &&
+      settingsManager.settings.dragValues &&
+      (this.dragMove.observed || this.dragEnd.observed) &&
+      (this.value >= 0 || this.relative)
+    ) {
       this.dragEnd.emit(this.value);
     }
     this.reset();
@@ -233,5 +263,4 @@ export class PointerInputDirective implements OnInit, OnDestroy {
       }, this.repeats);
     }
   }
-
 }

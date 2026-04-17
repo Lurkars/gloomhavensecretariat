@@ -34,7 +34,7 @@
       }
     }
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       cursor: pointer;
       appearance: none;
       background-color: var(--form-background);
@@ -70,7 +70,6 @@
         background-color: var(--ghs-color-white);
       }
     }
-
   }
 
   .hint {
@@ -81,7 +80,6 @@
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     color: var(--ghs-color-white);
     margin: 0 calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-
   }
 
   .ghs-svg {
@@ -119,7 +117,7 @@
       .title {
         position: sticky;
         top: 0;
-        background-image: url('~src/assets/images/dialog_background.png');
+        background-image: url('/assets/images/dialog_background.png');
         display: none;
         justify-content: center;
         align-items: center;
@@ -195,7 +193,6 @@
         &.keep {
           border-color: var(--ghs-color-blue);
         }
-
       }
 
       .empty {
@@ -260,33 +257,28 @@
     }
 
     &.fh {
-
       .upcoming,
       .discarded,
       .finished,
       .removed {
-
         .title {
-          background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+          background-image: url('/assets/images/fh/dialog_background_fh.png');
         }
       }
     }
 
     &.modern {
-
       .upcoming,
       .discarded,
       .finished,
       .removed {
-
         .title {
-          background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+          background-image: url('/assets/images/modern/dialog_background_modern.png');
         }
       }
     }
   }
 }
-
 
 .cdk-drag-preview {
   opacity: 0;

@@ -1,30 +1,60 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Action, ActionType } from 'src/app/game/model/data/Action';
+import { ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
-import { Action, ActionType } from 'src/app/game/model/data/Action';
-import { ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
-import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
-import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
-import { CharacterInitiativeDialogComponent } from '../character/cards/initiative-dialog';
-import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
+import { ActionComponent } from 'src/app/ui/figures/actions/action';
+import { ActionsComponent } from 'src/app/ui/figures/actions/actions';
+import { InteractiveActionsComponent } from 'src/app/ui/figures/actions/interactive/interactive-actions';
+import { CharacterInitiativeComponent } from 'src/app/ui/figures/character/cards/initiative';
+import { CharacterInitiativeDialogComponent } from 'src/app/ui/figures/character/cards/initiative-dialog';
+import { HighlightConditionsComponent } from 'src/app/ui/figures/conditions/highlight';
+import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
+import { EntityIndexKeyComponent } from 'src/app/ui/figures/standee/entity-index-key/entity-index-key';
+import { StandeeComponent } from 'src/app/ui/figures/standee/standee';
+import { EntityAnimationDirective } from 'src/app/ui/helper/EntityAnimation';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { GhsMinZeroPipe, GhsRangePipe } from 'src/app/ui/helper/Pipes';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { ghsDefaultDialogPositions, ghsValueSign } from 'src/app/ui/helper/Static';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
+import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
 
 @Component({
-  standalone: false,
+  imports: [
+    NgClass,
+    GhsLabelDirective,
+    PointerInputDirective,
+    ValueSignDirective,
+    EntityAnimationDirective,
+    GhsMinZeroPipe,
+    GhsRangePipe,
+    TrackUUIDPipe,
+    ActionComponent,
+    ActionsComponent,
+    CharacterInitiativeComponent,
+    EntityIndexKeyComponent,
+    HighlightConditionsComponent,
+    InteractiveActionsComponent,
+    StandeeComponent
+  ],
   selector: 'ghs-objective-container',
   templateUrl: './objective-container.html',
-  styleUrls: ['./objective-container.scss']
+  styleUrls: ['./objective-container.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ObjectiveContainerComponent implements OnInit {
-
   @Input() objective!: ObjectiveContainer;
 
   @ViewChild('objectiveTitle', { static: false }) titleInput!: ElementRef;
@@ -40,7 +70,7 @@ export class ObjectiveContainerComponent implements OnInit {
   activeConditions: EntityCondition[] = [];
   initiative: number = -1;
   health: number = 0;
-  marker: string = "";
+  marker: string = '';
   compact: boolean = false;
   short: boolean = false;
   shortMenu: boolean = false;
@@ -52,7 +82,13 @@ export class ObjectiveContainerComponent implements OnInit {
 
   EntityConditionState = EntityConditionState;
 
-  constructor(private dialog: Dialog, private overlay: Overlay, private elementRef: ElementRef, private ghsManager: GhsManager, private cdr: ChangeDetectorRef) {
+  constructor(
+    private dialog: Dialog,
+    private overlay: Overlay,
+    private elementRef: ElementRef,
+    private ghsManager: GhsManager,
+    private cdr: ChangeDetectorRef
+  ) {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 
@@ -60,12 +96,11 @@ export class ObjectiveContainerComponent implements OnInit {
     this.update();
   }
 
-
   update() {
     this.nonDead = this.objective.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
     this.activeConditions = [];
     this.entity = undefined;
-    this.marker = "";
+    this.marker = '';
     if (this.nonDead == 1) {
       this.entity = this.objective.entities.find((entity) => gameManager.entityManager.isAlive(entity));
       if (this.entity) {
@@ -74,7 +109,7 @@ export class ObjectiveContainerComponent implements OnInit {
           if (!this.activeConditions.find((entityCondition) => entityCondition.name == immunity)) {
             this.activeConditions.push(new EntityCondition(immunity));
           }
-        })
+        });
       }
     } else if (this.objective.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) == 0)) {
       this.marker = this.objective.entities.flatMap((entity) => entity.marker)[0];
@@ -89,10 +124,13 @@ export class ObjectiveContainerComponent implements OnInit {
   }
 
   toggleFigure(event: any): void {
-    if ((gameManager.game.state == GameState.draw || settingsManager.settings.initiativeRequired && this.objective.initiative <= 0)) {
+    if (gameManager.game.state == GameState.draw || (settingsManager.settings.initiativeRequired && this.objective.initiative <= 0)) {
       this.openInitiativeDialog(event);
     } else {
-      gameManager.stateManager.before(this.objective.active ? "unsetActive" : "setActive", gameManager.objectiveManager.objectiveName(this.objective));
+      gameManager.stateManager.before(
+        this.objective.active ? 'unsetActive' : 'setActive',
+        gameManager.objectiveManager.objectiveName(this.objective)
+      );
       gameManager.roundManager.toggleFigure(this.objective);
       gameManager.stateManager.after();
     }
@@ -146,36 +184,44 @@ export class ObjectiveContainerComponent implements OnInit {
 
   dragHpMove(value: number) {
     this.health = value;
-    if ((!this.objectiveData || !this.objectiveData.trackDamage) && this.entity && this.entity.health + this.health > EntityValueFunction(this.entity.maxHealth)) {
+    if (
+      (!this.objectiveData || !this.objectiveData.trackDamage) &&
+      this.entity &&
+      this.entity.health + this.health > EntityValueFunction(this.entity.maxHealth)
+    ) {
       this.health = EntityValueFunction(this.entity.maxHealth) - this.entity.health;
     }
   }
 
-  dragHpEnd(value: number) {
+  dragHpEnd() {
     if (this.health != 0 && this.entity) {
-      gameManager.entityManager.before(this.entity, this.objective, "changeHP", ghsValueSign(this.health));
+      gameManager.entityManager.before(this.entity, this.objective, 'changeHP', ghsValueSign(this.health));
       gameManager.entityManager.changeHealth(this.entity, this.objective, this.health);
       if (this.entity.health <= 0 && this.entity.maxHealth > 0) {
-        gameManager.objectiveManager.removeObjective(this.objective)
+        gameManager.objectiveManager.removeObjective(this.objective);
       }
       this.health = 0;
       gameManager.stateManager.after();
     }
   }
 
-  dragHpCancel(value: number) {
+  dragHpCancel() {
     this.health = 0;
   }
 
   openEntityMenu(): void {
     this.dialog.open(EntitiesMenuDialogComponent, {
-      panelClass: ['dialog'], data: {
+      panelClass: ['dialog'],
+      data: {
         entity: this.entity,
         figure: this.objective,
         objectiveOnly: !this.entity,
         positionElement: this.elementRef.nativeElement.querySelector('.image-container')
       },
-      positionStrategy: this.overlay.position().flexibleConnectedTo(this.elementRef.nativeElement.querySelector('.image-container')).withPositions(ghsDefaultDialogPositions())
+      positionStrategy: this.overlay
+        .position()
+        .flexibleConnectedTo(this.elementRef.nativeElement.querySelector('.image-container'))
+        .withPositions(ghsDefaultDialogPositions())
     });
   }
 
@@ -213,14 +259,14 @@ export class ObjectiveContainerComponent implements OnInit {
       }
     }
 
-    gameManager.stateManager.before('addObjective.entity', (number + 1), name);
+    gameManager.stateManager.before('addObjective.entity', number + 1, name);
     gameManager.objectiveManager.addObjectiveEntity(this.objective, number);
     gameManager.stateManager.after();
   }
 
   removeCondition(entityCondition: EntityCondition) {
     if (this.entity) {
-      gameManager.entityManager.before(this.entity, this.objective, "removeCondition", entityCondition.name);
+      gameManager.entityManager.before(this.entity, this.objective, 'removeCondition', entityCondition.name);
       if (entityCondition.types.indexOf(ConditionType.stackable) && entityCondition.value > 1) {
         entityCondition.value--;
       } else {
@@ -234,7 +280,7 @@ export class ObjectiveContainerComponent implements OnInit {
     if (this.entity) {
       const edition = marker.split('-')[0];
       const name = marker.split('-').slice(1).join('-');
-      gameManager.entityManager.before(this.entity, this.objective, "removeCharacterMarker", marker, edition + '.' + name);
+      gameManager.entityManager.before(this.entity, this.objective, 'removeCharacterMarker', marker, edition + '.' + name);
       this.entity.markers = this.entity.markers.filter((value) => value != marker);
       gameManager.stateManager.after();
     }
@@ -245,11 +291,9 @@ export class ObjectiveContainerComponent implements OnInit {
     this.interactiveActions = change;
   }
 
-
-
   removeShield() {
     if (this.entity) {
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeEntityShield"));
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, 'removeEntityShield'));
       this.entity.shield = undefined;
       gameManager.stateManager.after();
     }
@@ -257,7 +301,7 @@ export class ObjectiveContainerComponent implements OnInit {
 
   removeShieldPersistent() {
     if (this.entity) {
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeEntityShieldPersistent"));
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, 'removeEntityShieldPersistent'));
       this.entity.shieldPersistent = undefined;
       gameManager.stateManager.after();
     }
@@ -265,13 +309,27 @@ export class ObjectiveContainerComponent implements OnInit {
 
   removeRetaliate(index: number) {
     if (this.entity) {
-      let retaliate: Action[] = JSON.parse(JSON.stringify(this.entity.retaliate));
+      const retaliate: Action[] = JSON.parse(JSON.stringify(this.entity.retaliate));
       retaliate.splice(index, 1);
       if (retaliate.length > 0) {
-        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "setEntityRetaliate"), retaliate.map((action) => '%game.action.retaliate% ' + EntityValueFunction(action.value) + (action.subActions && action.subActions[0] && action.subActions[0].type == ActionType.range && EntityValueFunction(action.subActions[0].value) > 1 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + '' : '')).join(', '));
-
+        gameManager.stateManager.before(
+          ...gameManager.entityManager.undoInfos(this.entity, this.objective, 'setEntityRetaliate'),
+          retaliate
+            .map(
+              (action) =>
+                '%game.action.retaliate% ' +
+                EntityValueFunction(action.value) +
+                (action.subActions &&
+                action.subActions[0] &&
+                action.subActions[0].type == ActionType.range &&
+                EntityValueFunction(action.subActions[0].value) > 1
+                  ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + ''
+                  : '')
+            )
+            .join(', ')
+        );
       } else {
-        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeEntityRetaliate"));
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, 'removeEntityRetaliate'));
       }
       this.entity.retaliate = retaliate;
       gameManager.stateManager.after();
@@ -280,16 +338,32 @@ export class ObjectiveContainerComponent implements OnInit {
 
   removeRetaliatePersistent(index: number) {
     if (this.entity) {
-      let retaliatePersistent: Action[] = JSON.parse(JSON.stringify(this.entity.retaliatePersistent));
+      const retaliatePersistent: Action[] = JSON.parse(JSON.stringify(this.entity.retaliatePersistent));
       retaliatePersistent.splice(index, 1);
       if (retaliatePersistent.length > 0) {
-        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "setEntityRetaliatePersistent"), retaliatePersistent.map((action) => '%game.action.retaliate% ' + EntityValueFunction(action.value) + (action.subActions && action.subActions[0] && action.subActions[0].type == ActionType.range && EntityValueFunction(action.subActions[0].value) > 1 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + '' : '')).join(', '));
+        gameManager.stateManager.before(
+          ...gameManager.entityManager.undoInfos(this.entity, this.objective, 'setEntityRetaliatePersistent'),
+          retaliatePersistent
+            .map(
+              (action) =>
+                '%game.action.retaliate% ' +
+                EntityValueFunction(action.value) +
+                (action.subActions &&
+                action.subActions[0] &&
+                action.subActions[0].type == ActionType.range &&
+                EntityValueFunction(action.subActions[0].value) > 1
+                  ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + ''
+                  : '')
+            )
+            .join(', ')
+        );
       } else {
-        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeEntityRetaliatePersistent"));
+        gameManager.stateManager.before(
+          ...gameManager.entityManager.undoInfos(this.entity, this.objective, 'removeEntityRetaliatePersistent')
+        );
       }
       this.entity.retaliatePersistent = retaliatePersistent;
       gameManager.stateManager.after();
     }
   }
-
 }

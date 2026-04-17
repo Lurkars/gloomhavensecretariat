@@ -249,6 +249,10 @@ Then run `npm run start` to create a development server at [http://localhost:420
 
 To develop with docker, install docker compose and run `docker compose -f docker-compose.dev.yaml up -d`.
 
+### Disbranding
+
+If you are forking this project and want to remove direct references to `gloomhaven-secretariat.de`, `Lurkars`, and GitHub links from the UI, set `branded: false` in the environment files under `src/environments/`. This hides help links, feedback dialogs, public server lists, and author-specific settings from the application.
+
 ## Contributing
 
 Feel free to file a [new issue](https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose) for bugs, features, and improvements, or start a new [new discussion](https://github.com/Lurkars/gloomhavensecretariat/discussions/new/choose) for help or feedback.

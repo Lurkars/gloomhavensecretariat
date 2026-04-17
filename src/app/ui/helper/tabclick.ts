@@ -1,32 +1,40 @@
-import { Directive, HostListener, Input } from "@angular/core";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Directive, HostListener, Input } from '@angular/core';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 
 @Directive({
-    standalone: false,
-    selector: '[tabclick]',
-    host: {
-        "tabindex": "0",
-        "role": "button"
-    }
+  selector: '[tabclick]',
+  host: {
+    tabindex: '0',
+    role: 'button'
+  }
 })
 export class TabClickDirective {
+  @Input() autoBlur: boolean = false;
 
-    @Input('autoBlur') autoBlur: boolean = false;
-
-    @HostListener('keydown', ['$event'])
-    onKeyDown(event: KeyboardEvent) {
-        if (settingsManager.settings.keyboardShortcuts && (event.key === 'Enter' || event.key === ' ') && !event.shiftKey && !event.altKey && event.target instanceof HTMLElement) {
-            const disabled = event.target.getAttribute('disabled') || event.target.classList.contains('disabled') || event.target.parentElement && (event.target.parentElement.getAttribute('disabled') || event.target.parentElement.classList.contains('disabled'));
-            event.preventDefault();
-            event.stopPropagation();
-            if (!disabled) {
-                event.target.dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
-                event.target.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
-                event.target.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true }));
-                if (this.autoBlur) {
-                    event.target.blur();
-                }
-            }
+  @HostListener('keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    if (
+      settingsManager.settings.keyboardShortcuts &&
+      (event.key === 'Enter' || event.key === ' ') &&
+      !event.shiftKey &&
+      !event.altKey &&
+      event.target instanceof HTMLElement
+    ) {
+      const disabled =
+        event.target.getAttribute('disabled') ||
+        event.target.classList.contains('disabled') ||
+        (event.target.parentElement &&
+          (event.target.parentElement.getAttribute('disabled') || event.target.parentElement.classList.contains('disabled')));
+      event.preventDefault();
+      event.stopPropagation();
+      if (!disabled) {
+        event.target.dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
+        event.target.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
+        event.target.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true }));
+        if (this.autoBlur) {
+          event.target.blur();
         }
+      }
     }
+  }
 }

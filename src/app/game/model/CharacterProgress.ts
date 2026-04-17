@@ -1,20 +1,19 @@
-import { Enhancement } from "./data/Enhancement";
-import { AdditionalIdentifier, Identifier } from "./data/Identifier";
-import { LootType } from "./data/Loot";
-import { GameScenarioModel } from "./Scenario";
+import { Enhancement } from 'src/app/game/model/data/Enhancement';
+import { AdditionalIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
+import { LootType } from 'src/app/game/model/data/Loot';
+import { GameScenarioModel } from 'src/app/game/model/Scenario';
 
 export class CharacterProgress {
-
   experience: number = 0;
   gold: number = 0;
   loot: Partial<Record<LootType, number>> = {};
-  itemNotes: string = "";
+  itemNotes: string = '';
   items: Identifier[] = [];
   equippedItems: AdditionalIdentifier[] = [];
-  personalQuest: string = "";
+  personalQuest: string = '';
   personalQuestProgress: number[] = [];
   battleGoals: number = 0;
-  notes: string = "";
+  notes: string = '';
   retired: boolean = false;
   retirements: number = 0;
   extraPerks: number = 0;
@@ -25,7 +24,6 @@ export class CharacterProgress {
   trial: Identifier | undefined;
   deck: number[] = [];
   enhancements: Enhancement[] = [];
-
 }
 
 export class DamageStats {
@@ -43,7 +41,6 @@ export class DamageStats {
 }
 
 export class ScenarioStats extends DamageStats {
-
   scenario: GameScenarioModel | undefined;
   success: boolean = false;
   level: number = 0;
@@ -53,5 +50,4 @@ export class ScenarioStats extends DamageStats {
   treasures: number = 0;
   loot: Partial<Record<LootType, number>> = {};
   summons: DamageStats = new DamageStats();
-
 }

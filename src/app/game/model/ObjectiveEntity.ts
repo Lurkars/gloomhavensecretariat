@@ -1,12 +1,11 @@
-import { Action } from "./data/Action";
-import { ConditionName, EntityCondition, GameEntityConditionModel } from "./data/Condition";
-import { Entity, EntityValueFunction } from "./Entity";
-import { ObjectiveContainer } from "./ObjectiveContainer";
+import { Action } from 'src/app/game/model/data/Action';
+import { ConditionName, EntityCondition, GameEntityConditionModel } from 'src/app/game/model/data/Condition';
+import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 
 export class ObjectiveEntity implements Entity {
-
   uuid: string;
-  marker: string = "";
+  marker: string = '';
   dead: boolean = false;
   dormant: boolean = false;
   revealed: boolean = false;
@@ -30,13 +29,30 @@ export class ObjectiveEntity implements Entity {
   constructor(uuid: string, number: number, objective: ObjectiveContainer, marker: string | undefined) {
     this.uuid = uuid;
     this.number = number;
-    this.marker = marker || "";
+    this.marker = marker || '';
     this.maxHealth = EntityValueFunction(objective.health);
     this.health = this.maxHealth;
   }
 
   toModel(): GameObjectiveEntityModel {
-    return new GameObjectiveEntityModel(this.uuid, this.number, this.marker, this.dead, this.active, this.dormant, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.shield, this.shieldPersistent, this.retaliate, this.retaliatePersistent);
+    return new GameObjectiveEntityModel(
+      this.uuid,
+      this.number,
+      this.marker,
+      this.dead,
+      this.active,
+      this.dormant,
+      this.health,
+      this.maxHealth,
+      this.entityConditions.map((condition) => condition.toModel()),
+      this.immunities,
+      this.markers,
+      this.tags || [],
+      this.shield,
+      this.shieldPersistent,
+      this.retaliate,
+      this.retaliatePersistent
+    );
   }
 
   fromModel(model: GameObjectiveEntityModel) {
@@ -50,7 +66,7 @@ export class ObjectiveEntity implements Entity {
     this.entityConditions = [];
     if (model.entityConditions) {
       this.entityConditions = model.entityConditions.map((gecm) => {
-        let condition = new EntityCondition(gecm.name, gecm.value);
+        const condition = new EntityCondition(gecm.name, gecm.value);
         condition.fromModel(gecm);
         return condition;
       });
@@ -64,8 +80,6 @@ export class ObjectiveEntity implements Entity {
     this.retaliate = (model.retaliate || []).map((value) => JSON.parse(value));
     this.retaliatePersistent = (model.retaliatePersistent || []).map((value) => JSON.parse(value));
   }
-
-
 }
 
 export class GameObjectiveEntityModel {
@@ -74,7 +88,7 @@ export class GameObjectiveEntityModel {
   marker: string;
   dead: boolean;
   active: boolean;
-  dormant: boolean
+  dormant: boolean;
   health: number;
   maxHealth: number;
   entityConditions: GameEntityConditionModel[];
@@ -102,7 +116,8 @@ export class GameObjectiveEntityModel {
     shield: Action | undefined,
     shieldPersistent: Action | undefined,
     retaliate: Action[],
-    retaliatePersistent: Action[]) {
+    retaliatePersistent: Action[]
+  ) {
     this.uuid = uuid;
     this.number = number;
     this.marker = marker;
@@ -115,8 +130,8 @@ export class GameObjectiveEntityModel {
     this.immunities = JSON.parse(JSON.stringify(immunities));
     this.markers = JSON.parse(JSON.stringify(markers));
     this.tags = JSON.parse(JSON.stringify(tags));
-    this.shield = shield ? JSON.stringify(shield) : "";
-    this.shieldPersistent = shieldPersistent ? JSON.stringify(shieldPersistent) : "";
+    this.shield = shield ? JSON.stringify(shield) : '';
+    this.shieldPersistent = shieldPersistent ? JSON.stringify(shieldPersistent) : '';
     this.retaliate = retaliate.map((action) => JSON.stringify(action));
     this.retaliatePersistent = retaliatePersistent.map((action) => JSON.stringify(action));
   }

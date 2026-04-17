@@ -1,12 +1,11 @@
-import { Editional } from "./Editional";
-import { FigureError } from "./FigureError";
-import { MonsterStat } from "./MonsterStat";
-import { MonsterType } from "./MonsterType";
-import { Spoilable } from "./Spoilable";
+import { Editional } from 'src/app/game/model/data/Editional';
+import { FigureError } from 'src/app/game/model/data/FigureError';
+import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { Spoilable } from 'src/app/game/model/data/Spoilable';
 
 export class MonsterData implements Editional, Spoilable {
-
-  name: string = "";
+  name: string = '';
   count: number | string = 0;
   randomCount: number | string = 0;
   standeeCount: number | string | undefined;
@@ -14,7 +13,7 @@ export class MonsterData implements Editional, Spoilable {
   standeeShareEdition: string | undefined;
   baseStat: MonsterStat = new MonsterStat(MonsterType.normal);
   stats: MonsterStat[] = [];
-  deck: string = "";
+  deck: string = '';
   boss: boolean = false;
   bb: boolean = false;
   flying: boolean = false;
@@ -26,12 +25,12 @@ export class MonsterData implements Editional, Spoilable {
   noThumbnail: boolean = false;
   noArtwork: boolean = false;
 
-  pet: string = "";
+  pet: string = '';
 
   firstActiveAction: 'top' | 'bottom' | false = false;
 
   // from Editional
-  edition: string = "";
+  edition: string = '';
 
   // from Spoilable
   spoiler: boolean = false;
@@ -71,5 +70,4 @@ export class MonsterData implements Editional, Spoilable {
       this.replace = monsterData.replace;
     }
   }
-
 }

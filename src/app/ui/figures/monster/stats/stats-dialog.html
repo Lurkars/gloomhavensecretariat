@@ -1,135 +1,149 @@
 <div class="stats-dialog">
-  <span class="name"><span [ghs-label]="'data.monster.' + monster.name"></span>
+  <span class="name"
+    ><span [ghs-label]="'data.monster.' + monster.name"></span>
     @if (monster.isAlly) {
-    <span class="ally"><span [ghs-label]="'game.ally'"></span></span>
+      <span class="ally"><span [ghs-label]="'game.ally'"></span></span>
     }
     @if (monster.isAllied) {
-    <span class="allied"><span [ghs-label]="'game.allied'"></span></span>
+      <span class="allied"><span [ghs-label]="'game.allied'"></span></span>
     }
     @if (edition) {
-    <span class="edition">[<span [ghs-label]="'data.edition.' + edition"></span>]</span>
+      <span class="edition">[<span [ghs-label]="'data.edition.' + edition"></span>]</span>
     }
   </span>
 
   <div class="menu">
-    <a class="toggle-dormant" [ghs-label]="'monster.toggleDormant.' + (dormant? 'off' : 'on')"
-      (click)="toggleDormant()"></a>
+    <a class="toggle-dormant" [ghs-label]="'monster.toggleDormant.' + (dormant ? 'off' : 'on')" (click)="toggleDormant()"></a>
   </div>
 
   <div class="menu">
-    <a class="toggle-ally" [ghs-label]="'monster.toggleAlly.' + (monster.isAlly ? 'off' : 'on')"
-      (click)="toggleAlly()"></a>
-    <a class="toggle-allied" [ghs-label]="'monster.toggleAllied.' + (monster.isAllied ? 'off' : 'on')"
-      (click)="toggleAllied()"></a>
+    <a class="toggle-ally" [ghs-label]="'monster.toggleAlly.' + (monster.isAlly ? 'off' : 'on')" (click)="toggleAlly()"></a>
+    <a class="toggle-allied" [ghs-label]="'monster.toggleAllied.' + (monster.isAllied ? 'off' : 'on')" (click)="toggleAllied()"></a>
   </div>
 
   @if (monster.statEffect) {
-  <div class="stat-effect"
-    [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
-    <div class="title" [ghs-label]="'monster.statEffect'"></div>
-    <div class="stat-changes">
-      @if (!monster.statEffect.absolute) {
-      @if (monster.statEffect.health) {
-      <span class="stat">
-        <span class="type">
-          <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" />
-        </span>
-        <span [value-sign]="EntityValueFunction(monster.statEffect.health)"></span>
-      </span>
+    <div class="stat-effect" [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }">
+      <div class="title" [ghs-label]="'monster.statEffect'"></div>
+      <div class="stat-changes">
+        @if (!monster.statEffect.absolute) {
+          @if (monster.statEffect.health) {
+            <span class="stat">
+              <span class="type">
+                <img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" />
+              </span>
+              <span [value-sign]="EntityValueFunction(monster.statEffect.health)"></span>
+            </span>
+          }
+          @if (monster.statEffect.movement) {
+            <span class="stat">
+              <span class="type">
+                <img
+                  [src]="
+                    '/assets/images' +
+                    (settingsManager.settings.fhStyle ? '/fh' : '') +
+                    '/stats/' +
+                    (monster.flying ? 'fly' : 'move') +
+                    '.svg'
+                  "
+                />
+              </span>
+              <span [value-sign]="EntityValueFunction(monster.statEffect.movement)"></span>
+            </span>
+          }
+          @if (monster.statEffect.attack) {
+            <span class="stat">
+              <span class="type">
+                <img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'" />
+              </span>
+              <span [value-sign]="EntityValueFunction(monster.statEffect.attack)"></span>
+            </span>
+          }
+          @if (monster.statEffect.range) {
+            <span class="stat">
+              <span class="type">
+                <img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'" />
+              </span>
+              <span [value-sign]="EntityValueFunction(monster.statEffect.range)"></span>
+            </span>
+          }
+        }
+        @if (monster.statEffect.absolute) {
+          @if (monster.statEffect.health) {
+            <span class="stat">
+              <span class="type">
+                <img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" />
+              </span>
+              <span>= <span [ghs-label]="monster.statEffect.health"></span></span>
+            </span>
+          }
+          @if (monster.statEffect.movement) {
+            <span class="stat">
+              <span class="type">
+                <img
+                  [src]="
+                    '/assets/images' +
+                    (settingsManager.settings.fhStyle ? '/fh' : '') +
+                    '/stats/' +
+                    (monster.flying ? 'fly' : 'move') +
+                    '.svg'
+                  "
+                />
+              </span>
+              <span>= <span [ghs-label]="monster.statEffect.movement"></span></span>
+            </span>
+          }
+          @if (monster.statEffect.attack) {
+            <span class="stat">
+              <span class="type">
+                <img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'" />
+              </span>
+              <span>= <span [ghs-label]="monster.statEffect.attack"></span></span>
+            </span>
+          }
+          @if (monster.statEffect.range) {
+            <span class="stat">
+              <span class="type">
+                <img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'" />
+              </span>
+              <span>= <span [ghs-label]="monster.statEffect.range"></span></span>
+            </span>
+          }
+        }
+      </div>
+      @if (monster.statEffect.actions) {
+        <ghs-actions [actions]="monster.statEffect.actions" [relative]="true" [inline]="true" [statsCalculation]="false"></ghs-actions>
       }
-      @if (monster.statEffect.movement) {
-      <span class="stat">
-        <span class="type">
-          <img
-            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (monster.flying ? 'fly' : 'move') + '.svg'" />
-        </span>
-        <span [value-sign]="EntityValueFunction(monster.statEffect.movement)"></span>
-      </span>
+      @if (monster.statEffect.immunities) {
+        <div class="immunities">
+          @for (immunity of monster.statEffect.immunities; track immunity) {
+            <span class="condition immunity">
+              <img
+                class="icon"
+                [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity + '.svg'"
+              />
+            </span>
+          }
+        </div>
       }
-      @if (monster.statEffect.attack) {
-      <span class="stat">
-        <span class="type">
-          <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'" />
-        </span>
-        <span [value-sign]="EntityValueFunction(monster.statEffect.attack)"></span>
-      </span>
+      @if (monster.statEffect.deck) {
+        <span
+          class="deck text-white"
+          (click)="openAbilities()"
+          [ghs-label]="'monster.statEffect.deck'"
+          [ghs-label-args]="[monster.statEffect.note]"
+        ></span>
       }
-      @if (monster.statEffect.range) {
-      <span class="stat">
-        <span class="type">
-          <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'" />
-        </span>
-        <span [value-sign]="EntityValueFunction(monster.statEffect.range)"></span>
-      </span>
-      }
-      }
-      @if (monster.statEffect.absolute) {
-      @if (monster.statEffect.health) {
-      <span class="stat">
-        <span class="type">
-          <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" />
-        </span>
-        <span>= <span [ghs-label]="monster.statEffect.health"></span></span>
-      </span>
-      }
-      @if (monster.statEffect.movement) {
-      <span class="stat">
-        <span class="type">
-          <img
-            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (monster.flying ? 'fly' : 'move') + '.svg'" />
-        </span>
-        <span>= <span [ghs-label]="monster.statEffect.movement"></span></span>
-      </span>
-      }
-      @if (monster.statEffect.attack) {
-      <span class="stat">
-        <span class="type">
-          <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'" />
-        </span>
-        <span>= <span [ghs-label]="monster.statEffect.attack"></span></span>
-      </span>
-      }
-      @if (monster.statEffect.range) {
-      <span class="stat">
-        <span class="type">
-          <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'" />
-        </span>
-        <span>= <span [ghs-label]="monster.statEffect.range"></span></span>
-      </span>
-      }
+      @if (monster.statEffect.initiative) {
+        <span class="deck text-white" [ghs-label]="monster.statEffect.note"></span>
       }
     </div>
-    @if (monster.statEffect.actions) {
-    <ghs-actions [actions]="monster.statEffect.actions" [relative]="true" [inline]="true"
-      [statsCalculation]="false"></ghs-actions>
-    }
-    @if (monster.statEffect.immunities) {
-    <div class="immunities">
-      @for (immunity of monster.statEffect.immunities; track immunity) {
-      <span class="condition immunity">
-        <img class="icon"
-          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity+ '.svg'" />
-      </span>
-      }
-    </div>
-    }
-    @if (monster.statEffect.deck) {
-    <span class="deck text-white" (click)="openAbilities()" [ghs-label]="'monster.statEffect.deck'"
-      [ghs-label-args]="[monster.statEffect.note]"></span>
-    }
-    @if (monster.statEffect.initiative) {
-    <span class="deck text-white" [ghs-label]="monster.statEffect.note"></span>
-    }
-  </div>
   }
 
   <div class="stats-container">
-
     @for (m of monsters | trackUUID; track m._trackUUID) {
-    <div class="stats">
-      <ghs-monster-stats [monster]="m" [forceStats]="true" [noClick]="true">
-      </ghs-monster-stats>
-    </div>
+      <div class="stats">
+        <ghs-monster-stats [monster]="m" [forceStats]="true" [noClick]="true"> </ghs-monster-stats>
+      </div>
     }
   </div>
 </div>

@@ -1,25 +1,37 @@
-import { Dialog } from "@angular/cdk/dialog";
-import { Overlay } from "@angular/cdk/overlay";
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from "@angular/core";
-import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character } from "src/app/game/model/Character";
-import { GameState } from "src/app/game/model/Game";
-import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
-import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
-import { CharacterInitiativeDialogComponent } from "./initiative-dialog";
-
+import { Dialog } from '@angular/cdk/dialog';
+import { Overlay } from '@angular/cdk/overlay';
+import { NgClass } from '@angular/common';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
+import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { GameState } from 'src/app/game/model/Game';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { CharacterInitiativeDialogComponent } from 'src/app/ui/figures/character/cards/initiative-dialog';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
 
 @Component({
-  standalone: false,
+  imports: [GhsLabelDirective, NgClass],
   selector: 'ghs-character-initiative',
   templateUrl: 'initiative.html',
-  styleUrls: ['./initiative.scss']
+  styleUrls: ['./initiative.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterViewInit {
-
   @Input() figure!: Character | ObjectiveContainer;
   @Input() initiative: number = -1;
   @ViewChild('initiativeInput', { static: false }) initiativeInput!: ElementRef;
@@ -31,18 +43,24 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   character: Character | undefined;
   objectiveContainer: ObjectiveContainer | undefined;
   reveal: number = 0;
-  id: string = "";
+  id: string = '';
   initiativeHidden: boolean = false;
   hidden: boolean = false;
   initiativeValue: string = '';
   min: number = 0;
 
-  constructor(private dialog: Dialog, private overlay: Overlay, public elementRef: ElementRef, private ghsManager: GhsManager, private cdr: ChangeDetectorRef) {
+  constructor(
+    private dialog: Dialog,
+    private overlay: Overlay,
+    public elementRef: ElementRef,
+    private ghsManager: GhsManager,
+    private cdr: ChangeDetectorRef
+  ) {
     this.ghsManager.uiChangeEffect(() => {
       this.id = 'initiative-input-' + this.tabindex();
       this.updateDisplay();
-    })
-  };
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['initiative']) {
@@ -69,7 +87,6 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   ngAfterViewInit(): void {
     if (this.initiativeInput) {
       this.initiativeInput.nativeElement.addEventListener('keydown', (event: KeyboardEvent) => {
-
         if (settingsManager.settings.keyboardShortcuts) {
           const tabindex = this.tabindex();
           if ((event.key === 'Tab' || event.key === 'Enter') && gameManager.game.state == GameState.draw) {
@@ -78,7 +95,10 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
             if (!next && tabindex > 0) {
               next = document.getElementById('initiative-input-0');
             } else if (nextIndex < 0) {
-              nextIndex = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && (figure.initiativeVisible || !figure.initiative)).length - 1;
+              nextIndex =
+                gameManager.game.figures.filter(
+                  (figure) => figure instanceof Character && !figure.absent && (figure.initiativeVisible || !figure.initiative)
+                ).length - 1;
               next = document.getElementById('initiative-input-' + nextIndex);
               while (!next && nextIndex > 0) {
                 nextIndex--;
@@ -104,7 +124,7 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
             }
           }
         }
-      })
+      });
     }
   }
 
@@ -113,7 +133,10 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
       this.disableReveal();
     }
     const initiative: number = isNaN(+event.target.value) ? 0 : +event.target.value;
-    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100) {
+    if (
+      (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0) || initiative > 0) &&
+      initiative < 100
+    ) {
       this.setInitiative(initiative);
     } else {
       event.target.value = (this.figure.initiative < 10 ? '0' : '') + this.figure.initiative;
@@ -122,14 +145,10 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
 
   private formatInitiative(): string {
     if (this.initiative != -1) {
-      return this.initiative > 0
-        ? (this.initiative < 10 ? '0' + this.initiative : '' + this.initiative)
-        : '';
+      return this.initiative > 0 ? (this.initiative < 10 ? '0' + this.initiative : '' + this.initiative) : '';
     }
 
-    return this.figure.initiative > 0
-      ? (this.figure.initiative < 10 ? '0' + this.figure.initiative : '' + this.figure.initiative)
-      : '';
+    return this.figure.initiative > 0 ? (this.figure.initiative < 10 ? '0' + this.figure.initiative : '' + this.figure.initiative) : '';
   }
 
   enableReveal(event: any) {
@@ -154,7 +173,11 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   }
 
   setInitiative(initiative: number) {
-    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100 && initiative != this.figure.initiative) {
+    if (
+      (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0) || initiative > 0) &&
+      initiative < 100 &&
+      initiative != this.figure.initiative
+    ) {
       if (this.character) {
         gameManager.entityManager.before(this.character, this.figure, 'setInitiative', initiative);
         this.character.initiativeVisible = true;
@@ -175,7 +198,7 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
 
   longRestOff(event: any) {
     if (this.character && this.character.longRest) {
-      gameManager.stateManager.before("characterLongRestOff", gameManager.characterManager.characterName(this.character, true, true));
+      gameManager.stateManager.before('characterLongRestOff', gameManager.characterManager.characterName(this.character, true, true));
       this.character.longRest = false;
       if (gameManager.game.state == GameState.next) {
         gameManager.sortFigures(this.character);
@@ -185,7 +208,7 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
     }
   }
 
-  open(event: any) {
+  open() {
     this.dialog.open(CharacterInitiativeDialogComponent, {
       panelClass: ['dialog'],
       data: this.figure,
@@ -194,8 +217,10 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   }
 
   tabindex(): number {
-    return gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && !figure.exhausted && (figure.initiativeVisible || !figure.initiative)).indexOf(this.figure);
+    return gameManager.game.figures
+      .filter(
+        (figure) => figure instanceof Character && !figure.absent && !figure.exhausted && (figure.initiativeVisible || !figure.initiative)
+      )
+      .indexOf(this.figure);
   }
-
 }
-

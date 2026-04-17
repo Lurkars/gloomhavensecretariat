@@ -1,103 +1,114 @@
 <div class="summon-dialog">
-
   <span class="name small" (click)="back()">
     <img class="icon character-icon" [src]="character.iconUrl" />
-    <span class="character-title"
-      [ngClass]="{'absent' : character.absent}">{{gameManager.characterManager.characterName(character,true)}}</span>
+    <span class="character-title" [ngClass]="{ absent: character.absent }">{{
+      gameManager.characterManager.characterName(character, true)
+    }}</span>
   </span>
 
   <span class="name full">
     <span class="name full">
       @if (summon.title) {
-      <span>{{summon.title}}&nbsp;</span>
+        <span>{{ summon.title }}&nbsp;</span>
       }
       @if (summon.name) {
-      <span>@if (summon.title) {
-        <span>(</span>
-        }
-        <span [ghs-label]="'data.summon.' + summon.name"></span>
-        @if (summon.title) {
-        <span>)</span>
-        }</span>
+        <span>
+          @if (summon.title) {
+            <span>(</span>
+          }
+          <span [ghs-label]="'data.summon.' + summon.name"></span>
+          @if (summon.title) {
+            <span>)</span>
+          }
+        </span>
       }
       @if (!summon.name) {
-      <span><span [ghs-label]="'summon'"></span></span>
+        <span><span [ghs-label]="'summon'"></span></span>
       }
-      <span class="summon-entity"
-        [ngClass]="{ 'thumbnail' : settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)}">
-        <span class="summon-state" [ngClass]="{'fh': summon.color == SummonColor.fh}">
+      <span
+        class="summon-entity"
+        [ngClass]="{ thumbnail: settingsManager.settings.artwork && ((summon.thumbnail && !summon.noThumbnail) || summon.thumbnailUrl) }"
+      >
+        <span class="summon-state" [ngClass]="{ fh: summon.color == SummonColor.fh }">
           @if (summon.color != SummonColor.fh) {
-          <img src="./assets/images/summons/{{summon.color}}.png">
+            <img src="/assets/images/summons/{{ summon.color }}.png" />
           }
           <span class="summon-number">
             @if (summon.number == 0) {
-            <span>-</span>
+              <span>-</span>
             }
             @if (summon.number > 0) {
-            <span>{{summon.number}}</span>
-            }</span>
+              <span>{{ summon.number }}</span>
+            }
+          </span>
         </span>
-        @if (settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)) {
-        <div class="background-image"
-          [style.background-image]="summon.thumbnailUrl ? 'url(' +  summon.thumbnailUrl + ')' : 'url(./assets/images/summons/thumbnail/' + summon.thumbnail + '.png)'">
-        </div>
+        @if (settingsManager.settings.artwork && ((summon.thumbnail && !summon.noThumbnail) || summon.thumbnailUrl)) {
+          <div
+            class="background-image"
+            [style.background-image]="
+              summon.thumbnailUrl
+                ? 'url(' + summon.thumbnailUrl + ')'
+                : 'url(/assets/images/summons/thumbnail/' + summon.thumbnail + '.png)'
+            "
+          ></div>
         }
       </span>
     </span>
   </span>
 
   <div class="summon-container">
-    <a class="button" tabclick (click)="changeMaxHealth(-1)"
-      [ngClass]="{'disabled' : EntityValueFunction(summon.maxHealth) + maxHp == 0}">
-      <img class="ghs-svg" src="./assets/images/minus.svg">
+    <a class="button" tabclick (click)="changeMaxHealth(-1)" [ngClass]="{ disabled: EntityValueFunction(summon.maxHealth) + maxHp == 0 }">
+      <img class="ghs-svg" src="/assets/images/minus.svg" />
     </a>
     <span class="item">
-      <img src="./assets/images/status/health.svg" />
-      <span class="badge badge-right max-health">{{(EntityValueFunction(summon.maxHealth) + maxHp <
-          EntityValueFunction(summon.maxHealth) || summon.health==EntityValueFunction(summon.maxHealth) ?
-          EntityValueFunction(summon.maxHealth) + maxHp : summon.health)}}/{{EntityValueFunction(summon.maxHealth) +
-          maxHp}}</span>
-      </span>
-      <a class="button" tabclick (click)="changeMaxHealth(1)">
-        <img class="ghs-svg" src="./assets/images/plus.svg">
-      </a>
-      <a class="button" tabclick (click)="changeMovement(-1)"
-        [ngClass]="{'disabled' : summon.movement + movement == 0}">
-        <img class="ghs-svg" src="./assets/images/minus.svg">
-      </a>
-      <span class="item">
-        <img class="ghs-svg" src="./assets/images/action/move.svg" />
-        <span class="badge badge-right" [value-calc]="summon.movement + movement" [empty]="true">></span>
-      </span>
-      <a class="button" tabclick (click)="changeMovement(1)">
-        <img class="ghs-svg" src="./assets/images/plus.svg">
-      </a>
-      <a class="button" tabclick (click)="changeAttack(-1)"
-        [ngClass]="{'disabled' : summon.attack == 'X' || +summon.attack + attack == 0}">
-        <img class="ghs-svg" src="./assets/images/minus.svg">
-      </a>
-      <span class="item">
-        <img class="ghs-svg" src="./assets/images/action/attack.svg" />
-        @if (summon.attack != 'X') {
+      <img src="/assets/images/status/health.svg" />
+      <span class="badge badge-right max-health"
+        >{{
+          EntityValueFunction(summon.maxHealth) + maxHp < EntityValueFunction(summon.maxHealth) ||
+          summon.health == EntityValueFunction(summon.maxHealth)
+            ? EntityValueFunction(summon.maxHealth) + maxHp
+            : summon.health
+        }}/{{ EntityValueFunction(summon.maxHealth) + maxHp }}</span
+      >
+    </span>
+    <a class="button" tabclick (click)="changeMaxHealth(1)">
+      <img class="ghs-svg" src="/assets/images/plus.svg" />
+    </a>
+    <a class="button" tabclick (click)="changeMovement(-1)" [ngClass]="{ disabled: summon.movement + movement == 0 }">
+      <img class="ghs-svg" src="/assets/images/minus.svg" />
+    </a>
+    <span class="item">
+      <img class="ghs-svg" src="/assets/images/action/move.svg" />
+      <span class="badge badge-right" [value-calc]="summon.movement + movement" [empty]="true">></span>
+    </span>
+    <a class="button" tabclick (click)="changeMovement(1)">
+      <img class="ghs-svg" src="/assets/images/plus.svg" />
+    </a>
+    <a class="button" tabclick (click)="changeAttack(-1)" [ngClass]="{ disabled: summon.attack == 'X' || +summon.attack + attack == 0 }">
+      <img class="ghs-svg" src="/assets/images/minus.svg" />
+    </a>
+    <span class="item">
+      <img class="ghs-svg" src="/assets/images/action/attack.svg" />
+      @if (summon.attack != 'X') {
         <span class="badge badge-right" [value-calc]="+summon.attack + attack" [empty]="true"></span>
-        }
-        @if (summon.attack == 'X') {
+      }
+      @if (summon.attack == 'X') {
         <span class="badge badge-right">X</span>
-        }
-      </span>
-      <a class="button" tabclick (click)="changeAttack(1)" [ngClass]="{'disabled' : summon.attack == 'X'}">
-        <img class="ghs-svg" src="./assets/images/plus.svg">
-      </a>
-      <a class="button" tabclick (click)="changeRange(-1)" [ngClass]="{'disabled' : summon.range + range == 0}">
-        <img class="ghs-svg" src="./assets/images/minus.svg">
-      </a>
-      <span class="item">
-        <img class="ghs-svg" src="./assets/images/action/range.svg" />
-        <span class="badge badge-right" [value-calc]="summon.range + range" [empty]="true">></span>
-      </span>
-      <a class="button" tabclick (click)="changeRange(1)">
-        <img class="ghs-svg" src="./assets/images/plus.svg">
-      </a>
+      }
+    </span>
+    <a class="button" tabclick (click)="changeAttack(1)" [ngClass]="{ disabled: summon.attack == 'X' }">
+      <img class="ghs-svg" src="/assets/images/plus.svg" />
+    </a>
+    <a class="button" tabclick (click)="changeRange(-1)" [ngClass]="{ disabled: summon.range + range == 0 }">
+      <img class="ghs-svg" src="/assets/images/minus.svg" />
+    </a>
+    <span class="item">
+      <img class="ghs-svg" src="/assets/images/action/range.svg" />
+      <span class="badge badge-right" [value-calc]="summon.range + range" [empty]="true">></span>
+    </span>
+    <a class="button" tabclick (click)="changeRange(1)">
+      <img class="ghs-svg" src="/assets/images/plus.svg" />
+    </a>
   </div>
 
   <input class="title" #summonTitle />

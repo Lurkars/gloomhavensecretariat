@@ -1,12 +1,11 @@
 .header {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: var(--ghs-font-title);
   color: var(--ghs-color-white);
-  font-size: calc(var(--ghs-unit) * 4* var(--ghs-text-factor));
+  font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
   margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
   .title {
@@ -120,7 +119,7 @@
       }
     }
 
-    &>span {
+    & > span {
       position: relative;
       display: flex;
       justify-content: center;
@@ -141,7 +140,7 @@
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
       flex-direction: row;
       justify-content: flex-end;
-      background-image: url('~src/assets/images/dialog_background.png');
+      background-image: url('/assets/images/dialog_background.png');
       position: sticky;
       left: 0;
       z-index: 1;
@@ -176,7 +175,7 @@
       margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
     }
 
-    input[type="number"] {
+    input[type='number'] {
       flex-grow: 1;
       width: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
       text-align: center;
@@ -214,8 +213,6 @@
       }
     }
 
-
-
     .trials {
       display: flex;
       align-items: center;
@@ -252,7 +249,7 @@
         position: relative;
         display: flex;
         justify-content: center;
-        background-image: url('~src/assets/images/scenario/treasure.png');
+        background-image: url('/assets/images/scenario/treasure.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -274,7 +271,7 @@
       justify-content: center;
       align-items: center;
 
-      &>span {
+      & > span {
         margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
       }
 
@@ -287,13 +284,13 @@
 
   &.fh {
     .table .head-col {
-      background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+      background-image: url('/assets/images/fh/dialog_background_fh.png');
     }
   }
 
   &.modern {
     .table .head-col {
-      background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+      background-image: url('/assets/images/modern/dialog_background_modern.png');
     }
   }
 }
@@ -308,7 +305,6 @@
   margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
   .reward {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -339,7 +335,12 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(180deg, var(--ghs-color-brown) 0%, var(--ghs-color-brown) calc(100% - var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor)), transparent 100%);
+        background: linear-gradient(
+          180deg,
+          var(--ghs-color-brown) 0%,
+          var(--ghs-color-brown) calc(100% - var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor)),
+          transparent 100%
+        );
         opacity: 0.2;
         filter: brightness(20);
         border-top-left-radius: calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor));
@@ -375,12 +376,11 @@
           font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
           font-family: var(--ghs-font-text);
 
-          input[type="radio"] {
+          input[type='radio'] {
             width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
           }
         }
-
 
         a {
           cursor: pointer;
@@ -493,7 +493,6 @@
       }
     }
   }
-
 }
 
 .buttons {
@@ -537,7 +536,6 @@
   }
 
   &.denied {
-
     .cancel {
       pointer-events: initial;
     }

@@ -1,24 +1,23 @@
-import { AttackModifier, AttackModifierType, CsOakDeckAttackModifier } from "src/app/game/model/data//AttackModifier";
-import { FigureError, FigureErrorType } from "src/app/game/model/data//FigureError";
-import { v4 as uuidv4 } from 'uuid';
-import { Character } from "../model/Character";
-import { Game, GameState } from "../model/Game";
-import { Monster } from "../model/Monster";
-import { ObjectiveContainer } from "../model/ObjectiveContainer";
-import { Summon, SummonColor, SummonState } from "../model/Summon";
-import { Action, ActionType } from "../model/data/Action";
-import { CharacterData } from "../model/data/CharacterData";
-import { CharacterStat } from "../model/data/CharacterStat";
-import { Condition, ConditionName, ConditionType, EntityConditionState } from "../model/data/Condition";
-import { Enhancement } from "../model/data/Enhancement";
-import { ItemData } from "../model/data/ItemData";
-import { PersonalQuest } from "../model/data/PersonalQuest";
-import { SummonData } from "../model/data/SummonData";
-import { gameManager } from "./GameManager";
-import { settingsManager } from "./SettingsManager";
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { AttackModifier, AttackModifierType, CsOakDeckAttackModifier } from 'src/app/game/model/data//AttackModifier';
+import { FigureError, FigureErrorType } from 'src/app/game/model/data//FigureError';
+import { Action, ActionType } from 'src/app/game/model/data/Action';
+import { CharacterData } from 'src/app/game/model/data/CharacterData';
+import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
+import { Condition, ConditionName, ConditionType, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { Enhancement } from 'src/app/game/model/data/Enhancement';
+import { ItemData } from 'src/app/game/model/data/ItemData';
+import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
+import { SummonData } from 'src/app/game/model/data/SummonData';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { Game, GameState } from 'src/app/game/model/Game';
+import { Monster } from 'src/app/game/model/Monster';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
 
 export class CharacterManager {
-
   game: Game;
   xpMap: number[] = [0, 45, 95, 150, 210, 275, 345, 420, 500];
 
@@ -39,10 +38,10 @@ export class CharacterManager {
     }
 
     if (characterData.icon) {
-      return './assets/images/character/icons/' + characterData.icon + '.svg';
+      return '/assets/images/character/icons/' + characterData.icon + '.svg';
     }
 
-    return './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '.svg';
+    return '/assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '.svg';
   }
 
   characterIdentityIcon(character: string, index: number): string {
@@ -51,7 +50,9 @@ export class CharacterManager {
       return this.characterIcon(character);
     }
 
-    return './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '-' + characterData.identities[index] + '.svg';
+    return (
+      '/assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '-' + characterData.identities[index] + '.svg'
+    );
   }
 
   characterName(character: Character, full: boolean = false, icon: boolean = false, identity: boolean = true): string {
@@ -62,22 +63,31 @@ export class CharacterManager {
         name = character.title.split('|')[character.identity];
         hasTitle = true;
       } else if (settingsManager.settings.characterIdentityHint && !full) {
-        name += " (" + settingsManager.getLabel('data.character.' + character.edition + '.' + character.name + '.' + character.identities[character.identity]) + ")"
+        name +=
+          ' (' +
+          settingsManager.getLabel(
+            'data.character.' + character.edition + '.' + character.name + '.' + character.identities[character.identity]
+          ) +
+          ')';
       }
     } else if (character.title) {
       name = character.title;
       hasTitle = true;
     }
     if (full && hasTitle) {
-      name += " (" + settingsManager.getLabel('data.character.' + character.edition + '.' + character.name) + ")";
+      name += ' (' + settingsManager.getLabel('data.character.' + character.edition + '.' + character.name) + ')';
     }
 
     if (icon) {
       name = '%game.characterIconColored.' + character.name + '%' + name;
     }
 
-    if (this.game.figures.find((figure) => figure instanceof Character && figure.name == character.name && figure.edition != character.edition)) {
-      name += " [" + settingsManager.getLabel('data.edition.' + character.edition) + "]";
+    if (
+      this.game.figures.find(
+        (figure) => figure instanceof Character && figure.name == character.name && figure.edition != character.edition
+      )
+    ) {
+      name += ' [' + settingsManager.getLabel('data.edition.' + character.edition) + ']';
     }
 
     return name;
@@ -100,10 +110,10 @@ export class CharacterManager {
     }
 
     if (characterData.thumbnail) {
-      return './assets/images/character/thumbnail/' + characterData.thumbnail + '.png';
+      return '/assets/images/character/thumbnail/' + characterData.thumbnail + '.png';
     }
 
-    return './assets/images/character/thumbnail/' + characterData.edition + '-' + characterData.name + '.png';
+    return '/assets/images/character/thumbnail/' + characterData.edition + '-' + characterData.name + '.png';
   }
 
   characterCount(figuresOnly: boolean = false): number {
@@ -115,11 +125,15 @@ export class CharacterManager {
   }
 
   addCharacter(characterData: CharacterData, level: number) {
-    if (!this.game.figures.some((figure) => {
-      return figure instanceof Character && figure.name == characterData.name && figure.edition == characterData.edition;
-    })) {
-      let character: Character = new Character(characterData, level);
-      character.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => this.createSpecialSummon(character, summonData));
+    if (
+      !this.game.figures.some((figure) => {
+        return figure instanceof Character && figure.name == characterData.name && figure.edition == characterData.edition;
+      })
+    ) {
+      const character: Character = new Character(characterData, level);
+      character.availableSummons
+        .filter((summonData) => summonData.special)
+        .forEach((summonData) => this.createSpecialSummon(character, summonData));
 
       character.number = 1;
       while (gameManager.game.figures.some((figure) => figure instanceof Character && figure.number == character.number)) {
@@ -131,7 +145,7 @@ export class CharacterManager {
           if (retirementModel.number == character.number) {
             character.progress.retirements++;
           }
-        })
+        });
       }
 
       if (character.progress.gold == 0) {
@@ -176,12 +190,12 @@ export class CharacterManager {
         if (character.retireEvent) {
           character.retireEvent.split('|').forEach((retireEvent) => {
             if (retireEvent.split(':').length > 1) {
-              gameManager.eventCardManager.addEvent(retireEvent.split(':')[0], retireEvent.split(':')[1], true)
+              gameManager.eventCardManager.addEvent(retireEvent.split(':')[0], retireEvent.split(':')[1], true);
             } else {
               gameManager.eventCardManager.addEvent('city', retireEvent, true);
               gameManager.eventCardManager.addEvent('road', retireEvent, true);
             }
-          })
+          });
         }
       }
     }
@@ -195,14 +209,14 @@ export class CharacterManager {
           if (figure.summons) {
             figure.summons.forEach((summon) => {
               summon.markers.splice(summon.markers.indexOf(marker), 1);
-            })
+            });
           }
         } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
           figure.entities.forEach((entity) => {
             entity.markers.splice(entity.markers.indexOf(marker), 1);
-          })
+          });
         }
-      })
+      });
     }
     if (this.game.levelCalculation) {
       gameManager.levelManager.calculateScenarioLevel();
@@ -210,9 +224,16 @@ export class CharacterManager {
   }
 
   addSummon(character: Character, summon: Summon) {
-    character.summons = character.summons.filter((value) => value.name != summon.name || value.number != summon.number || value.color != summon.color);
+    character.summons = character.summons.filter(
+      (value) => value.name != summon.name || value.number != summon.number || value.color != summon.color
+    );
 
-    if (character.edition == 'cs' && character.name == 'skull' && summon.cardId && character.availableSummons.find((s) => s.cardId == summon.cardId)) {
+    if (
+      character.edition == 'cs' &&
+      character.name == 'skull' &&
+      summon.cardId &&
+      character.availableSummons.find((s) => s.cardId == summon.cardId)
+    ) {
       summon.tags.push('cs-skull-spirit');
       summon.state = SummonState.true;
     }
@@ -247,7 +268,7 @@ export class CharacterManager {
     character.summons.splice(character.summons.indexOf(summon), 1);
 
     if (character.name == 'astral' && character.tags.includes('imbue-with-life') && summon.name == 'animated-claymore') {
-      let disarm = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
+      const disarm = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
       character.tags = character.tags.filter((tag) => tag != 'imbue-with-life');
       if (disarm) {
         disarm.permanent = false;
@@ -274,12 +295,15 @@ export class CharacterManager {
   }
 
   setLevel(character: Character, level: number) {
-    const stat = character.stats.find((characterStat) => characterStat.level == level)
+    const stat = character.stats.find((characterStat) => characterStat.level == level);
     if (!stat) {
       character.errors = character.errors || [];
-      if (!character.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !character.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
-        console.error("No character stat found for level: " + level);
-        character.errors.push(new FigureError(FigureErrorType.stat, "character", character.name, character.edition, "", "" + level));
+      if (
+        !character.errors.find((figureError) => figureError.type == FigureErrorType.unknown) &&
+        !character.errors.find((figureError) => figureError.type == FigureErrorType.stat)
+      ) {
+        console.error('No character stat found for level: ' + level);
+        character.errors.push(new FigureError(FigureErrorType.stat, 'character', character.name, character.edition, '', '' + level));
       }
       character.stat = new CharacterStat(level, 0);
     } else {
@@ -309,9 +333,14 @@ export class CharacterManager {
       character.health = character.maxHealth;
     }
 
-    character.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => this.createSpecialSummon(character, summonData));
+    character.availableSummons
+      .filter((summonData) => summonData.special)
+      .forEach((summonData) => this.createSpecialSummon(character, summonData));
 
-    if (character.progress.experience < gameManager.characterManager.xpMap[level - 1] || character.progress.experience >= gameManager.characterManager.xpMap[level]) {
+    if (
+      character.progress.experience < gameManager.characterManager.xpMap[level - 1] ||
+      character.progress.experience >= gameManager.characterManager.xpMap[level]
+    ) {
       character.progress.experience = gameManager.characterManager.xpMap[level - 1];
     }
 
@@ -325,9 +354,19 @@ export class CharacterManager {
   }
 
   createSpecialSummon(character: Character, summonData: SummonData) {
-    character.summons = character.summons.filter((summon) => summon.name != summonData.name || summon.number != 0 || summon.color != SummonColor.custom);
+    character.summons = character.summons.filter(
+      (summon) => summon.name != summonData.name || summon.number != 0 || summon.color != SummonColor.custom
+    );
     if (!summonData.level || summonData.level <= character.level) {
-      let summon: Summon = new Summon(uuidv4(), summonData.name, summonData.cardId, character.level, 0, SummonColor.custom, summonData);
+      const summon: Summon = new Summon(
+        crypto.randomUUID(),
+        summonData.name,
+        summonData.cardId,
+        character.level,
+        0,
+        SummonColor.custom,
+        summonData
+      );
       summon.state = SummonState.true;
       summon.init = false;
       this.addSummon(character, summon);
@@ -335,22 +374,34 @@ export class CharacterManager {
   }
 
   ignoreNegativeItemEffects(character: Character): boolean {
-    let perk = character.perks.find((perk) => perk.custom && (perk.custom.includes('%game.custom.perks.ignoreNegativeItem%') || perk.custom.includes('%game.custom.perks.ignoreNegativeItemFh%')));
+    const perk = character.perks.find(
+      (perk) =>
+        perk.custom &&
+        (perk.custom.includes('%game.custom.perks.ignoreNegativeItem%') || perk.custom.includes('%game.custom.perks.ignoreNegativeItemFh%'))
+    );
     if (!perk) {
       return false;
     } else {
       const perkIndex = character.perks.indexOf(perk);
-      return character.progress.perks[perkIndex] && perk.combined ? (character.progress.perks[perkIndex] == perk.count) : character.progress.perks[perkIndex] > 0;
+      return character.progress.perks[perkIndex] && perk.combined
+        ? character.progress.perks[perkIndex] == perk.count
+        : character.progress.perks[perkIndex] > 0;
     }
   }
 
   ignoreNegativeScenarioffects(character: Character): boolean {
-    let perk = character.perks.find((perk) => perk.custom && (perk.custom.includes('%game.custom.perks.ignoreNegativeScenario%') || perk.custom.includes('%game.custom.perks.ignoreScenario%')));
+    const perk = character.perks.find(
+      (perk) =>
+        perk.custom &&
+        (perk.custom.includes('%game.custom.perks.ignoreNegativeScenario%') || perk.custom.includes('%game.custom.perks.ignoreScenario%'))
+    );
     if (!perk) {
       return false;
     } else {
       const perkIndex = character.perks.indexOf(perk);
-      return character.progress.perks[perkIndex] && perk.combined ? (character.progress.perks[perkIndex] == perk.count) : character.progress.perks[perkIndex] > 0;
+      return character.progress.perks[perkIndex] && perk.combined
+        ? character.progress.perks[perkIndex] == perk.count
+        : character.progress.perks[perkIndex] > 0;
     }
   }
 
@@ -370,14 +421,32 @@ export class CharacterManager {
   applyDonations(character: Character) {
     for (let i = 0; i < character.donations; i++) {
       if (gameManager.editionRules('cs')) {
-        const oakDouble = CsOakDeckAttackModifier.filter((attackModifier) => !attackModifier.rolling && !this.game.figures.find((figure) => figure instanceof Character && figure.attackModifierDeck.cards.find((am) => am.id == attackModifier.id)));
-        const oakRolling = CsOakDeckAttackModifier.filter((attackModifier) => attackModifier.rolling && !this.game.figures.find((figure) => figure instanceof Character && figure.attackModifierDeck.cards.find((am) => am.id == attackModifier.id)));
+        const oakDouble = CsOakDeckAttackModifier.filter(
+          (attackModifier) =>
+            !attackModifier.rolling &&
+            !this.game.figures.find(
+              (figure) => figure instanceof Character && figure.attackModifierDeck.cards.find((am) => am.id == attackModifier.id)
+            )
+        );
+        const oakRolling = CsOakDeckAttackModifier.filter(
+          (attackModifier) =>
+            attackModifier.rolling &&
+            !this.game.figures.find(
+              (figure) => figure instanceof Character && figure.attackModifierDeck.cards.find((am) => am.id == attackModifier.id)
+            )
+        );
 
         if (oakDouble.length > 0) {
-          gameManager.attackModifierManager.addModifier(character.attackModifierDeck, oakDouble[Math.floor(Math.random() * oakDouble.length)]);
+          gameManager.attackModifierManager.addModifier(
+            character.attackModifierDeck,
+            oakDouble[Math.floor(Math.random() * oakDouble.length)]
+          );
         }
         if (oakRolling.length > 0) {
-          gameManager.attackModifierManager.addModifier(character.attackModifierDeck, oakRolling[Math.floor(Math.random() * oakRolling.length)]);
+          gameManager.attackModifierManager.addModifier(
+            character.attackModifierDeck,
+            oakRolling[Math.floor(Math.random() * oakRolling.length)]
+          );
         }
       } else {
         gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.bless));
@@ -408,24 +477,50 @@ export class CharacterManager {
           }
         });
 
-        if (figure instanceof Character && !figure.absent && figure.name == 'blinkblade' && figure.tags.includes('time_tokens') && figure.primaryToken == 0) {
+        if (
+          figure instanceof Character &&
+          !figure.absent &&
+          figure.name == 'blinkblade' &&
+          figure.tags.includes('time_tokens') &&
+          figure.primaryToken == 0
+        ) {
           figure.identity = 0;
         }
 
-        if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57') && gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.wound)) && !gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.regenerate))) {
+        if (
+          figure.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57') &&
+          gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.wound)) &&
+          !gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.regenerate))
+        ) {
           gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.regenerate));
+        }
+
+        if (!figure.absent && figure.name == 'blinkblade' && figure.tags.includes('roundAction-overdrive') && figure.shieldPersistent) {
+          figure.shieldPersistent.value = EntityValueFunction(figure.shieldPersistent.value) - 1;
+          if (figure.shieldPersistent.value <= 0) {
+            figure.shieldPersistent = undefined;
+          }
         }
 
         if (figure.tags) {
           figure.tags = figure.tags.filter((tag) => !tag.startsWith('roundAction-'));
         }
 
-        if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && settingsManager.settings.battleGoals && gameManager.entityManager.isAlive(figure) && figure.progress.trial && figure.progress.trial.edition == 'fh' && figure.progress.trial.name == '356' && figure.tags.includes('trial-fh-356')) {
+        if (
+          gameManager.trialsManager.apply &&
+          gameManager.trialsManager.trialsEnabled &&
+          settingsManager.settings.battleGoals &&
+          gameManager.entityManager.isAlive(figure) &&
+          figure.progress.trial &&
+          figure.progress.trial.edition == 'fh' &&
+          figure.progress.trial.name == '356' &&
+          figure.tags.includes('trial-fh-356')
+        ) {
           figure.tags.splice(figure.tags.indexOf('trial-fh-356'), 1);
           gameManager.battleGoalManager.drawBattleGoal(figure, true);
         }
       }
-    })
+    });
   }
 
   draw() {
@@ -453,6 +548,21 @@ export class CharacterManager {
           }
         }
 
+        if (
+          !figure.absent &&
+          figure.name == 'blinkblade' &&
+          figure.tags.includes('overdrive') &&
+          !figure.tags.includes('roundAction-overdrive') &&
+          figure.identity == 0
+        ) {
+          figure.tags.push('roundAction-overdrive');
+          if (!figure.shieldPersistent) {
+            figure.shieldPersistent = new Action(ActionType.shield, 1);
+          } else {
+            figure.shieldPersistent.value = EntityValueFunction(figure.shieldPersistent.value) + 1;
+          }
+        }
+
         if (gameManager.entityManager.isAlive(figure) && figure.name == 'shackles' && figure.tags.includes('delayed_malady')) {
           figure.tags.splice(figure.tags.indexOf('delayed_malady'), 1);
           figure.entityConditions.forEach((condition) => {
@@ -461,7 +571,7 @@ export class CharacterManager {
                 figure.immunities.push(condition.name);
               }
             }
-          })
+          });
 
           if (!figure.tags.includes('delayed_malady')) {
             {
@@ -470,15 +580,27 @@ export class CharacterManager {
           }
         }
 
-        if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && settingsManager.settings.battleGoals && !figure.absent && figure.progress.trial && figure.progress.trial.edition == 'fh' && figure.progress.trial.name == '356' && figure.tags.includes('trial-fh-356')) {
+        if (
+          gameManager.trialsManager.apply &&
+          gameManager.trialsManager.trialsEnabled &&
+          settingsManager.settings.battleGoals &&
+          !figure.absent &&
+          figure.progress.trial &&
+          figure.progress.trial.edition == 'fh' &&
+          figure.progress.trial.name == '356' &&
+          figure.tags.includes('trial-fh-356')
+        ) {
           figure.tags.splice(figure.tags.indexOf('trial-fh-356'), 1);
         }
       }
-    })
+    });
   }
 
   personalQuestByCard(edition: string, cardId: string): PersonalQuest | undefined {
-    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).includes(editionData.edition)).flatMap((editionData) => editionData.personalQuests).find((pq) => pq.cardId == cardId || pq.cardId == '0' + cardId || pq.altId == cardId || pq.altId == '0' + cardId);
+    return gameManager.editionData
+      .filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).includes(editionData.edition))
+      .flatMap((editionData) => editionData.personalQuests)
+      .find((pq) => pq.cardId == cardId || pq.cardId == '0' + cardId || pq.altId == cardId || pq.altId == '0' + cardId);
   }
 
   previousEnhancements(character: Character, temporary: boolean) {
@@ -488,12 +610,18 @@ export class CharacterManager {
       character.progress.enhancements = [];
     }
     if (!temporary) {
-      const previousCharacters = gameManager.game.party.retirements.filter((model) => model.edition == character.edition && model.name == character.name);
+      const previousCharacters = gameManager.game.party.retirements.filter(
+        (model) => model.edition == character.edition && model.name == character.name
+      );
       previousCharacters.forEach((previousCharacter) => {
         if (previousCharacter && previousCharacter.progress && previousCharacter.progress.enhancements) {
-          character.progress.enhancements.push(...previousCharacter.progress.enhancements.filter((e) => !e.inherited).map((e) => new Enhancement(e.cardId, e.actionIndex, e.index, e.action, true)));
+          character.progress.enhancements.push(
+            ...previousCharacter.progress.enhancements
+              .filter((e) => !e.inherited)
+              .map((e) => new Enhancement(e.cardId, e.actionIndex, e.index, e.action, true))
+          );
         }
-      })
+      });
 
       character.progress.enhancements = character.progress.enhancements.filter((e, index, self) => {
         const first = self.find((o) => o.cardId == e.cardId && o.actionIndex == e.actionIndex && o.index == e.index);
@@ -502,38 +630,45 @@ export class CharacterManager {
     }
 
     // wipSpecial
-    character.progress.enhancements.filter((e) => e.actionIndex.includes('custom')).forEach((e) => {
-      const card = gameManager.deckData(character).abilities.find((a) => a.cardId == e.cardId);
-      if (card) {
-        const mapping = this.enhancementMapping(!e.actionIndex.includes('bottom') ? card.actions : card.bottomActions || [], !e.actionIndex.includes('bottom') ? '' : 'bottom');
-        if (mapping.length && mapping[e.index]) {
-          e.actionIndex = mapping[e.index];
-          e.index = e.index - mapping.indexOf(e.actionIndex);
+    character.progress.enhancements
+      .filter((e) => e.actionIndex.includes('custom'))
+      .forEach((e) => {
+        const card = gameManager.deckData(character).abilities.find((a) => a.cardId == e.cardId);
+        if (card) {
+          const mapping = this.enhancementMapping(
+            !e.actionIndex.includes('bottom') ? card.actions : card.bottomActions || [],
+            !e.actionIndex.includes('bottom') ? '' : 'bottom'
+          );
+          if (mapping.length && mapping[e.index]) {
+            e.actionIndex = mapping[e.index];
+            e.index = e.index - mapping.indexOf(e.actionIndex);
+          }
         }
-      }
-    });
+      });
   }
 
   enhancementMapping(actions: Action[], parentIndex: string): string[] {
-    let mapping: string[] = [];
+    const mapping: string[] = [];
     actions.forEach((action, index) => {
       if (action.type != ActionType.custom || action.value != '%character.abilities.wip%') {
         const actionId = (parentIndex ? parentIndex + '-' : '') + index;
         if (action.enhancementTypes) {
-          action.enhancementTypes.forEach((t) => {
+          action.enhancementTypes.forEach(() => {
             mapping.push(actionId);
-          })
+          });
         }
         if (action.subActions) {
           mapping.push(...this.enhancementMapping(action.subActions, actionId));
         }
       }
-    })
+    });
 
     return mapping;
   }
 
   getActiveCharacters(): Character[] {
-    return this.game.figures.filter((figure) => figure instanceof Character && gameManager.gameplayFigure(figure) && !figure.absent).map((figure) => figure as Character);
+    return this.game.figures
+      .filter((figure) => figure instanceof Character && gameManager.gameplayFigure(figure) && !figure.absent)
+      .map((figure) => figure as Character);
   }
 }

@@ -1,50 +1,80 @@
-import { Dialog, DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { Overlay } from "@angular/cdk/overlay";
-import { Component, ElementRef, HostListener, Inject } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character } from "src/app/game/model/Character";
-import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
-import { Figure } from "src/app/game/model/Figure";
-import { Monster } from "src/app/game/model/Monster";
-import { MonsterEntity } from "src/app/game/model/MonsterEntity";
-import { OBJECTIV_MARKERS, ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
-import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
-import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
-import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
-import { AttackModifierType } from "src/app/game/model/data/AttackModifier";
-import { CharacterSpecialAction } from "src/app/game/model/data/CharacterStat";
-import { ConditionName, ConditionType, EntityCondition } from "src/app/game/model/data/Condition";
-import { EventCardCondition, EventCardEffect } from "src/app/game/model/data/EventCard";
-import { MonsterData } from "src/app/game/model/data/MonsterData";
-import { MonsterType } from "src/app/game/model/data/MonsterType";
-import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
-import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsModulo } from "../../helper/Static";
-import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
-import { EntityMenuDialogComponent } from "../entity-menu/entity-menu-dialog";
-import { EventEffectsDialog } from "../event-effects/event-effects";
-import { AttackModifierHelper } from "./helpers/attack-modifiers";
-import { CampaignHelper } from "./helpers/campaign";
-import { CharacterHelper } from "./helpers/character";
-import { CharacterProgressHelper } from "./helpers/character-progress";
-import { ConditionHelper } from "./helpers/conditions";
-import { EventHelper } from "./helpers/event";
-import { HealthHelper } from "./helpers/health";
-import { MarkerHelper } from "./helpers/marker";
-import { MonsterHelper } from "./helpers/monster";
-import { ObjectiveHelper } from "./helpers/objective";
-import { ShieldRetaliateHelper } from "./helpers/shield-retaliate";
-import { SpecialActionsHelper } from "./helpers/special-actions";
+import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { Overlay } from '@angular/cdk/overlay';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, inject } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
+import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
+import { ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
+import { EventCardCondition, EventCardEffect } from 'src/app/game/model/data/EventCard';
+import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
+import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
+import { Figure } from 'src/app/game/model/Figure';
+import { Monster } from 'src/app/game/model/Monster';
+import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
+import { OBJECTIV_MARKERS, ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
+import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
+import { ActionComponent } from 'src/app/ui/figures/actions/action';
+import { CharacterSheetDialog } from 'src/app/ui/figures/character/dialogs/character-sheet-dialog';
+import { ConditionsComponent } from 'src/app/ui/figures/conditions/conditions';
+import { AttackModifierHelper } from 'src/app/ui/figures/entities-menu/helpers/attack-modifiers';
+import { CampaignHelper } from 'src/app/ui/figures/entities-menu/helpers/campaign';
+import { CharacterHelper } from 'src/app/ui/figures/entities-menu/helpers/character';
+import { CharacterProgressHelper } from 'src/app/ui/figures/entities-menu/helpers/character-progress';
+import { ConditionHelper } from 'src/app/ui/figures/entities-menu/helpers/conditions';
+import { EventHelper } from 'src/app/ui/figures/entities-menu/helpers/event';
+import { HealthHelper } from 'src/app/ui/figures/entities-menu/helpers/health';
+import { MarkerHelper } from 'src/app/ui/figures/entities-menu/helpers/marker';
+import { MonsterHelper } from 'src/app/ui/figures/entities-menu/helpers/monster';
+import { ObjectiveHelper } from 'src/app/ui/figures/entities-menu/helpers/objective';
+import { ShieldRetaliateHelper } from 'src/app/ui/figures/entities-menu/helpers/shield-retaliate';
+import { SpecialActionsHelper } from 'src/app/ui/figures/entities-menu/helpers/special-actions';
+import { EventCardAttackComponent } from 'src/app/ui/figures/event/attack/event-card-attack';
+import { EventCardConditionComponent } from 'src/app/ui/figures/event/condition/event-card-condition';
+import { EventCardEffectComponent } from 'src/app/ui/figures/event/effect/event-card-effect';
+import { EntityIndexKeyComponent } from 'src/app/ui/figures/standee/entity-index-key/entity-index-key';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { GhsMinZeroPipe, GhsRangePipe } from 'src/app/ui/helper/Pipes';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { ghsDialogClosingHelper, ghsModulo } from 'src/app/ui/helper/Static';
+import { TabClickDirective } from 'src/app/ui/helper/tabclick';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
+import { ValueCalcDirective } from 'src/app/ui/helper/valueCalc';
+import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
 
 @Component({
-  standalone: false,
+  imports: [
+    NgClass,
+    GhsLabelDirective,
+    GhsTooltipDirective,
+    PointerInputDirective,
+    TabClickDirective,
+    GhsMinZeroPipe,
+    GhsRangePipe,
+    TrackUUIDPipe,
+    ValueCalcDirective,
+    ValueSignDirective,
+    ActionComponent,
+    ConditionsComponent,
+    EntityIndexKeyComponent,
+    EventCardAttackComponent,
+    EventCardConditionComponent,
+    EventCardEffectComponent
+  ],
   selector: 'ghs-entities-menu-dialog',
   templateUrl: 'entities-menu-dialog.html',
-  styleUrls: ['./entities-menu-dialog.scss']
+  styleUrls: ['./entities-menu-dialog.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EntitiesMenuDialogComponent {
-
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
@@ -119,7 +149,14 @@ export class EntitiesMenuDialogComponent {
   entities: Entity[];
   allEntities: Entity[] = [];
   filter: 'character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined;
-  filters: ('character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined)[] = [undefined, 'character', 'monster', 'objectives', 'allies', 'enemies'];
+  filters: ('character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined)[] = [
+    undefined,
+    'character',
+    'monster',
+    'objectives',
+    'allies',
+    'enemies'
+  ];
 
   // helper
   entityIndexKey: boolean = false;
@@ -155,7 +192,24 @@ export class EntitiesMenuDialogComponent {
   shieldRetaliateHelper: ShieldRetaliateHelper;
   specialActionsHelper: SpecialActionsHelper;
 
-  constructor(@Inject(DIALOG_DATA) public data: { figure: Figure | undefined, entity: Entity | undefined, type: MonsterType | undefined, objectiveOnly: boolean, filter: 'character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined, entityIndexKey: boolean, eventMenu: boolean, eventResults: (EventCardEffect | EventCardCondition)[], positionElement: ElementRef }, public dialogRef: DialogRef, public dialog: Dialog, public overlay: Overlay, public ghsManager: GhsManager) {
+  data: {
+    figure: Figure | undefined;
+    entity: Entity | undefined;
+    type: MonsterType | undefined;
+    objectiveOnly: boolean;
+    filter: 'character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined;
+    entityIndexKey: boolean;
+    eventMenu: boolean;
+    eventResults: (EventCardEffect | EventCardCondition)[];
+    positionElement: ElementRef;
+  } = inject(DIALOG_DATA);
+
+  constructor(
+    public dialogRef: DialogRef,
+    public dialog: Dialog,
+    public overlay: Overlay,
+    public ghsManager: GhsManager
+  ) {
     this.amHelper = new AttackModifierHelper(this);
     this.campaignHelper = new CampaignHelper(this);
     this.characterHelper = new CharacterHelper(this);
@@ -182,7 +236,7 @@ export class EntitiesMenuDialogComponent {
       this.figure = this.data.figure;
       this.figures = [this.figure];
       if (this.figure instanceof Monster) {
-        this.allEntities = this.figure.entities.filter((entity) => !data.type || entity.type == data.type);
+        this.allEntities = this.figure.entities.filter((entity) => !this.data.type || entity.type == this.data.type);
       } else if (this.figure instanceof Character) {
         this.allEntities = this.figure.summons;
       } else if (this.figure instanceof ObjectiveContainer && !this.objectiveOnly) {
@@ -209,7 +263,7 @@ export class EntitiesMenuDialogComponent {
           this.close();
         }
       }
-    })
+    });
 
     this.entities = [];
     this.allEntities.forEach((entity) => this.entities.push(entity));
@@ -235,7 +289,11 @@ export class EntitiesMenuDialogComponent {
       this.filters.push('objectives');
     }
 
-    if (gameManager.game.figures.find((figure) => figure instanceof ObjectiveContainer && figure.escort || figure instanceof Monster && figure.isAlly) == undefined) {
+    if (
+      gameManager.game.figures.find(
+        (figure) => (figure instanceof ObjectiveContainer && figure.escort) || (figure instanceof Monster && figure.isAlly)
+      ) == undefined
+    ) {
       this.filters = this.filters.filter((v) => v != 'allies');
     } else if (!this.filters.includes('allies')) {
       this.filters.push('allies');
@@ -247,17 +305,30 @@ export class EntitiesMenuDialogComponent {
       this.filters.push('enemies');
     }
 
-    this.figures = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && (!this.filter || this.filter == 'character' || this.filter == 'allies') || figure instanceof Monster && (!this.filter || this.filter == 'monster' || this.filter == 'enemies' && !figure.isAlly || this.filter == 'allies' && figure.isAlly) || figure instanceof ObjectiveContainer && (!this.filter || this.filter == 'allies' && figure.escort || this.filter == 'enemies' && !figure.escort || this.filter == 'objectives'));
+    this.figures = gameManager.game.figures.filter(
+      (figure) =>
+        (figure instanceof Character && !figure.absent && (!this.filter || this.filter == 'character' || this.filter == 'allies')) ||
+        (figure instanceof Monster &&
+          (!this.filter ||
+            this.filter == 'monster' ||
+            (this.filter == 'enemies' && !figure.isAlly) ||
+            (this.filter == 'allies' && figure.isAlly))) ||
+        (figure instanceof ObjectiveContainer &&
+          (!this.filter ||
+            (this.filter == 'allies' && figure.escort) ||
+            (this.filter == 'enemies' && !figure.escort) ||
+            this.filter == 'objectives'))
+    );
 
     this.allEntities = [];
 
     this.figures.forEach((figure) => {
       if (figure instanceof Character) {
         this.allEntities.push(figure, ...figure.summons);
-      } else if (figure instanceof Monster || figure instanceof ObjectiveContainer && !this.objectiveOnly) {
+      } else if (figure instanceof Monster || (figure instanceof ObjectiveContainer && !this.objectiveOnly)) {
         this.allEntities.push(...figure.entities);
       }
-    })
+    });
 
     if (!this.entities || this.entities.length) {
       this.entities = [];
@@ -280,7 +351,7 @@ export class EntitiesMenuDialogComponent {
     this.objectiveHelper.update();
     this.shieldRetaliateHelper.update();
     this.specialActionsHelper.update();
-    this.bb = this.figures.every((figure) => !(figure instanceof Character) && !(figure instanceof Monster) || figure.bb);
+    this.bb = this.figures.every((figure) => (!(figure instanceof Character) && !(figure instanceof Monster)) || figure.bb);
     // TODO: maybe also empower/enfeeble for multiple, like bless/curse
     this.empowerEnabled = !this.bb && !!this.figure && !!this.entity && !this.objectiveOnly && this.empowerChars.length > 0;
     this.enfeebleEnabled = !this.bb && !!this.figure && !!this.entity && !this.objectiveOnly && this.enfeebleChars.length > 0;
@@ -308,7 +379,7 @@ export class EntitiesMenuDialogComponent {
     }
 
     if (!result) {
-      console.warn("No figure found for entity:", entity);
+      console.warn('No figure found for entity:', entity);
       return new Monster(new MonsterData());
     }
     return result;
@@ -349,8 +420,16 @@ export class EntitiesMenuDialogComponent {
 
   @HostListener('document:keydown', ['$event'])
   keyboardShortcuts(event: KeyboardEvent) {
-    if (settingsManager.settings.keyboardShortcuts && !event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
-      if (!this.entity || !(this.entity instanceof Character) || this.entity instanceof Character && !this.entity.absent) {
+    if (
+      settingsManager.settings.keyboardShortcuts &&
+      !event.altKey &&
+      !event.metaKey &&
+      (!window.document.activeElement ||
+        (window.document.activeElement.tagName != 'INPUT' &&
+          window.document.activeElement.tagName != 'SELECT' &&
+          window.document.activeElement.tagName != 'TEXTAREA'))
+    ) {
+      if (!this.entity || !(this.entity instanceof Character) || (this.entity instanceof Character && !this.entity.absent)) {
         if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowRight') {
           this.healthHelper.changeHealth(1);
           event.preventDefault();
@@ -373,20 +452,33 @@ export class EntitiesMenuDialogComponent {
           }
           event.preventDefault();
           event.stopPropagation();
-        } else if (this.entity instanceof Character && (!settingsManager.settings.lootDeck || !settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()) && !settingsManager.settings.hideCharacterLoot && !event.ctrlKey && event.key.toLowerCase() === 'l') {
+        } else if (
+          this.entity instanceof Character &&
+          (!settingsManager.settings.lootDeck || (!settingsManager.settings.alwaysLootDeck && !gameManager.fhRules())) &&
+          !settingsManager.settings.hideCharacterLoot &&
+          !event.ctrlKey &&
+          event.key.toLowerCase() === 'l'
+        ) {
           if (this.entity.loot + this.loot > 0) {
             this.loot += event.shiftKey ? -1 : 1;
           }
           event.preventDefault();
           event.stopPropagation();
         } else if (!event.ctrlKey && event.key.toLowerCase() === 'b') {
-          if (!event.shiftKey && (!!this.figure ? gameManager.attackModifierManager.countUpcomingCurses(this.isMonster) : 0) + this.curse < 10 || event.shiftKey && (this.curseMin < 0 || this.curseMin + this.curse > 0)) {
+          if (
+            (!event.shiftKey &&
+              (!!this.figure ? gameManager.attackModifierManager.countUpcomingCurses(this.isMonster) : 0) + this.curse < 10) ||
+            (event.shiftKey && (this.curseMin < 0 || this.curseMin + this.curse > 0))
+          ) {
             this.bless += event.shiftKey ? -1 : 1;
           }
           event.preventDefault();
           event.stopPropagation();
         } else if (!event.ctrlKey && event.key.toLowerCase() === 'c') {
-          if (!event.shiftKey && gameManager.attackModifierManager.countUpcomingBlesses() + this.bless < 10 || event.shiftKey && (this.blessMin < 0 || this.blessMin + this.bless > 0)) {
+          if (
+            (!event.shiftKey && gameManager.attackModifierManager.countUpcomingBlesses() + this.bless < 10) ||
+            (event.shiftKey && (this.blessMin < 0 || this.blessMin + this.bless > 0))
+          ) {
             this.curse += event.shiftKey ? -1 : 1;
           }
           event.preventDefault();
@@ -414,25 +506,5 @@ export class EntitiesMenuDialogComponent {
         event.stopPropagation();
       }
     }
-  }
-
-  openEntityMenu() {
-    if (this.eventMenu) {
-      this.dialog.open(EventEffectsDialog, {
-        panelClass: ['dialog']
-      });
-    } else {
-      this.dialog.open(EntityMenuDialogComponent, {
-        panelClass: ['dialog'],
-        data: {
-          figure: this.data.figure,
-          entity: this.data.entity,
-          positionElement: this.data.positionElement,
-          entityIndexKey: this.entityIndexKey
-        },
-        positionStrategy: this.data.positionElement && this.overlay.position().flexibleConnectedTo(this.data.positionElement).withPositions(ghsDefaultDialogPositions())
-      });
-    }
-    this.dialogRef.close(true);
   }
 }

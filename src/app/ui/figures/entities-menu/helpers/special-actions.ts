@@ -1,29 +1,41 @@
-import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { Character } from "src/app/game/model/Character";
-import { Summon } from "src/app/game/model/Summon";
-import { Action, ActionType } from "src/app/game/model/data/Action";
-import { CharacterSpecialAction } from "src/app/game/model/data/CharacterStat";
-import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
-import type { EntitiesMenuDialogComponent } from '../entities-menu-dialog';
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { Character } from 'src/app/game/model/Character';
+import { Action, ActionType } from 'src/app/game/model/data/Action';
+import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
+import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { Summon } from 'src/app/game/model/Summon';
+import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 
 export class SpecialActionsHelper {
-
-  constructor(private component: EntitiesMenuDialogComponent) { }
+  constructor(private component: EntitiesMenuDialogComponent) {}
 
   update() {
     this.component.specialActions = [];
 
     if (this.component.figure instanceof Character && this.component.figure.specialActions) {
       const character = this.component.figure as Character;
-      this.component.specialActions = character.specialActions.filter((specialAction) => (!specialAction.level || specialAction.level <= character.level) && (this.component.entity instanceof Character && !specialAction.summon || this.component.entity instanceof Summon && specialAction.summon));
+      this.component.specialActions = character.specialActions.filter(
+        (specialAction) =>
+          (!specialAction.level || specialAction.level <= character.level) &&
+          ((this.component.entity instanceof Character && !specialAction.summon) ||
+            (this.component.entity instanceof Summon && specialAction.summon))
+      );
 
       character.specialActions.forEach((specialAction) => {
-        if (this.component.entity instanceof Character && !specialAction.summon && this.component.entity.tags.includes(specialAction.name)) {
+        if (
+          this.component.entity instanceof Character &&
+          !specialAction.summon &&
+          this.component.entity.tags.includes(specialAction.name)
+        ) {
           this.component.specialTags.push(specialAction.name);
-        } else if (this.component.entity instanceof Summon && specialAction.summon && this.component.entity.tags.includes(specialAction.name)) {
+        } else if (
+          this.component.entity instanceof Summon &&
+          specialAction.summon &&
+          this.component.entity.tags.includes(specialAction.name)
+        ) {
           this.component.specialTags.push(specialAction.name);
         }
-      })
+      });
     }
   }
 
@@ -38,14 +50,27 @@ export class SpecialActionsHelper {
   }
 
   close() {
-    if (this.component.figure instanceof Character && (this.component.entity instanceof Character || this.component.entity instanceof Summon)) {
+    if (
+      this.component.figure instanceof Character &&
+      (this.component.entity instanceof Character || this.component.entity instanceof Summon)
+    ) {
       const character = this.component.figure;
       const entity = this.component.entity;
 
-      const specialTagsToTemove = entity.tags.filter((specialTag) => character.specialActions && character.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && !this.component.specialTags.includes(specialTag));
+      const specialTagsToTemove = entity.tags.filter(
+        (specialTag) =>
+          character.specialActions &&
+          character.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined &&
+          !this.component.specialTags.includes(specialTag)
+      );
 
       if (specialTagsToTemove.length) {
-        this.component.before('removeSpecialTags', specialTagsToTemove.map((specialTag) => '%data.character.' + character.edition + '.' + character.name + '.' + specialTag + '%').join(','))
+        this.component.before(
+          'removeSpecialTags',
+          specialTagsToTemove
+            .map((specialTag) => '%data.character.' + character.edition + '.' + character.name + '.' + specialTag + '%')
+            .join(',')
+        );
 
         entity.tags = entity.tags.filter((specialTag) => !specialTagsToTemove.includes(specialTag));
 
@@ -62,7 +87,9 @@ export class SpecialActionsHelper {
           }
 
           if (entity.name == 'fist' && specialTagsToTemove.includes('one-with-the-mountain')) {
-            entity.entityConditions = entity.entityConditions.filter((entityCondition) => entityCondition.name != ConditionName.regenerate || !entityCondition.permanent);
+            entity.entityConditions = entity.entityConditions.filter(
+              (entityCondition) => entityCondition.name != ConditionName.regenerate || !entityCondition.permanent
+            );
           }
 
           if (entity.name == 'demolitionist' && specialTagsToTemove.includes('mech')) {
@@ -86,7 +113,7 @@ export class SpecialActionsHelper {
                     summon.action = undefined;
                   }
                 }
-              })
+              });
             }
           }
 
@@ -97,11 +124,13 @@ export class SpecialActionsHelper {
               entity.summons.forEach((summon) => {
                 summon.health -= 3;
                 summon.maxHealth -= 3;
-              })
+              });
             }
 
             if (specialTagsToTemove.includes('imbue-with-life')) {
-              entity.entityConditions = entity.entityConditions.filter((entityCondition) => entityCondition.name != ConditionName.disarm || !entityCondition.permanent)
+              entity.entityConditions = entity.entityConditions.filter(
+                (entityCondition) => entityCondition.name != ConditionName.disarm || !entityCondition.permanent
+              );
             }
           }
         }
@@ -112,7 +141,12 @@ export class SpecialActionsHelper {
       const specialTagsToAdd = this.component.specialTags.filter((specialTag) => entity && !entity.tags.includes(specialTag));
 
       if (specialTagsToAdd.length) {
-        this.component.before("addSpecialTags", specialTagsToAdd.map((specialTag) => '%data.character.' + character.edition + '.' + character.name + '.' + specialTag + '%').join(','));
+        this.component.before(
+          'addSpecialTags',
+          specialTagsToAdd
+            .map((specialTag) => '%data.character.' + character.edition + '.' + character.name + '.' + specialTag + '%')
+            .join(',')
+        );
 
         entity.tags.push(...specialTagsToAdd);
 
@@ -128,16 +162,24 @@ export class SpecialActionsHelper {
 
           if (entity.name == 'shackles' && specialTagsToAdd.includes('delayed_malady')) {
             entity.entityConditions.forEach((condition) => {
-              if (condition.types.indexOf(ConditionType.negative) && !condition.expired && condition.state != EntityConditionState.removed && !this.component.entityConditions.find((removed) => removed.state == EntityConditionState.removed && removed.name == condition.name) && !entity.immunities.includes(condition.name)) {
+              if (
+                condition.types.indexOf(ConditionType.negative) &&
+                !condition.expired &&
+                condition.state != EntityConditionState.removed &&
+                !this.component.entityConditions.find(
+                  (removed) => removed.state == EntityConditionState.removed && removed.name == condition.name
+                ) &&
+                !entity.immunities.includes(condition.name)
+              ) {
                 entity.immunities.push(condition.name);
               }
-            })
+            });
 
             this.component.entityConditions.forEach((condition) => {
               if (condition.state == EntityConditionState.new) {
                 entity.immunities.push(condition.name);
               }
-            })
+            });
 
             this.component.entityImmunities = character.immunities;
             entity.tags.push(...[1, 2, 3].map(() => 'delayed_malady'));
@@ -177,7 +219,7 @@ export class SpecialActionsHelper {
                     summon.action = new Action(ActionType.pierce, 1);
                   }
                 }
-              })
+              });
             }
           }
 
@@ -188,7 +230,7 @@ export class SpecialActionsHelper {
               entity.summons.forEach((summon) => {
                 summon.health += 3;
                 summon.maxHealth += 3;
-              })
+              });
             }
 
             if (specialTagsToAdd.includes('imbue-with-life')) {
@@ -211,13 +253,17 @@ export class SpecialActionsHelper {
             gameManager.entityManager.changeHealth(character, character, damage);
             entity.health = entity.maxHealth;
             entity.entityConditions.forEach((summonCondition) => {
-              if (!summonCondition.expired && summonCondition.state != EntityConditionState.removed && !gameManager.entityManager.isImmune(character, character, summonCondition.name)) {
+              if (
+                !summonCondition.expired &&
+                summonCondition.state != EntityConditionState.removed &&
+                !gameManager.entityManager.isImmune(character, character, summonCondition.name)
+              ) {
                 gameManager.entityManager.addCondition(character, character, new Condition(summonCondition.name));
               }
             });
             entity.entityConditions = [];
 
-            character.summons.forEach((summon) => summon.tags = summon.tags.filter((tag) => tag != 'prism_mode'));
+            character.summons.forEach((summon) => (summon.tags = summon.tags.filter((tag) => tag != 'prism_mode')));
             entity.tags.push('prism_mode');
           }
         }

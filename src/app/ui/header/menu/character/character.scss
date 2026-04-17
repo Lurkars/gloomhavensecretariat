@@ -8,15 +8,15 @@
   display: grid;
   grid-template-columns: repeat(5, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
   margin: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-  background-image: url('~src/assets/images/dialog_background.png');
+  background-image: url('/assets/images/dialog_background.png');
   z-index: 2;
 
   &.fh {
-    background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+    background-image: url('/assets/images/fh/dialog_background_fh.png');
   }
 
   &.modern {
-    background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+    background-image: url('/assets/images/modern/dialog_background_modern.png');
   }
 
   span.item {
@@ -61,11 +61,10 @@
     grid-column: 5 span;
   }
 
-  &+.columns .column .line.sticky,
-  &+.columns .column .line:not(sticky):first-child {
+  & + .columns .column .line.sticky,
+  & + .columns .column .line:not(sticky):first-child {
     padding-top: calc(var(--ghs-unit) * 20.5 * var(--ghs-dialog-factor));
   }
-
 }
 
 .reveal-all {
@@ -76,7 +75,7 @@
 }
 
 .spoilers .line:nth-child(2),
-.spoilers .reveal-all+.line {
+.spoilers .reveal-all + .line {
   border-top: none !important;
 }
 

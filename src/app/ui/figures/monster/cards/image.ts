@@ -1,20 +1,23 @@
-import { DIALOG_DATA, Dialog, DialogRef } from '@angular/cdk/dialog';
-import { Component, Inject, Input } from '@angular/core';
+import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, Input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
-  standalone: false,
+  imports: [NgClass, GhsLabelDirective, PointerInputDirective],
   selector: 'ghs-monster-image',
   templateUrl: './image.html',
-  styleUrls: ['./image.scss']
+  styleUrls: ['./image.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonsterImageComponent {
-
   @Input() monster!: Monster;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -23,7 +26,10 @@ export class MonsterImageComponent {
   off: boolean = false;
   active: boolean = false;
 
-  constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+  constructor(
+    private dialog: Dialog,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 
@@ -35,7 +41,7 @@ export class MonsterImageComponent {
 
   toggleFigure() {
     if (gameManager.game.state == GameState.next && gameManager.monsterManager.monsterEntityCount(this.monster)) {
-      gameManager.stateManager.before(this.monster.active ? "unsetActive" : "setActive", "data.monster." + this.monster.name);
+      gameManager.stateManager.before(this.monster.active ? 'unsetActive' : 'setActive', 'data.monster.' + this.monster.name);
       gameManager.roundManager.toggleFigure(this.monster);
       gameManager.stateManager.after();
     } else {
@@ -50,25 +56,22 @@ export class MonsterImageComponent {
       });
     }
   }
-
 }
 
-
 @Component({
-  standalone: false,
+  imports: [NgClass],
   selector: 'ghs-monster-image-dialog',
   templateUrl: './imagedialog.html',
   styleUrls: ['./imagedialog.scss']
 })
-export class MonsterImageDialogComponent {
-
+export class MonsterImageDialogComponent implements OnInit {
   gameManager: GameManager = gameManager;
-
 
   opened: boolean = false;
 
-  constructor(@Inject(DIALOG_DATA) public monster: Monster, private dialogRef: DialogRef) {
-  }
+  monster: Monster = inject(DIALOG_DATA);
+
+  constructor(private dialogRef: DialogRef) {}
 
   ngOnInit(): void {
     this.opened = true;
@@ -80,5 +83,4 @@ export class MonsterImageDialogComponent {
       ghsDialogClosingHelper(this.dialogRef);
     }, 400);
   }
-
 }

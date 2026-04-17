@@ -1,28 +1,56 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
-import { CdkDragDrop, CdkDragEnter, CdkDragExit, CdkDragRelease, CdkDragStart, moveItemInArray } from '@angular/cdk/drag-drop';
-import { ChangeDetectorRef, Component, ElementRef, inject, isDevMode, OnInit, ViewChild } from '@angular/core';
+import { CdkDragDrop, CdkDragRelease, CdkDragStart, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, isDevMode, OnInit, ViewChild } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { Subscription } from 'rxjs';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { storageManager } from 'src/app/game/businesslogic/StorageManager';
+import { Character } from 'src/app/game/model/Character';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { Figure } from 'src/app/game/model/Figure';
 import { GameState } from 'src/app/game/model/Game';
+import { Monster } from 'src/app/game/model/Monster';
+import { CharacterComponent } from 'src/app/ui/figures/character/character';
+import { CharacterFullViewComponent } from 'src/app/ui/figures/character/fullview/fullview';
+import { MonsterNumberPickerDialog } from 'src/app/ui/figures/monster/dialogs/numberpicker-dialog';
+import { MonsterComponent } from 'src/app/ui/figures/monster/monster';
+import { ObjectiveContainerComponent } from 'src/app/ui/figures/objective-container/objective-container';
+import { FooterComponent } from 'src/app/ui/footer/footer';
+import { HeaderComponent } from 'src/app/ui/header/header';
+import { SubMenu } from 'src/app/ui/header/menu/menu';
+import { FigureAutoscrollDirective } from 'src/app/ui/helper/autoscroll';
+import { KeyboardShortcuts } from 'src/app/ui/helper/keyboard-shortcuts';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { PointerInputService } from 'src/app/ui/helper/pointer-input-service';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { environment } from 'src/environments/environment';
-import { GhsManager } from '../game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from '../game/businesslogic/SettingsManager';
-import { storageManager } from '../game/businesslogic/StorageManager';
-import { Character } from '../game/model/Character';
-import { Figure } from '../game/model/Figure';
-import { Monster } from '../game/model/Monster';
-import { MonsterType } from '../game/model/data/MonsterType';
-import { MonsterNumberPickerDialog } from './figures/monster/dialogs/numberpicker-dialog';
-import { FooterComponent } from './footer/footer';
-import { SubMenu } from './header/menu/menu';
-import { PointerInputService } from './helper/pointer-input-service';
 
 @Component({
-  standalone: false,
+  imports: [
+    NgClass,
+    DragDropModule,
+    CharacterComponent,
+    CharacterFullViewComponent,
+    MonsterComponent,
+    ObjectiveContainerComponent,
+    FooterComponent,
+    HeaderComponent,
+    FigureAutoscrollDirective,
+    KeyboardShortcuts,
+    GhsLabelDirective,
+    PointerInputDirective,
+    GhsTooltipDirective,
+    TrackUUIDPipe
+  ],
   selector: 'ghs-main',
   templateUrl: './main.html',
-  styleUrls: ['./main.scss']
+  styleUrls: ['./main.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent implements OnInit {
   private cdr = inject(ChangeDetectorRef);
@@ -63,9 +91,19 @@ export class MainComponent implements OnInit {
 
   @ViewChild('footer') footer!: FooterComponent;
 
-  constructor(private element: ElementRef, private swUpdate: SwUpdate, private dialog: Dialog, private pointerInputService: PointerInputService, private ghsManager: GhsManager) {
+  constructor(
+    private element: ElementRef,
+    private swUpdate: SwUpdate,
+    private dialog: Dialog,
+    private pointerInputService: PointerInputService,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect(() => {
-      this.figures = gameManager.game.figures.filter((figure) => (settingsManager.settings.monsters || !(figure instanceof Monster)) && (!(figure instanceof Character) || !figure.absent || !settingsManager.settings.hideAbsent));
+      this.figures = gameManager.game.figures.filter(
+        (figure) =>
+          (settingsManager.settings.monsters || !(figure instanceof Monster)) &&
+          (!(figure instanceof Character) || !figure.absent || !settingsManager.settings.hideAbsent)
+      );
       if (this.initialized) {
         const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
         if (figure) {
@@ -74,27 +112,39 @@ export class MainComponent implements OnInit {
         } else if (gameManager.game.figures.length == 0) {
           this.welcome = true;
           this.welcomeOtherEditions = settingsManager.settings.editions.length < gameManager.editionData.length;
-          this.welcomeEditionHint = gameManager.game.edition && settingsManager.getLabel('data.edition.' + gameManager.game.edition + '.hint') != 'hint' || false;
+          this.welcomeEditionHint =
+            (gameManager.game.edition && settingsManager.getLabel('data.edition.' + gameManager.game.edition + '.hint') != 'hint') || false;
         } else {
           this.fullviewChar = undefined;
           this.welcome = false;
           this.calcColumns();
-          if (settingsManager.settings.automaticStandeesDialog && settingsManager.settings.automaticStandees && settingsManager.settings.standees && !settingsManager.settings.randomStandees && settingsManager.settings.scenarioRooms) {
+          if (
+            settingsManager.settings.automaticStandeesDialog &&
+            settingsManager.settings.automaticStandees &&
+            settingsManager.settings.standees &&
+            !settingsManager.settings.randomStandees &&
+            settingsManager.settings.scenarioRooms
+          ) {
             if (this.standeeDialog && gameManager.stateManager.lastAction == 'undo') {
               this.standeeDialog.close();
             }
             if (this.dialog.openDialogs.length == 0) {
               this.automaticStandeeDialogs();
-            }
-            else if (!this.standeeDialogSubscription) {
+            } else if (!this.standeeDialogSubscription) {
               this.standeeDialogSubscription = this.dialog.afterAllClosed.subscribe({
                 next: () => {
                   this.automaticStandeeDialogs();
                 }
-              })
+              });
             }
           }
-          this.showBackupHint = settingsManager.settings.backupHint && !this.loading && !gameManager.game.scenario && (gameManager.game.party.scenarios.length > 0 || gameManager.game.party.casualScenarios.length > 0 || gameManager.game.parties.some((party) => party.casualScenarios.length > 0));
+          this.showBackupHint =
+            settingsManager.settings.backupHint &&
+            !this.loading &&
+            !gameManager.game.scenario &&
+            (gameManager.game.party.scenarios.length > 0 ||
+              gameManager.game.party.casualScenarios.length > 0 ||
+              gameManager.game.parties.some((party) => party.casualScenarios.length > 0));
         }
       }
       if (this.serverPing != settingsManager.settings.serverPing) {
@@ -111,18 +161,18 @@ export class MainComponent implements OnInit {
       }
     });
 
-    this.swUpdate.versionUpdates.subscribe(evt => {
+    this.swUpdate.versionUpdates.subscribe((evt) => {
       this.loading = false;
       if (evt.type == 'VERSION_READY') {
         gameManager.stateManager.hasUpdate = true;
       } else if (evt.type == 'VERSION_INSTALLATION_FAILED') {
         console.error(`Failed to install version '${evt.version.hash}': ${evt.error}`);
       }
-    })
+    });
 
-    this.swUpdate.unrecoverable.subscribe(evt => {
+    this.swUpdate.unrecoverable.subscribe(() => {
       this.loading = false;
-    })
+    });
 
     if (this.swUpdate.isEnabled) {
       this.swUpdate.checkForUpdate();
@@ -149,28 +199,38 @@ export class MainComponent implements OnInit {
     });
 
     window.addEventListener('visibilitychange', async () => {
-      if (document.visibilityState === 'hidden' && settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock && !gameManager.stateManager.storageBlocked) {
-        await this.automaticClockOut()
+      if (
+        document.visibilityState === 'hidden' &&
+        settingsManager.settings.gameClock &&
+        settingsManager.settings.automaticGameClock &&
+        !gameManager.stateManager.storageBlocked
+      ) {
+        await this.automaticClockOut();
       }
     });
 
     window.addEventListener('blur', async () => {
-      if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock && settingsManager.settings.automaticGameClockFocus && !gameManager.stateManager.storageBlocked) {
+      if (
+        settingsManager.settings.gameClock &&
+        settingsManager.settings.automaticGameClock &&
+        settingsManager.settings.automaticGameClockFocus &&
+        !gameManager.stateManager.storageBlocked
+      ) {
         await this.automaticClockOut();
       }
     });
   }
 
-  onFigureScroll(event: any) {
+  onFigureScroll() {
     this.pointerInputService.cancel();
   }
 
   async ngOnInit() {
-    this.isTouch = window.matchMedia("(pointer: coarse)").matches;
+    this.isTouch = window.matchMedia('(pointer: coarse)').matches;
     document.body.classList.add('no-select');
     try {
       await storageManager.init();
-    } catch (e) {
+    } catch {
       // continue
     }
     await settingsManager.init(!environment.production);
@@ -196,48 +256,58 @@ export class MainComponent implements OnInit {
     }
 
     if (this.swUpdate.isEnabled || this.isAppDevMode()) {
-      document.body.addEventListener("click", (event) => {
-        if (settingsManager.settings.fullscreen && (this.swUpdate.isEnabled || this.isAppDevMode()) && !document.body.classList.contains('fullscreen')) {
-          document.body.requestFullscreen && document.body.requestFullscreen();
+      document.body.addEventListener('click', () => {
+        if (
+          settingsManager.settings.fullscreen &&
+          (this.swUpdate.isEnabled || this.isAppDevMode()) &&
+          !document.body.classList.contains('fullscreen')
+        ) {
+          if (!!document.body.requestFullscreen) {
+            document.body.requestFullscreen();
+          }
           if ((navigator as any).keyboard?.lock) {
-            (navigator as any).keyboard.lock(['Escape']).catch(() => { });
+            (navigator as any).keyboard.lock(['Escape']).catch(() => {});
           }
         }
       });
     }
 
-    window.addEventListener('resize', (event) => {
+    window.addEventListener('resize', () => {
       if (!this.fullviewChar) {
         this.calcColumns();
       }
     });
 
-    window.addEventListener('fullscreenchange', (event) => {
+    window.addEventListener('fullscreenchange', () => {
       if (!this.fullviewChar) {
         this.calcColumns();
       }
     });
 
-    window.addEventListener('focus', (event) => {
+    window.addEventListener('focus', () => {
       if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() != WebSocket.OPEN) {
         gameManager.stateManager.connect();
       }
 
-      if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock && settingsManager.settings.automaticGameClockFocus) {
+      if (
+        settingsManager.settings.gameClock &&
+        settingsManager.settings.automaticGameClock &&
+        settingsManager.settings.automaticGameClockFocus
+      ) {
         this.automaticClockIn();
       }
     });
 
-    if (settingsManager.settings.wakeLock && "wakeLock" in navigator) {
+    if (settingsManager.settings.wakeLock && 'wakeLock' in navigator) {
       try {
-        gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
+        gameManager.stateManager.wakeLock = await navigator.wakeLock.request('screen');
       } catch (e) {
         console.error(e);
       }
 
-      document.addEventListener("visibilitychange", async () => {
-        if (gameManager.stateManager.wakeLock !== null && document.visibilityState === "visible") {
-          gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
+      document.addEventListener('visibilitychange', async () => {
+        if (gameManager.stateManager.wakeLock !== null && document.visibilityState === 'visible') {
+          gameManager.stateManager.wakeLock = await navigator.wakeLock.request('screen');
         }
       });
     }
@@ -249,7 +319,7 @@ export class MainComponent implements OnInit {
     const lastGameClockTimestamp = gameManager.game.gameClock.length ? gameManager.game.gameClock[0] : undefined;
     if (!lastGameClockTimestamp || lastGameClockTimestamp.clockOut) {
       // 7 seconds refresh timeout
-      if (lastGameClockTimestamp && lastGameClockTimestamp.clockOut && (new Date().getTime() - lastGameClockTimestamp.clockOut) < 7000) {
+      if (lastGameClockTimestamp && lastGameClockTimestamp.clockOut && new Date().getTime() - lastGameClockTimestamp.clockOut < 7000) {
         lastGameClockTimestamp.clockOut = undefined;
       } else {
         gameManager.toggleGameClock();
@@ -297,30 +367,20 @@ export class MainComponent implements OnInit {
     }
   }
 
-
   startCampaign(edition: string) {
-    gameManager.stateManager.before("startCampaign", 'data.edition.' + edition);
+    gameManager.stateManager.before('startCampaign', 'data.edition.' + edition);
+    settingsManager.automaticTheme(edition, gameManager.game.edition);
     gameManager.game.edition = edition;
-    if (settingsManager.settings.automaticTheme && settingsManager.settings.theme != 'modern') {
-      if (edition == 'fh' || edition == 'bb') {
-        settingsManager.set('theme', edition);
-      } else {
-        settingsManager.set('theme', 'default');
-      }
-      if (edition == 'gh2e') {
-        settingsManager.set('fhStyle', true);
-      }
-    }
     gameManager.game.party.campaignMode = true;
     gameManager.game.party.edition = edition;
-    this.welcomeEditionHint = edition && settingsManager.getLabel('data.edition.' + edition + '.hint') != 'hint' || false;
+    this.welcomeEditionHint = (edition && settingsManager.getLabel('data.edition.' + edition + '.hint') != 'hint') || false;
     gameManager.game.party.eventDecks = {};
     gameManager.eventCardManager.buildPartyDeckMigration(edition);
     gameManager.stateManager.after();
   }
 
   cancelCampaign(edition: string) {
-    gameManager.stateManager.before("cancelCampaign", 'data.edition.' + edition);
+    gameManager.stateManager.before('cancelCampaign', 'data.edition.' + edition);
     gameManager.game.edition = undefined;
     gameManager.game.party.campaignMode = false;
     gameManager.game.party.eventDecks = {};
@@ -328,7 +388,7 @@ export class MainComponent implements OnInit {
   }
 
   toggleCampaignMode() {
-    gameManager.stateManager.before(gameManager.game.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
+    gameManager.stateManager.before(gameManager.game.party.campaignMode ? 'disablePartyCampaignMode' : 'enablePartyCampaignMode');
     gameManager.game.party.campaignMode = !gameManager.game.party.campaignMode;
     gameManager.stateManager.after();
   }
@@ -342,7 +402,7 @@ export class MainComponent implements OnInit {
           this.translate(scrollTo, skipAnimation);
         }
         this.cdr.markForCheck();
-      }, 1)
+      }, 1);
     } else {
       setTimeout(() => {
         const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
@@ -354,8 +414,20 @@ export class MainComponent implements OnInit {
             const maxColumns = Math.floor(containerElement.clientWidth / (figureWidth * 1.025));
             if (maxColumns > 1) {
               const activeFigureElementHeights = figureElements.slice(0, this.lastScroll + 1).map((element) => element.clientHeight);
-              const columns = this.calcColumnsHelper(activeFigureElementHeights, containerElement.clientHeight, containerElement.clientWidth, figureWidth * 1.025).filter((column) => column.length);
-              this.grid = columns.map((column, index, self) => self.map((value) => value.length).slice(0, index + 1).reduce((a, b) => a + b), 0);
+              const columns = this.calcColumnsHelper(
+                activeFigureElementHeights,
+                containerElement.clientHeight,
+                containerElement.clientWidth,
+                figureWidth * 1.025
+              ).filter((column) => column.length);
+              this.grid = columns.map(
+                (column, index, self) =>
+                  self
+                    .map((value) => value.length)
+                    .slice(0, index + 1)
+                    .reduce((a, b) => a + b),
+                0
+              );
             }
           }
           this.lastScrollColumn = this.grid.length > 1 ? this.grid.length - 1 : -1;
@@ -390,7 +462,7 @@ export class MainComponent implements OnInit {
       }
       columns[distributionColumn].push(elementHeight);
       columnHeights[distributionColumn] += elementHeight;
-    })
+    });
 
     columns = columns.filter((column) => column.length);
     columnHeights = columnHeights.filter((height) => height);
@@ -441,7 +513,7 @@ export class MainComponent implements OnInit {
       if (index > lastActive && gameManager.gameplayFigure(figure)) {
         lastActive = index;
       }
-    })
+    });
     return lastActive;
   }
 
@@ -457,7 +529,7 @@ export class MainComponent implements OnInit {
         const columnMiddle = Math.ceil(this.grid.length / 2);
         for (let index = 0; index < figures.length; index++) {
           let start = 0;
-          let left = "0";
+          let left = '0';
           let column = this.grid.length - 1;
           let factor = 0;
           for (let c = this.grid.length; c > 0; c--) {
@@ -471,7 +543,7 @@ export class MainComponent implements OnInit {
             factor += 0.5;
           }
 
-          left = "calc(100% * " + factor + ")";
+          left = 'calc(100% * ' + factor + ')';
 
           start = column == 0 ? 0 : this.grid[column - 1];
 
@@ -480,26 +552,32 @@ export class MainComponent implements OnInit {
             height += figures[i].clientHeight;
           }
 
-          figures[index].style.transform = "scale(1) translate(" + left + "," + height + "px)";
+          figures[index].style.transform = 'scale(1) translate(' + left + ',' + height + 'px)';
 
           if (scrollTo) {
-            setTimeout(() => {
-              scrollTo.scrollIntoView({
-                behavior: !settingsManager.settings.animations ? 'auto' : 'smooth',
-                block: (index == this.lastScroll || index == this.lastScrollColumn) ? 'end' : 'center',
-                inline: 'center'
-              });
+            setTimeout(
+              () => {
+                scrollTo.scrollIntoView({
+                  behavior: !settingsManager.settings.animations ? 'auto' : 'smooth',
+                  block: index == this.lastScroll || index == this.lastScrollColumn ? 'end' : 'center',
+                  inline: 'center'
+                });
 
-              if (skipAnimation) {
-                containerElement.classList.remove('no-animations');
-              }
-              this.cdr.markForCheck();
-            }, !settingsManager.settings.animations || skipAnimation ? 0 : 250 * settingsManager.settings.animationSpeed);
+                if (skipAnimation) {
+                  containerElement.classList.remove('no-animations');
+                }
+                this.cdr.markForCheck();
+              },
+              !settingsManager.settings.animations || skipAnimation ? 0 : 250 * settingsManager.settings.animationSpeed
+            );
           } else if (skipAnimation) {
-            setTimeout(() => {
-              containerElement.classList.remove('no-animations');
-              this.cdr.markForCheck();
-            }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0)
+            setTimeout(
+              () => {
+                containerElement.classList.remove('no-animations');
+                this.cdr.markForCheck();
+              },
+              settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0
+            );
           }
           this.cdr.markForCheck();
         }
@@ -529,15 +607,19 @@ export class MainComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<number>) {
-    if (event.previousContainer != event.container && (event.currentIndex == 0 && event.container.data != event.previousContainer.data + 1 || event.currentIndex != 0 && event.container.data != event.previousContainer.data - event.currentIndex)) {
-      let prev = event.previousContainer.data;
+    if (
+      event.previousContainer != event.container &&
+      ((event.currentIndex == 0 && event.container.data != event.previousContainer.data + 1) ||
+        (event.currentIndex != 0 && event.container.data != event.previousContainer.data - event.currentIndex))
+    ) {
+      const prev = event.previousContainer.data;
       let next = event.container.data;
       if (event.currentIndex > 0 && event.previousContainer.data > event.container.data) {
         next++;
       } else if (event.currentIndex == 0 && event.previousContainer.data < event.container.data) {
         next--;
       }
-      gameManager.stateManager.before("reorder");
+      gameManager.stateManager.before('reorder');
       moveItemInArray(gameManager.game.figures, prev, next);
       gameManager.stateManager.after();
       this.calcColumns(event.item.element.nativeElement, true);
@@ -547,20 +629,33 @@ export class MainComponent implements OnInit {
     this.draggingEnabled = false;
   }
 
-  entered(event: CdkDragEnter<number>) {
+  entered() {
     this.translate();
   }
 
-  exited(event: CdkDragExit<number>) {
+  exited() {
     this.translate();
   }
 
   automaticStandeeDialogs() {
-    if (!gameManager.stateManager.standeeDialogCanceled && this.dialog.openDialogs.length == 0 && gameManager.game.scenarioRules.length == 0) {
-      const figure = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.entities.find((entity) => entity.number < 1 && gameManager.entityManager.isAlive(entity)));
+    if (
+      !gameManager.stateManager.standeeDialogCanceled &&
+      this.dialog.openDialogs.length == 0 &&
+      gameManager.game.scenarioRules.length == 0
+    ) {
+      const figure = gameManager.game.figures.find(
+        (figure) =>
+          figure instanceof Monster && figure.entities.find((entity) => entity.number < 1 && gameManager.entityManager.isAlive(entity))
+      );
       if (figure) {
         const monster = figure as Monster;
-        let entity = monster.entities.find((entity) => entity.number < 1 && gameManager.entityManager.isAlive(entity) && (settingsManager.settings.eliteFirst && entity.type == MonsterType.elite || !settingsManager.settings.eliteFirst && entity.type == MonsterType.normal));
+        let entity = monster.entities.find(
+          (entity) =>
+            entity.number < 1 &&
+            gameManager.entityManager.isAlive(entity) &&
+            ((settingsManager.settings.eliteFirst && entity.type == MonsterType.elite) ||
+              (!settingsManager.settings.eliteFirst && entity.type == MonsterType.normal))
+        );
         if (!entity) {
           entity = monster.entities.find((entity) => entity.number < 1 && gameManager.entityManager.isAlive(entity));
         }
@@ -575,7 +670,7 @@ export class MainComponent implements OnInit {
             entities: monster.entities,
             automatic: true
           }
-        })
+        });
 
         this.standeeDialog.closed.subscribe({
           next: (cancel) => {
@@ -587,24 +682,24 @@ export class MainComponent implements OnInit {
               this.standeeDialogSubscription.unsubscribe();
               this.standeeDialogSubscription = undefined;
             }
-            this.ghsManager.triggerUiChange();;
+            this.ghsManager.triggerUiChange();
           }
-        })
+        });
       }
     }
   }
 
   async exportDataDump() {
     try {
-      let datadump: any = await storageManager.datadump();
-      let downloadButton = document.createElement('a');
+      const datadump: any = await storageManager.datadump();
+      const downloadButton = document.createElement('a');
       downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
-      downloadButton.setAttribute('download', "ghs-data-dump_" + new Date().toISOString() + ".json");
+      downloadButton.setAttribute('download', 'ghs-data-dump_' + new Date().toISOString() + '.json');
       document.body.appendChild(downloadButton);
       downloadButton.click();
       document.body.removeChild(downloadButton);
-    } catch (e) {
-      console.warn("Could not read datadump");
+    } catch {
+      console.warn('Could not read datadump');
     }
   }
 

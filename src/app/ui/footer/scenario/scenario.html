@@ -1,101 +1,119 @@
-<div class="scenario-container" [ngClass]="{'setup' : gameManager.game.round < 1}">
+<div class="scenario-container" [ngClass]="{ setup: gameManager.game.round < 1 }">
   <div class="button" ghs-pointer-input (singleClick)="open()" (doubleClick)="openRecapDialog()">
     @if (!!gameManager.game.scenario) {
-    <div class="scenario">
-      @if (gameManager.game.scenario.index && !gameManager.game.scenario.hideIndex) {
-      <span class="index">#{{gameManager.game.scenario.index}}</span>
-      }
-      @if (!!gameManager.game.scenario) {
-      <span class="name">
-        <span
-          [ghs-label]="(gameManager.game.scenario.name ? gameManager.scenarioManager.scenarioTitle(gameManager.game.scenario) : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario.set'))"></span>
-      </span>
-      }
-      @if (gameManager.game.scenario.level) {
-      <span class="scenario-level-container">
-        <span class="scenario-level" [ghs-label]="'scenario.level'"
-          [ghs-label-args]="[gameManager.game.scenario.level + '']"
-          [ngClass]="'level-' +  gameManager.game.scenario.level"></span>
-      </span>
-      }
-      @if (settingsManager.settings.scenarioRooms && settingsManager.settings.treasures && treasures.length > 0) {
-      <span class="treasures" ghs-pointer-input (singleClick)="openTreasures($event)"
-        [ngClass]="{'unlooted' : unlootedTreasures.length > 0}">
-        <img class="ghs-svg" src="./assets/images/scenario/treasure.svg">
-      </span>
-      }
-    </div>
+      <div class="scenario">
+        @if (gameManager.game.scenario.index && !gameManager.game.scenario.hideIndex) {
+          <span class="index">#{{ gameManager.game.scenario.index }}</span>
+        }
+        @if (!!gameManager.game.scenario) {
+          <span class="name">
+            <span
+              [ghs-label]="
+                gameManager.game.scenario.name
+                  ? gameManager.scenarioManager.scenarioTitle(gameManager.game.scenario)
+                  : gameManager.game.scenario.custom
+                    ? 'scenario.custom'
+                    : 'scenario.set'
+              "
+            ></span>
+          </span>
+        }
+        @if (gameManager.game.scenario.level) {
+          <span class="scenario-level-container">
+            <span
+              class="scenario-level"
+              [ghs-label]="'scenario.level'"
+              [ghs-label-args]="[gameManager.game.scenario.level + '']"
+              [ngClass]="'level-' + gameManager.game.scenario.level"
+            ></span>
+          </span>
+        }
+        @if (settingsManager.settings.scenarioRooms && settingsManager.settings.treasures && treasures.length > 0) {
+          <span
+            class="treasures"
+            ghs-pointer-input
+            (singleClick)="openTreasures($event)"
+            [ngClass]="{ unlooted: unlootedTreasures.length > 0 }"
+          >
+            <img class="ghs-svg" src="/assets/images/scenario/treasure.svg" />
+          </span>
+        }
+      </div>
     }
-    @if (!gameManager.bbRules() && !gameManager.game.scenario && (characterCount > 0
-    || settingsManager.settings.partySheet)) {
-    <div class="event-effects">
-      <img class="ghs-svg" src="./assets/images/event.svg"> <span [ghs-label]="'scenario.eventEffects'"></span>
-    </div>
+    @if (!gameManager.bbRules() && !gameManager.game.scenario && (characterCount > 0 || settingsManager.settings.partySheet)) {
+      <div class="event-effects">
+        <img class="ghs-svg" src="/assets/images/event.svg" /> <span [ghs-label]="'scenario.eventEffects'"></span>
+      </div>
     }
   </div>
-  <div class="sections rooms"
-    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
+  <div
+    class="sections rooms"
+    [ngClass]="{ denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario }"
+  >
     @if (settingsManager.settings.scenarioRooms) {
-    @for (roomData of openRooms | trackUUID; track roomData._trackUUID) {
-    <span class="section room" ghs-pointer-input (singleClick)="open()">
-      <img class="ghs-svg" src="./assets/images/scenario/door-open.svg">
-      {{roomData.ref}}
-      @if (roomData.marker) {
-      <span class="marker" [ghs-label]="'%game.mapMarker.' + roomData.marker +'%'"></span>
+      @for (roomData of openRooms | trackUUID; track roomData._trackUUID) {
+        <span class="section room" ghs-pointer-input (singleClick)="open()">
+          <img class="ghs-svg" src="/assets/images/scenario/door-open.svg" />
+          {{ roomData.ref }}
+          @if (roomData.marker) {
+            <span class="marker" [ghs-label]="'%game.mapMarker.' + roomData.marker + '%'"></span>
+          }
+        </span>
       }
-    </span>
-    }
     }
     @for (section of sections | trackUUID; track section._trackUUID) {
-    <span class="section" ghs-pointer-input (singleClick)="open()" (doubleClick)="openRandomMonsterCard(section)">
-      <img class="ghs-svg" src="./assets/images/lock-open.svg">
-      @if (!section.hideIndex) {
-      <span>#{{section.index}}</span>
-      }
-      @if (!gameManager.game.scenario || section.name != gameManager.game.scenario.name) {
-      <span class="name">
-        &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section,true)"></span>
+      <span class="section" ghs-pointer-input (singleClick)="open()" (doubleClick)="openRandomMonsterCard(section)">
+        <img class="ghs-svg" src="/assets/images/lock-open.svg" />
+        @if (!section.hideIndex) {
+          <span>#{{ section.index }}</span>
+        }
+        @if (!gameManager.game.scenario || section.name != gameManager.game.scenario.name) {
+          <span class="name"> &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section, true)"></span> </span>
+        }
+        @if (section.marker) {
+          <span class="marker" [ghs-label]="'%game.mapMarker.' + section.marker + '%'"></span>
+        }
       </span>
-      }
-      @if (section.marker) {
-      <span class="marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>
-      }
-    </span>
     }
     @if (settingsManager.settings.scenarioRooms) {
-    @for (roomData of closedRooms | trackUUID; track roomData._trackUUID) {
-    <span class="section room available" ghs-pointer-input (singleClick)="openRoom(roomData, $event)"
-      [ghs-tooltip]="(roomData.marker ? 'scenario.openRoomMarker' : 'scenario.openRoom') + (roomData.ref ? 'Ref': '')"
-      [ghs-label-args]="[roomData.ref || '', roomData.marker || '']" [originX]="'center'" [overlayY]="'center'"
-      [originY]="'top'" [overlayY]="'bottom'">
-      <img class="ghs-svg" src="./assets/images/scenario/door.svg">
-      <span class="ref">{{roomData.ref}}</span>
-      @if (roomData.marker) {
-      <span class="marker" [ghs-label]="'%game.mapMarker.' + roomData.marker +'%'"></span>
+      @for (roomData of closedRooms | trackUUID; track roomData._trackUUID) {
+        <span
+          class="section room available"
+          ghs-pointer-input
+          (singleClick)="openRoom(roomData, $event)"
+          [ghs-tooltip]="(roomData.marker ? 'scenario.openRoomMarker' : 'scenario.openRoom') + (roomData.ref ? 'Ref' : '')"
+          [ghs-label-args]="[roomData.ref || '', roomData.marker || '']"
+          [originX]="'center'"
+          [overlayY]="'center'"
+          [originY]="'top'"
+          [overlayY]="'bottom'"
+        >
+          <img class="ghs-svg" src="/assets/images/scenario/door.svg" />
+          <span class="ref">{{ roomData.ref }}</span>
+          @if (roomData.marker) {
+            <span class="marker" [ghs-label]="'%game.mapMarker.' + roomData.marker + '%'"></span>
+          }
+        </span>
       }
-    </span>
-    }
     }
     @for (section of availableSections | trackUUID; track section._trackUUID) {
-    <span class="section available" ghs-pointer-input (singleClick)="addSection(section, $event)">
-      @if (!section.conclusion) {
-      <img class="ghs-svg" src="./assets/images/lock.svg">
-      }
-      @if (section.conclusion) {
-      <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
-      }
-      @if ((!section.conclusion || !section.name) && !section.hideIndex) {
-      <span>#{{section.index}}</span>
-      }
-      @if (section.marker) {
-      <span class="marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>
-      }
-      @if ((section.conclusion || section.named) && section.name) {
-      <span class="name">
-        &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section,true)"></span>
+      <span class="section available" ghs-pointer-input (singleClick)="addSection(section, $event)">
+        @if (!section.conclusion) {
+          <img class="ghs-svg" src="/assets/images/lock.svg" />
+        }
+        @if (section.conclusion) {
+          <img class="ghs-svg" src="/assets/images/scenario/conclusion.svg" />
+        }
+        @if ((!section.conclusion || !section.name) && !section.hideIndex) {
+          <span>#{{ section.index }}</span>
+        }
+        @if (section.marker) {
+          <span class="marker" [ghs-label]="'%game.mapMarker.' + section.marker + '%'"></span>
+        }
+        @if ((section.conclusion || section.named) && section.name) {
+          <span class="name"> &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section, true)"></span> </span>
+        }
       </span>
-      }
-    </span>
     }
   </div>
 </div>

@@ -10,11 +10,15 @@ This is a comparison of popular companion apps. Since it was created by the auth
 
 Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, while *GHFS*, as the name suggests, is not just a companion app, but a full stack app. So *GHFS* allows full online play and has many more features than the other apps (and listed here) like full scenario map support and many more (see [gloomhaven.smigiel.us/#features](https://gloomhaven.smigiel.us/#features)). But since *GHFS* can also be used to replace companion apps like *GHH*, I listed it here.
 
+### Honourable mentions
+
+There are a few other apps that are specialised or niche and therefore not taken into consideration, but they may be best suited to your specific needs. See the [Gloomhaven Reddit Wiki](https://www.reddit.com/r/Gloomhaven/wiki/community/apps/) for more apps.
+
 > This is **not** a comparison of **usability**, **performance** or any **visual**, so personal taste and expectations may differ from a simple table of features!
 
 - ✅ `supported`
 - ❗ `support with limitations`
-- ⛔ `no support` 
+- ⛔ `no support`
 - ❔ `missing information`
 - ➖ `no support but due to missing requirement for other features`
 
@@ -117,6 +121,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Support ≥ 5 Players rules                                                       | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Absent Characters                                                               | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Scenario Statistics                                                             | ✅[^1]        | ⛔         | ⛔        | ✅        | ⛔       |
+| Scenario Recaps                                                                 | ✅            | ⛔         | ⛔        | ⛔        | ⛔       |
 | Localization                                                                    | ✅[^5]        | ⛔         | ⛔        | ⛔        | ✅❗[^6]  |
 | Keyboard Shortcuts                                                              | ✅            | ⛔         | ⛔        | ⛔        | ✅       |
 | Offline Support                                                                 | ✅[^10]       | ✅         | ✅        | ⛔        | ✅       |

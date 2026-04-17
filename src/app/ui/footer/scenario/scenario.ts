@@ -1,29 +1,34 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
-import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { RoomData } from 'src/app/game/model/data/RoomData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
-import { EntitiesMenuDialogComponent } from '../../figures/entities-menu/entities-menu-dialog';
-import { EventCardDrawComponent } from '../../figures/event/draw/event-card-draw';
-import { ScenarioRecapDialogComponent } from '../../figures/scenario-recap/scenario-recap';
-import { RandomMonsterCardDialogComponent } from './dialog/random-monster-card/random-monster-card-dialog';
-import { ScenarioDialogComponent } from './dialog/scenario-dialog';
-import { SectionDialogComponent } from './section/section-dialog';
-import { ScenarioSummaryComponent } from './summary/scenario-summary';
-import { ScenarioTreasuresDialogComponent } from './treasures/treasures-dialog';
+import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
+import { EventCardDrawComponent } from 'src/app/ui/figures/event/draw/event-card-draw';
+import { ScenarioRecapDialogComponent } from 'src/app/ui/figures/scenario-recap/scenario-recap';
+import { RandomMonsterCardDialogComponent } from 'src/app/ui/footer/scenario/dialog/random-monster-card/random-monster-card-dialog';
+import { ScenarioDialogComponent } from 'src/app/ui/footer/scenario/dialog/scenario-dialog';
+import { SectionDialogComponent } from 'src/app/ui/footer/scenario/section/section-dialog';
+import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
+import { ScenarioTreasuresDialogComponent } from 'src/app/ui/footer/scenario/treasures/treasures-dialog';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  standalone: false,
+  imports: [NgClass, GhsLabelDirective, GhsTooltipDirective, PointerInputDirective, TrackUUIDPipe],
   selector: 'ghs-scenario',
   templateUrl: './scenario.html',
-  styleUrls: ['./scenario.scss']
+  styleUrls: ['./scenario.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioComponent {
-
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   characterCount: number = 0;
@@ -31,10 +36,13 @@ export class ScenarioComponent {
   closedRooms: RoomData[] = [];
   sections: Scenario[] = [];
   availableSections: ScenarioData[] = [];
-  treasures: ("G" | number)[] = [];
-  unlootedTreasures: ("G" | number)[] = [];
+  treasures: ('G' | number)[] = [];
+  unlootedTreasures: ('G' | number)[] = [];
 
-  constructor(private dialog: Dialog, private ghsManager: GhsManager) {
+  constructor(
+    private dialog: Dialog,
+    private ghsManager: GhsManager
+  ) {
     this.ghsManager.uiChangeEffect(() => {
       this.update();
     });
@@ -43,7 +51,18 @@ export class ScenarioComponent {
   update() {
     this.characterCount = gameManager.characterManager.characterCount(true);
     if (gameManager.game.scenario && gameManager.game.finish && !gameManager.stateManager.scenarioSummary) {
-      const conclusion = gameManager.game.finish.conclusion ? gameManager.sectionData(gameManager.game.finish.conclusion.edition).find((sectionData) => gameManager.game.finish && gameManager.game.finish.conclusion && sectionData.index == gameManager.game.finish.conclusion.index && sectionData.group == gameManager.game.finish.conclusion.group && sectionData.conclusion) : undefined;
+      const conclusion = gameManager.game.finish.conclusion
+        ? gameManager
+            .sectionData(gameManager.game.finish.conclusion.edition)
+            .find(
+              (sectionData) =>
+                gameManager.game.finish &&
+                gameManager.game.finish.conclusion &&
+                sectionData.index == gameManager.game.finish.conclusion.index &&
+                sectionData.group == gameManager.game.finish.conclusion.group &&
+                sectionData.conclusion
+            )
+        : undefined;
       this.dialog.open(ScenarioSummaryComponent, {
         panelClass: ['dialog'],
         disableClose: true,
@@ -52,30 +71,42 @@ export class ScenarioComponent {
           conclusion: conclusion,
           success: gameManager.game.finish.success
         }
-      })
-    } else if (gameManager.game.eventDraw && settingsManager.settings.eventsDraw && !this.dialog.openDialogs.find((dialogRef) => dialogRef.componentInstance && dialogRef.componentInstance instanceof EventCardDrawComponent)) {
-      this.dialog.open(EventCardDrawComponent, {
-        panelClass: ['dialog'],
-        disableClose: true,
-        data: {
-          edition: gameManager.game.edition || gameManager.currentEdition(),
-          type: gameManager.game.eventDraw
-        }
-      }).closed.subscribe({
-        next: (results: any) => {
-          if (settingsManager.settings.eventsApply && results && results.length) {
-            this.dialog.open(EntitiesMenuDialogComponent, {
-              panelClass: ['dialog'],
-              data: { eventResults: results }
-            });
+      });
+    } else if (
+      gameManager.game.eventDraw &&
+      settingsManager.settings.eventsDraw &&
+      !this.dialog.openDialogs.find(
+        (dialogRef) => dialogRef.componentInstance && dialogRef.componentInstance instanceof EventCardDrawComponent
+      )
+    ) {
+      this.dialog
+        .open(EventCardDrawComponent, {
+          panelClass: ['dialog'],
+          disableClose: true,
+          data: {
+            edition: gameManager.game.edition || gameManager.currentEdition(),
+            type: gameManager.game.eventDraw
           }
-        }
-      })
+        })
+        .closed.subscribe({
+          next: (results: any) => {
+            if (settingsManager.settings.eventsApply && results && results.length) {
+              this.dialog.open(EntitiesMenuDialogComponent, {
+                panelClass: ['dialog'],
+                data: { eventResults: results }
+              });
+            }
+          }
+        });
     }
 
     this.sections = [...gameManager.game.sections];
-    this.treasures = !!gameManager.game.scenario ? gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections) : [];
-    this.unlootedTreasures = !!gameManager.game.scenario ? gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections, true) : [];
+    this.treasures = !!gameManager.game.scenario
+      ? gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections)
+      : [];
+    this.unlootedTreasures = !!gameManager.game.scenario
+      ? gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections, true)
+      : [];
     this.openRooms = gameManager.scenarioManager.openRooms();
     this.closedRooms = gameManager.scenarioManager.closedRooms();
     this.availableSections = gameManager.scenarioManager.availableSections().sort((a, b) => {
@@ -84,7 +115,6 @@ export class ScenarioComponent {
       }
       return 0;
     });
-
   }
 
   open() {
@@ -103,7 +133,12 @@ export class ScenarioComponent {
       this.dialog.open(ScenarioRecapDialogComponent, {
         panelClass: ['dialog'],
         data: { scenario: this.gameManager.game.scenario }
-      })
+      });
+    } else {
+      this.dialog.open(EntitiesMenuDialogComponent, {
+        panelClass: ['dialog'],
+        data: { eventMenu: true }
+      });
     }
   }
 
@@ -111,10 +146,9 @@ export class ScenarioComponent {
     event.preventDefault();
     event.stopPropagation();
     if (gameManager.game.scenario) {
-      this.dialog.open(ScenarioTreasuresDialogComponent,
-        {
-          panelClass: ['dialog']
-        });
+      this.dialog.open(ScenarioTreasuresDialogComponent, {
+        panelClass: ['dialog']
+      });
     }
   }
 
@@ -124,7 +158,7 @@ export class ScenarioComponent {
         panelClass: ['fullscreen-panel'],
         disableClose: true,
         data: sectionData
-      })
+      });
     } else {
       this.open();
     }
@@ -136,17 +170,24 @@ export class ScenarioComponent {
 
     const scenario = gameManager.game.scenario;
     if (scenario) {
-
       if (gameManager.roundManager.firstRound) {
         this.open();
       } else {
-        const editionData: EditionData | undefined = gameManager.editionData.find((value) => gameManager.game.scenario && value.edition == gameManager.game.scenario.edition);
+        const editionData: EditionData | undefined = gameManager.editionData.find(
+          (value) => gameManager.game.scenario && value.edition == gameManager.game.scenario.edition
+        );
 
         if (!editionData) {
-          console.error("Could not find edition data!");
+          console.error('Could not find edition data!');
           return;
         }
-        gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", scenario.index, gameManager.scenarioManager.scenarioTitle(scenario), roomData.ref, roomData.marker || '');
+        gameManager.stateManager.before(
+          roomData.marker ? 'openRoomMarker' : 'openRoom',
+          scenario.index,
+          gameManager.scenarioManager.scenarioTitle(scenario),
+          roomData.ref,
+          roomData.marker || ''
+        );
         gameManager.scenarioManager.openRoom(roomData, scenario, false);
         gameManager.stateManager.after();
       }
@@ -159,11 +200,10 @@ export class ScenarioComponent {
     if (gameManager.roundManager.firstRound) {
       this.open();
     } else {
-      this.dialog.open(SectionDialogComponent,
-        {
-          panelClass: ['dialog'],
-          data: sectionData
-        });
+      this.dialog.open(SectionDialogComponent, {
+        panelClass: ['dialog'],
+        data: sectionData
+      });
     }
   }
 }

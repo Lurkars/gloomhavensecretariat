@@ -1,14 +1,19 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { EventCardAttack, EventCardCondition, EventCardConditionType, EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
-import { EventCardDeckComponent } from '../../event/deck/event-card-deck';
-import { EventCardDrawComponent } from '../../event/draw/event-card-draw';
-import type { EntitiesMenuDialogComponent } from '../entities-menu-dialog';
-import { FavorsComponent } from '../favors/favors';
-import { OutpostAttackComponent } from '../outpost-attack/outpost-attack';
+import {
+  EventCardAttack,
+  EventCardCondition,
+  EventCardConditionType,
+  EventCardEffect,
+  EventCardEffectType
+} from 'src/app/game/model/data/EventCard';
+import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
+import { FavorsComponent } from 'src/app/ui/figures/entities-menu/favors/favors';
+import { OutpostAttackComponent } from 'src/app/ui/figures/entities-menu/outpost-attack/outpost-attack';
+import { EventCardDeckComponent } from 'src/app/ui/figures/event/deck/event-card-deck';
+import { EventCardDrawComponent } from 'src/app/ui/figures/event/draw/event-card-draw';
 
 export class EventHelper {
-
   eventTypes: string[] = [];
 
   eventEffectsManual: EventCardEffect[] = [];
@@ -16,7 +21,7 @@ export class EventHelper {
   eventConditionManual: EventCardCondition[] = [];
   eventAttack: EventCardAttack | undefined;
 
-  constructor(private component: EntitiesMenuDialogComponent) { }
+  constructor(private component: EntitiesMenuDialogComponent) {}
 
   update() {
     this.eventTypes = Object.keys(gameManager.game.party.eventDecks);
@@ -29,9 +34,7 @@ export class EventHelper {
     }
   }
 
-  close() {
-
-  }
+  close() {}
 
   toggleEventMenu(force: boolean = false) {
     this.component.eventMenu = !this.component.eventMenu || force;
@@ -51,22 +54,24 @@ export class EventHelper {
   }
 
   drawEvent(type: string) {
-    this.component.dialog.open(EventCardDrawComponent, {
-      panelClass: ['dialog'],
-      data: {
-        edition: gameManager.game.party.edition || gameManager.currentEdition(),
-        type: type
-      }
-    }).closed.subscribe({
-      next: (results: (EventCardEffect | EventCardCondition)[] | any) => {
-        if (settingsManager.settings.eventsApply && results) {
-          this.createEventResults(results);
+    this.component.dialog
+      .open(EventCardDrawComponent, {
+        panelClass: ['dialog'],
+        data: {
+          edition: gameManager.game.party.edition || gameManager.currentEdition(),
+          type: type
         }
-      }
-    })
+      })
+      .closed.subscribe({
+        next: (results: (EventCardEffect | EventCardCondition)[] | any) => {
+          if (settingsManager.settings.eventsApply && results) {
+            this.createEventResults(results);
+          }
+        }
+      });
   }
 
-  createEventResults(results: (EventCardEffect | EventCardCondition | EventCardAttack)[], initial: boolean = false) {
+  createEventResults(results: (EventCardEffect | EventCardCondition | EventCardAttack)[]) {
     this.eventEffectsManual = [];
     this.eventOutpostAttackEffects = [];
     this.eventConditionManual = [];
@@ -83,30 +88,32 @@ export class EventHelper {
       } else if (!('type' in result)) {
         this.eventAttack = result as EventCardAttack;
       }
-    })
+    });
   }
 
   openOutpostAttack() {
-    this.component.dialog.open(OutpostAttackComponent, {
-      panelClass: ['dialog'],
-      data: {
-        attack: this.eventAttack,
-        effects: this.eventOutpostAttackEffects
-      }
-    }).closed.subscribe({
-      next: (result) => {
-        if (result) {
-          this.eventAttack = undefined;
-          this.eventOutpostAttackEffects = [];
+    this.component.dialog
+      .open(OutpostAttackComponent, {
+        panelClass: ['dialog'],
+        data: {
+          attack: this.eventAttack,
+          effects: this.eventOutpostAttackEffects
         }
-      }
-    })
+      })
+      .closed.subscribe({
+        next: (result) => {
+          if (result) {
+            this.eventAttack = undefined;
+            this.eventOutpostAttackEffects = [];
+          }
+        }
+      });
   }
 
   openFavors() {
     this.component.dialog.open(FavorsComponent, {
       panelClass: ['dialog']
-    })
+    });
   }
 
   toggleImbuement(advanced: boolean = false) {
@@ -122,5 +129,4 @@ export class EventHelper {
     }
     gameManager.stateManager.after();
   }
-
 }

@@ -1,10 +1,16 @@
-<a #button ghs-pointer-input (singleClick)="open()" class="button active-outline {{type}}"
-  [ngClass]="{'disabled' : settingsManager.settings.standees && (nonDead >= count || usedStandees >= maxStandees) }"
-  [ghs-label]="'monster.addEntity.' + type" [ghs-label-attribute]="'title'">
+<a
+  #button
+  ghs-pointer-input
+  (singleClick)="open()"
+  class="button active-outline {{ type }}"
+  [ngClass]="{ disabled: settingsManager.settings.standees && (nonDead >= count || usedStandees >= maxStandees) }"
+  [ghs-label]="'monster.addEntity.' + type"
+  [ghs-label-attribute]="'title'"
+>
   @if (settingsManager.settings.standees || !hasEntity()) {
-  <img class="ghs-svg" src="./assets/images/plus.svg">
+    <img class="ghs-svg" src="/assets/images/plus.svg" />
   }
   @if (!settingsManager.settings.standees && hasEntity()) {
-  <img class="ghs-svg" src="./assets/images/minus.svg">
+    <img class="ghs-svg" src="/assets/images/minus.svg" />
   }
 </a>

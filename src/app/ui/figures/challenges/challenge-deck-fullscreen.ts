@@ -1,31 +1,33 @@
-import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
-import { Component, EventEmitter, Inject } from "@angular/core";
-import { ChallengeDeck } from "src/app/game/model/data/Challenges";
-import { ghsDialogClosingHelper } from "../../helper/Static";
-import { ChallengeDeckChange } from "./challenge-deck";
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, inject } from '@angular/core';
+import { ChallengeDeck } from 'src/app/game/model/data/Challenges';
+import { ChallengeDeckChange, ChallengeDeckComponent } from 'src/app/ui/figures/challenges/challenge-deck';
+import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
-  standalone: false,
+  imports: [NgClass, forwardRef(() => ChallengeDeckComponent)],
   selector: 'ghs-challenge-deck-fullscreen',
   templateUrl: './challenge-deck-fullscreen.html',
-  styleUrls: ['./challenge-deck-fullscreen.scss',]
+  styleUrls: ['./challenge-deck-fullscreen.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChallengeDeckFullscreenComponent {
-
   deck: ChallengeDeck;
   before: EventEmitter<ChallengeDeckChange>;
   after: EventEmitter<ChallengeDeckChange>;
 
-  constructor(@Inject(DIALOG_DATA) public data: { deck: ChallengeDeck, before: EventEmitter<ChallengeDeckChange>, after: EventEmitter<ChallengeDeckChange> }, public dialogRef: DialogRef) {
-    this.deck = data.deck;
-    this.before = data.before;
-    this.after = data.after;
-  };
+  data: { deck: ChallengeDeck; before: EventEmitter<ChallengeDeckChange>; after: EventEmitter<ChallengeDeckChange> } = inject(DIALOG_DATA);
+
+  constructor(public dialogRef: DialogRef) {
+    this.deck = this.data.deck;
+    this.before = this.data.before;
+    this.after = this.data.after;
+  }
 
   vertical(): boolean {
     return window.innerWidth < 800;
   }
-
 
   beforeChallengeDeck(change: ChallengeDeckChange) {
     this.before.emit(change);
@@ -38,6 +40,4 @@ export class ChallengeDeckFullscreenComponent {
   close() {
     ghsDialogClosingHelper(this.dialogRef);
   }
-
 }
-

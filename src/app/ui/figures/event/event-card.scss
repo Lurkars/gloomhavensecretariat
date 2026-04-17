@@ -1,878 +1,849 @@
 .event-card-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 147%;
+  position: relative;
+  width: 100%;
+  padding-bottom: 147%;
 }
 
 .event {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0.2em solid transparent;
+  border-radius: 0.5em;
+
+  &.show-debug {
+    .card-front,
+    .card-back {
+      .wrapper,
+      .card-id,
+      .options {
+        display: none;
+      }
+    }
+  }
+
+  .show-debug-toggle {
+    display: block;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 0.2em solid transparent;
+    bottom: 0.1em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.8em;
+    height: 0.8em;
+    cursor: help;
+    z-index: 999;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    &.light img {
+      filter: var(--ghs-filter-white);
+    }
+  }
+
+  .card-front {
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
     border-radius: 0.5em;
+    background-color: var(--ghs-color-lightgray);
 
-    &.show-debug {
+    &.city {
+      background-image: url('/assets/images/eventcards/city-front.png');
+      color: var(--ghs-color-white);
 
-        .card-front,
-        .card-back {
+      .options .option .card-action .ghs-svg {
+        filter: var(--ghs-filter-white);
+      }
 
-            .wrapper,
-            .card-id,
-            .options {
-                display: none;
+      .card-id {
+        color: var(--ghs-color-white);
+      }
+    }
+
+    &.road {
+      background-image: url('/assets/images/eventcards/road-front.png');
+      color: var(--ghs-color-darkgray);
+
+      .options .option {
+        &::before {
+          color: var(--ghs-color-brown);
+        }
+
+        &:nth-child(2)::before {
+          filter: grayscale(0.7);
+        }
+      }
+    }
+
+    &.rift {
+      background-image: url('/assets/images/eventcards/rift-front.png');
+      color: var(--ghs-color-darkgray);
+
+      .options .option {
+        &::before {
+          color: var(--ghs-color-purple);
+          filter: brightness(0.5);
+        }
+
+        &:nth-child(2)::before {
+          filter: brightness(0.5) grayscale(0.6);
+        }
+
+        .card-action .ghs-svg {
+          filter: var(--ghs-filter-black);
+        }
+      }
+    }
+
+    &.boat,
+    &.winter-road,
+    &.summer-road,
+    &.winter-outpost,
+    &.summer-outpost,
+    &.gh2e {
+      .options {
+        .option {
+          padding-left: 2.5em;
+          padding-right: 1em;
+          padding-top: 0.5em;
+          font-size: 0.65em;
+          max-height: initial;
+
+          &::before {
+            z-index: 1;
+            font-family: var(--ghs-font-fh-text);
+            font-size: 1.6em;
+            left: 0.5em;
+            top: 0.7em;
+          }
+
+          &:first-child {
+            padding-top: 1em;
+          }
+
+          &:nth-child(2)::before,
+          &:nth-child(3)::before {
+            top: 0.4em;
+          }
+
+          &.no-label:before {
+            display: none;
+          }
+
+          &.option-bg-2 {
+            &::after {
+              content: ' ';
+              position: absolute;
+              top: -1em;
+              left: 0;
+              width: 100%;
+              height: calc(100% + 1em);
+              background-color: #c5cdcc;
+              mask: url('/assets/images/eventcards/fh-option-2-mask.png') no-repeat;
+              mask-size: 100% auto;
+              mask-position: center bottom;
+              z-index: 0;
+              filter: brightness(1.2);
             }
+          }
+
+          &.option-bg-3 {
+            padding-bottom: 0.5em;
+
+            & + .option-bg-2 {
+              top: -1em;
+              padding-top: 1.5em;
+              padding-bottom: 0.5em;
+
+              &::before {
+                top: 1em;
+              }
+
+              & + .option-bg-1 {
+                margin-top: -1.5em;
+              }
+            }
+
+            &::after {
+              content: ' ';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: #9ea5a4;
+              mask: url('/assets/images/eventcards/fh-option-3-mask.png') no-repeat;
+              mask-size: 100% auto;
+              mask-position: center bottom;
+              z-index: 0;
+              filter: brightness(1.4);
+            }
+          }
+
+          &.selected {
+            &.option-bg-2,
+            &.option-bg-3 {
+              &::after {
+                filter: none;
+              }
+            }
+          }
+
+          .outcome {
+            z-index: 1;
+
+            .text,
+            .condition {
+              font-family: var(--ghs-font-fh-normal);
+            }
+
+            .effects ghs-event-card-effect {
+              font-size: 0.96em;
+              margin-bottom: 0.1em;
+            }
+
+            .card-action {
+              right: -0.5em;
+              bottom: -0.5em;
+            }
+          }
         }
+
+        &.no-label .option {
+          padding-left: 1.5em;
+        }
+      }
+
+      &.boat .options .option {
+        &.option-bg-2::after {
+          background-color: #d1ded8;
+        }
+
+        &.option-bg-3::after {
+          background-color: #a3bdb1;
+        }
+      }
+
+      &.summer-outpost .options .option,
+      &.summer-road .options .option {
+        &.option-bg-2::after {
+          background-color: #e5ded3;
+        }
+
+        &.option-bg-3::after {
+          background-color: #b5a281;
+        }
+      }
+
+      &.city {
+        //background-image: url('/assets/images/eventcards/city-gh2e-front.png');
+        background-image: none;
+        background-color: #434448;
+        background: linear-gradient(0deg, #3c3d3f, #292d36);
+      }
+
+      &.road {
+        //background-image: url('/assets/images/eventcards/road-gh2e-front.png');
+        background-image: none;
+        background-color: #f1ddc2;
+        color: var(--ghs-color-darkgray);
+
+        .options .option {
+          &::before {
+            color: var(--ghs-color-darkgray);
+          }
+
+          &:nth-child(2)::before {
+            filter: grayscale(0.7);
+          }
+        }
+      }
+
+      &.gh2e .options .option {
+        &.option-bg-2 {
+          padding-bottom: 2em;
+        }
+
+        &.option-bg-3 {
+          padding-bottom: 2em;
+
+          & + .option-bg-2 {
+            padding-bottom: 1.5em;
+          }
+        }
+      }
+
+      &.city .options .option {
+        &.option-bg-2::after {
+          background: linear-gradient(0deg, #354360, #2f3e5d);
+        }
+
+        &.option-bg-3 {
+          background: #2f3e5d;
+
+          &::after {
+            background: linear-gradient(0deg, #38454d, #284555);
+          }
+        }
+      }
+
+      &.road .options .option {
+        &.option-bg-2::after {
+          mask-image: url('/assets/images/eventcards/fh-option-3-mask.png');
+          background: linear-gradient(0deg, #805245, #daa895 2.5em, #f0e9cd);
+        }
+
+        &.option-bg-3 {
+          background: #f1ddc2;
+
+          &::after {
+            background: linear-gradient(0deg, #805245, #daa895 2.5em, #f0e9cd);
+          }
+
+          & + .option-bg-2::after {
+            background: linear-gradient(0deg, #ba917b, #e4bea9 2.5em, #f5e9d9);
+          }
+        }
+      }
     }
 
-    .show-debug-toggle {
-        display: block;
-        position: absolute;
-        bottom: 0.1em;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0.8em;
-        height: 0.8em;
-        cursor: help;
-        z-index: 999;
+    .options {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+      height: 100%;
 
-        img {
-            display: block;
-            width: 100%;
-            height: auto;
+      .option {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        font-size: 0.6em;
+        line-height: 0.9em;
+        letter-spacing: -0.01em;
+        padding-top: 1.5em;
+        padding-left: 4em;
+        padding-right: 2em;
+        overflow: auto;
+        max-height: 50%;
+        flex: 1 1 auto;
+
+        &.single {
+          max-height: 100%;
+          padding-left: 2em;
+
+          &::before {
+            display: none;
+          }
         }
 
-        &.light img {
-            filter: var(--ghs-filter-white);
+        &:first-child {
+          padding-top: 2em;
         }
+
+        &::before {
+          position: absolute;
+          left: 1em;
+          top: 1.5em;
+          font-family: var(--ghs-font-title);
+          font-size: 2em;
+          opacity: 0.3;
+        }
+
+        &.option-A {
+          z-index: 3;
+
+          &::before {
+            content: 'A.';
+          }
+        }
+
+        &.option-B {
+          z-index: 2;
+
+          &::before {
+            content: 'B.';
+            top: 1em;
+          }
+        }
+
+        &.option-C {
+          z-index: 1;
+
+          &::before {
+            content: 'C.';
+            top: 1em;
+          }
+        }
+
+        .outcome {
+          position: relative;
+          filter: grayscale(0.7);
+          opacity: 0.3;
+
+          &.margin {
+            margin-bottom: 0.5em;
+          }
+
+          &.expand-to-bottom {
+            flex-grow: 1;
+          }
+
+          ghs-event-card-condition {
+            margin-right: 0.1em;
+          }
+
+          .condition-spacer {
+            margin-right: 0.2em;
+          }
+
+          .text {
+            font-family: var(--ghs-font-text);
+            font-style: italic;
+            margin-bottom: 0.5em;
+            letter-spacing: -0.03em;
+
+            &.inline {
+              margin-right: 0.2em;
+            }
+          }
+
+          .effects {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 0.5em;
+
+            ghs-event-card-effect {
+              font-size: 1.2em;
+              display: flex;
+              position: relative;
+              width: 100%;
+              margin-bottom: 0.4em;
+            }
+
+            &.inline {
+              display: inline;
+              margin-top: 0;
+
+              ghs-event-card-effect {
+                display: inline;
+                width: auto;
+                margin-bottom: 0;
+              }
+            }
+          }
+
+          .card-action {
+            position: absolute;
+            bottom: 0em;
+            right: -1em;
+
+            .ghs-svg {
+              width: 2em;
+              height: auto;
+            }
+          }
+        }
+
+        &:hover:not(.selected) {
+          &::before,
+          .outcome {
+            opacity: 0.7;
+          }
+        }
+
+        &.selected {
+          filter: none;
+
+          &::before {
+            opacity: 1;
+          }
+
+          .outcome {
+            filter: none;
+            cursor: pointer;
+            opacity: 1;
+
+            &.selected {
+              opacity: 1;
+            }
+
+            &.disabled {
+              opacity: 0.5;
+              cursor: not-allowed;
+            }
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+
+        &.attack .outcome {
+          cursor: initial;
+
+          &:hover {
+            opacity: initial;
+          }
+        }
+      }
     }
 
-    .card-front {
+    .card-id {
+      position: absolute;
+      font-size: 0.5em;
+      bottom: 0;
+      right: 0.5em;
+    }
+  }
+
+  .card-back {
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 0.5em;
+    background-color: var(--ghs-color-lightgray);
+
+    &.city {
+      background-image: url('/assets/images/eventcards/city-back.png');
+      color: var(--ghs-color-white);
+
+      .wrapper .content .options::before {
+        filter: none;
+      }
+
+      .card-id {
+        color: var(--ghs-color-white);
+      }
+    }
+
+    &.road {
+      background-image: url('/assets/images/eventcards/road-back.png');
+      color: var(--ghs-color-darkgray);
+
+      .card-id {
+        color: var(--ghs-color-white);
+      }
+    }
+
+    &.rift {
+      background-image: url('/assets/images/eventcards/rift-back.png');
+      color: var(--ghs-color-darkgray);
+
+      .wrapper .requirement {
+        background-image: url('/assets/images/eventcards/rift-requirement.png');
+      }
+
+      .card-id {
+        color: var(--ghs-color-white);
+      }
+    }
+
+    &.boat {
+      background-image: url('/assets/images/eventcards/boat-back.png');
+    }
+
+    &.winter-road {
+      background-image: url('/assets/images/eventcards/winter-road-back.png');
+    }
+
+    &.summer-road {
+      background-image: url('/assets/images/eventcards/summer-road-back.png');
+    }
+
+    &.summer-outpost {
+      background-image: url('/assets/images/eventcards/summer-outpost-back.png');
+    }
+
+    &.winter-outpost {
+      background-image: url('/assets/images/eventcards/winter-outpost-back.png');
+    }
+
+    &.boat,
+    &.winter-road,
+    &.summer-road,
+    &.winter-outpost,
+    &.summer-outpost,
+    &.gh2e {
+      .wrapper {
+        &::before {
+          display: none;
+        }
+
+        .content {
+          &::before {
+            display: none;
+          }
+
+          padding: 0 10%;
+          padding-top: 5%;
+
+          .text {
+            font-family: var(--ghs-font-fh-normal);
+          }
+
+          .options {
+            &::before {
+              left: 0;
+              width: 100%;
+            }
+
+            .option {
+              font-family: var(--ghs-font-fh-normal);
+            }
+          }
+        }
+      }
+
+      &.winter-outpost,
+      &.summer-outpost {
+        .wrapper .content {
+          padding-top: 0;
+        }
+      }
+
+      .spoiler-free a {
+        font-family: var(--ghs-font-fh-title);
+      }
+
+      .card-id {
+        font-family: var(--ghs-font-fh-title);
+        transform: rotate(90deg);
+        font-size: 0.8em;
+        left: initial;
+        right: -8%;
+        width: 22%;
+        height: 6%;
+        top: 78%;
         background-size: 100% 100%;
-        background-position: center center;
+        background-position: top left;
         background-repeat: no-repeat;
-        border-radius: 0.5em;
-        background-color: var(--ghs-color-lightgray);
+        background-image: url('/assets/images/eventcards/fh-card-id.png');
+        filter: var(--ghs-filter-shadow);
+      }
 
-        &.city {
-            background-image: url('~src/assets/images/eventcards/city-front.png');
-            color: var(--ghs-color-white);
+      &.gh2e {
+        .wrapper .content {
+          .text {
+            min-height: initial;
+          }
 
-            .options .option .card-action .ghs-svg {
-                filter: var(--ghs-filter-white);
+          .options {
+            margin-top: 1em;
+
+            &::before {
+              left: 5%;
+              width: 90%;
+              height: 0.14em;
+              top: -0.3em;
             }
+          }
+        }
+      }
 
-            .card-id {
-                color: var(--ghs-color-white);
-            }
+      &.city {
+        background-image: url('/assets/images/eventcards/city-gh2e-back.png');
+        color: var(--ghs-color-black);
+
+        .wrapper .content .options::before {
+          filter: brightness(0);
         }
 
-        &.road {
-            background-image: url('~src/assets/images/eventcards/road-front.png');
-            color: var(--ghs-color-darkgray);
+        .card-id {
+          color: var(--ghs-color-black);
+          background-image: none;
+          top: 80%;
+          right: -7%;
+          filter: none;
+        }
+      }
 
-            .options .option {
+      &.road {
+        background-image: url('/assets/images/eventcards/road-gh2e-back.png');
 
-                &::before {
-                    color: var(--ghs-color-brown);
-                }
+        color: var(--ghs-color-darkgray);
 
-                &:nth-child(2)::before {
-                    filter: grayscale(0.7);
-                }
-            }
+        .card-id {
+          color: var(--ghs-color-brown);
+          background-image: none;
+          filter: brightness(0.4);
+          top: 81%;
+          right: -6%;
+        }
+      }
+    }
+
+    .wrapper {
+      position: absolute;
+      top: 12%;
+      width: 100%;
+      height: 88%;
+      margin: 0;
+      z-index: 1;
+      opacity: 1;
+      transition: opacity calc(var(--ghs-animation-speed) * 750ms) ease-in-out;
+
+      &::before {
+        content: ' ';
+        float: left;
+        height: 100%;
+        width: 50%;
+        shape-outside: polygon(100% 7%, 100% 0%, 0% 0%, 0% 100%, 22% 100%, 22% 28%, 30% 18%, 38% 11%, 70% 5.5%);
+        shape-margin: 3%;
+      }
+
+      &.spoiler {
+        opacity: 0;
+      }
+
+      .content {
+        width: 100%;
+        height: 100%;
+
+        &::before {
+          content: ' ';
+          float: right;
+          height: 100%;
+          width: 50%;
+          shape-outside: polygon(0% 7%, 0% 0%, 100% 0%, 100% 100%, 78% 100%, 78% 28%, 70% 18%, 62% 11%, 30% 5.5%);
+          shape-margin: 3%;
         }
 
-
-        &.rift {
-            background-image: url('~src/assets/images/eventcards/rift-front.png');
-            color: var(--ghs-color-darkgray);
-
-            .options .option {
-
-                &::before {
-                    color: var(--ghs-color-purple);
-                    filter: brightness(0.5);
-                }
-
-                &:nth-child(2)::before {
-                    filter: brightness(0.5) grayscale(0.6);
-                }
-
-                .card-action .ghs-svg {
-                    filter: var(--ghs-filter-black);
-                }
-            }
-        }
-
-        &.boat,
-        &.winter-road,
-        &.summer-road,
-        &.winter-outpost,
-        &.summer-outpost,
-        &.gh2e {
-
-            .options {
-                .option {
-                    padding-left: 2.5em;
-                    padding-right: 1em;
-                    padding-top: 0.5em;
-                    font-size: 0.65em;
-                    max-height: initial;
-
-                    &::before {
-                        z-index: 1;
-                        font-family: var(--ghs-font-fh-text);
-                        font-size: 1.6em;
-                        left: 0.5em;
-                        top: 0.7em;
-                    }
-
-                    &:first-child {
-                        padding-top: 1em;
-                    }
-
-                    &:nth-child(2)::before,
-                    &:nth-child(3)::before {
-                        top: 0.4em;
-                    }
-
-                    &.no-label:before {
-                        display: none;
-                    }
-
-                    &.option-bg-2 {
-
-                        &::after {
-                            content: ' ';
-                            position: absolute;
-                            top: -1em;
-                            left: 0;
-                            width: 100%;
-                            height: calc(100% + 1em);
-                            background-color: #c5cdcc;
-                            mask: url('~src/assets/images/eventcards/fh-option-2-mask.png') no-repeat;
-                            mask-size: 100% auto;
-                            mask-position: center bottom;
-                            z-index: 0;
-                            filter: brightness(1.2);
-                        }
-                    }
-
-                    &.option-bg-3 {
-                        padding-bottom: 0.5em;
-
-                        &+.option-bg-2 {
-                            top: -1em;
-                            padding-top: 1.5em;
-                            padding-bottom: 0.5em;
-
-                            &::before {
-                                top: 1em;
-                            }
-
-                            &+.option-bg-1 {
-                                margin-top: -1.5em;
-                            }
-                        }
-
-                        &::after {
-                            content: ' ';
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            background-color: #9ea5a4;
-                            mask: url('~src/assets/images/eventcards/fh-option-3-mask.png') no-repeat;
-                            mask-size: 100% auto;
-                            mask-position: center bottom;
-                            z-index: 0;
-                            filter: brightness(1.4);
-                        }
-                    }
-
-                    &.selected {
-
-                        &.option-bg-2,
-                        &.option-bg-3 {
-                            &::after {
-                                filter: none;
-                            }
-                        }
-                    }
-
-                    .outcome {
-                        z-index: 1;
-
-                        .text,
-                        .condition {
-                            font-family: var(--ghs-font-fh-normal);
-                        }
-
-                        .effects ghs-event-card-effect {
-                            font-size: 0.96em;
-                            margin-bottom: 0.1em;
-                        }
-
-                        .card-action {
-                            right: -0.5em;
-                            bottom: -0.5em;
-                        }
-                    }
-                }
-
-                &.no-label .option {
-                    padding-left: 1.5em;
-                }
-            }
-
-            &.boat .options .option {
-                &.option-bg-2::after {
-                    background-color: #d1ded8;
-                }
-
-                &.option-bg-3::after {
-                    background-color: #a3bdb1;
-                }
-            }
-
-            &.summer-outpost .options .option,
-            &.summer-road .options .option {
-                &.option-bg-2::after {
-                    background-color: #e5ded3;
-                }
-
-                &.option-bg-3::after {
-                    background-color: #b5a281;
-                }
-            }
-
-
-            &.city {
-                //background-image: url('~src/assets/images/eventcards/city-gh2e-front.png');
-                background-image: none;
-                background-color: #434448;
-                background: linear-gradient(0deg, #3c3d3f, #292d36);
-            }
-
-            &.road {
-                //background-image: url('~src/assets/images/eventcards/road-gh2e-front.png');
-                background-image: none;
-                background-color: #f1ddc2;
-                color: var(--ghs-color-darkgray);
-
-                .options .option {
-
-                    &::before {
-                        color: var(--ghs-color-darkgray);
-                    }
-
-                    &:nth-child(2)::before {
-                        filter: grayscale(0.7);
-                    }
-                }
-            }
-
-            &.gh2e .options .option {
-                &.option-bg-2 {
-                    padding-bottom: 2em;
-                }
-
-                &.option-bg-3 {
-                    padding-bottom: 2em;
-
-                    &+.option-bg-2 {
-                        padding-bottom: 1.5em;
-                    }
-                }
-            }
-
-            &.city .options .option {
-
-                &.option-bg-2::after {
-                    background: linear-gradient(0deg, #354360, #2f3e5d);
-                }
-
-                &.option-bg-3 {
-                    background: #2f3e5d;
-
-                    &::after {
-                        background: linear-gradient(0deg, #38454d, #284555);
-                    }
-                }
-            }
-
-            &.road .options .option {
-                &.option-bg-2::after {
-                    mask-image: url('~src/assets/images/eventcards/fh-option-3-mask.png');
-                    background: linear-gradient(0deg, #805245 , #daa895 2.5em,  #F0E9CD);
-                }
-
-                &.option-bg-3 {
-                    background: #f1ddc2;
-
-                    &::after {
-                        background: linear-gradient(0deg, #805245 , #daa895 2.5em,  #F0E9CD);
-                    }
-
-                    &+.option-bg-2::after {
-                        background: linear-gradient(0deg, #ba917b , #e4bea9 2.5em,  #f5e9d9);
-                    }
-                }
-            }
+        .text {
+          font-family: var(--ghs-font-text);
+          font-size: 0.6em;
+          line-height: 0.9em;
+          letter-spacing: -0.01em;
+          font-style: italic;
+          min-height: 65%;
+          text-align: justify;
         }
 
         .options {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            width: 100%;
-            height: 100%;
+          position: relative;
+          margin-top: 0.5em;
+          padding-top: 0.1em;
 
-            .option {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                font-size: 0.6em;
-                line-height: 0.9em;
-                letter-spacing: -0.01em;
-                padding-top: 1.5em;
-                padding-left: 4em;
-                padding-right: 2em;
-                overflow: auto;
-                max-height: 50%;
-                flex: 1 1 auto;
-
-                &.single {
-                    max-height: 100%;
-                    padding-left: 2em;
-
-                    &::before {
-                        display: none;
-                    }
-                }
-
-                &:first-child {
-                    padding-top: 2em;
-                }
-
-                &::before {
-                    position: absolute;
-                    left: 1em;
-                    top: 1.5em;
-                    font-family: var(--ghs-font-title);
-                    font-size: 2em;
-                    opacity: 0.3;
-                }
-
-                &.option-A {
-                    z-index: 3;
-
-                    &::before {
-                        content: "A.";
-                    }
-                }
-
-                &.option-B {
-                    z-index: 2;
-
-                    &::before {
-                        content: "B.";
-                        top: 1em;
-                    }
-                }
-
-                &.option-C {
-                    z-index: 1;
-
-                    &::before {
-                        content: "C.";
-                        top: 1em;
-                    }
-                }
-
-                .outcome {
-                    position: relative;
-                    filter: grayscale(0.7);
-                    opacity: 0.3;
-
-                    &.margin {
-                        margin-bottom: 0.5em;
-                    }
-
-                    &.expand-to-bottom {
-                        flex-grow: 1;
-                    }
-
-                    ghs-event-card-condition {
-                        margin-right: 0.1em;
-                    }
-
-                    .condition-spacer {
-                        margin-right: 0.2em;
-                    }
-
-                    .text {
-                        font-family: var(--ghs-font-text);
-                        font-style: italic;
-                        margin-bottom: 0.5em;
-                        letter-spacing: -0.03em;
-
-                        &.inline {
-                            margin-right: 0.2em;
-                        }
-                    }
-
-                    .effects {
-                        display: flex;
-                        flex-wrap: wrap;
-                        margin-top: 0.5em;
-
-                        ghs-event-card-effect {
-                            font-size: 1.2em;
-                            display: flex;
-                            position: relative;
-                            width: 100%;
-                            margin-bottom: 0.4em;
-                        }
-
-                        &.inline {
-                            display: inline;
-                            margin-top: 0;
-
-                            ghs-event-card-effect {
-                                display: inline;
-                                width: auto;
-                                margin-bottom: 0;
-                            }
-                        }
-                    }
-
-                    .card-action {
-                        position: absolute;
-                        bottom: 0em;
-                        right: -1em;
-
-                        .ghs-svg {
-                            width: 2em;
-                            height: auto;
-                        }
-                    }
-                }
-
-                &:hover:not(.selected) {
-
-                    &::before,
-                    .outcome {
-                        opacity: 0.7;
-                    }
-                }
-
-                &.selected {
-                    filter: none;
-
-                    &::before {
-                        opacity: 1;
-                    }
-
-                    .outcome {
-                        filter: none;
-                        cursor: pointer;
-                        opacity: 1;
-
-                        &.selected {
-                            opacity: 1;
-                        }
-
-                        &.disabled {
-                            opacity: 0.5;
-                            cursor: not-allowed;
-                        }
-
-                        &:hover {
-                            opacity: 0.8;
-                        }
-                    }
-                }
-
-                &.attack .outcome {
-                    cursor: initial;
-
-                    &:hover {
-                        opacity: initial;
-                    }
-                }
-            }
-        }
-
-        .card-id {
+          &::before {
+            content: ' ';
             position: absolute;
-            font-size: 0.5em;
-            bottom: 0;
-            right: 0.5em;
-        }
-    }
+            top: -0.1em;
+            left: 12%;
+            height: 0.1em;
+            width: 76%;
+            background-size: 100% 100%;
+            background-image: url('/assets/images/eventcards/divider.png');
+            filter: brightness(0);
+          }
 
-    .card-back {
-        background-size: 100% 100%;
-        background-position: center center;
-        background-repeat: no-repeat;
-        border-radius: 0.5em;
-        background-color: var(--ghs-color-lightgray);
-
-        &.city {
-            background-image: url('~src/assets/images/eventcards/city-back.png');
-            color: var(--ghs-color-white);
-
-            .wrapper .content .options::before {
-                filter: none;
-            }
-
-            .card-id {
-                color: var(--ghs-color-white);
-            }
-        }
-
-        &.road {
-            background-image: url('~src/assets/images/eventcards/road-back.png');
-            color: var(--ghs-color-darkgray);
-
-            .card-id {
-                color: var(--ghs-color-white);
-            }
-        }
-
-        &.rift {
-            background-image: url('~src/assets/images/eventcards/rift-back.png');
-            color: var(--ghs-color-darkgray);
-
-            .wrapper .requirement {
-                background-image: url('~src/assets/images/eventcards/rift-requirement.png');
-            }
-
-            .card-id {
-                color: var(--ghs-color-white);
-            }
-        }
-
-        &.boat {
-            background-image: url('~src/assets/images/eventcards/boat-back.png');
-        }
-
-        &.winter-road {
-            background-image: url('~src/assets/images/eventcards/winter-road-back.png');
-        }
-
-        &.summer-road {
-            background-image: url('~src/assets/images/eventcards/summer-road-back.png');
-        }
-
-        &.summer-outpost {
-            background-image: url('~src/assets/images/eventcards/summer-outpost-back.png');
-        }
-
-        &.winter-outpost {
-            background-image: url('~src/assets/images/eventcards/winter-outpost-back.png');
-        }
-
-        &.boat,
-        &.winter-road,
-        &.summer-road,
-        &.winter-outpost,
-        &.summer-outpost,
-        &.gh2e {
-            .wrapper {
-                &::before {
-                    display: none;
-                }
-
-                .content {
-                    &::before {
-                        display: none;
-                    }
-
-                    padding: 0 10%;
-                    padding-top: 5%;
-
-                    .text {
-                        font-family: var(--ghs-font-fh-normal);
-                    }
-
-                    .options {
-                        &::before {
-                            left: 0;
-                            width: 100%;
-                        }
-
-                        .option {
-                            font-family: var(--ghs-font-fh-normal);
-                        }
-                    }
-                }
-            }
-
-            &.winter-outpost,
-            &.summer-outpost {
-                .wrapper .content {
-                    padding-top: 0;
-                }
-            }
-
-            .spoiler-free a {
-                font-family: var(--ghs-font-fh-title);
-            }
-
-            .card-id {
-                font-family: var(--ghs-font-fh-title);
-                transform: rotate(90deg);
-                font-size: 0.8em;
-                left: initial;
-                right: -8%;
-                width: 22%;
-                height: 6%;
-                top: 78%;
-                background-size: 100% 100%;
-                background-position: top left;
-                background-repeat: no-repeat;
-                background-image: url('~src/assets/images/eventcards/fh-card-id.png');
-                filter: var(--ghs-filter-shadow);
-            }
-
-            &.gh2e {
-                .wrapper .content {
-                    .text {
-                        min-height: initial;
-                    }
-
-                    .options {
-                        margin-top: 1em;
-
-                        &::before {
-                            left: 5%;
-                            width: 90%;
-                            height: 0.14em;
-                            top: -0.3em;
-                        }
-                    }
-                }
-            }
-
-            &.city {
-                background-image: url('~src/assets/images/eventcards/city-gh2e-back.png');
-                color: var(--ghs-color-black);
-
-                .wrapper .content .options::before {
-                    filter: brightness(0);
-                }
-
-                .card-id {
-                    color: var(--ghs-color-black);
-                    background-image: none;
-                    top: 80%;
-                    right: -7%;
-                    filter: none;
-                }
-            }
-
-            &.road {
-                background-image: url('~src/assets/images/eventcards/road-gh2e-back.png');
-
-                color: var(--ghs-color-darkgray);
-
-                .card-id {
-                    color: var(--ghs-color-brown);
-                    background-image: none;
-                    filter: brightness(0.4);
-                    top: 81%;
-                    right: -6%;
-                }
-            }
-        }
-
-        .wrapper {
-            position: absolute;
-            top: 12%;
-            width: 100%;
-            height: 88%;
-            margin: 0;
-            z-index: 1;
-            opacity: 1;
-            transition: opacity calc(var(--ghs-animation-speed) * 750ms) ease-in-out;
-
-            &::before {
-                content: " ";
-                float: left;
-                height: 100%;
-                width: 50%;
-                shape-outside: polygon(100% 7%,
-                        100% 0%,
-                        0% 0%,
-                        0% 100%,
-                        22% 100%,
-                        22% 28%,
-                        30% 18%,
-                        38% 11%,
-                        70% 5.5%);
-                shape-margin: 3%;
-            }
-
-            &.spoiler {
-                opacity: 0;
-            }
-
-            .content {
-                width: 100%;
-                height: 100%;
-
-                &::before {
-                    content: " ";
-                    float: right;
-                    height: 100%;
-                    width: 50%;
-                    shape-outside: polygon(0% 7%,
-                            0% 0%,
-                            100% 0%,
-                            100% 100%,
-                            78% 100%,
-                            78% 28%,
-                            70% 18%,
-                            62% 11%,
-                            30% 5.5%);
-                    shape-margin: 3%;
-                }
-
-                .text {
-                    font-family: var(--ghs-font-text);
-                    font-size: 0.6em;
-                    line-height: 0.9em;
-                    letter-spacing: -0.01em;
-                    font-style: italic;
-                    min-height: 65%;
-                    text-align: justify;
-                }
-
-                .options {
-                    position: relative;
-                    margin-top: 0.5em;
-                    padding-top: 0.1em;
-
-                    &::before {
-                        content: " ";
-                        position: absolute;
-                        top: -0.1em;
-                        left: 12%;
-                        height: 0.1em;
-                        width: 76%;
-                        background-size: 100% 100%;
-                        background-image: url('~src/assets/images/eventcards/divider.png');
-                        filter: brightness(0);
-                    }
-
-                    .option {
-                        cursor: pointer;
-                        margin-top: 0.4em;
-                        font-family: var(--ghs-font-text);
-                        font-size: 0.6em;
-                        line-height: 0.9em;
-                        letter-spacing: -0.01em;
-
-                        .title {
-                            font-weight: bold;
-                            margin-right: 0.3em;
-                        }
-
-                        &:hover {
-                            opacity: 0.7;
-                        }
-
-                        &.single {
-                            font-weight: bold;
-
-                            .title {
-                                display: none;
-                            }
-                        }
-                    }
-                }
-
-                .footer {
-                    position: relative;
-                    width: 106%;
-                    left: -3%;
-                }
-            }
-
-            .requirement {
-                position: absolute;
-                right: -88%;
-                bottom: -15%;
-                width: 100%;
-                height: 11%;
-                transform: rotate(-90deg);
-                transform-origin: left top;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: var(--ghs-color-white);
-                font-size: 0.6em;
-                background-size: 100% 100%;
-                background-position: top left;
-                background-repeat: no-repeat;
-                background-image: url('~src/assets/images/eventcards/city-requirement.png');
-
-                span {
-                    margin: 0.1em;
-                }
-            }
-        }
-
-        .spoiler-free {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 3;
-
-            a {
-                cursor: zoom-in;
-                text-transform: uppercase;
-                font-family: var(--ghs-font-title);
-                font-size: 3em;
-                color: var(--ghs-color-darkgray);
-            }
-
-            &.light a {
-                color: var(--ghs-color-gray);
-            }
-        }
-
-        .card-id {
-            position: absolute;
-            top: 89%;
-            left: 50%;
-            width: 60%;
-            height: 10%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            text-transform: uppercase;
-            transform: translateX(-50%);
-            font-family: var(--ghs-font-title);
+          .option {
+            cursor: pointer;
+            margin-top: 0.4em;
+            font-family: var(--ghs-font-text);
             font-size: 0.6em;
-            padding-top: 0.1em;
-            z-index: 2;
-            cursor: zoom-out;
+            line-height: 0.9em;
+            letter-spacing: -0.01em;
+
+            .title {
+              font-weight: bold;
+              margin-right: 0.3em;
+            }
+
+            &:hover {
+              opacity: 0.7;
+            }
+
+            &.single {
+              font-weight: bold;
+
+              .title {
+                display: none;
+              }
+            }
+          }
         }
+
+        .footer {
+          position: relative;
+          width: 106%;
+          left: -3%;
+        }
+      }
+
+      .requirement {
+        position: absolute;
+        right: -88%;
+        bottom: -15%;
+        width: 100%;
+        height: 11%;
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ghs-color-white);
+        font-size: 0.6em;
+        background-size: 100% 100%;
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-image: url('/assets/images/eventcards/city-requirement.png');
+
+        span {
+          margin: 0.1em;
+        }
+      }
     }
 
+    .spoiler-free {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 3;
 
-    &.disabled {
-        cursor: initial;
+      a {
+        cursor: zoom-in;
+        text-transform: uppercase;
+        font-family: var(--ghs-font-title);
+        font-size: 3em;
+        color: var(--ghs-color-darkgray);
+      }
+
+      &.light a {
+        color: var(--ghs-color-gray);
+      }
     }
+
+    .card-id {
+      position: absolute;
+      top: 89%;
+      left: 50%;
+      width: 60%;
+      height: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      text-transform: uppercase;
+      transform: translateX(-50%);
+      font-family: var(--ghs-font-title);
+      font-size: 0.6em;
+      padding-top: 0.1em;
+      z-index: 2;
+      cursor: zoom-out;
+    }
+  }
+
+  &.disabled {
+    cursor: initial;
+  }
 }

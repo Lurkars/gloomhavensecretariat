@@ -1,7 +1,6 @@
-import { Identifier } from "./data/Identifier";
+import { Identifier } from 'src/app/game/model/data/Identifier';
 
 export class Permissions {
-
   characters: boolean = false;
   character: Identifier[] = [];
   monsters: boolean = false;
@@ -13,5 +12,4 @@ export class Permissions {
   attackModifiers: boolean = false;
   lootDeck: boolean = false;
   party: boolean = false;
-
 }

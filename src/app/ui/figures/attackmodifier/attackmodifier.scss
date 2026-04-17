@@ -2,7 +2,11 @@
   position: relative;
   width: 100%;
   height: 100%;
-  transition: filter calc(var(--ghs-animation-speed) * 2000ms) linear, transform calc(var(--ghs-animation-speed) * 800ms) cubic-bezier(0.75, 0, 0.85, 1), top calc(var(--ghs-animation-speed) * 500ms) linear, left calc(var(--ghs-animation-speed) * 500ms) linear;
+  transition:
+    filter calc(var(--ghs-animation-speed) * 2000ms) linear,
+    transform calc(var(--ghs-animation-speed) * 800ms) cubic-bezier(0.75, 0, 0.85, 1),
+    top calc(var(--ghs-animation-speed) * 500ms) linear,
+    left calc(var(--ghs-animation-speed) * 500ms) linear;
 
   .card {
     transition: transform calc(var(--ghs-animation-speed) * 500ms) cubic-bezier(0.75, 0, 0.85, 1);
@@ -12,7 +16,7 @@
     background-position: center;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    background-image: url('~src/assets/images/attackmodifier/am-back.png');
+    background-image: url('/assets/images/attackmodifier/am-back.png');
     border-radius: 5%;
   }
 
@@ -46,26 +50,32 @@
           filter: none;
         }
 
-        &.new-style~.overlay.custom {
+        &.new-style ~ .overlay.custom {
           display: inline-block;
         }
 
-        &.fh~.overlay.custom {
+        &.fh ~ .overlay.custom {
           display: none;
         }
 
-        &.fh~.overlay.custom-fh {
+        &.fh ~ .overlay.custom-fh {
           display: inline-block;
         }
       }
 
       &.multiple {
-        background-image: url('~src/assets/images/attackmodifier/am-front.png');
+        background-image: url('/assets/images/attackmodifier/am-front.png');
         background-size: 100%;
 
         &.multiple-mixed-element {
           &:not(:nth-child(1)) {
-            mask-image: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 75%);
+            mask-image: conic-gradient(
+              from 90deg at 50% 50%,
+              rgba(0, 0, 0, 1) 25%,
+              rgba(0, 0, 0, 0) 30%,
+              rgba(0, 0, 0, 0) 70%,
+              rgba(0, 0, 0, 1) 75%
+            );
           }
 
           &.multiple-mixed-element-or {
@@ -74,55 +84,118 @@
         }
 
         &.multiple-1 {
-
           &:nth-child(2) {
             mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0) 55%, rgba(0, 0, 0) 100%);
           }
 
           &.fh:nth-child(2) {
-            mask-image: conic-gradient(from 110deg at 50% 50%, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 70%, rgb(0, 0, 0) 75%);
+            mask-image: conic-gradient(
+              from 110deg at 50% 50%,
+              rgb(0, 0, 0) 20%,
+              rgba(0, 0, 0, 0) 25%,
+              rgba(0, 0, 0, 0) 70%,
+              rgb(0, 0, 0) 75%
+            );
           }
         }
 
         &.multiple-2 {
           &:nth-child(2) {
-            mask-image: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, 1) 95%);
+            mask-image: conic-gradient(
+              from 90deg at 50% 50%,
+              rgba(0, 0, 0, 1) 35%,
+              rgba(0, 0, 0, 0) 40%,
+              rgba(0, 0, 0, 0) 85%,
+              rgba(0, 0, 0, 1) 95%
+            );
           }
         }
 
         &.multiple-3 {
           &:nth-child(2) {
-            mask-image: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 45%);
+            mask-image: conic-gradient(
+              from 90deg at 50% 50%,
+              rgba(0, 0, 0, 0) 5%,
+              rgba(0, 0, 0, 1) 10%,
+              rgba(0, 0, 0, 1) 40%,
+              rgba(0, 0, 0, 0) 45%
+            );
           }
 
           &:nth-child(3) {
-            mask-image: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 1) 75%);
+            mask-image: conic-gradient(
+              from 90deg at 50% 50%,
+              rgba(0, 0, 0, 1) 5%,
+              rgba(0, 0, 0, 0) 10%,
+              rgba(0, 0, 0, 0) 60%,
+              rgba(0, 0, 0, 1) 75%
+            );
           }
         }
 
         &.wild {
           &.air {
-            mask-image: conic-gradient(from 90deg at 50% 20%, rgba(0, 0, 0, 0) 45%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 75%, rgba(0, 0, 0, 0) 80%);
+            mask-image: conic-gradient(
+              from 90deg at 50% 20%,
+              rgba(0, 0, 0, 0) 45%,
+              rgb(0, 0, 0) 50%,
+              rgb(0, 0, 0) 75%,
+              rgba(0, 0, 0, 0) 80%
+            );
           }
 
           &.ice {
-            mask-image: conic-gradient(from 180deg at 50% 20%, rgba(0, 0, 0, 0) 45%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 75%, rgba(0, 0, 0, 0) 80%);
+            mask-image: conic-gradient(
+              from 180deg at 50% 20%,
+              rgba(0, 0, 0, 0) 45%,
+              rgb(0, 0, 0) 50%,
+              rgb(0, 0, 0) 75%,
+              rgba(0, 0, 0, 0) 80%
+            );
           }
 
           &.fire {
-            mask-image: conic-gradient(from 270deg at 66% 30%, rgba(0, 0, 0, 0) 35%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 70%);
+            mask-image: conic-gradient(
+              from 270deg at 66% 30%,
+              rgba(0, 0, 0, 0) 35%,
+              rgb(0, 0, 0) 50%,
+              rgb(0, 0, 0) 65%,
+              rgba(0, 0, 0, 0) 70%,
+              rgba(0, 0, 0, 0) 70%
+            );
           }
 
           &.earth {
-            mask-image: conic-gradient(from 290deg at 50% 80%, rgba(0, 0, 0, 0) 35%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 70%)
+            mask-image: conic-gradient(
+              from 290deg at 50% 80%,
+              rgba(0, 0, 0, 0) 35%,
+              rgb(0, 0, 0) 50%,
+              rgb(0, 0, 0) 65%,
+              rgba(0, 0, 0, 0) 70%,
+              rgba(0, 0, 0, 0) 70%
+            );
           }
 
           &.light {
-            mask-image: conic-gradient(from 30deg at 50% 80%, rgba(0, 0, 0, 0) 35%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 70%)
+            mask-image: conic-gradient(
+              from 30deg at 50% 80%,
+              rgba(0, 0, 0, 0) 35%,
+              rgb(0, 0, 0) 50%,
+              rgb(0, 0, 0) 65%,
+              rgba(0, 0, 0, 0) 70%,
+              rgba(0, 0, 0, 0) 70%
+            );
           }
 
           &.dark {
-            mask-image: conic-gradient(from 40deg at 33% 30%, rgba(0, 0, 0, 0) 35%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 70%);
+            mask-image: conic-gradient(
+              from 40deg at 33% 30%,
+              rgba(0, 0, 0, 0) 35%,
+              rgb(0, 0, 0) 50%,
+              rgb(0, 0, 0) 65%,
+              rgba(0, 0, 0, 0) 70%,
+              rgba(0, 0, 0, 0) 70%
+            );
           }
         }
       }
@@ -329,7 +402,7 @@
     background-position: center;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    background-image: url('~src/assets/images/attackmodifier/am-character-icon.png');
+    background-image: url('/assets/images/attackmodifier/am-character-icon.png');
 
     img {
       filter: grayscale(100%) brightness(100) contrast(100%);
@@ -355,7 +428,7 @@
     background-position: center;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    background-image: url('~src/assets/images/attackmodifier/am-shuffle-icon.png');
+    background-image: url('/assets/images/attackmodifier/am-shuffle-icon.png');
 
     img {
       filter: var(--ghs-filter-white);
@@ -377,7 +450,7 @@
     background-position: center;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    background-image: url('~src/assets/images/attackmodifier/am-town-guard-icon.png');
+    background-image: url('/assets/images/attackmodifier/am-town-guard-icon.png');
 
     img {
       filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
@@ -393,7 +466,7 @@
     left: 6%;
     z-index: 3;
 
-    &>ghs-attackmodifier-effect {
+    & > ghs-attackmodifier-effect {
       display: block;
       position: absolute;
       top: 0;
@@ -402,14 +475,11 @@
     }
 
     &.multiple {
-
-
       &.multiple-2 {
-        &>ghs-attackmodifier-effect:nth-child(1) {
+        & > ghs-attackmodifier-effect:nth-child(1) {
           transform: translate(0, -110%);
         }
       }
-
     }
 
     &.town-guard {
@@ -424,43 +494,42 @@
       width: 37%;
 
       &.multiple {
-
-        &>ghs-attackmodifier-effect:nth-child(1) {
+        & > ghs-attackmodifier-effect:nth-child(1) {
           transform: translate(-70%, -70%) scale(0.5);
         }
 
-        &>ghs-attackmodifier-effect:nth-child(2) {
+        & > ghs-attackmodifier-effect:nth-child(2) {
           transform: translate(-30%, -30%) scale(0.5);
         }
 
-        &>ghs-attackmodifier-effect:nth-child(3) {
+        & > ghs-attackmodifier-effect:nth-child(3) {
           transform: translate(-30%, -70%) scale(0.5);
         }
 
-        &>ghs-attackmodifier-effect:nth-child(4) {
+        & > ghs-attackmodifier-effect:nth-child(4) {
           transform: translate(-70%, -30%) scale(0.5);
         }
 
         &.multiple-2 {
-          &>ghs-attackmodifier-effect:nth-child(1) {
+          & > ghs-attackmodifier-effect:nth-child(1) {
             transform: translate(-18%, -18%) scale(0.5);
           }
 
-          &>ghs-attackmodifier-effect:nth-child(2) {
+          & > ghs-attackmodifier-effect:nth-child(2) {
             transform: translate(18%, 18%) scale(0.5);
           }
         }
 
         &.multiple-3 {
-          &>ghs-attackmodifier-effect:nth-child(1) {
+          & > ghs-attackmodifier-effect:nth-child(1) {
             transform: translate(-25%, -15%) scale(0.4);
           }
 
-          &>ghs-attackmodifier-effect:nth-child(2) {
+          & > ghs-attackmodifier-effect:nth-child(2) {
             transform: translate(0%, 25%) scale(0.4);
           }
 
-          &>ghs-attackmodifier-effect:nth-child(3) {
+          & > ghs-attackmodifier-effect:nth-child(3) {
             transform: translate(25%, -15%) scale(0.4);
           }
         }
@@ -482,7 +551,11 @@
     color: var(--ghs-color-white);
     font-size: 3.5em;
     z-index: 1;
-    text-shadow: 1px 0px var(--ghs-color-darkgray), 0px 1px var(--ghs-color-darkgray), 1px 0px var(--ghs-color-darkgray), 0px 1px var(--ghs-color-darkgray);
+    text-shadow:
+      1px 0px var(--ghs-color-darkgray),
+      0px 1px var(--ghs-color-darkgray),
+      1px 0px var(--ghs-color-darkgray),
+      0px 1px var(--ghs-color-darkgray);
     filter: drop-shadow(1px 1px 1px var(--ghs-color-darkgray));
 
     &.side {
@@ -530,7 +603,7 @@
 
   &.town-guard {
     .back {
-      background-image: url('~src/assets/images/attackmodifier/town-guard/back.png');
+      background-image: url('/assets/images/attackmodifier/town-guard/back.png');
     }
 
     .front .am-value.effects {

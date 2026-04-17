@@ -1,20 +1,20 @@
-import { gameManager } from "../businesslogic/GameManager";
-import { settingsManager } from "../businesslogic/SettingsManager";
-import { Character, GameCharacterModel } from "./Character";
-import { AttackModifierDeck, defaultAttackModifierCards, GameAttackModifierDeckModel } from "./data/AttackModifier";
-import { ChallengeDeck, GameChallengeDeckModel } from "./data/Challenges";
-import { ConditionName } from "./data/Condition";
-import { defaultElementBoard, ElementModel, } from "./data/Element";
-import { Identifier } from "./data/Identifier";
-import { Loot, lootCardIdMigration, LootDeck, LootType } from "./data/Loot";
-import { ScenarioFinish } from "./data/ScenarioData";
-import { ScenarioRule, ScenarioRuleIdentifier } from "./data/ScenarioRule";
-import { EntityCounter } from "./Entity";
-import { Figure } from "./Figure";
-import { GameMonsterModel, Monster } from "./Monster";
-import { GameObjectiveContainerModel, ObjectiveContainer } from "./ObjectiveContainer";
-import { Party } from "./Party";
-import { GameScenarioModel, Scenario } from "./Scenario";
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character, GameCharacterModel } from 'src/app/game/model/Character';
+import { AttackModifierDeck, defaultAttackModifierCards, GameAttackModifierDeckModel } from 'src/app/game/model/data/AttackModifier';
+import { ChallengeDeck, GameChallengeDeckModel } from 'src/app/game/model/data/Challenges';
+import { ConditionName } from 'src/app/game/model/data/Condition';
+import { defaultElementBoard, ElementModel } from 'src/app/game/model/data/Element';
+import { Identifier } from 'src/app/game/model/data/Identifier';
+import { Loot, lootCardIdMigration, LootDeck, LootType } from 'src/app/game/model/data/Loot';
+import { ScenarioFinish } from 'src/app/game/model/data/ScenarioData';
+import { ScenarioRule, ScenarioRuleIdentifier } from 'src/app/game/model/data/ScenarioRule';
+import { EntityCounter } from 'src/app/game/model/Entity';
+import { Figure } from 'src/app/game/model/Figure';
+import { GameMonsterModel, Monster } from 'src/app/game/model/Monster';
+import { GameObjectiveContainerModel, ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { Party } from 'src/app/game/model/Party';
+import { GameScenarioModel, Scenario } from 'src/app/game/model/Scenario';
 
 export class Game {
   revision: number = 0;
@@ -24,11 +24,11 @@ export class Game {
   battleGoalEditions: string[] = [];
   filteredBattleGoals: Identifier[] = [];
   figures: Figure[] = [];
-  entitiesCounter: EntityCounter[] = []
+  entitiesCounter: EntityCounter[] = [];
   state: GameState = GameState.draw;
   scenario: Scenario | undefined = undefined;
   sections: Scenario[] = [];
-  scenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
+  scenarioRules: { identifier: ScenarioRuleIdentifier; rule: ScenarioRule }[] = [];
   appliedScenarioRules: ScenarioRuleIdentifier[] = [];
   discardedScenarioRules: ScenarioRuleIdentifier[] = [];
   level: number = 1;
@@ -69,7 +69,63 @@ export class Game {
   }
 
   toModel(): GameModel {
-    return new GameModel(this.revision, this.revisionOffset, this.edition, this.conditions, this.battleGoalEditions, this.filteredBattleGoals, this.figures.map((figure) => figure.edition + '-' + (figure instanceof ObjectiveContainer ? figure.uuid : figure.name)), this.entitiesCounter, this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof ObjectiveContainer).map((figure) => ((figure as ObjectiveContainer).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.additionalSections, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms, section.additionalSections)), this.scenarioRules.map((value) => value.identifier), this.appliedScenarioRules, this.discardedScenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.playerCount, this.round, this.roundResets, this.roundResetsHidden, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.lootDeckFixed, this.lootDeckSections, this.unlockedCharacters, this.server, this.finish, this.gameClock, this.challengeDeck.toModel(), this.favors, this.favorPoints, this.keepFavors, this.eventDraw);
+    return new GameModel(
+      this.revision,
+      this.revisionOffset,
+      this.edition,
+      this.conditions,
+      this.battleGoalEditions,
+      this.filteredBattleGoals,
+      this.figures.map((figure) => figure.edition + '-' + (figure instanceof ObjectiveContainer ? figure.uuid : figure.name)),
+      this.entitiesCounter,
+      this.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character).toModel()),
+      this.figures.filter((figure) => figure instanceof Monster).map((figure) => (figure as Monster).toModel()),
+      this.figures.filter((figure) => figure instanceof ObjectiveContainer).map((figure) => (figure as ObjectiveContainer).toModel()),
+      this.state,
+      (this.scenario &&
+        gameManager.scenarioManager.toModel(
+          this.scenario,
+          this.scenario.revealedRooms,
+          this.scenario.additionalSections,
+          this.scenario.custom,
+          this.scenario.custom ? this.scenario.name : ''
+        )) ||
+        undefined,
+      this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms, section.additionalSections)),
+      this.scenarioRules.map((value) => value.identifier),
+      this.appliedScenarioRules,
+      this.discardedScenarioRules,
+      this.level,
+      this.levelCalculation,
+      this.levelAdjustment,
+      this.bonusAdjustment,
+      this.ge5Player,
+      this.playerCount,
+      this.round,
+      this.roundResets,
+      this.roundResetsHidden,
+      this.playSeconds,
+      this.totalSeconds,
+      this.monsterAttackModifierDeck.toModel(),
+      this.allyAttackModifierDeck.toModel(),
+      this.elementBoard,
+      this.solo,
+      this.party,
+      this.parties,
+      this.lootDeck,
+      this.lootDeckEnhancements,
+      this.lootDeckFixed,
+      this.lootDeckSections,
+      this.unlockedCharacters,
+      this.server,
+      this.finish,
+      this.gameClock,
+      this.challengeDeck.toModel(),
+      this.favors,
+      this.favorPoints,
+      this.keepFavors,
+      this.eventDraw
+    );
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -79,16 +135,23 @@ export class Game {
     this.conditions = model.conditions || [];
     this.battleGoalEditions = model.battleGoalEditions || [];
     this.filteredBattleGoals = model.filteredBattleGoals || [];
-    this.figures = this.figures.filter((figure) =>
-      figure instanceof Character && model.characters.map((gcm) => gcm.edition + '-' + gcm.name).includes(figure.edition + '-' + figure.name) ||
-      figure instanceof Monster && model.monsters.map((gmm) => gmm.edition + '-' + gmm.name).includes(figure.edition + '-' + figure.name) ||
-      figure instanceof ObjectiveContainer && model.objectiveContainers && model.objectiveContainers.map((gom) => gom.uuid).includes(figure.uuid)
+    this.figures = this.figures.filter(
+      (figure) =>
+        (figure instanceof Character &&
+          model.characters.map((gcm) => gcm.edition + '-' + gcm.name).includes(figure.edition + '-' + figure.name)) ||
+        (figure instanceof Monster &&
+          model.monsters.map((gmm) => gmm.edition + '-' + gmm.name).includes(figure.edition + '-' + figure.name)) ||
+        (figure instanceof ObjectiveContainer &&
+          model.objectiveContainers &&
+          model.objectiveContainers.map((gom) => gom.uuid).includes(figure.uuid))
     );
 
     this.entitiesCounter = model.entitiesCounter || [];
 
     model.characters.forEach((value) => {
-      let character = this.figures.find((figure) => figure instanceof Character && figure.name == value.name && figure.edition == value.edition) as Character;
+      let character = this.figures.find(
+        (figure) => figure instanceof Character && figure.name == value.name && figure.edition == value.edition
+      ) as Character;
       if (!character) {
         character = new Character(gameManager.getCharacterData(value.name, value.edition), value.level);
         this.figures.push(character);
@@ -97,7 +160,9 @@ export class Game {
     });
 
     model.monsters.forEach((value) => {
-      let monster = this.figures.find((figure) => figure instanceof Monster && figure.name == value.name && figure.edition == value.edition) as Monster;
+      let monster = this.figures.find(
+        (figure) => figure instanceof Monster && figure.name == value.name && figure.edition == value.edition
+      ) as Monster;
       if (!monster) {
         monster = new Monster(gameManager.getMonsterData(value.name, value.edition));
         this.figures.push(monster);
@@ -106,9 +171,15 @@ export class Game {
     });
 
     if (model.objectiveContainers) {
-      this.figures = this.figures.filter((figure) => !(figure instanceof ObjectiveContainer) || model.objectiveContainers && model.objectiveContainers.some((value) => value.uuid && value.uuid == figure.uuid));
+      this.figures = this.figures.filter(
+        (figure) =>
+          !(figure instanceof ObjectiveContainer) ||
+          (model.objectiveContainers && model.objectiveContainers.some((value) => value.uuid && value.uuid == figure.uuid))
+      );
       model.objectiveContainers.forEach((value) => {
-        let objectiveContainer = this.figures.find((figure) => figure instanceof ObjectiveContainer && figure.uuid == value.uuid) as ObjectiveContainer;
+        let objectiveContainer = this.figures.find(
+          (figure) => figure instanceof ObjectiveContainer && figure.uuid == value.uuid
+        ) as ObjectiveContainer;
         if (!objectiveContainer) {
           objectiveContainer = new ObjectiveContainer(value.uuid, value.additionalObjectiveId || value.objectiveId);
           this.figures.push(objectiveContainer);
@@ -117,14 +188,23 @@ export class Game {
       });
     }
 
-    this.figures.sort((a, b) => model.figures.indexOf(a.edition + '-' + (a instanceof ObjectiveContainer ? a.uuid : a.name)) - model.figures.indexOf(b.edition + '-' + (b instanceof ObjectiveContainer ? b.uuid : b.name)));
+    this.figures.sort(
+      (a, b) =>
+        model.figures.indexOf(a.edition + '-' + (a instanceof ObjectiveContainer ? a.uuid : a.name)) -
+        model.figures.indexOf(b.edition + '-' + (b instanceof ObjectiveContainer ? b.uuid : b.name))
+    );
 
     this.state = model.state;
 
     if (model.scenario) {
       const scenarioData = gameManager.scenarioManager.scenarioDataForModel(model.scenario);
       if (scenarioData) {
-        this.scenario = new Scenario(scenarioData, model.scenario.revealedRooms || [], model.scenario.additionalSections || [], model.scenario.isCustom);
+        this.scenario = new Scenario(
+          scenarioData,
+          model.scenario.revealedRooms || [],
+          model.scenario.additionalSections || [],
+          model.scenario.isCustom
+        );
       } else {
         this.scenario = undefined;
       }
@@ -138,25 +218,35 @@ export class Game {
       if (sectionModelData) {
         this.sections.push(new Scenario(sectionModelData, value.revealedRooms || []));
       }
-    })
+    });
     this.level = model.level;
 
     this.scenarioRules = [];
 
     if (model.scenarioRules) {
       model.scenarioRules.forEach((identifier) => {
-        const scenario = gameManager.scenarioRulesManager.getScenarioForRule((identifier)).scenario;
+        const scenario = gameManager.scenarioRulesManager.getScenarioForRule(identifier).scenario;
         if (scenario) {
           if (scenario.rules && scenario.rules.length > identifier.index && identifier.index >= 0) {
             if (scenario.rules[identifier.index].spawns) {
-              scenario.rules[identifier.index].spawns.forEach((spawn) => { if (spawn.manual && !spawn.count) { spawn.count = "1"; } });
+              scenario.rules[identifier.index].spawns.forEach((spawn) => {
+                if (spawn.manual && !spawn.count) {
+                  spawn.count = '1';
+                }
+              });
             }
             this.scenarioRules.push({ identifier: identifier, rule: scenario.rules[identifier.index] });
           } else if (scenario.errata && identifier.index < 0 && scenario.errata.split('|')[identifier.index * -1 - 1]) {
-            this.scenarioRules.push({ identifier: identifier, rule: gameManager.scenarioRulesManager.createErrataRule(scenario.edition, scenario.errata.split('|')[identifier.index * -1 - 1]) });
+            this.scenarioRules.push({
+              identifier: identifier,
+              rule: gameManager.scenarioRulesManager.createErrataRule(
+                scenario.edition,
+                scenario.errata.split('|')[identifier.index * -1 - 1]
+              )
+            });
           }
         }
-      })
+      });
     }
 
     this.appliedScenarioRules = model.appliedScenarioRules || [];
@@ -171,10 +261,10 @@ export class Game {
     this.round = model.round;
     this.roundResets = model.roundResets || [];
     this.roundResetsHidden = model.roundResetsHidden || [];
-    if (server && !model.server || model.playSeconds > this.playSeconds) {
+    if ((server && !model.server) || model.playSeconds > this.playSeconds) {
       this.playSeconds = model.playSeconds;
     }
-    if (server && !model.server || model.totalSeconds > this.totalSeconds) {
+    if ((server && !model.server) || model.totalSeconds > this.totalSeconds) {
       this.totalSeconds = model.totalSeconds;
     }
     this.monsterAttackModifierDeck = this.monsterAttackModifierDeck || new AttackModifierDeck();
@@ -182,7 +272,7 @@ export class Game {
       if (figure instanceof Character && figure.perks && figure.perks.find((perk) => perk.monsterDeck)) {
         gameManager.attackModifierManager.applyCharacterPerks(figure, this.monsterAttackModifierDeck, true);
       }
-    })
+    });
     if (model.monsterAttackModifierDeck && model.monsterAttackModifierDeck.cards && model.monsterAttackModifierDeck.cards.length > 0) {
       gameManager.attackModifierManager.fromModel(this.monsterAttackModifierDeck, model.monsterAttackModifierDeck);
     }
@@ -195,7 +285,7 @@ export class Game {
     this.elementBoard = this.elementBoard || defaultElementBoard;
 
     if (model.elementBoard) {
-      model.elementBoard.forEach((element, index) => this.elementBoard[index].state = element.state);
+      model.elementBoard.forEach((element, index) => (this.elementBoard[index].state = element.state));
     }
 
     this.solo = model.solo;
@@ -207,18 +297,18 @@ export class Game {
         if (party.id != this.party.id) {
           // migration
           if (party.achievements) {
-            party.achievementsList.push(...party.achievements.split("\n"));
-            party.achievements = "";
+            party.achievementsList.push(...party.achievements.split('\n'));
+            party.achievements = '';
           }
 
           if (party.globalAchievements) {
-            party.globalAchievementsList.push(...party.globalAchievements.split("\n"));
-            party.globalAchievements = "";
+            party.globalAchievementsList.push(...party.globalAchievements.split('\n'));
+            party.globalAchievements = '';
           }
 
           this.parties.push(Object.assign(new Party(), party));
         }
-      })
+      });
     }
 
     if (model.lootDeck) {
@@ -240,28 +330,28 @@ export class Game {
     this.keepFavors = model.keepFavors || false;
     this.eventDraw = model.eventDraw || undefined;
 
-    // migration 
+    // migration
     this.lootDeckEnhancements.forEach((loot) => {
       if (loot.value) {
         if (!isNaN(+loot.value)) {
           loot.value4P = +loot.value;
           loot.value3P = +loot.value;
           loot.value2P = +loot.value;
-        } else if (loot.value == "%game.loot.player.3-4% +1/%game.loot.player.2% +2") {
+        } else if (loot.value == '%game.loot.player.3-4% +1/%game.loot.player.2% +2') {
           loot.value4P = 1;
           loot.value3P = 1;
           loot.value2P = 2;
-        } else if (loot.value == "%game.loot.player.4% +1/%game.loot.player.2-3% +2") {
+        } else if (loot.value == '%game.loot.player.4% +1/%game.loot.player.2-3% +2') {
           loot.value4P = 1;
           loot.value3P = 2;
           loot.value2P = 2;
         } else {
-          console.warn("Cannot migrate loot: " + loot.value);
+          console.warn('Cannot migrate loot: ' + loot.value);
         }
 
         loot.value = undefined;
       }
-    })
+    });
 
     lootCardIdMigration(this.lootDeck.cards);
     lootCardIdMigration(this.lootDeckEnhancements);
@@ -271,7 +361,7 @@ export class Game {
     // migration
     this.unlockedCharacters = this.unlockedCharacters.map((c) => {
       if (!c.includes(':')) {
-        let edition = this.edition || gameManager.currentEdition();
+        const edition = this.edition || gameManager.currentEdition();
         let characterData = gameManager.getCharacterData(c, edition);
         if (!characterData) {
           characterData = gameManager.getCharacterData(c);
@@ -279,11 +369,11 @@ export class Game {
         if (characterData) {
           return characterData.edition + ':' + characterData.name;
         } else {
-          console.warn("Could not find character data for unlock: " + c);
+          console.warn('Could not find character data for unlock: ' + c);
         }
       }
       return c;
-    })
+    });
 
     this.party.migrate();
 
@@ -303,23 +393,21 @@ export class Game {
 }
 
 export enum GameState {
-  draw = "draw",
-  next = "next",
+  draw = 'draw',
+  next = 'next'
 }
 
 export class GameClockTimestamp {
   clockIn: number;
   clockOut: number | undefined;
 
-  constructor(clockIn: number,
-    clockOut: number | undefined = undefined) {
+  constructor(clockIn: number, clockOut: number | undefined = undefined) {
     this.clockIn = clockIn;
     this.clockOut = clockOut;
   }
 }
 
 export class GameModel {
-
   revision: number;
   revisionOffset: number;
   edition: string | undefined;
@@ -399,8 +487,18 @@ export class GameModel {
     roundResetsHidden: number[] = [],
     playSeconds: number = 0,
     totalSeconds: number = 0,
-    monsterAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards.map((am) => am.id), [], true),
-    allyAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards.map((am) => am.id), [], true),
+    monsterAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(
+      -1,
+      defaultAttackModifierCards.map((am) => am.id),
+      [],
+      true
+    ),
+    allyAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(
+      -1,
+      defaultAttackModifierCards.map((am) => am.id),
+      [],
+      true
+    ),
     elementBoard: ElementModel[] = [],
     solo: boolean = false,
     party: Party = new Party(),
@@ -417,7 +515,8 @@ export class GameModel {
     favors: Identifier[] = [],
     favorPoints: number[] = [],
     keepFavors: boolean = false,
-    eventDraw: string | undefined = undefined) {
+    eventDraw: string | undefined = undefined
+  ) {
     this.revision = revision;
     this.revisionOffset = revisionOffset;
     this.edition = edition;
@@ -451,11 +550,11 @@ export class GameModel {
     this.elementBoard = JSON.parse(JSON.stringify(elementBoard));
     this.solo = solo;
     this.party = JSON.parse(JSON.stringify(party));
-    this.party.players = this.party.players.map((value) => value || "");
+    this.party.players = this.party.players.map((value) => value || '');
     this.parties = JSON.parse(JSON.stringify(parties));
     this.parties.forEach((party) => {
-      party.players = party.players.map((value) => value || "");
-    })
+      party.players = party.players.map((value) => value || '');
+    });
     this.lootDeck = JSON.parse(JSON.stringify(lootDeck));
     this.lootDeckEnhancements = JSON.parse(JSON.stringify(lootDeckEnhancements));
     this.lootDeckFixed = JSON.parse(JSON.stringify(lootDeckFixed));
@@ -472,5 +571,4 @@ export class GameModel {
     // migration
     this.disgardedScenarioRules = JSON.parse(JSON.stringify(discardedScenarioRules));
   }
-
 }

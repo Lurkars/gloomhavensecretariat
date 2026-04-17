@@ -1,346 +1,440 @@
-import { Dialog } from "@angular/cdk/dialog";
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
-import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { GhsManager } from "src/app/game/businesslogic/GhsManager";
-import { LootManager } from "src/app/game/businesslogic/LootManager";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character } from "src/app/game/model/Character";
-import { GameState } from "src/app/game/model/Game";
-import { AdditionalIdentifier, Identifier } from "src/app/game/model/data/Identifier";
-import { ItemData } from "src/app/game/model/data/ItemData";
-import { appliableLootTypes, Loot, LootDeck, LootType } from "src/app/game/model/data/Loot";
-import { LootApplyDialogComponent } from "./loot-apply-dialog";
-import { LootDeckDialogComponent } from "./loot-deck-dialog";
-import { LootDeckFullscreenComponent } from "./loot-deck-fullscreen";
-import { LootRandomItemDialogComponent } from "./random-item/random-item-dialog";
+import { Dialog } from '@angular/cdk/dialog';
+import { NgClass } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  inject,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { LootManager } from 'src/app/game/businesslogic/LootManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { AdditionalIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
+import { ItemData } from 'src/app/game/model/data/ItemData';
+import { appliableLootTypes, Loot, LootDeck, LootType } from 'src/app/game/model/data/Loot';
+import { GameState } from 'src/app/game/model/Game';
+import { LootApplyDialogComponent } from 'src/app/ui/figures/loot/loot-apply-dialog';
+import { LootComponent } from 'src/app/ui/figures/loot/loot-card';
+import { LootDeckDialogComponent } from 'src/app/ui/figures/loot/loot-deck-dialog';
+import { LootDeckFullscreenComponent } from 'src/app/ui/figures/loot/loot-deck-fullscreen';
+import { LootRandomItemDialogComponent } from 'src/app/ui/figures/loot/random-item/random-item-dialog';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 export class LootDeckChange {
+  deck: LootDeck;
+  type: string;
+  values: (string | number | boolean)[];
 
-    deck: LootDeck;
-    type: string;
-    values: (string | number | boolean)[];
-
-    constructor(deck: LootDeck, type: string, ...values: (string | number | boolean)[]) {
-        this.deck = deck;
-        this.type = type;
-        this.values = values;
-    }
-
+  constructor(deck: LootDeck, type: string, ...values: (string | number | boolean)[]) {
+    this.deck = deck;
+    this.type = type;
+    this.values = values;
+  }
 }
 
 @Component({
-    standalone: false,
-    selector: 'ghs-loot-deck',
-    templateUrl: './loot-deck.html',
-    styleUrls: ['./loot-deck.scss']
+  imports: [GhsLabelDirective, LootComponent, NgClass, TrackUUIDPipe],
+  selector: 'ghs-loot-deck',
+  templateUrl: './loot-deck.html',
+  styleUrls: ['./loot-deck.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LootDeckComponent implements OnInit, OnChanges {
-    private cdr = inject(ChangeDetectorRef);
+  private cdr = inject(ChangeDetectorRef);
 
-    @Input('deck') deck!: LootDeck;
-    @Input() bottom: boolean = false;
-    @Input() characters: boolean = true;
-    @Input() fullscreen: boolean = true;
-    @Input() vertical: boolean = false;
-    @Input() standalone: boolean = false;
-    @Output('before') before: EventEmitter<LootDeckChange> = new EventEmitter<LootDeckChange>();
-    @Output('after') after: EventEmitter<LootDeckChange> = new EventEmitter<LootDeckChange>();
-    @Input() initTimeout: number = 1500;
-    gameManager: GameManager = gameManager;
-    settingsManager: SettingsManager = settingsManager;
-    lootManager: LootManager = gameManager.lootManager;
-    current: number = -1;
-    internalDraw: number = -99;
-    LootType = LootType;
-    GameState = GameState;
-    drawing: boolean = false;
-    drawTimeout: any = null;
-    queue: number = 0;
-    queueTimeout: any = null;
-    compact: boolean = false;
-    disabled: boolean = false;
-    init: boolean = false;
-    initServer: boolean = false;
+  @Input() deck!: LootDeck;
+  @Input() bottom: boolean = false;
+  @Input() characters: boolean = true;
+  @Input() fullscreen: boolean = true;
+  @Input() vertical: boolean = false;
+  @Input() standalone: boolean = false;
+  @Output() before: EventEmitter<LootDeckChange> = new EventEmitter<LootDeckChange>();
+  @Output() after: EventEmitter<LootDeckChange> = new EventEmitter<LootDeckChange>();
+  @Input() initTimeout: number = 1500;
+  gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
+  lootManager: LootManager = gameManager.lootManager;
+  current: number = -1;
+  internalDraw: number = -99;
+  LootType = LootType;
+  GameState = GameState;
+  drawing: boolean = false;
+  drawTimeout: any = null;
+  queue: number = 0;
+  queueTimeout: any = null;
+  compact: boolean = false;
+  disabled: boolean = false;
+  init: boolean = false;
+  initServer: boolean = false;
 
-    constructor(private element: ElementRef, private dialog: Dialog, private ghsManager: GhsManager) {
-        this.ghsManager.uiChangeEffect((fromServer: boolean) => {
-            this.update(fromServer);
-        });
-        this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
-            let elements = document.elementsFromPoint(event.clientX, event.clientY);
-            if (elements[0].classList.contains('deck') && elements.length > 2) {
-                (elements[2] as HTMLElement).click();
-            }
-        })
-    };
+  constructor(
+    private element: ElementRef,
+    private dialog: Dialog,
+    private ghsManager: GhsManager
+  ) {
+    this.ghsManager.uiChangeEffect((fromServer: boolean) => {
+      this.update(fromServer);
+    });
+    this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
+      const elements = document.elementsFromPoint(event.clientX, event.clientY);
+      if (elements[0].classList.contains('deck') && elements.length > 2) {
+        (elements[2] as HTMLElement).click();
+      }
+    });
+  }
 
-    ngOnInit(): void {
+  ngOnInit(): void {
+    this.current = this.deck.current;
+    this.internalDraw = -99;
+    this.compact =
+      this.deck.cards.length > 0 &&
+      settingsManager.settings.automaticAttackModifierFullscreen &&
+      settingsManager.settings.portraitMode &&
+      (window.innerWidth < 800 || window.innerHeight < 400);
+    this.disabled = !this.standalone && gameManager.game.state == GameState.draw;
+
+    if (!this.init) {
+      this.drawTimeout = setTimeout(
+        () => {
+          this.current = this.deck.current;
+          this.drawTimeout = null;
+          this.init = true;
+          this.cdr.markForCheck();
+        },
+        settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0
+      );
+    }
+
+    window.addEventListener('resize', () => {
+      this.compact =
+        this.deck.cards.length > 0 &&
+        settingsManager.settings.automaticAttackModifierFullscreen &&
+        settingsManager.settings.portraitMode &&
+        (window.innerWidth < 800 || window.innerHeight < 400);
+    });
+
+    window.addEventListener('fullscreenchange', () => {
+      this.compact =
+        this.deck.cards.length > 0 &&
+        settingsManager.settings.automaticAttackModifierFullscreen &&
+        settingsManager.settings.portraitMode &&
+        (window.innerWidth < 800 || window.innerHeight < 400);
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['deck']) {
+      this.update();
+    }
+  }
+
+  update(fromServer: boolean = false) {
+    this.disabled = !this.standalone && gameManager.game.state == GameState.draw;
+
+    if (this.initServer && gameManager.stateManager.wsState() != WebSocket.OPEN) {
+      this.initServer = false;
+    }
+
+    if (!this.deck.active && !this.standalone) {
+      if (this.queueTimeout) {
+        clearTimeout(this.queueTimeout);
+        this.queueTimeout = null;
+      }
+      this.queue = 0;
+      this.drawing = false;
+      this.current = this.deck.current;
+      this.initServer = gameManager.stateManager.wsState() == WebSocket.OPEN;
+    } else if (this.init && (!fromServer || this.initServer)) {
+      if (this.current < this.deck.current) {
+        this.queue = Math.max(0, this.deck.current - this.current);
+        if (!this.queueTimeout) {
+          this.queue--;
+          this.current++;
+          this.drawQueue(fromServer);
+        }
+      } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
+        if (this.queueTimeout) {
+          clearTimeout(this.queueTimeout);
+          this.queueTimeout = null;
+        }
+        this.queue = 0;
+        this.drawing = false;
         this.current = this.deck.current;
-        this.internalDraw = -99;
-        this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
-        this.disabled = !this.standalone && gameManager.game.state == GameState.draw;
-
-        if (!this.init) {
-            this.drawTimeout = setTimeout(() => {
-                this.current = this.deck.current;
-                this.drawTimeout = null;
-                this.init = true;
-                this.cdr.markForCheck();
-            }, settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0)
-        }
-
-
-        window.addEventListener('resize', (event) => {
-            this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
-        });
-
-        window.addEventListener('fullscreenchange', (event) => {
-            this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
-        });
+      }
+    } else {
+      this.current = this.deck.current;
+      if (fromServer && !this.initServer) {
+        this.initServer = true;
+      }
     }
 
+    this.compact =
+      settingsManager.settings.automaticAttackModifierFullscreen &&
+      settingsManager.settings.portraitMode &&
+      (window.innerWidth < 800 || window.innerHeight < 400);
+  }
 
-    ngOnChanges(changes: SimpleChanges): void {
-        if (changes['deck']) {
-            this.update()
-        }
-    }
+  drawQueue(fromServer: boolean) {
+    this.drawing = true;
+    this.element.nativeElement.getElementsByClassName('deck')[0].classList.add('drawing');
+    this.queueTimeout = setTimeout(
+      () => {
+        this.drawing = false;
+        this.queueTimeout = null;
+        const currentIndex = this.current;
+        const loot = this.deck.cards[currentIndex];
 
-    update(fromServer: boolean = false) {
-        this.disabled = !this.standalone && gameManager.game.state == GameState.draw;
-
-        if (this.initServer && gameManager.stateManager.wsState() != WebSocket.OPEN) {
-            this.initServer = false;
-        }
-
-        if (!this.deck.active && !this.standalone) {
-            if (this.queueTimeout) {
-                clearTimeout(this.queueTimeout);
-                this.queueTimeout = null;
-            }
-            this.queue = 0;
-            this.drawing = false;
-            this.current = this.deck.current;
-            this.initServer = gameManager.stateManager.wsState() == WebSocket.OPEN;
-        } else if (this.init && (!fromServer || this.initServer)) {
-            if (this.current < this.deck.current) {
-                this.queue = Math.max(0, this.deck.current - this.current);
-                if (!this.queueTimeout) {
-                    this.queue--;
-                    this.current++;
-                    this.drawQueue(fromServer);
-                }
-            } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
-                if (this.queueTimeout) {
-                    clearTimeout(this.queueTimeout);
-                    this.queueTimeout = null;
-                }
-                this.queue = 0;
-                this.drawing = false;
-                this.current = this.deck.current;
-            }
+        if (this.queue > 0) {
+          this.queue--;
+          this.current++;
+          this.drawQueue(fromServer);
         } else {
-            this.current = this.deck.current;
-            if (fromServer && !this.initServer) {
-                this.initServer = true;
-            }
+          this.element.nativeElement.getElementsByClassName('deck')[0].classList.remove('drawing');
+          if (this.queue < 0) {
+            this.queue = 0;
+          }
         }
 
-        this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
-    }
+        if (
+          !fromServer &&
+          loot &&
+          appliableLootTypes.indexOf(loot.type) != null &&
+          settingsManager.settings.applyLoot &&
+          !this.standalone &&
+          this.fullscreen &&
+          gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) &&
+          gameManager.game.figures.every((figure) => !(figure instanceof Character) || !figure.lootCards.includes(currentIndex))
+        ) {
+          const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) as Character;
+          if (!activeCharacter || settingsManager.settings.alwaysLootApplyDialog) {
+            const dialog = this.dialog.open(LootApplyDialogComponent, {
+              panelClass: ['dialog'],
+              data: { loot: loot }
+            });
 
-    drawQueue(fromServer: boolean) {
-        this.drawing = true;
-        this.element.nativeElement.getElementsByClassName('deck')[0].classList.add('drawing');
-        this.queueTimeout = setTimeout(() => {
-            this.drawing = false;
-            this.queueTimeout = null;
-            const currentIndex = this.current;
-            const loot = this.deck.cards[currentIndex];
-
-            if (this.queue > 0) {
-                this.queue--;
-                this.current++;
-                this.drawQueue(fromServer);
-            } else {
-                this.element.nativeElement.getElementsByClassName('deck')[0].classList.remove('drawing');
-                if (this.queue < 0) {
-                    this.queue = 0;
+            dialog.closed.subscribe({
+              next: (name) => {
+                if (name) {
+                  const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
+                  if (character instanceof Character) {
+                    this.applyLoot(character, loot, currentIndex);
+                  }
                 }
-            }
+              }
+            });
+          } else if (activeCharacter) {
+            this.applyLoot(activeCharacter, loot, currentIndex);
+          }
+        }
 
-            if (!fromServer && loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && !this.standalone && this.fullscreen && gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) && gameManager.game.figures.every((figure) => !(figure instanceof Character) || !figure.lootCards.includes(currentIndex))) {
-                let activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) as Character;
-                if ((!activeCharacter || settingsManager.settings.alwaysLootApplyDialog)) {
-                    const dialog = this.dialog.open(LootApplyDialogComponent, {
+        this.cdr.markForCheck();
+      },
+      settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0
+    );
+  }
+
+  applyLoot(character: Character, loot: Loot, index: number) {
+    if (!character.lootCards.includes(index)) {
+      gameManager.stateManager.before(
+        loot.type == LootType.random_item ? 'lootRandomItem' : 'addResource',
+        gameManager.characterManager.characterName(character, true, true),
+        'game.loot.' + loot.type,
+        this.lootManager.getValue(loot)
+      );
+      const result = gameManager.lootManager.applyLoot(loot, character, index);
+      gameManager.stateManager.after();
+      if (result) {
+        this.dialog
+          .open(LootRandomItemDialogComponent, {
+            panelClass: ['dialog'],
+            data: { item: result, character: character }
+          })
+          .closed.subscribe({
+            next: (result) => {
+              if (result) {
+                const item = result as ItemData;
+                gameManager.stateManager.before(
+                  'lootRandomItem',
+                  item.id,
+                  item.edition,
+                  item.name,
+                  gameManager.characterManager.characterName(character, true, true)
+                );
+                const itemIdentifier: Identifier = new Identifier(item.id, item.edition);
+                gameManager.itemManager.addItemCount(item);
+                if (!character.lootCards.includes(index)) {
+                  character.lootCards.push(index);
+                  character.lootCards.sort((a, b) => a - b);
+                }
+                if (
+                  character.progress.items.find((existing) => existing.name == '' + item.id && existing.edition == item.edition) !=
+                  undefined
+                ) {
+                  character.progress.gold += gameManager.itemManager.itemSellValue(item);
+                } else {
+                  character.progress.items.push(itemIdentifier);
+                  character.progress.equippedItems.push(
+                    new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, 'loot-random-item')
+                  );
+                }
+                gameManager.stateManager.after();
+              } else {
+                character.lootCards = character.lootCards.filter((index) => index != index);
+              }
+            }
+          });
+      }
+    }
+  }
+
+  draw(event: any, forceDraw: boolean = false) {
+    if (this.compact && this.fullscreen && !forceDraw) {
+      this.openFullscreen(event);
+    } else if (!this.disabled && this.deck.cards.length > 0) {
+      if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue == 0 ? 0 : 1)) {
+        const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
+        this.drawTimeout = setTimeout(
+          () => {
+            this.before.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
+            if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
+              const result = gameManager.lootManager.drawCard(this.deck, activeCharacter);
+              if (result) {
+                setTimeout(
+                  () => {
+                    this.dialog
+                      .open(LootRandomItemDialogComponent, {
                         panelClass: ['dialog'],
-                        data: { loot: loot }
-                    });
-
-                    dialog.closed.subscribe({
-                        next: (name) => {
-                            if (name) {
-                                const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
-                                if (character instanceof Character) {
-                                    this.applyLoot(character, loot, currentIndex);
-                                }
-                            }
-                        }
-                    })
-                } else if (activeCharacter) {
-                    this.applyLoot(activeCharacter, loot, currentIndex);
-                }
-            }
-
-            this.cdr.markForCheck();
-        }, settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0);
-    }
-
-    applyLoot(character: Character, loot: Loot, index: number) {
-        if (!character.lootCards.includes(index)) {
-            gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", gameManager.characterManager.characterName(character, true, true), "game.loot." + loot.type, this.lootManager.getValue(loot));
-            const result = gameManager.lootManager.applyLoot(loot, character, index);
-            gameManager.stateManager.after();
-            if (result) {
-                this.dialog.open(LootRandomItemDialogComponent, {
-                    panelClass: ['dialog'],
-                    data: { item: result, character: character }
-                }).closed.subscribe({
-                    next: (result) => {
-                        if (result) {
+                        data: { item: result, character: activeCharacter }
+                      })
+                      .closed.subscribe({
+                        next: (result) => {
+                          if (result) {
                             const item = result as ItemData;
-                            gameManager.stateManager.before("lootRandomItem", item.id, item.edition, item.name, gameManager.characterManager.characterName(character, true, true));
-                            let itemIdentifier: Identifier = new Identifier(item.id, item.edition);
+                            gameManager.stateManager.before(
+                              'lootRandomItem',
+                              item.id,
+                              item.edition,
+                              item.name,
+                              gameManager.characterManager.characterName(activeCharacter, true, true)
+                            );
+                            const itemIdentifier: Identifier = new Identifier(item.id, item.edition);
                             gameManager.itemManager.addItemCount(item);
-                            if (!character.lootCards.includes(index)) {
-                                character.lootCards.push(index);
-                                character.lootCards.sort((a, b) => a - b);
+                            if (!activeCharacter.lootCards.includes(this.current)) {
+                              activeCharacter.lootCards.push(this.current);
+                              activeCharacter.lootCards.sort((a, b) => a - b);
                             }
-                            if (character.progress.items.find((existing) => existing.name == '' + item.id && existing.edition == item.edition) != undefined) {
-                                character.progress.gold += gameManager.itemManager.itemSellValue(item);
+                            if (
+                              activeCharacter.progress.items.find(
+                                (existing) => existing.name == '' + item.id && existing.edition == item.edition
+                              ) != undefined
+                            ) {
+                              activeCharacter.progress.gold += gameManager.itemManager.itemSellValue(item);
                             } else {
-                                character.progress.items.push(itemIdentifier);
-                                character.progress.equippedItems.push(new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, "loot-random-item"));
+                              activeCharacter.progress.items.push(itemIdentifier);
+                              activeCharacter.progress.equippedItems.push(
+                                new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, 'loot-random-item')
+                              );
                             }
                             gameManager.stateManager.after();
-                        } else {
-                            character.lootCards = character.lootCards.filter((index) => index != index);
+                          } else {
+                            activeCharacter.lootCards = activeCharacter.lootCards.filter((index) => index != this.current);
+                          }
                         }
-                    }
-                })
+                      });
+                  },
+                  settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0
+                );
+              }
+            } else {
+              gameManager.lootManager.drawCard(this.deck, undefined);
             }
+            this.after.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
+            this.drawTimeout = null;
+          },
+          settingsManager.settings.animations ? 150 * settingsManager.settings.animationSpeed : 0
+        );
+      }
+    } else {
+      this.dialog.open(LootDeckDialogComponent, {
+        panelClass: ['dialog'],
+        data: {
+          deck: this.deck,
+          characters: this.characters,
+          before: this.before,
+          after: this.after,
+          apply: !this.standalone
         }
+      });
     }
+  }
 
-    draw(event: any, forceDraw: boolean = false) {
-        if (this.compact && this.fullscreen && !forceDraw) {
-            this.openFullscreen(event);
-        } else if (!this.disabled && this.deck.cards.length > 0) {
-            if (!this.drawTimeout && this.deck.current < (this.deck.cards.length - (this.queue == 0 ? 0 : 1))) {
-                const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
-                this.drawTimeout = setTimeout(() => {
-                    this.before.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
-                    if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
-                        const result = gameManager.lootManager.drawCard(this.deck, activeCharacter);
-                        if (result) {
-                            setTimeout(() => {
-                                this.dialog.open(LootRandomItemDialogComponent, {
-                                    panelClass: ['dialog'],
-                                    data: { item: result, character: activeCharacter }
-                                }).closed.subscribe({
-                                    next: (result) => {
-                                        if (result) {
-                                            const item = result as ItemData;
-                                            gameManager.stateManager.before("lootRandomItem", item.id, item.edition, item.name, gameManager.characterManager.characterName(activeCharacter, true, true));
-                                            let itemIdentifier: Identifier = new Identifier(item.id, item.edition);
-                                            gameManager.itemManager.addItemCount(item);
-                                            if (!activeCharacter.lootCards.includes(this.current)) {
-                                                activeCharacter.lootCards.push(this.current);
-                                                activeCharacter.lootCards.sort((a, b) => a - b);
-                                            }
-                                            if (activeCharacter.progress.items.find((existing) => existing.name == '' + item.id && existing.edition == item.edition) != undefined) {
-                                                activeCharacter.progress.gold += gameManager.itemManager.itemSellValue(item);
-                                            } else {
-                                                activeCharacter.progress.items.push(itemIdentifier);
-                                                activeCharacter.progress.equippedItems.push(new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, "loot-random-item"));
-                                            }
-                                            gameManager.stateManager.after();
-                                        } else {
-                                            activeCharacter.lootCards = activeCharacter.lootCards.filter((index) => index != this.current);
-                                        }
-                                    }
-                                })
-                            }, settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0)
-                        }
-                    } else {
-                        gameManager.lootManager.drawCard(this.deck, undefined);
-                    }
-                    this.after.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
-                    this.drawTimeout = null;
-                }, settingsManager.settings.animations ? 150 * settingsManager.settings.animationSpeed : 0)
-            }
-        } else {
-            this.dialog.open(LootDeckDialogComponent, {
-                panelClass: ['dialog'],
-                data: {
-                    deck: this.deck,
-                    characters: this.characters,
-                    before: this.before,
-                    after: this.after,
-                    apply: !this.standalone
-                }
-            });
+  openFullscreen(event: any) {
+    if (this.fullscreen) {
+      this.dialog.open(LootDeckFullscreenComponent, {
+        panelClass: ['fullscreen-panel'],
+        backdropClass: ['fullscreen-backdrop'],
+        data: {
+          deck: this.deck,
+          before: this.before,
+          after: this.after
         }
+      });
+      event.preventDefault();
+      event.stopPropagation();
     }
+  }
 
-    openFullscreen(event: any) {
-        if (this.fullscreen) {
-            this.dialog.open(LootDeckFullscreenComponent, {
-                panelClass: ['fullscreen-panel'],
-                backdropClass: ['fullscreen-backdrop'],
-                data: {
-                    deck: this.deck,
-                    before: this.before,
-                    after: this.after
-                }
-            });
-            event.preventDefault();
-            event.stopPropagation();
-        }
+  clickCard(index: number, event: any) {
+    if (!this.drawing || index > this.current) {
+      this.open(event);
     }
+  }
 
-    clickCard(index: number, event: any) {
-        if (!this.drawing || index > this.current) {
-            this.open(event);
-        }
+  getCharacter(index: number): string {
+    if (this.characters) {
+      const character = gameManager.game.figures.find(
+        (figure) => figure instanceof Character && figure.lootCards && figure.lootCards.includes(index)
+      );
+      if (character) {
+        return character.name;
+      }
     }
+    return '';
+  }
 
-    getCharacter(index: number): string {
-        if (this.characters) {
-            const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.lootCards && figure.lootCards.includes(index));
-            if (character) {
-                return character.name;
-            }
+  open(event: any) {
+    if (
+      this.deck.cards.length > 0 &&
+      gameManager.game.state == GameState.next &&
+      this.fullscreen &&
+      settingsManager.settings.automaticAttackModifierFullscreen &&
+      settingsManager.settings.portraitMode &&
+      (window.innerWidth < 800 || window.innerHeight < 400)
+    ) {
+      this.openFullscreen(event);
+    } else {
+      this.dialog.open(LootDeckDialogComponent, {
+        panelClass: ['dialog'],
+        data: {
+          deck: this.deck,
+          characters: this.characters,
+          before: this.before,
+          after: this.after,
+          apply: !this.standalone
         }
-        return "";
+      });
     }
-
-    open(event: any) {
-        if (this.deck.cards.length > 0 && gameManager.game.state == GameState.next && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400)) {
-            this.openFullscreen(event);
-        } else {
-            this.dialog.open(LootDeckDialogComponent, {
-                panelClass: ['dialog'],
-                data: {
-                    deck: this.deck,
-                    characters: this.characters,
-                    before: this.before,
-                    after: this.after,
-                    apply: !this.standalone
-                }
-            });
-        }
-        event.preventDefault();
-        event.stopPropagation();
-    }
+    event.preventDefault();
+    event.stopPropagation();
+  }
 }

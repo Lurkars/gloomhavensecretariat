@@ -1,166 +1,215 @@
-<div class="card-container ability"
-  [ngClass]="{'fh' : settingsManager.settings.fhStyle, 'bb': settingsManager.settings.theme == 'bb', 'expand' : flipped || ability && ability.revealed}"
-  [style.--ghs-ability-color]="character && character.color">
-  <div class="card" [ngClass]="{'flipped' : flipped || ability && ability.revealed}" card-reveal
-    (change)="onChange($event)" [disabled]="!reveal || !ability" #card [style.fontSize]="fontsize">
-    <div class=" card-back ability-back"
-      [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 && !character, 'character-actions' : character}">
+<div
+  class="card-container ability"
+  [ngClass]="{
+    fh: settingsManager.settings.fhStyle,
+    bb: settingsManager.settings.theme == 'bb',
+    expand: flipped || (ability && ability.revealed)
+  }"
+  [style.--ghs-ability-color]="character && character.color"
+>
+  <div
+    class="card"
+    [ngClass]="{ flipped: flipped || (ability && ability.revealed) }"
+    card-reveal
+    (changed)="onChange($event)"
+    [disabled]="!reveal || !ability"
+    #card
+    [style.fontSize]="fontsize"
+  >
+    <div
+      class="card-back ability-back"
+      [ngClass]="{
+        'bottom-actions': ability && ability.bottomActions && ability.bottomActions.length > 0 && !character,
+        'character-actions': character
+      }"
+    >
       <div class="touch"></div>
       <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
       @if (!!monster) {
-      <span class="name" [ghs-label]="deckLabel"></span>
+        <span class="name" [ghs-label]="deckLabel"></span>
       }
       @if (!!character) {
-      <span class="name"><span [ghs-label]="'data.character.'+ character.edition + '.' + character.name"></span></span>
+        <span class="name"><span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span></span>
       }
       @if (!!character) {
-      <span class="logo"><img [src]="character.iconUrl" /></span>
+        <span class="logo"><img [src]="character.iconUrl" /></span>
       }
     </div>
-    <div class="card-front ability-front"
-      [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 && !character, 'character-actions' : character}">
+    <div
+      class="card-front ability-front"
+      [ngClass]="{
+        'bottom-actions': ability && ability.bottomActions && ability.bottomActions.length > 0 && !character,
+        'character-actions': character
+      }"
+    >
       @if (!!ability) {
-      <div class="initiative">@if (ability.initiative < 10) { <span>0</span>
-          }{{ability.initiative}}</div>
-      <span class="name">{{abilityLabel}}</span>
-      <div class="ability-actions-container" [ngClass]="{'disabled': activeActions && activeActions == 'bottom'}">
-        <div class="ability-actions">
-          <ghs-actions [actions]="ability.actions" [monster]="monster" [character]="character"
-            [statsCalculation]="statsCalculation" [shieldStats]="settingsManager.settings.calculateShieldStats"
-            [relative]="relative" [interactiveAbilities]="interactiveAbilities"
-            [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
-            [cardId]="ability.cardId">
-          </ghs-actions>
+        <div class="initiative">
+          @if (ability.initiative < 10) {
+            <span>0</span>
+          }
+          {{ ability.initiative }}
         </div>
-        @if (interactiveActions.length || settingsManager.settings.interactiveAbilities &&
-        settingsManager.settings.showExpandedAbilityCard) {
-        <div class="bottom-spacer">
+        <span class="name">{{ abilityLabel }}</span>
+        <div class="ability-actions-container" [ngClass]="{ disabled: activeActions && activeActions == 'bottom' }">
+          <div class="ability-actions">
+            <ghs-actions
+              [actions]="ability.actions"
+              [monster]="monster"
+              [character]="character"
+              [statsCalculation]="statsCalculation"
+              [shieldStats]="settingsManager.settings.calculateShieldStats"
+              [relative]="relative"
+              [interactiveAbilities]="interactiveAbilities"
+              [interactiveActions]="interactiveActions"
+              (interactiveActionsChange)="onInteractiveActionsChange($event)"
+              [cardId]="ability.cardId"
+            >
+            </ghs-actions>
+          </div>
+          @if (
+            interactiveActions.length || (settingsManager.settings.interactiveAbilities && settingsManager.settings.showExpandedAbilityCard)
+          ) {
+            <div class="bottom-spacer"></div>
+          }
         </div>
+        @if (interactiveAbilities && !!monster && (!activeActions || (activeActions && activeActions == 'top'))) {
+          <ghs-interactive-actions
+            [ngClass]="{ 'interactive-actions-top': (ability.bottomActions && ability.bottomActions.length > 0) || character }"
+            [figure]="monster"
+            [actions]="ability.actions"
+            [(interactiveActions)]="interactiveActions"
+          ></ghs-interactive-actions>
         }
-      </div>
-      @if (interactiveAbilities && !!monster && (!activeActions || activeActions && activeActions == 'top')) {
-      <ghs-interactive-actions
-        [ngClass]="{'interactive-actions-top' : ability.bottomActions && ability.bottomActions.length > 0 || character}"
-        [figure]="monster" [actions]="ability.actions"
-        [(interactiveActions)]="interactiveActions"></ghs-interactive-actions>
-      }
-      @if (!!ability.bottomActions && ability.bottomActions.length > 0 || character) {
-      <span class="level">
-        <span class="text" [ghs-label]="ability.level || 0"></span>
-      </span>
-      <div class="ability-actions-container" [ngClass]="{'disabled': activeActions && activeActions == 'top'}">
-        <div class="ability-actions ability-bottom-actions">
-          <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [character]="character"
-            [statsCalculation]="statsCalculation" [shieldStats]="shieldStats" [relative]="relative"
-            [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveBottomActions"
-            (interactiveActionsChange)="onInteractiveBottomActionsChange($event)" [index]="'bottom'"
-            [cardId]="ability.cardId">
-          </ghs-actions>
-        </div>
-      </div>
-      @if (interactiveAbilities && !!monster && (!activeActions || activeActions && activeActions == 'bottom')) {
-      <ghs-interactive-actions class="interactive-actions-bottom" [figure]="monster" [actions]="ability.bottomActions"
-        [(interactiveActions)]="interactiveBottomActions" [preIndex]="'bottom'"></ghs-interactive-actions>
-      }
-      }
-      @if (ability.shuffle) {
-      <div class="shuffle"><img src="./assets/images/shuffle.svg"></div>
-      }
-      @if (ability.bottomShuffle) {
-      <div class="bottom-shuffle"><img src="./assets/images/shuffle.svg"></div>
-      }
-      @if (!ability.cardId && settingsManager.settings.abilityNumbers) {
-      <span class="index">[{{abilityIndex +
-        1}}]</span>
-      }
-      @if (ability.cardId && settingsManager.settings.abilityNumbers) {
-      <span class="index">
-        @if (!!character && ability.cardId < 100) { <span>0</span>
-      }
-      @if (!!character && ability.cardId < 10) { <span>0</span>
+        @if ((!!ability.bottomActions && ability.bottomActions.length > 0) || character) {
+          <span class="level">
+            <span class="text" [ghs-label]="ability.level || 0"></span>
+          </span>
+          <div class="ability-actions-container" [ngClass]="{ disabled: activeActions && activeActions == 'top' }">
+            <div class="ability-actions ability-bottom-actions">
+              <ghs-actions
+                [actions]="ability.bottomActions"
+                [monster]="monster"
+                [character]="character"
+                [statsCalculation]="statsCalculation"
+                [shieldStats]="shieldStats"
+                [relative]="relative"
+                [interactiveAbilities]="interactiveAbilities"
+                [interactiveActions]="interactiveBottomActions"
+                (interactiveActionsChange)="onInteractiveBottomActionsChange($event)"
+                [index]="'bottom'"
+                [cardId]="ability.cardId"
+              >
+              </ghs-actions>
+            </div>
+          </div>
+          @if (interactiveAbilities && !!monster && (!activeActions || (activeActions && activeActions == 'bottom'))) {
+            <ghs-interactive-actions
+              class="interactive-actions-bottom"
+              [figure]="monster"
+              [actions]="ability.bottomActions"
+              [(interactiveActions)]="interactiveBottomActions"
+              [preIndex]="'bottom'"
+            ></ghs-interactive-actions>
+          }
         }
-        <span>{{ability.cardId}}</span>
-        </span>
+        @if (ability.shuffle) {
+          <div class="shuffle"><img src="/assets/images/shuffle.svg" /></div>
+        }
+        @if (ability.bottomShuffle) {
+          <div class="bottom-shuffle"><img src="/assets/images/shuffle.svg" /></div>
+        }
+        @if (!ability.cardId && settingsManager.settings.abilityNumbers) {
+          <span class="index">[{{ abilityIndex + 1 }}]</span>
+        }
+        @if (ability.cardId && settingsManager.settings.abilityNumbers) {
+          <span class="index">
+            @if (!!character && ability.cardId < 100) {
+              <span>0</span>
+            }
+            @if (!!character && ability.cardId < 10) {
+              <span>0</span>
+            }
+            <span>{{ ability.cardId }}</span>
+          </span>
         }
         @if (!!character) {
-        <span class="logo"><img [src]="character.iconUrl" /></span>
+          <span class="logo"><img [src]="character.iconUrl" /></span>
         }
         @if (ability.lost || ability.persistent || ability.loss || ability.round || ability.xp) {
-        <div class="required-container">
-          <span class="label">!</span>
-          <div class="box">
-            @if (ability.xp) {
-            <span class="xp">
-              <img src="./assets/images/action/card/experience.svg">
-              <span class="value">{{ability.xp}}</span>
-            </span>
-            }
-            @if (ability.persistent) {
-            <span class="persistent">
-              <img src="./assets/images/action/card/persistent.svg">
-              <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg">
-            </span>
-            }
-            @if (ability.loss) {
-            <span class="loss">
-              <img src="./assets/images/action/card/loss.svg">
-              <img class="overlay" src="./assets/images/action/card/overlay/loss.svg">
-            </span>
-            }
-            @if (ability.round) {
-            <span class="round">
-              <img src="./assets/images/action/card/round.svg">
-              <img class="overlay" src="./assets/images/action/card/overlay/round.svg">
-            </span>
-            }
-            @if (ability.lost) {
-            <span class="lost">
-              <img src="./assets/images/action/card/lost.svg">
-              <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
-            </span>
-            }
+          <div class="required-container">
+            <span class="label">!</span>
+            <div class="box">
+              @if (ability.xp) {
+                <span class="xp">
+                  <img src="/assets/images/action/card/experience.svg" />
+                  <span class="value">{{ ability.xp }}</span>
+                </span>
+              }
+              @if (ability.persistent) {
+                <span class="persistent">
+                  <img src="/assets/images/action/card/persistent.svg" />
+                  <img class="overlay" src="/assets/images/action/card/overlay/persistent.svg" />
+                </span>
+              }
+              @if (ability.loss) {
+                <span class="loss">
+                  <img src="/assets/images/action/card/loss.svg" />
+                  <img class="overlay" src="/assets/images/action/card/overlay/loss.svg" />
+                </span>
+              }
+              @if (ability.round) {
+                <span class="round">
+                  <img src="/assets/images/action/card/round.svg" />
+                  <img class="overlay" src="/assets/images/action/card/overlay/round.svg" />
+                </span>
+              }
+              @if (ability.lost) {
+                <span class="lost">
+                  <img src="/assets/images/action/card/lost.svg" />
+                  <img class="overlay" src="/assets/images/action/card/overlay/lost.svg" />
+                </span>
+              }
+            </div>
           </div>
-        </div>
         }
-        @if (ability.bottomLost || ability.bottomPersistent || ability.bottomLoss || ability.bottomRound ||
-        ability.bottomXp) {
-        <div class="required-container bottom">
-          <span class="label">!</span>
-          <div class="box">
-            @if (ability.bottomXp) {
-            <span class="xp">
-              <img src="./assets/images/action/card/experience.svg">
-              <span class="value">{{ability.bottomXp}}</span>
-            </span>
-            }
-            @if (ability.bottomPersistent) {
-            <span class="persistent">
-              <img src="./assets/images/action/card/persistent.svg">
-              <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg">
-            </span>
-            }
-            @if (ability.bottomLoss) {
-            <span class="loss">
-              <img src="./assets/images/action/card/loss.svg">
-              <img class="overlay" src="./assets/images/action/card/overlay/loss.svg">
-            </span>
-            }
-            @if (ability.bottomRound) {
-            <span class="round">
-              <img src="./assets/images/action/card/round.svg">
-              <img class="overlay" src="./assets/images/action/card/overlay/round.svg">
-            </span>
-            }
-            @if (ability.bottomLost) {
-            <span class="lost">
-              <img src="./assets/images/action/card/lost.svg">
-              <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
-            </span>
-            }
+        @if (ability.bottomLost || ability.bottomPersistent || ability.bottomLoss || ability.bottomRound || ability.bottomXp) {
+          <div class="required-container bottom">
+            <span class="label">!</span>
+            <div class="box">
+              @if (ability.bottomXp) {
+                <span class="xp">
+                  <img src="/assets/images/action/card/experience.svg" />
+                  <span class="value">{{ ability.bottomXp }}</span>
+                </span>
+              }
+              @if (ability.bottomPersistent) {
+                <span class="persistent">
+                  <img src="/assets/images/action/card/persistent.svg" />
+                  <img class="overlay" src="/assets/images/action/card/overlay/persistent.svg" />
+                </span>
+              }
+              @if (ability.bottomLoss) {
+                <span class="loss">
+                  <img src="/assets/images/action/card/loss.svg" />
+                  <img class="overlay" src="/assets/images/action/card/overlay/loss.svg" />
+                </span>
+              }
+              @if (ability.bottomRound) {
+                <span class="round">
+                  <img src="/assets/images/action/card/round.svg" />
+                  <img class="overlay" src="/assets/images/action/card/overlay/round.svg" />
+                </span>
+              }
+              @if (ability.bottomLost) {
+                <span class="lost">
+                  <img src="/assets/images/action/card/lost.svg" />
+                  <img class="overlay" src="/assets/images/action/card/overlay/lost.svg" />
+                </span>
+              }
+            </div>
           </div>
-        </div>
         }
-        }
+      }
     </div>
   </div>
 </div>

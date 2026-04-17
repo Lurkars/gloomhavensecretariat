@@ -1,25 +1,34 @@
-import { Component } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { BattleGoal } from "src/app/game/model/data/BattleGoal";
-import { Identifier } from "src/app/game/model/data/Identifier";
-
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { BattleGoal } from 'src/app/game/model/data/BattleGoal';
+import { Identifier } from 'src/app/game/model/data/Identifier';
+import { BattleGoalComponent } from 'src/app/ui/figures/battlegoal/battlegoal';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  standalone: false,
+  imports: [BattleGoalComponent, GhsLabelDirective, NgClass, TrackUUIDPipe],
   selector: 'ghs-battlegoal-setup',
   templateUrl: './battlegoal-setup.html',
-  styleUrls: ['./battlegoal-setup.scss']
+  styleUrls: ['./battlegoal-setup.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BattleGoalSetupDialog {
-
   gameManager: GameManager = gameManager;
-  currentEdition: string = "";
+  currentEdition: string = '';
   editions: string[] = [];
   battleGoals: BattleGoal[] = [];
 
   constructor() {
     this.editions = gameManager.battleGoalManager.getBattleGoalEditions();
-    if (gameManager.game.edition && gameManager.battleGoalManager.getBattleGoalEditions().includes(gameManager.game.edition) && (!gameManager.game.battleGoalEditions || gameManager.game.battleGoalEditions.length == 0 || gameManager.game.battleGoalEditions.length == 1 && gameManager.game.battleGoalEditions.includes(gameManager.game.edition))) {
+    if (
+      gameManager.game.edition &&
+      gameManager.battleGoalManager.getBattleGoalEditions().includes(gameManager.game.edition) &&
+      (!gameManager.game.battleGoalEditions ||
+        gameManager.game.battleGoalEditions.length == 0 ||
+        (gameManager.game.battleGoalEditions.length == 1 && gameManager.game.battleGoalEditions.includes(gameManager.game.edition)))
+    ) {
       this.selectEdition(gameManager.game.edition);
     }
     this.update();
@@ -27,10 +36,26 @@ export class BattleGoalSetupDialog {
 
   selectedAlias(battleGoal: BattleGoal): boolean {
     const edition = gameManager.game.edition;
-    return battleGoal.alias && (!edition || battleGoal.edition != edition) && gameManager.battleGoalManager.getBattleGoals(true, true).find((other) => battleGoal.alias && other.edition == battleGoal.alias.edition && other.name == battleGoal.alias.name) != undefined || edition && battleGoal.edition != edition && gameManager.battleGoalManager.getBattleGoals(true, true).find((other) => other.edition == edition && other.alias && battleGoal.edition == other.alias.edition && battleGoal.name == other.alias.name) != undefined || false;
+    return (
+      (battleGoal.alias &&
+        (!edition || battleGoal.edition != edition) &&
+        gameManager.battleGoalManager
+          .getBattleGoals(true, true)
+          .find((other) => battleGoal.alias && other.edition == battleGoal.alias.edition && other.name == battleGoal.alias.name) !=
+          undefined) ||
+      (edition &&
+        battleGoal.edition != edition &&
+        gameManager.battleGoalManager
+          .getBattleGoals(true, true)
+          .find(
+            (other) =>
+              other.edition == edition && other.alias && battleGoal.edition == other.alias.edition && battleGoal.name == other.alias.name
+          ) != undefined) ||
+      false
+    );
   }
 
-  selectEdition(edition: string = "") {
+  selectEdition(edition: string = '') {
     this.currentEdition = edition;
     this.update();
   }
@@ -47,7 +72,10 @@ export class BattleGoalSetupDialog {
     if (!gameManager.editionRules(edition, false)) {
       gameManager.game.battleGoalEditions = gameManager.game.battleGoalEditions || [];
       gameManager.game.filteredBattleGoals = gameManager.game.filteredBattleGoals || [];
-      gameManager.stateManager.before("battleGoals.setup." + (!gameManager.game.battleGoalEditions.includes(edition) ? "addEdition" : "removeEdition"), edition);
+      gameManager.stateManager.before(
+        'battleGoals.setup.' + (!gameManager.game.battleGoalEditions.includes(edition) ? 'addEdition' : 'removeEdition'),
+        edition
+      );
       if (!gameManager.game.battleGoalEditions.includes(edition)) {
         gameManager.game.battleGoalEditions.push(edition);
       } else {
@@ -60,17 +88,31 @@ export class BattleGoalSetupDialog {
   }
 
   selected(battleGoal: BattleGoal): boolean {
-    return !this.filtered(battleGoal) && (battleGoal.edition == gameManager.game.edition || gameManager.game.battleGoalEditions.includes(battleGoal.edition));
+    return (
+      !this.filtered(battleGoal) &&
+      (battleGoal.edition == gameManager.game.edition || gameManager.game.battleGoalEditions.includes(battleGoal.edition))
+    );
   }
 
   filtered(battleGoal: BattleGoal): boolean {
-    return gameManager.game.filteredBattleGoals.find((identifier) => identifier.edition == battleGoal.edition && identifier.name == battleGoal.name) != undefined;
+    return (
+      gameManager.game.filteredBattleGoals.find(
+        (identifier) => identifier.edition == battleGoal.edition && identifier.name == battleGoal.name
+      ) != undefined
+    );
   }
 
   toggleFilter(battleGoal: BattleGoal) {
-    gameManager.game.filteredBattleGoals = gameManager.game.filteredBattleGoals || []; gameManager.stateManager.before("battleGoals.setup.filter." + (this.filtered(battleGoal) ? "addCard" : "removeCard"), battleGoal.edition, battleGoal.name);
+    gameManager.game.filteredBattleGoals = gameManager.game.filteredBattleGoals || [];
+    gameManager.stateManager.before(
+      'battleGoals.setup.filter.' + (this.filtered(battleGoal) ? 'addCard' : 'removeCard'),
+      battleGoal.edition,
+      battleGoal.name
+    );
     if (this.filtered(battleGoal)) {
-      gameManager.game.filteredBattleGoals = gameManager.game.filteredBattleGoals.filter((identifier) => identifier.edition != battleGoal.edition || identifier.name != battleGoal.name)
+      gameManager.game.filteredBattleGoals = gameManager.game.filteredBattleGoals.filter(
+        (identifier) => identifier.edition != battleGoal.edition || identifier.name != battleGoal.name
+      );
     } else if (this.selected(battleGoal) && !this.selectedAlias(battleGoal)) {
       gameManager.game.filteredBattleGoals.push(new Identifier(battleGoal.name, battleGoal.edition));
     }
