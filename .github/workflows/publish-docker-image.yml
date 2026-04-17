@@ -1,11 +1,11 @@
-name: "Publish Docker Image"
+name: 'Publish Docker Image'
 
 on:
   workflow_dispatch:
   push:
     tags:
-      - "v*"
-      - "!v*-*"
+      - 'v*'
+      - '!v*-*'
 
 env:
   SLUG_DOCKERHUB: ${{ secrets.DOCKER_USERNAME }}/ghs
@@ -16,51 +16,43 @@ jobs:
     name: Build and Publish Docker Image
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      -
-        name: Docker metadata
+      - name: Docker metadata
         id: meta
         uses: docker/metadata-action@v5
         with:
           images: |
             ${{ env.SLUG_DOCKERHUB }}
             ghcr.io/${{ env.SLUG_GHCR }}
-      -
-        name: Login to DockerHub
+      - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      -
-        name: Login to GHCR
+      - name: Login to GHCR
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }} # automatic: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
-      -
-        name: Build and push
+      - name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      -
-        name: Inspect Image published to Docker
+      - name: Inspect Image published to Docker
         run: |
           docker pull "${{ env.SLUG_DOCKERHUB }}:${{ steps.meta.outputs.version }}"
           docker image inspect "${{ env.SLUG_DOCKERHUB }}:${{ steps.meta.outputs.version }}"
-      -
-        name: Lowercase GHCR repository name # required because docker doesn't support uppercase chars: https://github.com/docker/build-push-action/issues/37
+      - name: Lowercase GHCR repository name # required because docker doesn't support uppercase chars: https://github.com/docker/build-push-action/issues/37
         run: |
           echo "SLUG_GHCR_LC=${SLUG_GHCR,,}" >>${GITHUB_ENV}
-      -
-        name: Inspect Image published to GHCR
+      - name: Inspect Image published to GHCR
         run: |
           docker pull "ghcr.io/${{ env.SLUG_GHCR_LC }}:${{ steps.meta.outputs.version }}"
           docker image inspect "ghcr.io/${{ env.SLUG_GHCR_LC }}:${{ steps.meta.outputs.version }}"

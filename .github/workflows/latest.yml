@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - "v*"
-      - "!v*-*"
+      - 'v*'
+      - '!v*-*'
 
 jobs:
   build:
@@ -29,7 +29,7 @@ jobs:
       - name: npm install and npm run build
         run: |
           npm ci
-          npm run build
+          npm run build -- --configuration production
       - name: Publish via scp
         uses: appleboy/scp-action@master
         with:
@@ -37,7 +37,7 @@ jobs:
           username: ${{ secrets.USER }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.KEY }}
-          source: "./dist/gloomhavensecretariat/*"
+          source: './dist/gloomhavensecretariat/*'
           strip_components: 2
-          rm : true
-          target: "${{ secrets.TARGET }}"
+          rm: true
+          target: '${{ secrets.TARGET }}'

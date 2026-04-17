@@ -47,7 +47,7 @@ jobs:
       - name: npm install and npm run build
         run: |
           npm ci
-          npm run build -- --configuration production
+          npm run build -- --configuration unbranded
       - name: Create Zip
         uses: thedoctor0/zip-release@main
         with:

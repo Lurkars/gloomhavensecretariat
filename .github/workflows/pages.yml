@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - "v*"
-      - "!v*-*"
+      - 'v*'
+      - '!v*-*'
 
 jobs:
   build:
