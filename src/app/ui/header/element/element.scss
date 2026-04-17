@@ -1,5 +1,4 @@
 ghs-element {
-
   .element {
     display: flex;
     justify-content: center;
@@ -32,7 +31,6 @@ ghs-element {
     }
 
     .element-svg {
-
       #outline {
         display: none;
       }
@@ -51,13 +49,11 @@ ghs-element {
       }
     }
 
-
     &:hover .element-svg,
     .element-svg.new,
     .element-svg.full,
     .element-svg.always,
     .element-svg.half {
-
       #outline,
       #symbol {
         display: inherit;
@@ -70,7 +66,6 @@ ghs-element {
       &.new #outline path {
         fill: var(--ghs-color-gray) !important;
       }
-
     }
 
     &:hover .element-svg {
@@ -86,7 +81,6 @@ ghs-element {
     }
 
     &.consume {
-
       &::before {
         opacity: 0.3;
       }

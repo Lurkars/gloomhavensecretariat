@@ -83,8 +83,8 @@ label.inline {
   display: flex;
 }
 
-input[type="text"],
-input[type="number"],
+input[type='text'],
+input[type='number'],
 select,
 textarea {
   width: 100%;
@@ -94,7 +94,6 @@ textarea {
   border: 1px solid var(--ghs-color-gray);
   font-family: var(--ghs-font-normal);
   font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-fontsize));
-
 
   &:hover {
     border: 1px solid var(--ghs-color-gray);

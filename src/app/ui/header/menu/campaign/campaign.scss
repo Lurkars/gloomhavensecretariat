@@ -1,151 +1,148 @@
 .conditions {
-    display: grid;
-    grid-template-columns: repeat(6, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
-    column-gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-    row-gap: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-    align-items: center;
-    justify-items: center;
-    margin-bottom: auto;
+  display: grid;
+  grid-template-columns: repeat(6, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
+  column-gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  row-gap: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+  align-items: center;
+  justify-items: center;
+  margin-bottom: auto;
 
-    .item {
-        cursor: initial;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  .item {
+    cursor: initial;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+
+    .condition {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      position: relative;
+      width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+
+      &::after {
+        pointer-events: none;
+        content: ' ';
         height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
         width: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
 
-        .condition {
-            cursor: pointer;
-            position: relative;
-            display: flex;
-            position: relative;
-            width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-            height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+      img {
+        height: 100%;
+        width: auto;
+      }
 
-            &::after {
-                pointer-events: none;
-                content: ' ';
-                height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
-                width: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-            }
+      .value {
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 1.3 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-white);
+        position: absolute;
+        bottom: 0;
+        left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        transform: translateX(-50%);
 
-            img {
-                height: 100%;
-                width: auto;
-            }
-
-            .value {
-                font-family: var(--ghs-font-title);
-                font-size: calc(var(--ghs-unit) * 1.3 * var(--ghs-dialog-factor));
-                color: var(--ghs-color-white);
-                position: absolute;
-                bottom: 0;
-                left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                transform: translateX(-50%);
-
-                &.stack {
-                    left: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
-                    bottom: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
-                }
-            }
-
-            &.disabled::after {
-                border: calc(var(--ghs-unit) / 4) var(--ghs-color-darkgray) solid;
-                border-radius: 100%;
-            }
-
-            &.active::after {
-                border: calc(var(--ghs-unit) / 5) var(--ghs-color-green) solid;
-                border-radius: 100%;
-            }
-
-            &:hover::after {
-                border: calc(var(--ghs-unit) / 5) var(--ghs-color-green) solid;
-                border-radius: 100%;
-            }
-
-            &.active:hover::after {
-                border: calc(var(--ghs-unit) / 5) var(--ghs-color-red) solid;
-            }
-
-            &.disabled {
-                pointer-events: initial;
-                cursor: initial;
-
-                img {
-                    opacity: 0.7;
-                }
-
-                &:hover::after {
-                    border: calc(var(--ghs-unit) / 4) var(--ghs-color-darkgray) solid;
-                }
-            }
+        &.stack {
+          left: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+          bottom: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
         }
+      }
+
+      &.disabled::after {
+        border: calc(var(--ghs-unit) / 4) var(--ghs-color-darkgray) solid;
+        border-radius: 100%;
+      }
+
+      &.active::after {
+        border: calc(var(--ghs-unit) / 5) var(--ghs-color-green) solid;
+        border-radius: 100%;
+      }
+
+      &:hover::after {
+        border: calc(var(--ghs-unit) / 5) var(--ghs-color-green) solid;
+        border-radius: 100%;
+      }
+
+      &.active:hover::after {
+        border: calc(var(--ghs-unit) / 5) var(--ghs-color-red) solid;
+      }
+
+      &.disabled {
+        pointer-events: initial;
+        cursor: initial;
+
+        img {
+          opacity: 0.7;
+        }
+
+        &:hover::after {
+          border: calc(var(--ghs-unit) / 4) var(--ghs-color-darkgray) solid;
+        }
+      }
     }
+  }
 }
 
 .remove {
-    cursor: pointer !important;
-    display: flex;
+  cursor: pointer !important;
+  display: flex;
+  width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+
+  &::after {
+    content: ' ';
+    position: relative;
+    display: block;
+    left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
     width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    clip-path: polygon(0 80%, 30% 50%, 0 20%, 20% 0, 50% 30%, 80% 0, 100% 20%, 70% 50%, 100% 80%, 80% 100%, 50% 70%, 20% 100%);
+    background-color: var(--ghs-color-gray);
+  }
+
+  &:hover::after {
+    background-color: var(--ghs-color-white);
+  }
+
+  &.confirm {
+    &::after {
+      background-color: var(--ghs-color-red);
+    }
+  }
+
+  &.disabled {
+    pointer-events: none;
 
     &::after {
-        content: ' ';
-        position: relative;
-        display: block;
-        left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-        width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-        height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-        clip-path: polygon(0 80%, 30% 50%, 0 20%, 20% 0, 50% 30%, 80% 0, 100% 20%, 70% 50%, 100% 80%, 80% 100%, 50% 70%, 20% 100%);
-        background-color: var(--ghs-color-gray);
+      background-color: var(--ghs-color-darkgray) !important;
     }
-
-    &:hover::after {
-        background-color: var(--ghs-color-white);
-    }
-
-    &.confirm {
-        &::after {
-            background-color: var(--ghs-color-red);
-        }
-    }
-
-    &.disabled {
-        pointer-events: none;
-
-        &::after {
-            background-color: var(--ghs-color-darkgray) !important;
-        }
-    }
+  }
 }
 
 .fh-second-edition {
-    margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 }
 
-@media (max-width: 600px),
-(orientation: portrait) {
+@media (max-width: 600px), (orientation: portrait) {
+  .menu-container.two-column {
+    display: grid;
+    grid-template-columns: auto;
+    column-gap: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
 
-    .menu-container.two-column {
-        display: grid;
-        grid-template-columns: auto;
-        column-gap: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-
-        .separator,
-        .span {
-            grid-column: 1 span;
-        }
+    .separator,
+    .span {
+      grid-column: 1 span;
     }
+  }
 
-    .conditions {
-        grid-template-columns: repeat(4, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
-    }
-
+  .conditions {
+    grid-template-columns: repeat(4, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
+  }
 }

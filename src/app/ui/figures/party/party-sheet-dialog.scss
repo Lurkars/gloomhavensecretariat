@@ -1497,9 +1497,9 @@
 
               .row {
                 display: grid;
-                grid-template-columns: calc(var(--ghs-unit) * 2.8 * var(--ghs-dialog-factor)) calc(
-                    var(--ghs-unit) * 4 * var(--ghs-dialog-factor)
-                  ) calc(var(--ghs-unit) * 12 * var(--ghs-dialog-factor));
+                grid-template-columns:
+                  calc(var(--ghs-unit) * 2.8 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor))
+                  calc(var(--ghs-unit) * 12 * var(--ghs-dialog-factor));
 
                 .key,
                 .value {

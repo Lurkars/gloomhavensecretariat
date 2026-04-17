@@ -1,13 +1,13 @@
 <p><span [ghs-label]="'game.attackModifiers.additional.dialog'" [ghs-label-args]="[type]"></span></p>
 
 <div class="characters">
-  @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
-  <div class="character" (click)="toggleSelect(i)" [ngClass]="{'selected' : selected == i}">
-    <img class="icon" [src]="character.iconUrl" />
-    <span class="name">
-      {{gameManager.characterManager.characterName(character,true)}}
-    </span>
-  </div>
+  @for (character of characters | trackUUID; track character._trackUUID; let i = $index) {
+    <div class="character" (click)="toggleSelect(i)" [ngClass]="{ selected: selected == i }">
+      <img class="icon" [src]="character.iconUrl" />
+      <span class="name">
+        {{ gameManager.characterManager.characterName(character, true) }}
+      </span>
+    </div>
   }
 </div>
 
@@ -15,8 +15,14 @@
   <a (click)="close()" class="cancel">
     <span [ghs-label]="'cancel'"></span>
   </a>
-  <a (click)="close(selected)" class="select" [ngClass]="{'disabled' : selected == -1}"><span
+  <a (click)="close(selected)" class="select" [ngClass]="{ disabled: selected == -1 }"
+    ><span
       [ghs-label]="selected == -1 ? 'game.attackModifiers.additional.select' : 'game.attackModifiers.additional.apply'"
-      [ghs-label-args]="selected != -1 ? [characters[selected].title || '%data.character.'+ characters[selected].edition + '.' + characters[selected].name + '%'] : []"></span>
+      [ghs-label-args]="
+        selected != -1
+          ? [characters[selected].title || '%data.character.' + characters[selected].edition + '.' + characters[selected].name + '%']
+          : []
+      "
+    ></span>
   </a>
 </div>

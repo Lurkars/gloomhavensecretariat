@@ -1,5 +1,5 @@
 export enum Edition {
-  gh = "gh", 
-  jotl = "jotl", 
-  fh = "fh"
+  gh = 'gh',
+  jotl = 'jotl',
+  fh = 'fh'
 }

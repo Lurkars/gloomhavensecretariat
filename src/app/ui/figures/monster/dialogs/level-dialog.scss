@@ -1,11 +1,8 @@
 .level-dialog {
-
-
   display: flex;
   flex-direction: column;
 
   .title {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,7 +62,6 @@
         border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
         border-radius: 100%;
       }
-
     }
 
     .max-health {

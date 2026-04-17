@@ -25,7 +25,6 @@
 
     .curse-bless,
     .additional-modifier {
-
       display: flex;
       max-width: calc(100% - calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor)) * 2);
 
@@ -105,7 +104,6 @@
       }
     }
 
-
     .factions-modifier {
       display: flex;
       flex-direction: column;
@@ -143,7 +141,6 @@
       }
 
       .attack-modifier-list {
-
         display: flex;
         justify-content: center;
         align-items: center;
@@ -217,7 +214,7 @@
       }
     }
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       cursor: pointer;
       appearance: none;
       background-color: var(--form-background);
@@ -282,7 +279,6 @@
       }
 
       .icon-button {
-
         display: flex;
         justify-content: center;
         align-items: center;
@@ -449,7 +445,6 @@
     }
   }
 }
-
 
 .cdk-drag-preview {
   opacity: 0;

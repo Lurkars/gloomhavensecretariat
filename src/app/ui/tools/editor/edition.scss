@@ -1,26 +1,24 @@
 .files {
-
-    .file-list {
-        display: flex;
-        flex-direction: column;
-
-        .file {
-            font-size: 1.5em;
-            cursor: pointer;
-
-            &:hover {
-                text-decoration: line-through;
-            }
-        }
-    }
-
-}
-
-.conditions {
+  .file-list {
     display: flex;
     flex-direction: column;
 
-    a {
-        font-size: 0.7em;
+    .file {
+      font-size: 1.5em;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: line-through;
+      }
     }
+  }
+}
+
+.conditions {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    font-size: 0.7em;
+  }
 }

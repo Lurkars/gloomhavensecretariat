@@ -1,38 +1,38 @@
 .hint-container {
-    label {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
+  label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .requires {
+    font-family: var(--ghs-normal);
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+
+    .title {
+      margin-bottom: 0.3em;
     }
 
-    .requires {
-        font-family: var(--ghs-normal);
-        font-size: 0.9em;
-        display: flex;
-        flex-direction: column;
-        margin-top: 1em;
+    .require {
+      display: flex;
+      align-items: center;
 
-        .title {
-            margin-bottom: 0.3em;
-        }
+      input[type='checkbox'] {
+        width: 1.5em;
+        height: 1.5em;
+        border-width: 0.1em;
+        border-style: solid;
+        display: grid;
+        place-content: center;
+        margin-right: 0.5em;
+      }
 
-        .require {
-            display: flex;
-            align-items: center;
-
-            input[type="checkbox"] {
-                width: 1.5em;
-                height: 1.5em;
-                border-width: 0.1em;
-                border-style: solid;
-                display: grid;
-                place-content: center;
-                margin-right: 0.5em;
-            }
-
-            &.missing {
-                color: var(--ghs-color-red);
-            }
-        }
+      &.missing {
+        color: var(--ghs-color-red);
+      }
     }
+  }
 }

@@ -6,7 +6,7 @@ h3 {
   margin-bottom: calc(var(--ghs-unit) * 0.2);
 }
 
-input:not([type="checkbox"]),
+input:not([type='checkbox']),
 textarea {
   width: 100%;
   min-width: initial;
@@ -46,7 +46,6 @@ a {
   }
 
   &.button {
-
     justify-content: center;
     font-family: var(--ghs-font-gh-normal);
     font-size: calc(var(--ghs-unit) * 3);
@@ -84,7 +83,6 @@ a {
   flex-shrink: 1;
   overflow: auto;
 }
-
 
 .columns {
   display: flex;

@@ -27,7 +27,6 @@
 }
 
 .container {
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,7 +40,6 @@
     justify-content: center;
     height: calc(var(--ghs-unit) * 6.5 * var(--ghs-dialog-factor));
     width: calc(var(--ghs-unit) * 6.5 * var(--ghs-dialog-factor));
-
 
     &.add-summon-button {
       position: relative;
@@ -121,7 +119,6 @@
         border: none;
       }
     }
-
   }
 
   .thumbnail {
@@ -134,11 +131,9 @@
   }
 
   .color-container {
-
     display: grid;
     grid-template-columns: repeat(4, calc(var(--ghs-unit) * 7.5 * var(--ghs-dialog-factor)));
     row-gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-
 
     .value {
       display: flex;
@@ -182,7 +177,6 @@
   }
 
   .summons {
-
     display: flex;
     flex-direction: column;
     max-height: calc(var(--ghs-unit) * 50 * var(--ghs-dialog-factor));
@@ -220,7 +214,7 @@
         }
       }
 
-      input[type="text"] {
+      input[type='text'] {
         margin: 0;
         margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
         color: var(--ghs-color-gray);
@@ -234,8 +228,6 @@
         font-family: var(--ghs-font-title);
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       }
-
-
 
       &.disabled {
         pointer-events: none !important;

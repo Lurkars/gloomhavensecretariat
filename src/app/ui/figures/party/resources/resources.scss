@@ -1,5 +1,4 @@
 .resources-dialog {
-
   position: relative;
   color: var(--ghs-color-white);
 
@@ -32,7 +31,6 @@
     }
 
     tbody tr {
-
       td,
       th {
         position: relative;
@@ -54,7 +52,6 @@
       }
 
       &:nth-child(odd) {
-
         td,
         th {
           &::before {
@@ -72,7 +69,6 @@
       }
 
       &:hover {
-
         td,
         th {
           &::before {
@@ -122,7 +118,7 @@
     .ghs-svg {
       width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       height: auto;
-      filter: var(--ghs-filter-white)
+      filter: var(--ghs-filter-white);
     }
   }
 

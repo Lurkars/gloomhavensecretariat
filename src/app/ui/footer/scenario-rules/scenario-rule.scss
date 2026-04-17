@@ -1,7 +1,6 @@
 .rule {
-
   font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
-  
+
   .and {
     margin: 0 0.2em;
   }
@@ -33,7 +32,7 @@
     justify-content: center;
     align-items: center;
 
-    &>.element {
+    & > .element {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -65,7 +64,6 @@
       filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
     }
   }
-
 
   .sections {
     display: flex;

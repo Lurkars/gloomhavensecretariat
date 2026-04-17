@@ -1,70 +1,67 @@
 .summon-value {
+  font-family: var(--ghs-font-text);
 
-    font-family: var(--ghs-font-text);
+  span {
+    filter: var(--ghs-filter-shadow);
+  }
 
-    span {
-        filter: var(--ghs-filter-shadow);
+  &.small span {
+    filter: var(--ghs-filter-shadow-thin);
+  }
+
+  @keyframes spawn-pulse {
+    0% {
+      transform: scale(0.9);
     }
 
-    &.small span {
-        filter: var(--ghs-filter-shadow-thin);
+    50% {
+      transform: scale(1);
     }
 
-    @keyframes spawn-pulse {
-        0% {
-            transform: scale(0.9);
-        }
-
-        50% {
-            transform: scale(1);
-        }
-
-        100% {
-            transform: scale(0.9);
-        }
+    100% {
+      transform: scale(0.9);
     }
+  }
 
-    .spawn-highlight {
-        display: inline-block;
-        animation: spawn-pulse calc(var(--ghs-animation-speed) * 1200ms) ease-in-out infinite;
+  .spawn-highlight {
+    display: inline-block;
+    animation: spawn-pulse calc(var(--ghs-animation-speed) * 1200ms) ease-in-out infinite;
 
-        &:hover {
-            transform: scale(1);
-            opacity: 0.8;
-            animation: none;
-        }
+    &:hover {
+      transform: scale(1);
+      opacity: 0.8;
+      animation: none;
     }
+  }
 
+  .spawn.action-interactive {
+    display: inline-block;
+    cursor: zoom-in;
 
-    .spawn.action-interactive {
-        display: inline-block;
-        cursor: zoom-in;
+    &.action-interactive-highlight {
+      cursor: zoom-out;
+      animation: spawn-pulse calc(var(--ghs-animation-speed) * 1200ms) ease-in-out infinite;
 
-        &.action-interactive-highlight {
-            cursor: zoom-out;
-            animation: spawn-pulse calc(var(--ghs-animation-speed) * 1200ms) ease-in-out infinite;
-
-            &:hover {
-                transform: scale(1);
-                opacity: 0.8;
-                animation: none;
-            }
-
-        }
+      &:hover {
+        transform: scale(1);
+        opacity: 0.8;
+        animation: none;
+      }
     }
+  }
 
-    .spawn-objective-highlight {
-        display: inline-block;
-        transform: scale(0.9);
-        font-style: italic;
+  .spawn-objective-highlight {
+    display: inline-block;
+    transform: scale(0.9);
+    font-style: italic;
 
-        &:hover {
-            transform: scale(1);
-            opacity: 0.8;
-        }
+    &:hover {
+      transform: scale(1);
+      opacity: 0.8;
     }
+  }
 
-    .placeholder {
-        vertical-align: initial;
-    }
+  .placeholder {
+    vertical-align: initial;
+  }
 }

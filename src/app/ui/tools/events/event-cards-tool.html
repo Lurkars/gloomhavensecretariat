@@ -6,9 +6,9 @@
       <span [ghs-label]="'settings.edition'"></span>
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
         @for (edition of gameManager.editions(true); track edition) {
-        <option [value]="edition">
-          <span [ghs-label]="'data.edition.' + edition"></span>
-        </option>
+          <option [value]="edition">
+            <span [ghs-label]="'data.edition.' + edition"></span>
+          </option>
         }
       </select>
     </label>
@@ -16,9 +16,9 @@
       <span [ghs-label]="'game.events.type'"></span>
       <select [(ngModel)]="type" (change)="update(); updateQueryParams()">
         @for (eventType of types; track eventType) {
-        <option [value]="eventType">
-          <span [ghs-label]="'game.events.type.' + eventType"></span>
-        </option>
+          <option [value]="eventType">
+            <span [ghs-label]="'game.events.type.' + eventType"></span>
+          </option>
         }
       </select>
     </label>
@@ -35,19 +35,24 @@
     <button (click)="changeIterator(-1)" [disabled]="iterator == -1">-</button>
     <button (click)="changeIterator(1)">+</button>
     <label>
-      <input type="checkbox" [(ngModel)]="spoiler">
+      <input type="checkbox" [(ngModel)]="spoiler" />
       <span [ghs-label]="'game.events.spoiler'"></span>
     </label>
     <label>
-      <input type="checkbox" [(ngModel)]="debug">
+      <input type="checkbox" [(ngModel)]="debug" />
       <span [ghs-label]="'game.events.debug'"></span>
     </label>
   </div>
 
   <div class="events">
     @for (event of events | trackUUID; track event._trackUUID) {
-    <ghs-event-card [event]="event" [select]="selected != -1 ? selected - 1 : -1" [flipped]="selected == 0"
-      [spoiler]="spoiler" [debug]="debug"></ghs-event-card>
+      <ghs-event-card
+        [event]="event"
+        [select]="selected != -1 ? selected - 1 : -1"
+        [flipped]="selected == 0"
+        [spoiler]="spoiler"
+        [debug]="debug"
+      ></ghs-event-card>
     }
   </div>
 </div>

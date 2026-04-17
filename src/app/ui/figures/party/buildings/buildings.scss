@@ -25,7 +25,6 @@
     }
   }
 
-
   input {
     width: 0;
     min-width: initial;
@@ -45,5 +44,4 @@
     flex-grow: 1;
     margin-left: calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor));
   }
-
 }

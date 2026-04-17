@@ -1,5 +1,4 @@
 .level-dialog {
-
   display: flex;
   flex-direction: column;
 
@@ -10,7 +9,7 @@
     justify-content: center;
     margin-bottom: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
 
-    label input[type="number"] {
+    label input[type='number'] {
       width: 2em;
     }
   }
@@ -47,7 +46,6 @@
     grid-template-columns: repeat(5, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
     margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) auto;
 
-
     .item img {
       filter: var(--ghs-filter-white);
     }
@@ -82,7 +80,6 @@
     }
 
     &.disabled {
-
       .item img {
         filter: var(--ghs-filter-gray);
       }
@@ -97,9 +94,7 @@
     }
   }
 
-
   .solo {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,7 +107,7 @@
       color: var(--ghs-color-white);
     }
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       cursor: pointer;
       appearance: none;
       background-color: var(--form-background);
@@ -148,7 +143,6 @@
         background-color: var(--ghs-color-white);
       }
     }
-
   }
 
   .values {
@@ -158,7 +152,7 @@
     font-size: 1.6em;
     font-family: var(--ghs-font-normal);
 
-    &>div {
+    & > div {
       display: grid;
       grid-template-columns: 0.2fr 0.2fr 1fr;
       align-items: center;

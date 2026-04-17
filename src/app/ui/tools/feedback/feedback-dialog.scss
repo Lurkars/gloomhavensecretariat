@@ -1,106 +1,106 @@
 .feedback-dialog {
-    font-size: 150%;
+  font-size: 150%;
 
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+
+  a {
+    cursor: pointer;
+    text-decoration: underline;
+
+    &.active {
+      color: var(--ghs-color-white);
+      font-weight: bold;
+      pointer-events: none;
+      text-decoration: none;
+    }
+  }
+
+  .hint {
+    font-family: var(--ghs-font-text);
+    font-size: 0.9em;
+    color: var(--ghs-color-yellow);
+  }
+
+  .settings {
     display: flex;
-    flex-direction: column;
-    padding: 0.5em;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: var(--ghs-color-gray);
+  }
 
-    a {
-        cursor: pointer;
-        text-decoration: underline;
+  .form {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-items: start;
+    column-gap: 0.5em;
+    row-gap: 0.5em;
 
-        &.active {
-            color: var(--ghs-color-white);
-            font-weight: bold;
-            pointer-events: none;
-            text-decoration: none;
-        }
+    label {
+      color: var(--ghs-color-gray);
+      display: flex;
     }
 
     .hint {
-        font-family: var(--ghs-font-text);
-        font-size: 0.9em;
-        color: var(--ghs-color-yellow);
+      grid-column: 2;
+      padding: 0;
+      margin: 0;
+      font-family: var(--ghs-font-text);
+      font-size: 0.7em;
+      color: var(--ghs-color-gray);
+      opacity: 0.9;
     }
 
-    .settings {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 0.9em;
+    .warning {
+      grid-column: 2;
+      padding: 0;
+      margin: 0;
+      font-family: var(--ghs-font-text);
+      font-size: 0.9em;
+      color: var(--ghs-color-yellow);
+      width: calc(var(--ghs-unit) * 65 * var(--ghs-dialog-factor));
+    }
+
+    textarea {
+      width: calc(var(--ghs-unit) * 65 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
+      max-width: 60vw;
+    }
+
+    .button {
+      cursor: pointer;
+      grid-column: span 2;
+      place-self: end;
+      padding: 0.3em 0.7em;
+      border-radius: 0.5em;
+      background-color: var(--ghs-color-darkgray);
+      color: var(--ghs-color-white);
+      text-decoration: none;
+      font-family: var(--ghs-font-title);
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &.disabled {
+        pointer-events: none;
         color: var(--ghs-color-gray);
+        opacity: 0.8;
+      }
     }
 
-    .form {
-        display: grid;
-        grid-template-columns: auto auto;
-        align-items: center;
-        justify-items: start;
-        column-gap: 0.5em;
-        row-gap: 0.5em;
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+      grid-column: span 2;
+      place-self: end;
 
-        label {
-            color: var(--ghs-color-gray);
-            display: flex;
-        }
-
-        .hint {
-            grid-column: 2;
-            padding: 0;
-            margin: 0;
-            font-family: var(--ghs-font-text);
-            font-size: 0.7em;
-            color: var(--ghs-color-gray);
-            opacity: 0.9;
-        }
-
-        .warning {
-            grid-column: 2;
-            padding: 0;
-            margin: 0;
-            font-family: var(--ghs-font-text);
-            font-size: 0.9em;
-            color: var(--ghs-color-yellow);
-            width: calc(var(--ghs-unit) * 65 * var(--ghs-dialog-factor));
-        }
-
-        textarea {
-            width: calc(var(--ghs-unit) * 65 * var(--ghs-dialog-factor));
-            height: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
-            max-width: 60vw;
-        }
-
-        .button {
-            cursor: pointer;
-            grid-column: span 2;
-            place-self: end;
-            padding: 0.3em 0.7em;
-            border-radius: 0.5em;
-            background-color: var(--ghs-color-darkgray);
-            color: var(--ghs-color-white);
-            text-decoration: none;
-            font-family: var(--ghs-font-title);
-
-            &:hover {
-                opacity: 0.8;
-            }
-
-            &.disabled {
-                pointer-events: none;
-                color: var(--ghs-color-gray);
-                opacity: 0.8;
-            }
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: flex-end;
-            grid-column: span 2;
-            place-self: end;
-
-            .button {
-                margin: 0 0.5em
-            }
-        }
+      .button {
+        margin: 0 0.5em;
+      }
     }
+  }
 }

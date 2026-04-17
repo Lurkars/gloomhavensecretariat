@@ -1,6 +1,11 @@
-<div class="loot-deck-fullscreen" [ngClass]="{'vertical'  : vertical()}">
-  <ghs-loot-deck [deck]="deck" [fullscreen]="false" [vertical]="vertical()" (before)="beforeLootDeck($event)"
-    (after)="afterLootDeck($event)">
+<div class="loot-deck-fullscreen" [ngClass]="{ vertical: vertical() }">
+  <ghs-loot-deck
+    [deck]="deck"
+    [fullscreen]="false"
+    [vertical]="vertical()"
+    (before)="beforeLootDeck($event)"
+    (after)="afterLootDeck($event)"
+  >
   </ghs-loot-deck>
   <div class="close-container" (click)="close()"></div>
 </div>

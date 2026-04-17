@@ -2,18 +2,18 @@
   <div class="header">
     <span class="title">
       <span [ghs-label]="'scenario.requirements'"></span>
-      <span class="name">#{{data.scenarioData.index}} <span
-          [ghs-label]="gameManager.scenarioManager.scenarioTitle(data.scenarioData)"></span></span>
+      <span class="name"
+        >#{{ data.scenarioData.index }} <span [ghs-label]="gameManager.scenarioManager.scenarioTitle(data.scenarioData)"></span
+      ></span>
     </span>
   </div>
 
   <ghs-requirements [scenarioData]="data.scenarioData"></ghs-requirements>
 
   @if (!data.hideMenu) {
-  <div class="buttons">
-    <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.requirements.cancel'"></span></a>
-    <a class="start" (click)="startScenario()"><span [ghs-label]="'scenario.requirements.start'"></span></a>
-  </div>
+    <div class="buttons">
+      <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.requirements.cancel'"></span></a>
+      <a class="start" (click)="startScenario()"><span [ghs-label]="'scenario.requirements.start'"></span></a>
+    </div>
   }
-
 </div>

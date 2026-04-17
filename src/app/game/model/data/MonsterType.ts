@@ -1,5 +1,5 @@
 export enum MonsterType {
-  normal = "normal",
-  elite = "elite",
-  boss = "boss"
+  normal = 'normal',
+  elite = 'elite',
+  boss = 'boss'
 }

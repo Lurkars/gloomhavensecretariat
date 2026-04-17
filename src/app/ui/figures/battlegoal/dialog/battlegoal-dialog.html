@@ -1,43 +1,61 @@
 <div class="battle-goals-dialog">
   <div class="scroll-container">
-    <div class="header" [ghs-label]="character.battleGoal ? 'game.battleGoals.chosen' : 'game.battleGoals.choose'"
-      [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"></div>
+    <div
+      class="header"
+      [ghs-label]="character.battleGoal ? 'game.battleGoals.chosen' : 'game.battleGoals.choose'"
+      [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"
+    ></div>
     <div class="battle-goals">
       @for (battleGoal of battleGoals | trackUUID; track battleGoal._trackUUID; let index = $index) {
-      <ghs-battlegoal ghs-pointer-input (singleClick)="select(index)" (doubleClick)="select(index,true)"
-        [battleGoal]="battleGoal"
-        [flipped]="gameManager.roundManager.firstRound || selected == index || !character.battleGoal || revealed.includes(index) || trial349 || trial356 && battleGoals.length > 3 && index < battleGoals.length - 2 || cardOnly"
-        [selected]="selected == index || trial349 || trial356 && battleGoals.length > 3 && index < battleGoals.length - 2"
-        [reveal]="!cardOnly && gameManager.game.round > 0 && selected != index && character.battleGoal && !revealed.includes(index)"
-        [disabled]="character.battleGoal && !!gameManager.game.scenario && gameManager.game.round > 0 || false">
-      </ghs-battlegoal>
+        <ghs-battlegoal
+          ghs-pointer-input
+          (singleClick)="select(index)"
+          (doubleClick)="select(index, true)"
+          [battleGoal]="battleGoal"
+          [flipped]="
+            gameManager.roundManager.firstRound ||
+            selected == index ||
+            !character.battleGoal ||
+            revealed.includes(index) ||
+            trial349 ||
+            (trial356 && battleGoals.length > 3 && index < battleGoals.length - 2) ||
+            cardOnly
+          "
+          [selected]="selected == index || trial349 || (trial356 && battleGoals.length > 3 && index < battleGoals.length - 2)"
+          [reveal]="!cardOnly && gameManager.game.round > 0 && selected != index && character.battleGoal && !revealed.includes(index)"
+          [disabled]="(character.battleGoal && !!gameManager.game.scenario && gameManager.game.round > 0) || false"
+        >
+        </ghs-battlegoal>
       }
     </div>
     @if (!character.battleGoal || selected != 0) {
-    <div class="menu">
-      <a class="cancel" (click)="cancel()" [ghs-label]="'game.battleGoals.cancel'"></a>
-      <a class="accept" (click)="accept()" [ngClass]="{'disabled': selected == -1 && !trial349}"
-        [ghs-label]="'game.battleGoals.chooseCard'"></a>
-    </div>
+      <div class="menu">
+        <a class="cancel" (click)="cancel()" [ghs-label]="'game.battleGoals.cancel'"></a>
+        <a
+          class="accept"
+          (click)="accept()"
+          [ngClass]="{ disabled: selected == -1 && !trial349 }"
+          [ghs-label]="'game.battleGoals.chooseCard'"
+        ></a>
+      </div>
     }
     @if (!cardOnly) {
-    <div class="menu small">
-      @if (redrawAvailable) {
-      <a (click)="drawCards()" [ghs-label]="'game.battleGoals.drawCards'"></a>
-      }
-      @if (available) {
-      <a (click)="drawCard()" [ghs-label]="'game.battleGoals.drawCard'"></a>
-      }
-      @if (!available || !redrawAvailable) {
-      <p class="empty-hint" [ghs-label]="'game.battleGoals.drawUnavailable'"></p>
-      }
-    </div>
+      <div class="menu small">
+        @if (redrawAvailable) {
+          <a (click)="drawCards()" [ghs-label]="'game.battleGoals.drawCards'"></a>
+        }
+        @if (available) {
+          <a (click)="drawCard()" [ghs-label]="'game.battleGoals.drawCard'"></a>
+        }
+        @if (!available || !redrawAvailable) {
+          <p class="empty-hint" [ghs-label]="'game.battleGoals.drawUnavailable'"></p>
+        }
+      </div>
     }
     @if (!cardOnly) {
-    <div class="menu small">
-      <a (click)="setup()" [ghs-label]="'game.battleGoals.setup'"></a>
-    </div>
+      <div class="menu small">
+        <a (click)="setup()" [ghs-label]="'game.battleGoals.setup'"></a>
+      </div>
     }
   </div>
-
 </div>

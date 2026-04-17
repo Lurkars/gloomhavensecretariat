@@ -1,77 +1,76 @@
 export enum ConditionName {
-  stun = "stun",
-  immobilize = "immobilize",
-  disarm = "disarm",
-  wound = "wound",
-  muddle = "muddle",
-  poison = "poison",
-  strengthen = "strengthen",
-  invisible = "invisible",
-  curse = "curse",
-  bless = "bless",
-  regenerate = "regenerate",
-  ward = "ward",
-  bane = "bane",
-  brittle = "brittle",
-  impair = "impair",
-  chill = "chill",
-  infect = "infect",
-  rupture = "rupture",
-  dodge = "dodge",
-  empower = "empower",
-  enfeeble = "enfeeble",
-  poison_x = "poison_x",
-  wound_x = "wound_x",
-  heal = "heal",
-  shield = "shield",
-  retaliate = "retaliate",
-  safeguard = "safeguard",
-  plague = "plague",
-  invalid = "invalid",
+  stun = 'stun',
+  immobilize = 'immobilize',
+  disarm = 'disarm',
+  wound = 'wound',
+  muddle = 'muddle',
+  poison = 'poison',
+  strengthen = 'strengthen',
+  invisible = 'invisible',
+  curse = 'curse',
+  bless = 'bless',
+  regenerate = 'regenerate',
+  ward = 'ward',
+  bane = 'bane',
+  brittle = 'brittle',
+  impair = 'impair',
+  chill = 'chill',
+  infect = 'infect',
+  rupture = 'rupture',
+  dodge = 'dodge',
+  empower = 'empower',
+  enfeeble = 'enfeeble',
+  poison_x = 'poison_x',
+  wound_x = 'wound_x',
+  heal = 'heal',
+  shield = 'shield',
+  retaliate = 'retaliate',
+  safeguard = 'safeguard',
+  plague = 'plague',
+  invalid = 'invalid'
 }
 
 export enum ConditionType {
-  action = "action",
-  standard = "standard",
-  entity = "entity",
-  character = "character",
-  monster = "monster",
-  objective = "objective",
-  upgrade = "upgrade",
-  stack = "stack",
-  stackable = "stackable",
-  turn = "turn",
-  afterTurn = "afterTurn",
-  expire = "expire",
-  value = "value",
-  clearHeal = "clearHeal",
-  preventHeal = "preventHeal",
-  apply = "apply",
-  autoApply = "autoApply",
-  positive = "positive",
-  negative = "negative",
-  neutral = "neutral",
-  double = "double",
-  expiredIndicator = "expiredIndicator",
-  hidden = "hidden",
-  amDeck = "amDeck",
-  highlightOnly = "highlightOnly",
-  special = "special"
+  action = 'action',
+  standard = 'standard',
+  entity = 'entity',
+  character = 'character',
+  monster = 'monster',
+  objective = 'objective',
+  upgrade = 'upgrade',
+  stack = 'stack',
+  stackable = 'stackable',
+  turn = 'turn',
+  afterTurn = 'afterTurn',
+  expire = 'expire',
+  value = 'value',
+  clearHeal = 'clearHeal',
+  preventHeal = 'preventHeal',
+  apply = 'apply',
+  autoApply = 'autoApply',
+  positive = 'positive',
+  negative = 'negative',
+  neutral = 'neutral',
+  double = 'double',
+  expiredIndicator = 'expiredIndicator',
+  hidden = 'hidden',
+  amDeck = 'amDeck',
+  highlightOnly = 'highlightOnly',
+  special = 'special'
 }
 
-export type FigureCondition = { name: ConditionName, level: number | undefined };
+export type FigureCondition = { name: ConditionName; level: number | undefined };
 
 export enum EntityConditionState {
-  new = "new",
-  normal = "normal",
-  expire = "expire",
-  roundExpire = "roundExpire",
-  removed = "removed",
-  turn = "turn"
+  new = 'new',
+  normal = 'normal',
+  expire = 'expire',
+  roundExpire = 'roundExpire',
+  removed = 'removed',
+  turn = 'turn'
 }
 
 export class Condition {
-
   name: ConditionName;
   types: ConditionType[] = [];
   value: number = 1;
@@ -79,7 +78,7 @@ export class Condition {
   constructor(name: ConditionName | string, value: number = 1) {
     if (typeof name == 'string') {
       if (Object.keys(!ConditionName).includes(name)) {
-        console.warn("Invalid condition name: " + name);
+        console.warn('Invalid condition name: ' + name);
         this.name = ConditionName.invalid;
       } else {
         this.name = name as ConditionName;
@@ -91,12 +90,52 @@ export class Condition {
 
     this.types.push(ConditionType.action);
 
-    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.wound, ConditionName.muddle, ConditionName.poison, ConditionName.invisible, ConditionName.strengthen, ConditionName.regenerate, ConditionName.infect, ConditionName.bane, ConditionName.brittle, ConditionName.chill, ConditionName.ward, ConditionName.rupture, ConditionName.poison_x, ConditionName.wound_x, ConditionName.safeguard].includes(this.name)) {
+    if (
+      [
+        ConditionName.stun,
+        ConditionName.immobilize,
+        ConditionName.disarm,
+        ConditionName.wound,
+        ConditionName.muddle,
+        ConditionName.poison,
+        ConditionName.invisible,
+        ConditionName.strengthen,
+        ConditionName.regenerate,
+        ConditionName.infect,
+        ConditionName.bane,
+        ConditionName.brittle,
+        ConditionName.chill,
+        ConditionName.ward,
+        ConditionName.rupture,
+        ConditionName.poison_x,
+        ConditionName.wound_x,
+        ConditionName.safeguard
+      ].includes(this.name)
+    ) {
       this.types.push(ConditionType.entity);
     }
 
-
-    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.wound, ConditionName.muddle, ConditionName.poison, ConditionName.invisible, ConditionName.strengthen, ConditionName.regenerate, ConditionName.infect, ConditionName.bane, ConditionName.brittle, ConditionName.impair, ConditionName.rupture, ConditionName.ward, ConditionName.dodge, ConditionName.safeguard].includes(this.name)) {
+    if (
+      [
+        ConditionName.stun,
+        ConditionName.immobilize,
+        ConditionName.disarm,
+        ConditionName.wound,
+        ConditionName.muddle,
+        ConditionName.poison,
+        ConditionName.invisible,
+        ConditionName.strengthen,
+        ConditionName.regenerate,
+        ConditionName.infect,
+        ConditionName.bane,
+        ConditionName.brittle,
+        ConditionName.impair,
+        ConditionName.rupture,
+        ConditionName.ward,
+        ConditionName.dodge,
+        ConditionName.safeguard
+      ].includes(this.name)
+    ) {
       this.types.push(ConditionType.standard);
     }
 
@@ -117,7 +156,16 @@ export class Condition {
       this.types.push(ConditionType.stack);
     }
 
-    if ([ConditionName.chill, ConditionName.plague, ConditionName.bless, ConditionName.curse, ConditionName.enfeeble, ConditionName.empower].includes(this.name)) {
+    if (
+      [
+        ConditionName.chill,
+        ConditionName.plague,
+        ConditionName.bless,
+        ConditionName.curse,
+        ConditionName.enfeeble,
+        ConditionName.empower
+      ].includes(this.name)
+    ) {
       this.types.push(ConditionType.entity);
       this.types.push(ConditionType.stackable);
     }
@@ -130,15 +178,37 @@ export class Condition {
       this.types.push(ConditionType.afterTurn);
     }
 
-    if ([ConditionName.wound, ConditionName.wound_x, ConditionName.poison, ConditionName.poison_x, ConditionName.bane, ConditionName.brittle, ConditionName.infect, ConditionName.rupture].includes(this.name)) {
+    if (
+      [
+        ConditionName.wound,
+        ConditionName.wound_x,
+        ConditionName.poison,
+        ConditionName.poison_x,
+        ConditionName.bane,
+        ConditionName.brittle,
+        ConditionName.infect,
+        ConditionName.rupture
+      ].includes(this.name)
+    ) {
       this.types.push(ConditionType.clearHeal);
     }
 
-    if ([ConditionName.poison, ConditionName.poison_x, ConditionName.ward, ConditionName.brittle, ConditionName.heal, ConditionName.shield].includes(this.name)) {
+    if (
+      [
+        ConditionName.poison,
+        ConditionName.poison_x,
+        ConditionName.ward,
+        ConditionName.brittle,
+        ConditionName.heal,
+        ConditionName.shield
+      ].includes(this.name)
+    ) {
       this.types.push(ConditionType.apply);
     }
 
-    if ([ConditionName.ward, ConditionName.brittle, ConditionName.heal, ConditionName.shield, ConditionName.safeguard].includes(this.name)) {
+    if (
+      [ConditionName.ward, ConditionName.brittle, ConditionName.heal, ConditionName.shield, ConditionName.safeguard].includes(this.name)
+    ) {
       this.types.push(ConditionType.autoApply);
     }
 
@@ -150,11 +220,31 @@ export class Condition {
       this.types.push(ConditionType.preventHeal);
     }
 
-    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.muddle, ConditionName.invisible, ConditionName.strengthen, ConditionName.impair].includes(this.name)) {
+    if (
+      [
+        ConditionName.stun,
+        ConditionName.immobilize,
+        ConditionName.disarm,
+        ConditionName.muddle,
+        ConditionName.invisible,
+        ConditionName.strengthen,
+        ConditionName.impair
+      ].includes(this.name)
+    ) {
       this.types.push(ConditionType.expire);
     }
 
-    if ([ConditionName.regenerate, ConditionName.ward, ConditionName.invisible, ConditionName.strengthen, ConditionName.bless, ConditionName.dodge, ConditionName.safeguard].includes(this.name)) {
+    if (
+      [
+        ConditionName.regenerate,
+        ConditionName.ward,
+        ConditionName.invisible,
+        ConditionName.strengthen,
+        ConditionName.bless,
+        ConditionName.dodge,
+        ConditionName.safeguard
+      ].includes(this.name)
+    ) {
       this.types.push(ConditionType.positive);
     }
 
@@ -191,11 +281,9 @@ export class Condition {
       this.types.push(ConditionType.negative);
     }
   }
-
 }
 
 export class EntityCondition extends Condition {
-
   state: EntityConditionState;
   lastState: EntityConditionState;
   permanent: boolean = false;
@@ -220,11 +308,9 @@ export class EntityCondition extends Condition {
     this.expired = model.expired;
     this.highlight = model.highlight;
   }
-
 }
 
 export class GameEntityConditionModel {
-
   name: ConditionName;
   value: number;
   state: EntityConditionState;
@@ -233,7 +319,15 @@ export class GameEntityConditionModel {
   expired: boolean;
   highlight: boolean = false;
 
-  constructor(name: ConditionName, value: number, state: EntityConditionState, lastState: EntityConditionState, permanent: boolean, expired: boolean, highlight: boolean) {
+  constructor(
+    name: ConditionName,
+    value: number,
+    state: EntityConditionState,
+    lastState: EntityConditionState,
+    permanent: boolean,
+    expired: boolean,
+    highlight: boolean
+  ) {
     this.name = name;
     this.value = value;
     this.state = state;
@@ -242,7 +336,6 @@ export class GameEntityConditionModel {
     this.expired = expired;
     this.highlight = highlight;
   }
-
 }
 
-export const Conditions: Condition[] = Object.values(ConditionName).map((name) => new Condition(name)); 
+export const Conditions: Condition[] = Object.values(ConditionName).map((name) => new Condition(name));

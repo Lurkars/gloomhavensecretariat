@@ -1,71 +1,69 @@
 .attack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
 
+  &.selected {
+    opacity: 1;
+  }
+
+  .main {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0.5;
 
-    &.selected {
-        opacity: 1;
-    }
+    .attack-value,
+    .target-number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: var(--ghs-font-fh-normal);
+      font-weight: bold;
+      margin: 0.3em;
 
-    .main {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      img {
+        height: 0.9em;
+        width: auto;
+      }
 
-        .attack-value,
-        .target-number {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: var(--ghs-font-fh-normal);
-            font-weight: bold;
-            margin: 0.3em;
+      &.attack-value {
+        font-size: 2.5em;
+      }
 
-            img {
-                height: 0.9em;
-                width: auto;
-            }
+      &.target-number {
+        font-size: 1.6em;
 
-            &.attack-value {
-                font-size: 2.5em;
-            }
-
-            &.target-number {
-                font-size: 1.6em;
-
-                img {
-                    margin-right: 0.1em;
-                }
-            }
+        img {
+          margin-right: 0.1em;
         }
+      }
+    }
 
-        &.light {
-            .attack-value,
-            .target-number {
-                img {
-                    filter: var(--ghs-filter-white);
-                }
-            }
+    &.light {
+      .attack-value,
+      .target-number {
+        img {
+          filter: var(--ghs-filter-white);
         }
+      }
     }
+  }
 
-    .target-description {
-        font-family: var(--ghs-font-fh-normal);
-        font-weight: bold;
-        text-align: center;
-    }
+  .target-description {
+    font-family: var(--ghs-font-fh-normal);
+    font-weight: bold;
+    text-align: center;
+  }
 
-    .text {
-        font-family: var(--ghs-font-fh-normal);
-        font-style: italic;
-        margin: 0.5em 0;
-    }
+  .text {
+    font-family: var(--ghs-font-fh-normal);
+    font-style: italic;
+    margin: 0.5em 0;
+  }
 
-    .effects {
-        align-self: flex-start;
-    }
-
+  .effects {
+    align-self: flex-start;
+  }
 }

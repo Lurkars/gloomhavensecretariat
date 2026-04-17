@@ -1,38 +1,37 @@
 export enum AttackModifierType {
-  plus = "plus",
-  plus0 = "plus0",
-  plus1 = "plus1",
-  plus2 = "plus2",
-  plus3 = "plus3",
-  plus4 = "plus4",
-  plusX = "plusX",
-  minus = "minus",
-  minus1 = "minus1",
-  minus2 = "minus2",
-  null = "null",
-  double = "double",
-  bless = "bless",
-  curse = "curse",
-  minus1extra = "minus1extra",
-  empower = "empower",
-  enfeeble = "enfeeble",
-  invalid = "invalid",
-  townguard = "townguard",
-  wreck = "wreck",
-  success = "success",
-  imbue = "imbue",
-  advancedImbue = "advancedImbue"
+  plus = 'plus',
+  plus0 = 'plus0',
+  plus1 = 'plus1',
+  plus2 = 'plus2',
+  plus3 = 'plus3',
+  plus4 = 'plus4',
+  plusX = 'plusX',
+  minus = 'minus',
+  minus1 = 'minus1',
+  minus2 = 'minus2',
+  null = 'null',
+  double = 'double',
+  bless = 'bless',
+  curse = 'curse',
+  minus1extra = 'minus1extra',
+  empower = 'empower',
+  enfeeble = 'enfeeble',
+  invalid = 'invalid',
+  townguard = 'townguard',
+  wreck = 'wreck',
+  success = 'success',
+  imbue = 'imbue',
+  advancedImbue = 'advancedImbue'
 }
 
 export enum AttackModifierValueType {
-  default = "default",
-  plus = "plus",
-  minus = "minus",
-  multiply = "multiply"
+  default = 'default',
+  plus = 'plus',
+  minus = 'minus',
+  multiply = 'multiply'
 }
 
 export class AttackModifier {
-
   id: string;
   type: AttackModifierType;
   value: number = 0;
@@ -44,7 +43,16 @@ export class AttackModifier {
   revealed: boolean = false;
   character: boolean = false;
 
-  constructor(type: AttackModifierType, value: number = 0, valueType: AttackModifierValueType = AttackModifierValueType.plus, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false, active: boolean = false, shuffle: boolean | undefined = undefined) {
+  constructor(
+    type: AttackModifierType,
+    value: number = 0,
+    valueType: AttackModifierValueType = AttackModifierValueType.plus,
+    id: string | undefined = undefined,
+    effects: AttackModifierEffect[] = [],
+    rolling: boolean = false,
+    active: boolean = false,
+    shuffle: boolean | undefined = undefined
+  ) {
     this.type = type;
     this.value = value;
     this.valueType = valueType;
@@ -55,7 +63,7 @@ export class AttackModifier {
     } else if (type == AttackModifierType.wreck || type == AttackModifierType.success) {
       this.id = 'tg-' + type;
     } else {
-      this.id = (type != AttackModifierType.plus && type != AttackModifierType.minus) ? type : (type + value);
+      this.id = type != AttackModifierType.plus && type != AttackModifierType.minus ? type : type + value;
     }
     this.effects = effects;
     this.rolling = rolling;
@@ -126,41 +134,46 @@ export class AttackModifier {
 }
 
 export enum AttackModifierEffectType {
-  area = "area",
-  changeType = "changeType",
-  condition = "condition",
-  custom = "custom",
-  element = "element",
-  elementConsume = "elementConsume",
-  elementHalf = "elementHalf",
-  heal = "heal",
-  pierce = "pierce",
-  pull = "pull",
-  push = "push",
-  range = "range",
-  recoverRandomDiscard = "recoverRandomDiscard",
-  refreshItem = "refreshItem",
-  refreshSpentItem = "refreshSpentItem",
-  required = "required",
-  retaliate = "retaliate",
-  shield = "shield",
-  specialTarget = "specialTarget",
-  summon = "summon",
-  swing = "swing",
-  target = "target",
-  attack = "attack",
-  or = "or"
+  area = 'area',
+  changeType = 'changeType',
+  condition = 'condition',
+  custom = 'custom',
+  element = 'element',
+  elementConsume = 'elementConsume',
+  elementHalf = 'elementHalf',
+  heal = 'heal',
+  pierce = 'pierce',
+  pull = 'pull',
+  push = 'push',
+  range = 'range',
+  recoverRandomDiscard = 'recoverRandomDiscard',
+  refreshItem = 'refreshItem',
+  refreshSpentItem = 'refreshSpentItem',
+  required = 'required',
+  retaliate = 'retaliate',
+  shield = 'shield',
+  specialTarget = 'specialTarget',
+  summon = 'summon',
+  swing = 'swing',
+  target = 'target',
+  attack = 'attack',
+  or = 'or'
 }
 
 export class AttackModifierEffect {
-
   type: AttackModifierEffectType;
   value: string;
   hint: string;
   effects: AttackModifierEffect[];
   icon: boolean = false;
 
-  constructor(type: AttackModifierEffectType, value: string = "", hint: string = "", effects: AttackModifierEffect[] = [], icon: boolean = false) {
+  constructor(
+    type: AttackModifierEffectType,
+    value: string = '',
+    hint: string = '',
+    effects: AttackModifierEffect[] = [],
+    icon: boolean = false
+  ) {
     this.type = type;
     this.value = value;
     this.hint = hint;
@@ -178,7 +191,15 @@ export class AttackResult {
   result: number;
   effects: AttackModifierEffect[];
 
-  constructor(index: number, chooseOffset: number, state: 'advantage' | 'disadvantage' | undefined, attack: string | number, stringified: string, result: number, effects: AttackModifierEffect[]) {
+  constructor(
+    index: number,
+    chooseOffset: number,
+    state: 'advantage' | 'disadvantage' | undefined,
+    attack: string | number,
+    stringified: string,
+    result: number,
+    effects: AttackModifierEffect[]
+  ) {
     this.index = index;
     this.chooseOffset = chooseOffset;
     this.state = state;
@@ -272,87 +293,273 @@ export const additionalTownGuardAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.townguard, 50, AttackModifierValueType.plus, 'fh-tg-add-plus50'),
   new AttackModifier(AttackModifierType.wreck, 0, AttackModifierValueType.default, 'fh-tg-add-wreck'),
   new AttackModifier(AttackModifierType.success, 0, AttackModifierValueType.default, 'fh-tg-add-success'),
-  new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.plus, 'fh-tg-add-plus10-soldier', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    'fh-soldier', '', [], true)], true),
-  new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.plus, 'fh-tg-add-plus20-soldier', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    'fh-soldier', '', [], true)]),
-  new AttackModifier(AttackModifierType.townguard, 30, AttackModifierValueType.plus, 'fh-tg-add-plus30-soldier', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    'fh-soldier', '', [], true)]),
+  new AttackModifier(
+    AttackModifierType.townguard,
+    10,
+    AttackModifierValueType.plus,
+    'fh-tg-add-plus10-soldier',
+    [new AttackModifierEffect(AttackModifierEffectType.custom, 'fh-soldier', '', [], true)],
+    true
+  ),
+  new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.plus, 'fh-tg-add-plus20-soldier', [
+    new AttackModifierEffect(AttackModifierEffectType.custom, 'fh-soldier', '', [], true)
+  ]),
+  new AttackModifier(AttackModifierType.townguard, 30, AttackModifierValueType.plus, 'fh-tg-add-plus30-soldier', [
+    new AttackModifierEffect(AttackModifierEffectType.custom, 'fh-soldier', '', [], true)
+  ]),
   new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.plus, 'fh-tg-add-plus10-rolling', [], true),
-  new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.plus, 'fh-tg-add-plus10-advantage', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    'game.custom.advantage')], true),
-  new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.minus, 'fh-tg-add-minus20-resource', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    '+2 material resource')]),
-  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-resource-hide', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    '+1%game.resource.hide%', 'Gain one Hide')]),
-  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-resource-lumber', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    '+1%game.resource.lumber%', 'Gain one Lumber')]),
-  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-resource-metal', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    '+1%game.resource.metal%', 'Gain one Metal')]),
-  new AttackModifier(AttackModifierType.townguard, 50, AttackModifierValueType.plus, 'fh-tg-add-plus50-algox', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    'fh-algox', '', [], true)]),
-  new AttackModifier(AttackModifierType.townguard, 50, AttackModifierValueType.plus, 'fh-tg-add-plus50-unfettered', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    'fh-unfettered', '', [], true)]),
-  new AttackModifier(AttackModifierType.townguard, 50, AttackModifierValueType.plus, 'fh-tg-add-plus50-lurkers', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    'fh-lurkers', '', [], true)])
+  new AttackModifier(
+    AttackModifierType.townguard,
+    10,
+    AttackModifierValueType.plus,
+    'fh-tg-add-plus10-advantage',
+    [new AttackModifierEffect(AttackModifierEffectType.custom, 'game.custom.advantage')],
+    true
+  ),
+  new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.minus, 'fh-tg-add-minus20-resource', [
+    new AttackModifierEffect(AttackModifierEffectType.custom, '+2 material resource')
+  ]),
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-resource-hide', [
+    new AttackModifierEffect(AttackModifierEffectType.custom, '+1%game.resource.hide%', 'Gain one Hide')
+  ]),
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-resource-lumber', [
+    new AttackModifierEffect(AttackModifierEffectType.custom, '+1%game.resource.lumber%', 'Gain one Lumber')
+  ]),
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-resource-metal', [
+    new AttackModifierEffect(AttackModifierEffectType.custom, '+1%game.resource.metal%', 'Gain one Metal')
+  ]),
+  new AttackModifier(AttackModifierType.townguard, 50, AttackModifierValueType.plus, 'fh-tg-add-plus50-algox', [
+    new AttackModifierEffect(AttackModifierEffectType.custom, 'fh-algox', '', [], true)
+  ]),
+  new AttackModifier(AttackModifierType.townguard, 50, AttackModifierValueType.plus, 'fh-tg-add-plus50-unfettered', [
+    new AttackModifierEffect(AttackModifierEffectType.custom, 'fh-unfettered', '', [], true)
+  ]),
+  new AttackModifier(AttackModifierType.townguard, 50, AttackModifierValueType.plus, 'fh-tg-add-plus50-lurkers', [
+    new AttackModifierEffect(AttackModifierEffectType.custom, 'fh-lurkers', '', [], true)
+  ])
 ];
 
 export const ImbuementAttackModifier: AttackModifier[] = [
-  new AttackModifier(AttackModifierType.imbue, 1, AttackModifierValueType.plus, "gh2e-imbue-1"),
-  new AttackModifier(AttackModifierType.imbue, 1, AttackModifierValueType.plus, "gh2e-imbue-2"),
-  new AttackModifier(AttackModifierType.imbue, 1, AttackModifierValueType.plus, "gh2e-imbue-3"),
-  new AttackModifier(AttackModifierType.imbue, 0, AttackModifierValueType.plus, "gh2e-imbue-4", [new AttackModifierEffect(AttackModifierEffectType.condition, 'poison')]),
-  new AttackModifier(AttackModifierType.imbue, 2, AttackModifierValueType.plus, "gh2e-imbue-5", [new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')])
-]
+  new AttackModifier(AttackModifierType.imbue, 1, AttackModifierValueType.plus, 'gh2e-imbue-1'),
+  new AttackModifier(AttackModifierType.imbue, 1, AttackModifierValueType.plus, 'gh2e-imbue-2'),
+  new AttackModifier(AttackModifierType.imbue, 1, AttackModifierValueType.plus, 'gh2e-imbue-3'),
+  new AttackModifier(AttackModifierType.imbue, 0, AttackModifierValueType.plus, 'gh2e-imbue-4', [
+    new AttackModifierEffect(AttackModifierEffectType.condition, 'poison')
+  ]),
+  new AttackModifier(AttackModifierType.imbue, 2, AttackModifierValueType.plus, 'gh2e-imbue-5', [
+    new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')
+  ])
+];
 
 export const AdvancedImbueAttackModifier: AttackModifier[] = [
-  new AttackModifier(AttackModifierType.advancedImbue, 3, AttackModifierValueType.plus, "gh2e-advancedImbue-1"),
-  new AttackModifier(AttackModifierType.advancedImbue, 0, AttackModifierValueType.plus, "gh2e-advancedImbue-2", [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound')]),
-  new AttackModifier(AttackModifierType.advancedImbue, 1, AttackModifierValueType.plus, "gh2e-advancedImbue-3", [new AttackModifierEffect(AttackModifierEffectType.condition, 'curse')]),
-  new AttackModifier(AttackModifierType.advancedImbue, 1, AttackModifierValueType.plus, "gh2e-advancedImbue-4", [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'self')])]),
-  new AttackModifier(AttackModifierType.advancedImbue, 1, AttackModifierValueType.plus, "gh2e-advancedImbue-5", [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'self')])])
-]
+  new AttackModifier(AttackModifierType.advancedImbue, 3, AttackModifierValueType.plus, 'gh2e-advancedImbue-1'),
+  new AttackModifier(AttackModifierType.advancedImbue, 0, AttackModifierValueType.plus, 'gh2e-advancedImbue-2', [
+    new AttackModifierEffect(AttackModifierEffectType.condition, 'wound')
+  ]),
+  new AttackModifier(AttackModifierType.advancedImbue, 1, AttackModifierValueType.plus, 'gh2e-advancedImbue-3', [
+    new AttackModifierEffect(AttackModifierEffectType.condition, 'curse')
+  ]),
+  new AttackModifier(AttackModifierType.advancedImbue, 1, AttackModifierValueType.plus, 'gh2e-advancedImbue-4', [
+    new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [
+      new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'self')
+    ])
+  ]),
+  new AttackModifier(AttackModifierType.advancedImbue, 1, AttackModifierValueType.plus, 'gh2e-advancedImbue-5', [
+    new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [
+      new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'self')
+    ])
+  ])
+];
 
 export const CsOakDeckAttackModifier: AttackModifier[] = [
   // 8x 2x
-  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-527', [new AttackModifierEffect(AttackModifierEffectType.condition, 'bless', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'allyShort')])]),
-  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-528', [new AttackModifierEffect(AttackModifierEffectType.condition, 'bless', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'allyShort')])]),
-  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-529', [new AttackModifierEffect(AttackModifierEffectType.heal, '2', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])]),
-  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-530', [new AttackModifierEffect(AttackModifierEffectType.heal, '2', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])]),
-  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-531', [new AttackModifierEffect(AttackModifierEffectType.element, 'wild')]),
-  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-532', [new AttackModifierEffect(AttackModifierEffectType.element, 'wild')]),
-  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-533', [new AttackModifierEffect(AttackModifierEffectType.custom, 'All enemies adjacent to the target suffer %game.damage:1%')]),
-  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-534', [new AttackModifierEffect(AttackModifierEffectType.custom, 'All enemies adjacent to the target suffer %game.damage:1%')]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-527', [
+    new AttackModifierEffect(AttackModifierEffectType.condition, 'bless', '', [
+      new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'allyShort')
+    ])
+  ]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-528', [
+    new AttackModifierEffect(AttackModifierEffectType.condition, 'bless', '', [
+      new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'allyShort')
+    ])
+  ]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-529', [
+    new AttackModifierEffect(AttackModifierEffectType.heal, '2', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])
+  ]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-530', [
+    new AttackModifierEffect(AttackModifierEffectType.heal, '2', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])
+  ]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-531', [
+    new AttackModifierEffect(AttackModifierEffectType.element, 'wild')
+  ]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-532', [
+    new AttackModifierEffect(AttackModifierEffectType.element, 'wild')
+  ]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-533', [
+    new AttackModifierEffect(AttackModifierEffectType.custom, 'All enemies adjacent to the target suffer %game.damage:1%')
+  ]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-534', [
+    new AttackModifierEffect(AttackModifierEffectType.custom, 'All enemies adjacent to the target suffer %game.damage:1%')
+  ]),
   // 8x rolling
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-535', [new AttackModifierEffect(AttackModifierEffectType.push, '2')], true),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-536', [new AttackModifierEffect(AttackModifierEffectType.push, '2')], true),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-537', [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])], true),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-538', [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])], true),
-  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'cs-oak-539', [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound'), new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')], true),
-  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'cs-oak-540', [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound'), new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')], true),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-541', [new AttackModifierEffect(AttackModifierEffectType.pierce, '3')], true),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-542', [new AttackModifierEffect(AttackModifierEffectType.pierce, '3')], true)
+  new AttackModifier(
+    AttackModifierType.plus1,
+    1,
+    AttackModifierValueType.plus,
+    'cs-oak-535',
+    [new AttackModifierEffect(AttackModifierEffectType.push, '2')],
+    true
+  ),
+  new AttackModifier(
+    AttackModifierType.plus1,
+    1,
+    AttackModifierValueType.plus,
+    'cs-oak-536',
+    [new AttackModifierEffect(AttackModifierEffectType.push, '2')],
+    true
+  ),
+  new AttackModifier(
+    AttackModifierType.plus1,
+    1,
+    AttackModifierValueType.plus,
+    'cs-oak-537',
+    [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])],
+    true
+  ),
+  new AttackModifier(
+    AttackModifierType.plus1,
+    1,
+    AttackModifierValueType.plus,
+    'cs-oak-538',
+    [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])],
+    true
+  ),
+  new AttackModifier(
+    AttackModifierType.plus0,
+    0,
+    AttackModifierValueType.plus,
+    'cs-oak-539',
+    [
+      new AttackModifierEffect(AttackModifierEffectType.condition, 'wound'),
+      new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')
+    ],
+    true
+  ),
+  new AttackModifier(
+    AttackModifierType.plus0,
+    0,
+    AttackModifierValueType.plus,
+    'cs-oak-540',
+    [
+      new AttackModifierEffect(AttackModifierEffectType.condition, 'wound'),
+      new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')
+    ],
+    true
+  ),
+  new AttackModifier(
+    AttackModifierType.plus1,
+    1,
+    AttackModifierValueType.plus,
+    'cs-oak-541',
+    [new AttackModifierEffect(AttackModifierEffectType.pierce, '3')],
+    true
+  ),
+  new AttackModifier(
+    AttackModifierType.plus1,
+    1,
+    AttackModifierValueType.plus,
+    'cs-oak-542',
+    [new AttackModifierEffect(AttackModifierEffectType.pierce, '3')],
+    true
+  )
 ];
 
 export const Gh2ESealedDeckAttackModifier: AttackModifier[] = [
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-military-1', [new AttackModifierEffect(AttackModifierEffectType.condition, 'strengthen', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'ally')])]
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-military-1', [
+    new AttackModifierEffect(AttackModifierEffectType.condition, 'strengthen', '', [
+      new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'ally')
+    ])
+  ]),
+  new AttackModifier(
+    AttackModifierType.plus1,
+    1,
+    AttackModifierValueType.plus,
+    'gh2e-military-2',
+    [new AttackModifierEffect(AttackModifierEffectType.shield, '1')],
+    true
   ),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-military-2', [new AttackModifierEffect(AttackModifierEffectType.shield, '1')], true),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-military-3', [new AttackModifierEffect(AttackModifierEffectType.push, '2')], true),
-  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'gh2e-military-4', [new AttackModifierEffect(AttackModifierEffectType.custom, '%data.custom.gh2e.am.military-4%')], true),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-merchant-guild-1', [new AttackModifierEffect(AttackModifierEffectType.condition, 'curse')]),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-merchant-guild-2', [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound')]),
-  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'gh2e-merchant-guild-3', [new AttackModifierEffect(AttackModifierEffectType.heal, '2')], true),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-merchant-guild-4', [new AttackModifierEffect(AttackModifierEffectType.custom, '%data.custom.gh2e.am.merchant-guild-4%')], true),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-demons-1', [new AttackModifierEffect(AttackModifierEffectType.element, 'wild')]),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-demons-2', [new AttackModifierEffect(AttackModifierEffectType.retaliate, '1')], true),
-  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'gh2e-demons-3', [new AttackModifierEffect(AttackModifierEffectType.condition, 'ward', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'ally')])], true),
-  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-demons-4', [new AttackModifierEffect(AttackModifierEffectType.custom, '%data.custom.gh2e.am.demons-4%')], true)
-
-]
+  new AttackModifier(
+    AttackModifierType.plus1,
+    1,
+    AttackModifierValueType.plus,
+    'gh2e-military-3',
+    [new AttackModifierEffect(AttackModifierEffectType.push, '2')],
+    true
+  ),
+  new AttackModifier(
+    AttackModifierType.plus0,
+    0,
+    AttackModifierValueType.plus,
+    'gh2e-military-4',
+    [new AttackModifierEffect(AttackModifierEffectType.custom, '%data.custom.gh2e.am.military-4%')],
+    true
+  ),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-merchant-guild-1', [
+    new AttackModifierEffect(AttackModifierEffectType.condition, 'curse')
+  ]),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-merchant-guild-2', [
+    new AttackModifierEffect(AttackModifierEffectType.condition, 'wound')
+  ]),
+  new AttackModifier(
+    AttackModifierType.plus0,
+    0,
+    AttackModifierValueType.plus,
+    'gh2e-merchant-guild-3',
+    [new AttackModifierEffect(AttackModifierEffectType.heal, '2')],
+    true
+  ),
+  new AttackModifier(
+    AttackModifierType.plus1,
+    1,
+    AttackModifierValueType.plus,
+    'gh2e-merchant-guild-4',
+    [new AttackModifierEffect(AttackModifierEffectType.custom, '%data.custom.gh2e.am.merchant-guild-4%')],
+    true
+  ),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-demons-1', [
+    new AttackModifierEffect(AttackModifierEffectType.element, 'wild')
+  ]),
+  new AttackModifier(
+    AttackModifierType.plus1,
+    1,
+    AttackModifierValueType.plus,
+    'gh2e-demons-2',
+    [new AttackModifierEffect(AttackModifierEffectType.retaliate, '1')],
+    true
+  ),
+  new AttackModifier(
+    AttackModifierType.plus0,
+    0,
+    AttackModifierValueType.plus,
+    'gh2e-demons-3',
+    [
+      new AttackModifierEffect(AttackModifierEffectType.condition, 'ward', '', [
+        new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'ally')
+      ])
+    ],
+    true
+  ),
+  new AttackModifier(
+    AttackModifierType.plus1,
+    1,
+    AttackModifierValueType.plus,
+    'gh2e-demons-4',
+    [new AttackModifierEffect(AttackModifierEffectType.custom, '%data.custom.gh2e.am.demons-4%')],
+    true
+  )
+];
 
 export class AttackModifierDeck {
-
   attackModifiers: AttackModifier[];
   current: number;
   cards: AttackModifier[];
@@ -364,13 +571,23 @@ export class AttackModifierDeck {
 
   constructor(attackModifiers: AttackModifier[] | undefined = undefined, bb: boolean = false) {
     this.bb = bb;
-    this.attackModifiers = (attackModifiers ? attackModifiers.filter((am, index, self) => this.bb || self.indexOf(am) == index) : defaultAttackModifier).map((am) => Object.assign(new AttackModifier(am.type), am));
+    this.attackModifiers = (
+      attackModifiers ? attackModifiers.filter((am, index, self) => this.bb || self.indexOf(am) == index) : defaultAttackModifier
+    ).map((am) => Object.assign(new AttackModifier(am.type), am));
     this.current = -1;
     this.cards = (attackModifiers || defaultAttackModifierCards).map((am) => Object.assign(new AttackModifier(am.type), am));
   }
 
   toModel(): GameAttackModifierDeckModel {
-    return new GameAttackModifierDeckModel(this.current, this.cards.map((attackModifier) => attackModifier && attackModifier.id), this.discarded, this.active, this.lastVisible, this.state, this.bb);
+    return new GameAttackModifierDeckModel(
+      this.current,
+      this.cards.map((attackModifier) => attackModifier && attackModifier.id),
+      this.discarded,
+      this.active,
+      this.lastVisible,
+      this.state,
+      this.bb
+    );
   }
 
   merge(attackModifierDeck: AttackModifierDeck) {
@@ -395,13 +612,15 @@ export class GameAttackModifierDeckModel {
   // migration
   disgarded: number[];
 
-  constructor(current: number,
+  constructor(
+    current: number,
     cards: string[],
     discarded: number[],
     active: boolean,
     lastVisible: number = 0,
     state: 'advantage' | 'disadvantage' | undefined = undefined,
-    bb: boolean = false) {
+    bb: boolean = false
+  ) {
     this.current = current;
     this.cards = cards;
     this.discarded = JSON.parse(JSON.stringify(discarded));

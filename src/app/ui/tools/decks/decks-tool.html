@@ -5,86 +5,101 @@
       <span [ghs-label]="'settings.edition'"></span>
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
         @for (edition of gameManager.editions(true); track edition) {
-        <option [value]="edition">
-          <span [ghs-label]="'data.edition.' + edition"></span>
-        </option>
+          <option [value]="edition">
+            <span [ghs-label]="'data.edition.' + edition"></span>
+          </option>
         }
       </select>
     </label>
     <label>
-      <input type="checkbox" [(ngModel)]="character" (change)="update()">
+      <input type="checkbox" [(ngModel)]="character" (change)="update()" />
       <span [ghs-label]="'tools.decks.character'"></span>
     </label>
     <label>
-      <input type="checkbox" [checked]="settingsManager.settings.calculate"
-        (change)="settingsManager.toggle('calculate');update();">
+      <input type="checkbox" [checked]="settingsManager.settings.calculate" (change)="settingsManager.toggle('calculate'); update()" />
       <span [ghs-label]="'settings.calc'"></span>
     </label>
     @if (settingsManager.settings.calculate) {
-    <label>
-      <input type="checkbox" [checked]="settingsManager.settings.calculateStats"
-        (change)="settingsManager.toggle('calculateStats');update();">
-      <span [ghs-label]="'settings.calcStats'"></span>
-    </label>
+      <label>
+        <input
+          type="checkbox"
+          [checked]="settingsManager.settings.calculateStats"
+          (change)="settingsManager.toggle('calculateStats'); update()"
+        />
+        <span [ghs-label]="'settings.calcStats'"></span>
+      </label>
     }
     @if (settingsManager.settings.calculate && !character) {
-    <label>
-      <input type="checkbox" [(ngModel)]="entity" (change)="update();updateQueryParams();">
-      <span [ghs-label]="'tools.decks.entity'"></span>
-    </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="entity" (change)="update(); updateQueryParams()" />
+        <span [ghs-label]="'tools.decks.entity'"></span>
+      </label>
     }
     @if (settingsManager.settings.calculate && !character) {
-    <label>
-      <input type="checkbox" [(ngModel)]="elite" (change)="update()">
-      <span [ghs-label]="'tools.decks.elite'"></span>
-    </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="elite" (change)="update()" />
+        <span [ghs-label]="'tools.decks.elite'"></span>
+      </label>
     }
     @if (settingsManager.settings.calculate) {
-    <label>
-      <input type="number" min="0" max="7" [(ngModel)]="level" (change)="update()">
-      <span [ghs-label]="'tools.decks.level'"></span>
-    </label>
+      <label>
+        <input type="number" min="0" max="7" [(ngModel)]="level" (change)="update()" />
+        <span [ghs-label]="'tools.decks.level'"></span>
+      </label>
     }
     <label>
-      <input type="checkbox" [checked]="settingsManager.settings.fhStyle" (change)="settingsManager.toggle('fhStyle')">
+      <input type="checkbox" [checked]="settingsManager.settings.fhStyle" (change)="settingsManager.toggle('fhStyle')" />
       <span [ghs-label]="'settings.fhStyle'"></span>
     </label>
   </div>
 
   <div class="decks">
     @if (characters.length > 0) {
-    @for (character of characters | trackUUID; track character._trackUUID; let i = $index) {
-    <div class="deck">
-      <h2><span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span> @if (character.name
-        != deck(character).name) {
-        <small>
-          <span [ghs-label]="'data.deck.' + deck(character).name"></span>
-        </small>
-        }
-      </h2>
-      @for (ability of deck(character).abilities | trackUUID; track ability._trackUUID) {
-      <ghs-ability class="bottom-actions" [ability]="ability" [abilities]="deck(character).abilities"
-        [character]="characters[i]" [flipped]="true">
-      </ghs-ability>
+      @for (character of characters | trackUUID; track character._trackUUID; let i = $index) {
+        <div class="deck">
+          <h2>
+            <span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span>
+            @if (character.name != deck(character).name) {
+              <small>
+                <span [ghs-label]="'data.deck.' + deck(character).name"></span>
+              </small>
+            }
+          </h2>
+          @for (ability of deck(character).abilities | trackUUID; track ability._trackUUID) {
+            <ghs-ability
+              class="bottom-actions"
+              [ability]="ability"
+              [abilities]="deck(character).abilities"
+              [character]="characters[i]"
+              [flipped]="true"
+            >
+            </ghs-ability>
+          }
+        </div>
       }
-    </div>
-    }
     }
     @if (monsters.length > 0) {
-    @for (monster of monsters | trackUUID; track monster._trackUUID; let i = $index) {
-    <div class="deck">
-      <h2><span [ghs-label]="'data.monster.' + monster.name"></span> @if (monster.name != deck(monster).name) {
-        <small>
-          <span [ghs-label]="'data.deck.' + deck(monster).name"></span>
-        </small>
-        }
-      </h2>
-      @for (ability of deck(monster).abilities | trackUUID; track ability._trackUUID) {
-      <ghs-ability [ability]="ability" [abilities]="deck(monster).abilities" [monster]="monsters[i]" [flipped]="true"
-        [ngClass]="{'bottom-actions' : ability.bottomActions && ability.bottomActions.length > 0}"></ghs-ability>
+      @for (monster of monsters | trackUUID; track monster._trackUUID; let i = $index) {
+        <div class="deck">
+          <h2>
+            <span [ghs-label]="'data.monster.' + monster.name"></span>
+            @if (monster.name != deck(monster).name) {
+              <small>
+                <span [ghs-label]="'data.deck.' + deck(monster).name"></span>
+              </small>
+            }
+          </h2>
+          @for (ability of deck(monster).abilities | trackUUID; track ability._trackUUID) {
+            <ghs-ability
+              [ability]="ability"
+              [abilities]="deck(monster).abilities"
+              [monster]="monsters[i]"
+              [flipped]="true"
+              [ngClass]="{ 'bottom-actions': ability.bottomActions && ability.bottomActions.length > 0 }"
+            ></ghs-ability>
+          }
+        </div>
       }
-    </div>
-    }
     }
   </div>
 </div>

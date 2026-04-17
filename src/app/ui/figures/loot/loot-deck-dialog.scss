@@ -33,7 +33,7 @@
       }
     }
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       cursor: pointer;
       appearance: none;
       background-color: var(--form-background);
@@ -69,7 +69,6 @@
         background-color: var(--ghs-color-white);
       }
     }
-
   }
 
   .ghs-svg {
@@ -94,7 +93,6 @@
     }
 
     .values {
-
       display: grid;
       grid-template-columns: auto auto auto auto;
       font-size: 1.5em;
@@ -150,7 +148,6 @@
       }
     }
   }
-
 
   .enhancements {
     display: flex;
@@ -226,7 +223,6 @@
           }
         }
       }
-
     }
   }
 
@@ -268,7 +264,6 @@
           width: 100%;
           height: 100%;
         }
-
       }
 
       .empty {
@@ -319,7 +314,6 @@
     }
   }
 }
-
 
 .cdk-drag-preview {
   opacity: 0;

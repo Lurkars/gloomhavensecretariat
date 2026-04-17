@@ -1,5 +1,4 @@
 .server {
-
   .server-info {
     display: grid;
     grid-template-columns: auto auto;
@@ -64,7 +63,6 @@
   }
 
   .line {
-
     label.label {
       color: var(--ghs-color-disabled) !important;
       pointer-events: none;
@@ -93,9 +91,7 @@
   }
 }
 
-@media (max-width: 600px),
-(orientation: portrait) {
-
+@media (max-width: 600px), (orientation: portrait) {
   .menu-container.two-column {
     display: grid;
     grid-template-columns: auto;
@@ -106,5 +102,4 @@
       grid-column: 1 span;
     }
   }
-
 }

@@ -39,7 +39,6 @@
   }
 
   &.drawing {
-
     .am-container {
       cursor: wait !important;
       animation: attackmodifier-draw calc(var(--ghs-animation-speed) * 2500ms) ease-in-out;

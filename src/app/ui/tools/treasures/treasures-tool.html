@@ -6,22 +6,22 @@
       <span [ghs-label]="'settings.edition'"></span>
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
         @for (edition of gameManager.editions(true); track edition) {
-        <option [value]="edition">
-          <span [ghs-label]="'data.edition.' + edition"></span>
-        </option>
+          <option [value]="edition">
+            <span [ghs-label]="'data.edition.' + edition"></span>
+          </option>
         }
       </select>
     </label>
   </div>
 
   @if (edition) {
-  <div class="treasures">
-    @for (treasure of treasures | trackUUID; track treasure._trackUUID) {
-    <div class="treasure">
-      <span class="index">{{treasure.index}}</span>
-      <ghs-treasure-label class="placeholder text-white" [treasure]="treasure" [edition]="edition"></ghs-treasure-label>
+    <div class="treasures">
+      @for (treasure of treasures | trackUUID; track treasure._trackUUID) {
+        <div class="treasure">
+          <span class="index">{{ treasure.index }}</span>
+          <ghs-treasure-label class="placeholder text-white" [treasure]="treasure" [edition]="edition"></ghs-treasure-label>
+        </div>
+      }
     </div>
-    }
-  </div>
   }
 </div>

@@ -1,25 +1,31 @@
-<p><span [ghs-label]="'game.loot.chooseCharacter'"
-    [ghs-label-args]="[lootValue, 'game.loot.' + loot.type]"></span></p>
+<p><span [ghs-label]="'game.loot.chooseCharacter'" [ghs-label-args]="[lootValue, 'game.loot.' + loot.type]"></span></p>
 <div class="characters">
-  @for (character of characters| trackUUID; track character._trackUUID) {
-  <div class="character" (click)="toggleSelect(character.name)" [ngClass]="{'selected' : character.name == selected}">
-    <img class="icon" [src]="character.iconUrl" />
-    <span>{{gameManager.characterManager.characterName(character, true)}}</span>
-  </div>
+  @for (character of characters | trackUUID; track character._trackUUID) {
+    <div class="character" (click)="toggleSelect(character.name)" [ngClass]="{ selected: character.name == selected }">
+      <img class="icon" [src]="character.iconUrl" />
+      <span>{{ gameManager.characterManager.characterName(character, true) }}</span>
+    </div>
   }
 </div>
 
 <div class="menu">
   @if (selected || data.selected) {
-  <a (click)="close()"
-    [ngClass]="{'disabled' : !selected && (!edit || !data.selected), 'remove': edit && !selected && data.selected}"><span
-      [ghs-label]="edit && !selected && data.selected ? 'game.loot.remove' : (!edit || !data.selected || selected != data.selected ? 'game.loot.apply' : 'game.loot.keep')"
-      [ghs-label-args]="[edition, selected || data.selected || '']"></span>
-  </a>
+    <a (click)="close()" [ngClass]="{ disabled: !selected && (!edit || !data.selected), remove: edit && !selected && data.selected }"
+      ><span
+        [ghs-label]="
+          edit && !selected && data.selected
+            ? 'game.loot.remove'
+            : !edit || !data.selected || selected != data.selected
+              ? 'game.loot.apply'
+              : 'game.loot.keep'
+        "
+        [ghs-label-args]="[edition, selected || data.selected || '']"
+      ></span>
+    </a>
   }
   @if (!selected && !data.selected) {
-  <a (click)="close()" class="cancel">
-    <span [ghs-label]="'cancel'"></span>
-  </a>
+    <a (click)="close()" class="cancel">
+      <span [ghs-label]="'cancel'"></span>
+    </a>
   }
 </div>

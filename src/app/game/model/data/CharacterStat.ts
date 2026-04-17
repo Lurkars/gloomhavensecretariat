@@ -17,7 +17,14 @@ export class CharacterSpecialAction {
   summon: boolean;
   perk: number | undefined;
 
-  constructor(name: string, level: number = 0, noTag: boolean = false, expire: boolean = false, round: boolean = false, summon: boolean = false) {
+  constructor(
+    name: string,
+    level: number = 0,
+    noTag: boolean = false,
+    expire: boolean = false,
+    round: boolean = false,
+    summon: boolean = false
+  ) {
     this.name = name;
     this.level = level;
     this.noTag = noTag;

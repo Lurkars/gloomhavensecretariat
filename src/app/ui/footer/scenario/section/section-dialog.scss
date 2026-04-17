@@ -1,41 +1,40 @@
 .section-popup {
+  text-align: center;
 
-    text-align: center;
+  color: var(--ghs-color-white);
+  min-width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+  padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
-    color: var(--ghs-color-white);
-    min-width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ghs-font-text);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  }
 
-    p {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: var(--ghs-font-text);
-        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-        padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  .buttons {
+    display: flex;
+    margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    justify-content: space-evenly;
+
+    a {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.6;
+      }
     }
 
-    .buttons {
-        display: flex;
-        margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        font-family: var(--ghs-font-title);
-        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-        justify-content: space-evenly;
-
-        a {
-            cursor: pointer;
-
-            &:hover {
-                opacity: 0.6;
-            }
-        }
-
-        .cancel {
-            color: var(--ghs-color-red);
-        }
-
-        .add {
-            color: var(--ghs-color-green);
-        }
+    .cancel {
+      color: var(--ghs-color-red);
     }
+
+    .add {
+      color: var(--ghs-color-green);
+    }
+  }
 }

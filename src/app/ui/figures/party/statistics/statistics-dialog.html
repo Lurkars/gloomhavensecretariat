@@ -1,217 +1,332 @@
 <div class="statistics-dialog">
   <div class="scroll-container">
     @if (!character) {
-    <div class="header">
-      @if (!!scenario) {
-      <span class="title">
-        <span class="number" [ghs-label]="'%game.scenarioNumber:' + scenario.index+ '%'"></span>
-        <span class="name" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
-      </span>
-      }
-    </div>
+      <div class="header">
+        @if (!!scenario) {
+          <span class="title">
+            <span class="number" [ghs-label]="'%game.scenarioNumber:' + scenario.index + '%'"></span>
+            <span class="name" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
+          </span>
+        }
+      </div>
     }
     <table>
       <thead>
         <tr>
           <th><span [ghs-label]="'scenario.stats'"></span></th>
-          @for (character of characters| trackUUID; track character._trackUUID) {
-          <th>
-            <span class="character">
-              <img class="icon character-icon" [src]="character.iconUrl" />
-              <span class="name">
-                {{gameManager.characterManager.characterName(character)}}
+          @for (character of characters | trackUUID; track character._trackUUID) {
+            <th>
+              <span class="character">
+                <img class="icon character-icon" [src]="character.iconUrl" />
+                <span class="name">
+                  {{ gameManager.characterManager.characterName(character) }}
+                </span>
               </span>
-            </span>
-          </th>
+            </th>
           }
           @if (!character) {
-          <th>
-            <span [ghs-label]="'scenario.stats.total'"></span>
-          </th>
+            <th>
+              <span [ghs-label]="'scenario.stats.total'"></span>
+            </th>
           }
         </tr>
       </thead>
       <tbody>
-        @if(!scenario) {
-        <tr>
-          <th><span [ghs-label]="'scenario.stats.scenarios'"></span></th>
-          @for (character of characters| trackUUID; track character._trackUUID; let i = $index) {
-          <td>
-            @if (scenarios[i] && scenarios[i].length > 2) {
-            <span>{{scenarios[i][0]}}</span>
-            <span class="success">{{scenarios[i][1]}}</span>
-            <span class="failure">{{scenarios[i][2]}}</span>
+        @if (!scenario) {
+          <tr>
+            <th><span [ghs-label]="'scenario.stats.scenarios'"></span></th>
+            @for (character of characters | trackUUID; track character._trackUUID; let i = $index) {
+              <td>
+                @if (scenarios[i] && scenarios[i].length > 2) {
+                  <span>{{ scenarios[i][0] }}</span>
+                  <span class="success">{{ scenarios[i][1] }}</span>
+                  <span class="failure">{{ scenarios[i][2] }}</span>
+                }
+              </td>
             }
-          </td>
-          }
-          @if (!character && scenarios.length == characters.length + 1 && scenarios[characters.length].length > 2) {
-          <td>
-            <span>{{scenarios[characters.length][0]}}</span>
-            <span class="success">{{scenarios[characters.length][1]}}</span>
-            <span class="failure">{{scenarios[characters.length][2]}}</span>
-          </td>
-          }
-        </tr>
+            @if (!character && scenarios.length == characters.length + 1 && scenarios[characters.length].length > 2) {
+              <td>
+                <span>{{ scenarios[characters.length][0] }}</span>
+                <span class="success">{{ scenarios[characters.length][1] }}</span>
+                <span class="failure">{{ scenarios[characters.length][2] }}</span>
+              </td>
+            }
+          </tr>
         }
         <tr>
           <th><span [ghs-label]="'scenario.stats.damage'"></span></th>
-          @for (character of characters| trackUUID; track character._trackUUID) {
-          <td>
-            <span [ghs-label]="'scenario.stats.dealtDamage'" [ghs-label-args]="[character.scenarioStats.dealtDamage]"
-              [style]="'fh'" [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"></span>
-            <span [ghs-label]="'scenario.stats.monsterDamage'"
-              [ghs-label-args]="[character.scenarioStats.monsterDamage]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.monsterDamage.hint'"></span>
-            <span [ghs-label]="'scenario.stats.otherDamage'" [ghs-label-args]="[character.scenarioStats.otherDamage]"
-              [style]="'fh'" [ghs-tooltip]="'scenario.stats.otherDamage.hint'"></span>
-          </td>
+          @for (character of characters | trackUUID; track character._trackUUID) {
+            <td>
+              <span
+                [ghs-label]="'scenario.stats.dealtDamage'"
+                [ghs-label-args]="[character.scenarioStats.dealtDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.monsterDamage'"
+                [ghs-label-args]="[character.scenarioStats.monsterDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.monsterDamage.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.otherDamage'"
+                [ghs-label-args]="[character.scenarioStats.otherDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.otherDamage.hint'"
+              ></span>
+            </td>
           }
           @if (!character) {
-          <td>
-            <span [ghs-label]="'scenario.stats.dealtDamage'" [ghs-label-args]="[overall.dealtDamage]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"></span>
-            <span [ghs-label]="'scenario.stats.monsterDamage'" [ghs-label-args]="[overall.monsterDamage]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.monsterDamage.hint'"></span>
-            <span [ghs-label]="'scenario.stats.otherDamage'" [ghs-label-args]="[overall.otherDamage]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.otherDamage.hint'"></span>
-          </td>
+            <td>
+              <span
+                [ghs-label]="'scenario.stats.dealtDamage'"
+                [ghs-label-args]="[overall.dealtDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.monsterDamage'"
+                [ghs-label-args]="[overall.monsterDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.monsterDamage.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.otherDamage'"
+                [ghs-label-args]="[overall.otherDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.otherDamage.hint'"
+              ></span>
+            </td>
           }
         </tr>
         <tr>
           <th><span [ghs-label]="'scenario.stats.heal'"></span></th>
-          @for (character of characters| trackUUID; track character._trackUUID) {
-          <td>
-            <span [ghs-label]="'scenario.stats.heals'" [ghs-label-args]="[character.scenarioStats.heals]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.heals.hint'"></span>
-            <span [ghs-label]="'scenario.stats.healedDamage'" [ghs-label-args]="[character.scenarioStats.healedDamage]"
-              [style]="'fh'" [ghs-tooltip]="'scenario.stats.healedDamage.hint'"></span>
-          </td>
+          @for (character of characters | trackUUID; track character._trackUUID) {
+            <td>
+              <span
+                [ghs-label]="'scenario.stats.heals'"
+                [ghs-label-args]="[character.scenarioStats.heals]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.heals.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.healedDamage'"
+                [ghs-label-args]="[character.scenarioStats.healedDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.healedDamage.hint'"
+              ></span>
+            </td>
           }
           @if (!character) {
-          <td>
-            <span [ghs-label]="'scenario.stats.heals'" [ghs-label-args]="[overall.heals]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.heals.hint'"></span>
-            <span [ghs-label]="'scenario.stats.healedDamage'" [ghs-label-args]="[overall.healedDamage]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.healedDamage.hint'"></span>
-          </td>
+            <td>
+              <span
+                [ghs-label]="'scenario.stats.heals'"
+                [ghs-label-args]="[overall.heals]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.heals.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.healedDamage'"
+                [ghs-label-args]="[overall.healedDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.healedDamage.hint'"
+              ></span>
+            </td>
           }
         </tr>
         <tr>
           <th><span [ghs-label]="'scenario.stats.kills'"></span></th>
-          @for (character of characters| trackUUID; track character._trackUUID) {
-          <td>
-            @if (character.scenarioStats.normalKills) {
-            <span class="text-black" [ghs-label]="'scenario.stats.normalKills'"
-              [ghs-label-args]="[character.scenarioStats.normalKills]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.normalKills.hint'"></span>
-            }
-            @if (character.scenarioStats.eliteKills) {
-            <span [ghs-label]="'scenario.stats.eliteKills'" [ghs-label-args]="[character.scenarioStats.eliteKills]"
-              [style]="'fh'" [ghs-tooltip]="'scenario.stats.eliteKills.hint'"></span>
-            }
-            @if (character.scenarioStats.bossKills) {
-            <span [ghs-label]="'scenario.stats.bossKills'" [ghs-label-args]="[character.scenarioStats.bossKills]"
-              [style]="'fh'" [ghs-tooltip]="'scenario.stats.bossKills.hint'"></span>
-            }
-          </td>
+          @for (character of characters | trackUUID; track character._trackUUID) {
+            <td>
+              @if (character.scenarioStats.normalKills) {
+                <span
+                  class="text-black"
+                  [ghs-label]="'scenario.stats.normalKills'"
+                  [ghs-label-args]="[character.scenarioStats.normalKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.normalKills.hint'"
+                ></span>
+              }
+              @if (character.scenarioStats.eliteKills) {
+                <span
+                  [ghs-label]="'scenario.stats.eliteKills'"
+                  [ghs-label-args]="[character.scenarioStats.eliteKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.eliteKills.hint'"
+                ></span>
+              }
+              @if (character.scenarioStats.bossKills) {
+                <span
+                  [ghs-label]="'scenario.stats.bossKills'"
+                  [ghs-label-args]="[character.scenarioStats.bossKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.bossKills.hint'"
+                ></span>
+              }
+            </td>
           }
           @if (!character) {
-          <td>
-            @if (overall.normalKills) {
-            <span class="text-black" [ghs-label]="'scenario.stats.normalKills'" [ghs-label-args]="[overall.normalKills]"
-              [style]="'fh'" [ghs-tooltip]="'scenario.stats.normalKills.hint'"></span>
-            }
-            @if (overall.eliteKills) {
-            <span [ghs-label]="'scenario.stats.eliteKills'" [ghs-label-args]="[overall.eliteKills]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.eliteKills.hint'"></span>
-            }
-            @if (overall.bossKills) {
-            <span [ghs-label]="'scenario.stats.bossKills'" [ghs-label-args]="[overall.bossKills]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.bossKills.hint'"></span>
-            }
-          </td>
+            <td>
+              @if (overall.normalKills) {
+                <span
+                  class="text-black"
+                  [ghs-label]="'scenario.stats.normalKills'"
+                  [ghs-label-args]="[overall.normalKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.normalKills.hint'"
+                ></span>
+              }
+              @if (overall.eliteKills) {
+                <span
+                  [ghs-label]="'scenario.stats.eliteKills'"
+                  [ghs-label-args]="[overall.eliteKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.eliteKills.hint'"
+                ></span>
+              }
+              @if (overall.bossKills) {
+                <span
+                  [ghs-label]="'scenario.stats.bossKills'"
+                  [ghs-label-args]="[overall.bossKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.bossKills.hint'"
+                ></span>
+              }
+            </td>
           }
         </tr>
         <tr>
           <th><span [ghs-label]="'scenario.stats.max'"></span></th>
-          @for (character of characters| trackUUID; track character._trackUUID) {
-          <td>
-            <span [ghs-label]="'scenario.stats.maxDealtDamage'"
-              [ghs-label-args]="[character.scenarioStats.maxDealtDamage]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"></span>
-            <span [ghs-label]="'scenario.stats.maxDamage'" [ghs-label-args]="[character.scenarioStats.maxDamage]"
-              [style]="'fh'" [ghs-tooltip]="'scenario.stats.maxDamage.hint'"></span>
-          </td>
+          @for (character of characters | trackUUID; track character._trackUUID) {
+            <td>
+              <span
+                [ghs-label]="'scenario.stats.maxDealtDamage'"
+                [ghs-label-args]="[character.scenarioStats.maxDealtDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.maxDamage'"
+                [ghs-label-args]="[character.scenarioStats.maxDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.maxDamage.hint'"
+              ></span>
+            </td>
           }
           @if (!character) {
-          <td>
-            <span [ghs-label]="'scenario.stats.maxDealtDamage'" [ghs-label-args]="[overall.maxDealtDamage]"
-              [style]="'fh'" [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"></span>
-            <span [ghs-label]="'scenario.stats.maxDamage'" [ghs-label-args]="[overall.maxDamage]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.maxDamage.hint'"></span>
-          </td>
+            <td>
+              <span
+                [ghs-label]="'scenario.stats.maxDealtDamage'"
+                [ghs-label-args]="[overall.maxDealtDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.maxDamage'"
+                [ghs-label-args]="[overall.maxDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.maxDamage.hint'"
+              ></span>
+            </td>
           }
         </tr>
         <tr>
           <th><span [ghs-label]="'scenario.stats.progress'"></span></th>
-          @for (character of characters| trackUUID; track character._trackUUID) {
-          <td>
-            <span [ghs-label]="'scenario.stats.gold'" [ghs-label-args]="[character.scenarioStats.gold]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.gold.hint'"></span>
-            <span [ghs-label]="'scenario.stats.xp'" [ghs-label-args]="[character.scenarioStats.xp]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.xp.hint'"></span>
-            <span [ghs-label]="'scenario.stats.treasures'" [ghs-label-args]="[character.scenarioStats.treasures]"
-              [style]="'fh'" [ghs-tooltip]="'scenario.stats.treasures.hint'"></span>
-          </td>
+          @for (character of characters | trackUUID; track character._trackUUID) {
+            <td>
+              <span
+                [ghs-label]="'scenario.stats.gold'"
+                [ghs-label-args]="[character.scenarioStats.gold]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.gold.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.xp'"
+                [ghs-label-args]="[character.scenarioStats.xp]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.xp.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.treasures'"
+                [ghs-label-args]="[character.scenarioStats.treasures]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.treasures.hint'"
+              ></span>
+            </td>
           }
           @if (!character) {
-          <td>
-            <span [ghs-label]="'scenario.stats.gold'" [ghs-label-args]="[overall.gold]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.gold.hint'"></span>
-            <span [ghs-label]="'scenario.stats.xp'" [ghs-label-args]="[overall.xp]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.xp.hint'"></span>
-            <span [ghs-label]="'scenario.stats.treasures'" [ghs-label-args]="[overall.treasures]" [style]="'fh'"
-              [ghs-tooltip]="'scenario.stats.treasures.hint'"></span>
-          </td>
+            <td>
+              <span
+                [ghs-label]="'scenario.stats.gold'"
+                [ghs-label-args]="[overall.gold]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.gold.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.xp'"
+                [ghs-label-args]="[overall.xp]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.xp.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.treasures'"
+                [ghs-label-args]="[overall.treasures]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.treasures.hint'"
+              ></span>
+            </td>
           }
         </tr>
         <tr>
           <th><span [ghs-label]="'scenario.stats.resources'"></span></th>
-          @for (character of characters| trackUUID; track character._trackUUID) {
-          <td>
-            <div class="loot">
-              @for (lootType of materials; track lootType) {
-              <span [ghs-label]="'scenario.stats.resources.loot'"
-                [ghs-label-args]="[lootType, character.scenarioStats.loot[lootType] || 0]" [style]="'fh'"
-                [ghs-tooltip]="'scenario.stats.resources.loot.hint'"></span>
-              }
-            </div>
-            <div class="loot">
-              @for (lootType of herbs; track lootType) {
-              <span [ghs-label]="'scenario.stats.resources.loot'"
-                [ghs-label-args]="[lootType, character.scenarioStats.loot[lootType] || 0]" [style]="'fh'"
-                [ghs-tooltip]="'scenario.stats.resources.loot.hint'"></span>
-              }
-            </div>
-          </td>
+          @for (character of characters | trackUUID; track character._trackUUID) {
+            <td>
+              <div class="loot">
+                @for (lootType of materials; track lootType) {
+                  <span
+                    [ghs-label]="'scenario.stats.resources.loot'"
+                    [ghs-label-args]="[lootType, character.scenarioStats.loot[lootType] || 0]"
+                    [style]="'fh'"
+                    [ghs-tooltip]="'scenario.stats.resources.loot.hint'"
+                  ></span>
+                }
+              </div>
+              <div class="loot">
+                @for (lootType of herbs; track lootType) {
+                  <span
+                    [ghs-label]="'scenario.stats.resources.loot'"
+                    [ghs-label-args]="[lootType, character.scenarioStats.loot[lootType] || 0]"
+                    [style]="'fh'"
+                    [ghs-tooltip]="'scenario.stats.resources.loot.hint'"
+                  ></span>
+                }
+              </div>
+            </td>
           }
           @if (!character) {
-          <td>
-            <div class="loot">
-              @for (lootType of materials; track lootType) {
-              <span [ghs-label]="'scenario.stats.resources.loot'"
-                [ghs-label-args]="[lootType, overall.loot[lootType] || 0]" [style]="'fh'"
-                [ghs-tooltip]="'scenario.stats.resources.loot.hint'"></span>
-              }
-            </div>
-            <div class="loot">
-              @for (lootType of herbs; track lootType) {
-              <span [ghs-label]="'scenario.stats.resources.loot'"
-                [ghs-label-args]="[lootType, overall.loot[lootType] || 0]" [style]="'fh'"
-                [ghs-tooltip]="'scenario.stats.resources.loot.hint'"></span>
-              }
-            </div>
-          </td>
+            <td>
+              <div class="loot">
+                @for (lootType of materials; track lootType) {
+                  <span
+                    [ghs-label]="'scenario.stats.resources.loot'"
+                    [ghs-label-args]="[lootType, overall.loot[lootType] || 0]"
+                    [style]="'fh'"
+                    [ghs-tooltip]="'scenario.stats.resources.loot.hint'"
+                  ></span>
+                }
+              </div>
+              <div class="loot">
+                @for (lootType of herbs; track lootType) {
+                  <span
+                    [ghs-label]="'scenario.stats.resources.loot'"
+                    [ghs-label-args]="[lootType, overall.loot[lootType] || 0]"
+                    [style]="'fh'"
+                    [ghs-tooltip]="'scenario.stats.resources.loot.hint'"
+                  ></span>
+                }
+              </div>
+            </td>
           }
         </tr>
       </tbody>

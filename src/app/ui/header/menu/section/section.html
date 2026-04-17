@@ -1,46 +1,65 @@
 <div class="menu-container scenario">
   <div class="line editions">
     @for (e of editions; track e) {
-    <label>
-      <input tabclick type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e">
-      <span [ghs-label]="'data.edition.' + e"></span>
-    </label>
+      <label>
+        <input tabclick type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e" />
+        <span [ghs-label]="'data.edition.' + e"></span>
+      </label>
     }
   </div>
 
   <div class="line">
     <label>
-      <input tabclick type="checkbox" [checked]="settingsManager.settings.showAllSections"
-        (change)="settingsManager.toggle('showAllSections')">
+      <input
+        tabclick
+        type="checkbox"
+        [checked]="settingsManager.settings.showAllSections"
+        (change)="settingsManager.toggle('showAllSections')"
+      />
       <span [ghs-label]="'scenario.showAllSections'"></span>
     </label>
   </div>
 
   @for (group of groups(); track group) {
-  @if (group && sections(group).length > 0) {
-  <div class="line title"><label [ghs-label]="'data.scenario.group.' + group"></label></div>
-  }
-  @if (sections(group).length > 0) {
-  <div class="line sections">
-    @for (section of sections(group) | trackUUID; track section._trackUUID) {
-    <span tabclick class="section"
-      [ngClass]="{'disabled' : section.isLocked , 'available': settingsManager.settings.showAllSections && section.parent && !!gameManager.game.scenario && section.parent == gameManager.game.scenario.index && section.group == gameManager.game.scenario.group && section.edition == gameManager.game.scenario.edition}"
-      [ghs-tooltip]="'scenario.tooltip'" [ghs-label-args]="[gameManager.scenarioManager.scenarioTitle(section,true)]"
-      (click)="addSection(section)">
-      @if (maxSection() > 2 && section.index.length < 3) { <span>0</span>
+    @if (group && sections(group).length > 0) {
+      <div class="line title"><label [ghs-label]="'data.scenario.group.' + group"></label></div>
     }
-    @if (maxSection() > 1 && section.index.length < 2) { <span>0</span>
-      }
-      {{section.index}}
-      </span>
-      }
-  </div>
-  }
+    @if (sections(group).length > 0) {
+      <div class="line sections">
+        @for (section of sections(group) | trackUUID; track section._trackUUID) {
+          <span
+            tabclick
+            class="section"
+            [ngClass]="{
+              disabled: section.isLocked,
+              available:
+                settingsManager.settings.showAllSections &&
+                section.parent &&
+                !!gameManager.game.scenario &&
+                section.parent == gameManager.game.scenario.index &&
+                section.group == gameManager.game.scenario.group &&
+                section.edition == gameManager.game.scenario.edition
+            }"
+            [ghs-tooltip]="'scenario.tooltip'"
+            [ghs-label-args]="[gameManager.scenarioManager.scenarioTitle(section, true)]"
+            (click)="addSection(section)"
+          >
+            @if (maxSection() > 2 && section.index.length < 3) {
+              <span>0</span>
+            }
+            @if (maxSection() > 1 && section.index.length < 2) {
+              <span>0</span>
+            }
+            {{ section.index }}
+          </span>
+        }
+      </div>
+    }
   }
 
   @if (noResults()) {
-  <div class="line disabled">
-    <label><span [ghs-label]="'monster.filter.noResult'"></span></label>
-  </div>
+    <div class="line disabled">
+      <label><span [ghs-label]="'monster.filter.noResult'"></span></label>
+    </div>
   }
 </div>

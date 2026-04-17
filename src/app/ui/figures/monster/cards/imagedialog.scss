@@ -1,46 +1,45 @@
 :host {
-    background-color: transparent;
-    padding: 0;
-    margin: 0;
-    border: 0;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
 .monster-image-dialog {
-    width: 100vw;
-    max-width: 600px;
-    height: 100vw;
-    max-height: 600px;
-    border-image: none;
-    background: none;
-    transition: transform calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
+  width: 100vw;
+  max-width: 600px;
+  height: 100vw;
+  max-height: 600px;
+  border-image: none;
+  background: none;
+  transition: transform calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
+  transform: scale(0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 80%;
+    height: auto;
+    border-radius: 2%;
+    filter: var(--ghs-filter-shadow);
+  }
+
+  &.opened {
+    transform: scale(1);
+  }
+
+  &.closed {
     transform: scale(0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-        width: 80%;
-        height: auto;
-        border-radius: 2%;
-        filter: var(--ghs-filter-shadow);
-    }
-
-    &.opened {
-        transform: scale(1);
-    }
-
-    &.closed {
-        transform: scale(0);
-        transition-delay: 100ms;
-    }
-
+    transition-delay: 100ms;
+  }
 }
 
 .close-container {
-    cursor: zoom-out;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  cursor: zoom-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

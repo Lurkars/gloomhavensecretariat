@@ -45,7 +45,6 @@ main {
   font-family: var(--ghs-font-title);
   font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
 
-
   img {
     width: 100%;
     max-width: calc(var(--ghs-unit) * 30 * var(--ghs-text-factor));
@@ -166,11 +165,11 @@ main {
 
     @keyframes loading {
       0% {
-        transform: translateX(0)
+        transform: translateX(0);
       }
 
       to {
-        transform: translateX(400%)
+        transform: translateX(400%);
       }
     }
   }
@@ -242,7 +241,6 @@ main {
         }
       }
 
-
       &.selected {
         max-width: calc(var(--ghs-unit) * 50 * var(--ghs-text-factor));
 
@@ -288,7 +286,6 @@ main {
   }
 
   @media (orientation: portrait) {
-
     .ghs-logo {
       max-width: calc(var(--ghs-unit) * 20 * var(--ghs-text-factor));
     }
@@ -321,7 +318,7 @@ main {
   .fh-second-edition {
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       color: var(--ghs-color-black);
 
       &::before {
@@ -349,7 +346,6 @@ main {
   }
 
   .edition-hint {
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -369,7 +365,7 @@ main {
       color: var(--ghs-color-black);
       margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
 
-      input[type="checkbox"] {
+      input[type='checkbox'] {
         color: var(--ghs-color-black);
 
         &::before {
@@ -382,7 +378,6 @@ main {
         }
       }
     }
-
   }
 
   .settings-menu,
@@ -430,7 +425,6 @@ main {
   }
 
   &.fh {
-
     h2,
     p {
       color: var(--ghs-color-black);
@@ -464,7 +458,6 @@ main {
   }
 }
 
-
 .figures {
   display: flex;
   height: 100%;
@@ -486,7 +479,10 @@ main {
     position: absolute;
     top: 0;
     left: 50%;
-    transition: transform calc(var(--ghs-animation-speed) * 250ms) ease-in-out, width calc(var(--ghs-animation-speed) * 100ms) ease-in-out, height calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
+    transition:
+      transform calc(var(--ghs-animation-speed) * 250ms) ease-in-out,
+      width calc(var(--ghs-animation-speed) * 100ms) ease-in-out,
+      height calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
     transform: scale(0);
     overflow: unset;
 
@@ -550,9 +546,7 @@ main {
 }
 
 .compact {
-
   .figures {
-
     .figure.last {
       padding-bottom: calc(var(--ghs-unit) * 13.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
@@ -723,7 +717,6 @@ main {
     }
 
     &:hover {
-
       color: var(--ghs-color-gray);
 
       img {
@@ -768,7 +761,7 @@ main {
     align-items: center;
     cursor: pointer;
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       color: var(--ghs-color-gray);
 
       width: 1.2em;
@@ -782,5 +775,4 @@ main {
       }
     }
   }
-
 }

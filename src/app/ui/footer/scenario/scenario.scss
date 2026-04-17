@@ -12,8 +12,8 @@
     cursor: pointer;
     display: flex;
     font-family: var(--ghs-font-normal);
-    font-size: calc(var(--ghs-unit) * 2.8 * var(--ghs-barsize)* var(--ghs-text-factor));
-    line-height: calc(var(--ghs-unit) * 2.3 * var(--ghs-barsize)* var(--ghs-text-factor));
+    font-size: calc(var(--ghs-unit) * 2.8 * var(--ghs-barsize) * var(--ghs-text-factor));
+    line-height: calc(var(--ghs-unit) * 2.3 * var(--ghs-barsize) * var(--ghs-text-factor));
     text-shadow: var(--ghs-outline-thin);
 
     .index {
@@ -53,14 +53,13 @@
     }
 
     .scenario-level-container {
-      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-barsize)* var(--ghs-text-factor));
+      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-barsize) * var(--ghs-text-factor));
       margin-top: calc(var(--ghs-unit) * -0.2 * var(--ghs-barsize));
       margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-barsize));
     }
   }
 
   .event-effects {
-
     display: flex;
     justify-content: center;
     align-items: center;

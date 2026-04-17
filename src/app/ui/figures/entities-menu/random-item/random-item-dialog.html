@@ -1,11 +1,12 @@
-<div class="random-item-dialog"
-  [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+<div
+  class="random-item-dialog"
+  [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }"
+>
   <div class="scroll-container">
     <span class="title" [ghs-label]="'scenario.eventEffects.drawRandomItem' + (blueprint ? '.blueprint' : '')"></span>
 
     <div class="item">
-      <ghs-item [item]="item" [flipped]="true" [editionLabel]="gameManager.currentEdition()"
-        (click)="openDialog()"></ghs-item>
+      <ghs-item [item]="item" [flipped]="true" [editionLabel]="gameManager.currentEdition()" (click)="openDialog()"></ghs-item>
     </div>
 
     <div class="menu">

@@ -6,21 +6,21 @@
       <span [ghs-label]="'settings.edition'"></span>
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
         @for (edition of gameManager.editions(true); track edition) {
-        <option [value]="edition">
-          <span [ghs-label]="'data.edition.' + edition"></span>
-        </option>
+          <option [value]="edition">
+            <span [ghs-label]="'data.edition.' + edition"></span>
+          </option>
         }
       </select>
     </label>
   </div>
 
   @if (edition) {
-  <div class="sections">
-    @for (section of sections | trackUUID; track section._trackUUID) {
-    <div class="section">
-      <ghs-random-monster-card [section]="section" [flipped]="true"></ghs-random-monster-card>
+    <div class="sections">
+      @for (section of sections | trackUUID; track section._trackUUID) {
+        <div class="section">
+          <ghs-random-monster-card [section]="section" [flipped]="true"></ghs-random-monster-card>
+        </div>
+      }
     </div>
-    }
-  </div>
   }
 </div>

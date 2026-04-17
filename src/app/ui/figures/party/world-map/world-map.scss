@@ -1,141 +1,135 @@
 .world-map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  .world-map {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    background: none;
+    z-index: 1;
+
+    &.pick {
+      cursor: crosshair !important;
+
+      .scenario,
+      .building,
+      &.highlighting .scenario {
+        &:hover {
+          cursor: crosshair !important;
+        }
+      }
+    }
+
+    .scenario {
+      z-index: 2;
+
+      &:hover {
+        cursor: pointer;
+
+        filter: brightness(1.1);
+        opacity: 0.9;
+      }
+    }
+
+    .building:hover {
+      filter: brightness(1.2) drop-shadow(4px 4px 4px var(--ghs-color-darkgray)) drop-shadow(-4px -4px 4px var(--ghs-color-darkgray));
+    }
+
+    &.highlighting {
+      .scenario {
+        filter: brightness(1.2) drop-shadow(4px 4px 4px var(--ghs-color-darkgray)) drop-shadow(-4px -4px 4px var(--ghs-color-darkgray));
+
+        &:hover {
+          cursor: pointer;
+          filter: brightness(1.1);
+          opacity: 0.9;
+        }
+
+        &.success {
+          cursor: initial;
+          z-index: 2;
+
+          filter: brightness(0.8) hue-rotate(30deg);
+
+          &:hover {
+            cursor: initial;
+            filter: none;
+          }
+        }
+
+        &.locked:not(.blocked) {
+          cursor: initial;
+          z-index: 1;
+          filter: brightness(1);
+
+          &:hover {
+            cursor: initial;
+            filter: brightness(0.8) grayscale(0.8);
+          }
+        }
+
+        &.blocked {
+          cursor: initial;
+          z-index: 1;
+          filter: brightness(0.8) sepia(3) hue-rotate(340deg);
+
+          &:hover {
+            cursor: initial;
+            filter: brightness(0.8) grayscale(0.8);
+          }
+
+          &.success {
+            filter: brightness(0.8) hue-rotate(30deg) grayscale(0.6);
+
+            &:hover {
+              filter: brightness(0.6) hue-rotate(30deg) grayscale(0.6);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .menu {
     position: absolute;
-    top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    bottom: 0;
+    padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    color: var(--ghs-color-gray);
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    background-color: var(--ghs-color-darkgray);
+    border-top-right-radius: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
+    a,
+    label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      margin: 0 calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
-    .world-map {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        max-width: 100%;
-        max-height: 100%;
-        overflow: auto;
-        background: none;
-        z-index: 1;
+      img {
+        filter: var(--ghs-filter-gray);
+        height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+        width: auto;
+      }
 
-        &.pick {
-            cursor: crosshair !important;
+      &:hover {
+        color: var(--ghs-color-white);
 
-            .scenario,
-            .building,
-            &.highlighting .scenario {
-
-                &:hover {
-                    cursor: crosshair !important;
-                }
-            }
+        img {
+          filter: var(--ghs-filter-white);
         }
-
-        .scenario {
-            z-index: 2;
-
-            &:hover {
-                cursor: pointer;
-
-                filter: brightness(1.1);
-                opacity: 0.9;
-            }
-        }
-
-        .building:hover {
-            filter: brightness(1.2) drop-shadow(4px 4px 4px var(--ghs-color-darkgray)) drop-shadow(-4px -4px 4px var(--ghs-color-darkgray));
-        }
-
-        &.highlighting {
-            .scenario {
-
-                filter: brightness(1.2) drop-shadow(4px 4px 4px var(--ghs-color-darkgray)) drop-shadow(-4px -4px 4px var(--ghs-color-darkgray));
-
-                &:hover {
-                    cursor: pointer;
-                    filter: brightness(1.1);
-                    opacity: 0.9;
-                }
-
-                &.success {
-                    cursor: initial;
-                    z-index: 2;
-
-                    filter: brightness(0.8) hue-rotate(30deg);
-
-
-                    &:hover {
-                        cursor: initial;
-                        filter: none;
-                    }
-                }
-
-                &.locked:not(.blocked) {
-                    cursor: initial;
-                    z-index: 1;
-                    filter: brightness(1);
-
-                    &:hover {
-                        cursor: initial;
-                        filter: brightness(0.8) grayscale(0.8);
-                    }
-                }
-
-                &.blocked {
-                    cursor: initial;
-                    z-index: 1;
-                    filter: brightness(0.8) sepia(3) hue-rotate(340deg);
-
-                    &:hover {
-                        cursor: initial;
-                        filter: brightness(0.8) grayscale(0.8);
-                    }
-
-                    &.success {
-                        filter: brightness(0.8) hue-rotate(30deg) grayscale(0.6);
-
-                        &:hover {
-                            filter: brightness(0.6) hue-rotate(30deg) grayscale(0.6);
-                        }
-                    }
-
-                }
-            }
-
-        }
+      }
     }
-
-    .menu {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-        color: var(--ghs-color-gray);
-        display: flex;
-        align-items: center;
-        z-index: 2;
-        background-color: var(--ghs-color-darkgray);
-        border-top-right-radius: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-
-        a,
-        label {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            margin: 0 calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-
-            img {
-                filter: var(--ghs-filter-gray);
-                height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
-                width: auto;
-            }
-
-            &:hover {
-                color: var(--ghs-color-white);
-
-                img {
-                    filter: var(--ghs-filter-white);
-                }
-            }
-        }
-    }
+  }
 }

@@ -14,7 +14,6 @@
 }
 
 .monster-stats {
-
   display: flex;
   flex-direction: column;
 
@@ -116,7 +115,6 @@
         flex-direction: column;
         font-size: calc(var(--ghs-unit) * 2 * var(--ghs-fontsize));
 
-
         .monster-action {
           display: flex;
           justify-content: space-between;
@@ -142,7 +140,6 @@
           }
         }
 
-
         &.normal {
           right: calc(var(--ghs-unit) * 25.5);
           text-align: right;
@@ -160,7 +157,6 @@
             }
           }
         }
-
 
         &.elite {
           right: calc(var(--ghs-unit) * 0.5);
@@ -194,7 +190,6 @@
           .index {
             margin-right: calc(var(--ghs-unit) * 0.2);
           }
-
         }
       }
 
@@ -214,6 +209,5 @@
         }
       }
     }
-
   }
 }

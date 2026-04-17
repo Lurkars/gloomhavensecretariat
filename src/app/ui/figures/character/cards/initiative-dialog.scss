@@ -27,7 +27,6 @@
   }
 
   .number-container {
-
     display: grid;
     grid-template-columns: repeat(3, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor) * var(--ghs-text-factor)));
     justify-items: center;
@@ -62,7 +61,6 @@
       }
     }
   }
-
 
   .long-rest-button {
     display: flex;

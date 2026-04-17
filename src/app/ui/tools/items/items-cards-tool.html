@@ -6,9 +6,9 @@
       <span [ghs-label]="'settings.edition'"></span>
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
         @for (edition of gameManager.editions(true); track edition) {
-        <option [value]="edition">
-          <span [ghs-label]="'data.edition.' + edition"></span>
-        </option>
+          <option [value]="edition">
+            <span [ghs-label]="'data.edition.' + edition"></span>
+          </option>
         }
       </select>
     </label>
@@ -17,18 +17,18 @@
       <select [(ngModel)]="comparisonEdition" (change)="update(); updateQueryParams()">
         <option value="" [ghs-label]="'settings.edition'"></option>
         @for (edition of gameManager.editions(true); track edition) {
-        <option [value]="edition">
-          <span [ghs-label]="'data.edition.' + edition"></span>
-        </option>
+          <option [value]="edition">
+            <span [ghs-label]="'data.edition.' + edition"></span>
+          </option>
         }
       </select>
     </label>
-    <input [(ngModel)]="filter" (change)="update(); updateQueryParams()">
+    <input [(ngModel)]="filter" (change)="update(); updateQueryParams()" />
   </div>
 
   <div class="items">
     @for (itemData of items | trackUUID; track itemData._trackUUID) {
-    <ghs-item [item]="itemData" [flipped]="true" [editionLabel]="'show'"></ghs-item>
+      <ghs-item [item]="itemData" [flipped]="true" [editionLabel]="'show'"></ghs-item>
     }
   </div>
 </div>

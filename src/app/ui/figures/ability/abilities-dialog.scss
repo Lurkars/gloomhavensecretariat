@@ -21,7 +21,7 @@
       }
     }
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       cursor: pointer;
       appearance: none;
       background-color: var(--form-background);
@@ -125,7 +125,8 @@
           transform: translate(-50%, -50%);
         }
 
-        .button-remove, .button-restore {
+        .button-remove,
+        .button-restore {
           z-index: 1;
           position: absolute;
           display: flex;
@@ -152,7 +153,7 @@
         }
       }
 
-      &.deleted .container ghs-ability{
+      &.deleted .container ghs-ability {
         opacity: 0.5;
       }
 
@@ -186,5 +187,4 @@
   .cdk-drop-list-dragging :not(.cdk-drag-placeholder) {
     transition: transform calc(var(--ghs-animation-speed) * 250ms) cubic-bezier(0, 0, 0.2, 1);
   }
-
 }

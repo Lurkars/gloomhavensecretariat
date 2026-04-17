@@ -19,11 +19,11 @@
   }
 }
 
-.line.search, .line.title.group {
+.line.search,
+.line.title.group {
   justify-content: space-between !important;
 
   a {
-
     img.ghs-svg {
       filter: var(--ghs-filter-gray);
     }
@@ -138,9 +138,7 @@
   margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 }
 
-@media (max-width: 600px),
-(orientation: portrait) {
-
+@media (max-width: 600px), (orientation: portrait) {
   .editions {
     grid-template-columns: 1fr;
   }

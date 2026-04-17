@@ -1,5 +1,4 @@
 .rules-dialog {
-
   font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
   color: var(--ghs-color-gray);
   font-family: var(--ghs-font-text);
@@ -24,7 +23,6 @@
     }
 
     &:hover {
-
       color: var(--ghs-color-gray);
 
       img {
@@ -49,13 +47,11 @@
     }
 
     .menu {
-
       display: flex;
       justify-content: center;
       margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
 
       a {
-
         cursor: pointer;
         display: flex;
         justify-content: center;
@@ -103,6 +99,5 @@
       min-height: initial;
       width: 100%;
     }
-
   }
 }

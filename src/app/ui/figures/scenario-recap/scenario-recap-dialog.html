@@ -1,11 +1,11 @@
 <div class="recap-dialog">
-    @if (!!scenario) {
+  @if (!!scenario) {
     <div class="header">
-        <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + scenario.index + '%'"></span>
-        <span class="text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
+      <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + scenario.index + '%'"></span>
+      <span class="text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
     </div>
-    }
-    <div class="scroll-container">
-        <ghs-scenario-recap [scenario]="scenario" [forceAll]="forceAll"></ghs-scenario-recap>
-    </div>
+  }
+  <div class="scroll-container">
+    <ghs-scenario-recap [scenario]="scenario" [forceAll]="forceAll"></ghs-scenario-recap>
+  </div>
 </div>
