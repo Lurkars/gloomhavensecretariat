@@ -30,7 +30,7 @@ jobs:
       - name: npm install and npm run build
         run: |
           npm ci
-          npm run build -- --base-href gloomhavensecretariat
+          npm run build -- --configuration production --base-href /gloomhavensecretariat/
       - name: Publish GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
