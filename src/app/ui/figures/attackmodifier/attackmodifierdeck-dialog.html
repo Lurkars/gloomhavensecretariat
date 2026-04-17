@@ -46,15 +46,15 @@
               [ngClass]="{ disabled: countUpcomingAttackModifier(AttackModifierType.bless) == 0 }"
               (click)="changeBless(-1)"
             >
-              <img class="ghs-svg" src="/assets/images/minus.svg" />
+              <img class="ghs-svg" src="./assets/images/minus.svg" />
             </a>
           </span>
           <span class="item" [ghs-label]="'game.condition.bless'" [ghs-label-attribute]="'title'">
-            <img src="/assets/images/status/bless.svg" />
+            <img src="./assets/images/status/bless.svg" />
             <span class="badge bless-count">{{ countUpcomingAttackModifier(AttackModifierType.bless) }}</span>
             @if (gameManager.attackModifierManager.countUpcomingBlesses() > 10) {
               <span class="warning">
-                <img src="/assets/images/warning.svg" />
+                <img src="./assets/images/warning.svg" />
               </span>
             }
           </span>
@@ -64,7 +64,7 @@
               [ngClass]="{ disabled: gameManager.attackModifierManager.countUpcomingBlesses() >= 10 }"
               (click)="changeBless(1)"
             >
-              <img class="ghs-svg" src="/assets/images/plus.svg" />
+              <img class="ghs-svg" src="./assets/images/plus.svg" />
             </a>
           </span>
           <span class="item">
@@ -73,15 +73,15 @@
               [ngClass]="{ disabled: countUpcomingAttackModifier(AttackModifierType.curse) == 0 }"
               (click)="changeCurse(-1)"
             >
-              <img class="ghs-svg" src="/assets/images/minus.svg" />
+              <img class="ghs-svg" src="./assets/images/minus.svg" />
             </a>
           </span>
           <span class="item" [ghs-label]="'game.condition.curse'" [ghs-label-attribute]="'title'">
-            <img src="/assets/images/status/curse.svg" />
+            <img src="./assets/images/status/curse.svg" />
             <span class="badge curse-count">{{ countUpcomingAttackModifier(AttackModifierType.curse) }}</span>
             @if (gameManager.attackModifierManager.countUpcomingCurses(!character && !ally) > 10) {
               <span class="warning">
-                <img src="/assets/images/warning.svg" />
+                <img src="./assets/images/warning.svg" />
               </span>
             }
           </span>
@@ -91,7 +91,7 @@
               [ngClass]="{ disabled: gameManager.attackModifierManager.countUpcomingCurses(!character && !ally) >= 10 }"
               (click)="changeCurse(1)"
             >
-              <img class="ghs-svg" src="/assets/images/plus.svg" />
+              <img class="ghs-svg" src="./assets/images/plus.svg" />
             </a>
           </span>
           <span class="item">
@@ -100,15 +100,15 @@
               [ngClass]="{ disabled: countAttackModifier(AttackModifierType.minus1extra) == 0 }"
               (click)="changeMinus1Extra(-1)"
             >
-              <img class="ghs-svg" src="/assets/images/minus.svg" />
+              <img class="ghs-svg" src="./assets/images/minus.svg" />
             </a>
           </span>
           <span class="item" [ghs-label]="'game.attackmodifiers.types.minus1'" [ghs-label-attribute]="'title'">
-            <img src="/assets/images/attackmodifier/icons/minus1.png" />
+            <img src="./assets/images/attackmodifier/icons/minus1.png" />
             <span class="badge minus1-count">{{ countAttackModifier(AttackModifierType.minus1extra) }}</span>
             @if (gameManager.attackModifierManager.countExtraMinus1() > 15) {
               <span class="warning">
-                <img src="/assets/images/warning.svg" />
+                <img src="./assets/images/warning.svg" />
               </span>
             }
           </span>
@@ -118,7 +118,7 @@
               [ngClass]="{ disabled: gameManager.attackModifierManager.countExtraMinus1() >= 15 }"
               (click)="changeMinus1Extra(1)"
             >
-              <img class="ghs-svg" src="/assets/images/plus.svg" />
+              <img class="ghs-svg" src="./assets/images/plus.svg" />
             </a>
           </span>
         </div>
@@ -132,11 +132,11 @@
                 [ngClass]="{ disabled: countUpcomingAttackModifier(AttackModifierType.empower, 'additional-' + empowerChar.name) == 0 }"
                 (click)="changeEmpower(i, -1)"
               >
-                <img class="ghs-svg" src="/assets/images/minus.svg" />
+                <img class="ghs-svg" src="./assets/images/minus.svg" />
               </a>
             </span>
             <span class="item" [ghs-label]="'game.attackmodifiers.types.empower'" [ghs-label-attribute]="'title'">
-              <img src="/assets/images/attackmodifier/icons/empower.png" />
+              <img src="./assets/images/attackmodifier/icons/empower.png" />
               <span class="badge">{{ countUpcomingAttackModifier(AttackModifierType.empower, 'additional-' + empowerChar.name) }}</span>
               <span class="badge badge-character-icon">
                 <img [src]="empowerChar.iconUrl" />
@@ -144,7 +144,7 @@
             </span>
             <span class="item">
               <a class="button" (click)="changeEmpower(i, 1)" [ngClass]="{ disabled: countEmpower(i) == 0 }">
-                <img class="ghs-svg" src="/assets/images/plus.svg" />
+                <img class="ghs-svg" src="./assets/images/plus.svg" />
               </a>
             </span>
           }
@@ -155,11 +155,11 @@
                 (click)="changeEnfeeble(i, -1)"
                 [ngClass]="{ disabled: countUpcomingAttackModifier(AttackModifierType.enfeeble, 'additional-' + enfeebleChar.name) == 0 }"
               >
-                <img class="ghs-svg" src="/assets/images/minus.svg" />
+                <img class="ghs-svg" src="./assets/images/minus.svg" />
               </a>
             </span>
             <span class="item" [ghs-label]="'game.attackmodifiers.types.enfeeble'" [ghs-label-attribute]="'title'">
-              <img src="/assets/images/attackmodifier/icons/enfeeble.png" />
+              <img src="./assets/images/attackmodifier/icons/enfeeble.png" />
               <span class="badge">{{ countUpcomingAttackModifier(AttackModifierType.enfeeble, 'additional-' + enfeebleChar.name) }}</span>
               <span class="badge badge-character-icon">
                 <img [src]="enfeebleChar.iconUrl" />
@@ -167,7 +167,7 @@
             </span>
             <span class="item">
               <a class="button" (click)="changeEnfeeble(i, 1)" [ngClass]="{ disabled: countEnfeeble(i) == 0 }">
-                <img class="ghs-svg" src="/assets/images/plus.svg" />
+                <img class="ghs-svg" src="./assets/images/plus.svg" />
               </a>
             </span>
           }
@@ -179,18 +179,18 @@
       }
       @if (edit && !townGuard) {
         <div class="insert-menu">
-          <a class="icon-button" (click)="newFirst(type)"><img class="ghs-svg" src="/assets/images/plus.svg" /></a>
-          <a class="icon-button" (click)="changeType(true)"><img class="ghs-svg" src="/assets/images/left.svg" /></a>
-          <span class="attack-modifier"><img src="/assets/images/attackmodifier/{{ type }}.png" /></span>
-          <a class="icon-button" (click)="changeType()"><img class="ghs-svg" src="/assets/images/right.svg" /></a>
-          <a class="icon-button" (click)="newShuffle(type)"><img class="ghs-svg" src="/assets/images/shuffle.svg" /></a>
+          <a class="icon-button" (click)="newFirst(type)"><img class="ghs-svg" src="./assets/images/plus.svg" /></a>
+          <a class="icon-button" (click)="changeType(true)"><img class="ghs-svg" src="./assets/images/left.svg" /></a>
+          <span class="attack-modifier"><img src="./assets/images/attackmodifier/{{ type }}.png" /></span>
+          <a class="icon-button" (click)="changeType()"><img class="ghs-svg" src="./assets/images/right.svg" /></a>
+          <a class="icon-button" (click)="newShuffle(type)"><img class="ghs-svg" src="./assets/images/shuffle.svg" /></a>
         </div>
       }
 
       @if (edit && townGuard) {
         <div class="insert-menu">
-          <a class="icon-button" (click)="addModifier()"><img class="ghs-svg" src="/assets/images/plus.svg" /></a>
-          <a class="icon-button" (click)="changeType(true)"><img class="ghs-svg" src="/assets/images/left.svg" /></a>
+          <a class="icon-button" (click)="addModifier()"><img class="ghs-svg" src="./assets/images/plus.svg" /></a>
+          <a class="icon-button" (click)="changeType(true)"><img class="ghs-svg" src="./assets/images/left.svg" /></a>
           <span class="attack-modifier"
             ><ghs-attackmodifier
               class="drag-hidden"
@@ -203,8 +203,8 @@
             >
             </ghs-attackmodifier>
           </span>
-          <a class="icon-button" (click)="changeType()"><img class="ghs-svg" src="/assets/images/right.svg" /></a>
-          <a class="icon-button" (click)="addModifierShuffle()"><img class="ghs-svg" src="/assets/images/shuffle.svg" /></a>
+          <a class="icon-button" (click)="changeType()"><img class="ghs-svg" src="./assets/images/right.svg" /></a>
+          <a class="icon-button" (click)="addModifierShuffle()"><img class="ghs-svg" src="./assets/images/shuffle.svg" /></a>
         </div>
       }
 
@@ -217,7 +217,7 @@
           <div class="factions">
             @for (faction of gameManager.gh2eFactionUnlocks(); track faction) {
               <a class="faction" [ngClass]="{ active: faction == activeFaction }" (click)="toggleFaction(faction)">
-                <img class="ghs-svg" [src]="'/assets/images/gh2e/faction/' + faction + '.svg'" />
+                <img class="ghs-svg" [src]="'./assets/images/gh2e/faction/' + faction + '.svg'" />
               </a>
             }
           </div>
@@ -274,7 +274,7 @@
               </ghs-attackmodifier>
               @if (edit) {
                 <a class="button-remove" (click)="remove(index + deck.current + 1)">
-                  <img class="ghs-svg" src="/assets/images/minus.svg"
+                  <img class="ghs-svg" src="./assets/images/minus.svg"
                 /></a>
               }
               @if (edit) {
@@ -307,7 +307,7 @@
                 [bbIndex]="deck.bb ? (deck.current - index) % 3 : -1"
               ></ghs-attackmodifier>
               @if (edit) {
-                <a class="button-remove" (click)="remove(deck.current - index)"> <img class="ghs-svg" src="/assets/images/minus.svg" /></a>
+                <a class="button-remove" (click)="remove(deck.current - index)"> <img class="ghs-svg" src="./assets/images/minus.svg" /></a>
               }
               @if (edit) {
                 <div cdkDragHandle class="drag-handle"></div>
@@ -330,7 +330,7 @@
                   [townGuard]="townGuard"
                 ></ghs-attackmodifier>
                 @if (edit) {
-                  <a class="button-restore" (click)="restore(index)"> <img class="ghs-svg" src="/assets/images/plus.svg" /></a>
+                  <a class="button-restore" (click)="restore(index)"> <img class="ghs-svg" src="./assets/images/plus.svg" /></a>
                 }
                 @if (edit) {
                   <div cdkDragHandle class="drag-handle"></div>
@@ -344,13 +344,13 @@
     @if (bbTable) {
       <div class="bb-table">
         <div class="header">
-          <img class="ghs-svg" src="/assets/images/bb/attackmodifier/0.svg" />
+          <img class="ghs-svg" src="./assets/images/bb/attackmodifier/0.svg" />
         </div>
         <div class="header">
-          <img class="ghs-svg" src="/assets/images/bb/attackmodifier/1.svg" />
+          <img class="ghs-svg" src="./assets/images/bb/attackmodifier/1.svg" />
         </div>
         <div class="header">
-          <img class="ghs-svg" src="/assets/images/bb/attackmodifier/2.svg" />
+          <img class="ghs-svg" src="./assets/images/bb/attackmodifier/2.svg" />
         </div>
         @for (attackModifier of deck.cards | trackUUID; track attackModifier._trackUUID; let i = $index) {
           <div

@@ -75,7 +75,7 @@
             }
             @if (edit) {
               <a class="button-remove" (click)="remove(index + monster.ability + 1)">
-                <img class="ghs-svg" src="/assets/images/minus.svg"
+                <img class="ghs-svg" src="./assets/images/minus.svg"
               /></a>
             }
           </div>
@@ -107,7 +107,7 @@
             }
             @if (edit) {
               <a class="button-remove" (click)="remove(discardedCards.length - index - 1)">
-                <img class="ghs-svg" src="/assets/images/minus.svg"
+                <img class="ghs-svg" src="./assets/images/minus.svg"
               /></a>
             }
           </div>
@@ -126,7 +126,7 @@
             >
               <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true"> </ghs-ability>
               @if (edit) {
-                <a class="button-restore" (click)="restore(ability)"> <img class="ghs-svg" src="/assets/images/plus.svg" /></a>
+                <a class="button-restore" (click)="restore(ability)"> <img class="ghs-svg" src="./assets/images/plus.svg" /></a>
               }
             </div>
           }

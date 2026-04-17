@@ -17,7 +17,7 @@
             <div class="type {{ effectClasses }}" [ngClass]="{ 'new-style': newStyle, fh: settingsManager.settings.fhStyle }">
               <img
                 [src]="
-                  '/assets/images/attackmodifier/' +
+                  './assets/images/attackmodifier/' +
                   (defaultType &&
                   !townGuard &&
                   !csOak &&
@@ -101,26 +101,26 @@
           }
           @if (csOak) {
             <div class="type cs-oak">
-              <img src="/assets/images/attackmodifier/cs-oak.png" />
+              <img src="./assets/images/attackmodifier/cs-oak.png" />
             </div>
           }
           @if (imbue && (!attackModifier.effects || attackModifier.effects.length == 0)) {
             <div class="type imbue">
-              <img [src]="'/assets/images/attackmodifier/' + attackModifier.valueType + attackModifier.value + '.png'" />
+              <img [src]="'./assets/images/attackmodifier/' + attackModifier.valueType + attackModifier.value + '.png'" />
             </div>
           }
           @if (attackModifier.type == AttackModifierType.empower) {
             <div class="type empower">
-              <img src="/assets/images/attackmodifier/empower.png" />
+              <img src="./assets/images/attackmodifier/empower.png" />
             </div>
           }
           @if (attackModifier.type == AttackModifierType.enfeeble) {
             <div class="type enfeeble">
-              <img src="/assets/images/attackmodifier/enfeeble.png" />
+              <img src="./assets/images/attackmodifier/enfeeble.png" />
             </div>
           }
-          <img class="overlay custom" src="/assets/images/attackmodifier/overlays/custom.png" />
-          <img class="overlay custom-fh" src="/assets/images/attackmodifier/overlays/custom-fh.png" />
+          <img class="overlay custom" src="./assets/images/attackmodifier/overlays/custom.png" />
+          <img class="overlay custom-fh" src="./assets/images/attackmodifier/overlays/custom-fh.png" />
           @if (
             attackModifier.effects &&
             attackModifier.effects.length > 0 &&
@@ -136,7 +136,7 @@
             <img
               class="overlay"
               [ngClass]="{ side: newStyle }"
-              [src]="'/assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.type + '.png'"
+              [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.type + '.png'"
             />
           }
           @if (
@@ -149,7 +149,7 @@
             <img
               class="overlay side"
               [src]="
-                '/assets/images/attackmodifier/' +
+                './assets/images/attackmodifier/' +
                 (newStyle ? 'icons/' : 'overlays/') +
                 attackModifier.valueType +
                 attackModifier.value +
@@ -158,7 +158,7 @@
             />
           }
           @if (attackModifier.rolling) {
-            <img class="rolling" src="/assets/images/attackmodifier/rolling.svg" />
+            <img class="rolling" src="./assets/images/attackmodifier/rolling.svg" />
           }
           @if (
             ((!characterIcon && !ally) || (!attackModifier.character && attackModifier.type != AttackModifierType.curse)) &&
@@ -192,7 +192,7 @@
           }
           @if (imbue) {
             <span class="character-icon imbue-icon">
-              <img [src]="'/assets/images/attackmodifier/imbuement/' + attackModifier.type + '.svg'" />
+              <img [src]="'./assets/images/attackmodifier/imbuement/' + attackModifier.type + '.svg'" />
             </span>
           }
           @if (attackModifier.effects) {
@@ -229,12 +229,12 @@
           }
           @if (bbIndex > -1 && bbIndex < 3) {
             <div class="bb-index" [ngClass]="{ character: characterIcon }">
-              <img [src]="'/assets/images/bb/attackmodifier/' + bbIndex + '.svg'" />
+              <img [src]="'./assets/images/bb/attackmodifier/' + bbIndex + '.svg'" />
             </div>
           }
           @if (attackModifier.shuffle) {
             <span class="shuffle-icon">
-              <img class="svg-icon" src="/assets/images/shuffle.svg" />
+              <img class="svg-icon" src="./assets/images/shuffle.svg" />
             </span>
           }
         }
@@ -242,7 +242,7 @@
           <div class="type" [ngClass]="{ 'new-style': newStyle, fh: settingsManager.settings.fhStyle }">
             <img
               [src]="
-                '/assets/images/attackmodifier/town-guard/' +
+                './assets/images/attackmodifier/town-guard/' +
                 (attackModifier.type == AttackModifierType.townguard ? attackModifier.valueType : attackModifier.type) +
                 '.png'
               "
@@ -269,7 +269,7 @@
           }
           @if (townGuardEffectIcon) {
             <span class="town-guard-icon">
-              <img [src]="'/assets/images/action/custom/' + townGuardEffectIcon.value + '.svg'" />
+              <img [src]="'./assets/images/action/custom/' + townGuardEffectIcon.value + '.svg'" />
             </span>
           }
           @if (attackModifier.effects) {
@@ -295,7 +295,7 @@
             </div>
           }
           @if (attackModifier.rolling) {
-            <img class="rolling" src="/assets/images/attackmodifier/rolling.svg" />
+            <img class="rolling" src="./assets/images/attackmodifier/rolling.svg" />
           }
         }
       </div>

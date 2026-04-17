@@ -21,13 +21,13 @@
         <div class="text"><span class="placeholder" [ghs-label]="'data.battleGoals.' + battleGoal.cardId + '.text'"></span></div>
         <div class="checks">
           @for (check of [] | ghsRange: battleGoal.checks; track check) {
-            <img src="/assets/images/check.svg" />
+            <img src="./assets/images/check.svg" />
           }
         </div>
         <div class="card-id">
           {{ battleGoal.cardId }}
           @if (winterIcon) {
-            <img src="/assets/images/fh/battlegoals/winter.svg" />
+            <img src="./assets/images/fh/battlegoals/winter.svg" />
           }
         </div>
       }

@@ -24,7 +24,7 @@
     }
     @if (!marker && (!entity || !entity.marker)) {
       <span class="objective-icon" [ngClass]="{ 'active-border': objective.active }">
-        <img [src]="'/assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+        <img [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
       </span>
     }
   </a>
@@ -61,7 +61,7 @@
           <div class="title-container" ghs-pointer-input (singleClick)="openEntityMenu()">
             <div class="title">
               @if (entity.marker) {
-                <img class="icon" [src]="'/assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+                <img class="icon" [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
               }
               @if (objective.title) {
                 <span> {{ objective.title }}</span>
@@ -119,7 +119,7 @@
               <img
                 [ngClass]="{ damage: (objectiveData && objectiveData.trackDamage) || settingsManager.settings.damageHP }"
                 [src]="
-                  '/assets/images/' +
+                  './assets/images/' +
                   ((objectiveData && objectiveData.trackDamage) || settingsManager.settings.damageHP
                     ? 'action/damage.svg'
                     : 'status/health.svg')
@@ -167,7 +167,7 @@
                 >
                   <img
                     [src]="
-                      '/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'
+                      './assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'
                     "
                     [style.z-index]="index * 10 + entityCondition.value"
                   />
@@ -177,7 +177,11 @@
                         class="stack"
                         [style.z-index]="index * 10 + entityCondition.value - i - 1"
                         [src]="
-                          '/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'
+                          './assets/images' +
+                          (settingsManager.settings.fhStyle ? '/fh' : '') +
+                          '/condition/' +
+                          entityCondition.name +
+                          '.svg'
                         "
                       />
                     }
@@ -213,7 +217,7 @@
           <div class="title-container" ghs-pointer-input (singleClick)="openEntityMenu()">
             <div class="title">
               @if (objective.marker) {
-                <img class="icon" [src]="'/assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+                <img class="icon" [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
               }
               @if (objective.title) {
                 <span> {{ objective.title }}</span>
@@ -256,7 +260,7 @@
       <div class="short-menu">
         <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
         <a class="toggle-menu" ghs-pointer-input (singleClick)="shortMenu = !shortMenu">
-          <img class="ghs-svg" src="/assets/images/menu.svg" />
+          <img class="ghs-svg" src="./assets/images/menu.svg" />
         </a>
       </div>
     }
@@ -269,12 +273,12 @@
         [ghs-label]="'objective.addEntity'"
         [ghs-label-attribute]="'title'"
       >
-        <img class="ghs-svg" src="/assets/images/plus.svg" />
+        <img class="ghs-svg" src="./assets/images/plus.svg" />
       </a>
     </div>
 
     <div class="icon-container" (click)="openEntityMenu()">
-      <img [src]="'/assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+      <img [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
     </div>
   </div>
 </div>
@@ -287,7 +291,7 @@
     [entityAnimation]="nonDead == 0"
     (click)="openEntitiesMenu($event)"
   >
-    <img class="menu" src="/assets/images/up.svg" />
+    <img class="menu" src="./assets/images/up.svg" />
   </span>
   @if (nonDead > 1) {
     <div class="entities">

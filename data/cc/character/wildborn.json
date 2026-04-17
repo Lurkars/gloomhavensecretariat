@@ -1,8 +1,8 @@
 {
   "name": "wildborn",
   "characterClass": "orchid",
-  "iconUrl": "/assets/images/character/icons/cc-wildborn.svg",
-  "thumbnailUrl": "/assets/images/character/thumbnail/cc-wildborn.png",
+  "iconUrl": "./assets/images/character/icons/cc-wildborn.svg",
+  "thumbnailUrl": "./assets/images/character/thumbnail/cc-wildborn.png",
   "edition": "fh",
   "handSize": 10,
   "color": "#887192",

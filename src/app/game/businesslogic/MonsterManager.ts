@@ -44,7 +44,7 @@ export class MonsterManager {
     if (!monsterData.thumbnail) {
       monsterData.thumbnail = monsterData.edition + '-' + monsterData.name;
     }
-    return '/assets/images/monster/thumbnail/' + monsterData.thumbnail + '.png';
+    return './assets/images/monster/thumbnail/' + monsterData.thumbnail + '.png';
   }
 
   monsterArtwork(monsterData: MonsterData) {
@@ -52,7 +52,7 @@ export class MonsterManager {
       return this.monsterThumbnail(monsterData);
     }
     this.monsterThumbnail(monsterData);
-    return '/assets/artwork/monster/' + monsterData.thumbnail + '.png';
+    return './assets/artwork/monster/' + monsterData.thumbnail + '.png';
   }
 
   getStat(monster: Monster, type: MonsterType): MonsterStat {

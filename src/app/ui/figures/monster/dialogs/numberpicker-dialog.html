@@ -50,7 +50,7 @@
   }
   @if (!change && !automatic && (!entities || entities.length == 0) && !monster.bb) {
     <div class="summon-button" tabclick (click)="summon = !summon" [ngClass]="{ active: summon }">
-      <img class="summon" src="/assets/images/summons/{{ monster.summonColor }}.png" />
+      <img class="summon" src="./assets/images/summons/{{ monster.summonColor }}.png" />
     </div>
   }
 </div>

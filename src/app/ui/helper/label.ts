@@ -47,7 +47,7 @@ export const applyPlaceholder = function (
       if (type == 'condition' || type == 'immunity') {
         const condition = new Condition(split[2]);
         image = '<span class="condition-icon' + (type == 'immunity' ? ' immunity' : '') + '">';
-        image += '<img  src="/assets/images/' + (fh ? 'fh/' : '') + 'condition/' + condition.name + '.svg" class="icon">';
+        image += '<img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + condition.name + '.svg" class="icon">';
         if (!value && condition.types.includes(ConditionType.upgrade)) {
           value = 'X';
         }
@@ -65,7 +65,7 @@ export const applyPlaceholder = function (
       } else if (type == 'conditionIcon' || type == 'immunityIcon') {
         const condition = new Condition(split[2]);
         image = '<span class="condition-icon' + (type == 'immunityIcon' ? ' immunity' : '') + '">';
-        image += '<img  src="/assets/images/' + (fh ? 'fh/' : '') + 'condition/' + condition.name + '.svg" class="icon">';
+        image += '<img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + condition.name + '.svg" class="icon">';
         if (!value && condition.types.includes(ConditionType.upgrade)) {
           value = 'X';
         }
@@ -84,7 +84,7 @@ export const applyPlaceholder = function (
         split.splice(0, 1);
         const ghsSvg = ActionTypesIcons.includes(split[split.length - 1] as ActionType);
         image =
-          '<img  src="/assets/images/' + (fh ? 'fh/' : '') + split.join('/') + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
+          '<img  src="./assets/images/' + (fh ? 'fh/' : '') + split.join('/') + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
         replace =
           '&#8203;<span class="placeholder-action">' + (fh ? '&#8203;' : settingsManager.getLabel(label)) + image + value + '</span>';
       } else if (
@@ -97,7 +97,7 @@ export const applyPlaceholder = function (
         split.splice(0, 1);
         const ghsSvg = ActionTypesIcons.includes(split[split.length - 1] as ActionType);
         image =
-          '<img  src="/assets/images/' +
+          '<img  src="./assets/images/' +
           (fh ? 'fh/action/' : 'action/') +
           split[split.length - 1] +
           '.svg" class="icon' +
@@ -114,7 +114,7 @@ export const applyPlaceholder = function (
         } else {
           image = '<span class="element inline">';
         }
-        image += '<img src="/assets/images/' + (fh ? 'fh/' : '') + 'element/' + element + '.svg"></span>';
+        image += '<img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + element + '.svg"></span>';
         replace = image;
       } else if (type == 'elementHalf') {
         let consume: boolean = false;
@@ -127,11 +127,11 @@ export const applyPlaceholder = function (
           (fh ? ' fh' : '') +
           '"><span class="element-half-container' +
           (consume ? ' consume' : '') +
-          '"><span class="element-half"><img src="/assets/images/' +
+          '"><span class="element-half"><img src="./assets/images/' +
           (fh ? 'fh/' : '') +
           'element/' +
           elements[0] +
-          '.svg"></span><span class="element-half"><img src="/assets/images/' +
+          '.svg"></span><span class="element-half"><img src="./assets/images/' +
           (fh ? 'fh/' : '') +
           'element/' +
           elements[1] +
@@ -155,25 +155,25 @@ export const applyPlaceholder = function (
               (hex.y + 1) +
               ';grid-row-end:' +
               (hex.y + 1) +
-              '"><img src="/assets/images/action/hex/' +
+              '"><img src="./assets/images/action/hex/' +
               hex.type +
               '.svg"></span>';
           }
         });
         replace += '</span>';
       } else if (type == 'initiative' && split.length == 3) {
-        image = '<img class="ghs-svg" src="/assets/images/initiative.svg"></span>';
+        image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>';
         replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
       } else if (type == 'action' && split.length == 4) {
-        image = '<img  src="/assets/images/action/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
+        image = '<img  src="./assets/images/action/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-perk">' + image + value + '</span>';
       } else if (prefix == 'game' && type == 'items' && split.length == 4) {
-        image = '<img  src="/assets/images/items/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
+        image = '<img  src="./assets/images/items/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-item-slot">' + image + value + '</span>';
       } else if (prefix == 'game' && type == 'itemFh' && split.length == 3) {
         if (split[2] == 'random') {
           replace =
-            '<span class="placeholder-item-fh"><span class="value"><img src="/assets/images/fh/loot/random_item.svg"></span></span>';
+            '<span class="placeholder-item-fh"><span class="value"><img src="./assets/images/fh/loot/random_item.svg"></span></span>';
         } else {
           const itemId: number = +split[2];
           replace =
@@ -190,23 +190,23 @@ export const applyPlaceholder = function (
         if (value) {
           cardValue = '<span class="card-value">' + value + '</span>';
         }
-        image = '<img class="icon ghs-svg" src="/assets/images/action/card/' + card + '.svg">';
-        const cardOverlay = '<img class="card-overlay" src="/assets/images/action/card/overlay/' + card + '.svg">';
+        image = '<img class="icon ghs-svg" src="./assets/images/action/card/' + card + '.svg">';
+        const cardOverlay = '<img class="card-overlay" src="./assets/images/action/card/overlay/' + card + '.svg">';
         replace = '<span class="placeholder-effect placeholder-card">' + image + cardOverlay + cardValue + '</span>';
       } else if (type == 'attackmodifier' && split.length == 3 && split[2] != 'rolling') {
-        image = '<img  src="/assets/images' + (fh ? '/fh' : '') + '/attackmodifier/icons/' + split[2] + '.png" class="icon">';
+        image = '<img  src="./assets/images' + (fh ? '/fh' : '') + '/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
       } else if (type == 'attackmodifier' && split.length == 3 && split[2] == 'rolling') {
-        image = '<img  src="/assets/images/attackmodifier/rolling.svg" class="icon">';
+        image = '<img  src="./assets/images/attackmodifier/rolling.svg" class="icon">';
         replace = '<span class="condition-icon">' + image + '</span>';
       } else if (type == 'townGuardAM' && value) {
         replace = '<span class="placeholder-townguard-attackmodifier">' + value + '</span>';
         const townGuardAM = [...defaultTownGuardAttackModifier, ...additionalTownGuardAttackModifier].find((am) => am.id == value);
         if (townGuardAM) {
           const effect = townGuardAM.effects.find((effect) => effect.type == 'custom' && effect.icon);
-          const effectImage = effect != undefined ? '<img  src="/assets/images/action/custom/' + effect.value + '.svg" class="icon">' : '';
+          const effectImage = effect != undefined ? '<img  src="./assets/images/action/custom/' + effect.value + '.svg" class="icon">' : '';
           let amImage =
-            '<span class="townguard-attackmodifier"><img src="/assets/images/fh/attackmodifier/icons/' +
+            '<span class="townguard-attackmodifier"><img src="./assets/images/fh/attackmodifier/icons/' +
             townGuardAM.valueType +
             '.png" class="icon"><span class="value">' +
             (townGuardAM.value >= 0 ? '+' : '') +
@@ -214,11 +214,11 @@ export const applyPlaceholder = function (
             '</span></span>';
           if (townGuardAM.type == AttackModifierType.wreck || townGuardAM.type == AttackModifierType.success) {
             amImage =
-              '<span class="townguard-attackmodifier"><img src="/assets/images/fh/attackmodifier/icons/' +
+              '<span class="townguard-attackmodifier"><img src="./assets/images/fh/attackmodifier/icons/' +
               townGuardAM.type +
               '.png" class="icon"></span>';
           }
-          const rollingImage = townGuardAM.rolling ? '<img  src="/assets/images/attackmodifier/rolling.svg" class="icon">' : '';
+          const rollingImage = townGuardAM.rolling ? '<img  src="./assets/images/attackmodifier/rolling.svg" class="icon">' : '';
           replace = '<span class="placeholder-townguard-attackmodifier">' + effectImage + amImage + rollingImage + '</span>';
         }
       } else if (type == 'amDeck' && split.length == 3) {
@@ -229,10 +229,10 @@ export const applyPlaceholder = function (
         }
         replace = '<span class="placeholder-am-deck">' + image + '</span>';
       } else if (type == 'customAction' && value) {
-        const effectImage = '<img  src="/assets/images/action/custom/' + value + '.svg" class="icon ghs-svg">';
+        const effectImage = '<img  src="./assets/images/action/custom/' + value + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-custom-action">' + effectImage + '</span>';
       } else if (type == 'experience') {
-        image = '<img  src="/assets/images/experience.svg" class="icon ghs-svg">';
+        image = '<img  src="./assets/images/experience.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-experience">' + image + (value ? '<span class="value">' + value + '</span>' : '') + '</span>';
       } else if (type == 'characterIcon' && split.length == 3) {
         const characterName = split[2];
@@ -276,7 +276,7 @@ export const applyPlaceholder = function (
         let icon = gameManager.characterManager.characterIcon(characterName);
         let additionalToken = false;
         if (split.length > 3) {
-          icon = '/assets/images/character/token/' + characterName + '-' + split[3] + '.svg';
+          icon = './assets/images/character/token/' + characterName + '-' + split[3] + '.svg';
           additionalToken = true;
         }
         image = '<img src="' + icon + '">';
@@ -290,7 +290,7 @@ export const applyPlaceholder = function (
           '</span>';
       } else if (type == 'coloredToken' && split.length > 3) {
         const color = split[2];
-        const icon = '/assets/images/character/custom/' + split[3] + '.svg';
+        const icon = './assets/images/character/custom/' + split[3] + '.svg';
         image = '<img src="' + icon + '">';
         replace = '<span class="placeholder-character-token" style="--ghs-character-color:#' + color + '">' + image + '</span>';
       } else if (type == 'characterColored') {
@@ -309,7 +309,7 @@ export const applyPlaceholder = function (
         replace = '<span class="placeholder-monster-type ' + monsterType + '">' + split[3] + '</span>';
       } else if (type == 'mapMarker' && split.length == 3) {
         if (split[2] == 'element') {
-          image = '<img src="/assets/images/element/' + value + '.svg">';
+          image = '<img src="./assets/images/element/' + value + '.svg">';
           replace = '<span class="placeholder-element">' + image + '</span>';
         } else {
           replace = '<span class="map-marker">' + split[2] + '</span>';
@@ -319,38 +319,38 @@ export const applyPlaceholder = function (
       } else if (type == 'scenarioNumber') {
         replace = '<span class="scenario-number">' + value + '</span>';
       } else if (type == 'objectiveIcon' && split.length == 3) {
-        image = '<img  src="/assets/images/objective/' + split[2] + '.svg" class="icon">';
+        image = '<img  src="./assets/images/objective/' + split[2] + '.svg" class="icon">';
         replace = '<span class="objective-icon">' + image + '</span>';
       } else if (fh && type == 'target' && split.length == 2) {
-        image = '<img  src="/assets/images/fh/action/target.svg" class="icon ghs-svg">';
+        image = '<img  src="./assets/images/fh/action/target.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-action">' + image + '</span>';
       } else if (!fh && type == 'damage') {
         replace = '<span class="damage">' + settingsManager.getLabel('game.damage', [value]) + '</span>';
       } else if (fh && type == 'damage') {
-        image = '<img  src="/assets/images/fh/action/damage.svg" class="icon ghs-svg">';
+        image = '<img  src="./assets/images/fh/action/damage.svg" class="icon ghs-svg">';
         replace = '<span class="damage">&#8203;' + image + value + '</span>';
       } else if (type == 'loot' && split.length == 4) {
-        image = '<img  src="/assets/images/' + split[3] + '-player.svg" class="icon">';
+        image = '<img  src="./assets/images/' + split[3] + '-player.svg" class="icon">';
         replace = '<span class="placeholder-player">' + image + '</span>';
       } else if (type == 'resource' && split.length == 3) {
-        image = '<img  src="/assets/images/fh/loot/' + split[2] + '.svg" class="icon ghs-svg">';
+        image = '<img  src="./assets/images/fh/loot/' + split[2] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-resource">' + image + '</span>';
       } else if (type == 'section' && value) {
-        image = '<img src="/assets/images/fh/party/section.svg" class="icon ghs-svg">';
+        image = '<img src="./assets/images/fh/party/section.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-section">' + image + value + '</span>';
       } else if (type == 'gh2eFaction' && value) {
-        image = '<img src="/assets/images/gh2e/faction/' + value + '.svg" class="icon ghs-svg">';
+        image = '<img src="./assets/images/gh2e/faction/' + value + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-faction">' + image + '</span>';
       } else if (type == 'checkmark') {
-        replace = '<span class="placeholder-checkmark"><img src="/assets/images/check.svg" class="icon ghs-svg"></span>';
+        replace = '<span class="placeholder-checkmark"><img src="./assets/images/check.svg" class="icon ghs-svg"></span>';
       } else if (type == 'prosperity') {
-        replace = '<span class="placeholder-prosperity"><img src="/assets/images/gh2e/prosperity.svg" class="icon ghs-svg"></span>';
+        replace = '<span class="placeholder-prosperity"><img src="./assets/images/gh2e/prosperity.svg" class="icon ghs-svg"></span>';
       } else if (type == 'itemSlot' && value) {
         replace =
-          '<span class="placeholder-items-slot"><img src="/assets/images/items/slots/' + value + '.svg" class="icon ghs-svg"></span>';
+          '<span class="placeholder-items-slot"><img src="./assets/images/items/slots/' + value + '.svg" class="icon ghs-svg"></span>';
       } else if (type == 'bbAm' && split.length == 3) {
         replace =
-          '<span class="placeholder-bb-am"><img src="/assets/images/bb/attackmodifier/' + split[2] + '.svg" class="icon ghs-svg"></span>';
+          '<span class="placeholder-bb-am"><img src="./assets/images/bb/attackmodifier/' + split[2] + '.svg" class="icon ghs-svg"></span>';
       } else if (type == 'townGuardAm' && split.length == 3 && value) {
         const valueType = split[2];
         let valueSign = '';
@@ -363,16 +363,16 @@ export const applyPlaceholder = function (
         }
         replace = '<span class="placeholder-town-guard-am ' + split[2] + '">' + valueSign + value + '</span>';
       } else if (type == 'fhIcon' && value) {
-        image = '<img src="/assets/images/fh/icons/' + value + '.svg" class="icon ghs-svg">';
+        image = '<img src="./assets/images/fh/icons/' + value + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-fh-icon">' + image + '</span>';
       } else if (type == 'gameIcon' && value) {
-        image = '<img src="/assets/images/' + value + '.svg" class="icon ghs-svg">';
+        image = '<img src="./assets/images/' + value + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-game-icon">' + image + '</span>';
       } else if (type == 'statusIcon' && value) {
-        image = '<img src="/assets/images/status/' + value + '.svg" class="icon">';
+        image = '<img src="./assets/images/status/' + value + '.svg" class="icon">';
         replace = '<span class="placeholder-game-icon">' + image + '</span>';
       } else if (type == 'trait') {
-        image = '<img src="/assets/images/fh/character/traits/trait.svg" class="icon ghs-svg">';
+        image = '<img src="./assets/images/fh/character/traits/trait.svg" class="icon ghs-svg">';
         replace =
           '<span class="placeholder-trait">' +
           image +
@@ -381,16 +381,16 @@ export const applyPlaceholder = function (
       } else if (type == 'checkbox') {
         replace = '<span class="placeholder-checkbox"></span>';
       } else if (type == 'eventCard' && value) {
-        replace = '<span class="placeholder-action"><img src="/assets/images/eventcards/' + value + '.svg" class="icon ghs-svg"></span>';
+        replace = '<span class="placeholder-action"><img src="./assets/images/eventcards/' + value + '.svg" class="icon ghs-svg"></span>';
       } else if (type == 'eventCheckbox' && value) {
         replace = '<span class="event-checkbox">' + value + '</span>';
       } else if (type == 'valueSign' && value) {
         replace = '<span class="value-sign">' + (+value > -1 ? '+' : '') + value + '</span>';
       } else if (type == 'enhancement' && split.length == 3) {
         if (!fh || split[2] === 'any') {
-          image = '<img class="enhancement-icon" src="/assets/images/character/abilities/enhancements/circle.svg">';
+          image = '<img class="enhancement-icon" src="./assets/images/character/abilities/enhancements/circle.svg">';
         } else {
-          image = '<img class="enhancement-icon" src="/assets/images/fh/character/abilities/enhancements/' + split[2] + '.svg">';
+          image = '<img class="enhancement-icon" src="./assets/images/fh/character/abilities/enhancements/' + split[2] + '.svg">';
         }
         replace = '<span class="placeholder-enhancement">' + image + '</span>';
       } else if (type == 'tooltip' && value) {

@@ -136,7 +136,7 @@
               active: !editionConditions.includes(condition.name) && gameManager.game.conditions.includes(condition.name)
             }"
           >
-            <img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+            <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
           </span>
         </span>
       }
@@ -160,7 +160,7 @@
               active: !editionConditions.includes(condition.name) && gameManager.game.conditions.includes(condition.name)
             }"
           >
-            <img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+            <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
           </span>
         </span>
       }
@@ -173,7 +173,7 @@
         <span [ghs-label]="'campaign.campaignManagement'"></span>
       </label>
       @if (!!gameManager.game.scenario) {
-        <img src="/assets/images/hint.svg" class="hint-trigger ghs-svg" />
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
         <span class="hint">
           <span class="text" [ghs-label]="'campaign.campaignManagement.hint'"></span>
         </span>

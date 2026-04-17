@@ -81,7 +81,7 @@
 
           &::before {
             background-position: top;
-            // background-image: url('/assets/images/monster/abilities/monster-ability-front-bottom.png');
+            // background-image: url('../../../../../assets/images/monster/abilities/monster-ability-front-bottom.png');
           }
 
           .add,
@@ -387,7 +387,7 @@
             justify-content: center;
             align-items: center;
             background-color: var(--ghs-ability-color);
-            mask-image: url('/assets/images/level.svg');
+            mask-image: url('../../../../../assets/images/level.svg');
             mask-size: 115% 170%;
             mask-repeat: no-repeat;
             mask-position: 60% 66%;
@@ -442,7 +442,7 @@
                 justify-content: flex-end;
                 font-size: 1em;
                 background-color: var(--ghs-color-white);
-                mask-image: url('/assets/images/experience.svg');
+                mask-image: url('../../../../../assets/images/experience.svg');
                 mask-size: 100% 100%;
                 position: relative;
                 width: 3.5em;

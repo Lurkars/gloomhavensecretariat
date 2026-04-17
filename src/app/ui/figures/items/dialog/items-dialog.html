@@ -16,7 +16,7 @@
       <div class="resources">
         @if (!!character) {
           <span class="resource gold"
-            ><img [src]="'/assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'loot.svg'" />{{
+            ><img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'loot.svg'" />{{
               character.progress.gold
             }}</span
           >
@@ -26,13 +26,13 @@
             @for (type of lootTypes; track type) {
               @if (settingsManager.settings.fhShareResources && gameManager.game.party.loot[type] && (!!character || craftOnly)) {
                 <span class="resource" [ngClass]="type">
-                  <img [src]="'/assets/images/fh/loot/' + type + '.svg'" />
+                  <img [src]="'./assets/images/fh/loot/' + type + '.svg'" />
                   {{ gameManager.game.party.loot[type] }}
                 </span>
               }
               @if (!!character && !settingsManager.settings.fhShareResources && character.progress.loot[type]) {
                 <span class="resource" [ngClass]="type">
-                  <img [src]="'/assets/images/fh/loot/' + type + '.svg'" />
+                  <img [src]="'./assets/images/fh/loot/' + type + '.svg'" />
                   {{ character.progress.loot[type] }}
                 </span>
               }
@@ -46,7 +46,7 @@
             (singleClick)="brewDialog()"
             (doubleClick)="brewDialog(true)"
             [ngClass]="{ disabled: gameManager.itemManager.brewingDisabled() }"
-            ><img src="/assets/images/fh/brewing.svg" /><span [ghs-label]="'game.items.brewing'"></span
+            ><img src="./assets/images/fh/brewing.svg" /><span [ghs-label]="'game.items.brewing'"></span
           ></a>
         }
       </div>
@@ -56,10 +56,10 @@
       ) {
         <div class="shop-disabled">
           @if (gameManager.itemManager.buyingDisabled() && !!character && !character.tags.includes('new-character')) {
-            <img src="/assets/images/close.svg" /> <span [ghs-label]="'game.items.shop.buyingDisabled'"></span>
+            <img src="./assets/images/close.svg" /> <span [ghs-label]="'game.items.shop.buyingDisabled'"></span>
           }
           @if (gameManager.itemManager.craftingDisabled()) {
-            <img src="/assets/images/close.svg" /> <span [ghs-label]="'game.items.shop.craftingDisabled'"></span>
+            <img src="./assets/images/close.svg" /> <span [ghs-label]="'game.items.shop.craftingDisabled'"></span>
           }
         </div>
       }
@@ -72,7 +72,7 @@
               (singleClick)="toggleItemSlotFilter(slot)"
               (doubleClick)="toggleItemSlotFilter(slot, true)"
             >
-              <img class="ghs-svg" [src]="'/assets/images/items/slots/' + slot + '.svg'" />
+              <img class="ghs-svg" [src]="'./assets/images/items/slots/' + slot + '.svg'" />
             </label>
           }
           @if (itemSlotUndefined) {
@@ -82,7 +82,7 @@
               (singleClick)="toggleItemSlotFilter('undefined')"
               (doubleClick)="toggleItemSlotFilter('undefined', true)"
             >
-              <img class="ghs-svg" src="/assets/images/unknown.svg" />
+              <img class="ghs-svg" src="./assets/images/unknown.svg" />
             </label>
           }
         </div>
@@ -216,7 +216,7 @@
     <div class="item-list">
       @for (itemData of items | trackUUID; track itemData._trackUUID; let i = $index) {
         <div class="item">
-          <img class="open-item" src="/assets/images/fullscreen.svg" ghs-pointer-input (singleClick)="openItemDialog(itemData)" />
+          <img class="open-item" src="./assets/images/fullscreen.svg" ghs-pointer-input (singleClick)="openItemDialog(itemData)" />
           @if (!!character) {
             <ghs-item
               [item]="itemData"
@@ -244,7 +244,7 @@
             ></ghs-item>
           }
           @if (!all && unlocked(itemData)) {
-            <a class="button-remove" (click)="removeUnlocked(itemData)"> <img class="ghs-svg" src="/assets/images/minus.svg" /></a>
+            <a class="button-remove" (click)="removeUnlocked(itemData)"> <img class="ghs-svg" src="./assets/images/minus.svg" /></a>
           }
           @if (!!character && gameManager.itemManager.owned(itemData, character)) {
             <a
@@ -254,7 +254,7 @@
               (singleClick)="toggleEquippedItem(itemData)"
               (doubleClick)="toggleEquippedItem(itemData, true)"
             >
-              <img class="ghs-svg" src="/assets/images/check.svg"
+              <img class="ghs-svg" src="./assets/images/check.svg"
             /></a>
           }
         </div>
@@ -272,7 +272,7 @@
             <span class="overlay-text" [ghs-label]="'game.items.unlock'"></span>
           }
           @if (!all && unlocked(unlock)) {
-            <a class="button-remove" (click)="removeUnlocked(unlock)"> <img class="ghs-svg" src="/assets/images/minus.svg" /></a>
+            <a class="button-remove" (click)="removeUnlocked(unlock)"> <img class="ghs-svg" src="./assets/images/minus.svg" /></a>
           }
         </div>
       }

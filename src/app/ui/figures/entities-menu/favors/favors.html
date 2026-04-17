@@ -35,7 +35,7 @@
           (doubleClick)="selectFavor(favor, true)"
         ></label>
         <div class="hint-container">
-          <img src="/assets/images/hint.svg" class="hint-trigger ghs-svg" />
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
           <span class="hint">
             <div class="text">
               <span [ghs-label]="'game.data.favors.' + favor.edition + '.' + favor.name + '.text'"></span>
@@ -45,7 +45,7 @@
         @if (settingsManager.settings.fhTrialsApply) {
           <div class="hint-container">
             <img
-              src="/assets/images/automation.svg"
+              src="./assets/images/automation.svg"
               class="hint-trigger automation ghs-svg"
               [ngClass]="{ none: !favor.automation, manual: favor.automation == 'manual' }"
             />
@@ -62,7 +62,7 @@
         <div class="checks">
           @for (check of [] | ghsRange: activeFavors[i]; track check) {
             <span class="check" ghs-pointer-input (singleClick)="unselectFavor(favor)" (doubleClick)="unselectFavor(favor, true)">
-              <img src="/assets/images/check.svg" class="ghs-svg" />
+              <img src="./assets/images/check.svg" class="ghs-svg" />
             </span>
           }
         </div>

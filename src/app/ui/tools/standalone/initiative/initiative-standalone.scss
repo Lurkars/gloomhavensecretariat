@@ -32,7 +32,7 @@
       background-position: center;
       background-size: 100% auto;
       background-repeat: no-repeat;
-      background-image: url('/assets/images/character/token.png');
+      background-image: url('../../../../../assets/images/character/token.png');
       margin: calc(var(--ghs-unit) * 1);
       cursor: pointer;
       filter: grayscale(0.5) brightness(0.5);
@@ -175,7 +175,7 @@
   }
 
   &.fh .characters .character {
-    background-image: url('/assets/images/fh/character/token.png');
+    background-image: url('../../../../../assets/images/fh/character/token.png');
 
     img {
       filter: brightness(1.3);

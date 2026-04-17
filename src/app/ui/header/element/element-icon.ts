@@ -26,7 +26,7 @@ export class ElementIconComponent implements OnInit {
       this.element.state = ElementState.strong;
     }
 
-    fetch('/assets/images/element/' + this.element.type + '.svg')
+    fetch('./assets/images/element/' + this.element.type + '.svg')
       .then((response) => {
         return response.text();
       })
@@ -34,7 +34,7 @@ export class ElementIconComponent implements OnInit {
         this.svg = this.sanitizer.bypassSecurityTrustHtml(data);
       })
       .catch(() => {
-        console.error('Invalid src: ' + '/assets/images/element/' + this.element.type + '.svg');
+        console.error('Invalid src: ' + './assets/images/element/' + this.element.type + '.svg');
       });
   }
 }

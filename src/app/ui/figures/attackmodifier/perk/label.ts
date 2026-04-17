@@ -115,7 +115,7 @@ export class PerkLabelComponent implements OnInit {
 
     if (!settingsManager.settings.fhStyle && attackModifier.rolling) {
       html +=
-        '<span class="attack-modifier-effect rolling">&zwj;<img class="action-icon sw" src="/assets/images/attackmodifier/rolling.svg"></span>';
+        '<span class="attack-modifier-effect rolling">&zwj;<img class="action-icon sw" src="./assets/images/attackmodifier/rolling.svg"></span>';
     }
 
     if (!attackModifier.rolling || attackModifier.type != AttackModifierType.plus0) {
@@ -124,7 +124,7 @@ export class PerkLabelComponent implements OnInit {
       } else if (attackModifier.type != AttackModifierType.null && attackModifier.valueType == AttackModifierValueType.multiply) {
         html += '<span class="attack-modifier-icon' + (attackModifier.value > 9 ? ' small' : '') + '">' + attackModifier.value + 'x</span>';
       } else if (attackModifier.type == AttackModifierType.null) {
-        html += '<span class="attack-modifier-icon">&zwj;<img class="null" src="/assets/images/attackmodifier/null.svg"></span>';
+        html += '<span class="attack-modifier-icon">&zwj;<img class="null" src="./assets/images/attackmodifier/null.svg"></span>';
       } else if (attackModifier.type == AttackModifierType.plusX) {
         html += '<span class="attack-modifier-icon">+X</span>';
       } else {
@@ -148,12 +148,12 @@ export class PerkLabelComponent implements OnInit {
     }
 
     if (attackModifier.shuffle && attackModifier.type != AttackModifierType.null) {
-      html += '<span class="attack-modifier-effect shuffle">&zwj;<img class="action-icon sw" src="/assets/images/shuffle.svg"></span>';
+      html += '<span class="attack-modifier-effect shuffle">&zwj;<img class="action-icon sw" src="./assets/images/shuffle.svg"></span>';
     }
 
     if (settingsManager.settings.fhStyle && attackModifier.rolling) {
       html +=
-        '<span class="attack-modifier-effect rolling">&zwj;<img class="action-icon sw" src="/assets/images/attackmodifier/rolling.svg"></span>';
+        '<span class="attack-modifier-effect rolling">&zwj;<img class="action-icon sw" src="./assets/images/attackmodifier/rolling.svg"></span>';
     }
 
     html += '</span>';
@@ -173,7 +173,7 @@ export class PerkLabelComponent implements OnInit {
         html +=
           '<span class="attack-modifier-effect condition">' +
           (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.condition.' + condition)) +
-          '<img class="action-icon sw" src="/assets/images/' +
+          '<img class="action-icon sw" src="./assets/images/' +
           (settingsManager.settings.fhStyle ? 'fh/' : '') +
           'condition/' +
           condition +
@@ -185,7 +185,7 @@ export class PerkLabelComponent implements OnInit {
         break;
       case AttackModifierEffectType.element:
         html +=
-          '<span class="attack-modifier-effect element"><img class="action-icon sw" src="/assets/images/' +
+          '<span class="attack-modifier-effect element"><img class="action-icon sw" src="./assets/images/' +
           (settingsManager.settings.fhStyle ? 'fh/' : '') +
           'element/' +
           effect.value +
@@ -196,11 +196,11 @@ export class PerkLabelComponent implements OnInit {
         html +=
           '<span class="attack-modifier-effect element-half-placeholder' +
           (settingsManager.settings.fhStyle ? ' fh' : '') +
-          '"><span class="element-half-container"><span class="element-half"><img src="/assets/images/' +
+          '"><span class="element-half-container"><span class="element-half"><img src="./assets/images/' +
           (settingsManager.settings.fhStyle ? 'fh/' : '') +
           'element/' +
           elements[0] +
-          '.svg"></span><span class="element-half"><img src="/assets/images/' +
+          '.svg"></span><span class="element-half"><img src="./assets/images/' +
           (settingsManager.settings.fhStyle ? 'fh/' : '') +
           'element/' +
           elements[1] +
@@ -208,7 +208,7 @@ export class PerkLabelComponent implements OnInit {
         break;
       case AttackModifierEffectType.elementConsume:
         html +=
-          '<span class="attack-modifier-effect element consume"><img class="action-icon sw" src="/assets/images/' +
+          '<span class="attack-modifier-effect element consume"><img class="action-icon sw" src="./assets/images/' +
           (settingsManager.settings.fhStyle ? 'fh/' : '') +
           'element/' +
           effect.value +
@@ -230,14 +230,14 @@ export class PerkLabelComponent implements OnInit {
           html +=
             '<span class="placeholder attack-modifier-effect target">' +
             value +
-            '<img class="action-icon" src="/assets/images/fh/attackmodifier/target.svg"></span>';
+            '<img class="action-icon" src="./assets/images/fh/attackmodifier/target.svg"></span>';
         } else {
           html +=
             '<span class="placeholder attack-modifier-effect target">' +
             settingsManager.getLabel(+effect.value <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [
               effect.value + ''
             ]) +
-            '<img class="action-icon" src="/assets/images/attackmodifier/target.svg"></span>';
+            '<img class="action-icon" src="./assets/images/attackmodifier/target.svg"></span>';
         }
         break;
       case AttackModifierEffectType.specialTarget:
@@ -338,7 +338,7 @@ export class PerkLabelComponent implements OnInit {
           effect.type +
           '">' +
           (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.action.' + effect.type)) +
-          '<img  class="action-icon" src="/assets/images/' +
+          '<img  class="action-icon" src="./assets/images/' +
           (settingsManager.settings.fhStyle ? 'fh/' : '') +
           'action/' +
           effect.type +

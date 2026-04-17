@@ -34,7 +34,7 @@
           />
           <span [ghs-label]="'data.buildings.garden.plots.automated'"></span>
         </label>
-        <img src="/assets/images/hint.svg" class="hint-trigger ghs-svg" />
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
         <span class="hint">
           <span class="text" [ghs-label]="'data.buildings.garden.plots.automated.hint'"></span>
         </span>
@@ -54,7 +54,7 @@
           (doubleClick)="setActive(herb, true)"
           [ngClass]="{ active: activeHerb == herb, disabled: (activeHerb != herb && !resources[herb]) || garden.flipped }"
         >
-          <img class="ghs-svg" [src]="'/assets/images/fh/loot/' + herb + '.svg'" />
+          <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herb + '.svg'" />
           <span class="value">{{ resources[herb] }}</span>
         </a>
       }

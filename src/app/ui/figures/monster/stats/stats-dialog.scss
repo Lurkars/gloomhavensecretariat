@@ -46,7 +46,7 @@
       position: sticky;
       top: 0;
       font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
-      background-image: url('/assets/images/dialog_background.png');
+      background-image: url('../../../../../assets/images/dialog_background.png');
       z-index: 2;
       text-align: center;
       width: 100%;
@@ -54,11 +54,11 @@
     }
 
     &.fh .title {
-      background-image: url('/assets/images/fh/dialog_background_fh.png');
+      background-image: url('../../../../../assets/images/fh/dialog_background_fh.png');
     }
 
     &.modern .title {
-      background-image: url('/assets/images/modern/dialog_background_modern.png');
+      background-image: url('../../../../../assets/images/modern/dialog_background_modern.png');
     }
 
     .stat-changes {

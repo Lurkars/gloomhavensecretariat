@@ -52,7 +52,7 @@
     @if (!levelToPick) {
       <img
         class="enhancement"
-        src="/assets/images/character/enhancements.svg"
+        src="./assets/images/character/enhancements.svg"
         ghs-pointer-input
         (singleClick)="toggleEnhanced()"
         (doubleClick)="openEnhancementDialog()"
@@ -94,7 +94,7 @@
           @if (!deck) {
             <img
               class="deck"
-              src="/assets/images/character/deck.svg"
+              src="./assets/images/character/deck.svg"
               ghs-pointer-input
               (doubleClick)="toggleDeck(ability, true)"
               [ghs-tooltip]="

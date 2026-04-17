@@ -1207,7 +1207,7 @@
       "treasures": {
         "": "Tesoros",
         "rewards": {
-          "battleGoal": "Obtén {0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\">",
+          "battleGoal": "Obtén {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
           "calendarSection": "añade %data.section:{0}% in %number.{1}% semanas",
           "campaignSticker": "Adquiere la pegatina de campaña \"{0}\"",
           "condition": "adquiere {0}",
@@ -1218,10 +1218,10 @@
             "road": "Añade el Evento de Camino {0} a su mazo"
           },
           "experience": "Obtén {0} experiencia",
-          "experienceFh": "Obtén {0} <img class=\"icon ghs-svg\" src=\"/assets/images/experience.svg\">",
+          "experienceFh": "Obtén {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
           "goal": "Objetivo",
           "gold": "Obtén {0} oro",
-          "goldFh": "Obtén {0} <img class=\"icon ghs-svg\" src=\"/assets/images/fh/loot.svg\">",
+          "goldFh": "Obtén {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "Realiza \"Curación {0}, Personal\"",
           "item": "Obtén {1} ({0})",
           "itemBlueprint": "Obtén {1} diseño %game.itemFh.{0}%",
@@ -1880,10 +1880,10 @@
         "": "Calendario",
         "next": "Haz pasar el tiempo en el calendario a la semana {0}",
         "section": "Abre %data.section:{0}% (aplicado automáticamente)",
-        "summer": "Nueva estación: Verano <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/summer.svg\">",
-        "winter": "Nueva estación: Invierno <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/winter.svg\">"
+        "summer": "Nueva estación: Verano <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
+        "winter": "Nueva estación: Invierno <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
       },
-      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\"> cada personaje",
+      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> cada personaje",
       "bonus": "Bonificaciones",
       "calendarSection": {
         "": "Enlaces de secciones",
@@ -2161,7 +2161,7 @@
       },
       "conclusionWarning": {
         "": "¡Falta la solución!",
-        "hint": "Parece que este escenario ha finalizado sin una conclusión. Esto puede hacer que se pierdan recompensas y desbloqueos. Las secciones de conclusión están marcadas con un icono <img class=\"icon ghs-svg\" src=\"/assets/images/scenario/conclusion.svg\">."
+        "hint": "Parece que este escenario ha finalizado sin una conclusión. Esto puede hacer que se pierdan recompensas y desbloqueos. Las secciones de conclusión están marcadas con un icono <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\">."
       },
       "forcedLinks": "%scenario.summary.links% (obligatorio)",
       "gold": "Oro",

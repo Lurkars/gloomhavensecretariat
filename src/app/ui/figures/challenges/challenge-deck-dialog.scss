@@ -117,7 +117,7 @@
       .title {
         position: sticky;
         top: 0;
-        background-image: url('/assets/images/dialog_background.png');
+        background-image: url('../../../../assets/images/dialog_background.png');
         display: none;
         justify-content: center;
         align-items: center;
@@ -262,7 +262,7 @@
       .finished,
       .removed {
         .title {
-          background-image: url('/assets/images/fh/dialog_background_fh.png');
+          background-image: url('../../../../assets/images/fh/dialog_background_fh.png');
         }
       }
     }
@@ -273,7 +273,7 @@
       .finished,
       .removed {
         .title {
-          background-image: url('/assets/images/modern/dialog_background_modern.png');
+          background-image: url('../../../../assets/images/modern/dialog_background_modern.png');
         }
       }
     }

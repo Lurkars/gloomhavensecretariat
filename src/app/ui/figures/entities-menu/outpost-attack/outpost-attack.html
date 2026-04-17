@@ -3,9 +3,9 @@
   [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }"
 >
   <div class="header">
-    <img class="party-sheet" (click)="partySheet()" src="/assets/images/sheet.svg" [ghs-tooltip]="'party.outpostAttack.sheet'" />
+    <img class="party-sheet" (click)="partySheet()" src="./assets/images/sheet.svg" [ghs-tooltip]="'party.outpostAttack.sheet'" />
 
-    <img class="world-map" (click)="worldMap()" src="/assets/images/map.svg" [ghs-tooltip]="'party.outpostAttack.map'" />
+    <img class="world-map" (click)="worldMap()" src="./assets/images/map.svg" [ghs-tooltip]="'party.outpostAttack.map'" />
   </div>
 
   <div class="attack">
@@ -67,11 +67,11 @@
         <span [ghs-label]="'party.outpostAttack.filter.desc'"></span>
       </label>
       <a (click)="randomize()">
-        <img class="ghs-svg" src="/assets/images/random.svg" />
+        <img class="ghs-svg" src="./assets/images/random.svg" />
         <span [ghs-label]="'party.outpostAttack.filter.randomize'"></span>
       </a>
       <a ghs-pointer-input (singleClick)="worldMap(true)" (doubleClick)="resetDistance()">
-        <img class="ghs-svg" src="/assets/images/fh/buildings/distance.svg" />
+        <img class="ghs-svg" src="./assets/images/fh/buildings/distance.svg" />
         <span [ghs-label]="'party.outpostAttack.filter.distance'"></span>
       </a>
     </div>
@@ -81,7 +81,7 @@
     @if (barracks) {
       @for (soldier of [] | ghsRange: gameManager.game.party.soldiers; track soldier) {
         <div class="soldier" (click)="toggleSoldier(soldier + 1)">
-          <img src="/assets/images/fh/party/soldier.svg" />
+          <img src="./assets/images/fh/party/soldier.svg" />
           <div class="check" [ngClass]="{ checked: soldiers >= soldier + 1 }"></div>
         </div>
       }
@@ -89,12 +89,12 @@
 
     @if (factor == 'advantage') {
       <div class="factor" [ghs-tooltip]="'party.outpostAttack.advantage'">
-        <img src="/assets/images/fh/condition/strengthen.svg" />
+        <img src="./assets/images/fh/condition/strengthen.svg" />
       </div>
     }
     @if (factor == 'disadvantage') {
       <div class="factor" [ghs-tooltip]="'party.outpostAttack.disadvantage'">
-        <img src="/assets/images/fh/condition/muddle.svg" />
+        <img src="./assets/images/fh/condition/muddle.svg" />
       </div>
     }
   </div>
@@ -178,13 +178,13 @@
             >
               <td class="drag-handle" cdkDragHandle>
                 <a class="button">
-                  <img class="ghs-svg" src="/assets/images/menu.svg" />
+                  <img class="ghs-svg" src="./assets/images/menu.svg" />
                 </a>
               </td>
               <td class="target">
                 <span>
                   @if (i == attacks && attack.targetNumber) {
-                    <img class="ghs-svg" src="/assets/images/attackmodifier/target.svg" />
+                    <img class="ghs-svg" src="./assets/images/attackmodifier/target.svg" />
                   }
                 </span>
               </td>
@@ -202,18 +202,18 @@
               <td class="state">
                 @if (building.model.state == 'damaged') {
                   <span class="damaged" [ghs-tooltip]="'party.outpostAttack.buildings.damaged'">
-                    <img class="ghs-svg" src="/assets/images/fh/buildings/damaged.svg" />
+                    <img class="ghs-svg" src="./assets/images/fh/buildings/damaged.svg" />
                   </span>
                 }
                 @if (building.model.state == 'wrecked') {
                   <span class="wrecked" [ghs-tooltip]="'party.outpostAttack.buildings.wrecked'">
-                    <img class="ghs-svg" src="/assets/images/fh/buildings/wrecked.svg" />
+                    <img class="ghs-svg" src="./assets/images/fh/buildings/wrecked.svg" />
                   </span>
                 }
               </td>
               @if (attack.target && attack.target.distance) {
                 <td class="distance">
-                  <img class="ghs-svg" src="/assets/images/fh/buildings/distance.svg" />
+                  <img class="ghs-svg" src="./assets/images/fh/buildings/distance.svg" />
                   {{ targetDistance(building) | ghsFloor }}
                 </td>
               }
@@ -239,7 +239,7 @@
             <tr cdkDrag>
               <td class="drag-handle" cdkDragHandle>
                 <a class="button">
-                  <img class="ghs-svg" src="/assets/images/menu.svg" />
+                  <img class="ghs-svg" src="./assets/images/menu.svg" />
                 </a>
               </td>
               <td class="target"></td>
@@ -257,12 +257,12 @@
               <td class="state">
                 @if (building.model.state == 'damaged') {
                   <span [ghs-tooltip]="'party.outpostAttack.buildings.damaged'">
-                    <img class="ghs-svg" src="/assets/images/fh/buildings/damaged.svg" />
+                    <img class="ghs-svg" src="./assets/images/fh/buildings/damaged.svg" />
                   </span>
                 }
                 @if (building.model.state == 'wrecked') {
                   <span [ghs-tooltip]="'party.outpostAttack.buildings.wrecked'">
-                    <img class="ghs-svg" src="/assets/images/fh/buildings/wrecked.svg" />
+                    <img class="ghs-svg" src="./assets/images/fh/buildings/wrecked.svg" />
                   </span>
                 }
               </td>

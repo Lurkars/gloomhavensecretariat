@@ -88,13 +88,13 @@
                     (click)="toggleApplyConditionsExclude(condition.name)"
                   >
                     <img
-                      [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'"
+                      [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'"
                     />
                     @if (condition.types.includes(ConditionType.value)) {
                       <span class="value">X</span>
                     }
                   </div>
-                  <img src="/assets/images/hint.svg" class="hint-trigger ghs-svg" />
+                  <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
                   <span class="hint above" [ngClass]="{ right: i > 2 }">
                     <span class="text" [ghs-label]="'settings.applyConditions.hint.' + condition.name"></span>
                   </span>
@@ -124,13 +124,13 @@
                     (click)="toggleActiveApplyConditionsExclude(condition.name)"
                   >
                     <img
-                      [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'"
+                      [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'"
                     />
                     @if (condition.types.includes(ConditionType.value)) {
                       <span class="value">X</span>
                     }
                   </div>
-                  <img src="/assets/images/hint.svg" class="hint-trigger ghs-svg" />
+                  <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
                   <span class="hint above" [ngClass]="{ right: i > 2 }">
                     <span class="text" [ghs-label]="'settings.activeApplyConditions.hint.' + condition.name"></span>
                   </span>
@@ -147,7 +147,7 @@
           >
             <div class="hint-container inline">
               <label [ghs-label]="'settings.activeApplyConditions.auto'"></label>
-              <img src="/assets/images/hint.svg" class="hint-trigger ghs-svg" />
+              <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
               <span class="hint above">
                 <span class="text" [ghs-label]="'settings.activeApplyConditions.auto.hint'"></span>
               </span>
@@ -168,13 +168,15 @@
                       (click)="toggleActiveApplyConditionsAuto(condition.name)"
                     >
                       <img
-                        [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'"
+                        [src]="
+                          './assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'
+                        "
                       />
                       @if (condition.types.includes(ConditionType.value)) {
                         <span class="value">X</span>
                       }
                     </div>
-                    <img src="/assets/images/hint.svg" class="hint-trigger ghs-svg" />
+                    <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
                     <span class="hint above" [ngClass]="{ right: i > 2 }">
                       <span class="text" [ghs-label]="'settings.activeApplyConditions.auto.hint.' + condition.name"></span>
                     </span>
@@ -511,7 +513,7 @@
               [originY]="'top'"
               [overlayY]="'bottom'"
             >
-              <img class="ghs-svg" src="/assets/images/hint.svg" />&nbsp;
+              <img class="ghs-svg" src="./assets/images/hint.svg" />&nbsp;
               <span [ghs-label]="'settings.locale.help'"></span>
             </a>
           </div>

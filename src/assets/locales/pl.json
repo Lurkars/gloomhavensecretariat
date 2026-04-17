@@ -1219,7 +1219,7 @@
       "treasures": {
         "": "Skarby",
         "rewards": {
-          "battleGoal": "zyskaj {0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\">",
+          "battleGoal": "zyskaj {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
           "calendarSection": "dodaj %data.section:{0}% za %number.{1}% tygodni",
           "campaignSticker": "zyskaj naklejkę kampanii „{0}”",
           "condition": "zyskaj {0}",
@@ -1230,10 +1230,10 @@
             "road": "dodaj Wydarzenie Drogowe {0} do talii"
           },
           "experience": "zyskaj {0} doświadczenia",
-          "experienceFh": "zyskaj {0} <img class=\"icon ghs-svg\" src=\"/assets/images/experience.svg\">",
+          "experienceFh": "zyskaj {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
           "goal": "Cel",
           "gold": "zyskaj {0} złota",
-          "goldFh": "zyskaj {0} <img class=\"icon ghs-svg\" src=\"/assets/images/fh/loot.svg\">",
+          "goldFh": "zyskaj {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "wykonaj „Leczenie {0}, na siebie”",
           "item": "zyskaj {1} ({0})",
           "itemBlueprint": "zyskaj {1} schemat %game.itemFh.{0}%",
@@ -1909,10 +1909,10 @@
         "": "Kalendarz",
         "next": "Automatycznie przenieś czas kalendarza do tygodnia {0}",
         "section": "Otwórz %data.section:{0}% (zastosowano automatycznie)",
-        "summer": "Nowy sezon: Lato <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/summer.svg\">",
-        "winter": "Nowy sezon: Zima <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/winter.svg\">"
+        "summer": "Nowy sezon: Lato <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
+        "winter": "Nowy sezon: Zima <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
       },
-      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\"> każdy",
+      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> każdy",
       "bonus": "Premia",
       "calendarSection": {
         "": "Połączenia sekcji",
@@ -2192,7 +2192,7 @@
       },
       "conclusionWarning": {
         "": "Brakuje zakończenia!",
-        "hint": "Wygląda na to, że scenariusz został zakończony bez sekcji zakończenia. Może to spowodować brak nagród i odblokowań. Sekcje zakończeń są oznaczone ikoną <img class=\"icon ghs-svg\" src=\"/assets/images/scenario/conclusion.svg\">."
+        "hint": "Wygląda na to, że scenariusz został zakończony bez sekcji zakończenia. Może to spowodować brak nagród i odblokowań. Sekcje zakończeń są oznaczone ikoną <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\">."
       },
       "forcedLinks": "%scenario.summary.links% (wymuszone)",
       "gold": "Złoto",

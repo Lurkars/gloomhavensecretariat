@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
 
         if (!dialogRef.disableClose) {
           const closeIcon = document.createElement('img');
-          closeIcon.src = '/assets/images/close_dialog.svg';
+          closeIcon.src = './assets/images/close_dialog.svg';
           const closeElement = document.createElement('a');
           closeElement.classList.add('dialog-close-button');
           closeElement.appendChild(closeIcon);

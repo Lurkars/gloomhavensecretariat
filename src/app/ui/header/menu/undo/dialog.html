@@ -60,7 +60,7 @@
         </span>
         @if (i > 0 && getRedoRevision(i) - getRedoRevision(i - 1) != 1) {
           <span class="warning">
-            <img src="/assets/images/warning.svg" />
+            <img src="./assets/images/warning.svg" />
             <span [ghs-label]="'state.missing'" [ghs-label-args]="[getRedoRevision(i) - getRedoRevision(i - 1) - 1]"></span>
           </span>
         }
@@ -79,7 +79,7 @@
       </span>
       @if (undoOffset && gameManager.stateManager.gameOffsetWarning) {
         <span class="warning undo-offset" (click)="gameManager.stateManager.gameOffsetWarning = false">
-          <img src="/assets/images/warning.svg" />
+          <img src="./assets/images/warning.svg" />
           <span [ghs-label]="'state.missing'" [ghs-label-args]="[undoOffset]"></span>
         </span>
       }
@@ -91,7 +91,7 @@
           !undoOffset && i == undoArray.length - 1 && gameManager.game.revision - gameManager.game.revisionOffset - getUndoRevision(i) - 1
         ) {
           <span class="warning">
-            <img src="/assets/images/warning.svg" />
+            <img src="./assets/images/warning.svg" />
             <span
               [ghs-label]="'state.missing'"
               [ghs-label-args]="[gameManager.game.revision - gameManager.game.revisionOffset - getUndoRevision(i) - 1]"
@@ -100,7 +100,7 @@
         }
         @if (i < undoArray.length - 1 && getUndoRevision(i + 1) - getUndoRevision(i) != 1) {
           <span class="warning">
-            <img src="/assets/images/warning.svg" />
+            <img src="./assets/images/warning.svg" />
             <span [ghs-label]="'state.missing'" [ghs-label-args]="[getUndoRevision(i + 1) - getUndoRevision(i) - 1]"></span>
           </span>
         }

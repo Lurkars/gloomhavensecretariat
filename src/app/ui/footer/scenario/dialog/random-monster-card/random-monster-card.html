@@ -10,7 +10,7 @@
       <div class="index">{{ section.index }}</div>
       @if (element) {
         <div class="element">
-          <img [src]="'/assets/images/' + (fh ? 'fh/' : '') + 'element/' + element + '.svg'" />
+          <img [src]="'./assets/images/' + (fh ? 'fh/' : '') + 'element/' + element + '.svg'" />
         </div>
       }
       <div class="slots">
@@ -74,7 +74,7 @@
                     <div class="image-container">
                       <img
                         [src]="
-                          '/assets/images/scenario/random/overlays/' +
+                          './assets/images/scenario/random/overlays/' +
                           (fh ? 'fh/' : '') +
                           (overlays[i].type == 'loot' || overlays[i].type == 'treasure' ? overlays[i].type : overlays[i].value) +
                           '.png'
@@ -98,7 +98,7 @@
                     <span class="separator">:</span>
                     <span class="values">
                       @for (condition of overlays[i].values; track condition) {
-                        <img [src]="'/assets/images/' + (fh ? 'fh/' : '') + 'condition/' + condition + '.svg'" />
+                        <img [src]="'./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + condition + '.svg'" />
                       }
                     </span>
                   </div>

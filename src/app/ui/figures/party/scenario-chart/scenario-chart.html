@@ -3,12 +3,12 @@
   <div class="menu">
     @if (worldMap) {
       <a (click)="openWorldMap()" [ghs-tooltip]="'party.campaign.map'" [originY]="'top'" [overlayY]="'bottom'">
-        <img src="/assets/images/map.svg" />
+        <img src="./assets/images/map.svg" />
       </a>
     }
     @if (!gameManager.bbRules()) {
       <a (click)="openCampaignSheet()" [ghs-tooltip]="'party.campaign.manage'" [originY]="'top'" [overlayY]="'bottom'">
-        <img src="/assets/images/sheet.svg" />
+        <img src="./assets/images/sheet.svg" />
       </a>
     }
     @if (gameManager.game.party.campaignMode) {
@@ -28,7 +28,7 @@
   </div>
   <div class="menu right">
     <div class="legend" (click)="legend = !legend" [ngClass]="{ open: legend }">
-      <a><span [ghs-label]="'scenario.chart.legend'"></span> <img class="ghs-svg" src="/assets/images/select-arrow.svg" /></a>
+      <a><span [ghs-label]="'scenario.chart.legend'"></span> <img class="ghs-svg" src="./assets/images/select-arrow.svg" /></a>
       @if (legend) {
         <ul>
           <li [ghs-tooltip]="'scenario.chart.legend.unplayed.hint'" [originY]="'top'" [overlayY]="'bottom'">

@@ -9,7 +9,7 @@
       [ngClass]="{ gh2e: !!event && event.edition == 'gh2e' }"
       [style.background-image]="
         showDebug && event
-          ? 'url(\'/assets/artwork/events/debug/' + event.edition + '/' + event.type + '/' + event.cardId + '-back.png\')'
+          ? 'url(\'./assets/artwork/events/debug/' + event.edition + '/' + event.type + '/' + event.cardId + '-back.png\')'
           : ''
       "
     >
@@ -57,7 +57,7 @@
       }
       @if (settingsManager.settings.debugEventCards) {
         <div class="show-debug-toggle" [ngClass]="{ light: light }" ghs-pointer-input (singleClick)="toggleShowDebug($event)">
-          <img src="/assets/images/debug.svg" />
+          <img src="./assets/images/debug.svg" />
         </div>
       }
     </div>
@@ -66,7 +66,7 @@
       [ngClass]="{ gh2e: !!event && event.edition == 'gh2e' }"
       [style.background-image]="
         showDebug && event
-          ? 'url(\'/assets/artwork/events/debug/' + event.edition + '/' + event.type + '/' + event.cardId + '-front.png\')'
+          ? 'url(\'./assets/artwork/events/debug/' + event.edition + '/' + event.type + '/' + event.cardId + '-front.png\')'
           : ''
       "
     >
@@ -158,10 +158,10 @@
                   ) {
                     <div class="card-action">
                       @if (outcome.returnToDeck || option.returnToDeck) {
-                        <img class="ghs-svg" src="/assets/images/eventcards/return.svg" />
+                        <img class="ghs-svg" src="./assets/images/eventcards/return.svg" />
                       }
                       @if (outcome.removeFromDeck || option.removeFromDeck) {
-                        <img class="ghs-svg" src="/assets/images/eventcards/remove.svg" />
+                        <img class="ghs-svg" src="./assets/images/eventcards/remove.svg" />
                       }
                     </div>
                   }
@@ -174,7 +174,7 @@
       }
       @if (settingsManager.settings.debugEventCards) {
         <div class="show-debug-toggle" [ngClass]="{ light: light }" ghs-pointer-input (singleClick)="toggleShowDebug($event)">
-          <img src="/assets/images/debug.svg" />
+          <img src="./assets/images/debug.svg" />
         </div>
       }
     </div>

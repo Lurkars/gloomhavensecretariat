@@ -11,5 +11,7 @@
   }
   <ghs-editor-action [(action)]="data.action" [character]="data.character" [cardId]="data.cardId"></ghs-editor-action>
 
-  <a (click)="deleteAction()"><img class="ghs-icon" src="/assets/images/minus.svg" /> <span [ghs-label]="'editor.action.remove'"></span></a>
+  <a (click)="deleteAction()"
+    ><img class="ghs-icon" src="./assets/images/minus.svg" /> <span [ghs-label]="'editor.action.remove'"></span
+  ></a>
 </div>

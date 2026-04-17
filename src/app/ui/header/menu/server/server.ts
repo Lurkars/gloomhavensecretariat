@@ -47,7 +47,7 @@ export class ServerMenuComponent implements OnInit {
 
   async ngOnInit() {
     if (this.branded) {
-      await fetch('/assets/server.json')
+      await fetch('./assets/server.json')
         .then((response) => {
           if (!response.ok) {
             throw Error();

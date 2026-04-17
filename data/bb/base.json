@@ -10,7 +10,7 @@
   ],
   "edition": "bb",
   "newAmStyle": true,
-  "logoUrl": "/assets/images/logos/bb.png",
+  "logoUrl": "./assets/images/logos/bb.png",
   "monsterAmTables": [
     [
       "minus1",

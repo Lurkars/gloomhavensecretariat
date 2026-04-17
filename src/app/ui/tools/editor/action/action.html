@@ -15,7 +15,7 @@
 
     @if (subactionIndex || subactionIndex == 0) {
       <a class="remove" (click)="subActionRemoved.emit(subactionIndex)">
-        <img class="ghs-icon" src="/assets/images/minus.svg" />
+        <img class="ghs-icon" src="./assets/images/minus.svg" />
         <span [ghs-label]="'editor.action.removeSubAction'"></span>
       </a>
     }
@@ -246,7 +246,7 @@
       <div class="header">
         <label [ghs-label]="'editor.action.enhancements'"></label>
         <a class="add" (click)="addEnhancement()">
-          <img class="ghs-icon" src="/assets/images/plus.svg" />
+          <img class="ghs-icon" src="./assets/images/plus.svg" />
           <span [ghs-label]="'editor.action.addEnhancement'"></span>
         </a>
       </div>
@@ -261,7 +261,7 @@
               }
             </select>
             <a (click)="removeEnhancement(i)">
-              <img class="ghs-icon" src="/assets/images/minus.svg" />
+              <img class="ghs-icon" src="./assets/images/minus.svg" />
               <span [ghs-label]="'editor.action.removeEnhancement'"></span>
             </a>
           </div>
@@ -274,14 +274,14 @@
     <div class="header">
       <label [ghs-label]="'editor.action.subActions'"></label>
       <a class="add" (click)="addSubAction()">
-        <img class="ghs-icon" src="/assets/images/plus.svg" />
+        <img class="ghs-icon" src="./assets/images/plus.svg" />
         <span [ghs-label]="'editor.action.addSubAction'"></span>
       </a>
     </div>
 
     @for (subAction of action.subActions | trackUUID; track subAction._trackUUID; let i = $index) {
       <div class="subaction" cdkDrag>
-        <span class="handle" cdkDragHandle><img class="ghs-icon" src="/assets/images/menu.svg" /></span>
+        <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg" /></span>
         <ghs-editor-action
           [action]="action.subActions[i]"
           [subactionIndex]="i"

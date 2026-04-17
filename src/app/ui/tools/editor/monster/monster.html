@@ -167,7 +167,7 @@
                       <div class="additional" cdkDropList (cdkDropListDropped)="dropMonsterAction(MonsterType.normal, level, $event)">
                         @for (action of statsForType(MonsterType.normal, level).actions | trackUUID; track action._trackUUID) {
                           <div class="monster-action" cdkDrag>
-                            <span class="handle" cdkDragHandle><img class="ghs-icon" src="/assets/images/menu.svg" /></span>
+                            <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg" /></span>
                             <ghs-action
                               (click)="editMonsterAction(MonsterType.normal, action, level)"
                               [action]="action"
@@ -181,7 +181,7 @@
                           </div>
                         }
                         <a (click)="addMonsterAction(MonsterType.normal, level)"
-                          ><img class="ghs-icon" src="/assets/images/plus.svg" /> <span [ghs-label]="'editor.action.add'"></span
+                          ><img class="ghs-icon" src="./assets/images/plus.svg" /> <span [ghs-label]="'editor.action.add'"></span
                         ></a>
                       </div>
                     </div>
@@ -199,11 +199,11 @@
                               [relative]="true"
                             >
                             </ghs-action>
-                            <span class="handle" cdkDragHandle><img class="ghs-icon" src="/assets/images/menu.svg" /></span>
+                            <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg" /></span>
                           </div>
                         }
                         <a (click)="addMonsterAction(MonsterType.elite, level)"
-                          ><img class="ghs-icon" src="/assets/images/plus.svg" /> <span [ghs-label]="'editor.action.add'"></span
+                          ><img class="ghs-icon" src="./assets/images/plus.svg" /> <span [ghs-label]="'editor.action.add'"></span
                         ></a>
                       </div>
                     </div>
@@ -223,11 +223,11 @@
                               [relative]="true"
                             >
                             </ghs-action>
-                            <span class="handle" cdkDragHandle><img class="ghs-icon" src="/assets/images/menu.svg" /></span>
+                            <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg" /></span>
                           </div>
                         }
                         <a (click)="addMonsterAction(MonsterType.boss, level)"
-                          ><img class="ghs-icon" src="/assets/images/plus.svg" /> <span [ghs-label]="'editor.action.add'"></span
+                          ><img class="ghs-icon" src="./assets/images/plus.svg" /> <span [ghs-label]="'editor.action.add'"></span
                         ></a>
                       </div>
                       <div class="specials">
@@ -251,13 +251,13 @@
                                 </ghs-action>
                               }
                               <a (click)="addSpecialAction(MonsterType.boss, index, level)"
-                                ><img class="ghs-icon" src="/assets/images/plus.svg" /> <span [ghs-label]="'editor.action.add'"></span
+                                ><img class="ghs-icon" src="./assets/images/plus.svg" /> <span [ghs-label]="'editor.action.add'"></span
                               ></a>
                             </div>
                           </div>
                         }
                         <a (click)="addSpecialAction(MonsterType.boss, statsForType(MonsterType.boss, level).special.length, level)"
-                          ><img class="ghs-icon" src="/assets/images/plus.svg" />
+                          ><img class="ghs-icon" src="./assets/images/plus.svg" />
                           <span [ghs-label]="'editor.monster.stats.addSpecial'"></span>
                         </a>
                       </div>
@@ -316,7 +316,7 @@
           class="button"
           [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputMonsterData.value)"
           [download]="monsterData.name + '.json'"
-          ><img class="ghs-icon" src="/assets/images/export.svg" /> <span [ghs-label]="'editor.monster.stats.json.download'"></span
+          ><img class="ghs-icon" src="./assets/images/export.svg" /> <span [ghs-label]="'editor.monster.stats.json.download'"></span
         ></a>
       </div>
     </div>

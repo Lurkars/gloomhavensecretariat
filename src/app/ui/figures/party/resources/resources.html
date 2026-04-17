@@ -27,7 +27,7 @@
       </thead>
       <tbody>
         <tr>
-          <th [ghs-tooltip]="'character.progress.gold'"><img class="ghs-svg" [src]="'/assets/images/loot.svg'" /></th>
+          <th [ghs-tooltip]="'character.progress.gold'"><img class="ghs-svg" [src]="'./assets/images/loot.svg'" /></th>
           <td><span class="loot">-</span></td>
           @for (character of characters | trackUUID; track character._trackUUID) {
             <td>
@@ -44,7 +44,7 @@
           </td>
         </tr>
         <tr>
-          <th [ghs-tooltip]="'game.experience'"><img class="ghs-svg" [src]="'/assets/images/experience.svg'" /></th>
+          <th [ghs-tooltip]="'game.experience'"><img class="ghs-svg" [src]="'./assets/images/experience.svg'" /></th>
           <td><span class="loot">-</span></td>
           @for (character of characters | trackUUID; track character._trackUUID) {
             <td>
@@ -62,7 +62,7 @@
         </tr>
         @for (lootType of lootColumns; track lootType; let i = $index) {
           <tr>
-            <th [ghs-tooltip]="'game.loot.' + lootType"><img class="ghs-svg" [src]="'/assets/images/fh/loot/' + lootType + '.svg'" /></th>
+            <th [ghs-tooltip]="'game.loot.' + lootType"><img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'" /></th>
             <td>
               @if (!edit) {
                 <span class="loot">{{ party.loot[lootType] || '-' }}</span>

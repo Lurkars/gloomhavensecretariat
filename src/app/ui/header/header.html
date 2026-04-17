@@ -1,13 +1,13 @@
 <header [ngClass]="settingsManager.settings.theme">
   <div class="main-menu">
     <a #mainMenuButton class="menu-button active-outline" [ghs-label]="'menu.main'" [ghs-label-attribute]="'title'" (click)="openMenu()">
-      <img class="ghs-svg" src="/assets/images/menu.svg" />
+      <img class="ghs-svg" src="./assets/images/menu.svg" />
     </a>
   </div>
   @if (!standalone || connection) {
     @if (gameManager.stateManager.serverError) {
       <img
-        src="/assets/images/warning.svg"
+        src="./assets/images/warning.svg"
         [ghs-tooltip]="gameManager.stateManager.serverError"
         class="ghs-svg server-connection closed"
         [ghs-label]="'server.error'"
@@ -23,7 +23,7 @@
           class="server-connection-status"
         >
           <img
-            src="/assets/images/server-connection.svg"
+            src="./assets/images/server-connection.svg"
             class="ghs-svg server-connection connected"
             [ghs-label]="'server.connected'"
             [ghs-label-attribute]="'title'"
@@ -32,7 +32,7 @@
       }
       @case (WebSocket.CONNECTING) {
         <img
-          src="/assets/images/server-connection.svg"
+          src="./assets/images/server-connection.svg"
           class="ghs-svg server-connection connecting"
           [ghs-label]="'server.connecting'"
           [ghs-label-attribute]="'title'"
@@ -40,7 +40,7 @@
       }
       @case (WebSocket.CLOSING) {
         <img
-          src="/assets/images/server-connection.svg"
+          src="./assets/images/server-connection.svg"
           class="ghs-svg server-connection closing"
           [ghs-label]="'server.closing'"
           [ghs-label-attribute]="'title'"
@@ -54,13 +54,13 @@
           class="server-connection-status"
         >
           <img
-            src="/assets/images/warning.svg"
+            src="./assets/images/warning.svg"
             class="ghs-svg server-connection closed"
             [ghs-label]="'server.closed'"
             [ghs-label-attribute]="'title'"
           />
           <img
-            src="/assets/images/server-connection.svg"
+            src="./assets/images/server-connection.svg"
             class="ghs-svg server-connection closed"
             [ghs-label]="'server.closed'"
             [ghs-label-attribute]="'title'"
@@ -75,7 +75,7 @@
           class="server-connection-status"
         >
           <img
-            src="/assets/images/server-connection.svg"
+            src="./assets/images/server-connection.svg"
             class="ghs-svg server-connection disconnected"
             [ghs-label]="'server.disconnected'"
             [ghs-label-attribute]="'title'"
@@ -87,7 +87,7 @@
 
   @if (!standalone) {
     @if (syncing) {
-      <img src="/assets/images/shuffle.svg" class="server-connection syncing" />
+      <img src="./assets/images/shuffle.svg" class="server-connection syncing" />
     }
     @if (!syncing && gameManager.stateManager.wsState() != -99 && gameManager.game.server) {
       <span class="game-server">°</span>
@@ -150,7 +150,7 @@
         <img
           class="ghs-svg"
           [src]="
-            '/assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state == GameState.next ? '-effects' : '') + '.svg'
+            './assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state == GameState.next ? '-effects' : '') + '.svg'
           "
         />
       </div>
@@ -160,7 +160,7 @@
     }
     @if (gameManager.buildingsManager.petsEnabled) {
       <div class="pets" (click)="openPets()">
-        <img class="ghs-svg" src="/assets/images/fh/catching.svg" />
+        <img class="ghs-svg" src="./assets/images/fh/catching.svg" />
       </div>
     }
     @if (settingsManager.settings.gameClock) {
@@ -187,7 +187,7 @@
       >
         <img
           class="ghs-svg"
-          [src]="'/assets/images/' + (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut ? 'clock-out' : 'clock-in') + '.svg'"
+          [src]="'./assets/images/' + (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut ? 'clock-out' : 'clock-in') + '.svg'"
         />
       </div>
     }

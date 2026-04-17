@@ -21,7 +21,7 @@
     @if (!!chooseElementAction) {
       <span class="choose-element-container">
         <span class="element" [ngClass]="{ consume: chooseElementAction.action.valueType == ActionValueType.minus }">
-          <img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/wild.svg'" />
+          <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/wild.svg'" />
         </span>
         @for (
           chooseElement of chooseElementAction.action.valueType == ActionValueType.minus ? wildToConsume() : wildToCreate();
@@ -33,7 +33,7 @@
             ghs-pointer-input
             (singleClick)="selectWildElement($event, chooseElement)"
           >
-            <img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + chooseElement + '.svg'" />
+            <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + chooseElement + '.svg'" />
           </span>
         }
       </span>

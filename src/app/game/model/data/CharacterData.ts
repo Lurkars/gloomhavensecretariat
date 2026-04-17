@@ -97,7 +97,7 @@ export class CharacterData implements Editional, Spoilable {
       this.availableSummons = characterData.availableSummons || [];
       this.edition = characterData.edition || '';
       this.icon = characterData.icon || characterData.edition + '-' + characterData.name;
-      this.iconUrl = characterData.iconUrl || '/assets/images/character/icons/' + this.icon + '.svg';
+      this.iconUrl = characterData.iconUrl || './assets/images/character/icons/' + this.icon + '.svg';
       this.thumbnail = characterData.thumbnail || undefined;
       this.thumbnailUrl = characterData.thumbnailUrl || undefined;
       this.noThumbnail = characterData.noThumbnail;

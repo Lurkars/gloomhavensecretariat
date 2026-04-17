@@ -35,14 +35,14 @@
             (singleClick)="openTreasures($event)"
             [ngClass]="{ unlooted: unlootedTreasures.length > 0 }"
           >
-            <img class="ghs-svg" src="/assets/images/scenario/treasure.svg" />
+            <img class="ghs-svg" src="./assets/images/scenario/treasure.svg" />
           </span>
         }
       </div>
     }
     @if (!gameManager.bbRules() && !gameManager.game.scenario && (characterCount > 0 || settingsManager.settings.partySheet)) {
       <div class="event-effects">
-        <img class="ghs-svg" src="/assets/images/event.svg" /> <span [ghs-label]="'scenario.eventEffects'"></span>
+        <img class="ghs-svg" src="./assets/images/event.svg" /> <span [ghs-label]="'scenario.eventEffects'"></span>
       </div>
     }
   </div>
@@ -53,7 +53,7 @@
     @if (settingsManager.settings.scenarioRooms) {
       @for (roomData of openRooms | trackUUID; track roomData._trackUUID) {
         <span class="section room" ghs-pointer-input (singleClick)="open()">
-          <img class="ghs-svg" src="/assets/images/scenario/door-open.svg" />
+          <img class="ghs-svg" src="./assets/images/scenario/door-open.svg" />
           {{ roomData.ref }}
           @if (roomData.marker) {
             <span class="marker" [ghs-label]="'%game.mapMarker.' + roomData.marker + '%'"></span>
@@ -63,7 +63,7 @@
     }
     @for (section of sections | trackUUID; track section._trackUUID) {
       <span class="section" ghs-pointer-input (singleClick)="open()" (doubleClick)="openRandomMonsterCard(section)">
-        <img class="ghs-svg" src="/assets/images/lock-open.svg" />
+        <img class="ghs-svg" src="./assets/images/lock-open.svg" />
         @if (!section.hideIndex) {
           <span>#{{ section.index }}</span>
         }
@@ -88,7 +88,7 @@
           [originY]="'top'"
           [overlayY]="'bottom'"
         >
-          <img class="ghs-svg" src="/assets/images/scenario/door.svg" />
+          <img class="ghs-svg" src="./assets/images/scenario/door.svg" />
           <span class="ref">{{ roomData.ref }}</span>
           @if (roomData.marker) {
             <span class="marker" [ghs-label]="'%game.mapMarker.' + roomData.marker + '%'"></span>
@@ -99,10 +99,10 @@
     @for (section of availableSections | trackUUID; track section._trackUUID) {
       <span class="section available" ghs-pointer-input (singleClick)="addSection(section, $event)">
         @if (!section.conclusion) {
-          <img class="ghs-svg" src="/assets/images/lock.svg" />
+          <img class="ghs-svg" src="./assets/images/lock.svg" />
         }
         @if (section.conclusion) {
-          <img class="ghs-svg" src="/assets/images/scenario/conclusion.svg" />
+          <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg" />
         }
         @if ((!section.conclusion || !section.name) && !section.hideIndex) {
           <span>#{{ section.index }}</span>

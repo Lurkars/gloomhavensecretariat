@@ -8,11 +8,11 @@
   <div class="sections">
     @for (section of sectionsFixed(); track section) {
       <span class="section">
-        <img [src]="'/assets/images/' + (isSolved(section) ? 'scenario/conclusion.svg' : 'fh/party/section.svg')" />
+        <img [src]="'./assets/images/' + (isSolved(section) ? 'scenario/conclusion.svg' : 'fh/party/section.svg')" />
         {{ section }}
         @if (hasConclusions(section)) {
           <a class="conclusion" (click)="openConclusions(section)"
-            ><img src="/assets/images/hint.svg" />
+            ><img src="./assets/images/hint.svg" />
             <span [ghs-label]="'party.campaign.sheet.weekSections.openConclusion'"></span>
           </a>
         }
@@ -21,17 +21,17 @@
     @for (section of sections(); track section) {
       <span class="section">
         <span class="index" [ngClass]="{ finish: isConclusion(section) }" (click)="finishConclusion(section)">
-          <img [src]="'/assets/images/' + (isSolved(section) ? 'scenario/conclusion.svg' : 'fh/party/section.svg')" />
+          <img [src]="'./assets/images/' + (isSolved(section) ? 'scenario/conclusion.svg' : 'fh/party/section.svg')" />
           {{ section }}
         </span>
         @if (hasConclusions(section)) {
           <a class="conclusion" (click)="openConclusions(section)"
-            ><img src="/assets/images/hint.svg" />
+            ><img src="./assets/images/hint.svg" />
             <span [ghs-label]="'party.campaign.sheet.weekSections.openConclusion'"></span>
           </a>
         }
         <span class="spacer"></span>
-        <img class="button" (click)="removeSection(section)" src="/assets/images/close.svg" />
+        <img class="button" (click)="removeSection(section)" src="./assets/images/close.svg" />
       </span>
     }
   </div>
@@ -45,7 +45,7 @@
     />
     <img
       class="button"
-      src="/assets/images/plus.svg"
+      src="./assets/images/plus.svg"
       [ghs-label]="'party.campaign.sheet.weekSections.addSection'"
       [ghs-label-attribute]="'title'"
       (click)="addSection(scenario)"

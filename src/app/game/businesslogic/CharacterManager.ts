@@ -38,10 +38,10 @@ export class CharacterManager {
     }
 
     if (characterData.icon) {
-      return '/assets/images/character/icons/' + characterData.icon + '.svg';
+      return './assets/images/character/icons/' + characterData.icon + '.svg';
     }
 
-    return '/assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '.svg';
+    return './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '.svg';
   }
 
   characterIdentityIcon(character: string, index: number): string {
@@ -51,7 +51,7 @@ export class CharacterManager {
     }
 
     return (
-      '/assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '-' + characterData.identities[index] + '.svg'
+      './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '-' + characterData.identities[index] + '.svg'
     );
   }
 
@@ -110,10 +110,10 @@ export class CharacterManager {
     }
 
     if (characterData.thumbnail) {
-      return '/assets/images/character/thumbnail/' + characterData.thumbnail + '.png';
+      return './assets/images/character/thumbnail/' + characterData.thumbnail + '.png';
     }
 
-    return '/assets/images/character/thumbnail/' + characterData.edition + '-' + characterData.name + '.png';
+    return './assets/images/character/thumbnail/' + characterData.edition + '-' + characterData.name + '.png';
   }
 
   characterCount(figuresOnly: boolean = false): number {

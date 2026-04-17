@@ -164,7 +164,7 @@ export class TreasureLabelComponent implements OnInit {
             console.warn(
               "Invalid Item '" + itemId + "' (Edition " + itemEdition + ") on treasure '" + this.index + "' for Edition " + this.edition
             );
-            itemNameValues.push('<img class="icon ghs-svg" src="/assets/images/warning.svg"> %item% ' + itemId);
+            itemNameValues.push('<img class="icon ghs-svg" src="./assets/images/warning.svg"> %item% ' + itemId);
           }
         });
 
@@ -187,7 +187,7 @@ export class TreasureLabelComponent implements OnInit {
           return [this.labelPrefix + reward.type, scenarioData.index, gameManager.scenarioManager.scenarioTitle(scenarioData)];
         } else {
           console.warn("Invalid Scenario '" + value + "' on treasure '" + this.index + "' for Edition " + this.edition);
-          return [this.labelPrefix + reward.type, value, '<img class="icon ghs-svg" src="/assets/images/warning.svg"> %scenario%'];
+          return [this.labelPrefix + reward.type, value, '<img class="icon ghs-svg" src="./assets/images/warning.svg"> %scenario%'];
         }
       case TreasureRewardType.event:
         const eventType = value.split('-')[0];
@@ -198,7 +198,7 @@ export class TreasureLabelComponent implements OnInit {
           .split('+')
           .map(
             (resource) =>
-              resource.split('-')[1] + '<img class="icon ghs-svg" src="/assets/images/fh/loot/' + resource.split('-')[0] + '.svg">'
+              resource.split('-')[1] + '<img class="icon ghs-svg" src="./assets/images/fh/loot/' + resource.split('-')[0] + '.svg">'
           );
         let resourceValue = resources[0];
         if (resources.length > 1) {

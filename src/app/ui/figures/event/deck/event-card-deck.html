@@ -49,7 +49,7 @@
         <div class="title">
           <span [ghs-label]="'game.events.deck.upcoming'" [ghs-label-args]="[upcomingCards.length]"></span>
           <a (click)="shuffle()" [ghs-tooltip]="'game.events.deck.shuffle'">
-            <img class="ghs-svg" src="/assets/images/shuffle.svg" />
+            <img class="ghs-svg" src="./assets/images/shuffle.svg" />
           </a>
         </div>
         @if (upcomingCards.length == 0) {
@@ -60,13 +60,13 @@
             <div class="container drag-hidden" cdkDrag>
               <ghs-event-card [event]="event" [spoiler]="true"></ghs-event-card>
               <a cdkDragHandle class="button drag-handle">
-                <img class="ghs-svg" src="/assets/images/menu.svg" />
+                <img class="ghs-svg" src="./assets/images/menu.svg" />
               </a>
               <a class="button open" (click)="showEventCard(event)" [ghs-tooltip]="'game.events.deck.show'">
-                <img class="ghs-svg" src="/assets/images/fullscreen.svg" />
+                <img class="ghs-svg" src="./assets/images/fullscreen.svg" />
               </a>
               <a class="button remove" (click)="removeCard(event)" [ghs-tooltip]="'game.events.deck.removeCard'">
-                <img class="ghs-svg" src="/assets/images/eventcards/remove.svg" />
+                <img class="ghs-svg" src="./assets/images/eventcards/remove.svg" />
               </a>
               <a class="button draw" (click)="drawEvent(event.cardId)" [ghs-tooltip]="'game.events.deck.draw'">
                 <span class="text-white" [ghs-label]="'%action.card.recover%'"></span>
@@ -96,13 +96,13 @@
             <div class="container drag-hidden" cdkDrag>
               <ghs-event-card [event]="event" [spoiler]="true"></ghs-event-card>
               <a cdkDragHandle class="button drag-handle">
-                <img class="ghs-svg" src="/assets/images/menu.svg" />
+                <img class="ghs-svg" src="./assets/images/menu.svg" />
               </a>
               <a class="button open" (click)="showEventCard(event)" [ghs-tooltip]="'game.events.deck.show'">
-                <img class="ghs-svg" src="/assets/images/fullscreen.svg" />
+                <img class="ghs-svg" src="./assets/images/fullscreen.svg" />
               </a>
               <a class="button add" (click)="addCard(event)" [ghs-tooltip]="'game.events.deck.addCard'">
-                <img class="ghs-svg" src="/assets/images/eventcards/return.svg" />
+                <img class="ghs-svg" src="./assets/images/eventcards/return.svg" />
               </a>
               <a class="button draw" (click)="drawEvent(event.cardId)" [ghs-tooltip]="'game.events.deck.draw'">
                 <span class="text-white" [ghs-label]="'%action.card.recover%'"></span>
@@ -137,20 +137,20 @@
               ></ghs-event-card>
               @if (model.card) {
                 <a class="button open" (click)="showEventCard(model.card, model.identifier)" [ghs-tooltip]="'game.events.deck.show'">
-                  <img class="ghs-svg" src="/assets/images/fullscreen.svg" />
+                  <img class="ghs-svg" src="./assets/images/fullscreen.svg" />
                 </a>
               }
               @if (model.identifier.selected != -1) {
                 <a class="button reset" (click)="updateDrawnSelect(model.identifier)" [ghs-tooltip]="'game.events.deck.removeSelection'">
-                  <img class="ghs-svg" src="/assets/images/long-rest.svg" />
+                  <img class="ghs-svg" src="./assets/images/long-rest.svg" />
                 </a>
               }
               <a class="button remove" (click)="removeDrawn(model.identifier)" [ghs-tooltip]="'game.events.deck.removeDrawn'">
-                <img class="ghs-svg" src="/assets/images/minus.svg" />
+                <img class="ghs-svg" src="./assets/images/minus.svg" />
               </a>
               @if (model.card && !upcomingCards.includes(model.card) && !newCards.includes(model.card)) {
                 <a class="button add restore" (click)="addCard(model.card)" [ghs-tooltip]="'game.events.deck.addCard'">
-                  <img class="ghs-svg" src="/assets/images/plus.svg" />
+                  <img class="ghs-svg" src="./assets/images/plus.svg" />
                 </a>
               }
             </div>

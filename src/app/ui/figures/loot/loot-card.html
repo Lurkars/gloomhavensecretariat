@@ -75,13 +75,13 @@
             <img [src]="gameManager.characterManager.characterIcon(character)" />
           }
           @if (!character && settingsManager.settings.applyLoot && apply) {
-            <img class="warning" src="/assets/images/warning.svg" />
+            <img class="warning" src="./assets/images/warning.svg" />
           }
         </span>
       }
       <span class="enhancements">
         @for (i of [] | ghsRange: loot.enhancements; track i) {
-          <img class="icon" src="/assets/images/fh/loot/plus1.svg" />
+          <img class="icon" src="./assets/images/fh/loot/plus1.svg" />
         }
       </span>
       @if (sections.length > 0) {

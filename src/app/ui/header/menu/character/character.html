@@ -4,7 +4,7 @@
       class="level-container"
       [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }"
     >
-      <span class="item"><img src="/assets/images/status/level.svg" /></span>
+      <span class="item"><img src="./assets/images/status/level.svg" /></span>
       @for (level of [] | ghsRange: 9; track level) {
         <span class="item"
           ><a tabclick class="level" [ngClass]="{ active: level + 1 == characterLevel }" (click)="characterLevel = level + 1">{{

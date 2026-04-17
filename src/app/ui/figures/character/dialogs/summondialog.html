@@ -13,7 +13,7 @@
         @for (color of summonColors; track color) {
           <span class="summon-button" (click)="selectColor(color)" [ngClass]="{ active: color == summonColor }">
             <span class="image">
-              <img src="/assets/images/summons/{{ color }}.png" />
+              <img src="./assets/images/summons/{{ color }}.png" />
             </span>
           </span>
         }
@@ -35,10 +35,10 @@
             <span class="summon-button">
               <span class="image" [ngClass]="{ fh: fhSummon }">
                 @if (!fhSummon && summonData.special) {
-                  <img src="/assets/images/summons/custom.png" />
+                  <img src="./assets/images/summons/custom.png" />
                 }
                 @if (!fhSummon && !summonData.special) {
-                  <img src="/assets/images/summons/{{ summonColor }}.png" />
+                  <img src="./assets/images/summons/{{ summonColor }}.png" />
                 }
                 <span class="summon-number">{{ summonNumber ? summonNumber : summonNumbers[i] != -1 ? summonNumbers[i] : '-' }}</span>
               </span>
@@ -56,7 +56,7 @@
                   [src]="
                     summonData.thumbnailUrl
                       ? summonData.thumbnailUrl
-                      : '/assets/images/summons/thumbnail/' + summonData.edition + '-' + summonData.name + '.png'
+                      : './assets/images/summons/thumbnail/' + summonData.edition + '-' + summonData.name + '.png'
                   "
                 />
               </span>
@@ -69,7 +69,7 @@
           <span class="summon-button" (click)="addCustomSummon()" [ngClass]="{ disabled: customDisabled() }">
             <span class="image" [ngClass]="{ fh: fhSummon }">
               @if (!fhSummon) {
-                <img src="/assets/images/summons/{{ summonColor }}.png" />
+                <img src="./assets/images/summons/{{ summonColor }}.png" />
               }
               <span class="summon-number">{{ summonNumber ? summonNumber : '-' }}</span>
             </span>
@@ -83,7 +83,7 @@
             [ghs-label-attribute]="'placeholder'"
           />
           <span class="add-summon-button" (click)="addCustomSummon()" [ngClass]="{ disabled: customDisabled() }">
-            <img class="ghs-svg" src="/assets/images/plus.svg" />
+            <img class="ghs-svg" src="./assets/images/plus.svg" />
           </span>
         </span>
       }

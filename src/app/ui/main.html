@@ -38,10 +38,10 @@
   }
   @if (!fullviewChar && welcome) {
     <div class="welcome" [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }">
-      <img class="ghs-logo" src="/assets/images/logo-transparent.svg" />
+      <img class="ghs-logo" src="./assets/images/logo-transparent.svg" />
       @if (gameManager.stateManager.installPrompt) {
         <a class="install" (click)="gameManager.stateManager.install()">
-          <img class="ghs-svg" src="/assets/images/install.svg" /> <span [ghs-label]="'app.install'"></span
+          <img class="ghs-svg" src="./assets/images/install.svg" /> <span [ghs-label]="'app.install'"></span
         ></a>
       }
       <h2><span [ghs-label]="'welcome'"></span></h2>
@@ -61,7 +61,7 @@
             }
             @if (!gameManager.game.edition && this.welcomeOtherEditions) {
               <a tabclick class="edition add-additional-content" (click)="header.openMenu(SubMenu.editions)">
-                <img class="ghs-svg" src="/assets/images/plus.svg" /> <span [ghs-label]="'hints.addAdditionalContent'"></span>
+                <img class="ghs-svg" src="./assets/images/plus.svg" /> <span [ghs-label]="'hints.addAdditionalContent'"></span>
               </a>
             }
           </div>
@@ -91,7 +91,7 @@
                   />
                   <span [ghs-label]="'settings.fhSecondEdition'"></span>
                 </label>
-                <img src="/assets/images/hint.svg" class="hint-trigger ghs-svg" />
+                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
                 <span class="hint">
                   <div class="text">
                     <span [ghs-label]="'settings.fhSecondEdition.hint'"></span>
@@ -266,7 +266,7 @@
       <div class="dialog-container">
         <div class="hide" (click)="settingsManager.set('backupHint', false)">
           <span [ghs-label]="'datamanagement.backup.download.hint.hide'"></span>
-          <img src="/assets/images/close.svg" />
+          <img src="./assets/images/close.svg" />
         </div>
         <h2 [ghs-label]="'datamanagement.backup'"></h2>
         <p
@@ -276,7 +276,7 @@
           [overlayY]="'bottom'"
         ></p>
         <a (click)="exportDataDump()">
-          <img class="ghs-svg" src="/assets/images/export.svg" />
+          <img class="ghs-svg" src="./assets/images/export.svg" />
           <span [ghs-label]="'datamanagement.backup.download'"></span>
         </a>
         <label>

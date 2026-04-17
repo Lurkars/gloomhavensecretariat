@@ -18,8 +18,8 @@
           class="type"
           [src]="
             gameManager.enhancementsManager.fh && slot != 'any'
-              ? '/assets/images/fh/character/abilities/enhancements/' + slot + '.svg'
-              : '/assets/images/character/abilities/enhancements/circle.svg'
+              ? './assets/images/fh/character/abilities/enhancements/' + slot + '.svg'
+              : './assets/images/character/abilities/enhancements/circle.svg'
           "
         />
       }
@@ -30,7 +30,7 @@
           }
           @if (enhancements[slotIndex != undefined ? slotIndex : i] == 'hex') {
             <span class="hex">
-              <img src="/assets/images/action/hex/target.svg" />
+              <img src="./assets/images/action/hex/target.svg" />
             </span>
           }
           @if (enhancements[slotIndex != undefined ? slotIndex : i] == 'jump') {

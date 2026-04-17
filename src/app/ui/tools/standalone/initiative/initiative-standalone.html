@@ -33,13 +33,13 @@
                 <span class="value"> -- </span>
               }
               @if (character.initiativeVisible && character.initiative == 99 && character.longRest) {
-                <img class="ghs-svg" src="/assets/images/long-rest.svg" />
+                <img class="ghs-svg" src="./assets/images/long-rest.svg" />
               }
             </div>
             @if (!vertical()) {
               <span class="spacer"></span>
               <span class="long-rest-button" [ngClass]="{ active: longRest }" (click)="setLongRest()">
-                <img class="ghs-svg" src="/assets/images/long-rest.svg" />
+                <img class="ghs-svg" src="./assets/images/long-rest.svg" />
                 <span [ghs-label]="'game.figure.longRest' + (longRest ? 'Off' : '')"></span>
               </span>
             }
@@ -49,7 +49,7 @@
             <span class="value"
               >{{ value }}
               @if (longRest) {
-                <img class="ghs-svg" src="/assets/images/long-rest.svg" />
+                <img class="ghs-svg" src="./assets/images/long-rest.svg" />
               }
             </span>
             <span></span>
@@ -70,7 +70,7 @@
           </div>
           @if (vertical()) {
             <span class="long-rest-button" [ngClass]="{ active: longRest }" (click)="setLongRest()">
-              <img class="ghs-svg" src="/assets/images/long-rest.svg" />
+              <img class="ghs-svg" src="./assets/images/long-rest.svg" />
               <span [ghs-label]="'game.figure.longRest' + (longRest ? 'Off' : '')"></span>
             </span>
           }

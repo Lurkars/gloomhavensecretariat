@@ -15,13 +15,13 @@
       <span class="effects">
         <span [ghs-label]="'party.campaign.sheet.buildings.effects'"></span>
         <a class="toggle" (click)="settingsManager.toggle('buildingEffectsVisible')">
-          <img [src]="'/assets/images/' + (settingsManager.settings.buildingEffectsVisible ? 'wake-lock' : 'hidden') + '.svg'" />
+          <img [src]="'./assets/images/' + (settingsManager.settings.buildingEffectsVisible ? 'wake-lock' : 'hidden') + '.svg'" />
         </a>
       </span>
       <span class="interactions">
         <span [ghs-label]="'party.campaign.sheet.buildings.interactions'"></span>
         <a class="toggle" (click)="settingsManager.toggle('buildingInteractionsVisible')">
-          <img [src]="'/assets/images/' + (settingsManager.settings.buildingInteractionsVisible ? 'wake-lock' : 'hidden') + '.svg'" />
+          <img [src]="'./assets/images/' + (settingsManager.settings.buildingInteractionsVisible ? 'wake-lock' : 'hidden') + '.svg'" />
         </a>
       </span>
     }
@@ -67,7 +67,7 @@
                 [ghs-tooltip]="building.data.effectNormal[building.model.level ? building.model.level - 1 : 0]"
                 [originY]="'top'"
                 [overlayY]="'bottom'"
-                ><img src="/assets/images/fh/buildings/normal.svg" />
+                ><img src="./assets/images/fh/buildings/normal.svg" />
               </span>
               <span class="text" [ghs-label]="building.data.effectNormal[building.model.level ? building.model.level - 1 : 0]"></span>
             </span>
@@ -83,7 +83,7 @@
                 [ghs-tooltip]="building.data.effectWrecked[building.model.level ? building.model.level - 1 : 0]"
                 [originY]="'top'"
                 [overlayY]="'bottom'"
-                ><img src="/assets/images/fh/buildings/normal.svg" />
+                ><img src="./assets/images/fh/buildings/normal.svg" />
               </span>
               <span class="text" [ghs-label]="building.data.effectWrecked[building.model.level ? building.model.level - 1 : 0]"></span>
             </span>
@@ -101,7 +101,7 @@
                 [ghs-tooltip]="building.data.interactionsAvailable[building.model.level ? building.model.level - 1 : 0]"
                 [originY]="'top'"
                 [overlayY]="'bottom'"
-                ><img src="/assets/images/fh/buildings/interaction.svg" />
+                ><img src="./assets/images/fh/buildings/interaction.svg" />
               </span>
               <span
                 class="text"
@@ -120,7 +120,7 @@
                 [ghs-tooltip]="building.data.interactionsUnavailable[building.model.level ? building.model.level - 1 : 0]"
                 [originY]="'top'"
                 [overlayY]="'bottom'"
-                ><img src="/assets/images/fh/buildings/interaction.svg" />
+                ><img src="./assets/images/fh/buildings/interaction.svg" />
               </span>
               <span
                 class="text"
@@ -131,7 +131,7 @@
           @if (gameManager.buildingsManager.petsEnabled && building.data.name == 'stables') {
             <span class="interaction stables">
               <span class="icon" (click)="openStables()" [ghs-tooltip]="'data.buildings.stables.pets.interaction'"
-                ><img src="/assets/images/fh/catching.svg" />
+                ><img src="./assets/images/fh/catching.svg" />
               </span>
               <span class="text" (click)="openStables()" [ghs-label]="'data.buildings.stables.pets.interaction'"></span>
             </span>
@@ -139,7 +139,7 @@
           @if (gameManager.buildingsManager.gardenEnabled && building.data.name == 'garden') {
             <span class="interaction garden">
               <span class="icon" (click)="openGarden()" [ghs-tooltip]="'data.buildings.garden.plots.interaction'"
-                ><img src="/assets/images/fh/buildings/garden.png" />
+                ><img src="./assets/images/fh/buildings/garden.png" />
               </span>
               <span class="text" (click)="openGarden()" [ghs-label]="'data.buildings.garden.plots.interaction'"></span>
             </span>
@@ -148,11 +148,11 @@
       }
       <span class="costs" [ngClass]="{ disabled: !upgradeable(building) }">
         @if (!building.model.level) {
-          <span class="cost"><img src="/assets/images/fh/buildings/prosperity.svg" /> {{ building.data.costs.prosperity || '-' }}</span>
-          <span class="cost"><img src="/assets/images/fh/loot/lumber.svg" /> {{ building.data.costs.lumber || '-' }}</span>
-          <span class="cost"><img src="/assets/images/fh/loot/metal.svg" /> {{ building.data.costs.metal || '-' }}</span>
-          <span class="cost"><img src="/assets/images/fh/loot/hide.svg" /> {{ building.data.costs.hide || '-' }}</span>
-          <span class="cost"><img src="/assets/images/fh/loot.svg" /> {{ building.data.costs.gold || '-' }}</span>
+          <span class="cost"><img src="./assets/images/fh/buildings/prosperity.svg" /> {{ building.data.costs.prosperity || '-' }}</span>
+          <span class="cost"><img src="./assets/images/fh/loot/lumber.svg" /> {{ building.data.costs.lumber || '-' }}</span>
+          <span class="cost"><img src="./assets/images/fh/loot/metal.svg" /> {{ building.data.costs.metal || '-' }}</span>
+          <span class="cost"><img src="./assets/images/fh/loot/hide.svg" /> {{ building.data.costs.hide || '-' }}</span>
+          <span class="cost"><img src="./assets/images/fh/loot.svg" /> {{ building.data.costs.gold || '-' }}</span>
         }
         @if (building.model.level > 0) {
           @if (
@@ -161,17 +161,17 @@
             !building.data.upgrades[building.model.level - 1].manual
           ) {
             <span class="cost"
-              ><img src="/assets/images/fh/buildings/prosperity.svg" />
+              ><img src="./assets/images/fh/buildings/prosperity.svg" />
               {{ building.data.upgrades[building.model.level - 1].prosperity || '-' }}</span
             >
             <span class="cost"
-              ><img src="/assets/images/fh/loot/lumber.svg" /> {{ building.data.upgrades[building.model.level - 1].lumber || '-' }}</span
+              ><img src="./assets/images/fh/loot/lumber.svg" /> {{ building.data.upgrades[building.model.level - 1].lumber || '-' }}</span
             >
             <span class="cost"
-              ><img src="/assets/images/fh/loot/metal.svg" /> {{ building.data.upgrades[building.model.level - 1].metal || '-' }}</span
+              ><img src="./assets/images/fh/loot/metal.svg" /> {{ building.data.upgrades[building.model.level - 1].metal || '-' }}</span
             >
             <span class="cost"
-              ><img src="/assets/images/fh/loot/hide.svg" /> {{ building.data.upgrades[building.model.level - 1].hide || '-' }}</span
+              ><img src="./assets/images/fh/loot/hide.svg" /> {{ building.data.upgrades[building.model.level - 1].hide || '-' }}</span
             >
           }
           @if (building.model.state == 'damaged' && building.data.repair) {
@@ -180,9 +180,9 @@
                 [ghs-label]="'party.campaign.sheet.buildings.repair.costs'"
                 [ghs-label-args]="['' + building.data.repair[building.model.level - 1]]"
               ></span>
-              <span class="cost"><img src="/assets/images/fh/loot/lumber.svg" /></span>
-              <span class="cost"><img src="/assets/images/fh/loot/metal.svg" /></span>
-              <span class="cost"><img src="/assets/images/fh/loot/hide.svg" /></span>
+              <span class="cost"><img src="./assets/images/fh/loot/lumber.svg" /></span>
+              <span class="cost"><img src="./assets/images/fh/loot/metal.svg" /></span>
+              <span class="cost"><img src="./assets/images/fh/loot/hide.svg" /></span>
               @if (gameManager.game.party.morale > 0) {
                 <span class="morale" [ghs-label]="'party.campaign.sheet.buildings.repair.morale'"></span>
               }
@@ -191,13 +191,13 @@
           @if (building.model.state == 'wrecked') {
             <span></span>
             <span class="cost"
-              ><img src="/assets/images/fh/loot/lumber.svg" /> {{ building.data.rebuild[building.model.level - 1].lumber || '-' }}</span
+              ><img src="./assets/images/fh/loot/lumber.svg" /> {{ building.data.rebuild[building.model.level - 1].lumber || '-' }}</span
             >
             <span class="cost"
-              ><img src="/assets/images/fh/loot/metal.svg" /> {{ building.data.rebuild[building.model.level - 1].metal || '-' }}</span
+              ><img src="./assets/images/fh/loot/metal.svg" /> {{ building.data.rebuild[building.model.level - 1].metal || '-' }}</span
             >
             <span class="cost"
-              ><img src="/assets/images/fh/loot/hide.svg" /> {{ building.data.rebuild[building.model.level - 1].hide || '-' }}</span
+              ><img src="./assets/images/fh/loot/hide.svg" /> {{ building.data.rebuild[building.model.level - 1].hide || '-' }}</span
             >
           }
         }
@@ -218,7 +218,7 @@
             @if (!short) {
               <span [ghs-label]="'party.campaign.sheet.buildings.' + (building.model.level > 0 ? 'upgrade' : 'build')"></span>
             }
-            <img [src]="'/assets/images/fh/buildings/' + (building.model.level > 0 ? 'upgrade' : 'build') + '.svg'" />
+            <img [src]="'./assets/images/fh/buildings/' + (building.model.level > 0 ? 'upgrade' : 'build') + '.svg'" />
           </span>
         }
         @if (building.model.state == 'damaged') {
@@ -236,7 +236,7 @@
             @if (!short) {
               <span [ghs-label]="'party.campaign.sheet.buildings.repair'"></span>
             }
-            <img src="/assets/images/fh/buildings/repair.svg" />
+            <img src="./assets/images/fh/buildings/repair.svg" />
           </span>
         }
         @if (building.model.state == 'wrecked') {
@@ -254,7 +254,7 @@
             @if (!short) {
               <span [ghs-label]="'party.campaign.sheet.buildings.rebuild'"></span>
             }
-            <img src="/assets/images/fh/buildings/rebuild.svg" />
+            <img src="./assets/images/fh/buildings/rebuild.svg" />
           </span>
         }
       </span>

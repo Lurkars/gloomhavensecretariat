@@ -50,7 +50,7 @@
         @for (entityCondition of activeConditions | trackUUID; track entityCondition._trackUUID) {
           <span class="condition">
             <img
-              [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
+              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
               [style.z-index]="entityCondition.value"
             />
             @if (entityCondition.types.includes(ConditionType.stack)) {
@@ -58,7 +58,9 @@
                 <img
                   class="stack"
                   [style.z-index]="entityCondition.value - i - 1"
-                  [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
+                  [src]="
+                    './assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'
+                  "
                 />
               }
             }
@@ -92,6 +94,6 @@
   </div>
 
   <a class="wip" (click)="cancel()"
-    ><img class="ghs-svg" src="/assets/images/warning.svg" /> <span [ghs-label]="'wip'"></span>!&nbsp;<span [ghs-label]="'cancel'"></span>!
+    ><img class="ghs-svg" src="./assets/images/warning.svg" /> <span [ghs-label]="'wip'"></span>!&nbsp;<span [ghs-label]="'cancel'"></span>!
   </a>
 </div>

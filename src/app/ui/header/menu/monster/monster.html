@@ -60,11 +60,11 @@
               @if (isSpoiled(monsterData)) {
                 <a tabclick (click)="addMonster(monsterData)">
                   @if (monsterData.boss) {
-                    <span class="boss-icon"><img src="/assets/images/monster/enemy.png" /></span>
+                    <span class="boss-icon"><img src="./assets/images/monster/enemy.png" /></span>
                   }
                   <span [ghs-label]="'data.monster.' + monsterData.name"></span>
                   @if (monsterData.hidden) {
-                    <img class="ghs-svg hidden-icon" src="/assets/images/hidden.svg" />
+                    <img class="ghs-svg hidden-icon" src="./assets/images/hidden.svg" />
                   }
                 </a>
               }

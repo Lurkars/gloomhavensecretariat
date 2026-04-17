@@ -15,7 +15,7 @@
         <div class="title">
           <div class="automation">
             @if (challenge.automation && settingsManager.settings.fhChallengesApply) {
-              <img [ghs-tooltip]="'challenges.automation.hint'" class="ghs-svg" src="/assets/images/automation.svg" />
+              <img [ghs-tooltip]="'challenges.automation.hint'" class="ghs-svg" src="./assets/images/automation.svg" />
             }
           </div>
           <p class="placeholder" [ghs-label]="'data.challenges.' + challenge.edition + '.' + challenge.cardId"></p>
@@ -24,7 +24,7 @@
               <img
                 [ghs-tooltip]="'data.challenges.' + challenge.edition + '.' + challenge.cardId + '.hint'"
                 class="ghs-svg"
-                src="/assets/images/warning.svg"
+                src="./assets/images/warning.svg"
               />
             }
           </div>

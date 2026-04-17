@@ -49,7 +49,7 @@ export class CharacterEditorComponent implements OnInit {
     private router: Router
   ) {
     this.characterData = new CharacterData();
-    this.characterData.iconUrl = '/assets/images/warning.svg';
+    this.characterData.iconUrl = './assets/images/warning.svg';
     for (let i = 0; i < 9; i++) {
       this.characterData.stats.push(new CharacterStat(i + 1, i + 6));
     }
@@ -129,7 +129,7 @@ export class CharacterEditorComponent implements OnInit {
         return;
       } catch (e) {
         this.characterData = new CharacterData();
-        this.characterData.iconUrl = '/assets/images/warning.svg';
+        this.characterData.iconUrl = './assets/images/warning.svg';
         for (let i = 0; i < 9; i++) {
           this.characterData.stats.push(new CharacterStat(i, i));
         }
@@ -153,7 +153,7 @@ export class CharacterEditorComponent implements OnInit {
       this.characterData = gameManager.charactersData(this.edition)[index];
     } else {
       this.characterData = new CharacterData();
-      this.characterData.iconUrl = '/assets/images/warning.svg';
+      this.characterData.iconUrl = './assets/images/warning.svg';
       for (let i = 0; i < 9; i++) {
         this.characterData.stats.push(new CharacterStat(i + 1, i + 6));
       }

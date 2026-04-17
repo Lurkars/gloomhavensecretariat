@@ -32,7 +32,7 @@
             <img
               class="artwork"
               [src]="
-                '/assets/artwork/items/' +
+                './assets/artwork/items/' +
                 item.edition +
                 '-' +
                 (idNumber && +item.id < 100 ? '0' : '') +
@@ -80,7 +80,7 @@
           }
           @if (item.slot) {
             <div class="slot">
-              <img class="ghs-svg" [src]="'/assets/images/items/slots/' + item.slot + '.svg'" />
+              <img class="ghs-svg" [src]="'./assets/images/items/slots/' + item.slot + '.svg'" />
             </div>
           }
           <div class="id">
@@ -107,7 +107,7 @@
           <img
             class="artwork"
             [src]="
-              '/assets/artwork/items/' +
+              './assets/artwork/items/' +
               item.edition +
               '-' +
               (idNumber && +item.id < 100 ? '0' : '') +
@@ -159,7 +159,7 @@
             @if (item.resources) {
               @for (resource of item.resources | keyvalue; track resource) {
                 <span class="resource">
-                  <img [src]="'/assets/images/fh/loot/' + resource.key + '.svg'" />
+                  <img [src]="'./assets/images/fh/loot/' + resource.key + '.svg'" />
                   @if (resource.value && resource.value > 1) {
                     <span class="value">x{{ resource.value }}</span>
                   }
@@ -240,14 +240,14 @@
         @if (item.minusOne) {
           <div class="minus-one">
             <span class="card-icon small">
-              <img class="icon" [src]="'/assets/images' + (fhStyle || bb ? '/fh/attackmodifier/icons/minus1.png' : '/items/minus1.svg')" />
+              <img class="icon" [src]="'./assets/images' + (fhStyle || bb ? '/fh/attackmodifier/icons/minus1.png' : '/items/minus1.svg')" />
             </span>
             <span class="value">x{{ item.minusOne }}</span>
           </div>
         }
         @if (item.slot) {
           <div class="slot">
-            <img class="ghs-svg" [src]="'/assets/images/items/slots/' + item.slot + '.svg'" />
+            <img class="ghs-svg" [src]="'./assets/images/items/slots/' + item.slot + '.svg'" />
           </div>
         }
         <div class="id">

@@ -1,7 +1,7 @@
 <span class="attack" [ngClass]="{ selected: selected }" ghs-pointer-input (doubleClick)="toggleSelected()">
   <div class="main" [ngClass]="{ light: light }">
-    <span class="attack-value"><img src="/assets/images/fh/action/attack.svg" />{{ attack.attackValue }}</span>
-    <span class="target-number"><img src="/assets/images/fh/action/target.svg" />{{ attack.targetNumber }}</span>
+    <span class="attack-value"><img src="./assets/images/fh/action/attack.svg" />{{ attack.attackValue }}</span>
+    <span class="target-number"><img src="./assets/images/fh/action/target.svg" />{{ attack.targetNumber }}</span>
   </div>
   @if (targetDescription && attack.targetDescription) {
     <span class="target-description" [ngClass]="{ 'text-white': light }" [ghs-label]="attack.targetDescription"></span>

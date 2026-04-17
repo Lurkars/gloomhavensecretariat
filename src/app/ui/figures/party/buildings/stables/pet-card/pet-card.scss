@@ -10,7 +10,7 @@
   height: 100%;
 
   .front {
-    background-image: url('/assets/images/fh/pets/pets-card-front.png');
+    background-image: url('../../../../../../../assets/images/fh/pets/pets-card-front.png');
     background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      mask-image: url('/assets/images/fh/pets/pets-card-front-mask.png');
+      mask-image: url('../../../../../../../assets/images/fh/pets/pets-card-front-mask.png');
       mask-size: 100% 100%;
       mask-position: center center;
       mask-repeat: no-repeat;
@@ -114,7 +114,7 @@
   }
 
   .back {
-    background-image: url('/assets/images/fh/pets/pets-card-back.png');
+    background-image: url('../../../../../../../assets/images/fh/pets/pets-card-back.png');
     background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;

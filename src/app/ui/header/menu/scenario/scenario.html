@@ -43,7 +43,7 @@
   <div class="line search">
     <input type="text" #search [ghs-label]="'scenario.filter'" [ghs-label-attribute]="'placeholder'" />
 
-    <a (click)="scenarioChart()" [ghs-tooltip]="'scenario.chart'"><img class="ghs-svg" src="/assets/images/chart.svg" /></a>
+    <a (click)="scenarioChart()" [ghs-tooltip]="'scenario.chart'"><img class="ghs-svg" src="./assets/images/chart.svg" /></a>
   </div>
   <div class="line campaign">
     @if (gameManager.game.party.campaignMode) {
@@ -66,7 +66,7 @@
     @if (group) {
       <div class="line title group">
         <label [ghs-label]="'data.scenario.group.' + group"></label>
-        <a (click)="scenarioChart(group)" [ghs-tooltip]="'scenario.chart'"><img class="ghs-svg" src="/assets/images/chart.svg" /></a>
+        <a (click)="scenarioChart(group)" [ghs-tooltip]="'scenario.chart'"><img class="ghs-svg" src="./assets/images/chart.svg" /></a>
       </div>
     }
     <div class="line scenarios">
@@ -96,10 +96,10 @@
           @if (scenario.complexity) {
             <span class="complexity">
               @for (i of [] | ghsRange: scenario.complexity; track i) {
-                <img src="/assets/images/scenario/complexity-full.svg" />
+                <img src="./assets/images/scenario/complexity-full.svg" />
               }
               @for (i of [] | ghsRange: 3 - scenario.complexity; track i) {
-                <img src="/assets/images/scenario/complexity.svg" />
+                <img src="./assets/images/scenario/complexity.svg" />
               }
             </span>
           }
@@ -108,17 +108,17 @@
           }
           @if (gameManager.scenarioManager.isSuccess(scenario)) {
             <span class="state success">
-              <img src="/assets/images/check.svg" />
+              <img src="./assets/images/check.svg" />
             </span>
           }
           @if (scenario.isBlocked) {
             <span class="state blocked">
-              <img src="/assets/images/close.svg" />
+              <img src="./assets/images/close.svg" />
             </span>
           }
           @if (!scenario.isBlocked && scenario.isLocked) {
             <span class="state locked">
-              <img src="/assets/images/close.svg" />
+              <img src="./assets/images/close.svg" />
             </span>
           }
         </span>

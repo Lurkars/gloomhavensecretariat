@@ -28,7 +28,7 @@
       background-position: center;
       background-size: 100% auto;
       background-repeat: no-repeat;
-      background-image: url('/assets/images/fh/challenges/challenge-back.png');
+      background-image: url('../../../../assets/images/fh/challenges/challenge-back.png');
       border-radius: 5%;
       transition: filter calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
 
@@ -75,7 +75,7 @@
       background-position: center;
       background-size: 100% auto;
       background-repeat: no-repeat;
-      background-image: url('/assets/images/attackmodifier/am-character-icon.png');
+      background-image: url('../../../../assets/images/attackmodifier/am-character-icon.png');
       transition: transform calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
       transform: scale(1.1);
 

@@ -53,7 +53,7 @@
             >
               <img
                 class="ghs-svg absent-icon"
-                [src]="'/assets/images/status/' + (character.absent ? 'absent' : 'present') + '.svg'"
+                [src]="'./assets/images/status/' + (character.absent ? 'absent' : 'present') + '.svg'"
                 [ghs-label]="character.absent ? 'character.present' : 'character.absent'"
                 [ghs-label-attribute]="'title'"
                 (click)="toggleAbsent(character)"
@@ -147,7 +147,7 @@
             <span [ghs-label]="'scenario.summary.gold'"></span>
           }
           @if (totalGold) {
-            <img class="ghs-svg" src="/assets/images/fh/loot/money.svg" />
+            <img class="ghs-svg" src="./assets/images/fh/loot/money.svg" />
             {{ lootedGold }}/{{ totalGold }}
           }
         </span>
@@ -179,7 +179,7 @@
         }
         @for (lootType of lootColumns; track lootType; let i = $index) {
           <span class="head-col">
-            <img class="ghs-svg" [src]="'/assets/images/fh/loot/' + lootType + '.svg'" />
+            <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'" />
             {{ lootColumnsLooted[i] }}/{{ lootColumnsTotal[i] }}
           </span>
           @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
@@ -291,7 +291,7 @@
               }})
               @if (levelUp[index]) {
                 <span class="level-up" [ghs-tooltip]="'scenario.summary.levelUp'" [ghs-label-args]="[character.level, character.level + 1]">
-                  <img class="ghs-svg" src="/assets/images/arrow-up.svg" />
+                  <img class="ghs-svg" src="./assets/images/arrow-up.svg" />
                 </span>
               }
             </span>
@@ -448,7 +448,7 @@
                 </span>
                 @if (perksUp[index]) {
                   <span class="level-up" [ghs-tooltip]="'scenario.summary.perksUp'">
-                    <img class="ghs-svg" src="/assets/images/arrow-up.svg" />
+                    <img class="ghs-svg" src="./assets/images/arrow-up.svg" />
                   </span>
                 }
               </span>
@@ -462,7 +462,7 @@
               <span class="trials">
                 @if (character.progress.trial) {
                   <span class="trial" (click)="openTrial(character)">
-                    <img src="/assets/images/fh/trials/trial.png" />
+                    <img src="./assets/images/fh/trials/trial.png" />
                   </span>
                 }
                 <span class="checkmark">

@@ -1,8 +1,8 @@
 {
   "name": "woebound",
   "characterClass": "valrath",
-  "iconUrl": "/assets/images/character/icons/cc-woebound.svg",
-  "thumbnailUrl": "/assets/images/character/thumbnail/cc-woebound.png",
+  "iconUrl": "./assets/images/character/icons/cc-woebound.svg",
+  "thumbnailUrl": "./assets/images/character/thumbnail/cc-woebound.png",
   "edition": "fh",
   "handSize": 10,
   "color": "#544169",

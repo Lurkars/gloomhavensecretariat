@@ -6,7 +6,7 @@
   [ghs-label]="'game.figure.setInitiative'"
   [ghs-label-attribute]="'title'"
 >
-  <img (click)="open()" class="ghs-svg" src="/assets/images/initiative.svg" />
+  <img (click)="open()" class="ghs-svg" src="./assets/images/initiative.svg" />
   <input
     [ngClass]="{ hidden: hidden }"
     #initiativeInput
@@ -28,7 +28,7 @@
       class="ghs-svg long-rest"
       [ghs-label]="'game.figure.longRestOff'"
       [ghs-label-attribute]="'title'"
-      src="/assets/images/long-rest.svg"
+      src="./assets/images/long-rest.svg"
       (click)="longRestOff($event)"
     />
   }

@@ -89,7 +89,7 @@
                         @if (divider(ability.actions, index)) {
                           <div class="divider"></div>
                         }
-                        <span class="handle" cdkDragHandle><img class="ghs-icon" src="/assets/images/menu.svg" /></span>
+                        <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg" /></span>
                         <ghs-action
                           (click)="editAbilityAction(ability, action)"
                           [action]="action"
@@ -114,24 +114,24 @@
                       />
                     </div>
                     <a class="lost" (click)="ability.lost = !ability.lost; deckDataToJson()" [ngClass]="{ enabled: ability.lost }">
-                      <img src="/assets/images/action/card/lost.svg" />
-                      <img class="overlay" src="/assets/images/action/card/overlay/lost.svg" />
+                      <img src="./assets/images/action/card/lost.svg" />
+                      <img class="overlay" src="./assets/images/action/card/overlay/lost.svg" />
                     </a>
                     <a class="round" (click)="ability.round = !ability.round; deckDataToJson()" [ngClass]="{ enabled: ability.round }">
-                      <img src="/assets/images/action/card/round.svg" />
-                      <img class="overlay" src="/assets/images/action/card/overlay/round.svg" />
+                      <img src="./assets/images/action/card/round.svg" />
+                      <img class="overlay" src="./assets/images/action/card/overlay/round.svg" />
                     </a>
                     <a class="loss" (click)="ability.loss = !ability.loss; deckDataToJson()" [ngClass]="{ enabled: ability.loss }">
-                      <img src="/assets/images/action/card/loss.svg" />
-                      <img class="overlay" src="/assets/images/action/card/overlay/loss.svg" />
+                      <img src="./assets/images/action/card/loss.svg" />
+                      <img class="overlay" src="./assets/images/action/card/overlay/loss.svg" />
                     </a>
                     <a
                       class="persistent"
                       (click)="ability.persistent = !ability.persistent; deckDataToJson()"
                       [ngClass]="{ enabled: ability.persistent }"
                     >
-                      <img src="/assets/images/action/card/persistent.svg" />
-                      <img class="overlay" src="/assets/images/action/card/overlay/persistent.svg" />
+                      <img src="./assets/images/action/card/persistent.svg" />
+                      <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg" />
                     </a>
                     @if (!deckData.character) {
                       <a
@@ -139,7 +139,7 @@
                         (click)="ability.shuffle = !ability.shuffle; deckDataToJson()"
                         [ngClass]="{ enabled: ability.shuffle }"
                       >
-                        <img src="/assets/images/shuffle.svg" />
+                        <img src="./assets/images/shuffle.svg" />
                       </a>
                     }
                   </div>
@@ -152,7 +152,7 @@
                           @if (divider(ability.bottomActions, index)) {
                             <div class="divider"></div>
                           }
-                          <span class="handle" cdkDragHandle><img class="ghs-icon" src="/assets/images/menu.svg" /></span>
+                          <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg" /></span>
                           <ghs-action
                             (click)="editAbilityActionBottom(ability, action)"
                             [action]="action"
@@ -182,32 +182,32 @@
                       (click)="ability.bottomLost = !ability.bottomLost; deckDataToJson()"
                       [ngClass]="{ enabled: ability.bottomLost }"
                     >
-                      <img src="/assets/images/action/card/lost.svg" />
-                      <img class="overlay" src="/assets/images/action/card/overlay/lost.svg" />
+                      <img src="./assets/images/action/card/lost.svg" />
+                      <img class="overlay" src="./assets/images/action/card/overlay/lost.svg" />
                     </a>
                     <a
                       class="round"
                       (click)="ability.bottomRound = !ability.bottomRound; deckDataToJson()"
                       [ngClass]="{ enabled: ability.bottomRound }"
                     >
-                      <img src="/assets/images/action/card/round.svg" />
-                      <img class="overlay" src="/assets/images/action/card/overlay/round.svg" />
+                      <img src="./assets/images/action/card/round.svg" />
+                      <img class="overlay" src="./assets/images/action/card/overlay/round.svg" />
                     </a>
                     <a
                       class="loss"
                       (click)="ability.bottomLoss = !ability.bottomLoss; deckDataToJson()"
                       [ngClass]="{ enabled: ability.bottomLoss }"
                     >
-                      <img src="/assets/images/action/card/loss.svg" />
-                      <img class="overlay" src="/assets/images/action/card/overlay/loss.svg" />
+                      <img src="./assets/images/action/card/loss.svg" />
+                      <img class="overlay" src="./assets/images/action/card/overlay/loss.svg" />
                     </a>
                     <a
                       class="persistent"
                       (click)="ability.bottomPersistent = !ability.bottomPersistent; deckDataToJson()"
                       [ngClass]="{ enabled: ability.bottomPersistent }"
                     >
-                      <img src="/assets/images/action/card/persistent.svg" />
-                      <img class="overlay" src="/assets/images/action/card/overlay/persistent.svg" />
+                      <img src="./assets/images/action/card/persistent.svg" />
+                      <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg" />
                     </a>
                     @if (!deckData.character) {
                       <a
@@ -215,7 +215,7 @@
                         (click)="ability.bottomShuffle = !ability.bottomShuffle; deckDataToJson()"
                         [ngClass]="{ enabled: ability.bottomShuffle }"
                       >
-                        <img src="/assets/images/shuffle.svg" />
+                        <img src="./assets/images/shuffle.svg" />
                       </a>
                     }
                   </div>
@@ -226,17 +226,17 @@
                   [value]="ability.cardId && (ability.cardId < 100 ? '0' : '') + (ability.cardId < 10 ? '0' : '') + ability.cardId"
                   (change)="changeCardId($event, ability)"
                 />
-                <a class="remove" (click)="removeAbility(ability)"><img class="ghs-icon" src="/assets/images/minus.svg" /></a>
+                <a class="remove" (click)="removeAbility(ability)"><img class="ghs-icon" src="./assets/images/minus.svg" /></a>
               </div>
               <div
                 class="buttons"
                 [ngClass]="{ 'bottom-actions': deckData.character || (ability.bottomActions && ability.bottomActions.length > 0) }"
               >
                 <a class="button add" (click)="addAbilityAction(ability)"
-                  ><img class="ghs-icon" src="/assets/images/plus.svg" /> <span [ghs-label]="'editor.action.add'"></span
+                  ><img class="ghs-icon" src="./assets/images/plus.svg" /> <span [ghs-label]="'editor.action.add'"></span
                 ></a>
                 <a class="button add bottom" (click)="addAbilityActionBottom(ability)"
-                  ><img class="ghs-icon" src="/assets/images/plus.svg" /> <span [ghs-label]="'editor.action.addBottom'"></span
+                  ><img class="ghs-icon" src="./assets/images/plus.svg" /> <span [ghs-label]="'editor.action.addBottom'"></span
                 ></a>
               </div>
               <ghs-ability
@@ -264,7 +264,7 @@
         }
 
         <a class="button" (click)="addAbility()"
-          ><img class="ghs-icon" src="/assets/images/plus.svg" /> <span [ghs-label]="'editor.deck.addAbility'"></span
+          ><img class="ghs-icon" src="./assets/images/plus.svg" /> <span [ghs-label]="'editor.deck.addAbility'"></span
         ></a>
       </div>
     </div>
@@ -296,7 +296,7 @@
         class="button"
         [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputDeckData.value)"
         [download]="deckData.name + '.json'"
-        ><img class="ghs-icon" src="/assets/images/export.svg" /> <span [ghs-label]="'editor.deck.json.download'"></span
+        ><img class="ghs-icon" src="./assets/images/export.svg" /> <span [ghs-label]="'editor.deck.json.download'"></span
       ></a>
     </div>
   </div>

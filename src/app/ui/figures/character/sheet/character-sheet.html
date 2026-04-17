@@ -31,7 +31,7 @@
             <img
               (click)="toggleCharacterAbsent()"
               class="absent"
-              [src]="'/assets/images/status/' + (character.absent ? 'absent' : 'present') + '.svg'"
+              [src]="'./assets/images/status/' + (character.absent ? 'absent' : 'present') + '.svg'"
               [ghs-label]="character.absent ? 'character.present' : 'character.absent'"
               [ghs-label-attribute]="'title'"
             />
@@ -53,8 +53,8 @@
           <div class="level">
             <div class="columns">
               <div class="column">
-                <label><span [ghs-label]="'character.progress.level'"></span> <img src="/assets/images/level.svg" />:</label>
-                <label><span [ghs-label]="'character.progress.xp'"></span> <img src="/assets/images/experience.svg" />:</label>
+                <label><span [ghs-label]="'character.progress.level'"></span> <img src="./assets/images/level.svg" />:</label>
+                <label><span [ghs-label]="'character.progress.xp'"></span> <img src="./assets/images/experience.svg" />:</label>
               </div>
               <div class="column">
                 <div class="level-grid">
@@ -80,7 +80,7 @@
         <div class="xp-gold-container">
           <div class="row xp-notes">
             <label
-              ><span [ghs-label]="'character.progress.xp'"></span> <img src="/assets/images/experience.svg" />
+              ><span [ghs-label]="'character.progress.xp'"></span> <img src="./assets/images/experience.svg" />
               @if (!fhSheet) {
                 <span><span [ghs-label]="'character.progress.notes'"></span></span>
               }
@@ -93,7 +93,7 @@
               <label><span [ghs-label]="'character.progress.gold-notes'"></span>:</label>
             }
             @if (fhSheet) {
-              <label><span [ghs-label]="'character.progress.gold'"></span> <img src="/assets/images/fh/loot.svg" />:</label>
+              <label><span [ghs-label]="'character.progress.gold'"></span> <img src="./assets/images/fh/loot.svg" />:</label>
             }
             <input [value]="character.progress.gold" type="number" min="0" (change)="setGold($event)" />
             @if (donations) {
@@ -107,7 +107,7 @@
                 <a
                   (click)="donate()"
                   [ngClass]="{ disabled: character.progress.gold < (donations == 'fh' ? 5 : 10) || gameManager.game.round > 0 }"
-                  ><span class="price"><img src="/assets/images/loot.svg" />{{ donations == 'fh' ? 5 : 10 }}</span></a
+                  ><span class="price"><img src="./assets/images/loot.svg" />{{ donations == 'fh' ? 5 : 10 }}</span></a
                 >
               </span>
             }
@@ -130,7 +130,7 @@
             <div class="resource-table">
               <div class="materials">
                 <div class="resource lumber">
-                  <img src="/assets/images/fh/loot/lumber.svg" />
+                  <img src="./assets/images/fh/loot/lumber.svg" />
                   <input
                     [value]="
                       settingsManager.settings.fhShareResources ? gameManager.game.party.loot.lumber : character.progress.loot.lumber
@@ -141,7 +141,7 @@
                   />
                 </div>
                 <div class="resource metal">
-                  <img src="/assets/images/fh/loot/metal.svg" />
+                  <img src="./assets/images/fh/loot/metal.svg" />
                   <input
                     [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.metal : character.progress.loot.metal"
                     type="number"
@@ -150,7 +150,7 @@
                   />
                 </div>
                 <div class="resource hide">
-                  <img src="/assets/images/fh/loot/hide.svg" />
+                  <img src="./assets/images/fh/loot/hide.svg" />
                   <input
                     [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.hide : character.progress.loot.hide"
                     type="number"
@@ -161,7 +161,7 @@
               </div>
               <div class="herbs">
                 <div class="resource arrowvine">
-                  <img src="/assets/images/fh/loot/arrowvine.svg" />
+                  <img src="./assets/images/fh/loot/arrowvine.svg" />
                   <input
                     [value]="
                       settingsManager.settings.fhShareResources ? gameManager.game.party.loot.arrowvine : character.progress.loot.arrowvine
@@ -172,7 +172,7 @@
                   />
                 </div>
                 <div class="resource axenut">
-                  <img src="/assets/images/fh/loot/axenut.svg" />
+                  <img src="./assets/images/fh/loot/axenut.svg" />
                   <input
                     [value]="
                       settingsManager.settings.fhShareResources ? gameManager.game.party.loot.axenut : character.progress.loot.axenut
@@ -183,7 +183,7 @@
                   />
                 </div>
                 <div class="resource corpsecap">
-                  <img src="/assets/images/fh/loot/corpsecap.svg" />
+                  <img src="./assets/images/fh/loot/corpsecap.svg" />
                   <input
                     [value]="
                       settingsManager.settings.fhShareResources ? gameManager.game.party.loot.corpsecap : character.progress.loot.corpsecap
@@ -194,7 +194,7 @@
                   />
                 </div>
                 <div class="resource flamefruit">
-                  <img src="/assets/images/fh/loot/flamefruit.svg" />
+                  <img src="./assets/images/fh/loot/flamefruit.svg" />
                   <input
                     [value]="
                       settingsManager.settings.fhShareResources
@@ -207,7 +207,7 @@
                   />
                 </div>
                 <div class="resource rockroot">
-                  <img src="/assets/images/fh/loot/rockroot.svg" />
+                  <img src="./assets/images/fh/loot/rockroot.svg" />
                   <input
                     [value]="
                       settingsManager.settings.fhShareResources ? gameManager.game.party.loot.rockroot : character.progress.loot.rockroot
@@ -218,7 +218,7 @@
                   />
                 </div>
                 <div class="resource snowthistle">
-                  <img src="/assets/images/fh/loot/snowthistle.svg" />
+                  <img src="./assets/images/fh/loot/snowthistle.svg" />
                   <input
                     [value]="
                       settingsManager.settings.fhShareResources
@@ -242,7 +242,7 @@
               ><span [ghs-label]="'character.progress.notes'"></span>:
               @if (character.traits.length > 0) {
                 <div class="traits">
-                  <span class="icon"><img class="ghs-svg" src="/assets/images/fh/character/traits/trait.svg" /></span>
+                  <span class="icon"><img class="ghs-svg" src="./assets/images/fh/character/traits/trait.svg" /></span>
                   @for (trait of character.traits; track trait; let i = $index) {
                     <span class="trait" [ghs-label]="'data.character.traits.' + trait"></span>
                     @if (i < character.traits.length - 1) {
@@ -276,7 +276,7 @@
             <div class="masteries-list">
               @for (mastery of character.masteries; track mastery; let i = $index) {
                 <div class="mastery">
-                  <span class="checkmark"> <img src="/assets/images/close.svg" />:</span>
+                  <span class="checkmark"> <img src="./assets/images/close.svg" />:</span>
                   <span
                     class="mastery-check checkbox"
                     [ngClass]="{ checked: character.progress.masteries.includes(i) }"
@@ -343,13 +343,13 @@
           </div>
           @if (availablePerks < 0) {
             <div class="warning" [ghs-label]="'game.attackModifiers.perks.warning'" [ghs-label-attribute]="'title'">
-              <img class="ghs-svg" src="/assets/images/warning.svg" />
+              <img class="ghs-svg" src="./assets/images/warning.svg" />
               <span [ghs-label]="'game.attackModifiers.perks.warning'"></span>
             </div>
           }
           @if (character.perkWarning) {
             <div class="wip" [ghs-label]="'wip'" [ghs-label-attribute]="'title'">
-              <img class="ghs-svg" src="/assets/images/warning.svg" /> <span [ghs-label]="'game.attackModifiers.perks.wip'"></span>
+              <img class="ghs-svg" src="./assets/images/warning.svg" /> <span [ghs-label]="'game.attackModifiers.perks.wip'"></span>
             </div>
           }
         </div>
@@ -363,7 +363,9 @@
           <div class="battlegoals-grid">
             @for (item of [] | ghsRange: 18; track item) {
               @if (item % 3 == 0) {
-                <span class="checkmark"> <img [src]="'/assets/images/' + (gh2eSheet || fhSheet ? 'checkmark' : 'check') + '.svg'" />:</span>
+                <span class="checkmark">
+                  <img [src]="'./assets/images/' + (gh2eSheet || fhSheet ? 'checkmark' : 'check') + '.svg'" />:</span
+                >
               }
               <span
                 class="battlegoal checkbox"
@@ -420,7 +422,7 @@
 
             <span class="spacer"></span>
             <a class="ignore-denied" (click)="statistics()" [ghs-tooltip]="'scenario.stats'"
-              ><img class="ghs-svg" src="/assets/images/stats.svg"
+              ><img class="ghs-svg" src="./assets/images/stats.svg"
             /></a>
           </div>
           <div class="player-number">
@@ -440,7 +442,7 @@
                     (doubleClick)="retire(true)"
                     [ngClass]="{ disabled: !retireEnabled }"
                   >
-                    <img class="ghs-svg" src="/assets/images/trophy.svg" />
+                    <img class="ghs-svg" src="./assets/images/trophy.svg" />
                     <span [ghs-label]="'character.progress.retirement'"></span>
                   </label>
                 }
@@ -472,7 +474,7 @@
                       (keyup)="trialIndex.classList.remove('error')"
                     />
                     @if (fhSheet && character.progress.trial) {
-                      <a class="open ignore-denied" (click)="openTrial()"><img src="/assets/images/fh/trials/trial.png" /></a>
+                      <a class="open ignore-denied" (click)="openTrial()"><img src="./assets/images/fh/trials/trial.png" /></a>
                     }
                   </div>
                 </div>
@@ -562,7 +564,7 @@
                   (doubleClick)="retire(true)"
                   [ngClass]="{ disabled: !retireEnabled }"
                 >
-                  <img class="ghs-svg" src="/assets/images/trophy.svg" />
+                  <img class="ghs-svg" src="./assets/images/trophy.svg" />
                   <span [ghs-label]="'character.progress.retirement'"></span>
                 </label>
               }
@@ -593,14 +595,14 @@
           @if (editable && settingsManager.settings.partySheet && !gameManager.game.scenario) {
             <div class="set-aside">
               <label (click)="setAside()">
-                <img src="/assets/images/long-rest.svg" /><span [ghs-label]="'character.setAside'"></span>
+                <img src="./assets/images/long-rest.svg" /><span [ghs-label]="'character.setAside'"></span>
               </label>
             </div>
           }
           @if (replayable && settingsManager.settings.partySheet) {
             <div class="set-aside">
               <label class="ignore-denied" (click)="replay()">
-                <img src="/assets/images/long-rest.svg" /><span [ghs-label]="'character.replay'"></span>
+                <img src="./assets/images/long-rest.svg" /><span [ghs-label]="'character.replay'"></span>
               </label>
             </div>
           }
@@ -612,7 +614,7 @@
               [ghs-label]="'character.progress.export'"
               [ghs-label-attribute]="'title'"
             >
-              <img src="/assets/images/export.svg" />
+              <img src="./assets/images/export.svg" />
               <span [ghs-label]="'character.progress.export'"></span>
             </label>
             <label
@@ -622,7 +624,7 @@
               (click)="ghsInputFullScreenCheck()"
             >
               <input type="file" accept="application/json" (change)="importCharacter($event)" />
-              <img src="/assets/images/import.svg" /><span [ghs-label]="'character.progress.import'"></span>
+              <img src="./assets/images/import.svg" /><span [ghs-label]="'character.progress.import'"></span>
             </label>
           </div>
 

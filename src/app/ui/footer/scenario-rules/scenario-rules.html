@@ -5,7 +5,7 @@
         <div class="dialog-container">
           <div class="hide" (click)="hideRule(ruleElement, index)">
             <span [ghs-label]="'scenario.rules.hide'"></span>
-            <img src="/assets/images/close.svg" />
+            <img src="./assets/images/close.svg" />
           </div>
           <ghs-scenario-rule [rule]="ruleModel.rule" [identifier]="ruleModel.identifier"></ghs-scenario-rule>
           @if (apply(ruleModel.rule)) {
@@ -16,7 +16,7 @@
                     ruleModel.rule.alwaysApply || ruleModel.rule.alwaysApplyTurn ? 'scenario.rules.alwaysApply' : 'scenario.rules.apply'
                   "
                 ></span>
-                <img src="/assets/images/check.svg" />
+                <img src="./assets/images/check.svg" />
               </a>
             </div>
           }

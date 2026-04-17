@@ -53,7 +53,7 @@
           <input class="name" type="text" [value]="pet.model.petname" (change)="updatePet($event, pet.model)" />
         }
         @if (edit && pet.model) {
-          <a class="button-remove" (click)="removePet(pet.model)"> <img class="ghs-svg" src="/assets/images/minus.svg" /></a>
+          <a class="button-remove" (click)="removePet(pet.model)"> <img class="ghs-svg" src="./assets/images/minus.svg" /></a>
         }
         @if (!edit && running && pet.model && pet.model.active) {
           <a class="button-lost" ghs-pointer-input (singleClick)="toggleLost(pet.model)" (doubleClick)="toggleLost(pet.model, true)"></a>

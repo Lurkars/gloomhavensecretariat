@@ -265,7 +265,7 @@
           top: calc(var(--ghs-unit) * -0.9 * var(--ghs-text-factor));
           width: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
           height: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
-          background-image: url('/assets/images/status/health.svg');
+          background-image: url('../../../../assets/images/status/health.svg');
           background-size: contain;
           background-repeat: no-repeat;
           transform: translateX(-50%);
@@ -275,7 +275,7 @@
           font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
 
           &::before {
-            background-image: url('/assets/images/action/damage.svg');
+            background-image: url('../../../../assets/images/action/damage.svg');
             width: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
             filter: var(--ghs-filter-red) brightness(0.7) var(--ghs-filter-outline-thin-black);
           }
@@ -496,7 +496,7 @@
           position: absolute;
           width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
           height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-          background-image: url('/assets/images/summons/minus.svg');
+          background-image: url('../../../../assets/images/summons/minus.svg');
           background-size: cover;
         }
       }
@@ -664,7 +664,7 @@
             position: absolute;
             width: calc(var(--ghs-unit) * 4);
             height: calc(var(--ghs-unit) * 4);
-            background-image: url('/assets/images/summons/minus.svg');
+            background-image: url('../../../../assets/images/summons/minus.svg');
             background-size: cover;
             z-index: 2;
           }
@@ -710,7 +710,7 @@
               top: calc(var(--ghs-unit) * 0.8);
               width: calc(var(--ghs-unit) * 2);
               height: calc(var(--ghs-unit) * 2);
-              background-image: url('/assets/images/fh/summons/minus.svg');
+              background-image: url('../../../../assets/images/fh/summons/minus.svg');
               z-index: 4;
             }
 

@@ -5,7 +5,7 @@
         <div class="line state-container span">
           @if (undoOffset && gameManager.stateManager.gameOffsetWarning) {
             <span class="warning" (click)="gameManager.stateManager.gameOffsetWarning = false">
-              <img src="/assets/images/warning.svg" /> <span [ghs-label]="'state.missing'" [ghs-label-args]="[undoOffset]"></span
+              <img src="./assets/images/warning.svg" /> <span [ghs-label]="'state.missing'" [ghs-label-args]="[undoOffset]"></span
             ></span>
           }
           <a
@@ -32,7 +32,7 @@
             }
           </a>
           <span tabclick class="undo-dialog" (click)="openUndoDialog($event)"
-            ><img class="ghs-svg" src="/assets/images/long-rest.svg"
+            ><img class="ghs-svg" src="./assets/images/long-rest.svg"
           /></span>
           <a
             tabclick
@@ -158,27 +158,27 @@
         @if (gameManager.stateManager.installPrompt) {
           <div class="line">
             <a class="install" (click)="gameManager.stateManager.install()">
-              <img class="ghs-svg" src="/assets/images/install.svg" /> <span [ghs-label]="'app.install'"></span
+              <img class="ghs-svg" src="./assets/images/install.svg" /> <span [ghs-label]="'app.install'"></span
             ></a>
           </div>
         }
         @if (branded) {
           <div class="line">
             <a tabclick (click)="feedbackDialog()"
-              ><img class="ghs-svg" src="/assets/images/hint.svg" />&nbsp;
+              ><img class="ghs-svg" src="./assets/images/hint.svg" />&nbsp;
               <span [ghs-label]="'tools.feedback'"></span>
             </a>
           </div>
         }
         <div class="line">
           <a tabclick (click)="keyboardShourtcutsDialog()" [ghs-tooltip]="'tools.keyboard'"
-            ><img class="ghs-svg" src="/assets/images/keyboard.svg" />
+            ><img class="ghs-svg" src="./assets/images/keyboard.svg" />
           </a>
         </div>
         @if (standalone) {
           <div class="line">
             <a tabclick [routerLink]="'/'" (click)="close()"
-              ><img class="ghs-svg" src="/assets/images/left.svg" />&nbsp;
+              ><img class="ghs-svg" src="./assets/images/left.svg" />&nbsp;
               <span [ghs-label]="'tools.backToGhs'"></span>
             </a>
           </div>
@@ -221,13 +221,13 @@
       <div class="menu-container objective-add">
         <div class="line">
           <a (click)="addObjectiveContainer()">
-            <img class="icon" src="/assets/images/objective/objective.svg" />
+            <img class="icon" src="./assets/images/objective/objective.svg" />
             <span [ghs-label]="'objective.add'"></span>
           </a>
         </div>
         <div class="line">
           <a (click)="addObjectiveContainer(true)">
-            <img class="icon" src="/assets/images/objective/escort.svg" />
+            <img class="icon" src="./assets/images/objective/escort.svg" />
             <span [ghs-label]="'escort.add'"></span>
           </a>
         </div>
@@ -242,10 +242,10 @@
           <div class="line">
             <a (click)="removeObjective(objective)">
               @if (!objective.escort) {
-                <img class="icon" src="/assets/images/objective/objective.svg" />
+                <img class="icon" src="./assets/images/objective/objective.svg" />
               }
               @if (objective.escort) {
-                <img class="icon" src="/assets/images/objective/escort.svg" />
+                <img class="icon" src="./assets/images/objective/escort.svg" />
               }
               @if (objective.title) {
                 <span>{{ objective.title }}</span>
@@ -316,6 +316,6 @@
 
 @if (active != SubMenu.main) {
   <div class="back" tabclick (click)="setActive(SubMenu.main)" [ghs-label]="'menu.backToMain'" [ghs-label-attribute]="'title'">
-    <img class="ghs-svg" src="/assets/images/left.svg" />
+    <img class="ghs-svg" src="./assets/images/left.svg" />
   </div>
 }

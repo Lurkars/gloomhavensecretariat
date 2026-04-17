@@ -27,7 +27,7 @@
         gameManager.scenarioManager.getTreasures(scenario, gameManager.game.sections).length > 0
       ) {
         <span tabclick class="treasures" (click)="openTreasures()">
-          <img class="ghs-svg" src="/assets/images/scenario/treasure.svg" />
+          <img class="ghs-svg" src="./assets/images/scenario/treasure.svg" />
         </span>
       }
     </div>
@@ -45,7 +45,7 @@
     <div class="sections">
       @for (roomData of openRooms | trackUUID; track roomData._trackUUID) {
         <span class="section room">
-          <img class="ghs-svg" src="/assets/images/scenario/door-open.svg" />
+          <img class="ghs-svg" src="./assets/images/scenario/door-open.svg" />
           {{ roomData.ref }}
           @if (roomData.marker) {
             <span class="marker" [ghs-label]="'%game.mapMarker.' + roomData.marker + '%'"></span>
@@ -73,7 +73,7 @@
     <div class="open-sections">
       @for (roomData of closedRooms | trackUUID; track roomData._trackUUID) {
         <span tabclick class="section room available" (click)="openRoom(roomData)">
-          <img class="ghs-svg" src="/assets/images/scenario/door.svg" />
+          <img class="ghs-svg" src="./assets/images/scenario/door.svg" />
           <span
             [ghs-label]="roomData.marker ? 'scenario.openRoomMarkerRef' : 'scenario.openRoomRef'"
             [ghs-label-args]="[roomData.ref, roomData.marker || '']"
@@ -83,10 +83,10 @@
       @for (section of availableSections | trackUUID; track section._trackUUID) {
         <span tabclick class="section available" (click)="addSection(section)">
           @if (!section.conclusion) {
-            <img class="ghs-svg" src="/assets/images/lock.svg" />
+            <img class="ghs-svg" src="./assets/images/lock.svg" />
           }
           @if (section.conclusion) {
-            <img class="ghs-svg" src="/assets/images/scenario/conclusion.svg" />
+            <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg" />
           }
           @if (!section.conclusion || !section.name) {
             <span>#{{ section.index }}</span>
@@ -143,11 +143,11 @@
     @if (settingsManager.settings.partySheet || characterCount > 0) {
       <div class="event-effects">
         <a tabclick (click)="openEventEffects(false)"
-          ><img class="ghs-svg" src="/assets/images/entities.svg" /> <span [ghs-label]="'entities.event.entities'"></span
+          ><img class="ghs-svg" src="./assets/images/entities.svg" /> <span [ghs-label]="'entities.event.entities'"></span
         ></a>
 
         <a tabclick (click)="openEventEffects()"
-          ><img class="ghs-svg" src="/assets/images/event.svg" /> <span [ghs-label]="'scenario.eventEffects'"></span
+          ><img class="ghs-svg" src="./assets/images/event.svg" /> <span [ghs-label]="'scenario.eventEffects'"></span
         ></a>
       </div>
     }

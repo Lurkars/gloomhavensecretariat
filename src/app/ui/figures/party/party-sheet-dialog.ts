@@ -21,8 +21,7 @@ import { LootType } from 'src/app/game/model/data/Loot';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Party } from 'src/app/game/model/Party';
 import { GameScenarioModel, Scenario, ScenarioCache } from 'src/app/game/model/Scenario';
-import { AttackModifierDeckComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck';
-import { AttackModiferDeckChange } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck';
+import { AttackModiferDeckChange, AttackModifierDeckComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck';
 import { PerkLabelComponent } from 'src/app/ui/figures/attackmodifier/perk/label';
 import { BattleGoalSetupDialog } from 'src/app/ui/figures/battlegoal/setup/battlegoal-setup';
 import { CharacterSheetDialog } from 'src/app/ui/figures/character/dialogs/character-sheet-dialog';
@@ -43,8 +42,7 @@ import { WorldMapComponent } from 'src/app/ui/figures/party/world-map/world-map'
 import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 import { TreasureLabelComponent } from 'src/app/ui/footer/scenario/treasures/label/label';
-import { AutocompleteDirective } from 'src/app/ui/helper/autocomplete';
-import { AutocompleteItem } from 'src/app/ui/helper/autocomplete';
+import { AutocompleteDirective, AutocompleteItem } from 'src/app/ui/helper/autocomplete';
 import { AutoscrollDirective } from 'src/app/ui/helper/autoscroll';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsDurationLabelPipe, GhsFloorPipe, GhsRangePipe, GhsValueSignPipe } from 'src/app/ui/helper/Pipes';
@@ -1829,7 +1827,7 @@ export class PartySheetDialogComponent implements OnInit {
     }
 
     if (total == 1) {
-      return '/assets/images/fh/party/campaign-stickers/' + sticker + '.png';
+      return './assets/images/fh/party/campaign-stickers/' + sticker + '.png';
     } else if (total > 1) {
       const mappedSticker = this.party.campaignStickers.map((sticker, index) => {
         return { sticker: sticker.toLowerCase().replaceAll(' ', '-'), origIndex: index };
@@ -1841,7 +1839,7 @@ export class PartySheetDialogComponent implements OnInit {
         })
         .find((value) => value.origIndex == stickerIndex);
       if (mapped) {
-        return '/assets/images/fh/party/campaign-stickers/' + sticker + '-' + mapped.index + '.png';
+        return './assets/images/fh/party/campaign-stickers/' + sticker + '-' + mapped.index + '.png';
       }
     }
     return undefined;

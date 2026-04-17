@@ -17,7 +17,7 @@
             (click)="dec(condition)"
             class="ghs-svg dec"
             [ngClass]="{ disabled: getValue(condition) <= 1 }"
-            src="/assets/images/left.svg"
+            src="./assets/images/left.svg"
           />
         }
         <span
@@ -34,7 +34,7 @@
             immunity: isImmune(condition.name)
           }"
         >
-          <img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+          <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
           @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
             <span [ngClass]="{ stack: condition.types.includes(ConditionType.stack) }" class="value">{{ getValue(condition) }}</span>
           }
@@ -49,7 +49,7 @@
           <span class="condition expire expire-overlay"></span>
         }
         @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
-          <img tabclick (click)="inc(condition)" class="ghs-svg inc" src="/assets/images/right.svg" />
+          <img tabclick (click)="inc(condition)" class="ghs-svg inc" src="./assets/images/right.svg" />
         }
       </a>
       @if (conditionSeparator.includes(i)) {
@@ -71,7 +71,7 @@
           [originY]="'top'"
           [overlayY]="'bottom'"
         >
-          <img src="/assets/images/condition/permanent.svg" />
+          <img src="./assets/images/condition/permanent.svg" />
         </span>
       </a>
       <a class="item">
@@ -86,7 +86,7 @@
           [originY]="'top'"
           [overlayY]="'bottom'"
         >
-          <img src="/assets/images/condition/round.svg" />
+          <img src="./assets/images/condition/round.svg" />
         </span>
       </a>
       <!--
@@ -94,7 +94,7 @@
       <span class="condition toggle" [ngClass]="{'active': expireEnabled}" tabclick (click)="toggleExpireEnabled()"
         [ghs-tooltip]="'game.condition.expire.hint'" [originX]="'center'" [overlayX]="'center'" [originY]="'top'"
         [overlayY]="'bottom'">
-        <img src="/assets/images/condition/expire.svg" />
+        <img src="./assets/images/condition/expire.svg" />
       </span>
     </a>
     -->
@@ -110,7 +110,7 @@
           [originY]="'top'"
           [overlayY]="'bottom'"
         >
-          <img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh/condition/immune.svg' : '/condition/immunity.svg')"
+          <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh/condition/immune.svg' : '/condition/immunity.svg')"
         /></span>
       </a>
     }

@@ -182,7 +182,7 @@ export class WorldMapComponent implements AfterViewInit {
         [0, 0],
         [height, width]
       ];
-      const worldMapOverlay = L.imageOverlay('/assets/images/world-map/' + this.mapEdition + '/map.jpg', bounds);
+      const worldMapOverlay = L.imageOverlay('./assets/images/world-map/' + this.mapEdition + '/map.jpg', bounds);
       worldMapOverlay.addTo(this.map);
       this.map.fitBounds(bounds);
       this.map.zoomIn();
@@ -206,7 +206,7 @@ export class WorldMapComponent implements AfterViewInit {
                 scenarioData.rewards.overlayCampaignSticker.coordinates.image ||
                 scenarioData.edition + '-' + scenarioData.rewards.overlayCampaignSticker.name.toLowerCase();
               const overlayCampaignSticker: ImageOverlay = this.placeOverlay(
-                '/assets/images/world-map/' + scenarioData.edition + '/overlays/' + imageName + '.png',
+                './assets/images/world-map/' + scenarioData.edition + '/overlays/' + imageName + '.png',
                 scenarioData.rewards.overlayCampaignSticker.coordinates,
                 height,
                 i + 3
@@ -225,7 +225,7 @@ export class WorldMapComponent implements AfterViewInit {
                 scenarioData.rewards.overlaySticker.coordinates.image ||
                 scenarioData.edition + '-' + scenarioData.rewards.overlaySticker.name.toLowerCase();
               const overlaySticker: ImageOverlay = this.placeOverlay(
-                '/assets/images/world-map/' + scenarioData.edition + '/overlays/' + imageName + '.png',
+                './assets/images/world-map/' + scenarioData.edition + '/overlays/' + imageName + '.png',
                 scenarioData.rewards.overlaySticker.coordinates,
                 height,
                 -1
@@ -240,7 +240,7 @@ export class WorldMapComponent implements AfterViewInit {
 
           const imageName = scenarioData.coordinates.image || scenarioData.edition + '-' + imageIndex;
           const overlay: ImageOverlay = this.placeOverlay(
-            '/assets/images/world-map/' + scenarioData.edition + '/scenarios/' + imageName + '.png',
+            './assets/images/world-map/' + scenarioData.edition + '/scenarios/' + imageName + '.png',
             scenarioData.coordinates,
             height,
             i
@@ -305,7 +305,7 @@ export class WorldMapComponent implements AfterViewInit {
               sectionData.rewards.overlayCampaignSticker.coordinates.image ||
               sectionData.edition + '-' + sectionData.rewards.overlayCampaignSticker.name.toLowerCase();
             const overlayCampaignSticker: ImageOverlay = this.placeOverlay(
-              '/assets/images/world-map/' + sectionData.edition + '/overlays/' + imageName + '.png',
+              './assets/images/world-map/' + sectionData.edition + '/overlays/' + imageName + '.png',
               sectionData.rewards.overlayCampaignSticker.coordinates,
               height,
               -1
@@ -347,7 +347,7 @@ export class WorldMapComponent implements AfterViewInit {
               sectionData.rewards.overlaySticker.coordinates.image ||
               sectionData.edition + '-' + sectionData.rewards.overlaySticker.name.toLowerCase();
             const overlaySticker: ImageOverlay = this.placeOverlay(
-              '/assets/images/world-map/' + sectionData.edition + '/overlays/' + imageName + '.png',
+              './assets/images/world-map/' + sectionData.edition + '/overlays/' + imageName + '.png',
               sectionData.rewards.overlaySticker.coordinates,
               height,
               -1
@@ -382,7 +382,7 @@ export class WorldMapComponent implements AfterViewInit {
                   buildingData.name +
                   (buildingData.upgrades.length ? '-' + (level != undefined ? level : '0') : '');
               const overlayBuilding: ImageOverlay = this.placeOverlay(
-                '/assets/images/world-map/' + buildingData.edition + '/buildings/' + imageName + '.png',
+                './assets/images/world-map/' + buildingData.edition + '/buildings/' + imageName + '.png',
                 overlayData,
                 height,
                 -1

@@ -2,7 +2,7 @@
   <div class="title" [ghs-label]="'duration.gameClock'"></div>
 
   <div class="control" (click)="toggleGameClock()">
-    <img class="ghs-svg" [src]="'/assets/images/' + (current ? 'clock-out' : 'clock-in') + '.svg'" />
+    <img class="ghs-svg" [src]="'./assets/images/' + (current ? 'clock-out' : 'clock-in') + '.svg'" />
     <span [ghs-label]="'duration.gameClock.' + (current ? 'clockOut' : 'clockIn')"></span>
   </div>
 

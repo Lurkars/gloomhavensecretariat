@@ -7,7 +7,7 @@
   </span>
 
   <div class="level-container" [ngClass]="{ bb: bb }">
-    <a (click)="back()" class="item"><img src="/assets/images/status/level.svg" /></a>
+    <a (click)="back()" class="item"><img src="./assets/images/status/level.svg" /></a>
     @for (l of [] | ghsRange: (bb ? 5 : 9); track l) {
       <span class="item">
         <a class="level" [ngClass]="{ old: l + 1 == character.level, active: l + 1 == level }" tabclick (click)="setLevel(l + 1)">{{
@@ -32,10 +32,10 @@
       </div>
     }
     <a class="button" tabclick (click)="changeMaxHealth(-1)">
-      <img class="ghs-svg" src="/assets/images/minus.svg" />
+      <img class="ghs-svg" src="./assets/images/minus.svg" />
     </a>
     <span class="item" [ghs-label]="'game.maxHealth'" [ghs-label-attribute]="'title'">
-      <img src="/assets/images/status/health.svg" />
+      <img src="./assets/images/status/health.svg" />
       <span class="badge badge-right max-health"
         >{{
           EntityValueFunction(character.maxHealth) + maxHp < EntityValueFunction(character.maxHealth) ||
@@ -46,7 +46,7 @@
       >
     </span>
     <a class="button" tabclick (click)="changeMaxHealth(1)">
-      <img class="ghs-svg" src="/assets/images/plus.svg" />
+      <img class="ghs-svg" src="./assets/images/plus.svg" />
     </a>
   </div>
 </div>

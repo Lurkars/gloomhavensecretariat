@@ -9,7 +9,9 @@
           <img
             class="full"
             [ngClass]="{ target: targetClass }"
-            [src]="'/assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'condition/' + effect.value.split(':')[0] + '.svg'"
+            [src]="
+              './assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'condition/' + effect.value.split(':')[0] + '.svg'
+            "
           />
           @if (effect.value.split(':').length > 1) {
             <span class="value">{{ effect.value.split(':')[1] }}</span>
@@ -26,7 +28,7 @@
           }
           @if (targetValue) {
             <span class="target-value-container">
-              <img class="full" [src]="'/assets/images/action/target.svg'" />
+              <img class="full" [src]="'./assets/images/action/target.svg'" />
               {{ targetValue }}
             </span>
           }
@@ -40,7 +42,7 @@
           <img
             class="full"
             [ngClass]="{ 'sub-effects': effect.effects && effect.effects.length }"
-            [src]="'/assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg'"
+            [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg'"
           />
           @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID) {
             <div class="sub-effects">
@@ -58,14 +60,14 @@
             <span class="element-half">
               <img
                 [src]="
-                  '/assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value.split('|')[0] + '.svg'
+                  './assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value.split('|')[0] + '.svg'
                 "
               />
             </span>
             <span class="element-half">
               <img
                 [src]="
-                  '/assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value.split('|')[1] + '.svg'
+                  './assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value.split('|')[1] + '.svg'
                 "
               />
             </span>
@@ -73,7 +75,7 @@
         }
         @case (AttackModifierEffectType.elementConsume) {
           <span class="element consume">
-            <img [src]="'/assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg'" />
+            <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg'" />
           </span>
           <span class="divider">:</span>
           @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID) {
@@ -93,7 +95,7 @@
             [style.border-width]="offsetWidth * 0.02 + 'px'"
             [ngClass]="{ target: targetClass, 'sub-effects': subEffects().length > 0 }"
           >
-            <img [ngClass]="{ 'ghs-svg': isGhsSvg(effect.type) }" [src]="'/assets/images/action/' + effect.type + '.svg'" />
+            <img [ngClass]="{ 'ghs-svg': isGhsSvg(effect.type) }" [src]="'./assets/images/action/' + effect.type + '.svg'" />
             @if (effect.value) {
               <span class="value">{{ +effect.value | ghsValueSign }}</span>
             }
@@ -109,7 +111,7 @@
             }
             @if (targetString && !targetString.startsWith('game.specialTarget')) {
               <span class="target-value-container">
-                <img [src]="'/assets/images/action/target.svg'" />
+                <img [src]="'./assets/images/action/target.svg'" />
                 <span
                   class="target-value text-white"
                   [ghs-label]="targetString"
@@ -120,7 +122,7 @@
             }
             @if (targetValue) {
               <span class="target-value-container">
-                <img class="full" [src]="'/assets/images/action/target.svg'" />
+                <img class="full" [src]="'./assets/images/action/target.svg'" />
                 {{ targetValue }}
               </span>
             }
@@ -150,7 +152,7 @@
           >
             <img
               [ngClass]="{ 'ghs-svg': isGhsSvg(effect.type) }"
-              [src]="'/assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg'"
+              [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg'"
             />
             @if (effect.value) {
               <span class="value">{{ +effect.value }}</span>
@@ -167,7 +169,7 @@
             }
             @if (targetValue) {
               <span class="target-value-container">
-                <img class="full" [src]="'/assets/images/action/target.svg'" />
+                <img class="full" [src]="'./assets/images/action/target.svg'" />
                 {{ targetValue }}
               </span>
             }
@@ -196,7 +198,7 @@
           >
             <img
               [ngClass]="{ 'ghs-svg': isGhsSvg(effect.type) }"
-              [src]="'/assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg'"
+              [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg'"
             />
             @if (effect.value) {
               <span class="value">{{ +effect.value }}</span>
@@ -213,7 +215,7 @@
             }
             @if (targetValue) {
               <span class="target-value-container">
-                <img class="full" [src]="'/assets/images/action/target.svg'" />
+                <img class="full" [src]="'./assets/images/action/target.svg'" />
                 {{ targetValue }}
               </span>
             }
@@ -235,7 +237,7 @@
           </div>
         }
         @case (AttackModifierEffectType.target) {
-          <img class="full" [src]="'/assets/images/attackmodifier/target.svg'" />
+          <img class="full" [src]="'./assets/images/attackmodifier/target.svg'" />
           @if (effect.effects) {
             <div class="sub-effects">
               @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID) {
@@ -266,8 +268,8 @@
         }
         @case (AttackModifierEffectType.refreshItem) {
           <span class="card-action">
-            <img class="ghs-svg" src="/assets/images/action/card/refresh.svg" />
-            <img class="overlay" src="/assets/images/action/card/overlay/refresh.svg" />
+            <img class="ghs-svg" src="./assets/images/action/card/refresh.svg" />
+            <img class="overlay" src="./assets/images/action/card/overlay/refresh.svg" />
           </span>
           @if (effect.effects) {
             <div class="sub-effects">
@@ -285,8 +287,8 @@
         @case (AttackModifierEffectType.refreshSpentItem) {
           <div class="card-action-container">
             <span class="card-action">
-              <img class="ghs-svg" src="/assets/images/action/card/refresh.svg" />
-              <img class="overlay" src="/assets/images/action/card/overlay/refresh.svg" />
+              <img class="ghs-svg" src="./assets/images/action/card/refresh.svg" />
+              <img class="overlay" src="./assets/images/action/card/overlay/refresh.svg" />
             </span>
             <span class="label"><span [ghs-label]="'game.attackModifiers.effects.refreshSpentItem'"></span></span>
             @if (effect.effects) {
@@ -305,8 +307,8 @@
         }
         @case (AttackModifierEffectType.recoverRandomDiscard) {
           <span class="card-action">
-            <img class="ghs-svg" src="/assets/images/action/card/recover.svg" />
-            <img class="overlay" src="/assets/images/action/card/overlay/recover.svg" />
+            <img class="ghs-svg" src="./assets/images/action/card/recover.svg" />
+            <img class="overlay" src="./assets/images/action/card/overlay/recover.svg" />
           </span>
           @if (effect.effects) {
             <div class="sub-effects">
@@ -333,7 +335,7 @@
           }
           @if (effect.icon) {
             <span class="effect-icon">
-              <img [src]="'/assets/images/action/custom/' + effect.value + '.svg'" />
+              <img [src]="'./assets/images/action/custom/' + effect.value + '.svg'" />
             </span>
           }
           @if (effect.effects) {
@@ -361,7 +363,7 @@
           }
         }
         @case (AttackModifierEffectType.changeType) {
-          <img class="overlay" [src]="'/assets/images/attackmodifier/overlays/replace/' + effect.value + '.png'" />
+          <img class="overlay" [src]="'./assets/images/attackmodifier/overlays/replace/' + effect.value + '.png'" />
           @if (effect.effects) {
             <div class="sub-effects">
               @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID) {
@@ -399,7 +401,7 @@
           <img
             class="full"
             [ngClass]="{ 'ghs-svg': isGhsSvg(effect.type) }"
-            [src]="'/assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg'"
+            [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg'"
           />
           @if (effect.value) {
             <span class="value">{{ +effect.value }}</span>

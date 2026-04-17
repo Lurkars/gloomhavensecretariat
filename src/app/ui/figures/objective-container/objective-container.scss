@@ -5,7 +5,7 @@
   width: calc(var(--ghs-unit) * 98);
   height: calc(var(--ghs-unit) * 14);
   background-color: var(--ghs-color-green);
-  background-image: url('/assets/images/character/char-mat.png'), url('/assets/images/character/char-mat.png');
+  background-image: url('../../../../assets/images/character/char-mat.png'), url('../../../../assets/images/character/char-mat.png');
   background-blend-mode: multiply, overlay;
   background-size: 100% 100%;
   display: flex;
@@ -28,7 +28,7 @@
 
   &.off {
     background-color: var(--ghs-color-gray);
-    background-image: url('/assets/images/character/char-mat.png');
+    background-image: url('../../../../assets/images/character/char-mat.png');
     background-blend-mode: multiply;
 
     .title,
@@ -411,7 +411,8 @@
   &.short:not(.compact) {
     width: calc(var(--ghs-unit) * 57);
     height: calc(var(--ghs-unit) * 28);
-    background-image: url('/assets/images/character/char-mat-short.png'), url('/assets/images/character/char-mat-short.png');
+    background-image:
+      url('../../../../assets/images/character/char-mat-short.png'), url('../../../../assets/images/character/char-mat-short.png');
 
     .image-container {
       margin: calc(var(--ghs-unit) * 2.8) calc(var(--ghs-unit) * 2);
@@ -457,7 +458,8 @@
 
   &.compact {
     height: calc(var(--ghs-unit) * 10.25);
-    background-image: url('/assets/images/character/char-mat_compact.png'), url('/assets/images/character/char-mat_compact.png');
+    background-image:
+      url('../../../../assets/images/character/char-mat_compact.png'), url('../../../../assets/images/character/char-mat_compact.png');
 
     .drag-initiative {
       position: absolute;

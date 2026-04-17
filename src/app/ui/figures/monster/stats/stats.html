@@ -41,18 +41,18 @@
       }
     </span>
     @if (flying) {
-      <span class="flying"><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
+      <span class="flying"><img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
     }
     @if (edition) {
       <span class="edition">[<span [ghs-label]="'data.edition.' + edition"></span>]</span>
     }
     @if (catching) {
-      <span class="catching" [ngClass]="{ catched: catched }"><img class="ghs-svg" src="/assets/images/fh/catching.svg" /></span>
+      <span class="catching" [ngClass]="{ catched: catched }"><img class="ghs-svg" src="./assets/images/fh/catching.svg" /></span>
     }
   </div>
 
   <span class="toggle-ally" [ngClass]="{ 'is-ally': monster.isAlly, 'is-allied': monster.isAllied, bb: monster.bb }"
-    ><img [src]="monster.bb ? '/assets/images/bb/monster.svg' : '/assets/images/monster/enemy.png'"
+    ><img [src]="monster.bb ? './assets/images/bb/monster.svg' : './assets/images/monster/enemy.png'"
   /></span>
 
   @if (monster.boss || monster.bb) {
@@ -60,26 +60,27 @@
       <span class="stat boss bordered" [ngClass]="{ hidden: hideStats }">
         <span class="value" [value-calc]="stats.health" [level]="level" [empty]="true"></span>
       </span>
-      <span class="stat-icon"><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" /></span>
+      <span class="stat-icon"><img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" /></span>
       @if (monster.boss) {
         <span class="stat boss bordered" [ngClass]="{ hidden: hideStats }">
           <span class="value" [value-calc]="stats.movement" [level]="level" [empty]="true"></span>
         </span>
         <span class="stat-icon"
-          ><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (flying ? 'fly' : 'move') + '.svg'"
+          ><img
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (flying ? 'fly' : 'move') + '.svg'"
         /></span>
         <span class="stat boss" [ngClass]="{ hidden: hideStats, bordered: hideStats || stats.range }">
           <span class="value" [value-calc]="stats.attack" [level]="level" [empty]="true"></span>
         </span>
         <span class="stat-icon"
-          ><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'"
+          ><img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'"
         /></span>
         @if (hideStats || stats.range) {
           <span class="stat boss" [ngClass]="{ hidden: hideStats }">
             <span class="value" [value-calc]="stats.range" [level]="level" [empty]="true"></span>
           </span>
           <span class="stat-icon"
-            ><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'"
+            ><img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'"
           /></span>
         }
       }
@@ -95,7 +96,7 @@
       <span class="stat normal bordered" [ngClass]="{ hidden: hideStats }">
         <span class="value" [value-calc]="stats.health" [level]="level" [empty]="true"></span>
       </span>
-      <span class="stat-icon"><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" /></span>
+      <span class="stat-icon"><img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" /></span>
       <span class="stat elite bordered" [ngClass]="{ hidden: hideEliteStats }">
         <span class="value" [value-calc]="eliteStats.health" [level]="level" [empty]="true"></span>
       </span>
@@ -103,7 +104,7 @@
         <span class="value" [value-calc]="stats.movement" [level]="level" [empty]="true"></span>
       </span>
       <span class="stat-icon"
-        ><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (flying ? 'fly' : 'move') + '.svg'"
+        ><img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (flying ? 'fly' : 'move') + '.svg'"
       /></span>
       <span class="stat elite bordered" [ngClass]="{ hidden: hideEliteStats }">
         <span class="value" [value-calc]="eliteStats.movement" [level]="level" [empty]="true"></span>
@@ -112,7 +113,7 @@
         <span class="value" [value-calc]="stats.attack" [level]="level" [empty]="true"></span>
       </span>
       <span class="stat-icon"
-        ><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'"
+        ><img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'"
       /></span>
       <span
         class="stat elite"
@@ -125,7 +126,7 @@
           <span class="value" [value-calc]="stats.range" [level]="level" [empty]="true"></span>
         </span>
         <span class="stat-icon"
-          ><img [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'" />
+          ><img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'" />
         </span>
         <span class="stat elite" [ngClass]="{ hidden: hideEliteStats }">
           <span class="value" [value-calc]="eliteStats.range" [level]="level" [empty]="true"></span>
@@ -171,7 +172,7 @@
         <span class="immunity">
           <img
             class="icon"
-            [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity + '.svg'"
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity + '.svg'"
           />
         </span>
       }
@@ -210,7 +211,7 @@
         <span class="immunity">
           <img
             class="icon"
-            [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity + '.svg'"
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity + '.svg'"
           />
         </span>
       }
@@ -255,7 +256,7 @@
         <span class="immunity">
           <img
             class="icon"
-            [src]="'/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity + '.svg'"
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity + '.svg'"
           />
         </span>
       }

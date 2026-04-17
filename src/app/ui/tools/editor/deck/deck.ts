@@ -398,7 +398,7 @@ export class DeckEditorComponent implements OnInit {
 
     if (this.deckData.character) {
       const characterData = new CharacterData();
-      characterData.iconUrl = '/assets/images/warning.svg';
+      characterData.iconUrl = './assets/images/warning.svg';
       for (let i = 0; i < 9; i++) {
         characterData.stats.push(new CharacterStat(i, i));
       }

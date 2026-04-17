@@ -19,12 +19,12 @@
       <img
         [src]="
           settingsManager.settings.fhStyle
-            ? '/assets/images/fh/battlegoals/battle-goal-back-fh.png'
-            : '/assets/images/battlegoals/battle-goal-back.png'
+            ? './assets/images/fh/battlegoals/battle-goal-back-fh.png'
+            : './assets/images/battlegoals/battle-goal-back.png'
         "
       />
       @if (character.battleGoal && character.battleGoals.length > 0) {
-        <img class="check" src="/assets/images/check.svg" />
+        <img class="check" src="./assets/images/check.svg" />
       }
     </div>
   }
@@ -59,7 +59,7 @@
         }
       </span>
       @if (deck.current >= deckLength + (deck.bb ? -3 : -1)) {
-        <img class="shuffle" [ghs-label]="'game.cards.shuffle'" [ghs-label-attribute]="'title'" src="/assets/images/shuffle.svg" />
+        <img class="shuffle" [ghs-label]="'game.cards.shuffle'" [ghs-label-attribute]="'title'" src="./assets/images/shuffle.svg" />
       }
 
       @if (!characterIcon && !townGuard && !bottom) {
@@ -80,7 +80,7 @@
         [ngClass]="{ vertical: vertical, minimize: !deck.active }"
         (click)="openFullscreen($event)"
       >
-        <img class="ghs-svg" src="/assets/images/fullscreen.svg" />
+        <img class="ghs-svg" src="./assets/images/fullscreen.svg" />
       </span>
     }
 
@@ -92,7 +92,7 @@
         (click)="open($event)"
         [ngClass]="{ vertical: vertical, 'without-fullscreen': !fullscreen, minimize: !deck.active }"
       >
-        <img class="ghs-svg" src="/assets/images/settings.svg" />
+        <img class="ghs-svg" src="./assets/images/settings.svg" />
       </span>
     }
 
@@ -109,7 +109,7 @@
           'has-shuffle': deck.current >= deckLength - 1
         }"
       >
-        <img [src]="'/assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'condition/strengthen.svg'" />
+        <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'condition/strengthen.svg'" />
       </span>
     }
 
@@ -126,7 +126,7 @@
           'has-shuffle': deck.current >= deckLength - 1
         }"
       >
-        <img [src]="'/assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'condition/muddle.svg'" />
+        <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'condition/muddle.svg'" />
       </span>
     }
   </div>

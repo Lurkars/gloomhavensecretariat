@@ -18,13 +18,13 @@
         <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit" /><span [ghs-label]="'game.cards.edit'"></span></label>
         @if (edit) {
           <a class="toggle-config" (click)="configuration = !configuration; enhancements = false"
-            ><img class="ghs-svg" src="/assets/images/settings.svg" />
+            ><img class="ghs-svg" src="./assets/images/settings.svg" />
             <span [ghs-label]="'game.loot.config.' + (configuration ? 'hide' : 'show')"></span
           ></a>
         }
       }
       <a class="toggle-enhancements" (click)="toggleEnhancements()"
-        ><img class="ghs-svg" [src]="'/assets/images/fh/loot/' + (enhancements ? 'money' : 'plus1') + '.svg'" />
+        ><img class="ghs-svg" [src]="'./assets/images/fh/loot/' + (enhancements ? 'money' : 'plus1') + '.svg'" />
         <span [ghs-label]="'game.loot.' + (enhancements && gameManager.game.scenario ? 'deck' : 'enhancements')"></span
       ></a>
 
@@ -56,7 +56,7 @@
               ><img
                 class="ghs-svg"
                 [src]="
-                  '/assets/images/fh/loot/' + (type == LootType.special1 || type == LootType.special2 ? LootType.money : type) + '.svg'
+                  './assets/images/fh/loot/' + (type == LootType.special1 || type == LootType.special2 ? LootType.money : type) + '.svg'
                 " />
               <span [ghs-label]="'game.loot.' + type"></span
             ></label>
@@ -67,7 +67,7 @@
               }"
               (click)="changeType(type, -1)"
             >
-              <img class="ghs-svg" src="/assets/images/minus.svg" />
+              <img class="ghs-svg" src="./assets/images/minus.svg" />
             </a>
             <span class="value" [ghs-label]="'game.loot.' + type" [ghs-label-attribute]="'title'">
               {{ (lootDeckConfig[type] && 'x' + lootDeckConfig[type]) || '-' }}
@@ -80,7 +80,7 @@
               }"
               (click)="changeType(type, 1)"
             >
-              <img class="ghs-svg" src="/assets/images/plus.svg" />
+              <img class="ghs-svg" src="./assets/images/plus.svg" />
             </a>
           }
         </div>
@@ -106,7 +106,7 @@
               [ghs-label]="'game.loot.enhancements.add'"
               [ghs-label-attribute]="'title'"
             >
-              <img class="ghs-svg" src="/assets/images/fh/loot/plus1.svg" />
+              <img class="ghs-svg" src="./assets/images/fh/loot/plus1.svg" />
             </a>
             @if (loot.enhancements > 0) {
               <div class="remove-enhancements">
@@ -114,7 +114,7 @@
                   <img
                     class="ghs-svg"
                     (click)="unenhanceCard(loot)"
-                    src="/assets/images/fh/loot/plus1.svg"
+                    src="./assets/images/fh/loot/plus1.svg"
                     [ghs-label]="'game.loot.enhancements.remove'"
                     [ghs-label-attribute]="'title'"
                   />
@@ -154,7 +154,7 @@
               </ghs-loot>
               @if (edit) {
                 <a class="button-remove" (click)="remove(index + deck.current + 1)">
-                  <img class="ghs-svg" src="/assets/images/minus.svg"
+                  <img class="ghs-svg" src="./assets/images/minus.svg"
                 /></a>
               }
               @if (edit) {
@@ -186,7 +186,7 @@
                 [apply]="apply"
               ></ghs-loot>
               @if (edit) {
-                <a class="button-remove" (click)="remove(deck.current - index)"> <img class="ghs-svg" src="/assets/images/minus.svg" /></a>
+                <a class="button-remove" (click)="remove(deck.current - index)"> <img class="ghs-svg" src="./assets/images/minus.svg" /></a>
               }
               @if (edit) {
                 <div cdkDragHandle class="drag-handle"></div>

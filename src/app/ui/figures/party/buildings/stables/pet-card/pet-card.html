@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="card-front front">
-        <img class="artwork" [src]="'/assets/artwork/pets/' + petCard.edition + '-' + petCard.id + '.png'" />
+        <img class="artwork" [src]="'./assets/artwork/pets/' + petCard.edition + '-' + petCard.id + '.png'" />
         <div class="title" [ghs-label]="'data.pets.' + petCard.edition + '-' + petCard.id"></div>
         <div class="name-container">
           <span class="label" [ghs-label]="'data.buildings.stables.pets.name'"></span>: <span class="name">{{ name }}<br /></span>

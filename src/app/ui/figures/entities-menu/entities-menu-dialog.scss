@@ -716,7 +716,7 @@ img {
     position: absolute;
     width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
     height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-    background-image: url('/assets/images/summons/minus.svg');
+    background-image: url('../../../../assets/images/summons/minus.svg');
     background-size: cover;
   }
 
@@ -750,7 +750,7 @@ img {
       top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
       height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
-      background-image: url('/assets/images/fh/summons/minus.svg');
+      background-image: url('../../../../assets/images/fh/summons/minus.svg');
       z-index: 2;
     }
 
@@ -947,7 +947,7 @@ input.title {
       background-position: center;
       background-size: 100% auto;
       background-repeat: no-repeat;
-      background-image: url('/assets/images/attackmodifier/am-character-icon.png');
+      background-image: url('../../../../assets/images/attackmodifier/am-character-icon.png');
       margin: calc(var(--ghs-unit) * 1);
       cursor: pointer;
 

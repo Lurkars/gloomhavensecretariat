@@ -72,7 +72,7 @@
             <ghs-challenge-card class="drag-hidden" [challenge]="card" [reveal]="true" [flipped]="reveal == 2"> </ghs-challenge-card>
             @if (edit) {
               <a class="button-remove" (click)="remove(index + deck.current + 1)">
-                <img class="ghs-svg" src="/assets/images/minus.svg"
+                <img class="ghs-svg" src="./assets/images/minus.svg"
               /></a>
             }
             @if (edit) {
@@ -115,7 +115,7 @@
               (doubleClick)="toggleKeep(deck.current - index, true)"
             ></ghs-challenge-card>
             @if (edit) {
-              <a class="button-remove" (click)="remove(deck.current - index)"> <img class="ghs-svg" src="/assets/images/minus.svg" /></a>
+              <a class="button-remove" (click)="remove(deck.current - index)"> <img class="ghs-svg" src="./assets/images/minus.svg" /></a>
             }
             @if (edit) {
               <div cdkDragHandle class="drag-handle"></div>
@@ -141,7 +141,7 @@
           <div class="challenge-container" cdkDrag>
             <ghs-challenge-card class="drag-hidden" [challenge]="card" [flipped]="true"></ghs-challenge-card>
             @if (edit) {
-              <a class="button-remove" (click)="remove(deck.finished - index)"> <img class="ghs-svg" src="/assets/images/minus.svg" /></a>
+              <a class="button-remove" (click)="remove(deck.finished - index)"> <img class="ghs-svg" src="./assets/images/minus.svg" /></a>
             }
             @if (edit) {
               <div cdkDragHandle class="drag-handle"></div>
@@ -157,7 +157,7 @@
             <div class="challenge-container" cdkDrag>
               <ghs-challenge-card class="drag-hidden" [challenge]="card" [flipped]="true"></ghs-challenge-card>
               <a class="button-restore" (click)="restoreCard(index)">
-                <img class="ghs-svg" src="/assets/images/plus.svg" />
+                <img class="ghs-svg" src="./assets/images/plus.svg" />
               </a>
             </div>
           }

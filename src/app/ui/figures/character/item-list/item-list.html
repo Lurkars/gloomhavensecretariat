@@ -1,7 +1,7 @@
 <div class="item-list" [style.--ghs-item-list-zoom]="settingsManager.settings.characterItemsPermanentZoom">
   @if (items.length == 0) {
     <div class="empty" (click)="openShop()">
-      <img [src]="settingsManager.settings.fhStyle ? '/assets/images/fh/items/item-back-fh.png' : '/assets/images/items/item-back.png'" />
+      <img [src]="settingsManager.settings.fhStyle ? './assets/images/fh/items/item-back-fh.png' : './assets/images/items/item-back.png'" />
       <span class="text" [ghs-label]="'game.items.character.empty'"></span>
     </div>
   }
@@ -21,7 +21,7 @@
       [overlayX]="'end'"
       [overlayY]="'bottom'"
     >
-      <img class="toggle ghs-svg" src="/assets/images/check.svg"
+      <img class="toggle ghs-svg" src="./assets/images/check.svg"
     /></a>
     <a
       (click)="toggleSorted()"
@@ -30,21 +30,21 @@
       [overlayX]="'end'"
       [overlayY]="'bottom'"
     >
-      <img class="toggle ghs-svg" src="/assets/images/sort.svg"
+      <img class="toggle ghs-svg" src="./assets/images/sort.svg"
     /></a>
     <a
       ghs-pointer-input
       (singleClick)="zoom(0.075)"
       (doubleClick)="resetZoom()"
       [ngClass]="{ disabled: settingsManager.settings.characterItemsPermanentZoom >= 1.5 }"
-      ><img class="ghs-svg" src="/assets/images/zoom-in.svg"
+      ><img class="ghs-svg" src="./assets/images/zoom-in.svg"
     /></a>
     <a
       ghs-pointer-input
       (singleClick)="zoom(-0.075)"
       (doubleClick)="resetZoom()"
       [ngClass]="{ disabled: settingsManager.settings.characterItemsPermanentZoom <= 0.5 }"
-      ><img class="ghs-svg" src="/assets/images/zoom-out.svg"
+      ><img class="ghs-svg" src="./assets/images/zoom-out.svg"
     /></a>
   </div>
 </div>

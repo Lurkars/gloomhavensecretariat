@@ -74,7 +74,7 @@
     <div class="sections rooms">
       @for (roomData of rooms() | trackUUID; track roomData._trackUUID; let i = $index) {
         <span class="section room">
-          <img class="ghs-svg" src="/assets/images/scenario/door.svg" />
+          <img class="ghs-svg" src="./assets/images/scenario/door.svg" />
           <span
             class="text-white"
             [ghs-label]="roomData.marker ? 'scenario.rules.openRoomMarker' : 'scenario.rules.openRoom'"
@@ -91,7 +91,7 @@
           <span class="and">,</span>
         }
         <span class="section">
-          <img class="ghs-svg" src="/assets/images/lock.svg" />
+          <img class="ghs-svg" src="./assets/images/lock.svg" />
           @if (!sectionData.conclusion) {
             <span
               class="text-white"

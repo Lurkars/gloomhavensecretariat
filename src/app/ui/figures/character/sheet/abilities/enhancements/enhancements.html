@@ -57,18 +57,18 @@
   @if (customAction) {
     <div class="card-properties">
       <a class="summon" (click)="toggleSpecial('summon')" [ngClass]="{ enabled: special == 'summon' }">
-        <img src="/assets/images/summons/red.png" />
+        <img src="./assets/images/summons/red.png" />
       </a>
       @if (gameManager.enhancementsManager.fh) {
         <a class="lost" (click)="toggleSpecial('lost')" [ngClass]="{ enabled: special == 'lost' }">
-          <img src="/assets/images/action/card/lost.svg" />
-          <img class="overlay" src="/assets/images/action/card/overlay/lost.svg" />
+          <img src="./assets/images/action/card/lost.svg" />
+          <img class="overlay" src="./assets/images/action/card/overlay/lost.svg" />
         </a>
       }
       @if (gameManager.enhancementsManager.fh && !gameManager.gh2eRules()) {
         <a class="persistent" (click)="toggleSpecial('persistent')" [ngClass]="{ enabled: special == 'persistent' }">
-          <img src="/assets/images/action/card/persistent.svg" />
-          <img class="overlay" src="/assets/images/action/card/overlay/persistent.svg" />
+          <img src="./assets/images/action/card/persistent.svg" />
+          <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg" />
         </a>
       }
     </div>
@@ -123,7 +123,7 @@
     }
     @if (enhancementType && [EnhancementType.any].includes(enhancementType)) {
       <div class="hex" (click)="setEnhancementAction('hex')" [ngClass]="{ active: enhancementAction == 'hex' }">
-        <img src="/assets/images/action/hex/target.svg" />
+        <img src="./assets/images/action/hex/target.svg" />
       </div>
     }
   </div>

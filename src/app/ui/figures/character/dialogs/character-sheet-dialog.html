@@ -4,7 +4,7 @@
       <a ghs-pointer-input (singleClick)="settingsManager.toggle('characterSheetLocked')">
         <img
           [src]="
-            '/assets/images/lock' +
+            './assets/images/lock' +
             (settingsManager.settings.characterSheetLocked || (data.viewOnly && !data.forceEdit) ? '' : '-open') +
             '.svg'
           "

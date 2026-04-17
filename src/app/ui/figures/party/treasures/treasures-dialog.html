@@ -1,7 +1,7 @@
 <div class="treasures-dialog">
   <div class="header">
     <div class="title">
-      <img class="icon" src="/assets/images/scenario/treasure.svg" />
+      <img class="icon" src="./assets/images/scenario/treasure.svg" />
       <span [ghs-label]="'party.campaign.treasures'"></span>
     </div>
     @if (!data.scenario) {
@@ -31,8 +31,8 @@
                   <span>0</span>
                 }
                 {{ treasure }}
-                <img class="overlay check" src="/assets/images/check.svg" />
-                <img class="overlay uncheck" src="/assets/images/close.svg" />
+                <img class="overlay check" src="./assets/images/check.svg" />
+                <img class="overlay uncheck" src="./assets/images/close.svg" />
               </div>
               @if (looted.includes(treasure)) {
                 <span class="hint center">

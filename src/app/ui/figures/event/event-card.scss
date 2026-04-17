@@ -52,7 +52,7 @@
     background-color: var(--ghs-color-lightgray);
 
     &.city {
-      background-image: url('/assets/images/eventcards/city-front.png');
+      background-image: url('../../../../assets/images/eventcards/city-front.png');
       color: var(--ghs-color-white);
 
       .options .option .card-action .ghs-svg {
@@ -65,7 +65,7 @@
     }
 
     &.road {
-      background-image: url('/assets/images/eventcards/road-front.png');
+      background-image: url('../../../../assets/images/eventcards/road-front.png');
       color: var(--ghs-color-darkgray);
 
       .options .option {
@@ -80,7 +80,7 @@
     }
 
     &.rift {
-      background-image: url('/assets/images/eventcards/rift-front.png');
+      background-image: url('../../../../assets/images/eventcards/rift-front.png');
       color: var(--ghs-color-darkgray);
 
       .options .option {
@@ -143,7 +143,7 @@
               width: 100%;
               height: calc(100% + 1em);
               background-color: #c5cdcc;
-              mask: url('/assets/images/eventcards/fh-option-2-mask.png') no-repeat;
+              mask: url('../../../../assets/images/eventcards/fh-option-2-mask.png') no-repeat;
               mask-size: 100% auto;
               mask-position: center bottom;
               z-index: 0;
@@ -176,7 +176,7 @@
               width: 100%;
               height: 100%;
               background-color: #9ea5a4;
-              mask: url('/assets/images/eventcards/fh-option-3-mask.png') no-repeat;
+              mask: url('../../../../assets/images/eventcards/fh-option-3-mask.png') no-repeat;
               mask-size: 100% auto;
               mask-position: center bottom;
               z-index: 0;
@@ -240,14 +240,14 @@
       }
 
       &.city {
-        //background-image: url('/assets/images/eventcards/city-gh2e-front.png');
+        //background-image: url('../../../../assets/images/eventcards/city-gh2e-front.png');
         background-image: none;
         background-color: #434448;
         background: linear-gradient(0deg, #3c3d3f, #292d36);
       }
 
       &.road {
-        //background-image: url('/assets/images/eventcards/road-gh2e-front.png');
+        //background-image: url('../../../../assets/images/eventcards/road-gh2e-front.png');
         background-image: none;
         background-color: #f1ddc2;
         color: var(--ghs-color-darkgray);
@@ -293,7 +293,7 @@
 
       &.road .options .option {
         &.option-bg-2::after {
-          mask-image: url('/assets/images/eventcards/fh-option-3-mask.png');
+          mask-image: url('../../../../assets/images/eventcards/fh-option-3-mask.png');
           background: linear-gradient(0deg, #805245, #daa895 2.5em, #f0e9cd);
         }
 
@@ -510,7 +510,7 @@
     background-color: var(--ghs-color-lightgray);
 
     &.city {
-      background-image: url('/assets/images/eventcards/city-back.png');
+      background-image: url('../../../../assets/images/eventcards/city-back.png');
       color: var(--ghs-color-white);
 
       .wrapper .content .options::before {
@@ -523,7 +523,7 @@
     }
 
     &.road {
-      background-image: url('/assets/images/eventcards/road-back.png');
+      background-image: url('../../../../assets/images/eventcards/road-back.png');
       color: var(--ghs-color-darkgray);
 
       .card-id {
@@ -532,11 +532,11 @@
     }
 
     &.rift {
-      background-image: url('/assets/images/eventcards/rift-back.png');
+      background-image: url('../../../../assets/images/eventcards/rift-back.png');
       color: var(--ghs-color-darkgray);
 
       .wrapper .requirement {
-        background-image: url('/assets/images/eventcards/rift-requirement.png');
+        background-image: url('../../../../assets/images/eventcards/rift-requirement.png');
       }
 
       .card-id {
@@ -545,23 +545,23 @@
     }
 
     &.boat {
-      background-image: url('/assets/images/eventcards/boat-back.png');
+      background-image: url('../../../../assets/images/eventcards/boat-back.png');
     }
 
     &.winter-road {
-      background-image: url('/assets/images/eventcards/winter-road-back.png');
+      background-image: url('../../../../assets/images/eventcards/winter-road-back.png');
     }
 
     &.summer-road {
-      background-image: url('/assets/images/eventcards/summer-road-back.png');
+      background-image: url('../../../../assets/images/eventcards/summer-road-back.png');
     }
 
     &.summer-outpost {
-      background-image: url('/assets/images/eventcards/summer-outpost-back.png');
+      background-image: url('../../../../assets/images/eventcards/summer-outpost-back.png');
     }
 
     &.winter-outpost {
-      background-image: url('/assets/images/eventcards/winter-outpost-back.png');
+      background-image: url('../../../../assets/images/eventcards/winter-outpost-back.png');
     }
 
     &.boat,
@@ -623,7 +623,7 @@
         background-size: 100% 100%;
         background-position: top left;
         background-repeat: no-repeat;
-        background-image: url('/assets/images/eventcards/fh-card-id.png');
+        background-image: url('../../../../assets/images/eventcards/fh-card-id.png');
         filter: var(--ghs-filter-shadow);
       }
 
@@ -647,7 +647,7 @@
       }
 
       &.city {
-        background-image: url('/assets/images/eventcards/city-gh2e-back.png');
+        background-image: url('../../../../assets/images/eventcards/city-gh2e-back.png');
         color: var(--ghs-color-black);
 
         .wrapper .content .options::before {
@@ -664,7 +664,7 @@
       }
 
       &.road {
-        background-image: url('/assets/images/eventcards/road-gh2e-back.png');
+        background-image: url('../../../../assets/images/eventcards/road-gh2e-back.png');
 
         color: var(--ghs-color-darkgray);
 
@@ -737,7 +737,7 @@
             height: 0.1em;
             width: 76%;
             background-size: 100% 100%;
-            background-image: url('/assets/images/eventcards/divider.png');
+            background-image: url('../../../../assets/images/eventcards/divider.png');
             filter: brightness(0);
           }
 
@@ -791,7 +791,7 @@
         background-size: 100% 100%;
         background-position: top left;
         background-repeat: no-repeat;
-        background-image: url('/assets/images/eventcards/city-requirement.png');
+        background-image: url('../../../../assets/images/eventcards/city-requirement.png');
 
         span {
           margin: 0.1em;

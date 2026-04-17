@@ -10,7 +10,7 @@
             <div class="column column-left">
               <div class="row title">
                 <span class="campaign-toggle ignore-denied" (click)="campaign = true">
-                  <img src="/assets/images/left.svg" /><span [ghs-label]="'party.campaign'"></span>
+                  <img src="./assets/images/left.svg" /><span [ghs-label]="'party.campaign'"></span>
                 </span>
                 <label class="headline"><span [ghs-label]="'party.sheet'"></span> </label>
                 @if (gameManager.game.parties.length > 1 && !gameManager.game.scenario) {
@@ -30,9 +30,9 @@
                 <span class="spacer"></span>
                 @if (!disableShortcuts) {
                   <span class="map ignore-denied">
-                    <img (click)="openFlowChart()" src="/assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'" />
+                    <img (click)="openFlowChart()" src="./assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'" />
                     @if (worldMap) {
-                      <img (click)="openMap()" src="/assets/images/map.svg" [ghs-tooltip]="'party.campaign.map'" />
+                      <img (click)="openMap()" src="./assets/images/map.svg" [ghs-tooltip]="'party.campaign.map'" />
                     }
                   </span>
                 }
@@ -50,7 +50,7 @@
                   @if (gameManager.game.parties.length > 1) {
                     <img
                       class="remove-party"
-                      src="/assets/images/minus.svg"
+                      src="./assets/images/minus.svg"
                       (click)="removeParty()"
                       [ghs-label]="'party.remove'"
                       [ghs-label-attribute]="'title'"
@@ -59,7 +59,7 @@
                   <span class="spacer"></span>
                   <img
                     class="new-party"
-                    src="/assets/images/plus.svg"
+                    src="./assets/images/plus.svg"
                     (click)="newParty()"
                     [ghs-label]="'party.new'"
                     [ghs-label-attribute]="'title'"
@@ -67,7 +67,7 @@
                 }
                 @if (!!gameManager.game.scenario) {
                   <div class="hint-container new-party-hint">
-                    <img src="/assets/images/plus.svg" class="hint-trigger ghs-svg" />
+                    <img src="./assets/images/plus.svg" class="hint-trigger ghs-svg" />
                     <span class="hint">
                       <span class="text"><span [ghs-label]="'party.new.hint'"></span></span>
                     </span>
@@ -106,7 +106,7 @@
                         <span [ghs-label]="'data.partyAchievements.' + achievement.split(':')[0]"></span>
                         <span class="spacer"></span>
                         <span class="remove" (click)="removeAchievement(achievement)">
-                          <img class="ghs-svg" src="/assets/images/close.svg"
+                          <img class="ghs-svg" src="./assets/images/close.svg"
                         /></span>
                       </div>
                     }
@@ -127,7 +127,7 @@
                       [ghs-label]="'party.addPartyAchievement'"
                       [ghs-label-attribute]="'title'"
                       (click)="addAchievement(partyAchievementInput)"
-                      ><img src="/assets/images/plus.svg"
+                      ><img src="./assets/images/plus.svg"
                     /></a>
                   </div>
                 </div>
@@ -166,12 +166,12 @@
               </div>
               <div class="import-export">
                 <label class="export" (click)="exportParty()" [ghs-label]="'party.export'" [ghs-label-attribute]="'title'">
-                  <img src="/assets/images/export.svg" />
+                  <img src="./assets/images/export.svg" />
                   <span><span [ghs-label]="'party.export'"></span></span>
                 </label>
                 <label class="import" [ghs-label]="'party.import'" [ghs-label-attribute]="'title'" (click)="ghsInputFullScreenCheck()">
                   <input type="file" accept="application/json" (change)="importParty($event)" />
-                  <img src="/assets/images/import.svg" />
+                  <img src="./assets/images/import.svg" />
                   <span><span [ghs-label]="'party.import'"></span></span>
                 </label>
               </div>
@@ -185,18 +185,18 @@
         <div class="sheet fh-sheet">
           <div class="title">
             <label class="summer" [ngClass]="{ highlight: summer }"
-              ><img src="/assets/images/fh/party/summer.svg" />
+              ><img src="./assets/images/fh/party/summer.svg" />
               <span [ghs-label]="'party.campaign.sheet.summer'"></span>
             </label>
             <label class="headline ignore-denied" (click)="campaign = true">
               <span [ghs-label]="'party.campaign.sheet'"></span>
               <span class="management">
-                <img src="/assets/images/left.svg" />
+                <img src="./assets/images/left.svg" />
                 <span [ghs-label]="'party.campaign.manage'"></span>
               </span>
             </label>
             <label class="winter" [ngClass]="{ highlight: !summer }"
-              ><span [ghs-label]="'party.campaign.sheet.winter'"></span><img src="/assets/images/fh/party/winter.svg"
+              ><span [ghs-label]="'party.campaign.sheet.winter'"></span><img src="./assets/images/fh/party/winter.svg"
             /></label>
           </div>
           <div
@@ -211,20 +211,20 @@
                 settingsManager.set('calendarLocked', settingsManager.settings.calendarLocked != 'permissive' ? 'permissive' : true)
               "
             >
-              <img [src]="'/assets/images/lock' + (settingsManager.settings.calendarLocked ? '' : '-open') + '.svg'" />
+              <img [src]="'./assets/images/lock' + (settingsManager.settings.calendarLocked ? '' : '-open') + '.svg'" />
             </a>
           </div>
           @if (!disableShortcuts) {
             <span class="map ignore-denied">
-              <img (click)="openFlowChart()" src="/assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'" />
+              <img (click)="openFlowChart()" src="./assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'" />
               @if (worldMap) {
-                <img (click)="openMap()" src="/assets/images/map.svg" [ghs-tooltip]="'party.campaign.map'" />
+                <img (click)="openMap()" src="./assets/images/map.svg" [ghs-tooltip]="'party.campaign.map'" />
               }
             </span>
           }
           @if (party.weeks == 80 + 80 * calendarSheet) {
             <span class="next" (click)="setWeek(party.weeks + 1)"
-              ><span [ghs-label]="'party.campaign.sheet.nextWeek'"></span> <img src="/assets/images/right.svg"
+              ><span [ghs-label]="'party.campaign.sheet.nextWeek'"></span> <img src="./assets/images/right.svg"
             /></span>
           }
           <div class="weeks">
@@ -249,7 +249,7 @@
                   <div class="section">
                     <img
                       [src]="
-                        '/assets/images/' +
+                        './assets/images/' +
                         (hasConclusions(section) ? 'hint.svg' : isConclusion(section) ? 'scenario/conclusion.svg' : 'fh/party/section.svg')
                       "
                     />
@@ -260,7 +260,7 @@
                   <div class="section manual">
                     <img
                       [src]="
-                        '/assets/images/' +
+                        './assets/images/' +
                         (hasConclusions(section) ? 'hint.svg' : isConclusion(section) ? 'scenario/conclusion.svg' : 'fh/party/section.svg')
                       "
                     />
@@ -283,7 +283,7 @@
               @if (gameManager.game.parties.length > 1) {
                 <img
                   class="remove-party"
-                  src="/assets/images/minus.svg"
+                  src="./assets/images/minus.svg"
                   (click)="removeParty()"
                   [ghs-label]="'party.remove'"
                   [ghs-label-attribute]="'title'"
@@ -305,7 +305,7 @@
               }
               <img
                 class="new-party"
-                src="/assets/images/plus.svg"
+                src="./assets/images/plus.svg"
                 (click)="newParty()"
                 [ghs-label]="'party.new'"
                 [ghs-label-attribute]="'title'"
@@ -313,7 +313,7 @@
             }
             @if (!!gameManager.game.scenario) {
               <div class="hint-container new-party-hint">
-                <img src="/assets/images/plus.svg" class="hint-trigger ghs-svg" />
+                <img src="./assets/images/plus.svg" class="hint-trigger ghs-svg" />
                 <span class="hint">
                   <span class="text"><span [ghs-label]="'party.new.hint'"></span></span>
                 </span>
@@ -338,41 +338,41 @@
             <div class="resource-table">
               <div class="materials">
                 <div class="resource lumber">
-                  <img src="/assets/images/fh/loot/lumber.svg" />
+                  <img src="./assets/images/fh/loot/lumber.svg" />
                   <input [value]="party.loot.lumber || 0" type="number" min="0" (change)="setResource(LootType.lumber, $event)" />
                 </div>
                 <div class="resource metal">
-                  <img src="/assets/images/fh/loot/metal.svg" />
+                  <img src="./assets/images/fh/loot/metal.svg" />
                   <input [value]="party.loot.metal || 0" type="number" min="0" (change)="setResource(LootType.metal, $event)" />
                 </div>
                 <div class="resource hide">
-                  <img src="/assets/images/fh/loot/hide.svg" />
+                  <img src="./assets/images/fh/loot/hide.svg" />
                   <input [value]="party.loot.hide || 0" type="number" min="0" (change)="setResource(LootType.hide, $event)" />
                 </div>
               </div>
               <div class="herbs">
                 <div class="resource arrowvine">
-                  <img src="/assets/images/fh/loot/arrowvine.svg" />
+                  <img src="./assets/images/fh/loot/arrowvine.svg" />
                   <input [value]="party.loot.arrowvine || 0" type="number" min="0" (change)="setResource(LootType.arrowvine, $event)" />
                 </div>
                 <div class="resource axenut">
-                  <img src="/assets/images/fh/loot/axenut.svg" />
+                  <img src="./assets/images/fh/loot/axenut.svg" />
                   <input [value]="party.loot.axenut || 0" type="number" min="0" (change)="setResource(LootType.axenut, $event)" />
                 </div>
                 <div class="resource corpsecap">
-                  <img src="/assets/images/fh/loot/corpsecap.svg" />
+                  <img src="./assets/images/fh/loot/corpsecap.svg" />
                   <input [value]="party.loot.corpsecap || 0" type="number" min="0" (change)="setResource(LootType.corpsecap, $event)" />
                 </div>
                 <div class="resource flamefruit">
-                  <img src="/assets/images/fh/loot/flamefruit.svg" />
+                  <img src="./assets/images/fh/loot/flamefruit.svg" />
                   <input [value]="party.loot.flamefruit || 0" type="number" min="0" (change)="setResource(LootType.flamefruit, $event)" />
                 </div>
                 <div class="resource rockroot">
-                  <img src="/assets/images/fh/loot/rockroot.svg" />
+                  <img src="./assets/images/fh/loot/rockroot.svg" />
                   <input [value]="party.loot.rockroot || 0" type="number" min="0" (change)="setResource(LootType.rockroot, $event)" />
                 </div>
                 <div class="resource snowthistle">
-                  <img src="/assets/images/fh/loot/snowthistle.svg" />
+                  <img src="./assets/images/fh/loot/snowthistle.svg" />
                   <input [value]="party.loot.snowthistle || 0" type="number" min="0" (change)="setResource(LootType.snowthistle, $event)" />
                 </div>
               </div>
@@ -418,7 +418,7 @@
                         (doubleClick)="setSoldiers(soldier + (level > 0 ? 2 + level * 2 : 0) + 1, true)"
                         [ngClass]="{ disabled: soldier + (level > 0 ? 2 + level * 2 : 0) >= party.soldiers + (soldierAvailable() ? 1 : 0) }"
                       >
-                        <img src="/assets/images/fh/party/soldier.svg" />
+                        <img src="./assets/images/fh/party/soldier.svg" />
                         <div class="check" [ngClass]="{ checked: soldier + (level > 0 ? 2 + level * 2 : 0) < party.soldiers }"></div>
                       </div>
                     }
@@ -447,7 +447,7 @@
                   let i = $index
                 ) {
                   <span class="section" [ngClass]="{ conclusion: isConclusion(gameManager.campaignData().highMorale[i]) }">
-                    <img src="/assets/images/fh/party/section.svg" />
+                    <img src="./assets/images/fh/party/section.svg" />
                     {{ gameManager.campaignData().highMorale[i] || '' }}
                   </span>
                 }
@@ -465,7 +465,7 @@
                   let i = $index
                 ) {
                   <span class="section" [ngClass]="{ conclusion: isConclusion(gameManager.campaignData().lowMorale[i]) }">
-                    <img src="/assets/images/fh/party/section.svg" />
+                    <img src="./assets/images/fh/party/section.svg" />
                     {{ gameManager.campaignData().lowMorale[i] || '' }}
                   </span>
                 }
@@ -477,7 +477,7 @@
             <div class="town-guard-perks-grid">
               @for (item of [] | ghsRange: 45; track item) {
                 @if (item % 3 == 0) {
-                  <span class="checkmark"> <img src="/assets/images/close.svg" />:</span>
+                  <span class="checkmark"> <img src="./assets/images/close.svg" />:</span>
                 }
                 <span
                   class="townguard-perk checkbox"
@@ -503,7 +503,7 @@
                         (singleClick)="toggleTownGuardPerkSection(section)"
                         (doubleClick)="toggleTownGuardPerkSection(section, true)"
                       >
-                        <img src="/assets/images/fh/party/section.svg" /> {{ section }}
+                        <img src="./assets/images/fh/party/section.svg" /> {{ section }}
                       </div>
                     }
                   </div>
@@ -513,7 +513,7 @@
             </div>
             @if (party.townGuardPerkSections.length > (party.townGuardPerks / 3 | ghsFloor)) {
               <div class="warning" [ghs-label]="'game.attackModifiers.perks.warning'" [ghs-label-attribute]="'title'">
-                <img class="ghs-svg" src="/assets/images/warning.svg" />
+                <img class="ghs-svg" src="./assets/images/warning.svg" />
                 <span [ghs-label]="'game.attackModifiers.perks.warning'"></span>
               </div>
             }
@@ -530,7 +530,7 @@
                 [ghs-label-attribute]="'placeholder'"
                 (keyup.enter)="addCampaignSticker(campaignStickerEl)"
               />
-              <img src="/assets/images/plus.svg" (click)="addCampaignSticker(campaignStickerEl)" />
+              <img src="./assets/images/plus.svg" (click)="addCampaignSticker(campaignStickerEl)" />
             </form>
             <div
               class="stickers ignore-denied"
@@ -544,7 +544,7 @@
                   @if (campaignStickerImage(sticker, index)) {
                     <img class="image" [src]="campaignStickerImage(sticker, index)" [ghs-tooltip]="'data.campaignSticker.' + sticker" />
                   }
-                  <img class="remove" src="/assets/images/minus.svg" (click)="removeCampaignSticker(sticker)" />
+                  <img class="remove" src="./assets/images/minus.svg" (click)="removeCampaignSticker(sticker)" />
                 </div>
               }
             </div>
@@ -575,7 +575,7 @@
             <label class="headline ignore-denied" (click)="campaign = true">
               <span [ghs-label]="'party.campaign.sheet'"></span>
               <span class="management">
-                <img src="/assets/images/left.svg" />
+                <img src="./assets/images/left.svg" />
                 <span [ghs-label]="'party.campaign.manage'"></span>
               </span>
             </label>
@@ -593,7 +593,7 @@
               @if (gameManager.game.parties.length > 1) {
                 <img
                   class="remove-party"
-                  src="/assets/images/minus.svg"
+                  src="./assets/images/minus.svg"
                   (click)="removeParty()"
                   [ghs-label]="'party.remove'"
                   [ghs-label-attribute]="'title'"
@@ -615,7 +615,7 @@
               }
               <img
                 class="new-party"
-                src="/assets/images/plus.svg"
+                src="./assets/images/plus.svg"
                 (click)="newParty()"
                 [ghs-label]="'party.new'"
                 [ghs-label-attribute]="'title'"
@@ -623,7 +623,7 @@
             }
             @if (!!gameManager.game.scenario) {
               <div class="hint-container new-party-hint">
-                <img src="/assets/images/plus.svg" class="hint-trigger ghs-svg" />
+                <img src="./assets/images/plus.svg" class="hint-trigger ghs-svg" />
                 <span class="hint">
                   <span class="text"><span [ghs-label]="'party.new.hint'"></span></span>
                 </span>
@@ -644,7 +644,7 @@
             @for (faction of factions; track faction) {
               <div class="faction-reputation">
                 <label>
-                  <img [src]="'/assets/images/gh2e/faction/' + faction + '.svg'" />
+                  <img [src]="'./assets/images/gh2e/faction/' + faction + '.svg'" />
                   <span [ghs-label]="'party.reputation'"></span>
                 </label>
                 <div class="grid">
@@ -719,7 +719,7 @@
             @for (faction of factions; track faction) {
               <div class="faction-reputation">
                 <div class="header">
-                  <img [src]="'/assets/images/gh2e/faction/' + faction + '.svg'" />
+                  <img [src]="'./assets/images/gh2e/faction/' + faction + '.svg'" />
                 </div>
                 @for (reputationSection of reputationSections | trackUUID; track reputationSection._trackUUID) {
                   @if (reputationSection.faction == faction && reputationSection.requires && reputationSection.requires.length) {
@@ -775,7 +775,7 @@
                       <div class="checkbox" [ngClass]="{ checked: party.imbuement >= row * 10 + check + 1 }">
                         <span class="click" ghs-pointer-input (singleClick)="setImbuement(row * 10 + check + 1)"></span>
                         @if (check % 10 == 4) {
-                          <span class="section"> +1 <img src="/assets/images/fh/prosperity.svg" /> </span>
+                          <span class="section"> +1 <img src="./assets/images/fh/prosperity.svg" /> </span>
                         }
                         @if (imbuementSections[row * 10 + check + 1]) {
                           <span
@@ -810,7 +810,7 @@
                         [ngClass]="{ checked: party.donations >= row * 10 + check + 1 }"
                       >
                         @if (check % 5 == 4) {
-                          <div class="section">+1 <img src="/assets/images/fh/prosperity.svg" /></div>
+                          <div class="section">+1 <img src="./assets/images/fh/prosperity.svg" /></div>
                         }
                       </div>
                     </div>
@@ -823,7 +823,7 @@
             <div class="checklist">
               <div class="legend">
                 <span [ghs-label]="'party.prosperity'" [ghs-tooltip]="'party.prosperity.reset'" (click)="setProsperity(0)"></span>
-                <img [ghs-tooltip]="'party.prosperity.reset'" src="/assets/images/fh/prosperity.svg" />
+                <img [ghs-tooltip]="'party.prosperity.reset'" src="./assets/images/fh/prosperity.svg" />
                 <span>:</span>
               </div>
               <div class="tick large" [ghs-tooltip]="'party.prosperity.reset'" (click)="setProsperity(0)">
@@ -880,7 +880,7 @@
       @if (!campaign) {
         <div class="bottom-menu">
           <span class="event-effects ignore-denied" (click)="openEventEffects()">
-            <img class="ghs-svg" src="/assets/images/event.svg" /> <span [ghs-label]="'scenario.eventEffects'"></span>
+            <img class="ghs-svg" src="./assets/images/event.svg" /> <span [ghs-label]="'scenario.eventEffects'"></span>
           </span>
           <span class="toggle-fh-sheet ignore-denied" (click)="toggleFhSheet()">
             <span [ghs-label]="'party.campaign.sheet.' + (fhSheet ? 'disable' : 'enable')"></span>
@@ -893,7 +893,7 @@
         <div class="campaign">
           <div class="row title">
             <span class="campaign-toggle ignore-denied" (click)="campaign = false">
-              <img src="/assets/images/left.svg" /><span [ghs-label]="'party.sheet'"></span>
+              <img src="./assets/images/left.svg" /><span [ghs-label]="'party.sheet'"></span>
             </span>
             <label class="headline"><span [ghs-label]="'party.campaign'"></span></label>
             <span class="campaign-mode" (click)="toggleCampaignMode()">
@@ -902,9 +902,9 @@
             </span>
             @if (!disableShortcuts) {
               <span class="map ignore-denied">
-                <img (click)="openFlowChart()" src="/assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'" />
+                <img (click)="openFlowChart()" src="./assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'" />
                 @if (worldMap) {
-                  <img (click)="openMap()" src="/assets/images/map.svg" [ghs-tooltip]="'party.campaign.map'" />
+                  <img (click)="openMap()" src="./assets/images/map.svg" [ghs-tooltip]="'party.campaign.map'" />
                 }
               </span>
             }
@@ -969,7 +969,7 @@
                     (click)="scenarioRequirements(scenarioData)"
                   >
                     @if (scenarioData.isBlocked || scenarioData.isLocked) {
-                      <img src="/assets/images/close.svg" />
+                      <img src="./assets/images/close.svg" />
                     }
                     <span
                       (click)="scenarioPopUp(scenarioData)"
@@ -984,26 +984,26 @@
                         [ghs-label]="'party.campaign.scenarios.removeManual'"
                         [ghs-label-attribute]="'title'"
                         (click)="removeManual(scenarioData)"
-                        ><img class="manual" src="/assets/images/hint.svg" /><img class="remove" src="/assets/images/close.svg"
+                        ><img class="manual" src="./assets/images/hint.svg" /><img class="remove" src="./assets/images/close.svg"
                       /></a>
                     }
                     @if (scenarioData.isLocked) {
                       <span (click)="scenarioRequirements(scenarioData)" class="locked" [ghs-tooltip]="'scenario.locked'"
-                        ><img class="ghs-svg" src="/assets/images/warning.svg"
+                        ><img class="ghs-svg" src="./assets/images/warning.svg"
                       /></span>
                     }
                     @if (hasRandomItemLooted(scenarioData)) {
                       <span class="rewards" [ghs-tooltip]="'scenario.summary.randomItemLooted'"
-                        ><img class="ghs-svg" src="/assets/images/fh/loot/random_item.svg"
+                        ><img class="ghs-svg" src="./assets/images/fh/loot/random_item.svg"
                       /></span>
                     }
                     @if (countFinished(scenarioData)) {
                       <span (click)="scenarioRewards(scenarioData)" class="rewards" [ghs-tooltip]="'scenario.summary.rewards'"
-                        ><img class="ghs-svg" src="/assets/images/scenario/conclusion.svg"
+                        ><img class="ghs-svg" src="./assets/images/scenario/conclusion.svg"
                       /></span>
                       @if (settingsManager.settings.scenarioStats) {
                         <span (click)="statistics(scenarioData)" class="rewards stats" [ghs-tooltip]="'scenario.stats'"
-                          ><img class="ghs-svg" src="/assets/images/stats.svg"
+                          ><img class="ghs-svg" src="./assets/images/stats.svg"
                         /></span>
                       }
                     }
@@ -1014,7 +1014,7 @@
                           [ghs-label]="'party.campaign.scenarios.removeSuccess'"
                           [ghs-label-attribute]="'title'"
                           (click)="removeSuccess(scenarioData)"
-                          ><img class="success" src="/assets/images/check.svg" /><img class="remove" src="/assets/images/close.svg"
+                          ><img class="success" src="./assets/images/check.svg" /><img class="remove" src="./assets/images/close.svg"
                         /></a>
                       </span>
                     }
@@ -1025,7 +1025,7 @@
                           [ghs-label]="'party.campaign.scenarios.removeSuccessCasual'"
                           [ghs-label-attribute]="'title'"
                           (click)="removeSuccess(scenarioData, true)"
-                          ><img class="success" src="/assets/images/check.svg" /><img class="remove" src="/assets/images/close.svg"
+                          ><img class="success" src="./assets/images/check.svg" /><img class="remove" src="./assets/images/close.svg"
                         /></a>
                       </span>
                     }
@@ -1043,7 +1043,7 @@
                       (singleClick)="addSuccess(scenarioData)"
                       (doubleClick)="addSuccess(scenarioData, true)"
                       [ngClass]="{ disabled: scenarioData.isBlocked || scenarioData.isLocked }"
-                      ><img src="/assets/images/check.svg"
+                      ><img src="./assets/images/check.svg"
                     /></a>
                   </span>
                 </div>
@@ -1070,7 +1070,7 @@
                     [ghs-label-attribute]="'title'"
                     (click)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)"
                   >
-                    <span [ghs-label]="'party.campaign.scenarios.unlock'"></span>&nbsp;<img src="/assets/images/plus.svg"
+                    <span [ghs-label]="'party.campaign.scenarios.unlock'"></span>&nbsp;<img src="./assets/images/plus.svg"
                   /></a>
                 </div>
               }
@@ -1129,14 +1129,14 @@
                         <span>
                           <span class="spacer"></span>
                           <span (click)="scenarioRewards(scenarioData, true)" class="rewards" [ghs-tooltip]="'scenario.summary.rewards'"
-                            ><img class="ghs-svg" src="/assets/images/scenario/conclusion.svg"
+                            ><img class="ghs-svg" src="./assets/images/scenario/conclusion.svg"
                           /></span>
                           <a
                             class="toggle-success"
                             [ghs-label]="'party.campaign.scenarios.removeSuccess'"
                             [ghs-label-attribute]="'title'"
                             (click)="removeConclusion(scenarioData.index, edition)"
-                            ><img class="success" src="/assets/images/check.svg" /><img class="remove" src="/assets/images/close.svg"
+                            ><img class="success" src="./assets/images/check.svg" /><img class="remove" src="./assets/images/close.svg"
                           /></a>
                         </span>
                       </div>
@@ -1144,8 +1144,8 @@
                   }
                   @if (scenarioEditions.length == 1) {
                     <div class="scenario unlock">
-                      <img class="ghs-svg" src="/assets/images/scenario/conclusion.svg" /> /
-                      <img class="ghs-svg" src="/assets/images/puzzle.svg" />
+                      <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg" /> /
+                      <img class="ghs-svg" src="./assets/images/puzzle.svg" />
                       <input
                         #unlockConclusionIndex
                         [ghs-label]="'party.campaign.scenarios.index'"
@@ -1159,7 +1159,7 @@
                         [ghs-label-attribute]="'title'"
                         (click)="selectFinishConclusion(unlockConclusionIndex)"
                       >
-                        <span [ghs-label]="'party.campaign.scenarios.addConclusion'"></span>&nbsp;<img src="/assets/images/plus.svg"
+                        <span [ghs-label]="'party.campaign.scenarios.addConclusion'"></span>&nbsp;<img src="./assets/images/plus.svg"
                       /></a>
                     </div>
                   }
@@ -1173,14 +1173,14 @@
                 <div class="level">
                   <span [ghs-label]="'party.prosperity'" [ghs-tooltip]="'party.prosperity.reset'" (click)="setProsperity(0)"></span>
                   @if (fhSheet) {
-                    <img [ghs-tooltip]="'party.prosperity.reset'" src="/assets/images/fh/prosperity.svg" (click)="setProsperity(0)" />
+                    <img [ghs-tooltip]="'party.prosperity.reset'" src="./assets/images/fh/prosperity.svg" (click)="setProsperity(0)" />
                   }
                   <span>:</span>
                   <img
                     class="toggle-wrapped"
                     (click)="settingsManager.toggle('wrapProsperity')"
                     [ghs-tooltip]="'party.prosperity.wrap.' + (settingsManager.settings.wrapProsperity ? 'shrink' : 'expand')"
-                    [src]="'/assets/images/' + (settingsManager.settings.wrapProsperity ? 'shrink' : 'expand') + '.svg'"
+                    [src]="'./assets/images/' + (settingsManager.settings.wrapProsperity ? 'shrink' : 'expand') + '.svg'"
                   />
                 </div>
                 @if (!fhSheet) {
@@ -1223,7 +1223,7 @@
                   <div class="tick">
                     <div class="donation">
                       <div class="checkbox" (click)="setDonations(check + 1)" [ngClass]="{ checked: party.donations > check }"></div>
-                      <img src="/assets/images/coin.png" />
+                      <img src="./assets/images/coin.png" />
                       <span class="value">+10g</span>
                     </div>
                   </div>
@@ -1274,7 +1274,7 @@
                         <span [ghs-label]="'data.globalAchievements.' + achievement.split(':')[0]"></span>
                         <span class="spacer"></span>
                         <span class="remove" (click)="removeGlobalAchievement(achievement)">
-                          <img class="ghs-svg" src="/assets/images/close.svg"
+                          <img class="ghs-svg" src="./assets/images/close.svg"
                         /></span>
                       </div>
                     }
@@ -1294,7 +1294,7 @@
                       [ghs-label]="'party.addGlobalAchievement'"
                       [ghs-label-attribute]="'title'"
                       (click)="addGlobalAchievement(globalAchievementInput)"
-                      ><img src="/assets/images/plus.svg"
+                      ><img src="./assets/images/plus.svg"
                     /></a>
                   </div>
                 </div>
@@ -1319,7 +1319,7 @@
                     disabled: !itemEdition || !itemIndex.value || +itemIndex.value < 1 || hasItem(itemIndex.value, itemEdition)
                   }"
                   (click)="addItem(itemIndex, itemEdition || '')"
-                  ><img src="/assets/images/plus.svg"
+                  ><img src="./assets/images/plus.svg"
                 /></a>
                 <select [(ngModel)]="itemEdition" (change)="update()">
                   <option value="" [selected]="!itemEdition"><span [ghs-label]="'edition.all'"></span></option>
@@ -1335,12 +1335,12 @@
                   <label class="item" [ngClass]="{ edition: !partyEdition || !itemEdition }">
                     @if (!!item) {
                       <span class="item-index open-item" (click)="openItem(item)">
-                        <img class="icon" [src]="item.slot ? '/assets/images/items/slots/' + item.slot + '.svg' : ''" />
+                        <img class="icon" [src]="item.slot ? './assets/images/items/slots/' + item.slot + '.svg' : ''" />
                         <span class="index">{{ item.id }}</span>
                       </span>
                       <span class="separator">:</span>
                       <span class="checkbox" (click)="removeItem(item)"
-                        ><img class="check" src="/assets/images/check.svg" /><img class="close" src="/assets/images/close.svg"
+                        ><img class="check" src="./assets/images/check.svg" /><img class="close" src="./assets/images/close.svg"
                       /></span>
                       <span
                         class="text open-item"
@@ -1362,7 +1362,7 @@
           <div class="row">
             <div class="treasures">
               <label class="treasures-title" (click)="treasuresDialog()">
-                <img class="icon" src="/assets/images/scenario/treasure.svg" /><span [ghs-label]="'party.campaign.treasures'"></span
+                <img class="icon" src="./assets/images/scenario/treasure.svg" /><span [ghs-label]="'party.campaign.treasures'"></span
                 >:</label
               >
               <div class="treasure-add">
@@ -1384,7 +1384,7 @@
                       hasTreasure(treasureIndex.value, treasureEdition)
                   }"
                   (click)="addTreasure(treasureIndex, treasureEdition)"
-                  ><img src="/assets/images/plus.svg"
+                  ><img src="./assets/images/plus.svg"
                 /></a>
                 <select [(ngModel)]="treasureEdition" (change)="update()">
                   <option value="" [selected]="!treasureEdition"><span [ghs-label]="'edition.all'"></span></option>
@@ -1399,12 +1399,12 @@
                 @for (treasure of treasures() | trackUUID; track treasure._trackUUID) {
                   <label class="treasure" [ngClass]="{ edition: !treasureEdition }">
                     <span class="treasure-index">
-                      <img class="icon" src="/assets/images/scenario/treasure.svg" />
+                      <img class="icon" src="./assets/images/scenario/treasure.svg" />
                       <span class="index">{{ treasure.name }}</span>
                     </span>
                     <span class="separator">:</span>
                     <span class="checkbox" (click)="removeTreasure(treasure)"
-                      ><img class="check" src="/assets/images/check.svg" /><img class="close" src="/assets/images/close.svg"
+                      ><img class="check" src="./assets/images/check.svg" /><img class="close" src="./assets/images/close.svg"
                     /></span>
                     <span class="text">
                       <ghs-treasure-label [edition]="treasure.edition" [index]="+treasure.name - 1"></ghs-treasure-label>
@@ -1443,11 +1443,11 @@
                         }
                       </div>
                     }
-                    <a class="remove" (click)="removePlayer(index)"><img src="/assets/images/close.svg" /></a>
+                    <a class="remove" (click)="removePlayer(index)"><img src="./assets/images/close.svg" /></a>
                   </div>
                 }
                 <a class="add" (click)="party.players[party.players.length] = ''">
-                  <img src="/assets/images/plus.svg" />
+                  <img src="./assets/images/plus.svg" />
                   <span [ghs-label]="'party.campaign.players.add'"></span>
                 </a>
               </div>
@@ -1518,7 +1518,7 @@
                         @if (characterModel.progress) {
                           @for (mastery of characterModel.progress.masteries; track mastery) {
                             <span>
-                              <img class="success" src="/assets/images/check.svg" />
+                              <img class="success" src="./assets/images/check.svg" />
                             </span>
                           }
                         }
@@ -1530,7 +1530,7 @@
                       [ghs-label]="'party.campaign.retirements.reactivate'"
                       [ghs-label-attribute]="'title'"
                     >
-                      <img class="ghs-svg" src="/assets/images/long-rest.svg" />
+                      <img class="ghs-svg" src="./assets/images/long-rest.svg" />
                     </span>
                   </div>
                 }
@@ -1543,7 +1543,7 @@
               [ghs-label-args]="[gameManager.game.totalSeconds | ghsDurationLabel: true]"
             ></span>
             <span class="spacer"></span>
-            <a (click)="statistics()" [ghs-tooltip]="'scenario.stats'"><img class="ghs-svg" src="/assets/images/stats.svg" /></a>
+            <a (click)="statistics()" [ghs-tooltip]="'scenario.stats'"><img class="ghs-svg" src="./assets/images/stats.svg" /></a>
           </div>
         </div>
       }

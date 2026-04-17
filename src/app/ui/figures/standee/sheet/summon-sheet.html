@@ -7,13 +7,13 @@
       <span class="thumbnail">
         @if (!fhStyle) {
           <img
-            [src]="summonData.thumbnailUrl || '/assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'"
+            [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'"
           />
         }
         @if (fhStyle) {
           <span class="thumbnail-border">
             <img
-              [src]="summonData.thumbnailUrl || '/assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'"
+              [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'"
             />
           </span>
         }
@@ -31,7 +31,7 @@
           <span [ghs-label]="'data.summon.' + summon.name" [style]="style" [ngClass]="{ 'text-white': !right }"></span>
         }
         @if (summon.flying) {
-          <span class="flying"><img [src]="'/assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
+          <span class="flying"><img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
         }
       }
       @if (!!summonData) {
@@ -46,7 +46,7 @@
     </span>
     <div class="grid">
       <span class="item health">
-        <img class="ghs-svg" [src]="'/assets/images/' + (fhStyle ? 'fh/' : '') + 'action/heal.svg'" />
+        <img class="ghs-svg" [src]="'./assets/images/' + (fhStyle ? 'fh/' : '') + 'action/heal.svg'" />
         <span>:</span>
         <span [value-calc]="summon.maxHealth" [empty]="true"></span>
         @if (!!summonData && summonData.enhancements && summonData.enhancements.includes('heal')) {
@@ -62,7 +62,7 @@
         }
       </span>
       <span class="item move">
-        <img class="ghs-svg" [src]="'/assets/images/' + (fhStyle ? 'fh/' : '') + 'action/move.svg'" />
+        <img class="ghs-svg" [src]="'./assets/images/' + (fhStyle ? 'fh/' : '') + 'action/move.svg'" />
         <span>:</span>
         <span [value-calc]="summon.movement" [empty]="true"></span>
         @if (!!summonData && summonData.enhancements && summonData.enhancements.includes('move')) {
@@ -83,7 +83,7 @@
         }
       </span>
       <span class="item attack">
-        <img class="ghs-svg" [src]="'/assets/images/' + (fhStyle ? 'fh/' : '') + 'action/attack.svg'" />
+        <img class="ghs-svg" [src]="'./assets/images/' + (fhStyle ? 'fh/' : '') + 'action/attack.svg'" />
         <span>:</span>
         @if (summon.attack != '') {
           <span [ghs-label]="'' + summon.attack" [style]="style"></span>
@@ -104,7 +104,7 @@
         }
       </span>
       <span class="item range">
-        <img class="ghs-svg" [src]="'/assets/images/' + (fhStyle ? 'fh/' : '') + 'action/range.svg'" />
+        <img class="ghs-svg" [src]="'./assets/images/' + (fhStyle ? 'fh/' : '') + 'action/range.svg'" />
         <span>:</span>
         <span [value-calc]="summon.range" [empty]="true"></span>
         @if (!!summonData && summonData.enhancements && summonData.enhancements.includes('range')) {

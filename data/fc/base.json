@@ -15,6 +15,6 @@
   "extensions": [
     "gh"
   ],
-  "logoUrl": "/assets/images/logos/fc.png",
+  "logoUrl": "./assets/images/logos/fc.png",
   "treasureOffset": 75
 }

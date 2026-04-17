@@ -8,7 +8,7 @@
       (click)="openEntitiesMenu($event)"
     >
       <img class="icon" [src]="character.iconUrl" />
-      <img class="menu" src="/assets/images/up.svg" />
+      <img class="menu" src="./assets/images/up.svg" />
     </span>
     @if (summonCount) {
       <div class="summons">
@@ -152,7 +152,7 @@
               <span class="name" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="compact && openCharacterSheet()">
                 {{ characterTitle }}
                 @if (exhausted) {
-                  <img class="ghs-svg exhausted" src="/assets/images/status/exhausted.svg" />
+                  <img class="ghs-svg exhausted" src="./assets/images/status/exhausted.svg" />
                 }
               </span>
             </span>
@@ -241,7 +241,7 @@
               >
                 <img
                   [ngClass]="{ damage: settingsManager.settings.damageHP }"
-                  [src]="'/assets/images/' + (settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')"
+                  [src]="'./assets/images/' + (settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')"
                 />
                 @if (!settingsManager.settings.damageHP) {
                   <span> {{ characterHp + health | ghsMinZero }}/{{ characterMaxHp }} </span>
@@ -275,7 +275,7 @@
                 >
                   <img
                     [src]="
-                      '/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'
+                      './assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'
                     "
                     [style.z-index]="index * 10 + entityCondition.value"
                   />
@@ -285,7 +285,11 @@
                         class="stack"
                         [style.z-index]="index * 10 + entityCondition.value - i - 1"
                         [src]="
-                          '/assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'
+                          './assets/images' +
+                          (settingsManager.settings.fhStyle ? '/fh' : '') +
+                          '/condition/' +
+                          entityCondition.name +
+                          '.svg'
                         "
                       />
                     }
@@ -320,7 +324,7 @@
         </span>
         {{ gameManager.characterManager.characterName(character, character.absent) }}
         @if (exhausted) {
-          <img class="ghs-svg exhausted" src="/assets/images/status/exhausted.svg" />
+          <img class="ghs-svg exhausted" src="./assets/images/status/exhausted.svg" />
         }
       </div>
     }
@@ -342,7 +346,7 @@
           (singleClick)="toggleLootCardsVisible()"
           [ngClass]="{ disabled: character.lootCardsVisible }"
         >
-          <img src="/assets/images/fh/loot-token.png" />
+          <img src="./assets/images/fh/loot-token.png" />
           <span class="badge">{{ character.lootCards.length }}</span>
         </div>
       }
@@ -358,7 +362,7 @@
             active: settingsManager.settings.characterAttackModifierDeckActiveBottom && character.attackModifierDeckVisible
           }"
         >
-          <img src="/assets/images/attackmodifier/icon.png" />
+          <img src="./assets/images/attackmodifier/icon.png" />
         </span>
       }
       @if (
@@ -393,12 +397,12 @@
           <img
             [src]="
               settingsManager.settings.fhStyle
-                ? '/assets/images/fh/battlegoals/battle-goal-back-fh.png'
-                : '/assets/images/battlegoals/battle-goal-back.png'
+                ? './assets/images/fh/battlegoals/battle-goal-back-fh.png'
+                : './assets/images/battlegoals/battle-goal-back.png'
             "
           />
           @if (battleGoalSelected) {
-            <img class="check" src="/assets/images/check.svg" />
+            <img class="check" src="./assets/images/check.svg" />
           }
         </div>
       }
@@ -413,7 +417,7 @@
           [ngClass]="{ bb: bb }"
         >
           <img
-            [src]="settingsManager.settings.fhStyle ? '/assets/images/fh/items/item-back-fh.png' : '/assets/images/items/item-back.png'"
+            [src]="settingsManager.settings.fhStyle ? './assets/images/fh/items/item-back-fh.png' : './assets/images/items/item-back.png'"
           />
         </div>
       }
@@ -436,7 +440,7 @@
             [ghs-label]="'summon'"
             [ghs-label-attribute]="'title'"
           >
-            <img class="ghs-svg" src="/assets/images/plus.svg" />
+            <img class="ghs-svg" src="./assets/images/plus.svg" />
           </a>
         </div>
       }
@@ -444,7 +448,7 @@
         <div class="short-menu">
           <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
           <a class="toggle-menu" ghs-pointer-input (singleClick)="shortMenu = !shortMenu">
-            <img class="ghs-svg" src="/assets/images/menu.svg" />
+            <img class="ghs-svg" src="./assets/images/menu.svg" />
           </a>
         </div>
       }
@@ -471,7 +475,7 @@
             [screenWidth]="true"
           >
             {{ character.experience + experience }}
-            <img src="/assets/images/status/experience.svg" />
+            <img src="./assets/images/status/experience.svg" />
             <span class="value-overlay" [value-sign]="experience" [hideEmpty]="true" [container]="true"></span>
           </span>
         }
@@ -495,7 +499,7 @@
             [screenWidth]="true"
           >
             {{ character.loot + loot }}
-            <img src="/assets/images/status/loot.svg" />
+            <img src="./assets/images/status/loot.svg" />
             <span class="value-overlay" [value-sign]="loot" [hideEmpty]="true" [container]="true"></span>
           </span>
         }
@@ -538,7 +542,7 @@
 
     @if (settingsManager.settings.characterTraits && !character.absent && character.traits.length > 0) {
       <div class="character-traits" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="compact && openCharacterSheet()">
-        <span class="icon"><img class="ghs-svg" src="/assets/images/fh/character/traits/trait.svg" /></span>
+        <span class="icon"><img class="ghs-svg" src="./assets/images/fh/character/traits/trait.svg" /></span>
         @for (trait of character.traits; track trait; let i = $index) {
           @if (i == 0) {
             <span class="divider"></span>
@@ -596,7 +600,7 @@
       (click)="openEntitiesMenu($event)"
     >
       <img class="icon" [src]="character.iconUrl" />
-      <img class="menu" src="/assets/images/up.svg" />
+      <img class="menu" src="./assets/images/up.svg" />
     </span>
     @if (skullSpiritCount) {
       <div class="summons">

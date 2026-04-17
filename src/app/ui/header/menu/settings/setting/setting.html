@@ -10,7 +10,7 @@
       <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
     </label>
     @if (hint) {
-      <img src="/assets/images/hint.svg" class="hint-trigger ghs-svg" />
+      <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
     }
     <span class="hint above">
       <div class="text">
@@ -97,7 +97,7 @@
         [ghs-label-attribute]="'placeholder'"
     /></label>
     @if (hint) {
-      <img src="/assets/images/warning.svg" class="hint-trigger ghs-svg" />
+      <img src="./assets/images/warning.svg" class="hint-trigger ghs-svg" />
     }
     <div class="hint above">
       <div class="text">
@@ -167,7 +167,7 @@
         (input)="settingsManager.apply(setting, +rangeInput.value)"
       />
     </label>
-    <img src="/assets/images/hint.svg" class="hint-trigger ghs-svg" />
+    <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
     <span class="hint above">
       <div class="text">
         <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>

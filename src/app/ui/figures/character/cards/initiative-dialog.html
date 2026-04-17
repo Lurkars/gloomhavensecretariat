@@ -11,7 +11,7 @@
     }
     @if (!!objective) {
       <span class="character">
-        <img class="icon" [src]="'/assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+        <img class="icon" [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
         @if (objective.title) {
           <span> {{ objective.title }}</span>
         }
@@ -43,7 +43,7 @@
   </div>
   @if (!!character) {
     <span class="long-rest-button" [ngClass]="{ active: character.longRest }" (click)="longRest()">
-      <img class="ghs-svg" src="/assets/images/long-rest.svg" />
+      <img class="ghs-svg" src="./assets/images/long-rest.svg" />
       <span [ghs-label]="'game.figure.longRest' + (character.longRest ? 'Off' : '')"></span>
     </span>
   }

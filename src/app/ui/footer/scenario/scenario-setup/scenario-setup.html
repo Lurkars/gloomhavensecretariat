@@ -33,7 +33,7 @@
             @if (loot.type == 'random_item') {
               <span tabclick class="checkbox" [ngClass]="{ checked: lootRandomItem }"></span>
             }
-            <img class="ghs-svg" [src]="'/assets/images/fh/loot/' + loot.type + '.svg'" />
+            <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + loot.type + '.svg'" />
             <span class="sign">x</span>{{ loot.value }}
           </div>
         }
@@ -60,7 +60,7 @@
               </div>
             </div>
             @if (monster.boss || monster.tags.includes('boss')) {
-              <span class="boss"><img src="/assets/images/monster/enemy.png" /></span>
+              <span class="boss"><img src="./assets/images/monster/enemy.png" /></span>
             }
             @if (monster.standeeShare || monster.statEffect) {
               <span class="custom">*</span>

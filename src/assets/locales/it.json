@@ -1250,7 +1250,7 @@
       "treasures": {
         "": "Tesori",
         "rewards": {
-          "battleGoal": "ottieni {0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\">",
+          "battleGoal": "ottieni {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
           "calendarSection": "aggiungi %data.section:{0}% tra %number.{1}% settimane",
           "campaignSticker": "ottieni l'adesivo campagna \"{0}\"",
           "condition": "ottieni {0}",
@@ -1261,10 +1261,10 @@
             "road": "aggiungi l'evento di strada {0} al mazzo"
           },
           "experience": "ottieni {0} esperienza",
-          "experienceFh": "ottieni {0} <img class=\"icon ghs-svg\" src=\"/assets/images/experience.svg\">",
+          "experienceFh": "ottieni {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
           "goal": "Obiettivo",
           "gold": "ottieni {0} oro",
-          "goldFh": "ottieni {0} <img class=\"icon ghs-svg\" src=\"/assets/images/fh/loot.svg\">",
+          "goldFh": "ottieni {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "effettua \"Cura {0}, Se Stesso\"",
           "item": "ottieni {1} ({0})",
           "itemBlueprint": "ottieni {1} progetto %game.itemFh.{0}%",
@@ -1942,10 +1942,10 @@
         "": "Calendario",
         "next": "Sposta automaticamente il calendario alla settimana {0}",
         "section": "Apri %data.section:{0}% (applicato automaticamente)",
-        "summer": "Nuova stagione: estate <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/summer.svg\">",
-        "winter": "Nuova stagione: inverno <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/winter.svg\">"
+        "summer": "Nuova stagione: estate <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
+        "winter": "Nuova stagione: inverno <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
       },
-      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\"> ognuno",
+      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> ognuno",
       "bonus": "Bonus",
       "calendarSection": {
         "": "Collegamenti della sezione",
@@ -2225,7 +2225,7 @@
       },
       "conclusionWarning": {
         "": "Soluzione mancante!",
-        "hint": "Sembra che questo scenario sia terminato senza una conclusione. Ciò può portare a ricompense e sblocchi mancanti. Le sezioni di conclusione sono contrassegnate con un'icona <img class=\"icon ghs-svg\" src=\"/assets/images/scenario/conclusion.svg\">."
+        "hint": "Sembra che questo scenario sia terminato senza una conclusione. Ciò può portare a ricompense e sblocchi mancanti. Le sezioni di conclusione sono contrassegnate con un'icona <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\">."
       },
       "forcedLinks": "%scenario.summary.links% (forzato)",
       "gold": "Oro",

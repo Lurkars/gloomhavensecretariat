@@ -12,13 +12,13 @@
           [ghs-tooltip]="'game.items.brewing.' + (settingsManager.settings.fhBrewGrid ? 'table' : 'grid')"
           (click)="settingsManager.toggle('fhBrewGrid')"
         >
-          <img [src]="'/assets/images/' + (settingsManager.settings.fhBrewGrid ? 'table' : 'grid') + '.svg'" />
+          <img [src]="'./assets/images/' + (settingsManager.settings.fhBrewGrid ? 'table' : 'grid') + '.svg'" />
         </span>
       </div>
 
       @if (gameManager.itemManager.brewingDisabled()) {
         <span class="brewing-disabled">
-          <img src="/assets/images/close.svg" /> <span [ghs-label]="'game.items.brewing.disabled'"></span>
+          <img src="./assets/images/close.svg" /> <span [ghs-label]="'game.items.brewing.disabled'"></span>
         </span>
       }
     </div>
@@ -61,7 +61,7 @@
             (singleClick)="toggleHerb(herb, 0)"
             (doubleClick)="toggleHerb(herb, 0, true)"
           >
-            <img class="ghs-svg" [src]="'/assets/images/fh/loot/' + herb + '.svg'" />
+            <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herb + '.svg'" />
           </span>
           <span
             class="head-col calc-col toggle"
@@ -82,7 +82,7 @@
             (singleClick)="toggleHerb(herb, 1)"
             (doubleClick)="toggleHerb(herb, 1, true)"
           >
-            <img class="ghs-svg" [src]="'/assets/images/fh/loot/' + herb + '.svg'" />
+            <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herb + '.svg'" />
           </span>
           @if (brewing == 3) {
             <span
@@ -104,7 +104,7 @@
               (singleClick)="toggleHerb(herb, 2)"
               (doubleClick)="toggleHerb(herb, 2, true)"
             >
-              <img class="ghs-svg" [src]="'/assets/images/fh/loot/' + herb + '.svg'" />
+              <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herb + '.svg'" />
             </span>
           }
           @if (!!character && !settingsManager.settings.fhShareResources) {
@@ -115,7 +115,7 @@
                 </span>
                 @if (characterSpent[herb] && (gameManager.game.party.loot[herb] || 0) > (fhSupportSpent[herb] || 0)) {
                   <a class="button" (click)="moveHerb(herb, characterSpent, fhSupportSpent)">
-                    <img class="ghs-svg" src="/assets/images/right.svg" />
+                    <img class="ghs-svg" src="./assets/images/right.svg" />
                   </a>
                 }
               }
@@ -128,7 +128,7 @@
             @if (gameManager.game.party.loot[herb]) {
               @if (fhSupportSpent[herb] && ((!!character && character.progress.loot[herb]) || 0) > (characterSpent[herb] || 0)) {
                 <a class="button" (click)="moveHerb(herb, fhSupportSpent, characterSpent)">
-                  <img class="ghs-svg" src="/assets/images/left.svg" />
+                  <img class="ghs-svg" src="./assets/images/left.svg" />
                 </a>
               }
               <span class="value" [ghs-label]="'game.loot.'" [ghs-label-attribute]="'title'">
@@ -149,14 +149,14 @@
           <span class="grid-corner"></span>
           @for (herb of herbs; track herb; let hi = $index) {
             <span class="grid-head grid-head-top" [ngClass]="{ disabled: herbTotals[hi] == 0 }">
-              <img class="ghs-svg" [src]="'/assets/images/fh/loot/' + herb + '.svg'" />
+              <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herb + '.svg'" />
             </span>
           }
         </div>
         @for (i of [] | ghsRange: herbs.length; track i) {
           <div class="grid-row">
             <span class="grid-head grid-head-left" [ngClass]="{ disabled: herbTotals[herbs.length - 1 - i] == 0 }">
-              <img class="ghs-svg" [src]="'/assets/images/fh/loot/' + herbs[herbs.length - 1 - i] + '.svg'" />
+              <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herbs[herbs.length - 1 - i] + '.svg'" />
             </span>
             @for (j of [] | ghsRange: herbs.length - i; track j) {
               <span
@@ -197,14 +197,14 @@
                 </span>
                 @for (ti of [] | ghsRange: ci + 1; track ti) {
                   <span class="grid-head grid-head-top" [ngClass]="{ disabled: herbTotals[ti] == 0 }">
-                    <img class="ghs-svg" [src]="'/assets/images/fh/loot/' + herbs[ti] + '.svg'" />
+                    <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herbs[ti] + '.svg'" />
                   </span>
                 }
               </div>
               @for (li of [] | ghsRange: ci + 1; track li) {
                 <div class="grid-row">
                   <span class="grid-head grid-head-left" [ngClass]="{ disabled: herbTotals[ci + 1 - li] == 0 }">
-                    <img class="ghs-svg" [src]="'/assets/images/fh/loot/' + herbs[ci + 1 - li] + '.svg'" />
+                    <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herbs[ci + 1 - li] + '.svg'" />
                   </span>
                   @for (ti of [] | ghsRange: ci + 1 - li; track ti) {
                     <span
@@ -259,10 +259,10 @@
         @for (herb of receipe; track '' + herb + i; let i = $index) {
           <span class="herb" ghs-pointer-input (singleClick)="removeHerb(herb, false)" (doubleClick)="removeHerb(herb, false, i)">
             @if (!!herb) {
-              <img class="ghs-svg" [src]="'/assets/images/fh/loot/' + herb + '.svg'" />
+              <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herb + '.svg'" />
             }
             @if (!herb) {
-              <img class="ghs-svg" src="/assets/images/fh/loot/unknown.svg" />
+              <img class="ghs-svg" src="./assets/images/fh/loot/unknown.svg" />
             }
             @if (i < receipe.length - 1) {
               <span>+</span>
@@ -288,7 +288,7 @@
         }
         @if (!item && !brewed) {
           <span class="herb">
-            <img class="ghs-svg" src="/assets/images/fh/loot/unknown.svg" />
+            <img class="ghs-svg" src="./assets/images/fh/loot/unknown.svg" />
           </span>
         }
       </div>

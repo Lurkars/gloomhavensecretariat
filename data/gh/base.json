@@ -16,5 +16,5 @@
     "width": 2958,
     "height": 2410
   },
-  "logoUrl": "/assets/images/logos/gh.png"
+  "logoUrl": "./assets/images/logos/gh.png"
 }
