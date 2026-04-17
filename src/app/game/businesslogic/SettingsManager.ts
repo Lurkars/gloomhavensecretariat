@@ -883,7 +883,7 @@ export class SettingsManager {
   }
 
   automaticTheme(edition: string, previousEdition: string | undefined) {
-    if (this.settings.automaticTheme) {
+    if (this.settings.automaticTheme && edition != previousEdition) {
       if (this.settings.theme != 'modern') {
         if (edition == 'fh' || edition == 'bb') {
           this.set('theme', edition);
@@ -891,7 +891,7 @@ export class SettingsManager {
           this.set('theme', 'default');
         }
       }
-      if ((previousEdition != 'fh' && edition == 'fh') || (previousEdition != 'gh2e' && edition == 'gh2e')) {
+      if (edition == 'fh' || edition == 'gh2e') {
         this.set('fhStyle', true);
       } else if ((previousEdition == 'fh' || previousEdition == 'gh2e') && edition != 'fh' && edition != 'gh2e') {
         this.set('fhStyle', false);

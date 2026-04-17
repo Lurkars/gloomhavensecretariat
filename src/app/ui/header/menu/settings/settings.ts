@@ -204,10 +204,6 @@ export class SettingsMenuComponent {
     this.setZoom(100, 0, true);
   }
 
-  setTheme(event: any) {
-    settingsManager.set('theme', event.target.value);
-  }
-
   helperDefaults(): void {
     settingsManager.settings.abilityNumbers = false;
     settingsManager.settings.activeApplyConditions = false;

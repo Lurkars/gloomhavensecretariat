@@ -48,6 +48,8 @@ export class StateManager {
 
   ready: boolean = false;
 
+  automaticTheme: boolean = true;
+
   constructor(game: Game) {
     this.game = game;
     this.lastSaveTimestamp = new Date().getTime();
@@ -138,6 +140,7 @@ export class StateManager {
     if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverCode) {
       this.disconnect();
       this.connectionTries++;
+      this.automaticTheme = true;
       const protocol = settingsManager.settings.serverWss ? 'wss://' : 'ws://';
       const url = this.buildWsUrl(protocol, settingsManager.settings.serverUrl, settingsManager.settings.serverPort);
       if (settingsManager.settings.logServerMessages) console.debug('WS preparing ' + url);
@@ -173,6 +176,12 @@ export class StateManager {
           window.document.body.classList.add('working');
           window.document.body.classList.add('server-sync');
           const gameModel: GameModel = message.payload as GameModel;
+
+          if (gameManager.stateManager.automaticTheme && !!gameModel.edition) {
+            gameManager.stateManager.automaticTheme = false;
+            settingsManager.automaticTheme(gameModel.edition, gameManager.game.edition);
+          }
+
           if (gameManager.game.revision > gameModel.revision) {
             gameManager.stateManager.before();
             storageManager.addBackup(gameManager.game.toModel());
@@ -191,6 +200,7 @@ export class StateManager {
               gameManager.stateManager.before('serverSync', ...undoinfo);
             }
           }
+
           gameManager.game.fromModel(gameModel, true);
           gameManager.stateManager.saveLocal();
           gameManager.triggerUiChange(true);

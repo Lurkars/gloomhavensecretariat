@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - "v*"
-      - "!v*-*"
+      - 'v*'
+      - '!v*-*'
 
 jobs:
   create_release:
@@ -47,13 +47,13 @@ jobs:
       - name: npm install and npm run build
         run: |
           npm ci
-          npm run build -- --configuration unbranded
+          npm run build -- --configuration production
       - name: Create Zip
         uses: thedoctor0/zip-release@main
         with:
-          type: "zip"
-          directory: "dist/gloomhavensecretariat"
-          filename: "gloomhavensecretariat-${{github.ref_name}}.zip"
+          type: 'zip'
+          directory: 'dist/gloomhavensecretariat'
+          filename: 'gloomhavensecretariat-${{github.ref_name}}.zip'
       - name: Upload release zip
         uses: actions/upload-release-asset@v1
         env:

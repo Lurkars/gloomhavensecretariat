@@ -47,21 +47,20 @@ export class ServerMenuComponent implements OnInit {
 
   async ngOnInit() {
     if (this.branded) {
-      try {
-        await fetch('/assets/server.json')
-          .then((response) => {
-            if (!response.ok) {
-              throw Error();
-            }
-            return response.json();
-          })
-          .then((value: ServerInfo[]) => {
-            this.publicServer = value;
-            this.cdr.markForCheck();
-          });
-      } catch {
-        this.publicServer = [];
-      }
+      await fetch('/assets/server.json')
+        .then((response) => {
+          if (!response.ok) {
+            throw Error();
+          }
+          return response.json();
+        })
+        .then((value: ServerInfo[]) => {
+          this.publicServer = value;
+          this.cdr.markForCheck();
+        })
+        .catch(() => {
+          this.publicServer = [];
+        });
     }
 
     this.updateServer();
@@ -145,6 +144,9 @@ export class ServerMenuComponent implements OnInit {
             url: value.html_url
           };
           this.cdr.markForCheck();
+        })
+        .catch(() => {
+          this.serverUpdateVersion = undefined;
         });
     }
   }
