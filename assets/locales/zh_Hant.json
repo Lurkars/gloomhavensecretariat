@@ -1015,7 +1015,7 @@
       "treasures": {
         "": "財寶",
         "rewards": {
-          "battleGoal": "獲得 {0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\">",
+          "battleGoal": "獲得 {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
           "calendarSection": "添加 %data.section:{0}% 至 %number.{1}% 週",
           "campaignSticker": "獲得 \"{0}\" 戰役貼紙",
           "condition": "獲得 {0}",
@@ -1026,10 +1026,10 @@
             "road": "添加道路事件 {0} 至相應牌堆"
           },
           "experience": "獲得 {0} 經驗值",
-          "experienceFh": "獲得 {0} <img class=\"icon ghs-svg\" src=\"/assets/images/experience.svg\">",
+          "experienceFh": "獲得 {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
           "goal": "目標",
           "gold": "獲得 {0} 金幣",
-          "goldFh": "獲得 {0} <img class=\"icon ghs-svg\" src=\"/assets/images/fh/loot.svg\">",
+          "goldFh": "獲得 {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "執行 \"治療 {0}, 自身\"",
           "item": "獲得 {1} ({0})",
           "itemBlueprint": "獲得 {1} %game.itemFh.{0}% 設計藍圖",
@@ -1620,10 +1620,10 @@
         "": "日曆",
         "next": "日曆自動推進到第 {0} 週",
         "section": "打開 %data.section:{0}% （自動執行）",
-        "summer": "新季節：夏季 <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/summer.svg\">",
-        "winter": "新季節：冬季<img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/winter.svg\">"
+        "summer": "新季節：夏季 <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
+        "winter": "新季節：冬季<img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
       },
-      "battleGoals": "每人{0} <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\">",
+      "battleGoals": "每人{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
       "bonus": "獎勵",
       "calendarSection": {
         "": "段落連結",
@@ -1892,7 +1892,7 @@
       },
       "conclusionWarning": {
         "": "缺少解決方案!",
-        "hint": "該劇本似乎是以沒有結局的方式完成.這可能會導致獎勵以及解鎖內容的丟失.結局段落用<img class=\"icon ghs-svg\" src=\"/assets/images/scenario/conclusion.svg\"> 圖標標記."
+        "hint": "該劇本似乎是以沒有結局的方式完成.這可能會導致獎勵以及解鎖內容的丟失.結局段落用<img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\"> 圖標標記."
       },
       "forcedLinks": "%scenario.summary.links% (強制)",
       "gold": "金幣",

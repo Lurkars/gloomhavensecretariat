@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="21.13"
+   height="15.09"
+   viewBox="0 0 21.13 15.09"
+   version="1.1"
+   id="svg17"
+   sodipodi:docname="fh-item.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview19"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="26.220209"
+     inkscape:cx="18.134867"
+     inkscape:cy="7.3798038"
+     inkscape:window-width="1846"
+     inkscape:window-height="1136"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg17" />
+  <defs
+     id="defs7">
+    <style
+       id="style2">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#fff;}</style>
+    <clipPath
+       id="clip-path"
+       transform="translate(0 0)">
+      <rect
+         class="cls-1"
+         width="21.13"
+         height="15.09"
+         id="rect4" />
+    </clipPath>
+  </defs>
+  <path
+     id="rect9"
+     d="M 1.0292969 0 C 0.45867689 0 0 0.45867689 0 1.0292969 L 0 14.060547 C 0 14.631167 0.45867689 15.089844 1.0292969 15.089844 L 20.099609 15.089844 C 20.670229 15.089844 21.130859 14.631167 21.130859 14.060547 L 21.130859 1.0292969 C 21.130859 0.45867689 20.670229 0 20.099609 0 L 1.0292969 0 z M 2.4804688 3.2695312 C 2.5804688 3.2695312 2.7003125 3.3496094 2.8203125 3.3496094 A 0.35 0.35 0 0 1 2.6503906 3.6503906 L 2.7304688 5.3203125 L 3.5292969 5.390625 A 0.18 0.18 0 0 1 3.6894531 5.2890625 L 3.6601562 5.3398438 A 0.18 0.18 0 0 1 3.8398438 5.5195312 A 0.18 0.18 0 0 1 3.6601562 5.6894531 A 0.19 0.19 0 0 1 3.5 5.5996094 L 2.890625 5.5996094 L 2.890625 11.400391 L 2.4492188 11.820312 L 2 11.400391 L 2 5.5996094 L 1.4199219 5.5507812 A 0.17 0.17 0 0 1 1.2695312 5.640625 A 0.18 0.18 0 0 1 1.0898438 5.4707031 A 0.18 0.18 0 0 1 1.2695312 5.2890625 A 0.16 0.16 0 0 1 1.4199219 5.390625 L 2.2304688 5.3203125 L 2.3105469 3.6503906 A 0.35 0.35 0 0 1 2.140625 3.3496094 C 2.240625 3.3496094 2.3804687 3.2695312 2.4804688 3.2695312 z " />
+</svg>

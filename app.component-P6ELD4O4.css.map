@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/app.component.scss"],
+  "sourcesContent": [".container {\n  position: relative;\n  width: 100vw;\n  max-width: 100vw;\n  height: 100vh;\n  max-height: 100vh;\n  background-image: url('../assets/images/bg.jpg');\n  background-size: cover;\n  overflow: auto;\n\n  &.fh {\n    background-image: url('../assets/images/fh/bg.jpg');\n  }\n\n  &.modern {\n    background-image: url('../assets/images/modern/bg.jpg');\n  }\n\n  &.bb {\n    background-image: url('../assets/images/bb/bg.jpg');\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,UACE,SAAA,SACA,MAAA,MACA,UAAA,MACA,OAAA,MACA,WAAA,MACA,iBAAA,+BACA,gBAAA,MACA,SAAA,KAEA,CAVF,SAUE,CAAA,GACE,iBAAA,+BAGF,CAdF,SAcE,CAAA,OACE,iBAAA,+BAGF,CAlBF,SAkBE,CAAA,GACE,iBAAA",
+  "names": []
+}

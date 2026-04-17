@@ -1136,7 +1136,7 @@
       "treasures": {
         "": "보물",
         "rewards": {
-          "battleGoal": "<img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\"> {0}개 획득",
+          "battleGoal": "<img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> {0}개 획득",
           "calendarSection": "%number.{1}%주 후 칸에 %data.section:{0}% 추가",
           "campaignSticker": "캠페인 스티거 \"{0}\" 획득",
           "condition": "{0} 획득",
@@ -1147,10 +1147,10 @@
             "road": "여로 이벤트 {0}번을 덱에 추가"
           },
           "experience": "경험치 {0}점 획득",
-          "experienceFh": "{0} 획득 <img class=\"icon ghs-svg\" src=\"/assets/images/experience.svg\">",
+          "experienceFh": "{0} 획득 <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
           "goal": "목표",
           "gold": "금화 {0}개 획득",
-          "goldFh": "{0} 획득 <img class=\"icon ghs-svg\" src=\"/assets/images/fh/loot.svg\">",
+          "goldFh": "{0} 획득 <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "\"치료 {0}, 자신\" 수행",
           "item": "{1} ({0}) 획득",
           "itemBlueprint": "{1} 제작 아이템 도안 %game.itemFh.{0}% 획득",
@@ -1778,10 +1778,10 @@
         "": "달력",
         "next": "{0}주차로 시간이 흐릅니다",
         "section": "%data.section:{0}% 열기 (자동으로 적용됨)",
-        "summer": "새로운 계절: 여름 <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/summer.svg\">",
-        "winter": "새로운 계절: 겨울 <img class=\"icon ghs-svg\" src=\"/assets/images/fh/party/winter.svg\">"
+        "summer": "새로운 계절: 여름 <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
+        "winter": "새로운 계절: 겨울 <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
       },
-      "battleGoals": "각자 <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\"> {0}개 획득",
+      "battleGoals": "각자 <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> {0}개 획득",
       "bonus": "보너스",
       "calendarSection": {
         "": "섹션 연결",
@@ -1825,7 +1825,7 @@
       "morale": "사기 {0}점",
       "overlayCampaignSticker": "\"%data.campaignSticker.{0}%\" 캠페인 스티커를 마을 지도의 {1} 장소에 붙임",
       "partyAchievements": "파티 업적",
-      "perks": "각자 <img class=\"icon ghs-svg\" src=\"/assets/images/check.svg\"> {0}개 획득",
+      "perks": "각자 <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> {0}개 획득",
       "prosperity": "번영도 {0}",
       "randomItemBlueprint": "무작위 제작 아이템 도안 하나 획득",
       "randomItemBlueprints": "입수 가능한 아이템 공급처에 %game.itemFh.{0}% ~ %game.itemFh.{1}% 추가.",
@@ -2012,7 +2012,7 @@
       },
       "conclusionWarning": {
         "": "결말 누락!",
-        "hint": "(주의) 결말 없이 종료된 것으로 보이며, 보상 및 해금 콘텐츠가 누락될 수 있습니다. 결말 섹션에는<img class=\"icon ghs-svg\" src=\"/assets/images/scenario/conclusion.svg\">이 표시됩니다."
+        "hint": "(주의) 결말 없이 종료된 것으로 보이며, 보상 및 해금 콘텐츠가 누락될 수 있습니다. 결말 섹션에는<img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\">이 표시됩니다."
       },
       "forcedLinks": "%scenario.summary.links% (강제)",
       "gold": "금화",
