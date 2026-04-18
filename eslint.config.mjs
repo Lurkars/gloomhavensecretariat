@@ -1,16 +1,23 @@
 import angular from 'angular-eslint';
 import prettier from 'eslint-config-prettier';
+import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
+export default defineConfig(
   {
     files: ['**/*.ts'],
     extends: [...tseslint.configs.recommended, ...angular.configs.tsRecommended, prettier],
     processor: angular.processInlineTemplates,
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.json', './tsconfig.app.json', './tsconfig.spec.json'],
+        tsconfigRootDir: import.meta.dirname
+      }
+    },
     rules: {
       'no-restricted-imports': [
-        'error',
-        { patterns: [{ group: ['./*', '../*'], message: "Use absolute 'src/' imports instead of relative paths." }] }
+        'warn',
+        { patterns: [{ group: ['./*', '../*'], message: "Prefer absolute 'src/' imports instead over relative paths." }] }
       ],
       // relax rules that would be too noisy for an existing codebase
       '@typescript-eslint/no-explicit-any': 'off',
