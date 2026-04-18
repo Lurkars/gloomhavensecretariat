@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DoCheck, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck, Input, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { Entity } from 'src/app/game/model/Entity';
@@ -13,6 +13,8 @@ import { GhsFloorPipe } from 'src/app/ui/helper/Pipes';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EntityIndexKeyComponent implements OnInit, DoCheck {
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   @Input() entity!: Entity;
   @Input() show: boolean = false;
@@ -21,7 +23,7 @@ export class EntityIndexKeyComponent implements OnInit, DoCheck {
   isKeyboardSelecting: 's' | 'w' | false = false;
   keyboardSelect: number = -1;
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

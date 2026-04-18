@@ -1,7 +1,17 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  ViewChild,
+  inject
+} from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -55,6 +65,12 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ObjectiveContainerComponent implements OnInit {
+  private dialog = inject(Dialog);
+  private overlay = inject(Overlay);
+  private elementRef = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+  private cdr = inject(ChangeDetectorRef);
+
   @Input() objective!: ObjectiveContainer;
 
   @ViewChild('objectiveTitle', { static: false }) titleInput!: ElementRef;
@@ -82,13 +98,7 @@ export class ObjectiveContainerComponent implements OnInit {
 
   EntityConditionState = EntityConditionState;
 
-  constructor(
-    private dialog: Dialog,
-    private overlay: Overlay,
-    private elementRef: ElementRef,
-    private ghsManager: GhsManager,
-    private cdr: ChangeDetectorRef
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

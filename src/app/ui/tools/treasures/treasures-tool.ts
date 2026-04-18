@@ -19,16 +19,14 @@ import { environment } from 'src/environments/environment';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreasuresToolComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+
   gameManager: GameManager = gameManager;
   treasures: TreasureData[] = [];
   edition: string | undefined;
 
   private destroyRef = inject(DestroyRef);
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
 
   async ngOnInit() {
     await settingsManager.init(!environment.production);

@@ -36,6 +36,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LootDeckDialogComponent implements OnInit {
+  dialogRef = inject(DialogRef);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   @ViewChild('menu') menuElement!: ElementRef;
@@ -68,10 +71,7 @@ export class LootDeckDialogComponent implements OnInit {
   data: { deck: LootDeck; characters: boolean; before: EventEmitter<LootDeckChange>; after: EventEmitter<LootDeckChange>; apply: boolean } =
     inject(DIALOG_DATA);
 
-  constructor(
-    public dialogRef: DialogRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.deck = this.data.deck;
     this.characters = this.data.characters;

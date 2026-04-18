@@ -15,13 +15,13 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RandomMonsterCardDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+
   opened: boolean = false;
 
   gameManager: GameManager = gameManager;
 
   section: ScenarioData = inject(DIALOG_DATA);
-
-  constructor(private dialogRef: DialogRef) {}
 
   ngOnInit(): void {
     this.opened = true;

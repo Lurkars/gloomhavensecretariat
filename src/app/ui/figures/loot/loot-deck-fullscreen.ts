@@ -13,6 +13,8 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LootDeckFullscreenComponent implements OnInit {
+  dialogRef = inject(DialogRef);
+
   configuration: boolean = false;
   deck: LootDeck;
   before: EventEmitter<LootDeckChange>;
@@ -20,7 +22,7 @@ export class LootDeckFullscreenComponent implements OnInit {
 
   data: { deck: LootDeck; before: EventEmitter<LootDeckChange>; after: EventEmitter<LootDeckChange> } = inject(DIALOG_DATA);
 
-  constructor(public dialogRef: DialogRef) {
+  constructor() {
     this.deck = this.data.deck;
     this.before = this.data.before;
     this.after = this.data.after;

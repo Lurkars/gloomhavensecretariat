@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, OnChanges, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, inject, Input, OnChanges, Output } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -38,6 +38,8 @@ import { ValueCalcDirective } from 'src/app/ui/helper/valueCalc';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ActionSummonComponent implements OnChanges {
+  private ghsManager = inject(GhsManager);
+
   @Input() monster: Monster | undefined;
   @Input() monsterType: MonsterType | undefined;
   @Input() objective: ObjectiveContainer | undefined;
@@ -64,7 +66,7 @@ export class ActionSummonComponent implements OnChanges {
   settingsManager: SettingsManager = settingsManager;
   MonsterType = MonsterType;
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

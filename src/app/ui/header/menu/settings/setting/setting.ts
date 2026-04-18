@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewEncapsulation, inject } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -16,6 +16,9 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingMenuComponent implements OnInit {
+  elementRef = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+
   @Input('ghs-setting-menu') setting!: string;
   @Input() checked: boolean = false;
   @Input() disabled: boolean = false;
@@ -35,10 +38,7 @@ export class SettingMenuComponent implements OnInit {
 
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(
-    public elementRef: ElementRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

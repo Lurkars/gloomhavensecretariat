@@ -46,6 +46,11 @@ export const newMonsterJson: string =
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonsterEditorComponent implements OnInit {
+  private dialog = inject(Dialog);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private ghsManager = inject(GhsManager);
+
   @ViewChild('inputMonsterData', { static: true }) inputMonsterData!: ElementRef;
   @ViewChild('monsterStats') monsterStats!: MonsterStatsComponent;
   @ViewChild('deckEditor') deckEditor!: DeckEditorComponent;
@@ -66,12 +71,7 @@ export class MonsterEditorComponent implements OnInit {
 
   private destroyRef = inject(DestroyRef);
 
-  constructor(
-    private dialog: Dialog,
-    private route: ActivatedRoute,
-    private router: Router,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.monsterData = JSON.parse(newMonsterJson);
     this.updateType(false);
   }

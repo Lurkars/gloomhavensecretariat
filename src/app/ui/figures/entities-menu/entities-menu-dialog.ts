@@ -75,6 +75,11 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EntitiesMenuDialogComponent {
+  dialogRef = inject(DialogRef);
+  dialog = inject(Dialog);
+  overlay = inject(Overlay);
+  ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
@@ -204,12 +209,7 @@ export class EntitiesMenuDialogComponent {
     positionElement: ElementRef;
   } = inject(DIALOG_DATA);
 
-  constructor(
-    public dialogRef: DialogRef,
-    public dialog: Dialog,
-    public overlay: Overlay,
-    public ghsManager: GhsManager
-  ) {
+  constructor() {
     this.amHelper = new AttackModifierHelper(this);
     this.campaignHelper = new CampaignHelper(this);
     this.characterHelper = new CharacterHelper(this);

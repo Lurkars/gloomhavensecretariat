@@ -8,7 +8,8 @@ import {
   OnChanges,
   OnInit,
   SimpleChanges,
-  ViewEncapsulation
+  ViewEncapsulation,
+  inject
 } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -34,6 +35,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit {
+  elementRef = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+
   @Input() attackModifier!: AttackModifier;
   @Input() characterIcon!: string;
   @Input() ally: boolean = false;
@@ -62,10 +66,7 @@ export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit
 
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(
-    public elementRef: ElementRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.adjustFontSize());
   }
 

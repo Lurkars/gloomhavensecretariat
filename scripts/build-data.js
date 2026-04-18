@@ -1,15 +1,16 @@
 const fs = require('fs');
 const path = require('path');
-const input_dir = './data'
-const output_dir = './src/assets/data'
+const input_dir = './data';
+const output_dir = './src/assets/data';
 
 const load_subfolder = function (edition_path, folder, default_value) {
   const dir = path.join(edition_path, folder);
   if (fs.existsSync(dir) && fs.lstatSync(dir).isDirectory()) {
     // console.debug("\nLoad subfolder: '" + dir + "'");
-    const files = fs.readdirSync(dir).map((file) => path.join(dir, file)).filter((file_path) =>
-      fs.lstatSync(file_path).isFile()
-    );
+    const files = fs
+      .readdirSync(dir)
+      .map((file) => path.join(dir, file))
+      .filter((file_path) => fs.lstatSync(file_path).isFile());
     files.sort((value) => value.toLowerCase());
     let result = [];
     for (let path of files) {
@@ -18,15 +19,15 @@ const load_subfolder = function (edition_path, folder, default_value) {
       try {
         object = JSON.parse(f);
       } catch (e) {
-        console.error("Error parsing: " + path, e);
+        console.error('Error parsing: ' + path, e);
       }
-      result.push(object)
+      result.push(object);
     }
     return result;
   }
   // console.warn("\nCould not load subfolder: '" + dir + "'");
   return default_value;
-}
+};
 
 const load_file = function (edition_path, file, default_value) {
   const file_path = path.join(edition_path, file);
@@ -41,11 +42,12 @@ const load_file = function (edition_path, file, default_value) {
   }
   // console.warn("\nCould not load file: '" + file_path + "'");
   return default_value;
-}
+};
 
-const edition_dirs = fs.readdirSync(input_dir).map((file) => path.join(input_dir, file)).filter((file_path) =>
-  fs.lstatSync(file_path).isDirectory()
-);
+const edition_dirs = fs
+  .readdirSync(input_dir)
+  .map((file) => path.join(input_dir, file))
+  .filter((file_path) => fs.lstatSync(file_path).isDirectory());
 
 for (edition_path of edition_dirs) {
   // console.debug("\n\n------Load edition: '" + edition_path + "'-------");
@@ -89,10 +91,19 @@ for (edition_path of edition_dirs) {
         const f = fs.readFileSync(inputFile, 'utf8');
         try {
           const scenario = JSON.parse(f);
-          const existing = edition_data['scenarios'].find((scenarioData) => scenarioData.index == scenario.index && scenarioData.edition == scenario.edition && scenarioData.group == scenario.group);
+          const existing = edition_data['scenarios'].find(
+            (scenarioData) =>
+              scenarioData.index == scenario.index && scenarioData.edition == scenario.edition && scenarioData.group == scenario.group
+          );
           if (existing) {
             edition_data['scenarios'].splice(edition_data['scenarios'].indexOf(existing), 1, scenario);
-            console.debug(scenario.edition + " Scenario #" + scenario.index + (scenario.group ? ' [' + scenario.group + ']' : '') + " replaced with new format.");
+            console.debug(
+              scenario.edition +
+                ' Scenario #' +
+                scenario.index +
+                (scenario.group ? ' [' + scenario.group + ']' : '') +
+                ' replaced with new format.'
+            );
           } else {
             edition_data['scenarios'].push(scenario);
           }
@@ -113,11 +124,11 @@ for (edition_path of edition_dirs) {
     }
 
     if (a.index.match(/(\d+)/) && b.index.match(/(\d+)/)) {
-      return +(a.index.match(/(\d+)/)[0]) - +(b.index.match(/(\d+)/)[0])
+      return +a.index.match(/(\d+)/)[0] - +b.index.match(/(\d+)/)[0];
     }
 
     return a.index.toLowerCase < b.index.toLowerCase() ? -1 : 1;
-  })
+  });
 
   edition_data['sections'] = load_file(edition_path, 'sections.json', []);
 
@@ -129,10 +140,19 @@ for (edition_path of edition_dirs) {
         const f = fs.readFileSync(inputFile, 'utf8');
         try {
           const section = JSON.parse(f);
-          const existing = edition_data['sections'].find((sectionData) => sectionData.index == section.index && sectionData.edition == section.edition && sectionData.group == section.group);
+          const existing = edition_data['sections'].find(
+            (sectionData) =>
+              sectionData.index == section.index && sectionData.edition == section.edition && sectionData.group == section.group
+          );
           if (existing) {
             edition_data['sections'].splice(edition_data['sections'].indexOf(existing), 1, section);
-            console.debug(section.edition + " Section #" + section.index + (section.group ? ' [' + section.group + ']' : '') + " replaced with new format.");
+            console.debug(
+              section.edition +
+                ' Section #' +
+                section.index +
+                (section.group ? ' [' + section.group + ']' : '') +
+                ' replaced with new format.'
+            );
           } else {
             edition_data['sections'].push(section);
           }
@@ -153,11 +173,11 @@ for (edition_path of edition_dirs) {
     }
 
     if (a.index.match(/(\d+)/) && b.index.match(/(\d+)/)) {
-      return +(a.index.match(/(\d+)/)[0]) - +(b.index.match(/(\d+)/)[0])
+      return +a.index.match(/(\d+)/)[0] - +b.index.match(/(\d+)/)[0];
     }
 
     return a.index.toLowerCase < b.index.toLowerCase() ? -1 : 1;
-  })
+  });
 
   edition_data['items'] = load_file(edition_path, 'items.json', []);
   edition_data['treasures'] = load_file(edition_path, 'treasures.json', []);
@@ -198,7 +218,7 @@ for (edition_path of edition_dirs) {
     }
   }
 
-  const output_path = path.join(output_dir, (edition_data['edition']) + '.json');
+  const output_path = path.join(output_dir, edition_data['edition'] + '.json');
 
   // console.debug("\n> Write file: '" + output_path + "'");
 

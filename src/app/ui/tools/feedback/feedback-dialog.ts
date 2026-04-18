@@ -25,6 +25,8 @@ export type FEEDBACK_ISSUE_TYPE = 'abilityCard' | 'monsterStat' | 'characterStat
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeedbackDialogComponent {
+  dialogRef = inject(DialogRef);
+
   gameManager: GameManager = gameManager;
   branded = environment.branded;
 
@@ -37,7 +39,7 @@ export class FeedbackDialogComponent {
 
   error: Error | undefined = inject(DIALOG_DATA);
 
-  constructor(public dialogRef: DialogRef) {
+  constructor() {
     if (!!this.error) {
       this.automaticText = settingsManager.getLabel('tools.feedback.reportIssue.errorText', [this.error.message, this.error.stack || '']);
       this.issueTypes.push('automatic');

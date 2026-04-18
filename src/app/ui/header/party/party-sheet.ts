@@ -1,5 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { PartySheetDialogComponent } from 'src/app/ui/figures/party/party-sheet-dialog';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -12,9 +12,9 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PartySheetComponent {
-  gameManager: GameManager = gameManager;
+  private dialog = inject(Dialog);
 
-  constructor(private dialog: Dialog) {}
+  gameManager: GameManager = gameManager;
 
   open(): void {
     this.dialog.open(PartySheetDialogComponent, {

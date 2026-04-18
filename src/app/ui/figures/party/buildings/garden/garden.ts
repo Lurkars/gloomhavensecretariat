@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -23,6 +23,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   styleUrls: ['./garden.scss']
 })
 export class GardenComponent implements OnInit {
+  private ghsManager = inject(GhsManager);
+
   level: number = 0;
   slots: number = 0;
   garden!: GardenModel;
@@ -39,7 +41,7 @@ export class GardenComponent implements OnInit {
 
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

@@ -32,8 +32,8 @@ import {
   CampaignData,
   EditionData,
   FH_PROSPERITY_STEPS,
-  GH_PROSPERITY_STEPS,
-  GH2E_PROSPERITY_STEPS
+  GH2E_PROSPERITY_STEPS,
+  GH_PROSPERITY_STEPS
 } from 'src/app/game/model/data/EditionData';
 import { ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
@@ -809,7 +809,7 @@ export class GameManager {
     return entity as ObjectiveEntity;
   }
 
-  getEdition(figure: any, fallback: string = ''): string {
+  getEdition(figure: Figure, fallback: string = ''): string {
     const edition = this.currentEdition(fallback);
     if (figure.edition != edition && !this.editionExtensions(edition).includes(figure.edition)) {
       return figure.edition;

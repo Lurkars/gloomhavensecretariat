@@ -8,7 +8,6 @@ import {
   EventEmitter,
   inject,
   Input,
-  OnInit,
   Output
 } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -27,7 +26,10 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   styleUrls: ['./pet-card.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PetCardComponent implements OnInit, AfterViewInit {
+export class PetCardComponent implements AfterViewInit {
+  private elementRef = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   @Input() petCard!: PetCard | undefined;
@@ -40,16 +42,11 @@ export class PetCardComponent implements OnInit, AfterViewInit {
   gameManager: GameManager = gameManager;
   fontsize: string = '1em';
 
-  constructor(
-    private elementRef: ElementRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.fontsize = this.elementRef.nativeElement.offsetWidth * 0.072 + 'px';
     });
   }
-
-  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     setTimeout(() => {

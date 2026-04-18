@@ -28,6 +28,9 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonsterStatsDialogComponent {
+  dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+
   settingsManager: SettingsManager = settingsManager;
   levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
   monsters: Monster[] = [];
@@ -37,10 +40,7 @@ export class MonsterStatsDialogComponent {
 
   monster: Monster = inject(DIALOG_DATA);
 
-  constructor(
-    public dialogRef: DialogRef,
-    private dialog: Dialog
-  ) {
+  constructor() {
     this.levels.forEach((level) => {
       this.monsters.push(this.getMonsterForLevel(level));
     });

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
 
@@ -11,13 +11,15 @@ import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HealthbarComponent implements OnInit {
+  protected ghsManager = inject(GhsManager);
+
   @Input() entity!: Entity;
   @Input() diff: number = 0;
 
   health: number = 0;
   maxHealth: number = 0;
 
-  constructor(protected ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

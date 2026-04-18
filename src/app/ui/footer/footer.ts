@@ -15,10 +15,10 @@ import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/en
 import { LootDeckChange, LootDeckComponent } from 'src/app/ui/figures/loot/loot-deck';
 import { HintDialogComponent } from 'src/app/ui/footer/hint-dialog/hint-dialog';
 import { LevelComponent } from 'src/app/ui/footer/level/level';
+import { ScenarioRulesComponent } from 'src/app/ui/footer/scenario-rules/scenario-rules';
 import { ScenarioComponent } from 'src/app/ui/footer/scenario/scenario';
 import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
-import { ScenarioRulesComponent } from 'src/app/ui/footer/scenario-rules/scenario-rules';
 import { ConfirmDialogComponent } from 'src/app/ui/helper/confirm/confirm';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
@@ -45,6 +45,11 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent implements OnInit {
+  private elementRef = inject(ElementRef);
+  private dialog = inject(Dialog);
+  private overlay = inject(Overlay);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   @ViewChild('nextButton', { static: false }) nextButton!: ElementRef;
@@ -73,12 +78,7 @@ export class FooterComponent implements OnInit {
 
   isDisabled: boolean = false;
 
-  constructor(
-    private elementRef: ElementRef,
-    private dialog: Dialog,
-    private overlay: Overlay,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.update();
     });

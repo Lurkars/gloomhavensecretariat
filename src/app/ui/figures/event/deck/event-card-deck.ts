@@ -34,6 +34,10 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventCardDeckComponent {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   edition: string;
   type: string;
   types: string[] = [];
@@ -50,11 +54,7 @@ export class EventCardDeckComponent {
 
   data: { edition: string; type: string } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.edition = this.data.edition;
     this.types = gameManager.eventCardManager

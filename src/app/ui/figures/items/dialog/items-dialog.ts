@@ -29,6 +29,10 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemsDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
@@ -69,11 +73,7 @@ export class ItemsDialogComponent implements OnInit {
   data: { edition: string | undefined; select: Character | undefined; affordable: boolean; craftOnly: boolean; buyOnly: boolean } =
     inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.selected = undefined;
     this.character = this.data.select;

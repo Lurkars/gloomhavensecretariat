@@ -33,6 +33,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   styleUrls: ['./conditions.scss']
 })
 export class ConditionsComponent implements OnInit {
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   @Input() entityConditions!: EntityCondition[];
@@ -62,7 +64,7 @@ export class ConditionsComponent implements OnInit {
   timeout: any;
   numberStore: number = 0;
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.initializeConditions());
   }
 

@@ -1,6 +1,6 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
@@ -19,6 +19,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PartyResourcesDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+
   gameManager: GameManager = gameManager;
 
   party: Party = new Party();
@@ -31,11 +34,8 @@ export class PartyResourcesDialogComponent implements OnInit {
   edit: boolean = false;
   edited: boolean = false;
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog
-  ) {
-    this.edit = dialogRef.disableClose || false;
+  constructor() {
+    this.edit = this.dialogRef.disableClose || false;
   }
 
   ngOnInit(): void {

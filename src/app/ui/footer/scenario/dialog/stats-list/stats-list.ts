@@ -21,6 +21,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StatsListComponent {
+  dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   monster: Monster;
@@ -30,10 +33,7 @@ export class StatsListComponent {
 
   data: { monster: Monster; hideStats: boolean; statEffectNote: string } = inject(DIALOG_DATA);
 
-  constructor(
-    public dialogRef: DialogRef,
-    private dialog: Dialog
-  ) {
+  constructor() {
     this.monster = this.data.monster;
     this.hideStats = this.data.hideStats;
     this.statEffectNote = this.data.statEffectNote || '';

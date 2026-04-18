@@ -65,11 +65,11 @@ export class ScenarioRequirementsComponent implements OnInit, OnChanges {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioRequirementsDialogComponent {
+  private dialogRef = inject(DialogRef);
+
   gameManager: GameManager = gameManager;
 
   data: { scenarioData: ScenarioData; linked: boolean; hideMenu: boolean } = inject(DIALOG_DATA);
-
-  constructor(private dialogRef: DialogRef) {}
 
   startScenario() {
     gameManager.stateManager.before('setScenario', ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(this.data.scenarioData)));

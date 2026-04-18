@@ -1,6 +1,6 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, HostListener, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -19,6 +19,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FavorsComponent implements OnInit {
+  dialogRef = inject(DialogRef);
+
   favors: Favor[] = [];
   activeFavors: number[] = [];
   availablePoints: number = 0;
@@ -32,8 +34,6 @@ export class FavorsComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
-
-  constructor(public dialogRef: DialogRef) {}
 
   ngOnInit(): void {
     const editionData = gameManager.editionData.find(

@@ -77,6 +77,11 @@ export enum SubMenu {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainMenuComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  private swUpdate = inject(SwUpdate);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
@@ -96,12 +101,7 @@ export class MainMenuComponent implements OnInit {
 
   data: { subMenu: SubMenu; standalone: boolean } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    private swUpdate: SwUpdate,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.active = this.data.subMenu;
     this.standalone = this.data.standalone;

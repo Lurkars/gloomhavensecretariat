@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -52,6 +52,11 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StandeeComponent implements OnInit {
+  private element = inject(ElementRef);
+  private dialog = inject(Dialog);
+  private overlay = inject(Overlay);
+  private ghsManager = inject(GhsManager);
+
   @ViewChild('standee') standee!: ElementRef;
 
   gameManager: GameManager = gameManager;
@@ -91,12 +96,7 @@ export class StandeeComponent implements OnInit {
   EntityValueFunction = EntityValueFunction;
   EntityConditionState = EntityConditionState;
 
-  constructor(
-    private element: ElementRef,
-    private dialog: Dialog,
-    private overlay: Overlay,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

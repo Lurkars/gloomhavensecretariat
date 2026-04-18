@@ -1,5 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ItemData } from 'src/app/game/model/data/ItemData';
@@ -18,6 +18,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreasureLabelComponent implements OnInit {
+  private dialog = inject(Dialog);
+
   gameManager: GameManager = gameManager;
 
   @Input() treasure: TreasureData | undefined;
@@ -30,8 +32,6 @@ export class TreasureLabelComponent implements OnInit {
   rewardLabel: string[][] = [];
 
   labelPrefix = 'game.loot.treasures.rewards.';
-
-  constructor(private dialog: Dialog) {}
 
   ngOnInit() {
     if (!this.treasure) {

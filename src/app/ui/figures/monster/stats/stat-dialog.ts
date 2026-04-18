@@ -15,13 +15,15 @@ import { MonsterStatsComponent } from 'src/app/ui/figures/monster/stats/stats';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonsterStatDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+
   opened: boolean = false;
   monster: Monster;
   forceStats: boolean;
 
   data: { monster: Monster; forceStats: boolean } = inject(DIALOG_DATA);
 
-  constructor(private dialogRef: DialogRef) {
+  constructor() {
     this.monster = this.data.monster;
     this.forceStats = this.data.forceStats;
   }

@@ -18,6 +18,8 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemDistillDialogComponent {
+  private dialogRef = inject(DialogRef);
+
   availableResources: LootType[] = [];
   selectedResource: LootType | undefined;
   character: Character;
@@ -25,7 +27,7 @@ export class ItemDistillDialogComponent {
 
   data: { character: Character; item: ItemData } = inject(DIALOG_DATA);
 
-  constructor(private dialogRef: DialogRef) {
+  constructor() {
     this.character = this.data.character;
     this.item = this.data.item;
     if (!gameManager.itemManager.canDistill(this.item)) {

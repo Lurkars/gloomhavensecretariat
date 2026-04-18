@@ -14,11 +14,13 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioConclusionComponent {
+  dialogRef = inject(DialogRef);
+
   gameManager: GameManager = gameManager;
 
   data: { conclusions: ScenarioData[]; parent: ScenarioData } = inject(DIALOG_DATA);
 
-  constructor(public dialogRef: DialogRef) {
+  constructor() {
     if (this.data.conclusions.length == 1) {
       this.close(this.data.conclusions[0]);
     }

@@ -15,12 +15,12 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonsterLevelDialogComponent {
+  private dialogRef = inject(DialogRef);
+
   levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
   gameManager: GameManager = gameManager;
 
   monster: Monster = inject(DIALOG_DATA);
-
-  constructor(private dialogRef: DialogRef) {}
 
   setLevel(level: number) {
     ghsDialogClosingHelper(this.dialogRef, level);

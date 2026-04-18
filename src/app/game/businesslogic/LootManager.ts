@@ -13,6 +13,7 @@ import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 export class LootManager {
   game: Game;
+  easter: boolean = false;
 
   constructor(game: Game) {
     this.game = game;
@@ -382,6 +383,7 @@ export class LootManager {
         }
       });
     }
+    this.easter = gameManager.game.party.name === 'Paws of the Lion';
   }
 
   fullLootDeck(): Loot[] {

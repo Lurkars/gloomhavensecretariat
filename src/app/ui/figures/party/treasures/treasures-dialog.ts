@@ -20,6 +20,10 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreasuresDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
   gameManager: GameManager = gameManager;
@@ -32,11 +36,7 @@ export class TreasuresDialogComponent implements OnInit {
 
   data: { edition: string; scenario: ScenarioData | undefined } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.edition = this.data.edition;
     this.batchSelect = this.data.scenario == undefined;

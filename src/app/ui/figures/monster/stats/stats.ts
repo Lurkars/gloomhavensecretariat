@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -27,6 +27,11 @@ import { ValueCalcDirective } from 'src/app/ui/helper/valueCalc';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonsterStatsComponent implements OnInit {
+  private dialog = inject(Dialog);
+  private overlay = inject(Overlay);
+  private element = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+
   @Input() monster!: Monster;
   @Input() forceStats: boolean = false;
   @Input() relative: boolean = false;
@@ -52,12 +57,7 @@ export class MonsterStatsComponent implements OnInit {
 
   @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
 
-  constructor(
-    private dialog: Dialog,
-    private overlay: Overlay,
-    private element: ElementRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

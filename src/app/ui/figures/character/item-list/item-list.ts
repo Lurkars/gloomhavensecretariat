@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -24,6 +24,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterItemListComponent implements OnInit {
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   @Input() character!: Character;
 
   gameManager: GameManager = gameManager;
@@ -33,10 +36,7 @@ export class CharacterItemListComponent implements OnInit {
   ItemFlags = ItemFlags;
   GameState = GameState;
 
-  constructor(
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

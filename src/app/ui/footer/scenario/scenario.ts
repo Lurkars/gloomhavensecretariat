@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -29,6 +29,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioComponent {
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   characterCount: number = 0;
@@ -39,10 +42,7 @@ export class ScenarioComponent {
   treasures: ('G' | number)[] = [];
   unlootedTreasures: ('G' | number)[] = [];
 
-  constructor(
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.update();
     });

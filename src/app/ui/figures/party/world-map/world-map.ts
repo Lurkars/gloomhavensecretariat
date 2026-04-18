@@ -26,6 +26,9 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WorldMapComponent implements AfterViewInit {
+  dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
@@ -51,10 +54,7 @@ export class WorldMapComponent implements AfterViewInit {
 
   data: { edition: string; pick: boolean } = inject(DIALOG_DATA);
 
-  constructor(
-    public dialogRef: DialogRef,
-    private dialog: Dialog
-  ) {
+  constructor() {
     const pinchZoom = settingsManager.settings.pinchZoom;
     settingsManager.settings.pinchZoom = false;
     this.edition = this.data.edition;

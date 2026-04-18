@@ -13,13 +13,15 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChallengeDeckFullscreenComponent {
+  dialogRef = inject(DialogRef);
+
   deck: ChallengeDeck;
   before: EventEmitter<ChallengeDeckChange>;
   after: EventEmitter<ChallengeDeckChange>;
 
   data: { deck: ChallengeDeck; before: EventEmitter<ChallengeDeckChange>; after: EventEmitter<ChallengeDeckChange> } = inject(DIALOG_DATA);
 
-  constructor(public dialogRef: DialogRef) {
+  constructor() {
     this.deck = this.data.deck;
     this.before = this.data.before;
     this.after = this.data.after;

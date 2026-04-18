@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -18,6 +18,8 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterItemComponent {
+  private ghsManager = inject(GhsManager);
+
   @Input() character!: Character;
   @Input() item!: ItemData;
   @Input() flipped: boolean = true;
@@ -28,8 +30,6 @@ export class CharacterItemComponent {
   settingsManager: SettingsManager = settingsManager;
   ItemFlags = ItemFlags;
   GameState = GameState;
-
-  constructor(private ghsManager: GhsManager) {}
 
   equipped(): AdditionalIdentifier | undefined {
     return this.character.progress.equippedItems.find(

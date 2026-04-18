@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -20,6 +20,9 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonsterAbilityCardComponent implements OnInit {
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   @Input() monster!: Monster;
   @Input() index: number = -1;
 
@@ -31,10 +34,7 @@ export class MonsterAbilityCardComponent implements OnInit {
   hasBottomActions: boolean = false;
   drawnAbilities: number = 0;
 
-  constructor(
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

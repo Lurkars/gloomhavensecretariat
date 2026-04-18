@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -14,8 +14,8 @@ import {
   ScenarioRuleIdentifier
 } from 'src/app/game/model/data/ScenarioRule';
 import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
-import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 import { ScenarioRuleComponent } from 'src/app/ui/footer/scenario-rules/scenario-rule';
+import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
@@ -27,16 +27,16 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioRulesComponent {
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   EntityValueFunction = EntityValueFunction;
 
   scenarioRules: { identifier: ScenarioRuleIdentifier; rule: ScenarioRule }[] = [];
 
-  constructor(
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

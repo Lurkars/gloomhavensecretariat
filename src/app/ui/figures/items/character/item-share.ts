@@ -18,6 +18,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemShareDialogComponent {
+  private dialogRef = inject(DialogRef);
+
   character: Character;
   characters: Character[] = [];
   selected: Character | undefined;
@@ -27,7 +29,7 @@ export class ItemShareDialogComponent {
 
   data: { character: Character; item: ItemData } = inject(DIALOG_DATA);
 
-  constructor(private dialogRef: DialogRef) {
+  constructor() {
     this.character = this.data.character;
     this.item = this.data.item;
     this.characters = gameManager.game.figures

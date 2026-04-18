@@ -6,6 +6,7 @@ import {
   ElementRef,
   EventEmitter,
   forwardRef,
+  inject,
   Input,
   OnInit,
   Output,
@@ -69,6 +70,8 @@ export const ActionTypesCombine: ActionType[] = [ActionType.push, ActionType.pul
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ActionComponent implements OnInit, AfterViewInit {
+  private ghsManager = inject(GhsManager);
+
   @Input() monster: Monster | undefined;
   @Input('monsterType') forcedMonsterType: MonsterType | undefined;
   @Input() objective: ObjectiveContainer | undefined;
@@ -123,7 +126,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
   round: string = '';
   hasEntitiesCache: Record<MonsterType, boolean> = { normal: false, elite: false, boss: false };
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

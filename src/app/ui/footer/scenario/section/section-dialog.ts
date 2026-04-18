@@ -15,16 +15,14 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SectionDialogComponent {
+  private dialog = inject(Dialog);
+  private dialogRef = inject(DialogRef);
+
   private cdr = inject(ChangeDetectorRef);
 
   gameManager: GameManager = gameManager;
 
   sectionData: ScenarioData = inject(DIALOG_DATA);
-
-  constructor(
-    private dialog: Dialog,
-    private dialogRef: DialogRef
-  ) {}
 
   addSection() {
     if (this.sectionData.conclusion) {

@@ -1,6 +1,6 @@
 import { Platform } from '@angular/cdk/platform';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Output, QueryList, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output, QueryList, ViewChildren, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -46,6 +46,8 @@ export type SettingsTab =
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsMenuComponent {
+  platform = inject(Platform);
+
   @ViewChildren(SettingMenuComponent) settingMenus!: QueryList<SettingMenuComponent>;
   @Output() setMenu: EventEmitter<SubMenu> = new EventEmitter<SubMenu>();
 
@@ -72,7 +74,7 @@ export class SettingsMenuComponent {
     this.updateFilter();
   }
 
-  constructor(public platform: Platform) {
+  constructor() {
     this.wakeLock = 'wakeLock' in navigator;
 
     Object.keys(ConditionName).forEach((conditionName) => {

@@ -48,6 +48,10 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioSummaryComponent {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   LootType = LootType;
@@ -105,11 +109,7 @@ export class ScenarioSummaryComponent {
   data: { scenario: Scenario; success: boolean; conclusion: ScenarioData | undefined; conclusionOnly: boolean; rewardsOnly: boolean } =
     inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.lootMultiplier = gameManager.levelManager.loot();
       this.experienceBonus = gameManager.levelManager.experience();

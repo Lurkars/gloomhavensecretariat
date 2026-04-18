@@ -13,11 +13,11 @@ import { ChallengeCardComponent } from 'src/app/ui/figures/challenges/challenge-
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChallengeDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+
   opened: boolean = false;
 
   card: ChallengeCard = inject(DIALOG_DATA);
-
-  constructor(private dialogRef: DialogRef) {}
 
   ngOnInit(): void {
     this.opened = true;

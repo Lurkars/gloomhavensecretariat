@@ -16,6 +16,8 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterMoveResourcesDialog implements OnInit {
+  private dialogRef = inject(DialogRef);
+
   gameManager: GameManager = gameManager;
   character: Character;
   lootTypes: LootType[] = Object.values(LootType);
@@ -25,7 +27,7 @@ export class CharacterMoveResourcesDialog implements OnInit {
 
   data: { character: Character; all: boolean } = inject(DIALOG_DATA);
 
-  constructor(private dialogRef: DialogRef) {
+  constructor() {
     this.character = this.data.character;
     if (this.data.all) {
       this.lootTypes.forEach((type) => {

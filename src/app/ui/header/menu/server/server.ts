@@ -21,6 +21,8 @@ import { environment } from 'src/environments/environment';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServerMenuComponent implements OnInit {
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   gameManager: GameManager = gameManager;
@@ -41,7 +43,7 @@ export class ServerMenuComponent implements OnInit {
 
   serverUpdateVersion: { latest: boolean; version: string; url: string } | undefined;
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.checkServerVersion());
   }
 

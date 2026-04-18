@@ -18,6 +18,9 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonsterImageComponent {
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   @Input() monster!: Monster;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -26,10 +29,7 @@ export class MonsterImageComponent {
   off: boolean = false;
   active: boolean = false;
 
-  constructor(
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 
@@ -65,13 +65,13 @@ export class MonsterImageComponent {
   styleUrls: ['./imagedialog.scss']
 })
 export class MonsterImageDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+
   gameManager: GameManager = gameManager;
 
   opened: boolean = false;
 
   monster: Monster = inject(DIALOG_DATA);
-
-  constructor(private dialogRef: DialogRef) {}
 
   ngOnInit(): void {
     this.opened = true;

@@ -21,6 +21,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DatamanagementMenuComponent implements OnInit {
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   @Input() editionsOnly: boolean = false;
@@ -31,8 +33,6 @@ export class DatamanagementMenuComponent implements OnInit {
   ghsInputFullScreenCheck = ghsInputFullScreenCheck;
   confirm: string = '';
   working: string = '';
-
-  constructor(private ghsManager: GhsManager) {}
 
   async ngOnInit() {
     try {

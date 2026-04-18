@@ -1,5 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { ErrorHandler, Injectable } from '@angular/core';
+import { ErrorHandler, Injectable, inject } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { FeedbackDialogComponent } from 'src/app/ui/tools/feedback/feedback-dialog';
@@ -13,9 +13,7 @@ const FILTER_ERRORS: string[] = [
 
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
-  constructor(private dialog: Dialog) {
-    super();
-  }
+  private dialog = inject(Dialog);
 
   override handleError(error: Error) {
     gameManager.stateManager.errorLog.push(error);

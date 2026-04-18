@@ -19,6 +19,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterSummonDialog {
+  private dialogRef = inject(DialogRef);
+
   gameManager: GameManager = gameManager;
   summonColors: SummonColor[] = Object.values(SummonColor).filter(
     (summonColor) => summonColor != SummonColor.custom && summonColor != SummonColor.fh
@@ -34,7 +36,7 @@ export class CharacterSummonDialog {
 
   character: Character = inject(DIALOG_DATA);
 
-  constructor(private dialogRef: DialogRef) {
+  constructor() {
     this.summonFilter = '';
     this.fhSummon = this.character.edition === 'fh' || gameManager.editionExtensions(this.character.edition).includes('fh');
     if (this.fhSummon) {

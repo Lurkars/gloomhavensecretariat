@@ -11,13 +11,13 @@ import { Scenario } from 'src/app/game/model/Scenario';
 import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { FavorsComponent } from 'src/app/ui/figures/entities-menu/favors/favors';
 import { ScenarioRecapDialogComponent } from 'src/app/ui/figures/scenario-recap/scenario-recap';
+import { ScenarioRulesDialogComponent } from 'src/app/ui/footer/scenario-rules/dialog/scenario-rules-dialog';
 import { RandomMonsterCardDialogComponent } from 'src/app/ui/footer/scenario/dialog/random-monster-card/random-monster-card-dialog';
 import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSetupComponent } from 'src/app/ui/footer/scenario/scenario-setup/scenario-setup';
 import { SectionDialogComponent } from 'src/app/ui/footer/scenario/section/section-dialog';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 import { ScenarioTreasuresDialogComponent } from 'src/app/ui/footer/scenario/treasures/treasures-dialog';
-import { ScenarioRulesDialogComponent } from 'src/app/ui/footer/scenario-rules/dialog/scenario-rules-dialog';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 import { TabClickDirective } from 'src/app/ui/helper/tabclick';
@@ -31,6 +31,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioDialogComponent {
+  dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
@@ -44,10 +47,7 @@ export class ScenarioDialogComponent {
 
   scenario: Scenario = inject(DIALOG_DATA);
 
-  constructor(
-    public dialogRef: DialogRef,
-    private dialog: Dialog
-  ) {
+  constructor() {
     this.openRooms = gameManager.scenarioManager.openRooms();
     this.closedRooms = gameManager.scenarioManager.closedRooms();
     this.availableSections = gameManager.scenarioManager.availableSections();

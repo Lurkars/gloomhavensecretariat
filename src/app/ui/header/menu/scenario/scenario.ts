@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -25,6 +25,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioMenuComponent implements OnInit {
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   @Output() closed = new EventEmitter();
 
   gameManager: GameManager = gameManager;
@@ -44,10 +47,7 @@ export class ScenarioMenuComponent implements OnInit {
     scenarios: ScenarioCache[];
   }[] = [];
 
-  constructor(
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.scenarioCache = [];
       this.setEditions();

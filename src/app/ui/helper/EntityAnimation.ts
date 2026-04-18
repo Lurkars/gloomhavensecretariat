@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 
@@ -6,12 +6,10 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
   selector: '[entityAnimation]'
 })
 export class EntityAnimationDirective implements OnChanges {
-  @Input() entityAnimation!: boolean;
+  private el = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
 
-  constructor(
-    private el: ElementRef,
-    private ghsManager: GhsManager
-  ) {}
+  @Input() entityAnimation!: boolean;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes && changes['entityAnimation']) {

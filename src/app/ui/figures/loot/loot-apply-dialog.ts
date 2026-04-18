@@ -16,6 +16,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LootApplyDialogComponent {
+  dialogRef = inject(DialogRef);
+
   gameManager: GameManager = gameManager;
   characters: Character[] = [];
   selected: string;
@@ -26,7 +28,7 @@ export class LootApplyDialogComponent {
 
   data: { loot: Loot; selected: string | undefined; edit: boolean } = inject(DIALOG_DATA);
 
-  constructor(public dialogRef: DialogRef) {
+  constructor() {
     this.loot = this.data.loot;
     this.lootValue = '' + gameManager.lootManager.getValue(this.loot);
     this.selected = this.data.selected || '';

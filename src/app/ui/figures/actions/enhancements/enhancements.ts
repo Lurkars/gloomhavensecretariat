@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -23,6 +23,9 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ActionEnhancementsComponent implements OnInit {
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   @Input() action!: Action;
   @Input('index') actionIndex: string = '';
   @Input() cardId: number | undefined;
@@ -41,10 +44,7 @@ export class ActionEnhancementsComponent implements OnInit {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

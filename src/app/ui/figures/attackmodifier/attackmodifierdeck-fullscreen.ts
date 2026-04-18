@@ -16,6 +16,8 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttackModifierDeckFullscreenComponent {
+  dialogRef = inject(DialogRef);
+
   deck: AttackModifierDeck;
   character: Character;
   ally: boolean;
@@ -38,7 +40,7 @@ export class AttackModifierDeckFullscreenComponent {
     after: EventEmitter<AttackModiferDeckChange>;
   } = inject(DIALOG_DATA);
 
-  constructor(public dialogRef: DialogRef) {
+  constructor() {
     this.deck = this.data.deck;
     this.character = this.data.character;
     this.ally = this.data.ally;

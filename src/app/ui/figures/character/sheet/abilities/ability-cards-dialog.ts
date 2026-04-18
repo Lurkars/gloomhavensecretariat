@@ -32,6 +32,10 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AbilityCardsDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   character: Character;
   level: number | string;
   exclusiveLevel: number | string | undefined;
@@ -49,11 +53,7 @@ export class AbilityCardsDialogComponent implements OnInit {
 
   data: { character: Character } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.character = this.data.character;
     this.level = this.character.level;

@@ -12,11 +12,11 @@ import { TrialCardComponent } from 'src/app/ui/figures/trials/trial-card';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrialDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+
   opened: boolean = false;
 
   data: { edition: string; trial: number } = inject(DIALOG_DATA);
-
-  constructor(private dialogRef: DialogRef) {}
 
   ngOnInit(): void {
     this.opened = true;

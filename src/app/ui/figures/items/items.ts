@@ -28,6 +28,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterItemsComponent implements OnInit {
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
   private destroyRef = inject(DestroyRef);
 
@@ -50,10 +53,7 @@ export class CharacterItemsComponent implements OnInit {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
 
-  constructor(
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.updateItems());
   }
 

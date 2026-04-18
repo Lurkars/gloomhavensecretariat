@@ -76,6 +76,11 @@ export function compactAction(action: any) {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DeckEditorComponent implements OnInit {
+  private dialog = inject(Dialog);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private ghsManager = inject(GhsManager);
+
   @ViewChild('inputDeckData', { static: true }) inputDeckData!: ElementRef;
   @Input() character: Character | undefined;
   @Input() monster: Monster | undefined;
@@ -95,12 +100,7 @@ export class DeckEditorComponent implements OnInit {
 
   private destroyRef = inject(DestroyRef);
 
-  constructor(
-    private dialog: Dialog,
-    private route: ActivatedRoute,
-    private router: Router,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.deckData = new DeckData();
     this.deckData.abilities.push(new Ability());
   }

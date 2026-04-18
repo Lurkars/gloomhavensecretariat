@@ -16,6 +16,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdditionalAMSelectDialogComponent {
+  dialogRef = inject(DialogRef);
+
   gameManager: GameManager = gameManager;
   selected: number = 0;
   characters: Character[];
@@ -23,7 +25,7 @@ export class AdditionalAMSelectDialogComponent {
 
   data: { characters: Character[]; type: AttackModifierType } = inject(DIALOG_DATA);
 
-  constructor(public dialogRef: DialogRef) {
+  constructor() {
     this.characters = this.data.characters;
     this.type = this.data.type;
   }

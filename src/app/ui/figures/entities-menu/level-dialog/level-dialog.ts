@@ -19,6 +19,10 @@ import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsValueSign } from 
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterLevelDialogComponent {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  overlay = inject(Overlay);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   EntityValueFunction = EntityValueFunction;
@@ -35,11 +39,7 @@ export class CharacterLevelDialogComponent {
 
   data: { character: Character; positionElement: ElementRef } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    public overlay: Overlay
-  ) {
+  constructor() {
     this.character = this.data.character;
     this.bb = this.character.bb;
     this.level = this.character.level;

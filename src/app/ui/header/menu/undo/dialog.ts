@@ -1,6 +1,6 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { NgClass, SlicePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -17,6 +17,9 @@ import { TabClickDirective } from 'src/app/ui/helper/tabclick';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UndoDialogComponent implements OnInit {
+  dialogRef = inject(DialogRef);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   undoOffset: number = 0;
   confirm: string = '';
@@ -24,10 +27,7 @@ export class UndoDialogComponent implements OnInit {
   redoArray: number[] = [];
   undoConfirm = '';
 
-  constructor(
-    public dialogRef: DialogRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.undoOffset =
         gameManager.stateManager.undos.length > 0

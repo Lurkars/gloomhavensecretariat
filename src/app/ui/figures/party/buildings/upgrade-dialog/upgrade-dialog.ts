@@ -24,6 +24,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BuildingUpgradeDialog implements OnInit {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   building: Building | undefined;
@@ -49,10 +52,7 @@ export class BuildingUpgradeDialog implements OnInit {
     force: boolean;
   } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog
-  ) {
+  constructor() {
     this.repair = this.data.repair || 0;
     this.requiredResources = this.repair;
     this.building = this.data.building;

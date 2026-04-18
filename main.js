@@ -24,13 +24,13 @@ function createWindow() {
     storages: ['serviceworkers', 'cachestorage']
   });
 
-  mainWindow.on("closed", () => {
+  mainWindow.on('closed', () => {
     mainWindow = null;
   });
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
-  })
+  });
 }
 
 app.whenReady().then(() => {
@@ -70,9 +70,12 @@ app.whenReady().then(() => {
   // Check for updates
   autoUpdater.checkForUpdates();
   // Check for updates every 30m
-  setInterval(() => {
-    autoUpdater.checkForUpdates();
-  }, 30 * 60 * 1000);
+  setInterval(
+    () => {
+      autoUpdater.checkForUpdates();
+    },
+    30 * 60 * 1000
+  );
 });
 
 app.on('window-all-closed', () => {

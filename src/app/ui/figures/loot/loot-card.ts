@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -26,6 +26,9 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LootComponent implements OnInit, OnChanges {
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   @Input() loot!: Loot;
   @Input() index: number = -1;
   @Input() disableFlip: boolean = false;
@@ -47,10 +50,7 @@ export class LootComponent implements OnInit, OnChanges {
   animate: boolean = false;
   sections: string[] = [];
 
-  constructor(
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.characterCount = gameManager.characterManager.characterCount();
       this.lootValue = gameManager.lootManager.getValue(this.loot, false);

@@ -15,13 +15,15 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterSheetDialog {
+  dialogRef = inject(DialogRef);
+
   @ViewChild('characterSheet') characterSheet!: CharacterSheetComponent;
 
   settingsManager: SettingsManager = settingsManager;
 
   data: { character: Character; viewOnly: boolean; forceEdit: boolean } = inject(DIALOG_DATA);
 
-  constructor(public dialogRef: DialogRef) {
+  constructor() {
     this.dialogRef.closed.subscribe({
       next: () => {
         this.characterSheet.applyValues();

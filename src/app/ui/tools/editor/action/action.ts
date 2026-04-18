@@ -37,6 +37,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditorActionComponent implements OnInit {
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   @Input() action!: Action;
   @Input() actionTypes: ActionType[] = Object.values(ActionType);
   @Input() hideValues: boolean = false;
@@ -63,11 +66,6 @@ export class EditorActionComponent implements OnInit {
   monster: string = '';
   monsterType: MonsterType | undefined;
   monsters: string[] = [];
-
-  constructor(
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {}
 
   ngOnInit(): void {
     this.monsters = gameManager.monstersData().map((monsterData) => monsterData.name);
@@ -458,12 +456,12 @@ export class EditorActionComponent implements OnInit {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditorActionDialogComponent {
+  private dialogRef = inject(DialogRef);
+
   relative: boolean = true;
   noPreview: ActionType[] = [];
 
   data: { action: Action; character: Character; cardId: number } = inject(DIALOG_DATA);
-
-  constructor(private dialogRef: DialogRef) {}
 
   deleteAction() {
     this.dialogRef.close(false);

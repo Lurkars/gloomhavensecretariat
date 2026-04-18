@@ -32,6 +32,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChallengeDeckDialogComponent implements OnInit {
+  dialogRef = inject(DialogRef);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   @ViewChild('menu') menuElement!: ElementRef;
@@ -62,10 +65,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
 
   data: { deck: ChallengeDeck; before: EventEmitter<ChallengeDeckChange>; after: EventEmitter<ChallengeDeckChange> } = inject(DIALOG_DATA);
 
-  constructor(
-    public dialogRef: DialogRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.deck = this.data.deck;
     this.before = this.data.before;

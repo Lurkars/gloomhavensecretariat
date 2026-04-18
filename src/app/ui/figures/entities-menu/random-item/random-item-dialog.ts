@@ -17,6 +17,9 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventRandomItemDialogComponent {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
   item: ItemData;
@@ -24,10 +27,7 @@ export class EventRandomItemDialogComponent {
 
   data: { item: ItemData; blueprint: boolean } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog
-  ) {
+  constructor() {
     this.item = this.data.item;
     this.blueprint = this.data.blueprint;
   }

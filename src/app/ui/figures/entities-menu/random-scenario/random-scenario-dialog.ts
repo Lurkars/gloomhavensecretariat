@@ -15,6 +15,8 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventRandomScenarioDialogComponent {
+  private dialogRef = inject(DialogRef);
+
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
   scenario: ScenarioData;
@@ -23,7 +25,7 @@ export class EventRandomScenarioDialogComponent {
 
   data: { scenario: ScenarioData; section: boolean } = inject(DIALOG_DATA);
 
-  constructor(private dialogRef: DialogRef) {
+  constructor() {
     this.scenario = this.data.scenario;
     this.section = this.data.section;
     if (this.section) {

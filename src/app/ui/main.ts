@@ -53,6 +53,12 @@ import { environment } from 'src/environments/environment';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent implements OnInit {
+  private element = inject(ElementRef);
+  private swUpdate = inject(SwUpdate);
+  private dialog = inject(Dialog);
+  private pointerInputService = inject(PointerInputService);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   gameManager: GameManager = gameManager;
@@ -91,13 +97,7 @@ export class MainComponent implements OnInit {
 
   @ViewChild('footer') footer!: FooterComponent;
 
-  constructor(
-    private element: ElementRef,
-    private swUpdate: SwUpdate,
-    private dialog: Dialog,
-    private pointerInputService: PointerInputService,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.figures = gameManager.game.figures.filter(
         (figure) =>

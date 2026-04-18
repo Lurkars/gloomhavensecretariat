@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -22,6 +22,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InteractiveActionsComponent implements OnInit {
+  private ghsManager = inject(GhsManager);
+
   @Input() actions!: Action[];
   @Input() figure!: Monster | ObjectiveContainer;
   @Input() preIndex: string = '';
@@ -36,7 +38,7 @@ export class InteractiveActionsComponent implements OnInit {
   chooseElementAction: InteractiveAction | undefined;
   chooseElementValues: string[] = [];
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

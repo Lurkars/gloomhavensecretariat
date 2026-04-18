@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, inject, Input, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -23,6 +23,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttackModifierEffectComponent implements OnInit {
+  elementRef = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+
   @Input() offsetWidth!: number;
   @Input() attackModifier!: AttackModifier;
   @Input() effect!: AttackModifierEffect;
@@ -48,10 +51,7 @@ export class AttackModifierEffectComponent implements OnInit {
     AttackModifierEffectType.target
   ];
 
-  constructor(
-    public elementRef: ElementRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

@@ -5,8 +5,7 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
-import { ScenarioRequirementsDialogComponent } from 'src/app/ui/figures/party/requirements/requirements';
-import { ScenarioRequirementsComponent } from 'src/app/ui/figures/party/requirements/requirements';
+import { ScenarioRequirementsComponent, ScenarioRequirementsDialogComponent } from 'src/app/ui/figures/party/requirements/requirements';
 import { StatisticsDialogComponent } from 'src/app/ui/figures/party/statistics/statistics-dialog';
 import { TreasuresDialogComponent } from 'src/app/ui/figures/party/treasures/treasures-dialog';
 import { ScenarioRecapDialogComponent } from 'src/app/ui/figures/scenario-recap/scenario-recap';
@@ -35,6 +34,10 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioChartPopupDialog {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   scenario: Scenario;
   isSuccess: boolean = false;
@@ -51,11 +54,7 @@ export class ScenarioChartPopupDialog {
 
   private data: { scenarioData: ScenarioData; forceAll: boolean } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.scenario = new Scenario(this.data.scenarioData);
     this.forceAll = this.data.forceAll || false;

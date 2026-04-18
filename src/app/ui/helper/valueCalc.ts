@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, OnInit, inject } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -62,6 +62,9 @@ export function valueCalc(value: string | number, level: number | undefined = un
   selector: ' [value-calc]'
 })
 export class ValueCalcDirective implements OnInit, OnChanges {
+  private el = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+
   @Input('value-calc') value!: string | number;
   @Input() level: number | undefined;
   @Input() empty: boolean = false;
@@ -70,10 +73,7 @@ export class ValueCalcDirective implements OnInit, OnChanges {
   private L: number;
   private calc: boolean;
 
-  constructor(
-    private el: ElementRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       if (
         this.calc != settingsManager.settings.calculate ||

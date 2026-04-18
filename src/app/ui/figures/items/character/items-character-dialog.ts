@@ -33,6 +33,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemsCharacterDialogComponent {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   setup: boolean = false;
@@ -43,10 +46,7 @@ export class ItemsCharacterDialogComponent {
 
   character: Character = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog
-  ) {
+  constructor() {
     this.setup = gameManager.game.state == GameState.draw && gameManager.roundManager.firstRound;
     this.onlyEquipped = !this.setup;
     this.update();

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, Input, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -26,6 +26,8 @@ import { ValueCalcDirective } from 'src/app/ui/helper/valueCalc';
   styleUrls: ['./summon-sheet.scss']
 })
 export class SummonSheetComponent implements OnInit {
+  private ghsManager = inject(GhsManager);
+
   @Input() summon!: Summon;
   @Input() summonData: SummonData | undefined;
   @Input() action: boolean = false;
@@ -42,7 +44,7 @@ export class SummonSheetComponent implements OnInit {
   enhancementActions: Action[] = [];
   hasSummon: boolean = false;
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

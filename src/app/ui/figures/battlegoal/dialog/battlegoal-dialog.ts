@@ -22,6 +22,10 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterBattleGoalsDialog {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   battleGoals: BattleGoal[] = [];
   revealed: number[] = [];
@@ -35,11 +39,7 @@ export class CharacterBattleGoalsDialog {
 
   data: { character: Character; draw: boolean; cardOnly: boolean } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.character =
         (gameManager.game.figures.find(

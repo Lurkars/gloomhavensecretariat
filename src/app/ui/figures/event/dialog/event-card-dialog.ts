@@ -15,6 +15,8 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventCardDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+
   eventCard: EventCard;
   interactive: boolean;
   spoiler: boolean;
@@ -26,7 +28,7 @@ export class EventCardDialogComponent implements OnInit {
 
   data: { eventCard: EventCard; interactive: boolean; spoiler: boolean; id: EventCardIdentifier | undefined } = inject(DIALOG_DATA);
 
-  constructor(private dialogRef: DialogRef) {
+  constructor() {
     this.eventCard = this.data.eventCard;
     this.interactive = this.data.interactive;
     this.spoiler = this.data.spoiler;

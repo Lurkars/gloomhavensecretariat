@@ -29,6 +29,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttackModifierDrawComponent implements OnInit, OnChanges {
+  element = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   @Input() character!: Character;
@@ -52,10 +55,7 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
 
   @ViewChild('drawCard') drawCard!: ElementRef;
 
-  constructor(
-    public element: ElementRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
       const elements = document.elementsFromPoint(event.clientX, event.clientY);

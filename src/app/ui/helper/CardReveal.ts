@@ -1,16 +1,18 @@
-import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, inject } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 
 @Directive({
   selector: '[card-reveal]'
 })
 export class CardRevealDirective {
+  private el = inject(ElementRef);
+
   @Input() disabled: boolean = false;
   clicked: boolean = false;
 
   @Output() changed = new EventEmitter<boolean>();
 
-  constructor(private el: ElementRef) {
+  constructor() {
     this.el.nativeElement.classList.add('reveal');
   }
 

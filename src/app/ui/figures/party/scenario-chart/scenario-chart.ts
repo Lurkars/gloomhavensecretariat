@@ -22,6 +22,10 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   flow: string[] = [];
   flowString: string = '';
   edition: string;
@@ -38,11 +42,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
   data: { edition: string; group: string | undefined } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.updateMap());
     this.edition = this.data.edition;
     this.group = this.data.group;

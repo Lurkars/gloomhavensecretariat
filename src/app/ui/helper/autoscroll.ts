@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Figure } from 'src/app/game/model/Figure';
@@ -7,9 +7,9 @@ import { Figure } from 'src/app/game/model/Figure';
   selector: '[autoscroll]'
 })
 export class AutoscrollDirective implements OnChanges {
-  @Input('autoscroll') active: boolean = false;
+  private el = inject(ElementRef);
 
-  constructor(private el: ElementRef) {}
+  @Input('autoscroll') active: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['active'] && changes['active'].currentValue && changes['active'].currentValue != changes['active'].previousValue) {
@@ -27,16 +27,16 @@ export class AutoscrollDirective implements OnChanges {
 @Directive({
   selector: '[figure-autoscroll]'
 })
-export class FigureAutoscrollDirective implements OnInit {
+export class FigureAutoscrollDirective {
+  private el = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+
   @Input('figure-autoscroll') figure!: Figure;
   @Input() block: ScrollLogicalPosition = 'center';
   @Input() inline: ScrollLogicalPosition = 'center';
   active: boolean = false;
 
-  constructor(
-    private el: ElementRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       setTimeout(
         () => {
@@ -53,6 +53,4 @@ export class FigureAutoscrollDirective implements OnInit {
       );
     });
   }
-
-  ngOnInit(): void {}
 }

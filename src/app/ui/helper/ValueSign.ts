@@ -1,10 +1,12 @@
-import { Directive, ElementRef, Input, OnChanges } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, inject } from '@angular/core';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
 
 @Directive({
   selector: '[value-sign]'
 })
 export class ValueSignDirective implements OnChanges {
+  private el = inject(ElementRef);
+
   @Input('value-sign') value: number = 0;
   @Input() colored: boolean = true;
   @Input() empty: boolean = true;
@@ -13,7 +15,7 @@ export class ValueSignDirective implements OnChanges {
   @Input() invert: boolean = false;
   @Input() container: boolean = false;
 
-  constructor(private el: ElementRef) {
+  constructor() {
     this.update();
   }
 

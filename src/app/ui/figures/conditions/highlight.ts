@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Directive, ElementRef, Input, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -15,12 +15,12 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   selector: '[conditionHighlight]'
 })
 export class ConditionHighlightAnimationDirective implements OnInit {
+  private el = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+
   @Input('conditionHighlight') condition!: EntityCondition;
 
-  constructor(
-    private el: ElementRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       if (
         this.condition.highlight &&
@@ -66,6 +66,8 @@ export class ConditionHighlightAnimationDirective implements OnInit {
   styleUrls: ['./highlight.scss']
 })
 export class HighlightConditionsComponent implements OnInit {
+  private ghsManager = inject(GhsManager);
+
   @Input() entity!: Entity;
   @Input() figure!: Figure;
 
@@ -74,7 +76,7 @@ export class HighlightConditionsComponent implements OnInit {
   ConditionType = ConditionType;
   highlightedConditions: EntityCondition[] = [];
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

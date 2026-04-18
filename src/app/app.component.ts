@@ -14,6 +14,9 @@ import { ghsDialogClosingHelper, ghsFilterInputFocus } from 'src/app/ui/helper/S
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
+  private meta = inject(Meta);
+  private dialog = inject(Dialog);
+
   title = 'gloomhavensecretariat';
 
   theme: string = '';
@@ -21,10 +24,7 @@ export class AppComponent implements OnInit {
 
   private ghsManager = inject(GhsManager);
 
-  constructor(
-    private meta: Meta,
-    private dialog: Dialog
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.applyStyle();
       this.applyAnimations();
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
       next: (dialogRef: DialogRef) => {
         if (
           dialogRef.overlayRef.backdropElement &&
-          dialog.openDialogs.length > 1 &&
+          this.dialog.openDialogs.length > 1 &&
           !dialogRef.overlayRef.backdropElement.classList.contains('fullscreen-backdrop')
         ) {
           dialogRef.overlayRef.backdropElement.style.opacity = '0';

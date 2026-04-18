@@ -41,6 +41,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemComponent implements OnInit, AfterViewInit {
+  private elementRef = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   @Input() item!: ItemData | undefined;
@@ -71,10 +74,7 @@ export class ItemComponent implements OnInit, AfterViewInit {
   gameManager: GameManager = gameManager;
   fontsize: string = '1em';
 
-  constructor(
-    private elementRef: ElementRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.fontsize = this.elementRef.nativeElement.offsetWidth * 0.072 + 'px';
       if (this.item) {

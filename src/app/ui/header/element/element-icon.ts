@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation, inject } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Element, ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -13,12 +13,12 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ElementIconComponent implements OnInit {
+  private sanitizer = inject(DomSanitizer);
+
   @Input() type: string | undefined;
   @Input() element!: ElementModel;
   ElementState = ElementState;
   svg: SafeHtml = '';
-
-  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     if (this.type && !this.element) {

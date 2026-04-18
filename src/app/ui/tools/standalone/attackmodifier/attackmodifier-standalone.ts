@@ -35,6 +35,11 @@ import { environment } from 'src/environments/environment';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttackModifierStandaloneComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   characters: Character[] = [];
@@ -46,12 +51,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
 
   private destroyRef = inject(DestroyRef);
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
       if (this.activeDeckIndex > this.characters.length + 1) {

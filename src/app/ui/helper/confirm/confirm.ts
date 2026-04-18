@@ -12,12 +12,14 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConfirmDialogComponent {
+  private dialogRef = inject(DialogRef);
+
   label: string;
   args: (string | number | boolean)[];
 
   data: { label: string; args: (string | number | boolean)[] | undefined } = inject(DIALOG_DATA);
 
-  constructor(private dialogRef: DialogRef) {
+  constructor() {
     if (!this.data.label) {
       this.dialogRef.close();
     }

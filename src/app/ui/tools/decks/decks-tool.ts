@@ -24,6 +24,10 @@ import { environment } from 'src/environments/environment';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DecksToolComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   edition: string | undefined;
@@ -35,12 +39,6 @@ export class DecksToolComponent implements OnInit {
   level: number = 1;
 
   private destroyRef = inject(DestroyRef);
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private ghsManager: GhsManager
-  ) {}
 
   async ngOnInit() {
     await settingsManager.init(!environment.production);

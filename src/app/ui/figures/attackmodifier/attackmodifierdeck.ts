@@ -47,6 +47,10 @@ export class AttackModiferDeckChange {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttackModifierDeckComponent implements OnInit, OnChanges {
+  element = inject(ElementRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   @Input() deck!: AttackModifierDeck;
@@ -96,11 +100,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
 
   @ViewChild('drawCard') drawCard!: ElementRef;
 
-  constructor(
-    public element: ElementRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect((fromServer: boolean) => {
       this.update(fromServer);
     });

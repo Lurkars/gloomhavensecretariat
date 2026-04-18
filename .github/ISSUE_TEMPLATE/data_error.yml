@@ -1,14 +1,14 @@
-name: "💢 Data Error"
-description: "Create a report to about wrong data"
-labels: ["data error"]
-assignees: "Lurkars"
-body:    
+name: '💢 Data Error'
+description: 'Create a report to about wrong data'
+labels: ['data error']
+assignees: 'Lurkars'
+body:
   - type: input
     id: edition
     attributes:
       label: Edition
       description: Which edition is affected?
-      placeholder: "ex. FH"
+      placeholder: 'ex. FH'
     validations:
       required: true
   - type: dropdown
@@ -26,22 +26,22 @@ body:
   - type: input
     id: data-idenfifier
     attributes:
-      label: "Describe the data affected"
-      description: "A clear identifier of the data affected."
-      placeholder: "ex. Scenario #1, Section #5.3 or Algox Archer Ability #756"
+      label: 'Describe the data affected'
+      description: 'A clear identifier of the data affected.'
+      placeholder: 'ex. Scenario #1, Section #5.3 or Algox Archer Ability #756'
     validations:
       required: true
   - type: textarea
     id: description
     attributes:
-      label: "Describe the error"
-      description: "A clear and concise description of what is wrong with the data."
+      label: 'Describe the error'
+      description: 'A clear and concise description of what is wrong with the data.'
     validations:
       required: true
   - type: textarea
     id: additional
     attributes:
-      label: "Additional"
-      description: "Add any other context or screenshots about the error here."
+      label: 'Additional'
+      description: 'Add any other context or screenshots about the error here.'
     validations:
       required: false

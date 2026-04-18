@@ -11,8 +11,8 @@ import { SelectResourceResult } from 'src/app/game/model/data/BuildingData';
 import {
   EditionData,
   FH_PROSPERITY_STEPS,
-  GH_PROSPERITY_STEPS,
   GH2E_PROSPERITY_STEPS,
+  GH_PROSPERITY_STEPS,
   ReputationSection
 } from 'src/app/game/model/data/EditionData';
 import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
@@ -77,6 +77,10 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PartySheetDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   ghsInputFullScreenCheck = ghsInputFullScreenCheck;
@@ -135,11 +139,7 @@ export class PartySheetDialogComponent implements OnInit {
 
   data: { campaign: boolean; partySheet: boolean; disableShortcuts: boolean } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect((server: boolean) => {
       if (this.party != gameManager.game.party) {
         this.party = gameManager.game.party;

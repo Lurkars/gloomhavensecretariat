@@ -19,6 +19,9 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonsterNumberPickerDialog implements OnInit {
+  private dialogRef = inject(DialogRef);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   monster: Monster;
@@ -47,10 +50,7 @@ export class MonsterNumberPickerDialog implements OnInit {
     change: boolean;
   } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.monster = this.data.monster;
     this.type = this.data.type;
     this.max = gameManager.monsterManager.monsterStandeeMax(this.monster);

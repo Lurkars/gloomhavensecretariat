@@ -50,6 +50,10 @@ export class LootDeckChange {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LootDeckComponent implements OnInit, OnChanges {
+  private element = inject(ElementRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   @Input() deck!: LootDeck;
@@ -77,11 +81,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
   init: boolean = false;
   initServer: boolean = false;
 
-  constructor(
-    private element: ElementRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect((fromServer: boolean) => {
       this.update(fromServer);
     });
@@ -193,6 +193,10 @@ export class LootDeckComponent implements OnInit, OnChanges {
         this.queueTimeout = null;
         const currentIndex = this.current;
         const loot = this.deck.cards[currentIndex];
+
+        if (gameManager.lootManager.easter && loot && loot.type == LootType.metal) {
+          new Audio('assets/media/metal.ogg').play();
+        }
 
         if (this.queue > 0) {
           this.queue--;

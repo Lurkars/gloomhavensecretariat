@@ -16,11 +16,11 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PartyWeekDialogComponent {
+  private dialog = inject(Dialog);
+
   gameManager: GameManager = gameManager;
 
   week: number = inject(DIALOG_DATA);
-
-  constructor(private dialog: Dialog) {}
 
   sectionsFixed(): string[] {
     const campaign = gameManager.campaignData();

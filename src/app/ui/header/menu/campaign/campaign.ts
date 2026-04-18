@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -30,6 +30,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CampaignMenuComponent implements OnInit {
+  private dialog = inject(Dialog);
+
   @Output() closed = new EventEmitter();
 
   gameManager: GameManager = gameManager;
@@ -42,8 +44,6 @@ export class CampaignMenuComponent implements OnInit {
   confirmPartyDelete: number = -1;
   confirmResetCampaign: boolean = false;
   worldMap: boolean = false;
-
-  constructor(private dialog: Dialog) {}
 
   ngOnInit(): void {
     this.update();

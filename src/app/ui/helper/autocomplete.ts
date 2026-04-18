@@ -1,4 +1,4 @@
-import { Directive, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import autocomplete, { AutocompleteEvent } from 'autocompleter';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 
@@ -20,12 +20,12 @@ export class AutocompleteItem {
   selector: '[autocomplete]'
 })
 export class AutocompleteDirective implements OnInit {
+  private el = inject(ElementRef);
+
   @Input('autocomplete') values: AutocompleteItem[] = [];
   @Input() spoiler: boolean = false;
   @Input() emptyLabel: string = '';
   @Output('keyup.enter') selected: EventEmitter<string> = new EventEmitter<string>();
-
-  constructor(private el: ElementRef) {}
 
   ngOnInit(): void {
     const container = document.createElement('div');

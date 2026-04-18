@@ -16,6 +16,8 @@ import { ItemComponent } from 'src/app/ui/figures/items/item/item';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+
   opened: boolean = false;
 
   gameManager: GameManager = gameManager;
@@ -25,7 +27,7 @@ export class ItemDialogComponent implements OnInit {
 
   data: { item: ItemData; character: Character | undefined; setup: boolean } = inject(DIALOG_DATA);
 
-  constructor(private dialogRef: DialogRef) {
+  constructor() {
     this.item = this.data.item;
     this.character = this.data.character;
     this.setup = this.data.setup || false;

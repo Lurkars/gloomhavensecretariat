@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -18,6 +18,8 @@ import { TabClickDirective } from 'src/app/ui/helper/tabclick';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LevelDialogComponent implements OnInit {
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   trap: number = 0;
@@ -29,7 +31,7 @@ export class LevelDialogComponent implements OnInit {
 
   levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.calculateValues());
   }
 

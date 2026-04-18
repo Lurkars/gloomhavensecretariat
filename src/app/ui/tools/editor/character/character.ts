@@ -23,6 +23,9 @@ import { environment } from 'src/environments/environment';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterEditorComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+
   @ViewChild('inputCharacterData', { static: true }) inputCharacterData!: ElementRef;
 
   gameManager: GameManager = gameManager;
@@ -44,10 +47,7 @@ export class CharacterEditorComponent implements OnInit {
 
   private destroyRef = inject(DestroyRef);
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
+  constructor() {
     this.characterData = new CharacterData();
     this.characterData.iconUrl = './assets/images/warning.svg';
     for (let i = 0; i < 9; i++) {

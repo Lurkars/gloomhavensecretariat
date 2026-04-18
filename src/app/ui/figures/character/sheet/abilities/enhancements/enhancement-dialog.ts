@@ -14,6 +14,8 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EnhancementDialogComponent {
+  private dialogRef = inject(DialogRef);
+
   data: {
     action: Action | undefined;
     actionIndex: string | undefined;
@@ -23,7 +25,7 @@ export class EnhancementDialogComponent {
     summon: SummonData | undefined;
   } = inject(DIALOG_DATA);
 
-  constructor(private dialogRef: DialogRef) {
+  constructor() {
     this.data = this.data || {};
   }
 

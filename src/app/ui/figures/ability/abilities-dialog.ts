@@ -32,6 +32,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   styleUrls: ['./abilities-dialog.scss']
 })
 export class AbiltiesDialogComponent implements OnInit {
+  dialogRef = inject(DialogRef);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   monster: Monster = inject(DIALOG_DATA);
@@ -49,10 +52,7 @@ export class AbiltiesDialogComponent implements OnInit {
   discardedCards: Ability[] = [];
   deletedCards: Ability[] = [];
 
-  constructor(
-    public dialogRef: DialogRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

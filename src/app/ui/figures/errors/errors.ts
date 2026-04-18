@@ -13,9 +13,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FigureErrorsComponent implements OnInit {
-  @Input() figure!: Monster | Character;
+  private dialog = inject(Dialog);
 
-  constructor(private dialog: Dialog) {}
+  @Input() figure!: Monster | Character;
 
   ngOnInit(): void {
     if (!this.figure.errors) {

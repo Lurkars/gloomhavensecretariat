@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -17,6 +17,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StablesComponent implements OnInit {
+  private ghsManager = inject(GhsManager);
+
   pets: { card: PetCard | undefined; model: PetIdentifier | undefined }[] = [];
 
   edit: boolean = false;
@@ -28,7 +30,7 @@ export class StablesComponent implements OnInit {
   used: number = 0;
   active: number = 0;
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.updateState());
   }
 

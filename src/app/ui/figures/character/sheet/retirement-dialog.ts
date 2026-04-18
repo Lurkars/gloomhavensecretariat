@@ -26,6 +26,9 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterRetirementDialog {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
@@ -56,10 +59,7 @@ export class CharacterRetirementDialog {
 
   character: Character = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog
-  ) {
+  constructor() {
     this.conclusion = gameManager
       .sectionData(this.character.edition)
       .find((sectionData) => sectionData.retirement == this.character.name && sectionData.conclusion);

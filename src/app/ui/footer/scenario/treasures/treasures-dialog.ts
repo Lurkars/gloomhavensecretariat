@@ -21,6 +21,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioTreasuresDialogComponent implements OnInit {
+  private ghsManager = inject(GhsManager);
+  private dialogRef = inject(DialogRef);
+
   gameManager: GameManager = gameManager;
 
   scenario: Scenario | undefined;
@@ -36,13 +39,10 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
 
   data: { treasures: ('G' | number)[] | undefined; edition: string | undefined } = inject(DIALOG_DATA);
 
-  constructor(
-    dialogRef: DialogRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     if (!gameManager.game.scenario && (!this.data.treasures || !this.data.edition)) {
-      ghsDialogClosingHelper(dialogRef);
+      ghsDialogClosingHelper(this.dialogRef);
     } else if (!!this.data && this.data.treasures && this.data.edition) {
       this.treasures = this.data.treasures;
       this.edition = this.data.edition;

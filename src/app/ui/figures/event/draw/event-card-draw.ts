@@ -19,6 +19,10 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventCardDrawComponent {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   event: EventCard | undefined;
   selected: number = -1;
   subSelections: number[] = [];
@@ -31,11 +35,7 @@ export class EventCardDrawComponent {
 
   data: { edition: string; type: string; cardId: string | undefined } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       if (this.globalDraw && !gameManager.game.eventDraw) {
         this.dialogRef.close();

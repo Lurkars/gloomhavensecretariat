@@ -29,6 +29,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BuildingsListComponent {
+  private dialog = inject(Dialog);
+
   private cdr = inject(ChangeDetectorRef);
 
   @Input() buildings: Building[] = [];
@@ -39,8 +41,6 @@ export class BuildingsListComponent {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
-
-  constructor(private dialog: Dialog) {}
 
   upgradeable(building: Building): boolean {
     let costs: BuildingCosts = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;

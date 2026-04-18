@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -17,6 +17,8 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterImageComponent {
+  private ghsManager = inject(GhsManager);
+
   @Input() character!: Character;
 
   characterManager: CharacterManager = gameManager.characterManager;
@@ -28,7 +30,7 @@ export class CharacterImageComponent {
   off: boolean = false;
   absent: boolean = false;
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.active = this.character.active;
       this.off = this.character.off || this.character.exhausted || this.character.health <= 0;

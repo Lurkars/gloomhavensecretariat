@@ -18,6 +18,8 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterInitiativeDialogComponent {
+  private dialogRef = inject(DialogRef);
+
   value: string = '__';
 
   characterManager: CharacterManager = gameManager.characterManager;
@@ -29,13 +31,13 @@ export class CharacterInitiativeDialogComponent {
 
   figure: Character | ObjectiveContainer = inject(DIALOG_DATA);
 
-  constructor(private dialogRef: DialogRef) {
+  constructor() {
     if (this.figure instanceof Character) {
       this.character = this.figure;
     } else if (this.figure instanceof ObjectiveContainer) {
       this.objective = this.figure;
     }
-    dialogRef.closed.subscribe({
+    this.dialogRef.closed.subscribe({
       next: () => {
         if (this.value.includes('_') && !isNaN(+this.value.replace('_', ''))) {
           this.updateInitiative(+this.value.replace('_', ''));

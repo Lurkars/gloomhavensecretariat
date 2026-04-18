@@ -48,6 +48,10 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
+  private dialog = inject(Dialog);
+  private overlay = inject(Overlay);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
   private destroyRef = inject(DestroyRef);
 
@@ -76,11 +80,7 @@ export class HeaderComponent implements OnInit {
   syncing: boolean = false;
   wsState: number = -1;
 
-  constructor(
-    private dialog: Dialog,
-    private overlay: Overlay,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.characterCount = gameManager.characterManager.characterCount(true);
       if (this.hintStateValue() != this.hintState) {

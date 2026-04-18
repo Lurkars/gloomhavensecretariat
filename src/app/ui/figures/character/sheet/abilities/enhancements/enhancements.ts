@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -32,6 +32,8 @@ import { EditorActionComponent } from 'src/app/ui/tools/editor/action/action';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EnhancementsComponent implements OnInit {
+  private ghsManager = inject(GhsManager);
+
   @Input('action') inputAction: Action | undefined;
   @Input('actionIndex') inputActionIndex: string | undefined;
   @Input('enhancementIndex') inputEnhancementIndex: number | undefined;
@@ -65,7 +67,7 @@ export class EnhancementsComponent implements OnInit {
 
   enhancedCards: number = 0;
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       if (this.inputCharacter && this.inputCardId) {
         this.enhancements =

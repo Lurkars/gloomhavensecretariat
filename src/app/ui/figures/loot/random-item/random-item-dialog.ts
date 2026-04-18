@@ -18,6 +18,9 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LootRandomItemDialogComponent {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
   item: ItemData;
@@ -26,10 +29,7 @@ export class LootRandomItemDialogComponent {
 
   data: { item: ItemData; character: Character } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog
-  ) {
+  constructor() {
     this.item = this.data.item;
     this.character = this.data.character;
     this.autoSell =

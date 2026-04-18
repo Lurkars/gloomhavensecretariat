@@ -11,7 +11,8 @@ import {
   OnChanges,
   OnInit,
   SimpleChanges,
-  ViewChild
+  ViewChild,
+  inject
 } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -32,6 +33,12 @@ import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterViewInit {
+  private dialog = inject(Dialog);
+  private overlay = inject(Overlay);
+  elementRef = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+  private cdr = inject(ChangeDetectorRef);
+
   @Input() figure!: Character | ObjectiveContainer;
   @Input() initiative: number = -1;
   @ViewChild('initiativeInput', { static: false }) initiativeInput!: ElementRef;
@@ -49,13 +56,7 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   initiativeValue: string = '';
   min: number = 0;
 
-  constructor(
-    private dialog: Dialog,
-    private overlay: Overlay,
-    public elementRef: ElementRef,
-    private ghsManager: GhsManager,
-    private cdr: ChangeDetectorRef
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.id = 'initiative-input-' + this.tabindex();
       this.updateDisplay();

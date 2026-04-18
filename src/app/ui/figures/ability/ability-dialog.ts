@@ -17,6 +17,8 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   styleUrls: ['./ability-dialog.scss']
 })
 export class AbilityDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+
   ability: Ability | undefined;
   secondAbility: Ability | undefined;
   monster: Monster | undefined;
@@ -31,7 +33,7 @@ export class AbilityDialogComponent implements OnInit {
   data: { ability: Ability | undefined; monster: undefined; character: Character | undefined; relative: boolean; interactive: boolean } =
     inject(DIALOG_DATA);
 
-  constructor(private dialogRef: DialogRef) {
+  constructor() {
     this.ability = this.data.ability;
     this.monster = this.data.monster || undefined;
     this.character = this.data.character || undefined;

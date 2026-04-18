@@ -37,6 +37,10 @@ export class GhsTooltipComponent {
   selector: '[ghs-tooltip]'
 })
 export class GhsTooltipDirective implements OnInit {
+  private overlay = inject(Overlay);
+  private overlayPositionBuilder = inject(OverlayPositionBuilder);
+  private elementRef = inject(ElementRef);
+
   private destroyRef = inject(DestroyRef);
 
   @Input('ghs-tooltip') value = '';
@@ -57,12 +61,6 @@ export class GhsTooltipDirective implements OnInit {
   @Input() disabled: boolean = false;
   private overlayRef!: OverlayRef;
   private timeout: any;
-
-  constructor(
-    private overlay: Overlay,
-    private overlayPositionBuilder: OverlayPositionBuilder,
-    private elementRef: ElementRef
-  ) {}
 
   ngOnInit(): void {
     const positionStrategy = this.overlayPositionBuilder.flexibleConnectedTo(this.elementRef).withPositions([

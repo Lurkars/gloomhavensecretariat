@@ -1,7 +1,17 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  ViewChild,
+  inject
+} from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -73,6 +83,11 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterComponent implements OnInit {
+  private dialog = inject(Dialog);
+  private overlay = inject(Overlay);
+  protected ghsManager = inject(GhsManager);
+  protected cdr = inject(ChangeDetectorRef);
+
   @Input() character!: Character;
 
   @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
@@ -118,12 +133,7 @@ export class CharacterComponent implements OnInit {
 
   bb: boolean = false;
 
-  constructor(
-    private dialog: Dialog,
-    private overlay: Overlay,
-    protected ghsManager: GhsManager,
-    protected cdr: ChangeDetectorRef
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

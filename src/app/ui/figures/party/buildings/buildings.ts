@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -18,6 +18,8 @@ export type Building = { model: BuildingModel; data: BuildingData };
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PartyBuildingsComponent implements OnInit {
+  private ghsManager = inject(GhsManager);
+
   @Input() party!: Party;
 
   gameManager: GameManager = gameManager;
@@ -25,7 +27,7 @@ export class PartyBuildingsComponent implements OnInit {
 
   buildings: Building[] = [];
 
-  constructor(private ghsManager: GhsManager) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.party = gameManager.game.party;
       this.updateBuildings();

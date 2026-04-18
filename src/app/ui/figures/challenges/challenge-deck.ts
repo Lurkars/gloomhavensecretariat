@@ -45,6 +45,10 @@ export class ChallengeDeckChange {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChallengeDeckComponent implements OnInit, OnChanges {
+  private element = inject(ElementRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   @Input() deck!: ChallengeDeck;
@@ -71,11 +75,7 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
   drawAvailable: number = 0;
   keepAvailable: number = 0;
 
-  constructor(
-    private element: ElementRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect((fromServer: boolean) => {
       this.update(fromServer);
     });

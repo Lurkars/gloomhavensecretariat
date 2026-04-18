@@ -15,6 +15,9 @@ export const maxElementDepth: number = 50;
   selector: 'ghs-pointer-input, [ghs-pointer-input]'
 })
 export class PointerInputDirective implements OnInit {
+  elementRef = inject(ElementRef);
+  private service = inject(PointerInputService);
+
   private destroyRef = inject(DestroyRef);
 
   @Input() clickBehind: boolean = false;
@@ -48,19 +51,16 @@ export class PointerInputDirective implements OnInit {
   lastX: number = 0;
   isDragElement: boolean = false;
 
-  constructor(
-    public elementRef: ElementRef,
-    private service: PointerInputService
-  ) {
+  constructor() {
     this.value = -1;
     this.elementRef.nativeElement.style['touch-action'] = 'pan-y';
     this.isDragElement =
-      elementRef.nativeElement.hasAttribute('cdkdrag') ||
-      elementRef.nativeElement.hasAttribute('cdkdraghandle') ||
-      elementRef.nativeElement.classList.contains('cdk-drag') ||
-      elementRef.nativeElement.classList.contains('cdk-drag-handle') ||
-      elementRef.nativeElement.classList.contains('cdk-drag-preview') ||
-      elementRef.nativeElement.classList.contains('cdk-drag-placeholder');
+      this.elementRef.nativeElement.hasAttribute('cdkdrag') ||
+      this.elementRef.nativeElement.hasAttribute('cdkdraghandle') ||
+      this.elementRef.nativeElement.classList.contains('cdk-drag') ||
+      this.elementRef.nativeElement.classList.contains('cdk-drag-handle') ||
+      this.elementRef.nativeElement.classList.contains('cdk-drag-preview') ||
+      this.elementRef.nativeElement.classList.contains('cdk-drag-placeholder');
   }
 
   ngOnInit(): void {

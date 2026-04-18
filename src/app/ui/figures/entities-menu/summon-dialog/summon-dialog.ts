@@ -20,6 +20,10 @@ import { ValueCalcDirective } from 'src/app/ui/helper/valueCalc';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SummonDialogComponent implements AfterViewInit {
+  private dialogRef = inject(DialogRef);
+  dialog = inject(Dialog);
+  overlay = inject(Overlay);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   EntityValueFunction = EntityValueFunction;
@@ -38,11 +42,7 @@ export class SummonDialogComponent implements AfterViewInit {
 
   data: { character: Character; summon: Summon; positionElement: ElementRef } = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    public dialog: Dialog,
-    public overlay: Overlay
-  ) {
+  constructor() {
     this.character = this.data.character;
     this.summon = this.data.summon;
 

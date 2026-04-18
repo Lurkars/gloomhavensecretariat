@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, inject, Input, OnChanges, OnInit } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -21,6 +21,9 @@ import { applyPlaceholder, GhsLabelDirective } from 'src/app/ui/helper/label';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AbilityComponent implements OnInit, OnChanges {
+  elementRef = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+
   @Input() ability: Ability | undefined;
   @Input() abilities!: Ability[];
   @Input() monster: Monster | undefined;
@@ -49,10 +52,7 @@ export class AbilityComponent implements OnInit, OnChanges {
 
   fontsize: string = '';
 
-  constructor(
-    public elementRef: ElementRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

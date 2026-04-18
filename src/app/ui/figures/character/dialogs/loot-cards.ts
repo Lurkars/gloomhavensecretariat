@@ -18,6 +18,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharacterLootCardsDialog {
+  dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+
   gameManager: GameManager = gameManager;
 
   lootCards: Loot[] = [];
@@ -25,10 +28,7 @@ export class CharacterLootCardsDialog {
 
   character: Character = inject(DIALOG_DATA);
 
-  constructor(
-    public dialogRef: DialogRef,
-    private dialog: Dialog
-  ) {
+  constructor() {
     if (this.character.lootCards) {
       this.character.lootCards.forEach((index) => this.lootCards.push(gameManager.game.lootDeck.cards[index]));
     }

@@ -1,5 +1,5 @@
 import { DialogRef } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { ScenarioRule, ScenarioRuleIdentifier } from 'src/app/game/model/data/ScenarioRule';
@@ -16,15 +16,15 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioRulesDialogComponent implements OnInit {
+  private dialogRef = inject(DialogRef);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
 
   appliedScenarioRules: { identifier: ScenarioRuleIdentifier; rule: ScenarioRule }[] = [];
   discardedScenarioRules: { identifier: ScenarioRuleIdentifier; rule: ScenarioRule }[] = [];
 
-  constructor(
-    private dialogRef: DialogRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
 

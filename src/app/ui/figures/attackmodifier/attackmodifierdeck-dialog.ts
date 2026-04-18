@@ -40,6 +40,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttackModifierDeckDialogComponent implements OnInit {
+  dialogRef = inject(DialogRef);
+  private ghsManager = inject(GhsManager);
+
   private cdr = inject(ChangeDetectorRef);
 
   deck: AttackModifierDeck;
@@ -88,10 +91,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     after: EventEmitter<AttackModiferDeckChange>;
   } = inject(DIALOG_DATA);
 
-  constructor(
-    public dialogRef: DialogRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.deck = this.data.deck;
     this.character = this.data.character;

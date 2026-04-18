@@ -1,5 +1,5 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -19,6 +19,10 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HintDialogComponent {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   gameManager: GameManager = gameManager;
   GameState = GameState;
 
@@ -30,11 +34,7 @@ export class HintDialogComponent {
   isFinish: boolean = false;
   isFailed: boolean = false;
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.isEmpty = this.empty();
       this.isMissingInitiative = this.missingInitiative();

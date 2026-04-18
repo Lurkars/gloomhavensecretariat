@@ -24,6 +24,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemsBrewDialog implements OnInit {
+  private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   herbs: LootType[] = [
@@ -59,10 +62,7 @@ export class ItemsBrewDialog implements OnInit {
 
   character: Character | undefined = inject(DIALOG_DATA);
 
-  constructor(
-    private dialogRef: DialogRef,
-    private dialog: Dialog
-  ) {
+  constructor() {
     this.brewing = 0;
     if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
       const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');

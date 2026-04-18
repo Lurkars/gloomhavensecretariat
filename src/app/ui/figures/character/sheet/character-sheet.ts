@@ -1,6 +1,16 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation,
+  inject
+} from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -45,6 +55,9 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   encapsulation: ViewEncapsulation.None
 })
 export class CharacterSheetComponent implements OnInit, AfterViewInit {
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   @Input() character!: Character;
   @Input() editable: boolean = true;
   @Input() forceEdit: boolean = false;
@@ -77,10 +90,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   titles: string[] = [];
 
-  constructor(
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.availablePerks =
         this.character.level +

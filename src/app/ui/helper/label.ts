@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -470,6 +470,9 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
   selector: '[ghs-label]'
 })
 export class GhsLabelDirective implements OnInit, OnChanges {
+  private el = inject(ElementRef);
+  private ghsManager = inject(GhsManager);
+
   @Input('ghs-label') value!: string | number;
   @Input('ghs-label-args') args: (string | number | boolean)[] = [];
   @Input('ghs-label-args-replace') argLabel: boolean = true;
@@ -487,10 +490,7 @@ export class GhsLabelDirective implements OnInit, OnChanges {
   private ready: boolean = false;
   private valueChange: string | number = '';
 
-  constructor(
-    private el: ElementRef,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       const count = Math.max(2, gameManager.characterManager.characterCount());
       if (
@@ -512,7 +512,7 @@ export class GhsLabelDirective implements OnInit, OnChanges {
         this.apply();
       }
     });
-    el.nativeElement.classList.add('placeholder');
+    this.el.nativeElement.classList.add('placeholder');
     this.C = Math.max(2, gameManager.characterManager.characterCount());
     this.L = gameManager.game.level;
     this.locale = settingsManager.settings.locale;
@@ -565,11 +565,13 @@ export class GhsLabelDirective implements OnInit, OnChanges {
   selector: '[ghs-label-element]'
 })
 export class GhsLabelElementDirective implements OnInit {
+  private el = inject(ElementRef);
+
   value: string = '';
   @Input('ghs-label-element') prefix: string = '';
 
-  constructor(private el: ElementRef) {
-    el.nativeElement.classList.add('placeholder');
+  constructor() {
+    this.el.nativeElement.classList.add('placeholder');
   }
 
   ngOnInit(): void {
@@ -589,10 +591,12 @@ export class GhsLabelElementDirective implements OnInit {
   selector: '[ghs-placeholder]'
 })
 export class GhsPlaceholderDirective implements OnInit, OnChanges {
+  private el = inject(ElementRef);
+
   @Input('ghs-placeholder') value: string = '';
 
-  constructor(private el: ElementRef) {
-    el.nativeElement.classList.add('placeholder');
+  constructor() {
+    this.el.nativeElement.classList.add('placeholder');
   }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -23,6 +23,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioSetupComponent implements OnInit {
+  private dialog = inject(Dialog);
+
   @Input() scenario!: Scenario;
   @Input() spoiler: boolean = false;
   @Input() title: boolean = true;
@@ -36,8 +38,6 @@ export class ScenarioSetupComponent implements OnInit {
   lootRandomItem: boolean = false;
   hasSpoiler: boolean = false;
   detailed: boolean = false;
-
-  constructor(private dialog: Dialog) {}
 
   ngOnInit(): void {
     this.updateMonster();

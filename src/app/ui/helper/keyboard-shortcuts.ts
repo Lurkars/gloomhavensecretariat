@@ -46,6 +46,9 @@ export type KEYBOARD_SHORTCUT_EVENTS =
   selector: '[ghs-keyboard-shortcuts]'
 })
 export class KeyboardShortcuts implements OnInit {
+  private dialog = inject(Dialog);
+  private ghsManager = inject(GhsManager);
+
   private destroyRef = inject(DestroyRef);
 
   @Input() header: HeaderComponent | undefined;
@@ -60,10 +63,7 @@ export class KeyboardShortcuts implements OnInit {
   keyup!: (event: KeyboardEvent) => void;
   timeout: any;
 
-  constructor(
-    private dialog: Dialog,
-    private ghsManager: GhsManager
-  ) {
+  constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.currentZoom = settingsManager.settings.zoom;
     });
