@@ -2,12 +2,8 @@
   "name": "Gloomhaven Secretariat",
   "description": "Gloomhaven Secretariat is a companion app for Gloomhaven / Frosthaven based board games.",
   "short_name": "GH Secretariat",
-  "categories": [
-    "games",
-    "utilities"
-  ],
+  "categories": ["games", "utilities"],
   "background_color": "#000000",
-  "theme_color": "#936658",
   "display": "standalone",
   "orientation": "any",
   "dir": "auto",
