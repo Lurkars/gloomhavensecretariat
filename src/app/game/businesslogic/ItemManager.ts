@@ -10,6 +10,7 @@ import { getLootClass, herbResourceLootTypes, LootClass, LootType } from 'src/ap
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game } from 'src/app/game/model/Game';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
+import { v4 as uuidv4 } from 'uuid';
 
 export class ItemManager {
   game: Game;
@@ -592,15 +593,7 @@ export class ItemManager {
     }
 
     if (equip && item.summon) {
-      const summon = new Summon(
-        crypto.randomUUID(),
-        item.summon.name,
-        item.summon.cardId,
-        character.level,
-        1,
-        SummonColor.blue,
-        item.summon
-      );
+      const summon = new Summon(uuidv4(), item.summon.name, item.summon.cardId, character.level, 1, SummonColor.blue, item.summon);
       summon.init = false;
       gameManager.characterManager.addSummon(character, summon);
     }

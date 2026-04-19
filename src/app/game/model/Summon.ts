@@ -2,6 +2,7 @@ import { Action } from 'src/app/game/model/data/Action';
 import { ConditionName, EntityCondition, GameEntityConditionModel } from 'src/app/game/model/data/Condition';
 import { SummonData } from 'src/app/game/model/data/SummonData';
 import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
+import { v4 as uuidv4 } from 'uuid';
 
 export enum SummonState {
   new = 'new',
@@ -69,7 +70,7 @@ export class Summon implements Entity {
     color: SummonColor,
     summonData: SummonData | undefined = undefined
   ) {
-    this.uuid = uuid || crypto.randomUUID();
+    this.uuid = uuid || uuidv4();
     this.name = name;
     this.title = '';
     this.cardId = cardId;
@@ -97,7 +98,7 @@ export class Summon implements Entity {
 
   toModel(): GameSummonModel {
     return new GameSummonModel(
-      this.uuid || crypto.randomUUID(),
+      this.uuid || uuidv4(),
       this.name,
       this.title,
       this.cardId,
@@ -132,7 +133,7 @@ export class Summon implements Entity {
   }
 
   fromModel(model: GameSummonModel) {
-    this.uuid = model.uuid || crypto.randomUUID();
+    this.uuid = model.uuid || uuidv4();
     this.name = model.name || '';
     this.title = model.title || '';
     this.cardId = model.cardId || '';

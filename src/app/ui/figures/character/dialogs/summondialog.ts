@@ -10,6 +10,7 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   imports: [NgClass, GhsLabelDirective, GhsRangePipe, TrackUUIDPipe],
@@ -163,14 +164,7 @@ export class CharacterSummonDialog {
         this.summonNumber,
         this.summonColor
       );
-      const summon: Summon = new Summon(
-        crypto.randomUUID(),
-        this.summonName,
-        '',
-        this.character.level,
-        this.summonNumber,
-        this.summonColor
-      );
+      const summon: Summon = new Summon(uuidv4(), this.summonName, '', this.character.level, this.summonNumber, this.summonColor);
       summon.state = SummonState.new;
       gameManager.characterManager.addSummon(this.character, summon);
       ghsDialogClosingHelper(this.dialogRef);
@@ -188,7 +182,7 @@ export class CharacterSummonDialog {
         'data.summon.' + summonData.name
       );
       const summon: Summon = new Summon(
-        crypto.randomUUID(),
+        uuidv4(),
         summonData.name,
         summonData.cardId,
         this.character.level,

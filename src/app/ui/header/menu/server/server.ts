@@ -12,6 +12,7 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TabClickDirective } from 'src/app/ui/helper/tabclick';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { environment } from 'src/environments/environment';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   imports: [KeyValuePipe, NgClass, GhsLabelDirective, TabClickDirective, TrackUUIDPipe],
@@ -85,7 +86,7 @@ export class ServerMenuComponent implements OnInit {
   }
 
   createUUID() {
-    settingsManager.settings.serverCode = crypto.randomUUID();
+    settingsManager.settings.serverCode = uuidv4();
   }
 
   disconnect() {

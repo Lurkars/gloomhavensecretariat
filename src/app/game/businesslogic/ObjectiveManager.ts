@@ -11,6 +11,7 @@ import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
+import { v4 as uuidv4 } from 'uuid';
 
 export class ObjectiveManager {
   game: Game;
@@ -44,7 +45,7 @@ export class ObjectiveManager {
     ) as ObjectiveContainer;
 
     if (!objectiveContainer) {
-      objectiveContainer = new ObjectiveContainer(crypto.randomUUID(), objectiveId);
+      objectiveContainer = new ObjectiveContainer(uuidv4(), objectiveId);
       if (objectiveData) {
         objectiveContainer.marker = objectiveData.marker;
         objectiveContainer.name = objectiveData.name;
@@ -95,7 +96,7 @@ export class ObjectiveManager {
     }
 
     const entity: ObjectiveEntity = new ObjectiveEntity(
-      crypto.randomUUID(),
+      uuidv4(),
       number + 1,
       objectiveContainer,
       marker || (objectiveData && objectiveData.marker) || objectiveContainer.marker
