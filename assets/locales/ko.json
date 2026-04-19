@@ -508,6 +508,10 @@
     }
   },
   "entities": {
+    "event": {
+      "entities": "대상 메뉴",
+      "menu": "이벤트 효과 메뉴"
+    },
     "filter": {
       "all": "모두",
       "allies": "아군",
@@ -1824,6 +1828,7 @@
       "lostPartyAchievements": "파티 업적 상실",
       "morale": "사기 {0}점",
       "overlayCampaignSticker": "\"%data.campaignSticker.{0}%\" 캠페인 스티커를 마을 지도의 {1} 장소에 붙임",
+      "overlaySticker": "{0}% 스티커를 지도의 {0} ({1}) 장소에 붙임",
       "partyAchievements": "파티 업적",
       "perks": "각자 <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> {0}개 획득",
       "prosperity": "번영도 {0}",
