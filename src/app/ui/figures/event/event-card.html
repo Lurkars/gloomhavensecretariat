@@ -1,12 +1,12 @@
 <div class="event-card-container" #container>
   <div
     class="card vertical reverse event {{ selected }}"
-    [ngClass]="{ flipped: selected != -1 || (flipped && !spoilerFree), disabled: disabled, 'show-debug': showDebug }"
+    [ngClass]="{ flipped: selected !== -1 || (flipped && !spoilerFree), disabled: disabled, 'show-debug': showDebug }"
     [style.fontSize]="container.offsetWidth * 0.07 + 'px'"
   >
     <div
       class="card-back {{ !!event ? event.type : '' }}"
-      [ngClass]="{ gh2e: !!event && event.edition == 'gh2e' }"
+      [ngClass]="{ gh2e: !!event && event.edition === 'gh2e' }"
       [style.background-image]="
         showDebug && event
           ? 'url(\'./assets/artwork/events/debug/' + event.edition + '/' + event.type + '/' + event.cardId + '-back.png\')'
@@ -24,7 +24,7 @@
                     class="option"
                     ghs-pointer-input
                     (singleClick)="selectOption(i, false, $event)"
-                    [ngClass]="{ single: event.options.length == 1 || !option.label }"
+                    [ngClass]="{ single: event.options.length === 1 || !option.label }"
                   >
                     @if (option.label) {
                       <span class="title" [ghs-label]="'game.events.option'" [ghs-label-args]="[option.label]"></span>
@@ -63,7 +63,7 @@
     </div>
     <div
       class="card-front {{ !!event ? event.type : '' }}"
-      [ngClass]="{ gh2e: !!event && event.edition == 'gh2e' }"
+      [ngClass]="{ gh2e: !!event && event.edition === 'gh2e' }"
       [style.background-image]="
         showDebug && event
           ? 'url(\'./assets/artwork/events/debug/' + event.edition + '/' + event.type + '/' + event.cardId + '-front.png\')'
@@ -76,22 +76,22 @@
             <div
               class="option {{ 'option-' + (option.label || 'no-label') }} {{ 'option-bg-' + (event.options.length - i) }}"
               [ngClass]="{
-                selected: !option.label || selected == i || (selected == -1 && flipped),
-                single: event.options.length == 1,
+                selected: !option.label || selected === i || (selected === -1 && flipped),
+                single: event.options.length === 1,
                 'no-label': !option.label,
-                attack: attackIndex == i
+                attack: attackIndex === i
               }"
               ghs-pointer-input
-              (doubleClick)="selectOption(selected == i ? -1 : i, false, $event)"
+              (doubleClick)="selectOption(selected === i ? -1 : i, false, $event)"
             >
               @for (outcome of option.outcomes | trackUUID; track outcome._trackUUID; let outcomeIndex = $index) {
                 <div
                   class="outcome"
                   [ngClass]="{
-                    selected: subSelections.includes(outcomeIndex) || (selected == -1 && flipped) || (!option.label && outcome.attack),
+                    selected: subSelections.includes(outcomeIndex) || (selected === -1 && flipped) || (!option.label && outcome.attack),
                     disabled:
-                      resolvable[i] && resolvable[i][outcomeIndex] == false && !subSelections.includes(outcomeIndex) && selected != -1,
-                    'expand-to-bottom': outcomeIndex == option.outcomes.length - 1 && (option.returnToDeck || option.removeFromDeck),
+                      resolvable[i] && resolvable[i][outcomeIndex] === false && !subSelections.includes(outcomeIndex) && selected !== -1,
+                    'expand-to-bottom': outcomeIndex === option.outcomes.length - 1 && (option.returnToDeck || option.removeFromDeck),
                     margin: outcome.condition || outcome.narrative
                   }"
                   ghs-pointer-input
@@ -105,7 +105,7 @@
                       [edition]="event.edition"
                       [eventType]="event.type"
                       [light]="light"
-                      [selected]="(selected == -1 && flipped) || (selected == i && subSelections.includes(outcomeIndex))"
+                      [selected]="(selected === -1 && flipped) || (selected === i && subSelections.includes(outcomeIndex))"
                       [debug]="debug"
                     ></ghs-event-card-condition>
                   }
@@ -131,7 +131,7 @@
                           [edition]="event.edition"
                           [eventType]="event.type"
                           [light]="light"
-                          [selected]="(selected == -1 && flipped) || (selected == i && subSelections.includes(outcomeIndex))"
+                          [selected]="(selected === -1 && flipped) || (selected === i && subSelections.includes(outcomeIndex))"
                           [inline]="outcome.inlineEffects || false"
                           [checks]="(!!checks && checks[effectIndex]) || 0"
                           (checked)="onCheck(effectIndex, $event)"
@@ -154,7 +154,7 @@
                   @if (
                     outcome.returnToDeck ||
                     outcome.removeFromDeck ||
-                    (outcomeIndex == option.outcomes.length - 1 && (option.returnToDeck || option.removeFromDeck))
+                    (outcomeIndex === option.outcomes.length - 1 && (option.returnToDeck || option.removeFromDeck))
                   ) {
                     <div class="card-action">
                       @if (outcome.returnToDeck || option.returnToDeck) {

@@ -67,7 +67,7 @@ export class Character extends CharacterData implements Entity, Figure {
 
     if (
       this.exhausted ||
-      (this.longRest && (this.name != 'prism' || !this.tags.includes('long_rest'))) ||
+      (this.longRest && (this.name !== 'prism' || !this.tags.includes('long_rest'))) ||
       this.health <= 0 ||
       this.absent
     ) {
@@ -91,11 +91,11 @@ export class Character extends CharacterData implements Entity, Figure {
       level = 9;
     }
 
-    const stat = this.stats.find((characterStat) => characterStat.level == level);
+    const stat = this.stats.find((characterStat) => characterStat.level === level);
     if (!stat) {
       if (
-        !this.errors.find((figureError) => figureError.type == FigureErrorType.unknown) &&
-        !this.errors.find((figureError) => figureError.type == FigureErrorType.stat)
+        !this.errors.find((figureError) => figureError.type === FigureErrorType.unknown) &&
+        !this.errors.find((figureError) => figureError.type === FigureErrorType.stat)
       ) {
         console.error('No character stat found for level: ' + level);
         this.errors.push(new FigureError(FigureErrorType.stat, 'character', character.name, character.edition, '', '' + level));
@@ -168,7 +168,7 @@ export class Character extends CharacterData implements Entity, Figure {
     this.edition = model.edition;
 
     if (!this.edition) {
-      const characterData = gameManager.charactersData().find((characterData) => characterData.name == model.name);
+      const characterData = gameManager.charactersData().find((characterData) => characterData.name === model.name);
       if (characterData) {
         this.edition = characterData.edition;
       } else {
@@ -179,7 +179,7 @@ export class Character extends CharacterData implements Entity, Figure {
     this.marker = model.marker || this.marker;
     this.title = model.title;
 
-    if (!this.initiativeVisible || model.initiative <= 0 || this.initiative != model.initiative) {
+    if (!this.initiativeVisible || model.initiative <= 0 || this.initiative !== model.initiative) {
       this.initiativeVisible = model.initiativeVisible;
     }
 
@@ -190,7 +190,7 @@ export class Character extends CharacterData implements Entity, Figure {
       while (
         gameManager.game.figures.some(
           (figure) =>
-            figure instanceof Character && (figure.name != this.name || figure.edition != this.edition) && figure.number == this.number
+            figure instanceof Character && (figure.name !== this.name || figure.edition !== this.edition) && figure.number === this.number
         )
       ) {
         this.number++;
@@ -221,10 +221,10 @@ export class Character extends CharacterData implements Entity, Figure {
     this.tags = model.tags || this.tags || [];
     this.identity = model.identity || 0;
 
-    this.summons = this.summons.filter((summon) => model.summons.some((value) => value.uuid && value.uuid == summon.uuid));
+    this.summons = this.summons.filter((summon) => model.summons.some((value) => value.uuid && value.uuid === summon.uuid));
 
     model.summons.forEach((value, index) => {
-      let summon = this.summons.find((summonEntity) => value.uuid == summonEntity.uuid) as Summon;
+      let summon = this.summons.find((summonEntity) => value.uuid === summonEntity.uuid) as Summon;
       if (!summon) {
         summon = new Summon(value.uuid, value.name, value.cardId, value.level, value.number, value.color);
         this.summons.splice(index, 0, summon);
@@ -251,8 +251,8 @@ export class Character extends CharacterData implements Entity, Figure {
       this.progress.enhancements = model.progress.enhancements ? [...model.progress.enhancements] : [];
 
       if (
-        gameManager.currentEdition() == 'fh' &&
-        this.progress.personalQuest == '581' &&
+        gameManager.currentEdition() === 'fh' &&
+        this.progress.personalQuest === '581' &&
         !this.tags.includes('fh-pq-581-migration') &&
         this.progress.personalQuestProgress[0]
       ) {

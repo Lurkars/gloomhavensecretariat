@@ -59,7 +59,7 @@
         <div class="deck">
           <h2>
             <span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span>
-            @if (character.name != deck(character).name) {
+            @if (character.name !== deck(character).name) {
               <small>
                 <span [ghs-label]="'data.deck.' + deck(character).name"></span>
               </small>
@@ -83,7 +83,7 @@
         <div class="deck">
           <h2>
             <span [ghs-label]="'data.monster.' + monster.name"></span>
-            @if (monster.name != deck(monster).name) {
+            @if (monster.name !== deck(monster).name) {
               <small>
                 <span [ghs-label]="'data.deck.' + deck(monster).name"></span>
               </small>

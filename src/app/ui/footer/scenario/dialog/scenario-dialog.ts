@@ -60,18 +60,18 @@ export class ScenarioDialogComponent {
       .availableSections(true)
       .filter(
         (sectionData) =>
-          sectionData.edition == this.scenario.edition &&
-          sectionData.parent == this.scenario.index &&
-          sectionData.group == this.scenario.group &&
+          sectionData.edition === this.scenario.edition &&
+          sectionData.parent === this.scenario.index &&
+          sectionData.group === this.scenario.group &&
           sectionData.conclusion &&
-          gameManager.scenarioManager.getRequirements(sectionData).length == 0
+          gameManager.scenarioManager.getRequirements(sectionData).length === 0
       );
     if (conclusions.length < 2 || !success) {
       this.dialog.open(ScenarioSummaryComponent, {
         panelClass: ['dialog'],
         data: {
           scenario: this.scenario,
-          conclusion: conclusions.length == 1 ? conclusions[0] : undefined,
+          conclusion: conclusions.length === 1 ? conclusions[0] : undefined,
           success: success
         }
       });
@@ -133,7 +133,7 @@ export class ScenarioDialogComponent {
   }
 
   openRoom(roomData: RoomData) {
-    const editionData: EditionData | undefined = gameManager.editionData.find((value) => value.edition == this.scenario.edition);
+    const editionData: EditionData | undefined = gameManager.editionData.find((value) => value.edition === this.scenario.edition);
 
     if (!editionData) {
       console.error('Could not find edition data!');
@@ -182,7 +182,7 @@ export class ScenarioDialogComponent {
   }
 
   openRandomMonsterCard(sectionData: ScenarioData) {
-    if (sectionData.group == 'randomMonsterCard') {
+    if (sectionData.group === 'randomMonsterCard') {
       this.dialog.open(RandomMonsterCardDialogComponent, {
         panelClass: ['fullscreen-panel'],
         disableClose: true,

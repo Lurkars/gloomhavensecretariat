@@ -83,7 +83,7 @@ export class AutocompleteDirective implements OnInit {
                   ev.stopPropagation();
                   child.classList.remove('spoiler');
                   for (let i = 0; i < container.children.length; i++) {
-                    if (container.children[i] != child) {
+                    if (container.children[i] !== child) {
                       container.children[i].classList.add('spoiler');
                     }
                   }

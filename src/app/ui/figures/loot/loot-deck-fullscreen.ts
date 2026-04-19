@@ -29,7 +29,7 @@ export class LootDeckFullscreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.deck.cards.length == 0) {
+    if (this.deck.cards.length === 0) {
       this.configuration = true;
     }
   }

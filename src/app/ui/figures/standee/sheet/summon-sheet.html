@@ -77,7 +77,7 @@
           ></ghs-action-enhancements>
         }
       </span>
-      <span class="action" [ngClass]="{ xs: summon.action && summon.action.type == 'custom' }">
+      <span class="action" [ngClass]="{ xs: summon.action && summon.action.type === 'custom' }">
         @if (summon.action) {
           <ghs-action [action]="summon.action"></ghs-action>
         }
@@ -85,10 +85,10 @@
       <span class="item attack">
         <img class="ghs-svg" [src]="'./assets/images/' + (fhStyle ? 'fh/' : '') + 'action/attack.svg'" />
         <span>:</span>
-        @if (summon.attack != '') {
+        @if (summon.attack !== '') {
           <span [ghs-label]="'' + summon.attack" [style]="style"></span>
         }
-        @if (summon.attack == '') {
+        @if (summon.attack === '') {
           <span>-</span>
         }
         @if (!!summonData && summonData.enhancements && summonData.enhancements.includes('attack')) {
@@ -120,7 +120,7 @@
         }
       </span>
       @if (summon.additionalAction) {
-        <span class="additionalAction" [ngClass]="{ xs: summon.additionalAction && summon.additionalAction.type == 'custom' }">
+        <span class="additionalAction" [ngClass]="{ xs: summon.additionalAction && summon.additionalAction.type === 'custom' }">
           <ghs-action [action]="summon.additionalAction"></ghs-action>
         </span>
       }

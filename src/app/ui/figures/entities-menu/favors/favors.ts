@@ -6,13 +6,13 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 import { Favor } from 'src/app/game/model/data/Trials';
-import { GhsLabelDirective, GhsPlaceholderDirective } from 'src/app/ui/helper/label';
+import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  imports: [NgClass, GhsLabelDirective, GhsPlaceholderDirective, PointerInputDirective, GhsRangePipe, TrackUUIDPipe],
+  imports: [NgClass, GhsLabelDirective, PointerInputDirective, GhsRangePipe, TrackUUIDPipe],
   selector: 'ghs-favors',
   templateUrl: './favors.html',
   styleUrls: ['./favors.scss'],
@@ -37,7 +37,7 @@ export class FavorsComponent implements OnInit {
 
   ngOnInit(): void {
     const editionData = gameManager.editionData.find(
-      (editionData) => editionData.edition == gameManager.currentEdition() && editionData.favors
+      (editionData) => editionData.edition === gameManager.currentEdition() && editionData.favors
     );
     if (editionData) {
       this.favors = editionData.favors;
@@ -52,7 +52,7 @@ export class FavorsComponent implements OnInit {
     this.disabled = !gameManager.roundManager.firstRound;
     this.activeFavors = [];
     this.favors.forEach((favor, index) => {
-      this.activeFavors[index] = this.gameFavors.filter((value) => value.edition == favor.edition && value.name == favor.name).length;
+      this.activeFavors[index] = this.gameFavors.filter((value) => value.edition === favor.edition && value.name === favor.name).length;
     });
 
     this.spentPoints = this.activeFavors.length
@@ -65,8 +65,8 @@ export class FavorsComponent implements OnInit {
     );
 
     this.leftPoints = gameManager.game.monsterAttackModifierDeck.cards
-      .filter((am) => am.type == AttackModifierType.minus1 || am.type == AttackModifierType.minus2)
-      .map((am) => (am.type == AttackModifierType.minus1 ? 1 : 2));
+      .filter((am) => am.type === AttackModifierType.minus1 || am.type === AttackModifierType.minus2)
+      .map((am) => (am.type === AttackModifierType.minus1 ? 1 : 2));
 
     this.gameFavorPoints.forEach((point) => {
       this.leftPoints.splice(this.leftPoints.indexOf(point), 1);
@@ -106,7 +106,7 @@ export class FavorsComponent implements OnInit {
   }
 
   unselectFavor(favor: Favor, force: boolean = false) {
-    const identifier = this.gameFavors.find((value) => value.edition == favor.edition && value.name == favor.name);
+    const identifier = this.gameFavors.find((value) => value.edition === favor.edition && value.name === favor.name);
     if (identifier && (!this.disabled || force)) {
       this.gameFavors.splice(this.gameFavors.indexOf(identifier), 1);
       this.update();

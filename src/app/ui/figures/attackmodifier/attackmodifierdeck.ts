@@ -159,7 +159,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
 
     this.disabled =
       !this.standalone &&
-      ((!this.townGuard && gameManager.game.state == GameState.draw) || (this.townGuard && gameManager.game.scenario != undefined));
+      ((!this.townGuard && gameManager.game.state === GameState.draw) || (this.townGuard && gameManager.game.scenario !== undefined));
 
     window.addEventListener('resize', () => {
       this.compact =
@@ -209,13 +209,13 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     }
     this.disabled =
       !this.standalone &&
-      ((!this.townGuard && gameManager.game.state == GameState.draw) || (this.townGuard && gameManager.game.scenario != undefined));
+      ((!this.townGuard && gameManager.game.state === GameState.draw) || (this.townGuard && gameManager.game.scenario !== undefined));
 
-    if (this.character && this.deck != this.character.attackModifierDeck) {
+    if (this.character && this.deck !== this.character.attackModifierDeck) {
       this.deck = this.character.attackModifierDeck;
     }
 
-    if (this.initServer && gameManager.stateManager.wsState() != WebSocket.OPEN) {
+    if (this.initServer && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
       this.initServer = false;
     }
 
@@ -228,7 +228,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
       this.drawing = false;
       this.current = this.deck.current;
       this.lastVisible = this.deck.lastVisible;
-      this.initServer = gameManager.stateManager.wsState() == WebSocket.OPEN;
+      this.initServer = gameManager.stateManager.wsState() === WebSocket.OPEN;
     } else if (this.init && (!fromServer || this.initServer)) {
       if (this.current < this.deck.current) {
         this.queue = Math.max(0, this.deck.current - this.current);
@@ -309,7 +309,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     if (this.compact && this.fullscreen) {
       this.openFullscreen(event);
     } else if (!this.disabled) {
-      if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue == 0 ? 0 : 1)) {
+      if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue === 0 ? 0 : 1)) {
         this.drawTimeout = setTimeout(
           () => {
             this.before.emit(new AttackModiferDeckChange(this.deck, 'draw' + (state ? state : '')));
@@ -364,7 +364,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     if (this.character) {
       this.dialog.open(CharacterBattleGoalsDialog, {
         panelClass: ['dialog'],
-        data: { character: this.character, draw: !this.character.battleGoals || this.character.battleGoals.length == 0 }
+        data: { character: this.character, draw: !this.character.battleGoals || this.character.battleGoals.length === 0 }
       });
       event.preventDefault();
       event.stopPropagation();
@@ -386,7 +386,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
 
   open(event: any) {
     if (
-      gameManager.game.state == GameState.next &&
+      gameManager.game.state === GameState.next &&
       this.fullscreen &&
       settingsManager.settings.automaticAttackModifierFullscreen &&
       settingsManager.settings.portraitMode &&

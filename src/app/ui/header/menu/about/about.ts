@@ -29,7 +29,7 @@ export class AboutMenuComponent implements OnInit {
       })
       .then((value: any) => {
         this.updateVersion = {
-          latest: value.tag_name == this.version || value.tag_name == 'v' + this.version,
+          latest: value.tag_name === this.version || value.tag_name === 'v' + this.version,
           version: value.tag_name,
           url: value.html_url
         };

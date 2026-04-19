@@ -76,7 +76,7 @@ export class Condition {
   value: number = 1;
 
   constructor(name: ConditionName | string, value: number = 1) {
-    if (typeof name == 'string') {
+    if (typeof name === 'string') {
       if (Object.keys(!ConditionName).includes(name)) {
         console.warn('Invalid condition name: ' + name);
         this.name = ConditionName.invalid;

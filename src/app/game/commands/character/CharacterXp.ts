@@ -12,12 +12,13 @@ export class CharacterXpCommand extends CommandImpl {
 
   validParameters(number: number, xp: number): boolean {
     return (
-      (gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == number) != undefined && xp != 0) || false
+      (gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) !== undefined && xp !== 0) ||
+      false
     );
   }
 
   executeWithParameters(number: number, xp: number) {
-    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == number) as Character;
+    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) as Character;
     if (character) {
       character.experience += xp;
       if (character.experience < 0) {
@@ -30,7 +31,7 @@ export class CharacterXpCommand extends CommandImpl {
 
   override before(): BASE_TYPE[] {
     const character = gameManager.game.figures.find(
-      (figure) => figure instanceof Character && figure.number == this.parameters[0]
+      (figure) => figure instanceof Character && figure.number === this.parameters[0]
     ) as Character;
     if (character) {
       return ['command.' + this.id, gameManager.characterManager.characterName(character, true, true), this.parameters[1]];

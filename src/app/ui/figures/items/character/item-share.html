@@ -9,7 +9,7 @@
 
   <div class="characters">
     @for (char of characters | trackUUID; track char._trackUUID) {
-      <div class="character" (click)="toggleSelected(char)" [ngClass]="{ selected: selected == char }">
+      <div class="character" (click)="toggleSelected(char)" [ngClass]="{ selected: selected === char }">
         <img class="icon" [src]="char.iconUrl" />
         <span class="name">
           {{ gameManager.characterManager.characterName(char, true) }}

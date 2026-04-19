@@ -2,12 +2,12 @@
   @if (!gameManager.bbRules()) {
     <div
       class="level-container"
-      [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }"
+      [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }"
     >
       <span class="item"><img src="./assets/images/status/level.svg" /></span>
       @for (level of [] | ghsRange: 9; track level) {
         <span class="item"
-          ><a tabclick class="level" [ngClass]="{ active: level + 1 == characterLevel }" (click)="characterLevel = level + 1">{{
+          ><a tabclick class="level" [ngClass]="{ active: level + 1 === characterLevel }" (click)="characterLevel = level + 1">{{
             level + 1
           }}</a></span
         >
@@ -37,17 +37,17 @@
           <div
             class="line title sticky"
             [ngClass]="{
-              'hide-title': !allEditions && gameManager.currentEditions().length == 1,
-              fh: settingsManager.settings.theme == 'fh',
-              modern: settingsManager.settings.theme == 'modern'
+              'hide-title': !allEditions && gameManager.currentEditions().length === 1,
+              fh: settingsManager.settings.theme === 'fh',
+              modern: settingsManager.settings.theme === 'modern'
             }"
           >
             <label><span [ghs-label]="'data.edition.' + edition"></span></label>
           </div>
           @if (locked(edition)) {
             <div class="line separator reveal-all">
-              <a (click)="unlockAll(edition)" [ngClass]="{ confirm: confirm == 'confirm-all-' + edition }" (mouseleave)="cancelConfirm()">
-                <span [ghs-label]="confirm == 'confirm-all-' + edition ? 'character.unlockAll.confirm' : 'character.unlockAll'"></span>
+              <a (click)="unlockAll(edition)" [ngClass]="{ confirm: confirm === 'confirm-all-' + edition }" (mouseleave)="cancelConfirm()">
+                <span [ghs-label]="confirm === 'confirm-all-' + edition ? 'character.unlockAll.confirm' : 'character.unlockAll'"></span>
               </a>
             </div>
           }
@@ -66,12 +66,12 @@
                 <a
                   tabclick
                   (click)="unlock(characterData)"
-                  [ngClass]="{ confirm: confirm == characterData.name }"
+                  [ngClass]="{ confirm: confirm === characterData.name }"
                   (mouseleave)="cancelConfirm()"
                 >
                   <img class="icon spoiler" [src]="characterData.iconUrl" />
                   <span class="name"> <span [ghs-label]="'spoiler.placeholder'"></span></span>
-                  <span class="add" [ghs-label]="confirm == characterData.name ? 'character.unlock.confirm' : 'character.unlock'"></span>
+                  <span class="add" [ghs-label]="confirm === characterData.name ? 'character.unlock.confirm' : 'character.unlock'"></span>
                 </a>
               }
             </div>

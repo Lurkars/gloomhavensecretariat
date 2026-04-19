@@ -51,7 +51,7 @@
             <div
               class="treasure hint-trigger"
               (click)="openTreasureDialog(+treasure.split(':')[0])"
-              [ngClass]="{ looted: lootedTreasures.indexOf(+treasure.split(':')[0]) != -1 }"
+              [ngClass]="{ looted: lootedTreasures.indexOf(+treasure.split(':')[0]) !== -1 }"
             >
               @if (('' + treasure).startsWith('G') || +('' + treasure).split(':')[0] >= 0) {
                 <span>
@@ -81,7 +81,7 @@
       </div>
     }
 
-    @if (showTreasures && treasures.length == 0) {
+    @if (showTreasures && treasures.length === 0) {
       <label [ghs-label]="'scenario.chart.treasures.empty'"></label>
     }
 

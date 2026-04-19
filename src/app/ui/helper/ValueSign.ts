@@ -30,7 +30,7 @@ export class ValueSignDirective implements OnChanges {
         '<span class="value">' + ghsValueSign(this.reverse ? -this.value : this.value, this.empty) + '</span>';
     }
     this.el.nativeElement.classList.remove('hide-zero-value', 'positive-value', 'negative-value');
-    if (this.value == 0 && this.hideEmpty) {
+    if (this.value === 0 && this.hideEmpty) {
       this.el.nativeElement.classList.add('hide-zero-value');
     } else if (this.colored) {
       if ((!this.invert && this.value > 0) || (this.invert && this.value < 0)) {

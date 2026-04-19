@@ -8,13 +8,13 @@
       }
 
       @if (!character && !townGuard) {
-        @if (numeration == 'm') {
+        @if (numeration === 'm') {
           <img class="icon" src="./assets/images/monster/enemy.png" />
         }
-        @if (numeration == 'm') {
+        @if (numeration === 'm') {
           <span><span [ghs-label]="'monster'"></span>&nbsp;</span>
         }
-        @if (numeration == 'A') {
+        @if (numeration === 'A') {
           <span><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
         }
       }
@@ -24,7 +24,7 @@
       @if (townGuard) {
         <span [ghs-label]="'party.campaign.townGuardDeck'"></span>
       }
-      @if (!character && numeration != 'm' && numeration != 'A') {
+      @if (!character && numeration !== 'm' && numeration !== 'A') {
         <span>&nbsp;{{ numeration }}</span>
       }
     </div>

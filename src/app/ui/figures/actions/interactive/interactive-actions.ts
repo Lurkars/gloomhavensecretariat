@@ -67,7 +67,7 @@ export class InteractiveActionsComponent implements OnInit {
       }
 
       this.interactiveActionEntities = this.interactiveActionEntities.filter(
-        (entity, index) => settingsManager.settings.combineInteractiveAbilities || index == 0
+        (entity, index) => settingsManager.settings.combineInteractiveAbilities || index === 0
       );
       change = true;
     }
@@ -83,7 +83,7 @@ export class InteractiveActionsComponent implements OnInit {
     if (
       !selectElement &&
       this.chooseElementAction &&
-      gameManager.actionsManager.getValues(this.chooseElementAction.action).filter((value) => value == Element.wild).length !=
+      gameManager.actionsManager.getValues(this.chooseElementAction.action).filter((value) => value === Element.wild).length !=
         this.chooseElementValues.length
     ) {
       this.chooseElementAction = undefined;
@@ -92,23 +92,23 @@ export class InteractiveActionsComponent implements OnInit {
     } else {
       this.chooseElementAction = this.interactiveActions.find(
         (interactiveAction) =>
-          interactiveAction.action.type == ActionType.element &&
+          interactiveAction.action.type === ActionType.element &&
           gameManager.actionsManager.getValues(interactiveAction.action).includes(Element.wild)
       );
 
       if (this.chooseElementAction) {
         const chooseElementCount = gameManager.actionsManager
           .getValues(this.chooseElementAction.action)
-          .filter((value) => value == Element.wild).length;
-        if (chooseElementCount != this.chooseElementValues.length) {
+          .filter((value) => value === Element.wild).length;
+        if (chooseElementCount !== this.chooseElementValues.length) {
           if (
-            this.chooseElementAction.action.valueType == ActionValueType.minus &&
-            this.wildToConsume().length == chooseElementCount - this.chooseElementValues.length
+            this.chooseElementAction.action.valueType === ActionValueType.minus &&
+            this.wildToConsume().length === chooseElementCount - this.chooseElementValues.length
           ) {
             this.wildToConsume().forEach((value) => this.chooseElementValues.push(value));
           } else if (
-            this.chooseElementAction.action.valueType != ActionValueType.minus &&
-            this.wildToCreate().length == chooseElementCount - this.chooseElementValues.length
+            this.chooseElementAction.action.valueType !== ActionValueType.minus &&
+            this.wildToCreate().length === chooseElementCount - this.chooseElementValues.length
           ) {
             this.wildToConsume().forEach((value) => this.chooseElementValues.push(value));
           } else {
@@ -126,12 +126,12 @@ export class InteractiveActionsComponent implements OnInit {
           ? this.interactiveActions
           : gameManager.actionsManager.getInteractiveActions(this.interactiveActionEntities[0], this.figure, this.actions, this.preIndex)
       )
-        .filter((interactiveAction) => this.interactiveActions.find((other) => other.index == interactiveAction.index))
+        .filter((interactiveAction) => this.interactiveActions.find((other) => other.index === interactiveAction.index))
         .map((interactiveAction) => {
           let type: ActionType | string = interactiveAction.action.type;
           let values = gameManager.actionsManager.getValues(interactiveAction.action);
-          if (type == ActionType.element) {
-            if (interactiveAction.action.valueType == ActionValueType.minus) {
+          if (type === ActionType.element) {
+            if (interactiveAction.action.valueType === ActionValueType.minus) {
               type = 'elementConsume';
               values = values.map((value) => '%game.element.consume.' + value + '%');
               const toConsume: string[] = gameManager.actionsManager
@@ -140,7 +140,7 @@ export class InteractiveActionsComponent implements OnInit {
               const additionalValues: string[] = this.chooseElementValues.map((value) => '%game.element.consume.' + value + '%');
               values = values
                 .map((value) => {
-                  if (value == Element.wild) {
+                  if (value === Element.wild) {
                     return additionalValues.pop() || toConsume.pop();
                   }
                   toConsume.pop();
@@ -174,18 +174,18 @@ export class InteractiveActionsComponent implements OnInit {
       this.interactiveActionEntities.forEach((entity) => {
         let interactiveActions = gameManager.actionsManager
           .getInteractiveActions(entity, this.figure, this.actions, this.preIndex)
-          .filter((interactiveAction) => this.interactiveActions.find((other) => other.index == interactiveAction.index));
+          .filter((interactiveAction) => this.interactiveActions.find((other) => other.index === interactiveAction.index));
         let interactiveAction = interactiveActions[0] || undefined;
         while (interactiveAction) {
           gameManager.actionsManager.applyInteractiveAction(entity, this.figure, interactiveAction, this.chooseElementValues);
-          if (interactiveAction.action.type == ActionType.element) {
+          if (interactiveAction.action.type === ActionType.element) {
             this.chooseElementValues = [];
           }
           interactiveActions = gameManager.actionsManager
             .getInteractiveActions(entity, this.figure, this.actions, this.preIndex)
-            .filter((interactiveAction) => this.interactiveActions.find((other) => other.index == interactiveAction.index));
+            .filter((interactiveAction) => this.interactiveActions.find((other) => other.index === interactiveAction.index));
 
-          if (interactiveActions.some((newInteractiveAction) => newInteractiveAction.index == interactiveAction.index)) {
+          if (interactiveActions.some((newInteractiveAction) => newInteractiveAction.index === interactiveAction.index)) {
             console.warn('Interactive Action already processed, should not happen', interactiveAction);
             break;
           }
@@ -195,7 +195,7 @@ export class InteractiveActionsComponent implements OnInit {
 
         const disabledInteractiveActions = gameManager.actionsManager
           .getInteractiveActions(entity, this.figure, this.actions, this.preIndex)
-          .filter((interactiveAction) => !this.interactiveActions.find((other) => other.index == interactiveAction.index));
+          .filter((interactiveAction) => !this.interactiveActions.find((other) => other.index === interactiveAction.index));
         disabledInteractiveActions.forEach((interactiveAction) => {
           const tag = gameManager.actionsManager.roundTag(interactiveAction.action, interactiveAction.index);
           if (!entity.tags.includes(tag)) {
@@ -244,16 +244,16 @@ export class InteractiveActionsComponent implements OnInit {
     return gameManager.game.elementBoard
       .filter(
         (element) =>
-          element.state != ElementState.inert &&
-          element.state != ElementState.new &&
-          element.state != ElementState.consumed &&
+          element.state !== ElementState.inert &&
+          element.state !== ElementState.new &&
+          element.state !== ElementState.consumed &&
           !this.chooseElementValues.includes(element.type) &&
           (!this.chooseElementAction || !gameManager.actionsManager.getValues(this.chooseElementAction.action).includes(element.type)) &&
           !this.interactiveActions.find(
             (interactiveAction) =>
-              interactiveAction.action.type == ActionType.element &&
-              interactiveAction.action.valueType == ActionValueType.minus &&
-              interactiveAction.action.value == element.type
+              interactiveAction.action.type === ActionType.element &&
+              interactiveAction.action.valueType === ActionValueType.minus &&
+              interactiveAction.action.value === element.type
           )
       )
       .map((element) => element.type);
@@ -263,9 +263,9 @@ export class InteractiveActionsComponent implements OnInit {
     return gameManager.game.elementBoard
       .filter(
         (element) =>
-          element.state != ElementState.new &&
-          element.state != ElementState.strong &&
-          element.state != ElementState.always &&
+          element.state !== ElementState.new &&
+          element.state !== ElementState.strong &&
+          element.state !== ElementState.always &&
           !this.chooseElementValues.includes(element.type) &&
           (!this.chooseElementAction || !gameManager.actionsManager.getValues(this.chooseElementAction.action).includes(element.type))
       )

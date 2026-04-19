@@ -227,7 +227,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   deleteBackups() {
-    if (this.confirm != 'deleteBackups') {
+    if (this.confirm !== 'deleteBackups') {
       this.confirm = 'deleteBackups';
     } else {
       storageManager.clear('game-backup');
@@ -238,7 +238,7 @@ export class DatamanagementMenuComponent implements OnInit {
   importFileCheck(event: any) {
     event.target.classList.remove('warning');
     event.target.parentElement.classList.remove('warning');
-    if (this.confirm != 'importFile') {
+    if (this.confirm !== 'importFile') {
       setTimeout(() => {
         this.confirm = 'importFile';
         this.cdr.markForCheck();
@@ -293,7 +293,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   resetGame(): void {
-    if (this.confirm != 'resetGame') {
+    if (this.confirm !== 'resetGame') {
       this.confirm = 'resetGame';
     } else {
       gameManager.stateManager.reset();
@@ -324,7 +324,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   resetSettings(): void {
-    if (this.confirm != 'resetSettings') {
+    if (this.confirm !== 'resetSettings') {
       this.confirm = 'resetSettings';
     } else {
       settingsManager.reset();
@@ -364,7 +364,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   async clearAllData() {
-    if (this.confirm != 'clearAllData') {
+    if (this.confirm !== 'clearAllData') {
       this.confirm = 'clearAllData';
     } else {
       try {

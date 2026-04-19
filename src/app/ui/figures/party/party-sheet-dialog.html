@@ -16,7 +16,7 @@
                 @if (gameManager.game.parties.length > 1 && !gameManager.game.scenario) {
                   <select class="select-party" (change)="selectParty($event)" [ghs-label]="'party.change'" [ghs-label-attribute]="'title'">
                     @for (p of gameManager.game.parties | trackUUID; track p._trackUUID) {
-                      <option [selected]="p.id == party.id" [disabled]="p.id == party.id" value="{{ p.id }}">
+                      <option [selected]="p.id === party.id" [disabled]="p.id === party.id" value="{{ p.id }}">
                         @if (p.name) {
                           <span>{{ p.name }}</span>
                         }
@@ -100,7 +100,7 @@
                   <div class="list">
                     @for (achievement of partyAchievementsList; track achievement; let i = $index) {
                       <div class="achievement">
-                        @if (achievement.split(':').length > 0 && achievement.split(':')[1] != '1') {
+                        @if (achievement.split(':').length > 0 && achievement.split(':')[1] !== '1') {
                           <span> {{ achievement.split(':')[1] }}x&nbsp; </span>
                         }
                         <span [ghs-label]="'data.partyAchievements.' + achievement.split(':')[0]"></span>
@@ -142,7 +142,7 @@
                       <span
                         class="value"
                         (click)="setReputation(40 - reputation - 20)"
-                        [ngClass]="{ checked: party.reputation == 40 - reputation - 20 }"
+                        [ngClass]="{ checked: party.reputation === 40 - reputation - 20 }"
                       ></span>
                       <span class="key">{{ 40 - reputation - 20 | ghsValueSign }}</span>
                     }
@@ -152,11 +152,11 @@
                   <label><span [ghs-label]="'party.shop'"></span></label>
                   <div class="table">
                     @for (value of [] | ghsRange: 11; track value) {
-                      <div class="value" [ngClass]="{ active: priceModifier == -5 + value }">
-                        @if (value != 5) {
+                      <div class="value" [ngClass]="{ active: priceModifier === -5 + value }">
+                        @if (value !== 5) {
                           <span>{{ -5 + value | ghsValueSign }}</span>
                         }
-                        @if (value == 5) {
+                        @if (value === 5) {
                           <span><span [ghs-label]="'party.shop.none'"></span></span>
                         }
                       </div>
@@ -202,13 +202,13 @@
           <div
             class="calendar-lock-toggle"
             [ghs-tooltip]="'party.campaign.sheet.weekSections.lock'"
-            [ngClass]="{ permissive: settingsManager.settings.calendarLocked == 'permissive' }"
+            [ngClass]="{ permissive: settingsManager.settings.calendarLocked === 'permissive' }"
           >
             <a
               ghs-pointer-input
               (singleClick)="settingsManager.toggle('calendarLocked')"
               (doubleClick)="
-                settingsManager.set('calendarLocked', settingsManager.settings.calendarLocked != 'permissive' ? 'permissive' : true)
+                settingsManager.set('calendarLocked', settingsManager.settings.calendarLocked !== 'permissive' ? 'permissive' : true)
               "
             >
               <img [src]="'./assets/images/lock' + (settingsManager.settings.calendarLocked ? '' : '-open') + '.svg'" />
@@ -222,7 +222,7 @@
               }
             </span>
           }
-          @if (party.weeks == 80 + 80 * calendarSheet) {
+          @if (party.weeks === 80 + 80 * calendarSheet) {
             <span class="next" (click)="setWeek(party.weeks + 1)"
               ><span [ghs-label]="'party.campaign.sheet.nextWeek'"></span> <img src="./assets/images/right.svg"
             /></span>
@@ -241,8 +241,8 @@
                     sectionsForWeekFixed(week + 80 * calendarSheet).length > 0 || sectionsForWeek(week + 80 * calendarSheet).length > 0,
                   locked:
                     settingsManager.settings.calendarLocked &&
-                    (settingsManager.settings.calendarLocked != 'permissive' ||
-                      (party.weeks != index + 80 * calendarSheet && party.weeks != index + 80 * calendarSheet + 1))
+                    (settingsManager.settings.calendarLocked !== 'permissive' ||
+                      (party.weeks !== index + 80 * calendarSheet && party.weeks !== index + 80 * calendarSheet + 1))
                 }"
               >
                 @for (section of sectionsForWeekFixed(week + 80 * calendarSheet); track section + $index) {
@@ -292,7 +292,7 @@
               @if (gameManager.game.parties.length > 1 && !gameManager.game.scenario) {
                 <select class="select-party" (change)="selectParty($event)" [ghs-label]="'party.change'" [ghs-label-attribute]="'title'">
                   @for (p of gameManager.game.parties | trackUUID; track p._trackUUID) {
-                    <option [selected]="p.id == party.id" [disabled]="p.id == party.id" value="{{ p.id }}">
+                    <option [selected]="p.id === party.id" [disabled]="p.id === party.id" value="{{ p.id }}">
                       @if (p.name) {
                         <span>{{ p.name }}</span>
                       }
@@ -431,7 +431,7 @@
             <label><span [ghs-label]="'party.morale'"></span></label>
             <div class="grid morale-grid">
               @for (morale of [] | ghsRange: 21; track morale) {
-                <span class="value" (click)="setMorale(20 - morale)" [ngClass]="{ checked: party.morale == 20 - morale }">
+                <span class="value" (click)="setMorale(20 - morale)" [ngClass]="{ checked: party.morale === 20 - morale }">
                   <span class="key">{{ 20 - morale }}</span>
                 </span>
               }
@@ -452,12 +452,12 @@
                   </span>
                 }
               </span>
-              <span class="value" [ngClass]="{ highlight: moraleDefense == 15 }">+15</span>
-              <span class="value" [ngClass]="{ highlight: moraleDefense == 10 }">+10</span>
-              <span class="value" [ngClass]="{ highlight: moraleDefense == 5 }">+5</span>
-              <span class="value" [ngClass]="{ highlight: moraleDefense == 0 }">0</span>
-              <span class="value" [ngClass]="{ highlight: moraleDefense == -5 }">-5</span>
-              <span class="value" [ngClass]="{ highlight: moraleDefense == -10 }">-10</span>
+              <span class="value" [ngClass]="{ highlight: moraleDefense === 15 }">+15</span>
+              <span class="value" [ngClass]="{ highlight: moraleDefense === 10 }">+10</span>
+              <span class="value" [ngClass]="{ highlight: moraleDefense === 5 }">+5</span>
+              <span class="value" [ngClass]="{ highlight: moraleDefense === 0 }">0</span>
+              <span class="value" [ngClass]="{ highlight: moraleDefense === -5 }">-5</span>
+              <span class="value" [ngClass]="{ highlight: moraleDefense === -10 }">-10</span>
               <span class="sections" [ngClass]="{ highlight: party.morale < 1 }">
                 @for (
                   conclusion of gameManager.campaignData().lowMorale || [] | slice: 0 : lowMoraleSolved + 1;
@@ -476,7 +476,7 @@
             <label><span [ghs-label]="'party.campaign.sheet.townGuardPerks'"></span></label>
             <div class="town-guard-perks-grid">
               @for (item of [] | ghsRange: 45; track item) {
-                @if (item % 3 == 0) {
+                @if (item % 3 === 0) {
                   <span class="checkmark"> <img src="./assets/images/close.svg" />:</span>
                 }
                 <span
@@ -602,7 +602,7 @@
               @if (gameManager.game.parties.length > 1 && !gameManager.game.scenario) {
                 <select class="select-party" (change)="selectParty($event)" [ghs-label]="'party.change'" [ghs-label-attribute]="'title'">
                   @for (p of gameManager.game.parties | trackUUID; track p._trackUUID) {
-                    <option [selected]="p.id == party.id" [disabled]="p.id == party.id" value="{{ p.id }}">
+                    <option [selected]="p.id === party.id" [disabled]="p.id === party.id" value="{{ p.id }}">
                       @if (p.name) {
                         <span>{{ p.name }}</span>
                       }
@@ -654,7 +654,7 @@
                         class="value"
                         ghs-pointer-input
                         (singleClick)="setFactionReputation(faction, 30 - reputation - 10)"
-                        [ngClass]="{ checked: party.factionReputation[faction] == 30 - reputation - 10 }"
+                        [ngClass]="{ checked: party.factionReputation[faction] === 30 - reputation - 10 }"
                         (doubleClick)="setFactionReputation(faction, 30 - reputation - 10, true)"
                       ></span>
                       <span
@@ -701,7 +701,7 @@
             <label><span [ghs-label]="'party.reputation.additional'"></span></label>
             <div class="faction-reputation">
               @for (reputationSection of reputationSections | trackUUID; track reputationSection._trackUUID) {
-                @if (reputationSection.faction == 'special') {
+                @if (reputationSection.faction === 'special') {
                   <div class="section">
                     <span
                       class="checkbox"
@@ -722,7 +722,7 @@
                   <img [src]="'./assets/images/gh2e/faction/' + faction + '.svg'" />
                 </div>
                 @for (reputationSection of reputationSections | trackUUID; track reputationSection._trackUUID) {
-                  @if (reputationSection.faction == faction && reputationSection.requires && reputationSection.requires.length) {
+                  @if (reputationSection.faction === faction && reputationSection.requires && reputationSection.requires.length) {
                     <div class="section">
                       <span
                         class="checkbox"
@@ -768,13 +768,13 @@
                     <div
                       class="tick"
                       [ngClass]="{
-                        section: check % 10 == 4 || imbuementSections[row * 10 + check + 1],
-                        'prosperity-tick': check % 10 == 4
+                        section: check % 10 === 4 || imbuementSections[row * 10 + check + 1],
+                        'prosperity-tick': check % 10 === 4
                       }"
                     >
                       <div class="checkbox" [ngClass]="{ checked: party.imbuement >= row * 10 + check + 1 }">
                         <span class="click" ghs-pointer-input (singleClick)="setImbuement(row * 10 + check + 1)"></span>
-                        @if (check % 10 == 4) {
+                        @if (check % 10 === 4) {
                           <span class="section"> +1 <img src="./assets/images/fh/prosperity.svg" /> </span>
                         }
                         @if (imbuementSections[row * 10 + check + 1]) {
@@ -803,13 +803,13 @@
               <div class="checklist-container">
                 <div class="checklist">
                   @for (check of [] | ghsRange: 10; track check) {
-                    <div class="tick" [ngClass]="{ section: check % 5 == 4, 'prosperity-tick': check % 5 == 4 }">
+                    <div class="tick" [ngClass]="{ section: check % 5 === 4, 'prosperity-tick': check % 5 === 4 }">
                       <div
                         class="checkbox"
                         (click)="setDonations(row * 10 + check + 1)"
                         [ngClass]="{ checked: party.donations >= row * 10 + check + 1 }"
                       >
-                        @if (check % 5 == 4) {
+                        @if (check % 5 === 4) {
                           <div class="section">+1 <img src="./assets/images/fh/prosperity.svg" /></div>
                         }
                       </div>
@@ -833,7 +833,7 @@
               @for (check of [] | ghsRange: prosperitySteps[prosperitySteps.length - 1] + 1; track check; let index = $index) {
                 <div
                   class="tick"
-                  [ngClass]="{ large: prosperitySteps.includes(index), section: prosperitySections[index], break: check == 33 }"
+                  [ngClass]="{ large: prosperitySteps.includes(index), section: prosperitySections[index], break: check === 33 }"
                 >
                   @if (prosperitySteps.includes(index)) {
                     <div class="level" (click)="setProsperity(index + 1)">
@@ -859,7 +859,7 @@
                     }
                   </div>
                 </div>
-                @if (check == 32) {
+                @if (check === 32) {
                   <div class="spacer"></div>
                 }
               }
@@ -914,7 +914,7 @@
             <select (change)="changeEdition($event)">
               <option [value]="undefined" [selected]="!partyEdition"><span [ghs-label]="'edition.all'"></span></option>
               @for (ed of gameManager.editions(); track ed) {
-                <option [selected]="ed == partyEdition" [value]="ed">
+                <option [selected]="ed === partyEdition" [value]="ed">
                   <span [ghs-label]="'data.edition.' + ed"></span>
                 </option>
               }
@@ -1048,7 +1048,7 @@
                   </span>
                 </div>
               }
-              @if (scenarioEditions.length == 1) {
+              @if (scenarioEditions.length === 1) {
                 <div class="scenario unlock">
                   <input
                     #unlockScenarioIndex
@@ -1142,7 +1142,7 @@
                       </div>
                     }
                   }
-                  @if (scenarioEditions.length == 1) {
+                  @if (scenarioEditions.length === 1) {
                     <div class="scenario unlock">
                       <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg" /> /
                       <img class="ghs-svg" src="./assets/images/puzzle.svg" />
@@ -1193,7 +1193,7 @@
                 @for (check of [] | ghsRange: prosperitySteps[prosperitySteps.length - 1] + 1; track check; let index = $index) {
                   <div
                     class="tick"
-                    [autoscroll]="gameManager.prosperityTicks() == index + 1 || (gameManager.prosperityTicks() == 0 && index == 0)"
+                    [autoscroll]="gameManager.prosperityTicks() === index + 1 || (gameManager.prosperityTicks() === 0 && index === 0)"
                     [ngClass]="{ large: prosperitySteps.includes(index), section: prosperitySections[index] }"
                   >
                     @if (prosperitySteps.includes(index)) {
@@ -1248,7 +1248,8 @@
                             (click)="setDonations(10 + item + line * 18 + 1)"
                             [ngClass]="{
                               checked: party.donations > 10 + item + line * 18,
-                              prosperity: 10 + item + line * 18 < 40 ? (10 + item + line * 18) % 5 == 4 : (10 + item + line * 18) % 10 == 9
+                              prosperity:
+                                10 + item + line * 18 < 40 ? (10 + item + line * 18) % 5 === 4 : (10 + item + line * 18) % 10 === 9
                             }"
                           ></span>
                           <span class="value">{{ (11 + item + line * 18) * 10 }}</span>
@@ -1268,7 +1269,7 @@
                   <div class="list">
                     @for (achievement of globalAchievementsList; track achievement; let i = $index) {
                       <div class="achievement">
-                        @if (achievement.split(':').length > 0 && achievement.split(':')[1] != '1') {
+                        @if (achievement.split(':').length > 0 && achievement.split(':')[1] !== '1') {
                           <span> {{ achievement.split(':')[1] }}x&nbsp; </span>
                         }
                         <span [ghs-label]="'data.globalAchievements.' + achievement.split(':')[0]"></span>
@@ -1324,7 +1325,7 @@
                 <select [(ngModel)]="itemEdition" (change)="update()">
                   <option value="" [selected]="!itemEdition"><span [ghs-label]="'edition.all'"></span></option>
                   @for (edition of gameManager.editions(); track edition) {
-                    <option [value]="edition" [selected]="edition == itemEdition">
+                    <option [value]="edition" [selected]="edition === itemEdition">
                       <span [ghs-label]="'data.edition.' + edition"></span>
                     </option>
                   }
@@ -1389,7 +1390,7 @@
                 <select [(ngModel)]="treasureEdition" (change)="update()">
                   <option value="" [selected]="!treasureEdition"><span [ghs-label]="'edition.all'"></span></option>
                   @for (edition of gameManager.editions(); track edition) {
-                    <option [value]="edition" [selected]="edition == treasureEdition">
+                    <option [value]="edition" [selected]="edition === treasureEdition">
                       <span [ghs-label]="'data.edition.' + edition"></span>
                     </option>
                   }

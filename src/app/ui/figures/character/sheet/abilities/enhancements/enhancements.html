@@ -4,9 +4,9 @@
   }
   @if (standalone) {
     <div class="editions">
-      <a (click)="setEdition('gh')" [ngClass]="{ active: gameManager.game.edition == 'gh' }" [ghs-label]="'data.edition.gh'"></a>
-      <a (click)="setEdition('fh')" [ngClass]="{ active: gameManager.game.edition == 'fh' }" [ghs-label]="'data.edition.fh'"></a>
-      <a (click)="setEdition('gh2e')" [ngClass]="{ active: gameManager.game.edition == 'gh2e' }" [ghs-label]="'data.edition.gh2e'"></a>
+      <a (click)="setEdition('gh')" [ngClass]="{ active: gameManager.game.edition === 'gh' }" [ghs-label]="'data.edition.gh'"></a>
+      <a (click)="setEdition('fh')" [ngClass]="{ active: gameManager.game.edition === 'fh' }" [ghs-label]="'data.edition.fh'"></a>
+      <a (click)="setEdition('gh2e')" [ngClass]="{ active: gameManager.game.edition === 'gh2e' }" [ghs-label]="'data.edition.gh2e'"></a>
     </div>
   }
   <div ghs-setting-menu="temporaryEnhancements"></div>
@@ -33,7 +33,7 @@
     <label [ghs-label]="'character.abilities.enhancements.level'"></label>
     @if (customAction) {
       @for (l of [] | ghsRange: 9; track l) {
-        <a class="level" (click)="level = l + 1" [ngClass]="{ active: level == l + 1 }">{{ l + 1 }}</a>
+        <a class="level" (click)="level = l + 1" [ngClass]="{ active: level === l + 1 }">{{ l + 1 }}</a>
       }
     }
     @if (!customAction) {
@@ -45,7 +45,7 @@
     <label [ghs-label]="'character.abilities.enhancements.enhancements'"></label>
     @if (customAction) {
       @for (e of [] | ghsRange: enhancements + 1; track e) {
-        <a class="previous-enhancement" (click)="enhancements = e" [ngClass]="{ active: enhancements == e }">{{ e }}</a>
+        <a class="previous-enhancement" (click)="enhancements = e" [ngClass]="{ active: enhancements === e }">{{ e }}</a>
       }
       <a class="previous-enhancement plus" (click)="enhancements = enhancements + 1">+</a>
     }
@@ -56,17 +56,17 @@
 
   @if (customAction) {
     <div class="card-properties">
-      <a class="summon" (click)="toggleSpecial('summon')" [ngClass]="{ enabled: special == 'summon' }">
+      <a class="summon" (click)="toggleSpecial('summon')" [ngClass]="{ enabled: special === 'summon' }">
         <img src="./assets/images/summons/red.png" />
       </a>
       @if (gameManager.enhancementsManager.fh) {
-        <a class="lost" (click)="toggleSpecial('lost')" [ngClass]="{ enabled: special == 'lost' }">
+        <a class="lost" (click)="toggleSpecial('lost')" [ngClass]="{ enabled: special === 'lost' }">
           <img src="./assets/images/action/card/lost.svg" />
           <img class="overlay" src="./assets/images/action/card/overlay/lost.svg" />
         </a>
       }
       @if (gameManager.enhancementsManager.fh && !gameManager.gh2eRules()) {
-        <a class="persistent" (click)="toggleSpecial('persistent')" [ngClass]="{ enabled: special == 'persistent' }">
+        <a class="persistent" (click)="toggleSpecial('persistent')" [ngClass]="{ enabled: special === 'persistent' }">
           <img src="./assets/images/action/card/persistent.svg" />
           <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg" />
         </a>
@@ -81,7 +81,7 @@
         enhancementType
       )
     ) {
-      <div class="plus1" (click)="setEnhancementAction('plus1')" [ngClass]="{ active: enhancementAction == 'plus1' }">+1</div>
+      <div class="plus1" (click)="setEnhancementAction('plus1')" [ngClass]="{ active: enhancementAction === 'plus1' }">+1</div>
     }
     @if (
       enhancementType &&
@@ -89,7 +89,7 @@
     ) {
       <div class="elements">
         @for (element of Elements; track element) {
-          <div class="element" (click)="setEnhancementAction(element)" [ngClass]="{ active: enhancementAction == element }">
+          <div class="element" (click)="setEnhancementAction(element)" [ngClass]="{ active: enhancementAction === element }">
             <span [ghs-label]="'%game.element.' + element + '%'"></span>
           </div>
         }
@@ -98,7 +98,7 @@
     @if (enhancementType && [EnhancementType.diamond, EnhancementType.any].includes(enhancementType)) {
       <div class="conditions">
         @for (condition of gameManager.enhancementsManager.diamondConditions; track condition) {
-          <div class="condition" (click)="setEnhancementAction(condition)" [ngClass]="{ active: enhancementAction == condition }">
+          <div class="condition" (click)="setEnhancementAction(condition)" [ngClass]="{ active: enhancementAction === condition }">
             <span [ghs-label]="'%game.conditionIcon.' + condition + '%'"></span>
           </div>
         }
@@ -107,22 +107,22 @@
     @if (enhancementType && [EnhancementType.diamond_plus, EnhancementType.any].includes(enhancementType)) {
       <div class="conditions">
         @for (condition of gameManager.enhancementsManager.diamondPlusConditions; track condition) {
-          <div class="condition" (click)="setEnhancementAction(condition)" [ngClass]="{ active: enhancementAction == condition }">
+          <div class="condition" (click)="setEnhancementAction(condition)" [ngClass]="{ active: enhancementAction === condition }">
             <span [ghs-label]="'%game.conditionIcon.' + condition + '%'"></span>
           </div>
         }
       </div>
     }
-    @if (enhancementType && action.type == ActionType.move && special != 'summon') {
+    @if (enhancementType && action.type === ActionType.move && special !== 'summon') {
       <div
         class="jump text-white"
         (click)="setEnhancementAction(ActionType.jump)"
-        [ngClass]="{ active: enhancementAction == ActionType.jump }"
+        [ngClass]="{ active: enhancementAction === ActionType.jump }"
         [ghs-label]="'%game.actionIcon.jump%'"
       ></div>
     }
     @if (enhancementType && [EnhancementType.any].includes(enhancementType)) {
-      <div class="hex" (click)="setEnhancementAction('hex')" [ngClass]="{ active: enhancementAction == 'hex' }">
+      <div class="hex" (click)="setEnhancementAction('hex')" [ngClass]="{ active: enhancementAction === 'hex' }">
         <img src="./assets/images/action/hex/target.svg" />
       </div>
     }
@@ -141,7 +141,7 @@
         <td class="plus">+{{ gameManager.enhancementsManager.calculateBaseCosts(enhanceAction, special) }}</td>
       </tr>
     }
-    @if (gameManager.enhancementsManager.fh && special == 'lost') {
+    @if (gameManager.enhancementsManager.fh && special === 'lost') {
       <tr>
         <th [ghs-label]="'character.abilities.enhancements.lost'"></th>
         <td class="minus">
@@ -149,7 +149,7 @@
         </td>
       </tr>
     }
-    @if (gameManager.enhancementsManager.fh && special == 'persistent') {
+    @if (gameManager.enhancementsManager.fh && special === 'persistent') {
       <tr>
         <th [ghs-label]="'character.abilities.enhancements.persistent'"></th>
         <td class="plus">+{{ gameManager.enhancementsManager.calculateBaseCosts(enhanceAction, special) * (isMultiTarget ? 5 : 2) }}</td>

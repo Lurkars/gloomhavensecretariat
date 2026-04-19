@@ -38,13 +38,14 @@ export class PartyWeekDialogComponent {
     return (
       gameManager
         .sectionData(gameManager.currentEdition())
-        .find((sectionData) => sectionData.index == section && !sectionData.group && sectionData.conclusion) != undefined
+        .find((sectionData) => sectionData.index === section && !sectionData.group && sectionData.conclusion) !== undefined
     );
   }
 
   isSolved(section: string): boolean {
     return (
-      gameManager.game.party.conclusions.find((model) => model.edition == gameManager.game.edition && model.index == section) != undefined
+      gameManager.game.party.conclusions.find((model) => model.edition === gameManager.game.edition && model.index === section) !==
+      undefined
     );
   }
 
@@ -56,15 +57,15 @@ export class PartyWeekDialogComponent {
           sectionData.conclusion &&
           !sectionData.parent &&
           sectionData.parentSections &&
-          sectionData.parentSections.length == 1 &&
-          sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section))
+          sectionData.parentSections.length === 1 &&
+          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section))
       );
     return (
       conclusions.length > 0 &&
       conclusions.every(
         (conclusion) =>
           !gameManager.game.party.conclusions.find(
-            (model) => model.edition == conclusion.edition && model.index == conclusion.index && model.group == conclusion.group
+            (model) => model.edition === conclusion.edition && model.index === conclusion.index && model.group === conclusion.group
           )
       )
     );
@@ -73,7 +74,7 @@ export class PartyWeekDialogComponent {
   finishConclusion(index: string) {
     const conclusion = gameManager
       .sectionData(gameManager.currentEdition())
-      .find((sectionData) => sectionData.index == index && sectionData.conclusion);
+      .find((sectionData) => sectionData.index === index && sectionData.conclusion);
     if (conclusion) {
       const scenario = new Scenario(conclusion as ScenarioData);
       const solved = this.isSolved(index);
@@ -97,9 +98,9 @@ export class PartyWeekDialogComponent {
           sectionData.conclusion &&
           !sectionData.parent &&
           sectionData.parentSections &&
-          sectionData.parentSections.length == 1 &&
-          sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section)) &&
-          gameManager.scenarioManager.getRequirements(sectionData).length == 0
+          sectionData.parentSections.length === 1 &&
+          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section)) &&
+          gameManager.scenarioManager.getRequirements(sectionData).length === 0
       )
       .map((conclusion) => {
         conclusion.name = '';
@@ -114,7 +115,7 @@ export class PartyWeekDialogComponent {
             conclusions: conclusions,
             parent: gameManager
               .sectionData(gameManager.game.edition)
-              .find((sectionData) => sectionData.index == section && !sectionData.group)
+              .find((sectionData) => sectionData.index === section && !sectionData.group)
           }
         })
         .closed.subscribe({
@@ -171,12 +172,12 @@ export class PartyWeekDialogComponent {
     if (gameManager.game.party.weekSections[this.week] && gameManager.game.party.weekSections[this.week]?.includes(section)) {
       gameManager.stateManager.before('removePartyWeekSection', gameManager.game.party.name, this.week, section);
       gameManager.game.party.weekSections[this.week]?.splice(gameManager.game.party.weekSections[this.week]?.indexOf(section) || -1, 1);
-      if (gameManager.game.party.weekSections[this.week]?.length == 0) {
+      if (gameManager.game.party.weekSections[this.week]?.length === 0) {
         delete gameManager.game.party.weekSections[this.week];
       }
       if (this.isSolved(section)) {
         gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter(
-          (conclusion) => conclusion.edition != gameManager.game.edition || conclusion.index != section
+          (conclusion) => conclusion.edition !== gameManager.game.edition || conclusion.index !== section
         );
       }
       gameManager.stateManager.after();

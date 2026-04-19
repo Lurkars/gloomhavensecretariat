@@ -2,7 +2,7 @@
   <div class="line editions">
     @for (e of editions; track e) {
       <label>
-        <input tabclick type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e" />
+        <input tabclick type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition === e" />
         <span [ghs-label]="'data.edition.' + e"></span>
       </label>
     }
@@ -36,9 +36,9 @@
                 settingsManager.settings.showAllSections &&
                 section.parent &&
                 !!gameManager.game.scenario &&
-                section.parent == gameManager.game.scenario.index &&
-                section.group == gameManager.game.scenario.group &&
-                section.edition == gameManager.game.scenario.edition
+                section.parent === gameManager.game.scenario.index &&
+                section.group === gameManager.game.scenario.group &&
+                section.edition === gameManager.game.scenario.edition
             }"
             [ghs-tooltip]="'scenario.tooltip'"
             [ghs-label-args]="[gameManager.scenarioManager.scenarioTitle(section, true)]"

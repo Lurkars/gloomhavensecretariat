@@ -141,7 +141,7 @@ export class PartySheetDialogComponent implements OnInit {
 
   constructor() {
     this.ghsManager.uiChangeEffect((server: boolean) => {
-      if (this.party != gameManager.game.party) {
+      if (this.party !== gameManager.game.party) {
         this.party = gameManager.game.party;
         this.update();
       } else {
@@ -167,7 +167,7 @@ export class PartySheetDialogComponent implements OnInit {
     this.party.scenarios = this.party.scenarios || [];
     this.party.availableCharacters = this.party.availableCharacters || [];
 
-    if (!this.campaign && (!this.data || !this.data.partySheet) && this.partyEdition == 'jotl') {
+    if (!this.campaign && (!this.data || !this.data.partySheet) && this.partyEdition === 'jotl') {
       this.campaign = true;
     }
 
@@ -234,9 +234,9 @@ export class PartySheetDialogComponent implements OnInit {
       settingsManager.settings.keyboardShortcuts &&
       !this.disableShortcuts &&
       (!window.document.activeElement ||
-        (window.document.activeElement.tagName != 'INPUT' &&
-          window.document.activeElement.tagName != 'SELECT' &&
-          window.document.activeElement.tagName != 'TEXTAREA'))
+        (window.document.activeElement.tagName !== 'INPUT' &&
+          window.document.activeElement.tagName !== 'SELECT' &&
+          window.document.activeElement.tagName !== 'TEXTAREA'))
     ) {
       if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'g' && this.worldMap) {
         this.openMap();
@@ -298,22 +298,22 @@ export class PartySheetDialogComponent implements OnInit {
     const group: string | undefined = groupElement.value || undefined;
     const scenarioData = gameManager.scenarioManager
       .scenarioData(edition, true)
-      .find((scenarioData) => scenarioData.index == index && scenarioData.group == group);
+      .find((scenarioData) => scenarioData.index === index && scenarioData.group === group);
     indexElement.classList.add('error');
     groupElement.classList.add('error');
     if (
       scenarioData &&
       !this.scenarios[edition].find(
         (scenarioCache) =>
-          scenarioCache.edition == scenarioData.edition &&
-          scenarioCache.group == scenarioData.group &&
-          scenarioCache.index == scenarioData.index
+          scenarioCache.edition === scenarioData.edition &&
+          scenarioCache.group === scenarioData.group &&
+          scenarioCache.index === scenarioData.index
       ) &&
       !this.party.manualScenarios.some(
         (gameScenarioModel) =>
-          gameScenarioModel.index == scenarioData.index &&
-          gameScenarioModel.edition == scenarioData.edition &&
-          gameScenarioModel.group == scenarioData.group &&
+          gameScenarioModel.index === scenarioData.index &&
+          gameScenarioModel.edition === scenarioData.edition &&
+          gameScenarioModel.group === scenarioData.group &&
           !gameScenarioModel.isCustom
       )
     ) {
@@ -329,7 +329,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   setName(event: any) {
-    if (this.party.name != event.target.value) {
+    if (this.party.name !== event.target.value) {
       gameManager.stateManager.before('setPartyName', event.target.value);
       this.party.name = event.target.value;
       gameManager.stateManager.after();
@@ -337,7 +337,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   setLocation(event: any) {
-    if (this.party.location != event.target.value) {
+    if (this.party.location !== event.target.value) {
       gameManager.stateManager.before('setPartyLocation', event.target.value);
       this.party.location = event.target.value;
       gameManager.stateManager.after();
@@ -345,7 +345,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   setNotes(event: any) {
-    if (this.party.notes != event.target.value) {
+    if (this.party.notes !== event.target.value) {
       gameManager.stateManager.before('setPartyNotes', event.target.value);
       this.party.notes = event.target.value;
       gameManager.stateManager.after();
@@ -356,7 +356,7 @@ export class PartySheetDialogComponent implements OnInit {
     if (input.value) {
       let achievement = input.value;
       Object.keys(settingsManager.label.data.partyAchievements).forEach((key) => {
-        if (settingsManager.label.data.partyAchievements[key].toLowerCase() == achievement.toLowerCase()) {
+        if (settingsManager.label.data.partyAchievements[key].toLowerCase() === achievement.toLowerCase()) {
           achievement = key;
         }
       });
@@ -380,7 +380,7 @@ export class PartySheetDialogComponent implements OnInit {
     if (input.value) {
       let achievement = input.value;
       Object.keys(settingsManager.label.data.globalAchievements).forEach((key) => {
-        if (settingsManager.label.data.globalAchievements[key].toLowerCase() == achievement.toLowerCase()) {
+        if (settingsManager.label.data.globalAchievements[key].toLowerCase() === achievement.toLowerCase()) {
           achievement = key;
         }
       });
@@ -401,7 +401,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   setReputation(value: number) {
-    if (this.party.reputation != value) {
+    if (this.party.reputation !== value) {
       gameManager.stateManager.before('setPartyReputation', value);
       if (value > 20) {
         value = 20;
@@ -419,7 +419,7 @@ export class PartySheetDialogComponent implements OnInit {
       return;
     }
 
-    if (this.party.factionReputation[faction] != value) {
+    if (this.party.factionReputation[faction] !== value) {
       gameManager.stateManager.before('setFactionReputation', faction, value);
       if (value > 20) {
         value = 20;
@@ -432,13 +432,13 @@ export class PartySheetDialogComponent implements OnInit {
       this.reputationSections
         .filter(
           (reputationSection) =>
-            reputationSection.faction == faction &&
+            reputationSection.faction === faction &&
             value >= reputationSection.value &&
-            !this.party.conclusions.find((s) => s.edition == gameManager.game.edition && s.index == reputationSection.section) &&
+            !this.party.conclusions.find((s) => s.edition === gameManager.game.edition && s.index === reputationSection.section) &&
             (!reputationSection.requires ||
-              reputationSection.requires.length == 0 ||
+              reputationSection.requires.length === 0 ||
               reputationSection.requires.every((index) =>
-                this.party.scenarios.find((s) => s.edition == gameManager.game.edition && s.index == index)
+                this.party.scenarios.find((s) => s.edition === gameManager.game.edition && s.index === index)
               ))
         )
         .reverse()
@@ -451,7 +451,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   additionalReputation(reputationSection: ReputationSection): boolean {
-    if (reputationSection.faction == 'special' && (!reputationSection.requires || reputationSection.requires.length == 0)) {
+    if (reputationSection.faction === 'special' && (!reputationSection.requires || reputationSection.requires.length === 0)) {
       return Object.keys(this.party.factionReputation).some(
         (faction) => (this.party.factionReputation[faction] || 0) > reputationSection.value
       );
@@ -459,18 +459,18 @@ export class PartySheetDialogComponent implements OnInit {
 
     return (
       (this.party.factionReputation[reputationSection.faction] || 0) >= reputationSection.value &&
-      reputationSection.requires != undefined &&
+      reputationSection.requires !== undefined &&
       reputationSection.requires.every(
         (s) =>
           this.party.scenarios.find(
-            (scenarioData) => scenarioData.edition == gameManager.currentEdition() && scenarioData.index == s && !scenarioData.group
-          ) != undefined
+            (scenarioData) => scenarioData.edition === gameManager.currentEdition() && scenarioData.index === s && !scenarioData.group
+          ) !== undefined
       )
     );
   }
 
   unlockConclusion(section: string, unlocked: boolean, force: boolean = false) {
-    if (this.party.conclusions.find((value) => value.edition == gameManager.game.edition && value.index == section)) {
+    if (this.party.conclusions.find((value) => value.edition === gameManager.game.edition && value.index === section)) {
       if (gameManager.game.edition && force) {
         this.removeConclusion(section, gameManager.game.edition);
       } else {
@@ -490,7 +490,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   setPlayerNumber(characterModel: GameCharacterModel, event: any) {
-    if (!isNaN(+event.target.value) && characterModel.number != +event.target.value && +event.target.value > 0) {
+    if (!isNaN(+event.target.value) && characterModel.number !== +event.target.value && +event.target.value > 0) {
       gameManager.stateManager.before(
         'setPlayerNumber',
         'data.character.' + characterModel.edition + '.' + characterModel.name,
@@ -504,10 +504,10 @@ export class PartySheetDialogComponent implements OnInit {
   reactivateCharacter(characterModel: GameCharacterModel) {
     if (
       !gameManager.game.figures.find(
-        (figure) => figure instanceof Character && figure.name == characterModel.name && figure.edition == characterModel.edition
+        (figure) => figure instanceof Character && figure.name === characterModel.name && figure.edition === characterModel.edition
       ) &&
       !gameManager.game.party.availableCharacters.find(
-        (availableCharacter) => availableCharacter.name == characterModel.name && availableCharacter.edition == characterModel.edition
+        (availableCharacter) => availableCharacter.name === characterModel.name && availableCharacter.edition === characterModel.edition
       )
     ) {
       gameManager.stateManager.before('unsetRetired', 'data.character.' + characterModel.edition + '.' + characterModel.name);
@@ -531,12 +531,12 @@ export class PartySheetDialogComponent implements OnInit {
     );
     gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters.filter(
       (availableCharacter) =>
-        availableCharacter.name != character.name ||
-        availableCharacter.edition != character.edition ||
-        availableCharacter.number != character.number
+        availableCharacter.name !== character.name ||
+        availableCharacter.edition !== character.edition ||
+        availableCharacter.number !== character.number
     );
     gameManager.game.figures.forEach((figure) => {
-      if (figure instanceof Character && figure.number == character.number) {
+      if (figure instanceof Character && figure.number === character.number) {
         gameManager.game.party.availableCharacters.push(figure.toModel());
         gameManager.characterManager.removeCharacter(figure);
       }
@@ -558,7 +558,7 @@ export class PartySheetDialogComponent implements OnInit {
         next: () => {
           if (
             characterModel.progress &&
-            JSON.stringify(characterModel.progress.enhancements) != JSON.stringify(character.progress.enhancements)
+            JSON.stringify(characterModel.progress.enhancements) !== JSON.stringify(character.progress.enhancements)
           ) {
             gameManager.stateManager.before(
               'changeRetiredCharacterEnhancements',
@@ -566,7 +566,7 @@ export class PartySheetDialogComponent implements OnInit {
             );
             characterModel.progress.enhancements = character.progress.enhancements;
             const current = gameManager.game.figures.find(
-              (figure) => figure instanceof Character && figure.edition == character.edition && figure.name == character.name
+              (figure) => figure instanceof Character && figure.edition === character.edition && figure.name === character.name
             ) as Character;
             if (current) {
               gameManager.characterManager.previousEnhancements(current, gameManager.enhancementsManager.temporary);
@@ -595,7 +595,7 @@ export class PartySheetDialogComponent implements OnInit {
 
   addParty(party: Party) {
     let id = 0;
-    while (gameManager.game.parties.some((party) => party.id == id)) {
+    while (gameManager.game.parties.some((party) => party.id === id)) {
       id++;
     }
     party.id = id;
@@ -604,7 +604,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   selectParty(event: any) {
-    const party = gameManager.game.parties.find((party) => party.id == event.target.value);
+    const party = gameManager.game.parties.find((party) => party.id === event.target.value);
     if (party) {
       gameManager.stateManager.before('changeParty', party.name || '%party% ' + party.id);
       this.changeParty(party);
@@ -618,7 +618,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   setDonations(value: number) {
-    if (this.party.donations == value) {
+    if (this.party.donations === value) {
       value--;
     }
     if (value < 0) {
@@ -645,7 +645,7 @@ export class PartySheetDialogComponent implements OnInit {
   setProsperity(value: number) {
     value -= gameManager.prosperityTicks() - this.party.prosperity;
 
-    if (this.party.prosperity == value) {
+    if (this.party.prosperity === value) {
       value--;
     }
     if (value > this.prosperitySteps[this.prosperitySteps.length - 1] + 1) {
@@ -663,7 +663,7 @@ export class PartySheetDialogComponent implements OnInit {
       .forEach((prosperity) => {
         if (
           value >= +prosperity &&
-          !this.party.conclusions.find((s) => s.edition == gameManager.game.edition && s.index == this.prosperitySections[+prosperity])
+          !this.party.conclusions.find((s) => s.edition === gameManager.game.edition && s.index === this.prosperitySections[+prosperity])
         ) {
           this.unlockConclusion(this.prosperitySections[+prosperity], true);
         }
@@ -671,7 +671,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   setImbuement(value: number) {
-    if (this.party.imbuement == value) {
+    if (this.party.imbuement === value) {
       value--;
     }
 
@@ -688,7 +688,7 @@ export class PartySheetDialogComponent implements OnInit {
       .forEach((imbuement) => {
         if (
           value >= +imbuement &&
-          !this.party.conclusions.find((s) => s.edition == gameManager.game.edition && s.index == this.imbuementSections[+imbuement])
+          !this.party.conclusions.find((s) => s.edition === gameManager.game.edition && s.index === this.imbuementSections[+imbuement])
         ) {
           this.unlockConclusion(this.imbuementSections[+imbuement], true);
         }
@@ -715,7 +715,7 @@ export class PartySheetDialogComponent implements OnInit {
           parent.classList.add('error');
         } else {
           gameManager.stateManager.before('importParty');
-          if (party.id == this.party.id && party.name && party.name == this.party.name) {
+          if (party.id === this.party.id && party.name && party.name === this.party.name) {
             gameManager.game.party = party;
           } else {
             this.addParty(party);
@@ -734,23 +734,23 @@ export class PartySheetDialogComponent implements OnInit {
 
   countFinished(scenarioData: ScenarioData, casual: boolean = false): number {
     return (casual ? this.party.casualScenarios : this.party.scenarios).filter(
-      (value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group
+      (value) => scenarioData.index === value.index && scenarioData.edition === value.edition && scenarioData.group === value.group
     ).length;
   }
 
   hasRandomItemLooted(scenarioData: ScenarioData): boolean {
     return (
       gameManager.game.party.randomItemLooted.find(
-        (model) => model.edition == scenarioData.edition && model.group == scenarioData.group && model.index == scenarioData.index
-      ) != undefined
+        (model) => model.edition === scenarioData.edition && model.group === scenarioData.group && model.index === scenarioData.index
+      ) !== undefined
     );
   }
 
   isManual(scenarioData: ScenarioData): boolean {
     return (
       this.party.manualScenarios.find(
-        (value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group
-      ) != undefined
+        (value) => scenarioData.index === value.index && scenarioData.edition === value.edition && scenarioData.group === value.group
+      ) !== undefined
     );
   }
 
@@ -760,13 +760,13 @@ export class PartySheetDialogComponent implements OnInit {
         .sectionData(scenarioData.edition)
         .filter(
           (sectionData) =>
-            sectionData.edition == scenarioData.edition &&
-            sectionData.parent == scenarioData.index &&
-            sectionData.group == scenarioData.group &&
+            sectionData.edition === scenarioData.edition &&
+            sectionData.parent === scenarioData.index &&
+            sectionData.group === scenarioData.group &&
             sectionData.conclusion &&
-            gameManager.scenarioManager.getRequirements(sectionData).length == 0
+            gameManager.scenarioManager.getRequirements(sectionData).length === 0
         );
-      if (conclusions.length == 0) {
+      if (conclusions.length === 0) {
         this.addSuccessIntern(scenarioData);
       } else {
         this.dialog
@@ -794,7 +794,7 @@ export class PartySheetDialogComponent implements OnInit {
       false,
       false,
       false,
-      gameManager.game.party.campaignMode && this.countFinished(scenarioData) == 0,
+      gameManager.game.party.campaignMode && this.countFinished(scenarioData) === 0,
       true
     );
     gameManager.stateManager.after();
@@ -805,7 +805,7 @@ export class PartySheetDialogComponent implements OnInit {
   removeSuccess(scenarioData: ScenarioData, casual: boolean = false) {
     const scenarios = casual ? this.party.casualScenarios : this.party.scenarios;
     const value = scenarios.find(
-      (value) => value.index == scenarioData.index && value.edition == scenarioData.edition && value.group == scenarioData.group
+      (value) => value.index === scenarioData.index && value.edition === scenarioData.edition && value.group === scenarioData.group
     );
     if (value) {
       gameManager.stateManager.before(
@@ -820,7 +820,7 @@ export class PartySheetDialogComponent implements OnInit {
 
   removeManual(scenarioData: ScenarioData) {
     const value = this.party.manualScenarios.find(
-      (value) => value.index == scenarioData.index && value.edition == scenarioData.edition && value.group == scenarioData.group
+      (value) => value.index === scenarioData.index && value.edition === scenarioData.edition && value.group === scenarioData.group
     );
     if (value) {
       gameManager.stateManager.before('removeManualScenario', ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
@@ -832,16 +832,17 @@ export class PartySheetDialogComponent implements OnInit {
 
   scenarioRewards(scenarioData: ScenarioData, conclusionOnly: boolean = false) {
     const conclusion = this.party.conclusions
-      .filter((value) => value.edition == scenarioData.edition)
+      .filter((value) => value.edition === scenarioData.edition)
       .map(
         (value) =>
           gameManager
             .sectionData(scenarioData.edition)
             .find(
-              (sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group
+              (sectionData) =>
+                sectionData.index === value.index && sectionData.edition === value.edition && sectionData.group === value.group
             ) as ScenarioData
       )
-      .find((conclusionData) => conclusionData.parent == scenarioData.index && conclusionData.group == scenarioData.group);
+      .find((conclusionData) => conclusionData.parent === scenarioData.index && conclusionData.group === scenarioData.group);
 
     this.dialog.open(ScenarioSummaryComponent, {
       panelClass: ['dialog'],
@@ -858,7 +859,7 @@ export class PartySheetDialogComponent implements OnInit {
   conclusionRewards(index: string) {
     const conclusion = gameManager
       .sectionData(this.partyEdition || gameManager.currentEdition())
-      .find((sectionData) => sectionData.index == index);
+      .find((sectionData) => sectionData.index === index);
     if (conclusion) {
       this.dialog.open(ScenarioSummaryComponent, {
         panelClass: ['dialog'],
@@ -894,7 +895,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   changeEdition(event: any) {
-    this.partyEdition = (event.target.value != 'undefined' && event.target.value) || '';
+    this.partyEdition = (event.target.value !== 'undefined' && event.target.value) || '';
     this.itemEdition = this.partyEdition;
     this.treasureEdition = this.partyEdition;
     this.update();
@@ -949,7 +950,7 @@ export class PartySheetDialogComponent implements OnInit {
             return 1;
           } else if (!a.group && b.group) {
             return -1;
-          } else if (a.group && b.group && a.group != b.group) {
+          } else if (a.group && b.group && a.group !== b.group) {
             return a.group < b.group ? -1 : 1;
           }
 
@@ -963,14 +964,14 @@ export class PartySheetDialogComponent implements OnInit {
       }
 
       this.conclusions[edition] = this.party.conclusions
-        .filter((value) => value.edition == edition)
+        .filter((value) => value.edition === edition)
         .map(
           (value) =>
             gameManager
               .sectionData(edition)
               .find(
                 (sectionData) =>
-                  sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group
+                  sectionData.index === value.index && sectionData.edition === value.edition && sectionData.group === value.group
               ) as ScenarioData
         )
         .filter(
@@ -978,16 +979,16 @@ export class PartySheetDialogComponent implements OnInit {
             conclusionData &&
             !this.party.scenarios.find(
               (scenarioModel) =>
-                scenarioModel.edition == conclusionData.edition &&
-                scenarioModel.group == conclusionData.group &&
-                scenarioModel.index == conclusionData.parent
+                scenarioModel.edition === conclusionData.edition &&
+                scenarioModel.group === conclusionData.group &&
+                scenarioModel.index === conclusionData.parent
             )
         );
     });
 
     this.manualConclusions =
       (this.partyEdition &&
-        gameManager.sectionData(this.partyEdition).find((sectionData) => sectionData.conclusion && !sectionData.parent) != undefined) ||
+        gameManager.sectionData(this.partyEdition).find((sectionData) => sectionData.conclusion && !sectionData.parent) !== undefined) ||
       false;
 
     if (this.party.reputation >= 0) {
@@ -1038,7 +1039,7 @@ export class PartySheetDialogComponent implements OnInit {
       this.reputationSectionsMapped = {};
       this.reputationSections.forEach((value) => {
         this.reputationSectionsMapped[value.faction] = this.reputationSectionsMapped[value.faction] || [];
-        if (!value.requires || value.requires.length == 0) {
+        if (!value.requires || value.requires.length === 0) {
           this.reputationSectionsMapped[value.faction][30 - value.value - 10] = value;
         }
       });
@@ -1064,7 +1065,7 @@ export class PartySheetDialogComponent implements OnInit {
       this.prosperitySteps.forEach((step, index) => {
         const start = index > 0 ? this.prosperitySteps[index - 1] + 1 : 0;
         for (let i = start; i < step; i++) {
-          if ((i - start) % 5 == 4) {
+          if ((i - start) % 5 === 4) {
             this.prosperityHighlightSteps.push(i);
           }
         }
@@ -1073,7 +1074,7 @@ export class PartySheetDialogComponent implements OnInit {
     if (this.gh2eSheet) {
       this.prosperityHighlightSteps = [];
       for (let i = 0; i <= Math.max(...this.prosperitySteps); i++) {
-        if (i % 5 == 3) {
+        if (i % 5 === 3) {
           this.prosperityHighlightSteps.push(i);
         }
       }
@@ -1093,7 +1094,7 @@ export class PartySheetDialogComponent implements OnInit {
     this.globalAchievements = [];
     this.campaignStickers = [];
     this.worldMap = false;
-    const editionData = gameManager.editionData.find((editionData) => this.partyEdition && editionData.edition == this.partyEdition);
+    const editionData = gameManager.editionData.find((editionData) => this.partyEdition && editionData.edition === this.partyEdition);
     if (editionData) {
       if (editionData.worldMap || editionData.extendWorldMap) {
         this.worldMap = true;
@@ -1101,7 +1102,7 @@ export class PartySheetDialogComponent implements OnInit {
       this.updateAchievements(editionData);
       if (!editionData.additional && editionData.extensions) {
         editionData.extensions.forEach((extension) => {
-          const extensionData = gameManager.editionData.find((editionData) => editionData.edition == extension);
+          const extensionData = gameManager.editionData.find((editionData) => editionData.edition === extension);
           if (extensionData) {
             this.updateAchievements(extensionData);
           }
@@ -1110,17 +1111,17 @@ export class PartySheetDialogComponent implements OnInit {
     }
 
     this.partyAchievementsList = this.party.achievementsList
-      .map((achievement, index, self) => achievement + ':' + self.filter((other) => other == achievement).length)
-      .filter((achivement, index, self) => self.indexOf(achivement) == index);
+      .map((achievement, index, self) => achievement + ':' + self.filter((other) => other === achievement).length)
+      .filter((achivement, index, self) => self.indexOf(achivement) === index);
 
     this.globalAchievementsList = this.party.globalAchievementsList
-      .map((achievement, index, self) => achievement + ':' + self.filter((other) => other == achievement).length)
-      .filter((achivement, index, self) => self.indexOf(achivement) == index);
+      .map((achievement, index, self) => achievement + ':' + self.filter((other) => other === achievement).length)
+      .filter((achivement, index, self) => self.indexOf(achivement) === index);
 
     this.itemIdentifier = this.party.unlockedItems
-      .filter((identifier) => !this.itemEdition || identifier.edition == this.itemEdition)
+      .filter((identifier) => !this.itemEdition || identifier.edition === this.itemEdition)
       .sort((a, b) => {
-        if (!this.partyEdition && a.edition != b.edition) {
+        if (!this.partyEdition && a.edition !== b.edition) {
           return gameManager.editions().indexOf(a.edition) - gameManager.editions().indexOf(b.edition);
         }
 
@@ -1212,7 +1213,7 @@ export class PartySheetDialogComponent implements OnInit {
             )
         )
         .forEach((item) => {
-          if (this.globalAchievements.every((other) => item.value != other.value)) {
+          if (this.globalAchievements.every((other) => item.value !== other.value)) {
             this.globalAchievements.push(item);
           }
         });
@@ -1251,7 +1252,7 @@ export class PartySheetDialogComponent implements OnInit {
         indexElement.classList.add('warning');
       } else {
         indexElement.classList.add('error');
-        const itemData = gameManager.itemManager.getItems(edition, true).find((itemData) => itemId == '' + itemData.id);
+        const itemData = gameManager.itemManager.getItems(edition, true).find((itemData) => itemId === '' + itemData.id);
         if (itemData) {
           gameManager.stateManager.before('addUnlockedItem', edition, itemId, itemData.name);
           this.party.unlockedItems = this.party.unlockedItems || [];
@@ -1267,12 +1268,14 @@ export class PartySheetDialogComponent implements OnInit {
 
   hasItem(item: string, edition: string): boolean {
     return (
-      this.party.unlockedItems && this.party.unlockedItems.some((identifier) => identifier.name == item && identifier.edition == edition)
+      this.party.unlockedItems && this.party.unlockedItems.some((identifier) => identifier.name === item && identifier.edition === edition)
     );
   }
 
   removeItem(item: ItemData) {
-    const identifier = this.party.unlockedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition);
+    const identifier = this.party.unlockedItems.find(
+      (identifier) => identifier.name === '' + item.id && identifier.edition === item.edition
+    );
     if (identifier) {
       gameManager.stateManager.before('removeUnlockedItem', item.edition, item.id, item.name);
       this.party.unlockedItems.splice(this.party.unlockedItems.indexOf(identifier), 1);
@@ -1311,9 +1314,9 @@ export class PartySheetDialogComponent implements OnInit {
 
   treasures(): Identifier[] {
     return this.party.treasures
-      .filter((identifier) => !this.treasureEdition || identifier.edition == this.treasureEdition)
+      .filter((identifier) => !this.treasureEdition || identifier.edition === this.treasureEdition)
       .sort((a, b) => {
-        if (!this.treasureEdition && a.edition != b.edition) {
+        if (!this.treasureEdition && a.edition !== b.edition) {
           return gameManager.editions().indexOf(a.edition) - gameManager.editions().indexOf(b.edition);
         }
 
@@ -1328,7 +1331,7 @@ export class PartySheetDialogComponent implements OnInit {
         indexElement.classList.add('warning');
       } else {
         indexElement.classList.add('error');
-        const editionData = gameManager.editionData.find((editionData) => editionData.edition == edition);
+        const editionData = gameManager.editionData.find((editionData) => editionData.edition === edition);
         if (editionData && editionData.treasures) {
           const treasureIndex = +treasure - (editionData.treasureOffset || 0) - 1;
           if (treasureIndex >= 0 && treasureIndex < editionData.treasures.length) {
@@ -1345,7 +1348,9 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   hasTreasure(treasure: string, edition: string): boolean {
-    return this.party.treasures && this.party.treasures.some((identifier) => identifier.name == treasure && identifier.edition == edition);
+    return (
+      this.party.treasures && this.party.treasures.some((identifier) => identifier.name === treasure && identifier.edition === edition)
+    );
   }
 
   removeTreasure(treasure: Identifier) {
@@ -1376,8 +1381,8 @@ export class PartySheetDialogComponent implements OnInit {
     return (
       this.party.conclusions.find(
         (model) =>
-          ((!edition && model.edition == gameManager.game.edition) || (edition && model.edition == edition)) && model.index == section
-      ) != undefined
+          ((!edition && model.edition === gameManager.game.edition) || (edition && model.edition === edition)) && model.index === section
+      ) !== undefined
     );
   }
 
@@ -1389,14 +1394,14 @@ export class PartySheetDialogComponent implements OnInit {
           sectionData.conclusion &&
           !sectionData.parent &&
           sectionData.parentSections &&
-          sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section))
+          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section))
       );
     return (
       conclusions.length > 0 &&
       conclusions.every(
         (conclusion) =>
           !gameManager.game.party.conclusions.find(
-            (model) => model.edition == conclusion.edition && model.index == conclusion.index && model.group == conclusion.group
+            (model) => model.edition === conclusion.edition && model.index === conclusion.index && model.group === conclusion.group
           )
       )
     );
@@ -1410,8 +1415,8 @@ export class PartySheetDialogComponent implements OnInit {
           sectionData.conclusion &&
           !sectionData.parent &&
           sectionData.parentSections &&
-          sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section)) &&
-          gameManager.scenarioManager.getRequirements(sectionData).length == 0
+          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section)) &&
+          gameManager.scenarioManager.getRequirements(sectionData).length === 0
       )
       .map((conclusion) => {
         return conclusion;
@@ -1425,14 +1430,14 @@ export class PartySheetDialogComponent implements OnInit {
             conclusions: conclusions,
             parent: gameManager
               .sectionData(gameManager.game.edition)
-              .find((sectionData) => sectionData.index == section && !sectionData.group)
+              .find((sectionData) => sectionData.index === section && !sectionData.group)
           }
         })
         .closed.subscribe({
           next: (conclusion) => {
             if (conclusion) {
               const scenario = new Scenario(conclusion as ScenarioData);
-              if (week != -1) {
+              if (week !== -1) {
                 gameManager.stateManager.before('finishConclusion', ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
                 gameManager.scenarioManager.finishScenario(
                   scenario,
@@ -1470,13 +1475,13 @@ export class PartySheetDialogComponent implements OnInit {
     indexElement.classList.add('error');
     const conclusion = gameManager
       .sectionData(this.partyEdition || gameManager.currentEdition())
-      .find((sectionData) => sectionData.index == index);
+      .find((sectionData) => sectionData.index === index);
     if (conclusion) {
       indexElement.classList.remove('error');
       if (
         force ||
         !this.party.conclusions.find(
-          (value) => value.edition == conclusion.edition && value.group == conclusion.group && value.index == conclusion.index
+          (value) => value.edition === conclusion.edition && value.group === conclusion.group && value.index === conclusion.index
         )
       ) {
         indexElement.value = '';
@@ -1490,12 +1495,12 @@ export class PartySheetDialogComponent implements OnInit {
   finishConclusion(index: string, force: boolean = false) {
     const conclusion = gameManager
       .sectionData(this.partyEdition || gameManager.currentEdition())
-      .find((sectionData) => sectionData.index == index);
+      .find((sectionData) => sectionData.index === index);
     if (
       conclusion &&
       (force ||
         !this.party.conclusions.find(
-          (value) => value.edition == conclusion.edition && value.group == conclusion.group && value.index == conclusion.index
+          (value) => value.edition === conclusion.edition && value.group === conclusion.group && value.index === conclusion.index
         ))
     ) {
       const scenario = new Scenario(conclusion as ScenarioData);
@@ -1519,7 +1524,7 @@ export class PartySheetDialogComponent implements OnInit {
     if (this.isConclusion(section, edition)) {
       gameManager.stateManager.before('removeConclusion', gameManager.game.party.name, section);
       gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter(
-        (conclusion) => conclusion.edition != edition || conclusion.index != section
+        (conclusion) => conclusion.edition !== edition || conclusion.index !== section
       );
       // TODO: remove week
       gameManager.stateManager.after();
@@ -1530,12 +1535,12 @@ export class PartySheetDialogComponent implements OnInit {
   setWeek(value: number) {
     if (
       settingsManager.settings.calendarLocked &&
-      (settingsManager.settings.calendarLocked != 'permissive' || (this.party.weeks != value - 1 && this.party.weeks != value))
+      (settingsManager.settings.calendarLocked !== 'permissive' || (this.party.weeks !== value - 1 && this.party.weeks !== value))
     ) {
       return;
     }
 
-    if (this.party.weeks == value) {
+    if (this.party.weeks === value) {
       value--;
     }
     if (value < 0) {
@@ -1566,11 +1571,11 @@ export class PartySheetDialogComponent implements OnInit {
       sectionsForWeeks.forEach((section) => {
         const sectionData = gameManager
           .sectionData(gameManager.game.edition)
-          .find((sectionData) => sectionData.index == section && sectionData.conclusion);
+          .find((sectionData) => sectionData.index === section && sectionData.conclusion);
         if (
           sectionData &&
           !gameManager.game.party.conclusions.find(
-            (model) => model.edition == sectionData.edition && model.index == sectionData.index && model.group == sectionData.group
+            (model) => model.edition === sectionData.edition && model.index === sectionData.index && model.group === sectionData.group
           )
         ) {
           gameManager.scenarioManager.finishScenario(
@@ -1622,7 +1627,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   setInspiration(event: any) {
-    if (!isNaN(+event.target.value) && this.party.inspiration != +event.target.value) {
+    if (!isNaN(+event.target.value) && this.party.inspiration !== +event.target.value) {
       gameManager.stateManager.before('setPartyInspiration', this.party.name, event.target.value);
       this.party.inspiration = +event.target.value;
       gameManager.stateManager.after();
@@ -1632,7 +1637,7 @@ export class PartySheetDialogComponent implements OnInit {
   setTotalDefense(event: any) {
     if (!isNaN(+event.target.value)) {
       const value = +event.target.value - this.moraleDefense;
-      if (this.party.defense != value) {
+      if (this.party.defense !== value) {
         gameManager.stateManager.before('setPartyTotalDefense', this.party.name, value);
         this.party.defense = value;
         gameManager.stateManager.after();
@@ -1641,7 +1646,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   setSoldiers(value: number, force: boolean = false) {
-    if (this.party.soldiers == value) {
+    if (this.party.soldiers === value) {
       value--;
     }
     if (value < 0) {
@@ -1652,7 +1657,7 @@ export class PartySheetDialogComponent implements OnInit {
       gameManager.stateManager.before('setPartySoldiers', value);
       this.party.soldiers = value;
       gameManager.stateManager.after();
-    } else if (this.soldierAvailable() && value == this.party.soldiers + 1) {
+    } else if (this.soldierAvailable() && value === this.party.soldiers + 1) {
       this.dialog
         .open(BuildingUpgradeDialog, {
           panelClass: ['dialog'],
@@ -1682,7 +1687,7 @@ export class PartySheetDialogComponent implements OnInit {
       return true;
     }
     const barracks = this.party.buildings.find(
-      (buildingModel) => buildingModel.name == 'barracks' && buildingModel.level > 0 && buildingModel.state == 'normal'
+      (buildingModel) => buildingModel.name === 'barracks' && buildingModel.level > 0 && buildingModel.state === 'normal'
     );
     if (barracks && this.party.soldiers < 2 + barracks.level * 2) {
       const characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
@@ -1705,7 +1710,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   setMorale(value: number) {
-    if (this.party.morale == value) {
+    if (this.party.morale === value) {
       value--;
     }
     if (value < 0) {
@@ -1719,16 +1724,16 @@ export class PartySheetDialogComponent implements OnInit {
 
     this.party.morale = value;
     const campaignData = gameManager.campaignData();
-    if (value == 0 && campaignData && campaignData.lowMorale && this.lowMoraleSolved <= campaignData.lowMorale.length) {
+    if (value === 0 && campaignData && campaignData.lowMorale && this.lowMoraleSolved <= campaignData.lowMorale.length) {
       if (this.lowMoraleSolved < campaignData.lowMorale.length) {
         this.finishConclusion(campaignData.lowMorale[this.lowMoraleSolved]);
       } else {
         this.party.conclusions = this.party.conclusions.filter(
-          (model) => model.edition != gameManager.game.edition || model.index != campaignData.lowMorale[this.lowMoraleSolved - 1]
+          (model) => model.edition !== gameManager.game.edition || model.index !== campaignData.lowMorale[this.lowMoraleSolved - 1]
         );
         this.finishConclusion(campaignData.lowMorale[this.lowMoraleSolved - 1]);
       }
-    } else if (value == 20 && campaignData && campaignData.highMorale && this.highMoraleSolved < campaignData.highMorale.length) {
+    } else if (value === 20 && campaignData && campaignData.highMorale && this.highMoraleSolved < campaignData.highMorale.length) {
       this.finishConclusion(campaignData.highMorale[this.highMoraleSolved]);
     }
 
@@ -1738,7 +1743,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   setTownGuardPerks(value: number) {
-    if (this.party.townGuardPerks == value) {
+    if (this.party.townGuardPerks === value) {
       value--;
     }
     if (value < 0) {
@@ -1753,9 +1758,9 @@ export class PartySheetDialogComponent implements OnInit {
   toggleTownGuardPerkSection(section: string, force: boolean = false) {
     this.party.townGuardPerkSections = this.party.townGuardPerkSections || [];
     const index = this.party.townGuardPerkSections.indexOf(section);
-    if (index != -1 || this.party.townGuardPerkSections.length < Math.floor(this.party.townGuardPerks / 3) || force) {
-      gameManager.stateManager.before(index == -1 ? 'addPartyTownGuardPerkSection' : 'removePartyTownGuardPerkSection', section);
-      if (index == -1) {
+    if (index !== -1 || this.party.townGuardPerkSections.length < Math.floor(this.party.townGuardPerks / 3) || force) {
+      gameManager.stateManager.before(index === -1 ? 'addPartyTownGuardPerkSection' : 'removePartyTownGuardPerkSection', section);
+      if (index === -1) {
         this.party.townGuardPerkSections.push(section);
         this.finishConclusion(section);
       } else {
@@ -1773,7 +1778,7 @@ export class PartySheetDialogComponent implements OnInit {
 
   addCampaignSticker(campaignStickerElement: HTMLInputElement) {
     const stickerLabel = campaignStickerElement.value;
-    const sticker = this.campaignStickers.find((item) => item.label == stickerLabel);
+    const sticker = this.campaignStickers.find((item) => item.label === stickerLabel);
 
     if (sticker) {
       this.party.campaignStickers = this.party.campaignStickers || [];
@@ -1787,7 +1792,7 @@ export class PartySheetDialogComponent implements OnInit {
         }
       }
 
-      const count = this.party.campaignStickers.filter((campaignSticker) => campaignSticker.toLowerCase() == sticker.value).length;
+      const count = this.party.campaignStickers.filter((campaignSticker) => campaignSticker.toLowerCase() === sticker.value).length;
 
       if (count < total) {
         gameManager.stateManager.before('addCampaignSticker', sticker.label);
@@ -1801,7 +1806,7 @@ export class PartySheetDialogComponent implements OnInit {
 
   removeCampaignSticker(campaignSticker: string) {
     const index = this.party.campaignStickers.indexOf(campaignSticker);
-    if (index != -1) {
+    if (index !== -1) {
       gameManager.stateManager.before('removeCampaignSticker', campaignSticker);
       this.party.campaignStickers.splice(index, 1);
       gameManager.stateManager.after();
@@ -1815,7 +1820,7 @@ export class PartySheetDialogComponent implements OnInit {
     let total = 0;
     if (campaign.campaignStickers) {
       const campaignSticker = campaign.campaignStickers.find(
-        (campaignSticker) => campaignSticker == sticker || campaignSticker.startsWith(sticker)
+        (campaignSticker) => campaignSticker === sticker || campaignSticker.startsWith(sticker)
       );
       if (campaignSticker) {
         if (campaignSticker.includes(':')) {
@@ -1826,18 +1831,18 @@ export class PartySheetDialogComponent implements OnInit {
       }
     }
 
-    if (total == 1) {
+    if (total === 1) {
       return './assets/images/fh/party/campaign-stickers/' + sticker + '.png';
     } else if (total > 1) {
       const mappedSticker = this.party.campaignStickers.map((sticker, index) => {
         return { sticker: sticker.toLowerCase().replaceAll(' ', '-'), origIndex: index };
       });
       const mapped = mappedSticker
-        .filter((value) => value.sticker == sticker)
+        .filter((value) => value.sticker === sticker)
         .map((value, index) => {
           return { sticker: value.sticker, origIndex: value.origIndex, index: index + 1 };
         })
-        .find((value) => value.origIndex == stickerIndex);
+        .find((value) => value.origIndex === stickerIndex);
       if (mapped) {
         return './assets/images/fh/party/campaign-stickers/' + sticker + '-' + mapped.index + '.png';
       }

@@ -31,7 +31,7 @@ export class AdditionalAMSelectDialogComponent {
   }
 
   toggleSelect(index: number) {
-    if (this.selected == index) {
+    if (this.selected === index) {
       this.selected = -1;
     } else {
       this.selected = index;

@@ -13,12 +13,17 @@
         <div class="filter">
           @if (!eventMenu && (!figure || filter)) {
             @for (f of filters; track f) {
-              <a tabclick (click)="setFilter(f)" [ngClass]="{ active: filter == f }" [ghs-label]="'entities.filter.' + (f ? f : 'all')"></a>
+              <a
+                tabclick
+                (click)="setFilter(f)"
+                [ngClass]="{ active: filter === f }"
+                [ghs-label]="'entities.filter.' + (f ? f : 'all')"
+              ></a>
             }
           }
           <span
             class="input-checkbox checked"
-            [ngClass]="{ disabled: entities.length && entities.length == allEntities.length }"
+            [ngClass]="{ disabled: entities.length && entities.length === allEntities.length }"
             [ghs-tooltip]="'entities.filter.select.all'"
             (click)="toggleAll(true)"
           ></span>
@@ -104,12 +109,12 @@
                     thumbnail: settingsManager.settings.artwork && ((summon.thumbnail && !summon.noThumbnail) || summon.thumbnailUrl)
                   }"
                 >
-                  <span class="summon-state" [ngClass]="{ fh: summon.color == SummonColor.fh }">
-                    @if (summon.color != SummonColor.fh) {
+                  <span class="summon-state" [ngClass]="{ fh: summon.color === SummonColor.fh }">
+                    @if (summon.color !== SummonColor.fh) {
                       <img src="./assets/images/summons/{{ summon.color }}.png" />
                     }
                     <span class="summon-number">
-                      @if (summon.number == 0) {
+                      @if (summon.number === 0) {
                         <span>-</span>
                       }
                       @if (summon.number > 0) {
@@ -162,12 +167,12 @@
                     [originX]="'center'"
                     [overlayX]="'center'"
                   >
-                    <span class="summon-state" [ngClass]="{ fh: summon.color == SummonColor.fh }">
-                      @if (summon.color != SummonColor.fh) {
+                    <span class="summon-state" [ngClass]="{ fh: summon.color === SummonColor.fh }">
+                      @if (summon.color !== SummonColor.fh) {
                         <img src="./assets/images/summons/{{ summon.color }}.png" />
                       }
                       <span class="summon-number">
-                        @if (summon.number == 0) {
+                        @if (summon.number === 0) {
                           <span>-</span>
                         }
                         @if (summon.number > 0) {
@@ -316,15 +321,15 @@
         <div class="imbuement">
           <span class="title" [ghs-label]="'scenario.gh2eImbuement'"></span>
           <div class="checkboxes">
-            @if (gameManager.imbuementManager.imbuement != 'advanced') {
+            @if (gameManager.imbuementManager.imbuement !== 'advanced') {
               <label (click)="eventHelper.toggleImbuement()">
-                <span class="input-checkbox" [ngClass]="{ checked: gameManager.imbuementManager.imbuement == true }"></span>
+                <span class="input-checkbox" [ngClass]="{ checked: gameManager.imbuementManager.imbuement === true }"></span>
                 <span [ghs-label]="'scenario.gh2eImbuement.imbuement'"></span>
               </label>
             }
-            @if (gameManager.imbuementManager.available == 'advanced' && gameManager.imbuementManager.imbuement != true) {
+            @if (gameManager.imbuementManager.available === 'advanced' && gameManager.imbuementManager.imbuement !== true) {
               <label (click)="eventHelper.toggleImbuement(true)">
-                <span class="input-checkbox" [ngClass]="{ checked: gameManager.imbuementManager.imbuement == 'advanced' }"></span>
+                <span class="input-checkbox" [ngClass]="{ checked: gameManager.imbuementManager.imbuement === 'advanced' }"></span>
                 <span [ghs-label]="'scenario.gh2eImbuement.advancedImbuement'"></span>
               </label>
             }
@@ -353,8 +358,8 @@
                 [ngClass]="{
                   disabled:
                     !!entity &&
-                    ((trackDamage && entity.health + health == 0) ||
-                      (settingsManager.settings.damageHP && entity.health - health == EntityValueFunction(entity.maxHealth)))
+                    ((trackDamage && entity.health + health === 0) ||
+                      (settingsManager.settings.damageHP && entity.health - health === EntityValueFunction(entity.maxHealth)))
                 }"
               >
                 <img class="ghs-svg" src="./assets/images/minus.svg" />
@@ -400,7 +405,7 @@
                     !trackDamage &&
                     !settingsManager.settings.damageHP &&
                     !!entity &&
-                    entity.health + health ==
+                    entity.health + health ===
                       Math.max(EntityValueFunction(entity.maxHealth), specialTags.includes('unbridled-power') ? 26 : 0) + maxHealth
                 }"
               >
@@ -415,7 +420,7 @@
             <span class="item">
               <ghs-pointer-input
                 class="button"
-                [ngClass]="{ disabled: character.experience + experience == 0 }"
+                [ngClass]="{ disabled: character.experience + experience === 0 }"
                 tabclick
                 (singleClick)="experience -= 1"
                 [repeat]="true"
@@ -443,7 +448,7 @@
               <span class="item">
                 <ghs-pointer-input
                   class="button"
-                  [ngClass]="{ disabled: character.loot + loot == 0 }"
+                  [ngClass]="{ disabled: character.loot + loot === 0 }"
                   tabclick
                   (singleClick)="loot -= 1"
                   [repeat]="true"
@@ -468,7 +473,7 @@
               <span class="item">
                 <ghs-pointer-input
                   class="button"
-                  [ngClass]="{ disabled: character.token + characterToken == 0 }"
+                  [ngClass]="{ disabled: character.token + characterToken === 0 }"
                   tabclick
                   (singleClick)="characterToken -= 1"
                   [repeat]="true"
@@ -491,7 +496,7 @@
                 <span class="item">
                   <ghs-pointer-input
                     class="button"
-                    [ngClass]="{ disabled: character.tokenValues[i] + characterTokenValues[i] == 0 }"
+                    [ngClass]="{ disabled: character.tokenValues[i] + characterTokenValues[i] === 0 }"
                     tabclick
                     (singleClick)="characterTokenValues[i] -= 1"
                     [repeat]="true"
@@ -528,7 +533,7 @@
                 class="button"
                 [ngClass]="{
                   disabled:
-                    (blessMin >= 0 && blessMin + bless * entities.length == 0) ||
+                    (blessMin >= 0 && blessMin + bless * entities.length === 0) ||
                     entityImmunities.includes(ConditionName.bless) ||
                     (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.bless))
                 }"
@@ -586,7 +591,7 @@
                 class="button"
                 [ngClass]="{
                   disabled:
-                    (curseMin >= 0 && curseMin + curse * entities.length == 0) ||
+                    (curseMin >= 0 && curseMin + curse * entities.length === 0) ||
                     entityImmunities.includes(ConditionName.curse) ||
                     (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.curse))
                 }"
@@ -646,7 +651,7 @@
                 class="button"
                 [ngClass]="{
                   disabled:
-                    (empowerMin >= 0 && empowerMin + empower == 0) ||
+                    (empowerMin >= 0 && empowerMin + empower === 0) ||
                     entityImmunities.includes(ConditionName.empower) ||
                     (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.empower))
                 }"
@@ -716,7 +721,7 @@
                 class="button"
                 [ngClass]="{
                   disabled:
-                    (enfeebleMin >= 0 && enfeebleMin + enfeeble == 0) ||
+                    (enfeebleMin >= 0 && enfeebleMin + enfeeble === 0) ||
                     entityImmunities.includes(ConditionName.enfeeble) ||
                     (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.enfeeble))
                 }"
@@ -845,10 +850,10 @@
               </span>
               <span class="stat" tabclick (click)="characterHelper.openLevelDialog()">
                 <img class="ghs-svg" src="./assets/images/action/attack.svg" />
-                @if (summon.attack != 0) {
+                @if (summon.attack !== 0) {
                   <span [ghs-label]="'' + summon.attack"></span>
                 }
-                @if (summon.attack == 0) {
+                @if (summon.attack === 0) {
                   <span>-</span>
                 }
               </span>
@@ -937,7 +942,7 @@
                   @let monsterEntity = gameManager.toMonsterEntity(entity);
                   <a
                     class="summon"
-                    [ngClass]="{ active: monsterEntity.summon == SummonState.true, new: monsterEntity.summon == SummonState.new }"
+                    [ngClass]="{ active: monsterEntity.summon === SummonState.true, new: monsterEntity.summon === SummonState.new }"
                     tabclick
                     (click)="monsterHelper.toggleSummon()"
                   >
@@ -950,17 +955,17 @@
                   <a
                     class="summon"
                     [ngClass]="{
-                      active: summon.state == SummonState.true,
-                      new: summon.state == SummonState.new,
-                      fh: summon.color == SummonColor.fh
+                      active: summon.state === SummonState.true,
+                      new: summon.state === SummonState.new,
+                      fh: summon.color === SummonColor.fh
                     }"
                     tabclick
                     (click)="characterHelper.toggleSummonStatus()"
                   >
-                    @if (summon.color != SummonColor.fh) {
+                    @if (summon.color !== SummonColor.fh) {
                       <img [src]="'./assets/images/summons/' + summon.color + '.png'" />
                     }
-                    @if (summon.color == SummonColor.fh) {
+                    @if (summon.color === SummonColor.fh) {
                       <span class="summon-number">
                         {{ summon.number }}
                       </span>
@@ -1049,7 +1054,7 @@
                 </ghs-pointer-input>
                 <ghs-pointer-input
                   class="button small"
-                  [ngClass]="{ disabled: entityRetaliateRange[i].value == 1 }"
+                  [ngClass]="{ disabled: entityRetaliateRange[i].value === 1 }"
                   tabclick
                   (singleClick)="shieldRetaliateHelper.changeRetaliate(i, 0, -1)"
                 >
@@ -1069,7 +1074,7 @@
                   [style]="'fh'"
                   (click)="shieldRetaliateHelper.changeRetaliate(i, 0, 0, true)"
                 ></ghs-action>
-                @if (i == entityRetaliate.length - 1 && realiate.value) {
+                @if (i === entityRetaliate.length - 1 && realiate.value) {
                   <ghs-pointer-input
                     class="button add-retaliate"
                     tabclick
@@ -1122,7 +1127,7 @@
                 </ghs-pointer-input>
                 <ghs-pointer-input
                   class="button small"
-                  [ngClass]="{ disabled: entityRetaliateRangePersistent[i].value == 1 }"
+                  [ngClass]="{ disabled: entityRetaliateRangePersistent[i].value === 1 }"
                   tabclick
                   (singleClick)="shieldRetaliateHelper.changeRetaliatePersistent(i, 0, -1)"
                 >
@@ -1142,7 +1147,7 @@
                   [style]="'fh'"
                   (click)="shieldRetaliateHelper.changeRetaliatePersistent(i, 0, 0, true)"
                 ></ghs-action>
-                @if (i == entityRetaliatePersistent.length - 1 && realiatePermanent.value) {
+                @if (i === entityRetaliatePersistent.length - 1 && realiatePermanent.value) {
                   <ghs-pointer-input
                     class="button add-retaliate"
                     tabclick
@@ -1253,7 +1258,7 @@
                     [ghs-label]="'scenario.eventEffects.drawEvent'"
                     [ghs-label-args]="[type]"
                     [ngClass]="{
-                      disabled: !gameManager.game.party.eventDecks[type] || gameManager.game.party.eventDecks[type].length == 0
+                      disabled: !gameManager.game.party.eventDecks[type] || gameManager.game.party.eventDecks[type].length === 0
                     }"
                   ></a>
                   <img
@@ -1489,7 +1494,7 @@
               class="item"
               (click)="characterHelper.setIdentity(identity)"
               [ghs-tooltip]="'data.character.' + character.edition + '.' + character.name + '.' + identities[identity]"
-              [ngClass]="{ deactivated: character.identity == identity }"
+              [ngClass]="{ deactivated: character.identity === identity }"
             >
               <img [src]="gameManager.characterManager.characterIdentityIcon(character.name, identity)" />
             </a>
@@ -1502,7 +1507,7 @@
           @for (specialAction of specialActions | trackUUID; track specialAction._trackUUID) {
             @if (
               (!specialAction.level || specialAction.level <= character.level) &&
-              (!specialAction.perk || character.progress.perks[specialAction.perk - 1] == character.perks[specialAction.perk - 1].count) &&
+              (!specialAction.perk || character.progress.perks[specialAction.perk - 1] === character.perks[specialAction.perk - 1].count) &&
               (!specialAction.summon || (specialAction.summon && gameManager.isSummon(entity)))
             ) {
               <div class="hint-container">
@@ -1537,19 +1542,19 @@
         <input class="title" [value]="objective.title || ''" (change)="objectiveTitle = $any($event.target).value" />
         <div class="decks">
           @for (deck of amDecks; track deck) {
-            <span class="deck" [ngClass]="{ active: objective.amDeck == deck }" (click)="objectiveHelper.toggleAMDeck(deck)">
-              @if (deck == 'M') {
+            <span class="deck" [ngClass]="{ active: objective.amDeck === deck }" (click)="objectiveHelper.toggleAMDeck(deck)">
+              @if (deck === 'M') {
                 m
               }
-              @if (deck == 'A') {
+              @if (deck === 'A') {
                 A
               }
-              @if (deck != 'M' && deck != 'A') {
+              @if (deck !== 'M' && deck !== 'A') {
                 <img [src]="gameManager.characterManager.characterIcon(deck)" />
               }
             </span>
           }
-          @if (objective.amDeck && amDecks.indexOf(objective.amDeck || '') == -1) {
+          @if (objective.amDeck && amDecks.indexOf(objective.amDeck || '') === -1) {
             <span class="deck active warning" (click)="objectiveHelper.toggleAMDeck(objective.amDeck || '')">
               <img [src]="gameManager.characterManager.characterIcon(objective.amDeck || '')" />
             </span>

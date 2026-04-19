@@ -18,7 +18,7 @@
       @if (settingsManager.settings.eventsApply) {
         <a (click)="accept(false)" [ghs-label]="'game.events.accept.notApply'"></a>
       }
-      <a class="accept" (click)="accept()" [ngClass]="{ disabled: selected == -1 }" [ghs-label]="'game.events.accept'"></a>
+      <a class="accept" (click)="accept()" [ngClass]="{ disabled: selected === -1 }" [ghs-label]="'game.events.accept'"></a>
     </div>
   </div>
 }

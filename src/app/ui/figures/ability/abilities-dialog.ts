@@ -120,7 +120,7 @@ export class AbiltiesDialogComponent implements OnInit {
     } else if (gameManager.monsterManager.applySameDeck(this.monster)) {
       gameManager.stateManager.before('setDrawExtraAbility', 'data.monster.' + this.monster.name);
       this.monster.drawExtra = true;
-      if (gameManager.game.state == GameState.next) {
+      if (gameManager.game.state === GameState.next) {
         gameManager.monsterManager.drawExtra(this.monster);
       }
       gameManager.sortFigures();
@@ -131,7 +131,7 @@ export class AbiltiesDialogComponent implements OnInit {
 
   dropUpcoming(event: CdkDragDrop<Ability[]>) {
     gameManager.stateManager.before('reorderAbilities', 'data.monster.' + this.monster.name);
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       const offset = this.monster.ability + 1;
       moveItemInArray(this.monster.abilities, event.previousIndex + offset, event.currentIndex + offset);
     } else {
@@ -149,7 +149,7 @@ export class AbiltiesDialogComponent implements OnInit {
 
   dropDiscarded(event: CdkDragDrop<Ability[]>) {
     gameManager.stateManager.before('reorderAbilities', 'data.monster.' + this.monster.name);
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       moveItemInArray(this.monster.abilities, this.monster.ability - event.previousIndex, this.monster.ability - event.currentIndex);
     } else {
       this.monster.ability = this.monster.ability + 1;
@@ -199,7 +199,7 @@ export class AbiltiesDialogComponent implements OnInit {
     let label = 'data.monster.' + this.monster.name;
     if (ability && ability.name) {
       label = 'data.ability.' + ability.name;
-    } else if (this.monster.deck != this.monster.name) {
+    } else if (this.monster.deck !== this.monster.name) {
       label = 'data.deck.' + this.monster.deck;
       if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {
         label = 'data.monster.' + this.monster.deck;

@@ -1,7 +1,7 @@
 <footer class="{{ settingsManager.settings.theme }}" [ngClass]="{ compact: compact }">
   <div [ngClass]="{ denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
     <div #nextButton tabclick [autoBlur]="true" (click)="next()" class="round-container" [ngClass]="{ disabled: isDisabled }">
-      <a><span [ghs-label]="gameManager.game.state == GameState.next ? 'round.next' : 'round.draw'"></span></a>
+      <a><span [ghs-label]="gameManager.game.state === GameState.next ? 'round.next' : 'round.draw'"></span></a>
       <span class="round">
         @if (round() > 0) {
           <span>{{ round() }}</span>
@@ -55,7 +55,7 @@
         partial:
           activeCharacter.attackModifierDeck.active &&
           ((activeCharacter.attackModifierDeck.current >= 0 &&
-            activeCharacter.attackModifierDeck.current == activeCharacter.attackModifierDeck.lastVisible) ||
+            activeCharacter.attackModifierDeck.current === activeCharacter.attackModifierDeck.lastVisible) ||
             (activeCharacter.attackModifierDeck.bb &&
               activeCharacter.attackModifierDeck.current >= 0 &&
               !activeCharacter.attackModifierDeck.state)),
@@ -63,7 +63,7 @@
           activeCharacter.attackModifierDeck.active &&
           ((!activeCharacter.attackModifierDeck.bb &&
             activeCharacter.attackModifierDeck.current >= 0 &&
-            activeCharacter.attackModifierDeck.current != activeCharacter.attackModifierDeck.lastVisible) ||
+            activeCharacter.attackModifierDeck.current !== activeCharacter.attackModifierDeck.lastVisible) ||
             (activeCharacter.attackModifierDeck.bb &&
               activeCharacter.attackModifierDeck.current >= 0 &&
               activeCharacter.attackModifierDeck.state)),
@@ -115,11 +115,11 @@
         partial:
           gameManager.game.allyAttackModifierDeck.active &&
           gameManager.game.allyAttackModifierDeck.current >= 0 &&
-          gameManager.game.allyAttackModifierDeck.current == gameManager.game.allyAttackModifierDeck.lastVisible,
+          gameManager.game.allyAttackModifierDeck.current === gameManager.game.allyAttackModifierDeck.lastVisible,
         full:
           gameManager.game.allyAttackModifierDeck.active &&
           gameManager.game.allyAttackModifierDeck.current >= 0 &&
-          gameManager.game.allyAttackModifierDeck.current != gameManager.game.allyAttackModifierDeck.lastVisible,
+          gameManager.game.allyAttackModifierDeck.current !== gameManager.game.allyAttackModifierDeck.lastVisible,
         'no-monster-deck': !settingsManager.settings.monsterAttackModifierDeck
       }"
     >
@@ -156,13 +156,13 @@
         partial:
           gameManager.game.monsterAttackModifierDeck.active &&
           ((gameManager.game.monsterAttackModifierDeck.current >= 0 &&
-            gameManager.game.monsterAttackModifierDeck.current == gameManager.game.monsterAttackModifierDeck.lastVisible) ||
+            gameManager.game.monsterAttackModifierDeck.current === gameManager.game.monsterAttackModifierDeck.lastVisible) ||
             (gameManager.game.monsterAttackModifierDeck.bb && gameManager.game.monsterAttackModifierDeck.current >= 0)),
         full:
           gameManager.game.monsterAttackModifierDeck.active &&
           ((!gameManager.game.monsterAttackModifierDeck.bb &&
             gameManager.game.monsterAttackModifierDeck.current >= 0 &&
-            gameManager.game.monsterAttackModifierDeck.current != gameManager.game.monsterAttackModifierDeck.lastVisible) ||
+            gameManager.game.monsterAttackModifierDeck.current !== gameManager.game.monsterAttackModifierDeck.lastVisible) ||
             (gameManager.game.monsterAttackModifierDeck.bb &&
               gameManager.game.monsterAttackModifierDeck.current >= 0 &&
               gameManager.game.monsterAttackModifierDeck.state))
@@ -194,7 +194,7 @@
       [ngClass]="{
         collapsed: !gameManager.game.lootDeck.active,
         initial: gameManager.game.lootDeck.active && gameManager.game.lootDeck.current < 0,
-        partial: gameManager.game.lootDeck.active && gameManager.game.lootDeck.current == 0,
+        partial: gameManager.game.lootDeck.active && gameManager.game.lootDeck.current === 0,
         full: gameManager.game.lootDeck.active && gameManager.game.lootDeck.current > 0
       }"
     >

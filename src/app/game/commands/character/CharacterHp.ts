@@ -12,12 +12,13 @@ export class CharacterHpCommand extends CommandImpl {
 
   validParameters(number: number, hp: number): boolean {
     return (
-      (gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == number) != undefined && hp != 0) || false
+      (gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) !== undefined && hp !== 0) ||
+      false
     );
   }
 
   executeWithParameters(number: number, hp: number) {
-    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == number) as Character;
+    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) as Character;
     if (character) {
       character.health += hp;
       gameManager.entityManager.checkHealth(character, character);
@@ -28,7 +29,7 @@ export class CharacterHpCommand extends CommandImpl {
 
   override before(): BASE_TYPE[] {
     const character = gameManager.game.figures.find(
-      (figure) => figure instanceof Character && figure.number == this.parameters[0]
+      (figure) => figure instanceof Character && figure.number === this.parameters[0]
     ) as Character;
     if (character) {
       return ['command.' + this.id, gameManager.characterManager.characterName(character, true, true), this.parameters[1]];

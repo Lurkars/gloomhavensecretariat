@@ -15,7 +15,7 @@
  *   ternary → or → and → comparison → add/sub → mul/div/mod → unary → primary
  *
  * Usage:
- *   evaluateExpression("R > 3 && R % 3 == 1", { R: 7 })  → 1 (truthy)
+ *   evaluateExpression("R > 3 && R % 3 === 1", { R: 7 })  → 1 (truthy)
  *   evaluateExpression("2 * L + 1", { L: 3 })             → 7
  */
 

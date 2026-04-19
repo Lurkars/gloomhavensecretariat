@@ -71,10 +71,10 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   }
 
   private updateDisplay(): void {
-    this.initiativeHidden = gameManager.game.state == GameState.draw && this.figure instanceof Character && !this.figure.initiativeVisible;
+    this.initiativeHidden = gameManager.game.state === GameState.draw && this.figure instanceof Character && !this.figure.initiativeVisible;
     this.hidden = this.figure.initiative > 0 && this.initiativeHidden && !this.reveal;
     this.initiativeValue = this.formatInitiative();
-    this.min = gameManager.game.state == GameState.draw ? 0 : 1;
+    this.min = gameManager.game.state === GameState.draw ? 0 : 1;
   }
 
   ngOnInit(): void {
@@ -90,7 +90,7 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
       this.initiativeInput.nativeElement.addEventListener('keydown', (event: KeyboardEvent) => {
         if (settingsManager.settings.keyboardShortcuts) {
           const tabindex = this.tabindex();
-          if ((event.key === 'Tab' || event.key === 'Enter') && gameManager.game.state == GameState.draw) {
+          if ((event.key === 'Tab' || event.key === 'Enter') && gameManager.game.state === GameState.draw) {
             let nextIndex = event.shiftKey ? tabindex - 1 : tabindex + 1;
             let next = document.getElementById('initiative-input-' + nextIndex);
             if (!next && tabindex > 0) {
@@ -113,14 +113,14 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
             event.stopPropagation();
           } else if (event.key === 'Escape') {
             const current = document.getElementById('initiative-input-' + tabindex);
-            if (current && document.activeElement == current) {
+            if (current && document.activeElement === current) {
               current.blur();
               event.preventDefault();
               event.stopPropagation();
             }
           } else if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'n') {
             const current = document.getElementById('initiative-input-' + tabindex);
-            if (current && document.activeElement == current) {
+            if (current && document.activeElement === current) {
               current.blur();
             }
           }
@@ -135,7 +135,8 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
     }
     const initiative: number = isNaN(+event.target.value) ? 0 : +event.target.value;
     if (
-      (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0) || initiative > 0) &&
+      (((gameManager.game.state === GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0) ||
+        initiative > 0) &&
       initiative < 100
     ) {
       this.setInitiative(initiative);
@@ -145,7 +146,7 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   }
 
   private formatInitiative(): string {
-    if (this.initiative != -1) {
+    if (this.initiative !== -1) {
       return this.initiative > 0 ? (this.initiative < 10 ? '0' + this.initiative : '' + this.initiative) : '';
     }
 
@@ -175,22 +176,23 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
 
   setInitiative(initiative: number) {
     if (
-      (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0) || initiative > 0) &&
+      (((gameManager.game.state === GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0) ||
+        initiative > 0) &&
       initiative < 100 &&
-      initiative != this.figure.initiative
+      initiative !== this.figure.initiative
     ) {
       if (this.character) {
         gameManager.entityManager.before(this.character, this.figure, 'setInitiative', initiative);
         this.character.initiativeVisible = true;
-        if (this.character.name != 'prism' || !this.character.tags.includes('long_rest')) {
+        if (this.character.name !== 'prism' || !this.character.tags.includes('long_rest')) {
           this.character.longRest = false;
         }
-        if (initiative == 99) {
+        if (initiative === 99) {
           this.character.longRest = true;
         }
       }
       this.figure.initiative = initiative;
-      if (gameManager.game.state == GameState.next) {
+      if (gameManager.game.state === GameState.next) {
         gameManager.sortFigures(this.character);
       }
       gameManager.stateManager.after();
@@ -201,7 +203,7 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
     if (this.character && this.character.longRest) {
       gameManager.stateManager.before('characterLongRestOff', gameManager.characterManager.characterName(this.character, true, true));
       this.character.longRest = false;
-      if (gameManager.game.state == GameState.next) {
+      if (gameManager.game.state === GameState.next) {
         gameManager.sortFigures(this.character);
       }
       gameManager.stateManager.after();

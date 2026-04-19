@@ -8,7 +8,7 @@
           class="name"
           [ghs-label]="'game.battleGoals.all'"
           (click)="selectEdition()"
-          [ngClass]="{ selected: currentEdition == '' }"
+          [ngClass]="{ selected: currentEdition === '' }"
         ></span>
         <span class="size">({{ gameManager.battleGoalManager.getBattleGoals().length }})</span>
       </div>
@@ -19,7 +19,7 @@
             [ghs-label]="'game.battleGoals.edition'"
             [ghs-label-args]="[edition]"
             (click)="selectEdition(edition)"
-            [ngClass]="{ selected: edition == currentEdition }"
+            [ngClass]="{ selected: edition === currentEdition }"
           ></span>
           <span class="size">({{ gameManager.battleGoalManager.getBattleGoalsForEdition(edition).length }})</span>
           <input
@@ -33,7 +33,7 @@
     </div>
 
     <div class="battle-goals">
-      @if (battleGoals.length == 0) {
+      @if (battleGoals.length === 0) {
         <span class="warning" [ghs-label]="'game.battleGoals.setup.empty'"></span>
       }
       @for (battlegoal of battleGoals | trackUUID; track battlegoal._trackUUID) {

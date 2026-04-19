@@ -28,7 +28,7 @@ export function ActionHexFromString(string: string): ActionHex | null {
     /^\((\d+),(\d+),(active|target|conditional|ally|blank|enhance|invisible|custom)(\:((\w|-)*))?\)$/
   ).exec(string);
 
-  if (groups == null) {
+  if (groups === null) {
     return null;
   }
 

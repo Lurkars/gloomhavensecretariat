@@ -49,11 +49,11 @@ export class MonsterAbilityCardComponent implements OnInit {
   }
 
   calcFlipped(): boolean {
-    if (!settingsManager.settings.abilities || gameManager.game.state == GameState.draw) {
+    if (!settingsManager.settings.abilities || gameManager.game.state === GameState.draw) {
       return false;
     }
 
-    if (this.index == -1) {
+    if (this.index === -1) {
       this.ability = gameManager.monsterManager.getAbility(this.monster);
     } else {
       this.ability = gameManager.abilities(this.monster)[this.index];
@@ -69,7 +69,8 @@ export class MonsterAbilityCardComponent implements OnInit {
       this.secondAbility = gameManager.monsterManager.getAbility(this.monster);
     }
 
-    let flipped = !gameManager.roundManager.working && gameManager.game.state == GameState.next && gameManager.gameplayFigure(this.monster);
+    let flipped =
+      !gameManager.roundManager.working && gameManager.game.state === GameState.next && gameManager.gameplayFigure(this.monster);
 
     const reveal =
       settingsManager.settings.abilityReveal ||
@@ -78,8 +79,8 @@ export class MonsterAbilityCardComponent implements OnInit {
         (gameManager.game.figures.some((figure, index, self) => figure.active && index > self.indexOf(this.monster)) ||
           gameManager.game.figures.every((figure) => !figure.active)));
 
-    if (gameManager.game.state == GameState.next && reveal) {
-      flipped = flipped || (gameManager.game.state == GameState.next && this.monster.lastDraw == gameManager.game.round);
+    if (gameManager.game.state === GameState.next && reveal) {
+      flipped = flipped || (gameManager.game.state === GameState.next && this.monster.lastDraw === gameManager.game.round);
     }
 
     return flipped && reveal;

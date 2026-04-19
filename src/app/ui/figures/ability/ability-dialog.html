@@ -14,7 +14,7 @@
         [flipped]="opened"
         [relative]="relative"
         [interactiveAbilities]="interactiveAbilities"
-        [activeActions]="!!monster && monster.firstActiveAction ? (monster.firstActiveAction == 'bottom' ? 'bottom' : 'top') : false"
+        [activeActions]="!!monster && monster.firstActiveAction ? (monster.firstActiveAction === 'bottom' ? 'bottom' : 'top') : false"
       ></ghs-ability>
     </div>
   }
@@ -33,7 +33,7 @@
         [flipped]="opened"
         [relative]="relative"
         [interactiveAbilities]="interactiveAbilities"
-        [activeActions]="!!monster && monster.firstActiveAction ? (monster.firstActiveAction == 'bottom' ? 'top' : 'bottom') : false"
+        [activeActions]="!!monster && monster.firstActiveAction ? (monster.firstActiveAction === 'bottom' ? 'top' : 'bottom') : false"
       ></ghs-ability>
     </div>
   }

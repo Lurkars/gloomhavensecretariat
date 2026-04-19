@@ -29,13 +29,13 @@ export class CharacterConditionCommand extends CommandImpl {
     return (
       (conditionIndex >= 0 &&
         conditionIndex < this.conditions.length &&
-        gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == number) != undefined) ||
+        gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) !== undefined) ||
       false
     );
   }
 
   executeWithParameters(number: number, conditionIndex: number) {
-    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == number) as Character;
+    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) as Character;
     if (character) {
       const condition = this.conditions[conditionIndex];
       if (condition) {
@@ -54,7 +54,7 @@ export class CharacterConditionCommand extends CommandImpl {
 
   override before(): BASE_TYPE[] {
     const character = gameManager.game.figures.find(
-      (figure) => figure instanceof Character && figure.number == this.parameters[0]
+      (figure) => figure instanceof Character && figure.number === this.parameters[0]
     ) as Character;
     const condition = this.conditions[this.parameters[1] as number];
     if (character && condition) {

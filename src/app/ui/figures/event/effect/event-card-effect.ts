@@ -64,9 +64,9 @@ export class EventCardEffectComponent implements OnInit {
       this.applicable = gameManager.eventCardManager.applicableEffect(this.effectObject);
 
       if (
-        this.effectObject.type == EventCardEffectType.and ||
-        this.effectObject.type == EventCardEffectType.additionally ||
-        this.effectObject.type == EventCardEffectType.checkbox
+        this.effectObject.type === EventCardEffectType.and ||
+        this.effectObject.type === EventCardEffectType.additionally ||
+        this.effectObject.type === EventCardEffectType.checkbox
       ) {
         this.applicable = this.effects.some((e) => typeof e === 'object' && gameManager.eventCardManager.applicableEffect(e));
       }
@@ -75,19 +75,19 @@ export class EventCardEffectComponent implements OnInit {
         (this.effectObject.condition && !gameManager.eventCardManager.resolvableCondition(this.effectObject.condition)) || false;
 
       if (
-        this.effectObject.type == EventCardEffectType.scenarioCondition ||
-        this.effectObject.type == EventCardEffectType.traitScenarioCondition
+        this.effectObject.type === EventCardEffectType.scenarioCondition ||
+        this.effectObject.type === EventCardEffectType.traitScenarioCondition
       ) {
         let concat = '';
         let values = this.effectObject.values || [];
-        if (this.effectObject.type == EventCardEffectType.traitScenarioCondition) {
+        if (this.effectObject.type === EventCardEffectType.traitScenarioCondition) {
           values = values.slice(1);
         }
         values
           .filter((v) => typeof v === 'string')
           .map((condition) => {
             const values = condition.split(':');
-            if (values.length == 2) {
+            if (values.length === 2) {
               return '%game.condition.' + values[0] + '% x' + values[1];
             }
             return '%game.condition.' + values[0] + '%';
@@ -103,7 +103,7 @@ export class EventCardEffectComponent implements OnInit {
             }
           });
         this.labelArgs = [concat];
-        if (this.effectObject.type == EventCardEffectType.traitScenarioCondition && typeof this.effectObject.values[0] === 'string') {
+        if (this.effectObject.type === EventCardEffectType.traitScenarioCondition && typeof this.effectObject.values[0] === 'string') {
           this.labelArgs.unshift(this.effectObject.values[0]);
         }
       }
@@ -114,7 +114,7 @@ export class EventCardEffectComponent implements OnInit {
 
   check(index: number) {
     if (this.selected) {
-      if (this.checks == index + 1) {
+      if (this.checks === index + 1) {
         this.checks = index;
       } else {
         this.checks = index + 1;

@@ -21,7 +21,7 @@ export class ScenarioConclusionComponent {
   data: { conclusions: ScenarioData[]; parent: ScenarioData } = inject(DIALOG_DATA);
 
   constructor() {
-    if (this.data.conclusions.length == 1) {
+    if (this.data.conclusions.length === 1) {
       this.close(this.data.conclusions[0]);
     }
   }

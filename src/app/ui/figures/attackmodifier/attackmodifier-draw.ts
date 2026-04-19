@@ -87,7 +87,7 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
   }
 
   update() {
-    if (this.character && this.deck != this.character.attackModifierDeck) {
+    if (this.character && this.deck !== this.character.attackModifierDeck) {
       this.deck = this.character.attackModifierDeck;
     }
 

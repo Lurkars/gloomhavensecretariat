@@ -33,7 +33,7 @@ export class CharacterItemComponent {
 
   equipped(): AdditionalIdentifier | undefined {
     return this.character.progress.equippedItems.find(
-      (identifier) => identifier.name == '' + this.item.id && identifier.edition == this.item.edition
+      (identifier) => identifier.name === '' + this.item.id && identifier.edition === this.item.edition
     );
   }
 
@@ -44,23 +44,24 @@ export class CharacterItemComponent {
       this.character.progress.equippedItems.find(
         (identifier) =>
           typeof this.item.id === 'number' &&
-          +identifier.name == (this.item.id % 2 == 0 ? this.item.id - 1 : this.item.id + 1) &&
-          identifier.edition == this.item.edition
-      ) != undefined
+          +identifier.name === (this.item.id % 2 === 0 ? this.item.id - 1 : this.item.id + 1) &&
+          identifier.edition === this.item.edition
+      ) !== undefined
     );
   }
 
   isLootRandomItem() {
     return this.character.progress.equippedItems.find(
       (identifier) =>
-        identifier.name == '' + this.item.id && identifier.edition == this.item.edition && identifier.marker == 'loot-random-item'
+        identifier.name === '' + this.item.id && identifier.edition === this.item.edition && identifier.marker === 'loot-random-item'
     );
   }
 
   toggleEquippedItem(force: boolean = false) {
     const owned =
-      this.character.progress.items.find((identifier) => identifier.name == '' + this.item.id && identifier.edition == this.item.edition) !=
-      undefined;
+      this.character.progress.items.find(
+        (identifier) => identifier.name === '' + this.item.id && identifier.edition === this.item.edition
+      ) !== undefined;
     if ((this.setup || force) && (owned || !this.bbBlocked() || force)) {
       gameManager.stateManager.before(
         this.equipped() ? 'unequipItem' : 'equipItem',
@@ -89,7 +90,7 @@ export class CharacterItemComponent {
   countFlag(flag: string): number {
     const equipped = this.equipped();
     if (equipped) {
-      return (equipped.tags && equipped.tags.filter((tag) => tag == flag).length) || 0;
+      return (equipped.tags && equipped.tags.filter((tag) => tag === flag).length) || 0;
     }
     return 0;
   }
@@ -99,12 +100,12 @@ export class CharacterItemComponent {
       !force &&
       gameManager.challengesManager.apply &&
       gameManager.challengesManager.isActive(1502, 'fh') &&
-      this.item.slot == ItemSlot.small
+      this.item.slot === ItemSlot.small
     ) {
       return;
     }
 
-    if ((!this.setup && gameManager.game.state == GameState.next) || force) {
+    if ((!this.setup && gameManager.game.state === GameState.next) || force) {
       const equipped = this.equipped();
       if (equipped && (gameManager.itemManager.itemUsable(this.item) || force)) {
         equipped.tags = equipped.tags || [];
@@ -120,21 +121,21 @@ export class CharacterItemComponent {
             !force &&
             gameManager.challengesManager.apply &&
             gameManager.challengesManager.isActive(1507, 'fh') &&
-            flag == ItemFlags.spent
+            flag === ItemFlags.spent
           ) {
             equipped.tags.push(ItemFlags.consumed);
           } else {
             equipped.tags.push(flag);
           }
         } else {
-          equipped.tags = equipped.tags.filter((tag) => tag != flag);
-          if (flag == ItemFlags.spent) {
-            equipped.tags = equipped.tags.filter((tag) => tag != ItemFlags.slot && tag != ItemFlags.slotBack);
+          equipped.tags = equipped.tags.filter((tag) => tag !== flag);
+          if (flag === ItemFlags.spent) {
+            equipped.tags = equipped.tags.filter((tag) => tag !== ItemFlags.slot && tag !== ItemFlags.slotBack);
           }
         }
 
         if (
-          (flag == ItemFlags.consumed || flag == ItemFlags.spent) &&
+          (flag === ItemFlags.consumed || flag === ItemFlags.spent) &&
           equipped.tags.includes(flag) &&
           settingsManager.settings.characterItemsApply
         ) {
@@ -152,7 +153,7 @@ export class CharacterItemComponent {
   }
 
   toggleFlagCount(index: number, flag: string) {
-    if (!this.setup && gameManager.game.state == GameState.next) {
+    if (!this.setup && gameManager.game.state === GameState.next) {
       const equipped = this.equipped();
       if (equipped) {
         equipped.tags = equipped.tags || [];
@@ -168,7 +169,7 @@ export class CharacterItemComponent {
           for (let i = count; i <= index; i++) {
             equipped.tags.push(flag);
           }
-          if (flag == ItemFlags.slot && this.countFlag(flag) == this.item.slots) {
+          if (flag === ItemFlags.slot && this.countFlag(flag) === this.item.slots) {
             if (this.item.spent && !this.countFlag(ItemFlags.spent)) {
               equipped.tags.push(ItemFlags.spent);
             } else if (this.item.consumed && !this.countFlag(ItemFlags.consumed)) {

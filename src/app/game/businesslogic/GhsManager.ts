@@ -26,7 +26,7 @@ export class GhsManager {
       gameManager.scenarioRulesManager.applyScenarioRulesAlways();
     }
     gameManager.roundManager.firstRound =
-      gameManager.game.round == 0 && gameManager.game.roundResets.length == 0 && gameManager.game.roundResetsHidden.length == 0;
+      gameManager.game.round === 0 && gameManager.game.roundResets.length === 0 && gameManager.game.roundResetsHidden.length === 0;
     gameManager.buildingsManager.update();
     gameManager.challengesManager.update();
     gameManager.trialsManager.update();

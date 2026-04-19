@@ -89,13 +89,13 @@ export class UndoDialogComponent implements OnInit {
       index < gameManager.stateManager.undos.length
     ) {
       undoInfo = gameManager.stateManager.undoInfos[index];
-      if (undoInfo && undoInfo.length > 1 && undoInfo[0] == 'serverSync') {
-        if (undoInfo[1] == 'setInitiative' && undoInfo.length > 3) {
+      if (undoInfo && undoInfo.length > 1 && undoInfo[0] === 'serverSync') {
+        if (undoInfo[1] === 'setInitiative' && undoInfo.length > 3) {
           undoInfo = ['serverSync', settingsManager.getLabel('state.info.' + undoInfo[1], [undoInfo[2], ''])];
         } else {
           undoInfo = ['serverSync', settingsManager.getLabel('state.info.' + undoInfo[1], undoInfo.slice(2))];
         }
-      } else if (undoInfo && undoInfo.length == 1 && undoInfo[0] == 'serverSync') {
+      } else if (undoInfo && undoInfo.length === 1 && undoInfo[0] === 'serverSync') {
         undoInfo = ['serverSync', ''];
       } else if (!undoInfo) {
         undoInfo = ['unknown'];
@@ -114,13 +114,13 @@ export class UndoDialogComponent implements OnInit {
       index < gameManager.stateManager.redos.length
     ) {
       redoInfo = gameManager.stateManager.undoInfos[gameManager.stateManager.undos.length + index];
-      if (redoInfo && redoInfo.length > 1 && redoInfo[0] == 'serverSync') {
-        if (redoInfo[1] == 'setInitiative' && redoInfo.length > 3) {
+      if (redoInfo && redoInfo.length > 1 && redoInfo[0] === 'serverSync') {
+        if (redoInfo[1] === 'setInitiative' && redoInfo.length > 3) {
           redoInfo = ['serverSync', settingsManager.getLabel('state.info.' + redoInfo[1], [redoInfo[2], ''])];
         } else {
           redoInfo = ['serverSync', settingsManager.getLabel('state.info.' + redoInfo[1], redoInfo.slice(2))];
         }
-      } else if (redoInfo && redoInfo.length == 1 && redoInfo[0] == 'serverSync') {
+      } else if (redoInfo && redoInfo.length === 1 && redoInfo[0] === 'serverSync') {
         redoInfo = ['serverSync', ''];
       } else if (!redoInfo) {
         redoInfo = ['unknown'];
@@ -142,7 +142,7 @@ export class UndoDialogComponent implements OnInit {
   }
 
   undo(index: number, force: boolean = false) {
-    if (!force && this.undoConfirm != 'undo-' + index) {
+    if (!force && this.undoConfirm !== 'undo-' + index) {
       this.undoConfirm = 'undo-' + index;
     } else {
       gameManager.stateManager.fixedUndo(gameManager.stateManager.undos.length - index);
@@ -150,7 +150,7 @@ export class UndoDialogComponent implements OnInit {
   }
 
   redo(index: number, force: boolean = false) {
-    if (!force && this.undoConfirm != 'redo-' + index) {
+    if (!force && this.undoConfirm !== 'redo-' + index) {
       this.undoConfirm = 'redo-' + index;
     } else {
       gameManager.stateManager.fixedRedo(index + 1);
@@ -162,7 +162,7 @@ export class UndoDialogComponent implements OnInit {
   }
 
   clearUndos() {
-    if (this.confirm != 'clearUndos') {
+    if (this.confirm !== 'clearUndos') {
       this.confirm = 'clearUndos';
     } else {
       this.undoArray = [];
@@ -172,7 +172,7 @@ export class UndoDialogComponent implements OnInit {
   }
 
   clearRedos() {
-    if (this.confirm != 'clearRedos') {
+    if (this.confirm !== 'clearRedos') {
       this.confirm = 'clearRedos';
     } else {
       this.redoArray = [];

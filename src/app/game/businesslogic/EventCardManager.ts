@@ -85,28 +85,28 @@ export class EventCardManager {
     return gameManager.editionData
       .filter(
         (editionData) =>
-          editionData.edition == edition || (extension && gameManager.editionExtensions(edition).includes(editionData.edition))
+          editionData.edition === edition || (extension && gameManager.editionExtensions(edition).includes(editionData.edition))
       )
       .flatMap((editionData) => editionData.events)
       .flatMap((event) => event.type)
-      .filter((type, index, self) => index == self.indexOf(type));
+      .filter((type, index, self) => index === self.indexOf(type));
   }
 
   getEventCardsForEdition(edition: string, type: string, extension: boolean = true): EventCard[] {
     return gameManager.editionData
       .filter(
         (editionData) =>
-          editionData.edition == edition || (extension && gameManager.editionExtensions(edition).includes(editionData.edition))
+          editionData.edition === edition || (extension && gameManager.editionExtensions(edition).includes(editionData.edition))
       )
       .flatMap((editionData) => editionData.events)
-      .filter((eventCard) => eventCard.type == type);
+      .filter((eventCard) => eventCard.type === type);
   }
 
   getEventCardForEdition(edition: string, type: string, cardId: string): EventCard | undefined {
     return gameManager.editionData
-      .filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).includes(editionData.edition))
+      .filter((editionData) => editionData.edition === edition || gameManager.editionExtensions(edition).includes(editionData.edition))
       .flatMap((editionData) => editionData.events)
-      .find((eventCard) => eventCard.type == type && eventCard.cardId == cardId);
+      .find((eventCard) => eventCard.type === type && eventCard.cardId === cardId);
   }
 
   buildPartyDeck(edition: string, type: string) {
@@ -130,12 +130,12 @@ export class EventCardManager {
 
         if (this.game.party.eventDecks && Object.keys(this.game.party.eventDecks).length) {
           this.game.party.scenarios
-            .filter((s) => s.edition == edition || gameManager.editionExtensions(edition).includes(s.edition))
+            .filter((s) => s.edition === edition || gameManager.editionExtensions(edition).includes(s.edition))
             .map((s) => gameManager.scenarioManager.getScenario(s.index, s.edition, s.group))
             .forEach((scenarioData) => this.buildPartyDeckMigrationScenarioHelper(scenarioData));
 
           this.game.party.conclusions
-            .filter((s) => s.edition == edition || gameManager.editionExtensions(edition).includes(s.edition))
+            .filter((s) => s.edition === edition || gameManager.editionExtensions(edition).includes(s.edition))
             .map((s) => gameManager.scenarioManager.getSection(s.index, s.edition, s.group, true))
             .forEach((scenarioData) => this.buildPartyDeckMigrationScenarioHelper(scenarioData));
 
@@ -172,7 +172,7 @@ export class EventCardManager {
           const treasures = gameManager.editionData
             .filter(
               (editionData) =>
-                (editionData.treasures && editionData.edition == edition) ||
+                (editionData.treasures && editionData.edition === edition) ||
                 gameManager.editionExtensions(edition).includes(editionData.edition)
             )
             .flatMap((editionData) =>
@@ -180,11 +180,11 @@ export class EventCardManager {
             );
 
           this.game.party.treasures.forEach((id) => {
-            if (id.edition == edition || gameManager.editionExtensions(edition).includes(id.edition)) {
-              const treasure = treasures.find((treasureData) => treasureData.index == +id.name);
+            if (id.edition === edition || gameManager.editionExtensions(edition).includes(id.edition)) {
+              const treasure = treasures.find((treasureData) => treasureData.index === +id.name);
               if (treasure && treasure.rewards) {
                 treasure.rewards.forEach((reward) => {
-                  if (reward.type == TreasureRewardType.event) {
+                  if (reward.type === TreasureRewardType.event) {
                     if (typeof reward.value === 'string' && reward.value.split('-').length > 1) {
                       this.addEvent(reward.value.split('-')[0], reward.value.split('-')[1], true);
                     }
@@ -214,8 +214,8 @@ export class EventCardManager {
         scenarioData.rewards.eventDecks.forEach((eventDeck) => {
           const type = eventDeck.split(':')[0];
           const events = gameManager.eventCardManager.getEventCardsForEdition(scenarioData.edition, type);
-          const startEvent = events.find((e) => scenarioData.rewards && e.cardId == eventDeck.split(':')[1].split('|')[0]);
-          const endEvent = events.find((e) => scenarioData.rewards && e.cardId == eventDeck.split(':')[1].split('|')[1]);
+          const startEvent = events.find((e) => scenarioData.rewards && e.cardId === eventDeck.split(':')[1].split('|')[0]);
+          const endEvent = events.find((e) => scenarioData.rewards && e.cardId === eventDeck.split(':')[1].split('|')[1]);
           if (startEvent && endEvent) {
             gameManager.eventCardManager.buildEventDeck(
               type,
@@ -239,14 +239,14 @@ export class EventCardManager {
 
   addEvent(type: string, cardId: string, newOnly: boolean = false) {
     const edition = this.game.edition || gameManager.currentEdition();
-    if (this.getEventCardForEdition(edition, type, cardId) != undefined) {
+    if (this.getEventCardForEdition(edition, type, cardId) !== undefined) {
       if (!this.game.party.eventDecks[type]) {
         this.game.party.eventDecks[type] = [];
       }
 
       if (
         !this.game.party.eventDecks[type].includes(cardId) &&
-        (!newOnly || !this.game.party.eventCards.find((e) => e.type == type && e.cardId == cardId && e.edition == edition))
+        (!newOnly || !this.game.party.eventCards.find((e) => e.type === type && e.cardId === cardId && e.edition === edition))
       ) {
         this.game.party.eventDecks[type].push(cardId);
         this.shuffleEvents(type);
@@ -270,7 +270,7 @@ export class EventCardManager {
     }
 
     const index = this.game.party.eventDecks[type].indexOf(cardId);
-    if (index != -1) {
+    if (index !== -1) {
       this.game.party.eventDecks[type].splice(index, 1);
     }
   }
@@ -313,7 +313,7 @@ export class EventCardManager {
           results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, checks, true));
         }
 
-        if (attack && !results.some((value) => value instanceof EventCardEffect && value.type == EventCardEffectType.skipThreat)) {
+        if (attack && !results.some((value) => value instanceof EventCardEffect && value.type === EventCardEffectType.skipThreat)) {
           eventCard.options
             .filter((option) => !option.label && option.outcomes)
             .forEach((option) => {
@@ -410,12 +410,12 @@ export class EventCardManager {
               results.push(conditionResult);
             }
 
-            if (typeof effect.condition !== 'string' && effect.condition.type == EventCardConditionType.character) {
+            if (typeof effect.condition !== 'string' && effect.condition.type === EventCardConditionType.character) {
               characters = characters.filter((c) => (effect.condition as EventCardCondition).values.includes(c.name));
             }
           }
 
-          if (effect.type == EventCardEffectType.and || effect.type == EventCardEffectType.additionally) {
+          if (effect.type === EventCardEffectType.and || effect.type === EventCardEffectType.additionally) {
             if (!scenario) {
               results.push(
                 ...this.applyEffects(
@@ -432,27 +432,27 @@ export class EventCardManager {
               case EventCardEffectType.traitScenarioCondition: {
                 if (effect.values) {
                   let values = effect.values;
-                  if (effect.type == EventCardEffectType.traitScenarioCondition) {
+                  if (effect.type === EventCardEffectType.traitScenarioCondition) {
                     values = values.slice(1);
                   }
                   values
                     .filter((value) => typeof value === 'string')
                     .forEach((value) => {
                       const condition = value.split(':')[0] as ConditionName;
-                      if (condition != ConditionName.bless && condition != ConditionName.curse) {
+                      if (condition !== ConditionName.bless && condition !== ConditionName.curse) {
                         characters
                           .filter(
-                            (c) => effect.type == EventCardEffectType.scenarioCondition || c.traits.some((t) => t == effect.values[0])
+                            (c) => effect.type === EventCardEffectType.scenarioCondition || c.traits.some((t) => t === effect.values[0])
                           )
                           .forEach((c) => {
                             gameManager.entityManager.addCondition(c, c, new Condition(condition));
                           });
-                      } else if (condition == ConditionName.curse) {
+                      } else if (condition === ConditionName.curse) {
                         const count = value.split(':')[1] ? +value.split(':')[1] : 1;
                         for (let i = 0; i < count; i++) {
                           characters
                             .filter(
-                              (c) => effect.type == EventCardEffectType.scenarioCondition || c.traits.some((t) => t == effect.values[0])
+                              (c) => effect.type === EventCardEffectType.scenarioCondition || c.traits.some((t) => t === effect.values[0])
                             )
                             .forEach((c) => {
                               if (gameManager.attackModifierManager.countUpcomingCurses(false) < 10) {
@@ -460,12 +460,12 @@ export class EventCardManager {
                               }
                             });
                         }
-                      } else if (condition == ConditionName.bless) {
+                      } else if (condition === ConditionName.bless) {
                         const count = value.split(':')[1] ? +value.split(':')[1] : 1;
                         for (let i = 0; i < count; i++) {
                           characters
                             .filter(
-                              (c) => effect.type == EventCardEffectType.scenarioCondition || c.traits.some((t) => t == effect.values[0])
+                              (c) => effect.type === EventCardEffectType.scenarioCondition || c.traits.some((t) => t === effect.values[0])
                             )
                             .forEach((c) => {
                               if (gameManager.attackModifierManager.countUpcomingBlesses() < 10) {
@@ -491,7 +491,7 @@ export class EventCardManager {
                 const damage = +effect.values[1];
                 if (damage) {
                   characters
-                    .filter((c) => c.traits.some((t) => t == effect.values[0]))
+                    .filter((c) => c.traits.some((t) => t === effect.values[0]))
                     .forEach((c) => {
                       gameManager.entityManager.changeHealth(c, c, -damage, true);
                     });
@@ -685,9 +685,9 @@ export class EventCardManager {
                 const isSummer = Math.max(this.game.party.weeks, 0) % 20 < 10;
                 let week = 0;
                 if (isSummer) {
-                  week = Math.floor(this.game.party.weeks / 10) + (season == 'summer' ? 3 : 2);
+                  week = Math.floor(this.game.party.weeks / 10) + (season === 'summer' ? 3 : 2);
                 } else {
-                  week = Math.floor(this.game.party.weeks / 10) + (season == 'winter' ? 3 : 2);
+                  week = Math.floor(this.game.party.weeks / 10) + (season === 'winter' ? 3 : 2);
                 }
                 this.game.party.weekSections[week * 10] = [...(gameManager.game.party.weekSections[week * 10] || []), section];
                 break;
@@ -697,7 +697,7 @@ export class EventCardManager {
                 const season = effect.values[2] as string;
                 let week = this.game.party.weeks + (effect.values[1] ? +effect.values[1] : 1);
                 const summer = Math.max(week, 0) % 20 < 10;
-                if ((summer && season == 'summer') || (!summer && season == 'winter')) {
+                if ((summer && season === 'summer') || (!summer && season === 'winter')) {
                   week = week - (Math.max(week, 0) % 20) + +effect.values[3] + 20;
                 }
                 this.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
@@ -725,7 +725,7 @@ export class EventCardManager {
               case EventCardEffectType.townGuardDeckCardRemove:
               case EventCardEffectType.townGuardDeckCardRemovePermanently: {
                 if (this.game.party.townGuardDeck) {
-                  const card = this.game.party.townGuardDeck.cards.find((value) => value == (effect.values[0] as string));
+                  const card = this.game.party.townGuardDeck.cards.find((value) => value === (effect.values[0] as string));
                   if (card) {
                     this.game.party.townGuardDeck.cards.splice(this.game.party.townGuardDeck.cards.indexOf(card), 1);
                   }
@@ -734,7 +734,7 @@ export class EventCardManager {
               }
               case EventCardEffectType.traitExperience: {
                 characters
-                  .filter((c) => c.traits.some((t) => t == effect.values[0]))
+                  .filter((c) => c.traits.some((t) => t === effect.values[0]))
                   .forEach((c) => {
                     c.progress.experience += +effect.values[1];
                   });
@@ -744,12 +744,12 @@ export class EventCardManager {
               case EventCardEffectType.traitScenarioDamage:
                 break;
               case EventCardEffectType.unlockEnvelope: {
-                if (eventCard.edition == 'fh') {
+                if (eventCard.edition === 'fh') {
                   const building = gameManager
                     .campaignData(eventCard.edition)
-                    .buildings.find((building) => building.id == effect.values[0]);
+                    .buildings.find((building) => building.id === effect.values[0]);
                   if (building) {
-                    if (this.game.party.buildings.find((model) => model.name == building.name) == undefined) {
+                    if (this.game.party.buildings.find((model) => model.name === building.name) === undefined) {
                       this.game.party.buildings.push(new BuildingModel(building.name, 0));
                     }
                   } else {
@@ -774,7 +774,7 @@ export class EventCardManager {
                 break;
               }
               case EventCardEffectType.upgradeBuilding: {
-                const building = this.game.party.buildings.find((model) => model.name == (effect.values[0] as string));
+                const building = this.game.party.buildings.find((model) => model.name === (effect.values[0] as string));
                 if (building) {
                   if (building.level >= +effect.values[1]) {
                     this.game.party.morale += +effect.values[2];
@@ -791,7 +791,7 @@ export class EventCardManager {
               }
               case EventCardEffectType.wreckBuilding: {
                 const buildingName = effect.values[0] as string;
-                const building = this.game.party.buildings.find((value) => value.name == buildingName);
+                const building = this.game.party.buildings.find((value) => value.name === buildingName);
                 if (building) {
                   building.state = 'wrecked';
                 }
@@ -804,11 +804,11 @@ export class EventCardManager {
                 break;
             }
           }
-        } else if (effect.type != EventCardEffectType.noEffect) {
+        } else if (effect.type !== EventCardEffectType.noEffect) {
           if (!scenario) {
             results.push(effect);
           }
-          if (effect.type != EventCardEffectType.outpostAttack && effect.type != EventCardEffectType.outpostTarget) {
+          if (effect.type !== EventCardEffectType.outpostAttack && effect.type !== EventCardEffectType.outpostTarget) {
             console.warn('Missing implementation for applying effect', effect, scenario);
           }
         }
@@ -864,7 +864,7 @@ export class EventCardManager {
             (value) =>
               typeof value === 'string' &&
               this.game.party.buildings &&
-              this.game.party.buildings.find((model) => model.level && model.name == value)
+              this.game.party.buildings.find((model) => model.level && model.name === value)
           )
         );
       case EventCardConditionType.campaignSticker:
@@ -889,11 +889,11 @@ export class EventCardManager {
           (this.game.party.factionReputation[condition.values[0]] || 0) > condition.values[1]
         );
       case EventCardConditionType.season:
-        return Math.max(this.game.party.weeks, 0) % 20 < 10 ? condition.values[0] == 'summer' : condition.values[0] == 'winter';
+        return Math.max(this.game.party.weeks, 0) % 20 < 10 ? condition.values[0] === 'summer' : condition.values[0] === 'winter';
       case EventCardConditionType.seasonLT:
-        if (condition.values[0] == 'summer') {
+        if (condition.values[0] === 'summer') {
           return Math.max(this.game.party.weeks + +condition.values[1], 0) % 20 < 10;
-        } else if (condition.values[0] == 'winter') {
+        } else if (condition.values[0] === 'winter') {
           return Math.max(this.game.party.weeks + +condition.values[1], 0) % 20 >= 10;
         }
         return false;
@@ -908,7 +908,7 @@ export class EventCardManager {
         return (
           condition.values &&
           condition.values.every((trait) =>
-            characters.some((c) => !c.traits.includes(trait as string) || (c.characterClass as string) == (trait as string))
+            characters.some((c) => !c.traits.includes(trait as string) || (c.characterClass as string) === (trait as string))
           )
         );
       case EventCardConditionType.payGold:

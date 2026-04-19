@@ -25,7 +25,7 @@ export class EditionEditorComponent implements OnInit {
   gameManager: GameManager = gameManager;
   encodeURIComponent = encodeURIComponent;
   Conditions: ConditionName[] = Object.values(ConditionName).filter(
-    (condition) => condition != ConditionName.bless && condition != ConditionName.curse
+    (condition) => condition !== ConditionName.bless && condition !== ConditionName.curse
   );
 
   editionData: EditionData;
@@ -66,12 +66,12 @@ export class EditionEditorComponent implements OnInit {
 
   loadEditionData(event: any) {
     const index = +event.target.value;
-    this.editionData = index != -1 ? gameManager.editionData[index] : new EditionData('', [], [], [], [], [], []);
+    this.editionData = index !== -1 ? gameManager.editionData[index] : new EditionData('', [], [], [], [], [], []);
     this.editionDataToJson();
   }
 
   toggleAllConditions(conditionSelect: HTMLSelectElement) {
-    if (this.editionData.conditions.length == this.Conditions.length) {
+    if (this.editionData.conditions.length === this.Conditions.length) {
       this.editionData.conditions = [];
       conditionSelect.blur();
     } else {
@@ -91,7 +91,7 @@ export class EditionEditorComponent implements OnInit {
             if (character) {
               if (
                 !this.editionData.characters.find(
-                  (characterData) => character.name == characterData.name && character.edition == characterData.edition
+                  (characterData) => character.name === characterData.name && character.edition === characterData.edition
                 )
               ) {
                 this.editionData.characters.push(new CharacterData(character));
@@ -123,7 +123,9 @@ export class EditionEditorComponent implements OnInit {
             const monster: MonsterData = JSON.parse(reader.result as string);
             if (monster) {
               if (
-                !this.editionData.monsters.find((monsterData) => monster.name == monsterData.name && monster.edition == monsterData.edition)
+                !this.editionData.monsters.find(
+                  (monsterData) => monster.name === monsterData.name && monster.edition === monsterData.edition
+                )
               ) {
                 this.editionData.monsters.push(new MonsterData(monster));
                 this.editionDataToJson();
@@ -153,7 +155,7 @@ export class EditionEditorComponent implements OnInit {
           try {
             const deck: DeckData = JSON.parse(reader.result as string);
             if (deck) {
-              if (!this.editionData.decks.find((deckData) => deck.name == deckData.name && deck.edition == deckData.edition)) {
+              if (!this.editionData.decks.find((deckData) => deck.name === deckData.name && deck.edition === deckData.edition)) {
                 this.editionData.decks.push(deck);
                 this.editionDataToJson();
               }

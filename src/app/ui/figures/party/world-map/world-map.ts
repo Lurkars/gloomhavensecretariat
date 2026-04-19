@@ -72,9 +72,9 @@ export class WorldMapComponent implements AfterViewInit {
   }
 
   update() {
-    let editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
+    let editionData = gameManager.editionData.find((editionData) => editionData.edition === this.edition);
     if (editionData && !editionData.worldMap && editionData.extendWorldMap) {
-      editionData = gameManager.editionData.find((other) => editionData && other.edition == editionData.extendWorldMap && other.worldMap);
+      editionData = gameManager.editionData.find((other) => editionData && other.edition === editionData.extendWorldMap && other.worldMap);
     }
     if (editionData && editionData.worldMap) {
       this.worldMap = editionData.worldMap;
@@ -82,7 +82,7 @@ export class WorldMapComponent implements AfterViewInit {
       if (this.worldMap) {
         this.scenarios = gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => scenarioData.coordinates);
 
-        if (this.mapEdition != this.edition && this.showExtended) {
+        if (this.mapEdition !== this.edition && this.showExtended) {
           this.scenarios.push(
             ...gameManager.scenarioManager.scenarioData(this.mapEdition).filter((scenarioData) => scenarioData.coordinates)
           );
@@ -95,7 +95,7 @@ export class WorldMapComponent implements AfterViewInit {
             const visible =
               !gameManager.game.party.campaignMode ||
               gameManager.game.party.conclusions.find(
-                (model) => model.edition == sectionData.edition && model.index == sectionData.index && model.group == sectionData.group
+                (model) => model.edition === sectionData.edition && model.index === sectionData.index && model.group === sectionData.group
               );
             if (visible) {
               sectionData.unlocks.forEach((index) => {
@@ -103,9 +103,9 @@ export class WorldMapComponent implements AfterViewInit {
                   .scenarioData(sectionData.edition)
                   .find(
                     (scenarioData) =>
-                      scenarioData.edition == sectionData.edition &&
-                      scenarioData.group == sectionData.group &&
-                      scenarioData.index == index &&
+                      scenarioData.edition === sectionData.edition &&
+                      scenarioData.group === sectionData.group &&
+                      scenarioData.index === index &&
                       !scenarioData.coordinates
                   );
                 if (scenarioData) {
@@ -126,7 +126,7 @@ export class WorldMapComponent implements AfterViewInit {
               (sectionData.rewards.overlayCampaignSticker || sectionData.rewards.overlaySticker)
           );
 
-        if (this.mapEdition != this.edition && this.showExtended) {
+        if (this.mapEdition !== this.edition && this.showExtended) {
           this.conclusions.push(
             ...gameManager
               .sectionData(this.mapEdition)
@@ -296,7 +296,7 @@ export class WorldMapComponent implements AfterViewInit {
 
       this.conclusions.forEach((sectionData, i) => {
         const success = gameManager.game.party.conclusions.find(
-          (model) => model.edition == sectionData.edition && model.index == sectionData.index && model.group == sectionData.group
+          (model) => model.edition === sectionData.edition && model.index === sectionData.index && model.group === sectionData.group
         );
 
         if (!gameManager.game.party.campaignMode || success) {
@@ -325,9 +325,9 @@ export class WorldMapComponent implements AfterViewInit {
                     .scenarioData(conclusion.edition)
                     .find(
                       (scenarioData) =>
-                        scenarioData.edition == conclusion.edition &&
-                        scenarioData.group == conclusion.group &&
-                        scenarioData.index == conclusion.parent
+                        scenarioData.edition === conclusion.edition &&
+                        scenarioData.group === conclusion.group &&
+                        scenarioData.index === conclusion.parent
                     );
                 }
                 this.dialog.open(ScenarioSummaryComponent, {
@@ -362,7 +362,7 @@ export class WorldMapComponent implements AfterViewInit {
       });
 
       this.buildings.forEach((buildingData) => {
-        const model = gameManager.game.party.buildings.find((model) => model.name == buildingData.name);
+        const model = gameManager.game.party.buildings.find((model) => model.name === buildingData.name);
         const level: number | undefined = model
           ? model.level
           : gameManager.buildingsManager.initialBuilding(buildingData)
@@ -370,7 +370,7 @@ export class WorldMapComponent implements AfterViewInit {
             : gameManager.buildingsManager.availableBuilding(buildingData)
               ? 0
               : undefined;
-        if (level != undefined) {
+        if (level !== undefined) {
           if (buildingData.coordinates && buildingData.coordinates.length) {
             const overlayData = buildingData.coordinates[level || 0];
             if (overlayData) {
@@ -380,7 +380,7 @@ export class WorldMapComponent implements AfterViewInit {
                   '-' +
                   (buildingData.id ? buildingData.id + '-' : '') +
                   buildingData.name +
-                  (buildingData.upgrades.length ? '-' + (level != undefined ? level : '0') : '');
+                  (buildingData.upgrades.length ? '-' + (level !== undefined ? level : '0') : '');
               const overlayBuilding: ImageOverlay = this.placeOverlay(
                 './assets/images/world-map/' + buildingData.edition + '/buildings/' + imageName + '.png',
                 overlayData,

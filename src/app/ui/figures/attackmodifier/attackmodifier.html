@@ -23,9 +23,9 @@
                   !csOak &&
                   !imbue &&
                   (!newStyle ||
-                    attackModifier.valueType != AttackModifierValueType.plus ||
+                    attackModifier.valueType !== AttackModifierValueType.plus ||
                     !attackModifier.effects ||
-                    attackModifier.effects.length == 0)
+                    attackModifier.effects.length === 0)
                     ? attackModifier.type
                     : 'am-front') +
                   '.png'
@@ -40,9 +40,9 @@
                 [ngClass]="{
                   'new-style': newStyle,
                   fh: settingsManager.settings.fhStyle,
-                  'multiple-2': attackModifier.effects.length == 2,
-                  'multiple-3': attackModifier.effects.length == 3,
-                  'multiple-4': attackModifier.effects.length == 4
+                  'multiple-2': attackModifier.effects.length === 2,
+                  'multiple-3': attackModifier.effects.length === 3,
+                  'multiple-4': attackModifier.effects.length === 4
                 }"
               ></div>
             }
@@ -76,14 +76,14 @@
                 [ngClass]="{
                   'new-style': newStyle,
                   fh: settingsManager.settings.fhStyle,
-                  'multiple-2': orTypeEffect.effects.length == 2,
-                  'multiple-3': orTypeEffect.effects.length == 3,
-                  'multiple-4': orTypeEffect.effects.length == 4
+                  'multiple-2': orTypeEffect.effects.length === 2,
+                  'multiple-3': orTypeEffect.effects.length === 3,
+                  'multiple-4': orTypeEffect.effects.length === 4
                 }"
               ></div>
             }
           }
-          @if (multipe && attackModifier.effects.length == 1) {
+          @if (multipe && attackModifier.effects.length === 1) {
             @for (element of attackModifier.effects[0].value.split('|'); track element) {
               <div
                 class="type multiple multiple-1 {{ element }}"
@@ -104,17 +104,17 @@
               <img src="./assets/images/attackmodifier/cs-oak.png" />
             </div>
           }
-          @if (imbue && (!attackModifier.effects || attackModifier.effects.length == 0)) {
+          @if (imbue && (!attackModifier.effects || attackModifier.effects.length === 0)) {
             <div class="type imbue">
               <img [src]="'./assets/images/attackmodifier/' + attackModifier.valueType + attackModifier.value + '.png'" />
             </div>
           }
-          @if (attackModifier.type == AttackModifierType.empower) {
+          @if (attackModifier.type === AttackModifierType.empower) {
             <div class="type empower">
               <img src="./assets/images/attackmodifier/empower.png" />
             </div>
           }
-          @if (attackModifier.type == AttackModifierType.enfeeble) {
+          @if (attackModifier.type === AttackModifierType.enfeeble) {
             <div class="type enfeeble">
               <img src="./assets/images/attackmodifier/enfeeble.png" />
             </div>
@@ -124,14 +124,14 @@
           @if (
             attackModifier.effects &&
             attackModifier.effects.length > 0 &&
-            ((attackModifier.type != AttackModifierType.plus0 &&
-              attackModifier.type != AttackModifierType.plus &&
-              attackModifier.type != AttackModifierType.minus) ||
+            ((attackModifier.type !== AttackModifierType.plus0 &&
+              attackModifier.type !== AttackModifierType.plus &&
+              attackModifier.type !== AttackModifierType.minus) ||
               newStyle) &&
-            attackModifier.type != AttackModifierType.empower &&
-            attackModifier.type != AttackModifierType.enfeeble &&
-            attackModifier.type != AttackModifierType.imbue &&
-            attackModifier.type != AttackModifierType.advancedImbue
+            attackModifier.type !== AttackModifierType.empower &&
+            attackModifier.type !== AttackModifierType.enfeeble &&
+            attackModifier.type !== AttackModifierType.imbue &&
+            attackModifier.type !== AttackModifierType.advancedImbue
           ) {
             <img
               class="overlay"
@@ -140,9 +140,9 @@
             />
           }
           @if (
-            attackModifier.type == AttackModifierType.empower ||
-            attackModifier.type == AttackModifierType.enfeeble ||
-            ((attackModifier.type == AttackModifierType.imbue || attackModifier.type == AttackModifierType.advancedImbue) &&
+            attackModifier.type === AttackModifierType.empower ||
+            attackModifier.type === AttackModifierType.enfeeble ||
+            ((attackModifier.type === AttackModifierType.imbue || attackModifier.type === AttackModifierType.advancedImbue) &&
               attackModifier.effects &&
               attackModifier.effects.length)
           ) {
@@ -161,26 +161,26 @@
             <img class="rolling" src="./assets/images/attackmodifier/rolling.svg" />
           }
           @if (
-            ((!characterIcon && !ally) || (!attackModifier.character && attackModifier.type != AttackModifierType.curse)) &&
-            attackModifier.type != AttackModifierType.bless &&
+            ((!characterIcon && !ally) || (!attackModifier.character && attackModifier.type !== AttackModifierType.curse)) &&
+            attackModifier.type !== AttackModifierType.bless &&
             !csOak &&
             !imbue &&
-            attackModifier.type != AttackModifierType.minus1extra
+            attackModifier.type !== AttackModifierType.minus1extra
           ) {
             <span class="numeration">{{ numeration }}</span>
           }
           @if (
-            ((characterIcon || ally) && attackModifier.type == AttackModifierType.curse) ||
-            attackModifier.type == AttackModifierType.minus1extra
+            ((characterIcon || ally) && attackModifier.type === AttackModifierType.curse) ||
+            attackModifier.type === AttackModifierType.minus1extra
           ) {
             <span class="numeration character-curse-icon"> * </span>
           }
-          @if (attackModifier.type == AttackModifierType.plus) {
+          @if (attackModifier.type === AttackModifierType.plus) {
             <span class="am-value" [ngClass]="{ side: newStyle && attackModifier.effects && attackModifier.effects.length > 0 }"
               >+{{ attackModifier.value }}</span
             >
           }
-          @if (attackModifier.type == AttackModifierType.minus) {
+          @if (attackModifier.type === AttackModifierType.minus) {
             <span class="am-value" [ngClass]="{ side: newStyle && attackModifier.effects && attackModifier.effects.length > 0 }"
               >-{{ attackModifier.value }}</span
             >
@@ -199,11 +199,11 @@
             <div
               class="effects"
               [ngClass]="{
-                center: attackModifier.type == AttackModifierType.plus0 || newStyle,
+                center: attackModifier.type === AttackModifierType.plus0 || newStyle,
                 multiple: effects.length > 1,
-                'multiple-2': effects.length == 2,
-                'multiple-3': effects.length == 3,
-                'multiple-4': effects.length == 4
+                'multiple-2': effects.length === 2,
+                'multiple-3': effects.length === 3,
+                'multiple-4': effects.length === 4
               }"
             >
               @for (effect of effects | trackUUID; track effect._trackUUID) {
@@ -243,15 +243,15 @@
             <img
               [src]="
                 './assets/images/attackmodifier/town-guard/' +
-                (attackModifier.type == AttackModifierType.townguard ? attackModifier.valueType : attackModifier.type) +
+                (attackModifier.type === AttackModifierType.townguard ? attackModifier.valueType : attackModifier.type) +
                 '.png'
               "
             />
           </div>
-          @if (attackModifier.type == AttackModifierType.townguard) {
+          @if (attackModifier.type === AttackModifierType.townguard) {
             @if (
-              (attackModifier.value > 0 || attackModifier.effects.length == 0) &&
-              (attackModifier.valueType == AttackModifierValueType.plus || attackModifier.valueType == AttackModifierValueType.default)
+              (attackModifier.value > 0 || attackModifier.effects.length === 0) &&
+              (attackModifier.valueType === AttackModifierValueType.plus || attackModifier.valueType === AttackModifierValueType.default)
             ) {
               <span
                 class="am-value"
@@ -263,7 +263,7 @@
                 >+{{ attackModifier.value }}</span
               >
             }
-            @if (attackModifier.valueType == AttackModifierValueType.minus) {
+            @if (attackModifier.valueType === AttackModifierValueType.minus) {
               <span class="am-value" [ngClass]="{ effects: attackModifier.effects.length > 0 }">-{{ attackModifier.value }}</span>
             }
           }
@@ -276,11 +276,11 @@
             <div
               class="effects town-guard"
               [ngClass]="{
-                center: attackModifier.value == 0,
+                center: attackModifier.value === 0,
                 multiple: effects.length > 1,
-                'multiple-2': effects.length == 2,
-                'multiple-3': effects.length == 3,
-                'multiple-4': effects.length == 4
+                'multiple-2': effects.length === 2,
+                'multiple-3': effects.length === 3,
+                'multiple-4': effects.length === 4
               }"
             >
               @for (effect of effects | trackUUID; track effect._trackUUID) {

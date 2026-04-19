@@ -42,9 +42,9 @@ export class PerkLabelComponent implements OnInit {
         );
       });
 
-      if (perk.type == PerkType.replace) {
+      if (perk.type === PerkType.replace) {
         const replace = gameManager.attackModifierManager.replaceCount(perk);
-        if (replace == 1 && cardLabel.length == 2) {
+        if (replace === 1 && cardLabel.length === 2) {
           label = cardLabel;
         } else {
           if (replace > 1) {
@@ -61,7 +61,7 @@ export class PerkLabelComponent implements OnInit {
             label.push(cardLabel[0]);
           }
 
-          if (cardLabel.length - replace == 1) {
+          if (cardLabel.length - replace === 1) {
             label.push(cardLabel[replace]);
           } else {
             let multiLabel = '';
@@ -80,13 +80,13 @@ export class PerkLabelComponent implements OnInit {
         label = cardLabel;
       } else if (cardLabel.length < 3) {
         cardLabel.forEach((value, index, self) => {
-          if (index % 2 == 0 && index < self.length - 1) {
+          if (index % 2 === 0 && index < self.length - 1) {
             label.push(settingsManager.getLabel('game.attackModifiers.perks.additional', [value, cardLabel[index + 1]]));
           }
         });
       } else if (cardLabel.length < 4) {
         cardLabel.forEach((value, index, self) => {
-          if (index % 2 == 0 && index < self.length - 2) {
+          if (index % 2 === 0 && index < self.length - 2) {
             label.push(
               settingsManager.getLabel('game.attackModifiers.perks.additionalTwo', [value, cardLabel[index + 1], cardLabel[index + 2]])
             );
@@ -118,14 +118,14 @@ export class PerkLabelComponent implements OnInit {
         '<span class="attack-modifier-effect rolling">&zwj;<img class="action-icon sw" src="./assets/images/attackmodifier/rolling.svg"></span>';
     }
 
-    if (!attackModifier.rolling || attackModifier.type != AttackModifierType.plus0) {
-      if (attackModifier.valueType == AttackModifierValueType.minus) {
+    if (!attackModifier.rolling || attackModifier.type !== AttackModifierType.plus0) {
+      if (attackModifier.valueType === AttackModifierValueType.minus) {
         html += '<span class="attack-modifier-icon' + (attackModifier.value > 9 ? ' small' : '') + '">-' + attackModifier.value + '</span>';
-      } else if (attackModifier.type != AttackModifierType.null && attackModifier.valueType == AttackModifierValueType.multiply) {
+      } else if (attackModifier.type !== AttackModifierType.null && attackModifier.valueType === AttackModifierValueType.multiply) {
         html += '<span class="attack-modifier-icon' + (attackModifier.value > 9 ? ' small' : '') + '">' + attackModifier.value + 'x</span>';
-      } else if (attackModifier.type == AttackModifierType.null) {
+      } else if (attackModifier.type === AttackModifierType.null) {
         html += '<span class="attack-modifier-icon">&zwj;<img class="null" src="./assets/images/attackmodifier/null.svg"></span>';
-      } else if (attackModifier.type == AttackModifierType.plusX) {
+      } else if (attackModifier.type === AttackModifierType.plusX) {
         html += '<span class="attack-modifier-icon">+X</span>';
       } else {
         html += '<span class="attack-modifier-icon' + (attackModifier.value > 9 ? ' small' : '') + '">+' + attackModifier.value + '</span>';
@@ -147,7 +147,7 @@ export class PerkLabelComponent implements OnInit {
       }
     }
 
-    if (attackModifier.shuffle && attackModifier.type != AttackModifierType.null) {
+    if (attackModifier.shuffle && attackModifier.type !== AttackModifierType.null) {
       html += '<span class="attack-modifier-effect shuffle">&zwj;<img class="action-icon sw" src="./assets/images/shuffle.svg"></span>';
     }
 
@@ -246,7 +246,7 @@ export class PerkLabelComponent implements OnInit {
             '<span class="placeholder attack-modifier-effect special-target">' +
             settingsManager.getLabel('game.specialTarget.' + effect.value.split(':')[0], effect.value.split(':').slice(1)) +
             '</span>';
-        } else if (settingsManager.settings.fhStyle && effect.value == 'allyShort') {
+        } else if (settingsManager.settings.fhStyle && effect.value === 'allyShort') {
           html +=
             '<span class="placeholder attack-modifier-effect special-target">' +
             settingsManager.getLabel('game.specialTarget.ally') +

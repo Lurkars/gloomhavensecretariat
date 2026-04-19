@@ -50,8 +50,8 @@
               tabclick
               class="level"
               [ngClass]="{
-                active: level == gameManager.game.level,
-                scenariolevel: gameManager.game.playerCount < 1 && level == scenarioLevel
+                active: level === gameManager.game.level,
+                scenariolevel: gameManager.game.playerCount < 1 && level === scenarioLevel
               }"
               (click)="setLevel(level)"
               >{{ level }}</a
@@ -61,8 +61,8 @@
             <a
               class="level"
               [ngClass]="{
-                active: level == gameManager.game.level,
-                scenariolevel: gameManager.game.playerCount < 1 && level == scenarioLevel
+                active: level === gameManager.game.level,
+                scenariolevel: gameManager.game.playerCount < 1 && level === scenarioLevel
               }"
               >{{ level }}</a
             >
@@ -130,13 +130,13 @@
         ><img class="ghs-svg" src="./assets/images/bb/monster.svg" /><span [ghs-label]="'game.level.bb.monsterDifficulty'"></span>:</span
       >
       @for (level of [] | ghsRange: 5; track level) {
-        <span class="level" [ngClass]="{ current: gameManager.game.levelAdjustment + 2 == level }" (click)="setBbMonsterDifficutly(level)">
+        <span class="level" [ngClass]="{ current: gameManager.game.levelAdjustment + 2 === level }" (click)="setBbMonsterDifficutly(level)">
           <span
             class="scenario-level"
-            [ngClass]="{ 'level-1': level == 0, 'level-2': level == 1, 'level-3': level == 3, 'level-4': level == 4 }"
+            [ngClass]="{ 'level-1': level === 0, 'level-2': level === 1, 'level-3': level === 3, 'level-4': level === 4 }"
             [ghs-label]="'game.level.bb.monsterDifficulty.' + level"
           ></span>
-          @if (gameManager.game.levelAdjustment + 2 == level) {
+          @if (gameManager.game.levelAdjustment + 2 === level) {
             <img class="ghs-svg" src="./assets/images/check.svg" />
           }
         </span>

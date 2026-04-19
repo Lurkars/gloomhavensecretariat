@@ -1,4 +1,4 @@
-<span class="effect" [ngClass]="{ fh: edition == 'fh', city: eventType == 'city', disabled: disabled, selected: selected }">
+<span class="effect" [ngClass]="{ fh: edition === 'fh', city: eventType === 'city', disabled: disabled, selected: selected }">
   @if (effectString) {
     <span class="text" [ngClass]="{ concatenated: concatenated, inline: inline, debug: debug }">
       <span [ngClass]="{ 'text-white': light }" [ghs-label]="effectString"></span>
@@ -26,12 +26,12 @@
           [slice]="concatenated ? [0, -1] : []"
         ></span>
       }
-      @if (effectObject.type == 'choose') {
+      @if (effectObject.type === 'choose') {
         <span class="choose-container">
           <span [ngClass]="{ 'text-white': light }" [ghs-label]="'game.events.effects.choose.prefix'"></span>
           @for (
             chooseEffect of effects;
-            track (typeof chooseEffect == 'object' ? chooseEffect.type : chooseEffect) + ('' + $index);
+            track (typeof chooseEffect === 'object' ? chooseEffect.type : chooseEffect) + ('' + $index);
             let i = $index
           ) {
             @if (i > 0) {
@@ -48,10 +48,10 @@
           <span [ngClass]="{ 'text-white': light }" [ghs-label]="'game.events.effects.choose.suffix'"></span>
         </span>
       }
-      @if (effectObject.type == 'additionally') {
+      @if (effectObject.type === 'additionally') {
         <span class="additional-container">
           <span [ngClass]="{ 'text-white': light }" [ghs-label]="'game.events.effects.additionally'"></span>
-          @if (effects.length == 1) {
+          @if (effects.length === 1) {
             <ghs-event-card-effect
               [effect]="effects[0]"
               [edition]="edition"
@@ -64,9 +64,9 @@
           }
         </span>
       }
-      @if (effectObject.type == 'and') {
+      @if (effectObject.type === 'and') {
         <span class="and-container">
-          @for (andEffect of effects; track (typeof andEffect == 'object' ? andEffect.type : andEffect) + ('' + $index); let i = $index) {
+          @for (andEffect of effects; track (typeof andEffect === 'object' ? andEffect.type : andEffect) + ('' + $index); let i = $index) {
             @if (i > 0) {
               <span [ngClass]="{ 'text-white': light }" [ghs-label]="'game.events.effects.and'"></span>
             }
@@ -81,11 +81,11 @@
           }
         </span>
       }
-      @if (effectObject.type == 'checkbox') {
+      @if (effectObject.type === 'checkbox') {
         <span class="checkbox-container">
           @for (
             checkboxEffect of effects;
-            track (typeof checkboxEffect == 'object' ? checkboxEffect.type : checkboxEffect) + $index;
+            track (typeof checkboxEffect === 'object' ? checkboxEffect.type : checkboxEffect) + $index;
             let i = $index
           ) {
             <label [ngClass]="{ 'has-value': checkboxEffect }">

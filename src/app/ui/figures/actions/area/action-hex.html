@@ -9,10 +9,10 @@
       (click)="click(hex)"
       [ngClass]="{ enhanced: enhancedHexes.includes(hex) }"
     >
-      @if (hex.type != 'enhance' || editMode) {
-        <img class="icon" [src]="'./assets/images/action/hex/' + (hex.type == 'custom' ? 'custom/' + hex.value : hex.type) + '.svg'" />
+      @if (hex.type !== 'enhance' || editMode) {
+        <img class="icon" [src]="'./assets/images/action/hex/' + (hex.type === 'custom' ? 'custom/' + hex.value : hex.type) + '.svg'" />
       }
-      @if (!editMode && hex.type == 'enhance') {
+      @if (!editMode && hex.type === 'enhance') {
         <ghs-action-enhancements
           class="enhance"
           [action]="action"

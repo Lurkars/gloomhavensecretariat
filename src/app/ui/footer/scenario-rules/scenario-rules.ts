@@ -60,7 +60,7 @@ export class ScenarioRulesComponent {
         if (gameManager.game.scenario) {
           const section = gameManager
             .sectionData(gameManager.game.scenario.edition, true)
-            .find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomMonsterCard');
+            .find((sectionData) => sectionData.index === cardId && sectionData.group === 'randomMonsterCard');
           if (section) {
             return '&nbsp%' + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ')';
           }
@@ -86,7 +86,7 @@ export class ScenarioRulesComponent {
         if (gameManager.game.scenario) {
           const section = gameManager
             .sectionData(gameManager.game.scenario.edition, true)
-            .find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomDungeonCard');
+            .find((sectionData) => sectionData.index === cardId && sectionData.group === 'randomDungeonCard');
           if (section) {
             return '&nbsp%' + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ')';
           }
@@ -112,9 +112,10 @@ export class ScenarioRulesComponent {
             .filter(
               (sectionData) =>
                 !gameManager.game.sections.find(
-                  (active) => active.edition == sectionData.edition && active.group == scenario.group && active.index == sectionData.index
+                  (active) =>
+                    active.edition === sectionData.edition && active.group === scenario.group && active.index === sectionData.index
                 ) &&
-                sectionData.group == scenario.group &&
+                sectionData.group === scenario.group &&
                 rule.sections.includes(sectionData.index)
             );
         }
@@ -131,7 +132,7 @@ export class ScenarioRulesComponent {
         const rule = gameManager.game.scenarioRules[index].rule;
         if (rule && rule.rooms) {
           rule.rooms.forEach((roomNumber) => {
-            const roomData = scenario.rooms.find((roomData) => roomData.roomNumber == roomNumber);
+            const roomData = scenario.rooms.find((roomData) => roomData.roomNumber === roomNumber);
             if (roomData && gameManager.game.scenario && !gameManager.game.scenario.revealedRooms.includes(roomNumber)) {
               rooms.push(roomData);
             }
@@ -151,25 +152,25 @@ export class ScenarioRulesComponent {
           }
 
           const figures = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
-          if (figures.length == 0) {
+          if (figures.length === 0) {
             return false;
           }
 
-          if (figureRule.type == 'gainCondition' || figureRule.type == 'permanentCondition' || figureRule.type == 'loseCondition') {
+          if (figureRule.type === 'gainCondition' || figureRule.type === 'permanentCondition' || figureRule.type === 'loseCondition') {
             return figures.some((figure) => {
-              if (figureRule.type == 'gainCondition') {
+              if (figureRule.type === 'gainCondition') {
                 const entities: Entity[] = gameManager.entityManager.entities(figure);
                 const gainCondition = new Condition(figureRule.value);
                 if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition))) {
                   return false;
                 }
-              } else if (figureRule.type == 'permanentCondition') {
+              } else if (figureRule.type === 'permanentCondition') {
                 const entities: Entity[] = gameManager.entityManager.entities(figure);
                 const gainCondition = new Condition(figureRule.value);
                 if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition, true))) {
                   return false;
                 }
-              } else if (figureRule.type == 'loseCondition') {
+              } else if (figureRule.type === 'loseCondition') {
                 const entities: Entity[] = gameManager.entityManager.entities(figure);
                 const loseCondition = new Condition(figureRule.value);
                 if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, loseCondition))) {
@@ -178,8 +179,8 @@ export class ScenarioRulesComponent {
               }
               return true;
             });
-          } else if (figureRule.type == 'toggleOn' || figureRule.type == 'toggleOff') {
-            return figures.some((figure) => figure.off == (figureRule.type == 'toggleOn'));
+          } else if (figureRule.type === 'toggleOn' || figureRule.type === 'toggleOff') {
+            return figures.some((figure) => figure.off === (figureRule.type === 'toggleOn'));
           }
 
           return true;
@@ -198,12 +199,12 @@ export class ScenarioRulesComponent {
         rule.disablingRules.some((value) =>
           gameManager.game.scenarioRules.find(
             (ruleModel, otherRuleIndex) =>
-              index != otherRuleIndex &&
-              value.edition == ruleModel.identifier.edition &&
-              value.group == ruleModel.identifier.group &&
-              (value.index == ruleModel.identifier.index || value.index == -1) &&
-              value.scenario == ruleModel.identifier.scenario &&
-              value.section == ruleModel.identifier.section &&
+              index !== otherRuleIndex &&
+              value.edition === ruleModel.identifier.edition &&
+              value.group === ruleModel.identifier.group &&
+              (value.index === ruleModel.identifier.index || value.index === -1) &&
+              value.scenario === ruleModel.identifier.scenario &&
+              value.section === ruleModel.identifier.section &&
               this.visible(otherRuleIndex)
           )
         )
@@ -218,7 +219,7 @@ export class ScenarioRulesComponent {
           rule.elements.length > 0 &&
           rule.elements.some(
             (elementModel) =>
-              gameManager.game.elementBoard.find((element) => element.type == elementModel.type)?.state != elementModel.state
+              gameManager.game.elementBoard.find((element) => element.type === elementModel.type)?.state !== elementModel.state
           )) ||
         this.sections(index).length > 0 ||
         this.rooms(index).length > 0 ||
@@ -286,7 +287,7 @@ export class ScenarioRulesComponent {
           if (rule.finish && ['won', 'lost'].includes(rule.finish)) {
             this.dialog.open(ScenarioSummaryComponent, {
               panelClass: ['dialog'],
-              data: { scenario: scenario, success: rule.finish == 'won' }
+              data: { scenario: scenario, success: rule.finish === 'won' }
             });
           }
         }
@@ -299,7 +300,7 @@ export class ScenarioRulesComponent {
             }
             gameManager.game.scenarioRules.splice(index, 1);
 
-            if (rule.finish == 'round') {
+            if (rule.finish === 'round') {
               gameManager.roundManager.nextGameState();
             }
 

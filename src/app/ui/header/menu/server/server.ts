@@ -117,9 +117,9 @@ export class ServerMenuComponent implements OnInit {
     this.selectedServerIndex = -1;
     this.publicServer.forEach((server, index) => {
       if (
-        settingsManager.settings.serverUrl == server.url &&
-        settingsManager.settings.serverPort == server.port &&
-        settingsManager.settings.serverWss == server.secure
+        settingsManager.settings.serverUrl === server.url &&
+        settingsManager.settings.serverPort === server.port &&
+        settingsManager.settings.serverWss === server.secure
       ) {
         this.selectedServerIndex = index;
         return;
@@ -141,7 +141,7 @@ export class ServerMenuComponent implements OnInit {
         .then((value: any) => {
           this.serverUpdateVersion = {
             latest:
-              value.tag_name == gameManager.stateManager.serverVersion || value.tag_name == 'v' + gameManager.stateManager.serverVersion,
+              value.tag_name === gameManager.stateManager.serverVersion || value.tag_name === 'v' + gameManager.stateManager.serverVersion,
             version: value.tag_name,
             url: value.html_url
           };
@@ -196,15 +196,15 @@ export class ServerMenuComponent implements OnInit {
 
   hasCharacter(character: Character): boolean {
     return (
-      this.permissions != undefined &&
-      this.permissions.character.some((value) => value.name == character.name && value.edition == character.edition)
+      this.permissions !== undefined &&
+      this.permissions.character.some((value) => value.name === character.name && value.edition === character.edition)
     );
   }
 
   toggleCharacter(character: Character) {
     if (this.permissions) {
       const value: Identifier | undefined = this.permissions.character.find(
-        (value) => value.name == character.name && value.edition == character.edition
+        (value) => value.name === character.name && value.edition === character.edition
       );
       if (value) {
         this.permissions.character.splice(this.permissions.character.indexOf(value, 1));
@@ -220,15 +220,15 @@ export class ServerMenuComponent implements OnInit {
 
   hasMonster(monster: Monster): boolean {
     return (
-      this.permissions != undefined &&
-      this.permissions.monster.some((value) => value.name == monster.name && value.edition == monster.edition)
+      this.permissions !== undefined &&
+      this.permissions.monster.some((value) => value.name === monster.name && value.edition === monster.edition)
     );
   }
 
   toggleMonster(monster: Monster) {
     if (this.permissions) {
       const value: Identifier | undefined = this.permissions.monster.find(
-        (value) => value.name == monster.name && value.edition == monster.edition
+        (value) => value.name === monster.name && value.edition === monster.edition
       );
       if (value) {
         this.permissions.monster.splice(this.permissions.monster.indexOf(value, 1));

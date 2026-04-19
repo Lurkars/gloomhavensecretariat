@@ -74,13 +74,13 @@ export class AbilityComponent implements OnInit, OnChanges {
             ? this.monster.deck
             : this.monster.name;
       this.deckLabel = 'data.deck.' + deck;
-      if (deck == settingsManager.getLabel(this.deckLabel)) {
+      if (deck === settingsManager.getLabel(this.deckLabel)) {
         this.deckLabel = 'data.monster.' + deck;
       }
     } else if (this.character) {
       const deck = this.character.deck ? this.character.deck : this.character.name;
       this.deckLabel = 'data.deck.' + deck;
-      if (deck == settingsManager.getLabel(this.deckLabel)) {
+      if (deck === settingsManager.getLabel(this.deckLabel)) {
         this.deckLabel = 'data.character.' + this.character.edition + '.' + deck;
       }
     }
@@ -91,7 +91,8 @@ export class AbilityComponent implements OnInit, OnChanges {
       this.abilityLabel = this.getAbilityLabel(this.ability);
     }
     this.fh =
-      (this.character && (this.character.edition == 'fh' || gameManager.editionExtensions(this.character.edition).includes('fh'))) || false;
+      (this.character && (this.character.edition === 'fh' || gameManager.editionExtensions(this.character.edition).includes('fh'))) ||
+      false;
     this.shieldStats = settingsManager.settings.calculateShieldStats;
   }
 

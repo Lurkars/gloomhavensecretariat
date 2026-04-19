@@ -1,4 +1,4 @@
-@if (type == 'checkbox') {
+@if (type === 'checkbox') {
   <div class="hint-container">
     <label [ngClass]="{ disabled: disabled || isDisabled }">
       <input
@@ -59,18 +59,18 @@
     </span>
   </div>
 }
-@if (type == 'radio') {
+@if (type === 'radio') {
   @for (value of values; track value) {
     <div
       class="line"
-      [ghs-tooltip]="setting == 'locale' ? 'settings.locale.help.stats' : ''"
+      [ghs-tooltip]="setting === 'locale' ? 'settings.locale.help.stats' : ''"
       [ghs-label-args]="[value.replaceAll('-', '_')]"
     >
-      <label [ngClass]="{ disabled: settingsManager.settings[setting] == value || disabled || isDisabled }">
+      <label [ngClass]="{ disabled: settingsManager.settings[setting] === value || disabled || isDisabled }">
         <input
           tabclick
           type="checkbox"
-          [checked]="settingsManager.settings[setting] == value"
+          [checked]="settingsManager.settings[setting] === value"
           (change)="settingsManager.set(setting, value)"
         />
         <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.' + value"></span>
@@ -79,7 +79,7 @@
   }
 }
 
-@if (type == 'number') {
+@if (type === 'number') {
   <div class="hint-container">
     <label class="label" [ngClass]="{ disabled: disabled || isDisabled }">
       <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
@@ -147,7 +147,7 @@
   </div>
 }
 
-@if (type == 'range') {
+@if (type === 'range') {
   <div class="hint-container">
     <label [ngClass]="{ disabled: disabled || isDisabled }">
       <span

@@ -73,8 +73,8 @@ export class ConditionsComponent implements OnInit {
     if (this.entities) {
       const types = this.entities
         .map((entity) => entity instanceof MonsterEntity && entity.type)
-        .filter((type, index, self) => type && self.indexOf(type) == index);
-      if (types.length == 1) {
+        .filter((type, index, self) => type && self.indexOf(type) === index);
+      if (types.length === 1) {
         this.monsterType = types[0];
       }
 
@@ -106,7 +106,7 @@ export class ConditionsComponent implements OnInit {
           this.cdr.markForCheck();
         }, 1000);
       } else {
-        this.numberStore = keyNumber == 0 ? 10 : keyNumber;
+        this.numberStore = keyNumber === 0 ? 10 : keyNumber;
         this.selectCondition();
       }
 
@@ -121,10 +121,10 @@ export class ConditionsComponent implements OnInit {
       let condition: Condition | undefined;
       if (index <= this.conditions.length) {
         condition = this.conditions[index - 1];
-      } else if (index == this.conditions.length + 1) {
+      } else if (index === this.conditions.length + 1) {
         this.permanentEnabled = !this.permanentEnabled;
         this.immunityEnabled = false;
-      } else if (index == this.conditions.length + 2) {
+      } else if (index === this.conditions.length + 2) {
         this.immunityEnabled = !this.immunityEnabled;
         this.permanentEnabled = false;
       }
@@ -150,7 +150,7 @@ export class ConditionsComponent implements OnInit {
     negativeConditions.push(...gameManager.conditionsForTypes('standard', 'negative', this.type));
     negativeConditions.push(...gameManager.conditionsForTypes('upgrade', 'negative', this.type));
     negativeConditions.push(...gameManager.conditionsForTypes('stack', 'negative', this.type));
-    negativeConditions = negativeConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) == i);
+    negativeConditions = negativeConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) === i);
 
     if (negativeConditions.length) {
       this.conditions.push(...negativeConditions);
@@ -159,7 +159,7 @@ export class ConditionsComponent implements OnInit {
     positiveConditions.push(...gameManager.conditionsForTypes('standard', 'positive', this.type));
     positiveConditions.push(...gameManager.conditionsForTypes('upgrade', 'positive', this.type));
     positiveConditions.push(...gameManager.conditionsForTypes('stack', 'positive', this.type));
-    positiveConditions = positiveConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) == i);
+    positiveConditions = positiveConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) === i);
 
     if (positiveConditions.length) {
       this.conditionSeparator.push(this.conditions.length - 1);
@@ -170,7 +170,7 @@ export class ConditionsComponent implements OnInit {
     neutralConditions.push(...gameManager.conditionsForTypes('standard', 'neutral', this.type));
     neutralConditions.push(...gameManager.conditionsForTypes('upgrade', 'neutral', this.type));
     neutralConditions.push(...gameManager.conditionsForTypes('stack', 'neutral', this.type));
-    neutralConditions = neutralConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) == i);
+    neutralConditions = neutralConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) === i);
 
     if (neutralConditions.length) {
       this.conditionSeparator.push(this.conditions.length - 1);
@@ -194,8 +194,8 @@ export class ConditionsComponent implements OnInit {
     if (this.entityConditions) {
       return this.entityConditions.some(
         (entityCondition) =>
-          entityCondition.name == condition.name &&
-          entityCondition.state != EntityConditionState.removed &&
+          entityCondition.name === condition.name &&
+          entityCondition.state !== EntityConditionState.removed &&
           !entityCondition.expired &&
           (!this.permanentEnabled || ((permanent || this.permanentEnabled) && entityCondition.permanent))
       );
@@ -229,7 +229,7 @@ export class ConditionsComponent implements OnInit {
   isPermanent(conditionName: ConditionName): boolean {
     if (this.entityConditions) {
       return this.entityConditions.some(
-        (entityCondition) => entityCondition.name == conditionName && entityCondition.permanent && !entityCondition.expired
+        (entityCondition) => entityCondition.name === conditionName && entityCondition.permanent && !entityCondition.expired
       );
     }
 
@@ -240,7 +240,7 @@ export class ConditionsComponent implements OnInit {
     if (this.entityConditions) {
       return this.entityConditions.some(
         (entityCondition) =>
-          entityCondition.name == conditionName && entityCondition.state == EntityConditionState.roundExpire && !entityCondition.expired
+          entityCondition.name === conditionName && entityCondition.state === EntityConditionState.roundExpire && !entityCondition.expired
       );
     }
 
@@ -251,7 +251,7 @@ export class ConditionsComponent implements OnInit {
     if (this.entityConditions) {
       return this.entityConditions.some(
         (entityCondition) =>
-          entityCondition.name == conditionName && entityCondition.state == EntityConditionState.expire && !entityCondition.expired
+          entityCondition.name === conditionName && entityCondition.state === EntityConditionState.expire && !entityCondition.expired
       );
     }
 
@@ -259,7 +259,7 @@ export class ConditionsComponent implements OnInit {
   }
 
   inc(condition: Condition) {
-    if (condition.name == ConditionName.plague && condition.value == 3) {
+    if (condition.name === ConditionName.plague && condition.value === 3) {
       return;
     }
 
@@ -281,7 +281,7 @@ export class ConditionsComponent implements OnInit {
 
   getValue(condition: Condition): number {
     const entityCondition = this.entityConditions.find(
-      (entityCondition) => entityCondition.name == condition.name && !entityCondition.expired
+      (entityCondition) => entityCondition.name === condition.name && !entityCondition.expired
     );
     if (entityCondition) {
       return entityCondition.value;
@@ -291,7 +291,7 @@ export class ConditionsComponent implements OnInit {
 
   checkUpdate(condition: Condition) {
     const entityCondition = this.entityConditions.find(
-      (entityCondition) => entityCondition.name == condition.name && !entityCondition.expired
+      (entityCondition) => entityCondition.name === condition.name && !entityCondition.expired
     );
     if (entityCondition) {
       entityCondition.value = condition.value;
@@ -307,10 +307,10 @@ export class ConditionsComponent implements OnInit {
       }
     } else if (this.roundExpireEnabled && !permanent) {
       let entityCondition: EntityCondition | undefined = this.entityConditions.find(
-        (entityCondition) => entityCondition.name == condition.name && !entityCondition.permanent
+        (entityCondition) => entityCondition.name === condition.name && !entityCondition.permanent
       );
       if (entityCondition) {
-        if (entityCondition.state == EntityConditionState.roundExpire) {
+        if (entityCondition.state === EntityConditionState.roundExpire) {
           entityCondition.state = EntityConditionState.new;
           entityCondition.lastState = EntityConditionState.normal;
         } else {
@@ -326,10 +326,10 @@ export class ConditionsComponent implements OnInit {
       }
     } else if (this.expireEnabled && !permanent) {
       let entityCondition: EntityCondition | undefined = this.entityConditions.find(
-        (entityCondition) => entityCondition.name == condition.name && !entityCondition.permanent
+        (entityCondition) => entityCondition.name === condition.name && !entityCondition.permanent
       );
       if (entityCondition) {
-        if (entityCondition.state == EntityConditionState.expire) {
+        if (entityCondition.state === EntityConditionState.expire) {
           entityCondition.state = EntityConditionState.new;
           entityCondition.lastState = EntityConditionState.normal;
         } else {
@@ -346,7 +346,7 @@ export class ConditionsComponent implements OnInit {
     } else {
       if (this.hasCondition(condition, permanent || this.permanentEnabled)) {
         const entityCondition: EntityCondition | undefined = this.entityConditions.find(
-          (entityCondition) => entityCondition.name == condition.name && (!permanent || entityCondition.permanent)
+          (entityCondition) => entityCondition.name === condition.name && (!permanent || entityCondition.permanent)
         );
         if (entityCondition) {
           entityCondition.expired = true;
@@ -355,7 +355,7 @@ export class ConditionsComponent implements OnInit {
         }
       } else {
         let entityCondition: EntityCondition | undefined = this.entityConditions.find(
-          (entityCondition) => entityCondition.name == condition.name && (!permanent || entityCondition.permanent)
+          (entityCondition) => entityCondition.name === condition.name && (!permanent || entityCondition.permanent)
         );
 
         if (!entityCondition) {

@@ -44,7 +44,7 @@
                 }
               </td>
             }
-            @if (!character && scenarios.length == characters.length + 1 && scenarios[characters.length].length > 2) {
+            @if (!character && scenarios.length === characters.length + 1 && scenarios[characters.length].length > 2) {
               <td>
                 <span>{{ scenarios[characters.length][0] }}</span>
                 <span class="success">{{ scenarios[characters.length][1] }}</span>

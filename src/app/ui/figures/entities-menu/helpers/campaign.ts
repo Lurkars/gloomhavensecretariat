@@ -34,25 +34,25 @@ export class CampaignHelper {
   }
 
   close() {
-    if (this.prosperity != 0) {
+    if (this.prosperity !== 0) {
       gameManager.stateManager.before('eventEffect.prosperity', ghsValueSign(this.prosperity));
       gameManager.game.party.prosperity += this.prosperity;
       gameManager.stateManager.after();
     }
 
-    if (this.reputation != 0) {
+    if (this.reputation !== 0) {
       gameManager.stateManager.before('eventEffect.reputation', ghsValueSign(this.reputation));
       gameManager.game.party.reputation += this.reputation;
       gameManager.stateManager.after();
     }
 
-    if (this.morale != 0) {
+    if (this.morale !== 0) {
       gameManager.stateManager.before('eventEffect.morale', ghsValueSign(this.morale));
       gameManager.game.party.morale += this.morale;
       gameManager.stateManager.after();
     }
 
-    if (this.inspiration != 0) {
+    if (this.inspiration !== 0) {
       gameManager.stateManager.before('eventEffect.inspiration', ghsValueSign(this.inspiration));
       gameManager.game.party.inspiration += this.inspiration;
       gameManager.stateManager.after();

@@ -34,7 +34,7 @@
               <a (click)="toggleAllConditions(conditionSelect)">
                 <span
                   [ghs-label]="
-                    editionData.conditions.length != Conditions.length
+                    editionData.conditions.length !== Conditions.length
                       ? 'editor.edition.conditions.allSelected'
                       : 'editor.edition.conditions.allHint'
                   "

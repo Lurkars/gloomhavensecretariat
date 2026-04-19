@@ -55,22 +55,22 @@ export class ScenarioMissingRequirements {
 
   isEmpty(): boolean {
     return (
-      this.buildings.length == 0 &&
-      this.buildingsLevel.length == 0 &&
-      this.buildingsMissing.length == 0 &&
-      this.buildingsLevelMissing.length == 0 &&
-      this.campaignStickers.length == 0 &&
-      this.campaignStickersCount.length == 0 &&
-      this.campaignStickersMissing.length == 0 &&
-      this.globalAchievements.length == 0 &&
-      this.globalAchievementsCount.length == 0 &&
-      this.globalAchievementsMissing.length == 0 &&
-      this.partyAchievements.length == 0 &&
-      this.partyAchievementsCount.length == 0 &&
-      this.partyAchievementsMissing.length == 0 &&
-      this.characters.length == 0 &&
-      this.charactersMissing.length == 0 &&
-      this.scenarios.length == 0
+      this.buildings.length === 0 &&
+      this.buildingsLevel.length === 0 &&
+      this.buildingsMissing.length === 0 &&
+      this.buildingsLevelMissing.length === 0 &&
+      this.campaignStickers.length === 0 &&
+      this.campaignStickersCount.length === 0 &&
+      this.campaignStickersMissing.length === 0 &&
+      this.globalAchievements.length === 0 &&
+      this.globalAchievementsCount.length === 0 &&
+      this.globalAchievementsMissing.length === 0 &&
+      this.partyAchievements.length === 0 &&
+      this.partyAchievementsCount.length === 0 &&
+      this.partyAchievementsMissing.length === 0 &&
+      this.characters.length === 0 &&
+      this.charactersMissing.length === 0 &&
+      this.scenarios.length === 0
     );
   }
 }

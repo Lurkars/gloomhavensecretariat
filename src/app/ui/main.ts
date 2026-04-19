@@ -109,11 +109,12 @@ export class MainComponent implements OnInit {
         if (figure) {
           this.fullviewChar = figure as Character;
           this.welcome = false;
-        } else if (gameManager.game.figures.length == 0) {
+        } else if (gameManager.game.figures.length === 0) {
           this.welcome = true;
           this.welcomeOtherEditions = settingsManager.settings.editions.length < gameManager.editionData.length;
           this.welcomeEditionHint =
-            (gameManager.game.edition && settingsManager.getLabel('data.edition.' + gameManager.game.edition + '.hint') != 'hint') || false;
+            (gameManager.game.edition && settingsManager.getLabel('data.edition.' + gameManager.game.edition + '.hint') !== 'hint') ||
+            false;
         } else {
           this.fullviewChar = undefined;
           this.welcome = false;
@@ -125,10 +126,10 @@ export class MainComponent implements OnInit {
             !settingsManager.settings.randomStandees &&
             settingsManager.settings.scenarioRooms
           ) {
-            if (this.standeeDialog && gameManager.stateManager.lastAction == 'undo') {
+            if (this.standeeDialog && gameManager.stateManager.lastAction === 'undo') {
               this.standeeDialog.close();
             }
-            if (this.dialog.openDialogs.length == 0) {
+            if (this.dialog.openDialogs.length === 0) {
               this.automaticStandeeDialogs();
             } else if (!this.standeeDialogSubscription) {
               this.standeeDialogSubscription = this.dialog.afterAllClosed.subscribe({
@@ -147,7 +148,7 @@ export class MainComponent implements OnInit {
               gameManager.game.parties.some((party) => party.casualScenarios.length > 0));
         }
       }
-      if (this.serverPing != settingsManager.settings.serverPing) {
+      if (this.serverPing !== settingsManager.settings.serverPing) {
         if (this.serverPingInterval) {
           clearInterval(this.serverPingInterval);
           this.serverPingInterval = null;
@@ -163,9 +164,9 @@ export class MainComponent implements OnInit {
 
     this.swUpdate.versionUpdates.subscribe((evt) => {
       this.loading = false;
-      if (evt.type == 'VERSION_READY') {
+      if (evt.type === 'VERSION_READY') {
         gameManager.stateManager.hasUpdate = true;
-      } else if (evt.type == 'VERSION_INSTALLATION_FAILED') {
+      } else if (evt.type === 'VERSION_INSTALLATION_FAILED') {
         console.error(`Failed to install version '${evt.version.hash}': ${evt.error}`);
       }
     });
@@ -285,7 +286,7 @@ export class MainComponent implements OnInit {
     });
 
     window.addEventListener('focus', () => {
-      if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() != WebSocket.OPEN) {
+      if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
         gameManager.stateManager.connect();
       }
 
@@ -373,7 +374,7 @@ export class MainComponent implements OnInit {
     gameManager.game.edition = edition;
     gameManager.game.party.campaignMode = true;
     gameManager.game.party.edition = edition;
-    this.welcomeEditionHint = (edition && settingsManager.getLabel('data.edition.' + edition + '.hint') != 'hint') || false;
+    this.welcomeEditionHint = (edition && settingsManager.getLabel('data.edition.' + edition + '.hint') !== 'hint') || false;
     gameManager.game.party.eventDecks = {};
     gameManager.eventCardManager.buildPartyDeckMigration(edition);
     gameManager.stateManager.after();
@@ -492,7 +493,7 @@ export class MainComponent implements OnInit {
         break;
       }
 
-      if (minIndex != -1 && maxIndex != -1) {
+      if (minIndex !== -1 && maxIndex !== -1) {
         const elementHeight = columns[maxIndex].splice(maxIndex > minIndex ? 0 : columns[maxIndex].length - 1, 1)[0];
         columns[minIndex].push(elementHeight);
         columnHeights[minIndex] += elementHeight;
@@ -539,13 +540,13 @@ export class MainComponent implements OnInit {
           }
 
           factor = column - columnMiddle;
-          if (this.grid.length % 2 == 1) {
+          if (this.grid.length % 2 === 1) {
             factor += 0.5;
           }
 
           left = 'calc(100% * ' + factor + ')';
 
-          start = column == 0 ? 0 : this.grid[column - 1];
+          start = column === 0 ? 0 : this.grid[column - 1];
 
           let height = 0;
           for (let i = start; i < index; i++) {
@@ -559,7 +560,7 @@ export class MainComponent implements OnInit {
               () => {
                 scrollTo.scrollIntoView({
                   behavior: !settingsManager.settings.animations ? 'auto' : 'smooth',
-                  block: index == this.lastScroll || index == this.lastScrollColumn ? 'end' : 'center',
+                  block: index === this.lastScroll || index === this.lastScrollColumn ? 'end' : 'center',
                   inline: 'center'
                 });
 
@@ -608,15 +609,15 @@ export class MainComponent implements OnInit {
 
   drop(event: CdkDragDrop<number>) {
     if (
-      event.previousContainer != event.container &&
-      ((event.currentIndex == 0 && event.container.data != event.previousContainer.data + 1) ||
-        (event.currentIndex != 0 && event.container.data != event.previousContainer.data - event.currentIndex))
+      event.previousContainer !== event.container &&
+      ((event.currentIndex === 0 && event.container.data !== event.previousContainer.data + 1) ||
+        (event.currentIndex !== 0 && event.container.data !== event.previousContainer.data - event.currentIndex))
     ) {
       const prev = event.previousContainer.data;
       let next = event.container.data;
       if (event.currentIndex > 0 && event.previousContainer.data > event.container.data) {
         next++;
-      } else if (event.currentIndex == 0 && event.previousContainer.data < event.container.data) {
+      } else if (event.currentIndex === 0 && event.previousContainer.data < event.container.data) {
         next--;
       }
       gameManager.stateManager.before('reorder');
@@ -640,8 +641,8 @@ export class MainComponent implements OnInit {
   automaticStandeeDialogs() {
     if (
       !gameManager.stateManager.standeeDialogCanceled &&
-      this.dialog.openDialogs.length == 0 &&
-      gameManager.game.scenarioRules.length == 0
+      this.dialog.openDialogs.length === 0 &&
+      gameManager.game.scenarioRules.length === 0
     ) {
       const figure = gameManager.game.figures.find(
         (figure) =>
@@ -653,8 +654,8 @@ export class MainComponent implements OnInit {
           (entity) =>
             entity.number < 1 &&
             gameManager.entityManager.isAlive(entity) &&
-            ((settingsManager.settings.eliteFirst && entity.type == MonsterType.elite) ||
-              (!settingsManager.settings.eliteFirst && entity.type == MonsterType.normal))
+            ((settingsManager.settings.eliteFirst && entity.type === MonsterType.elite) ||
+              (!settingsManager.settings.eliteFirst && entity.type === MonsterType.normal))
         );
         if (!entity) {
           entity = monster.entities.find((entity) => entity.number < 1 && gameManager.entityManager.isAlive(entity));

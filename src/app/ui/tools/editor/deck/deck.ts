@@ -24,11 +24,11 @@ import { EditorActionDialogComponent } from 'src/app/ui/tools/editor/action/acti
 import { environment } from 'src/environments/environment';
 
 export function compactAction(action: any) {
-  if (action.valueType && action.valueType == ActionValueType.fixed) {
+  if (action.valueType && action.valueType === ActionValueType.fixed) {
     action.valueType = undefined;
   }
 
-  if (action.subActions && action.subActions.length == 0) {
+  if (action.subActions && action.subActions.length === 0) {
     action.subActions = undefined;
   } else if (action.subActions) {
     action.subActions.forEach((action: any) => {
@@ -36,12 +36,12 @@ export function compactAction(action: any) {
     });
   }
 
-  if (action.type == ActionType.summon) {
+  if (action.type === ActionType.summon) {
     try {
       const value = JSON.parse(action.value);
-      if (typeof value != 'string') {
+      if (typeof value !== 'string') {
         Object.keys(value).forEach((key) => {
-          if (!value[key] || value[key] == false) {
+          if (!value[key] || value[key] === false) {
             value[key] = undefined;
           }
         });
@@ -59,7 +59,7 @@ export function compactAction(action: any) {
     }
   }
 
-  if (!action.value && action.value != 0) {
+  if (!action.value && action.value !== 0) {
     action.value = undefined;
   }
 
@@ -131,7 +131,7 @@ export class DeckEditorComponent implements OnInit {
         }
 
         if (queryParams['deck']) {
-          const deckData = this.decksData.find((deckData) => deckData.name == queryParams['deck']);
+          const deckData = this.decksData.find((deckData) => deckData.name === queryParams['deck']);
           if (deckData) {
             this.deckData = deckData;
             this.deckDataToJson();
@@ -178,7 +178,7 @@ export class DeckEditorComponent implements OnInit {
     const compactData: any = JSON.parse(JSON.stringify(this.deckData));
 
     Object.keys(compactData).forEach((key) => {
-      if (!compactData[key] || compactData[key] == false) {
+      if (!compactData[key] || compactData[key] === false) {
         compactData[key] = undefined;
       }
     });
@@ -186,25 +186,25 @@ export class DeckEditorComponent implements OnInit {
     if (compactData.abilities) {
       compactData.abilities.forEach((ability: any) => {
         Object.keys(ability).forEach((key) => {
-          if ((!ability[key] && ability[key] != 0) || (typeof ability[key] == 'boolean' && ability[key] == false)) {
+          if ((!ability[key] && ability[key] !== 0) || (typeof ability[key] === 'boolean' && ability[key] === false)) {
             ability[key] = undefined;
           }
 
           ability.revealed = undefined;
 
-          if (key == 'level' && ability[key] == 0) {
+          if (key === 'level' && ability[key] === 0) {
             ability[key] = undefined;
           }
 
-          if (key == 'xp' && ability[key] == 0) {
+          if (key === 'xp' && ability[key] === 0) {
             ability[key] = undefined;
           }
 
-          if (key == 'bottomXp' && ability[key] == 0) {
+          if (key === 'bottomXp' && ability[key] === 0) {
             ability[key] = undefined;
           }
 
-          if (ability.actions && ability.actions.length == 0) {
+          if (ability.actions && ability.actions.length === 0) {
             ability.actions = undefined;
           } else if (ability.actions) {
             ability.actions.forEach((action: any) => {
@@ -212,7 +212,7 @@ export class DeckEditorComponent implements OnInit {
             });
           }
 
-          if (ability.bottomActions && ability.bottomActions.length == 0) {
+          if (ability.bottomActions && ability.bottomActions.length === 0) {
             ability.bottomActions = undefined;
           } else if (ability.bottomActions) {
             ability.bottomActions.forEach((action: any) => {
@@ -290,7 +290,7 @@ export class DeckEditorComponent implements OnInit {
 
     dialog.closed.subscribe({
       next: (value) => {
-        if (value == false) {
+        if (value === false) {
           ability.actions.splice(ability.actions.indexOf(action), 1);
         }
         this.deckDataToJson();
@@ -306,7 +306,7 @@ export class DeckEditorComponent implements OnInit {
 
     dialog.closed.subscribe({
       next: (value) => {
-        if (value == false) {
+        if (value === false) {
           ability.actions.splice(ability.actions.indexOf(action), 1);
         }
         this.deckDataToJson();
@@ -332,7 +332,7 @@ export class DeckEditorComponent implements OnInit {
 
     dialog.closed.subscribe({
       next: (value) => {
-        if (value == false) {
+        if (value === false) {
           ability.bottomActions.splice(ability.bottomActions.indexOf(action), 1);
         }
         this.deckDataToJson();
@@ -348,7 +348,7 @@ export class DeckEditorComponent implements OnInit {
 
     dialog.closed.subscribe({
       next: (value) => {
-        if (value == false) {
+        if (value === false) {
           ability.bottomActions.splice(ability.actions.indexOf(action), 1);
         }
         this.deckDataToJson();
@@ -367,22 +367,23 @@ export class DeckEditorComponent implements OnInit {
       return false;
     }
 
-    if ((action.type == ActionType.element || action.type == ActionType.elementHalf) && action.valueType != ActionValueType.minus) {
+    if ((action.type === ActionType.element || action.type === ActionType.elementHalf) && action.valueType !== ActionValueType.minus) {
       return false;
     }
 
-    if (action.type == ActionType.card) {
+    if (action.type === ActionType.card) {
       return false;
     }
 
-    if (actions[index - 1].type == ActionType.box) {
+    if (actions[index - 1].type === ActionType.box) {
       return false;
     }
 
     if (
-      action.type == ActionType.concatenation &&
+      action.type === ActionType.concatenation &&
       action.subActions.every(
-        (subAction) => subAction.type == ActionType.card || subAction.type == ActionType.element || subAction.type == ActionType.elementHalf
+        (subAction) =>
+          subAction.type === ActionType.card || subAction.type === ActionType.element || subAction.type === ActionType.elementHalf
       )
     ) {
       return false;
@@ -414,7 +415,7 @@ export class DeckEditorComponent implements OnInit {
 
   loadDeckData(event: any) {
     const index = +event.target.value;
-    if (index == -1) {
+    if (index === -1) {
       this.deckData = new DeckData();
       this.deckData.abilities.push(new Ability());
       if (this.character) {

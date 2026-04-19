@@ -71,7 +71,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
       if (
         !this.looted.includes(index) &&
         (this.characters.find((character) => gameManager.lootManager.hasTreasure(character, treasure, index)) ||
-          gameManager.game.party.treasures.find((identifier) => identifier.name == '' + treasure && identifier.edition == this.edition))
+          gameManager.game.party.treasures.find((identifier) => identifier.name === '' + treasure && identifier.edition === this.edition))
       ) {
         this.looted.push(index);
       } else {
@@ -81,22 +81,22 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
 
     if (
       this.init &&
-      this.treasures.length == this.looted.length + 1 &&
-      this.treasureIndex != activeIndex &&
+      this.treasures.length === this.looted.length + 1 &&
+      this.treasureIndex !== activeIndex &&
       !this.looted.includes(activeIndex)
     ) {
       this.treasureIndex = activeIndex;
     }
 
-    if (!this.character && this.treasures.length != this.looted.length) {
+    if (!this.character && this.treasures.length !== this.looted.length) {
       this.character = this.characters.find((figure) => figure.active) || (this.characters.length > 0 && this.characters[0]) || undefined;
     }
   }
 
   toggleCharacter(character: Character) {
-    if (this.character != character && this.treasures.length != this.looted.length) {
+    if (this.character !== character && this.treasures.length !== this.looted.length) {
       this.character = character;
-      if (this.treasureIndex != -1 && this.looted.includes(this.treasureIndex)) {
+      if (this.treasureIndex !== -1 && this.looted.includes(this.treasureIndex)) {
         this.treasureIndex = -1;
       }
     } else {
@@ -105,7 +105,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
   }
 
   toggleTreasure(index: number) {
-    if (this.treasureIndex != index) {
+    if (this.treasureIndex !== index) {
       this.treasureIndex = index;
     } else {
       this.treasureIndex = -1;
@@ -128,18 +128,18 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
     character.treasures.splice(character.treasures.indexOf(treasure), 1);
     if (typeof treasure === 'number') {
       gameManager.game.party.treasures = gameManager.game.party.treasures.filter(
-        (value) => value.edition != this.edition || value.name != '' + treasure
+        (value) => value.edition !== this.edition || value.name !== '' + treasure
       );
     }
     gameManager.stateManager.after();
   }
 
   lootTreasure() {
-    if (this.treasureIndex != -1) {
+    if (this.treasureIndex !== -1) {
       this.init = false;
       this.rewardResults = [];
       const treasure = this.treasures[this.treasureIndex];
-      if (this.character && treasure && !this.character.treasures.includes(treasure == 'G' ? 'G-' + this.treasureIndex : treasure)) {
+      if (this.character && treasure && !this.character.treasures.includes(treasure === 'G' ? 'G-' + this.treasureIndex : treasure)) {
         gameManager.stateManager.before(
           'lootCharTreasure',
           ('' + treasure).startsWith('G') || +treasure >= 0 ? treasure : '???',
@@ -147,12 +147,12 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
           gameManager.characterManager.characterName(this.character, true, true)
         );
         this.looted.push(this.treasureIndex);
-        if (treasure != 'G' && settingsManager.settings.treasuresLoot) {
+        if (treasure !== 'G' && settingsManager.settings.treasuresLoot) {
           this.rewardResults = gameManager.lootManager.lootTreasure(this.character, treasure - 1, this.edition);
         }
         this.character.treasures = this.character.treasures || [];
         this.character.treasures.push(
-          treasure == 'G'
+          treasure === 'G'
             ? 'G-' + this.treasureIndex
             : this.rewardResults.some((rewardResult) => rewardResult.length > 0)
               ? treasure + ':' + this.rewardResults.map((reward) => reward.join('+')).join('|')

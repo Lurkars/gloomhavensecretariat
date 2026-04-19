@@ -62,7 +62,7 @@ export class ScenarioRuleComponent implements OnInit {
         if (gameManager.game.scenario) {
           const section = gameManager
             .sectionData(gameManager.game.scenario.edition, true)
-            .find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomMonsterCard');
+            .find((sectionData) => sectionData.index === cardId && sectionData.group === 'randomMonsterCard');
           if (section) {
             return '&nbsp%' + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ')';
           }
@@ -88,7 +88,7 @@ export class ScenarioRuleComponent implements OnInit {
         if (gameManager.game.scenario) {
           const section = gameManager
             .sectionData(gameManager.game.scenario.edition, true)
-            .find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomDungeonCard');
+            .find((sectionData) => sectionData.index === cardId && sectionData.group === 'randomDungeonCard');
           if (section) {
             return '&nbsp%' + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ')';
           }
@@ -111,9 +111,9 @@ export class ScenarioRuleComponent implements OnInit {
         .filter(
           (sectionData) =>
             !gameManager.game.sections.find(
-              (active) => active.edition == sectionData.edition && active.group == scenario.group && active.index == sectionData.index
+              (active) => active.edition === sectionData.edition && active.group === scenario.group && active.index === sectionData.index
             ) &&
-            sectionData.group == scenario.group &&
+            sectionData.group === scenario.group &&
             this.rule.sections.includes(sectionData.index)
         );
     }
@@ -126,7 +126,7 @@ export class ScenarioRuleComponent implements OnInit {
       const scenario = gameManager.scenarioRulesManager.getScenarioForRule(this.identifier).scenario;
       this.rule.rooms.forEach((roomNumber) => {
         if (scenario) {
-          const roomData = scenario.rooms.find((roomData) => roomData.roomNumber == roomNumber);
+          const roomData = scenario.rooms.find((roomData) => roomData.roomNumber === roomNumber);
           if (roomData && gameManager.game.scenario && !gameManager.game.scenario.revealedRooms.includes(roomNumber)) {
             rooms.push(roomData);
           }
@@ -145,25 +145,25 @@ export class ScenarioRuleComponent implements OnInit {
           }
 
           const figures = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, this.rule);
-          if (figures.length == 0) {
+          if (figures.length === 0) {
             return false;
           }
 
-          if (figureRule.type == 'gainCondition' || figureRule.type == 'permanentCondition' || figureRule.type == 'loseCondition') {
+          if (figureRule.type === 'gainCondition' || figureRule.type === 'permanentCondition' || figureRule.type === 'loseCondition') {
             return figures.some((figure) => {
-              if (figureRule.type == 'gainCondition') {
+              if (figureRule.type === 'gainCondition') {
                 const entities: Entity[] = gameManager.entityManager.entities(figure);
                 const gainCondition = new Condition(figureRule.value);
                 if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition))) {
                   return false;
                 }
-              } else if (figureRule.type == 'permanentCondition') {
+              } else if (figureRule.type === 'permanentCondition') {
                 const entities: Entity[] = gameManager.entityManager.entities(figure);
                 const gainCondition = new Condition(figureRule.value);
                 if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition, true))) {
                   return false;
                 }
-              } else if (figureRule.type == 'loseCondition') {
+              } else if (figureRule.type === 'loseCondition') {
                 const entities: Entity[] = gameManager.entityManager.entities(figure);
                 const loseCondition = new Condition(figureRule.value);
                 if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, loseCondition))) {
@@ -172,8 +172,8 @@ export class ScenarioRuleComponent implements OnInit {
               }
               return true;
             });
-          } else if (figureRule.type == 'toggleOn' || figureRule.type == 'toggleOff') {
-            return figures.some((figure) => figure.off == (figureRule.type == 'toggleOn'));
+          } else if (figureRule.type === 'toggleOn' || figureRule.type === 'toggleOff') {
+            return figures.some((figure) => figure.off === (figureRule.type === 'toggleOn'));
           }
 
           return true;
@@ -185,32 +185,32 @@ export class ScenarioRuleComponent implements OnInit {
   figureNames(figureRule: ScenarioFigureRule): string {
     let names = '';
     if (figureRule.identifier) {
-      if (figureRule.identifier.type == 'all') {
+      if (figureRule.identifier.type === 'all') {
         names = settingsManager.getLabel('scenario.rules.figures.all');
       } else {
         names = gameManager.scenarioRulesManager
           .figuresByFigureRule(figureRule, this.rule)
           .filter((figure) => {
-            if (figureRule.type == 'gainCondition') {
+            if (figureRule.type === 'gainCondition') {
               const entities: Entity[] = gameManager.entityManager.entities(figure);
               const gainCondition = new Condition(figureRule.value);
               if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition))) {
                 return false;
               }
-            } else if (figureRule.type == 'permanentCondition') {
+            } else if (figureRule.type === 'permanentCondition') {
               const entities: Entity[] = gameManager.entityManager.entities(figure);
               const gainCondition = new Condition(figureRule.value);
               if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition, true))) {
                 return false;
               }
-            } else if (figureRule.type == 'loseCondition') {
+            } else if (figureRule.type === 'loseCondition') {
               const entities: Entity[] = gameManager.entityManager.entities(figure);
               const loseCondition = new Condition(figureRule.value);
               if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, loseCondition))) {
                 return false;
               }
-            } else if (figureRule.type == 'toggleOn' || figureRule.type == 'toggleOff') {
-              return figure.off == (figureRule.type == 'toggleOn');
+            } else if (figureRule.type === 'toggleOn' || figureRule.type === 'toggleOff') {
+              return figure.off === (figureRule.type === 'toggleOn');
             }
 
             return true;
@@ -231,7 +231,7 @@ export class ScenarioRuleComponent implements OnInit {
             }
             if (figure instanceof Monster) {
               const name = figure.statEffect && figure.statEffect.name ? figure.statEffect.name : figure.name;
-              if (figureRule.type == 'removeEntity') {
+              if (figureRule.type === 'removeEntity') {
                 return (
                   settingsManager.getLabel('data.monster.' + name) +
                   ' [' +

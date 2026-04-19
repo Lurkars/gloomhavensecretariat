@@ -1,4 +1,4 @@
-<div class="items-dialog" [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }">
+<div class="items-dialog" [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }">
   <div class="scroll-container">
     <div class="header">
       <span
@@ -19,7 +19,7 @@
       </label>
     </div>
 
-    @if (items.length == 0) {
+    @if (items.length === 0) {
       <div class="item-list">
         <div class="empty"><span [ghs-label]="'game.items.empty'"></span></div>
       </div>

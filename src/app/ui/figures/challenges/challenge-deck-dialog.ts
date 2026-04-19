@@ -91,10 +91,10 @@ export class ChallengeDeckDialogComponent implements OnInit {
 
     this.removedCards = gameManager
       .challengesData(gameManager.game.edition)
-      .filter((challengeCard) => this.deck.cards.find((other) => other.cardId == challengeCard.cardId) == undefined);
+      .filter((challengeCard) => this.deck.cards.find((other) => other.cardId === challengeCard.cardId) === undefined);
 
     const building = gameManager.game.party.buildings.find(
-      (buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked'
+      (buildingModel) => buildingModel.name === 'town-hall' && buildingModel.level && buildingModel.state !== 'wrecked'
     );
     if (building) {
       this.drawAvailable = building.level;
@@ -103,7 +103,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
 
     this.disabled =
       !gameManager.roundManager.firstRound ||
-      gameManager.game.state == GameState.next ||
+      gameManager.game.state === GameState.next ||
       !gameManager.game.scenario ||
       !this.deck.cards.length;
     this.drawDisabled = this.disabled || this.deck.current - this.deck.finished >= this.drawAvailable;
@@ -144,12 +144,12 @@ export class ChallengeDeckDialogComponent implements OnInit {
     let offset = 0;
     let prev = 0;
     let cur = 0;
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       offset = this.deck.current + 1;
       prev = event.previousIndex + offset;
       cur = event.currentIndex + offset;
       moveItemInArray(this.deck.cards, prev, cur);
-    } else if (event.previousContainer.id == 'listFinished') {
+    } else if (event.previousContainer.id === 'listFinished') {
       offset = this.deck.finished;
       prev = offset - event.previousIndex;
       cur = event.currentIndex + this.deck.current;
@@ -173,12 +173,12 @@ export class ChallengeDeckDialogComponent implements OnInit {
     let offset = 0;
     let prev = 0;
     let cur = 0;
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       offset = this.deck.current;
       prev = offset - event.previousIndex;
       cur = offset - event.currentIndex;
       moveItemInArray(this.deck.cards, prev, cur);
-    } else if (event.previousContainer.id == 'listFinished') {
+    } else if (event.previousContainer.id === 'listFinished') {
       offset = this.deck.finished;
       prev = offset - event.previousIndex;
       this.deck.finished = this.deck.finished - 1;
@@ -201,12 +201,12 @@ export class ChallengeDeckDialogComponent implements OnInit {
     let offset = 0;
     let prev = 0;
     let cur = 0;
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       offset = this.deck.finished;
       prev = offset - event.previousIndex;
       cur = offset - event.currentIndex;
       moveItemInArray(this.deck.cards, prev, cur);
-    } else if (event.previousContainer.id == 'listDiscarded') {
+    } else if (event.previousContainer.id === 'listDiscarded') {
       this.deck.finished = this.deck.finished + 1;
       offset = this.deck.finished;
       prev = this.deck.current - event.previousIndex;
@@ -229,7 +229,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
     if (
       index <= this.deck.current &&
       (force ||
-        (!this.edit && gameManager.game.scenario && gameManager.roundManager.firstRound && gameManager.game.state == GameState.draw))
+        (!this.edit && gameManager.game.scenario && gameManager.roundManager.firstRound && gameManager.game.state === GameState.draw))
     ) {
       this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.toggle', index));
       gameManager.challengesManager.toggleKeep(this.deck, index, this.keepAvailable);

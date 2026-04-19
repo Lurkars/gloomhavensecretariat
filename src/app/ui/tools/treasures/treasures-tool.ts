@@ -49,7 +49,7 @@ export class TreasuresToolComponent implements OnInit {
 
   update() {
     this.treasures = [];
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
+    const editionData = gameManager.editionData.find((editionData) => editionData.edition === this.edition);
     if (editionData && editionData.treasures) {
       editionData.treasures.forEach((treasureString, index) => {
         this.treasures.push(new TreasureData(treasureString, index + 1 + (editionData.treasureOffset || 0)));

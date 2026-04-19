@@ -1,10 +1,10 @@
 <div class="container">
   <div
     class="summons-container"
-    [ngClass]="{ empty: summonCount == 0, off: character.off || character.exhausted || character.health <= 0 }"
+    [ngClass]="{ empty: summonCount === 0, off: character.off || character.exhausted || character.health <= 0 }"
   >
     <span class="spacer"></span>
-    <span class="icon" [ngClass]="{ empty: summonCount == 0 }" [entityAnimation]="summonCount == 0">
+    <span class="icon" [ngClass]="{ empty: summonCount === 0 }" [entityAnimation]="summonCount === 0">
       <img [src]="character.iconUrl" />
     </span>
     <div class="summons">

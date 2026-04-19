@@ -30,7 +30,7 @@ export class MonsterMenuComponent {
 
   hasMonster(monsterData: MonsterData) {
     return gameManager.game.figures.some((figure) => {
-      return figure instanceof Monster && monsterData.name == figure.name && monsterData.edition == figure.edition;
+      return figure instanceof Monster && monsterData.name === figure.name && monsterData.edition === figure.edition;
     });
   }
 
@@ -47,8 +47,8 @@ export class MonsterMenuComponent {
       .monstersData(edition)
       .filter(
         (monsterData) =>
-          (!monsterData.boss || monsterData.boss == settingsManager.settings.showBossMonster) &&
-          (!monsterData.hidden || monsterData.hidden == settingsManager.settings.showHiddenMonster) &&
+          (!monsterData.boss || monsterData.boss === settingsManager.settings.showBossMonster) &&
+          (!monsterData.hidden || monsterData.hidden === settingsManager.settings.showHiddenMonster) &&
           (!filter ||
             ghsTextSearch(monsterData.name, filter) ||
             ghsTextSearch(settingsManager.getLabel('data.monster.' + monsterData.name), filter))
@@ -105,6 +105,6 @@ export class MonsterMenuComponent {
   }
 
   noResults(): boolean {
-    return gameManager.currentEditions().every((edition) => this.monsterData(edition, this.filter).length == 0);
+    return gameManager.currentEditions().every((edition) => this.monsterData(edition, this.filter).length === 0);
   }
 }

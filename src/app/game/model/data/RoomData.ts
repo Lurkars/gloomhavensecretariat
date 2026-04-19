@@ -35,7 +35,7 @@ export class TreasureData {
 
   constructor(rewardsString: string, index: number = -1) {
     this.index = index;
-    if (rewardsString == 'G') {
+    if (rewardsString === 'G') {
       this.goal = true;
     } else {
       const rewardStrings = rewardsString.split('|');

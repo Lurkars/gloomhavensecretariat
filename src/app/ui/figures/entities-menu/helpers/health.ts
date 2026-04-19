@@ -36,8 +36,8 @@ export class HealthHelper {
           this.component.entities.forEach((entity) => {
             const figure: Figure = this.component.figureForEntity(entity);
             if (
-              gameManager.game.state == GameState.draw ||
-              entity.entityConditions.length == 0 ||
+              gameManager.game.state === GameState.draw ||
+              entity.entityConditions.length === 0 ||
               entity.entityConditions.every(
                 (entityCondition) =>
                   !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply)
@@ -75,7 +75,7 @@ export class HealthHelper {
       let maxHealth = EntityValueFunction(this.component.entity.maxHealth);
       if (
         this.component.entity instanceof Character &&
-        this.component.entity.name == 'lightning' &&
+        this.component.entity.name === 'lightning' &&
         this.component.specialTags.includes('unbridled-power')
       ) {
         maxHealth = Math.max(maxHealth, 26);
@@ -100,7 +100,7 @@ export class HealthHelper {
   }
 
   close() {
-    if (this.component.health != 0) {
+    if (this.component.health !== 0) {
       this.component.before(
         this.component.trackDamage || settingsManager.settings.damageHP ? 'changeDamage' : 'changeHP',
         ghsValueSign(this.component.health)
@@ -129,7 +129,7 @@ export class HealthHelper {
           ((EntityValueFunction(entity.maxHealth) > 0 && entity.health <= 0) || entity.dead)
         ) {
           entity.dead =
-            entity.entityConditions.length == 0 ||
+            entity.entityConditions.length === 0 ||
             entity.entityConditions.every(
               (entityCondition) =>
                 !entityCondition.highlight ||
@@ -162,12 +162,12 @@ export class HealthHelper {
               if (
                 figure instanceof Monster &&
                 figure.active &&
-                (figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure.entities.length == 0)
+                (figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure.entities.length === 0)
               ) {
                 gameManager.roundManager.toggleFigure(figure);
               } else if (
                 figure instanceof ObjectiveContainer &&
-                (figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure.entities.length == 0)
+                (figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure.entities.length === 0)
               ) {
                 gameManager.objectiveManager.removeObjective(figure);
               }
@@ -182,10 +182,10 @@ export class HealthHelper {
       }
     }
 
-    if (this.component.maxHealth != 0) {
+    if (this.component.maxHealth !== 0) {
       this.component.before('changeMaxHP', ghsValueSign(this.component.maxHealth));
       this.component.entities.forEach((entity) => {
-        if (entity.health == EntityValueFunction(entity.maxHealth)) {
+        if (entity.health === EntityValueFunction(entity.maxHealth)) {
           entity.health += this.component.maxHealth;
         }
         entity.maxHealth = EntityValueFunction(entity.maxHealth) + this.component.maxHealth;

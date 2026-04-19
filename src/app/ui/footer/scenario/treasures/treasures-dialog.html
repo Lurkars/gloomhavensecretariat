@@ -3,7 +3,7 @@
 
   <div class="treasures">
     @for (treasure of treasures; track treasure; let i = $index) {
-      <div class="treasure" [ngClass]="{ looted: looted.includes(i), highlight: i == treasureIndex }" (click)="toggleTreasure(i)">
+      <div class="treasure" [ngClass]="{ looted: looted.includes(i), highlight: i === treasureIndex }" (click)="toggleTreasure(i)">
         @if (('' + treasure).startsWith('G') || +treasure >= 0) {
           <span>
             @if (!('' + treasure).startsWith('G') && +treasure < 10 && +treasure >= 0) {
@@ -25,7 +25,7 @@
       <div
         class="character"
         (click)="toggleCharacter(char)"
-        [ngClass]="{ selected: character == char, disabled: treasures.length == looted.length }"
+        [ngClass]="{ selected: character === char, disabled: treasures.length === looted.length }"
       >
         <img class="icon" [src]="char.iconUrl" />
         <span class="name">
@@ -65,7 +65,7 @@
   </div>
 
   <div class="loot">
-    @if (!!character && treasureIndex != -1 && !gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)) {
+    @if (!!character && treasureIndex !== -1 && !gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)) {
       <p>
         <span
           [ghs-label]="'game.loot.lootTreasure'"
@@ -78,7 +78,7 @@
       <div class="button" (click)="lootTreasure()"><span [ghs-label]="'game.loot.lootTreasure.confirm'"></span></div>
     }
 
-    @if (!!character && treasureIndex == -1) {
+    @if (!!character && treasureIndex === -1) {
       <p>
         <span
           [ghs-label]="'game.loot.lootTreasure.selectTreasure'"
@@ -87,7 +87,7 @@
       </p>
     }
 
-    @if (!character && treasureIndex != -1) {
+    @if (!character && treasureIndex !== -1) {
       <p>
         <span
           [ghs-label]="'game.loot.lootTreasure.selectCharacter'"
@@ -102,17 +102,17 @@
       </p>
     }
 
-    @if (!!character && treasureIndex != -1 && gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)) {
+    @if (!!character && treasureIndex !== -1 && gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)) {
       <p>
         <span
           [ghs-label]="'game.loot.lootTreasure.looted'"
           [ghs-label-args]="[character.title || '%data.character.' + character.edition + '.' + character.name + '%']"
         ></span>
       </p>
-      @if (treasures[treasureIndex] == 'G') {
+      @if (treasures[treasureIndex] === 'G') {
         <span><span [ghs-label]="'game.loot.treasures.rewards.goal'"></span></span>
       }
-      @if (treasures[treasureIndex] != 'G') {
+      @if (treasures[treasureIndex] !== 'G') {
         <ghs-treasure-label
           class="placeholder text-white"
           [edition]="edition"

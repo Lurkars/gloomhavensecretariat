@@ -1,6 +1,6 @@
 <div
   class="outpost-attack-dialog"
-  [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }"
+  [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }"
 >
   <div class="header">
     <img class="party-sheet" (click)="partySheet()" src="./assets/images/sheet.svg" [ghs-tooltip]="'party.outpostAttack.sheet'" />
@@ -87,12 +87,12 @@
       }
     }
 
-    @if (factor == 'advantage') {
+    @if (factor === 'advantage') {
       <div class="factor" [ghs-tooltip]="'party.outpostAttack.advantage'">
         <img src="./assets/images/fh/condition/strengthen.svg" />
       </div>
     }
-    @if (factor == 'disadvantage') {
+    @if (factor === 'disadvantage') {
       <div class="factor" [ghs-tooltip]="'party.outpostAttack.disadvantage'">
         <img src="./assets/images/fh/condition/muddle.svg" />
       </div>
@@ -118,13 +118,13 @@
 
     @if (attackResult) {
       <div class="attack-result">
-        @if (townGuardDeck.cards[attackResult.index].type == 'wreck') {
+        @if (townGuardDeck.cards[attackResult.index].type === 'wreck') {
           <span class="result wreck" [ghs-label]="'party.outpostAttack.result.wreck'"></span>
         }
-        @if (townGuardDeck.cards[attackResult.index].type == 'success') {
+        @if (townGuardDeck.cards[attackResult.index].type === 'success') {
           <span class="result successfull" [ghs-label]="'party.outpostAttack.result.successfull'"></span>
         }
-        @if (townGuardDeck.cards[attackResult.index].type != 'wreck' && townGuardDeck.cards[attackResult.index].type != 'success') {
+        @if (townGuardDeck.cards[attackResult.index].type !== 'wreck' && townGuardDeck.cards[attackResult.index].type !== 'success') {
           <span
             class="result"
             [ngClass]="{ success: attackResult.result >= EntityValueFunction(attack.attackValue) }"
@@ -183,7 +183,7 @@
               </td>
               <td class="target">
                 <span>
-                  @if (i == attacks && attack.targetNumber) {
+                  @if (i === attacks && attack.targetNumber) {
                     <img class="ghs-svg" src="./assets/images/attackmodifier/target.svg" />
                   }
                 </span>
@@ -200,12 +200,12 @@
                 <span [ghs-label]="'party.outpostAttack.buildings.lvl'" [ghs-label-args]="[building.model.level || '-']"></span>
               </td>
               <td class="state">
-                @if (building.model.state == 'damaged') {
+                @if (building.model.state === 'damaged') {
                   <span class="damaged" [ghs-tooltip]="'party.outpostAttack.buildings.damaged'">
                     <img class="ghs-svg" src="./assets/images/fh/buildings/damaged.svg" />
                   </span>
                 }
-                @if (building.model.state == 'wrecked') {
+                @if (building.model.state === 'wrecked') {
                   <span class="wrecked" [ghs-tooltip]="'party.outpostAttack.buildings.wrecked'">
                     <img class="ghs-svg" src="./assets/images/fh/buildings/wrecked.svg" />
                   </span>
@@ -255,12 +255,12 @@
                 <span [ghs-label]="'party.outpostAttack.buildings.lvl'" [ghs-label-args]="[building.model.level || '-']"></span>
               </td>
               <td class="state">
-                @if (building.model.state == 'damaged') {
+                @if (building.model.state === 'damaged') {
                   <span [ghs-tooltip]="'party.outpostAttack.buildings.damaged'">
                     <img class="ghs-svg" src="./assets/images/fh/buildings/damaged.svg" />
                   </span>
                 }
-                @if (building.model.state == 'wrecked') {
+                @if (building.model.state === 'wrecked') {
                   <span [ghs-tooltip]="'party.outpostAttack.buildings.wrecked'">
                     <img class="ghs-svg" src="./assets/images/fh/buildings/wrecked.svg" />
                   </span>
@@ -273,7 +273,7 @@
     </div>
   }
 
-  @if (attack.targetNumber == 0 || attacks >= buildings.length) {
+  @if (attack.targetNumber === 0 || attacks >= buildings.length) {
     <ghs-buildings-list [buildings]="allBuildings" [short]="true" [invert]="true"></ghs-buildings-list>
   }
 
@@ -282,7 +282,7 @@
     @if (+attack.targetNumber > 0 && attacks < buildings.length) {
       <a (click)="nextTarget()" [ghs-label]="'party.outpostAttack.next'"></a>
     }
-    @if (attack.targetNumber == 0 || attacks >= buildings.length) {
+    @if (attack.targetNumber === 0 || attacks >= buildings.length) {
       <a class="finish" (click)="close(true)" [ghs-label]="'party.outpostAttack.finish'"></a>
     }
   </div>

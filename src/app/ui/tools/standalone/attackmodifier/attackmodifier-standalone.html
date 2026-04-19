@@ -1,17 +1,17 @@
 <div
   class="attackmodifier-standalone"
-  [ngClass]="{ vertical: vertical(), modern: settingsManager.settings.theme == 'modern' }"
+  [ngClass]="{ vertical: vertical(), modern: settingsManager.settings.theme === 'modern' }"
   ghs-keyboard-shortcuts
 >
   <ghs-header #header [standalone]="true"></ghs-header>
   <div class="decks">
-    <span class="deck" (click)="selectMonsterDeck()" [ngClass]="{ active: activeDeckIndex == -1 }">m</span>
-    <span class="deck" (click)="selectAllyDeck()" [ngClass]="{ active: activeDeckIndex == 0 }">A</span>
+    <span class="deck" (click)="selectMonsterDeck()" [ngClass]="{ active: activeDeckIndex === -1 }">m</span>
+    <span class="deck" (click)="selectAllyDeck()" [ngClass]="{ active: activeDeckIndex === 0 }">A</span>
 
     @for (character of characters | trackUUID; track character._trackUUID; let i = $index) {
       <span
         class="deck"
-        [ngClass]="{ active: activeDeckIndex == i + 1 }"
+        [ngClass]="{ active: activeDeckIndex === i + 1 }"
         ghs-pointer-input
         (singleClick)="selectCharacterDeck(i)"
         (doubleClick)="removeCharacter(i)"
@@ -26,17 +26,17 @@
       [deck]="
         activeDeckIndex > 0
           ? characters[activeDeckIndex - 1].attackModifierDeck
-          : activeDeckIndex == 0
+          : activeDeckIndex === 0
             ? gameManager.game.allyAttackModifierDeck
             : gameManager.game.monsterAttackModifierDeck
       "
-      [numeration]="activeDeckIndex > 0 ? '' : activeDeckIndex == 0 ? 'A' : 'm'"
+      [numeration]="activeDeckIndex > 0 ? '' : activeDeckIndex === 0 ? 'A' : 'm'"
       [standalone]="true"
       [fullscreen]="false"
       [vertical]="vertical()"
       (before)="beforeAttackModifierDeck($event)"
       (after)="afterAttackModifierDeck($event)"
-      [ally]="activeDeckIndex == 0"
+      [ally]="activeDeckIndex === 0"
       [character]="activeDeckIndex > 0 ? characters[activeDeckIndex - 1] : undefined"
       [battleGoals]="false"
     >

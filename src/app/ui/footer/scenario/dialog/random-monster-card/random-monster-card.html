@@ -31,8 +31,8 @@
                 <span
                   class="type player2"
                   [ngClass]="{
-                    normal: standees[i].type == 'normal' || standees[i].player2 == 'normal',
-                    elite: standees[i].type == 'elite' || standees[i].player2 == 'elite'
+                    normal: standees[i].type === 'normal' || standees[i].player2 === 'normal',
+                    elite: standees[i].type === 'elite' || standees[i].player2 === 'elite'
                   }"
                 >
                   <span class="inner-border"></span>
@@ -40,8 +40,8 @@
                 <span
                   class="type player3"
                   [ngClass]="{
-                    normal: standees[i].type == 'normal' || standees[i].player3 == 'normal',
-                    elite: standees[i].type == 'elite' || standees[i].player3 == 'elite'
+                    normal: standees[i].type === 'normal' || standees[i].player3 === 'normal',
+                    elite: standees[i].type === 'elite' || standees[i].player3 === 'elite'
                   }"
                 >
                   <span class="inner-border"></span>
@@ -49,8 +49,8 @@
                 <span
                   class="type player4"
                   [ngClass]="{
-                    normal: standees[i].type == 'normal' || standees[i].player4 == 'normal',
-                    elite: standees[i].type == 'elite' || standees[i].player4 == 'elite'
+                    normal: standees[i].type === 'normal' || standees[i].player4 === 'normal',
+                    elite: standees[i].type === 'elite' || standees[i].player4 === 'elite'
                   }"
                 >
                   <span class="inner-border"></span>
@@ -62,12 +62,12 @@
                 <div
                   class="image"
                   [ngClass]="{
-                    obstacle: overlays[i].type == 'obstacle',
-                    'difficult-terrain': overlays[i].type == 'difficultTerrain',
-                    'hazardous-terrain': overlays[i].type == 'hazardousTerrain',
-                    trap: overlays[i].type == 'trap',
-                    treasure: overlays[i].type == 'treasure',
-                    loot: overlays[i].type == 'loot'
+                    obstacle: overlays[i].type === 'obstacle',
+                    'difficult-terrain': overlays[i].type === 'difficultTerrain',
+                    'hazardous-terrain': overlays[i].type === 'hazardousTerrain',
+                    trap: overlays[i].type === 'trap',
+                    treasure: overlays[i].type === 'treasure',
+                    loot: overlays[i].type === 'loot'
                   }"
                 >
                   <div class="border">
@@ -76,14 +76,14 @@
                         [src]="
                           './assets/images/scenario/random/overlays/' +
                           (fh ? 'fh/' : '') +
-                          (overlays[i].type == 'loot' || overlays[i].type == 'treasure' ? overlays[i].type : overlays[i].value) +
+                          (overlays[i].type === 'loot' || overlays[i].type === 'treasure' ? overlays[i].type : overlays[i].value) +
                           '.png'
                         "
                       />
                     </div>
                   </div>
                 </div>
-                @if (overlays[i].type == 'treasure' && overlays[i].value) {
+                @if (overlays[i].type === 'treasure' && overlays[i].value) {
                   <div class="value">
                     <span class="separator">:</span>
                     <span
@@ -93,7 +93,7 @@
                     ></span>
                   </div>
                 }
-                @if (overlays[i].type != 'treasure' && overlays[i].values) {
+                @if (overlays[i].type !== 'treasure' && overlays[i].values) {
                   <div class="value">
                     <span class="separator">:</span>
                     <span class="values">

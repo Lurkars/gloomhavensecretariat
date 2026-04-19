@@ -33,8 +33,8 @@ export class LootRandomItemDialogComponent {
     this.item = this.data.item;
     this.character = this.data.character;
     this.autoSell =
-      this.character != undefined &&
-      this.character.progress.items.find((existing) => existing.name == '' + this.item.id && existing.edition == this.item.edition) !=
+      this.character !== undefined &&
+      this.character.progress.items.find((existing) => existing.name === '' + this.item.id && existing.edition === this.item.edition) !=
         undefined;
   }
 

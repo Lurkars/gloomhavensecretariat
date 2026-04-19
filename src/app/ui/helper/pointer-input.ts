@@ -124,7 +124,7 @@ export class PointerInputDirective implements OnInit {
             clearTimeout(this.timeout);
             this.timeout = null;
           }
-          if (this.clicks == 2 && this.doubleClick.observed) {
+          if (this.clicks === 2 && this.doubleClick.observed) {
             this.doubleClick.emit(event);
             this.clicks = 0;
           } else {
@@ -139,7 +139,7 @@ export class PointerInputDirective implements OnInit {
               this.doubleClick.observed ? doubleClickTreshhold : 0
             );
           }
-        } else if (event.pointerType === 'touch' && this.onRelease && this.clicks == 2) {
+        } else if (event.pointerType === 'touch' && this.onRelease && this.clicks === 2) {
           this.doubleClick.emit(event);
           this.clicks = 0;
         } else {
@@ -199,7 +199,7 @@ export class PointerInputDirective implements OnInit {
       } else {
         this.value = Math.min(99, Math.max(0, ((x - rect.left) / rect.width) * 100));
       }
-      if (this.relative && this.relativeValue == -1) {
+      if (this.relative && this.relativeValue === -1) {
         this.relativeValue = this.value;
       }
       if (this.fast) {
@@ -250,7 +250,7 @@ export class PointerInputDirective implements OnInit {
   repeatTimeout(event: PointerEvent) {
     if (this.down && !this.move) {
       this.singleClick.emit(event);
-      if (this.repeats == -1) {
+      if (this.repeats === -1) {
         this.repeats = holdTreshhold;
       } else {
         this.repeats -= 25;

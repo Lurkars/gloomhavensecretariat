@@ -85,9 +85,9 @@ export class StatisticsDialogComponent implements OnInit {
           (value) =>
             !!this.scenario &&
             value.scenario &&
-            value.scenario.index == this.scenario.index &&
-            value.scenario.edition == this.scenario.edition &&
-            value.scenario.group == this.scenario.group &&
+            value.scenario.index === this.scenario.index &&
+            value.scenario.edition === this.scenario.edition &&
+            value.scenario.group === this.scenario.group &&
             value.success
         )
       );
@@ -116,9 +116,9 @@ export class StatisticsDialogComponent implements OnInit {
         (value) =>
           scenario &&
           value.scenario &&
-          value.scenario.index == scenario.index &&
-          value.scenario.edition == scenario.edition &&
-          value.scenario.group == scenario.group &&
+          value.scenario.index === scenario.index &&
+          value.scenario.edition === scenario.edition &&
+          value.scenario.group === scenario.group &&
           value.success
       );
       return scenarioStat ? scenarioStat : new ScenarioStats();

@@ -62,7 +62,7 @@ export class CharacterRetirementDialog {
   constructor() {
     this.conclusion = gameManager
       .sectionData(this.character.edition)
-      .find((sectionData) => sectionData.retirement == this.character.name && sectionData.conclusion);
+      .find((sectionData) => sectionData.retirement === this.character.name && sectionData.conclusion);
     if (this.character.progress.personalQuest) {
       this.personalQuest = gameManager.characterManager.personalQuestByCard(
         gameManager.currentEdition(),
@@ -92,8 +92,8 @@ export class CharacterRetirementDialog {
             .find(
               (characterData) =>
                 this.personalQuest &&
-                characterData.edition == this.personalQuest.edition &&
-                characterData.name == this.personalQuest.unlockCharacter
+                characterData.edition === this.personalQuest.edition &&
+                characterData.name === this.personalQuest.unlockCharacter
             );
           this.unlockEvent = (unlockCharacter && unlockCharacter.unlockEvent) || '';
         } else {
@@ -119,8 +119,8 @@ export class CharacterRetirementDialog {
 
     this.alreadyRetired =
       gameManager.game.party.retirements.find(
-        (retired) => retired.edition == this.character.edition && retired.name == this.character.name
-      ) != undefined;
+        (retired) => retired.edition === this.character.edition && retired.name === this.character.name
+      ) !== undefined;
   }
 
   openConclusion() {
@@ -134,10 +134,10 @@ export class CharacterRetirementDialog {
             gameManager.game.party.conclusions.find(
               (value) =>
                 this.conclusion &&
-                value.edition == this.conclusion.edition &&
-                value.group == this.conclusion.group &&
-                value.index == this.conclusion.index
-            ) != undefined
+                value.edition === this.conclusion.edition &&
+                value.group === this.conclusion.group &&
+                value.index === this.conclusion.index
+            ) !== undefined
         }
       });
     }
@@ -211,13 +211,13 @@ export class CharacterRetirementDialog {
     }
 
     if (this.envelopeAlreadyUnlocked) {
-      if (this.envelopeSection && this.envelopeSection != true) {
+      if (this.envelopeSection && this.envelopeSection !== true) {
         gameManager.game.party.conclusions.push(
           new GameScenarioModel(this.envelopeSection.index, this.envelopeSection.edition, this.envelopeSection.group)
         );
         if (this.envelopeSection.unlocks) {
           this.envelopeSection.unlocks.forEach((unlock) => {
-            if (this.envelopeSection && this.envelopeSection != true) {
+            if (this.envelopeSection && this.envelopeSection !== true) {
               gameManager.game.party.manualScenarios.push(new GameScenarioModel(unlock, this.envelopeSection.edition));
             }
           });
@@ -226,7 +226,7 @@ export class CharacterRetirementDialog {
         gameManager.game.party.inspiration += 1;
       }
 
-      if (this.envelopeItemBlueprint && this.envelopeItemBlueprint != true) {
+      if (this.envelopeItemBlueprint && this.envelopeItemBlueprint !== true) {
         gameManager.game.party.unlockedItems.push(new CountIdentifier(this.envelopeItemBlueprint.id, this.envelopeItemBlueprint.edition));
       } else {
         gameManager.game.party.inspiration += 1;
@@ -234,7 +234,7 @@ export class CharacterRetirementDialog {
     }
 
     if (this.additionalEnvelopeAlreadyUnlocked) {
-      if (this.additionalEnvelopeSection && this.additionalEnvelopeSection != true) {
+      if (this.additionalEnvelopeSection && this.additionalEnvelopeSection !== true) {
         gameManager.game.party.conclusions.push(
           new GameScenarioModel(
             this.additionalEnvelopeSection.index,
@@ -244,7 +244,7 @@ export class CharacterRetirementDialog {
         );
         if (this.additionalEnvelopeSection.unlocks) {
           this.additionalEnvelopeSection.unlocks.forEach((unlock) => {
-            if (this.additionalEnvelopeSection && this.additionalEnvelopeSection != true) {
+            if (this.additionalEnvelopeSection && this.additionalEnvelopeSection !== true) {
               gameManager.game.party.manualScenarios.push(new GameScenarioModel(unlock, this.additionalEnvelopeSection.edition));
             }
           });
@@ -253,7 +253,7 @@ export class CharacterRetirementDialog {
         gameManager.game.party.inspiration += 1;
       }
 
-      if (this.additionalEnvelopeItemBlueprint && this.additionalEnvelopeItemBlueprint != true) {
+      if (this.additionalEnvelopeItemBlueprint && this.additionalEnvelopeItemBlueprint !== true) {
         gameManager.game.party.unlockedItems.push(
           new CountIdentifier(this.additionalEnvelopeItemBlueprint.id, this.additionalEnvelopeItemBlueprint.edition)
         );
@@ -304,9 +304,9 @@ export class CharacterRetirementDialog {
       !gameManager.game.party.conclusions.find(
         (value) =>
           this.conclusion &&
-          value.edition == this.conclusion.edition &&
-          value.group == this.conclusion.group &&
-          value.index == this.conclusion.index
+          value.edition === this.conclusion.edition &&
+          value.group === this.conclusion.group &&
+          value.index === this.conclusion.index
       )
     ) {
       this.openConclusion();
@@ -323,14 +323,14 @@ export class CharacterRetirementDialog {
         .map((buildingData) => buildingData as BuildingData);
       if (buildings.length > 0) {
         if (
-          !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == buildings[0].name) &&
-          (!this.personalQuestBuilding || this.personalQuestBuilding != buildings[0])
+          !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name === buildings[0].name) &&
+          (!this.personalQuestBuilding || this.personalQuestBuilding !== buildings[0])
         ) {
           return buildings[0];
         } else if (
           both &&
           buildings.length > 1 &&
-          !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == buildings[1].name)
+          !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name === buildings[1].name)
         ) {
           return buildings[1];
         }
@@ -358,8 +358,8 @@ export class CharacterRetirementDialog {
             .find(
               (characterData) =>
                 this.additionalPQ &&
-                characterData.edition == this.additionalPQ.edition &&
-                characterData.name == this.additionalPQ.unlockCharacter
+                characterData.edition === this.additionalPQ.edition &&
+                characterData.name === this.additionalPQ.unlockCharacter
             );
           this.additionalUnlockEvent = (unlockCharacter && unlockCharacter.unlockEvent) || '';
         } else {

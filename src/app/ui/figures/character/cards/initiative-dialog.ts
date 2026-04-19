@@ -68,17 +68,17 @@ export class CharacterInitiativeDialogComponent {
   }
 
   updateInitiative(initiative: number) {
-    if (this.figure.initiative != initiative) {
+    if (this.figure.initiative !== initiative) {
       gameManager.entityManager.before(this.character, this.figure, 'setInitiative', initiative > 0 && initiative < 100 ? initiative : 0);
       if (initiative > 0 && initiative < 100) {
         this.setInitiative(initiative);
-        if (this.character && initiative != 99 && (this.character.name != 'prism' || !this.character.tags.includes('long_rest'))) {
+        if (this.character && initiative !== 99 && (this.character.name !== 'prism' || !this.character.tags.includes('long_rest'))) {
           this.character.longRest = false;
         }
-      } else if (gameManager.game.state == GameState.draw) {
+      } else if (gameManager.game.state === GameState.draw) {
         this.figure.initiative = 0;
       }
-      if (gameManager.game.state == GameState.next) {
+      if (gameManager.game.state === GameState.next) {
         gameManager.sortFigures(this.character);
       }
       gameManager.stateManager.after();
@@ -87,9 +87,10 @@ export class CharacterInitiativeDialogComponent {
 
   setInitiative(initiative: number) {
     if (
-      (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0) || initiative > 0) &&
+      (((gameManager.game.state === GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0) ||
+        initiative > 0) &&
       initiative < 100 &&
-      initiative != this.figure.initiative
+      initiative !== this.figure.initiative
     ) {
       this.figure.initiative = initiative;
       if (this.character) {
@@ -106,12 +107,12 @@ export class CharacterInitiativeDialogComponent {
         gameManager.stateManager.after();
       } else {
         gameManager.stateManager.before('characterLongRest', gameManager.characterManager.characterName(this.character, true, true));
-        if (this.character.initiative == 99 || (this.character.name == 'prism' && this.character.tags.includes('long_rest'))) {
+        if (this.character.initiative === 99 || (this.character.name === 'prism' && this.character.tags.includes('long_rest'))) {
           this.character.longRest = true;
         } else {
           this.setInitiative(99);
           this.character.longRest = true;
-          if (gameManager.game.state == GameState.next) {
+          if (gameManager.game.state === GameState.next) {
             gameManager.sortFigures(this.character);
           }
         }

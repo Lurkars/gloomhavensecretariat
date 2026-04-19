@@ -14,27 +14,27 @@
           [battleGoal]="battleGoal"
           [flipped]="
             gameManager.roundManager.firstRound ||
-            selected == index ||
+            selected === index ||
             !character.battleGoal ||
             revealed.includes(index) ||
             trial349 ||
             (trial356 && battleGoals.length > 3 && index < battleGoals.length - 2) ||
             cardOnly
           "
-          [selected]="selected == index || trial349 || (trial356 && battleGoals.length > 3 && index < battleGoals.length - 2)"
-          [reveal]="!cardOnly && gameManager.game.round > 0 && selected != index && character.battleGoal && !revealed.includes(index)"
+          [selected]="selected === index || trial349 || (trial356 && battleGoals.length > 3 && index < battleGoals.length - 2)"
+          [reveal]="!cardOnly && gameManager.game.round > 0 && selected !== index && character.battleGoal && !revealed.includes(index)"
           [disabled]="(character.battleGoal && !!gameManager.game.scenario && gameManager.game.round > 0) || false"
         >
         </ghs-battlegoal>
       }
     </div>
-    @if (!character.battleGoal || selected != 0) {
+    @if (!character.battleGoal || selected !== 0) {
       <div class="menu">
         <a class="cancel" (click)="cancel()" [ghs-label]="'game.battleGoals.cancel'"></a>
         <a
           class="accept"
           (click)="accept()"
-          [ngClass]="{ disabled: selected == -1 && !trial349 }"
+          [ngClass]="{ disabled: selected === -1 && !trial349 }"
           [ghs-label]="'game.battleGoals.chooseCard'"
         ></a>
       </div>

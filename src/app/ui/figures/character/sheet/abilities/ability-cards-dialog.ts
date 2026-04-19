@@ -60,7 +60,8 @@ export class AbilityCardsDialogComponent implements OnInit {
     this.abilities = gameManager.deckData(this.character).abilities;
     this.abilities
       .filter(
-        (ability) => (typeof ability.level === 'string' && ability.level != 'X') || (typeof ability.level === 'number' && ability.level > 9)
+        (ability) =>
+          (typeof ability.level === 'string' && ability.level !== 'X') || (typeof ability.level === 'number' && ability.level > 9)
       )
       .forEach((ability) => {
         if (!this.additionalLevels.includes(ability.level)) {
@@ -69,7 +70,7 @@ export class AbilityCardsDialogComponent implements OnInit {
       });
     this.dialogRef.closed.subscribe({
       next: () => {
-        this.character.tags = this.character.tags.filter((tag) => tag != 'edit-abilities');
+        this.character.tags = this.character.tags.filter((tag) => tag !== 'edit-abilities');
       }
     });
   }
@@ -80,7 +81,7 @@ export class AbilityCardsDialogComponent implements OnInit {
 
   update() {
     this.cardsToPick = this.character.level - this.character.progress.deck.length - 1;
-    this.character.tags = this.character.tags.filter((tag) => tag != 'edit-abilities');
+    this.character.tags = this.character.tags.filter((tag) => tag !== 'edit-abilities');
 
     if (this.cardsToPick < 0) {
       this.cardsToPick = 0;
@@ -97,13 +98,13 @@ export class AbilityCardsDialogComponent implements OnInit {
       this.visibleAbilities = this.abilities
         .filter(
           (ability, i) =>
-            typeof ability.level == 'number' &&
+            typeof ability.level === 'number' &&
             ability.level > 1 &&
             ability.level <= this.levelToPick &&
             !this.character.progress.deck.includes(i)
         )
         .sort((a, b) => {
-          if (typeof a.level === 'number' && typeof b.level === 'number' && a.level != b.level) {
+          if (typeof a.level === 'number' && typeof b.level === 'number' && a.level !== b.level) {
             return b.level - a.level;
           }
           if (a.cardId && b.cardId) {
@@ -112,82 +113,82 @@ export class AbilityCardsDialogComponent implements OnInit {
           return 0;
         });
       this.smallAbilities = this.abilities.filter(
-        (ability, i) => ability.level == 'X' || ability.level == 1 || this.character.progress.deck.includes(i)
+        (ability, i) => ability.level === 'X' || ability.level === 1 || this.character.progress.deck.includes(i)
       );
     } else {
       this.visibleAbilities = this.abilities.filter(
         (ability) =>
           (!this.exclusiveLevel &&
             typeof this.level === 'number' &&
-            (typeof ability.level == 'string' || +ability.level <= this.level) &&
+            (typeof ability.level === 'string' || +ability.level <= this.level) &&
             !this.additionalLevels.includes(ability.level)) ||
-          (this.exclusiveLevel && ability.level == this.exclusiveLevel) ||
-          (this.exclusiveLevel == 1 && ability.level == 'X')
+          (this.exclusiveLevel && ability.level === this.exclusiveLevel) ||
+          (this.exclusiveLevel === 1 && ability.level === 'X')
       );
       this.smallAbilities = [];
 
       if (this.deck) {
         this.visibleAbilities = this.visibleAbilities.filter(
           (ability) =>
-            ability.level == 'X' ||
-            ability.level == 1 ||
-            (typeof ability.level === 'string' && ability.level == this.level) ||
-            this.character.progress.deck.indexOf(this.abilities.indexOf(ability)) != -1
+            ability.level === 'X' ||
+            ability.level === 1 ||
+            (typeof ability.level === 'string' && ability.level === this.level) ||
+            this.character.progress.deck.indexOf(this.abilities.indexOf(ability)) !== -1
         );
         this.character.tags.push('edit-abilities');
       }
 
-      if (this.sort == 'cardId') {
+      if (this.sort === 'cardId') {
         this.visibleAbilities.sort((a, b) => {
           if (a.cardId && b.cardId) {
             return a.cardId - b.cardId;
           }
           return 0;
         });
-      } else if (this.sort == 'level-name') {
+      } else if (this.sort === 'level-name') {
         this.visibleAbilities.sort((a, b) => {
-          if (a.level == b.level) {
+          if (a.level === b.level) {
             if (a.name && b.name) {
               return a.name < b.name ? -1 : 1;
             } else if (a.cardId && b.cardId) {
               return a.cardId - b.cardId;
             }
             return 0;
-          } else if (a.level == 1 && b.level == 'X') {
+          } else if (a.level === 1 && b.level === 'X') {
             return -1;
-          } else if (a.level == 'X' && b.level == 1) {
+          } else if (a.level === 'X' && b.level === 1) {
             return 1;
-          } else if (a.level == 'X') {
+          } else if (a.level === 'X') {
             return -1;
-          } else if (b.level == 'X') {
+          } else if (b.level === 'X') {
             return 1;
-          } else if (typeof a.level === 'number' && typeof b.level == 'number') {
+          } else if (typeof a.level === 'number' && typeof b.level === 'number') {
             return a.level - b.level;
           }
           return 0;
         });
-      } else if (this.sort == 'level-deck') {
+      } else if (this.sort === 'level-deck') {
         this.visibleAbilities.sort((a, b) => {
-          if ((a.level == 1 || a.level == 'X') && (b.level == 1 || b.level == 'X')) {
+          if ((a.level === 1 || a.level === 'X') && (b.level === 1 || b.level === 'X')) {
             return 0;
-          } else if (a.level == 1 || a.level == 'X') {
+          } else if (a.level === 1 || a.level === 'X') {
             return -1;
-          } else if (b.level == 1 || b.level == 'X') {
+          } else if (b.level === 1 || b.level === 'X') {
             return 1;
           } else if (
-            this.character.progress.deck.indexOf(this.abilities.indexOf(a)) != -1 &&
-            this.character.progress.deck.indexOf(this.abilities.indexOf(b)) == -1
+            this.character.progress.deck.indexOf(this.abilities.indexOf(a)) !== -1 &&
+            this.character.progress.deck.indexOf(this.abilities.indexOf(b)) === -1
           ) {
             return -1;
           } else if (
-            this.character.progress.deck.indexOf(this.abilities.indexOf(a)) == -1 &&
-            this.character.progress.deck.indexOf(this.abilities.indexOf(b)) != -1
+            this.character.progress.deck.indexOf(this.abilities.indexOf(a)) === -1 &&
+            this.character.progress.deck.indexOf(this.abilities.indexOf(b)) !== -1
           ) {
             return 1;
           }
           return 0;
         });
-      } else if (this.sort == 'name') {
+      } else if (this.sort === 'name') {
         this.visibleAbilities.sort((a, b) => {
           if (a.name && b.name) {
             return a.name < b.name ? -1 : 1;
@@ -203,7 +204,7 @@ export class AbilityCardsDialogComponent implements OnInit {
       this.visibleAbilities = this.visibleAbilities.filter(
         (ability) =>
           this.character.progress.enhancements &&
-          this.character.progress.enhancements.find((enhancement) => enhancement.cardId == ability.cardId)
+          this.character.progress.enhancements.find((enhancement) => enhancement.cardId === ability.cardId)
       );
     }
   }
@@ -237,7 +238,7 @@ export class AbilityCardsDialogComponent implements OnInit {
   }
 
   clickAbility(ability: Ability) {
-    const level1 = typeof ability.level === 'string' || ability.level == 1;
+    const level1 = typeof ability.level === 'string' || ability.level === 1;
     if (level1 || !this.levelToPick || !this.deck) {
       this.openDialog(ability);
     } else {
@@ -246,7 +247,7 @@ export class AbilityCardsDialogComponent implements OnInit {
   }
 
   toggleDeck(ability: Ability, force: boolean = false) {
-    const inDeck = this.character.progress.deck.indexOf(this.abilities.indexOf(ability)) != -1;
+    const inDeck = this.character.progress.deck.indexOf(this.abilities.indexOf(ability)) !== -1;
     if (inDeck || force || (this.levelToPick >= +ability.level && this.cardsToPick > 0)) {
       if (inDeck) {
         gameManager.stateManager.before(
@@ -254,7 +255,7 @@ export class AbilityCardsDialogComponent implements OnInit {
           gameManager.characterManager.characterName(this.character, true, true),
           ability.name || ability.cardId || ''
         );
-        this.character.progress.deck = this.character.progress.deck.filter((value) => value != this.abilities.indexOf(ability));
+        this.character.progress.deck = this.character.progress.deck.filter((value) => value !== this.abilities.indexOf(ability));
       } else {
         gameManager.stateManager.before(
           'character.cardToDeck',

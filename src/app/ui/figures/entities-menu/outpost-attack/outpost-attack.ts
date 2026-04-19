@@ -102,23 +102,23 @@ export class OutpostAttackComponent implements OnInit {
       let attackValueChange = 0;
       let targetNumberValueChange = 0;
       this.data.effects.forEach((effect) => {
-        if (effect.type == EventCardEffectType.outpostAttack && effect.values.length && typeof effect.values[0] !== 'object') {
+        if (effect.type === EventCardEffectType.outpostAttack && effect.values.length && typeof effect.values[0] !== 'object') {
           attackValueChange = EntityValueFunction(effect.values[0]);
-        } else if (effect.type == EventCardEffectType.outpostTarget && effect.values.length && typeof effect.values[0] !== 'object') {
+        } else if (effect.type === EventCardEffectType.outpostTarget && effect.values.length && typeof effect.values[0] !== 'object') {
           targetNumberValueChange = EntityValueFunction(effect.values[0]);
         }
       });
 
       if (attackValueChange) {
         this.defaultAttack.attackValue =
-          typeof this.defaultAttack.attackValue == 'number'
+          typeof this.defaultAttack.attackValue === 'number'
             ? this.defaultAttack.attackValue + attackValueChange
             : this.defaultAttack.attackValue + ' ' + ghsValueSign(attackValueChange);
       }
 
       if (targetNumberValueChange) {
         this.defaultAttack.targetNumber =
-          typeof this.defaultAttack.targetNumber == 'number'
+          typeof this.defaultAttack.targetNumber === 'number'
             ? this.defaultAttack.targetNumber + targetNumberValueChange
             : this.defaultAttack.targetNumber + ' ' + ghsValueSign(targetNumberValueChange);
       }
@@ -144,7 +144,7 @@ export class OutpostAttackComponent implements OnInit {
     const campaign = gameManager.campaignData();
     if (campaign) {
       gameManager.game.party.buildings.forEach((model) => {
-        const data = campaign.buildings.find((buildingData) => buildingData.name == model.name);
+        const data = campaign.buildings.find((buildingData) => buildingData.name === model.name);
         if (data && model.level && data.id && !isNaN(+data.id)) {
           if (init) {
             model.attacked = undefined;
@@ -229,17 +229,17 @@ export class OutpostAttackComponent implements OnInit {
       const building = this.buildings[this.attacks];
       let state = building.model.state;
       if (this.attackResult) {
-        if (this.townGuardDeck.cards[this.attackResult.index].type == 'wreck') {
+        if (this.townGuardDeck.cards[this.attackResult.index].type === 'wreck') {
           state = 'wrecked';
         } else if (
-          this.townGuardDeck.cards[this.attackResult.index].type != 'success' &&
+          this.townGuardDeck.cards[this.attackResult.index].type !== 'success' &&
           this.attackResult.result < EntityValueFunction(this.attack.attackValue)
         ) {
           state = 'damaged';
         }
       }
       gameManager.stateManager.before(
-        'buildingAttacked' + (state != building.model.state ? '.' + state : ''),
+        'buildingAttacked' + (state !== building.model.state ? '.' + state : ''),
         building.data.id,
         building.data.name
       );
@@ -267,7 +267,7 @@ export class OutpostAttackComponent implements OnInit {
   }
 
   toggleSoldier(soldier: number) {
-    if (this.soldiers == soldier) {
+    if (this.soldiers === soldier) {
       this.soldiers--;
     } else {
       this.soldiers = soldier;
@@ -276,13 +276,13 @@ export class OutpostAttackComponent implements OnInit {
   }
 
   applyBaracks() {
-    const barracks = this.allBuildings.find((building) => building.model.name == 'barracks');
+    const barracks = this.allBuildings.find((building) => building.model.name === 'barracks');
     if (!barracks) {
       console.warn('No Barrack found!');
       return;
     }
 
-    if (barracks.model.state == 'wrecked') {
+    if (barracks.model.state === 'wrecked') {
       this.barracks = false;
       this.baracksBonus = 0;
       this.soldiers = 0;
@@ -355,7 +355,7 @@ export class OutpostAttackComponent implements OnInit {
       return false;
     }
 
-    if (building.model.state == 'wrecked') {
+    if (building.model.state === 'wrecked') {
       return false;
     }
 
@@ -363,7 +363,7 @@ export class OutpostAttackComponent implements OnInit {
 
     if (
       this.attack.target.parity &&
-      ((this.attack.target.parity == 'even' && number % 2 == 1) || (this.attack.target.parity == 'odd' && number % 2 == 0))
+      ((this.attack.target.parity === 'even' && number % 2 === 1) || (this.attack.target.parity === 'odd' && number % 2 === 0))
     ) {
       return false;
     }
@@ -389,10 +389,10 @@ export class OutpostAttackComponent implements OnInit {
       return 1;
     }
 
-    if (this.attack.target.level && a.model.level != b.model.level) {
-      if (this.attack.target.level == 'low') {
+    if (this.attack.target.level && a.model.level !== b.model.level) {
+      if (this.attack.target.level === 'low') {
         return a.model.level - b.model.level;
-      } else if (this.attack.target.level == 'high') {
+      } else if (this.attack.target.level === 'high') {
         return b.model.level - a.model.level;
       }
     }
@@ -400,7 +400,7 @@ export class OutpostAttackComponent implements OnInit {
     if (this.attack.target.distance) {
       const distanceA = this.targetDistance(a);
       const distanceB = this.targetDistance(b);
-      if (distanceA != -1 && distanceB != -1) {
+      if (distanceA !== -1 && distanceB !== -1) {
         return distanceA - distanceB;
       }
     }
@@ -418,7 +418,7 @@ export class OutpostAttackComponent implements OnInit {
         return 0;
       }
     } else if (typeof this.attack.target.distance === 'string') {
-      const targetBuilding = this.allBuildings.find((building) => building.model.name == this.attack.target.distance);
+      const targetBuilding = this.allBuildings.find((building) => building.model.name === this.attack.target.distance);
       if (targetBuilding) {
         distance = gameManager.buildingsManager.distanceBetween(building.model, targetBuilding.model);
       }
@@ -427,7 +427,7 @@ export class OutpostAttackComponent implements OnInit {
       distance = gameManager.buildingsManager.distanceFrom(building.model, coordinates);
     }
 
-    return distance != undefined ? distance : -1;
+    return distance !== undefined ? distance : -1;
   }
 
   randomize() {
@@ -435,7 +435,7 @@ export class OutpostAttackComponent implements OnInit {
   }
 
   dropBuildings(event: CdkDragDrop<Building[]>) {
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       moveItemInArray(this.buildings, event.previousIndex, event.currentIndex);
     } else {
       const building = this.disabledBuildings.splice(event.previousIndex, 1)[0];
@@ -446,7 +446,7 @@ export class OutpostAttackComponent implements OnInit {
   }
 
   dropDisabledBuildings(event: CdkDragDrop<Building[]>) {
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       moveItemInArray(this.disabledBuildings, event.previousIndex, event.currentIndex);
     } else {
       const building = this.buildings.splice(event.previousIndex, 1)[0];

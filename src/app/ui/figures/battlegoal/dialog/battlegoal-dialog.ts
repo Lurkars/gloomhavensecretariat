@@ -43,7 +43,7 @@ export class CharacterBattleGoalsDialog {
     this.ghsManager.uiChangeEffect(() => {
       this.character =
         (gameManager.game.figures.find(
-          (figure) => figure instanceof Character && figure.edition == this.character.edition && figure.name == this.character.name
+          (figure) => figure instanceof Character && figure.edition === this.character.edition && figure.name === this.character.name
         ) as Character) || this.character;
       if (this.character.battleGoal) {
         this.selected = 0;
@@ -55,7 +55,7 @@ export class CharacterBattleGoalsDialog {
     this.character = this.data.character;
     this.selected = this.character.battleGoal ? 0 : -1;
     this.cardOnly = this.data.cardOnly;
-    if (gameManager.battleGoalManager.getBattleGoals().length == 0) {
+    if (gameManager.battleGoalManager.getBattleGoals().length === 0) {
       this.dialog
         .open(BattleGoalSetupDialog, {
           panelClass: ['dialog']
@@ -112,15 +112,15 @@ export class CharacterBattleGoalsDialog {
       (gameManager.trialsManager.apply &&
         gameManager.trialsManager.trialsEnabled &&
         this.character.progress.trial &&
-        this.character.progress.trial.edition == 'fh' &&
-        this.character.progress.trial.name == '349') ||
+        this.character.progress.trial.edition === 'fh' &&
+        this.character.progress.trial.name === '349') ||
       false;
     this.trial356 =
       (gameManager.trialsManager.apply &&
         gameManager.trialsManager.trialsEnabled &&
         this.character.progress.trial &&
-        this.character.progress.trial.edition == 'fh' &&
-        this.character.progress.trial.name == '356') ||
+        this.character.progress.trial.edition === 'fh' &&
+        this.character.progress.trial.name === '356') ||
       false;
   }
 
@@ -138,10 +138,10 @@ export class CharacterBattleGoalsDialog {
       if (!this.revealed.includes(index)) {
         this.revealed.push(index);
       }
-      if (this.selected != -1 && !this.revealed.includes(this.selected)) {
+      if (this.selected !== -1 && !this.revealed.includes(this.selected)) {
         this.revealed.push(this.selected);
       }
-      if (this.selected == index) {
+      if (this.selected === index) {
         this.selected = -1;
       } else {
         this.selected = index;
@@ -169,14 +169,14 @@ export class CharacterBattleGoalsDialog {
   }
 
   accept() {
-    if (((this.selected != -1 || this.trial349) && !this.character.battleGoal) || (this.selected != 0 && this.character.battleGoal)) {
+    if (((this.selected !== -1 || this.trial349) && !this.character.battleGoal) || (this.selected !== 0 && this.character.battleGoal)) {
       gameManager.stateManager.before(
-        'battleGoals.' + (this.selected != -1 || this.trial349 ? 'select' : 'deselect'),
+        'battleGoals.' + (this.selected !== -1 || this.trial349 ? 'select' : 'deselect'),
         gameManager.characterManager.characterName(this.character, true, true)
       );
       if (this.trial349) {
         this.character.battleGoal = true;
-      } else if (this.selected != -1) {
+      } else if (this.selected !== -1) {
         this.character.battleGoal = true;
         moveItemInArray(this.character.battleGoals, this.selected, 0);
       } else {

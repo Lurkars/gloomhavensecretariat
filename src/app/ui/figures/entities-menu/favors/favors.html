@@ -11,14 +11,14 @@
   </div>
 
   <div class="points">
-    @for (spent of gameFavorPoints; track spent; let i = $index) {
+    @for (spent of gameFavorPoints; track i; let i = $index) {
       <div class="point spent" ghs-pointer-input (singleClick)="unspentPoints(i)" (doubleClick)="unspentPoints(i, true)">
-        <span [ghs-placeholder]="'game.attackmodifier.minus' + spent"></span>
+        <span [ghs-label]="'%game.attackmodifier.minus' + spent + '%'"></span>
       </div>
     }
-    @for (left of leftPoints; track left) {
+    @for (left of leftPoints; track i; let i = $index) {
       <div class="point left" ghs-pointer-input (singleClick)="addSpentPoints(left)" (doubleClick)="addSpentPoints(left, true)">
-        <span [ghs-placeholder]="'game.attackmodifier.minus' + left"></span>
+        <span [ghs-label]="'%game.attackmodifier.minus' + left + '%'"></span>
       </div>
     }
   </div>
@@ -38,7 +38,7 @@
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
           <span class="hint">
             <div class="text">
-              <span [ghs-label]="'game.data.favors.' + favor.edition + '.' + favor.name + '.text'"></span>
+              <span [ghs-label]="'data.favors.' + favor.edition + '.' + favor.name + '.text'"></span>
             </div>
           </span>
         </div>
@@ -47,11 +47,11 @@
             <img
               src="./assets/images/automation.svg"
               class="hint-trigger automation ghs-svg"
-              [ngClass]="{ none: !favor.automation, manual: favor.automation == 'manual' }"
+              [ngClass]="{ none: !favor.automation, manual: favor.automation === 'manual' }"
             />
             <span class="hint">
               <div class="text">
-                <span [ghs-label]="'game.data.favors.' + favor.edition + '.' + favor.name + '.automation'"></span>
+                <span [ghs-label]="'data.favors.' + favor.edition + '.' + favor.name + '.automation'"></span>
               </div>
             </span>
           </div>

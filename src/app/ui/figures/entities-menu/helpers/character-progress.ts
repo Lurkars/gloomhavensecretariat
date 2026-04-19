@@ -32,7 +32,7 @@ export class CharacterProgressHelper {
       .map((character) => '%game.characterIconColored.' + character.name + '%')
       .join(',');
 
-    if (this.experience != 0) {
+    if (this.experience !== 0) {
       gameManager.stateManager.before('eventEffect.changeCharacterXP', ghsValueSign(this.experience), characterIcons);
       this.component.entities.forEach((entity) => {
         if (entity instanceof Character) {
@@ -45,7 +45,7 @@ export class CharacterProgressHelper {
       gameManager.stateManager.after();
     }
 
-    if (this.gold != 0) {
+    if (this.gold !== 0) {
       gameManager.stateManager.before('eventEffect.changeCharacterGold', ghsValueSign(this.gold), characterIcons);
       this.component.entities.forEach((entity) => {
         if (entity instanceof Character) {
@@ -58,7 +58,7 @@ export class CharacterProgressHelper {
       gameManager.stateManager.after();
     }
 
-    if (this.battleGoals != 0) {
+    if (this.battleGoals !== 0) {
       gameManager.stateManager.before('eventEffect.changeCharacterBattleGoals', ghsValueSign(this.battleGoals), characterIcons);
       this.component.entities.forEach((entity) => {
         if (entity instanceof Character) {
@@ -72,7 +72,7 @@ export class CharacterProgressHelper {
     }
 
     this.lootColumns.forEach((type) => {
-      if (this.loot[type] && this.loot[type] != 0) {
+      if (this.loot[type] && this.loot[type] !== 0) {
         if (settingsManager.settings.fhShareResources) {
           gameManager.stateManager.before(
             'eventEffect.changeCharacterResource',

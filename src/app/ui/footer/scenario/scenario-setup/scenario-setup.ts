@@ -47,9 +47,10 @@ export class ScenarioSetupComponent implements OnInit {
         if (this.scenario.lootDeckConfig[lootType]) {
           this.lootConfig.push({ type: lootType, value: this.scenario.lootDeckConfig[lootType] || 0 });
           if (
-            lootType == LootType.random_item &&
+            lootType === LootType.random_item &&
             gameManager.game.party.randomItemLooted.find(
-              (model) => model.edition == this.scenario.edition && model.group == this.scenario.group && model.index == this.scenario.index
+              (model) =>
+                model.edition === this.scenario.edition && model.group === this.scenario.group && model.index === this.scenario.index
             )
           ) {
             this.lootRandomItem = true;
@@ -79,12 +80,12 @@ export class ScenarioSetupComponent implements OnInit {
         !monster.standeeShare ||
         gameManager.scenarioManager
           .openRooms()
-          .find((room) => room.initial && room.monster.find((standee) => standee.name.split(':')[0] == monster.name)) ||
+          .find((room) => room.initial && room.monster.find((standee) => standee.name.split(':')[0] === monster.name)) ||
         gameManager.game.figures.some(
-          (figure) => figure instanceof Monster && figure.name == monster.name && figure.edition == monster.edition
+          (figure) => figure instanceof Monster && figure.name === monster.name && figure.edition === monster.edition
         )
       ) {
-        if (!this.monsters.find((m) => m.edition == monster.edition && m.name == monster.name)) {
+        if (!this.monsters.find((m) => m.edition === monster.edition && m.name === monster.name)) {
           monster.tags = [];
           this.monsters.push(monster);
         }
@@ -93,7 +94,7 @@ export class ScenarioSetupComponent implements OnInit {
           .monstersData()
           .find(
             (monsterData) =>
-              monsterData.name == monster.standeeShare && monsterData.edition == (monster.standeeShareEdition || monster.edition)
+              monsterData.name === monster.standeeShare && monsterData.edition === (monster.standeeShareEdition || monster.edition)
           );
         if (standee) {
           const changedStandee = new Monster(JSON.parse(JSON.stringify(standee)) as MonsterData);
@@ -104,7 +105,7 @@ export class ScenarioSetupComponent implements OnInit {
             }
           }
 
-          const otherStandee = this.monsters.find((m) => m.name == changedStandee.name && m.edition == changedStandee.edition);
+          const otherStandee = this.monsters.find((m) => m.name === changedStandee.name && m.edition === changedStandee.edition);
           if (!otherStandee) {
             this.hasSpoiler = true;
             this.monsters.push(changedStandee);
@@ -147,7 +148,8 @@ export class ScenarioSetupComponent implements OnInit {
 
     this.monsters = this.monsters
       .filter(
-        (monsterData, index, self) => !self.find((m) => monsterData.standeeShare == m.edition && monsterData.standeeShareEdition == m.name)
+        (monsterData, index, self) =>
+          !self.find((m) => monsterData.standeeShare === m.edition && monsterData.standeeShareEdition === m.name)
       )
       .sort((a, b) => {
         const textA = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();

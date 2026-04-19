@@ -32,7 +32,7 @@
     }
     @if (isFinish || isFailed) {
       <a (click)="confirm()"
-        ><span [ghs-label]="gameManager.game.state == GameState.next ? 'round.hint.continueNext' : 'round.hint.continueDraw'"></span
+        ><span [ghs-label]="gameManager.game.state === GameState.next ? 'round.hint.continueNext' : 'round.hint.continueDraw'"></span
       ></a>
     }
     @if (isBattleGoals) {

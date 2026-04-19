@@ -49,8 +49,8 @@ export class PointerInputService {
               const elements = document.elementsFromPoint(event.clientX, event.clientY);
               for (let i = 0; i < elements.length; i++) {
                 const element = elements[i];
-                if (element != event.target) {
-                  this.behindActive = this.directives.find((directive) => element && directive.elementRef.nativeElement == element);
+                if (element !== event.target) {
+                  this.behindActive = this.directives.find((directive) => element && directive.elementRef.nativeElement === element);
                   if (this.behindActive) {
                     break;
                   }
@@ -111,7 +111,7 @@ export class PointerInputService {
         settingsManager.settings.pinchZoom &&
         this.activePointers.size < 2 &&
         this.zoomDiff > -1 &&
-        settingsManager.settings.zoom != this.currentZoom
+        settingsManager.settings.zoom !== this.currentZoom
       ) {
         this.zoomDiff = -1;
         settingsManager.setZoom(this.currentZoom);
@@ -218,11 +218,11 @@ export class PointerInputService {
 
   find(element: HTMLElement): PointerInputDirective | undefined {
     let target: HTMLElement = element;
-    let active = this.directives.find((directive) => target && directive.elementRef.nativeElement == target);
+    let active = this.directives.find((directive) => target && directive.elementRef.nativeElement === target);
     let depth = 0;
     while (!active && depth < maxElementDepth && target !== document.body && target.parentElement) {
       target = target.parentElement;
-      active = this.directives.find((directive) => target && directive.elementRef.nativeElement == target);
+      active = this.directives.find((directive) => target && directive.elementRef.nativeElement === target);
       depth++;
     }
 

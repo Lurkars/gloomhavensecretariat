@@ -56,11 +56,11 @@
       @for (section of gameManager.game.sections | trackUUID; track section._trackUUID) {
         <span
           class="section"
-          [ngClass]="{ 'random-monster-card': section.group == 'randomMonsterCard' }"
+          [ngClass]="{ 'random-monster-card': section.group === 'randomMonsterCard' }"
           (click)="openRandomMonsterCard(section)"
         >
           #{{ section.index }}
-          @if (!scenario || section.name != scenario.name) {
+          @if (!scenario || section.name !== scenario.name) {
             <span> &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section, true)"></span> </span>
           }
           @if (section.marker) {

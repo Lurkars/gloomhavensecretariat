@@ -5,11 +5,11 @@
     disabled: absent,
     off: off,
     'no-artwork': character.noThumbnail || !settingsManager.settings.artwork,
-    modern: settingsManager.settings.theme == 'modern'
+    modern: settingsManager.settings.theme === 'modern'
   }"
   [style.--ghs-character-color]="character.color"
   [ghs-label]="
-    gameManager.game.state == GameState.next ? (active ? 'game.figure.endTurn' : 'game.figure.startTurn') : 'game.figure.setInitiative'
+    gameManager.game.state === GameState.next ? (active ? 'game.figure.endTurn' : 'game.figure.startTurn') : 'game.figure.setInitiative'
   "
   [ghs-label-attribute]="'title'"
 >

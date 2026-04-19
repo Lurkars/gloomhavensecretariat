@@ -1,10 +1,10 @@
 <div
   class="monster"
   [ngClass]="{
-    off: off || nonDead == 0,
+    off: off || nonDead === 0,
     'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard,
     'full-stats': settingsManager.settings.showExpandedStatCard,
-    modern: settingsManager.settings.theme == 'modern',
+    modern: settingsManager.settings.theme === 'modern',
     short: !settingsManager.settings.abilities || !settingsManager.settings.stats,
     'short-abilities': !settingsManager.settings.stats,
     'short-stats': !settingsManager.settings.abilities
@@ -86,7 +86,7 @@
   <div
     class="entities-container"
     [ngClass]="{
-      empty: nonDead == 0,
+      empty: nonDead === 0,
       'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard,
       denied: gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]
     }"

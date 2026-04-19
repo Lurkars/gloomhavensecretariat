@@ -111,7 +111,7 @@ export class StandeeComponent implements OnInit {
   update(): void {
     this.activeConditions = gameManager.entityManager.activeConditions(this.entity, true);
     this.entity.immunities.forEach((immunity) => {
-      if (!this.activeConditions.find((entityCondition) => entityCondition.name == immunity)) {
+      if (!this.activeConditions.find((entityCondition) => entityCondition.name === immunity)) {
         this.activeConditions.push(new EntityCondition(immunity));
       }
     });
@@ -124,10 +124,10 @@ export class StandeeComponent implements OnInit {
       const activeFigure = gameManager.game.figures.find((figure) => figure.active);
       if (activeFigure) {
         const activeIndex: number = gameManager.game.figures.indexOf(activeFigure);
-        if (activeIndex != -1) {
-          if (this.activeIndex == -1) {
+        if (activeIndex !== -1) {
+          if (this.activeIndex === -1) {
             this.activeIndex = activeIndex;
-          } else if (this.activeIndex != activeIndex && this.entity.number > 0) {
+          } else if (this.activeIndex !== activeIndex && this.entity.number > 0) {
             this.entity.revealed = false;
           }
         }
@@ -136,7 +136,7 @@ export class StandeeComponent implements OnInit {
     this.marker = this.entity instanceof MonsterEntity || this.entity instanceof ObjectiveEntity ? this.entity.marker : '';
     if (
       this.figure instanceof ObjectiveContainer &&
-      this.figure.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) == 0)
+      this.figure.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) === 0)
     ) {
       this.marker = '';
     }
@@ -144,7 +144,7 @@ export class StandeeComponent implements OnInit {
     this.activeTurn = false;
     if (this.figure instanceof Monster) {
       const entities = this.figure.entities.filter((entity) => entity.active).sort(gameManager.monsterManager.sortEntities);
-      if (entities.length && entities[0] == this.entity) {
+      if (entities.length && entities[0] === this.entity) {
         this.activeTurn = true;
       }
     }
@@ -157,10 +157,10 @@ export class StandeeComponent implements OnInit {
     this.entity.tags.forEach((tag) => {
       if (
         this.figure instanceof Character &&
-        this.figure.name == 'prism' &&
-        this.figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.summon)
+        this.figure.name === 'prism' &&
+        this.figure.specialActions.find((specialAction) => specialAction.name === tag && specialAction.summon)
       ) {
-        if (tag == 'prism_mode') {
+        if (tag === 'prism_mode') {
           this.specialActionsMarker.push('mode');
         }
       }
@@ -204,12 +204,12 @@ export class StandeeComponent implements OnInit {
           !gameManager.stateManager.characterPermissions[this.figure.name + '|' + this.figure.edition]),
       'action-hint-border':
         this.actionHints.length > 0 &&
-        this.actionHints.length % 2 == 1 &&
-        this.activeConditions.length == 0 &&
-        ((isObjectiveEntity && isMonsterEntity && gameManager.toMonsterEntity(this.entity).summon == SummonState.false) ||
-          (isSummon && gameManager.toSummon(this.entity).state == SummonState.false)),
-      fh: settingsManager.settings.theme == 'fh',
-      modern: settingsManager.settings.theme == 'modern'
+        this.actionHints.length % 2 === 1 &&
+        this.activeConditions.length === 0 &&
+        ((isObjectiveEntity && isMonsterEntity && gameManager.toMonsterEntity(this.entity).summon === SummonState.false) ||
+          (isSummon && gameManager.toSummon(this.entity).state === SummonState.false)),
+      fh: settingsManager.settings.theme === 'fh',
+      modern: settingsManager.settings.theme === 'modern'
     };
 
     this.entityTypeClass = isMonsterEntity ? gameManager.toMonsterEntity(this.entity).type : '';
@@ -222,7 +222,7 @@ export class StandeeComponent implements OnInit {
         isMonster &&
         gameManager.toMonster(this.figure).bb &&
         isMonsterEntity &&
-        gameManager.toMonsterEntity(this.entity).type == MonsterType.elite
+        gameManager.toMonsterEntity(this.entity).type === MonsterType.elite
     };
 
     this.numberClasses =
@@ -233,10 +233,10 @@ export class StandeeComponent implements OnInit {
     if (isSummon) {
       const summon = gameManager.toSummon(this.entity);
       this.summonStateClasses = {
-        active: summon.state == SummonState.true,
-        new: summon.state == SummonState.new,
-        center: summon.entityConditions.length % 2 == 0,
-        fh: summon.color == SummonColor.fh
+        active: summon.state === SummonState.true,
+        new: summon.state === SummonState.new,
+        center: summon.entityConditions.length % 2 === 0,
+        fh: summon.color === SummonColor.fh
       };
     }
 
@@ -245,13 +245,13 @@ export class StandeeComponent implements OnInit {
     };
 
     this.conditionCenterBase =
-      (isMonsterEntity && gameManager.toMonsterEntity(this.entity).summon == SummonState.false) || isSummon || isObjectiveEntity;
+      (isMonsterEntity && gameManager.toMonsterEntity(this.entity).summon === SummonState.false) || isSummon || isObjectiveEntity;
 
     if (isMonsterEntity) {
       const me = gameManager.toMonsterEntity(this.entity);
       this.monsterSummonClasses = {
-        active: me.summon == SummonState.true,
-        new: me.summon == SummonState.new
+        active: me.summon === SummonState.true,
+        new: me.summon === SummonState.new
       };
     }
   }
@@ -273,7 +273,7 @@ export class StandeeComponent implements OnInit {
 
   dragHpEnd() {
     if (
-      this.health != 0 &&
+      this.health !== 0 &&
       (EntityValueFunction(this.entity.maxHealth) > 0 || (this.objectiveData && this.objectiveData.trackDamage)) &&
       (!(this.figure instanceof Monster) || !this.figure.immortal)
     ) {
@@ -325,7 +325,7 @@ export class StandeeComponent implements OnInit {
     const edition = marker.split('-')[0];
     const name = marker.split('-').slice(1).join('-');
     gameManager.entityManager.before(this.entity, this.figure, 'removeCharacterMarker', marker, edition + '.' + name);
-    this.entity.markers = this.entity.markers.filter((value) => value != marker);
+    this.entity.markers = this.entity.markers.filter((value) => value !== marker);
     gameManager.stateManager.after();
   }
 

@@ -53,16 +53,16 @@ export class Monster extends MonsterData implements Figure {
     this.tags = [];
     if (monsterData.baseStat && monsterData.stats) {
       for (const stat of monsterData.stats) {
-        if (!stat.health && stat.health != 0) {
+        if (!stat.health && stat.health !== 0) {
           stat.health = monsterData.baseStat.health || 0;
         }
-        if (!stat.movement && stat.movement != 0) {
+        if (!stat.movement && stat.movement !== 0) {
           stat.movement = monsterData.baseStat.movement || 0;
         }
-        if (!stat.attack && stat.attack != 0) {
+        if (!stat.attack && stat.attack !== 0) {
           stat.attack = monsterData.baseStat.attack || 0;
         }
-        if (!stat.range && stat.range != 0) {
+        if (!stat.range && stat.range !== 0) {
           stat.range = monsterData.baseStat.range || 0;
         }
         if (!stat.actions) {
@@ -110,7 +110,7 @@ export class Monster extends MonsterData implements Figure {
   fromModel(model: GameMonsterModel) {
     this.edition = model.edition;
     if (!this.edition) {
-      const monsterData = gameManager.monstersData().find((monsterData) => monsterData.name == model.name);
+      const monsterData = gameManager.monstersData().find((monsterData) => monsterData.name === model.name);
       if (monsterData) {
         this.edition = monsterData.edition;
       } else {
@@ -128,16 +128,16 @@ export class Monster extends MonsterData implements Figure {
       [];
     this.ability = model.ability;
     this.entities = this.entities.filter((monsterEntity) =>
-      model.entities.find((gmem) => gmem.number == monsterEntity.number && gmem.type == monsterEntity.type)
+      model.entities.find((gmem) => gmem.number === monsterEntity.number && gmem.type === monsterEntity.type)
     );
     model.entities.forEach((value, index) => {
       let entity = this.entities.find(
-        (monsterEntity) => monsterEntity.number == value.number && monsterEntity.type == value.type
+        (monsterEntity) => monsterEntity.number === value.number && monsterEntity.type === value.type
       ) as MonsterEntity;
       if (!entity) {
         entity = new MonsterEntity(value.number, value.type, this);
         this.entities.splice(index, 0, entity);
-      } else if (index != this.entities.indexOf(entity)) {
+      } else if (index !== this.entities.indexOf(entity)) {
         this.entities.splice(this.entities.indexOf(entity), 1);
         this.entities.splice(index, 0, entity);
       }

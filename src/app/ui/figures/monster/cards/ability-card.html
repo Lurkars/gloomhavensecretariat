@@ -22,7 +22,7 @@
     [ability]="ability"
     [monster]="monster"
     [flipped]="flipped"
-    [activeActions]="monster.firstActiveAction ? (monster.firstActiveAction == 'bottom' ? 'bottom' : 'top') : false"
+    [activeActions]="monster.firstActiveAction ? (monster.firstActiveAction === 'bottom' ? 'bottom' : 'top') : false"
     [interactiveAbilities]="settingsManager.settings.interactiveAbilities"
     ghs-pointer-input
     (singleClick)="openAbilities($event)"
@@ -33,7 +33,7 @@
       [ability]="secondAbility"
       [monster]="monster"
       [flipped]="flipped"
-      [activeActions]="monster.firstActiveAction ? (monster.firstActiveAction == 'bottom' ? 'top' : 'bottom') : false"
+      [activeActions]="monster.firstActiveAction ? (monster.firstActiveAction === 'bottom' ? 'top' : 'bottom') : false"
       [interactiveAbilities]="settingsManager.settings.interactiveAbilities"
       ghs-pointer-input
       (singleClick)="openAbilities($event)"

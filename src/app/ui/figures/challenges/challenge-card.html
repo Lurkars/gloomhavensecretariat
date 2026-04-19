@@ -20,7 +20,7 @@
           </div>
           <p class="placeholder" [ghs-label]="'data.challenges.' + challenge.edition + '.' + challenge.cardId"></p>
           <div class="hint">
-            @if (challenge.automation == 'partial' && settingsManager.settings.fhChallengesApply) {
+            @if (challenge.automation === 'partial' && settingsManager.settings.fhChallengesApply) {
               <img
                 [ghs-tooltip]="'data.challenges.' + challenge.edition + '.' + challenge.cardId + '.hint'"
                 class="ghs-svg"

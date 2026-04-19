@@ -12,7 +12,7 @@ export class AutoscrollDirective implements OnChanges {
   @Input('autoscroll') active: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['active'] && changes['active'].currentValue && changes['active'].currentValue != changes['active'].previousValue) {
+    if (changes['active'] && changes['active'].currentValue && changes['active'].currentValue !== changes['active'].previousValue) {
       setTimeout(() => {
         this.el.nativeElement.scrollIntoView({
           behavior: !settingsManager.settings.animations ? 'auto' : 'smooth',

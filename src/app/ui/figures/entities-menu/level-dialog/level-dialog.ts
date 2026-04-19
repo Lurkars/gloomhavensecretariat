@@ -104,7 +104,7 @@ export class CharacterLevelDialogComponent {
   }
 
   close() {
-    if (this.level != this.character.level) {
+    if (this.level !== this.character.level) {
       gameManager.entityManager.before(this.character, this.character, 'setLevel', this.level);
       gameManager.characterManager.setLevel(this.character, this.level);
       gameManager.stateManager.after();
@@ -112,7 +112,7 @@ export class CharacterLevelDialogComponent {
 
     if (this.maxHp) {
       gameManager.entityManager.before(this.character, this.character, 'changeMaxHP', ghsValueSign(this.maxHp));
-      if (this.character.maxHealth + this.maxHp < this.character.maxHealth || this.character.health == this.character.maxHealth) {
+      if (this.character.maxHealth + this.maxHp < this.character.maxHealth || this.character.health === this.character.maxHealth) {
         this.character.health = this.character.maxHealth + this.maxHp;
       }
       this.character.maxHealth += this.maxHp;
@@ -129,7 +129,7 @@ export class CharacterLevelDialogComponent {
     if (this.titles.length > 0) {
       for (let i = 0; i < this.titles.length; i++) {
         if (
-          this.titles[i] == settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())
+          this.titles[i] === settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())
         ) {
           this.titles[i] = '';
         }
@@ -141,13 +141,13 @@ export class CharacterLevelDialogComponent {
       }
     }
 
-    if (title != settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())) {
-      if (this.character.title != title) {
+    if (title !== settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())) {
+      if (this.character.title !== title) {
         gameManager.entityManager.before(this.character, this.character, 'setTitle', title);
         this.character.title = title;
         gameManager.stateManager.after();
       }
-    } else if (this.character.title != '') {
+    } else if (this.character.title !== '') {
       gameManager.entityManager.before(this.character, this.character, 'unsetTitle', title);
       this.character.title = '';
       gameManager.stateManager.after();

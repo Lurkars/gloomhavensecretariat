@@ -1,5 +1,5 @@
 <div class="item-list" [style.--ghs-item-list-zoom]="settingsManager.settings.characterItemsPermanentZoom">
-  @if (items.length == 0) {
+  @if (items.length === 0) {
     <div class="empty" (click)="openShop()">
       <img [src]="settingsManager.settings.fhStyle ? './assets/images/fh/items/item-back-fh.png' : './assets/images/items/item-back.png'" />
       <span class="text" [ghs-label]="'game.items.character.empty'"></span>

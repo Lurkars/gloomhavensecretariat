@@ -40,11 +40,11 @@ export const enhancableLootTypes: LootType[] = [...resourceLootTypes, LootType.m
 export const appliableLootTypes: LootType[] = [...enhancableLootTypes, LootType.special1, LootType.special2, LootType.random_item];
 
 export function getLootClass(type: LootType): LootClass {
-  if (type == LootType.money) {
+  if (type === LootType.money) {
     return LootClass.money;
-  } else if (type == LootType.random_item) {
+  } else if (type === LootType.random_item) {
     return LootClass.random_item;
-  } else if (type == LootType.special1 || type == LootType.special2) {
+  } else if (type === LootType.special1 || type === LootType.special2) {
     return LootClass.special;
   } else if ([LootType.lumber, LootType.metal, LootType.hide].includes(type)) {
     return LootClass.material_resources;
@@ -76,10 +76,10 @@ export class Loot {
     this.value4P = value4P;
     this.value3P = value4P;
     this.value2P = value4P;
-    if (value3P != -1) {
+    if (value3P !== -1) {
       this.value3P = value3P;
     }
-    if (value2P != -1) {
+    if (value2P !== -1) {
       this.value2P = value2P;
     }
 
@@ -179,11 +179,11 @@ export function lootCardIdMigration(cards: Loot[]) {
     if (!loot.cardId) {
       const lootCard = fullLootDeck.find(
         (lootCard) =>
-          lootCard.type == loot.type &&
-          lootCard.value2P == loot.value2P &&
-          lootCard.value3P == loot.value3P &&
-          lootCard.value4P == loot.value4P &&
-          !self.find((existing) => existing.cardId == lootCard.cardId)
+          lootCard.type === loot.type &&
+          lootCard.value2P === loot.value2P &&
+          lootCard.value3P === loot.value3P &&
+          lootCard.value4P === loot.value4P &&
+          !self.find((existing) => existing.cardId === lootCard.cardId)
       );
       if (lootCard) {
         loot.cardId = lootCard.cardId;

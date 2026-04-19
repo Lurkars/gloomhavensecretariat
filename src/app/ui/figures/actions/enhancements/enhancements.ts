@@ -55,17 +55,17 @@ export class ActionEnhancementsComponent implements OnInit {
   update() {
     this.slots = [];
     if (this.action.enhancementTypes) {
-      this.slots = this.slotIndex != undefined ? [this.action.enhancementTypes[this.slotIndex]] : [...this.action.enhancementTypes];
+      this.slots = this.slotIndex !== undefined ? [this.action.enhancementTypes[this.slotIndex]] : [...this.action.enhancementTypes];
       this.wipSpecialIndex =
-        this.slots[0] == EnhancementType.any ? (!this.actionIndex.includes('bottom') ? 'custom' : 'custom-bottom') : '';
+        this.slots[0] === EnhancementType.any ? (!this.actionIndex.includes('bottom') ? 'custom' : 'custom-bottom') : '';
       this.enhancements = [];
       if (this.character && this.cardId && this.character.progress && this.character.progress.enhancements) {
         this.character.progress.enhancements
           .filter(
             (e) =>
-              e.cardId == this.cardId &&
-              ((!this.wipSpecialIndex && e.actionIndex == this.actionIndex) ||
-                (this.wipSpecialIndex && e.actionIndex == this.wipSpecialIndex))
+              e.cardId === this.cardId &&
+              ((!this.wipSpecialIndex && e.actionIndex === this.actionIndex) ||
+                (this.wipSpecialIndex && e.actionIndex === this.wipSpecialIndex))
           )
           .forEach((e) => {
             this.enhancements[e.index] = e.action;
@@ -84,7 +84,7 @@ export class ActionEnhancementsComponent implements OnInit {
 
   enhance(index: number, event: any) {
     if (this.edit) {
-      if (!this.enhancements[this.slotIndex != undefined ? this.slotIndex : index]) {
+      if (!this.enhancements[this.slotIndex !== undefined ? this.slotIndex : index]) {
         this.dialog.open(EnhancementDialogComponent, {
           panelClass: ['dialog'],
           data: {
@@ -104,13 +104,13 @@ export class ActionEnhancementsComponent implements OnInit {
 
   removeEnhancement(index: number, event: any) {
     if (this.edit) {
-      if (this.character && this.cardId && this.enhancements[this.slotIndex != undefined ? this.slotIndex : index]) {
+      if (this.character && this.cardId && this.enhancements[this.slotIndex !== undefined ? this.slotIndex : index]) {
         const enhancement = this.character.progress.enhancements.find(
           (e) =>
-            e.cardId == this.cardId &&
-            ((!this.wipSpecialIndex && e.actionIndex == this.actionIndex) ||
-              (this.wipSpecialIndex && e.actionIndex == this.wipSpecialIndex)) &&
-            e.index == index
+            e.cardId === this.cardId &&
+            ((!this.wipSpecialIndex && e.actionIndex === this.actionIndex) ||
+              (this.wipSpecialIndex && e.actionIndex === this.wipSpecialIndex)) &&
+            e.index === index
         );
         if (enhancement && !enhancement.inherited) {
           gameManager.stateManager.before(
@@ -118,7 +118,7 @@ export class ActionEnhancementsComponent implements OnInit {
             gameManager.characterManager.characterName(this.character, true, true),
             this.cardId
           );
-          this.character.progress.enhancements = this.character.progress.enhancements.filter((e) => e != enhancement);
+          this.character.progress.enhancements = this.character.progress.enhancements.filter((e) => e !== enhancement);
           gameManager.stateManager.after();
         }
       } else if (this.wipSpecialIndex) {

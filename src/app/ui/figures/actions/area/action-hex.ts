@@ -42,9 +42,9 @@ export class ActionHexComponent implements OnChanges {
     }
     this.value.split('|').forEach((hexValue) => {
       const hex: ActionHex | null = ActionHexFromString(hexValue);
-      if (hex != null) {
+      if (hex !== null) {
         this.hexes.push(hex);
-        if (hex.type == ActionHexType.enhance) {
+        if (hex.type === ActionHexType.enhance) {
           this.enhanceHexes.push(hex);
           if (
             this.character &&
@@ -53,13 +53,16 @@ export class ActionHexComponent implements OnChanges {
             this.character.progress.enhancements &&
             this.character.progress.enhancements.find(
               (e) =>
-                e.cardId == this.cardId && e.actionIndex == this.actionIndex && e.index == this.enhanceHexes.length - 1 && e.action == 'hex'
+                e.cardId === this.cardId &&
+                e.actionIndex === this.actionIndex &&
+                e.index === this.enhanceHexes.length - 1 &&
+                e.action === 'hex'
             )
           ) {
             this.enhancedHexes.push(hex);
           }
         }
-        if (hex.type == ActionHexType.invisible) {
+        if (hex.type === ActionHexType.invisible) {
           this.editMode = true;
         }
       }

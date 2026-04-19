@@ -5,11 +5,11 @@
   [class]="element.type"
   class="element-svg"
   [ngClass]="{
-    new: element.state == ElementState.new,
-    full: element.state == ElementState.strong,
-    half: element.state == ElementState.waning,
-    inert: element.state == ElementState.inert,
-    always: element.state == ElementState.always,
-    consumed: element.state == ElementState.consumed || element.state == ElementState.partlyConsumed
+    new: element.state === ElementState.new,
+    full: element.state === ElementState.strong,
+    half: element.state === ElementState.waning,
+    inert: element.state === ElementState.inert,
+    always: element.state === ElementState.always,
+    consumed: element.state === ElementState.consumed || element.state === ElementState.partlyConsumed
   }"
 ></span>

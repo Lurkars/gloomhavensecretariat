@@ -15,6 +15,6 @@ export class RoundStateCommand extends CommandImpl {
   }
 
   override before(): BASE_TYPE[] {
-    return ['command.' + this.id + (gameManager.game.state == GameState.next ? '.next' : '.draw')];
+    return ['command.' + this.id + (gameManager.game.state === GameState.next ? '.next' : '.draw')];
   }
 }

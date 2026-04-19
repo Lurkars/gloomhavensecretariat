@@ -88,7 +88,7 @@ export class CharacterItemsComponent implements OnInit {
     this.brewing = 0;
 
     if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
-      const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
+      const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name === 'alchemist');
       if (alchemist && alchemist.level) {
         this.brewing = alchemist.level < 3 ? 2 : 3;
       }
@@ -113,7 +113,7 @@ export class CharacterItemsComponent implements OnInit {
 
   itemChange(itemIndexChange: number = 0) {
     setTimeout(() => {
-      if (itemIndexChange != 0) {
+      if (itemIndexChange !== 0) {
         const max = gameManager.itemManager.maxItemIndex(this.itemEdition || this.character.edition);
         this.itemIndex += itemIndexChange;
         if (this.itemIndex < 1) {
@@ -142,7 +142,7 @@ export class CharacterItemsComponent implements OnInit {
   editionChange() {
     this.itemIndex = 1;
     if (this.itemEdition) {
-      const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.itemEdition);
+      const editionData = gameManager.editionData.find((editionData) => editionData.edition === this.itemEdition);
       if (editionData && editionData.items) {
         this.itemIndex = Math.min(
           ...editionData.items.filter((itemData) => typeof itemData.id === 'number').map((itemData) => +itemData.id)
@@ -158,7 +158,7 @@ export class CharacterItemsComponent implements OnInit {
       if (
         item.count &&
         soldItems < item.count &&
-        !this.character.progress.items.find((identifier) => item && identifier.name == '' + item.id && identifier.edition == item.edition)
+        !this.character.progress.items.find((identifier) => item && identifier.name === '' + item.id && identifier.edition === item.edition)
       ) {
         return true;
       }
@@ -174,7 +174,7 @@ export class CharacterItemsComponent implements OnInit {
       .reduce((pre, cur): Identifier[] => {
         return pre && cur && pre.concat(cur);
       })
-      .filter((identifier) => item && identifier.name == '' + item.id && identifier.edition == item.edition).length;
+      .filter((identifier) => item && identifier.name === '' + item.id && identifier.edition === item.edition).length;
   }
 
   canBuy(item: ItemData | undefined, cost: number = 0): boolean {
@@ -195,7 +195,7 @@ export class CharacterItemsComponent implements OnInit {
         Object.keys(item.resources).forEach((key) => {
           const lootType = key as LootType;
           const requiredResource = (item.resources[lootType] || 0) + (resources[lootType] || 0);
-          if (getLootClass(lootType) == LootClass.herb_resources) {
+          if (getLootClass(lootType) === LootClass.herb_resources) {
             canCraft =
               canCraft &&
               ((this.character.progress.loot[lootType] || 0) >= requiredResource ||
@@ -208,11 +208,11 @@ export class CharacterItemsComponent implements OnInit {
 
       if (item.requiredItems) {
         item.requiredItems.forEach((itemId) => {
-          if (itemId != item.id) {
+          if (itemId !== item.id) {
             const requiredItem = gameManager.itemManager.getItem(itemId, item.edition, true);
             if (!requiredItem) {
               console.error("Missing required item '" + itemId + "' for item '" + item.id + "' (" + item.name + ')');
-            } else if (!this.items.find((itemData) => itemData.id == requiredItem.id && itemData.edition == requiredItem.edition)) {
+            } else if (!this.items.find((itemData) => itemData.id === requiredItem.id && itemData.edition === requiredItem.edition)) {
               canCraft = canCraft && (this.canCraft(requiredItem, item.resources || {}) || this.canBuy(requiredItem, item.cost));
             }
           }
@@ -263,7 +263,7 @@ export class CharacterItemsComponent implements OnInit {
         Object.keys(item.resources).forEach((key) => {
           const lootType = key as LootType;
           const requiredResource = item.resources[lootType] || 0;
-          if (getLootClass(lootType) == LootClass.herb_resources) {
+          if (getLootClass(lootType) === LootClass.herb_resources) {
             if ((this.character.progress.loot[lootType] || 0) >= requiredResource) {
               this.character.progress.loot[lootType] = (this.character.progress.loot[lootType] || 0) - requiredResource;
             } else {
@@ -277,19 +277,19 @@ export class CharacterItemsComponent implements OnInit {
 
       if (item.requiredItems) {
         item.requiredItems.forEach((itemId) => {
-          if (itemId != item.id) {
+          if (itemId !== item.id) {
             const requiredItem = gameManager.itemManager.getItem(itemId, item.edition, true);
             if (!requiredItem) {
               console.error("Missing required item '" + itemId + "' for item '" + item.id + "' (" + item.name + ')');
-            } else if (this.items.find((itemData) => itemData.id == requiredItem.id && itemData.edition == requiredItem.edition)) {
+            } else if (this.items.find((itemData) => itemData.id === requiredItem.id && itemData.edition === requiredItem.edition)) {
               const charItem = this.character.progress.items.find(
-                (identifier) => identifier.name == '' + requiredItem.id && identifier.edition == requiredItem.edition
+                (identifier) => identifier.name === '' + requiredItem.id && identifier.edition === requiredItem.edition
               );
               if (charItem) {
                 const index = this.character.progress.items.indexOf(charItem);
                 this.character.progress.items.splice(index, 1);
                 this.character.progress.equippedItems = this.character.progress.equippedItems.filter(
-                  (identifier) => identifier.name != '' + requiredItem.id || identifier.edition != requiredItem.edition
+                  (identifier) => identifier.name !== '' + requiredItem.id || identifier.edition !== requiredItem.edition
                 );
                 this.items.splice(index, 1);
               }
@@ -327,14 +327,14 @@ export class CharacterItemsComponent implements OnInit {
       data: {
         character: settingsManager.settings.characterItems ? this.character : undefined,
         item: itemData,
-        setup: gameManager.game.state == GameState.draw && gameManager.roundManager.firstRound
+        setup: gameManager.game.state === GameState.draw && gameManager.roundManager.firstRound
       }
     });
   }
 
   removeItem(itemData: ItemData) {
     const item = this.character.progress.items.find(
-      (identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition
+      (identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition
     );
     if (item) {
       this.dialog
@@ -357,7 +357,7 @@ export class CharacterItemsComponent implements OnInit {
               );
               this.character.progress.items.splice(index, 1);
               this.character.progress.equippedItems = this.character.progress.equippedItems.filter(
-                (identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition
+                (identifier) => identifier.name !== '' + itemData.id || identifier.edition !== itemData.edition
               );
               this.items.splice(index, 1);
               gameManager.stateManager.after();
@@ -370,7 +370,7 @@ export class CharacterItemsComponent implements OnInit {
 
   sellItem(itemData: ItemData) {
     const item = this.character.progress.items.find(
-      (identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition
+      (identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition
     );
     if (item && gameManager.itemManager.itemSellValue(itemData)) {
       this.dialog
@@ -394,7 +394,7 @@ export class CharacterItemsComponent implements OnInit {
               this.character.progress.gold += gameManager.itemManager.itemSellValue(itemData);
               this.character.progress.items.splice(index, 1);
               this.character.progress.equippedItems = this.character.progress.equippedItems.filter(
-                (identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition
+                (identifier) => identifier.name !== '' + itemData.id || identifier.edition !== itemData.edition
               );
               this.items.splice(index, 1);
               gameManager.stateManager.after();
@@ -414,15 +414,15 @@ export class CharacterItemsComponent implements OnInit {
 
   isEquipped(item: ItemData) {
     return this.character.progress.equippedItems.find(
-      (identifier) => identifier.name == '' + item.id && identifier.edition == item.edition
+      (identifier) => identifier.name === '' + item.id && identifier.edition === item.edition
     );
   }
 
   toggleEquippedItem(itemData: ItemData, force: boolean = false) {
-    const disabled = gameManager.game.state != GameState.draw || gameManager.game.round > 0;
+    const disabled = gameManager.game.state !== GameState.draw || gameManager.game.round > 0;
     if (
       (!disabled || force) &&
-      this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) !=
+      this.character.progress.items.find((identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition) !=
         undefined
     ) {
       gameManager.stateManager.before(
@@ -437,7 +437,7 @@ export class CharacterItemsComponent implements OnInit {
   }
 
   setItemNotes(event: any) {
-    if (this.character.progress.itemNotes != event.target.value) {
+    if (this.character.progress.itemNotes !== event.target.value) {
       gameManager.stateManager.before(
         'setItems',
         gameManager.characterManager.characterName(this.character, true, true),

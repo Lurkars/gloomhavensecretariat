@@ -77,14 +77,14 @@ export class ItemsDialogComponent implements OnInit {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.selected = undefined;
     this.character = this.data.select;
-    this.sorted = this.character != undefined && this.character.progress.items.length > 0;
+    this.sorted = this.character !== undefined && this.character.progress.items.length > 0;
     this.edition = this.data.edition;
     this.affordable = this.data.affordable || false;
     this.craftOnly = this.data.craftOnly || false;
     this.buyOnly = this.data.buyOnly || false;
     this.campaignMode = (this.edition && gameManager.game.party.campaignMode) || false;
     this.editions = this.edition ? gameManager.itemManager.itemEditions(this.edition) : gameManager.itemManager.itemEditions();
-    this.all = this.edition == undefined;
+    this.all = this.edition === undefined;
     this.currentEdition = this.edition || this.editions[0];
     if (this.craftOnly) {
       this.lootTypes = [...materialResourceLootTypes];
@@ -117,7 +117,7 @@ export class ItemsDialogComponent implements OnInit {
     this.editionItems =
       this.edition && this.campaignMode && !this.all
         ? gameManager.itemManager.getItems(this.edition)
-        : gameManager.itemManager.getItems(this.currentEdition, this.all).filter((itemData) => itemData.edition == this.currentEdition);
+        : gameManager.itemManager.getItems(this.currentEdition, this.all).filter((itemData) => itemData.edition === this.currentEdition);
     if (this.all) {
       this.sorted = false;
     }
@@ -156,8 +156,8 @@ export class ItemsDialogComponent implements OnInit {
     if (this.character && this.edition && this.campaignMode && !this.all && !this.affordable) {
       this.character.progress.items.forEach((identifier) => {
         if (
-          identifier.edition == this.edition &&
-          !this.items.find((itemData) => itemData.id == +identifier.name && itemData.edition == identifier.edition)
+          identifier.edition === this.edition &&
+          !this.items.find((itemData) => itemData.id === +identifier.name && itemData.edition === identifier.edition)
         ) {
           const item = gameManager.itemManager.getItem(identifier.name, identifier.edition, true);
           if (item) {
@@ -181,10 +181,10 @@ export class ItemsDialogComponent implements OnInit {
         )
     );
 
-    this.itemSlotUndefined = this.items.find((itemData) => !itemData.slot) != undefined;
+    this.itemSlotUndefined = this.items.find((itemData) => !itemData.slot) !== undefined;
 
     if (!this.itemSlotUndefined) {
-      this.itemSlots = this.itemSlots.filter((value) => value != 'undefined');
+      this.itemSlots = this.itemSlots.filter((value) => value !== 'undefined');
     }
 
     if (this.itemSlots.length > 0) {
@@ -198,14 +198,14 @@ export class ItemsDialogComponent implements OnInit {
         .getItems(this.edition, true)
         .filter(
           (itemData) =>
-            ('' + itemData.id == this.filter || '0' + itemData.id == this.filter || '00' + itemData.id == this.filter) &&
-            !this.items.find((item) => item.id == itemData.id && item.edition == itemData.edition)
+            ('' + itemData.id === this.filter || '0' + itemData.id === this.filter || '00' + itemData.id === this.filter) &&
+            !this.items.find((item) => item.id === itemData.id && item.edition === itemData.edition)
         );
     }
 
-    if (!onlyAffordable && this.affordable && this.items.length == 0) {
+    if (!onlyAffordable && this.affordable && this.items.length === 0) {
       this.affordable = false;
-      this.sorted = this.character != undefined && this.character.progress.items.length > 0;
+      this.sorted = this.character !== undefined && this.character.progress.items.length > 0;
       this.update();
     } else {
       this.itemsMeta = [];
@@ -230,7 +230,7 @@ export class ItemsDialogComponent implements OnInit {
         });
 
         if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
-          const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
+          const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name === 'alchemist');
           if (alchemist && alchemist.level) {
             this.brewing = alchemist.level < 3 ? 2 : 3;
           }
@@ -240,8 +240,8 @@ export class ItemsDialogComponent implements OnInit {
       this.items.sort((a, b) => {
         if (this.sorted) {
           if (this.character) {
-            const A = this.itemsMeta.find((value) => value.edition == a.edition && value.id == a.id);
-            const B = this.itemsMeta.find((value) => value.edition == b.edition && value.id == b.id);
+            const A = this.itemsMeta.find((value) => value.edition === a.edition && value.id === a.id);
+            const B = this.itemsMeta.find((value) => value.edition === b.edition && value.id === b.id);
 
             if (!A || !B) {
               return 0;
@@ -272,8 +272,8 @@ export class ItemsDialogComponent implements OnInit {
 
           return 0;
         } else {
-          if (a.edition != b.edition) {
-            return a.edition == this.currentEdition ? -1 : 1;
+          if (a.edition !== b.edition) {
+            return a.edition === this.currentEdition ? -1 : 1;
           }
 
           return gameManager.itemManager.sortItems(a, b);
@@ -281,8 +281,8 @@ export class ItemsDialogComponent implements OnInit {
       });
 
       this.itemsMeta.sort((a, b) => {
-        const A = this.items.find((value) => value.edition == a.edition && value.id == a.id);
-        const B = this.items.find((value) => value.edition == b.edition && value.id == b.id);
+        const A = this.items.find((value) => value.edition === a.edition && value.id === a.id);
+        const B = this.items.find((value) => value.edition === b.edition && value.id === b.id);
 
         if (!A || !B) {
           return 0;
@@ -303,7 +303,7 @@ export class ItemsDialogComponent implements OnInit {
         this.itemSlots = [slot];
       }
     } else {
-      this.itemSlots = this.itemSlots.filter((value) => value != slot);
+      this.itemSlots = this.itemSlots.filter((value) => value !== slot);
     }
     this.update(true);
   }
@@ -311,7 +311,7 @@ export class ItemsDialogComponent implements OnInit {
   select(itemData: ItemData, force: boolean = false) {
     if (this.data.select) {
       if (
-        this.selected != itemData &&
+        this.selected !== itemData &&
         (force ||
           (this.character &&
             (gameManager.itemManager.owned(itemData, this.character) || gameManager.itemManager.canAdd(itemData, this.character))))
@@ -326,7 +326,7 @@ export class ItemsDialogComponent implements OnInit {
   unlocked(item: ItemData): boolean {
     return (
       gameManager.game.party.unlockedItems &&
-      gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition) !=
+      gameManager.game.party.unlockedItems.find((identifier) => identifier.name === '' + item.id && identifier.edition === item.edition) !=
         undefined
     );
   }
@@ -348,7 +348,7 @@ export class ItemsDialogComponent implements OnInit {
       gameManager.stateManager.before('removeUnlockedItem', itemData.edition, itemData.id, itemData.name);
       gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems || [];
       gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems.filter(
-        (identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition
+        (identifier) => identifier.name !== '' + itemData.id || identifier.edition !== itemData.edition
       );
       gameManager.stateManager.after();
       this.updateEditionItems();
@@ -400,7 +400,7 @@ export class ItemsDialogComponent implements OnInit {
   removeItem(itemData: ItemData) {
     const item =
       this.character &&
-      this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
+      this.character.progress.items.find((identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition);
     if (item && this.character) {
       const index = this.character.progress.items.indexOf(item);
       gameManager.stateManager.before(
@@ -418,7 +418,7 @@ export class ItemsDialogComponent implements OnInit {
   sellItem(itemData: ItemData) {
     const item =
       this.character &&
-      this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
+      this.character.progress.items.find((identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition);
     if (this.character && item && gameManager.itemManager.itemSellValue(itemData)) {
       const index = this.character.progress.items.indexOf(item);
       gameManager.stateManager.before(
@@ -452,15 +452,15 @@ export class ItemsDialogComponent implements OnInit {
   }
 
   toggleEquippedItem(itemData: ItemData, force: boolean = false) {
-    const disabled = gameManager.game.state != GameState.draw || gameManager.game.round > 0;
+    const disabled = gameManager.game.state !== GameState.draw || gameManager.game.round > 0;
     if (this.character && (!disabled || force)) {
       const equippedItems: ItemData[] = this.character.progress.equippedItems
-        .map((identifier) => this.items.find((itemData) => identifier.name == '' + itemData.id && itemData.edition == identifier.edition))
+        .map((identifier) => this.items.find((itemData) => identifier.name === '' + itemData.id && itemData.edition === identifier.edition))
         .filter((itemData) => itemData)
         .map((itemData) => itemData as ItemData);
       const equipIndex = equippedItems.indexOf(itemData);
       gameManager.stateManager.before(
-        equipIndex != -1 ? 'unequipItem' : 'equipItem',
+        equipIndex !== -1 ? 'unequipItem' : 'equipItem',
         gameManager.characterManager.characterName(this.character, true, true),
         itemData.name,
         itemData.edition
@@ -471,7 +471,7 @@ export class ItemsDialogComponent implements OnInit {
   }
 
   toggleCharacter(char: Character) {
-    if (this.character == char) {
+    if (this.character === char) {
       this.character = undefined;
     } else {
       this.character = char;

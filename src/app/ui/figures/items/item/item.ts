@@ -89,7 +89,7 @@ export class ItemComponent implements OnInit, AfterViewInit {
     }
 
     if (this.item) {
-      if (this.item.edition != this.editionLabel) {
+      if (this.item.edition !== this.editionLabel) {
         this.edition = this.item.edition;
       }
 
@@ -97,7 +97,7 @@ export class ItemComponent implements OnInit, AfterViewInit {
         this.fhStyle = true;
       }
 
-      if (this.item.edition == 'bb') {
+      if (this.item.edition === 'bb') {
         this.bb = true;
       }
 
@@ -118,7 +118,7 @@ export class ItemComponent implements OnInit, AfterViewInit {
         this.applySlots(this.item.slotsBack, this.slotsBack);
       }
 
-      if (this.item.summon && !this.item.actions.find((action) => action.type == ActionType.summon && action.value == 'summonDataItem')) {
+      if (this.item.summon && !this.item.actions.find((action) => action.type === ActionType.summon && action.value === 'summonDataItem')) {
         const action = new Action(ActionType.summon, 'summonDataItem');
         action.valueObject = this.item.summon;
         action.small = true;
@@ -140,13 +140,13 @@ export class ItemComponent implements OnInit, AfterViewInit {
   applySlots(slotCount: number, actions: Action[]) {
     if (
       slotCount &&
-      !actions.find((action) => action.type == ActionType.card && action.subActions.length > 0 && ('' + action.value).startsWith('slot'))
+      !actions.find((action) => action.type === ActionType.card && action.subActions.length > 0 && ('' + action.value).startsWith('slot'))
     ) {
       for (let i = 0; i < slotCount; i++) {
         let action = new Action(ActionType.card, 'slot');
-        if (this.fhStyle && i == 0) {
+        if (this.fhStyle && i === 0) {
           action = new Action(ActionType.card, 'slotStart');
-        } else if (this.fhStyle && i == slotCount - 1) {
+        } else if (this.fhStyle && i === slotCount - 1) {
           action = new Action(ActionType.card, 'slotEnd');
         }
 
@@ -163,18 +163,18 @@ export class ItemComponent implements OnInit, AfterViewInit {
       slotCount &&
       !actions.find(
         (action) =>
-          action.type == ActionType.grid &&
+          action.type === ActionType.grid &&
           action.subActions.length > 0 &&
-          action.subActions[0].type == ActionType.card &&
+          action.subActions[0].type === ActionType.card &&
           ('' + action.subActions[0].value).startsWith('slot')
       )
     ) {
       if (slotCount < 5) {
         const action = new Action(ActionType.grid, slotCount);
         for (let i = 0; i < slotCount; i++) {
-          if (this.fhStyle && i == 0) {
+          if (this.fhStyle && i === 0) {
             action.subActions.push(new Action(ActionType.card, 'slotStart'));
-          } else if (this.fhStyle && i == slotCount - 1) {
+          } else if (this.fhStyle && i === slotCount - 1) {
             action.subActions.push(new Action(ActionType.card, 'slotEnd'));
           } else {
             action.subActions.push(new Action(ActionType.card, 'slot'));
@@ -193,9 +193,9 @@ export class ItemComponent implements OnInit, AfterViewInit {
             action.small = true;
           }
           for (let i = 0; i < slots; i++) {
-            if (this.fhStyle && i == 0 && grid == 0) {
+            if (this.fhStyle && i === 0 && grid === 0) {
               action.subActions.push(new Action(ActionType.card, 'slotStart'));
-            } else if (this.fhStyle && i == slots - 1 && grid == columns - 1) {
+            } else if (this.fhStyle && i === slots - 1 && grid === columns - 1) {
               action.subActions.push(new Action(ActionType.card, 'slotEnd'));
             } else {
               action.subActions.push(new Action(ActionType.card, 'slot'));

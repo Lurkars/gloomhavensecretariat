@@ -52,7 +52,7 @@
           ghs-pointer-input
           (singleClick)="setActive(herb)"
           (doubleClick)="setActive(herb, true)"
-          [ngClass]="{ active: activeHerb == herb, disabled: (activeHerb != herb && !resources[herb]) || garden.flipped }"
+          [ngClass]="{ active: activeHerb === herb, disabled: (activeHerb !== herb && !resources[herb]) || garden.flipped }"
         >
           <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herb + '.svg'" />
           <span class="value">{{ resources[herb] }}</span>
@@ -65,13 +65,13 @@
         <a
           class="source"
           (click)="selectSource(characters.length)"
-          [ngClass]="{ active: currentSource == characters.length, disabled: !currentResources[characters.length] }"
+          [ngClass]="{ active: currentSource === characters.length, disabled: !currentResources[characters.length] }"
         >
           <span [ghs-label]="'party.campaign.sheet.supply'"></span>:&nbsp;
           <span class="value">{{ currentResources[characters.length] }}</span>
         </a>
         @for (character of characters | trackUUID; track character._trackUUID; let i = $index) {
-          <a class="source" (click)="selectSource(i)" [ngClass]="{ active: currentSource == i, disabled: !currentResources[i] }">
+          <a class="source" (click)="selectSource(i)" [ngClass]="{ active: currentSource === i, disabled: !currentResources[i] }">
             <img class="character-icon" [src]="character.iconUrl" />
             <span class="value">{{ currentResources[i] }}</span>
           </a>
@@ -80,7 +80,7 @@
     }
   </div>
 
-  <div class="garden" [ngClass]="{ 'level-1': level == 1, 'level-2': level == 2, 'level-3': level == 3, 'level-4': level == 4 }">
+  <div class="garden" [ngClass]="{ 'level-1': level === 1, 'level-2': level === 2, 'level-3': level === 3, 'level-4': level === 4 }">
     @for (slot of [] | ghsRange: slots; track slot) {
       <div
         class="plot"
@@ -88,7 +88,7 @@
         (singleClick)="plantHerb(slot)"
         (doubleClick)="plantHerb(slot, true)"
         [class]="'plot-' + (slot + 1) + (garden.plots[slot] ? ' ' + garden.plots[slot] : '') + (activeHerb ? ' plant-' + activeHerb : '')"
-        [ngClass]="{ harvest: garden.plots[slot], plant: !garden.plots[slot], disabled: garden.plots[slot] == activeHerb || disabled }"
+        [ngClass]="{ harvest: garden.plots[slot], plant: !garden.plots[slot], disabled: garden.plots[slot] === activeHerb || disabled }"
       ></div>
     }
   </div>

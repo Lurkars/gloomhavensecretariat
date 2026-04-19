@@ -53,12 +53,12 @@
   <div class="buttons">
     <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
     @if (data.scenario) {
-      <a class="loot" [ngClass]="{ disabled: selected.length == 0 }" (click)="toggleTreasure(selected[0], true)"
+      <a class="loot" [ngClass]="{ disabled: selected.length === 0 }" (click)="toggleTreasure(selected[0], true)"
         ><span [ghs-label]="'party.campaign.treasures.loot'"></span
       ></a>
     }
     @if (batchSelect || data.scenario) {
-      <a class="apply" [ngClass]="{ disabled: selected.length == 0 }" (click)="apply()"
+      <a class="apply" [ngClass]="{ disabled: selected.length === 0 }" (click)="apply()"
         ><span [ghs-label]="'party.campaign.treasures.applySelect'"></span
       ></a>
     }

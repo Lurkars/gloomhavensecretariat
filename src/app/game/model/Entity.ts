@@ -33,11 +33,11 @@ export function EntityValueFunction(value: string | number, L: number | undefine
     return 0;
   }
 
-  if (typeof value == 'number') {
+  if (typeof value === 'number') {
     return value;
   }
 
-  if (value == '-') {
+  if (value === '-') {
     return 0;
   }
 
@@ -46,12 +46,12 @@ export function EntityValueFunction(value: string | number, L: number | undefine
 
   const match = value.match(EntityValueRegex);
 
-  if (match && match[0].length == value.length) {
+  if (match && match[0].length === value.length) {
     expression = match[1];
     func = match[3];
   }
 
-  if (L == undefined) {
+  if (L === undefined) {
     L = gameManager.game.level;
   }
 
@@ -61,7 +61,7 @@ export function EntityValueFunction(value: string | number, L: number | undefine
       C: Math.max(2, gameManager.characterManager.characterCount()),
       L: L,
       P: gameManager.prosperityLevel(),
-      R: gameManager.game.round + (gameManager.game.state == GameState.draw ? 1 : 0)
+      R: gameManager.game.round + (gameManager.game.state === GameState.draw ? 1 : 0)
     });
   } catch (e) {
     console.warn('Could not evaluate expression: ' + expression, e);
@@ -79,28 +79,28 @@ export function EntityValueFunction(value: string | number, L: number | undefine
 
   if (func) {
     switch (true) {
-      case func == 'math.ceil':
+      case func === 'math.ceil':
         result = Math.ceil(result);
         break;
-      case func == 'math.floor':
+      case func === 'math.floor':
         result = Math.floor(result);
         break;
-      case func == 'math.max' && funcValue != undefined:
+      case func === 'math.max' && funcValue !== undefined:
         result = Math.min(result, funcValue);
         break;
-      case func == 'math.maxCeil' && funcValue != undefined:
+      case func === 'math.maxCeil' && funcValue !== undefined:
         result = Math.ceil(Math.min(result, funcValue));
         break;
-      case func == 'math.maxFloor' && funcValue != undefined:
+      case func === 'math.maxFloor' && funcValue !== undefined:
         result = Math.floor(Math.min(result, funcValue));
         break;
-      case func == 'math.min' && funcValue != undefined:
+      case func === 'math.min' && funcValue !== undefined:
         result = Math.max(result, funcValue);
         break;
-      case func == 'math.minCeil' && funcValue != undefined:
+      case func === 'math.minCeil' && funcValue !== undefined:
         result = Math.ceil(Math.max(result, funcValue));
         break;
-      case func == 'math.minFloor' && funcValue != undefined:
+      case func === 'math.minFloor' && funcValue !== undefined:
         result = Math.floor(Math.max(result, funcValue));
         break;
       default:

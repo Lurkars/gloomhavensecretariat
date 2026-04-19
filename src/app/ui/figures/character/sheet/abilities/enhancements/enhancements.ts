@@ -74,9 +74,9 @@ export class EnhancementsComponent implements OnInit {
           (this.inputCharacter.progress.enhancements &&
             this.inputCharacter.progress.enhancements.filter(
               (enhancement) =>
-                enhancement.cardId == this.inputCardId &&
+                enhancement.cardId === this.inputCardId &&
                 this.inputActionIndex &&
-                enhancement.actionIndex.indexOf('bottom') == this.inputActionIndex.indexOf('bottom')
+                enhancement.actionIndex.indexOf('bottom') === this.inputActionIndex.indexOf('bottom')
             ).length) ||
           0;
         this.enhancedCards =
@@ -84,7 +84,7 @@ export class EnhancementsComponent implements OnInit {
           this.inputCharacter.progress.enhancements
             .filter((e) => !e.inherited)
             .map((enhancement) => enhancement.cardId)
-            .filter((cardId, index, self) => (!this.inputCardId || this.inputCardId != cardId) && index == self.indexOf(cardId)).length;
+            .filter((cardId, index, self) => (!this.inputCardId || this.inputCardId !== cardId) && index === self.indexOf(cardId)).length;
       }
     });
   }
@@ -102,23 +102,24 @@ export class EnhancementsComponent implements OnInit {
       this.action.valueObject = this.inputSummon;
       this.action.enhancementTypes = [EnhancementType.square, EnhancementType.square, EnhancementType.square, EnhancementType.square];
     }
-    this.wipSpecial = this.action != undefined && this.action.type == ActionType.custom && this.action.value == '%character.abilities.wip%';
+    this.wipSpecial =
+      this.action !== undefined && this.action.type === ActionType.custom && this.action.value === '%character.abilities.wip%';
 
-    if (this.inputAction && this.inputActionIndex && this.inputCardId && this.inputEnhancementIndex != undefined && this.inputCharacter) {
-      const ability = gameManager.deckData(this.inputCharacter).abilities.find((ability) => ability.cardId == this.inputCardId);
+    if (this.inputAction && this.inputActionIndex && this.inputCardId && this.inputEnhancementIndex !== undefined && this.inputCharacter) {
+      const ability = gameManager.deckData(this.inputCharacter).abilities.find((ability) => ability.cardId === this.inputCardId);
       const rootIndex = +this.inputActionIndex.replace('bottom-', '').split('-')[0];
       if (ability) {
         this.level = typeof ability.level === 'number' ? ability.level : 1;
         if (this.inputActionIndex.includes('bottom')) {
           if (
             ability.bottomLost ||
-            ability.bottomActions.find((action) => action.type == ActionType.card && action.value.toString().includes('lost'))
+            ability.bottomActions.find((action) => action.type === ActionType.card && action.value.toString().includes('lost'))
           ) {
             this.special = 'lost';
           }
           if (
             ability.bottomPersistent ||
-            ability.bottomActions.find((action) => action.type == ActionType.card && action.value.toString().includes('persistent'))
+            ability.bottomActions.find((action) => action.type === ActionType.card && action.value.toString().includes('persistent'))
           ) {
             this.special = 'persistent';
           }
@@ -130,13 +131,13 @@ export class EnhancementsComponent implements OnInit {
         } else {
           if (
             ability.lost ||
-            ability.actions.find((action) => action.type == ActionType.card && action.value.toString().includes('lost'))
+            ability.actions.find((action) => action.type === ActionType.card && action.value.toString().includes('lost'))
           ) {
             this.special = 'lost';
           }
           if (
             ability.persistent ||
-            ability.actions.find((action) => action.type == ActionType.card && action.value.toString().includes('persistent'))
+            ability.actions.find((action) => action.type === ActionType.card && action.value.toString().includes('persistent'))
           ) {
             this.special = 'persistent';
           }
@@ -156,9 +157,9 @@ export class EnhancementsComponent implements OnInit {
         (this.inputCharacter.progress.enhancements &&
           this.inputCharacter.progress.enhancements.filter(
             (enhancement) =>
-              enhancement.cardId == this.inputCardId &&
+              enhancement.cardId === this.inputCardId &&
               this.inputActionIndex &&
-              enhancement.actionIndex.indexOf('bottom') == this.inputActionIndex.indexOf('bottom')
+              enhancement.actionIndex.indexOf('bottom') === this.inputActionIndex.indexOf('bottom')
           ).length) ||
         0;
 
@@ -167,7 +168,7 @@ export class EnhancementsComponent implements OnInit {
         this.inputCharacter.progress.enhancements
           .filter((e) => !e.inherited)
           .map((e) => e.cardId)
-          .filter((cardId, index, self) => (!this.inputCardId || this.inputCardId != cardId) && index == self.indexOf(cardId)).length;
+          .filter((cardId, index, self) => (!this.inputCardId || this.inputCardId !== cardId) && index === self.indexOf(cardId)).length;
 
       if (
         [ActionType.custom, ActionType.specialTarget].includes(this.inputAction.type) &&
@@ -236,20 +237,20 @@ export class EnhancementsComponent implements OnInit {
       }
       if (
         gameManager.enhancementsManager.diamondActions.includes(this.action.type) &&
-        (this.action.type != ActionType.condition || new Condition('' + this.action.value).types.includes(ConditionType.negative))
+        (this.action.type !== ActionType.condition || new Condition('' + this.action.value).types.includes(ConditionType.negative))
       ) {
         this.enhancementType = EnhancementType.diamond;
       }
       if (
         gameManager.enhancementsManager.diamondPlusActions.includes(this.action.type) &&
-        (this.action.type != ActionType.condition || new Condition('' + this.action.value).types.includes(ConditionType.positive))
+        (this.action.type !== ActionType.condition || new Condition('' + this.action.value).types.includes(ConditionType.positive))
       ) {
         this.enhancementType = EnhancementType.diamond_plus;
       }
       if (gameManager.enhancementsManager.hexActions.includes(this.action.type)) {
         this.enhancementType = EnhancementType.hex;
       }
-    } else if (this.inputEnhancementIndex != undefined) {
+    } else if (this.inputEnhancementIndex !== undefined) {
       this.enhancementType = this.action.enhancementTypes[this.inputEnhancementIndex];
     }
 
@@ -258,7 +259,7 @@ export class EnhancementsComponent implements OnInit {
       this.enhancementAction = 'plus1';
     }
 
-    if (this.inputAction && (this.enhancementAction == 'plus1' || this.enhancementAction == 'hex')) {
+    if (this.inputAction && (this.enhancementAction === 'plus1' || this.enhancementAction === 'hex')) {
       if (this.wipSpecial || this.customSpecial) {
         this.enhanceAction = this.action;
         this.enhanceAction.enhancementTypes = this.inputAction.enhancementTypes;
@@ -270,22 +271,22 @@ export class EnhancementsComponent implements OnInit {
       this.enhanceAction = new Action(ActionType.condition, this.enhancementAction);
     } else if (Object.values(Element).includes(this.enhancementAction as Element)) {
       this.enhanceAction = new Action(ActionType.element, this.enhancementAction);
-    } else if (this.enhancementAction == ActionType.jump) {
+    } else if (this.enhancementAction === ActionType.jump) {
       this.enhanceAction = new Action(ActionType.jump);
-    } else if (this.enhancementAction == 'plus1') {
+    } else if (this.enhancementAction === 'plus1') {
       this.enhanceAction = new Action(this.action.type, this.action.value, this.action.valueType, this.action.subActions);
     }
     if (this.action.subActions) {
       this.enhanceAction.subActions = JSON.parse(JSON.stringify(this.action.subActions));
     }
 
-    if (this.enhancementType == EnhancementType.hex) {
+    if (this.enhancementType === EnhancementType.hex) {
       this.enhancementAction = 'hex';
-    } else if (oldEnhancementType != this.enhancementType) {
+    } else if (oldEnhancementType !== this.enhancementType) {
       this.enhancementAction = 'plus1';
     }
 
-    if (this.inputActionIndex && this.inputCardId && this.inputEnhancementIndex != undefined && this.character) {
+    if (this.inputActionIndex && this.inputCardId && this.inputEnhancementIndex !== undefined && this.character) {
       this.character.tags = [];
       this.character.progress.enhancements =
         (this.inputCharacter &&
@@ -308,7 +309,7 @@ export class EnhancementsComponent implements OnInit {
   }
 
   toggleSpecial(special: 'summon' | 'lost' | 'persistent' | undefined) {
-    if (this.special == special) {
+    if (this.special === special) {
       this.special = undefined;
     } else {
       this.special = special;
@@ -336,7 +337,7 @@ export class EnhancementsComponent implements OnInit {
     if (
       this.inputActionIndex &&
       this.inputCardId &&
-      this.inputEnhancementIndex != undefined &&
+      this.inputEnhancementIndex !== undefined &&
       this.inputCharacter &&
       ((this.inputCharacter.progress.gold >= costs &&
         (gameManager.enhancementsManager.fh || this.enhancedCards < gameManager.prosperityLevel())) ||

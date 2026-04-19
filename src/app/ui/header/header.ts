@@ -83,7 +83,7 @@ export class HeaderComponent implements OnInit {
   constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.characterCount = gameManager.characterManager.characterCount(true);
-      if (this.hintStateValue() != this.hintState) {
+      if (this.hintStateValue() !== this.hintState) {
         this.init = false;
         setTimeout(
           () => {
@@ -131,11 +131,11 @@ export class HeaderComponent implements OnInit {
       return 'scenario';
     } else if (gameManager.game.figures.every((figure) => !(figure instanceof Monster))) {
       return 'monsters';
-    } else if (gameManager.game.figures.every((figure) => !(figure instanceof Monster) || figure.entities.length == 0)) {
+    } else if (gameManager.game.figures.every((figure) => !(figure instanceof Monster) || figure.entities.length === 0)) {
       return 'addMonsterEntities';
     } else if (gameManager.game.figures.some((figure) => figure.active)) {
       return gameManager.game.round < 3 ? 'active-full' : 'active';
-    } else if (gameManager.game.state == GameState.draw) {
+    } else if (gameManager.game.state === GameState.draw) {
       if (
         gameManager.game.figures.some(
           (figure) =>
@@ -149,7 +149,7 @@ export class HeaderComponent implements OnInit {
         return gameManager.game.round < 3 ? 'draw-full' : 'draw-short';
       }
       return 'draw';
-    } else if (gameManager.game.state == GameState.next) {
+    } else if (gameManager.game.state === GameState.next) {
       return 'next';
     }
 
@@ -159,7 +159,7 @@ export class HeaderComponent implements OnInit {
   openMenu(menu: SubMenu | undefined = undefined) {
     this.dialog.open(MainMenuComponent, {
       panelClass: ['dialog'],
-      data: { subMenu: menu != undefined ? menu : SubMenu.main, standalone: this.standalone },
+      data: { subMenu: menu !== undefined ? menu : SubMenu.main, standalone: this.standalone },
       maxWidth: '90vw',
       positionStrategy: this.overlay
         .position()

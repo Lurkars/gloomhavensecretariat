@@ -36,18 +36,18 @@ export class LootApplyDialogComponent {
     this.characters = gameManager.game.figures
       .filter((figure) => figure instanceof Character && !figure.absent && gameManager.entityManager.isAlive(figure))
       .map((figure) => figure as Character);
-    this.edition = this.characters.find((character) => character.name == this.selected)?.edition || '';
+    this.edition = this.characters.find((character) => character.name === this.selected)?.edition || '';
   }
 
   toggleSelect(name: string) {
-    if (this.selected == name) {
+    if (this.selected === name) {
       this.selected = '';
       if (this.data.selected) {
-        this.edition = this.characters.find((character) => character.name == this.data.selected)?.edition || '';
+        this.edition = this.characters.find((character) => character.name === this.data.selected)?.edition || '';
       }
     } else {
       this.selected = name;
-      this.edition = this.characters.find((character) => character.name == this.selected)?.edition || '';
+      this.edition = this.characters.find((character) => character.name === this.selected)?.edition || '';
     }
   }
 

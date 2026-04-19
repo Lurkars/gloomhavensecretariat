@@ -68,7 +68,7 @@ export class GhsScenarioSearch implements PipeTransform {
   transform(items: ScenarioCache[], search: string): ScenarioCache[] {
     if (!!items && items.length !== 0) {
       return items.filter((scenarioData) => {
-        if (!search || search == '') {
+        if (!search || search === '') {
           return true;
         }
         search = search.toLowerCase();

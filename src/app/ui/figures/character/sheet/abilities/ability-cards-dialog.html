@@ -21,7 +21,7 @@
             ghs-pointer-input
             (singleClick)="setLevel(l)"
             (doubleClick)="setLevel(l, true)"
-            [ngClass]="{ active: level == l, exclusive: exclusiveLevel == l }"
+            [ngClass]="{ active: level === l, exclusive: exclusiveLevel === l }"
             [ghs-label]="l"
           ></a>
         }
@@ -34,7 +34,7 @@
             ghs-pointer-input
             (singleClick)="setLevel(l + 1)"
             (doubleClick)="setLevel(l + 1, true)"
-            [ngClass]="{ active: level == l + 1, exclusive: exclusiveLevel == l + 1 }"
+            [ngClass]="{ active: level === l + 1, exclusive: exclusiveLevel === l + 1 }"
             >{{ l + 1 }}</a
           >
         }
@@ -78,9 +78,10 @@
           class="container ability"
           [ngClass]="{
             pick: levelToPick,
-            'in-deck': ability.level == 1 || ability.level == 'X' || character.progress.deck.indexOf(abilities.indexOf(ability)) != -1,
-            always: ability.level == 1 || ability.level == 'X',
-            disabled: character.progress.deck.indexOf(abilities.indexOf(ability)) == -1 && (levelToPick < +ability.level || cardsToPick < 1)
+            'in-deck': ability.level === 1 || ability.level === 'X' || character.progress.deck.indexOf(abilities.indexOf(ability)) !== -1,
+            always: ability.level === 1 || ability.level === 'X',
+            disabled:
+              character.progress.deck.indexOf(abilities.indexOf(ability)) === -1 && (levelToPick < +ability.level || cardsToPick < 1)
           }"
         >
           <ghs-ability
@@ -98,7 +99,7 @@
               ghs-pointer-input
               (doubleClick)="toggleDeck(ability, true)"
               [ghs-tooltip]="
-                character.progress.deck.indexOf(abilities.indexOf(ability)) != -1
+                character.progress.deck.indexOf(abilities.indexOf(ability)) !== -1
                   ? 'character.abilities.removeFromDeck'
                   : 'character.abilities.forceDeck'
               "

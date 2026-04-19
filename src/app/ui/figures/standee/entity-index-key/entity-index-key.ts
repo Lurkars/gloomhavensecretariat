@@ -40,7 +40,7 @@ export class EntityIndexKeyComponent implements OnInit, DoCheck {
     this.isKeyboardSelecting = gameManager.stateManager.keyboardSelecting;
     this.keyboardSelect = gameManager.stateManager.keyboardSelect;
     this.entityIndex = gameManager.entityManager.getIndexForEntity(this.entity, this.isKeyboardSelecting === 'w');
-    if (this.entityIndex != -1) {
+    if (this.entityIndex !== -1) {
       this.entityIndex++;
     }
   }

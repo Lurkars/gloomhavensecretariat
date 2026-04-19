@@ -1,7 +1,7 @@
 <div class="stables-container">
   <div class="menu">
     <span class="capacity"
-      ><span class="used" [ngClass]="{ full: used == capacity, warning: used > capacity }">{{ used }}</span
+      ><span class="used" [ngClass]="{ full: used === capacity, warning: used > capacity }">{{ used }}</span
       >/{{ capacity }}</span
     >
 
@@ -30,8 +30,8 @@
         @if (pet.card) {
           <ghs-pet-card
             [petCard]="pet.card"
-            [flipped]="pet.model != undefined"
-            [reveal]="pet.model == undefined"
+            [flipped]="pet.model !== undefined"
+            [reveal]="pet.model === undefined"
             [name]="!edit && pet.model ? pet.model.petname : ''"
             (revealed)="addPet(pet)"
             [ngClass]="{

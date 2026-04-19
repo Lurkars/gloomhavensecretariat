@@ -34,13 +34,13 @@ export class ObjectiveManager {
         ((!objectiveId &&
           objectiveData &&
           !figure.objectiveId &&
-          figure.name == objectiveData.name &&
-          figure.health == EntityValueFunction('' + objectiveData.health) &&
-          figure.escort == objectiveData.escort &&
-          figure.initiative == (objectiveData.initiative || 99)) ||
+          figure.name === objectiveData.name &&
+          figure.health === EntityValueFunction('' + objectiveData.health) &&
+          figure.escort === objectiveData.escort &&
+          figure.initiative === (objectiveData.initiative || 99)) ||
           (objectiveId &&
             figure.objectiveId &&
-            this.objectiveDataByObjectiveIdentifier(objectiveId) == this.objectiveDataByObjectiveIdentifier(figure.objectiveId)))
+            this.objectiveDataByObjectiveIdentifier(objectiveId) === this.objectiveDataByObjectiveIdentifier(figure.objectiveId)))
     ) as ObjectiveContainer;
 
     if (!objectiveContainer) {
@@ -73,7 +73,7 @@ export class ObjectiveManager {
 
   removeObjective(objectiveContainer: ObjectiveContainer) {
     const index = this.game.figures.indexOf(objectiveContainer);
-    if (index != -1) {
+    if (index !== -1) {
       this.game.figures.splice(index, 1);
     }
   }
@@ -84,11 +84,11 @@ export class ObjectiveManager {
     objectiveData: ObjectiveData | undefined = undefined,
     marker: string = ''
   ): ObjectiveEntity {
-    if (!number || objectiveContainer.entities.find((objectiveEntity) => objectiveEntity.number == number)) {
+    if (!number || objectiveContainer.entities.find((objectiveEntity) => objectiveEntity.number === number)) {
       const objectiveCount = objectiveContainer.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
       number = objectiveCount % 12;
       if (objectiveCount < 12) {
-        while (objectiveContainer.entities.find((objectiveEntity) => objectiveEntity.number - 1 == number)) {
+        while (objectiveContainer.entities.find((objectiveEntity) => objectiveEntity.number - 1 === number)) {
           number++;
         }
       }
@@ -117,10 +117,10 @@ export class ObjectiveManager {
   removeObjectiveEntity(objectiveCOntainer: ObjectiveContainer, objectiveEntity: ObjectiveEntity) {
     objectiveCOntainer.entities.splice(objectiveCOntainer.entities.indexOf(objectiveEntity), 1);
     if (
-      objectiveCOntainer.entities.length == 0 ||
+      objectiveCOntainer.entities.length === 0 ||
       objectiveCOntainer.entities.every((entity) => !gameManager.entityManager.isAlive(entity))
     ) {
-      if (!objectiveCOntainer.off && gameManager.game.state == GameState.next) {
+      if (!objectiveCOntainer.off && gameManager.game.state === GameState.next) {
         if (objectiveCOntainer.active) {
           gameManager.roundManager.toggleFigure(objectiveCOntainer);
         } else {
@@ -134,8 +134,8 @@ export class ObjectiveManager {
 
   objectiveEntityCountIdentifier(objective: ObjectiveContainer, identifier: AdditionalIdentifier): number {
     if (
-      (identifier.type != 'all' && (identifier.name != objective.name || identifier.edition != objective.edition)) ||
-      identifier.type != 'objective'
+      (identifier.type !== 'all' && (identifier.name !== objective.name || identifier.edition !== objective.edition)) ||
+      identifier.type !== 'objective'
     ) {
       return 0;
     }
@@ -143,8 +143,8 @@ export class ObjectiveManager {
     return objective.entities.filter(
       (entity) =>
         gameManager.entityManager.isAlive(entity) &&
-        (!identifier.marker || identifier.marker == entity.marker) &&
-        (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entity.tags.includes(tag)))
+        (!identifier.marker || identifier.marker === entity.marker) &&
+        (!identifier.tags || identifier.tags.length === 0 || identifier.tags.every((tag) => entity.tags.includes(tag)))
     ).length;
   }
 
@@ -155,7 +155,7 @@ export class ObjectiveManager {
           return true;
         } else {
           const objectiveData = this.objectiveDataByObjectiveIdentifier(figure.objectiveId);
-          if (!objectiveData || !objectiveData.actions || objectiveData.actions.length == 0) {
+          if (!objectiveData || !objectiveData.actions || objectiveData.actions.length === 0) {
             return true;
           }
         }
@@ -168,14 +168,14 @@ export class ObjectiveManager {
     if (!('scenario' in objectiveIdentifier)) {
       // TODO: generalize code, now specialized for Elder Drake
       const figures = gameManager.figuresByIdentifier(objectiveIdentifier);
-      if (figures.length == 1) {
+      if (figures.length === 1) {
         let result: ObjectiveData | undefined = undefined;
         const figure: Figure = figures[0];
         if (figure instanceof Monster && figure.boss) {
           const bossStats = gameManager.monsterManager.getStat(figure, MonsterType.boss);
           bossStats.special.forEach((special) => {
             special.forEach((action) => {
-              if (!result && (action.type == ActionType.summon || action.type == ActionType.spawn) && action.value == 'objectiveSpawn') {
+              if (!result && (action.type === ActionType.summon || action.type === ActionType.spawn) && action.value === 'objectiveSpawn') {
                 result = (action.valueObject as ObjectiveSpawnData[])[0].objective as ObjectiveData;
               }
             });
@@ -187,15 +187,17 @@ export class ObjectiveManager {
       const scenarioData = objectiveIdentifier.section
         ? gameManager
             .sectionData(objectiveIdentifier.edition)
-            .find((sectionData) => sectionData.index == objectiveIdentifier.scenario && sectionData.group == objectiveIdentifier.group)
+            .find((sectionData) => sectionData.index === objectiveIdentifier.scenario && sectionData.group === objectiveIdentifier.group)
         : gameManager
             .scenarioData(objectiveIdentifier.edition)
-            .find((scenarioData) => scenarioData.index == objectiveIdentifier.scenario && scenarioData.group == objectiveIdentifier.group);
+            .find(
+              (scenarioData) => scenarioData.index === objectiveIdentifier.scenario && scenarioData.group === objectiveIdentifier.group
+            );
       if (scenarioData) {
         if (objectiveIdentifier.section && !scenarioData.objectives) {
           const parent = gameManager
             .scenarioData(objectiveIdentifier.edition)
-            .find((scenario) => scenario.index == scenarioData.parent && scenario.group == scenarioData.group);
+            .find((scenario) => scenario.index === scenarioData.parent && scenario.group === scenarioData.group);
           if (parent && parent.objectives && parent.objectives.length > objectiveIdentifier.index) {
             return parent.objectives[objectiveIdentifier.index];
           }
@@ -228,10 +230,10 @@ export class ObjectiveManager {
           offset = +objectiveData.initiativeShare.split(':')[1];
         }
 
-        const monster = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.name == name);
+        const monster = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.name === name);
         if (monster) {
           figure.initiative =
-            gameManager.game.state == GameState.next && monster.getInitiative() && monster.getInitiative() < 100
+            gameManager.game.state === GameState.next && monster.getInitiative() && monster.getInitiative() < 100
               ? offset < 0
                 ? Math.ceil(monster.getInitiative() + offset)
                 : Math.floor(monster.getInitiative() + offset)

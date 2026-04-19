@@ -236,7 +236,7 @@ export class EntitiesMenuDialogComponent {
       this.figure = this.data.figure;
       this.figures = [this.figure];
       if (this.figure instanceof Monster) {
-        this.allEntities = this.figure.entities.filter((entity) => !this.data.type || entity.type == this.data.type);
+        this.allEntities = this.figure.entities.filter((entity) => !this.data.type || entity.type === this.data.type);
       } else if (this.figure instanceof Character) {
         this.allEntities = this.figure.summons;
       } else if (this.figure instanceof ObjectiveContainer && !this.objectiveOnly) {
@@ -271,20 +271,20 @@ export class EntitiesMenuDialogComponent {
   }
 
   updateFigures() {
-    if (gameManager.game.figures.find((figure) => figure instanceof Character) == undefined) {
-      this.filters = this.filters.filter((v) => v != 'character');
+    if (gameManager.game.figures.find((figure) => figure instanceof Character) === undefined) {
+      this.filters = this.filters.filter((v) => v !== 'character');
     } else if (!this.filters.includes('character')) {
       this.filters.push('character');
     }
 
-    if (gameManager.game.figures.find((figure) => figure instanceof Monster) == undefined) {
-      this.filters = this.filters.filter((v) => v != 'monster');
+    if (gameManager.game.figures.find((figure) => figure instanceof Monster) === undefined) {
+      this.filters = this.filters.filter((v) => v !== 'monster');
     } else if (!this.filters.includes('monster')) {
       this.filters.push('monster');
     }
 
-    if (gameManager.game.figures.find((figure) => figure instanceof ObjectiveContainer) == undefined) {
-      this.filters = this.filters.filter((v) => v != 'objectives');
+    if (gameManager.game.figures.find((figure) => figure instanceof ObjectiveContainer) === undefined) {
+      this.filters = this.filters.filter((v) => v !== 'objectives');
     } else if (!this.filters.includes('objectives')) {
       this.filters.push('objectives');
     }
@@ -292,32 +292,32 @@ export class EntitiesMenuDialogComponent {
     if (
       gameManager.game.figures.find(
         (figure) => (figure instanceof ObjectiveContainer && figure.escort) || (figure instanceof Monster && figure.isAlly)
-      ) == undefined
+      ) === undefined
     ) {
-      this.filters = this.filters.filter((v) => v != 'allies');
+      this.filters = this.filters.filter((v) => v !== 'allies');
     } else if (!this.filters.includes('allies')) {
       this.filters.push('allies');
     }
 
-    if (gameManager.game.figures.find((figure) => figure instanceof ObjectiveContainer && !figure.escort) == undefined) {
-      this.filters = this.filters.filter((v) => v != 'enemies');
+    if (gameManager.game.figures.find((figure) => figure instanceof ObjectiveContainer && !figure.escort) === undefined) {
+      this.filters = this.filters.filter((v) => v !== 'enemies');
     } else if (!this.filters.includes('enemies')) {
       this.filters.push('enemies');
     }
 
     this.figures = gameManager.game.figures.filter(
       (figure) =>
-        (figure instanceof Character && !figure.absent && (!this.filter || this.filter == 'character' || this.filter == 'allies')) ||
+        (figure instanceof Character && !figure.absent && (!this.filter || this.filter === 'character' || this.filter === 'allies')) ||
         (figure instanceof Monster &&
           (!this.filter ||
-            this.filter == 'monster' ||
-            (this.filter == 'enemies' && !figure.isAlly) ||
-            (this.filter == 'allies' && figure.isAlly))) ||
+            this.filter === 'monster' ||
+            (this.filter === 'enemies' && !figure.isAlly) ||
+            (this.filter === 'allies' && figure.isAlly))) ||
         (figure instanceof ObjectiveContainer &&
           (!this.filter ||
-            (this.filter == 'allies' && figure.escort) ||
-            (this.filter == 'enemies' && !figure.escort) ||
-            this.filter == 'objectives'))
+            (this.filter === 'allies' && figure.escort) ||
+            (this.filter === 'enemies' && !figure.escort) ||
+            this.filter === 'objectives'))
     );
 
     this.allEntities = [];
@@ -425,9 +425,9 @@ export class EntitiesMenuDialogComponent {
       !event.altKey &&
       !event.metaKey &&
       (!window.document.activeElement ||
-        (window.document.activeElement.tagName != 'INPUT' &&
-          window.document.activeElement.tagName != 'SELECT' &&
-          window.document.activeElement.tagName != 'TEXTAREA'))
+        (window.document.activeElement.tagName !== 'INPUT' &&
+          window.document.activeElement.tagName !== 'SELECT' &&
+          window.document.activeElement.tagName !== 'TEXTAREA'))
     ) {
       if (!this.entity || !(this.entity instanceof Character) || (this.entity instanceof Character && !this.entity.absent)) {
         if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowRight') {

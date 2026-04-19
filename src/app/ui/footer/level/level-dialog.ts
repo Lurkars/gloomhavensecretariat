@@ -61,7 +61,7 @@ export class LevelDialogComponent implements OnInit {
     gameManager.stateManager.before('updateLevelAdjustmentBb', level);
     gameManager.game.levelAdjustment = level - 2;
     const editionData = gameManager.editionData.find(
-      (editionData) => editionData.edition == 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length
+      (editionData) => editionData.edition === 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length
     );
     if (editionData) {
       const monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();

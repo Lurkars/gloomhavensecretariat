@@ -22,14 +22,16 @@ export class CharacterHelper {
   }
 
   setIdentity(index: number) {
-    if (this.component.entity instanceof Character && index != this.component.entity.identity) {
+    if (this.component.entity instanceof Character && index !== this.component.entity.identity) {
       const timeTokens =
-        this.component.entity.name == 'blinkblade' &&
+        this.component.entity.name === 'blinkblade' &&
         this.component.entity.tags.includes('time_tokens') &&
-        this.component.entity.primaryToken == 0;
+        this.component.entity.primaryToken === 0;
       if (
-        (gameManager.game.state == GameState.next ||
-          (gameManager.game.state == GameState.draw && this.component.entity.identity == 0 && this.component.entity.tokenValues[0] == 0)) &&
+        (gameManager.game.state === GameState.next ||
+          (gameManager.game.state === GameState.draw &&
+            this.component.entity.identity === 0 &&
+            this.component.entity.tokenValues[0] === 0)) &&
         timeTokens
       ) {
         return;
@@ -60,7 +62,7 @@ export class CharacterHelper {
   toggleSummonStatus() {
     if (this.component.entity instanceof Summon) {
       let state = SummonState.new;
-      if (this.component.entity.state == SummonState.new) {
+      if (this.component.entity.state === SummonState.new) {
         state = SummonState.true;
       }
       this.component.before('setSummonState', state);
@@ -100,7 +102,7 @@ export class CharacterHelper {
   close() {
     if (this.component.entity instanceof Character) {
       const character = this.component.entity;
-      if (this.component.experience != 0) {
+      if (this.component.experience !== 0) {
         this.component.before('changeXP', ghsValueSign(this.component.experience));
         character.experience += this.component.experience;
         if (character.experience < 0) {
@@ -109,7 +111,7 @@ export class CharacterHelper {
         gameManager.stateManager.after();
       }
 
-      if (this.component.loot != 0) {
+      if (this.component.loot !== 0) {
         this.component.before('changeLoot', ghsValueSign(this.component.loot));
         character.loot += this.component.loot;
         if (character.loot < 0) {
@@ -118,7 +120,7 @@ export class CharacterHelper {
         gameManager.stateManager.after();
       }
 
-      if (this.component.characterToken != 0) {
+      if (this.component.characterToken !== 0) {
         let token = character.token + this.component.characterToken;
         if (token < 0) {
           token = 0;
@@ -130,7 +132,7 @@ export class CharacterHelper {
       }
 
       for (let index = 0; index < character.tokens.length; index++) {
-        if (this.component.characterTokenValues[index] != 0) {
+        if (this.component.characterTokenValues[index] !== 0) {
           let tokenValue = character.tokenValues[index] + this.component.characterTokenValues[index];
           if (tokenValue < 0) {
             tokenValue = 0;

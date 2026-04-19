@@ -86,11 +86,11 @@ export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit
   init() {
     if (this.attackModifier) {
       this.csOak = (this.attackModifier.id && this.attackModifier.id.startsWith('cs-oak')) || false;
-      this.imbue = this.attackModifier.type == AttackModifierType.imbue || this.attackModifier.type == AttackModifierType.advancedImbue;
+      this.imbue = this.attackModifier.type === AttackModifierType.imbue || this.attackModifier.type === AttackModifierType.advancedImbue;
       this.newStyle =
         this.newStyle ||
-        this.attackModifier.type == AttackModifierType.empower ||
-        this.attackModifier.type == AttackModifierType.enfeeble ||
+        this.attackModifier.type === AttackModifierType.empower ||
+        this.attackModifier.type === AttackModifierType.enfeeble ||
         this.imbue;
       this.multipe = false;
       this.wildElement = false;
@@ -105,53 +105,53 @@ export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit
 
       if (this.attackModifier.effects) {
         if (
-          this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element) &&
-          this.attackModifier.effects.some((effect) => effect.type != AttackModifierEffectType.element)
+          this.attackModifier.effects.find((effect) => effect.type === AttackModifierEffectType.element) &&
+          this.attackModifier.effects.some((effect) => effect.type !== AttackModifierEffectType.element)
         ) {
-          this.mixedElement = this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element);
+          this.mixedElement = this.attackModifier.effects.find((effect) => effect.type === AttackModifierEffectType.element);
         }
 
         if (this.townGuard) {
           this.townGuardEffectIcon = this.attackModifier.effects.find(
-            (effect) => effect.type == AttackModifierEffectType.custom && effect.icon
+            (effect) => effect.type === AttackModifierEffectType.custom && effect.icon
           );
         }
 
         this.effects = (
-          this.mixedElement ? this.attackModifier.effects.filter((effect) => effect != this.mixedElement) : this.attackModifier.effects
-        ).filter((effect) => !this.townGuard || effect.type != AttackModifierEffectType.custom || !effect.icon);
+          this.mixedElement ? this.attackModifier.effects.filter((effect) => effect !== this.mixedElement) : this.attackModifier.effects
+        ).filter((effect) => !this.townGuard || effect.type !== AttackModifierEffectType.custom || !effect.icon);
 
         this.multipe =
-          (this.effects.length > 1 && this.effects.every((effect) => effect.type == AttackModifierEffectType.element)) ||
+          (this.effects.length > 1 && this.effects.every((effect) => effect.type === AttackModifierEffectType.element)) ||
           (this.effects.length > 1 &&
             this.effects.every(
               (effect) =>
-                effect.type == AttackModifierEffectType.condition ||
-                effect.type == AttackModifierEffectType.pierce ||
-                effect.type == AttackModifierEffectType.pull ||
-                effect.type == AttackModifierEffectType.push
+                effect.type === AttackModifierEffectType.condition ||
+                effect.type === AttackModifierEffectType.pierce ||
+                effect.type === AttackModifierEffectType.pull ||
+                effect.type === AttackModifierEffectType.push
             )) ||
-          (this.effects.length == 1 && this.effects.every((effect) => effect.type == AttackModifierEffectType.elementHalf)) ||
+          (this.effects.length === 1 && this.effects.every((effect) => effect.type === AttackModifierEffectType.elementHalf)) ||
           false;
 
         this.wildElement =
-          this.effects.length == 1 &&
+          this.effects.length === 1 &&
           this.effects.every(
             (effect) =>
-              (effect.type == AttackModifierEffectType.element || effect.type == AttackModifierEffectType.elementConsume) &&
-              effect.value == 'wild'
+              (effect.type === AttackModifierEffectType.element || effect.type === AttackModifierEffectType.elementConsume) &&
+              effect.value === 'wild'
           );
 
-        this.orTypeEffect = this.effects.find((effect) => effect.type == AttackModifierEffectType.or);
+        this.orTypeEffect = this.effects.find((effect) => effect.type === AttackModifierEffectType.or);
 
         this.effects.forEach((effect) => {
-          if (effect.type != AttackModifierEffectType.heal && effect.type != AttackModifierEffectType.shield) {
+          if (effect.type !== AttackModifierEffectType.heal && effect.type !== AttackModifierEffectType.shield) {
             this.defaultType = false;
           }
           if (
-            effect.type == AttackModifierEffectType.condition ||
-            effect.type == AttackModifierEffectType.element ||
-            effect.type == AttackModifierEffectType.elementHalf
+            effect.type === AttackModifierEffectType.condition ||
+            effect.type === AttackModifierEffectType.element ||
+            effect.type === AttackModifierEffectType.elementHalf
           ) {
             this.effectClasses += ' ' + effect.value.replaceAll('|', '-').replaceAll(':', '-');
           } else {
@@ -168,18 +168,18 @@ export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit
 
   ngOnChanges(changes: SimpleChanges): void {
     const flipped = changes['flipped'];
-    if (flipped && !this.disableFlip && flipped.currentValue && flipped.currentValue != flipped.previousValue) {
+    if (flipped && !this.disableFlip && flipped.currentValue && flipped.currentValue !== flipped.previousValue) {
       this.animate = true;
     }
     const amChange = changes['attackModifier'];
-    if (amChange && amChange.currentValue && amChange.currentValue != amChange.previousValue) {
+    if (amChange && amChange.currentValue && amChange.currentValue !== amChange.previousValue) {
       this.init();
     }
   }
 
   getTarget(effect: AttackModifierEffect): string {
     if (effect.effects) {
-      const specialTarget = effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.specialTarget);
+      const specialTarget = effect.effects.find((subEffect) => subEffect.type === AttackModifierEffectType.specialTarget);
       if (specialTarget) {
         return '' + specialTarget.value;
       }

@@ -72,16 +72,16 @@ export class MonsterStatsComponent implements OnInit {
       this.highlightActions = [ActionType.shield, ActionType.retaliate, ActionType.custom];
     }
     this.edition = gameManager.getEdition(this.monster);
-    this.catching = this.monster.pet != undefined && gameManager.buildingsManager.petsAvailable;
+    this.catching = this.monster.pet !== undefined && gameManager.buildingsManager.petsAvailable;
     this.catched =
       this.catching &&
       gameManager.buildingsManager.petsEnabled &&
-      gameManager.game.party.pets.find((value) => value.edition == this.monster.edition && value.name == this.monster.pet) != undefined;
+      gameManager.game.party.pets.find((value) => value.edition === this.monster.edition && value.name === this.monster.pet) !== undefined;
     this.level = this.monster.level;
     this.statEffect = this.monster.statEffect;
     this.flying =
-      (this.monster.flying && (!this.statEffect || this.statEffect.flying != 'disabled')) ||
-      (this.statEffect != undefined && this.statEffect.flying == true);
+      (this.monster.flying && (!this.statEffect || this.statEffect.flying !== 'disabled')) ||
+      (this.statEffect !== undefined && this.statEffect.flying === true);
     this.setStats();
     this.monsterCopy = JSON.parse(JSON.stringify(this.monster));
   }
@@ -92,20 +92,20 @@ export class MonsterStatsComponent implements OnInit {
       this.hideStats =
         !this.forceStats &&
         settingsManager.settings.hideStats &&
-        this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != MonsterType.boss);
+        this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type !== MonsterType.boss);
     } else {
       const statsType = !this.monster.bb || !this.monster.tags.includes('bb-elite') ? MonsterType.normal : MonsterType.elite;
       this.stats = gameManager.monsterManager.getStat(this.monster, statsType);
       this.hideStats =
         !this.forceStats &&
         settingsManager.settings.hideStats &&
-        this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != statsType);
+        this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type !== statsType);
       if (!this.monster.bb) {
         this.eliteStats = gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
         this.hideEliteStats =
           !this.forceStats &&
           settingsManager.settings.hideStats &&
-          this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != MonsterType.elite);
+          this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type !== MonsterType.elite);
       }
     }
   }
@@ -115,7 +115,7 @@ export class MonsterStatsComponent implements OnInit {
   }
 
   setLevel(value: number) {
-    if (value != this.monster.level) {
+    if (value !== this.monster.level) {
       gameManager.stateManager.before('setLevel', 'data.monster.' + this.monster.name, value);
       gameManager.monsterManager.setLevel(this.monster, value);
       gameManager.monsterManager.setLevel(this.monsterCopy, value);
@@ -132,7 +132,7 @@ export class MonsterStatsComponent implements OnInit {
     });
     levelDialog.closed.subscribe({
       next: (level) => {
-        if (typeof level == 'number') {
+        if (typeof level === 'number') {
           this.setLevel(level);
         }
       }

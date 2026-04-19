@@ -144,7 +144,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     this.fhSheet = gameManager.fhRules(true);
     this.gh2eSheet = !gameManager.fhRules() && gameManager.fhRules(true);
     this.csSheet =
-      !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
+      !this.fhSheet && (this.character.edition === 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
 
     this.donations = !gameManager.fhRules(false) && !gameManager.editionRules('jotl');
 
@@ -162,7 +162,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
       if (
         gameManager.game.party.buildings.find(
-          (buildingModel) => buildingModel.name == 'temple' && buildingModel.level > 0 && buildingModel.state != 'wrecked'
+          (buildingModel) => buildingModel.name === 'temple' && buildingModel.level > 0 && buildingModel.state !== 'wrecked'
         )
       ) {
         this.donations = 'fh';
@@ -208,8 +208,8 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     this.replayable =
       !gameManager.game.scenario &&
       gameManager.game.figures.find(
-        (figure) => figure instanceof Character && figure.name == this.character.name && figure.number == this.character.number
-      ) == undefined;
+        (figure) => figure instanceof Character && figure.name === this.character.name && figure.number === this.character.number
+      ) === undefined;
   }
 
   applyValues() {
@@ -222,7 +222,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     if (this.titles.length > 0) {
       for (let i = 0; i < this.titles.length; i++) {
         if (
-          this.titles[i] == settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())
+          this.titles[i] === settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())
         ) {
           this.titles[i] = '';
         }
@@ -234,13 +234,13 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       }
     }
 
-    if (title != settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())) {
-      if (this.character.title != title) {
+    if (title !== settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())) {
+      if (this.character.title !== title) {
         gameManager.entityManager.before(this.character, this.character, 'setTitle', title);
         this.character.title = title;
         gameManager.stateManager.after();
       }
-    } else if (this.character.title != '') {
+    } else if (this.character.title !== '') {
       gameManager.entityManager.before(this.character, this.character, 'unsetTitle', this.character.title);
       this.character.title = '';
       gameManager.stateManager.after();
@@ -278,7 +278,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   setLevel(level: number) {
-    if (this.character.level == level) {
+    if (this.character.level === level) {
       level--;
     }
     if (level < 1) {
@@ -292,7 +292,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   setXP(event: any) {
-    if (!isNaN(+event.target.value) && this.character.progress.experience != +event.target.value) {
+    if (!isNaN(+event.target.value) && this.character.progress.experience !== +event.target.value) {
       if (this.xpTimeout) {
         clearTimeout(this.xpTimeout);
         this.xpTimeout = null;
@@ -316,7 +316,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   setGold(event: any) {
-    if (!isNaN(+event.target.value) && this.character.progress.gold != +event.target.value) {
+    if (!isNaN(+event.target.value) && this.character.progress.gold !== +event.target.value) {
       if (this.goldTimeout) {
         clearTimeout(this.goldTimeout);
         this.goldTimeout = null;
@@ -353,13 +353,13 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       this.character.progress.donations += 1;
       this.character.donations += 1;
       gameManager.game.party.donations += 1;
-      this.character.progress.gold -= this.donations == 'fh' ? 5 : 10;
+      this.character.progress.gold -= this.donations === 'fh' ? 5 : 10;
       gameManager.stateManager.after();
     }
   }
 
   setPersonalQuest(event: any) {
-    if (this.character.progress.personalQuest != event.target.value) {
+    if (this.character.progress.personalQuest !== event.target.value) {
       gameManager.stateManager.before('setPQ', gameManager.characterManager.characterName(this.character, true, true), event.target.value);
       this.character.progress.personalQuest = event.target.value;
       this.character.progress.personalQuestProgress = [];
@@ -392,7 +392,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       value = +input.target.value;
     }
 
-    if (this.character.progress.personalQuestProgress[index] == value) {
+    if (this.character.progress.personalQuestProgress[index] === value) {
       value--;
     }
 
@@ -480,8 +480,8 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   personalQuestRequirementUnlocked(index: number): boolean {
     return (
-      this.personalQuest != undefined &&
-      this.personalQuest.requirements[index] != undefined &&
+      this.personalQuest !== undefined &&
+      this.personalQuest.requirements[index] !== undefined &&
       this.personalQuest.requirements[index].requires &&
       this.personalQuest.requirements[index].requires.every(
         (requireIndex) =>
@@ -492,7 +492,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   setExtraPerks(event: any) {
-    if (!isNaN(+event.target.value) && this.character.progress.extraPerks != +event.target.value) {
+    if (!isNaN(+event.target.value) && this.character.progress.extraPerks !== +event.target.value) {
       gameManager.stateManager.before(
         'setExtraPerks',
         gameManager.characterManager.characterName(this.character, true, true),
@@ -504,7 +504,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   setRetirements(event: any) {
-    if (!isNaN(+event.target.value) && this.character.progress.retirements != +event.target.value) {
+    if (!isNaN(+event.target.value) && this.character.progress.retirements !== +event.target.value) {
       gameManager.stateManager.before(
         'setRetirements',
         gameManager.characterManager.characterName(this.character, true, true),
@@ -516,13 +516,13 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   setPlayerNumber(event: any) {
-    if (!isNaN(+event.target.value) && this.character.number != +event.target.value && +event.target.value > 0) {
+    if (!isNaN(+event.target.value) && this.character.number !== +event.target.value && +event.target.value > 0) {
       gameManager.stateManager.before(
         'setPlayerNumber',
         gameManager.characterManager.characterName(this.character, true, true),
         event.target.value
       );
-      const existing = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == +event.target.value);
+      const existing = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === +event.target.value);
       if (existing) {
         (existing as Character).number = this.character.number;
       }
@@ -532,7 +532,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   setBattleGoals(battleGoals: number) {
-    if (this.character.progress.battleGoals == battleGoals) {
+    if (this.character.progress.battleGoals === battleGoals) {
       battleGoals--;
     }
     if (battleGoals < 0) {
@@ -540,7 +540,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     } else if (battleGoals > 18) {
       battleGoals = 18;
     }
-    if (this.character.progress.battleGoals != battleGoals) {
+    if (this.character.progress.battleGoals !== battleGoals) {
       gameManager.stateManager.before('setBG', gameManager.characterManager.characterName(this.character, true, true), battleGoals);
       this.character.progress.battleGoals = battleGoals;
       gameManager.stateManager.after();
@@ -548,7 +548,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   setNotes(event: any) {
-    if (this.character.progress.notes != event.target.value) {
+    if (this.character.progress.notes !== event.target.value) {
       gameManager.stateManager.before(
         'setNotes',
         gameManager.characterManager.characterName(this.character, true, true),
@@ -580,14 +580,14 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       value = 0;
     }
 
-    if (!force && this.availablePerks == 0 && value != 0 && this.character.progress.perks[index]) {
+    if (!force && this.availablePerks === 0 && value !== 0 && this.character.progress.perks[index]) {
       value = this.character.progress.perks[index] - 1;
     }
 
     const disabled: boolean =
-      gameManager.game.state != GameState.draw ||
+      gameManager.game.state !== GameState.draw ||
       gameManager.game.round > 0 ||
-      (this.availablePerks == 0 && !this.character.progress.perks[index]);
+      (this.availablePerks === 0 && !this.character.progress.perks[index]);
 
     if (!force && disabled && value > 1) {
       value = 0;
@@ -598,14 +598,14 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   addPerk(index: number, value: number, force: boolean = false) {
     const disabled: boolean =
-      (!this.forceEdit && (gameManager.game.state != GameState.draw || gameManager.game.round > 0)) ||
+      (!this.forceEdit && (gameManager.game.state !== GameState.draw || gameManager.game.round > 0)) ||
       (this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index]);
 
     if (!disabled || (force && !settingsManager.settings.characterSheetLocked && this.editable)) {
       gameManager.stateManager.before('setPerk', gameManager.characterManager.characterName(this.character, true, true), index, value);
       const lowerShacklesHP =
-        this.character.name == 'shackles' && this.character.edition == 'fh' && index == 11 && this.character.progress.perks[index] == 2;
-      if (this.character.progress.perks[index] && this.character.progress.perks[index] == value) {
+        this.character.name === 'shackles' && this.character.edition === 'fh' && index === 11 && this.character.progress.perks[index] === 2;
+      if (this.character.progress.perks[index] && this.character.progress.perks[index] === value) {
         this.character.progress.perks[index]--;
       } else {
         this.character.progress.perks[index] = value;
@@ -622,8 +622,8 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
         );
         gameManager.attackModifierManager.shuffleModifiers(this.character.attackModifierDeck);
 
-        if (this.character.name == 'shackles' && this.character.edition == 'fh' && index == 11) {
-          if (this.character.progress.perks[index] == 2) {
+        if (this.character.name === 'shackles' && this.character.edition === 'fh' && index === 11) {
+          if (this.character.progress.perks[index] === 2) {
             this.character.maxHealth += 5;
           } else if (lowerShacklesHP) {
             this.character.maxHealth -= 5;
@@ -674,7 +674,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
           new Character(this.character, this.character.level).toModel(),
           JSON.parse(event.target.result)
         );
-        if (characterModel.name != this.character.name || characterModel.edition != this.character.edition) {
+        if (characterModel.name !== this.character.name || characterModel.edition !== this.character.edition) {
           parent.classList.add('error');
         } else {
           gameManager.stateManager.before('importCharacter', gameManager.characterManager.characterName(this.character, true, true));
@@ -718,12 +718,12 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       );
       gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters.filter(
         (availableCharacter) =>
-          availableCharacter.name != this.character.name ||
-          availableCharacter.edition != this.character.edition ||
-          availableCharacter.number != this.character.number
+          availableCharacter.name !== this.character.name ||
+          availableCharacter.edition !== this.character.edition ||
+          availableCharacter.number !== this.character.number
       );
       gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character && figure.number == this.character.number) {
+        if (figure instanceof Character && figure.number === this.character.number) {
           gameManager.game.party.availableCharacters.push(figure.toModel());
           gameManager.characterManager.removeCharacter(figure);
         }
@@ -740,7 +740,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     this.fhSheet = !this.fhSheet;
     this.gh2eSheet = this.gh2eSheet ? false : !gameManager.fhRules() && gameManager.fhRules(true);
     this.csSheet =
-      !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
+      !this.fhSheet && (this.character.edition === 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
   }
 
   openAbilityCards() {
@@ -775,13 +775,13 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     if (settingsManager.settings.fhSecondEdition) {
       trial = gameManager.trialsManager.cardIdSecondPrinting(trial);
     }
-    if (!this.character.progress.trial || this.character.progress.trial.name != '' + trial) {
+    if (!this.character.progress.trial || this.character.progress.trial.name !== '' + trial) {
       const editionData = gameManager.editionData.find(
-        (editionData) => editionData.edition == gameManager.currentEdition() && editionData.trials && editionData.trials.length
+        (editionData) => editionData.edition === gameManager.currentEdition() && editionData.trials && editionData.trials.length
       );
       if (editionData) {
         const trialCard = editionData.trials.find(
-          (trialCard) => trialCard.cardId == trial && trialCard.edition == gameManager.currentEdition()
+          (trialCard) => trialCard.cardId === trial && trialCard.edition === gameManager.currentEdition()
         );
         if (trialCard) {
           event.target.classList.remove('error');
@@ -791,8 +791,8 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
               (figure) =>
                 figure instanceof Character &&
                 figure.progress.trial &&
-                figure.progress.trial.edition == gameManager.currentEdition() &&
-                figure.progress.trial.name == '' + trial
+                figure.progress.trial.edition === gameManager.currentEdition() &&
+                figure.progress.trial.name === '' + trial
             )
           ) {
             gameManager.stateManager.before(
@@ -808,13 +808,13 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
                   editionData.trials.find(
                     (trialCard) =>
                       character.progress.trial &&
-                      trialCard.cardId == +character.progress.trial.name &&
-                      trialCard.edition == character.progress.trial.edition
+                      trialCard.cardId === +character.progress.trial.name &&
+                      trialCard.edition === character.progress.trial.edition
                   )
                 )
                 .map((trialCard) => (trialCard ? editionData.trials.indexOf(trialCard) : -1))
             );
-            if (!gameManager.game.party.trials || gameManager.game.party.trials != currentTrialIndex) {
+            if (!gameManager.game.party.trials || gameManager.game.party.trials !== currentTrialIndex) {
               gameManager.game.party.trials = currentTrialIndex;
             }
             event.target.classList.remove('warning');

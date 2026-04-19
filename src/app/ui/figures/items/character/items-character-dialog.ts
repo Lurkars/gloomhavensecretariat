@@ -47,7 +47,7 @@ export class ItemsCharacterDialogComponent {
   character: Character = inject(DIALOG_DATA);
 
   constructor() {
-    this.setup = gameManager.game.state == GameState.draw && gameManager.roundManager.firstRound;
+    this.setup = gameManager.game.state === GameState.draw && gameManager.roundManager.firstRound;
     this.onlyEquipped = !this.setup;
     this.update();
   }
@@ -90,14 +90,14 @@ export class ItemsCharacterDialogComponent {
 
   equipped(itemData: ItemData): AdditionalIdentifier | undefined {
     return this.character.progress.equippedItems.find(
-      (identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition
+      (identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition
     );
   }
 
   countFlag(itemData: ItemData, flag: string): number {
     const equipped = this.equipped(itemData);
     if (equipped) {
-      return (equipped.tags && equipped.tags.filter((tag) => tag == flag).length) || 0;
+      return (equipped.tags && equipped.tags.filter((tag) => tag === flag).length) || 0;
     }
     return 0;
   }

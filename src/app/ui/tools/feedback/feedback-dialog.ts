@@ -98,7 +98,7 @@ export class FeedbackDialogComponent {
   issueMail(type: string, text: string): string {
     let mailto = 'mailto:issue@gloomhaven-secretariat.de';
 
-    if (type == 'feedback') {
+    if (type === 'feedback') {
       mailto = 'mailto:feedback@gloomhaven-secretariat.de';
     }
 
@@ -114,7 +114,7 @@ export class FeedbackDialogComponent {
       enviroment +=
         ' #' +
         gameManager.game.scenario.index +
-        (gameManager.game.scenario.edition != gameManager.currentEdition() ? ' (' + gameManager.game.scenario.edition + ')' : '');
+        (gameManager.game.scenario.edition !== gameManager.currentEdition() ? ' (' + gameManager.game.scenario.edition + ')' : '');
     }
 
     mailto +=

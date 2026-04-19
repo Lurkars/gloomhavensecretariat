@@ -81,7 +81,7 @@ export class ActionSummonComponent implements OnChanges {
       this.spawners = gameManager.entityManager
         .entities(this.monster, true)
         .map((entity) => entity as MonsterEntity)
-        .filter((entity) => !this.monsterType || entity.type == this.monsterType);
+        .filter((entity) => !this.monsterType || entity.type === this.monsterType);
     } else if (this.objective instanceof ObjectiveContainer) {
       this.spawners = gameManager.entityManager.entities(this.objective, true).map((entity) => entity as ObjectiveEntity);
     }
@@ -109,7 +109,7 @@ export class ActionSummonComponent implements OnChanges {
     this.objectives = gameManager.actionsManager.getObjectiveSpawnData(this.action);
     this.count = undefined;
     this.type = undefined;
-    if (this.action && (this.action.value == 'summonData' || this.action.value == 'summonDataItem')) {
+    if (this.action && (this.action.value === 'summonData' || this.action.value === 'summonDataItem')) {
       this.summonData = this.action.valueObject as SummonData;
       if (!this.summonData.edition) {
         if (this.character && this.cardId) {
@@ -131,19 +131,19 @@ export class ActionSummonComponent implements OnChanges {
           : '';
 
     if (
-      monsterSpawnData.monster.player2 == monsterSpawnData.monster.player3 &&
-      monsterSpawnData.monster.player3 == monsterSpawnData.monster.player4
+      monsterSpawnData.monster.player2 === monsterSpawnData.monster.player3 &&
+      monsterSpawnData.monster.player3 === monsterSpawnData.monster.player4
     ) {
       return (
         settingsManager.getLabel('game.summon.playerAll', ['' + monsterSpawnData.monster.type]) +
         (health ? '(' + health + ' ' + settingsManager.getLabel('game.hp') + ')' : '')
       );
-    } else if (monsterSpawnData.monster.player2 == monsterSpawnData.monster.player3) {
+    } else if (monsterSpawnData.monster.player2 === monsterSpawnData.monster.player3) {
       return (
         settingsManager.getLabel('game.summon.player2-3', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]) +
         (health ? '(' + health + ' ' + settingsManager.getLabel('game.hp') + ')' : '')
       );
-    } else if (monsterSpawnData.monster.player3 == monsterSpawnData.monster.player4) {
+    } else if (monsterSpawnData.monster.player3 === monsterSpawnData.monster.player4) {
       return (
         settingsManager.getLabel('game.summon.player3-4', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]) +
         (health ? '(' + health + ' ' + settingsManager.getLabel('game.hp') + ')' : '')
@@ -170,7 +170,7 @@ export class ActionSummonComponent implements OnChanges {
   }
 
   highlightAction(): boolean {
-    return this.interactiveActions.find((interactiveAction) => interactiveAction.index == this.actionIndex) != undefined || false;
+    return this.interactiveActions.find((interactiveAction) => interactiveAction.index === this.actionIndex) !== undefined || false;
   }
 
   isInteractiveApplicableAction(): boolean {
@@ -191,7 +191,7 @@ export class ActionSummonComponent implements OnChanges {
   toggleHighlight(event: PointerEvent) {
     if (this.isInteractiveApplicableAction()) {
       if (this.highlightAction()) {
-        this.interactiveActions = this.interactiveActions.filter((interactiveAction) => interactiveAction.index != this.actionIndex);
+        this.interactiveActions = this.interactiveActions.filter((interactiveAction) => interactiveAction.index !== this.actionIndex);
       } else if (this.action) {
         this.interactiveActions.push({ action: this.action, index: this.actionIndex });
       }

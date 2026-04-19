@@ -193,14 +193,14 @@ export class FooterComponent implements OnInit {
     if (
       settingsManager.settings.initiativeRequired &&
       settingsManager.settings.initiativeRoundConfirm &&
-      gameManager.game.state == GameState.draw &&
+      gameManager.game.state === GameState.draw &&
       gameManager.game.scenario &&
       !this.nextHint
     ) {
       if (
         gameManager.game.figures.find(
           (figure) => figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent
-        ) != undefined &&
+        ) !== undefined &&
         gameManager.game.figures.every(
           (figure) =>
             !(figure instanceof Character) || !gameManager.entityManager.isAlive(figure) || figure.absent || figure.getInitiative() > 0
@@ -229,7 +229,7 @@ export class FooterComponent implements OnInit {
         }
         this.initiativeSetDialog = false;
       }
-    } else if (gameManager.game.state == GameState.next) {
+    } else if (gameManager.game.state === GameState.next) {
       this.initiativeSetDialog = false;
     }
   }
@@ -262,8 +262,8 @@ export class FooterComponent implements OnInit {
   }
 
   async nextState() {
-    gameManager.stateManager.before(gameManager.game.state == GameState.next ? 'nextRound' : 'draw');
-    if (gameManager.game.state == GameState.next) {
+    gameManager.stateManager.before(gameManager.game.state === GameState.next ? 'nextRound' : 'draw');
+    if (gameManager.game.state === GameState.next) {
       if (settingsManager.settings.turnConfirmation) {
         const activeFigure = gameManager.game.figures.find((figure) => figure.active && !figure.off);
         if (!this.activeHint() && activeFigure) {
@@ -340,17 +340,17 @@ export class FooterComponent implements OnInit {
       const conclusions = gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => {
         if (gameManager.game.scenario) {
           return (
-            sectionData.edition == gameManager.game.scenario.edition &&
-            sectionData.parent == gameManager.game.scenario.index &&
-            sectionData.group == gameManager.game.scenario.group &&
+            sectionData.edition === gameManager.game.scenario.edition &&
+            sectionData.parent === gameManager.game.scenario.index &&
+            sectionData.group === gameManager.game.scenario.group &&
             sectionData.conclusion &&
-            gameManager.scenarioManager.getRequirements(sectionData).length == 0
+            gameManager.scenarioManager.getRequirements(sectionData).length === 0
           );
         }
         return false;
       });
 
-      if (conclusions.length == 0 || !success) {
+      if (conclusions.length === 0 || !success) {
         this.dialog.open(ScenarioSummaryComponent, {
           panelClass: ['dialog'],
           data: {
@@ -389,23 +389,23 @@ export class FooterComponent implements OnInit {
   }
 
   empty(): boolean {
-    return gameManager.game.figures.length == 0;
+    return gameManager.game.figures.length === 0;
   }
 
   round(): number {
     const offset =
       (gameManager.game.round > 0 || gameManager.game.roundResets.length > 0 || gameManager.game.roundResetsHidden.length > 0) &&
-      gameManager.game.state == GameState.draw
+      gameManager.game.state === GameState.draw
         ? 1
         : 0;
-    if (gameManager.game.roundResetsHidden.length == 0) {
+    if (gameManager.game.roundResetsHidden.length === 0) {
       return gameManager.game.round + offset;
     }
     return gameManager.game.round + offset + gameManager.game.roundResetsHidden.reduce((a, b) => (a ? a : 0) + (b ? b : 0));
   }
 
   totalRounds() {
-    if (gameManager.game.roundResets.length == 0) {
+    if (gameManager.game.roundResets.length === 0) {
       return 0;
     }
     return gameManager.game.roundResets.reduce((a, b) => (a ? a : 0) + (b ? b : 0)) + this.round();
@@ -433,7 +433,7 @@ export class FooterComponent implements OnInit {
       !this.missingInitiative() &&
       settingsManager.settings.battleGoals &&
       settingsManager.settings.battleGoalsReminder &&
-      gameManager.game.scenario != undefined &&
+      gameManager.game.scenario !== undefined &&
       gameManager.roundManager.firstRound &&
       !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent) &&
       !gameManager.bbRules()
@@ -445,9 +445,9 @@ export class FooterComponent implements OnInit {
       !this.missingInitiative() &&
       !settingsManager.settings.eventsDraw &&
       settingsManager.settings.eventsDrawReminder &&
-      gameManager.game.scenario != undefined &&
+      gameManager.game.scenario !== undefined &&
       gameManager.roundManager.firstRound &&
-      gameManager.game.eventDraw != undefined
+      gameManager.game.eventDraw !== undefined
     );
   }
 
@@ -477,7 +477,8 @@ export class FooterComponent implements OnInit {
 
   disabled(): boolean {
     return (
-      (gameManager.game.state == GameState.draw && this.drawDisabled()) || (gameManager.game.state == GameState.next && this.nextDisabled())
+      (gameManager.game.state === GameState.draw && this.drawDisabled()) ||
+      (gameManager.game.state === GameState.next && this.nextDisabled())
     );
   }
 

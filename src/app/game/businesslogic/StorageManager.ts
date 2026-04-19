@@ -381,7 +381,7 @@ export class StorageManager {
     }
 
     const undoString: string | null = localStorage.getItem('ghs-undo');
-    if (undoString != null) {
+    if (undoString !== null) {
       const undos = JSON.parse(undoString);
       let count = 1;
       let additionalUndoString = localStorage.getItem('ghs-undo-' + count);
@@ -405,7 +405,7 @@ export class StorageManager {
         .catch();
     }
     const redoString: string | null = localStorage.getItem('ghs-redo');
-    if (redoString != null) {
+    if (redoString !== null) {
       const redos = JSON.parse(redoString);
       let count = 1;
       let additionalRedoString = localStorage.getItem('ghs-redo-' + count);
@@ -430,7 +430,7 @@ export class StorageManager {
     }
 
     const undoInfosString: string | null = localStorage.getItem('ghs-undo-infos');
-    if (undoInfosString != null) {
+    if (undoInfosString !== null) {
       const undoInfos = JSON.parse(undoInfosString);
       let count = 1;
       let additionalUndoInfosString = localStorage.getItem('ghs-undo-infos-' + count);

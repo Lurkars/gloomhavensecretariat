@@ -77,10 +77,10 @@ export class ScenarioRulesManager {
           } else if (
             !this.game.discardedScenarioRules.find(
               (identifier) =>
-                identifier.edition == scenario.edition &&
-                identifier.scenario == scenario.index &&
-                identifier.group == scenario.group &&
-                identifier.index == scenario.rules.indexOf(rule) &&
+                identifier.edition === scenario.edition &&
+                identifier.scenario === scenario.index &&
+                identifier.group === scenario.group &&
+                identifier.index === scenario.rules.indexOf(rule) &&
                 !identifier.section
             )
           ) {
@@ -111,10 +111,10 @@ export class ScenarioRulesManager {
               } else if (
                 !this.game.discardedScenarioRules.find(
                   (identifier) =>
-                    identifier.edition == section.edition &&
-                    identifier.scenario == section.index &&
-                    identifier.group == section.group &&
-                    identifier.index == section.rules.indexOf(rule) &&
+                    identifier.edition === section.edition &&
+                    identifier.scenario === section.index &&
+                    identifier.group === section.group &&
+                    identifier.index === section.rules.indexOf(rule) &&
                     identifier.section
                 )
               ) {
@@ -144,11 +144,11 @@ export class ScenarioRulesManager {
               ruleModel.rule.alwaysApply &&
               this.game.appliedScenarioRules.find(
                 (applied) =>
-                  applied.edition == ruleModel.identifier.edition &&
-                  applied.scenario == ruleModel.identifier.scenario &&
-                  applied.group == ruleModel.identifier.group &&
-                  applied.index == ruleModel.identifier.index &&
-                  applied.section == ruleModel.identifier.section
+                  applied.edition === ruleModel.identifier.edition &&
+                  applied.scenario === ruleModel.identifier.scenario &&
+                  applied.group === ruleModel.identifier.group &&
+                  applied.index === ruleModel.identifier.index &&
+                  applied.section === ruleModel.identifier.section
               )
           )
       );
@@ -168,11 +168,11 @@ export class ScenarioRulesManager {
                   ruleModel.rule.alwaysApply &&
                   this.game.appliedScenarioRules.find(
                     (applied) =>
-                      applied.edition == ruleModel.identifier.edition &&
-                      applied.scenario == ruleModel.identifier.scenario &&
-                      applied.group == ruleModel.identifier.group &&
-                      applied.index == ruleModel.identifier.index &&
-                      applied.section == ruleModel.identifier.section
+                      applied.edition === ruleModel.identifier.edition &&
+                      applied.scenario === ruleModel.identifier.scenario &&
+                      applied.group === ruleModel.identifier.group &&
+                      applied.index === ruleModel.identifier.index &&
+                      applied.section === ruleModel.identifier.section
                   )
               )
           );
@@ -200,14 +200,14 @@ export class ScenarioRulesManager {
           .filter(
             (ruleModel) =>
               ruleModel.rule.alwaysApplyTurn &&
-              ((!after && ruleModel.rule.alwaysApplyTurn == 'turn') || (after && ruleModel.rule.alwaysApplyTurn == 'after')) &&
+              ((!after && ruleModel.rule.alwaysApplyTurn === 'turn') || (after && ruleModel.rule.alwaysApplyTurn === 'after')) &&
               this.game.appliedScenarioRules.find(
                 (applied) =>
-                  applied.edition == ruleModel.identifier.edition &&
-                  applied.scenario == ruleModel.identifier.scenario &&
-                  applied.group == ruleModel.identifier.group &&
-                  applied.index == ruleModel.identifier.index &&
-                  applied.section == ruleModel.identifier.section
+                  applied.edition === ruleModel.identifier.edition &&
+                  applied.scenario === ruleModel.identifier.scenario &&
+                  applied.group === ruleModel.identifier.group &&
+                  applied.index === ruleModel.identifier.index &&
+                  applied.section === ruleModel.identifier.section
               )
           )
       );
@@ -225,14 +225,14 @@ export class ScenarioRulesManager {
               .filter(
                 (ruleModel) =>
                   ruleModel.rule.alwaysApplyTurn &&
-                  ((!after && ruleModel.rule.alwaysApplyTurn == 'turn') || (after && ruleModel.rule.alwaysApplyTurn == 'after')) &&
+                  ((!after && ruleModel.rule.alwaysApplyTurn === 'turn') || (after && ruleModel.rule.alwaysApplyTurn === 'after')) &&
                   this.game.appliedScenarioRules.find(
                     (applied) =>
-                      applied.edition == ruleModel.identifier.edition &&
-                      applied.scenario == ruleModel.identifier.scenario &&
-                      applied.group == ruleModel.identifier.group &&
-                      applied.index == ruleModel.identifier.index &&
-                      applied.section == ruleModel.identifier.section
+                      applied.edition === ruleModel.identifier.edition &&
+                      applied.scenario === ruleModel.identifier.scenario &&
+                      applied.group === ruleModel.identifier.group &&
+                      applied.index === ruleModel.identifier.index &&
+                      applied.section === ruleModel.identifier.section
                   )
               )
           );
@@ -280,11 +280,11 @@ export class ScenarioRulesManager {
             disableRule.rule.disableRules &&
             disableRule.rule.disableRules.some(
               (value) =>
-                value.edition == ruleModel.identifier.edition &&
-                value.group == ruleModel.identifier.group &&
-                (value.index == ruleModel.identifier.index || value.index == -1) &&
-                value.scenario == ruleModel.identifier.scenario &&
-                value.section == ruleModel.identifier.section
+                value.edition === ruleModel.identifier.edition &&
+                value.group === ruleModel.identifier.group &&
+                (value.index === ruleModel.identifier.index || value.index === -1) &&
+                value.scenario === ruleModel.identifier.scenario &&
+                value.section === ruleModel.identifier.section
             )
         )
     );
@@ -300,27 +300,27 @@ export class ScenarioRulesManager {
           R: rule.start ? this.game.round + 1 : this.game.round,
           C: gameManager.characterManager.characterCount()
         }) &&
-        (rule.always || this.game.state == GameState.next || (rule.start && initial));
+        (rule.always || this.game.state === GameState.next || (rule.start && initial));
     } catch (error) {
       console.warn("Cannot apply scenario rule: '" + rule.round + "'", 'index: ' + index, error);
       active = false;
     }
 
     if (active) {
-      if (rule.figures && rule.figures.filter((figureRule) => figureRule.type == 'present' || figureRule.type == 'dead').length > 0) {
+      if (rule.figures && rule.figures.filter((figureRule) => figureRule.type === 'present' || figureRule.type === 'dead').length > 0) {
         rule.figures
-          .filter((figureRule) => figureRule.type == 'present' || figureRule.type == 'dead')
+          .filter((figureRule) => figureRule.type === 'present' || figureRule.type === 'dead')
           .forEach((figureRule) => {
             const gameplayFigures: Entity[] = this.presentEntitiesByFigureRule(figureRule, rule);
             const tolerance: number = figureRule.value
               ? EntityValueFunction(figureRule.value.split(':')[0])
-              : figureRule.type == 'present'
+              : figureRule.type === 'present'
                 ? 1
                 : 0;
             active =
               active &&
               tolerance >= 0 &&
-              (figureRule.type == 'present' ? gameplayFigures.length >= tolerance : gameplayFigures.length <= tolerance);
+              (figureRule.type === 'present' ? gameplayFigures.length >= tolerance : gameplayFigures.length <= tolerance);
             if (
               figureRule.identifier &&
               (figureRule.identifier.marker || (figureRule.identifier.tags && figureRule.identifier.tags.length > 0)) &&
@@ -332,9 +332,9 @@ export class ScenarioRulesManager {
       }
 
       if (active) {
-        if (rule.figures && rule.figures.filter((figureRule) => figureRule.type == 'killed').length > 0) {
+        if (rule.figures && rule.figures.filter((figureRule) => figureRule.type === 'killed').length > 0) {
           rule.figures
-            .filter((figureRule) => figureRule.type == 'killed')
+            .filter((figureRule) => figureRule.type === 'killed')
             .forEach((figureRule) => {
               if (!figureRule.identifier) {
                 active = false;
@@ -342,7 +342,7 @@ export class ScenarioRulesManager {
                 const counters = gameManager.entityCounters(figureRule.identifier);
                 active = active && counters.length > 0;
                 if (active) {
-                  if (figureRule.value == 'all') {
+                  if (figureRule.value === 'all') {
                     counters.forEach((counter) => {
                       active = (active && counter && counter.total > 0 && counter.killed >= counter.total) || false;
                     });
@@ -361,9 +361,9 @@ export class ScenarioRulesManager {
       }
 
       if (active) {
-        if (rule.figures && rule.figures.filter((figureRule) => figureRule.type == 'initiative').length > 0) {
+        if (rule.figures && rule.figures.filter((figureRule) => figureRule.type === 'initiative').length > 0) {
           rule.figures
-            .filter((figureRule) => figureRule.type == 'initiative')
+            .filter((figureRule) => figureRule.type === 'initiative')
             .forEach((figureRule) => {
               if (!figureRule.identifier) {
                 active = false;
@@ -377,11 +377,11 @@ export class ScenarioRulesManager {
                         return false;
                       }
                       if (!isNaN(+figureRule.value)) {
-                        return figure.getInitiative() == +figureRule.value;
+                        return figure.getInitiative() === +figureRule.value;
                       } else {
                         return !!evaluateExpression(figure.getInitiative() + ' ' + figureRule.value);
                       }
-                    }) != undefined ||
+                    }) !== undefined ||
                       figures.every(
                         (figure) =>
                           !figure.active && isNaN(+figureRule.value) && !evaluateExpression(figure.getInitiative() + ' ' + figureRule.value)
@@ -394,7 +394,7 @@ export class ScenarioRulesManager {
 
       if (rule.requiredRooms && rule.requiredRooms.length) {
         rule.requiredRooms.forEach((room) => {
-          active = active && gameManager.game.scenario != undefined && gameManager.game.scenario.revealedRooms.includes(room);
+          active = active && gameManager.game.scenario !== undefined && gameManager.game.scenario.revealedRooms.includes(room);
         });
       }
 
@@ -404,11 +404,11 @@ export class ScenarioRulesManager {
             active &&
             this.game.appliedScenarioRules.some(
               (identifier) =>
-                other.edition == identifier.edition &&
-                other.scenario == identifier.scenario &&
-                other.group == identifier.group &&
-                other.index == identifier.index &&
-                other.section == identifier.section
+                other.edition === identifier.edition &&
+                other.scenario === identifier.scenario &&
+                other.group === identifier.group &&
+                other.index === identifier.index &&
+                other.section === identifier.section
             );
         });
       }
@@ -418,8 +418,8 @@ export class ScenarioRulesManager {
           active =
             active &&
             this.game.party.scenarios.find(
-              (other) => other.edition == scenario.edition && other.index == scenario.index && other.group == scenario.group
-            ) != undefined;
+              (other) => other.edition === scenario.edition && other.index === scenario.index && other.group === scenario.group
+            ) !== undefined;
         });
       }
 
@@ -445,7 +445,7 @@ export class ScenarioRulesManager {
           let count = 0;
           rule.treasures.forEach((treasure) => {
             const index = treasures.indexOf(treasure);
-            if (index != -1) {
+            if (index !== -1) {
               treasures.splice(index, 1);
               count++;
             }
@@ -459,8 +459,8 @@ export class ScenarioRulesManager {
       if (rule.elementTrigger && rule.elementTrigger.length) {
         active = rule.elementTrigger.every(
           (elementModel) =>
-            (elementModel.type == Element.wild && !!this.game.elementBoard.find((element) => element.state == elementModel.state)) ||
-            !!this.game.elementBoard.find((element) => element.type == elementModel.type && element.state == elementModel.state)
+            (elementModel.type === Element.wild && !!this.game.elementBoard.find((element) => element.state === elementModel.state)) ||
+            !!this.game.elementBoard.find((element) => element.type === elementModel.type && element.state === elementModel.state)
         );
       }
     }
@@ -481,42 +481,42 @@ export class ScenarioRulesManager {
 
     const applied = this.game.appliedScenarioRules.find(
       (applied) =>
-        applied.edition == identifier.edition &&
-        applied.scenario == identifier.scenario &&
-        applied.group == identifier.group &&
-        applied.index == identifier.index &&
-        applied.section == identifier.section
+        applied.edition === identifier.edition &&
+        applied.scenario === identifier.scenario &&
+        applied.group === identifier.group &&
+        applied.index === identifier.index &&
+        applied.section === identifier.section
     );
 
     const discarded = this.game.discardedScenarioRules.find(
       (discarded) =>
-        discarded.edition == identifier.edition &&
-        discarded.scenario == identifier.scenario &&
-        discarded.group == identifier.group &&
-        discarded.index == identifier.index &&
-        discarded.section == identifier.section
+        discarded.edition === identifier.edition &&
+        discarded.scenario === identifier.scenario &&
+        discarded.group === identifier.group &&
+        discarded.index === identifier.index &&
+        discarded.section === identifier.section
     );
 
     const visible = this.game.scenarioRules.find(
       (ruleModel) =>
-        ruleModel.identifier.edition == identifier.edition &&
-        ruleModel.identifier.scenario == identifier.scenario &&
-        ruleModel.identifier.group == identifier.group &&
-        ruleModel.identifier.index == identifier.index &&
-        ruleModel.identifier.section == identifier.section
+        ruleModel.identifier.edition === identifier.edition &&
+        ruleModel.identifier.scenario === identifier.scenario &&
+        ruleModel.identifier.group === identifier.group &&
+        ruleModel.identifier.index === identifier.index &&
+        ruleModel.identifier.section === identifier.section
     );
 
     if (add && !applied && !discarded && !visible) {
       if (rule.spawns) {
         rule.spawns.forEach((spawn) => {
-          if (spawn.manual && !spawn.count && spawn.count != 0) {
+          if (spawn.manual && !spawn.count && spawn.count !== 0) {
             spawn.count = 1;
           }
         });
       }
       if (rule.objectiveSpawns) {
         rule.objectiveSpawns.forEach((spawn) => {
-          if (spawn.manual && !spawn.count && spawn.count != 0) {
+          if (spawn.manual && !spawn.count && spawn.count !== 0) {
             spawn.count = 1;
           }
         });
@@ -525,11 +525,11 @@ export class ScenarioRulesManager {
     } else if (!add && rule.always) {
       this.game.scenarioRules = this.game.scenarioRules.filter(
         (model) =>
-          model.identifier.edition != identifier.edition ||
-          model.identifier.group != identifier.group ||
-          model.identifier.index != identifier.index ||
-          model.identifier.scenario != identifier.scenario ||
-          model.identifier.section != identifier.section
+          model.identifier.edition !== identifier.edition ||
+          model.identifier.group !== identifier.group ||
+          model.identifier.index !== identifier.index ||
+          model.identifier.scenario !== identifier.scenario ||
+          model.identifier.section !== identifier.section
       );
     }
   }
@@ -540,11 +540,11 @@ export class ScenarioRulesManager {
       scenario.rules
         .filter((rule) => {
           if (rule.figures) {
-            const figureRule = rule.figures.find((figureRule) => figureRule.type == (after ? 'afterTurn' : 'onTurn'));
+            const figureRule = rule.figures.find((figureRule) => figureRule.type === (after ? 'afterTurn' : 'onTurn'));
             return (
-              figureRule != undefined &&
+              figureRule !== undefined &&
               this.figuresByFigureRule(figureRule, rule).some(
-                (ruleFigure) => ruleFigure.edition == figure.edition && ruleFigure.name == figure.name
+                (ruleFigure) => ruleFigure.edition === figure.edition && ruleFigure.name === figure.name
               )
             );
           }
@@ -561,11 +561,11 @@ export class ScenarioRulesManager {
           section.rules
             .filter((rule) => {
               if (rule.figures) {
-                const figureRule = rule.figures.find((figureRule) => figureRule.type == (after ? 'afterTurn' : 'onTurn'));
+                const figureRule = rule.figures.find((figureRule) => figureRule.type === (after ? 'afterTurn' : 'onTurn'));
                 return (
-                  figureRule != undefined &&
+                  figureRule !== undefined &&
                   this.figuresByFigureRule(figureRule, rule).some(
-                    (ruleFigure) => ruleFigure.edition == figure.edition && ruleFigure.name == figure.name
+                    (ruleFigure) => ruleFigure.edition === figure.edition && ruleFigure.name === figure.name
                   )
                 );
               }
@@ -585,9 +585,9 @@ export class ScenarioRulesManager {
     if (rule.section) {
       const sectionData = this.game.sections.find(
         (section) =>
-          section.edition == rule.edition &&
-          section.group == rule.group &&
-          section.index == rule.scenario &&
+          section.edition === rule.edition &&
+          section.group === rule.group &&
+          section.index === rule.scenario &&
           section.rules &&
           section.rules.length > rule.index
       );
@@ -596,9 +596,9 @@ export class ScenarioRulesManager {
       }
     } else if (
       this.game.scenario &&
-      this.game.scenario.edition == rule.edition &&
-      this.game.scenario.group == rule.group &&
-      this.game.scenario.index == rule.scenario &&
+      this.game.scenario.edition === rule.edition &&
+      this.game.scenario.group === rule.group &&
+      this.game.scenario.index === rule.scenario &&
       this.game.scenario.rules &&
       this.game.scenario.rules.length > rule.index
     ) {
@@ -610,12 +610,12 @@ export class ScenarioRulesManager {
 
   figuresByFigureRule(figureRule: ScenarioFigureRule, rule: ScenarioRule): Figure[] {
     const ref = figureRule.identifierRef;
-    if (typeof ref == 'number') {
+    if (typeof ref === 'number') {
       if (
         ref >= 0 &&
         ref < rule.figures.length &&
-        ref != rule.figures.indexOf(figureRule) &&
-        rule.figures.indexOf(figureRule) != rule.figures[ref].identifierRef
+        ref !== rule.figures.indexOf(figureRule) &&
+        rule.figures.indexOf(figureRule) !== rule.figures[ref].identifierRef
       ) {
         return this.figuresByFigureRule(rule.figures[ref], rule);
       } else {
@@ -628,7 +628,7 @@ export class ScenarioRulesManager {
       !figureRule.identifier ||
       (!figureRule.identifier.health &&
         !figureRule.identifier.hp &&
-        (!figureRule.identifier.conditions || figureRule.identifier.conditions.length == 0))
+        (!figureRule.identifier.conditions || figureRule.identifier.conditions.length === 0))
     ) {
       return gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
     }
@@ -708,13 +708,13 @@ export class ScenarioRulesManager {
 
   entitiesByFigureRule(figureRule: ScenarioFigureRule, rule: ScenarioRule | undefined): Entity[] {
     const ref = figureRule.identifierRef;
-    if (typeof ref == 'number') {
+    if (typeof ref === 'number') {
       if (
         rule &&
         ref >= 0 &&
         ref < rule.figures.length &&
-        ref != rule.figures.indexOf(figureRule) &&
-        rule.figures.indexOf(figureRule) != rule.figures[ref].identifierRef
+        ref !== rule.figures.indexOf(figureRule) &&
+        rule.figures.indexOf(figureRule) !== rule.figures[ref].identifierRef
       ) {
         return this.entitiesByFigureRule(rule.figures[ref], rule);
       } else {
@@ -727,7 +727,7 @@ export class ScenarioRulesManager {
       (!figureRule.identifier.number &&
         !figureRule.identifier.health &&
         !figureRule.identifier.hp &&
-        (!figureRule.identifier.conditions || figureRule.identifier.conditions.length == 0))
+        (!figureRule.identifier.conditions || figureRule.identifier.conditions.length === 0))
     ) {
       return gameManager.entitiesByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
     }
@@ -758,7 +758,7 @@ export class ScenarioRulesManager {
       }
 
       if (figureRule.identifier && figureRule.identifier.marker && (entity instanceof MonsterEntity || entity instanceof ObjectiveEntity)) {
-        filter = filter && figureRule.identifier.marker == entity.marker;
+        filter = filter && figureRule.identifier.marker === entity.marker;
       }
 
       return filter;
@@ -772,9 +772,9 @@ export class ScenarioRulesManager {
         (!(entity instanceof MonsterEntity) ||
           !figureRule.identifier?.marker ||
           (figureRule.identifier &&
-            entity.marker == figureRule.identifier.marker &&
+            entity.marker === figureRule.identifier.marker &&
             (!figureRule.identifier.tags ||
-              figureRule.identifier.tags.length == 0 ||
+              figureRule.identifier.tags.length === 0 ||
               figureRule.identifier.tags.forEach((tag) => entity.tags.includes(tag)))))
     );
   }
@@ -785,7 +785,7 @@ export class ScenarioRulesManager {
     if (scenario) {
       if (rule.figures) {
         rule.figures
-          .filter((figureRule) => figureRule.type == 'remove')
+          .filter((figureRule) => figureRule.type === 'remove')
           .forEach((figureRule) => {
             const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
             figures.forEach((figure) => {
@@ -802,14 +802,14 @@ export class ScenarioRulesManager {
         const checkActive: string[] = [];
         rule.spawns.forEach((spawn) => {
           const type = this.spawnType(spawn.monster);
-          if (scenario && (type == MonsterType.boss || type == MonsterType.elite)) {
+          if (scenario && (type === MonsterType.boss || type === MonsterType.elite)) {
             checkActive.push(...this.applySpawnRule(scenario, rule, spawn, type));
           }
         });
 
         rule.spawns.forEach((spawn) => {
           const type = this.spawnType(spawn.monster);
-          if (scenario && type == MonsterType.normal) {
+          if (scenario && type === MonsterType.normal) {
             checkActive.push(...this.applySpawnRule(scenario, rule, spawn, type));
           }
         });
@@ -825,7 +825,7 @@ export class ScenarioRulesManager {
             index: spawn.objective.id - 1
           };
           const objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(objectiveIdentifier);
-          if (objectiveData && spawn.count != 0) {
+          if (objectiveData && spawn.count !== 0) {
             const count = EntityValueFunction(spawn.count || 1);
             const objective = gameManager.objectiveManager.addObjective(objectiveData, objectiveData.name, objectiveIdentifier);
             if (objective) {
@@ -849,7 +849,7 @@ export class ScenarioRulesManager {
       if (rule.elements) {
         rule.elements.forEach((ruleElement) => {
           gameManager.game.elementBoard.forEach((element) => {
-            if (ruleElement && element.type == ruleElement.type) {
+            if (ruleElement && element.type === ruleElement.type) {
               element.state = ruleElement.state;
             }
           });
@@ -860,15 +860,15 @@ export class ScenarioRulesManager {
         rule.figures
           .filter(
             (figureRule) =>
-              figureRule.type == 'gainCondition' ||
-              figureRule.type == 'permanentCondition' ||
-              figureRule.type == 'loseCondition' ||
-              figureRule.type == 'damage' ||
-              figureRule.type == 'heal' ||
-              figureRule.type == 'setHp' ||
-              figureRule.type == 'dormant' ||
-              figureRule.type == 'activate' ||
-              figureRule.type == 'removeEntity'
+              figureRule.type === 'gainCondition' ||
+              figureRule.type === 'permanentCondition' ||
+              figureRule.type === 'loseCondition' ||
+              figureRule.type === 'damage' ||
+              figureRule.type === 'heal' ||
+              figureRule.type === 'setHp' ||
+              figureRule.type === 'dormant' ||
+              figureRule.type === 'activate' ||
+              figureRule.type === 'removeEntity'
           )
           .forEach((figureRule) => {
             const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
@@ -988,29 +988,29 @@ export class ScenarioRulesManager {
           });
 
         rule.figures
-          .filter((figureRule) => figureRule.type == 'toggleOff' || figureRule.type == 'toggleOn')
+          .filter((figureRule) => figureRule.type === 'toggleOff' || figureRule.type === 'toggleOn')
           .forEach((figureRule) => {
             const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
             figures.forEach((figure) => {
-              figure.off = figureRule.type == 'toggleOff';
+              figure.off = figureRule.type === 'toggleOff';
               if (figure instanceof Monster) {
                 figure.entities.forEach((entity) => {
-                  entity.dormant = figureRule.type == 'toggleOff';
+                  entity.dormant = figureRule.type === 'toggleOff';
                 });
               }
             });
           });
 
         rule.figures
-          .filter((figureRule) => figureRule.type == 'transfer' || figureRule.type == 'transferEntities')
+          .filter((figureRule) => figureRule.type === 'transfer' || figureRule.type === 'transferEntities')
           .forEach((figureRule) => {
             const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
             const entities: Entity[] = gameManager.scenarioRulesManager.entitiesByFigureRule(figureRule, rule);
-            if (figures.length == 1 && figures[0] instanceof Monster) {
+            if (figures.length === 1 && figures[0] instanceof Monster) {
               const figure = figures[0];
               const monster = gameManager.monsterManager.addMonsterByName(figureRule.value, scenario.edition);
               if (monster) {
-                if (figureRule.type == 'transfer') {
+                if (figureRule.type === 'transfer') {
                   if (!figureRule.value.includes(':')) {
                     monster.level = figure.level;
                   }
@@ -1046,17 +1046,17 @@ export class ScenarioRulesManager {
 
                 monster.entities.forEach((entity) => {
                   const figureStat = figure.stats.find((stat) => {
-                    return stat.level == figure.level && stat.type == entity.type;
+                    return stat.level === figure.level && stat.type === entity.type;
                   });
                   const stat = monster.stats.find((stat) => {
-                    return stat.level == monster.level && stat.type == entity.type;
+                    return stat.level === monster.level && stat.type === entity.type;
                   });
 
                   if (!stat) {
                     monster.errors = monster.errors || [];
                     if (
-                      !monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) &&
-                      !monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)
+                      !monster.errors.find((figureError) => figureError.type === FigureErrorType.unknown) &&
+                      !monster.errors.find((figureError) => figureError.type === FigureErrorType.stat)
                     ) {
                       console.error("Could not find '" + entity.type + "' stats for monster: " + monster.name + ' level: ' + monster.level);
                       monster.errors.push(
@@ -1065,18 +1065,18 @@ export class ScenarioRulesManager {
                     }
                   } else {
                     entity.stat = stat;
-                    if (figureStat && entity.maxHealth == EntityValueFunction(figureStat.health)) {
+                    if (figureStat && entity.maxHealth === EntityValueFunction(figureStat.health)) {
                       entity.maxHealth = EntityValueFunction(stat.health);
                     }
                   }
 
-                  if (entity.health > entity.maxHealth || (entity.maxHealth == 0 && entity.health > 0)) {
+                  if (entity.health > entity.maxHealth || (entity.maxHealth === 0 && entity.health > 0)) {
                     entity.health = entity.maxHealth;
                   }
                 });
 
-                if (monster != figure) {
-                  if (figureRule.type == 'transfer') {
+                if (monster !== figure) {
+                  if (figureRule.type === 'transfer') {
                     gameManager.monsterManager.removeMonster(figure);
                   } else {
                     figure.entities = figure.entities.filter((entity) => !entities.includes(entity));
@@ -1084,9 +1084,9 @@ export class ScenarioRulesManager {
                 }
 
                 if (entities.length) {
-                  monster.off = gameManager.monsterManager.monsterEntityCount(monster) == 0;
-                  figure.off = gameManager.monsterManager.monsterEntityCount(figure) == 0;
-                  if (gameManager.game.state == GameState.next && monster.ability == -1) {
+                  monster.off = gameManager.monsterManager.monsterEntityCount(monster) === 0;
+                  figure.off = gameManager.monsterManager.monsterEntityCount(figure) === 0;
+                  if (gameManager.game.state === GameState.next && monster.ability === -1) {
                     if (!gameManager.monsterManager.applySameDeck(monster)) {
                       gameManager.monsterManager.drawAbility(monster);
                     }
@@ -1094,7 +1094,7 @@ export class ScenarioRulesManager {
                   gameManager.sortFigures(monster);
                 }
               }
-            } else if (figures.length == 1 && figures[0] instanceof ObjectiveContainer) {
+            } else if (figures.length === 1 && figures[0] instanceof ObjectiveContainer) {
               const figure = figures[0];
               const objectiveIdentifier: ScenarioObjectiveIdentifier = {
                 edition: scenario.edition,
@@ -1129,25 +1129,25 @@ export class ScenarioRulesManager {
           });
 
         rule.figures
-          .filter((figureRule) => figureRule.type == 'amAdd' || figureRule.type == 'amRemove')
+          .filter((figureRule) => figureRule.type === 'amAdd' || figureRule.type === 'amRemove')
           .forEach((figureRule) => {
             const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
             figures.forEach((figure) => {
               const deck = gameManager.attackModifierManager.byFigure(figure);
               const type: AttackModifierType = figureRule.value.split(':')[0] as AttackModifierType;
               let value = +figureRule.value.split(':')[1];
-              if (figureRule.type == 'amAdd') {
+              if (figureRule.type === 'amAdd') {
                 for (let i = 0; i < value; i++) {
-                  if (type == AttackModifierType.bless && gameManager.attackModifierManager.countUpcomingBlesses() >= 10) {
+                  if (type === AttackModifierType.bless && gameManager.attackModifierManager.countUpcomingBlesses() >= 10) {
                     return;
                   } else if (
-                    type == AttackModifierType.curse &&
+                    type === AttackModifierType.curse &&
                     gameManager.attackModifierManager.countUpcomingCurses(
                       figure instanceof Monster && !figure.isAlly && !figure.isAllied
                     ) >= 10
                   ) {
                     return;
-                  } else if (type == AttackModifierType.minus1 && gameManager.attackModifierManager.countExtraMinus1() >= 15) {
+                  } else if (type === AttackModifierType.minus1 && gameManager.attackModifierManager.countExtraMinus1() >= 15) {
                     return;
                   } else {
                     gameManager.attackModifierManager.addModifier(deck, new AttackModifier(type));
@@ -1155,23 +1155,23 @@ export class ScenarioRulesManager {
                 }
               } else {
                 let card = deck.cards.find((attackModifier, index) => {
-                  return attackModifier.type == type && index > deck.current;
+                  return attackModifier.type === type && index > deck.current;
                 });
                 while (card && value > 0) {
                   deck.cards.splice(deck.cards.indexOf(card), 1);
                   card = deck.cards.find((attackModifier, index) => {
-                    return attackModifier.type == type && index > deck.current;
+                    return attackModifier.type === type && index > deck.current;
                   });
                   value--;
                 }
                 if (value > 0) {
                   let card = deck.cards.find((attackModifier) => {
-                    return attackModifier.type == type;
+                    return attackModifier.type === type;
                   });
                   while (card && value < 0) {
                     deck.cards.splice(deck.cards.indexOf(card), 1);
                     card = deck.cards.find((attackModifier) => {
-                      return attackModifier.type == type;
+                      return attackModifier.type === type;
                     });
                     value--;
                   }
@@ -1183,32 +1183,34 @@ export class ScenarioRulesManager {
         rule.figures
           .filter(
             (figureRule) =>
-              figureRule.type == 'setAbility' ||
-              figureRule.type == 'drawAbility' ||
-              figureRule.type == 'discardAbilityToBottom' ||
-              figureRule.type == 'removeAbility'
+              figureRule.type === 'setAbility' ||
+              figureRule.type === 'drawAbility' ||
+              figureRule.type === 'discardAbilityToBottom' ||
+              figureRule.type === 'removeAbility'
           )
           .forEach((figureRule) => {
             const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
             figures.forEach((figure) => {
               if (figure instanceof Monster) {
-                if (figureRule.type == 'setAbility' || figureRule.type == 'removeAbility') {
+                if (figureRule.type === 'setAbility' || figureRule.type === 'removeAbility') {
                   const ability = gameManager
                     .abilities(figure)
-                    .find((ability) => (isNaN(+figureRule.value) ? ability.name == figureRule.value : ability.cardId == +figureRule.value));
+                    .find((ability) =>
+                      isNaN(+figureRule.value) ? ability.name === figureRule.value : ability.cardId === +figureRule.value
+                    );
                   if (ability) {
                     const index = gameManager.abilities(figure).indexOf(ability);
-                    if (index != -1) {
-                      figure.abilities = figure.abilities.filter((number) => number != index);
-                      if (figureRule.type == 'setAbility') {
+                    if (index !== -1) {
+                      figure.abilities = figure.abilities.filter((number) => number !== index);
+                      if (figureRule.type === 'setAbility') {
                         figure.abilities.unshift(index);
-                        figure.ability = gameManager.game.state == GameState.draw ? -1 : 0;
+                        figure.ability = gameManager.game.state === GameState.draw ? -1 : 0;
                       }
                     }
                   }
-                } else if (figureRule.type == 'drawAbility') {
+                } else if (figureRule.type === 'drawAbility') {
                   gameManager.monsterManager.drawAbility(figure);
-                } else if (figureRule.type == 'discardAbilityToBottom') {
+                } else if (figureRule.type === 'discardAbilityToBottom') {
                   moveItemInArray(figure.abilities, figure.ability, 0);
                 }
               }
@@ -1220,10 +1222,10 @@ export class ScenarioRulesManager {
         rule.statEffects.forEach((statEffectRule) => {
           const figures: Figure[] = gameManager.figuresByIdentifier(statEffectRule.identifier);
           let referenceValue: number = 0;
-          if (statEffectRule.reference && (statEffectRule.reference.type == 'present' || statEffectRule.reference.type == 'killed')) {
+          if (statEffectRule.reference && (statEffectRule.reference.type === 'present' || statEffectRule.reference.type === 'killed')) {
             const referenceCount = gameManager.scenarioRulesManager.presentEntitiesByFigureRule(statEffectRule.reference, rule).length;
             const offset: number = statEffectRule.reference.value ? EntityValueFunction(statEffectRule.reference.value.split(':')[0]) : 0;
-            referenceValue = statEffectRule.reference.type == 'present' ? referenceCount + offset : offset - referenceCount;
+            referenceValue = statEffectRule.reference.type === 'present' ? referenceCount + offset : offset - referenceCount;
           }
 
           figures.forEach((figure) => {
@@ -1267,7 +1269,7 @@ export class ScenarioRulesManager {
                 (statEffect.immunities && statEffect.immunities.length) ||
                 statEffect.deck ||
                 statEffect.name ||
-                statEffect.flying != undefined
+                statEffect.flying !== undefined
               ) {
                 if (!!figure.statEffect && figure.statEffect.name && !statEffect.name) {
                   statEffect.name = figure.statEffect.name;
@@ -1291,7 +1293,7 @@ export class ScenarioRulesManager {
             .sectionData(gameManager.game.scenario.edition, true)
             .filter(
               (sectionData) =>
-                sectionData.group == 'randomMonsterCard' &&
+                sectionData.group === 'randomMonsterCard' &&
                 rule.randomDungeon &&
                 (!rule.randomDungeon.monsterCards || rule.randomDungeon.monsterCards.includes(sectionData.index)) &&
                 (!gameManager.game.scenario ||
@@ -1323,7 +1325,7 @@ export class ScenarioRulesManager {
       const charCount = Math.max(2, gameManager.characterManager.characterCount());
       if (charCount < 3) {
         type = monsterStandeeData.player2;
-      } else if (charCount == 3) {
+      } else if (charCount === 3) {
         type = monsterStandeeData.player3;
       } else {
         type = monsterStandeeData.player4;
@@ -1337,7 +1339,7 @@ export class ScenarioRulesManager {
     let count = spawn.count;
     let F = 0;
     if (count && rule.figures) {
-      const figureRule = rule.figures.find((figureRule) => figureRule.type == 'present' || figureRule.type == 'dead');
+      const figureRule = rule.figures.find((figureRule) => figureRule.type === 'present' || figureRule.type === 'dead');
       if (figureRule) {
         const gameplayEntities: Entity[] = gameManager.scenarioRulesManager
           .entitiesByFigureRule(figureRule, rule)
@@ -1346,15 +1348,15 @@ export class ScenarioRulesManager {
               gameManager.entityManager.isAlive(entity) &&
               (!(entity instanceof MonsterEntity) ||
                 !figureRule.identifier?.marker ||
-                (entity instanceof MonsterEntity && entity.marker == figureRule.identifier?.marker))
+                (entity instanceof MonsterEntity && entity.marker === figureRule.identifier?.marker))
           );
         const max: number =
           figureRule.value && figureRule.value.split(':').length > 1 ? EntityValueFunction(figureRule.value.split(':')[1]) : 0;
-        F = figureRule.type == 'present' ? gameplayEntities.length : Math.max(0, max - gameplayEntities.length);
+        F = figureRule.type === 'present' ? gameplayEntities.length : Math.max(0, max - gameplayEntities.length);
       }
     }
 
-    while (typeof count == 'string' && count.includes('F')) {
+    while (typeof count === 'string' && count.includes('F')) {
       count = count.replace('F', '' + F);
     }
 

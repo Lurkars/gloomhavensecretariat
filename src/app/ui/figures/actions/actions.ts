@@ -80,12 +80,12 @@ export class ActionsComponent implements OnInit {
           .forEach((statAction) => {
             if (
               !eliteStat ||
-              (eliteStat.actions && eliteStat.actions.some((eliteAction) => JSON.stringify(statAction) == JSON.stringify(eliteAction)))
+              (eliteStat.actions && eliteStat.actions.some((eliteAction) => JSON.stringify(statAction) === JSON.stringify(eliteAction)))
             ) {
               this.additionalActions.push(JSON.parse(JSON.stringify(statAction)));
             } else if (
               eliteStat &&
-              (!eliteStat.actions || !eliteStat.actions.some((eliteAction) => JSON.stringify(statAction) == JSON.stringify(eliteAction)))
+              (!eliteStat.actions || !eliteStat.actions.some((eliteAction) => JSON.stringify(statAction) === JSON.stringify(eliteAction)))
             ) {
               this.additionalActions.push(
                 new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [JSON.parse(JSON.stringify(statAction))])
@@ -98,7 +98,7 @@ export class ActionsComponent implements OnInit {
         eliteStat.actions
           .filter((eliteAction) => this.additionActionTypes.includes(eliteAction.type))
           .forEach((eliteAction) => {
-            if (!stat.actions || !stat.actions.some((statAction) => JSON.stringify(eliteAction) == JSON.stringify(statAction))) {
+            if (!stat.actions || !stat.actions.some((statAction) => JSON.stringify(eliteAction) === JSON.stringify(statAction))) {
               this.additionalActions.push(
                 new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [JSON.parse(JSON.stringify(eliteAction))])
               );
@@ -120,37 +120,37 @@ export class ActionsComponent implements OnInit {
       return false;
     }
 
-    if ((action.type == ActionType.element || action.type == ActionType.elementHalf) && action.valueType != ActionValueType.minus) {
+    if ((action.type === ActionType.element || action.type === ActionType.elementHalf) && action.valueType !== ActionValueType.minus) {
       return false;
     }
 
-    if (action.type == ActionType.card || action.type == ActionType.hint || action.type == ActionType.round) {
+    if (action.type === ActionType.card || action.type === ActionType.hint || action.type === ActionType.round) {
       return false;
     }
 
-    if (this.actions[index - 1].type == ActionType.box) {
+    if (this.actions[index - 1].type === ActionType.box) {
       return false;
     }
 
     if (
       settingsManager.settings.calculate &&
-      this.actions[index - 1].type == ActionType.monsterType &&
+      this.actions[index - 1].type === ActionType.monsterType &&
       this.monster &&
       !this.monster.entities.find(
-        (monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == this.actions[index - 1].value
+        (monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type === this.actions[index - 1].value
       )
     ) {
       return false;
     }
 
     if (
-      action.type == ActionType.concatenation &&
+      action.type === ActionType.concatenation &&
       action.subActions.every(
         (subAction) =>
-          subAction.type == ActionType.card ||
-          subAction.type == ActionType.element ||
-          subAction.type == ActionType.elementHalf ||
-          subAction.type == ActionType.concatenationSpacer
+          subAction.type === ActionType.card ||
+          subAction.type === ActionType.element ||
+          subAction.type === ActionType.elementHalf ||
+          subAction.type === ActionType.concatenationSpacer
       )
     ) {
       return false;
@@ -164,12 +164,12 @@ export class ActionsComponent implements OnInit {
       return false;
     }
 
-    if (this.actions[index - 1].type == ActionType.box || this.actions[index - 1].type == ActionType.round) {
+    if (this.actions[index - 1].type === ActionType.box || this.actions[index - 1].type === ActionType.round) {
       return false;
     }
 
     if (
-      action.type == ActionType.concatenation &&
+      action.type === ActionType.concatenation &&
       action.subActions.every((subAction) => [ActionType.card, ActionType.concatenationSpacer].includes(subAction.type))
     ) {
       return false;

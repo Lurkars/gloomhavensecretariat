@@ -56,9 +56,9 @@
       @if (publicServer) {
         <div class="line separator">
           <select tabclick (change)="selectServer($event)">
-            <option><span [ghs-label]="'server.list.' + (selectedServerIndex == -1 ? 'select' : 'deselect')"></span></option>
+            <option><span [ghs-label]="'server.list.' + (selectedServerIndex === -1 ? 'select' : 'deselect')"></span></option>
             @for (server of publicServer | trackUUID; track server._trackUUID; let i = $index) {
-              <option [value]="i" [selected]="selectedServerIndex == i">
+              <option [value]="i" [selected]="selectedServerIndex === i">
                 {{ server.url }}
               </option>
             }
@@ -66,7 +66,7 @@
         </div>
       }
 
-      @if (selectedServerIndex != -1) {
+      @if (selectedServerIndex !== -1) {
         <div class="server-info">
           <label><span [ghs-label]="'server.url'"></span></label>
           <p>{{ publicServer[selectedServerIndex].url }}</p>
@@ -82,7 +82,7 @@
           <p>{{ publicServer[selectedServerIndex].description }}</p>
           <label><span [ghs-label]="'server.info.location'"></span></label>
           <p>{{ publicServer[selectedServerIndex].location }}</p>
-          @if (gameManager.stateManager.serverVersion && gameManager.stateManager.wsState() == WebSocket.OPEN) {
+          @if (gameManager.stateManager.serverVersion && gameManager.stateManager.wsState() === WebSocket.OPEN) {
             <label><span [ghs-label]="'server.info.version'"></span></label>
             <div class="server-version">
               <span>{{ gameManager.stateManager.serverVersion }}</span>
@@ -111,8 +111,8 @@
 
       @if (
         branded &&
-        (selectedServerIndex != -1 ||
-          (gameManager.stateManager.wsState() != WebSocket.OPEN && gameManager.stateManager.wsState() == WebSocket.CONNECTING))
+        (selectedServerIndex !== -1 ||
+          (gameManager.stateManager.wsState() !== WebSocket.OPEN && gameManager.stateManager.wsState() === WebSocket.CONNECTING))
       ) {
         <div class="line">
           <a class="server-run" href="https://github.com/Lurkars/ghs-server#how-to-run" target="_blank"
@@ -121,7 +121,7 @@
         </div>
       }
 
-      <div class="line separator" [ngClass]="{ hidden: selectedServerIndex != -1 }">
+      <div class="line separator" [ngClass]="{ hidden: selectedServerIndex !== -1 }">
         <label class="label"><span [ghs-label]="'server.url'"></span></label>
         <input
           type="text"
@@ -133,7 +133,7 @@
           [ghs-label-attribute]="'placeholder'"
         />
       </div>
-      <div class="line" [ngClass]="{ hidden: selectedServerIndex != -1 }">
+      <div class="line" [ngClass]="{ hidden: selectedServerIndex !== -1 }">
         <label class="label"><span [ghs-label]="'server.port'"></span></label>
         <input
           type="number"
@@ -145,7 +145,7 @@
           [ghs-label-attribute]="'placeholder'"
         />
       </div>
-      <div class="line" [ngClass]="{ separator: selectedServerIndex != -1 }">
+      <div class="line" [ngClass]="{ separator: selectedServerIndex !== -1 }">
         <div class="code-container">
           <label class="label"><span [ghs-label]="'server.code'"></span></label>
           <span class="spacer"></span>
@@ -175,7 +175,7 @@
         </div>
       </div>
 
-      <div class="columns" [ngClass]="{ hidden: selectedServerIndex != -1 }">
+      <div class="columns" [ngClass]="{ hidden: selectedServerIndex !== -1 }">
         <div class="column">
           <div class="line">
             <label>
@@ -195,7 +195,7 @@
           serverPort.value &&
           serverCode.value &&
           tryConnect &&
-          gameManager.stateManager.wsState() != WebSocket.OPEN
+          gameManager.stateManager.wsState() !== WebSocket.OPEN
         ) {
           <div class="column">
             <div class="line">
@@ -207,7 +207,7 @@
         }
       </div>
 
-      @if (selectedServerIndex == -1 && gameManager.stateManager.serverVersion && gameManager.stateManager.wsState() == WebSocket.OPEN) {
+      @if (selectedServerIndex === -1 && gameManager.stateManager.serverVersion && gameManager.stateManager.wsState() === WebSocket.OPEN) {
         <div class="server-info">
           <label><span [ghs-label]="'server.info.version'"></span></label>
           <div class="server-version">
@@ -238,11 +238,11 @@
         <div class="column">
           <div class="line">
             <a tabclick (click)="reconnect()" [ngClass]="{ disabled: !serverUrl.value || !serverPort.value || !serverCode.value }">
-              <span [ghs-label]="gameManager.stateManager.wsState() == WebSocket.OPEN ? 'server.reconnect' : 'server.connect'"></span>
+              <span [ghs-label]="gameManager.stateManager.wsState() === WebSocket.OPEN ? 'server.reconnect' : 'server.connect'"></span>
             </a>
           </div>
         </div>
-        @if (gameManager.stateManager.wsState() == WebSocket.OPEN) {
+        @if (gameManager.stateManager.wsState() === WebSocket.OPEN) {
           <div class="column">
             <div class="line">
               <a tabclick (click)="disconnect()"><span [ghs-label]="'server.disconnect'"></span></a>
@@ -252,7 +252,7 @@
       </div>
     </form>
 
-    @if (gameManager.stateManager.wsState() == WebSocket.OPEN && !gameManager.stateManager.permissions) {
+    @if (gameManager.stateManager.wsState() === WebSocket.OPEN && !gameManager.stateManager.permissions) {
       <div class="line title">
         <label><span [ghs-label]="'permissions'"></span></label>
       </div>

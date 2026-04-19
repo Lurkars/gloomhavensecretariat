@@ -1,6 +1,6 @@
 <div
   class="move-resources-dialog"
-  [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }"
+  [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }"
 >
   <label class="title">
     @if (!!building) {
@@ -20,7 +20,7 @@
         ></span>
       </span>
     }
-    @if (!building && action == 'soldiers') {
+    @if (!building && action === 'soldiers') {
       <span class="name">
         <span [ghs-label]="'data.buildings.barracks.soldiers'"></span>
       </span>
@@ -154,7 +154,7 @@
         }
       }
       @if (costs.gold) {
-        <span class="head-col calc-col costs" [ngClass]="{ some: spent.gold, full: spent.gold == costs.gold }">
+        <span class="head-col calc-col costs" [ngClass]="{ some: spent.gold, full: spent.gold === costs.gold }">
           <img class="ghs-svg" [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'loot.svg'" />
           <span class="cost"
             ><span class="current">{{ spent.gold || '-' }}</span> / {{ costs.gold }}</span
@@ -164,7 +164,7 @@
         @for (character of characters | trackUUID; track character._trackUUID; let i = $index) {
           <span class="calc-col">
             @if (character.progress.gold) {
-              <a class="button" [ngClass]="{ disabled: characterSpent[i].gold == 0 }" (click)="changeValue('gold', characterSpent[i], -1)">
+              <a class="button" [ngClass]="{ disabled: characterSpent[i].gold === 0 }" (click)="changeValue('gold', characterSpent[i], -1)">
                 <img class="ghs-svg" src="./assets/images/minus.svg" />
               </a>
               <span class="value" [ghs-label]="'game.loot.'" [ghs-label-attribute]="'title'">
@@ -173,7 +173,7 @@
               <a
                 class="button"
                 [ngClass]="{
-                  disabled: character.progress.gold == 0 || character.progress.gold == characterSpent[i].gold || spent.gold == costs.gold
+                  disabled: character.progress.gold === 0 || character.progress.gold === characterSpent[i].gold || spent.gold === costs.gold
                 }"
                 (click)="changeValue('gold', characterSpent[i], 1)"
               >
@@ -192,7 +192,7 @@
           [ngClass]="{
             costs: !repair,
             some: spent.lumber,
-            full: spent.lumber == costs.lumber || requiredResources - (discount ? 1 : 0) == paidResources
+            full: spent.lumber === costs.lumber || requiredResources - (discount ? 1 : 0) === paidResources
           }"
         >
           <img class="ghs-svg" src="./assets/images/fh/loot/lumber.svg" />
@@ -204,7 +204,7 @@
         </span>
         <span class="calc-col">
           @if (gameManager.game.party.loot['lumber']) {
-            <a class="button" [ngClass]="{ disabled: fhSupportSpent.lumber == 0 }" (click)="changeValue('lumber', fhSupportSpent, -1)">
+            <a class="button" [ngClass]="{ disabled: fhSupportSpent.lumber === 0 }" (click)="changeValue('lumber', fhSupportSpent, -1)">
               <img class="ghs-svg" src="./assets/images/minus.svg" />
             </a>
             <span class="value" [ghs-label]="'game.loot.'" [ghs-label-attribute]="'title'">
@@ -215,9 +215,9 @@
               [ngClass]="{
                 disabled:
                   !gameManager.game.party.loot['lumber'] ||
-                  gameManager.game.party.loot['lumber'] == fhSupportSpent.lumber ||
-                  spent.lumber == costs.lumber ||
-                  (repair && paidResources == repair)
+                  gameManager.game.party.loot['lumber'] === fhSupportSpent.lumber ||
+                  spent.lumber === costs.lumber ||
+                  (repair && paidResources === repair)
               }"
               (click)="changeValue('lumber', fhSupportSpent, 1)"
             >
@@ -234,7 +234,7 @@
               @if (character.progress.loot['lumber']) {
                 <a
                   class="button"
-                  [ngClass]="{ disabled: characterSpent[i].lumber == 0 }"
+                  [ngClass]="{ disabled: characterSpent[i].lumber === 0 }"
                   (click)="changeValue('lumber', characterSpent[i], -1)"
                 >
                   <img class="ghs-svg" src="./assets/images/minus.svg" />
@@ -247,9 +247,9 @@
                   [ngClass]="{
                     disabled:
                       !character.progress.loot['lumber'] ||
-                      character.progress.loot['lumber'] == characterSpent[i].lumber ||
-                      spent.lumber == costs.lumber ||
-                      (repair && paidResources == repair)
+                      character.progress.loot['lumber'] === characterSpent[i].lumber ||
+                      spent.lumber === costs.lumber ||
+                      (repair && paidResources === repair)
                   }"
                   (click)="changeValue('lumber', characterSpent[i], 1)"
                 >
@@ -269,7 +269,7 @@
           [ngClass]="{
             costs: !repair,
             some: spent.metal,
-            full: spent.metal == costs.metal || requiredResources - (discount ? 1 : 0) == paidResources
+            full: spent.metal === costs.metal || requiredResources - (discount ? 1 : 0) === paidResources
           }"
         >
           <img class="ghs-svg" src="./assets/images/fh/loot/metal.svg" />
@@ -281,7 +281,7 @@
         </span>
         <span class="calc-col">
           @if (gameManager.game.party.loot['metal']) {
-            <a class="button" [ngClass]="{ disabled: fhSupportSpent.metal == 0 }" (click)="changeValue('metal', fhSupportSpent, -1)">
+            <a class="button" [ngClass]="{ disabled: fhSupportSpent.metal === 0 }" (click)="changeValue('metal', fhSupportSpent, -1)">
               <img class="ghs-svg" src="./assets/images/minus.svg" />
             </a>
             <span class="value" [ghs-label]="'game.loot.'" [ghs-label-attribute]="'title'">
@@ -292,9 +292,9 @@
               [ngClass]="{
                 disabled:
                   !gameManager.game.party.loot['metal'] ||
-                  gameManager.game.party.loot['metal'] == fhSupportSpent.metal ||
-                  spent.metal == costs.metal ||
-                  (repair && paidResources == repair)
+                  gameManager.game.party.loot['metal'] === fhSupportSpent.metal ||
+                  spent.metal === costs.metal ||
+                  (repair && paidResources === repair)
               }"
               (click)="changeValue('metal', fhSupportSpent, 1)"
             >
@@ -311,7 +311,7 @@
               @if (character.progress.loot['metal']) {
                 <a
                   class="button"
-                  [ngClass]="{ disabled: characterSpent[i].metal == 0 }"
+                  [ngClass]="{ disabled: characterSpent[i].metal === 0 }"
                   (click)="changeValue('metal', characterSpent[i], -1)"
                 >
                   <img class="ghs-svg" src="./assets/images/minus.svg" />
@@ -324,9 +324,9 @@
                   [ngClass]="{
                     disabled:
                       !character.progress.loot['metal'] ||
-                      character.progress.loot['metal'] == characterSpent[i].metal ||
-                      spent.metal == costs.metal ||
-                      (repair && paidResources == repair)
+                      character.progress.loot['metal'] === characterSpent[i].metal ||
+                      spent.metal === costs.metal ||
+                      (repair && paidResources === repair)
                   }"
                   (click)="changeValue('metal', characterSpent[i], 1)"
                 >
@@ -346,7 +346,7 @@
           [ngClass]="{
             costs: !repair,
             some: spent.hide,
-            full: spent.hide == costs.hide || requiredResources - (discount ? 1 : 0) == paidResources
+            full: spent.hide === costs.hide || requiredResources - (discount ? 1 : 0) === paidResources
           }"
         >
           <img class="ghs-svg" src="./assets/images/fh/loot/hide.svg" />
@@ -358,7 +358,7 @@
         </span>
         <span class="calc-col">
           @if (gameManager.game.party.loot['hide']) {
-            <a class="button" [ngClass]="{ disabled: fhSupportSpent.hide == 0 }" (click)="changeValue('hide', fhSupportSpent, -1)">
+            <a class="button" [ngClass]="{ disabled: fhSupportSpent.hide === 0 }" (click)="changeValue('hide', fhSupportSpent, -1)">
               <img class="ghs-svg" src="./assets/images/minus.svg" />
             </a>
             <span class="value" [ghs-label]="'game.loot.'" [ghs-label-attribute]="'title'">
@@ -369,9 +369,9 @@
               [ngClass]="{
                 disabled:
                   !gameManager.game.party.loot['hide'] ||
-                  gameManager.game.party.loot['hide'] == fhSupportSpent.hide ||
-                  spent.hide == costs.hide ||
-                  (repair && paidResources == repair)
+                  gameManager.game.party.loot['hide'] === fhSupportSpent.hide ||
+                  spent.hide === costs.hide ||
+                  (repair && paidResources === repair)
               }"
               (click)="changeValue('hide', fhSupportSpent, 1)"
             >
@@ -388,7 +388,7 @@
               @if (character.progress.loot['hide']) {
                 <a
                   class="button"
-                  [ngClass]="{ disabled: characterSpent[i].hide == 0 }"
+                  [ngClass]="{ disabled: characterSpent[i].hide === 0 }"
                   (click)="changeValue('hide', characterSpent[i], -1)"
                 >
                   <img class="ghs-svg" src="./assets/images/minus.svg" />
@@ -401,9 +401,9 @@
                   [ngClass]="{
                     disabled:
                       !character.progress.loot['hide'] ||
-                      character.progress.loot['hide'] == characterSpent[i].hide ||
-                      spent.hide == costs.hide ||
-                      (repair && paidResources == repair)
+                      character.progress.loot['hide'] === characterSpent[i].hide ||
+                      spent.hide === costs.hide ||
+                      (repair && paidResources === repair)
                   }"
                   (click)="changeValue('hide', characterSpent[i], 1)"
                 >
@@ -420,13 +420,13 @@
       @if (gameManager.game.party.inspiration) {
         <span class="head-col calc-col" [ghs-label]="'party.inspiration'"></span>
         <span class="calc-col">
-          <a class="button" [ngClass]="{ disabled: fhSupportSpent.manual == 0 }" (click)="changeValue('manual', fhSupportSpent, -1)">
+          <a class="button" [ngClass]="{ disabled: fhSupportSpent.manual === 0 }" (click)="changeValue('manual', fhSupportSpent, -1)">
             <img class="ghs-svg" src="./assets/images/minus.svg" />
           </a>
           <span class="value" [ghs-label]="'party.inspiration'" [ghs-label-attribute]="'title'">
             {{ fhSupportSpent.manual || '-' }} / {{ gameManager.game.party.inspiration }}
           </span>
-          <a class="button" [ngClass]="{ disabled: repair && paidResources == repair }" (click)="changeValue('manual', fhSupportSpent, 1)">
+          <a class="button" [ngClass]="{ disabled: repair && paidResources === repair }" (click)="changeValue('manual', fhSupportSpent, 1)">
             <img class="ghs-svg" src="./assets/images/plus.svg" />
           </a>
         </span>

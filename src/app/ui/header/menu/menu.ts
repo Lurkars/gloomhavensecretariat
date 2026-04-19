@@ -130,13 +130,13 @@ export class MainMenuComponent implements OnInit {
         (gameManager.game.revisionOffset || 0) -
         (undos[undos.length - 1].revision - (undos[undos.length - 1].revisionOffset || 0)) -
         1;
-      if (this.undoInfo && this.undoInfo.length > 1 && this.undoInfo[0] == 'serverSync') {
-        if (gameManager.game.state == GameState.draw && this.undoInfo[1] == 'setInitiative' && this.undoInfo.length > 3) {
+      if (this.undoInfo && this.undoInfo.length > 1 && this.undoInfo[0] === 'serverSync') {
+        if (gameManager.game.state === GameState.draw && this.undoInfo[1] === 'setInitiative' && this.undoInfo.length > 3) {
           this.undoInfo = ['serverSync', settingsManager.getLabel('state.info.' + this.undoInfo[1], [this.undoInfo[2], ''])];
         } else {
           this.undoInfo = ['serverSync', settingsManager.getLabel('state.info.' + this.undoInfo[1], this.undoInfo.slice(2))];
         }
-      } else if (this.undoInfo && this.undoInfo.length == 1 && this.undoInfo[0] == 'serverSync') {
+      } else if (this.undoInfo && this.undoInfo.length === 1 && this.undoInfo[0] === 'serverSync') {
         this.undoInfo = ['serverSync', ''];
       } else if (!this.undoInfo) {
         this.undoInfo = ['unknown'];
@@ -147,13 +147,13 @@ export class MainMenuComponent implements OnInit {
     }
     if (redos.length > 0 && undoInfos.length > undos.length) {
       this.redoInfo = undoInfos[undos.length];
-      if (this.redoInfo && this.redoInfo.length > 1 && this.redoInfo[0] == 'serverSync') {
-        if (this.redoInfo[1] == 'setInitiative' && this.redoInfo.length > 3) {
+      if (this.redoInfo && this.redoInfo.length > 1 && this.redoInfo[0] === 'serverSync') {
+        if (this.redoInfo[1] === 'setInitiative' && this.redoInfo.length > 3) {
           this.redoInfo = ['serverSync', settingsManager.getLabel('state.info.' + this.redoInfo[1], [this.redoInfo[2], ''])];
         } else {
           this.redoInfo = ['serverSync', settingsManager.getLabel('state.info.' + this.redoInfo[1], this.redoInfo.slice(2))];
         }
-      } else if (this.redoInfo && this.redoInfo.length == 1 && this.redoInfo[0] == 'serverSync') {
+      } else if (this.redoInfo && this.redoInfo.length === 1 && this.redoInfo[0] === 'serverSync') {
         this.redoInfo = ['serverSync', ''];
       } else if (!this.redoInfo) {
         this.redoInfo = ['unknown'];
@@ -180,7 +180,7 @@ export class MainMenuComponent implements OnInit {
 
   hasSections(): boolean {
     return gameManager.editionData.some(
-      (editionData) => editionData.edition == gameManager.currentEdition() && editionData.sections && editionData.sections.length > 0
+      (editionData) => editionData.edition === gameManager.currentEdition() && editionData.sections && editionData.sections.length > 0
     );
   }
 
@@ -255,7 +255,7 @@ export class MainMenuComponent implements OnInit {
   removeCharacter(character: Character) {
     gameManager.stateManager.before('removeChar', gameManager.characterManager.characterName(character));
     gameManager.characterManager.removeCharacter(character);
-    if (this.characters().length == 0) {
+    if (this.characters().length === 0) {
       this.close();
     }
     gameManager.stateManager.after();
@@ -279,7 +279,7 @@ export class MainMenuComponent implements OnInit {
   removeObjective(objective: ObjectiveContainer) {
     gameManager.stateManager.before('removeObjective', objective.title || objective.name);
     gameManager.objectiveManager.removeObjective(objective);
-    if (this.objectives().length == 0) {
+    if (this.objectives().length === 0) {
       this.close();
     }
     gameManager.stateManager.after();
@@ -295,7 +295,7 @@ export class MainMenuComponent implements OnInit {
   removeMonster(monster: Monster) {
     gameManager.stateManager.before('removeMonster', 'data.monster.' + monster.name);
     gameManager.monsterManager.removeMonster(monster);
-    if (this.monsters().length == 0) {
+    if (this.monsters().length === 0) {
       this.close();
     }
     gameManager.stateManager.after();
@@ -318,7 +318,7 @@ export class MainMenuComponent implements OnInit {
       .monstersData()
       .every((monsterData) =>
         gameManager.game.figures.some(
-          (figure) => figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition
+          (figure) => figure instanceof MonsterData && figure.name === monsterData.name && figure.edition === monsterData.edition
         )
       );
   }
@@ -327,10 +327,10 @@ export class MainMenuComponent implements OnInit {
     return (
       gameManager.game.figures.find((figure) => {
         return figure instanceof Monster && figure.entities.every((monsterEntity) => !gameManager.entityManager.isAlive(monsterEntity));
-      }) != undefined &&
+      }) !== undefined &&
       gameManager.game.figures.find((figure) => {
         return figure instanceof Monster && figure.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity));
-      }) != undefined
+      }) !== undefined
     );
   }
 

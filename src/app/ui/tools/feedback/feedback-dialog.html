@@ -1,5 +1,5 @@
 <span class="feedback-dialog scroll-container">
-  <a (click)="form = 'issue'" [ngClass]="{ active: form == 'issue' }"><span [ghs-label]="'tools.feedback.reportIssue'"></span></a>
+  <a (click)="form = 'issue'" [ngClass]="{ active: form === 'issue' }"><span [ghs-label]="'tools.feedback.reportIssue'"></span></a>
 
   @if (automaticText) {
     <div class="hint">
@@ -11,7 +11,7 @@
     </div>
   }
 
-  @if (form == 'issue') {
+  @if (form === 'issue') {
     <div class="form issue-form">
       <label><span [ghs-label]="'tools.feedback.reportIssue.type'"></span></label>
       <select [(ngModel)]="issueType">
@@ -43,7 +43,7 @@
   }
 
   <!--
-@if (form == 'issue') {
+@if (form === 'issue') {
   <a (click)="form = 'scenario'"><span [ghs-label]="'tools.feedback.submitScenario'"></span></a>
 }
 -->

@@ -15,7 +15,7 @@
               disabled:
                 !gameManager.stateManager.undoPermission ||
                 (undoOffset && gameManager.stateManager.gameOffsetWarning) ||
-                gameManager.stateManager.undos.length == 0
+                gameManager.stateManager.undos.length === 0
             }"
             (click)="gameManager.stateManager.undo()"
           >
@@ -37,7 +37,7 @@
           <a
             tabclick
             class="state redo"
-            [ngClass]="{ disabled: !gameManager.stateManager.redoPermission || gameManager.stateManager.redos.length == 0 }"
+            [ngClass]="{ disabled: !gameManager.stateManager.redoPermission || gameManager.stateManager.redos.length === 0 }"
             (click)="gameManager.stateManager.redo()"
           >
             <span [ghs-label]="'state.redo'"></span>
@@ -77,7 +77,7 @@
           <div
             class="line"
             [ngClass]="{
-              disabled: monsters().length == 0,
+              disabled: monsters().length === 0,
               denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters
             }"
           >
@@ -96,7 +96,7 @@
           <div
             class="line"
             [ngClass]="{
-              disabled: characters().length == 0,
+              disabled: characters().length === 0,
               denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters
             }"
           >
@@ -111,7 +111,7 @@
           <div
             class="line"
             [ngClass]="{
-              disabled: objectives().length == 0,
+              disabled: objectives().length === 0,
               denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters
             }"
           >
@@ -314,7 +314,7 @@
   }
 </div>
 
-@if (active != SubMenu.main) {
+@if (active !== SubMenu.main) {
   <div class="back" tabclick (click)="setActive(SubMenu.main)" [ghs-label]="'menu.backToMain'" [ghs-label-attribute]="'title'">
     <img class="ghs-svg" src="./assets/images/left.svg" />
   </div>

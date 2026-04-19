@@ -70,7 +70,7 @@ export class SummonDialogComponent implements AfterViewInit {
 
   changeAttack(value: number) {
     this.attack += value;
-    if (typeof this.summon.attack == 'number' && this.summon.attack + this.attack < 0) {
+    if (typeof this.summon.attack === 'number' && this.summon.attack + this.attack < 0) {
       this.attack = -this.summon.attack;
     }
   }
@@ -117,20 +117,20 @@ export class SummonDialogComponent implements AfterViewInit {
     gameManager.characterManager.removeSummon(this.character, this.summon);
     gameManager.stateManager.before('addSummon', gameManager.characterManager.characterName(this.character, true, true), this.summon.name);
     this.summon.init = false;
-    if (this.health != 0) {
+    if (this.health !== 0) {
       gameManager.entityManager.changeHealth(this.summon, this.character, this.health);
     }
-    if (this.attack != 0 && typeof this.summon.attack == 'number') {
+    if (this.attack !== 0 && typeof this.summon.attack === 'number') {
       this.summon.attack += this.attack;
     }
-    if (this.movement != 0) {
+    if (this.movement !== 0) {
       this.summon.movement += this.movement;
     }
-    if (this.range != 0) {
+    if (this.range !== 0) {
       this.summon.range += this.range;
     }
     if (this.maxHp) {
-      if (this.summon.maxHealth + this.maxHp < this.summon.maxHealth || this.summon.health == this.summon.maxHealth) {
+      if (this.summon.maxHealth + this.maxHp < this.summon.maxHealth || this.summon.health === this.summon.maxHealth) {
         this.summon.health = this.summon.maxHealth + this.maxHp;
       }
       this.summon.maxHealth += this.maxHp;
@@ -141,13 +141,13 @@ export class SummonDialogComponent implements AfterViewInit {
 
   private closeEdit() {
     if (this.summonTitleInput) {
-      if (this.summonTitleInput.nativeElement.value && this.summonTitleInput.nativeElement.value != this.summon.title) {
-        if (this.summon.title != this.summonTitleInput.nativeElement.value) {
+      if (this.summonTitleInput.nativeElement.value && this.summonTitleInput.nativeElement.value !== this.summon.title) {
+        if (this.summon.title !== this.summonTitleInput.nativeElement.value) {
           gameManager.entityManager.before(this.summon, this.character, 'setTitle', this.summonTitleInput.nativeElement.value);
           this.summon.title = this.summonTitleInput.nativeElement.value;
           gameManager.stateManager.after();
         }
-      } else if (this.summon.title != '') {
+      } else if (this.summon.title !== '') {
         gameManager.entityManager.before(this.summon, this.character, 'unsetTitle', this.summon.title);
         this.summon.title = '';
         gameManager.stateManager.after();
@@ -164,7 +164,7 @@ export class SummonDialogComponent implements AfterViewInit {
       this.summon.maxHealth += this.maxHp;
       gameManager.stateManager.after();
     }
-    if (this.attack != 0 && typeof this.summon.attack == 'number') {
+    if (this.attack !== 0 && typeof this.summon.attack === 'number') {
       gameManager.stateManager.before(
         'changeSummonAttack',
         gameManager.characterManager.characterName(this.character, true, true),
@@ -174,7 +174,7 @@ export class SummonDialogComponent implements AfterViewInit {
       this.summon.attack += this.attack;
       gameManager.stateManager.after();
     }
-    if (this.movement != 0) {
+    if (this.movement !== 0) {
       gameManager.stateManager.before(
         'changeSummonMove',
         gameManager.characterManager.characterName(this.character, true, true),
@@ -184,7 +184,7 @@ export class SummonDialogComponent implements AfterViewInit {
       this.summon.movement += this.movement;
       gameManager.stateManager.after();
     }
-    if (this.range != 0) {
+    if (this.range !== 0) {
       gameManager.stateManager.before(
         'changeSummonRange',
         gameManager.characterManager.characterName(this.character, true, true),

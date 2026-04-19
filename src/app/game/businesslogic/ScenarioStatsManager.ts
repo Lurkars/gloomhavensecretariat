@@ -148,7 +148,7 @@ export class ScenarioStatsManager {
         const loot = this.game.lootDeck.cards[index];
         if (loot) {
           let type = loot.type;
-          if (type == LootType.special1 || type == LootType.special2) {
+          if (type === LootType.special1 || type === LootType.special2) {
             type = LootType.money;
           }
           lootStats[type] = (lootStats[type] || 0) + gameManager.lootManager.getValue(loot);

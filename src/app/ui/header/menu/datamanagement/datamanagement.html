@@ -6,7 +6,7 @@
           <a tabclick (click)="exportGame()"><span [ghs-label]="'datamanagement.exportGame'"></span></a>
         </div>
         <div class="line">
-          <a tabclick (click)="resetGame()" [ngClass]="{ 'confirm-delete': confirm == 'resetGame' }" (mouseleave)="cancelConfirm()"
+          <a tabclick (click)="resetGame()" [ngClass]="{ 'confirm-delete': confirm === 'resetGame' }" (mouseleave)="cancelConfirm()"
             >&lt;<span [ghs-label]="'datamanagement.resetGame'"></span>(!)&gt;</a
           >
         </div>
@@ -16,13 +16,13 @@
               tabclick
               class="input-file hint-trigger"
               (click)="importFileCheck($event)"
-              [ngClass]="{ 'confirm-delete': confirm == 'importFile' }"
+              [ngClass]="{ 'confirm-delete': confirm === 'importFile' }"
               (mouseleave)="cancelConfirm()"
             >
               <input
                 type="file"
-                [ngClass]="{ disabled: confirm != 'importFile' }"
-                [disabled]="confirm != 'importFile'"
+                [ngClass]="{ disabled: confirm !== 'importFile' }"
+                [disabled]="confirm !== 'importFile'"
                 accept="application/json"
                 (change)="importFile($event)"
               />
@@ -40,7 +40,7 @@
           <a tabclick (click)="exportSettings()"><span [ghs-label]="'datamanagement.exportSettings'"></span></a>
         </div>
         <div class="line">
-          <a tabclick (click)="resetSettings()" [ngClass]="{ 'confirm-delete': confirm == 'resetSettings' }" (mouseleave)="cancelConfirm()"
+          <a tabclick (click)="resetSettings()" [ngClass]="{ 'confirm-delete': confirm === 'resetSettings' }" (mouseleave)="cancelConfirm()"
             >&lt;<span [ghs-label]="'datamanagement.resetSettings'"></span>(!)&gt;</a
           >
         </div>
@@ -50,7 +50,7 @@
           <a tabclick (click)="exportDataDump()"><span [ghs-label]="'datamanagement.exportDataDump'"></span></a>
         </div>
         <div class="line">
-          <a tabclick (click)="clearAllData()" [ngClass]="{ 'confirm-delete': confirm == 'clearAllData' }" (mouseleave)="cancelConfirm()"
+          <a tabclick (click)="clearAllData()" [ngClass]="{ 'confirm-delete': confirm === 'clearAllData' }" (mouseleave)="cancelConfirm()"
             >&lt;<span [ghs-label]="'datamanagement.clearAll'"></span>(!)&gt;</a
           >
         </div>
@@ -59,9 +59,9 @@
             <input
               tabclick
               type="checkbox"
-              [checked]="settingsManager.settings.autoBackup != -1"
+              [checked]="settingsManager.settings.autoBackup !== -1"
               (change)="
-                settingsManager.settings.autoBackup == -1
+                settingsManager.settings.autoBackup === -1
                   ? (settingsManager.settings.autoBackup = 25)
                   : (settingsManager.settings.autoBackup = -1)
               "
@@ -69,7 +69,7 @@
             <span [ghs-label]="'datamanagement.backup.auto'"></span>
           </label>
         </div>
-        @if (settingsManager.settings.autoBackup != -1) {
+        @if (settingsManager.settings.autoBackup !== -1) {
           <div class="line">
             <div class="hint-container">
               <label class="label"
@@ -296,7 +296,7 @@
       <div class="column">
         <div
           class="line title sticky"
-          [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }"
+          [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }"
         >
           <label><span [ghs-label]="'datamanagement.unlocks'"></span></label>
         </div>
@@ -337,7 +337,7 @@
         }
         <div
           class="line title sticky"
-          [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }"
+          [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }"
         >
           <label><span [ghs-label]="'datamanagement.spoilers'"></span></label>
         </div>
@@ -382,7 +382,7 @@
     <div class="column">
       <div
         class="line title sticky"
-        [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }"
+        [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }"
       >
         <label><span [ghs-label]="'datamanagement.editionDataUrls'"></span></label>
       </div>
@@ -469,7 +469,7 @@
             <a
               tabclick
               (click)="deleteBackups()"
-              [ngClass]="{ 'confirm-delete': confirm == 'deleteBackups' }"
+              [ngClass]="{ 'confirm-delete': confirm === 'deleteBackups' }"
               (mouseleave)="cancelConfirm()"
               >&lt;<span [ghs-label]="'datamanagement.backup.delete'"></span>(!)&gt;</a
             >

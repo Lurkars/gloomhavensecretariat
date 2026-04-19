@@ -13,9 +13,9 @@ export class ShieldRetaliateHelper {
   update() {
     this.component.shieldAndRetaliate =
       (settingsManager.settings.characterShieldRetaliate &&
-        (this.component.figures.find((figure) => figure instanceof Character) != undefined ||
-          this.component.figures.find((figure) => figure instanceof ObjectiveContainer && figure.escort) != undefined)) ||
-      (settingsManager.settings.standeeShieldRetaliate && this.component.figures.find((figure) => figure instanceof Monster) != undefined);
+        (this.component.figures.find((figure) => figure instanceof Character) !== undefined ||
+          this.component.figures.find((figure) => figure instanceof ObjectiveContainer && figure.escort) !== undefined)) ||
+      (settingsManager.settings.standeeShieldRetaliate && this.component.figures.find((figure) => figure instanceof Monster) !== undefined);
 
     if (this.component.shieldAndRetaliate && this.component.entity) {
       if (this.component.entity.shield) {
@@ -38,7 +38,7 @@ export class ShieldRetaliateHelper {
           this.component.entityRetaliateRange[index].small = true;
         }
 
-        const rangeSubAction = retaliate.subActions.find((subAction) => subAction.type == ActionType.range);
+        const rangeSubAction = retaliate.subActions.find((subAction) => subAction.type === ActionType.range);
         if (rangeSubAction) {
           this.component.entityRetaliateRange[index].value = rangeSubAction.value;
         }
@@ -56,7 +56,7 @@ export class ShieldRetaliateHelper {
           this.component.entityRetaliateRangePersistent[index].small = true;
         }
 
-        const rangeSubAction = retaliate.subActions.find((subAction) => subAction.type == ActionType.range);
+        const rangeSubAction = retaliate.subActions.find((subAction) => subAction.type === ActionType.range);
         if (rangeSubAction) {
           this.component.entityRetaliateRangePersistent[index].value = rangeSubAction.value;
         }
@@ -121,7 +121,7 @@ export class ShieldRetaliateHelper {
       this.component.entities.some(
         (entity) =>
           (EntityValueFunction(this.component.entityShield.value) > 0 && !entity.shield) ||
-          (entity.shield && EntityValueFunction(entity.shield.value) != EntityValueFunction(this.component.entityShield.value))
+          (entity.shield && EntityValueFunction(entity.shield.value) !== EntityValueFunction(this.component.entityShield.value))
       )
     ) {
       this.component.before('changeShield', this.component.entityShield.value);
@@ -147,7 +147,7 @@ export class ShieldRetaliateHelper {
         (entity) =>
           (EntityValueFunction(this.component.entityShieldPersistent.value) > 0 && !entity.shieldPersistent) ||
           (entity.shieldPersistent &&
-            EntityValueFunction(entity.shieldPersistent.value) != EntityValueFunction(this.component.entityShieldPersistent.value))
+            EntityValueFunction(entity.shieldPersistent.value) !== EntityValueFunction(this.component.entityShieldPersistent.value))
       )
     ) {
       this.component.before('changeShieldPersistent', this.component.entityShieldPersistent.value);
@@ -173,7 +173,7 @@ export class ShieldRetaliateHelper {
     const retaliate = this.component.entityRetaliate.map((action, index) => {
       const retaliateAction = new Action(ActionType.retaliate, action.value);
       retaliateAction.subActions = action.subActions || [];
-      if (this.component.entityRetaliateRange[index] && this.component.entityRetaliateRange[index].value != 1) {
+      if (this.component.entityRetaliateRange[index] && this.component.entityRetaliateRange[index].value !== 1) {
         retaliateAction.subActions.unshift(this.component.entityRetaliateRange[index]);
       }
       return retaliateAction;
@@ -185,12 +185,12 @@ export class ShieldRetaliateHelper {
         this.component.entities.some(
           (entity) =>
             (EntityValueFunction(retaliateAction.value) > 0 &&
-              !entity.retaliate.some((action) => JSON.stringify(retaliateAction) == JSON.stringify(action))) ||
+              !entity.retaliate.some((action) => JSON.stringify(retaliateAction) === JSON.stringify(action))) ||
             (entity.retaliate.length &&
               entity.retaliate.some(
                 (action) =>
-                  JSON.stringify(action.subActions) == JSON.stringify(retaliateAction.subActions) &&
-                  EntityValueFunction(action.value) != EntityValueFunction(retaliateAction.value)
+                  JSON.stringify(action.subActions) === JSON.stringify(retaliateAction.subActions) &&
+                  EntityValueFunction(action.value) !== EntityValueFunction(retaliateAction.value)
               ))
         )
       )
@@ -204,7 +204,7 @@ export class ShieldRetaliateHelper {
               EntityValueFunction(action.value) +
               (action.subActions &&
               action.subActions[0] &&
-              action.subActions[0].type == ActionType.range &&
+              action.subActions[0].type === ActionType.range &&
               EntityValueFunction(action.subActions[0].value) > 1
                 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value)
                 : '')
@@ -219,7 +219,7 @@ export class ShieldRetaliateHelper {
           if (!this.component.entity && entity.retaliate) {
             retaliate.forEach((retaliateAction) => {
               const existing = entity.retaliate.find(
-                (action) => JSON.stringify(action.subActions) == JSON.stringify(retaliateAction.subActions)
+                (action) => JSON.stringify(action.subActions) === JSON.stringify(retaliateAction.subActions)
               );
               if (existing) {
                 existing.value = EntityValueFunction(existing.value) + EntityValueFunction(retaliateAction.value);
@@ -241,7 +241,7 @@ export class ShieldRetaliateHelper {
     const retaliatePersistent = this.component.entityRetaliatePersistent.map((action, index) => {
       const retaliateAction = new Action(ActionType.retaliate, action.value);
       retaliateAction.subActions = [];
-      if (this.component.entityRetaliateRangePersistent[index] && this.component.entityRetaliateRangePersistent[index].value != 1) {
+      if (this.component.entityRetaliateRangePersistent[index] && this.component.entityRetaliateRangePersistent[index].value !== 1) {
         retaliateAction.subActions.push(this.component.entityRetaliateRangePersistent[index]);
       }
       return retaliateAction;
@@ -253,12 +253,12 @@ export class ShieldRetaliateHelper {
         this.component.entities.some(
           (entity) =>
             (EntityValueFunction(retaliatePersitentAction.value) > 0 &&
-              !entity.retaliatePersistent.some((action) => JSON.stringify(retaliatePersitentAction) == JSON.stringify(action))) ||
+              !entity.retaliatePersistent.some((action) => JSON.stringify(retaliatePersitentAction) === JSON.stringify(action))) ||
             (entity.retaliatePersistent.length &&
               entity.retaliatePersistent.some(
                 (action) =>
-                  JSON.stringify(action.subActions) == JSON.stringify(retaliatePersitentAction.subActions) &&
-                  EntityValueFunction(action.value) != EntityValueFunction(retaliatePersitentAction.value)
+                  JSON.stringify(action.subActions) === JSON.stringify(retaliatePersitentAction.subActions) &&
+                  EntityValueFunction(action.value) !== EntityValueFunction(retaliatePersitentAction.value)
               ))
         )
       )
@@ -272,7 +272,7 @@ export class ShieldRetaliateHelper {
               EntityValueFunction(action.value) +
               (action.subActions &&
               action.subActions[0] &&
-              action.subActions[0].type == ActionType.range &&
+              action.subActions[0].type === ActionType.range &&
               EntityValueFunction(action.subActions[0].value) > 1
                 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value)
                 : '')
@@ -287,7 +287,7 @@ export class ShieldRetaliateHelper {
           if (!this.component.entity && entity.retaliatePersistent) {
             retaliatePersistent.forEach((retaliateAction) => {
               const existing = entity.retaliatePersistent.find(
-                (action) => JSON.stringify(action.subActions) == JSON.stringify(retaliateAction.subActions)
+                (action) => JSON.stringify(action.subActions) === JSON.stringify(retaliateAction.subActions)
               );
               if (existing) {
                 existing.value = EntityValueFunction(existing.value) + EntityValueFunction(retaliateAction.value);

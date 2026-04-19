@@ -98,7 +98,7 @@ export class MonsterEditorComponent implements OnInit {
         this.monstersData = gameManager.monstersData(this.edition);
 
         if (queryParams['monster']) {
-          const monsterData = this.monstersData.find((monsterData) => monsterData.name == queryParams['monster']);
+          const monsterData = this.monstersData.find((monsterData) => monsterData.name === queryParams['monster']);
           if (monsterData) {
             this.monsterData = monsterData;
             this.monsterDataToJson();
@@ -107,7 +107,7 @@ export class MonsterEditorComponent implements OnInit {
 
         if (queryParams['level']) {
           this.level = +queryParams['level'];
-          if (this.level != -1 && !this.levels.includes(this.level)) {
+          if (this.level !== -1 && !this.levels.includes(this.level)) {
             this.level = 1;
           }
         }
@@ -123,11 +123,11 @@ export class MonsterEditorComponent implements OnInit {
 
   monsterDataToJson() {
     this.monsterData.stats.sort((a, b) => {
-      if (a.level - b.level != 0) {
+      if (a.level - b.level !== 0) {
         return a.level - b.level;
       }
 
-      if (a.type == MonsterType.normal && b.type == MonsterType.elite) {
+      if (a.type === MonsterType.normal && b.type === MonsterType.elite) {
         return -1;
       }
 
@@ -141,7 +141,7 @@ export class MonsterEditorComponent implements OnInit {
     compactData.baseStat.special = compactData.baseStat.special || undefined;
 
     Object.keys(compactData.stats[0]).forEach((key) => {
-      if (compactData.stats.every((stat: any) => JSON.stringify(stat[key]) == JSON.stringify(compactData.stats[0][key]))) {
+      if (compactData.stats.every((stat: any) => JSON.stringify(stat[key]) === JSON.stringify(compactData.stats[0][key]))) {
         compactData.baseStat[key] = compactData.stats[0][key];
         compactData.stats.forEach((stat: any) => {
           stat[key] = undefined;
@@ -152,7 +152,7 @@ export class MonsterEditorComponent implements OnInit {
     if (!compactData.boss) {
       compactData.baseStat.type = 'normal';
       compactData.stats
-        .filter((stat: any) => stat.type == 'normal')
+        .filter((stat: any) => stat.type === 'normal')
         .forEach((stat: any) => {
           stat.type = undefined;
         });
@@ -165,8 +165,8 @@ export class MonsterEditorComponent implements OnInit {
             normalStat[key] &&
             compactData.stats
               .filter((stat: any) => !stat.type)
-              .every((stat: any) => JSON.stringify(stat[key]) == JSON.stringify(normalStat[key])) &&
-            key != 'type'
+              .every((stat: any) => JSON.stringify(stat[key]) === JSON.stringify(normalStat[key])) &&
+            key !== 'type'
           ) {
             compactData.baseStat[key] = normalStat[key];
             normalBaseStats.push(key);
@@ -179,20 +179,20 @@ export class MonsterEditorComponent implements OnInit {
         });
       }
 
-      const eliteStat = compactData.stats.filter((stat: any) => stat.type == 'elite')[0];
+      const eliteStat = compactData.stats.filter((stat: any) => stat.type === 'elite')[0];
       if (eliteStat) {
         Object.keys(eliteStat).forEach((key) => {
           if (
             eliteStat[key] &&
             compactData.stats
-              .filter((stat: any) => stat.type == 'elite')
-              .every((stat: any) => JSON.stringify(stat[key]) == JSON.stringify(eliteStat[key])) &&
+              .filter((stat: any) => stat.type === 'elite')
+              .every((stat: any) => JSON.stringify(stat[key]) === JSON.stringify(eliteStat[key])) &&
             !normalBaseStats.includes(key) &&
-            key != 'type'
+            key !== 'type'
           ) {
             compactData.baseStat[key] = eliteStat[key];
             compactData.stats
-              .filter((stat: any) => stat.type == 'elite')
+              .filter((stat: any) => stat.type === 'elite')
               .forEach((stat: any) => {
                 stat[key] = undefined;
               });
@@ -209,22 +209,22 @@ export class MonsterEditorComponent implements OnInit {
 
     compactData.stats.forEach((stat: any) => {
       Object.keys(stat).forEach((key) => {
-        if (!stat[key] && key != 'level') {
+        if (!stat[key] && key !== 'level') {
           stat[key] = undefined;
         }
       });
 
-      if (stat.immunities && stat.immunities.length == 0) {
+      if (stat.immunities && stat.immunities.length === 0) {
         stat.immunities = undefined;
       }
 
-      if (stat.actions && stat.actions.length == 0) {
+      if (stat.actions && stat.actions.length === 0) {
         stat.actions = undefined;
       } else if (stat.actions) {
         stat.actions.forEach((action: any) => compactAction(action));
       }
 
-      if (stat.special && stat.special.length == 0) {
+      if (stat.special && stat.special.length === 0) {
         stat.special = undefined;
       } else if (stat.special) {
         stat.special.forEach((special: any) => {
@@ -239,7 +239,7 @@ export class MonsterEditorComponent implements OnInit {
       }
     });
 
-    if (compactData.baseStat.actions && compactData.baseStat.actions.length == 0) {
+    if (compactData.baseStat.actions && compactData.baseStat.actions.length === 0) {
       compactData.baseStat.actions = undefined;
     } else if (compactData.baseStat.actions) {
       compactData.baseStat.actions.forEach((action: any) => compactAction(action));
@@ -279,14 +279,14 @@ export class MonsterEditorComponent implements OnInit {
 
   statsForType(type: MonsterType, level: number): MonsterStat {
     let stat = this.monsterData.stats.find((monsterStat) => {
-      return this.monsterData && monsterStat.level == level && monsterStat.type == type;
+      return this.monsterData && monsterStat.level === level && monsterStat.type === type;
     });
 
     if (!stat) {
       this.monsterData.errors = this.monsterData.errors || [];
       if (
-        !this.monsterData.errors.find((figureError) => figureError.type == FigureErrorType.unknown) &&
-        !this.monsterData.errors.find((figureError) => figureError.type == FigureErrorType.stat)
+        !this.monsterData.errors.find((figureError) => figureError.type === FigureErrorType.unknown) &&
+        !this.monsterData.errors.find((figureError) => figureError.type === FigureErrorType.stat)
       ) {
         console.error("Could not find '" + type + "' stats for monster: " + this.monsterData.name + ' level: ' + level);
         this.monsterData.errors.push(
@@ -306,14 +306,14 @@ export class MonsterEditorComponent implements OnInit {
 
   getMonsterForLevel(level: number): Monster {
     const monster: Monster = new Monster(this.monsterData);
-    monster.level = level != -1 ? level : 1;
+    monster.level = level !== -1 ? level : 1;
     return monster;
   }
 
   applyToAllLevel(level: number) {
-    this.monsterData.stats = this.monsterData.stats.filter((stat) => stat.level == level);
+    this.monsterData.stats = this.monsterData.stats.filter((stat) => stat.level === level);
     for (const l of this.levels) {
-      if (l != level) {
+      if (l !== level) {
         if (this.monsterData.boss) {
           const stat = JSON.parse(JSON.stringify(this.statsForType(MonsterType.boss, level)));
           stat.level = l;
@@ -335,21 +335,21 @@ export class MonsterEditorComponent implements OnInit {
   updateType(toJson: boolean = true) {
     if (this.monsterData) {
       if (this.monsterData.boss) {
-        this.monsterData.stats = this.monsterData.stats.filter((stat) => !stat.type || stat.type == MonsterType.boss);
+        this.monsterData.stats = this.monsterData.stats.filter((stat) => !stat.type || stat.type === MonsterType.boss);
 
         for (const level of this.levels) {
-          if (!this.monsterData.stats.some((stat) => stat.level == level)) {
+          if (!this.monsterData.stats.some((stat) => stat.level === level)) {
             this.monsterData.stats.push(new MonsterStat(MonsterType.boss, level));
           }
         }
       } else {
-        this.monsterData.stats = this.monsterData.stats.filter((stat) => stat.type != MonsterType.boss);
+        this.monsterData.stats = this.monsterData.stats.filter((stat) => stat.type !== MonsterType.boss);
         for (const level of this.levels) {
-          if (!this.monsterData.stats.some((stat) => stat.level == level && (!stat.type || stat.type == MonsterType.normal))) {
+          if (!this.monsterData.stats.some((stat) => stat.level === level && (!stat.type || stat.type === MonsterType.normal))) {
             this.monsterData.stats.push(new MonsterStat(MonsterType.normal, level));
           }
 
-          if (!this.monsterData.stats.some((stat) => stat.level == level && stat.type == MonsterType.elite)) {
+          if (!this.monsterData.stats.some((stat) => stat.level === level && stat.type === MonsterType.elite)) {
             this.monsterData.stats.push(new MonsterStat(MonsterType.elite, level));
           }
         }
@@ -382,7 +382,7 @@ export class MonsterEditorComponent implements OnInit {
 
     dialog.closed.subscribe({
       next: (value) => {
-        if (value == false) {
+        if (value === false) {
           stat.actions.splice(stat.actions.indexOf(action), 1);
         }
         this.monsterDataToJson();
@@ -398,7 +398,7 @@ export class MonsterEditorComponent implements OnInit {
 
     dialog.closed.subscribe({
       next: (value) => {
-        if (value == false) {
+        if (value === false) {
           const stat = this.statsForType(type, level);
           stat.actions.splice(stat.actions.indexOf(action), 1);
         }
@@ -435,10 +435,10 @@ export class MonsterEditorComponent implements OnInit {
 
     dialog.closed.subscribe({
       next: (value) => {
-        if (value == false) {
+        if (value === false) {
           stat.special[index].splice(stat.special[index].indexOf(action), 1);
 
-          if (stat.special[index].length == 0) {
+          if (stat.special[index].length === 0) {
             stat.special.splice(index, 1);
           }
         }
@@ -455,7 +455,7 @@ export class MonsterEditorComponent implements OnInit {
 
     dialog.closed.subscribe({
       next: (value) => {
-        if (value == false) {
+        if (value === false) {
           const stat = this.statsForType(type, level);
 
           if (!stat.special) {
@@ -467,7 +467,7 @@ export class MonsterEditorComponent implements OnInit {
           }
           stat.special[index].splice(stat.special[index].indexOf(action), 1);
 
-          if (stat.special[index].length == 0) {
+          if (stat.special[index].length === 0) {
             stat.special.splice(index, 1);
           }
         }
@@ -478,7 +478,7 @@ export class MonsterEditorComponent implements OnInit {
 
   loadMonsterData(event: any) {
     const index = +event.target.value;
-    this.monsterData = index != -1 ? this.monstersData[index] : JSON.parse(newMonsterJson);
+    this.monsterData = index !== -1 ? this.monstersData[index] : JSON.parse(newMonsterJson);
     this.updateType();
     this.monsterDataToJson();
     this.updateQueryParams();
@@ -493,7 +493,7 @@ export class MonsterEditorComponent implements OnInit {
       queryParams: {
         edition: this.edition || undefined,
         monster: (this.monsterData && this.monsterData.name) || undefined,
-        level: this.level != 1 ? this.level : undefined
+        level: this.level !== 1 ? this.level : undefined
       },
       queryParamsHandling: 'merge'
     });

@@ -30,7 +30,7 @@ export class AttackModifierHelper {
             figure instanceof Character &&
             gameManager.entityManager.isAlive(figure) &&
             figure.additionalModifier &&
-            figure.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.empower)
+            figure.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.empower)
         )
         .map((figure) => figure as Character);
 
@@ -40,7 +40,7 @@ export class AttackModifierHelper {
         }
       });
 
-      if (!this.component.empowerChar && this.component.empowerChars.length == 1) {
+      if (!this.component.empowerChar && this.component.empowerChars.length === 1) {
         this.component.empowerChar = this.component.empowerChars[0];
       }
 
@@ -51,7 +51,7 @@ export class AttackModifierHelper {
             gameManager.entityManager.isAlive(figure) &&
             !figure.absent &&
             figure.additionalModifier &&
-            figure.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.enfeeble)
+            figure.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.enfeeble)
         )
         .map((figure) => figure as Character);
 
@@ -61,7 +61,7 @@ export class AttackModifierHelper {
         }
       });
 
-      if (!this.component.enfeebleChar && this.component.enfeebleChars.length == 1) {
+      if (!this.component.enfeebleChar && this.component.enfeebleChars.length === 1) {
         this.component.enfeebleChar = this.component.enfeebleChars[0];
       }
     }
@@ -71,7 +71,7 @@ export class AttackModifierHelper {
       this.component.empowerMin = this.countUpcomingAttackModifier(amDeck, AttackModifierType.empower);
       this.component.empowerMax = this.component.empowerChar
         ? this.component.empowerChar.additionalModifier
-            .filter((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.empower)
+            .filter((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.empower)
             .map((perk) => perk.count)
             .reduce((a, b) => a + b) -
           gameManager.attackModifierManager.countUpcomingAdditional(this.component.empowerChar, AttackModifierType.empower)
@@ -79,7 +79,7 @@ export class AttackModifierHelper {
       this.component.enfeebleMin = this.countUpcomingAttackModifier(amDeck, AttackModifierType.enfeeble);
       this.component.enfeebleMax = this.component.enfeebleChar
         ? this.component.enfeebleChar.additionalModifier
-            .filter((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.enfeeble)
+            .filter((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.enfeeble)
             .map((perk) => perk.count)
             .reduce((a, b) => a + b) -
           gameManager.attackModifierManager.countUpcomingAdditional(this.component.enfeebleChar, AttackModifierType.enfeeble)
@@ -116,20 +116,20 @@ export class AttackModifierHelper {
   }
 
   countAttackModifier(amDeck: AttackModifierDeck, type: AttackModifierType): number {
-    return amDeck.cards.filter((attackModifier) => attackModifier.type == type).length;
+    return amDeck.cards.filter((attackModifier) => attackModifier.type === type).length;
   }
 
   countUpcomingAttackModifier(amDeck: AttackModifierDeck, type: AttackModifierType, idPrefix: string | undefined = undefined): number {
     return amDeck.cards.filter(
       (attackModifier, index) =>
-        attackModifier.type == type &&
+        attackModifier.type === type &&
         index > amDeck.current &&
         (!idPrefix || (attackModifier.id && attackModifier.id.startsWith(idPrefix)))
     ).length;
   }
 
   countDrawnAttackModifier(amDeck: AttackModifierDeck, type: AttackModifierType): number {
-    return amDeck.cards.filter((attackModifier, index) => attackModifier.type == type && index <= amDeck.current).length;
+    return amDeck.cards.filter((attackModifier, index) => attackModifier.type === type && index <= amDeck.current).length;
   }
 
   changeAttackModifier(entity: Entity, type: AttackModifierType, value: number) {
@@ -138,40 +138,40 @@ export class AttackModifierHelper {
     const isMonster =
       (figure instanceof Monster &&
         ((!figure.isAlly && !figure.isAllied) || (!settingsManager.settings.alwaysAllyAttackModifierDeck && !gameManager.fhRules()))) ||
-      (figure instanceof ObjectiveContainer && figure.amDeck == 'M');
+      (figure instanceof ObjectiveContainer && figure.amDeck === 'M');
     if (value > 0) {
       for (let i = 0; i < value; i++) {
         if (
-          (type == AttackModifierType.bless && gameManager.attackModifierManager.countUpcomingBlesses() < 10) ||
-          (type == AttackModifierType.curse && gameManager.attackModifierManager.countUpcomingCurses(isMonster) < 10)
+          (type === AttackModifierType.bless && gameManager.attackModifierManager.countUpcomingBlesses() < 10) ||
+          (type === AttackModifierType.curse && gameManager.attackModifierManager.countUpcomingCurses(isMonster) < 10)
         ) {
           gameManager.attackModifierManager.addModifier(amDeck, new AttackModifier(type));
         }
       }
     } else if (value < 0) {
-      let card = amDeck.cards.find((attackModifier, index) => attackModifier.type == type && index > amDeck.current);
+      let card = amDeck.cards.find((attackModifier, index) => attackModifier.type === type && index > amDeck.current);
       while (card && value < 0) {
         amDeck.cards.splice(amDeck.cards.indexOf(card), 1);
-        card = amDeck.cards.find((attackModifier, index) => attackModifier.type == type && index > amDeck.current);
+        card = amDeck.cards.find((attackModifier, index) => attackModifier.type === type && index > amDeck.current);
         value++;
       }
     }
   }
 
   selectAdditionalAM(type: AttackModifierType) {
-    if (type == AttackModifierType.empower || type == AttackModifierType.enfeeble) {
+    if (type === AttackModifierType.empower || type === AttackModifierType.enfeeble) {
       const dialog = this.component.dialog.open(AdditionalAMSelectDialogComponent, {
         panelClass: ['dialog'],
         data: {
-          characters: type == AttackModifierType.empower ? this.component.empowerChars : this.component.enfeebleChars,
+          characters: type === AttackModifierType.empower ? this.component.empowerChars : this.component.enfeebleChars,
           type: type
         }
       });
 
       dialog.closed.subscribe({
         next: (index) => {
-          if (typeof index === 'number' && index != -1) {
-            if (type == AttackModifierType.empower) {
+          if (typeof index === 'number' && index !== -1) {
+            if (type === AttackModifierType.empower) {
               this.component.empowerChar = this.component.empowerChars[index];
             } else {
               this.component.enfeebleChar = this.component.enfeebleChars[index];
@@ -184,7 +184,7 @@ export class AttackModifierHelper {
   }
 
   close() {
-    if (this.component.bless != 0) {
+    if (this.component.bless !== 0) {
       this.component.before(
         this.component.bless < 0
           ? 'removeCondition' + (this.component.bless < -1 ? 's' : '')
@@ -199,7 +199,7 @@ export class AttackModifierHelper {
       this.component.bless = 0;
     }
 
-    if (this.component.curse != 0) {
+    if (this.component.curse !== 0) {
       this.component.before(
         this.component.curse < 0
           ? 'removeCondition' + (this.component.curse < -1 ? 's' : '')
@@ -214,7 +214,7 @@ export class AttackModifierHelper {
       this.component.curse = 0;
     }
 
-    if (this.component.empower != 0) {
+    if (this.component.empower !== 0) {
       if (this.component.empowerChar || this.component.empower < 0) {
         this.component.before(
           this.component.empower < 0
@@ -231,7 +231,7 @@ export class AttackModifierHelper {
             for (let i = 0; i < Math.min(this.component.empower, additional.length); i++) {
               const count =
                 this.component.empowerChar.additionalModifier
-                  .filter((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.empower)
+                  .filter((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.empower)
                   .map((perk) => perk.count)
                   .reduce((a, b) => a + b) -
                 gameManager.attackModifierManager.countUpcomingAdditional(this.component.empowerChar, AttackModifierType.empower);
@@ -241,7 +241,7 @@ export class AttackModifierHelper {
             }
           } else {
             for (let i = 0; i < this.component.empower * -1; i++) {
-              const empower = amDeck.cards.find((am, index) => index > amDeck.current && am.type == AttackModifierType.empower);
+              const empower = amDeck.cards.find((am, index) => index > amDeck.current && am.type === AttackModifierType.empower);
               if (empower) {
                 amDeck.cards.splice(amDeck.cards.indexOf(empower), 1);
               }
@@ -253,7 +253,7 @@ export class AttackModifierHelper {
       }
     }
 
-    if (this.component.enfeeble != 0) {
+    if (this.component.enfeeble !== 0) {
       if (this.component.enfeebleChar || this.component.enfeeble < 0) {
         this.component.before(
           this.component.enfeeble < 0
@@ -270,7 +270,7 @@ export class AttackModifierHelper {
             for (let i = 0; i < Math.min(this.component.enfeeble, additional.length); i++) {
               const count =
                 this.component.enfeebleChar.additionalModifier
-                  .filter((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.enfeeble)
+                  .filter((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.enfeeble)
                   .map((perk) => perk.count)
                   .reduce((a, b) => a + b) -
                 gameManager.attackModifierManager.countUpcomingAdditional(this.component.enfeebleChar, AttackModifierType.enfeeble);
@@ -280,7 +280,7 @@ export class AttackModifierHelper {
             }
           } else {
             for (let i = 0; i < this.component.enfeeble * -1; i++) {
-              const enfeeble = amDeck.cards.find((am, index) => index > amDeck.current && am.type == AttackModifierType.enfeeble);
+              const enfeeble = amDeck.cards.find((am, index) => index > amDeck.current && am.type === AttackModifierType.enfeeble);
               if (enfeeble) {
                 amDeck.cards.splice(amDeck.cards.indexOf(enfeeble), 1);
               }

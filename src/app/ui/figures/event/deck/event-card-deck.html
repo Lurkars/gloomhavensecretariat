@@ -1,7 +1,7 @@
 <div class="events-dialog">
   <div #menu class="menu" [ngClass]="{ resolved: resolved }">
     @for (eventType of types; track eventType) {
-      <a class="event-type" (click)="selectType(eventType)" [ngClass]="{ active: type == eventType }">
+      <a class="event-type" (click)="selectType(eventType)" [ngClass]="{ active: type === eventType }">
         <span [ghs-label]="'game.events.type.' + eventType"></span>
       </a>
     }
@@ -35,7 +35,7 @@
   <div class="scroll-container">
     <div
       class="events-container"
-      [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern', resolved: resolved }"
+      [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern', resolved: resolved }"
     >
       <div
         class="upcoming drop-list"
@@ -52,7 +52,7 @@
             <img class="ghs-svg" src="./assets/images/shuffle.svg" />
           </a>
         </div>
-        @if (upcomingCards.length == 0) {
+        @if (upcomingCards.length === 0) {
           <div class="empty"></div>
         }
         @for (event of upcomingCards | trackUUID; track event._trackUUID; let index = $index) {
@@ -88,7 +88,7 @@
         <div class="title">
           <span [ghs-label]="'game.events.deck.new'" [ghs-label-args]="[newCards.length]"></span>
         </div>
-        @if (newCards.length == 0) {
+        @if (newCards.length === 0) {
           <div class="empty"></div>
         }
         @for (event of newCards | trackUUID; track event._trackUUID; let index = $index) {
@@ -122,7 +122,7 @@
         <div class="title">
           <span [ghs-label]="'game.events.deck.drawn'" [ghs-label-args]="[drawnCards.length]"></span>
         </div>
-        @if (drawnCards.length == 0) {
+        @if (drawnCards.length === 0) {
           <div class="empty"></div>
         }
         @for (model of drawnCards | trackUUID; track model._trackUUID; let index = $index) {
@@ -140,7 +140,7 @@
                   <img class="ghs-svg" src="./assets/images/fullscreen.svg" />
                 </a>
               }
-              @if (model.identifier.selected != -1) {
+              @if (model.identifier.selected !== -1) {
                 <a class="button reset" (click)="updateDrawnSelect(model.identifier)" [ghs-tooltip]="'game.events.deck.removeSelection'">
                   <img class="ghs-svg" src="./assets/images/long-rest.svg" />
                 </a>

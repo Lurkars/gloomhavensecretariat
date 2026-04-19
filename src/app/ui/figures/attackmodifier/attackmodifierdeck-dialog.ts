@@ -164,7 +164,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
     this.deck.cards.forEach((modifier) => {
       if (originalDeck) {
-        const card = originalDeck.cards.find((orginalCard) => orginalCard.id == modifier.id);
+        const card = originalDeck.cards.find((orginalCard) => orginalCard.id === modifier.id);
         if (card) {
           originalDeck.cards.splice(originalDeck.cards.indexOf(card), 1);
         }
@@ -180,7 +180,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
             figure instanceof Character &&
             gameManager.entityManager.isAlive(figure) &&
             figure.additionalModifier &&
-            figure.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.empower)
+            figure.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.empower)
         )
         .map((figure) => figure as Character);
     }
@@ -193,7 +193,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
             gameManager.entityManager.isAlive(figure) &&
             !figure.absent &&
             figure.additionalModifier &&
-            figure.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.enfeeble)
+            figure.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.enfeeble)
         )
         .map((figure) => figure as Character);
     }
@@ -230,7 +230,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       this.deck = gameManager.attackModifierManager.buildMonsterAttackModifierDeck(this.ally);
     } else {
       const editionData = gameManager.editionData.find(
-        (editionData) => editionData.edition == 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length
+        (editionData) => editionData.edition === 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length
       );
       if (editionData) {
         const monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();
@@ -250,16 +250,16 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     return this.deck.cards.some(
       (attackModifier: AttackModifier, index: number) =>
         index <= this.deck.current &&
-        (attackModifier.type == AttackModifierType.bless ||
-          attackModifier.type == AttackModifierType.curse ||
-          attackModifier.type == AttackModifierType.empower ||
-          attackModifier.type == AttackModifierType.enfeeble)
+        (attackModifier.type === AttackModifierType.bless ||
+          attackModifier.type === AttackModifierType.curse ||
+          attackModifier.type === AttackModifierType.empower ||
+          attackModifier.type === AttackModifierType.enfeeble)
     );
   }
 
   dropUpcoming(event: CdkDragDrop<AttackModifier[]>) {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       const offset = this.deck.current + 1;
       moveItemInArray(this.deck.cards, event.previousIndex + offset, event.currentIndex + offset);
     } else {
@@ -273,7 +273,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   dropDiscarded(event: CdkDragDrop<AttackModifier[]>) {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       moveItemInArray(this.deck.cards, this.deck.current - event.previousIndex, this.deck.current - event.currentIndex);
     } else {
       this.deck.current = this.deck.current + 1;
@@ -327,7 +327,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'addCard', 'game.attackModifiers.types.' + this.tgAM.type));
     const attackModifier = Object.assign(new AttackModifier(this.tgAM.type), this.tgAM);
     attackModifier.revealed = true;
-    if (!this.deck.attackModifiers.find((am) => am.id == attackModifier.id)) {
+    if (!this.deck.attackModifiers.find((am) => am.id === attackModifier.id)) {
       this.deck.attackModifiers.push(attackModifier);
     }
     this.deck.cards.splice(this.deck.current + 1, 0, attackModifier);
@@ -339,7 +339,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'addCard', 'game.attackModifiers.types.' + this.tgAM.type));
     const attackModifier = Object.assign(new AttackModifier(this.tgAM.type), this.tgAM);
     this.deck.cards.splice(this.deck.current + 1 + Math.random() * (this.deck.cards.length - this.deck.current), 0, attackModifier);
-    if (!this.deck.attackModifiers.find((am) => am.id == attackModifier.id)) {
+    if (!this.deck.attackModifiers.find((am) => am.id === attackModifier.id)) {
       this.deck.attackModifiers.push(attackModifier);
     }
     this.after.emit(new AttackModiferDeckChange(this.deck, 'addCard', 'game.attackModifiers.types.' + this.tgAM.type));
@@ -348,20 +348,20 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   countAttackModifier(type: AttackModifierType): number {
     return this.deck.cards.filter((attackModifier) => {
-      return attackModifier.type == type && !attackModifier.character;
+      return attackModifier.type === type && !attackModifier.character;
     }).length;
   }
 
   countDrawnAttackModifier(type: AttackModifierType): number {
     return this.deck.cards.filter((attackModifier, index) => {
-      return attackModifier.type == type && index <= this.deck.current;
+      return attackModifier.type === type && index <= this.deck.current;
     }).length;
   }
 
   countUpcomingAttackModifier(type: AttackModifierType, idPrefix: string | undefined = undefined): number {
     return this.deck.cards.filter((attackModifier, index) => {
       return (
-        attackModifier.type == type &&
+        attackModifier.type === type &&
         index > this.deck.current &&
         (!idPrefix || (attackModifier.id && attackModifier.id.startsWith(idPrefix)))
       );
@@ -370,21 +370,21 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   changeAttackModifier(type: AttackModifierType, value: number) {
     if (value > 0) {
-      if (type == AttackModifierType.bless && gameManager.attackModifierManager.countUpcomingBlesses() >= 10) {
+      if (type === AttackModifierType.bless && gameManager.attackModifierManager.countUpcomingBlesses() >= 10) {
         return;
       } else if (
-        type == AttackModifierType.curse &&
+        type === AttackModifierType.curse &&
         gameManager.attackModifierManager.countUpcomingCurses(!this.character && !this.ally) >= 10
       ) {
         return;
-      } else if (type == AttackModifierType.minus1 && gameManager.attackModifierManager.countExtraMinus1() >= 15) {
+      } else if (type === AttackModifierType.minus1 && gameManager.attackModifierManager.countExtraMinus1() >= 15) {
         return;
       }
 
       gameManager.attackModifierManager.addModifier(this.deck, new AttackModifier(type));
     } else if (value < 0) {
       const card = this.deck.cards.find((attackModifier, index) => {
-        return attackModifier.type == type && index > this.deck.current;
+        return attackModifier.type === type && index > this.deck.current;
       });
       if (card) {
         this.deck.cards.splice(this.deck.cards.indexOf(card), 1);
@@ -464,7 +464,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   countEmpower(index: number, all: boolean = false): number {
     return this.empowerChars[index]
       ? this.empowerChars[index].additionalModifier
-          .filter((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.empower)
+          .filter((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.empower)
           .map((perk) => perk.count)
           .reduce((a, b) => a + b) -
           (all ? 0 : gameManager.attackModifierManager.countUpcomingAdditional(this.empowerChars[index], AttackModifierType.empower))
@@ -474,7 +474,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   countEnfeeble(index: number, all: boolean = false): number {
     return this.enfeebleChars[index]
       ? this.enfeebleChars[index].additionalModifier
-          .filter((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.enfeeble)
+          .filter((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.enfeeble)
           .map((perk) => perk.count)
           .reduce((a, b) => a + b) -
           (all ? 0 : gameManager.attackModifierManager.countUpcomingAdditional(this.enfeebleChars[index], AttackModifierType.enfeeble))
@@ -495,7 +495,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
             (am, i) =>
               this.empowerChars[index] &&
               i > this.deck.current &&
-              am.type == AttackModifierType.empower &&
+              am.type === AttackModifierType.empower &&
               am.id &&
               am.id.startsWith('additional-' + this.empowerChars[index].name)
           );
@@ -523,7 +523,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
             (am, i) =>
               this.empowerChars[index] &&
               i > this.deck.current &&
-              am.type == AttackModifierType.enfeeble &&
+              am.type === AttackModifierType.enfeeble &&
               am.id &&
               am.id.startsWith('additional-' + this.empowerChars[index].name)
           );
@@ -539,7 +539,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   toggleFaction(faction: string) {
     this.factionAttackModifier = [];
-    if (this.activeFaction == faction) {
+    if (this.activeFaction === faction) {
       this.activeFaction = undefined;
     } else {
       this.activeFaction = faction;
@@ -550,7 +550,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   toggleFactionAm(attackModifier: AttackModifier, force: boolean = false) {
     if (this.hasFactionModifier(attackModifier)) {
       this.before.emit(new AttackModiferDeckChange(this.deck, 'removeFactionModifier', attackModifier.id));
-      this.deck.cards = this.deck.cards.filter((am) => am.id != attackModifier.id);
+      this.deck.cards = this.deck.cards.filter((am) => am.id !== attackModifier.id);
       this.after.emit(new AttackModiferDeckChange(this.deck, 'removeFactionModifier', attackModifier.id));
     } else if (!this.anyHasFactionModifier(attackModifier) || force) {
       this.before.emit(new AttackModiferDeckChange(this.deck, 'addFactionModifier', attackModifier.id));
@@ -565,15 +565,15 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   }
 
   hasFactionModifier(attackModifier: AttackModifier): boolean {
-    return this.deck.cards.some((am) => am.id == attackModifier.id);
+    return this.deck.cards.some((am) => am.id === attackModifier.id);
   }
 
   anyHasFactionModifier(attackModifier: AttackModifier): boolean {
     return gameManager.game.figures.some(
       (figure) =>
         figure instanceof Character &&
-        (figure.edition != this.character.edition || figure.name != this.character.name) &&
-        figure.attackModifierDeck.cards.some((am) => am.id == attackModifier.id)
+        (figure.edition !== this.character.edition || figure.name !== this.character.name) &&
+        figure.attackModifierDeck.cards.some((am) => am.id === attackModifier.id)
     );
   }
 }

@@ -67,7 +67,7 @@
         @if (!section.hideIndex) {
           <span>#{{ section.index }}</span>
         }
-        @if (!gameManager.game.scenario || section.name != gameManager.game.scenario.name) {
+        @if (!gameManager.game.scenario || section.name !== gameManager.game.scenario.name) {
           <span class="name"> &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section, true)"></span> </span>
         }
         @if (section.marker) {

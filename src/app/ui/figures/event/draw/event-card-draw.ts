@@ -42,7 +42,7 @@ export class EventCardDrawComponent {
       }
     });
     const deck = gameManager.game.party.eventDecks[this.data.type];
-    this.globalDraw = gameManager.game.eventDraw != undefined;
+    this.globalDraw = gameManager.game.eventDraw !== undefined;
     if (deck) {
       this.event = gameManager.eventCardManager.getEventCardForEdition(this.data.edition, this.data.type, this.data.cardId || deck[0]);
     }
@@ -71,7 +71,7 @@ export class EventCardDrawComponent {
   }
 
   accept(apply: boolean = true) {
-    if (this.event && (this.selected != -1 || !apply)) {
+    if (this.event && (this.selected !== -1 || !apply)) {
       gameManager.stateManager.before('eventDraw.accept');
       gameManager.game.eventDraw = undefined;
       const result = gameManager.eventCardManager.applyEvent(
@@ -79,7 +79,7 @@ export class EventCardDrawComponent {
         this.selected,
         this.subSelections,
         this.checks,
-        gameManager.game.scenario != undefined && gameManager.roundManager.firstRound,
+        gameManager.game.scenario !== undefined && gameManager.roundManager.firstRound,
         this.attack,
         apply
       );
@@ -118,7 +118,7 @@ export class EventCardDrawComponent {
         eventCard: eventCard,
         interactive: true,
         id:
-          this.selected != -1
+          this.selected !== -1
             ? new EventCardIdentifier(
                 eventCard.cardId,
                 eventCard.edition,

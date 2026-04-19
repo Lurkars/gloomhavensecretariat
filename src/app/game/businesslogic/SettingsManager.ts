@@ -101,15 +101,15 @@ export class SettingsManager {
   }
 
   setSettings(settings: Settings) {
-    if (settings.locale != this.settings.locale) {
+    if (settings.locale !== this.settings.locale) {
       this.updateLocale(settings.locale);
     }
     this.settings = settings;
-    if (!this.settings.editions || this.settings.editions.length == 0) {
+    if (!this.settings.editions || this.settings.editions.length === 0) {
       this.settings.editions.push(...this.defaultEditions);
     }
 
-    if (!this.settings.editionDataUrls || this.settings.editionDataUrls.length == 0) {
+    if (!this.settings.editionDataUrls || this.settings.editionDataUrls.length === 0) {
       for (const defaultEditionDataUrl of this.defaultEditionDataUrls) {
         if (
           !this.settings.editionDataUrls.includes(defaultEditionDataUrl) &&
@@ -246,7 +246,7 @@ export class SettingsManager {
         document.body.classList.remove('portrait-mode');
       }
     } else if (setting === 'theme' && this.settings.automaticTheme) {
-      if (value == 'fh' || value == 'bb') {
+      if (value === 'fh' || value === 'bb') {
         this.settings.fhStyle = true;
       } else {
         this.settings.fhStyle = false;
@@ -275,7 +275,7 @@ export class SettingsManager {
     this.settings.autoBackupFinish = autoBackupFinish;
     if (this.settings.autoBackupFinish && this.settings.autoBackup < 0) {
       this.settings.autoBackup = 0;
-    } else if (!this.settings.autoBackupFinish && this.settings.autoBackup == 0) {
+    } else if (!this.settings.autoBackupFinish && this.settings.autoBackup === 0) {
       this.settings.autoBackup = -1;
     }
     this.storeSettings();
@@ -415,7 +415,7 @@ export class SettingsManager {
           }
 
           if (force) {
-            gameManager.editionData = gameManager.editionData.filter((editionData) => editionData.url != url);
+            gameManager.editionData = gameManager.editionData.filter((editionData) => editionData.url !== url);
           }
 
           value.characters = value.characters || [];
@@ -571,7 +571,7 @@ export class SettingsManager {
     }
 
     // default label
-    if (this.settings.locale != this.defaultLocale && value.label && value.label[this.defaultLocale]) {
+    if (this.settings.locale !== this.defaultLocale && value.label && value.label[this.defaultLocale]) {
       this.label.data = this.merge(this.label.data, false, value.label[this.defaultLocale]);
       if (value.labelSpoiler && value.labelSpoiler[this.defaultLocale]) {
         this.label.data = this.merge(this.label.data, false, value.labelSpoiler[this.defaultLocale]);
@@ -639,7 +639,7 @@ export class SettingsManager {
 
     // default label
     if (
-      this.settings.locale != this.defaultLocale &&
+      this.settings.locale !== this.defaultLocale &&
       value.label &&
       value.label[this.defaultLocale] &&
       value.label[this.defaultLocale].edition
@@ -694,7 +694,7 @@ export class SettingsManager {
   }
 
   getEditionByUrl(url: string): string {
-    const editionData = gameManager.editionData.find((editionData) => editionData.url == url);
+    const editionData = gameManager.editionData.find((editionData) => editionData.url === url);
 
     if (editionData) {
       return editionData.url;
@@ -725,7 +725,7 @@ export class SettingsManager {
 
   async removeEditionDataUrl(editionDataUrl: string) {
     if (this.settings.editionDataUrls.includes(editionDataUrl)) {
-      gameManager.editionData = gameManager.editionData.filter((editionData) => editionData.url != editionDataUrl);
+      gameManager.editionData = gameManager.editionData.filter((editionData) => editionData.url !== editionDataUrl);
       this.settings.editionDataUrls.splice(this.settings.editionDataUrls.indexOf(editionDataUrl), 1);
       if (this.defaultEditionDataUrls.includes(editionDataUrl)) {
         this.settings.excludeEditionDataUrls.push(editionDataUrl);
@@ -777,7 +777,7 @@ export class SettingsManager {
       });
 
     // default label
-    if (locale != this.defaultLocale) {
+    if (locale !== this.defaultLocale) {
       await fetch('./assets/locales/' + this.defaultLocale + '.json')
         .then((response) => {
           return response.json();
@@ -834,7 +834,7 @@ export class SettingsManager {
       }
       return this.insertLabelArguments(from[key], args, argLabel);
     } else {
-      if (path == 'data.monster.') {
+      if (path === 'data.monster.') {
         const match = key.match(/(.+)\-(scenario|section)\-(.+)/);
         if (match) {
           key = match[1];
@@ -883,17 +883,17 @@ export class SettingsManager {
   }
 
   automaticTheme(edition: string, previousEdition: string | undefined) {
-    if (this.settings.automaticTheme && edition != previousEdition) {
-      if (this.settings.theme != 'modern') {
-        if (edition == 'fh' || edition == 'bb') {
+    if (this.settings.automaticTheme && edition !== previousEdition) {
+      if (this.settings.theme !== 'modern') {
+        if (edition === 'fh' || edition === 'bb') {
           this.set('theme', edition);
         } else {
           this.set('theme', 'default');
         }
       }
-      if (edition == 'fh' || edition == 'gh2e') {
+      if (edition === 'fh' || edition === 'gh2e') {
         this.set('fhStyle', true);
-      } else if ((previousEdition == 'fh' || previousEdition == 'gh2e') && edition != 'fh' && edition != 'gh2e') {
+      } else if ((previousEdition === 'fh' || previousEdition === 'gh2e') && edition !== 'fh' && edition !== 'gh2e') {
         this.set('fhStyle', false);
       }
     }

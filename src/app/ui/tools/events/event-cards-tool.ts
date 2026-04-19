@@ -55,7 +55,7 @@ export class EventCardsToolComponent implements OnInit {
           this.type = queryParams['type'];
           update = true;
         }
-        if (queryParams['selected'] != undefined) {
+        if (queryParams['selected'] !== undefined) {
           this.selected = +queryParams['selected'];
         }
         if (queryParams['iterator']) {
@@ -83,7 +83,7 @@ export class EventCardsToolComponent implements OnInit {
       }
       this.events = gameManager.eventCardManager
         .getEventCardsForEdition(this.edition, this.type, false)
-        .filter((e, i) => this.iterator == -1 || this.iterator == i);
+        .filter((e, i) => this.iterator === -1 || this.iterator === i);
     }
   }
 
@@ -94,7 +94,7 @@ export class EventCardsToolComponent implements OnInit {
         edition: this.edition || undefined,
         type: this.type || undefined,
         selected: this.selected,
-        iterator: this.iterator != -1 ? this.iterator : undefined
+        iterator: this.iterator !== -1 ? this.iterator : undefined
       },
       queryParamsHandling: 'merge'
     });

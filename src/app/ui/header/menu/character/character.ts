@@ -102,7 +102,7 @@ export class CharacterMenuComponent implements OnInit {
 
   unlock(characterData: CharacterData) {
     if (!gameManager.game.unlockedCharacters.includes(characterData.edition + ':' + characterData.name)) {
-      if (this.confirm == characterData.name) {
+      if (this.confirm === characterData.name) {
         gameManager.stateManager.before('unlockChar', 'data.character.' + characterData.edition + '.' + characterData.name);
         gameManager.game.unlockedCharacters.push(characterData.edition + ':' + characterData.name);
         this.newUnlocks.push(characterData.name);
@@ -135,7 +135,7 @@ export class CharacterMenuComponent implements OnInit {
       .filter((characterData) => characterData.spoiler && !this.unlocked(characterData))
       .map((characterData) => characterData.name);
     if (chars.length > 0) {
-      if (this.confirm == 'confirm-all-' + edition) {
+      if (this.confirm === 'confirm-all-' + edition) {
         gameManager.stateManager.before('unlockAllCharacters', 'data.edition.' + edition);
         gameManager.game.unlockedCharacters.push(...chars.map((c) => edition + ':' + c));
         if (settingsManager.settings.events) {
@@ -163,7 +163,7 @@ export class CharacterMenuComponent implements OnInit {
 
   noResults(): boolean {
     const editions = this.allEditions ? gameManager.editions(true, true) : gameManager.currentEditions(true);
-    return editions.every((edition) => !this.characterData[edition] || this.characterData[edition].length == 0);
+    return editions.every((edition) => !this.characterData[edition] || this.characterData[edition].length === 0);
   }
 
   addCharacter(characterData: CharacterData) {
@@ -178,11 +178,11 @@ export class CharacterMenuComponent implements OnInit {
   hasCharacter(characterData: CharacterData) {
     return (
       gameManager.game.figures.some((figure) => {
-        return figure instanceof Character && characterData.name == figure.name && characterData.edition == figure.edition;
+        return figure instanceof Character && characterData.name === figure.name && characterData.edition === figure.edition;
       }) ||
       (gameManager.game.party.availableCharacters &&
         gameManager.game.party.availableCharacters.some((availableCharacter) => {
-          return characterData.name == availableCharacter.name && characterData.edition == availableCharacter.edition;
+          return characterData.name === availableCharacter.name && characterData.edition === availableCharacter.edition;
         }))
     );
   }

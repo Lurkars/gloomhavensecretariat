@@ -71,7 +71,7 @@ export class MonsterNumberPickerDialog implements OnInit {
   }
 
   update() {
-    this.entitiesLeft = (this.entities && this.entities.filter((entity) => entity.type == this.type && entity.number < 1).length) || 0;
+    this.entitiesLeft = (this.entities && this.entities.filter((entity) => entity.type === this.type && entity.number < 1).length) || 0;
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -110,9 +110,9 @@ export class MonsterNumberPickerDialog implements OnInit {
           this.toggleMonsterType();
         }
 
-        if (this.type == MonsterType.normal) {
+        if (this.type === MonsterType.normal) {
           this.type = MonsterType.elite;
-        } else if (this.type == MonsterType.elite) {
+        } else if (this.type === MonsterType.elite) {
           this.type = MonsterType.normal;
         }
       }
@@ -127,19 +127,19 @@ export class MonsterNumberPickerDialog implements OnInit {
     return (
       this.monster.entities.filter(
         (monsterEntity) =>
-          gameManager.entityManager.isAlive(monsterEntity) && (!settingsManager.settings.hideStats || monsterEntity.type == this.type)
+          gameManager.entityManager.isAlive(monsterEntity) && (!settingsManager.settings.hideStats || monsterEntity.type === this.type)
       ).length > 0
     );
   }
 
   hasNumber(number: number): boolean {
-    return gameManager.monsterManager.monsterStandeeUsed(this.monster, number) != undefined;
+    return gameManager.monsterManager.monsterStandeeUsed(this.monster, number) !== undefined;
   }
 
   randomStandee() {
     const count = gameManager.monsterManager.monsterStandeeMax(this.monster);
     let number = Math.floor(Math.random() * count) + 1;
-    while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
+    while (this.monster.entities.some((monsterEntity) => monsterEntity.number === number)) {
       number = Math.floor(Math.random() * count) + 1;
     }
     this.pickNumber(number, true, false);
@@ -147,7 +147,7 @@ export class MonsterNumberPickerDialog implements OnInit {
 
   nextStandee() {
     let number = 1;
-    while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
+    while (this.monster.entities.some((monsterEntity) => monsterEntity.number === number)) {
       number += 1;
     }
     this.pickNumber(number, true, true);
@@ -166,7 +166,7 @@ export class MonsterNumberPickerDialog implements OnInit {
         undoType = 'addNextStandee';
       }
       gameManager.stateManager.before(undoType, 'data.monster.' + this.monster.name, 'monster.' + this.type, number);
-      const dead = this.monster.entities.find((monsterEntity) => monsterEntity.number == number);
+      const dead = this.monster.entities.find((monsterEntity) => monsterEntity.number === number);
       if (dead) {
         gameManager.monsterManager.removeMonsterEntity(this.monster, dead);
       }
@@ -177,7 +177,7 @@ export class MonsterNumberPickerDialog implements OnInit {
         }
         this.entity =
           (this.entities &&
-            (this.entities.find((entity) => entity.number < 0 && entity.type == this.type) ||
+            (this.entities.find((entity) => entity.number < 0 && entity.type === this.type) ||
               this.entities.find((entity) => entity.number < 0))) ||
           undefined;
         if (this.entity) {
@@ -186,7 +186,7 @@ export class MonsterNumberPickerDialog implements OnInit {
       } else {
         const entity = gameManager.monsterManager.addMonsterEntity(this.monster, number, this.type, this.summon);
 
-        if (gameManager.game.state == GameState.next && entity) {
+        if (gameManager.game.state === GameState.next && entity) {
           this.monster.active = !gameManager.game.figures.some((figure) => figure.active);
           if (this.monster.active) {
             gameManager.sortFigures(this.monster);
@@ -198,18 +198,19 @@ export class MonsterNumberPickerDialog implements OnInit {
       if (
         (this.entities
           ? this.monster.entities.filter((entity) => entity.number > 0).length
-          : gameManager.entityManager.entities(this.monster).length) == gameManager.monsterManager.monsterStandeeMax(this.monster) ||
+          : gameManager.entityManager.entities(this.monster).length) === gameManager.monsterManager.monsterStandeeMax(this.monster) ||
         (!this.entity && this.entities)
       ) {
         ghsDialogClosingHelper(this.dialogRef);
       } else if (
         this.entity &&
         this.entities &&
-        this.monster.entities.filter((entity) => entity.number > 0).length == gameManager.monsterManager.monsterStandeeMax(this.monster) - 1
+        this.monster.entities.filter((entity) => entity.number > 0).length ===
+          gameManager.monsterManager.monsterStandeeMax(this.monster) - 1
       ) {
         this.nextStandee();
       }
-    } else if (this.change && this.entity && this.entity.number != number) {
+    } else if (this.change && this.entity && this.entity.number !== number) {
       gameManager.entityManager.before(this.entity, this.monster, 'changeEntityNumber', this.entity.type, this.entity.number, number);
       const existing = gameManager.monsterManager.monsterStandeeUsed(this.monster, number);
       if (existing) {
@@ -230,13 +231,13 @@ export class MonsterNumberPickerDialog implements OnInit {
   }
 
   toggleMonsterType() {
-    if (this.entity && (this.entity.type == MonsterType.normal || this.entity.type == MonsterType.elite)) {
+    if (this.entity && (this.entity.type === MonsterType.normal || this.entity.type === MonsterType.elite)) {
       gameManager.stateManager.before(
         'changeMonsterType',
         'data.monster.' + this.monster.name,
         'monster.' + this.entity.type,
         this.entity.number,
-        this.entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal
+        this.entity.type === MonsterType.normal ? MonsterType.elite : MonsterType.normal
       );
       gameManager.monsterManager.changeType(this.entity, this.monster);
       gameManager.stateManager.after();

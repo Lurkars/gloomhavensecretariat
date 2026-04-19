@@ -1,4 +1,4 @@
-<div class="settings-layout" [ngClass]="{ connected: gameManager.stateManager.wsState() == WebSocket.OPEN, filtering: !!filter }">
+<div class="settings-layout" [ngClass]="{ connected: gameManager.stateManager.wsState() === WebSocket.OPEN, filtering: !!filter }">
   <div class="line filter-line">
     <input
       [(ngModel)]="filter"
@@ -461,7 +461,7 @@
         <div class="line" ghs-setting-menu="entitiesMenu"></div>
         <div class="line" ghs-setting-menu="characterSheetCompact" [requires]="['characterSheet']"></div>
         <div class="line" ghs-setting-menu="characterFullView"></div>
-        <div class="line" ghs-setting-menu="characterCompact" [disabled]="settingsManager.settings.theme == 'modern'"></div>
+        <div class="line" ghs-setting-menu="characterCompact" [disabled]="settingsManager.settings.theme === 'modern'"></div>
         <div class="line" ghs-setting-menu="hideCharacterHP"></div>
         <div class="line" ghs-setting-menu="hideCharacterLoot"></div>
         <div class="line" ghs-setting-menu="hideCharacterXP"></div>

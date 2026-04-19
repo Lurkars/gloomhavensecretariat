@@ -12,7 +12,7 @@ export class LootDeckDrawCommand extends CommandImpl {
   }
 
   executeWithParameters() {
-    if (gameManager.game.state != GameState.next) {
+    if (gameManager.game.state !== GameState.next) {
       this.executionError('invalid game state');
     }
     const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) as Character;

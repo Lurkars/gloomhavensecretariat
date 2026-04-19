@@ -53,8 +53,8 @@ export class SummonSheetComponent implements OnInit {
   }
 
   update() {
-    this.hasSummon = this.summon != undefined;
-    this.fhStyle = (settingsManager.settings.fhStyle && !this.style) || this.style == 'fh';
+    this.hasSummon = this.summon !== undefined;
+    this.fhStyle = (settingsManager.settings.fhStyle && !this.style) || this.style === 'fh';
     this.enhancementActions = [];
     if (this.summonData) {
       this.enhancementActions.push(new Action(ActionType.heal, this.summonData.health));

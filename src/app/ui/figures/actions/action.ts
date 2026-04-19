@@ -140,7 +140,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
   }
 
   update() {
-    this.fhStyle = (settingsManager.settings.fhStyle && !this.style) || this.style == 'fh';
+    this.fhStyle = (settingsManager.settings.fhStyle && !this.style) || this.style === 'fh';
     if (this.origAction) {
       this.action = JSON.parse(JSON.stringify(this.origAction));
     } else {
@@ -150,7 +150,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       this.action.subActions = [];
     }
     if (!settingsManager.settings.calculate && this.action && this.action.subActions) {
-      const nonCalcAction = this.action.subActions.find((subAction) => subAction.type == ActionType.nonCalc);
+      const nonCalcAction = this.action.subActions.find((subAction) => subAction.type === ActionType.nonCalc);
       if (nonCalcAction) {
         this.action = nonCalcAction;
       }
@@ -161,7 +161,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
 
     this.monsterType = this.forcedMonsterType;
 
-    if (this.action && this.action.type == ActionType.monsterType) {
+    if (this.action && this.action.type === ActionType.monsterType) {
       this.monsterType = this.action.value as MonsterType;
     }
 
@@ -175,10 +175,10 @@ export class ActionComponent implements OnInit, AfterViewInit {
       !this.forceRelative &&
       settingsManager.settings.calculate &&
       this.action &&
-      (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) &&
-      this.action.valueType != ActionValueType.minus &&
+      (this.action.type === ActionType.shield || this.action.type === ActionType.retaliate) &&
+      this.action.valueType !== ActionValueType.minus &&
       this.action.subActions &&
-      this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && !(subAction.value + '').startsWith('self'))
+      this.action.subActions.find((subAction) => subAction.type === ActionType.specialTarget && !(subAction.value + '').startsWith('self'))
     ) {
       this.statRelative = true;
       this.action.valueType = ActionValueType.plus;
@@ -193,8 +193,8 @@ export class ActionComponent implements OnInit, AfterViewInit {
     this.flying = false;
     if (this.monster) {
       this.flying =
-        (this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled')) ||
-        (this.monster.statEffect != undefined && this.monster.statEffect.flying == true);
+        (this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying !== 'disabled')) ||
+        (this.monster.statEffect !== undefined && this.monster.statEffect.flying === true);
     }
 
     if (this.action) {
@@ -220,7 +220,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       this.enhancmenetElementReplace();
     }
 
-    this.round = gameManager.game.round % 2 == 0 ? 'even' : 'odd';
+    this.round = gameManager.game.round % 2 === 0 ? 'even' : 'odd';
     this.hasEntitiesCache.normal = this.hasEntities(MonsterType.normal);
     this.hasEntitiesCache.elite = this.hasEntities(MonsterType.elite);
     this.hasEntitiesCache.boss = this.hasEntities(MonsterType.boss);
@@ -230,17 +230,17 @@ export class ActionComponent implements OnInit, AfterViewInit {
     if (typeof type === 'string') {
       type = type as MonsterType;
     }
-    if (type == MonsterType.normal && this.monster && this.monster.boss) {
+    if (type === MonsterType.normal && this.monster && this.monster.boss) {
       return this.hasEntities(MonsterType.boss);
     }
 
     return (
       !settingsManager.settings.calculate ||
       (this.monster &&
-        (!this.forcedMonsterType || !type || this.forcedMonsterType == type) &&
+        (!this.forcedMonsterType || !type || this.forcedMonsterType === type) &&
         this.monster.entities.some(
           (monsterEntity) =>
-            (!type || this.forcedMonsterType == type || monsterEntity.type == type) && gameManager.entityManager.isAlive(monsterEntity)
+            (!type || this.forcedMonsterType === type || monsterEntity.type === type) && gameManager.entityManager.isAlive(monsterEntity)
         )) ||
       false
     );
@@ -284,7 +284,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
     if (
       this.monster &&
       !this.monster.entities.some(
-        (monsterEntity) => monsterEntity.type == MonsterType.elite && gameManager.entityManager.isAlive(monsterEntity)
+        (monsterEntity) => monsterEntity.type === MonsterType.elite && gameManager.entityManager.isAlive(monsterEntity)
       )
     ) {
       return this.getRange();
@@ -307,7 +307,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       const normalSpecial = this.getStat(MonsterType.normal).special[(action.value as number) - 1];
       const eliteSpecial = this.getStat(MonsterType.elite).special[(action.value as number) - 1];
 
-      if (normalSpecial != eliteSpecial && JSON.stringify(normalSpecial) != JSON.stringify(eliteSpecial)) {
+      if (normalSpecial !== eliteSpecial && JSON.stringify(normalSpecial) !== JSON.stringify(eliteSpecial)) {
         return [
           new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, normalSpecial),
           new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, eliteSpecial)
@@ -336,9 +336,9 @@ export class ActionComponent implements OnInit, AfterViewInit {
           if (typeof stat.attack === 'number') {
             statValue = stat.attack;
           } else if (stat.attack.includes('X')) {
-            if (this.action.valueType == ActionValueType.plus) {
+            if (this.action.valueType === ActionValueType.plus) {
               return stat.attack + ' +' + (settingsManager.settings.fhStyle ? '' : ' ') + this.action.value;
-            } else if (this.action.valueType == ActionValueType.minus) {
+            } else if (this.action.valueType === ActionValueType.minus) {
               return stat.attack + ' -' + (settingsManager.settings.fhStyle ? '' : ' ') + this.action.value;
             }
             sign = false;
@@ -352,10 +352,10 @@ export class ActionComponent implements OnInit, AfterViewInit {
 
           if (stat.actions) {
             stat.actions.forEach((statAction) => {
-              if (statAction.type == ActionType.attack) {
-                if (statAction.valueType == ActionValueType.add) {
+              if (statAction.type === ActionType.attack) {
+                if (statAction.valueType === ActionValueType.add) {
                   statValue += EntityValueFunction(statAction.value, this.level);
-                } else if (statAction.valueType == ActionValueType.subtract) {
+                } else if (statAction.valueType === ActionValueType.subtract) {
                   statValue -= EntityValueFunction(statAction.value, this.level);
                   if (statValue < 0) {
                     statValue = 0;
@@ -376,14 +376,14 @@ export class ActionComponent implements OnInit, AfterViewInit {
 
       if (
         sign &&
-        (this.action.value || this.action.value == 0) &&
+        (this.action.value || this.action.value === 0) &&
         (typeof this.action.value === 'number' ||
           this.action.value.match(EntityExpressionRegex) ||
           this.action.value.match(EntityValueRegex))
       ) {
-        if (this.action.valueType == ActionValueType.plus) {
+        if (this.action.valueType === ActionValueType.plus) {
           return statValue + EntityValueFunction(this.action.value);
-        } else if (this.action.valueType == ActionValueType.minus) {
+        } else if (this.action.valueType === ActionValueType.minus) {
           if (!statValue) {
             return '-';
           }
@@ -395,26 +395,26 @@ export class ActionComponent implements OnInit, AfterViewInit {
     if (settingsManager.settings.calculateStats && this.shieldStats && !this.relative && !this.forceRelative && !this.statRelative) {
       const stat = this.getStat(type);
       let statValue: number = 0;
-      if (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) {
+      if (this.action.type === ActionType.shield || this.action.type === ActionType.retaliate) {
         if (
           !this.action.subActions ||
           !this.action.subActions.find(
-            (shieldSubAction) => shieldSubAction.type == ActionType.specialTarget && !(shieldSubAction.value + '').startsWith('self')
+            (shieldSubAction) => shieldSubAction.type === ActionType.specialTarget && !(shieldSubAction.value + '').startsWith('self')
           )
         ) {
           const rangeSubAction: Action | undefined =
-            this.action.subActions && this.action.subActions.find((subAction) => subAction.type == ActionType.range);
+            this.action.subActions && this.action.subActions.find((subAction) => subAction.type === ActionType.range);
           const statActions =
-            (stat.actions && stat.actions.filter((statAction) => this.action && statAction.type == this.action.type)) || [];
+            (stat.actions && stat.actions.filter((statAction) => this.action && statAction.type === this.action.type)) || [];
           statActions.forEach((statAction) => {
-            if (this.action && statAction != this.action) {
+            if (this.action && statAction !== this.action) {
               const statRangeSubAction: Action | undefined =
-                statAction.subActions && statAction.subActions.find((subAction) => subAction.type == ActionType.range);
+                statAction.subActions && statAction.subActions.find((subAction) => subAction.type === ActionType.range);
               if (
                 (!rangeSubAction && !statRangeSubAction) ||
                 (rangeSubAction &&
                   statRangeSubAction &&
-                  EntityValueFunction(rangeSubAction.value, this.level) == EntityValueFunction(statRangeSubAction.value, this.level))
+                  EntityValueFunction(rangeSubAction.value, this.level) === EntityValueFunction(statRangeSubAction.value, this.level))
               ) {
                 statValue = EntityValueFunction(statAction.value, this.level);
               }
@@ -436,9 +436,9 @@ export class ActionComponent implements OnInit, AfterViewInit {
         ? EntityValueFunction(this.action.value, this.level)
         : this.action.value;
 
-    if (this.action.valueType == ActionValueType.plus) {
+    if (this.action.valueType === ActionValueType.plus) {
       return '+' + (settingsManager.settings.fhStyle ? '' : ' ') + value;
-    } else if (this.action.valueType == ActionValueType.minus) {
+    } else if (this.action.valueType === ActionValueType.minus) {
       return '-' + (settingsManager.settings.fhStyle ? '' : ' ') + value;
     } else {
       return value;
@@ -459,57 +459,57 @@ export class ActionComponent implements OnInit, AfterViewInit {
       ![ActionType.element, ActionType.elementHalf, ...ActionTypesHelper].includes(this.action.type)
     ) {
       this.action.subActions.forEach((action) => {
-        if (action.type == ActionType.element || action.type == ActionType.elementHalf) {
+        if (action.type === ActionType.element || action.type === ActionType.elementHalf) {
           this.elementActions.push(action);
         }
       });
       this.action.subActions = this.action.subActions.filter(
-        (action) => action.type != ActionType.element && action.type != ActionType.elementHalf
+        (action) => action.type !== ActionType.element && action.type !== ActionType.elementHalf
       );
     }
     this.fhExtraActions = [];
     if (settingsManager.settings.fhStyle && ![ActionType.boxFhSubActions, ActionType.extra].includes(this.action.type)) {
       this.action.subActions.forEach((action) => {
-        if (action.type == ActionType.boxFhSubActions) {
+        if (action.type === ActionType.boxFhSubActions) {
           this.fhExtraActions.push(action);
-        } else if (action.type == ActionType.extra) {
+        } else if (action.type === ActionType.extra) {
           this.fhExtraActions.push(...action.subActions);
         }
       });
       this.action.subActions = this.action.subActions.filter(
-        (action) => action.type != ActionType.boxFhSubActions && action.type != ActionType.extra
+        (action) => action.type !== ActionType.boxFhSubActions && action.type !== ActionType.extra
       );
     }
 
-    this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.nonCalc);
+    this.action.subActions = this.action.subActions.filter((action) => action.type !== ActionType.nonCalc);
 
     this.additionalSubActions = JSON.parse(JSON.stringify(this.action.subActions));
     this.hasAOE =
-      this.additionalSubActions.some((subAction, index) => index == 0 && subAction.type == ActionType.area) &&
-      (this.action.type != ActionType.element || this.action.valueType != ActionValueType.minus);
+      this.additionalSubActions.some((subAction, index) => index === 0 && subAction.type === ActionType.area) &&
+      (this.action.type !== ActionType.element || this.action.valueType !== ActionValueType.minus);
     if (this.monster && settingsManager.settings.calculateStats && !this.relative) {
       const newSubActions: Action[] = [];
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
       const eliteStat = this.monster.boss ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
       if (
-        this.action.type == ActionType.attack &&
-        this.action.valueType != ActionValueType.add &&
-        this.action.valueType != ActionValueType.subtract
+        this.action.type === ActionType.attack &&
+        this.action.valueType !== ActionValueType.add &&
+        this.action.valueType !== ActionValueType.subtract
       ) {
         let normalActions: Action | undefined = this.additionalSubActions.find(
-          (typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.normal
+          (typeAction) => typeAction.type === ActionType.monsterType && typeAction.value === MonsterType.normal
         );
         let eliteActions: Action | undefined = this.additionalSubActions.find(
-          (typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.elite
+          (typeAction) => typeAction.type === ActionType.monsterType && typeAction.value === MonsterType.elite
         );
 
         if (
           (stat.range || (eliteStat && eliteStat.range)) &&
           !this.action.subActions.some(
             (subAction) =>
-              subAction.type == ActionType.range ||
-              (subAction.type == ActionType.area && ('' + subAction.value).includes('active')) ||
-              subAction.type == ActionType.specialTarget
+              subAction.type === ActionType.range ||
+              (subAction.type === ActionType.area && ('' + subAction.value).includes('active')) ||
+              subAction.type === ActionType.specialTarget
           )
         ) {
           const newStatAction = new Action(ActionType.range, 0, ActionValueType.plus);
@@ -538,7 +538,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
           this.monster.entities.some(
             (monsterEntity) =>
               gameManager.entityManager.isAlive(monsterEntity) &&
-              (monsterEntity.type == MonsterType.normal || monsterEntity.type == MonsterType.boss)
+              (monsterEntity.type === MonsterType.normal || monsterEntity.type === MonsterType.boss)
           )
         ) {
           stat.actions
@@ -550,13 +550,16 @@ export class ActionComponent implements OnInit, AfterViewInit {
                 !this.subActionExists(this.action.subActions, newStatAction) &&
                 !this.subActionExists(newSubActions, newStatAction)
               ) {
-                if (statAction.type != ActionType.area || this.action.subActions.every((subAction) => subAction.type != ActionType.area)) {
+                if (
+                  statAction.type !== ActionType.area ||
+                  this.action.subActions.every((subAction) => subAction.type !== ActionType.area)
+                ) {
                   if (
                     !eliteStat ||
                     (eliteStat.actions && this.subActionExists(eliteStat.actions, newStatAction, false)) ||
                     (this.monster &&
                       !this.monster.entities.some(
-                        (monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == MonsterType.elite
+                        (monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type === MonsterType.elite
                       ))
                   ) {
                     newStatAction.small = true;
@@ -585,7 +588,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
           eliteStat &&
           eliteStat.actions &&
           this.monster.entities.some(
-            (monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == MonsterType.elite
+            (monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type === MonsterType.elite
           )
         ) {
           eliteStat.actions
@@ -599,7 +602,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
                 if (
                   this.monster &&
                   !this.monster.entities.some(
-                    (monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == MonsterType.normal
+                    (monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type === MonsterType.normal
                   )
                 ) {
                   newEliteAction.small = true;
@@ -624,77 +627,77 @@ export class ActionComponent implements OnInit, AfterViewInit {
 
       newSubActions.forEach((subAction) => {
         if (this.action) {
-          if (subAction.type == ActionType.target) {
+          if (subAction.type === ActionType.target) {
             if (
               !this.additionalSubActions.some(
                 (other) =>
-                  other.type == ActionType.target ||
-                  (other.type == ActionType.specialTarget && other.value != ActionSpecialTarget.enemyOneAll)
+                  other.type === ActionType.target ||
+                  (other.type === ActionType.specialTarget && other.value !== ActionSpecialTarget.enemyOneAll)
               )
             ) {
-              if (subAction.valueType == ActionValueType.add) {
+              if (subAction.valueType === ActionValueType.add) {
                 subAction.valueType = ActionValueType.fixed;
                 subAction.value = EntityValueFunction(subAction.value, this.level) + 1;
               }
               if (
                 this.additionalSubActions.length > 0 &&
-                (this.additionalSubActions[this.additionalSubActions.length - 1].type == ActionType.element ||
-                  (this.additionalSubActions[this.additionalSubActions.length - 1].type == ActionType.specialTarget &&
-                    this.additionalSubActions[this.additionalSubActions.length - 1].value == ActionSpecialTarget.enemyOneAll))
+                (this.additionalSubActions[this.additionalSubActions.length - 1].type === ActionType.element ||
+                  (this.additionalSubActions[this.additionalSubActions.length - 1].type === ActionType.specialTarget &&
+                    this.additionalSubActions[this.additionalSubActions.length - 1].value === ActionSpecialTarget.enemyOneAll))
               ) {
                 this.additionalSubActions.splice(this.additionalSubActions.length - 1, 0, subAction);
               } else {
                 this.additionalSubActions.push(subAction);
               }
             } else if (
-              (subAction.valueType == ActionValueType.add || subAction.valueType == ActionValueType.fixed) &&
-              this.additionalSubActions.some((other) => other.type == ActionType.target) &&
-              !this.additionalSubActions.some((other) => other.type == ActionType.specialTarget) &&
+              (subAction.valueType === ActionValueType.add || subAction.valueType === ActionValueType.fixed) &&
+              this.additionalSubActions.some((other) => other.type === ActionType.target) &&
+              !this.additionalSubActions.some((other) => other.type === ActionType.specialTarget) &&
               ('' + subAction.value).match(EntityValueRegex)
             ) {
-              const targetAction = this.additionalSubActions.find((other) => other.type == ActionType.target && other != subAction);
+              const targetAction = this.additionalSubActions.find((other) => other.type === ActionType.target && other !== subAction);
               if (targetAction) {
                 subAction.valueType = ActionValueType.fixed;
                 subAction.value =
                   EntityValueFunction(subAction.value, this.level) +
-                  (targetAction.valueType != ActionValueType.subtract && targetAction.valueType != ActionValueType.minus
+                  (targetAction.valueType !== ActionValueType.subtract && targetAction.valueType !== ActionValueType.minus
                     ? EntityValueFunction(targetAction.value, this.level)
                     : -EntityValueFunction(targetAction.value, this.level));
                 this.additionalSubActions.splice(this.additionalSubActions.indexOf(targetAction), 1, subAction);
               }
             }
-          } else if (subAction.type == ActionType.range && !this.additionalSubActions.some((other) => other.type == ActionType.range)) {
+          } else if (subAction.type === ActionType.range && !this.additionalSubActions.some((other) => other.type === ActionType.range)) {
             if (
               this.additionalSubActions.length > 0 &&
-              this.action.subActions[this.additionalSubActions.length - 1].type == ActionType.element
+              this.action.subActions[this.additionalSubActions.length - 1].type === ActionType.element
             ) {
               this.additionalSubActions.splice(this.action.subActions.length - 1, 0, subAction);
             } else {
               this.additionalSubActions.push(subAction);
             }
-          } else if (subAction.type != ActionType.range && !this.subActionExists(this.additionalSubActions, subAction)) {
-            if (subAction.type == ActionType.area) {
+          } else if (subAction.type !== ActionType.range && !this.subActionExists(this.additionalSubActions, subAction)) {
+            if (subAction.type === ActionType.area) {
               this.additionalSubActions.splice(0, 0, subAction);
               this.hasAOE = true;
             } else {
               if (
                 this.action &&
-                subAction.type == ActionType.card &&
-                this.action.subActions.find((subAction) => subAction.type == ActionType.pierce)
+                subAction.type === ActionType.card &&
+                this.action.subActions.find((subAction) => subAction.type === ActionType.pierce)
               ) {
-                const pieceAction = this.action.subActions.find((subAction) => subAction.type == ActionType.pierce);
+                const pieceAction = this.action.subActions.find((subAction) => subAction.type === ActionType.pierce);
                 if (pieceAction) {
                   pieceAction.value = EntityValueFunction(pieceAction.value, this.level) + EntityValueFunction(subAction.value, this.level);
                 }
               } else {
                 subAction.small = true;
-                if (subAction.type == ActionType.monsterType) {
+                if (subAction.type === ActionType.monsterType) {
                   subAction.small = false;
                   subAction.subActions.forEach((sub) => (sub.small = true));
                 }
                 if (
                   this.additionalSubActions.length > 0 &&
-                  this.additionalSubActions[this.additionalSubActions.length - 1].type == ActionType.element
+                  this.additionalSubActions[this.additionalSubActions.length - 1].type === ActionType.element
                 ) {
                   this.additionalSubActions.splice(this.additionalSubActions.length - 1, 0, subAction);
                 } else {
@@ -708,22 +711,22 @@ export class ActionComponent implements OnInit, AfterViewInit {
 
       const targetSubAction = this.additionalSubActions.find(
         (other) =>
-          other.type == ActionType.target && (other.valueType == ActionValueType.add || other.valueType == ActionValueType.subtract)
+          other.type === ActionType.target && (other.valueType === ActionValueType.add || other.valueType === ActionValueType.subtract)
       );
       if (targetSubAction) {
         let removeTargetSubAction = false;
         newSubActions.forEach((subAction) => {
           if (this.action) {
             if (
-              subAction.type == ActionType.monsterType &&
-              subAction.subActions.find((typeSubAction) => typeSubAction.type == ActionType.target)
+              subAction.type === ActionType.monsterType &&
+              subAction.subActions.find((typeSubAction) => typeSubAction.type === ActionType.target)
             ) {
-              const subActionTargetAction = subAction.subActions.find((typeSubAction) => typeSubAction.type == ActionType.target);
+              const subActionTargetAction = subAction.subActions.find((typeSubAction) => typeSubAction.type === ActionType.target);
               if (subActionTargetAction) {
                 removeTargetSubAction = true;
                 subActionTargetAction.value =
                   EntityValueFunction(subActionTargetAction.value, this.level) +
-                  (targetSubAction.valueType == ActionValueType.add
+                  (targetSubAction.valueType === ActionValueType.add
                     ? EntityValueFunction(targetSubAction.value, this.level)
                     : -EntityValueFunction(targetSubAction.value, this.level));
               }
@@ -736,20 +739,20 @@ export class ActionComponent implements OnInit, AfterViewInit {
         }
       }
 
-      if (this.action.type == ActionType.move && !this.action.subActions.find((subAction) => subAction.type == ActionType.jump)) {
+      if (this.action.type === ActionType.move && !this.action.subActions.find((subAction) => subAction.type === ActionType.jump)) {
         const jumpAction = new Action(ActionType.jump, '');
         jumpAction.small = true;
-        if (stat.actions.find((subAction) => subAction.type == ActionType.jump)) {
+        if (stat.actions.find((subAction) => subAction.type === ActionType.jump)) {
           if (
             !eliteStat ||
-            eliteStat.actions.find((subAction) => subAction.type == ActionType.jump) ||
+            eliteStat.actions.find((subAction) => subAction.type === ActionType.jump) ||
             !this.hasEntities(MonsterType.elite)
           ) {
             this.additionalSubActions.push(jumpAction);
           } else {
             this.additionalSubActions.push(new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [jumpAction]));
           }
-        } else if (eliteStat && eliteStat.actions.find((subAction) => subAction.type == ActionType.jump)) {
+        } else if (eliteStat && eliteStat.actions.find((subAction) => subAction.type === ActionType.jump)) {
           if (this.hasEntities(MonsterType.normal)) {
             this.additionalSubActions.push(new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [jumpAction]));
           } else {
@@ -760,16 +763,16 @@ export class ActionComponent implements OnInit, AfterViewInit {
 
       let redundantAction = this.additionalSubActions.find(
         (action) =>
-          (action.type == ActionType.element || action.type == ActionType.elementHalf) &&
-          action.valueType == ActionValueType.minus &&
+          (action.type === ActionType.element || action.type === ActionType.elementHalf) &&
+          action.valueType === ActionValueType.minus &&
           action.subActions.every((subAction) => this.subActionExists(newSubActions, subAction))
       );
 
       if (settingsManager.settings.fhStyle) {
         redundantAction = this.elementActions.find(
           (action) =>
-            (action.type == ActionType.element || action.type == ActionType.elementHalf) &&
-            action.valueType == ActionValueType.minus &&
+            (action.type === ActionType.element || action.type === ActionType.elementHalf) &&
+            action.valueType === ActionValueType.minus &&
             action.subActions.every((subAction) => this.subActionExists(newSubActions, subAction))
         );
       }
@@ -779,16 +782,16 @@ export class ActionComponent implements OnInit, AfterViewInit {
           this.elementActions.splice(this.elementActions.indexOf(redundantAction), 1);
           redundantAction = this.elementActions.find(
             (action) =>
-              (action.type == ActionType.element || action.type == ActionType.elementHalf) &&
-              action.valueType == ActionValueType.minus &&
+              (action.type === ActionType.element || action.type === ActionType.elementHalf) &&
+              action.valueType === ActionValueType.minus &&
               action.subActions.every((subAction) => this.subActionExists(newSubActions, subAction))
           );
         } else {
           this.additionalSubActions.splice(this.additionalSubActions.indexOf(redundantAction), 1);
           redundantAction = this.additionalSubActions.find(
             (action) =>
-              (action.type == ActionType.element || action.type == ActionType.elementHalf) &&
-              action.valueType == ActionValueType.minus &&
+              (action.type === ActionType.element || action.type === ActionType.elementHalf) &&
+              action.valueType === ActionValueType.minus &&
               action.subActions.every((subAction) => this.subActionExists(newSubActions, subAction))
           );
         }
@@ -797,10 +800,10 @@ export class ActionComponent implements OnInit, AfterViewInit {
       if (
         this.additionalSubActions.some(
           (action, index, self) =>
-            action.type == ActionType.monsterType && index < self.length - 1 && self[index + 1].type == ActionType.monsterType
+            action.type === ActionType.monsterType && index < self.length - 1 && self[index + 1].type === ActionType.monsterType
         )
       ) {
-        const index = this.additionalSubActions.findIndex((action) => action.type == ActionType.monsterType);
+        const index = this.additionalSubActions.findIndex((action) => action.type === ActionType.monsterType);
         this.additionalSubActions.splice(
           index,
           2,
@@ -813,18 +816,18 @@ export class ActionComponent implements OnInit, AfterViewInit {
       (action) =>
         !action.hidden &&
         (!settingsManager.settings.calculate ||
-          action.type != ActionType.monsterType ||
-          (action.type == ActionType.monsterType && this.hasEntities(action.value as MonsterType)))
+          action.type !== ActionType.monsterType ||
+          (action.type === ActionType.monsterType && this.hasEntities(action.value as MonsterType)))
     );
     ActionTypesCombine.forEach((combineType) => {
       const combineActions = this.subActions.filter(
         (action) =>
-          action.type == combineType &&
-          (!action.subActions || action.subActions.length == 0) &&
+          action.type === combineType &&
+          (!action.subActions || action.subActions.length === 0) &&
           (!action.valueType ||
-            action.valueType == ActionValueType.add ||
-            action.valueType == ActionValueType.fixed ||
-            action.valueType == ActionValueType.plus)
+            action.valueType === ActionValueType.add ||
+            action.valueType === ActionValueType.fixed ||
+            action.valueType === ActionValueType.plus)
       );
       if (combineActions.length > 1) {
         const combined = new Action(
@@ -843,18 +846,18 @@ export class ActionComponent implements OnInit, AfterViewInit {
       (action) =>
         !action.hidden &&
         (!settingsManager.settings.calculate ||
-          action.type != ActionType.monsterType ||
-          (action.type == ActionType.monsterType && this.hasEntities(action.value as MonsterType)))
+          action.type !== ActionType.monsterType ||
+          (action.type === ActionType.monsterType && this.hasEntities(action.value as MonsterType)))
     );
     ActionTypesCombine.forEach((combineType) => {
       const combineActions = this.additionalSubActions.filter(
         (action) =>
-          action.type == combineType &&
-          (!action.subActions || action.subActions.length == 0) &&
+          action.type === combineType &&
+          (!action.subActions || action.subActions.length === 0) &&
           (!action.valueType ||
-            action.valueType == ActionValueType.add ||
-            action.valueType == ActionValueType.fixed ||
-            action.valueType == ActionValueType.plus)
+            action.valueType === ActionValueType.add ||
+            action.valueType === ActionValueType.fixed ||
+            action.valueType === ActionValueType.plus)
       );
       if (combineActions.length > 1) {
         const combined = new Action(
@@ -870,8 +873,8 @@ export class ActionComponent implements OnInit, AfterViewInit {
       }
     });
     this.cardConcat =
-      this.action.type == ActionType.concatenation &&
-      this.subActions.every((subAction) => subAction.type == ActionType.card || subAction.type == ActionType.concatenationSpacer);
+      this.action.type === ActionType.concatenation &&
+      this.subActions.every((subAction) => subAction.type === ActionType.card || subAction.type === ActionType.concatenationSpacer);
   }
 
   additionAttackSubAction(action: Action): boolean {
@@ -888,7 +891,11 @@ export class ActionComponent implements OnInit, AfterViewInit {
     ) {
       return true;
     }
-    if (settingsManager.settings.calculateAdvantageStats && action.type == ActionType.custom && action.value == '%game.custom.advantage%') {
+    if (
+      settingsManager.settings.calculateAdvantageStats &&
+      action.type === ActionType.custom &&
+      action.value === '%game.custom.advantage%'
+    ) {
       return true;
     }
 
@@ -898,7 +905,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
   subActionExists(additionalSubActions: Action[], subAction: Action, stackableCondition: boolean = true): boolean {
     if (
       stackableCondition &&
-      subAction.type == ActionType.condition &&
+      subAction.type === ActionType.condition &&
       new Condition(subAction.value + '').types.includes(ConditionType.stackable)
     ) {
       return false;
@@ -906,53 +913,53 @@ export class ActionComponent implements OnInit, AfterViewInit {
 
     return additionalSubActions.some(
       (action) =>
-        action.type == subAction.type &&
-        action.value == subAction.value &&
-        (action.valueType || ActionValueType.fixed) == (subAction.valueType || ActionValueType.fixed)
+        action.type === subAction.type &&
+        action.value === subAction.value &&
+        (action.valueType || ActionValueType.fixed) === (subAction.valueType || ActionValueType.fixed)
     );
   }
 
   applyChallenges() {
     if (this.action && this.monster) {
       if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1488, 'fh')) {
-        if (this.action.type == ActionType.attack) {
+        if (this.action.type === ActionType.attack) {
           this.additionalSubActions.forEach((subAction) => {
-            if (this.monster && subAction.type == ActionType.range) {
+            if (this.monster && subAction.type === ActionType.range) {
               subAction.value =
                 EntityValueFunction(subAction.value, this.monster.level) +
-                (subAction.valueType == ActionValueType.minus || subAction.valueType == ActionValueType.subtract ? -1 : 1);
+                (subAction.valueType === ActionValueType.minus || subAction.valueType === ActionValueType.subtract ? -1 : 1);
             }
           });
         }
 
-        if (this.action.type == ActionType.move) {
+        if (this.action.type === ActionType.move) {
           this.action.value =
             EntityValueFunction(this.action.value, this.monster.level) +
-            (this.action.valueType == ActionValueType.minus || this.action.valueType == ActionValueType.subtract ? -1 : 1);
+            (this.action.valueType === ActionValueType.minus || this.action.valueType === ActionValueType.subtract ? -1 : 1);
         }
       }
 
       if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1498, 'fh')) {
-        if (this.action.type == ActionType.attack && this.additionalSubActions.find((subAction) => subAction.type == ActionType.range)) {
+        if (this.action.type === ActionType.attack && this.additionalSubActions.find((subAction) => subAction.type === ActionType.range)) {
           this.additionalSubActions.push(new Action(ActionType.push, 1, ActionValueType.fixed, [], true));
         }
       }
 
       if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1521, 'fh')) {
-        if (this.action.type == ActionType.move && !this.additionalSubActions.find((subAction) => subAction.type == ActionType.jump)) {
+        if (this.action.type === ActionType.move && !this.additionalSubActions.find((subAction) => subAction.type === ActionType.jump)) {
           this.additionalSubActions.push(new Action(ActionType.jump, '', ActionValueType.fixed, [], true));
         }
       }
 
       if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1522, 'fh')) {
         if (
-          this.action.type == ActionType.attack &&
-          !this.additionalSubActions.find((subAction) => subAction.type == ActionType.target) &&
-          !this.additionalSubActions.find((subAction) => subAction.type == ActionType.area)
+          this.action.type === ActionType.attack &&
+          !this.additionalSubActions.find((subAction) => subAction.type === ActionType.target) &&
+          !this.additionalSubActions.find((subAction) => subAction.type === ActionType.area)
         ) {
           this.action.value =
             EntityValueFunction(this.action.value, this.monster.level) -
-            (this.action.valueType == ActionValueType.minus || this.action.valueType == ActionValueType.subtract ? -1 : 1);
+            (this.action.valueType === ActionValueType.minus || this.action.valueType === ActionValueType.subtract ? -1 : 1);
           this.additionalSubActions.push(new Action(ActionType.target, 2, ActionValueType.fixed, [], true));
         }
       }
@@ -964,7 +971,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
   }
 
   highlightAction(): boolean {
-    return this.interactiveActions.find((interactiveAction) => interactiveAction.index == this.actionIndex) != undefined || false;
+    return this.interactiveActions.find((interactiveAction) => interactiveAction.index === this.actionIndex) !== undefined || false;
   }
 
   toggleHighlight(event: PointerEvent) {
@@ -991,7 +998,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
             );
           }
           interactiveSubActions.forEach((interactiveSubAction) => {
-            if (!this.interactiveActions.some((interactiveAction) => interactiveAction.index == interactiveSubAction.index)) {
+            if (!this.interactiveActions.some((interactiveAction) => interactiveAction.index === interactiveSubAction.index)) {
               this.interactiveActions.push(interactiveSubAction);
             }
           });
@@ -1005,7 +1012,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
 
   getOrigIndex(action: Action): number {
     if (this.origAction && this.origAction.subActions) {
-      const origAction = this.origAction.subActions.find((subAction) => JSON.stringify(action) == JSON.stringify(subAction));
+      const origAction = this.origAction.subActions.find((subAction) => JSON.stringify(action) === JSON.stringify(subAction));
       if (origAction) {
         return this.origAction.subActions.indexOf(origAction);
       }
@@ -1023,7 +1030,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       const enhancementElements = this.enhancementContainer.nativeElement.getElementsByClassName('placeholder-enhancement');
       const ghsEnhancements = this.enhancementContainer.nativeElement.getElementsByTagName('ghs-action-enhancements');
       for (let i = 0; i < ghsEnhancements.length; i++) {
-        if (enhancementElements[0] && enhancementElements[0].parentElement != ghsEnhancements[i].parentElement) {
+        if (enhancementElements[0] && enhancementElements[0].parentElement !== ghsEnhancements[i].parentElement) {
           enhancementElements[0].parentElement.replaceChild(ghsEnhancements[i], enhancementElements[0]);
         }
       }

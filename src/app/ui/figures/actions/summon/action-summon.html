@@ -13,14 +13,14 @@
           [disabled]="!isInteractiveApplicableAction()"
           [ngClass]="{ 'action-interactive': isInteractiveApplicableAction(), 'action-interactive-highlight': highlightAction() }"
         >
-          @if (spawn.monster.type != MonsterType.boss) {
+          @if (spawn.monster.type !== MonsterType.boss) {
             <span
               [ghs-label]="spawn.marker ? 'game.summon.spawnTypeMarker' : 'game.summon.spawnType'"
               [ghs-label-args]="[spawn.monster.name, spawn.monster.type, spawn.count ? spawn.count : '', spawn.marker]"
               [style]="style"
             ></span>
           }
-          @if (spawn.monster.type == MonsterType.boss) {
+          @if (spawn.monster.type === MonsterType.boss) {
             <span
               [ghs-label]="spawn.marker ? 'game.summon.spawnMarker' : 'game.summon.spawn'"
               [ghs-label-args]="[spawn.monster.name, spawn.count ? spawn.count : '', spawn.marker]"
@@ -69,7 +69,7 @@
     [action]="true"
     [additional]="additional"
     [right]="right"
-    [item]="action.value == 'summonDataItem'"
+    [item]="action.value === 'summonDataItem'"
     [style]="style"
     [character]="character"
     [cardId]="cardId"

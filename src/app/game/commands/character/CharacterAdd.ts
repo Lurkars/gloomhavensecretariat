@@ -7,13 +7,13 @@ export class CharacterAddCommand extends CommandImpl {
 
   validParameters(edition: string, name: string, level: number): boolean {
     return (
-      (edition && name && level && level < 10 && gameManager.charactersData(edition).find((char) => char.name == name) != undefined) ||
+      (edition && name && level && level < 10 && gameManager.charactersData(edition).find((char) => char.name === name) !== undefined) ||
       false
     );
   }
 
   executeWithParameters(edition: string, name: string, level: number) {
-    const characterData = gameManager.charactersData(edition).find((char) => char.name == name);
+    const characterData = gameManager.charactersData(edition).find((char) => char.name === name);
     if (characterData) {
       gameManager.characterManager.addCharacter(characterData, level);
     } else {

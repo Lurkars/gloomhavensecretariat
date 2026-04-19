@@ -23,7 +23,7 @@ export class CharacterSummonDialog {
 
   gameManager: GameManager = gameManager;
   summonColors: SummonColor[] = Object.values(SummonColor).filter(
-    (summonColor) => summonColor != SummonColor.custom && summonColor != SummonColor.fh
+    (summonColor) => summonColor !== SummonColor.custom && summonColor !== SummonColor.fh
   );
   summonColor: SummonColor = SummonColor.blue;
   summonNumber: number | undefined;
@@ -59,7 +59,7 @@ export class CharacterSummonDialog {
   }
 
   pickNumber(number: number) {
-    if (this.summonNumber == number) {
+    if (this.summonNumber === number) {
       this.summonNumber = undefined;
     } else {
       this.summonNumber = number;
@@ -72,18 +72,18 @@ export class CharacterSummonDialog {
 
   available(summonData: SummonData, number: number): boolean {
     return (
-      this.summonColor != SummonColor.custom &&
-      number != 0 &&
+      this.summonColor !== SummonColor.custom &&
+      number !== 0 &&
       this.character.summons.every(
         (summon) =>
           summon.dead ||
-          summon.name != summonData.name ||
-          (summonData.special ? summon.number != 0 : summon.number != number) ||
-          (summonData.special ? summon.color != SummonColor.custom : summon.color != this.summonColor)
+          summon.name !== summonData.name ||
+          (summonData.special ? summon.number !== 0 : summon.number !== number) ||
+          (summonData.special ? summon.color !== SummonColor.custom : summon.color !== this.summonColor)
       ) &&
       (summonData.count || 1) >
         this.character.summons.filter(
-          (summon) => summon.name == summonData.name && summon.cardId == summonData.cardId && gameManager.entityManager.isAlive(summon)
+          (summon) => summon.name === summonData.name && summon.cardId === summonData.cardId && gameManager.entityManager.isAlive(summon)
         ).length
     );
   }
@@ -92,15 +92,15 @@ export class CharacterSummonDialog {
     return this.character.summons.some(
       (summon) =>
         gameManager.entityManager.isAlive(summon) &&
-        summon.name == this.summonName &&
-        summon.number == this.summonNumber &&
-        summon.color == this.summonColor
+        summon.name === this.summonName &&
+        summon.number === this.summonNumber &&
+        summon.color === this.summonColor
     );
   }
 
   showLevel(summonData: SummonData): boolean {
     return this.summonData.some(
-      (other) => other.name == summonData.name && other.cardId != summonData.cardId && summonData.level != other.level
+      (other) => other.name === summonData.name && other.cardId !== summonData.cardId && summonData.level !== other.level
     );
   }
 
@@ -139,12 +139,12 @@ export class CharacterSummonDialog {
       }
     }
 
-    this.summonData = summons.filter((summonData) => !this.summonFilter || summonData.cardId == this.summonFilter);
+    this.summonData = summons.filter((summonData) => !this.summonFilter || summonData.cardId === this.summonFilter);
 
     this.summonData.forEach((summonData, index) => {
       this.summonNumbers[index] = -1;
       for (let i = 1; i < 9; i++) {
-        if (this.available(summonData, i) && this.summonNumbers[index] == -1) {
+        if (this.available(summonData, i) && this.summonNumbers[index] === -1) {
           this.summonNumbers[index] = i;
         }
       }
@@ -181,7 +181,7 @@ export class CharacterSummonDialog {
 
   addSummon(summonData: SummonData) {
     const index = this.summonData.indexOf(summonData);
-    if (index != -1) {
+    if (index !== -1) {
       gameManager.stateManager.before(
         'addSummon',
         gameManager.characterManager.characterName(this.character, true, true),
@@ -205,7 +205,7 @@ export class CharacterSummonDialog {
       gameManager.characterManager.addSummon(this.character, summon);
       if (
         !summonData.count ||
-        this.character.summons.filter((summon) => summon.name == summonData.name && summon.cardId == summonData.cardId).length ==
+        this.character.summons.filter((summon) => summon.name === summonData.name && summon.cardId === summonData.cardId).length ==
           summonData.count
       ) {
         ghsDialogClosingHelper(this.dialogRef);

@@ -84,8 +84,9 @@ export class ItemsCardsToolComponent implements OnInit {
       this.items = [...this.comparisonAItem, ...this.comparisonBItem]
         .filter(
           (item) =>
-            this.comparisonAItem.find((other) => other.name.replaceAll('Minor ', '') == item.name.replaceAll('Minor ', '')) != undefined &&
-            this.comparisonBItem.find((other) => other.name.replaceAll('Minor ', '') == item.name.replaceAll('Minor ', '')) != undefined
+            this.comparisonAItem.find((other) => other.name.replaceAll('Minor ', '') === item.name.replaceAll('Minor ', '')) !==
+              undefined &&
+            this.comparisonBItem.find((other) => other.name.replaceAll('Minor ', '') === item.name.replaceAll('Minor ', '')) !== undefined
         )
         .sort((a, b) => (a.name.replaceAll('Minor ', '') < b.name.replaceAll('Minor ', '') ? -1 : 1));
     }

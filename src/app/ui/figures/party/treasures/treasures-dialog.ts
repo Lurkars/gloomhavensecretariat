@@ -39,7 +39,7 @@ export class TreasuresDialogComponent implements OnInit {
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.edition = this.data.edition;
-    this.batchSelect = this.data.scenario == undefined;
+    this.batchSelect = this.data.scenario === undefined;
   }
 
   ngOnInit(): void {
@@ -58,12 +58,13 @@ export class TreasuresDialogComponent implements OnInit {
           (!this.data.scenario &&
             (gameManager.scenarioManager.isSuccess(scenarioData) ||
               gameManager.game.party.casualScenarios.find(
-                (value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group
+                (value) =>
+                  scenarioData.index === value.index && scenarioData.edition === value.edition && scenarioData.group === value.group
               ))) ||
           (this.data.scenario &&
-            scenarioData.edition == this.data.scenario.edition &&
-            scenarioData.index == this.data.scenario.index &&
-            scenarioData.group == this.data.scenario.group)
+            scenarioData.edition === this.data.scenario.edition &&
+            scenarioData.index === this.data.scenario.index &&
+            scenarioData.group === this.data.scenario.group)
       )
       .forEach((scenarioData) => {
         let treasures: number[] = gameManager.scenarioManager
@@ -115,7 +116,7 @@ export class TreasuresDialogComponent implements OnInit {
   hasTreasure(treasure: string | number, edition: string): boolean {
     return (
       gameManager.game.party.treasures &&
-      gameManager.game.party.treasures.some((identifier) => identifier.name == '' + treasure && identifier.edition == edition)
+      gameManager.game.party.treasures.some((identifier) => identifier.name === '' + treasure && identifier.edition === edition)
     );
   }
 
@@ -125,7 +126,7 @@ export class TreasuresDialogComponent implements OnInit {
     if (removeTreasures.length > 0) {
       gameManager.stateManager.before('removeTreasures', this.edition, '[' + removeTreasures.join(',') + ']');
       gameManager.game.party.treasures = gameManager.game.party.treasures.filter(
-        (value) => value.edition != this.edition || isNaN(+value.name) || !removeTreasures.includes(+value.name)
+        (value) => value.edition !== this.edition || isNaN(+value.name) || !removeTreasures.includes(+value.name)
       );
       gameManager.stateManager.after();
     }

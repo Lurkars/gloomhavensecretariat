@@ -87,7 +87,7 @@ export class LevelManager {
   scenarioLevel(): number {
     const charCount = gameManager.characterManager.characterCount();
 
-    if (charCount == 0) {
+    if (charCount === 0) {
       return 1;
     }
 
@@ -125,7 +125,7 @@ export class LevelManager {
   }
 
   setLevel(level: number) {
-    if (this.game.level != level) {
+    if (this.game.level !== level) {
       const diff = level - this.game.level;
       this.game.level = level;
 

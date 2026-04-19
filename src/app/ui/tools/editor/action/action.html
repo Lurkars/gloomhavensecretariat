@@ -13,7 +13,7 @@
 
     <span class="spacer"></span>
 
-    @if (subactionIndex || subactionIndex == 0) {
+    @if (subactionIndex || subactionIndex === 0) {
       <a class="remove" (click)="subActionRemoved.emit(subactionIndex)">
         <img class="ghs-icon" src="./assets/images/minus.svg" />
         <span [ghs-label]="'editor.action.removeSubAction'"></span>
@@ -31,7 +31,7 @@
     <label><span [ghs-label]="'editor.action.value'"></span></label>
   }
 
-  @if (action.type == ActionType.specialTarget) {
+  @if (action.type === ActionType.specialTarget) {
     <select [ngModel]="value" (ngModelChange)="changeSpecialTarget($event, subValue)">
       @for (specialTarget of ActionSpecialTarget; track specialTarget) {
         <option [value]="specialTarget">
@@ -62,11 +62,11 @@
     <input type="text" [ngModel]="action.value" (ngModelChange)="action.value = valueChange($event)" (change)="change()" />
   }
 
-  @if (!hideValues && action.type == ActionType.custom) {
+  @if (!hideValues && action.type === ActionType.custom) {
     <textarea [ngModel]="action.value" (ngModelChange)="action.value = valueChange($event)" (change)="change()"> </textarea>
   }
 
-  @if (action.type == ActionType.area) {
+  @if (action.type === ActionType.area) {
     <div class="area-container">
       <div class="hexes">
         <ghs-action-hex
@@ -83,7 +83,7 @@
     </div>
   }
 
-  @if (action.type == ActionType.summon) {
+  @if (action.type === ActionType.summon) {
     <div class="summon">
       <div class="summon-type">
         <label>
@@ -148,7 +148,7 @@
     </div>
   }
 
-  @if (action.type == ActionType.condition) {
+  @if (action.type === ActionType.condition) {
     <select [(ngModel)]="value" (change)="changeCondition()">
       @for (condition of conditionNames; track condition) {
         <option [value]="condition">
@@ -161,7 +161,7 @@
     }
   }
 
-  @if (action.type == ActionType.card) {
+  @if (action.type === ActionType.card) {
     <select [(ngModel)]="value" (change)="changeCard()">
       @for (card of ActionCardTypes; track card) {
         <option [value]="card">
@@ -174,7 +174,7 @@
     }
   }
 
-  @if (action.type == ActionType.element) {
+  @if (action.type === ActionType.element) {
     <select [(ngModel)]="action.value" (change)="change()">
       @for (element of Elements; track element) {
         <option [value]="element">
@@ -185,7 +185,7 @@
   }
 
   <div class="action-element-half-container">
-    @if (action.type == ActionType.elementHalf) {
+    @if (action.type === ActionType.elementHalf) {
       <select [(ngModel)]="value" (change)="changeElementHalf()">
         @for (element of HalfElementsLeft; track element) {
           <option [value]="element">
@@ -195,7 +195,7 @@
       </select>
     }
 
-    @if (action.type == ActionType.elementHalf) {
+    @if (action.type === ActionType.elementHalf) {
       <select [(ngModel)]="subValue" (change)="changeElementHalf()">
         @for (element of HalfElementsRight; track element) {
           <option [value]="element">
@@ -206,7 +206,7 @@
     }
   </div>
 
-  @if (action.type == ActionType.monsterType) {
+  @if (action.type === ActionType.monsterType) {
     <select [(ngModel)]="action.value" (change)="change()">
       @for (monsterType of MonsterTypes; track monsterType) {
         <option [value]="monsterType"><span [ghs-label]="'game.monster.' + monsterType"></span></option>
@@ -234,7 +234,10 @@
     <label><span [ghs-label]="'editor.action.valueType'"></span></label>
     <select [(ngModel)]="action.valueType" placeholder="valueType" (change)="change()">
       @for (valueType of ActionValueTypes; track valueType) {
-        <option [value]="valueType" [selected]="action.valueType == valueType || (!action.valueType && valueType == ActionValueType.fixed)">
+        <option
+          [value]="valueType"
+          [selected]="action.valueType === valueType || (!action.valueType && valueType === ActionValueType.fixed)"
+        >
           <span [ghs-label]="'editor.action.valueType.' + valueType"></span>
         </option>
       }

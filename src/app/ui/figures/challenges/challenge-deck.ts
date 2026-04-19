@@ -97,7 +97,7 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
       (window.innerWidth < 800 || window.innerHeight < 400);
 
     const building = gameManager.game.party.buildings.find(
-      (buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked'
+      (buildingModel) => buildingModel.name === 'town-hall' && buildingModel.level && buildingModel.state !== 'wrecked'
     );
     if (building) {
       this.drawAvailable = building.level;
@@ -106,7 +106,7 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
 
     this.disabled =
       !gameManager.roundManager.firstRound ||
-      gameManager.game.state == GameState.next ||
+      gameManager.game.state === GameState.next ||
       !gameManager.game.scenario ||
       !this.deck.cards.length;
     this.drawDisabled = this.disabled || this.deck.current - this.deck.finished >= this.drawAvailable;
@@ -148,7 +148,7 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
 
   update(fromServer: boolean = false) {
     const building = gameManager.game.party.buildings.find(
-      (buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked'
+      (buildingModel) => buildingModel.name === 'town-hall' && buildingModel.level && buildingModel.state !== 'wrecked'
     );
     if (building) {
       this.drawAvailable = building.level;
@@ -157,12 +157,12 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
 
     this.disabled =
       !gameManager.roundManager.firstRound ||
-      gameManager.game.state == GameState.next ||
+      gameManager.game.state === GameState.next ||
       !gameManager.game.scenario ||
       !this.deck.cards.length;
     this.drawDisabled = this.disabled || this.deck.current - this.deck.finished >= this.drawAvailable;
 
-    if (this.initServer && gameManager.stateManager.wsState() != WebSocket.OPEN) {
+    if (this.initServer && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
       this.initServer = false;
     }
 
@@ -174,7 +174,7 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
       this.queue = 0;
       this.drawing = false;
       this.current = this.deck.current;
-      this.initServer = gameManager.stateManager.wsState() == WebSocket.OPEN;
+      this.initServer = gameManager.stateManager.wsState() === WebSocket.OPEN;
     } else if (this.init && (!fromServer || this.initServer)) {
       if (this.current < this.deck.current) {
         this.queue = Math.max(0, this.deck.current - this.current);
@@ -233,7 +233,7 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
     if (this.compact && this.fullscreen) {
       this.openFullscreen(event);
     } else if (!this.drawDisabled && this.deck.cards.length > 0) {
-      if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue == 0 ? 0 : 1)) {
+      if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue === 0 ? 0 : 1)) {
         this.drawTimeout = setTimeout(
           () => {
             this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.draw'));

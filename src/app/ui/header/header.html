@@ -89,7 +89,7 @@
     @if (syncing) {
       <img src="./assets/images/shuffle.svg" class="server-connection syncing" />
     }
-    @if (!syncing && gameManager.stateManager.wsState() != -99 && gameManager.game.server) {
+    @if (!syncing && gameManager.stateManager.wsState() !== -99 && gameManager.game.server) {
       <span class="game-server">°</span>
     }
     @if (settingsManager.settings.hints) {
@@ -150,7 +150,7 @@
         <img
           class="ghs-svg"
           [src]="
-            './assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state == GameState.next ? '-effects' : '') + '.svg'
+            './assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state === GameState.next ? '-effects' : '') + '.svg'
           "
         />
       </div>
@@ -172,7 +172,7 @@
         [ghs-tooltip]="
           'duration.gameClock.' +
           (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut
-            ? currentGameClock == overallGameClock
+            ? currentGameClock === overallGameClock
               ? 'running'
               : 'runningTotal'
             : overallGameClock

@@ -35,7 +35,7 @@
   <div class="line editions">
     @for (e of editions; track e) {
       <label>
-        <input tabclick type="radio" name="radio" [value]="e" (change)="setEdition(e)" [checked]="edition == e" />
+        <input tabclick type="radio" name="radio" [value]="e" (change)="setEdition(e)" [checked]="edition === e" />
         <span [ghs-label]="'data.edition.' + e"></span>
       </label>
     }

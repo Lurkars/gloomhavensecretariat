@@ -43,8 +43,8 @@ export class MonsterEntity implements Entity {
       this.stat = new MonsterStat(type, monster.level);
       monster.errors = monster.errors || [];
       if (
-        !monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) &&
-        !monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)
+        !monster.errors.find((figureError) => figureError.type === FigureErrorType.unknown) &&
+        !monster.errors.find((figureError) => figureError.type === FigureErrorType.stat)
       ) {
         console.error("Could not find '" + type + "' stats for monster: " + monster.name + ' level: ' + monster.level);
         monster.errors.push(new FigureError(FigureErrorType.stat, 'monster', monster.name, monster.edition, type, '' + monster.level));
@@ -55,7 +55,7 @@ export class MonsterEntity implements Entity {
 
     this.maxHealth = EntityValueFunction(this.stat.health, monster.level);
     this.health = this.maxHealth;
-    if (this.health == 0) {
+    if (this.health === 0) {
       this.health = 1;
     }
     this.level = monster.level;

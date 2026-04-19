@@ -11,7 +11,7 @@
     <div class="color-container">
       @if (!fhSummon) {
         @for (color of summonColors; track color) {
-          <span class="summon-button" (click)="selectColor(color)" [ngClass]="{ active: color == summonColor }">
+          <span class="summon-button" (click)="selectColor(color)" [ngClass]="{ active: color === summonColor }">
             <span class="image">
               <img src="./assets/images/summons/{{ color }}.png" />
             </span>
@@ -19,18 +19,18 @@
         }
       }
       @for (number of [] | ghsRange: 8; track number) {
-        <span class="number-button" (click)="pickNumber(number + 1)" [ngClass]="{ disabled: summonNumber == number + 1 }">
+        <span class="number-button" (click)="pickNumber(number + 1)" [ngClass]="{ disabled: summonNumber === number + 1 }">
           <span class="number">{{ number + 1 }}</span>
         </span>
       }
     </div>
     <div class="scroll-container summons">
       @for (summonData of summonData | trackUUID; track summonData._trackUUID; let i = $index) {
-        @if (showAll || summonNumbers[i] != -1) {
+        @if (showAll || summonNumbers[i] !== -1) {
           <span
             class="summon"
             (click)="addSummon(summonData)"
-            [ngClass]="{ disabled: summonNumbers[i] == -1 || !available(summonData, summonNumber || summonNumbers[i]) }"
+            [ngClass]="{ disabled: summonNumbers[i] === -1 || !available(summonData, summonNumber || summonNumbers[i]) }"
           >
             <span class="summon-button">
               <span class="image" [ngClass]="{ fh: fhSummon }">
@@ -40,7 +40,7 @@
                 @if (!fhSummon && !summonData.special) {
                   <img src="./assets/images/summons/{{ summonColor }}.png" />
                 }
-                <span class="summon-number">{{ summonNumber ? summonNumber : summonNumbers[i] != -1 ? summonNumbers[i] : '-' }}</span>
+                <span class="summon-number">{{ summonNumber ? summonNumber : summonNumbers[i] !== -1 ? summonNumbers[i] : '-' }}</span>
               </span>
             </span>
             <label>

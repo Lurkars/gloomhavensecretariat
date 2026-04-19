@@ -65,7 +65,7 @@ export class ItemsBrewDialog implements OnInit {
   constructor() {
     this.brewing = 0;
     if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
-      const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
+      const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name === 'alchemist');
       if (alchemist && alchemist.level) {
         this.brewing = alchemist.level < 3 ? 2 : 3;
       }
@@ -80,7 +80,9 @@ export class ItemsBrewDialog implements OnInit {
     const item = this.getItem();
     this.item =
       item &&
-      gameManager.game.party.unlockedItems.find((identitfier) => identitfier.name == '' + item.id && identitfier.edition == item.edition) &&
+      gameManager.game.party.unlockedItems.find(
+        (identitfier) => identitfier.name === '' + item.id && identitfier.edition === item.edition
+      ) &&
       item;
     this.brewed = undefined;
     this.characters = gameManager.game.figures
@@ -89,14 +91,14 @@ export class ItemsBrewDialog implements OnInit {
           figure instanceof Character &&
           (!this.item ||
             !figure.progress.items.find(
-              (identifier) => this.item && identifier.name == '' + this.item.id && identifier.edition == this.item.edition
+              (identifier) => this.item && identifier.name === '' + this.item.id && identifier.edition === this.item.edition
             ))
       )
       .map((figure) => figure as Character)
       .sort((a, b) => {
-        if (a == this.character) {
+        if (a === this.character) {
           return -1;
-        } else if (b == this.character) {
+        } else if (b === this.character) {
           return 1;
         }
         return gameManager.sortFiguresByTypeAndName(a, b);
@@ -158,14 +160,14 @@ export class ItemsBrewDialog implements OnInit {
       .find(
         (itemData) =>
           (!itemData.requiredItems || !itemData.requiredItems.length) &&
-          itemData.requiredBuilding == 'alchemist' &&
+          itemData.requiredBuilding === 'alchemist' &&
           itemData.requiredBuildingLevel >= 3 &&
           !itemData.resources
       );
     this.gridItemSpecial3 =
       specialItem &&
       gameManager.game.party.unlockedItems.find(
-        (identifier) => identifier.name == '' + specialItem.id && identifier.edition == specialItem.edition
+        (identifier) => identifier.name === '' + specialItem.id && identifier.edition === specialItem.edition
       )
         ? specialItem
         : undefined;
@@ -205,7 +207,7 @@ export class ItemsBrewDialog implements OnInit {
 
   removeHerb(type: LootType | undefined, source: Partial<Record<LootType, number>> | false, index: number = -1) {
     this.receipe[index > -1 ? index : this.receipe.indexOf(type)] = undefined;
-    if (index == 2) {
+    if (index === 2) {
       this.receipe.splice(2, 1);
     }
     if (type && !this.forced[index > -1 ? index : this.receipe.indexOf(type)]) {
@@ -224,7 +226,7 @@ export class ItemsBrewDialog implements OnInit {
   }
 
   toggleHerb(type: LootType, index: number, force: boolean = false) {
-    const add = this.receipe[index] != type || (!this.forced[index] && force) || (this.forced[index] && !force);
+    const add = this.receipe[index] !== type || (!this.forced[index] && force) || (this.forced[index] && !force);
     if (this.receipe[index]) {
       this.removeHerb(this.receipe[index], false, index);
     }
@@ -249,7 +251,7 @@ export class ItemsBrewDialog implements OnInit {
       this.brewed = this.getItem();
       if (this.selectedCharacter && this.brewed) {
         gameManager.stateManager.before(
-          this.selectedCharacter == this.character ? 'brewPotion' : 'brewPotionOther',
+          this.selectedCharacter === this.character ? 'brewPotion' : 'brewPotionOther',
           (!!this.character && gameManager.characterManager.characterName(this.character, true, true)) || '',
           this.brewed.id,
           this.brewed.edition,
@@ -267,7 +269,7 @@ export class ItemsBrewDialog implements OnInit {
         }
         if (
           !gameManager.game.party.unlockedItems.find(
-            (identitfier) => this.brewed && identitfier.name == '' + this.brewed.id && identitfier.edition == this.brewed.edition
+            (identitfier) => this.brewed && identitfier.name === '' + this.brewed.id && identitfier.edition === this.brewed.edition
           )
         ) {
           gameManager.game.party.unlockedItems.push(new CountIdentifier(this.brewed.id, this.brewed.edition));
@@ -283,14 +285,15 @@ export class ItemsBrewDialog implements OnInit {
   getItem(): ItemData | undefined {
     if (this.receipe[0] && this.receipe[1]) {
       if (
-        this.receipe.filter((herb, index, self) => herb && self.indexOf(herb) == index).length != this.receipe.filter((herb) => herb).length
+        this.receipe.filter((herb, index, self) => herb && self.indexOf(herb) === index).length !=
+        this.receipe.filter((herb) => herb).length
       ) {
         return gameManager.itemManager
           .getItems(gameManager.currentEdition(), true)
           .find(
             (itemData) =>
               (!itemData.requiredItems || !itemData.requiredItems.length) &&
-              itemData.requiredBuilding == 'alchemist' &&
+              itemData.requiredBuilding === 'alchemist' &&
               (!this.receipe[2] ? itemData.requiredBuildingLevel < 3 : itemData.requiredBuildingLevel >= 3) &&
               !itemData.resources
           );
@@ -300,11 +303,11 @@ export class ItemsBrewDialog implements OnInit {
           .find(
             (itemData) =>
               (!itemData.requiredItems || !itemData.requiredItems.length) &&
-              itemData.requiredBuilding == 'alchemist' &&
+              itemData.requiredBuilding === 'alchemist' &&
               (!this.receipe[2] ? itemData.requiredBuildingLevel < 3 : itemData.requiredBuildingLevel >= 3) &&
               itemData.resources &&
               this.herbs.every(
-                (herb) => itemData.resources && this.receipe.filter((value) => value == herb).length == (itemData.resources[herb] || 0)
+                (herb) => itemData.resources && this.receipe.filter((value) => value === herb).length === (itemData.resources[herb] || 0)
               )
           );
       }
@@ -329,18 +332,18 @@ export class ItemsBrewDialog implements OnInit {
       .find(
         (itemData) =>
           (!itemData.requiredItems || !itemData.requiredItems.length) &&
-          itemData.requiredBuilding == 'alchemist' &&
+          itemData.requiredBuilding === 'alchemist' &&
           (herb3 ? itemData.requiredBuildingLevel >= 3 : itemData.requiredBuildingLevel < 3) &&
           (hasDuplicates
             ? !itemData.resources
             : !!itemData.resources &&
               this.herbs.every(
-                (herb) => itemData.resources && tempReceipe.filter((value) => value == herb).length == (itemData.resources[herb] || 0)
+                (herb) => itemData.resources && tempReceipe.filter((value) => value === herb).length === (itemData.resources[herb] || 0)
               ))
       );
     if (
       item &&
-      gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition)
+      gameManager.game.party.unlockedItems.find((identifier) => identifier.name === '' + item.id && identifier.edition === item.edition)
     ) {
       return item;
     }
@@ -349,8 +352,8 @@ export class ItemsBrewDialog implements OnInit {
 
   isGridCombinationActive(herb1: LootType, herb2: LootType, herb3: LootType | undefined = undefined): boolean {
     return (
-      ((this.receipe[0] == herb1 && this.receipe[1] == herb2) || (this.receipe[0] == herb2 && this.receipe[1] == herb1)) &&
-      (!herb3 || this.receipe[2] == herb3)
+      ((this.receipe[0] === herb1 && this.receipe[1] === herb2) || (this.receipe[0] === herb2 && this.receipe[1] === herb1)) &&
+      (!herb3 || this.receipe[2] === herb3)
     );
   }
 

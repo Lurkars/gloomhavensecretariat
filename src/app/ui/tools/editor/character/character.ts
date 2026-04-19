@@ -78,7 +78,7 @@ export class CharacterEditorComponent implements OnInit {
         if (queryParams['character']) {
           const characterData = gameManager
             .charactersData(this.edition)
-            .find((characterData) => characterData.name == queryParams['character']);
+            .find((characterData) => characterData.name === queryParams['character']);
           if (characterData) {
             this.characterData = characterData;
             this.characterDataToJson();
@@ -103,7 +103,7 @@ export class CharacterEditorComponent implements OnInit {
       this.hpIndex = -1;
     }
 
-    if (this.hpIndex != -1) {
+    if (this.hpIndex !== -1) {
       this.characterData.stats.forEach((stat) => {
         stat.health = this.hpValues[this.hpIndex][stat.level - 1];
       });
@@ -149,7 +149,7 @@ export class CharacterEditorComponent implements OnInit {
 
   loadCharacterData(event: any) {
     const index = +event.target.value;
-    if (index != -1) {
+    if (index !== -1) {
       this.characterData = gameManager.charactersData(this.edition)[index];
     } else {
       this.characterData = new CharacterData();
@@ -161,7 +161,7 @@ export class CharacterEditorComponent implements OnInit {
 
     this.hpIndex = -1;
     this.hpValues.forEach((value, index) => {
-      if (value.every((hp, level) => this.characterData.stats.find((stat) => stat.level == level + 1 && stat.health == hp))) {
+      if (value.every((hp, level) => this.characterData.stats.find((stat) => stat.level === level + 1 && stat.health === hp))) {
         this.hpIndex = index;
       }
     });

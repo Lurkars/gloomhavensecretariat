@@ -71,12 +71,12 @@ export class AttackModifierToolComponent implements OnInit {
       character.perks.forEach((perk) => {
         if (perk.cards) {
           perk.cards.forEach((card, index) => {
-            if (perk.type == PerkType.add || perk.type == PerkType.replace) {
+            if (perk.type === PerkType.add || perk.type === PerkType.replace) {
               const am = Object.assign(new AttackModifier(card.attackModifier.type), card.attackModifier);
               am.id = 'perk' + perkId;
               if (
                 !gameManager.attackModifierManager.findByAttackModifier(defaultAttackModifier, am) ||
-                perk.type == PerkType.add ||
+                perk.type === PerkType.add ||
                 index > 0
               ) {
                 am.character = true;
@@ -100,7 +100,7 @@ export class AttackModifierToolComponent implements OnInit {
       this.characters.push(character);
     });
     this.characters.sort((a, b) => {
-      if (a.edition != b.edition) {
+      if (a.edition !== b.edition) {
         return a.edition < b.edition ? -1 : 1;
       } else {
         const aName = settingsManager.getLabel('data.character.' + a.edition + '.' + a.name).toLowerCase();
@@ -111,7 +111,7 @@ export class AttackModifierToolComponent implements OnInit {
 
     this.filteredCharacters = [];
     this.characterName.forEach((name) => {
-      const character = this.characters.find((character) => character.name == name);
+      const character = this.characters.find((character) => character.name === name);
       if (character) {
         this.filteredCharacters.push(character);
       }

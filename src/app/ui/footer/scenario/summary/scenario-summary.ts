@@ -138,9 +138,9 @@ export class ScenarioSummaryComponent {
         this.conclusion.repeatable ||
         gameManager.game.party.conclusions.find(
           (conclusion) =>
-            conclusion.index == this.scenario.index &&
-            conclusion.edition == this.scenario.edition &&
-            conclusion.group == this.scenario.group
+            conclusion.index === this.scenario.index &&
+            conclusion.edition === this.scenario.edition &&
+            conclusion.group === this.scenario.group
         )
       ) {
         this.rewardsOnly = true;
@@ -153,11 +153,11 @@ export class ScenarioSummaryComponent {
         .sectionData(this.scenario.edition)
         .find(
           (sectionData) =>
-            sectionData.parent == this.scenario.index &&
-            sectionData.group == this.scenario.group &&
-            sectionData.edition == this.scenario.edition &&
+            sectionData.parent === this.scenario.index &&
+            sectionData.group === this.scenario.group &&
+            sectionData.edition === this.scenario.edition &&
             sectionData.conclusion
-        ) != undefined;
+        ) !== undefined;
 
     this.characters = gameManager.game.figures
       .filter((figure) => figure instanceof Character)
@@ -183,25 +183,25 @@ export class ScenarioSummaryComponent {
       });
 
     this.trial349 = this.characters.find(
-      (character) => character.progress.trial && character.progress.trial.edition == 'fh' && character.progress.trial.name == '349'
+      (character) => character.progress.trial && character.progress.trial.edition === 'fh' && character.progress.trial.name === '349'
     );
 
     this.trial356 = this.characters.find(
-      (character) => character.progress.trial && character.progress.trial.edition == 'fh' && character.progress.trial.name == '356'
+      (character) => character.progress.trial && character.progress.trial.edition === 'fh' && character.progress.trial.name === '356'
     );
 
     for (const value in LootType) {
       const lootType: LootType = value as LootType;
       if (
-        lootType != LootType.money &&
-        lootType != LootType.special1 &&
-        lootType != LootType.special2 &&
+        lootType !== LootType.money &&
+        lootType !== LootType.special1 &&
+        lootType !== LootType.special2 &&
         !this.lootColumns.includes(lootType) &&
         this.characters.some(
           (character) =>
             character.lootCards &&
             character.lootCards.some(
-              (index) => gameManager.game.lootDeck.cards[index] && gameManager.game.lootDeck.cards[index].type == lootType
+              (index) => gameManager.game.lootDeck.cards[index] && gameManager.game.lootDeck.cards[index].type === lootType
             )
         )
       ) {
@@ -236,10 +236,10 @@ export class ScenarioSummaryComponent {
             gameManager.game.party.conclusions.find(
               (scenarioModel) =>
                 this.conclusion &&
-                scenarioModel.index == this.conclusion.index &&
-                scenarioModel.edition == this.conclusion.edition &&
-                scenarioModel.group == this.conclusion.group
-            ) != undefined))) ||
+                scenarioModel.index === this.conclusion.index &&
+                scenarioModel.edition === this.conclusion.edition &&
+                scenarioModel.group === this.conclusion.group
+            ) !== undefined))) ||
       false;
 
     this.characterProgress = !this.rewardsOnly && !this.conclusionOnly && (gameManager.game.party.campaignMode || !gameManager.fhRules());
@@ -306,8 +306,8 @@ export class ScenarioSummaryComponent {
             .find(
               (sectionData) =>
                 finish.conclusion &&
-                sectionData.index == finish.conclusion.index &&
-                sectionData.group == finish.conclusion.group &&
+                sectionData.index === finish.conclusion.index &&
+                sectionData.group === finish.conclusion.group &&
                 sectionData.conclusion
             )
         : undefined;
@@ -381,7 +381,7 @@ export class ScenarioSummaryComponent {
               this.rewardItemCount[index] = !item.includes(':') ? 1 : +item.split(':')[1];
 
               // add automatically on (potential) solo scenario
-              if (this.characters.filter((char) => !char.absent).length == 1) {
+              if (this.characters.filter((char) => !char.absent).length === 1) {
                 const char = this.characters.find((char) => !char.absent);
                 if (char) {
                   if (this.items[this.characters.indexOf(char)] === undefined) {
@@ -477,7 +477,9 @@ export class ScenarioSummaryComponent {
               } else {
                 let itemData = gameManager.itemManager.drawRandomItem(itemEdition, false, from, to);
                 if (
-                  character.progress.items.find((owned) => itemData && owned.name == itemData.id + '' && owned.edition == itemData.edition)
+                  character.progress.items.find(
+                    (owned) => itemData && owned.name === itemData.id + '' && owned.edition === itemData.edition
+                  )
                 ) {
                   itemData = undefined;
                 }
@@ -495,7 +497,7 @@ export class ScenarioSummaryComponent {
 
         if (this.rewards.townGuardAm) {
           this.townGuardAMs = this.rewards.townGuardAm.map(
-            (id) => additionalTownGuardAttackModifier.find((am) => am.id == id) as AttackModifier
+            (id) => additionalTownGuardAttackModifier.find((am) => am.id === id) as AttackModifier
           );
         }
 
@@ -517,12 +519,12 @@ export class ScenarioSummaryComponent {
         this.numberChallenges = gameManager.game.challengeDeck.keep.length;
       } else if (gameManager.fhRules()) {
         const townHall = gameManager.game.party.buildings.find(
-          (buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked'
+          (buildingModel) => buildingModel.name === 'town-hall' && buildingModel.level && buildingModel.state !== 'wrecked'
         );
         if (townHall) {
-          if (townHall.level == 1 || townHall.level == 2) {
+          if (townHall.level === 1 || townHall.level === 2) {
             this.numberChallenges = 1;
-          } else if (townHall.level == 3) {
+          } else if (townHall.level === 3) {
             this.numberChallenges = 2;
           }
         }
@@ -625,7 +627,7 @@ export class ScenarioSummaryComponent {
 
   weekSections(): ScenarioData[] {
     const result: ScenarioData[] = [];
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.scenario.edition);
+    const editionData = gameManager.editionData.find((editionData) => editionData.edition === this.scenario.edition);
     const weekSections: string[] = [];
     if (editionData && editionData.campaign) {
       weekSections.push(...((editionData.campaign.weeks && editionData.campaign.weeks[gameManager.game.party.weeks + 1]) || []));
@@ -636,7 +638,7 @@ export class ScenarioSummaryComponent {
     weekSections.forEach((section) => {
       const sectionData = gameManager
         .sectionData(this.scenario.edition)
-        .find((sectionData) => sectionData.index == section && sectionData.group == this.scenario.group && sectionData.conclusion);
+        .find((sectionData) => sectionData.index === section && sectionData.group === this.scenario.group && sectionData.conclusion);
       if (sectionData) {
         result.push(sectionData);
       }
@@ -670,7 +672,7 @@ export class ScenarioSummaryComponent {
   availableCollectiveResource(type: LootType): number {
     const resource: { type: LootType; value: number | string } = (this.rewards &&
       this.rewards.collectiveResources &&
-      this.rewards.collectiveResources.find((value) => value.type == type)) || { type: type, value: 0 };
+      this.rewards.collectiveResources.find((value) => value.type === type)) || { type: type, value: 0 };
 
     const value = EntityValueFunction(resource.value);
 
@@ -690,7 +692,7 @@ export class ScenarioSummaryComponent {
     if (character.lootCards) {
       character.lootCards.forEach((index) => {
         const loot = gameManager.game.lootDeck.cards[index];
-        if (loot && loot.type == lootType) {
+        if (loot && loot.type === lootType) {
           value += gameManager.lootManager.getValue(loot);
         }
       });
@@ -799,7 +801,7 @@ export class ScenarioSummaryComponent {
       if (
         this.rewardItems.some(
           (rewardItem, rewardIndex) =>
-            rewardIndex != itemIndex &&
+            rewardIndex !== itemIndex &&
             (rewardIndex < startIndex || rewardIndex > endIndex) &&
             this.characters.some((char, charIndex) => this.itemDistributed(charIndex, rewardIndex, false))
         )
@@ -809,7 +811,9 @@ export class ScenarioSummaryComponent {
     }
 
     const item = this.rewardItems[itemIndex];
-    if (this.characters[index].progress.items.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition)) {
+    if (
+      this.characters[index].progress.items.find((identifier) => identifier.name === '' + item.id && identifier.edition === item.edition)
+    ) {
       return true;
     }
 
@@ -817,7 +821,7 @@ export class ScenarioSummaryComponent {
     const availableItems = choose
       ? itemData.count -
         this.characters.filter((character) =>
-          character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition)
+          character.progress.items.find((identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition)
         ).length
       : 1;
 
@@ -840,7 +844,7 @@ export class ScenarioSummaryComponent {
 
   toggleRandomItem(event: any, index: number) {
     gameManager.stateManager.before('finishScenario.dialog.item', index);
-    this.randomItemIndex = this.randomItemIndex == index ? -1 : index;
+    this.randomItemIndex = this.randomItemIndex === index ? -1 : index;
     this.updateFinish();
     gameManager.stateManager.after();
   }
@@ -865,7 +869,7 @@ export class ScenarioSummaryComponent {
       value = this.availableCollectiveGold();
     }
     this.collectiveGold[index] = old;
-    if (value != (this.collectiveGold[index] || 0)) {
+    if (value !== (this.collectiveGold[index] || 0)) {
       gameManager.stateManager.before('finishScenario.dialog.collectiveGold', index, event.target.value);
       this.collectiveGold[index] = +event.target.value;
       this.updateFinish();
@@ -887,7 +891,7 @@ export class ScenarioSummaryComponent {
       value = this.availableCollectiveResource(type);
     }
     this.collectiveResources[index][type] = old;
-    if (value != (this.collectiveResources[index][type] || 0)) {
+    if (value !== (this.collectiveResources[index][type] || 0)) {
       gameManager.stateManager.before('finishScenario.dialog.collectiveResource', type, index, event.target.value);
       this.collectiveResources[index] = this.collectiveResources[index] || {};
       this.collectiveResources[index][type] = value;
@@ -935,7 +939,7 @@ export class ScenarioSummaryComponent {
     this.waitForClose = true;
     const linkedScenarioData = gameManager
       .scenarioData(this.scenario.edition)
-      .find((scenarioData) => scenarioData.group == this.scenario.group && scenarioData.index == linkedIndex);
+      .find((scenarioData) => scenarioData.group === this.scenario.group && scenarioData.index === linkedIndex);
     if (this.conclusionOnly) {
       gameManager.stateManager.before('finishConclusion', ...gameManager.scenarioManager.scenarioUndoArgs(this.scenario));
     } else {
@@ -1034,7 +1038,7 @@ export class ScenarioSummaryComponent {
 
       if ((this.gainRewards || this.forceCampaign) && this.randomItemBlueprints.length > 0) {
         this.randomItemBlueprints.forEach((itemId) => {
-          if (itemId == -1) {
+          if (itemId === -1) {
             gameManager.game.party.inspiration += 1;
           } else {
             gameManager.game.party.unlockedItems.push(new CountIdentifier(itemId, this.scenario.edition));
@@ -1078,7 +1082,7 @@ export class ScenarioSummaryComponent {
         this.success,
         this.conclusion,
         false,
-        linkedScenarioData != undefined,
+        linkedScenarioData !== undefined,
         settingsManager.settings.scenarioRewards && !gameManager.bbRules() && (this.characterProgress || this.forceCampaign),
         this.gainRewards || this.forceCampaign
       );
@@ -1108,8 +1112,8 @@ export class ScenarioSummaryComponent {
       0,
       settingsManager.settings.autoBackup > -1 &&
         settingsManager.settings.autoBackupFinish &&
-        (settingsManager.settings.autoBackup == 0 ||
-          (gameManager.game.revision + gameManager.game.revisionOffset) % settingsManager.settings.autoBackup != 0)
+        (settingsManager.settings.autoBackup === 0 ||
+          (gameManager.game.revision + gameManager.game.revisionOffset) % settingsManager.settings.autoBackup !== 0)
     );
 
     this.close();

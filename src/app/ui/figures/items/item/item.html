@@ -8,7 +8,7 @@
       [disabled]="!reveal"
       (changed)="emitRevealed($event)"
     >
-      @if (!item.actionsBack || item.actionsBack.length == 0) {
+      @if (!item.actionsBack || item.actionsBack.length === 0) {
         <div class="card-back back">
           <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
           <div class="id">

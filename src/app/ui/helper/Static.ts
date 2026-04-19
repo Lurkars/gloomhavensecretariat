@@ -16,7 +16,7 @@ export function ghsUnit(): number {
 export function ghsShuffleArray(array: any[]): any[] {
   let i = array.length,
     r;
-  while (i != 0) {
+  while (i !== 0) {
     r = Math.floor(Math.random() * i);
     i--;
     [array[i], array[r]] = [array[r], array[i]];
@@ -44,16 +44,16 @@ export function ghsNotSpoiled(items: Spoilable[]): Spoilable[] {
 
 export function ghsTextSearch(target: string, search: string, match: boolean = false): boolean {
   if (match) {
-    return target.toLowerCase() == search.toLowerCase();
+    return target.toLowerCase() === search.toLowerCase();
   }
 
-  return search.split(' ').every((part) => target.toLowerCase().indexOf(part.toLowerCase()) != -1);
+  return search.split(' ').every((part) => target.toLowerCase().indexOf(part.toLowerCase()) !== -1);
 }
 
 export function ghsValueSign(value: number, empty: boolean = false): string {
   if (value > 0) {
     return '+' + value;
-  } else if (empty && value == 0) {
+  } else if (empty && value === 0) {
     return '-';
   } else {
     return '' + value;
@@ -109,9 +109,9 @@ export function ghsInputFullScreenCheckListener() {
 export function ghsFilterInputFocus(): boolean {
   return (
     !window.document.activeElement ||
-    (window.document.activeElement.tagName != 'INPUT' &&
-      window.document.activeElement.tagName != 'SELECT' &&
-      window.document.activeElement.tagName != 'TEXTAREA')
+    (window.document.activeElement.tagName !== 'INPUT' &&
+      window.document.activeElement.tagName !== 'SELECT' &&
+      window.document.activeElement.tagName !== 'TEXTAREA')
   );
 }
 

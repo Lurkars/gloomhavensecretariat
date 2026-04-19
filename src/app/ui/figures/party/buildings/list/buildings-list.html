@@ -128,7 +128,7 @@
               ></span>
             </span>
           }
-          @if (gameManager.buildingsManager.petsEnabled && building.data.name == 'stables') {
+          @if (gameManager.buildingsManager.petsEnabled && building.data.name === 'stables') {
             <span class="interaction stables">
               <span class="icon" (click)="openStables()" [ghs-tooltip]="'data.buildings.stables.pets.interaction'"
                 ><img src="./assets/images/fh/catching.svg" />
@@ -136,7 +136,7 @@
               <span class="text" (click)="openStables()" [ghs-label]="'data.buildings.stables.pets.interaction'"></span>
             </span>
           }
-          @if (gameManager.buildingsManager.gardenEnabled && building.data.name == 'garden') {
+          @if (gameManager.buildingsManager.gardenEnabled && building.data.name === 'garden') {
             <span class="interaction garden">
               <span class="icon" (click)="openGarden()" [ghs-tooltip]="'data.buildings.garden.plots.interaction'"
                 ><img src="./assets/images/fh/buildings/garden.png" />
@@ -156,7 +156,7 @@
         }
         @if (building.model.level > 0) {
           @if (
-            building.model.state == 'normal' &&
+            building.model.state === 'normal' &&
             building.model.level < building.data.upgrades.length + 1 &&
             !building.data.upgrades[building.model.level - 1].manual
           ) {
@@ -174,7 +174,7 @@
               ><img src="./assets/images/fh/loot/hide.svg" /> {{ building.data.upgrades[building.model.level - 1].hide || '-' }}</span
             >
           }
-          @if (building.model.state == 'damaged' && building.data.repair) {
+          @if (building.model.state === 'damaged' && building.data.repair) {
             <span class="repair">
               <span
                 [ghs-label]="'party.campaign.sheet.buildings.repair.costs'"
@@ -188,7 +188,7 @@
               }
             </span>
           }
-          @if (building.model.state == 'wrecked') {
+          @if (building.model.state === 'wrecked') {
             <span></span>
             <span class="cost"
               ><img src="./assets/images/fh/loot/lumber.svg" /> {{ building.data.rebuild[building.model.level - 1].lumber || '-' }}</span
@@ -203,7 +203,7 @@
         }
       </span>
       <span class="action">
-        @if (building.model.level < building.data.upgrades.length + 1 && building.model.state == 'normal') {
+        @if (building.model.level < building.data.upgrades.length + 1 && building.model.state === 'normal') {
           <span
             [ngClass]="{ disabled: !upgradeable(building) }"
             class="button upgrade"
@@ -221,7 +221,7 @@
             <img [src]="'./assets/images/fh/buildings/' + (building.model.level > 0 ? 'upgrade' : 'build') + '.svg'" />
           </span>
         }
-        @if (building.model.state == 'damaged') {
+        @if (building.model.state === 'damaged') {
           <span
             [ngClass]="{ disabled: !upgradeable(building) }"
             class="button upgrade"
@@ -239,7 +239,7 @@
             <img src="./assets/images/fh/buildings/repair.svg" />
           </span>
         }
-        @if (building.model.state == 'wrecked') {
+        @if (building.model.state === 'wrecked') {
           <span
             [ngClass]="{ disabled: !upgradeable(building) }"
             class="button upgrade"

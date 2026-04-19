@@ -60,7 +60,7 @@ export class EventCardDeckComponent {
     this.types = gameManager.eventCardManager
       .getEventTypesForEdition(this.edition)
       .filter((type) => this.allTypes || (gameManager.game.party.eventDecks[type] && gameManager.game.party.eventDecks[type].length));
-    this.allTypesToggle = gameManager.eventCardManager.getEventTypesForEdition(this.edition).length != this.types.length;
+    this.allTypesToggle = gameManager.eventCardManager.getEventTypesForEdition(this.edition).length !== this.types.length;
     this.type = this.data.type || this.types[0];
     this.update();
   }
@@ -69,16 +69,16 @@ export class EventCardDeckComponent {
     const deck = gameManager.eventCardManager.getEventCardsForEdition(this.edition, this.type);
     const current = gameManager.game.party.eventDecks[this.type] || [];
     this.upcomingCards = current
-      .map((cardId) => deck.find((e) => e.cardId == cardId))
+      .map((cardId) => deck.find((e) => e.cardId === cardId))
       .filter((e) => e)
       .map((e) => e as EventCard);
     this.newCards = deck.filter(
-      (e) => !current.includes(e.cardId) && !gameManager.game.party.eventCards.find((id) => id.type == this.type && id.cardId == e.cardId)
+      (e) => !current.includes(e.cardId) && !gameManager.game.party.eventCards.find((id) => id.type === this.type && id.cardId === e.cardId)
     );
     this.drawnCards = gameManager.game.party.eventCards
-      .filter((id) => deck.find((e) => e.edition == id.edition && e.type == id.type && e.cardId == id.cardId))
+      .filter((id) => deck.find((e) => e.edition === id.edition && e.type === id.type && e.cardId === id.cardId))
       .map((id) => {
-        return { identifier: id, card: deck.find((card) => card.cardId == id.cardId) };
+        return { identifier: id, card: deck.find((card) => card.cardId === id.cardId) };
       });
   }
 
@@ -102,7 +102,7 @@ export class EventCardDeckComponent {
 
   dropUpcoming(event: CdkDragDrop<EventCard[]>) {
     gameManager.stateManager.before('events.deck.reorder', this.type);
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       moveItemInArray(gameManager.game.party.eventDecks[this.type] || [], event.previousIndex, event.currentIndex);
     } else {
       (gameManager.game.party.eventDecks[this.type] || []).splice(
@@ -116,7 +116,7 @@ export class EventCardDeckComponent {
 
   dropNew(event: CdkDragDrop<EventCard[]>) {
     gameManager.stateManager.before('events.deck.reorder', this.type);
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       moveItemInArray(this.newCards, event.previousIndex, event.currentIndex);
     } else {
       (gameManager.game.party.eventDecks[this.type] || []).splice(event.previousIndex, 1);
@@ -126,9 +126,9 @@ export class EventCardDeckComponent {
 
   dropDrawn(event: CdkDragDrop<EventCard[]>) {
     let eventCard: EventCard | undefined;
-    if (event.previousContainer.id == 'new-list') {
+    if (event.previousContainer.id === 'new-list') {
       eventCard = this.newCards[event.previousIndex];
-    } else if (event.previousContainer.id == 'upcoming-list') {
+    } else if (event.previousContainer.id === 'upcoming-list') {
       eventCard = this.upcomingCards[event.previousIndex];
     }
 
@@ -157,7 +157,7 @@ export class EventCardDeckComponent {
 
   removeDrawn(id: EventCardIdentifier) {
     const index = gameManager.game.party.eventCards.indexOf(id);
-    if (index != -1) {
+    if (index !== -1) {
       gameManager.stateManager.before('events.deck.removeDrawn', this.type, id.cardId);
       gameManager.game.party.eventCards.splice(index, 1);
       gameManager.stateManager.after();
@@ -168,8 +168,8 @@ export class EventCardDeckComponent {
     const newSelected = change ? change.selected : -1;
     const newSubSelections = change ? change.subSelections : [];
     if (
-      id.selected != newSelected ||
-      id.subSelections.length != newSubSelections.length ||
+      id.selected !== newSelected ||
+      id.subSelections.length !== newSubSelections.length ||
       id.subSelections.some((value) => !newSubSelections.includes(value))
     ) {
       gameManager.stateManager.before('events.deck.changeSelection', this.type, id.cardId);

@@ -7,14 +7,14 @@ import { ghsLabelRegex } from 'src/app/ui/helper/label';
 
 export function valueCalc(value: string | number, level: number | undefined = undefined, empty: boolean = false): string | number {
   if (typeof value === 'number') {
-    if (empty && value == 0) {
+    if (empty && value === 0) {
       return '-';
     }
 
     return value;
   }
 
-  if (typeof value === 'string' && value == '0') {
+  if (typeof value === 'string' && value === '0') {
     return '-';
   } else if (!value) {
     return empty ? '-' : '';
@@ -76,9 +76,9 @@ export class ValueCalcDirective implements OnInit, OnChanges {
   constructor() {
     this.ghsManager.uiChangeEffect(() => {
       if (
-        this.calc != settingsManager.settings.calculate ||
-        this.C != Math.max(2, gameManager.characterManager.characterCount()) ||
-        this.L != gameManager.game.level
+        this.calc !== settingsManager.settings.calculate ||
+        this.C !== Math.max(2, gameManager.characterManager.characterCount()) ||
+        this.L !== gameManager.game.level
       ) {
         this.C = Math.max(2, gameManager.characterManager.characterCount());
         this.L = gameManager.game.level;

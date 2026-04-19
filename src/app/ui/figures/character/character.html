@@ -1,10 +1,10 @@
 @if (!character.absent && settingsManager.settings.summons) {
-  <div class="summons-container" [ngClass]="{ empty: summonCount == 0, off: off }">
+  <div class="summons-container" [ngClass]="{ empty: summonCount === 0, off: off }">
     <span class="spacer"></span>
     <span
       class="entities-menu"
-      [ngClass]="{ empty: summonCount == 0, disabled: summonCount < 2 }"
-      [entityAnimation]="summonCount == 0"
+      [ngClass]="{ empty: summonCount === 0, disabled: summonCount < 2 }"
+      [entityAnimation]="summonCount === 0"
       (click)="openEntitiesMenu($event)"
     >
       <img class="icon" [src]="character.iconUrl" />
@@ -37,9 +37,9 @@
     compact: compact,
     short: short,
     menu: shortMenu,
-    fh: settingsManager.settings.theme == 'fh',
-    modern: settingsManager.settings.theme == 'modern',
-    'active-border': character.active && (settingsManager.settings.theme == 'modern' || compact)
+    fh: settingsManager.settings.theme === 'fh',
+    modern: settingsManager.settings.theme === 'modern',
+    'active-border': character.active && (settingsManager.settings.theme === 'modern' || compact)
   }"
 >
   <ghs-entity-index-key [entity]="character"></ghs-entity-index-key>
@@ -211,12 +211,12 @@
                 </span>
               }
               @for (addToken of character.tokens; track addToken; let i = $index) {
-                @if (character.tokenValues[i] + (character.primaryToken == i ? token : 0) > 0) {
+                @if (character.tokenValues[i] + (character.primaryToken === i ? token : 0) > 0) {
                   <span class="token" [ghs-label]="'%data.characterToken.' + character.name + '.' + addToken + '%'"></span>
                 }
-                @if (character.tokenValues[i] + (character.primaryToken == i ? token : 0) > 1) {
+                @if (character.tokenValues[i] + (character.primaryToken === i ? token : 0) > 1) {
                   <span class="token value">
-                    <span>x{{ character.tokenValues[i] + (character.primaryToken == i ? token : 0) }}</span></span
+                    <span>x{{ character.tokenValues[i] + (character.primaryToken === i ? token : 0) }}</span></span
                   >
                 }
               }
@@ -303,7 +303,7 @@
                   @if (entityCondition.permanent) {
                     <span class="condition permanent condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 3"></span>
                   }
-                  @if (entityCondition.state == EntityConditionState.roundExpire) {
+                  @if (entityCondition.state === EntityConditionState.roundExpire) {
                     <span class="condition round condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 4"></span>
                   }
                 </span>
@@ -544,14 +544,14 @@
       <div class="character-traits" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="compact && openCharacterSheet()">
         <span class="icon"><img class="ghs-svg" src="./assets/images/fh/character/traits/trait.svg" /></span>
         @for (trait of character.traits; track trait; let i = $index) {
-          @if (i == 0) {
+          @if (i === 0) {
             <span class="divider"></span>
           }
           <span class="trait" [ghs-label]="'data.character.traits.' + trait"></span>
           @if (i < character.traits.length - 1) {
             <span class="divider">|</span>
           }
-          @if (i == character.traits.length - 1) {
+          @if (i === character.traits.length - 1) {
             <span class="divider"></span>
           }
         }
@@ -591,12 +591,12 @@
 </div>
 
 @if (!character.absent && settingsManager.settings.summons) {
-  <div class="summons-container spirits" [ngClass]="{ empty: skullSpiritCount == 0, off: off }">
+  <div class="summons-container spirits" [ngClass]="{ empty: skullSpiritCount === 0, off: off }">
     <span class="spacer"></span>
     <span
       class="entities-menu"
-      [ngClass]="{ empty: skullSpiritCount == 0, disabled: skullSpiritCount < 2 }"
-      [entityAnimation]="skullSpiritCount == 0"
+      [ngClass]="{ empty: skullSpiritCount === 0, disabled: skullSpiritCount < 2 }"
+      [entityAnimation]="skullSpiritCount === 0"
       (click)="openEntitiesMenu($event)"
     >
       <img class="icon" [src]="character.iconUrl" />

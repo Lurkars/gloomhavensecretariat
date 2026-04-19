@@ -21,15 +21,15 @@ export class BuildingsManager {
 
   update() {
     this.petsAvailable =
-      gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name == 'stables' && value.level) != undefined;
+      gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name === 'stables' && value.level) !== undefined;
     this.petsEnabled = this.petsAvailable && settingsManager.settings.fhPets;
     this.gardenAvailable =
-      gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name == 'garden' && value.level) != undefined;
+      gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name === 'garden' && value.level) !== undefined;
     this.gardenEnabled = this.gardenAvailable && settingsManager.settings.fhGarden;
     this.distillAvailable =
       (settingsManager.settings.characterItems || settingsManager.settings.characterSheet) &&
       gameManager.fhRules() &&
-      gameManager.game.party.buildings.find((value) => value.name == 'alchemist' && value.level > 1 && value.state != 'wrecked') !=
+      gameManager.game.party.buildings.find((value) => value.name === 'alchemist' && value.level > 1 && value.state !== 'wrecked') !=
         undefined;
   }
 
@@ -49,16 +49,16 @@ export class BuildingsManager {
 
     if (rewards.soldiers) {
       this.game.party.soldiers += rewards.soldiers;
-      const baracks = this.game.party.buildings.find((model) => model.name == 'barracks');
+      const baracks = this.game.party.buildings.find((model) => model.name === 'barracks');
       if (baracks) {
         let limit = 0;
-        if (baracks.level == 1) {
+        if (baracks.level === 1) {
           limit = 4;
-        } else if (baracks.level == 2) {
+        } else if (baracks.level === 2) {
           limit = 6;
-        } else if (baracks.level == 3) {
+        } else if (baracks.level === 3) {
           limit = 8;
-        } else if (baracks.level == 4) {
+        } else if (baracks.level === 4) {
           limit = 10;
         }
         if (this.game.party.soldiers > limit) {
@@ -71,7 +71,7 @@ export class BuildingsManager {
   rewardSection(section: ScenarioData): ScenarioData | undefined {
     if (
       gameManager.game.party.conclusions.find(
-        (model) => model.edition == section.edition && model.index == section.index && model.group == section.group
+        (model) => model.edition === section.edition && model.index === section.index && model.group === section.group
       )
     ) {
       return section;
@@ -84,10 +84,10 @@ export class BuildingsManager {
           sectionData.conclusion &&
           !sectionData.parent &&
           sectionData.parentSections &&
-          sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section.index))
+          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section.index))
       );
 
-    if (conclusions.length == 0) {
+    if (conclusions.length === 0) {
       return undefined;
     } else {
       let result: ScenarioData | undefined;
@@ -103,11 +103,11 @@ export class BuildingsManager {
 
   initialBuilding(buildingData: BuildingData): boolean {
     return (
-      buildingData.costs.prosperity == 0 &&
-      buildingData.costs.lumber == 0 &&
-      buildingData.costs.metal == 0 &&
-      buildingData.costs.hide == 0 &&
-      buildingData.costs.gold == 0
+      buildingData.costs.prosperity === 0 &&
+      buildingData.costs.lumber === 0 &&
+      buildingData.costs.metal === 0 &&
+      buildingData.costs.hide === 0 &&
+      buildingData.costs.gold === 0
     );
   }
 
@@ -115,15 +115,15 @@ export class BuildingsManager {
     return (
       buildingData.prosperityUnlock &&
       buildingData.costs.prosperity <= gameManager.prosperityLevel() &&
-      !gameManager.game.party.buildings.find((model) => buildingData.name == model.name && model.level) &&
+      !gameManager.game.party.buildings.find((model) => buildingData.name === model.name && model.level) &&
       (!buildingData.requires ||
-        gameManager.game.party.buildings.find((model) => model.name == buildingData.requires && model.level) != undefined)
+        gameManager.game.party.buildings.find((model) => model.name === buildingData.requires && model.level) !== undefined)
     );
   }
 
   nextWeek() {
     if (this.gardenEnabled) {
-      const gardenBuilding = this.game.party.buildings.find((value) => value.name == 'garden' && value.level);
+      const gardenBuilding = this.game.party.buildings.find((value) => value.name === 'garden' && value.level);
       this.game.party.garden = this.game.party.garden || new GardenModel();
       if (gardenBuilding) {
         if (gardenBuilding.level < 3) {
@@ -146,7 +146,7 @@ export class BuildingsManager {
     if (!campaign) {
       return undefined;
     }
-    const buildingData = campaign.buildings.find((data) => data.name == input.name);
+    const buildingData = campaign.buildings.find((data) => data.name === input.name);
     if (!buildingData || !buildingData.coordinates || !buildingData.coordinates.length) {
       return undefined;
     }
@@ -155,9 +155,9 @@ export class BuildingsManager {
       level++;
     }
 
-    let editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.currentEdition());
+    let editionData = gameManager.editionData.find((editionData) => editionData.edition === gameManager.currentEdition());
     if (editionData && !editionData.worldMap && editionData.extendWorldMap) {
-      editionData = gameManager.editionData.find((other) => editionData && other.edition == editionData.extendWorldMap && other.worldMap);
+      editionData = gameManager.editionData.find((other) => editionData && other.edition === editionData.extendWorldMap && other.worldMap);
     }
 
     return buildingData.coordinates[level] || undefined;

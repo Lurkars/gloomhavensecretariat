@@ -72,7 +72,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
     gameManager.game.figures.forEach((figure) => (figure.active = false));
     this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
     this.ghsManager.triggerUiChange();
-    if (gameManager.game.state != GameState.next) {
+    if (gameManager.game.state !== GameState.next) {
       gameManager.roundManager.nextGameState(true);
     }
 
@@ -81,18 +81,18 @@ export class AttackModifierStandaloneComponent implements OnInit {
         this.characterWarning = false;
         if (queryParams['e'] && queryParams['c']) {
           let character = gameManager.game.figures.find(
-            (figure) => figure instanceof Character && figure.edition == queryParams['e'] && figure.name == queryParams['c']
+            (figure) => figure instanceof Character && figure.edition === queryParams['e'] && figure.name === queryParams['c']
           ) as Character;
           if (!character) {
             const characterData = gameManager
               .charactersData(queryParams['e'])
-              .find((characterData) => characterData.edition == queryParams['e'] && characterData.name == queryParams['c']);
+              .find((characterData) => characterData.edition === queryParams['e'] && characterData.name === queryParams['c']);
             if (characterData) {
               gameManager.stateManager.before('addChar', 'data.character.' + characterData.edition + '.' + characterData.name);
               gameManager.characterManager.addCharacter(characterData, 1);
               gameManager.stateManager.after();
               character = gameManager.game.figures.find(
-                (figure) => figure instanceof Character && figure.edition == queryParams['e'] && figure.name == queryParams['c']
+                (figure) => figure instanceof Character && figure.edition === queryParams['e'] && figure.name === queryParams['c']
               ) as Character;
             }
           }
@@ -103,7 +103,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
             this.activeDeckIndex = this.characters.indexOf(character) + 1;
             this.updateQueryParams();
           }
-        } else if (queryParams['a'] != undefined) {
+        } else if (queryParams['a'] !== undefined) {
           this.activeDeckIndex = 0;
           this.updateQueryParams();
         }
@@ -117,7 +117,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
   }
 
   selectMonsterDeck() {
-    if (this.activeDeckIndex != -1) {
+    if (this.activeDeckIndex !== -1) {
       this.activeDeckIndex = -1;
       this.updateQueryParams();
       gameManager.game.monsterAttackModifierDeck.active = false;
@@ -128,7 +128,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
   }
 
   selectAllyDeck() {
-    if (this.activeDeckIndex != 0) {
+    if (this.activeDeckIndex !== 0) {
       this.activeDeckIndex = 0;
       this.updateQueryParams();
       gameManager.game.allyAttackModifierDeck.active = false;
@@ -139,7 +139,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
   }
 
   selectCharacterDeck(index: number) {
-    if (this.activeDeckIndex != index + 1) {
+    if (this.activeDeckIndex !== index + 1) {
       this.activeDeckIndex = index + 1;
       this.updateQueryParams();
       this.characters[index].attackModifierDeck.active = false;
@@ -150,7 +150,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
   }
 
   removeCharacter(index: number) {
-    if (this.activeDeckIndex == index + 1) {
+    if (this.activeDeckIndex === index + 1) {
       this.activeDeckIndex--;
       this.updateQueryParams();
     }
@@ -168,7 +168,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
       'updateAttackModifierDeck.' + change.type,
       this.activeDeckIndex > 0
         ? gameManager.characterManager.characterName(this.characters[this.activeDeckIndex - 1], true, true)
-        : this.activeDeckIndex == 0
+        : this.activeDeckIndex === 0
           ? 'ally'
           : 'monster',
       ...change.values
@@ -178,7 +178,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
   afterAttackModifierDeck(change: AttackModiferDeckChange) {
     if (this.activeDeckIndex > 0) {
       this.characters[this.activeDeckIndex - 1].attackModifierDeck = change.deck;
-    } else if (this.activeDeckIndex == 0) {
+    } else if (this.activeDeckIndex === 0) {
       gameManager.game.allyAttackModifierDeck = change.deck;
     } else {
       gameManager.game.monsterAttackModifierDeck = change.deck;
@@ -188,7 +188,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
 
   next() {
     gameManager.stateManager.before('draw');
-    if (gameManager.game.state == GameState.next) {
+    if (gameManager.game.state === GameState.next) {
       gameManager.roundManager.nextGameState(true);
     }
     gameManager.roundManager.nextGameState(true);
@@ -209,7 +209,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
     let e = undefined;
     let c = undefined;
 
-    if (this.activeDeckIndex == 0) {
+    if (this.activeDeckIndex === 0) {
       a = true;
     } else if (this.activeDeckIndex > 0) {
       e = this.characters[this.activeDeckIndex - 1].edition;

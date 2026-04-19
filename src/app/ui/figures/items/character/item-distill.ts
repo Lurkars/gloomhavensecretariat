@@ -40,7 +40,7 @@ export class ItemDistillDialogComponent {
   }
 
   toggleSelected(resource: LootType) {
-    if (this.selectedResource == resource) {
+    if (this.selectedResource === resource) {
       this.selectedResource = undefined;
     } else {
       this.selectedResource = resource;

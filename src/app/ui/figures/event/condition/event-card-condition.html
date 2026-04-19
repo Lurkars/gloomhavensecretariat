@@ -1,4 +1,4 @@
-<span class="condition" [ngClass]="{ narrative: narrative, fh: edition == 'fh' }">
+<span class="condition" [ngClass]="{ narrative: narrative, fh: edition === 'fh' }">
   @if (conditionString) {
     <span class="text" [ngClass]="{ 'text-white': light, debug: debug }">
       <span [ngClass]="{ 'text-white': light, disabled: selected && disabled }" [ghs-label]="conditionString"></span>
@@ -18,7 +18,7 @@
           [slice]="inline ? [0, -1] : []"
         ></span>
       }
-      @if (conditionObject.type == 'and') {
+      @if (conditionObject.type === 'and') {
         <span class="and-container">
           @for (andCondition of conditions; track andCondition; let i = $index) {
             @if (i > 0) {
@@ -36,7 +36,7 @@
           }
         </span>
       }
-      @if (conditionObject.type == 'payCollectiveGoldConditional') {
+      @if (conditionObject.type === 'payCollectiveGoldConditional') {
         <span class="conditional-container">
           <span [ngClass]="{ 'text-white': light }" [ghs-label]="'game.events.conditions.payCollectiveGoldConditional.prefix'"></span>
           @for (chooseCondition of conditions; track chooseCondition; let i = $index) {

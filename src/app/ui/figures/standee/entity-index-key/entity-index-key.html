@@ -1,11 +1,11 @@
 @if (isKeyboardSelecting || show) {
   <span class="key-container">
     @if (entityIndex >= 10) {
-      <kbd [ngClass]="{ highlight: (entityIndex / 10 | ghsFloor) == keyboardSelect }"
+      <kbd [ngClass]="{ highlight: (entityIndex / 10 | ghsFloor) === keyboardSelect }"
         ><span>{{ entityIndex / 10 | ghsFloor }}</span></kbd
       >
     }
-    <kbd [ngClass]="{ highlight: entityIndex < 10 && entityIndex == keyboardSelect }"
+    <kbd [ngClass]="{ highlight: entityIndex < 10 && entityIndex === keyboardSelect }"
       ><span>{{ entityIndex % 10 }}</span></kbd
     >
   </span>

@@ -1,4 +1,4 @@
-<div class="items-dialog" [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }">
+<div class="items-dialog" [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }">
   <div class="scroll-container">
     <div class="header">
       @if (!character) {
@@ -120,8 +120,8 @@
       @if (!!editions && editions.length > 1) {
         <div class="editions">
           @for (edition of editions; track edition) {
-            <label [ngClass]="{ disabled: currentEdition == edition }" class="edition">
-              <input type="checkbox" [checked]="currentEdition == edition" (change)="setEdition(edition)" />
+            <label [ngClass]="{ disabled: currentEdition === edition }" class="edition">
+              <input type="checkbox" [checked]="currentEdition === edition" (change)="setEdition(edition)" />
               <span [ghs-label]="'data.edition.' + edition"></span>
             </label>
           }
@@ -131,7 +131,7 @@
       @if (craftOnly || buyOnly) {
         <div class="characters">
           @for (char of characters | trackUUID; track char._trackUUID) {
-            <div class="character" (click)="toggleCharacter(char)" [ngClass]="{ selected: character == char }">
+            <div class="character" (click)="toggleCharacter(char)" [ngClass]="{ selected: character === char }">
               <img class="icon" [src]="char.iconUrl" />
               <span class="name">
                 {{ gameManager.characterManager.characterName(char, true) }}
@@ -207,7 +207,7 @@
       </div>
     }
 
-    @if (items.length == 0 && unlocks.length == 0) {
+    @if (items.length === 0 && unlocks.length === 0) {
       <div class="item-list">
         <div class="empty"><span [ghs-label]="'game.items.empty'"></span></div>
       </div>
@@ -227,7 +227,7 @@
               [count]="!character ? 1 : itemsMeta[i].countAvailable < 1 ? '-' : itemsMeta[i].assigned + 1"
               [editionLabel]="currentEdition"
               [ngClass]="{
-                selected: itemData == selected,
+                selected: itemData === selected,
                 disabled: !character,
                 filtered: !itemsMeta[i].canAdd,
                 unavailable: (itemData.cost || itemData.resources) && !itemsMeta[i].canBuy && !itemsMeta[i].canCraft,

@@ -48,7 +48,7 @@ export class BuildingsListComponent {
       return false;
     }
 
-    if (building.data.repair && building.model.state == 'damaged') {
+    if (building.data.repair && building.model.state === 'damaged') {
       const totalCosts = building.data.repair[building.model.level - 1];
       return (
         this.partyResource(LootType.lumber) +
@@ -61,17 +61,17 @@ export class BuildingsListComponent {
 
     let discount =
       gameManager.game.party.buildings.find(
-        (buildingModel) => buildingModel.name == 'carpenter' && buildingModel.level > 0 && buildingModel.state != 'wrecked'
-      ) != undefined;
+        (buildingModel) => buildingModel.name === 'carpenter' && buildingModel.level > 0 && buildingModel.state !== 'wrecked'
+      ) !== undefined;
 
     let inspiration = gameManager.game.party.inspiration;
 
-    if (building.model.state == 'wrecked') {
+    if (building.model.state === 'wrecked') {
       costs = building.data.rebuild[building.model.level - 1];
       if (costs.lumber > this.partyResource(LootType.lumber)) {
         if (inspiration && costs.lumber <= this.partyResource(LootType.lumber) + inspiration) {
           inspiration -= costs.lumber - this.partyResource(LootType.lumber);
-        } else if (discount && costs.lumber == this.partyResource(LootType.lumber) + 1) {
+        } else if (discount && costs.lumber === this.partyResource(LootType.lumber) + 1) {
           discount = false;
         } else {
           return false;
@@ -81,7 +81,7 @@ export class BuildingsListComponent {
       if (costs.metal > this.partyResource(LootType.metal)) {
         if (inspiration && costs.metal <= this.partyResource(LootType.metal) + inspiration) {
           inspiration -= costs.metal - this.partyResource(LootType.metal);
-        } else if (discount && costs.metal == this.partyResource(LootType.metal) + 1) {
+        } else if (discount && costs.metal === this.partyResource(LootType.metal) + 1) {
           discount = false;
         } else {
           return false;
@@ -90,7 +90,7 @@ export class BuildingsListComponent {
       if (costs.hide > this.partyResource(LootType.hide)) {
         if (inspiration && costs.hide <= this.partyResource(LootType.hide) + inspiration) {
           inspiration -= costs.hide - this.partyResource(LootType.hide);
-        } else if (discount && costs.hide == this.partyResource(LootType.hide) + 1) {
+        } else if (discount && costs.hide === this.partyResource(LootType.hide) + 1) {
           discount = false;
         } else {
           return false;
@@ -105,7 +105,7 @@ export class BuildingsListComponent {
       if ((costs.lumber || 0) > this.partyResource(LootType.lumber)) {
         if (inspiration && costs.lumber <= this.partyResource(LootType.lumber) + inspiration) {
           inspiration -= costs.lumber - this.partyResource(LootType.lumber);
-        } else if (discount && costs.lumber == this.partyResource(LootType.lumber) + 1) {
+        } else if (discount && costs.lumber === this.partyResource(LootType.lumber) + 1) {
           discount = false;
         } else {
           return false;
@@ -115,7 +115,7 @@ export class BuildingsListComponent {
       if ((costs.metal || 0) > this.partyResource(LootType.metal)) {
         if (inspiration && costs.metal <= this.partyResource(LootType.metal) + inspiration) {
           inspiration -= costs.metal - this.partyResource(LootType.metal);
-        } else if (discount && costs.metal == this.partyResource(LootType.metal) + 1) {
+        } else if (discount && costs.metal === this.partyResource(LootType.metal) + 1) {
           discount = false;
         } else {
           return false;
@@ -125,7 +125,7 @@ export class BuildingsListComponent {
       if ((costs.hide || 0) > this.partyResource(LootType.hide)) {
         if (inspiration && costs.hide <= this.partyResource(LootType.hide) + inspiration) {
           inspiration -= costs.hide - this.partyResource(LootType.hide);
-        } else if (discount && costs.hide == this.partyResource(LootType.hide) + 1) {
+        } else if (discount && costs.hide === this.partyResource(LootType.hide) + 1) {
           discount = false;
         } else {
           return false;
@@ -149,7 +149,7 @@ export class BuildingsListComponent {
   partyResource(type: LootType): number {
     return (
       (gameManager.game.party.loot[type] || 0) +
-      (gameManager.game.figures.filter((figure) => figure instanceof Character).length == 0
+      (gameManager.game.figures.filter((figure) => figure instanceof Character).length === 0
         ? 0
         : gameManager.game.figures
             .filter((figure) => figure instanceof Character)
@@ -174,7 +174,7 @@ export class BuildingsListComponent {
           })
           .closed.subscribe({
             next: (result) => {
-              if ((force && result == true) || result instanceof SelectResourceResult) {
+              if ((force && result === true) || result instanceof SelectResourceResult) {
                 setTimeout(() => {
                   gameManager.stateManager.before(
                     building.model.level ? 'upgradeBuilding' : 'buildBuilding',
@@ -209,7 +209,7 @@ export class BuildingsListComponent {
   }
 
   openConclusion(index: string) {
-    const conclusion = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
+    const conclusion = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index === index);
     if (conclusion) {
       const scenario = new Scenario(conclusion as ScenarioData);
       if (this.hasConclusions(scenario.index)) {
@@ -234,14 +234,14 @@ export class BuildingsListComponent {
           sectionData.conclusion &&
           !sectionData.parent &&
           sectionData.parentSections &&
-          sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section))
+          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section))
       );
     return (
       conclusions.length > 0 &&
       conclusions.every(
         (conclusion) =>
           !gameManager.game.party.conclusions.find(
-            (model) => model.edition == conclusion.edition && model.index == conclusion.index && model.group == conclusion.group
+            (model) => model.edition === conclusion.edition && model.index === conclusion.index && model.group === conclusion.group
           )
       )
     );
@@ -255,8 +255,8 @@ export class BuildingsListComponent {
           sectionData.conclusion &&
           !sectionData.parent &&
           sectionData.parentSections &&
-          sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section)) &&
-          gameManager.scenarioManager.getRequirements(sectionData).length == 0
+          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section)) &&
+          gameManager.scenarioManager.getRequirements(sectionData).length === 0
       )
       .map((conclusion) => {
         return conclusion;
@@ -270,7 +270,7 @@ export class BuildingsListComponent {
             conclusions: conclusions,
             parent: gameManager
               .sectionData(gameManager.game.edition)
-              .find((sectionData) => sectionData.index == section && !sectionData.group)
+              .find((sectionData) => sectionData.index === section && !sectionData.group)
           }
         })
         .closed.subscribe({
@@ -285,7 +285,7 @@ export class BuildingsListComponent {
   }
 
   rebuild(building: Building, force: boolean = false) {
-    if (building.model.state == 'wrecked') {
+    if (building.model.state === 'wrecked') {
       if (this.upgradeable(building) || force) {
         this.dialog
           .open(BuildingUpgradeDialog, {
@@ -299,7 +299,7 @@ export class BuildingsListComponent {
           })
           .closed.subscribe({
             next: (result) => {
-              if ((force && result == true) || result instanceof SelectResourceResult) {
+              if ((force && result === true) || result instanceof SelectResourceResult) {
                 gameManager.stateManager.before('rebuildBuilding', building.data.id, building.model.name);
                 if (!force && result instanceof SelectResourceResult) {
                   gameManager.lootManager.applySelectResources(result);
@@ -315,7 +315,7 @@ export class BuildingsListComponent {
   }
 
   repair(building: Building, force: boolean = false) {
-    if (building.model.state == 'damaged') {
+    if (building.model.state === 'damaged') {
       if (force) {
         gameManager.stateManager.before('repairBuilding', building.data.id, building.data.name);
         building.model.state = 'normal';
@@ -381,15 +381,15 @@ export class BuildingsListComponent {
   toggleState(building: Building, force: boolean = false) {
     if (building.data.repair) {
       if (building.model.level > 0) {
-        if (building.model.state == 'normal') {
+        if (building.model.state === 'normal') {
           gameManager.stateManager.before('changeBuildingState', building.data.id, building.model.name, 'damaged');
           building.model.state = 'damaged';
           gameManager.stateManager.after();
-        } else if (building.model.state == 'damaged') {
+        } else if (building.model.state === 'damaged') {
           gameManager.stateManager.before('changeBuildingState', building.data.id, building.model.name, 'wrecked');
           building.model.state = 'wrecked';
           gameManager.stateManager.after();
-        } else if (force && building.model.state == 'wrecked') {
+        } else if (force && building.model.state === 'wrecked') {
           gameManager.stateManager.before('changeBuildingState', building.data.id, building.model.name, 'normal');
           building.model.state = 'normal';
           gameManager.stateManager.after();
@@ -400,11 +400,11 @@ export class BuildingsListComponent {
 
   downgrade(building: Building, force: boolean = false) {
     const index = gameManager.game.party.buildings.indexOf(building.model);
-    if (index != -1) {
+    if (index !== -1) {
       if (
         !gameManager.buildingsManager.initialBuilding(building.data) &&
         !gameManager.buildingsManager.availableBuilding(building.data) &&
-        (building.model.level == 0 || force)
+        (building.model.level === 0 || force)
       ) {
         gameManager.stateManager.before('removeBuilding', building.data.id, building.model.name);
         building.model.state = 'normal';
@@ -412,12 +412,12 @@ export class BuildingsListComponent {
         if (gameManager.game.party.campaignMode && building.data.rewards && building.data.rewards[0] && building.data.rewards[0].section) {
           const section = gameManager
             .sectionData(gameManager.currentEdition())
-            .find((sectionData) => sectionData.index == building.data.rewards[0].section);
+            .find((sectionData) => sectionData.index === building.data.rewards[0].section);
           if (section) {
             const conclusion = gameManager.buildingsManager.rewardSection(section);
             if (conclusion) {
               gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter(
-                (model) => model.edition != conclusion.edition || model.group != conclusion.group || model.index != conclusion.index
+                (model) => model.edition !== conclusion.edition || model.group !== conclusion.group || model.index !== conclusion.index
               );
             }
           }
@@ -429,7 +429,7 @@ export class BuildingsListComponent {
       ) {
         gameManager.stateManager.before('downgradeBuilding', building.data.id, building.model.name, building.model.level - 1);
         building.model.level--;
-        if (building.model.level == 0) {
+        if (building.model.level === 0) {
           building.model.state = 'normal';
         }
         if (
@@ -440,12 +440,12 @@ export class BuildingsListComponent {
         ) {
           const section = gameManager
             .sectionData(gameManager.currentEdition())
-            .find((sectionData) => sectionData.index == building.data.rewards[building.model.level].section);
+            .find((sectionData) => sectionData.index === building.data.rewards[building.model.level].section);
           if (section) {
             const conclusion = gameManager.buildingsManager.rewardSection(section);
             if (conclusion) {
               gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter(
-                (model) => model.edition != conclusion.edition || model.group != conclusion.group || model.index != conclusion.index
+                (model) => model.edition !== conclusion.edition || model.group !== conclusion.group || model.index !== conclusion.index
               );
             }
           }
@@ -457,16 +457,16 @@ export class BuildingsListComponent {
   }
 
   openInteraction(building: Building) {
-    if (building.model.name == 'craftsman') {
+    if (building.model.name === 'craftsman') {
       this.dialog.open(ItemsDialogComponent, {
         panelClass: ['dialog'],
         data: { edition: gameManager.game.edition, craftOnly: true }
       });
-    } else if (building.model.name == 'alchemist') {
+    } else if (building.model.name === 'alchemist') {
       this.dialog.open(ItemsBrewDialog, {
         panelClass: ['dialog']
       });
-    } else if (building.model.name == 'trading-post') {
+    } else if (building.model.name === 'trading-post') {
       this.dialog.open(ItemsDialogComponent, {
         panelClass: ['dialog'],
         data: { edition: gameManager.game.edition, buyOnly: true }

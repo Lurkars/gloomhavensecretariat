@@ -74,11 +74,11 @@ export class ScenarioChartPopupDialog {
         false,
         true
       )
-      .filter((treasure) => treasure != 'G')
+      .filter((treasure) => treasure !== 'G')
       .map((treasure) => {
         treasure = +treasure;
         const looted = gameManager.game.party.treasures.find(
-          (id) => id.edition == this.scenario.edition && (id.name == '' + treasure || id.name.startsWith(treasure + ':'))
+          (id) => id.edition === this.scenario.edition && (id.name === '' + treasure || id.name.startsWith(treasure + ':'))
         );
         if (looted) {
           this.lootedTreasures.push(treasure);
@@ -87,7 +87,7 @@ export class ScenarioChartPopupDialog {
         return '' + treasure;
       });
 
-    this.showTreasures = (this.treasures.length > 0 && this.treasures.length == this.lootedTreasures.length) || this.showSetup;
+    this.showTreasures = (this.treasures.length > 0 && this.treasures.length === this.lootedTreasures.length) || this.showSetup;
 
     this.predecessors = gameManager.scenarioManager.getPredecessors(this.scenario, this.forceAll);
   }
@@ -134,16 +134,17 @@ export class ScenarioChartPopupDialog {
 
   openScenarioRewards(conclusionOnly: boolean = false) {
     const conclusion = gameManager.game.party.conclusions
-      .filter((value) => value.edition == this.scenario.edition)
+      .filter((value) => value.edition === this.scenario.edition)
       .map(
         (value) =>
           gameManager
             .sectionData(this.scenario.edition)
             .find(
-              (sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group
+              (sectionData) =>
+                sectionData.index === value.index && sectionData.edition === value.edition && sectionData.group === value.group
             ) as ScenarioData
       )
-      .find((conclusionData) => conclusionData.parent == this.scenario.index && conclusionData.group == this.scenario.group);
+      .find((conclusionData) => conclusionData.parent === this.scenario.index && conclusionData.group === this.scenario.group);
 
     this.dialog.open(ScenarioSummaryComponent, {
       panelClass: ['dialog'],
@@ -169,13 +170,13 @@ export class ScenarioChartPopupDialog {
       .sectionData(this.scenario.edition)
       .filter(
         (sectionData) =>
-          sectionData.edition == this.scenario.edition &&
-          sectionData.parent == this.scenario.index &&
-          sectionData.group == this.scenario.group &&
+          sectionData.edition === this.scenario.edition &&
+          sectionData.parent === this.scenario.index &&
+          sectionData.group === this.scenario.group &&
           sectionData.conclusion &&
-          gameManager.scenarioManager.getRequirements(sectionData).length == 0
+          gameManager.scenarioManager.getRequirements(sectionData).length === 0
       );
-    if (conclusions.length == 0) {
+    if (conclusions.length === 0) {
       this.addSuccessIntern();
     } else {
       this.dialog
@@ -202,7 +203,7 @@ export class ScenarioChartPopupDialog {
       false,
       false,
       false,
-      gameManager.game.party.campaignMode && this.countFinished() == 0,
+      gameManager.game.party.campaignMode && this.countFinished() === 0,
       true
     );
     gameManager.stateManager.after();
@@ -211,7 +212,7 @@ export class ScenarioChartPopupDialog {
 
   countFinished(): number {
     return (!gameManager.game.party.campaignMode ? gameManager.game.party.casualScenarios : gameManager.game.party.scenarios).filter(
-      (value) => this.scenario.index == value.index && this.scenario.edition == value.edition && this.scenario.group == value.group
+      (value) => this.scenario.index === value.index && this.scenario.edition === value.edition && this.scenario.group === value.group
     ).length;
   }
 }

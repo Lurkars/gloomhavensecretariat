@@ -36,6 +36,6 @@ export class AdditionalIdentifier extends Identifier {
   }
 
   equals(other: AdditionalIdentifier): boolean {
-    return this.edition == other.edition && this.marker == other.marker && this.name == other.name && this.type == other.type;
+    return this.edition === other.edition && this.marker === other.marker && this.name === other.name && this.type === other.type;
   }
 }

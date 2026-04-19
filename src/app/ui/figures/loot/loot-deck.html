@@ -1,7 +1,7 @@
 <div
   class="deck"
   [ngClass]="{
-    disabled: !standalone && gameManager.game.state == GameState.draw,
+    disabled: !standalone && gameManager.game.state === GameState.draw,
     vertical: vertical,
     denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.lootDeck
   }"
@@ -50,7 +50,7 @@
         class="loot-container"
         (click)="clickCard(index, $event)"
         [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"
-        [ngClass]="{ discarded: index < current - 1, current: index == current, last: index == current - 1, bottom: bottom }"
+        [ngClass]="{ discarded: index < current - 1, current: index === current, last: index === current - 1, bottom: bottom }"
       >
         <ghs-loot
           class="loot-card"
@@ -58,7 +58,7 @@
           [flipped]="index <= current"
           [looted]="index <= current"
           [index]="index"
-          [disableFlip]="!drawing || index != current"
+          [disableFlip]="!drawing || index !== current"
           [character]="getCharacter(index)"
           [apply]="!standalone"
           [ngClass]="{ disabled: disabled }"

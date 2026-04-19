@@ -15,13 +15,14 @@ export class CharacterLootDrawCommand extends CommandImpl {
     return (
       (settingsManager.settings.lootDeck &&
         Object.keys(gameManager.game.lootDeck.cards).length > 0 &&
-        gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == number && figure.active) != undefined) ||
+        gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number && figure.active) !==
+          undefined) ||
       false
     );
   }
 
   executeWithParameters(number: number) {
-    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == number) as Character;
+    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) as Character;
     if (character && character.active) {
       gameManager.lootManager.drawCard(gameManager.game.lootDeck, character);
     } else {
@@ -31,7 +32,7 @@ export class CharacterLootDrawCommand extends CommandImpl {
 
   override before(): BASE_TYPE[] {
     const character = gameManager.game.figures.find(
-      (figure) => figure instanceof Character && figure.number == this.parameters[0]
+      (figure) => figure instanceof Character && figure.number === this.parameters[0]
     ) as Character;
     if (character) {
       return ['command.' + this.id, gameManager.characterManager.characterName(character, true, true)];

@@ -58,12 +58,12 @@ export class AttackModifier {
     this.valueType = valueType;
     if (id) {
       this.id = id;
-    } else if (type == AttackModifierType.townguard) {
+    } else if (type === AttackModifierType.townguard) {
       this.id = 'tg-' + valueType + value;
-    } else if (type == AttackModifierType.wreck || type == AttackModifierType.success) {
+    } else if (type === AttackModifierType.wreck || type === AttackModifierType.success) {
       this.id = 'tg-' + type;
     } else {
-      this.id = type != AttackModifierType.plus && type != AttackModifierType.minus ? type : type + value;
+      this.id = type !== AttackModifierType.plus && type !== AttackModifierType.minus ? type : type + value;
     }
     this.effects = effects;
     this.rolling = rolling;
@@ -99,14 +99,14 @@ export class AttackModifier {
       case AttackModifierType.null:
         this.valueType = AttackModifierValueType.multiply;
         this.value = 0;
-        if (shuffle == undefined) {
+        if (shuffle === undefined) {
           this.shuffle = true;
         }
         break;
       case AttackModifierType.double:
         this.valueType = AttackModifierValueType.multiply;
         this.value = 2;
-        if (shuffle == undefined) {
+        if (shuffle === undefined) {
           this.shuffle = true;
         }
         break;
@@ -572,7 +572,7 @@ export class AttackModifierDeck {
   constructor(attackModifiers: AttackModifier[] | undefined = undefined, bb: boolean = false) {
     this.bb = bb;
     this.attackModifiers = (
-      attackModifiers ? attackModifiers.filter((am, index, self) => this.bb || self.indexOf(am) == index) : defaultAttackModifier
+      attackModifiers ? attackModifiers.filter((am, index, self) => this.bb || self.indexOf(am) === index) : defaultAttackModifier
     ).map((am) => Object.assign(new AttackModifier(am.type), am));
     this.current = -1;
     this.cards = (attackModifiers || defaultAttackModifierCards).map((am) => Object.assign(new AttackModifier(am.type), am));

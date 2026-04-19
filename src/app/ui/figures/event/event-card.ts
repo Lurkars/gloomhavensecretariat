@@ -72,7 +72,7 @@ export class EventCardComponent implements OnInit, OnChanges {
       const model =
         this.identifier ||
         gameManager.game.party.eventCards.find(
-          (id) => this.event && id.cardId == this.event.cardId && id.type == this.event.type && id.edition == this.event.edition
+          (id) => this.event && id.cardId === this.event.cardId && id.type === this.event.type && id.edition === this.event.edition
         );
       if (model && model.checks) {
         this.checks = [...model.checks];
@@ -84,7 +84,7 @@ export class EventCardComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['identifier'] && changes['identifier'].previousValue != changes['identifier'].currentValue) {
+    if (changes['identifier'] && changes['identifier'].previousValue !== changes['identifier'].currentValue) {
       if (!this.event && this.identifier) {
         this.event = gameManager.eventCardManager.getEventCardForEdition(
           this.identifier.edition,
@@ -99,20 +99,20 @@ export class EventCardComponent implements OnInit, OnChanges {
           this.checks = [...this.identifier.checks];
         }
       }
-    } else if (changes['select'] && changes['select'].previousValue != changes['select'].currentValue && this.selected != this.select) {
+    } else if (changes['select'] && changes['select'].previousValue !== changes['select'].currentValue && this.selected !== this.select) {
       this.selectOption(this.select, true);
-    } else if (changes['spoiler'] && changes['spoiler'].previousValue != changes['spoiler'].currentValue) {
+    } else if (changes['spoiler'] && changes['spoiler'].previousValue !== changes['spoiler'].currentValue) {
       this.spoilerFree = this.spoiler;
     }
     this.light = (this.event && ['city'].includes(this.event.type)) || false;
   }
 
   selectOption(index: number, quiet: boolean, event: PointerEvent | undefined = undefined) {
-    if (this.attackIndex != -1 && this.attackIndex == index) {
+    if (this.attackIndex !== -1 && this.attackIndex === index) {
       return;
     }
-    if (this.event && !this.disabled && this.selected != index) {
-      this.attack = this.attackIndex != -1;
+    if (this.event && !this.disabled && this.selected !== index) {
+      this.attack = this.attackIndex !== -1;
       this.selected = index;
       this.subSelections = [];
       if (this.selected < -1) {
@@ -137,7 +137,7 @@ export class EventCardComponent implements OnInit, OnChanges {
             if (
               this.subSelections.includes(i) &&
               outcome.effects &&
-              outcome.effects.some((effect) => typeof effect === 'object' && effect.type == EventCardEffectType.skipThreat)
+              outcome.effects.some((effect) => typeof effect === 'object' && effect.type === EventCardEffectType.skipThreat)
             ) {
               this.attack = false;
             }
@@ -170,22 +170,22 @@ export class EventCardComponent implements OnInit, OnChanges {
   }
 
   selectSub(optionIndex: number, index: number, force: boolean = false, event: PointerEvent | undefined = undefined) {
-    if (this.attackIndex != -1 && this.attackIndex == index) {
+    if (this.attackIndex !== -1 && this.attackIndex === index) {
       return;
     }
-    if (this.event && !this.disabled && this.selected == optionIndex) {
+    if (this.event && !this.disabled && this.selected === optionIndex) {
       if (this.subSelections.includes(index)) {
         this.subSelections.splice(this.subSelections.indexOf(index), 1);
       } else if ((this.resolvable[this.selected] && this.resolvable[this.selected][index]) || force) {
         this.subSelections.push(index);
         if (!force) {
           const condition = this.event.options[this.selected].outcomes[index].condition;
-          if (condition && typeof condition !== 'string' && condition.type == EventCardConditionType.otherwise) {
+          if (condition && typeof condition !== 'string' && condition.type === EventCardConditionType.otherwise) {
             this.subSelections = [index];
           } else {
             const otherwise = this.event.options[this.selected].outcomes.find(
               (outcome) =>
-                outcome.condition && typeof outcome.condition !== 'string' && outcome.condition.type == EventCardConditionType.otherwise
+                outcome.condition && typeof outcome.condition !== 'string' && outcome.condition.type === EventCardConditionType.otherwise
             );
             if (otherwise) {
               this.subSelections = this.subSelections.splice(this.event.options[this.selected].outcomes.indexOf(otherwise), 1);

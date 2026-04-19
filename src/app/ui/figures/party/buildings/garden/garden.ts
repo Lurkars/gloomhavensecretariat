@@ -51,7 +51,7 @@ export class GardenComponent implements OnInit {
 
   update() {
     this.garden = gameManager.game.party.garden || new GardenModel();
-    const garden = gameManager.game.party.buildings.find((value) => value.name == 'garden' && value.level);
+    const garden = gameManager.game.party.buildings.find((value) => value.name === 'garden' && value.level);
     if (garden) {
       this.level = garden.level;
       switch (this.level) {
@@ -70,7 +70,7 @@ export class GardenComponent implements OnInit {
         this.garden.flipped = false;
       }
     }
-    this.disabled = gameManager.game.scenario != undefined;
+    this.disabled = gameManager.game.scenario !== undefined;
     this.resources = {};
     this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
     this.herbs.forEach((type) => {
@@ -90,7 +90,7 @@ export class GardenComponent implements OnInit {
         this.characters.forEach((character, index) => {
           if (this.activeHerb) {
             this.currentResources[index] = character.progress.loot[this.activeHerb] || 0;
-            if (this.currentResources[index] && this.currentSource == -1) {
+            if (this.currentResources[index] && this.currentSource === -1) {
               this.currentSource = index;
             }
           }
@@ -104,8 +104,8 @@ export class GardenComponent implements OnInit {
   }
 
   setActive(herb: LootType, force: boolean = false) {
-    if (this.activeHerb == herb || this.resources[herb] || force) {
-      if (this.activeHerb == herb) {
+    if (this.activeHerb === herb || this.resources[herb] || force) {
+      if (this.activeHerb === herb) {
         this.activeHerb = undefined;
       } else {
         this.activeHerb = herb;
@@ -125,20 +125,20 @@ export class GardenComponent implements OnInit {
       this.activeHerb &&
       ((!this.disabled &&
         (this.level > 2 || !this.garden.flipped) &&
-        this.currentSource != -1 &&
+        this.currentSource !== -1 &&
         this.currentResources[this.currentSource]) ||
         force) &&
       slot >= 0 &&
       slot < this.slots &&
       this.herbs.includes(this.activeHerb) &&
-      this.garden.plots[slot] != this.activeHerb
+      this.garden.plots[slot] !== this.activeHerb
     ) {
       gameManager.stateManager.before('buildings.garden.plant', this.activeHerb, slot);
       this.garden.plots = this.garden.plots || [];
       this.garden.plots[slot] = this.activeHerb;
 
       if (!force) {
-        if (this.currentSource == this.characters.length) {
+        if (this.currentSource === this.characters.length) {
           gameManager.game.party.loot[this.activeHerb] = (gameManager.game.party.loot[this.activeHerb] || 1) - 1;
         } else {
           const char = this.characters[this.currentSource];

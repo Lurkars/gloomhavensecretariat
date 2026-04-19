@@ -101,7 +101,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
       settingsManager.settings.automaticAttackModifierFullscreen &&
       settingsManager.settings.portraitMode &&
       (window.innerWidth < 800 || window.innerHeight < 400);
-    this.disabled = !this.standalone && gameManager.game.state == GameState.draw;
+    this.disabled = !this.standalone && gameManager.game.state === GameState.draw;
 
     if (!this.init) {
       this.drawTimeout = setTimeout(
@@ -139,9 +139,9 @@ export class LootDeckComponent implements OnInit, OnChanges {
   }
 
   update(fromServer: boolean = false) {
-    this.disabled = !this.standalone && gameManager.game.state == GameState.draw;
+    this.disabled = !this.standalone && gameManager.game.state === GameState.draw;
 
-    if (this.initServer && gameManager.stateManager.wsState() != WebSocket.OPEN) {
+    if (this.initServer && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
       this.initServer = false;
     }
 
@@ -153,7 +153,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
       this.queue = 0;
       this.drawing = false;
       this.current = this.deck.current;
-      this.initServer = gameManager.stateManager.wsState() == WebSocket.OPEN;
+      this.initServer = gameManager.stateManager.wsState() === WebSocket.OPEN;
     } else if (this.init && (!fromServer || this.initServer)) {
       if (this.current < this.deck.current) {
         this.queue = Math.max(0, this.deck.current - this.current);
@@ -194,7 +194,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
         const currentIndex = this.current;
         const loot = this.deck.cards[currentIndex];
 
-        if (gameManager.lootManager.easter && loot && loot.type == LootType.metal) {
+        if (gameManager.lootManager.easter && loot && loot.type === LootType.metal) {
           new Audio('assets/media/metal.ogg').play();
         }
 
@@ -212,7 +212,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
         if (
           !fromServer &&
           loot &&
-          appliableLootTypes.indexOf(loot.type) != null &&
+          appliableLootTypes.indexOf(loot.type) !== null &&
           settingsManager.settings.applyLoot &&
           !this.standalone &&
           this.fullscreen &&
@@ -229,7 +229,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
             dialog.closed.subscribe({
               next: (name) => {
                 if (name) {
-                  const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
+                  const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name === name);
                   if (character instanceof Character) {
                     this.applyLoot(character, loot, currentIndex);
                   }
@@ -250,7 +250,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
   applyLoot(character: Character, loot: Loot, index: number) {
     if (!character.lootCards.includes(index)) {
       gameManager.stateManager.before(
-        loot.type == LootType.random_item ? 'lootRandomItem' : 'addResource',
+        loot.type === LootType.random_item ? 'lootRandomItem' : 'addResource',
         gameManager.characterManager.characterName(character, true, true),
         'game.loot.' + loot.type,
         this.lootManager.getValue(loot)
@@ -281,7 +281,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
                   character.lootCards.sort((a, b) => a - b);
                 }
                 if (
-                  character.progress.items.find((existing) => existing.name == '' + item.id && existing.edition == item.edition) !=
+                  character.progress.items.find((existing) => existing.name === '' + item.id && existing.edition === item.edition) !=
                   undefined
                 ) {
                   character.progress.gold += gameManager.itemManager.itemSellValue(item);
@@ -293,7 +293,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
                 }
                 gameManager.stateManager.after();
               } else {
-                character.lootCards = character.lootCards.filter((index) => index != index);
+                character.lootCards = character.lootCards.filter((index) => index !== index);
               }
             }
           });
@@ -305,7 +305,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
     if (this.compact && this.fullscreen && !forceDraw) {
       this.openFullscreen(event);
     } else if (!this.disabled && this.deck.cards.length > 0) {
-      if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue == 0 ? 0 : 1)) {
+      if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue === 0 ? 0 : 1)) {
         const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
         this.drawTimeout = setTimeout(
           () => {
@@ -339,8 +339,8 @@ export class LootDeckComponent implements OnInit, OnChanges {
                             }
                             if (
                               activeCharacter.progress.items.find(
-                                (existing) => existing.name == '' + item.id && existing.edition == item.edition
-                              ) != undefined
+                                (existing) => existing.name === '' + item.id && existing.edition === item.edition
+                              ) !== undefined
                             ) {
                               activeCharacter.progress.gold += gameManager.itemManager.itemSellValue(item);
                             } else {
@@ -351,7 +351,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
                             }
                             gameManager.stateManager.after();
                           } else {
-                            activeCharacter.lootCards = activeCharacter.lootCards.filter((index) => index != this.current);
+                            activeCharacter.lootCards = activeCharacter.lootCards.filter((index) => index !== this.current);
                           }
                         }
                       });
@@ -419,7 +419,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
   open(event: any) {
     if (
       this.deck.cards.length > 0 &&
-      gameManager.game.state == GameState.next &&
+      gameManager.game.state === GameState.next &&
       this.fullscreen &&
       settingsManager.settings.automaticAttackModifierFullscreen &&
       settingsManager.settings.portraitMode &&

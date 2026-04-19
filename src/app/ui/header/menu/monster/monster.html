@@ -2,8 +2,8 @@
   <div
     class="line filter-monster-menu"
     [ngClass]="{
-      fh: settingsManager.settings.theme == 'fh',
-      modern: settingsManager.settings.theme == 'modern',
+      fh: settingsManager.settings.theme === 'fh',
+      modern: settingsManager.settings.theme === 'modern',
       'all-editions': gameManager.game.edition
     }"
   >
@@ -40,9 +40,9 @@
           <div
             class="line title sticky"
             [ngClass]="{
-              'hide-title': !allEditions && gameManager.currentEditions().length == 1,
-              fh: settingsManager.settings.theme == 'fh',
-              modern: settingsManager.settings.theme == 'modern'
+              'hide-title': !allEditions && gameManager.currentEditions().length === 1,
+              fh: settingsManager.settings.theme === 'fh',
+              modern: settingsManager.settings.theme === 'modern'
             }"
           >
             <label><span [ghs-label]="'data.edition.' + edition"></span></label>

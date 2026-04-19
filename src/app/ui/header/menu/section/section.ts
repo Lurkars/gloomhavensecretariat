@@ -64,7 +64,8 @@ export class SectionMenuComponent implements OnInit {
           (editionData) =>
             editionData.sections &&
             editionData.sections.filter(
-              (sectionData) => sectionData.edition == editionData.edition && settingsManager.settings.editions.includes(sectionData.edition)
+              (sectionData) =>
+                sectionData.edition === editionData.edition && settingsManager.settings.editions.includes(sectionData.edition)
             ).length > 0
         )
         .map((editionData) => editionData.edition);
@@ -78,7 +79,7 @@ export class SectionMenuComponent implements OnInit {
 
     return gameManager
       .sectionData()
-      .filter((sectionData) => sectionData.edition == this.edition)
+      .filter((sectionData) => sectionData.edition === this.edition)
       .map((sectionData) => sectionData.group)
       .filter((value, index, self) => self.indexOf(value) === index);
   }
@@ -88,7 +89,7 @@ export class SectionMenuComponent implements OnInit {
       return [];
     }
     let model = this.sectionCache.find(
-      (model) => model.edition == this.edition && model.group == group && model.all == settingsManager.settings.showAllSections
+      (model) => model.edition === this.edition && model.group === group && model.all === settingsManager.settings.showAllSections
     );
 
     if (model) {
@@ -104,8 +105,8 @@ export class SectionMenuComponent implements OnInit {
           (settingsManager.settings.showAllSections ||
             (!sectionData.parent && (!gameManager.game.scenario || gameManager.game.scenario.custom)) ||
             (gameManager.game.scenario && gameManager.scenarioManager.availableSections(false, true).includes(sectionData))) &&
-          sectionData.edition == this.edition &&
-          sectionData.group == group &&
+          sectionData.edition === this.edition &&
+          sectionData.group === group &&
           !sectionData.conclusion
       )
       .sort(gameManager.scenarioManager.sortScenarios)
@@ -117,7 +118,7 @@ export class SectionMenuComponent implements OnInit {
   }
 
   noResults(): boolean {
-    return this.sectionCache.filter((model) => model.edition == this.edition).every((model) => model.sections.length == 0);
+    return this.sectionCache.filter((model) => model.edition === this.edition).every((model) => model.sections.length === 0);
   }
 
   maxSection() {
@@ -128,7 +129,7 @@ export class SectionMenuComponent implements OnInit {
     return (
       gameManager.game.sections &&
       gameManager.game.sections.some(
-        (value) => value.edition == sectionData.edition && value.index == sectionData.index && value.group == sectionData.group
+        (value) => value.edition === sectionData.edition && value.index === sectionData.index && value.group === sectionData.group
       )
     );
   }

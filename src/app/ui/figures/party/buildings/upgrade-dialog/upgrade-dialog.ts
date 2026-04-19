@@ -58,11 +58,11 @@ export class BuildingUpgradeDialog implements OnInit {
     this.building = this.data.building;
     this.action = this.data.action;
     this.force = this.data.force || false;
-    this.rewardsOnly = this.action == 'rewards';
+    this.rewardsOnly = this.action === 'rewards';
     this.discount =
       gameManager.game.party.buildings.find(
-        (buildingModel) => buildingModel.name == 'carpenter' && buildingModel.level > 0 && buildingModel.state != 'wrecked'
-      ) != undefined && !this.repair;
+        (buildingModel) => buildingModel.name === 'carpenter' && buildingModel.level > 0 && buildingModel.state !== 'wrecked'
+      ) !== undefined && !this.repair;
     if (!this.repair && this.building) {
       this.costs = this.data.costs || { gold: 0, hide: 0, lumber: 0, metal: 0, prosperity: 0, manual: 0 };
       this.costs.gold = this.costs.gold || 0;
@@ -104,12 +104,12 @@ export class BuildingUpgradeDialog implements OnInit {
       this.paidResources += this.fhSupportSpent.hide;
 
       if (
-        (this.action == 'build' || this.action == 'upgrade') &&
+        (this.action === 'build' || this.action === 'upgrade') &&
         this.building.data.rewards &&
         this.building.data.rewards[this.building.model.level]
       ) {
         this.rewards = this.building.data.rewards[this.building.model.level];
-      } else if (this.action == 'rewards' && this.building.data.rewards && this.building.data.rewards[this.building.model.level - 1]) {
+      } else if (this.action === 'rewards' && this.building.data.rewards && this.building.data.rewards[this.building.model.level - 1]) {
         this.rewards = this.building.data.rewards[this.building.model.level - 1];
       }
     } else {
@@ -137,13 +137,13 @@ export class BuildingUpgradeDialog implements OnInit {
   changeValue(type: BuildingCostType, spent: BuildingCosts, value: number) {
     spent[type] += value;
     this.spent[type] += value;
-    if (type != 'gold' && type != 'prosperity') {
+    if (type !== 'gold' && type !== 'prosperity') {
       this.paidResources += value;
     }
   }
 
   sectionRewards(index: string, edition: string = '') {
-    const section = gameManager.sectionData(edition || gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
+    const section = gameManager.sectionData(edition || gameManager.currentEdition()).find((sectionData) => sectionData.index === index);
     if (this.rewardsOnly && section) {
       const conclusion = gameManager.buildingsManager.rewardSection(section);
       const conclusions = gameManager
@@ -153,11 +153,11 @@ export class BuildingUpgradeDialog implements OnInit {
             sectionData.conclusion &&
             !sectionData.parent &&
             sectionData.parentSections &&
-            sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.includes(section.index)) &&
-            gameManager.scenarioManager.getRequirements(sectionData).length == 0
+            sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section.index)) &&
+            gameManager.scenarioManager.getRequirements(sectionData).length === 0
         );
 
-      if (conclusion || conclusions.length == 0) {
+      if (conclusion || conclusions.length === 0) {
         const scenario = new Scenario(conclusion || section);
         this.close();
         this.dialog.open(ScenarioSummaryComponent, {
@@ -166,7 +166,7 @@ export class BuildingUpgradeDialog implements OnInit {
             scenario: scenario,
             success: true,
             conclusionOnly: true,
-            rewardsOnly: conclusion != undefined
+            rewardsOnly: conclusion !== undefined
           }
         });
       } else if (conclusions.length > 0) {
@@ -194,7 +194,7 @@ export class BuildingUpgradeDialog implements OnInit {
       ghsDialogClosingHelper(this.dialogRef, new SelectResourceResult(this.characters, this.characterSpent, this.fhSupportSpent, 1));
     } else if (
       this.paidResources >= this.requiredResources - (this.discount ? 1 : 0) &&
-      (!this.costs.gold || this.costs.gold == this.spent.gold)
+      (!this.costs.gold || this.costs.gold === this.spent.gold)
     ) {
       ghsDialogClosingHelper(this.dialogRef, new SelectResourceResult(this.characters, this.characterSpent, this.fhSupportSpent));
     }

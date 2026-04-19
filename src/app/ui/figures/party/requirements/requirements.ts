@@ -44,12 +44,12 @@ export class ScenarioRequirementsComponent implements OnInit, OnChanges {
     this.solo = '';
     this.hideAll =
       !this.all &&
-      JSON.stringify(gameManager.scenarioManager.getRequirements(this.scenarioData, true)) == JSON.stringify(this.requirements);
+      JSON.stringify(gameManager.scenarioManager.getRequirements(this.scenarioData, true)) === JSON.stringify(this.requirements);
     if (
       this.scenarioData.solo &&
       (this.all ||
         !gameManager.game.figures.find(
-          (figure) => figure instanceof Character && figure.name == this.scenarioData.solo && figure.level >= 5
+          (figure) => figure instanceof Character && figure.name === this.scenarioData.solo && figure.level >= 5
         ))
     ) {
       this.solo = this.scenarioData.solo;

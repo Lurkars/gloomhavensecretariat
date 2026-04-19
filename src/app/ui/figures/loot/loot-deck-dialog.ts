@@ -89,7 +89,7 @@ export class LootDeckDialogComponent implements OnInit {
       },
       settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0
     );
-    if (this.deck.cards.length == 0) {
+    if (this.deck.cards.length === 0) {
       this.edit = true;
       this.configuration = true;
     }
@@ -97,7 +97,7 @@ export class LootDeckDialogComponent implements OnInit {
     this.dialogRef.closed.subscribe({
       next: () => {
         const deck = new LootDeck();
-        if (JSON.stringify(this.startlootDeckConfig) != JSON.stringify(this.lootDeckConfig)) {
+        if (JSON.stringify(this.startlootDeckConfig) !== JSON.stringify(this.lootDeckConfig)) {
           gameManager.lootManager.apply(deck, this.lootDeckConfig);
           this.applyConfig();
         }
@@ -150,7 +150,7 @@ export class LootDeckDialogComponent implements OnInit {
     this.enhancements = !this.enhancements;
     this.edit = false;
     this.configuration = false;
-    if (!this.enhancements && this.deck.cards.length == 0) {
+    if (!this.enhancements && this.deck.cards.length === 0) {
       this.edit = true;
       this.configuration = true;
     }
@@ -158,9 +158,9 @@ export class LootDeckDialogComponent implements OnInit {
 
   toggleSpecial(lootType: LootType) {
     const index = gameManager.game.lootDeckFixed.indexOf(lootType);
-    const config = this.deck.cards.length != 0;
+    const config = this.deck.cards.length !== 0;
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
-    if (index == -1) {
+    if (index === -1) {
       gameManager.game.lootDeckFixed.push(lootType);
       if (config) {
         this.lootDeckConfig[lootType] = 1;
@@ -176,12 +176,12 @@ export class LootDeckDialogComponent implements OnInit {
   }
 
   maxValue(type: LootType): number {
-    return gameManager.lootManager.fullLootDeck().filter((loot) => loot.type == type).length;
+    return gameManager.lootManager.fullLootDeck().filter((loot) => loot.type === type).length;
   }
 
   currentConfig() {
     this.types.forEach((type) => {
-      const count: number = this.deck.cards.filter((loot) => loot.type == type).length;
+      const count: number = this.deck.cards.filter((loot) => loot.type === type).length;
       if (count > 0) {
         this.lootDeckConfig[type] = count;
       } else {
@@ -193,13 +193,13 @@ export class LootDeckDialogComponent implements OnInit {
   }
 
   applyConfig() {
-    const empty = this.deck.cards.length == 0;
+    const empty = this.deck.cards.length === 0;
     if (Object.values(this.lootDeckConfig).reduce((a, b) => (a || 0) + (b || 0)) > 0 || !empty) {
       this.before.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
       gameManager.lootManager.apply(this.deck, this.lootDeckConfig);
       gameManager.lootManager.shuffleDeck(this.deck);
       this.types.forEach((type) => {
-        if (this.lootDeckConfig[type] == 0) {
+        if (this.lootDeckConfig[type] === 0) {
           this.lootDeckConfig[type] = undefined;
         }
       });
@@ -217,7 +217,7 @@ export class LootDeckDialogComponent implements OnInit {
 
   changeType(type: LootType, value: number) {
     this.lootDeckConfig[type] = (this.lootDeckConfig[type] || 0) + value;
-    if (this.lootDeckConfig[type] == 0) {
+    if (this.lootDeckConfig[type] === 0) {
       this.lootDeckConfig[type] = undefined;
     }
     this.update();
@@ -240,7 +240,7 @@ export class LootDeckDialogComponent implements OnInit {
     let offset = 0;
     let prev = 0;
     let cur = 0;
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       offset = this.deck.current + 1;
       prev = event.previousIndex + offset;
       cur = event.currentIndex + offset;
@@ -261,7 +261,7 @@ export class LootDeckDialogComponent implements OnInit {
               index--;
             } else if (prev > cur && index >= cur && index < prev) {
               index++;
-            } else if (index == prev) {
+            } else if (index === prev) {
               index = cur;
             }
             return index;
@@ -285,7 +285,7 @@ export class LootDeckDialogComponent implements OnInit {
     let offset = 0;
     let prev = 0;
     let cur = 0;
-    if (event.container == event.previousContainer) {
+    if (event.container === event.previousContainer) {
       offset = this.deck.current;
       prev = offset - event.previousIndex;
       cur = offset - event.currentIndex;
@@ -306,7 +306,7 @@ export class LootDeckDialogComponent implements OnInit {
               index--;
             } else if (prev > cur && index >= cur && index < prev) {
               index++;
-            } else if (index == prev) {
+            } else if (index === prev) {
               index = cur;
             }
             return index;
@@ -331,19 +331,19 @@ export class LootDeckDialogComponent implements OnInit {
 
   countLoot(type: LootType): number {
     return this.deck.cards.filter((loot) => {
-      return loot.type == type;
+      return loot.type === type;
     }).length;
   }
 
   countDrawnLoot(type: LootType): number {
     return this.deck.cards.filter((loot, index) => {
-      return loot.type == type && index <= this.deck.current;
+      return loot.type === type && index <= this.deck.current;
     }).length;
   }
 
   countUpcomingLoot(type: LootType): number {
     return this.deck.cards.filter((loot, index) => {
-      return loot.type == type && index > this.deck.current;
+      return loot.type === type && index > this.deck.current;
     }).length;
   }
 

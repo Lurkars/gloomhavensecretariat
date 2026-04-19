@@ -49,10 +49,10 @@ export class RandomMonsterCardsToolComponent implements OnInit {
 
   update() {
     this.sections = [];
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
+    const editionData = gameManager.editionData.find((editionData) => editionData.edition === this.edition);
     if (editionData && editionData.sections) {
       this.sections = editionData.sections
-        .filter((sectionData) => sectionData.group == 'randomMonsterCard')
+        .filter((sectionData) => sectionData.group === 'randomMonsterCard')
         .sort((a, b) => (a.name < b.name ? -1 : 1));
     }
   }

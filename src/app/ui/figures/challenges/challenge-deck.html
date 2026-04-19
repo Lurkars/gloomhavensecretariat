@@ -52,7 +52,7 @@
         (singleClick)="clickCard(index, $event)"
         (doubleClick)="doubleClickCard(index, $event)"
         [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1 + (deck.keep.includes(index) ? 5 : 0)"
-        [ngClass]="{ discarded: index < current, current: index == current, bottom: bottom, unkept: !deck.keep.includes(index) }"
+        [ngClass]="{ discarded: index < current, current: index === current, bottom: bottom, unkept: !deck.keep.includes(index) }"
         [style.right]="index < current ? 55 + 25 * (current - index - 1) + '%' : ''"
       >
         <ghs-challenge-card
@@ -60,7 +60,7 @@
           [challenge]="card"
           [keep]="deck.keep.includes(index)"
           [flipped]="index <= current"
-          [disableFlip]="!drawing || index != current"
+          [disableFlip]="!drawing || index !== current"
         ></ghs-challenge-card>
       </div>
     }

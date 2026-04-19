@@ -45,7 +45,7 @@ export class PartyBuildingsComponent implements OnInit {
     campaign.buildings
       .filter((buildingData) => gameManager.buildingsManager.initialBuilding(buildingData))
       .forEach((buildingData) => {
-        if (!this.party.buildings.find((model) => buildingData.name == model.name)) {
+        if (!this.party.buildings.find((model) => buildingData.name === model.name)) {
           this.party.buildings.push(new BuildingModel(buildingData.name, 1));
           if (buildingData.rewards[0]) {
             gameManager.buildingsManager.applyRewards(buildingData.rewards[0]);
@@ -56,14 +56,14 @@ export class PartyBuildingsComponent implements OnInit {
     campaign.buildings
       .filter((buildingData) => buildingData.prosperityUnlock && buildingData.costs.prosperity <= gameManager.prosperityLevel())
       .forEach((buildingData) => {
-        if (!this.party.buildings.find((model) => buildingData.name == model.name)) {
-          if (!buildingData.requires || this.party.buildings.find((model) => model.name == buildingData.requires && model.level))
+        if (!this.party.buildings.find((model) => buildingData.name === model.name)) {
+          if (!buildingData.requires || this.party.buildings.find((model) => model.name === buildingData.requires && model.level))
             this.party.buildings.push(new BuildingModel(buildingData.name, 0));
         }
       });
 
     this.party.buildings.forEach((model) => {
-      const data = campaign.buildings.find((buildingData) => buildingData.name == model.name);
+      const data = campaign.buildings.find((buildingData) => buildingData.name === model.name);
       if (data) {
         this.buildings.push({ model: model, data: data });
       }
@@ -84,7 +84,7 @@ export class PartyBuildingsComponent implements OnInit {
         return 1;
       }
 
-      if (a.model.level == b.model.level) {
+      if (a.model.level === b.model.level) {
         return a.data.name < b.data.name ? -1 : 1;
       } else {
         return b.model.level - a.model.level;
@@ -99,11 +99,11 @@ export class PartyBuildingsComponent implements OnInit {
     if (campaign.buildings && building) {
       const buildingData = campaign.buildings.find(
         (buildingData) =>
-          buildingData.name == building.toLowerCase().replaceAll(' ', '-') ||
-          buildingData.id == building ||
-          (!isNaN(+buildingData.id) && !isNaN(+building) && +buildingData.id == +building)
+          buildingData.name === building.toLowerCase().replaceAll(' ', '-') ||
+          buildingData.id === building ||
+          (!isNaN(+buildingData.id) && !isNaN(+building) && +buildingData.id === +building)
       );
-      if (buildingData && !this.party.buildings.find((buildingModel) => buildingModel.name == buildingData.name)) {
+      if (buildingData && !this.party.buildings.find((buildingModel) => buildingModel.name === buildingData.name)) {
         gameManager.stateManager.before('addBuilding', buildingData.id, buildingData.name);
         this.party.buildings.push(new BuildingModel(buildingData.name, 0));
         this.updateBuildings();

@@ -27,10 +27,10 @@
         <div class="title" [ghs-label]="'game.loot'"></div>
         @for (loot of lootConfig | trackUUID; track loot._trackUUID) {
           <div class="loot">
-            @if (loot.type != 'random_item') {
+            @if (loot.type !== 'random_item') {
               <span class="spacer"></span>
             }
-            @if (loot.type == 'random_item') {
+            @if (loot.type === 'random_item') {
               <span tabclick class="checkbox" [ngClass]="{ checked: lootRandomItem }"></span>
             }
             <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + loot.type + '.svg'" />

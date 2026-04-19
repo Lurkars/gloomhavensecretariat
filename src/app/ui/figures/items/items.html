@@ -14,13 +14,13 @@
         <span class="id item-dialog" ghs-pointer-input (singleClick)="openItem(item)">{{ item.id }}.</span>
         <span
           class="name"
-          [ngClass]="{ disabled: gameManager.game.state != GameState.draw || gameManager.game.round > 0 }"
+          [ngClass]="{ disabled: gameManager.game.state !== GameState.draw || gameManager.game.round > 0 }"
           ghs-pointer-input
           (singleClick)="toggleEquippedItem(item)"
           (doubleClick)="toggleEquippedItem(item, true)"
         >
           <span [ghs-label]="'data.items.' + item.edition + '-' + item.id"></span>
-          @if (item.edition != itemEdition) {
+          @if (item.edition !== itemEdition) {
             <span>&nbsp;(<span [ghs-label]="'data.edition.' + item.edition"></span>)</span>
           }
         </span>

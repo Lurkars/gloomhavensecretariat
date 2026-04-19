@@ -146,7 +146,7 @@
                   [invert]="!!objectiveData && objectiveData.trackDamage"
                 ></span>
               }
-              @if ((!objectiveData || !objectiveData.trackDamage) && entity.maxHealth == 0) {
+              @if ((!objectiveData || !objectiveData.trackDamage) && entity.maxHealth === 0) {
                 <span>-</span>
               }
             </div>
@@ -195,7 +195,7 @@
                   @if (entityCondition.permanent) {
                     <span class="condition permanent condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 3"></span>
                   }
-                  @if (entityCondition.state == EntityConditionState.roundExpire) {
+                  @if (entityCondition.state === EntityConditionState.roundExpire) {
                     <span class="condition round condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 4"></span>
                   }
                 </span>
@@ -287,8 +287,8 @@
   <span class="spacer"></span>
   <span
     class="entities-menu"
-    [ngClass]="{ empty: nonDead == 0, disabled: nonDead < 2 }"
-    [entityAnimation]="nonDead == 0"
+    [ngClass]="{ empty: nonDead === 0, disabled: nonDead < 2 }"
+    [entityAnimation]="nonDead === 0"
     (click)="openEntitiesMenu($event)"
   >
     <img class="menu" src="./assets/images/up.svg" />

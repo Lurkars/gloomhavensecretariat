@@ -111,17 +111,17 @@ export class ObjectiveContainerComponent implements OnInit {
     this.activeConditions = [];
     this.entity = undefined;
     this.marker = '';
-    if (this.nonDead == 1) {
+    if (this.nonDead === 1) {
       this.entity = this.objective.entities.find((entity) => gameManager.entityManager.isAlive(entity));
       if (this.entity) {
         this.activeConditions = gameManager.entityManager.activeConditions(this.entity);
         this.entity.immunities.forEach((immunity) => {
-          if (!this.activeConditions.find((entityCondition) => entityCondition.name == immunity)) {
+          if (!this.activeConditions.find((entityCondition) => entityCondition.name === immunity)) {
             this.activeConditions.push(new EntityCondition(immunity));
           }
         });
       }
-    } else if (this.objective.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) == 0)) {
+    } else if (this.objective.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) === 0)) {
       this.marker = this.objective.entities.flatMap((entity) => entity.marker)[0];
     }
 
@@ -129,12 +129,12 @@ export class ObjectiveContainerComponent implements OnInit {
       this.objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(this.objective.objectiveId);
     }
 
-    this.compact = settingsManager.settings.characterCompact && settingsManager.settings.theme != 'modern';
-    this.short = (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern';
+    this.compact = settingsManager.settings.characterCompact && settingsManager.settings.theme !== 'modern';
+    this.short = (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme !== 'modern';
   }
 
   toggleFigure(event: any): void {
-    if (gameManager.game.state == GameState.draw || (settingsManager.settings.initiativeRequired && this.objective.initiative <= 0)) {
+    if (gameManager.game.state === GameState.draw || (settingsManager.settings.initiativeRequired && this.objective.initiative <= 0)) {
       this.openInitiativeDialog(event);
     } else {
       gameManager.stateManager.before(
@@ -161,7 +161,7 @@ export class ObjectiveContainerComponent implements OnInit {
       value = 0;
     }
 
-    if (gameManager.game.state == GameState.next && value == 0 && settingsManager.settings.initiativeRequired) {
+    if (gameManager.game.state === GameState.next && value === 0 && settingsManager.settings.initiativeRequired) {
       value = 1;
     }
 
@@ -176,16 +176,16 @@ export class ObjectiveContainerComponent implements OnInit {
       value = 0;
     }
 
-    if (gameManager.game.state == GameState.next && value == 0 && settingsManager.settings.initiativeRequired) {
+    if (gameManager.game.state === GameState.next && value === 0 && settingsManager.settings.initiativeRequired) {
       value = 1;
     }
 
-    if (this.objective.initiative != this.initiative) {
+    if (this.objective.initiative !== this.initiative) {
       this.objective.initiative = this.initiative;
       gameManager.entityManager.before(undefined, this.objective, 'setInitiative', value);
       this.objective.initiative = value;
       this.initiative = -1;
-      if (gameManager.game.state == GameState.next) {
+      if (gameManager.game.state === GameState.next) {
         gameManager.sortFigures(this.objective);
       }
       gameManager.stateManager.after();
@@ -204,7 +204,7 @@ export class ObjectiveContainerComponent implements OnInit {
   }
 
   dragHpEnd() {
-    if (this.health != 0 && this.entity) {
+    if (this.health !== 0 && this.entity) {
       gameManager.entityManager.before(this.entity, this.objective, 'changeHP', ghsValueSign(this.health));
       gameManager.entityManager.changeHealth(this.entity, this.objective, this.health);
       if (this.entity.health <= 0 && this.entity.maxHealth > 0) {
@@ -252,10 +252,10 @@ export class ObjectiveContainerComponent implements OnInit {
   addEntity() {
     const objectiveCount = this.objective.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
     let number = objectiveCount % 12;
-    if (this.objective.entities.find((objectiveEntity) => objectiveEntity.number == number)) {
+    if (this.objective.entities.find((objectiveEntity) => objectiveEntity.number === number)) {
       number = objectiveCount % 12;
       if (objectiveCount < 12) {
-        while (this.objective.entities.find((objectiveEntity) => objectiveEntity.number - 1 == number)) {
+        while (this.objective.entities.find((objectiveEntity) => objectiveEntity.number - 1 === number)) {
           number++;
         }
       }
@@ -291,7 +291,7 @@ export class ObjectiveContainerComponent implements OnInit {
       const edition = marker.split('-')[0];
       const name = marker.split('-').slice(1).join('-');
       gameManager.entityManager.before(this.entity, this.objective, 'removeCharacterMarker', marker, edition + '.' + name);
-      this.entity.markers = this.entity.markers.filter((value) => value != marker);
+      this.entity.markers = this.entity.markers.filter((value) => value !== marker);
       gameManager.stateManager.after();
     }
   }
@@ -331,7 +331,7 @@ export class ObjectiveContainerComponent implements OnInit {
                 EntityValueFunction(action.value) +
                 (action.subActions &&
                 action.subActions[0] &&
-                action.subActions[0].type == ActionType.range &&
+                action.subActions[0].type === ActionType.range &&
                 EntityValueFunction(action.subActions[0].value) > 1
                   ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + ''
                   : '')
@@ -360,7 +360,7 @@ export class ObjectiveContainerComponent implements OnInit {
                 EntityValueFunction(action.value) +
                 (action.subActions &&
                 action.subActions[0] &&
-                action.subActions[0].type == ActionType.range &&
+                action.subActions[0].type === ActionType.range &&
                 EntityValueFunction(action.subActions[0].value) > 1
                   ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + ''
                   : '')

@@ -12,7 +12,7 @@
     @if (success && !conclusionOnly && !rewardsOnly) {
       <span class="success"><span [ghs-label]="'scenario.finish.success'"></span></span>
     }
-    @if (!!conclusion && conclusion != scenario) {
+    @if (!!conclusion && conclusion !== scenario) {
       <span class="conclusion">
         <span
           class="text-white"
@@ -30,7 +30,7 @@
     }
   </div>
 
-  <div class="main" [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }">
+  <div class="main" [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }">
     @if (
       characters.length > 0 &&
       (characterProgress || forceCampaign) &&
@@ -272,7 +272,7 @@
                   (rewards && rewards.experience ? rewards.experience : 0) +
                     challenges * 2 +
                     character.experience +
-                    (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1 ? experienceBonus : 0)
+                    (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') === -1 ? experienceBonus : 0)
                     | ghsValueSign
                 }}</span>
               }
@@ -359,13 +359,13 @@
           <span class="head-col"><span [ghs-label]="'scenario.summary.randomItem'" [ghs-label-args]="[randomItem.name]"></span></span>
           @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
             <span>
-              @if (randomItemIndex == index) {
+              @if (randomItemIndex === index) {
                 <ghs-item (click)="openItemDialog(randomItem)" [item]="randomItem" [flipped]="true"></ghs-item>
               }
               <input
                 type="checkbox"
-                [disabled]="randomItemIndex > -1 && randomItemIndex != index"
-                [checked]="randomItemIndex == index"
+                [disabled]="randomItemIndex > -1 && randomItemIndex !== index"
+                [checked]="randomItemIndex === index"
                 (change)="toggleRandomItem($event, index)"
               />
             </span>
@@ -390,8 +390,8 @@
                   settingsManager.settings.battleGoals &&
                   character.battleGoal &&
                   character.battleGoals.length > 0 &&
-                  character != trial349 &&
-                  character != trial356
+                  character !== trial349 &&
+                  character !== trial356
                 ) {
                   <span class="battlegoal" (click)="openBattleGoals(character)">
                     <ghs-battlegoal
@@ -401,7 +401,7 @@
                   </span>
                 }
                 @if (
-                  settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 && character == trial349
+                  settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 && character === trial349
                 ) {
                   <div class="battlegoal-list">
                     @for (battleGoal of character.battleGoals | trackUUID; track battleGoal._trackUUID) {
@@ -412,7 +412,7 @@
                   </div>
                 }
                 @if (
-                  settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 2 && character == trial356
+                  settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 2 && character === trial356
                 ) {
                   <div class="battlegoal-list">
                     @for (
@@ -440,7 +440,7 @@
                   @if (!character.absent && battleGoals[index] > 0) {
                     <input type="checkbox" [checked]="battleGoals[index] > 1" (change)="toggleBattleGoal($event, index, 2)" />
                   }
-                  @if (!character.absent && character == trial349 && battleGoals[index] > 1) {
+                  @if (!character.absent && character === trial349 && battleGoals[index] > 1) {
                     @for (i of [] | ghsRange: battleGoals[index] - 1; track i) {
                       <input type="checkbox" [checked]="battleGoals[index] > 2 + i" (change)="toggleBattleGoal($event, index, 3 + i)" />
                     }
@@ -691,7 +691,7 @@
                       name="chooseLocation"
                       (change)="selectLocation(location)"
                       [value]="location"
-                      [checked]="chooseLocation == location"
+                      [checked]="chooseLocation === location"
                     />
                     <span
                       [ghs-label]="
@@ -1190,7 +1190,7 @@
                         (click)="openItemDialog(gameManager.itemManager.getItem(itemId, scenario.edition || '', true))"
                       ></span>
                     }
-                    @if (itemId == -1) {
+                    @if (itemId === -1) {
                       <span> <span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['+1']"></span> </span>
                     }
                     @if (rewards.hints && rewards.hints.randomItemBlueprint) {
@@ -1293,7 +1293,7 @@
                           name="chooseUnlockCharacter"
                           (change)="selectCharacter(character)"
                           [value]="character"
-                          [checked]="chooseUnlockCharacter == character"
+                          [checked]="chooseUnlockCharacter === character"
                         />
                       }
                       <span
@@ -1520,8 +1520,8 @@
             }
           }
           @if (
-            (!scenario.forcedLinks || scenario.forcedLinks.length == 0) &&
-            (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0)
+            (!scenario.forcedLinks || scenario.forcedLinks.length === 0) &&
+            (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length === 0)
           ) {
             <span class="text"><span [ghs-label]="'scenario.summary.links'"></span></span>
             @for (index of scenario.links; track index) {
@@ -1544,8 +1544,8 @@
         !gameManager.game.party.campaignMode ||
         alreadyWarning ||
         forceCampaign ||
-        ((!scenario.forcedLinks || scenario.forcedLinks.length == 0) &&
-          (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0))
+        ((!scenario.forcedLinks || scenario.forcedLinks.length === 0) &&
+          (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length === 0))
       ) {
         <a class="apply" (click)="finish()"
           ><span [ghs-label]="conclusionOnly ? 'scenario.summary.solve' : 'scenario.summary.apply'"></span

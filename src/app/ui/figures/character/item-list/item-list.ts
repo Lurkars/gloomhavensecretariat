@@ -45,7 +45,7 @@ export class CharacterItemListComponent implements OnInit {
   }
 
   update() {
-    this.setup = gameManager.game.state == GameState.draw && gameManager.roundManager.firstRound;
+    this.setup = gameManager.game.state === GameState.draw && gameManager.roundManager.firstRound;
     this.items = (
       gameManager.bbRules()
         ? gameManager.itemManager.getItems('bb')
@@ -92,14 +92,14 @@ export class CharacterItemListComponent implements OnInit {
 
   equipped(itemData: ItemData): AdditionalIdentifier | undefined {
     return this.character.progress.equippedItems.find(
-      (identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition
+      (identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition
     );
   }
 
   countFlag(itemData: ItemData, flag: string): number {
     const equipped = this.equipped(itemData);
     if (equipped) {
-      return (equipped.tags && equipped.tags.filter((tag) => tag == flag).length) || 0;
+      return (equipped.tags && equipped.tags.filter((tag) => tag === flag).length) || 0;
     }
     return 0;
   }

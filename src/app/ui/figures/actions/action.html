@@ -37,13 +37,13 @@
               ></span>
             </span>
             <span class="condition-image">
-              @if (getConditionName(values[0]) != 'invalid') {
+              @if (getConditionName(values[0]) !== 'invalid') {
                 <img
                   class="icon"
                   [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/condition/' + getConditionName(values[0]) + '.svg'"
                 />
               }
-              @if (getConditionName(values[0]) == 'invalid') {
+              @if (getConditionName(values[0]) === 'invalid') {
                 <img class="icon warning" src="./assets/images/warning.svg" />
               }
               @if (values.length > 1) {
@@ -95,7 +95,7 @@
       @case (ActionType.element) {
         <span
           class="action-element"
-          [ngClass]="{ small: action.small, 'action-element-consume': action.valueType == ActionValueType.minus }"
+          [ngClass]="{ small: action.small, 'action-element-consume': action.valueType === ActionValueType.minus }"
         >
           <span
             class="elements"
@@ -108,11 +108,11 @@
             [ngClass]="{ 'action-interactive': isInteractiveApplicableAction, 'action-interactive-highlight': highlightAction() }"
           >
             @for (element of values; track element + i; let i = $index) {
-              <span class="element" [ngClass]="{ consume: action.valueType == ActionValueType.minus, wild: element == 'wild' }">
+              <span class="element" [ngClass]="{ consume: action.valueType === ActionValueType.minus, wild: element === 'wild' }">
                 <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + element + '.svg'" />
               </span>
             }
-            @if (action.valueType == ActionValueType.minus && subActions.length > 0) {
+            @if (action.valueType === ActionValueType.minus && subActions.length > 0) {
               <span class="minus">:</span>
             }
           </span>
@@ -154,14 +154,14 @@
       @case (ActionType.elementHalf) {
         <span
           class="action-element"
-          [ngClass]="{ small: action.small, 'action-element-consume': action.valueType == ActionValueType.minus }"
+          [ngClass]="{ small: action.small, 'action-element-consume': action.valueType === ActionValueType.minus }"
         >
-          @if (values.length == 2) {
+          @if (values.length === 2) {
             <span class="elements elements-half">
               <span
                 class="element-half-container"
                 [ngClass]="{
-                  consume: action.valueType == ActionValueType.minus,
+                  consume: action.valueType === ActionValueType.minus,
                   'action-interactive': isInteractiveApplicableAction,
                   'action-interactive-highlight': highlightAction()
                 }"
@@ -179,7 +179,7 @@
                   <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + values[1] + '.svg'" />
                 </span>
               </span>
-              @if (action.valueType == ActionValueType.minus) {
+              @if (action.valueType === ActionValueType.minus) {
                 <span class="minus">:</span>
               }
             </span>
@@ -257,7 +257,7 @@
       }
 
       @case (ActionType.round) {
-        @if (action.value == round) {
+        @if (action.value === round) {
           <span class="action-round" [ngClass]="{ small: action.small }">
             @if (subActions.length > 0) {
               <div class="round-subactions">
@@ -308,10 +308,10 @@
             ) {
               <span [ngClass]="{ small: action.small }">
                 <span>{{ getRange() }}</span>
-                @if (getEliteRange() && getRange() != getEliteRange()) {
+                @if (getEliteRange() && getRange() !== getEliteRange()) {
                   <span>/</span>
                 }
-                @if (getEliteRange() && getRange() != getEliteRange()) {
+                @if (getEliteRange() && getRange() !== getEliteRange()) {
                   <span class="elite">{{ getEliteRange() }}</span>
                 }
               </span>
@@ -367,7 +367,7 @@
 
       @case (ActionType.custom) {
         <span class="action-custom">
-          @if (!action.enhancementTypes || action.enhancementTypes[0] != 'any') {
+          @if (!action.enhancementTypes || action.enhancementTypes[0] !== 'any') {
             <div class="enhancements-container" #enhancementContainer>
               <span
                 class="custom-value"
@@ -393,7 +393,7 @@
             </div>
           }
 
-          @if (action.enhancementTypes && action.enhancementTypes[0] == 'any') {
+          @if (action.enhancementTypes && action.enhancementTypes[0] === 'any') {
             <span
               class="custom-value"
               [ghs-label]="action.value + ''"
@@ -849,7 +849,7 @@
               @if (
                 !inline &&
                 ((values.length > 1 && +values[1] > 0 && index < +values[1] - 1) || (values.length < 2 && index < subActions.length - 1)) &&
-                subAction.type != ActionType.concatenationSpacer
+                subAction.type !== ActionType.concatenationSpacer
               ) {
                 <span class="action-concatenation-item">
                   @if (values.length > 0) {
@@ -946,7 +946,7 @@
       }
 
       @case (ActionType.box) {
-        <span class="action-box-container" [ngClass]="{ small: action.small, empty: subActions.length == 0, first: actionIndex == '0' }">
+        <span class="action-box-container" [ngClass]="{ small: action.small, empty: subActions.length === 0, first: actionIndex === '0' }">
           @if (action.value) {
             <span class="action-box-label" [ghs-label]="'' + action.value" [relative]="relative || forceRelative" [style]="style"></span>
           }
@@ -1052,22 +1052,22 @@
           <div class="card-value" [ngClass]="values[0]">
             <img class="ghs-svg" [src]="'./assets/images/action/card/' + values[0] + '.svg'" />
             @if (
-              values[0] != 'slot' &&
-              values[0] != 'slotStart' &&
-              values[0] != 'slotStartXp' &&
-              values[0] != 'slotXp' &&
-              values[0] != 'slotXpFh' &&
-              values[0] != 'slotEndXp'
+              values[0] !== 'slot' &&
+              values[0] !== 'slotStart' &&
+              values[0] !== 'slotStartXp' &&
+              values[0] !== 'slotXp' &&
+              values[0] !== 'slotXpFh' &&
+              values[0] !== 'slotEndXp'
             ) {
               <img class="overlay" [src]="'./assets/images/action/card/overlay/' + values[0] + '.svg'" />
             }
             @if (
-              values[0] == 'slot' ||
-              values[0] == 'slotStart' ||
-              values[0] == 'slotStartXp' ||
-              values[0] == 'slotXp' ||
-              values[0] == 'slotXpFh' ||
-              values[0] == 'slotEndXp'
+              values[0] === 'slot' ||
+              values[0] === 'slotStart' ||
+              values[0] === 'slotStartXp' ||
+              values[0] === 'slotXp' ||
+              values[0] === 'slotXpFh' ||
+              values[0] === 'slotEndXp'
             ) {
               <span
                 class="overlay"
@@ -1125,18 +1125,18 @@
             [delay]="1"
             [disabled]="!isInteractiveApplicableAction"
           >
-            @if (action.valueType != ActionValueType.add && action.valueType != ActionValueType.subtract) {
+            @if (action.valueType !== ActionValueType.add && action.valueType !== ActionValueType.subtract) {
               <span class="type"><span [ghs-label]="'game.action.' + action.type" [style]="style"></span></span>
 
               <span class="action-icon">
-                @if (action.type != ActionType.move || !flying) {
+                @if (action.type !== ActionType.move || !flying) {
                   <img
                     [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/' + action.type + '.svg'"
                     class="icon"
                     [ngClass]="{ 'ghs-svg': isGhsSvg(action.type) }"
                   />
                 }
-                @if (action.type == ActionType.move && flying) {
+                @if (action.type === ActionType.move && flying) {
                   <img
                     [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'"
                     class="icon"
@@ -1150,10 +1150,10 @@
                     @if (hasEntitiesCache.normal || !monster) {
                       <span [value-calc]="normalValue" [level]="level"></span>
                     }
-                    @if (hasEntitiesCache.normal && hasEntitiesCache.elite && normalValue != eliteValue) {
+                    @if (hasEntitiesCache.normal && hasEntitiesCache.elite && normalValue !== eliteValue) {
                       <span>/</span>
                     }
-                    @if (hasEntitiesCache.elite && (normalValue != eliteValue || !hasEntitiesCache.normal)) {
+                    @if (hasEntitiesCache.elite && (normalValue !== eliteValue || !hasEntitiesCache.normal)) {
                       <span [ngClass]="{ elite: hasEntitiesCache.normal }" [value-calc]="eliteValue" [level]="level"></span>
                     }
                   </span>
@@ -1163,10 +1163,10 @@
                     @if (hasEntitiesCache.normal || !monster || forceRelative) {
                       <span [ghs-label]="normalValue" [relative]="relative || forceRelative" [style]="style"></span>
                     }
-                    @if (hasEntitiesCache.normal && hasEntitiesCache.elite && normalValue != eliteValue) {
+                    @if (hasEntitiesCache.normal && hasEntitiesCache.elite && normalValue !== eliteValue) {
                       <span>/</span>
                     }
-                    @if (hasEntitiesCache.elite && (normalValue != eliteValue || !hasEntitiesCache.normal)) {
+                    @if (hasEntitiesCache.elite && (normalValue !== eliteValue || !hasEntitiesCache.normal)) {
                       <span
                         [ngClass]="{ elite: hasEntitiesCache.normal }"
                         [ghs-label]="eliteValue"
@@ -1182,23 +1182,23 @@
               </span>
             }
 
-            @if (action.valueType == ActionValueType.add || action.valueType == ActionValueType.subtract) {
+            @if (action.valueType === ActionValueType.add || action.valueType === ActionValueType.subtract) {
               <span class="value">
-                {{ action.valueType == ActionValueType.add ? '+' : '-' }}
+                {{ action.valueType === ActionValueType.add ? '+' : '-' }}
                 @if (!relative && !forceRelative) {
                   <span>
                     <span [value-calc]="normalValue" [level]="level"></span>
-                    @if (eliteValue && normalValue != eliteValue) {
+                    @if (eliteValue && normalValue !== eliteValue) {
                       <span>/</span>
                     }
-                    @if (eliteValue && normalValue != eliteValue) {
+                    @if (eliteValue && normalValue !== eliteValue) {
                       <span class="elite" [value-calc]="eliteValue" [level]="level"></span>
                     }
                   </span>
                 }
                 @if (relative || forceRelative) {
                   <span [ghs-label]="normalValue + ''" [relative]="relative || forceRelative" [style]="style">
-                    @if (normalValue != eliteValue) {
+                    @if (normalValue !== eliteValue) {
                       <span
                         >/<span class="elite" [ghs-label]="eliteValue + ''" [relative]="relative || forceRelative" [style]="style"></span>
                       </span>
@@ -1210,24 +1210,24 @@
                 }
               </span>
 
-              @if (action.type == ActionType.target && EntityValueFunction(action.value) > 1) {
+              @if (action.type === ActionType.target && EntityValueFunction(action.value) > 1) {
                 <span class="type"> <span [ghs-label]="'game.action.targets'" [style]="style"></span></span>
               }
 
-              @if (action.type != ActionType.target || EntityValueFunction(action.value) < 2) {
+              @if (action.type !== ActionType.target || EntityValueFunction(action.value) < 2) {
                 <span class="type">
                   <span [ghs-label]="'game.action.' + action.type" [style]="style"></span>
                 </span>
               }
 
-              @if (action.type != ActionType.move || !flying) {
+              @if (action.type !== ActionType.move || !flying) {
                 <img
                   [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/' + action.type + '.svg'"
                   class="icon"
                   [ngClass]="{ 'ghs-svg': isGhsSvg(action.type) }"
                 />
               }
-              @if (action.type == ActionType.move && flying) {
+              @if (action.type === ActionType.move && flying) {
                 <img
                   [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'"
                   class="icon"

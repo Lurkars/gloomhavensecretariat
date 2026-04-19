@@ -1,4 +1,4 @@
-import { Directive, ElementRef, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, inject, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -21,7 +21,7 @@ export const applyPlaceholder = function (
   relative: boolean = false,
   style: 'gh' | 'fh' | false = false
 ): string {
-  const fh = (!style && settingsManager.settings.fhStyle) || style == 'fh';
+  const fh = (!style && settingsManager.settings.fhStyle) || style === 'fh';
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
       let label: string = args[0];
@@ -44,9 +44,9 @@ export const applyPlaceholder = function (
 
       let replace: string = match;
       let image: string = '';
-      if (type == 'condition' || type == 'immunity') {
+      if (type === 'condition' || type === 'immunity') {
         const condition = new Condition(split[2]);
-        image = '<span class="condition-icon' + (type == 'immunity' ? ' immunity' : '') + '">';
+        image = '<span class="condition-icon' + (type === 'immunity' ? ' immunity' : '') + '">';
         image += '<img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + condition.name + '.svg" class="icon">';
         if (!value && condition.types.includes(ConditionType.upgrade)) {
           value = 'X';
@@ -62,9 +62,9 @@ export const applyPlaceholder = function (
           (fh ? '&#8203;' : settingsManager.getLabel('game.condition.' + condition.name, [value ? value : ''])) +
           image +
           '</span>';
-      } else if (type == 'conditionIcon' || type == 'immunityIcon') {
+      } else if (type === 'conditionIcon' || type === 'immunityIcon') {
         const condition = new Condition(split[2]);
-        image = '<span class="condition-icon' + (type == 'immunityIcon' ? ' immunity' : '') + '">';
+        image = '<span class="condition-icon' + (type === 'immunityIcon' ? ' immunity' : '') + '">';
         image += '<img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + condition.name + '.svg" class="icon">';
         if (!value && condition.types.includes(ConditionType.upgrade)) {
           value = 'X';
@@ -75,8 +75,8 @@ export const applyPlaceholder = function (
         image += '</span>';
         replace = '<span class="placeholder-condition">&#8203;' + image + '</span>';
       } else if (
-        type == 'action' &&
-        split.length == 3 &&
+        type === 'action' &&
+        split.length === 3 &&
         !split[2].startsWith('specialTarget') &&
         !split[2].startsWith('summon') &&
         !split[2].startsWith('area')
@@ -88,8 +88,8 @@ export const applyPlaceholder = function (
         replace =
           '&#8203;<span class="placeholder-action">' + (fh ? '&#8203;' : settingsManager.getLabel(label)) + image + value + '</span>';
       } else if (
-        type == 'actionIcon' &&
-        split.length == 3 &&
+        type === 'actionIcon' &&
+        split.length === 3 &&
         !split[2].startsWith('specialTarget') &&
         !split[2].startsWith('summon') &&
         !split[2].startsWith('area')
@@ -104,11 +104,11 @@ export const applyPlaceholder = function (
           (ghsSvg ? ' ghs-svg' : '') +
           '">';
         replace = '&#8203;<span class="placeholder-action">&#8203;' + image + value + '</span>';
-      } else if (type == 'actionText' && split.length == 3) {
+      } else if (type === 'actionText' && split.length === 3) {
         replace = '&#8203;<span class="placeholder-action">' + settingsManager.getLabel('game.action.' + split[2]) + '</span>';
-      } else if (type == 'element') {
+      } else if (type === 'element') {
         let element = split[2];
-        if (element == 'consume') {
+        if (element === 'consume') {
           image = '<span class="element inline consume">';
           element = split[3];
         } else {
@@ -116,7 +116,7 @@ export const applyPlaceholder = function (
         }
         image += '<img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + element + '.svg"></span>';
         replace = image;
-      } else if (type == 'elementHalf') {
+      } else if (type === 'elementHalf') {
         let consume: boolean = false;
         if (split[2] && split[2].startsWith('consume')) {
           consume = true;
@@ -136,16 +136,16 @@ export const applyPlaceholder = function (
           'element/' +
           elements[1] +
           '.svg"></span></span></span>';
-      } else if (type == 'action' && split[2].startsWith('area')) {
+      } else if (type === 'action' && split[2].startsWith('area')) {
         replace = '<span class="placeholder-area">';
 
-        if (split[2] == 'areaRotated') {
+        if (split[2] === 'areaRotated') {
           replace = '<span class="placeholder-area" style="transform:rotate(-90deg);">';
         }
 
         value.split('|').forEach((hexValue) => {
           const hex: ActionHex | null = ActionHexFromString(hexValue);
-          if (hex != null) {
+          if (hex !== null) {
             replace +=
               '<span class="hex" style="grid-column-start : ' +
               (hex.x * 2 + 1 + (hex.y % 2)) +
@@ -161,17 +161,17 @@ export const applyPlaceholder = function (
           }
         });
         replace += '</span>';
-      } else if (type == 'initiative' && split.length == 3) {
+      } else if (type === 'initiative' && split.length === 3) {
         image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>';
         replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
-      } else if (type == 'action' && split.length == 4) {
+      } else if (type === 'action' && split.length === 4) {
         image = '<img  src="./assets/images/action/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-perk">' + image + value + '</span>';
-      } else if (prefix == 'game' && type == 'items' && split.length == 4) {
+      } else if (prefix === 'game' && type === 'items' && split.length === 4) {
         image = '<img  src="./assets/images/items/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-item-slot">' + image + value + '</span>';
-      } else if (prefix == 'game' && type == 'itemFh' && split.length == 3) {
-        if (split[2] == 'random') {
+      } else if (prefix === 'game' && type === 'itemFh' && split.length === 3) {
+        if (split[2] === 'random') {
           replace =
             '<span class="placeholder-item-fh"><span class="value"><img src="./assets/images/fh/loot/random_item.svg"></span></span>';
         } else {
@@ -184,7 +184,7 @@ export const applyPlaceholder = function (
             itemId +
             '</span></span>';
         }
-      } else if (type == 'card' && split.length == 3) {
+      } else if (type === 'card' && split.length === 3) {
         const card = split[2];
         let cardValue = '';
         if (value) {
@@ -193,18 +193,19 @@ export const applyPlaceholder = function (
         image = '<img class="icon ghs-svg" src="./assets/images/action/card/' + card + '.svg">';
         const cardOverlay = '<img class="card-overlay" src="./assets/images/action/card/overlay/' + card + '.svg">';
         replace = '<span class="placeholder-effect placeholder-card">' + image + cardOverlay + cardValue + '</span>';
-      } else if (type == 'attackmodifier' && split.length == 3 && split[2] != 'rolling') {
+      } else if (type === 'attackmodifier' && split.length === 3 && split[2] !== 'rolling') {
         image = '<img  src="./assets/images' + (fh ? '/fh' : '') + '/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
-      } else if (type == 'attackmodifier' && split.length == 3 && split[2] == 'rolling') {
+      } else if (type === 'attackmodifier' && split.length === 3 && split[2] === 'rolling') {
         image = '<img  src="./assets/images/attackmodifier/rolling.svg" class="icon">';
         replace = '<span class="condition-icon">' + image + '</span>';
-      } else if (type == 'townGuardAM' && value) {
+      } else if (type === 'townGuardAM' && value) {
         replace = '<span class="placeholder-townguard-attackmodifier">' + value + '</span>';
-        const townGuardAM = [...defaultTownGuardAttackModifier, ...additionalTownGuardAttackModifier].find((am) => am.id == value);
+        const townGuardAM = [...defaultTownGuardAttackModifier, ...additionalTownGuardAttackModifier].find((am) => am.id === value);
         if (townGuardAM) {
-          const effect = townGuardAM.effects.find((effect) => effect.type == 'custom' && effect.icon);
-          const effectImage = effect != undefined ? '<img  src="./assets/images/action/custom/' + effect.value + '.svg" class="icon">' : '';
+          const effect = townGuardAM.effects.find((effect) => effect.type === 'custom' && effect.icon);
+          const effectImage =
+            effect !== undefined ? '<img  src="./assets/images/action/custom/' + effect.value + '.svg" class="icon">' : '';
           let amImage =
             '<span class="townguard-attackmodifier"><img src="./assets/images/fh/attackmodifier/icons/' +
             townGuardAM.valueType +
@@ -212,7 +213,7 @@ export const applyPlaceholder = function (
             (townGuardAM.value >= 0 ? '+' : '') +
             townGuardAM.value +
             '</span></span>';
-          if (townGuardAM.type == AttackModifierType.wreck || townGuardAM.type == AttackModifierType.success) {
+          if (townGuardAM.type === AttackModifierType.wreck || townGuardAM.type === AttackModifierType.success) {
             amImage =
               '<span class="townguard-attackmodifier"><img src="./assets/images/fh/attackmodifier/icons/' +
               townGuardAM.type +
@@ -221,28 +222,28 @@ export const applyPlaceholder = function (
           const rollingImage = townGuardAM.rolling ? '<img  src="./assets/images/attackmodifier/rolling.svg" class="icon">' : '';
           replace = '<span class="placeholder-townguard-attackmodifier">' + effectImage + amImage + rollingImage + '</span>';
         }
-      } else if (type == 'amDeck' && split.length == 3) {
+      } else if (type === 'amDeck' && split.length === 3) {
         const deck = split[2];
         image = deck;
-        if (deck != 'M' && deck != 'A') {
+        if (deck !== 'M' && deck !== 'A') {
           image = '<img src="' + gameManager.characterManager.characterIcon(deck) + '" class="icon">';
         }
         replace = '<span class="placeholder-am-deck">' + image + '</span>';
-      } else if (type == 'customAction' && value) {
+      } else if (type === 'customAction' && value) {
         const effectImage = '<img  src="./assets/images/action/custom/' + value + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-custom-action">' + effectImage + '</span>';
-      } else if (type == 'experience') {
+      } else if (type === 'experience') {
         image = '<img  src="./assets/images/experience.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-experience">' + image + (value ? '<span class="value">' + value + '</span>' : '') + '</span>';
-      } else if (type == 'characterIcon' && split.length == 3) {
+      } else if (type === 'characterIcon' && split.length === 3) {
         const characterName = split[2];
         image = '<img class="icon" src="' + gameManager.characterManager.characterIcon(characterName) + '">';
         replace = '<span class="placeholder-character-icon">' + image + '</span>';
-      } else if (type == 'characterIconColored' && split.length == 3) {
+      } else if (type === 'characterIconColored' && split.length === 3) {
         const characterName = split[2];
         image = '<img class="icon" src="' + gameManager.characterManager.characterIcon(characterName) + '">';
         replace = '<span class="placeholder-character-icon-colored">' + image + '</span>';
-      } else if (type == 'characterIconColoredBg' && split.length == 3) {
+      } else if (type === 'characterIconColoredBg' && split.length === 3) {
         const characterName = split[2];
         image = '<img class="icon" src="' + gameManager.characterManager.characterIcon(characterName) + '">';
         replace =
@@ -251,17 +252,17 @@ export const applyPlaceholder = function (
           '">' +
           image +
           '</span>';
-      } else if (type == 'characterIconIdentity' && split.length == 4) {
+      } else if (type === 'characterIconIdentity' && split.length === 4) {
         const characterName = split[2];
         const identity = +split[3];
         image = '<img class="icon" src="' + gameManager.characterManager.characterIdentityIcon(characterName, identity) + '">';
         replace = '<span class="placeholder-character-icon">' + image + '</span>';
-      } else if (type == 'characterIconIdentityColored' && split.length == 4) {
+      } else if (type === 'characterIconIdentityColored' && split.length === 4) {
         const characterName = split[2];
         const identity = +split[3];
         image = '<img class="icon" src="' + gameManager.characterManager.characterIdentityIcon(characterName, identity) + '">';
         replace = '<span class="placeholder-character-icon-colored">' + image + '</span>';
-      } else if (type == 'characterIconIdentityColoredBg' && split.length == 4) {
+      } else if (type === 'characterIconIdentityColoredBg' && split.length === 4) {
         const characterName = split[2];
         const identity = +split[3];
         image = '<img class="icon" src="' + gameManager.characterManager.characterIdentityIcon(characterName, identity) + '">';
@@ -271,7 +272,7 @@ export const applyPlaceholder = function (
           '">' +
           image +
           '</span>';
-      } else if (type == 'characterToken' && split.length >= 3) {
+      } else if (type === 'characterToken' && split.length >= 3) {
         const characterName = split[2];
         let icon = gameManager.characterManager.characterIcon(characterName);
         let additionalToken = false;
@@ -288,15 +289,15 @@ export const applyPlaceholder = function (
           '">' +
           image +
           '</span>';
-      } else if (type == 'coloredToken' && split.length > 3) {
+      } else if (type === 'coloredToken' && split.length > 3) {
         const color = split[2];
         const icon = './assets/images/character/custom/' + split[3] + '.svg';
         image = '<img src="' + icon + '">';
         replace = '<span class="placeholder-character-token" style="--ghs-character-color:#' + color + '">' + image + '</span>';
-      } else if (type == 'characterColored') {
+      } else if (type === 'characterColored') {
         const characterName = split[2];
         replace = '<span style="color: ' + gameManager.characterManager.characterColor(characterName) + ';">' + value + '</span>';
-      } else if (type == 'monsterType' && split.length == 3) {
+      } else if (type === 'monsterType' && split.length === 3) {
         const monsterType = split[2];
         replace =
           '<span class="placeholder-monster-type ' +
@@ -304,96 +305,96 @@ export const applyPlaceholder = function (
           '">' +
           settingsManager.getLabel('game.monster.' + monsterType) +
           '</span>';
-      } else if (type == 'monsterType' && split.length == 4) {
+      } else if (type === 'monsterType' && split.length === 4) {
         const monsterType = split[2];
         replace = '<span class="placeholder-monster-type ' + monsterType + '">' + split[3] + '</span>';
-      } else if (type == 'mapMarker' && split.length == 3) {
-        if (split[2] == 'element') {
+      } else if (type === 'mapMarker' && split.length === 3) {
+        if (split[2] === 'element') {
           image = '<img src="./assets/images/element/' + value + '.svg">';
           replace = '<span class="placeholder-element">' + image + '</span>';
         } else {
           replace = '<span class="map-marker">' + split[2] + '</span>';
         }
-      } else if (type == 'objectiveMarker' && split.length == 3) {
+      } else if (type === 'objectiveMarker' && split.length === 3) {
         replace = '<span class="objective-marker">' + split[2] + '</span>';
-      } else if (type == 'scenarioNumber') {
+      } else if (type === 'scenarioNumber') {
         replace = '<span class="scenario-number">' + value + '</span>';
-      } else if (type == 'objectiveIcon' && split.length == 3) {
+      } else if (type === 'objectiveIcon' && split.length === 3) {
         image = '<img  src="./assets/images/objective/' + split[2] + '.svg" class="icon">';
         replace = '<span class="objective-icon">' + image + '</span>';
-      } else if (fh && type == 'target' && split.length == 2) {
+      } else if (fh && type === 'target' && split.length === 2) {
         image = '<img  src="./assets/images/fh/action/target.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-action">' + image + '</span>';
-      } else if (!fh && type == 'damage') {
+      } else if (!fh && type === 'damage') {
         replace = '<span class="damage">' + settingsManager.getLabel('game.damage', [value]) + '</span>';
-      } else if (fh && type == 'damage') {
+      } else if (fh && type === 'damage') {
         image = '<img  src="./assets/images/fh/action/damage.svg" class="icon ghs-svg">';
         replace = '<span class="damage">&#8203;' + image + value + '</span>';
-      } else if (type == 'loot' && split.length == 4) {
+      } else if (type === 'loot' && split.length === 4) {
         image = '<img  src="./assets/images/' + split[3] + '-player.svg" class="icon">';
         replace = '<span class="placeholder-player">' + image + '</span>';
-      } else if (type == 'resource' && split.length == 3) {
+      } else if (type === 'resource' && split.length === 3) {
         image = '<img  src="./assets/images/fh/loot/' + split[2] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-resource">' + image + '</span>';
-      } else if (type == 'section' && value) {
+      } else if (type === 'section' && value) {
         image = '<img src="./assets/images/fh/party/section.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-section">' + image + value + '</span>';
-      } else if (type == 'gh2eFaction' && value) {
+      } else if (type === 'gh2eFaction' && value) {
         image = '<img src="./assets/images/gh2e/faction/' + value + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-faction">' + image + '</span>';
-      } else if (type == 'checkmark') {
+      } else if (type === 'checkmark') {
         replace = '<span class="placeholder-checkmark"><img src="./assets/images/check.svg" class="icon ghs-svg"></span>';
-      } else if (type == 'prosperity') {
+      } else if (type === 'prosperity') {
         replace = '<span class="placeholder-prosperity"><img src="./assets/images/gh2e/prosperity.svg" class="icon ghs-svg"></span>';
-      } else if (type == 'itemSlot' && value) {
+      } else if (type === 'itemSlot' && value) {
         replace =
           '<span class="placeholder-items-slot"><img src="./assets/images/items/slots/' + value + '.svg" class="icon ghs-svg"></span>';
-      } else if (type == 'bbAm' && split.length == 3) {
+      } else if (type === 'bbAm' && split.length === 3) {
         replace =
           '<span class="placeholder-bb-am"><img src="./assets/images/bb/attackmodifier/' + split[2] + '.svg" class="icon ghs-svg"></span>';
-      } else if (type == 'townGuardAm' && split.length == 3 && value) {
+      } else if (type === 'townGuardAm' && split.length === 3 && value) {
         const valueType = split[2];
         let valueSign = '';
-        if (valueType == AttackModifierValueType.plus) {
+        if (valueType === AttackModifierValueType.plus) {
           valueSign = '+';
-        } else if (valueType == AttackModifierValueType.minus) {
+        } else if (valueType === AttackModifierValueType.minus) {
           valueSign = '-';
-        } else if (valueType == AttackModifierValueType.multiply) {
+        } else if (valueType === AttackModifierValueType.multiply) {
           valueSign = 'x';
         }
         replace = '<span class="placeholder-town-guard-am ' + split[2] + '">' + valueSign + value + '</span>';
-      } else if (type == 'fhIcon' && value) {
+      } else if (type === 'fhIcon' && value) {
         image = '<img src="./assets/images/fh/icons/' + value + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-fh-icon">' + image + '</span>';
-      } else if (type == 'gameIcon' && value) {
+      } else if (type === 'gameIcon' && value) {
         image = '<img src="./assets/images/' + value + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-game-icon">' + image + '</span>';
-      } else if (type == 'statusIcon' && value) {
+      } else if (type === 'statusIcon' && value) {
         image = '<img src="./assets/images/status/' + value + '.svg" class="icon">';
         replace = '<span class="placeholder-game-icon">' + image + '</span>';
-      } else if (type == 'trait') {
+      } else if (type === 'trait') {
         image = '<img src="./assets/images/fh/character/traits/trait.svg" class="icon ghs-svg">';
         replace =
           '<span class="placeholder-trait">' +
           image +
           (value ? settingsManager.getLabel('data.character.traits.' + value) : '') +
           '</span>';
-      } else if (type == 'checkbox') {
+      } else if (type === 'checkbox') {
         replace = '<span class="placeholder-checkbox"></span>';
-      } else if (type == 'eventCard' && value) {
+      } else if (type === 'eventCard' && value) {
         replace = '<span class="placeholder-action"><img src="./assets/images/eventcards/' + value + '.svg" class="icon ghs-svg"></span>';
-      } else if (type == 'eventCheckbox' && value) {
+      } else if (type === 'eventCheckbox' && value) {
         replace = '<span class="event-checkbox">' + value + '</span>';
-      } else if (type == 'valueSign' && value) {
+      } else if (type === 'valueSign' && value) {
         replace = '<span class="value-sign">' + (+value > -1 ? '+' : '') + value + '</span>';
-      } else if (type == 'enhancement' && split.length == 3) {
+      } else if (type === 'enhancement' && split.length === 3) {
         if (!fh || split[2] === 'any') {
           image = '<img class="enhancement-icon" src="./assets/images/character/abilities/enhancements/circle.svg">';
         } else {
           image = '<img class="enhancement-icon" src="./assets/images/fh/character/abilities/enhancements/' + split[2] + '.svg">';
         }
         replace = '<span class="placeholder-enhancement">' + image + '</span>';
-      } else if (type == 'tooltip' && value) {
+      } else if (type === 'tooltip' && value) {
         const label = settingsManager.getLabel(value);
         const text = settingsManager.getLabel(value + '.tooltip');
         replace = `<span class="hint-container inline">
@@ -473,14 +474,14 @@ export class GhsLabelDirective implements OnInit, OnChanges {
   private el = inject(ElementRef);
   private ghsManager = inject(GhsManager);
 
-  @Input('ghs-label') value!: string | number;
-  @Input('ghs-label-args') args: (string | number | boolean)[] = [];
-  @Input('ghs-label-args-replace') argLabel: boolean = true;
-  @Input('ghs-label-empty') empty: boolean = true;
-  @Input('ghs-label-attribute') attribute: string = '';
-  @Input() slice: number[] = [];
-  @Input() relative: boolean = false;
-  @Input() style: 'gh' | 'fh' | false = false;
+  readonly value = input.required<string | number>({ alias: 'ghs-label' });
+  readonly args = input<(string | number | boolean)[]>([], { alias: 'ghs-label-args' });
+  readonly argLabel = input<boolean>(true, { alias: 'ghs-label-args-replace' });
+  readonly empty = input<boolean>(true, { alias: 'ghs-label-empty' });
+  readonly attribute = input<string>('', { alias: 'ghs-label-attribute' });
+  readonly slice = input<number[]>([]);
+  readonly relative = input<boolean>(false);
+  readonly style = input<'gh' | 'fh' | false>(false);
 
   private C: number;
   private L: number;
@@ -493,21 +494,22 @@ export class GhsLabelDirective implements OnInit, OnChanges {
   constructor() {
     this.ghsManager.uiChangeEffect(() => {
       const count = Math.max(2, gameManager.characterManager.characterCount());
+      const value = this.value();
       if (
         !this.ready ||
-        this.locale != settingsManager.settings.locale ||
-        this.C != count ||
-        this.L != gameManager.game.level ||
-        this.fhStyle != settingsManager.settings.fhStyle ||
-        this.calc != settingsManager.settings.calculate ||
-        this.valueChange != this.value
+        this.locale !== settingsManager.settings.locale ||
+        this.C !== count ||
+        this.L !== gameManager.game.level ||
+        this.fhStyle !== settingsManager.settings.fhStyle ||
+        this.calc !== settingsManager.settings.calculate ||
+        this.valueChange !== value
       ) {
         this.C = count;
         this.L = gameManager.game.level;
         this.locale = settingsManager.settings.locale;
         this.calc = settingsManager.settings.calculate;
         this.fhStyle = settingsManager.settings.fhStyle;
-        this.valueChange = this.value;
+        this.valueChange = value;
         this.ready = gameManager.stateManager.ready;
         this.apply();
       }
@@ -526,35 +528,38 @@ export class GhsLabelDirective implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (
-      (changes['args'] && JSON.stringify(changes['args'].previousValue) != JSON.stringify(changes['args'].currentValue)) ||
-      (changes['value'] && changes['value'].previousValue != changes['value'].currentValue) ||
-      (changes['style'] && changes['style'].previousValue != changes['style'].currentValue)
+      (changes['args'] && JSON.stringify(changes['args'].previousValue) !== JSON.stringify(changes['args'].currentValue)) ||
+      (changes['value'] && changes['value'].previousValue !== changes['value'].currentValue) ||
+      (changes['style'] && changes['style'].previousValue !== changes['style'].currentValue)
     ) {
       this.apply();
     }
   }
 
   apply(): void {
-    let args: string[] = this.args.map((arg) => '' + arg) || [];
-    if (this.argLabel) {
-      args = args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg, [], false, this.empty), [], this.relative, this.style));
+    let args: string[] = this.args().map((arg) => '' + arg) || [];
+    if (this.argLabel()) {
+      args = args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg, [], false, this.empty()), [], this.relative(), this.style()));
     }
 
+    const valueValue = this.value();
     let value =
-      typeof this.value === 'number'
-        ? this.value
-        : (this.value &&
-            applyPlaceholder(settingsManager.getLabel(this.value, args, false, this.empty), args, this.relative, this.style)) ||
+      typeof valueValue === 'number'
+        ? valueValue
+        : (valueValue &&
+            applyPlaceholder(settingsManager.getLabel(valueValue, args, false, this.empty()), args, this.relative(), this.style())) ||
           '';
 
-    if (typeof value === 'string' && this.slice.length == 1) {
-      value = value.slice(this.slice[0]);
-    } else if (typeof value === 'string' && this.slice.length == 2) {
-      value = value.slice(this.slice[0], this.slice[1]);
+    const slice = this.slice();
+    if (typeof value === 'string' && slice.length === 1) {
+      value = value.slice(slice[0]);
+    } else if (typeof value === 'string' && slice.length === 2) {
+      value = value.slice(slice[0], slice[1]);
     }
 
-    if (this.attribute) {
-      this.el.nativeElement.setAttribute(this.attribute, value);
+    const attribute = this.attribute();
+    if (attribute) {
+      this.el.nativeElement.setAttribute(attribute, value);
     } else {
       this.el.nativeElement.innerHTML = value;
     }
@@ -568,7 +573,7 @@ export class GhsLabelElementDirective implements OnInit {
   private el = inject(ElementRef);
 
   value: string = '';
-  @Input('ghs-label-element') prefix: string = '';
+  readonly prefix = input<string>('', { alias: 'ghs-label-element' });
 
   constructor() {
     this.el.nativeElement.classList.add('placeholder');
@@ -580,36 +585,8 @@ export class GhsLabelElementDirective implements OnInit {
   }
 
   apply(): void {
-    const value = (this.value && applyPlaceholder(settingsManager.getLabel((this.prefix ? this.prefix + '.' : '') + this.value))) || '';
-    if (value) {
-      this.el.nativeElement.innerHTML = value;
-    }
-  }
-}
-
-@Directive({
-  selector: '[ghs-placeholder]'
-})
-export class GhsPlaceholderDirective implements OnInit, OnChanges {
-  private el = inject(ElementRef);
-
-  @Input('ghs-placeholder') value: string = '';
-
-  constructor() {
-    this.el.nativeElement.classList.add('placeholder');
-  }
-
-  ngOnInit(): void {
-    this.value = this.el.nativeElement.textContent;
-    this.apply();
-  }
-
-  ngOnChanges(): void {
-    this.apply();
-  }
-
-  apply(): void {
-    const value = (this.value && applyPlaceholder('%' + this.value + '%')) || '';
+    const prefix = this.prefix();
+    const value = (this.value && applyPlaceholder(settingsManager.getLabel((prefix ? prefix + '.' : '') + this.value))) || '';
     if (value) {
       this.el.nativeElement.innerHTML = value;
     }

@@ -146,7 +146,7 @@ export class SettingsMenuComponent {
 
   toggleApplyConditionsExclude(condition: ConditionName) {
     const index = settingsManager.settings.applyConditionsExcludes.indexOf(condition);
-    if (index == -1) {
+    if (index === -1) {
       settingsManager.settings.applyConditionsExcludes.push(condition);
     } else {
       settingsManager.settings.applyConditionsExcludes.splice(index, 1);
@@ -156,7 +156,7 @@ export class SettingsMenuComponent {
 
   toggleActiveApplyConditionsAuto(condition: ConditionName) {
     const index = settingsManager.settings.activeApplyConditionsAuto.indexOf(condition);
-    if (index == -1) {
+    if (index === -1) {
       settingsManager.settings.activeApplyConditionsAuto.push(condition);
     } else {
       settingsManager.settings.activeApplyConditionsAuto.splice(index, 1);
@@ -166,7 +166,7 @@ export class SettingsMenuComponent {
 
   toggleActiveApplyConditionsExclude(condition: ConditionName) {
     const index = settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition);
-    if (index == -1) {
+    if (index === -1) {
       settingsManager.settings.activeApplyConditionsExcludes.push(condition);
     } else {
       settingsManager.settings.activeApplyConditionsExcludes.splice(index, 1);
@@ -189,7 +189,7 @@ export class SettingsMenuComponent {
   }
 
   setZoom(zoom: number, value: number, force: boolean) {
-    if (settingsManager.settings.zoom != zoom) {
+    if (settingsManager.settings.zoom !== zoom) {
       document.body.style.setProperty('--ghs-factor', zoom + '');
       if (!force) {
         const maxWidth = +window.getComputedStyle(document.body).getPropertyValue('min-width').replace('px', '');

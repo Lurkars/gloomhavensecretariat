@@ -64,7 +64,7 @@ export class DecksToolComponent implements OnInit {
     this.characters = [];
     if (!this.character) {
       const monsterData = gameManager.editionData
-        .filter((editionData) => editionData.edition == this.edition)
+        .filter((editionData) => editionData.edition === this.edition)
         .map((editionData) => editionData.monsters)
         .flat()
         .filter(
@@ -74,8 +74,8 @@ export class DecksToolComponent implements OnInit {
               !monsters.find(
                 (monsterDataReplacement) =>
                   monsterDataReplacement.replace &&
-                  monsterDataReplacement.name == monsterData.name &&
-                  monsterDataReplacement.edition == monsterData.edition
+                  monsterDataReplacement.name === monsterData.name &&
+                  monsterDataReplacement.edition === monsterData.edition
               ))
         );
 
@@ -99,11 +99,11 @@ export class DecksToolComponent implements OnInit {
         });
     } else {
       const characterData = gameManager.editionData
-        .filter((editionData) => editionData.edition == this.edition)
+        .filter((editionData) => editionData.edition === this.edition)
         .map((editionData) => editionData.characters)
         .flat()
         .filter((characterData) =>
-          gameManager.decksData().some((deckData) => deckData.name == characterData.deck || deckData.name == characterData.name)
+          gameManager.decksData().some((deckData) => deckData.name === characterData.deck || deckData.name === characterData.name)
         );
 
       this.characters = characterData

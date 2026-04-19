@@ -62,7 +62,7 @@ export class EnhancementsManager {
     this.enhancerLevel =
       (this.fh &&
         this.game.party.buildings.find(
-          (buildingModel) => buildingModel.name == 'enhancer' && buildingModel.level && buildingModel.state != 'wrecked'
+          (buildingModel) => buildingModel.name === 'enhancer' && buildingModel.level && buildingModel.state !== 'wrecked'
         )?.level) ||
       0;
     if (this.fh) {
@@ -90,7 +90,7 @@ export class EnhancementsManager {
   isMultiTarget(action: Action, rootAction: Action) {
     if (this.fh && [ActionType.target, ActionType.area, ActionType.element].includes(action.type)) {
       return false;
-    } else if (action.type == ActionType.area) {
+    } else if (action.type === ActionType.area) {
       return false;
     }
     return gameManager.actionsManager.hasMultiTarget(rootAction);
@@ -113,11 +113,11 @@ export class EnhancementsManager {
         costs *= 2;
       }
 
-      if (this.fh && special == 'lost') {
+      if (this.fh && special === 'lost') {
         costs = Math.ceil(costs / 2);
       }
 
-      if (this.fh && !gameManager.gh2eRules() && special == 'persistent') {
+      if (this.fh && !gameManager.gh2eRules() && special === 'persistent') {
         costs *= 3;
       }
 
@@ -145,7 +145,7 @@ export class EnhancementsManager {
 
   calculateBaseCosts(action: Action, special: 'summon' | 'lost' | 'persistent' | undefined = undefined): number {
     let costs = 0;
-    if (special == 'summon') {
+    if (special === 'summon') {
       switch (action.type) {
         case ActionType.move:
           costs += this.fh ? 60 : this.temporary ? 40 : 100;
@@ -199,7 +199,7 @@ export class EnhancementsManager {
           costs += this.fh ? 60 : this.temporary ? 35 : 50;
           break;
         case ActionType.element:
-          if ((action.value as Element) != Element.wild) {
+          if ((action.value as Element) !== Element.wild) {
             costs += !this.fh && this.temporary ? 60 : 100;
           } else {
             costs += !this.fh && this.temporary ? 90 : 150;
@@ -246,7 +246,7 @@ export class EnhancementsManager {
             .map((value) => ActionHexFromString(value))
             .filter((value) => value)
             .map((value) => value as ActionHex);
-          costs += Math.ceil(200 / (hexes.filter((actionHex) => actionHex.type == ActionHexType.target).length || 1));
+          costs += Math.ceil(200 / (hexes.filter((actionHex) => actionHex.type === ActionHexType.target).length || 1));
           break;
         }
       }

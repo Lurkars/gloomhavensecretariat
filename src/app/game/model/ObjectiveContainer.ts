@@ -73,14 +73,14 @@ export class ObjectiveContainer implements Figure {
     this.name = model.name;
     this.escort = model.escort;
     this.edition = model.escort ? 'escort' : 'objective';
-    this.entities = this.entities.filter((entity) => model.entities.some((value) => value.uuid == entity.uuid));
+    this.entities = this.entities.filter((entity) => model.entities.some((value) => value.uuid === entity.uuid));
 
     model.entities.forEach((value, index) => {
-      let entity = this.entities.find((entity) => value.uuid == entity.uuid) as ObjectiveEntity;
+      let entity = this.entities.find((entity) => value.uuid === entity.uuid) as ObjectiveEntity;
       if (!entity) {
         entity = new ObjectiveEntity(value.uuid, value.number, this, this.marker);
         this.entities.splice(index, 0, entity);
-      } else if (index != this.entities.indexOf(entity)) {
+      } else if (index !== this.entities.indexOf(entity)) {
         this.entities.splice(this.entities.indexOf(entity), 1);
         this.entities.splice(index, 0, entity);
       }

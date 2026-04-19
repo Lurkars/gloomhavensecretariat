@@ -112,7 +112,7 @@ export class HighlightConditionsComponent implements OnInit {
       this.figure instanceof Monster &&
       this.entity instanceof MonsterEntity &&
       this.entity.dead &&
-      (this.entity.entityConditions.length == 0 ||
+      (this.entity.entityConditions.length === 0 ||
         this.entity.entityConditions.every(
           (entityCondition) =>
             !entityCondition.highlight ||

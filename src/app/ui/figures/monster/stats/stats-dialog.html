@@ -22,7 +22,10 @@
   </div>
 
   @if (monster.statEffect) {
-    <div class="stat-effect" [ngClass]="{ fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }">
+    <div
+      class="stat-effect"
+      [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }"
+    >
       <div class="title" [ghs-label]="'monster.statEffect'"></div>
       <div class="stat-changes">
         @if (!monster.statEffect.absolute) {

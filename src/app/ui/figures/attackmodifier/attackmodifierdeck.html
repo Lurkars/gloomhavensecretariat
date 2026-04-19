@@ -1,7 +1,7 @@
 <div
   class="attack-modifiers"
   [ngClass]="{
-    disabled: !standalone && ((!townGuard && gameManager.game.state == GameState.draw) || (townGuard && gameManager.game.scenario)),
+    disabled: !standalone && ((!townGuard && gameManager.game.state === GameState.draw) || (townGuard && gameManager.game.scenario)),
     vertical: vertical,
     character: !!character
   }"
@@ -138,8 +138,8 @@
           [style.z-index]="index > current ? deckLength - index : deckLength + index + 1"
           [ngClass]="{
             discarded: index < current - 1,
-            current: index == current,
-            last: index == current - 1,
+            current: index === current,
+            last: index === current - 1,
             bottom: bottom,
             rolling: attackModifier.rolling && index <= current,
             active: attackModifier.active && index <= current && !deck.discarded.includes(index),
@@ -147,10 +147,10 @@
             animate: index < current - 1 && index >= lastVisible,
             'animate-reverse': false,
             disabled: disabled,
-            highlight: !drawing && deck.state && index == current,
+            highlight: !drawing && deck.state && index === current,
             ignored:
               !drawing &&
-              deck.state == 'disadvantage' &&
+              deck.state === 'disadvantage' &&
               (index < current || (!gameManager.fhRules() && !settingsManager.settings.alwaysFhAdvantage)) &&
               attackModifier.rolling
           }"
@@ -186,7 +186,7 @@
             [characterIcon]="characterIcon"
             [ally]="ally"
             [flipped]="index <= current"
-            [disableFlip]="!drawing || index != current"
+            [disableFlip]="!drawing || index !== current"
             [newStyle]="newStyle"
             [townGuard]="townGuard"
             [bbIndex]="deck.bb ? index % 3 : -1"
@@ -198,7 +198,7 @@
   }
   @if (deck.bb) {
     @for (attackModifier of deck.cards | trackUUID; track attackModifier._trackUUID; let index = $index) {
-      @if (index == current) {
+      @if (index === current) {
         <div
           class="am-container current animate"
           [style.z-index]="deckLength + 2"
@@ -224,7 +224,7 @@
       }
     }
     @for (attackModifier of deck.cards | trackUUID; track attackModifier._trackUUID; let index = $index) {
-      @if (deck.state && current >= 0 && lastVisible >= 0 && index == lastVisible) {
+      @if (deck.state && current >= 0 && lastVisible >= 0 && index === lastVisible) {
         <div
           class="am-container discarded animate"
           [style.z-index]="deckLength + 1"

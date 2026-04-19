@@ -155,7 +155,7 @@ export class StateManager {
   disconnect() {
     this.permissions = undefined;
     this.updatePermissions();
-    if (this.ws && this.ws.readyState != WebSocket.CLOSED) {
+    if (this.ws && this.ws.readyState !== WebSocket.CLOSED) {
       if (settingsManager.settings.logServerMessages) console.debug(`WS closing`);
       this.ws.close();
     }
@@ -191,7 +191,7 @@ export class StateManager {
           }
           const undoinfo = message.undoinfo;
           if (undoinfo) {
-            if (undoinfo.length > 0 && undoinfo[0] == 'serverSync') {
+            if (undoinfo.length > 0 && undoinfo[0] === 'serverSync') {
               gameManager.stateManager.before('serverSync', ...undoinfo.slice(1));
             } else if (
               gameManager.game.revision - (gameManager.game.revisionOffset || 0) <
@@ -215,7 +215,7 @@ export class StateManager {
           window.document.body.classList.add('server-sync');
           const gameUndo: GameModel = message.payload as GameModel;
 
-          if (message.revision != undefined) {
+          if (message.revision !== undefined) {
             const undoRevision = message.revision || 0;
             let undoCount = 0;
             let undoGame = gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - 1, 1)[0];
@@ -230,12 +230,12 @@ export class StateManager {
                 undoCount++;
               }
             }
-            if (!undoGame || undoGame.revision - (undoGame.revisionOffset || 0) != undoRevision) {
+            if (!undoGame || undoGame.revision - (undoGame.revisionOffset || 0) !== undoRevision) {
               gameManager.stateManager.undoInfos.splice(
                 gameManager.stateManager.undos.length - gameManager.stateManager.redos.length,
                 0,
                 message.undoinfo
-                  ? message.undoinfo[0] == 'serverSync'
+                  ? message.undoinfo[0] === 'serverSync'
                     ? message.undoinfo
                     : ['serverSync', ...message.undoinfo]
                   : ['serverSync']
@@ -247,7 +247,7 @@ export class StateManager {
             const undoGame = gameManager.stateManager.undos[gameManager.stateManager.undos.length - 1];
             if (
               undoGame &&
-              undoGame.revision - undoGame.revisionOffset == gameManager.game.revision - gameManager.game.revisionOffset - 1
+              undoGame.revision - undoGame.revisionOffset === gameManager.game.revision - gameManager.game.revisionOffset - 1
             ) {
               gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - 1, 1);
             } else {
@@ -274,7 +274,7 @@ export class StateManager {
           window.document.body.classList.add('server-sync');
           const gameRedo: GameModel = message.payload as GameModel;
 
-          if (message.revision != undefined) {
+          if (message.revision !== undefined) {
             const redoRevision = message.revision || 0;
             let redoCount = 0;
             let redoGame = gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - 1, 1)[0];
@@ -291,12 +291,12 @@ export class StateManager {
                 redoCount++;
               }
             }
-            if (!redoGame || redoGame.revision - (redoGame.revisionOffset || 0) != redoRevision) {
+            if (!redoGame || redoGame.revision - (redoGame.revisionOffset || 0) !== redoRevision) {
               gameManager.stateManager.undoInfos.splice(
                 gameManager.stateManager.undos.length + redoCount,
                 0,
                 message.undoinfo
-                  ? message.undoinfo[0] == 'serverSync'
+                  ? message.undoinfo[0] === 'serverSync'
                     ? message.undoinfo
                     : ['serverSync', ...message.undoinfo]
                   : ['serverSync']
@@ -311,7 +311,7 @@ export class StateManager {
                 : undefined;
             if (
               redoGame &&
-              redoGame.revision - redoGame.revisionOffset == gameManager.game.revision - gameManager.game.revisionOffset + 1
+              redoGame.revision - redoGame.revisionOffset === gameManager.game.revision - gameManager.game.revisionOffset + 1
             ) {
               gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - 1, 1);
             } else {
@@ -337,7 +337,7 @@ export class StateManager {
           window.document.body.classList.add('working');
           window.document.body.classList.add('server-sync');
           const gameUpdate: GameModel = message.payload as GameModel;
-          if (gameManager.game.revision == gameUpdate.revision) {
+          if (gameManager.game.revision === gameUpdate.revision) {
             gameManager.game.playSeconds = gameUpdate.playSeconds;
             gameManager.game.server = gameUpdate.server;
             gameManager.stateManager.saveLocal();
@@ -397,15 +397,15 @@ export class StateManager {
           break;
         case 'error':
           // migration
-          if (message.message == 'No enum constant de.champonthis.ghs.server.socket.model.MessageType.PING') {
+          if (message.message === 'No enum constant de.champonthis.ghs.server.socket.model.MessageType.PING') {
             console.debug('Received ping answer...');
             break;
           }
           console.warn('[GHS] Error: ', message);
           if (message.message.startsWith('Permission(s) missing') || message.message.startsWith('invalid revision')) {
-            if (gameManager.stateManager.lastAction == 'redo' || gameManager.stateManager.lastAction == 'update') {
+            if (gameManager.stateManager.lastAction === 'redo' || gameManager.stateManager.lastAction === 'update') {
               gameManager.stateManager.undo(false);
-            } else if (gameManager.stateManager.lastAction == 'undo') {
+            } else if (gameManager.stateManager.lastAction === 'undo') {
               gameManager.stateManager.redo(false);
             }
           }
@@ -432,7 +432,7 @@ export class StateManager {
   onOpen(ev: Event) {
     if (settingsManager.settings.logServerMessages) console.debug('WS opened', ev);
     const ws = ev.target as WebSocket;
-    if (ws && ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode) {
+    if (ws && ws.readyState === WebSocket.OPEN && settingsManager.settings.serverCode) {
       gameManager.stateManager.connectionTries = 0;
       gameManager.stateManager.updateBlocked = false;
       gameManager.stateManager.permissions = gameManager.stateManager.permissionBackup;
@@ -489,7 +489,12 @@ export class StateManager {
   }
 
   requestSettings() {
-    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode && settingsManager.settings.serverSettings) {
+    if (
+      this.ws &&
+      this.ws.readyState === WebSocket.OPEN &&
+      settingsManager.settings.serverCode &&
+      settingsManager.settings.serverSettings
+    ) {
       const message = {
         code: settingsManager.settings.serverCode,
         password: settingsManager.settings.serverCode, // migration
@@ -503,7 +508,7 @@ export class StateManager {
 
   sendPing() {
     if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverCode) {
-      if (this.ws && this.ws.readyState == WebSocket.OPEN) {
+      if (this.ws && this.ws.readyState === WebSocket.OPEN) {
         const message = {
           code: settingsManager.settings.serverCode,
           type: 'ping'
@@ -541,7 +546,12 @@ export class StateManager {
   }
 
   saveSettings() {
-    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode && settingsManager.settings.serverSettings) {
+    if (
+      this.ws &&
+      this.ws.readyState === WebSocket.OPEN &&
+      settingsManager.settings.serverCode &&
+      settingsManager.settings.serverSettings
+    ) {
       const message = {
         code: settingsManager.settings.serverCode,
         password: settingsManager.settings.serverCode, // migration
@@ -564,7 +574,7 @@ export class StateManager {
           !this.permissions ||
           (this.permissions &&
             (this.permissions.characters ||
-              this.permissions.character.some((value) => value.name == figure.name && value.edition == figure.edition)));
+              this.permissions.character.some((value) => value.name === figure.name && value.edition === figure.edition)));
       }
     });
 
@@ -574,7 +584,7 @@ export class StateManager {
           !this.permissions ||
           (this.permissions &&
             (this.permissions.characters ||
-              this.permissions.character.some((value) => value.name == model.name && value.edition == model.edition)));
+              this.permissions.character.some((value) => value.name === model.name && value.edition === model.edition)));
       });
     }
 
@@ -585,7 +595,7 @@ export class StateManager {
           !this.permissions ||
           (this.permissions &&
             (this.permissions.monsters ||
-              this.permissions.monster.some((value) => value.name == figure.name && value.edition == figure.edition)));
+              this.permissions.monster.some((value) => value.name === figure.name && value.edition === figure.edition)));
       }
     });
   }
@@ -605,11 +615,11 @@ export class StateManager {
   ) {
     this.game.revision += revisionChange;
     this.saveLocal();
-    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode) {
+    if (this.ws && this.ws.readyState === WebSocket.OPEN && settingsManager.settings.serverCode) {
       window.document.body.classList.add('server-sync');
       let undoInfo = this.undoInfos[this.undos.length - 1];
 
-      if (type == 'game-undo') {
+      if (type === 'game-undo') {
         undoInfo = this.undoInfos[this.undos.length + undolength - 1];
       }
 
@@ -629,7 +639,7 @@ export class StateManager {
     if (
       autoBackup ||
       (settingsManager.settings.autoBackup > 0 &&
-        (this.game.revision + this.game.revisionOffset) % settingsManager.settings.autoBackup == 0)
+        (this.game.revision + this.game.revisionOffset) % settingsManager.settings.autoBackup === 0)
     ) {
       await this.autoBackup();
     }
@@ -732,7 +742,7 @@ export class StateManager {
   }
 
   addToUndo(info: string[]) {
-    if (this.game.toModel() != this.undos[this.undos.length - 1]) {
+    if (this.game.toModel() !== this.undos[this.undos.length - 1]) {
       this.undos.push(this.game.toModel());
       const maxUndos = storageManager.db ? settingsManager.settings.maxUndo : Math.min(settingsManager.settings.maxUndo, 50);
       if (this.undos.length > maxUndos) {
@@ -843,7 +853,7 @@ export class StateManager {
   }
 
   savePermissions(code: string, permissions: Permissions | undefined) {
-    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode) {
+    if (this.ws && this.ws.readyState === WebSocket.OPEN && settingsManager.settings.serverCode) {
       const message = {
         code: settingsManager.settings.serverCode,
         password: settingsManager.settings.serverCode, // migration

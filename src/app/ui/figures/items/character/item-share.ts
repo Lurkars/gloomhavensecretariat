@@ -33,7 +33,7 @@ export class ItemShareDialogComponent {
     this.character = this.data.character;
     this.item = this.data.item;
     this.characters = gameManager.game.figures
-      .filter((figure) => figure instanceof Character && figure != this.character && !gameManager.itemManager.owned(this.item, figure))
+      .filter((figure) => figure instanceof Character && figure !== this.character && !gameManager.itemManager.owned(this.item, figure))
       .map((figure) => figure as Character);
     if (!this.characters.length) {
       this.dialogRef.close();
@@ -41,7 +41,7 @@ export class ItemShareDialogComponent {
   }
 
   toggleSelected(character: Character) {
-    if (this.selected == character) {
+    if (this.selected === character) {
       this.selected = undefined;
     } else {
       this.selected = character;

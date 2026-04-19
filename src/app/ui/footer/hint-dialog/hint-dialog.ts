@@ -65,17 +65,17 @@ export class HintDialogComponent {
       const conclusions = gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => {
         if (gameManager.game.scenario) {
           return (
-            sectionData.edition == gameManager.game.scenario.edition &&
-            sectionData.parent == gameManager.game.scenario.index &&
-            sectionData.group == gameManager.game.scenario.group &&
+            sectionData.edition === gameManager.game.scenario.edition &&
+            sectionData.parent === gameManager.game.scenario.index &&
+            sectionData.group === gameManager.game.scenario.group &&
             sectionData.conclusion &&
-            gameManager.scenarioManager.getRequirements(sectionData).length == 0
+            gameManager.scenarioManager.getRequirements(sectionData).length === 0
           );
         }
         return false;
       });
 
-      if (conclusions.length == 0 || !success) {
+      if (conclusions.length === 0 || !success) {
         this.dialog.open(ScenarioSummaryComponent, {
           panelClass: ['dialog'],
           data: {
@@ -117,7 +117,7 @@ export class HintDialogComponent {
   }
 
   empty(): boolean {
-    return gameManager.game.figures.length == 0;
+    return gameManager.game.figures.length === 0;
   }
 
   missingInitiative(): boolean {
@@ -131,7 +131,7 @@ export class HintDialogComponent {
   }
 
   active(): boolean {
-    return gameManager.game.figures.find((figure) => figure.active && !figure.off) != undefined;
+    return gameManager.game.figures.find((figure) => figure.active && !figure.off) !== undefined;
   }
 
   battleGoals(): boolean {
@@ -139,7 +139,7 @@ export class HintDialogComponent {
       !this.missingInitiative() &&
       settingsManager.settings.battleGoals &&
       settingsManager.settings.battleGoalsReminder &&
-      gameManager.game.scenario != undefined &&
+      gameManager.game.scenario !== undefined &&
       gameManager.roundManager.firstRound &&
       !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent) &&
       !gameManager.bbRules()
@@ -151,9 +151,9 @@ export class HintDialogComponent {
       !this.missingInitiative() &&
       !settingsManager.settings.eventsDraw &&
       settingsManager.settings.eventsDrawReminder &&
-      gameManager.game.scenario != undefined &&
+      gameManager.game.scenario !== undefined &&
       gameManager.roundManager.firstRound &&
-      gameManager.game.eventDraw != undefined
+      gameManager.game.eventDraw !== undefined
     );
   }
 

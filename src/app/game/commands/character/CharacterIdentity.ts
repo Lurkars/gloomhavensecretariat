@@ -11,12 +11,12 @@ export class CharacterIdentityCommand extends CommandImpl {
   }
 
   validParameters(number: number, identity: number): boolean {
-    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == number) as Character;
-    return (character != undefined && character.identities.length && identity >= 0 && identity < character.identities.length) || false;
+    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) as Character;
+    return (character !== undefined && character.identities.length && identity >= 0 && identity < character.identities.length) || false;
   }
 
   executeWithParameters(number: number, identity: number) {
-    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == number) as Character;
+    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) as Character;
     if (character && character.identities.length) {
       if (identity >= 0 && identity < character.identities.length) {
         character.identity = identity;
@@ -30,7 +30,7 @@ export class CharacterIdentityCommand extends CommandImpl {
 
   override before(): BASE_TYPE[] {
     const character = gameManager.game.figures.find(
-      (figure) => figure instanceof Character && figure.number == this.parameters[0]
+      (figure) => figure instanceof Character && figure.number === this.parameters[0]
     ) as Character;
     const identity = this.parameters[1] as number;
     if (character) {

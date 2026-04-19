@@ -5,7 +5,7 @@
       class="state undo"
       [ngClass]="{
         disabled:
-          !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning) || undoArray.length == 0
+          !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning) || undoArray.length === 0
       }"
       (click)="gameManager.stateManager.undo()"
       ><span [ghs-label]="'state.undo'"></span
@@ -14,7 +14,7 @@
     <a
       tabclick
       class="state redo"
-      [ngClass]="{ disabled: !gameManager.stateManager.redoPermission || redoArray.length == 0 }"
+      [ngClass]="{ disabled: !gameManager.stateManager.redoPermission || redoArray.length === 0 }"
       (click)="gameManager.stateManager.redo()"
       ><span [ghs-label]="'state.redo'"></span
     ></a>
@@ -33,7 +33,7 @@
           class="entry"
           (click)="redo(i)"
           (mouseleave)="cancelConfirm()"
-          [ngClass]="{ confirm: undoConfirm == 'redo-' + i, disabled: !gameManager.stateManager.redoPermission }"
+          [ngClass]="{ confirm: undoConfirm === 'redo-' + i, disabled: !gameManager.stateManager.redoPermission }"
         >
           <span class="revision">{{ getRedoRevision(i) + 1 }}.</span>
           @if (getRedoInfo(i).length > 0) {
@@ -58,7 +58,7 @@
             >
           }
         </span>
-        @if (i > 0 && getRedoRevision(i) - getRedoRevision(i - 1) != 1) {
+        @if (i > 0 && getRedoRevision(i) - getRedoRevision(i - 1) !== 1) {
           <span class="warning">
             <img src="./assets/images/warning.svg" />
             <span [ghs-label]="'state.missing'" [ghs-label-args]="[getRedoRevision(i) - getRedoRevision(i - 1) - 1]"></span>
@@ -88,7 +88,7 @@
     <div class="list undos">
       @for (i of undoArray; track i) {
         @if (
-          !undoOffset && i == undoArray.length - 1 && gameManager.game.revision - gameManager.game.revisionOffset - getUndoRevision(i) - 1
+          !undoOffset && i === undoArray.length - 1 && gameManager.game.revision - gameManager.game.revisionOffset - getUndoRevision(i) - 1
         ) {
           <span class="warning">
             <img src="./assets/images/warning.svg" />
@@ -98,7 +98,7 @@
             ></span>
           </span>
         }
-        @if (i < undoArray.length - 1 && getUndoRevision(i + 1) - getUndoRevision(i) != 1) {
+        @if (i < undoArray.length - 1 && getUndoRevision(i + 1) - getUndoRevision(i) !== 1) {
           <span class="warning">
             <img src="./assets/images/warning.svg" />
             <span [ghs-label]="'state.missing'" [ghs-label-args]="[getUndoRevision(i + 1) - getUndoRevision(i) - 1]"></span>
@@ -110,7 +110,7 @@
           (click)="undo(i)"
           (mouseleave)="cancelConfirm()"
           [ngClass]="{
-            confirm: undoConfirm == 'undo-' + i,
+            confirm: undoConfirm === 'undo-' + i,
             disabled: !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning)
           }"
         >
@@ -143,18 +143,18 @@
   <div class="spacer"></div>
 
   <div class="menu clear-menu">
-    @if (undoArray.length == 0) {
+    @if (undoArray.length === 0) {
       <span></span>
     }
 
     @if (undoArray.length > 0) {
       <a
         class="state"
-        [ngClass]="{ disabled: !gameManager.stateManager.undoPermission, confirm: confirm == 'clearUndos' }"
+        [ngClass]="{ disabled: !gameManager.stateManager.undoPermission, confirm: confirm === 'clearUndos' }"
         (mouseleave)="confirm = ''"
         tabclick
         (click)="clearUndos()"
-        ><span [ghs-label]="'state.clear.undos'"></span>{{ confirm == 'clearUndos' ? '!' : '?' }}</a
+        ><span [ghs-label]="'state.clear.undos'"></span>{{ confirm === 'clearUndos' ? '!' : '?' }}</a
       >
     }
     @if (undoArray.length > 0 && redoArray.length > 0) {
@@ -163,11 +163,11 @@
     @if (redoArray.length > 0) {
       <a
         class="state"
-        [ngClass]="{ disabled: !gameManager.stateManager.redoPermission, confirm: confirm == 'clearRedos' }"
+        [ngClass]="{ disabled: !gameManager.stateManager.redoPermission, confirm: confirm === 'clearRedos' }"
         (mouseleave)="confirm = ''"
         tabclick
         (click)="clearRedos()"
-        ><span [ghs-label]="'state.clear.redos'"></span>{{ confirm == 'clearRedos' ? '!' : '?' }}</a
+        ><span [ghs-label]="'state.clear.redos'"></span>{{ confirm === 'clearRedos' ? '!' : '?' }}</a
       >
     }
   </div>

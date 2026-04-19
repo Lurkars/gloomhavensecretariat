@@ -40,7 +40,7 @@ export class ObjectiveHelper {
       }
       newId = this.component.entity.number + this.component.objectiveId;
       if (this.component.figure.entities.length < 12) {
-        while (this.component.figure.entities.some((entity) => entity.number == newId && entity != this.component.entity)) {
+        while (this.component.figure.entities.some((entity) => entity.number === newId && entity !== this.component.entity)) {
           this.component.objectiveId += value;
           newId = this.component.entity.number + this.component.objectiveId;
           if (newId < 1) {
@@ -62,7 +62,7 @@ export class ObjectiveHelper {
 
   toggleAMDeck(deck: string) {
     if (this.component.figure instanceof ObjectiveContainer) {
-      if (this.component.figure.amDeck == deck) {
+      if (this.component.figure.amDeck === deck) {
         this.component.before('unsetObjectiveAmDeck', deck);
         this.component.figure.amDeck = undefined;
         gameManager.stateManager.after();
@@ -87,7 +87,7 @@ export class ObjectiveHelper {
     const entity = this.component.entity as ObjectiveEntity;
 
     const newId = entity.number + this.component.objectiveId;
-    if (newId != entity.number) {
+    if (newId !== entity.number) {
       this.component.before('changeEntityNumber', entity.number, newId);
       entity.number = newId;
       gameManager.stateManager.after();
@@ -101,7 +101,7 @@ export class ObjectiveHelper {
     const newMarker =
       OBJECTIV_MARKERS[ghsModulo(this.component.objectiveMarker + OBJECTIV_MARKERS.indexOf(entity.marker), OBJECTIV_MARKERS.length)];
 
-    if (newMarker != entity.marker) {
+    if (newMarker !== entity.marker) {
       if (newMarker) {
         this.component.before('setObjectiveMarker', newMarker, entity.marker);
       } else {
@@ -112,14 +112,14 @@ export class ObjectiveHelper {
     }
     this.component.objectiveMarker = 0;
 
-    if (this.component.objectiveTitle != undefined) {
-      if (this.component.objectiveTitle && this.component.objectiveTitle != figure.name) {
-        if (figure.title != this.component.objectiveTitle) {
+    if (this.component.objectiveTitle !== undefined) {
+      if (this.component.objectiveTitle && this.component.objectiveTitle !== figure.name) {
+        if (figure.title !== this.component.objectiveTitle) {
           this.component.before('setTitle', this.component.objectiveTitle);
           figure.title = this.component.objectiveTitle;
           gameManager.stateManager.after();
         }
-      } else if (figure.title != '') {
+      } else if (figure.title !== '') {
         this.component.before('unsetTitle', figure.title);
         figure.title = '';
         gameManager.stateManager.after();
@@ -134,7 +134,7 @@ export class ObjectiveHelper {
     const newMarker =
       OBJECTIV_MARKERS[ghsModulo(this.component.objectiveMarker + OBJECTIV_MARKERS.indexOf(figure.marker), OBJECTIV_MARKERS.length)];
 
-    if (newMarker != figure.marker) {
+    if (newMarker !== figure.marker) {
       if (newMarker) {
         this.component.before('setObjectiveMarker', newMarker);
       } else {
@@ -146,14 +146,14 @@ export class ObjectiveHelper {
     }
     this.component.objectiveMarker = 0;
 
-    if (this.component.objectiveTitle != undefined) {
-      if (this.component.objectiveTitle && this.component.objectiveTitle != figure.name) {
-        if (figure.title != this.component.objectiveTitle) {
+    if (this.component.objectiveTitle !== undefined) {
+      if (this.component.objectiveTitle && this.component.objectiveTitle !== figure.name) {
+        if (figure.title !== this.component.objectiveTitle) {
           this.component.before('setTitle', this.component.objectiveTitle);
           figure.title = this.component.objectiveTitle;
           gameManager.stateManager.after();
         }
-      } else if (figure.title != '') {
+      } else if (figure.title !== '') {
         this.component.before('unsetTitle', figure.title);
         figure.title = '';
         gameManager.stateManager.after();

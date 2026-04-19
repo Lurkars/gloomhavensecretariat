@@ -40,11 +40,11 @@
 
       @if (gameManager.isSummon(entity)) {
         <span class="summon-state" [ngClass]="summonStateClasses">
-          @if (gameManager.toSummon(entity).color != SummonColor.fh) {
+          @if (gameManager.toSummon(entity).color !== SummonColor.fh) {
             <img src="./assets/images/summons/{{ gameManager.toSummon(entity).color }}.png" />
           }
           <span class="summon-number">
-            @if (gameManager.toSummon(entity).number == 0) {
+            @if (gameManager.toSummon(entity).number === 0) {
               <span>-</span>
             }
             @if (gameManager.toSummon(entity).number > 0) {
@@ -77,12 +77,12 @@
     @if (!specialActionsMarker.length || !specialActionsMarker.includes('mode')) {
       <div class="conditions actions">
         @for (actionHint of actionHints | trackUUID; track actionHint._trackUUID; let i = $index) {
-          <span class="condition-container" [ngClass]="{ center: actionHints.length % 2 == 1 && i == actionHints.length - 1 }">
+          <span class="condition-container" [ngClass]="{ center: actionHints.length % 2 === 1 && i === actionHints.length - 1 }">
             <span class="condition action-hint">
               <img
                 [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/hint/' + actionHint.type + '.svg'"
               />
-              <span class="value" [ngClass]="{ retaliate: actionHint.type == 'retaliate' }">{{ actionHint.value }}</span>
+              <span class="value" [ngClass]="{ retaliate: actionHint.type === 'retaliate' }">{{ actionHint.value }}</span>
               @if (actionHint.range) {
                 <span class="range">
                   <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/range.svg'" />
@@ -122,7 +122,7 @@
           <span
             class="condition-container"
             [ngClass]="{
-              center: conditionCenterBase && activeConditions.length % 2 == 1 && activeConditions.length == index + 1,
+              center: conditionCenterBase && activeConditions.length % 2 === 1 && activeConditions.length === index + 1,
               expired: entityCondition.expired,
               fh: settingsManager.settings.fhStyle
             }"
@@ -152,14 +152,14 @@
               @if (entityCondition.permanent) {
                 <span class="condition permanent condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 3"></span>
               }
-              @if (entityCondition.state == EntityConditionState.roundExpire) {
+              @if (entityCondition.state === EntityConditionState.roundExpire) {
                 <span class="condition round condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 4"></span>
               }
             </span>
           </span>
         }
-        @if (gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).summon != SummonState.false) {
-          <span class="summon-container" [ngClass]="{ center: entity.entityConditions.length % 2 == 0 }">
+        @if (gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).summon !== SummonState.false) {
+          <span class="summon-container" [ngClass]="{ center: entity.entityConditions.length % 2 === 0 }">
             <span class="summon" [ngClass]="monsterSummonClasses">
               <img src="./assets/images/summons/{{ gameManager.toMonster(figure).summonColor }}.png" />
             </span>

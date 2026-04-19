@@ -1,6 +1,6 @@
 <div
   class="initiative-standalone"
-  [ngClass]="{ vertical: vertical(), fh: settingsManager.settings.theme == 'fh', modern: settingsManager.settings.theme == 'modern' }"
+  [ngClass]="{ vertical: vertical(), fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }"
   ghs-keyboard-shortcuts
 >
   <ghs-header #header [standalone]="true" [connection]="true"></ghs-header>
@@ -17,8 +17,8 @@
                 <span>&nbsp;(<span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span>)</span>
               }
             </span>
-            <div class="initiative" [ngClass]="{ error: statusCode != 200 && statusCode != 403, warn: statusCode == 403 }">
-              @if (character.initiative && (character.initiativeVisible || gameManager.game.state == 'next')) {
+            <div class="initiative" [ngClass]="{ error: statusCode !== 200 && statusCode !== 403, warn: statusCode === 403 }">
+              @if (character.initiative && (character.initiativeVisible || gameManager.game.state === 'next')) {
                 <span class="value">
                   @if (character.initiative < 10) {
                     <span>0</span>
@@ -26,13 +26,13 @@
                   <span>{{ character.initiative }}</span>
                 </span>
               }
-              @if (character.initiative && !character.initiativeVisible && gameManager.game.state != 'next') {
+              @if (character.initiative && !character.initiativeVisible && gameManager.game.state !== 'next') {
                 <span class="value"> ?? </span>
               }
               @if (!character.initiative) {
                 <span class="value"> -- </span>
               }
-              @if (character.initiativeVisible && character.initiative == 99 && character.longRest) {
+              @if (character.initiativeVisible && character.initiative === 99 && character.longRest) {
                 <img class="ghs-svg" src="./assets/images/long-rest.svg" />
               }
             </div>
@@ -80,7 +80,7 @@
 
     <div class="characters">
       @for (c of characters | trackUUID; track c._trackUUID; let i = $index) {
-        <span class="character" [ngClass]="{ active: character == c }" (click)="selectCharacter(c)"><img [src]="c.iconUrl" /></span>
+        <span class="character" [ngClass]="{ active: character === c }" (click)="selectCharacter(c)"><img [src]="c.iconUrl" /></span>
       }
       @if (!!character) {
         <label>

@@ -58,8 +58,8 @@ export class ScenarioComponent {
               (sectionData) =>
                 gameManager.game.finish &&
                 gameManager.game.finish.conclusion &&
-                sectionData.index == gameManager.game.finish.conclusion.index &&
-                sectionData.group == gameManager.game.finish.conclusion.group &&
+                sectionData.index === gameManager.game.finish.conclusion.index &&
+                sectionData.group === gameManager.game.finish.conclusion.group &&
                 sectionData.conclusion
             )
         : undefined;
@@ -153,7 +153,7 @@ export class ScenarioComponent {
   }
 
   openRandomMonsterCard(sectionData: ScenarioData) {
-    if (sectionData.group == 'randomMonsterCard') {
+    if (sectionData.group === 'randomMonsterCard') {
       this.dialog.open(RandomMonsterCardDialogComponent, {
         panelClass: ['fullscreen-panel'],
         disableClose: true,
@@ -174,7 +174,7 @@ export class ScenarioComponent {
         this.open();
       } else {
         const editionData: EditionData | undefined = gameManager.editionData.find(
-          (value) => gameManager.game.scenario && value.edition == gameManager.game.scenario.edition
+          (value) => gameManager.game.scenario && value.edition === gameManager.game.scenario.edition
         );
 
         if (!editionData) {

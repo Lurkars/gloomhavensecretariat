@@ -102,7 +102,7 @@ export class PartyResourcesDialogComponent implements OnInit {
     gameManager.game.figures
       .filter((figure) => figure instanceof Character)
       .forEach((figure) => {
-        const character = this.characters.find((character) => character.edition == figure.edition && character.name == figure.name);
+        const character = this.characters.find((character) => character.edition === figure.edition && character.name === figure.name);
         if (character) {
           figure.progress = character.progress;
         }

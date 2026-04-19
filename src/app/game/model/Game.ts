@@ -150,7 +150,7 @@ export class Game {
 
     model.characters.forEach((value) => {
       let character = this.figures.find(
-        (figure) => figure instanceof Character && figure.name == value.name && figure.edition == value.edition
+        (figure) => figure instanceof Character && figure.name === value.name && figure.edition === value.edition
       ) as Character;
       if (!character) {
         character = new Character(gameManager.getCharacterData(value.name, value.edition), value.level);
@@ -161,7 +161,7 @@ export class Game {
 
     model.monsters.forEach((value) => {
       let monster = this.figures.find(
-        (figure) => figure instanceof Monster && figure.name == value.name && figure.edition == value.edition
+        (figure) => figure instanceof Monster && figure.name === value.name && figure.edition === value.edition
       ) as Monster;
       if (!monster) {
         monster = new Monster(gameManager.getMonsterData(value.name, value.edition));
@@ -174,11 +174,11 @@ export class Game {
       this.figures = this.figures.filter(
         (figure) =>
           !(figure instanceof ObjectiveContainer) ||
-          (model.objectiveContainers && model.objectiveContainers.some((value) => value.uuid && value.uuid == figure.uuid))
+          (model.objectiveContainers && model.objectiveContainers.some((value) => value.uuid && value.uuid === figure.uuid))
       );
       model.objectiveContainers.forEach((value) => {
         let objectiveContainer = this.figures.find(
-          (figure) => figure instanceof ObjectiveContainer && figure.uuid == value.uuid
+          (figure) => figure instanceof ObjectiveContainer && figure.uuid === value.uuid
         ) as ObjectiveContainer;
         if (!objectiveContainer) {
           objectiveContainer = new ObjectiveContainer(value.uuid, value.additionalObjectiveId || value.objectiveId);
@@ -294,7 +294,7 @@ export class Game {
     this.parties = [this.party];
     if (model.parties) {
       model.parties.forEach((party) => {
-        if (party.id != this.party.id) {
+        if (party.id !== this.party.id) {
           // migration
           if (party.achievements) {
             party.achievementsList.push(...party.achievements.split('\n'));
@@ -337,11 +337,11 @@ export class Game {
           loot.value4P = +loot.value;
           loot.value3P = +loot.value;
           loot.value2P = +loot.value;
-        } else if (loot.value == '%game.loot.player.3-4% +1/%game.loot.player.2% +2') {
+        } else if (loot.value === '%game.loot.player.3-4% +1/%game.loot.player.2% +2') {
           loot.value4P = 1;
           loot.value3P = 1;
           loot.value2P = 2;
-        } else if (loot.value == '%game.loot.player.4% +1/%game.loot.player.2-3% +2') {
+        } else if (loot.value === '%game.loot.player.4% +1/%game.loot.player.2-3% +2') {
           loot.value4P = 1;
           loot.value3P = 2;
           loot.value2P = 2;

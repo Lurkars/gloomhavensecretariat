@@ -215,7 +215,7 @@ export class KeyboardShortcuts implements OnInit {
           !event.altKey &&
           !event.shiftKey &&
           !this.zoomInterval &&
-          gameManager.game.state == GameState.next &&
+          gameManager.game.state === GameState.next &&
           (event.key.toLowerCase() === 'm' ||
             (settingsManager.settings.amAdvantage && (event.key.toLowerCase() === 'a' || event.key.toLowerCase() === 'd')))
         ) {
@@ -244,7 +244,7 @@ export class KeyboardShortcuts implements OnInit {
             if (settingsManager.settings.characterAttackModifierDeck) {
               if (
                 settingsManager.settings.characterAttackModifierDeckActiveBottom &&
-                gameManager.game.figures.find((figure) => figure instanceof Character && figure.attackModifierDeckVisible) != undefined
+                gameManager.game.figures.find((figure) => figure instanceof Character && figure.attackModifierDeckVisible) !== undefined
               ) {
                 const character = gameManager.game.figures.find(
                   (figure) => figure instanceof Character && figure.attackModifierDeckVisible
@@ -269,15 +269,15 @@ export class KeyboardShortcuts implements OnInit {
             }
           } else if (activeFigure instanceof ObjectiveContainer) {
             if (
-              activeFigure.amDeck == 'M' ||
-              (activeFigure.amDeck == 'A' &&
+              activeFigure.amDeck === 'M' ||
+              (activeFigure.amDeck === 'A' &&
                 ((!gameManager.fhRules(true) && !settingsManager.settings.alwaysAllyAttackModifierDeck) ||
                   !settingsManager.settings.allyAttackModifierDeck))
             ) {
               gameManager.stateManager.before('updateAttackModifierDeck.draw' + (state ? state : ''), 'monster');
               deck = gameManager.game.monsterAttackModifierDeck;
             } else if (
-              activeFigure.amDeck == 'A' &&
+              activeFigure.amDeck === 'A' &&
               settingsManager.settings.allyAttackModifierDeck &&
               (gameManager.fhRules(true) || settingsManager.settings.alwaysAllyAttackModifierDeck)
             ) {
@@ -285,7 +285,7 @@ export class KeyboardShortcuts implements OnInit {
               deck = gameManager.game.allyAttackModifierDeck;
             } else if (activeFigure.amDeck) {
               const character = gameManager.game.figures.find(
-                (figure) => figure instanceof Character && figure.name == activeFigure.amDeck
+                (figure) => figure instanceof Character && figure.name === activeFigure.amDeck
               ) as Character;
               if (character && settingsManager.settings.characterAttackModifierDeck) {
                 if (character.attackModifierDeckVisible) {
@@ -312,7 +312,7 @@ export class KeyboardShortcuts implements OnInit {
           event.preventDefault();
         } else if (
           (!this.dialogOpen || this.allowed.includes('loot')) &&
-          gameManager.game.state == GameState.next &&
+          gameManager.game.state === GameState.next &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -329,7 +329,7 @@ export class KeyboardShortcuts implements OnInit {
           this.footer.lootDeck.draw(event, true);
           event.preventDefault();
         } else if (!this.dialogOpen && !ctrlOrMeta && !event.altKey && event.key === 'Tab' && gameManager.game.figures.length > 0) {
-          if (gameManager.game.state == GameState.next) {
+          if (gameManager.game.state === GameState.next) {
             this.toggleEntity(event.shiftKey);
           } else {
             let focus = true;
@@ -337,7 +337,7 @@ export class KeyboardShortcuts implements OnInit {
               .filter((figure) => figure instanceof Character && !figure.absent)
               .forEach((char, index) => {
                 const current = document.getElementById('initiative-input-' + index);
-                if (document.activeElement == current) {
+                if (document.activeElement === current) {
                   focus = false;
                 }
               });
@@ -416,7 +416,7 @@ export class KeyboardShortcuts implements OnInit {
           event.key.toLowerCase() === 'g' &&
           gameManager.game.edition
         ) {
-          const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.game.edition);
+          const editionData = gameManager.editionData.find((editionData) => editionData.edition === gameManager.game.edition);
           if (editionData) {
             if (editionData.worldMap || editionData.extendWorldMap) {
               if (this.dialogOpen) {
@@ -607,7 +607,7 @@ export class KeyboardShortcuts implements OnInit {
       ) {
         clearInterval(this.zoomInterval);
         this.zoomInterval = null;
-        if (settingsManager.settings.zoom != this.currentZoom) {
+        if (settingsManager.settings.zoom !== this.currentZoom) {
           settingsManager.setZoom(this.currentZoom);
         }
         event.preventDefault();
@@ -640,10 +640,10 @@ export class KeyboardShortcuts implements OnInit {
     } else if (activeFigure && reverse && figures.indexOf(activeFigure) > 0) {
       if (activeFigure instanceof Character) {
         const summons = activeFigure.summons.filter(
-          (summon) => gameManager.entityManager.isAlive(summon) && summon.state != SummonState.new
+          (summon) => gameManager.entityManager.isAlive(summon) && summon.state !== SummonState.new
         );
         const activeSummon = summons.find((summon) => summon.active);
-        if (!activeSummon || (activeSummon && summons.indexOf(activeSummon) == 0)) {
+        if (!activeSummon || (activeSummon && summons.indexOf(activeSummon) === 0)) {
           activeFigure.summons.forEach((summon) => (summon.active = false));
           activeFigure = figures[figures.indexOf(activeFigure) - 1];
         }
@@ -686,7 +686,7 @@ export class KeyboardShortcuts implements OnInit {
       } else if (activeFigure instanceof Monster) {
         let toggleFigure = true;
         const entities = activeFigure.entities
-          .filter((entity) => gameManager.entityManager.isAlive(entity) && entity.summon != SummonState.new)
+          .filter((entity) => gameManager.entityManager.isAlive(entity) && entity.summon !== SummonState.new)
           .sort(gameManager.monsterManager.sortEntities);
         if (settingsManager.settings.activeStandees) {
           let activeEntity = entities.find((entity) => entity.active);
@@ -738,7 +738,7 @@ export class KeyboardShortcuts implements OnInit {
 
       const roundButton = document.querySelector('.round-container');
       if (roundButton) {
-        if (figures.find((figure) => figure.active) == undefined) {
+        if (figures.find((figure) => figure.active) === undefined) {
           (roundButton as HTMLElement).focus();
         } else {
           (roundButton as HTMLElement).blur();

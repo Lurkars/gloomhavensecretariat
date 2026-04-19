@@ -10,14 +10,14 @@
     <a (click)="back()" class="item"><img src="./assets/images/status/level.svg" /></a>
     @for (l of [] | ghsRange: (bb ? 5 : 9); track l) {
       <span class="item">
-        <a class="level" [ngClass]="{ old: l + 1 == character.level, active: l + 1 == level }" tabclick (click)="setLevel(l + 1)">{{
+        <a class="level" [ngClass]="{ old: l + 1 === character.level, active: l + 1 === level }" tabclick (click)="setLevel(l + 1)">{{
           l + 1
         }}</a>
       </span>
     }
   </div>
   <div class="char-container">
-    @if (titles.length == 0 || !identities.length) {
+    @if (titles.length === 0 || !identities.length) {
       <img [src]="gameManager.characterManager.characterIcon(character)" />
       <input class="title" #charactertitle type="text" [value]="character.title" />
     }
@@ -39,7 +39,7 @@
       <span class="badge badge-right max-health"
         >{{
           EntityValueFunction(character.maxHealth) + maxHp < EntityValueFunction(character.maxHealth) ||
-          character.health == EntityValueFunction(character.maxHealth)
+          character.health === EntityValueFunction(character.maxHealth)
             ? EntityValueFunction(character.maxHealth) + maxHp
             : character.health
         }}/{{ EntityValueFunction(character.maxHealth) + maxHp }}</span

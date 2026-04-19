@@ -34,13 +34,13 @@ export class MonsterImageComponent {
   }
 
   update() {
-    this.disabled = gameManager.game.state == GameState.draw || this.monster.entities.length == 0;
+    this.disabled = gameManager.game.state === GameState.draw || this.monster.entities.length === 0;
     this.off = this.monster.off;
     this.active = this.monster.active;
   }
 
   toggleFigure() {
-    if (gameManager.game.state == GameState.next && gameManager.monsterManager.monsterEntityCount(this.monster)) {
+    if (gameManager.game.state === GameState.next && gameManager.monsterManager.monsterEntityCount(this.monster)) {
       gameManager.stateManager.before(this.monster.active ? 'unsetActive' : 'setActive', 'data.monster.' + this.monster.name);
       gameManager.roundManager.toggleFigure(this.monster);
       gameManager.stateManager.after();

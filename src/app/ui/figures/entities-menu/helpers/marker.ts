@@ -7,7 +7,7 @@ export class MarkerHelper {
 
   update() {
     this.component.characterMarker = [...gameManager.markers(), ...this.component.entities.flatMap((entity) => entity.markers)].filter(
-      (marker, index, self) => index == self.indexOf(marker)
+      (marker, index, self) => index === self.indexOf(marker)
     );
 
     this.component.characterMarker.forEach((marker) => {
@@ -28,11 +28,11 @@ export class MarkerHelper {
 
   toggleMarker(marker: string) {
     if (this.component.characterMarkerToAdd.includes(marker)) {
-      this.component.characterMarkerToAdd = this.component.characterMarkerToAdd.filter((m) => m != marker);
+      this.component.characterMarkerToAdd = this.component.characterMarkerToAdd.filter((m) => m !== marker);
       this.component.characterMarkerToRemove.push(marker);
     } else {
       this.component.characterMarkerToAdd.push(marker);
-      this.component.characterMarkerToRemove = this.component.characterMarkerToRemove.filter((m) => m != marker);
+      this.component.characterMarkerToRemove = this.component.characterMarkerToRemove.filter((m) => m !== marker);
     }
   }
 
@@ -60,7 +60,7 @@ export class MarkerHelper {
           const name = marker.split('-').slice(1).join('-');
           this.component.before('removeCharacterMarker', marker, edition + '.' + name);
           this.component.entities.forEach((entity) => {
-            entity.markers = entity.markers.filter((m) => m != marker);
+            entity.markers = entity.markers.filter((m) => m !== marker);
           });
           gameManager.stateManager.after();
         }

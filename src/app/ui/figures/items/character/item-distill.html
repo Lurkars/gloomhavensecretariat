@@ -9,7 +9,7 @@
 
   <div class="resources">
     @for (resource of availableResources; track resource) {
-      <div class="resource" [ngClass]="{ selected: resource == selectedResource }" (click)="toggleSelected(resource)">
+      <div class="resource" [ngClass]="{ selected: resource === selectedResource }" (click)="toggleSelected(resource)">
         <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + resource + '.svg'" />
       </div>
     }

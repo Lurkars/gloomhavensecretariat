@@ -20,7 +20,7 @@
       <span
         ><a
           class="level"
-          [ngClass]="{ current: level == gameManager.game.level, active: level == monster.level }"
+          [ngClass]="{ current: level === gameManager.game.level, active: level === monster.level }"
           (click)="setLevel(level)"
           >{{ level }}</a
         ></span

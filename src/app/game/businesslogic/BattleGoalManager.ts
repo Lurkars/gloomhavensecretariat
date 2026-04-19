@@ -35,32 +35,35 @@ export class BattleGoalManager {
           (battleGoal) =>
             !filtered ||
             !this.game.filteredBattleGoals ||
-            this.game.filteredBattleGoals.length == 0 ||
+            this.game.filteredBattleGoals.length === 0 ||
             !this.game.filteredBattleGoals.find(
-              (identifier) => battleGoal.edition == identifier.edition && battleGoal.name == identifier.name
+              (identifier) => battleGoal.edition === identifier.edition && battleGoal.name === identifier.name
             )
         )
       )
       .filter(
         (battleGoal, index, self) =>
           aliases ||
-          (!battleGoal.alias && (!edition || battleGoal.edition == edition)) ||
+          (!battleGoal.alias && (!edition || battleGoal.edition === edition)) ||
           !self.find(
             (other) =>
               (battleGoal.alias &&
-                other.edition == battleGoal.alias.edition &&
-                other.name == battleGoal.alias.name &&
-                (!edition || battleGoal.edition != edition)) ||
-              (other.edition == edition && other.alias && battleGoal.edition == other.alias.edition && battleGoal.name == other.alias.name)
+                other.edition === battleGoal.alias.edition &&
+                other.name === battleGoal.alias.name &&
+                (!edition || battleGoal.edition !== edition)) ||
+              (other.edition === edition &&
+                other.alias &&
+                battleGoal.edition === other.alias.edition &&
+                battleGoal.name === other.alias.name)
           )
       )
       .sort((a, b) => {
-        if (a.edition == b.edition) {
+        if (a.edition === b.edition) {
           return a.cardId < b.cardId ? -1 : 1;
         } else if (edition) {
-          if (a.edition == edition) {
+          if (a.edition === edition) {
             return -1;
-          } else if (b.edition == edition) {
+          } else if (b.edition === edition) {
             return 1;
           }
         }
@@ -74,22 +77,22 @@ export class BattleGoalManager {
         !this.game.figures.find(
           (figure) =>
             figure instanceof Character &&
-            (!characterFilter || figure != characterFilter) &&
+            (!characterFilter || figure !== characterFilter) &&
             figure.battleGoals &&
-            figure.battleGoals.find((identifier) => battleGoal.edition == identifier.edition && battleGoal.name == identifier.name)
+            figure.battleGoals.find((identifier) => battleGoal.edition === identifier.edition && battleGoal.name === identifier.name)
         )
     );
   }
 
   getBattleGoalsForEdition(edition: string): BattleGoal[] {
     return gameManager.editionData
-      .filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).includes(edition))
+      .filter((editionData) => editionData.edition === edition || gameManager.editionExtensions(edition).includes(edition))
       .flatMap((editionData) => editionData.battleGoals);
   }
 
   getBattleGoal(identifier: Identifier): BattleGoal | undefined {
     return this.getBattleGoals(undefined, true).find(
-      (battleGoal) => battleGoal.edition == identifier.edition && battleGoal.name == identifier.name
+      (battleGoal) => battleGoal.edition === identifier.edition && battleGoal.name === identifier.name
     );
   }
 
@@ -97,7 +100,7 @@ export class BattleGoalManager {
     let battleGoals = this.getUnrevealedBattleGoals();
 
     if (gameManager.trialsManager.apply && gameManager.trialsManager.activeTrial('fh', 360)) {
-      battleGoals = battleGoals.filter((battleGoal) => battleGoal.checks == 2);
+      battleGoals = battleGoals.filter((battleGoal) => battleGoal.checks === 2);
     }
 
     if (battleGoals.length) {

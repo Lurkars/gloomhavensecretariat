@@ -17,9 +17,15 @@ export default defineConfig(
     rules: {
       'no-restricted-imports': [
         'warn',
-        { patterns: [{ group: ['./*', '../*'], message: "Prefer absolute 'src/' imports instead over relative paths." }] }
+        {
+          patterns: [
+            {
+              group: ['./*', '../*'],
+              message: "Prefer absolute 'src/' imports instead of relative paths."
+            }
+          ]
+        }
       ],
-      // relax rules that would be too noisy for an existing codebase
       '@typescript-eslint/no-explicit-any': 'off',
       '@angular-eslint/no-input-rename': 'off',
       '@angular-eslint/no-output-rename': 'off'
@@ -27,9 +33,6 @@ export default defineConfig(
   },
   {
     files: ['**/*.html'],
-    extends: [...angular.configs.templateRecommended, prettier],
-    rules: {
-      '@angular-eslint/template/eqeqeq': 'off'
-    }
+    extends: [...angular.configs.templateRecommended, prettier]
   }
 );

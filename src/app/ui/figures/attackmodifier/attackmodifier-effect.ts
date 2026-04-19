@@ -75,15 +75,15 @@ export class AttackModifierEffectComponent implements OnInit {
 
   getTarget(): string | number {
     if (this.effect.effects) {
-      const specialTarget = this.effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.specialTarget);
+      const specialTarget = this.effect.effects.find((subEffect) => subEffect.type === AttackModifierEffectType.specialTarget);
       if (specialTarget) {
         return 'game.specialTarget.' + specialTarget.value;
       }
-      const targetValue = this.effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.target);
+      const targetValue = this.effect.effects.find((subEffect) => subEffect.type === AttackModifierEffectType.target);
       if (targetValue) {
         return targetValue.value;
       }
-      const customValue = this.effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.custom);
+      const customValue = this.effect.effects.find((subEffect) => subEffect.type === AttackModifierEffectType.custom);
       if (customValue) {
         return customValue.value;
       }
@@ -93,7 +93,7 @@ export class AttackModifierEffectComponent implements OnInit {
 
   getRange(): string {
     if (this.effect.effects) {
-      const rangeEffect = this.effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.range);
+      const rangeEffect = this.effect.effects.find((subEffect) => subEffect.type === AttackModifierEffectType.range);
       if (rangeEffect) {
         return '%game.action.range:' + rangeEffect.value + '%';
       }
@@ -106,10 +106,10 @@ export class AttackModifierEffectComponent implements OnInit {
       (this.effect.effects &&
         this.effect.effects.filter(
           (subEffect) =>
-            subEffect.type != AttackModifierEffectType.specialTarget &&
-            subEffect.type != AttackModifierEffectType.target &&
-            subEffect.type != AttackModifierEffectType.range &&
-            subEffect.type != AttackModifierEffectType.custom
+            subEffect.type !== AttackModifierEffectType.specialTarget &&
+            subEffect.type !== AttackModifierEffectType.target &&
+            subEffect.type !== AttackModifierEffectType.range &&
+            subEffect.type !== AttackModifierEffectType.custom
         )) ||
       []
     );

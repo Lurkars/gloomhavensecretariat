@@ -46,7 +46,7 @@ export class CharacterManager {
 
   characterIdentityIcon(character: string, index: number): string {
     const characterData = gameManager.getCharacterData(character);
-    if (!characterData.identities || characterData.identities.length == 0) {
+    if (!characterData.identities || characterData.identities.length === 0) {
       return this.characterIcon(character);
     }
 
@@ -84,7 +84,7 @@ export class CharacterManager {
 
     if (
       this.game.figures.find(
-        (figure) => figure instanceof Character && figure.name == character.name && figure.edition != character.edition
+        (figure) => figure instanceof Character && figure.name === character.name && figure.edition !== character.edition
       )
     ) {
       name += ' [' + settingsManager.getLabel('data.edition.' + character.edition) + ']';
@@ -127,7 +127,7 @@ export class CharacterManager {
   addCharacter(characterData: CharacterData, level: number) {
     if (
       !this.game.figures.some((figure) => {
-        return figure instanceof Character && figure.name == characterData.name && figure.edition == characterData.edition;
+        return figure instanceof Character && figure.name === characterData.name && figure.edition === characterData.edition;
       })
     ) {
       const character: Character = new Character(characterData, level);
@@ -136,19 +136,19 @@ export class CharacterManager {
         .forEach((summonData) => this.createSpecialSummon(character, summonData));
 
       character.number = 1;
-      while (gameManager.game.figures.some((figure) => figure instanceof Character && figure.number == character.number)) {
+      while (gameManager.game.figures.some((figure) => figure instanceof Character && figure.number === character.number)) {
         character.number++;
       }
 
       if (this.game.party.retirements) {
         this.game.party.retirements.forEach((retirementModel) => {
-          if (retirementModel.number == character.number) {
+          if (retirementModel.number === character.number) {
             character.progress.retirements++;
           }
         });
       }
 
-      if (character.progress.gold == 0) {
+      if (character.progress.gold === 0) {
         if (gameManager.fhRules()) {
           character.progress.gold = 10 * gameManager.prosperityLevel() + 20;
         } else if (gameManager.gh2eRules()) {
@@ -165,7 +165,7 @@ export class CharacterManager {
 
       this.previousEnhancements(character, gameManager.enhancementsManager.temporary);
 
-      if (this.game.state == GameState.next) {
+      if (this.game.state === GameState.next) {
         gameManager.attackModifierManager.shuffleModifiers(character.attackModifierDeck);
       }
       gameManager.sortFigures(character);
@@ -178,7 +178,7 @@ export class CharacterManager {
 
   removeCharacter(character: Character, retirement: boolean = false) {
     const index = this.game.figures.indexOf(character);
-    if (index == -1) {
+    if (index === -1) {
       return;
     }
     this.game.figures.splice(index, 1);
@@ -225,14 +225,14 @@ export class CharacterManager {
 
   addSummon(character: Character, summon: Summon) {
     character.summons = character.summons.filter(
-      (value) => value.name != summon.name || value.number != summon.number || value.color != summon.color
+      (value) => value.name !== summon.name || value.number !== summon.number || value.color !== summon.color
     );
 
     if (
-      character.edition == 'cs' &&
-      character.name == 'skull' &&
+      character.edition === 'cs' &&
+      character.name === 'skull' &&
       summon.cardId &&
-      character.availableSummons.find((s) => s.cardId == summon.cardId)
+      character.availableSummons.find((s) => s.cardId === summon.cardId)
     ) {
       summon.tags.push('cs-skull-spirit');
       summon.state = SummonState.true;
@@ -240,11 +240,11 @@ export class CharacterManager {
 
     character.summons.push(summon);
 
-    if (character.name == 'boneshaper') {
+    if (character.name === 'boneshaper') {
       if (character.tags.includes('solid-bones') || character.tags.includes('unholy-prowess')) {
         if (summon.name === 'shambling-skeleton') {
           summon.maxHealth += 1;
-          if (summon.health == summon.maxHealth - 1) {
+          if (summon.health === summon.maxHealth - 1) {
             summon.health = summon.maxHealth;
           } else {
             summon.health += 1;
@@ -258,7 +258,7 @@ export class CharacterManager {
       }
     }
 
-    if (character.name == 'astral' && character.tags.includes('veil-of-protection')) {
+    if (character.name === 'astral' && character.tags.includes('veil-of-protection')) {
       summon.health += 3;
       summon.maxHealth += 3;
     }
@@ -267,9 +267,9 @@ export class CharacterManager {
   removeSummon(character: Character, summon: Summon) {
     character.summons.splice(character.summons.indexOf(summon), 1);
 
-    if (character.name == 'astral' && character.tags.includes('imbue-with-life') && summon.name == 'animated-claymore') {
-      const disarm = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
-      character.tags = character.tags.filter((tag) => tag != 'imbue-with-life');
+    if (character.name === 'astral' && character.tags.includes('imbue-with-life') && summon.name === 'animated-claymore') {
+      const disarm = character.entityConditions.find((entityCondition) => entityCondition.name === ConditionName.disarm);
+      character.tags = character.tags.filter((tag) => tag !== 'imbue-with-life');
       if (disarm) {
         disarm.permanent = false;
         disarm.state = EntityConditionState.expire;
@@ -295,12 +295,12 @@ export class CharacterManager {
   }
 
   setLevel(character: Character, level: number) {
-    const stat = character.stats.find((characterStat) => characterStat.level == level);
+    const stat = character.stats.find((characterStat) => characterStat.level === level);
     if (!stat) {
       character.errors = character.errors || [];
       if (
-        !character.errors.find((figureError) => figureError.type == FigureErrorType.unknown) &&
-        !character.errors.find((figureError) => figureError.type == FigureErrorType.stat)
+        !character.errors.find((figureError) => figureError.type === FigureErrorType.unknown) &&
+        !character.errors.find((figureError) => figureError.type === FigureErrorType.stat)
       ) {
         console.error('No character stat found for level: ' + level);
         character.errors.push(new FigureError(FigureErrorType.stat, 'character', character.name, character.edition, '', '' + level));
@@ -312,19 +312,19 @@ export class CharacterManager {
 
     character.level = level;
 
-    const adjustHealth = character.health == character.maxHealth;
+    const adjustHealth = character.health === character.maxHealth;
 
     character.maxHealth = character.stat.health;
 
-    if (character.name == 'shackles' && character.edition == 'fh' && character.progress.perks[11] == 2) {
+    if (character.name === 'shackles' && character.edition === 'fh' && character.progress.perks[11] === 2) {
       character.maxHealth += 5;
     }
 
-    if (character.name == 'astral' && character.tags.includes('veil-of-protection')) {
+    if (character.name === 'astral' && character.tags.includes('veil-of-protection')) {
       character.maxHealth += 3;
     }
 
-    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '3')) {
+    if (character.progress.equippedItems.find((identifier) => identifier.edition === 'fh' && identifier.name === '3')) {
       character.maxHealth += 1;
       character.health += 1;
     }
@@ -355,7 +355,7 @@ export class CharacterManager {
 
   createSpecialSummon(character: Character, summonData: SummonData) {
     character.summons = character.summons.filter(
-      (summon) => summon.name != summonData.name || summon.number != 0 || summon.color != SummonColor.custom
+      (summon) => summon.name !== summonData.name || summon.number !== 0 || summon.color !== SummonColor.custom
     );
     if (!summonData.level || summonData.level <= character.level) {
       const summon: Summon = new Summon(
@@ -384,7 +384,7 @@ export class CharacterManager {
     } else {
       const perkIndex = character.perks.indexOf(perk);
       return character.progress.perks[perkIndex] && perk.combined
-        ? character.progress.perks[perkIndex] == perk.count
+        ? character.progress.perks[perkIndex] === perk.count
         : character.progress.perks[perkIndex] > 0;
     }
   }
@@ -400,19 +400,19 @@ export class CharacterManager {
     } else {
       const perkIndex = character.perks.indexOf(perk);
       return character.progress.perks[perkIndex] && perk.combined
-        ? character.progress.perks[perkIndex] == perk.count
+        ? character.progress.perks[perkIndex] === perk.count
         : character.progress.perks[perkIndex] > 0;
     }
   }
 
   itemEffect(itemData: ItemData): boolean {
-    if (itemData.edition == 'gh') {
+    if (itemData.edition === 'gh') {
       return typeof itemData.id === 'number' && [16, 38, 52, 101, 103, 108].includes(itemData.id);
-    } else if (itemData.edition == 'cs') {
+    } else if (itemData.edition === 'cs') {
       return typeof itemData.id === 'number' && [157, 71].includes(itemData.id);
-    } else if (itemData.edition == 'toa') {
+    } else if (itemData.edition === 'toa') {
       return typeof itemData.id === 'number' && [101, 107].includes(itemData.id);
-    } else if (itemData.edition == 'fh') {
+    } else if (itemData.edition === 'fh') {
       return typeof itemData.id === 'number' && [3, 11, 41, 60, 132, 138, 178].includes(itemData.id);
     }
     return false;
@@ -425,14 +425,14 @@ export class CharacterManager {
           (attackModifier) =>
             !attackModifier.rolling &&
             !this.game.figures.find(
-              (figure) => figure instanceof Character && figure.attackModifierDeck.cards.find((am) => am.id == attackModifier.id)
+              (figure) => figure instanceof Character && figure.attackModifierDeck.cards.find((am) => am.id === attackModifier.id)
             )
         );
         const oakRolling = CsOakDeckAttackModifier.filter(
           (attackModifier) =>
             attackModifier.rolling &&
             !this.game.figures.find(
-              (figure) => figure instanceof Character && figure.attackModifierDeck.cards.find((am) => am.id == attackModifier.id)
+              (figure) => figure instanceof Character && figure.attackModifierDeck.cards.find((am) => am.id === attackModifier.id)
             )
         );
 
@@ -472,7 +472,7 @@ export class CharacterManager {
         figure.summons = figure.summons.filter((summon) => gameManager.entityManager.isAlive(summon));
 
         figure.summons.forEach((summon) => {
-          if (summon.state == SummonState.new) {
+          if (summon.state === SummonState.new) {
             summon.state = SummonState.true;
           }
         });
@@ -480,22 +480,22 @@ export class CharacterManager {
         if (
           figure instanceof Character &&
           !figure.absent &&
-          figure.name == 'blinkblade' &&
+          figure.name === 'blinkblade' &&
           figure.tags.includes('time_tokens') &&
-          figure.primaryToken == 0
+          figure.primaryToken === 0
         ) {
           figure.identity = 0;
         }
 
         if (
-          figure.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57') &&
+          figure.progress.equippedItems.find((identifier) => identifier.edition === 'cs' && identifier.name === '57') &&
           gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.wound)) &&
           !gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.regenerate))
         ) {
           gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.regenerate));
         }
 
-        if (!figure.absent && figure.name == 'blinkblade' && figure.tags.includes('roundAction-overdrive') && figure.shieldPersistent) {
+        if (!figure.absent && figure.name === 'blinkblade' && figure.tags.includes('roundAction-overdrive') && figure.shieldPersistent) {
           figure.shieldPersistent.value = EntityValueFunction(figure.shieldPersistent.value) - 1;
           if (figure.shieldPersistent.value <= 0) {
             figure.shieldPersistent = undefined;
@@ -512,8 +512,8 @@ export class CharacterManager {
           settingsManager.settings.battleGoals &&
           gameManager.entityManager.isAlive(figure) &&
           figure.progress.trial &&
-          figure.progress.trial.edition == 'fh' &&
-          figure.progress.trial.name == '356' &&
+          figure.progress.trial.edition === 'fh' &&
+          figure.progress.trial.name === '356' &&
           figure.tags.includes('trial-fh-356')
         ) {
           figure.tags.splice(figure.tags.indexOf('trial-fh-356'), 1);
@@ -526,7 +526,7 @@ export class CharacterManager {
   draw() {
     this.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
-        if (this.game.round == 1) {
+        if (this.game.round === 1) {
           this.applyDonations(figure);
           figure.initiativeVisible = true;
         }
@@ -535,10 +535,10 @@ export class CharacterManager {
           figure.off = false;
         }
 
-        if (!figure.absent && figure.name == 'blinkblade' && figure.tags.includes('time_tokens') && figure.primaryToken == 0) {
-          if (figure.identity == 0 && figure.tokenValues[0] < 2) {
+        if (!figure.absent && figure.name === 'blinkblade' && figure.tags.includes('time_tokens') && figure.primaryToken === 0) {
+          if (figure.identity === 0 && figure.tokenValues[0] < 2) {
             figure.tokenValues[0] += 1;
-          } else if (figure.identity == 1) {
+          } else if (figure.identity === 1) {
             if (figure.tokenValues[0] > 0) {
               figure.tokenValues[0] -= 1;
             } else {
@@ -550,10 +550,10 @@ export class CharacterManager {
 
         if (
           !figure.absent &&
-          figure.name == 'blinkblade' &&
+          figure.name === 'blinkblade' &&
           figure.tags.includes('overdrive') &&
           !figure.tags.includes('roundAction-overdrive') &&
-          figure.identity == 0
+          figure.identity === 0
         ) {
           figure.tags.push('roundAction-overdrive');
           if (!figure.shieldPersistent) {
@@ -563,10 +563,10 @@ export class CharacterManager {
           }
         }
 
-        if (gameManager.entityManager.isAlive(figure) && figure.name == 'shackles' && figure.tags.includes('delayed_malady')) {
+        if (gameManager.entityManager.isAlive(figure) && figure.name === 'shackles' && figure.tags.includes('delayed_malady')) {
           figure.tags.splice(figure.tags.indexOf('delayed_malady'), 1);
           figure.entityConditions.forEach((condition) => {
-            if (condition.types.indexOf(ConditionType.negative) && !condition.expired && condition.state != EntityConditionState.removed) {
+            if (condition.types.indexOf(ConditionType.negative) && !condition.expired && condition.state !== EntityConditionState.removed) {
               if (!figure.immunities.includes(condition.name)) {
                 figure.immunities.push(condition.name);
               }
@@ -586,8 +586,8 @@ export class CharacterManager {
           settingsManager.settings.battleGoals &&
           !figure.absent &&
           figure.progress.trial &&
-          figure.progress.trial.edition == 'fh' &&
-          figure.progress.trial.name == '356' &&
+          figure.progress.trial.edition === 'fh' &&
+          figure.progress.trial.name === '356' &&
           figure.tags.includes('trial-fh-356')
         ) {
           figure.tags.splice(figure.tags.indexOf('trial-fh-356'), 1);
@@ -598,9 +598,9 @@ export class CharacterManager {
 
   personalQuestByCard(edition: string, cardId: string): PersonalQuest | undefined {
     return gameManager.editionData
-      .filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).includes(editionData.edition))
+      .filter((editionData) => editionData.edition === edition || gameManager.editionExtensions(edition).includes(editionData.edition))
       .flatMap((editionData) => editionData.personalQuests)
-      .find((pq) => pq.cardId == cardId || pq.cardId == '0' + cardId || pq.altId == cardId || pq.altId == '0' + cardId);
+      .find((pq) => pq.cardId === cardId || pq.cardId === '0' + cardId || pq.altId === cardId || pq.altId === '0' + cardId);
   }
 
   previousEnhancements(character: Character, temporary: boolean) {
@@ -611,7 +611,7 @@ export class CharacterManager {
     }
     if (!temporary) {
       const previousCharacters = gameManager.game.party.retirements.filter(
-        (model) => model.edition == character.edition && model.name == character.name
+        (model) => model.edition === character.edition && model.name === character.name
       );
       previousCharacters.forEach((previousCharacter) => {
         if (previousCharacter && previousCharacter.progress && previousCharacter.progress.enhancements) {
@@ -624,7 +624,7 @@ export class CharacterManager {
       });
 
       character.progress.enhancements = character.progress.enhancements.filter((e, index, self) => {
-        const first = self.find((o) => o.cardId == e.cardId && o.actionIndex == e.actionIndex && o.index == e.index);
+        const first = self.find((o) => o.cardId === e.cardId && o.actionIndex === e.actionIndex && o.index === e.index);
         return !first || index === self.indexOf(first);
       });
     }
@@ -633,7 +633,7 @@ export class CharacterManager {
     character.progress.enhancements
       .filter((e) => e.actionIndex.includes('custom'))
       .forEach((e) => {
-        const card = gameManager.deckData(character).abilities.find((a) => a.cardId == e.cardId);
+        const card = gameManager.deckData(character).abilities.find((a) => a.cardId === e.cardId);
         if (card) {
           const mapping = this.enhancementMapping(
             !e.actionIndex.includes('bottom') ? card.actions : card.bottomActions || [],
@@ -650,7 +650,7 @@ export class CharacterManager {
   enhancementMapping(actions: Action[], parentIndex: string): string[] {
     const mapping: string[] = [];
     actions.forEach((action, index) => {
-      if (action.type != ActionType.custom || action.value != '%character.abilities.wip%') {
+      if (action.type !== ActionType.custom || action.value !== '%character.abilities.wip%') {
         const actionId = (parentIndex ? parentIndex + '-' : '') + index;
         if (action.enhancementTypes) {
           action.enhancementTypes.forEach(() => {

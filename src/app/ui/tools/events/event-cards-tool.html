@@ -32,7 +32,7 @@
         <option [value]="3">C.</option>
       </select>
     </label>
-    <button (click)="changeIterator(-1)" [disabled]="iterator == -1">-</button>
+    <button (click)="changeIterator(-1)" [disabled]="iterator === -1">-</button>
     <button (click)="changeIterator(1)">+</button>
     <label>
       <input type="checkbox" [(ngModel)]="spoiler" />
@@ -48,8 +48,8 @@
     @for (event of events | trackUUID; track event._trackUUID) {
       <ghs-event-card
         [event]="event"
-        [select]="selected != -1 ? selected - 1 : -1"
-        [flipped]="selected == 0"
+        [select]="selected !== -1 ? selected - 1 : -1"
+        [flipped]="selected === 0"
         [spoiler]="spoiler"
         [debug]="debug"
       ></ghs-event-card>

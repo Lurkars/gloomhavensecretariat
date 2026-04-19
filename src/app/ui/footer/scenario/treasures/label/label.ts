@@ -35,7 +35,7 @@ export class TreasureLabelComponent implements OnInit {
 
   ngOnInit() {
     if (!this.treasure) {
-      const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
+      const editionData = gameManager.editionData.find((editionData) => editionData.edition === this.edition);
       if (editionData && editionData.treasures) {
         const index = this.index < 0 ? this.index : this.index - (editionData.treasureOffset || 0);
         if (index >= 0 && index < editionData.treasures.length) {
@@ -97,7 +97,7 @@ export class TreasureLabelComponent implements OnInit {
   }
 
   calcRewardLabel(reward: TreasureReward): string[] {
-    if (reward.type == 'custom') {
+    if (reward.type === 'custom') {
       return ['' + reward.value];
     }
 
@@ -121,7 +121,7 @@ export class TreasureLabelComponent implements OnInit {
       case TreasureRewardType.lootCards:
         return [this.labelPrefix + reward.type, value];
       case TreasureRewardType.damage:
-        if (value == 'terrain') {
+        if (value === 'terrain') {
           return [this.labelPrefix + reward.type, '%game.level.hazardousTerrain%'];
         }
         return [this.labelPrefix + reward.type, '%game.damage:' + value + '%'];
@@ -152,11 +152,11 @@ export class TreasureLabelComponent implements OnInit {
           const item = gameManager.itemManager.getItem(itemId, itemEdition, true);
 
           if (item) {
-            if (reward.type == TreasureRewardType.itemFh || reward.type == TreasureRewardType.itemBlueprint) {
+            if (reward.type === TreasureRewardType.itemFh || reward.type === TreasureRewardType.itemBlueprint) {
               itemIdValues.push(item.id + '');
             } else {
               itemIdValues.push(
-                '%game.item% ' + (itemEdition == this.edition ? item.id : item.id + ' [%data.edition.' + item.edition + '%]')
+                '%game.item% ' + (itemEdition === this.edition ? item.id : item.id + ' [%data.edition.' + item.edition + '%]')
               );
             }
             itemNameValues.push('"' + settingsManager.getLabel('data.items.' + item.edition + '-' + item.id) + '"');

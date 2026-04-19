@@ -105,17 +105,17 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     let subgraph: string | undefined = undefined;
 
     this.worldMap = false;
-    const editionData = gameManager.editionData.find((editionData) => this.edition && editionData.edition == this.edition);
+    const editionData = gameManager.editionData.find((editionData) => this.edition && editionData.edition === this.edition);
     if (editionData && (editionData.worldMap || editionData.extendWorldMap)) {
       this.worldMap = true;
     }
 
     const scenarios = gameManager.scenarioManager
       .scenarioData(this.edition, !this.campaignMode)
-      .filter((scenarioData) => scenarioData.group == this.group)
+      .filter((scenarioData) => scenarioData.group === this.group)
       .sort(gameManager.scenarioManager.sortScenarios)
       .sort((a, b) => {
-        if (a.flowChartGroup == b.flowChartGroup) {
+        if (a.flowChartGroup === b.flowChartGroup) {
           return 0;
         } else if (!a.flowChartGroup && b.flowChartGroup) {
           return -1;
@@ -141,15 +141,15 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
       }
 
       if (
-        (scenarioData.flowChartGroup && scenarioData.flowChartGroup != subgraph) ||
-        (!scenarioData.flowChartGroup && scenarioData.group && scenarioData.group != subgraph)
+        (scenarioData.flowChartGroup && scenarioData.flowChartGroup !== subgraph) ||
+        (!scenarioData.flowChartGroup && scenarioData.group && scenarioData.group !== subgraph)
       ) {
         if (subgraph) {
           this.flow.push('end');
         }
 
         if (scenarioData.flowChartGroup) {
-          if (scenarios.find((other) => other != scenarioData && other.flowChartGroup == scenarioData.flowChartGroup)) {
+          if (scenarios.find((other) => other !== scenarioData && other.flowChartGroup === scenarioData.flowChartGroup)) {
             const subgraphId =
               '' + settingsManager.getLabel('data.custom.' + this.edition + '.flowChartGroup.' + scenarioData.flowChartGroup) + '';
             this.flow.push('subgraph ' + subgraphId);
@@ -158,7 +158,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             subgraph = undefined;
           }
         } else {
-          if (scenarios.find((other) => other != scenarioData && !other.flowChartGroup && other.group == scenarioData.group)) {
+          if (scenarios.find((other) => other !== scenarioData && !other.flowChartGroup && other.group === scenarioData.group)) {
             this.flow.push('subgraph "' + settingsManager.getLabel('data.scenario.group.' + scenarioData.group) + '"');
             subgraph = scenarioData.group;
           } else {
@@ -193,7 +193,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 arrow = ' --x ';
               } else if (this.campaignMode && gameManager.scenarioManager.isLocked(unlockScenarioData)) {
                 arrow = ' --o ';
-              } else if (!unlocks.find((unlock) => unlock.a == scenarioData.index && unlock.b == unlockScenarioData.index)) {
+              } else if (!unlocks.find((unlock) => unlock.a === scenarioData.index && unlock.b === unlockScenarioData.index)) {
                 unlocks.push({ a: scenarioData.index, b: unlockScenarioData.index });
               } else {
                 arrow = false;
@@ -203,7 +203,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 if (
                   unlockScenarioData.blocks &&
                   unlockScenarioData.blocks.some((block) => scenarioData.unlocks.includes(block)) &&
-                  scenarios.some((other) => other.index == unlockScenarioData.index)
+                  scenarios.some((other) => other.index === unlockScenarioData.index)
                 ) {
                   arrow = ' ' + arrow.trim() + '|🔓| ';
                 }
@@ -236,10 +236,10 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
             if (
               other &&
-              !collectedLinks.some((value) => value.a == scenarioData.index && value.b == other.index) &&
+              !collectedLinks.some((value) => value.a === scenarioData.index && value.b === other.index) &&
               !links.includes(index) &&
               scenarios.find(
-                (unlocked) => unlocked.edition == other.edition && unlocked.group == other.group && unlocked.index == other.index
+                (unlocked) => unlocked.edition === other.edition && unlocked.group === other.group && unlocked.index === other.index
               )
             ) {
               if (gameManager.scenarioManager.isBlocked(other)) {
@@ -260,7 +260,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
             if (
               other &&
-              !collectedLinks.some((value) => value.a == scenarioData.index && value.b == other.index) &&
+              !collectedLinks.some((value) => value.a === scenarioData.index && value.b === other.index) &&
               !forcedLinks.includes(index)
             ) {
               if (gameManager.scenarioManager.isBlocked(other)) {
@@ -283,10 +283,10 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
               this.campaignMode &&
               gameManager.game.party.conclusions.find(
                 (scenarioModel) =>
-                  scenarioModel.edition == sectionData.edition &&
-                  scenarioModel.group == sectionData.group &&
-                  scenarioModel.index == sectionData.index
-              ) != undefined;
+                  scenarioModel.edition === sectionData.edition &&
+                  scenarioModel.group === sectionData.group &&
+                  scenarioModel.index === sectionData.index
+              ) !== undefined;
             const visible: boolean = !this.campaignMode || success;
 
             if (visible && sectionData.unlocks) {
@@ -294,7 +294,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 let arrow = ' --> ';
                 const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                 if (other) {
-                  if (!unlocks.find((unlock) => unlock.a == scenarioData.index && unlock.b == other.index)) {
+                  if (!unlocks.find((unlock) => unlock.a === scenarioData.index && unlock.b === other.index)) {
                     unlocks.push({ a: scenarioData.index, b: other.index });
 
                     if (
@@ -336,7 +336,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                   const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                   if (
                     other &&
-                    !collectedLinks.some((value) => value.a == scenarioData.index && value.b == other.index) &&
+                    !collectedLinks.some((value) => value.a === scenarioData.index && value.b === other.index) &&
                     !links.includes(index)
                   ) {
                     if (gameManager.scenarioManager.isBlocked(other)) {
@@ -357,7 +357,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                   const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                   if (
                     other &&
-                    !collectedLinks.some((value) => value.a == scenarioData.index && value.b == other.index) &&
+                    !collectedLinks.some((value) => value.a === scenarioData.index && value.b === other.index) &&
                     !forcedLinks.includes(index)
                   ) {
                     if (gameManager.scenarioManager.isBlocked(other)) {
@@ -386,10 +386,10 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
               this.campaignMode &&
               gameManager.game.party.conclusions.find(
                 (scenarioModel) =>
-                  scenarioModel.edition == sectionData.edition &&
-                  scenarioModel.group == sectionData.group &&
-                  scenarioModel.index == sectionData.index
-              ) != undefined;
+                  scenarioModel.edition === sectionData.edition &&
+                  scenarioModel.group === sectionData.group &&
+                  scenarioModel.index === sectionData.index
+              ) !== undefined;
             const visible: boolean = !this.campaignMode || success;
             if (visible) {
               this.calendarLinkHelper(scenarioData.index, sectionData, unlocks);
@@ -400,7 +400,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
       }
     });
 
-    if (this.flow.join('\n') != this.flowString) {
+    if (this.flow.join('\n') !== this.flowString) {
       this.flowString = this.flow.join('\n');
       return true;
     }
@@ -415,7 +415,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
           if (sectionData && !sectionData.hideIndex) {
             if (sectionData.unlocks) {
               sectionData.unlocks.forEach((index) => {
-                if (!unlocks.find((unlock) => unlock.a == scenarioIndex && unlock.b == index)) {
+                if (!unlocks.find((unlock) => unlock.a === scenarioIndex && unlock.b === index)) {
                   unlocks.push({ a: scenarioIndex, b: index });
                   this.flow.push('\t' + scenarioIndex + ' --o|🗓️| ' + index);
                 }
@@ -430,7 +430,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 .forEach((other) => {
                   if (other.unlocks && !other.hideIndex) {
                     other.unlocks.forEach((index) => {
-                      if (!unlocks.find((unlock) => unlock.a == scenarioIndex && unlock.b == index)) {
+                      if (!unlocks.find((unlock) => unlock.a === scenarioIndex && unlock.b === index)) {
                         unlocks.push({ a: scenarioIndex, b: index });
                         this.flow.push('\t' + scenarioIndex + ' --o|🗓️| ' + index);
                       }
@@ -449,7 +449,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
           if (sectionData && !sectionData.hideIndex) {
             if (sectionData.unlocks) {
               sectionData.unlocks.forEach((index) => {
-                if (!unlocks.find((unlock) => unlock.a == scenarioIndex && unlock.b == index)) {
+                if (!unlocks.find((unlock) => unlock.a === scenarioIndex && unlock.b === index)) {
                   unlocks.push({ a: scenarioIndex, b: index });
                   this.flow.push('\t' + scenarioIndex + ' --o|🗓️| ' + index);
                 }
@@ -464,7 +464,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 .forEach((other) => {
                   if (other.unlocks && !other.hideIndex) {
                     other.unlocks.forEach((index) => {
-                      if (!unlocks.find((unlock) => unlock.a == scenarioIndex && unlock.b == index)) {
+                      if (!unlocks.find((unlock) => unlock.a === scenarioIndex && unlock.b === index)) {
                         unlocks.push({ a: scenarioIndex, b: index });
                         this.flow.push('\t' + scenarioIndex + ' --o|🗓️| ' + index);
                       }
@@ -553,7 +553,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     svgElement.addEventListener('pointerdown', (event) => {
       if (event.pointerType === 'mouse' && event.button !== 0) return;
       let element = event.target as HTMLElement;
-      if (element.tagName.toUpperCase() == 'P' && element.parentElement) {
+      if (element.tagName.toUpperCase() === 'P' && element.parentElement) {
         element = element.parentElement;
       }
       if (element && element.classList.contains('nodeLabel')) {
@@ -566,7 +566,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
           if (scenarioId) {
             const scenarioData = gameManager
               .scenarioData(this.edition)
-              .find((scenarioData) => parent && scenarioData.group == this.group && scenarioData.index == scenarioId);
+              .find((scenarioData) => parent && scenarioData.group === this.group && scenarioData.index === scenarioId);
             if (scenarioData) {
               this.dialog
                 .open(ScenarioChartPopupDialog, {

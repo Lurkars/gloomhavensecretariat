@@ -32,11 +32,11 @@ export class LootDeckStandaloneComponent implements OnInit {
     await settingsManager.init(!environment.production);
     await gameManager.stateManager.init(true);
     this.ghsManager.triggerUiChange();
-    if (gameManager.game.state != GameState.next) {
+    if (gameManager.game.state !== GameState.next) {
       gameManager.roundManager.nextGameState(true);
     }
 
-    if (gameManager.game.lootDeck.cards.length == 0) {
+    if (gameManager.game.lootDeck.cards.length === 0) {
       this.configuration = true;
     }
   }

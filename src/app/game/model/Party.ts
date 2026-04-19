@@ -81,7 +81,7 @@ export class Party {
     if (this.achievementsList) {
       const partyAchievementsLabel = settingsManager.label.data.partyAchievements;
       let partyAchievementsLabelEn = settingsManager.label.data.globalAchievements;
-      if (settingsManager.settings.locale != settingsManager.defaultLocale) {
+      if (settingsManager.settings.locale !== settingsManager.defaultLocale) {
         partyAchievementsLabelEn = gameManager.editionData
           .map(
             (editionData) =>
@@ -97,9 +97,9 @@ export class Party {
           achievement = achievement.slice(1, achievement.length);
         }
         Object.keys(partyAchievementsLabel).forEach((key) => {
-          if (partyAchievementsLabel[key].toLowerCase() == achievement.toLowerCase()) {
+          if (partyAchievementsLabel[key].toLowerCase() === achievement.toLowerCase()) {
             achievement = key;
-          } else if (partyAchievementsLabelEn[key] && partyAchievementsLabelEn[key].toLowerCase() == achievement.toLowerCase()) {
+          } else if (partyAchievementsLabelEn[key] && partyAchievementsLabelEn[key].toLowerCase() === achievement.toLowerCase()) {
             achievement = key;
           }
         });
@@ -113,7 +113,7 @@ export class Party {
     if (this.globalAchievementsList) {
       const globalAchievementsLabel = settingsManager.label.data.globalAchievements;
       let globalAchievementsLabelEn = settingsManager.label.data.globalAchievements;
-      if (settingsManager.settings.locale != settingsManager.defaultLocale) {
+      if (settingsManager.settings.locale !== settingsManager.defaultLocale) {
         globalAchievementsLabelEn = gameManager.editionData
           .map(
             (editionData) =>
@@ -129,9 +129,9 @@ export class Party {
           achievement = achievement.slice(1, achievement.length);
         }
         Object.keys(globalAchievementsLabel).forEach((key) => {
-          if (globalAchievementsLabel[key].toLowerCase() == achievement.toLowerCase()) {
+          if (globalAchievementsLabel[key].toLowerCase() === achievement.toLowerCase()) {
             achievement = key;
-          } else if (globalAchievementsLabelEn[key] && globalAchievementsLabelEn[key].toLowerCase() == achievement.toLowerCase()) {
+          } else if (globalAchievementsLabelEn[key] && globalAchievementsLabelEn[key].toLowerCase() === achievement.toLowerCase()) {
             achievement = key;
           }
         });
@@ -148,7 +148,7 @@ export class Party {
         .map((value) => {
           let sticker = value;
           Object.keys(settingsManager.label.data.campaignSticker).forEach((key) => {
-            if (settingsManager.label.data.campaignSticker[key] == sticker) {
+            if (settingsManager.label.data.campaignSticker[key] === sticker) {
               sticker = key;
               return;
             }
@@ -161,7 +161,7 @@ export class Party {
     if (this.manualScenarios) {
       const removeManual: GameScenarioModel[] = [];
       this.manualScenarios.forEach((model) => {
-        if (model.edition == 'fh' && !model.group && !model.custom) {
+        if (model.edition === 'fh' && !model.group && !model.custom) {
           const conclusion = gameManager
             .sectionData('fh')
             .find((sectionData) => sectionData.random && sectionData.unlocks && sectionData.unlocks.includes(model.index));
@@ -169,9 +169,9 @@ export class Party {
             if (
               !this.conclusions.find(
                 (conclusionModel) =>
-                  conclusionModel.edition == conclusion.edition &&
-                  conclusionModel.group == conclusion.group &&
-                  conclusionModel.index == conclusion.index
+                  conclusionModel.edition === conclusion.edition &&
+                  conclusionModel.group === conclusion.group &&
+                  conclusionModel.index === conclusion.index
               )
             ) {
               this.conclusions.push(new GameScenarioModel('' + conclusion.index, conclusion.edition, conclusion.group));

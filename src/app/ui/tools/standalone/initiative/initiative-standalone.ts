@@ -51,7 +51,7 @@ export class InitiativeStandaloneComponent implements OnInit {
     this.ghsManager.triggerUiChange();
 
     window.addEventListener('focus', () => {
-      if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() != WebSocket.OPEN) {
+      if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
         gameManager.stateManager.connect();
       }
     });
@@ -68,7 +68,7 @@ export class InitiativeStandaloneComponent implements OnInit {
   }
 
   selectCharacter(character: Character) {
-    if (this.character == character) {
+    if (this.character === character) {
       this.openCharacterSheet();
     } else {
       this.characters.forEach((char) => (char.fullview = false));
@@ -80,7 +80,7 @@ export class InitiativeStandaloneComponent implements OnInit {
 
   @HostListener('document:keydown', ['$event'])
   onKeyPress(event: KeyboardEvent) {
-    if (settingsManager.settings.keyboardShortcuts && ghsFilterInputFocus() && this.dialog.openDialogs.length == 0) {
+    if (settingsManager.settings.keyboardShortcuts && ghsFilterInputFocus() && this.dialog.openDialogs.length === 0) {
       if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
         this.pickNumber(+event.key);
         event.preventDefault();
@@ -95,7 +95,7 @@ export class InitiativeStandaloneComponent implements OnInit {
       this.longRest = false;
     }
 
-    if (this.value == '__') {
+    if (this.value === '__') {
       this.value = number + '_';
       this.longRest = false;
     } else {
@@ -107,10 +107,10 @@ export class InitiativeStandaloneComponent implements OnInit {
   }
 
   updateInitiative(initiative: number) {
-    if (this.character && (this.character.initiative != initiative || this.longRest != this.character.longRest)) {
+    if (this.character && (this.character.initiative !== initiative || this.longRest !== this.character.longRest)) {
       if (initiative >= 0 && initiative < 100) {
         this.setInitiative(initiative);
-      } else if (gameManager.game.state == GameState.draw) {
+      } else if (gameManager.game.state === GameState.draw) {
         this.character.initiative = 0;
       }
     }
@@ -119,19 +119,19 @@ export class InitiativeStandaloneComponent implements OnInit {
   async setInitiative(initiative: number) {
     if (
       this.character &&
-      (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0) ||
+      (((gameManager.game.state === GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0) ||
         initiative >= 0) &&
       initiative < 100 &&
-      (initiative != this.character.initiative || this.longRest != this.character.longRest)
+      (initiative !== this.character.initiative || this.longRest !== this.character.longRest)
     ) {
       this.statusCode = 200;
-      if (gameManager.stateManager.wsState() == WebSocket.OPEN && settingsManager.settings.serverUrl) {
+      if (gameManager.stateManager.wsState() === WebSocket.OPEN && settingsManager.settings.serverUrl) {
         let url = settingsManager.settings.serverWss ? 'https://' : 'http://';
         const parts = settingsManager.settings.serverUrl.split('/');
         url += parts[0];
         if (
-          (settingsManager.settings.serverWss && settingsManager.settings.serverPort != 443) ||
-          (!settingsManager.settings.serverWss && settingsManager.settings.serverPort != 80)
+          (settingsManager.settings.serverWss && settingsManager.settings.serverPort !== 443) ||
+          (!settingsManager.settings.serverWss && settingsManager.settings.serverPort !== 80)
         ) {
           url += ':' + settingsManager.settings.serverPort;
         }
@@ -156,11 +156,11 @@ export class InitiativeStandaloneComponent implements OnInit {
         this.statusCode = response.status;
       }
 
-      if (this.statusCode == 200) {
+      if (this.statusCode === 200) {
         this.character.initiativeVisible = true;
         this.character.initiative = initiative;
         this.character.longRest = this.longRest;
-        if (this.character.initiative != 99) {
+        if (this.character.initiative !== 99) {
           this.character.longRest = false;
         }
         this.value = '__';

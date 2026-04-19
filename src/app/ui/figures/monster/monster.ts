@@ -74,12 +74,12 @@ export class MonsterComponent implements OnInit {
 
   isNormal() {
     return this.monster.stats.some((monsterStat) => {
-      return monsterStat.type == MonsterType.normal || monsterStat.type == MonsterType.elite;
+      return monsterStat.type === MonsterType.normal || monsterStat.type === MonsterType.elite;
     });
   }
 
   getEntities(type: MonsterType): MonsterEntity[] {
-    return this.monster.entities.filter((value) => value.type == type).sort((a, b) => a.number - b.number);
+    return this.monster.entities.filter((value) => value.type === type).sort((a, b) => a.number - b.number);
   }
 
   getEdition(): string {
@@ -87,7 +87,7 @@ export class MonsterComponent implements OnInit {
   }
 
   hasEntities(type: MonsterType): boolean {
-    const count = this.monster.entities.filter((entity) => entity.type == type).length;
+    const count = this.monster.entities.filter((entity) => entity.type === type).length;
     return count > 1 && count < this.nonDead;
   }
 

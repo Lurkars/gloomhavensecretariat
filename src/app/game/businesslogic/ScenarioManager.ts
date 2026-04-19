@@ -30,7 +30,7 @@ export class ScenarioManager {
   getScenario(index: string, edition: string, group: string | undefined): ScenarioData | undefined {
     return gameManager
       .scenarioData(edition)
-      .find((scenarioData) => scenarioData.index == index && scenarioData.edition == edition && scenarioData.group == group);
+      .find((scenarioData) => scenarioData.index === index && scenarioData.edition === edition && scenarioData.group === group);
   }
 
   getSection(index: string, edition: string, group: string | undefined, conlusionOnly: boolean = false): ScenarioData | undefined {
@@ -38,9 +38,9 @@ export class ScenarioManager {
       .sectionData(edition)
       .find(
         (sectionData) =>
-          sectionData.index == index &&
-          sectionData.edition == edition &&
-          sectionData.group == group &&
+          sectionData.index === index &&
+          sectionData.edition === edition &&
+          sectionData.group === group &&
           (!conlusionOnly || sectionData.conclusion)
       );
   }
@@ -54,7 +54,7 @@ export class ScenarioManager {
         .scenarioData()
         .find(
           (scenarioData) =>
-            scenarioData.index == scenario.index && scenarioData.edition == scenario.edition && scenarioData.group == scenario.group
+            scenarioData.index === scenario.index && scenarioData.edition === scenario.edition && scenarioData.group === scenario.group
         );
       if (!scenarioData) {
         console.error('Could not find scenario data!');
@@ -204,8 +204,8 @@ export class ScenarioManager {
             rewards.eventDecks.forEach((eventDeck) => {
               const type = eventDeck.split(':')[0];
               const events = gameManager.eventCardManager.getEventCardsForEdition(scenario.edition, type);
-              const startEvent = events.find((e) => e.cardId == eventDeck.split(':')[1].split('|')[0]);
-              const endEvent = events.find((e) => e.cardId == eventDeck.split(':')[1].split('|')[1]);
+              const startEvent = events.find((e) => e.cardId === eventDeck.split(':')[1].split('|')[0]);
+              const endEvent = events.find((e) => e.cardId === eventDeck.split(':')[1].split('|')[1]);
               if (startEvent && endEvent) {
                 gameManager.eventCardManager.buildEventDeck(
                   type,
@@ -276,8 +276,8 @@ export class ScenarioManager {
                     if (
                       itemData &&
                       (!itemData.unlockScenario ||
-                        itemData.unlockScenario.edition != scenario.edition ||
-                        itemData.unlockScenario.name != scenario.index)
+                        itemData.unlockScenario.edition !== scenario.edition ||
+                        itemData.unlockScenario.name !== scenario.index)
                     ) {
                       this.game.party.unlockedItems.push(new CountIdentifier(itemData.id, scenario.edition));
                     }
@@ -291,8 +291,8 @@ export class ScenarioManager {
                   if (
                     itemData &&
                     (!itemData.unlockScenario ||
-                      itemData.unlockScenario.edition != scenario.edition ||
-                      itemData.unlockScenario.name != scenario.index)
+                      itemData.unlockScenario.edition !== scenario.edition ||
+                      itemData.unlockScenario.name !== scenario.index)
                   ) {
                     this.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
                   }
@@ -331,11 +331,11 @@ export class ScenarioManager {
                     week =
                       Math.max(gameManager.game.party.weeks, 0) -
                       (Math.max(gameManager.game.party.weeks, 0) % 20) +
-                      (season == 'summer' ? 20 : 10) +
+                      (season === 'summer' ? 20 : 10) +
                       seasonWeek;
                   }
 
-                  if (week != -1) {
+                  if (week !== -1) {
                     gameManager.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
                   }
                 }
@@ -344,7 +344,7 @@ export class ScenarioManager {
 
             if (rewards.pet) {
               if (
-                gameManager.game.party.pets.find((value) => value.edition == scenario.edition && value.name == rewards.pet) == undefined
+                gameManager.game.party.pets.find((value) => value.edition === scenario.edition && value.name === rewards.pet) === undefined
               ) {
                 gameManager.game.party.pets.push(new PetIdentifier(rewards.pet, scenario.edition));
               }
@@ -369,10 +369,11 @@ export class ScenarioManager {
 
           if (rewards.lootDeckCards) {
             rewards.lootDeckCards.forEach((lootDeckCard) => {
-              const loot = fullLootDeck.find((loot) => loot.cardId == lootDeckCard);
+              const loot = fullLootDeck.find((loot) => loot.cardId === lootDeckCard);
               if (
                 loot &&
-                ((loot.type != LootType.special1 && loot.type != LootType.special2) || !gameManager.game.lootDeckFixed.includes(loot.type))
+                ((loot.type !== LootType.special1 && loot.type !== LootType.special2) ||
+                  !gameManager.game.lootDeckFixed.includes(loot.type))
               ) {
                 gameManager.game.lootDeckFixed.push(loot.type);
               }
@@ -395,9 +396,9 @@ export class ScenarioManager {
           !conclusionSection.repeatable &&
           !this.game.party.conclusions.find(
             (conclusion) =>
-              conclusion.index == conclusionSection.index &&
-              conclusion.edition == conclusionSection.edition &&
-              conclusion.group == conclusionSection.group
+              conclusion.index === conclusionSection.index &&
+              conclusion.edition === conclusionSection.edition &&
+              conclusion.group === conclusionSection.group
           )
         ) {
           this.game.party.conclusions.push(
@@ -411,7 +412,7 @@ export class ScenarioManager {
               !scenario.repeatable &&
               !this.game.party.conclusions.find(
                 (conclusion) =>
-                  conclusion.index == scenario.index && conclusion.edition == scenario.edition && conclusion.group == scenario.group
+                  conclusion.index === scenario.index && conclusion.edition === scenario.edition && conclusion.group === scenario.group
               )
             ) {
               this.game.party.conclusions.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group));
@@ -430,7 +431,7 @@ export class ScenarioManager {
           }
 
           if (gameManager.imbuementManager.imbuement) {
-            if (gameManager.imbuementManager.imbuement == 'advanced') {
+            if (gameManager.imbuementManager.imbuement === 'advanced') {
               this.game.party.imbuement += 2;
             } else {
               this.game.party.imbuement += 1;
@@ -472,7 +473,7 @@ export class ScenarioManager {
 
           gameManager.buildingsManager.nextWeek();
 
-          const editionData = gameManager.editionData.find((editionData) => editionData.edition == scenario.edition);
+          const editionData = gameManager.editionData.find((editionData) => editionData.edition === scenario.edition);
           const weekSections: string[] = [];
           if (editionData && editionData.campaign) {
             weekSections.push(...((editionData.campaign.weeks && editionData.campaign.weeks[this.game.party.weeks]) || []));
@@ -483,7 +484,7 @@ export class ScenarioManager {
           weekSections.forEach((section) => {
             const sectionData = gameManager
               .sectionData(scenario.edition)
-              .find((sectionData) => sectionData.index == section && sectionData.group == scenario.group && sectionData.conclusion);
+              .find((sectionData) => sectionData.index === section && sectionData.group === scenario.group && sectionData.conclusion);
             if (sectionData) {
               const conclusion = new Scenario(sectionData);
               this.finishScenario(conclusion, true, conclusion, false, undefined, false, gainRewards, true);
@@ -515,7 +516,9 @@ export class ScenarioManager {
 
   addSection(section: ScenarioData) {
     if (
-      !this.game.sections.some((value) => value.edition == section.edition && value.index == section.index && value.group == section.group)
+      !this.game.sections.some(
+        (value) => value.edition === section.edition && value.index === section.index && value.group === section.group
+      )
     ) {
       this.applyScenarioData(section, true);
       if (settingsManager.settings.scenarioRules && section.rules) {
@@ -535,7 +538,7 @@ export class ScenarioManager {
 
   applyScenarioData(scenarioData: ScenarioData, section: boolean = false, linked: boolean = false) {
     gameManager.stateManager.standeeDialogCanceled = true;
-    if (!settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length == 0) {
+    if (!settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length === 0) {
       if (scenarioData.monsters) {
         scenarioData.monsters.forEach((name) => {
           const monsterName = name.split(':')[0];
@@ -590,8 +593,8 @@ export class ScenarioManager {
         const monsters = gameManager.game.figures.filter((figure) => figure instanceof Monster).map((figure) => figure as Monster);
         scenarioData.monsters.forEach((name) => {
           const monsterName = name.split(':')[0];
-          const monsterData = gameManager.monstersData(scenarioData.edition).find((monsterData) => monsterData.name == monsterName);
-          if (monsterData && !monsters.find((existing) => existing.name == monsterData.name)) {
+          const monsterData = gameManager.monstersData(scenarioData.edition).find((monsterData) => monsterData.name === monsterName);
+          if (monsterData && !monsters.find((existing) => existing.name === monsterData.name)) {
             monsters.push(new Monster(monsterData));
           }
         });
@@ -602,16 +605,16 @@ export class ScenarioManager {
             settingsManager.settings.automaticStandees &&
             scenarioData.rooms &&
             scenarioData.rooms.some(
-              (roomData) => roomData.monster && roomData.monster.some((standee) => standee.name.split(':')[0] == monsterName)
+              (roomData) => roomData.monster && roomData.monster.some((standee) => standee.name.split(':')[0] === monsterName)
             );
 
           const spawns = gameManager.monsterManager.getSpawnMonsters(monsters);
 
-          const isSpawn = settingsManager.settings.interactiveAbilities && spawns.find((monsterData) => monsterData.name == monsterName);
+          const isSpawn = settingsManager.settings.interactiveAbilities && spawns.find((monsterData) => monsterData.name === monsterName);
 
           const isRule =
             settingsManager.settings.scenarioRules &&
-            this.getRuleMonster(new Scenario(scenarioData)).find((monsterData) => monsterData.name == monsterName);
+            this.getRuleMonster(new Scenario(scenarioData)).find((monsterData) => monsterData.name === monsterName);
 
           if (!isRoom && !isSpawn && !isRule) {
             const monster = gameManager.monsterManager.addMonsterByName(name, scenarioData.edition);
@@ -647,7 +650,7 @@ export class ScenarioManager {
       this.getMonsters(new Scenario(scenarioData), true).forEach((monster) => {
         if (
           !this.game.figures.find(
-            (figure) => figure instanceof MonsterData && figure.name == monster.name && figure.edition == monster.edition
+            (figure) => figure instanceof MonsterData && figure.name === monster.name && figure.edition === monster.edition
           )
         ) {
           gameManager.monsterManager.addMonster(monster, this.game.level);
@@ -659,7 +662,7 @@ export class ScenarioManager {
       if (!scenarioData.spotlight) {
         gameManager.game.figures.forEach((figure) => {
           if (figure instanceof Character) {
-            if (figure.name != scenarioData.solo || figure.edition != scenarioData.edition) {
+            if (figure.name !== scenarioData.solo || figure.edition !== scenarioData.edition) {
               figure.absent = true;
             } else {
               figure.absent = false;
@@ -670,12 +673,12 @@ export class ScenarioManager {
 
       if (
         !gameManager.game.figures.some(
-          (figure) => figure instanceof Character && figure.name == scenarioData.solo && figure.edition == scenarioData.edition
+          (figure) => figure instanceof Character && figure.name === scenarioData.solo && figure.edition === scenarioData.edition
         )
       ) {
         const characterData = gameManager
           .charactersData()
-          .find((characterData) => characterData.name == scenarioData.solo && characterData.edition == scenarioData.edition);
+          .find((characterData) => characterData.name === scenarioData.solo && characterData.edition === scenarioData.edition);
         if (characterData) {
           gameManager.characterManager.addCharacter(characterData, 5);
         } else {
@@ -695,15 +698,16 @@ export class ScenarioManager {
     if (scenarioData.resetRound) {
       const offset =
         scenarioData.resetRound.endsWith('Keep') &&
-        ((this.game.state == GameState.next && this.game.round % 2 == 0) || (this.game.state == GameState.draw && this.game.round % 2 == 1))
+        ((this.game.state === GameState.next && this.game.round % 2 === 0) ||
+          (this.game.state === GameState.draw && this.game.round % 2 === 1))
           ? 1
           : 0;
-      if (scenarioData.resetRound == 'visible' || scenarioData.resetRound == 'visibleKeep') {
-        this.game.roundResets.push(this.game.round + (this.game.state == GameState.draw ? 0 : -1) - offset);
+      if (scenarioData.resetRound === 'visible' || scenarioData.resetRound === 'visibleKeep') {
+        this.game.roundResets.push(this.game.round + (this.game.state === GameState.draw ? 0 : -1) - offset);
       } else {
-        this.game.roundResetsHidden.push(this.game.round + (this.game.state == GameState.draw ? 0 : -1) - offset);
+        this.game.roundResetsHidden.push(this.game.round + (this.game.state === GameState.draw ? 0 : -1) - offset);
       }
-      this.game.round = (this.game.state == GameState.draw ? 0 : 1) + offset;
+      this.game.round = (this.game.state === GameState.draw ? 0 : 1) + offset;
     }
 
     if (gameManager.bbRules() && scenarioData.level) {
@@ -717,7 +721,7 @@ export class ScenarioManager {
     if (settingsManager.settings.partySheet && settingsManager.settings.events && scenarioData.eventType && !linked) {
       let type = scenarioData.eventType;
 
-      if (scenarioData.edition == 'fh' && (type == 'road' || type == 'outpost')) {
+      if (scenarioData.edition === 'fh' && (type === 'road' || type === 'outpost')) {
         type = (Math.max(gameManager.game.party.weeks, 0) % 20 < 10 ? 'summer-' : 'winter-') + type;
       }
 
@@ -734,11 +738,11 @@ export class ScenarioManager {
         .filter((e) => e.scenarioApply)
         .forEach((e) => {
           const eventCard = gameManager.eventCardManager.getEventCardForEdition(e.edition, e.type, e.cardId);
-          if (eventCard && e.selected != -1) {
+          if (eventCard && e.selected !== -1) {
             const option = eventCard.options[e.selected];
             if (option && option.outcomes) {
               option.outcomes.forEach((outcome, i) => {
-                if (outcome.effects && (!e.subSelections || e.subSelections.length == 0 || e.subSelections.includes(i))) {
+                if (outcome.effects && (!e.subSelections || e.subSelections.length === 0 || e.subSelections.includes(i))) {
                   gameManager.eventCardManager.applyEffects(
                     eventCard,
                     outcome.effects.filter((e) => typeof e !== 'string'),
@@ -773,7 +777,7 @@ export class ScenarioManager {
     if (settingsManager.settings.removeUnusedMonster) {
       this.game.figures
         .filter(
-          (figure) => figure instanceof Monster && figure.off && figure.entities.length == 0 && !figure.tags.includes('addedManually')
+          (figure) => figure instanceof Monster && figure.off && figure.entities.length === 0 && !figure.tags.includes('addedManually')
         )
         .forEach((figure) => {
           gameManager.monsterManager.removeMonster(figure as Monster);
@@ -797,7 +801,7 @@ export class ScenarioManager {
           const charCount = gameManager.characterManager.characterCount();
           if (charCount < 3) {
             type = monsterStandeeData.player2;
-          } else if (charCount == 3) {
+          } else if (charCount === 3) {
             type = monsterStandeeData.player3;
           } else {
             type = monsterStandeeData.player4;
@@ -808,7 +812,7 @@ export class ScenarioManager {
           type = MonsterType.normal;
         }
 
-        if (type == MonsterType.boss || type == MonsterType.elite) {
+        if (type === MonsterType.boss || type === MonsterType.elite) {
           entities.push(...this.applyRoomSpawn(scenarioData, monsterStandeeData, type, section));
         }
       });
@@ -821,7 +825,7 @@ export class ScenarioManager {
           const charCount = gameManager.characterManager.characterCount();
           if (charCount < 3) {
             type = monsterStandeeData.player2;
-          } else if (charCount == 3) {
+          } else if (charCount === 3) {
             type = monsterStandeeData.player3;
           } else {
             type = monsterStandeeData.player4;
@@ -832,16 +836,16 @@ export class ScenarioManager {
           type = MonsterType.normal;
         }
 
-        if (type == MonsterType.normal) {
+        if (type === MonsterType.normal) {
           entities.push(...this.applyRoomSpawn(scenarioData, monsterStandeeData, type, section));
         }
       });
 
-      if (this.game.state == GameState.next) {
+      if (this.game.state === GameState.next) {
         this.game.figures.forEach((figure) => {
           if (
             figure instanceof Monster &&
-            (figure.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).includes(figure.edition)) &&
+            (figure.edition === scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).includes(figure.edition)) &&
             figure.entities.some((entity) => entities.includes(entity))
           ) {
             figure.active = figure.active || !this.game.figures.some((other) => other.active);
@@ -858,7 +862,7 @@ export class ScenarioManager {
 
       if (
         this.game.figures.find(
-          (figure) => figure instanceof Character && !figure.absent && figure.name == 'snowflake' && figure.tags.includes('muddle-monster')
+          (figure) => figure instanceof Character && !figure.absent && figure.name === 'snowflake' && figure.tags.includes('muddle-monster')
         )
       ) {
         this.game.figures.forEach((figure) => {
@@ -875,7 +879,7 @@ export class ScenarioManager {
 
     if (roomData.objectives) {
       roomData.objectives.forEach((index) => {
-        if (typeof index == 'number' && index > 0) {
+        if (typeof index === 'number' && index > 0) {
           const objectiveIdentifier: ScenarioObjectiveIdentifier = {
             edition: scenarioData.edition,
             scenario: scenarioData.index,
@@ -888,7 +892,7 @@ export class ScenarioManager {
             const objectiveContainer = gameManager.objectiveManager.addObjective(objective, undefined, objectiveIdentifier);
             gameManager.objectiveManager.addObjectiveEntity(objectiveContainer);
           }
-        } else if (typeof index == 'string' && index.includes(':')) {
+        } else if (typeof index === 'string' && index.includes(':')) {
           const split = index.split(':');
           const id = +split.splice(0, 1);
           const count = EntityValueFunction(split.join(':'));
@@ -908,7 +912,7 @@ export class ScenarioManager {
               }
             }
           }
-        } else if (typeof index == 'string' && index.includes('-')) {
+        } else if (typeof index === 'string' && index.includes('-')) {
           const split = index.split('-');
           const id = +split[0];
           const marker = split[1];
@@ -957,7 +961,7 @@ export class ScenarioManager {
       false;
     const monster = gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.edition);
     if (monster) {
-      if (settingsManager.settings.standees || !monster.entities.find((entity) => entity.type == type)) {
+      if (settingsManager.settings.standees || !monster.entities.find((entity) => entity.type === type)) {
         const entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, isAlly, isAllied, drawExtra);
         if (entity) {
           if (monsterStandeeData.marker) {
@@ -980,10 +984,10 @@ export class ScenarioManager {
       }
     }
     if (monster && monster.bb) {
-      if (entities.length && entities.every((entity) => entity.type == MonsterType.elite) && !monster.tags.includes('bb-elite')) {
+      if (entities.length && entities.every((entity) => entity.type === MonsterType.elite) && !monster.tags.includes('bb-elite')) {
         monster.tags.push('bb-elite');
       } else {
-        monster.tags = monster.tags.filter((tag) => tag != 'bb-elite');
+        monster.tags = monster.tags.filter((tag) => tag !== 'bb-elite');
       }
     }
 
@@ -1001,11 +1005,11 @@ export class ScenarioManager {
     }
 
     if (all || !this.game.party.campaignMode || !scenarios.some((scenarioData) => scenarioData.initial)) {
-      return scenarios.filter((scenarioData) => scenarioData.edition == edition);
+      return scenarios.filter((scenarioData) => scenarioData.edition === edition);
     }
 
     return scenarios.filter((scenarioData) => {
-      if (scenarioData.edition != edition) {
+      if (scenarioData.edition !== edition) {
         return false;
       }
 
@@ -1016,25 +1020,29 @@ export class ScenarioManager {
       if (
         this.game.party.manualScenarios.find(
           (identifier) =>
-            scenarioData.index == identifier.index && scenarioData.edition == identifier.edition && scenarioData.group == identifier.group
+            scenarioData.index === identifier.index &&
+            scenarioData.edition === identifier.edition &&
+            scenarioData.group === identifier.group
         )
       ) {
         return true;
       }
 
       let unlocked: boolean = false;
-      let requires: boolean = !scenarioData.requires || scenarioData.requires.length == 0;
+      let requires: boolean = !scenarioData.requires || scenarioData.requires.length === 0;
 
       this.game.party.scenarios.forEach((identifier) => {
         const scenario = scenarios.find(
           (scenarioData) =>
-            scenarioData.index == identifier.index && scenarioData.edition == identifier.edition && scenarioData.group == identifier.group
+            scenarioData.index === identifier.index &&
+            scenarioData.edition === identifier.edition &&
+            scenarioData.group === identifier.group
         );
 
         if (
           scenario &&
-          scenario.edition == scenarioData.edition &&
-          scenario.group == scenarioData.group &&
+          scenario.edition === scenarioData.edition &&
+          scenario.group === scenarioData.group &&
           scenario.unlocks &&
           scenario.unlocks.includes(scenarioData.index)
         ) {
@@ -1047,13 +1055,13 @@ export class ScenarioManager {
           .sectionData(identifier.edition)
           .find(
             (sectionData) =>
-              sectionData.index == identifier.index && sectionData.edition == identifier.edition && sectionData.group == identifier.group
+              sectionData.index === identifier.index && sectionData.edition === identifier.edition && sectionData.group === identifier.group
           );
 
         if (
           conclusionSection &&
-          conclusionSection.edition == scenarioData.edition &&
-          conclusionSection.group == scenarioData.group &&
+          conclusionSection.edition === scenarioData.edition &&
+          conclusionSection.group === scenarioData.group &&
           conclusionSection.unlocks &&
           conclusionSection.unlocks.includes(scenarioData.index)
         ) {
@@ -1066,16 +1074,16 @@ export class ScenarioManager {
           requires.every((index) => {
             const finishedScenarios = this.game.party.scenarios.filter(
               (model) =>
-                model.index == index &&
-                (model.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).includes(model.edition))
+                model.index === index &&
+                (model.edition === scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).includes(model.edition))
             );
 
             if (finishedScenarios.length > 1) {
-              finishedScenarios.filter((model) => model.group == scenarioData.group);
+              finishedScenarios.filter((model) => model.group === scenarioData.group);
             }
 
             if (finishedScenarios.length > 1) {
-              finishedScenarios.filter((model) => model.edition == scenarioData.edition);
+              finishedScenarios.filter((model) => model.edition === scenarioData.edition);
             }
 
             return finishedScenarios.length > 0;
@@ -1089,11 +1097,11 @@ export class ScenarioManager {
 
   isCurrent(scenarioData: ScenarioData): boolean {
     return (
-      gameManager.game.scenario != undefined &&
-      gameManager.game.scenario.edition == scenarioData.edition &&
-      gameManager.game.scenario.index == scenarioData.index &&
-      gameManager.game.scenario.group == scenarioData.group &&
-      gameManager.game.scenario.solo == scenarioData.solo
+      gameManager.game.scenario !== undefined &&
+      gameManager.game.scenario.edition === scenarioData.edition &&
+      gameManager.game.scenario.index === scenarioData.index &&
+      gameManager.game.scenario.group === scenarioData.group &&
+      gameManager.game.scenario.solo === scenarioData.solo
     );
   }
 
@@ -1102,20 +1110,20 @@ export class ScenarioManager {
       gameManager.game.party.scenarios &&
       gameManager.game.party.scenarios.find(
         (scenarioModel) =>
-          scenarioModel.edition == scenarioData.edition &&
-          scenarioModel.group == scenarioData.group &&
-          scenarioModel.index == scenarioData.index
-      ) != undefined
+          scenarioModel.edition === scenarioData.edition &&
+          scenarioModel.group === scenarioData.group &&
+          scenarioModel.index === scenarioData.index
+      ) !== undefined
     );
   }
 
   isBlocked(scenarioData: ScenarioData): boolean {
     const finishedScenarios = this.game.party.scenarios
-      .filter((model) => model.edition == scenarioData.edition && model.group == scenarioData.group)
+      .filter((model) => model.edition === scenarioData.edition && model.group === scenarioData.group)
       .map((model) => this.getScenario(model.index, model.edition, model.group));
 
     const finishedConclusions = this.game.party.conclusions
-      .filter((model) => model.edition == scenarioData.edition && model.group == scenarioData.group)
+      .filter((model) => model.edition === scenarioData.edition && model.group === scenarioData.group)
       .map((model) => this.getSection(model.index, model.edition, model.group, true));
 
     return (
@@ -1136,19 +1144,19 @@ export class ScenarioManager {
                 if (achievement.startsWith('!')) {
                   return this.game.party.globalAchievementsList.find(
                     (globalAchievement) =>
-                      globalAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim()
+                      globalAchievement.toLowerCase().trim() === achievement.substring(1, achievement.length).toLowerCase().trim()
                   );
                 } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
                   let count = +achievement.split(':')[1];
                   this.game.party.globalAchievementsList.forEach((globalAchievement) => {
-                    if (globalAchievement.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim()) {
+                    if (globalAchievement.toLowerCase().trim() === achievement.split(':')[0].toLowerCase().trim()) {
                       count--;
                     }
                   });
                   return count > 0;
                 } else {
                   return !this.game.party.globalAchievementsList.find(
-                    (globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.toLowerCase().trim()
+                    (globalAchievement) => globalAchievement.toLowerCase().trim() === achievement.toLowerCase().trim()
                   );
                 }
               })) ||
@@ -1157,19 +1165,19 @@ export class ScenarioManager {
                 if (achievement.startsWith('!')) {
                   return this.game.party.achievementsList.find(
                     (partyAchievement) =>
-                      partyAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim()
+                      partyAchievement.toLowerCase().trim() === achievement.substring(1, achievement.length).toLowerCase().trim()
                   );
                 } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
                   let count = +achievement.split(':')[1];
                   this.game.party.achievementsList.forEach((partyAchievement) => {
-                    if (partyAchievement.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim()) {
+                    if (partyAchievement.toLowerCase().trim() === achievement.split(':')[0].toLowerCase().trim()) {
                       count--;
                     }
                   });
                   return count > 0;
                 } else {
                   return !this.game.party.achievementsList.find(
-                    (partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.toLowerCase().trim()
+                    (partyAchievement) => partyAchievement.toLowerCase().trim() === achievement.toLowerCase().trim()
                   );
                 }
               })) ||
@@ -1184,14 +1192,14 @@ export class ScenarioManager {
                 } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
                   let count = +achievement.split(':')[1];
                   this.game.party.campaignStickers.forEach((campaignSticker) => {
-                    if (campaignSticker.toLowerCase().replaceAll(' ', '-').trim() == achievement.split(':')[0].toLowerCase().trim()) {
+                    if (campaignSticker.toLowerCase().replaceAll(' ', '-').trim() === achievement.split(':')[0].toLowerCase().trim()) {
                       count--;
                     }
                   });
                   return count > 0;
                 } else {
                   return !this.game.party.campaignStickers.find(
-                    (campaignSticker) => campaignSticker.toLowerCase().replaceAll(' ', '-').trim() == achievement.toLowerCase().trim()
+                    (campaignSticker) => campaignSticker.toLowerCase().replaceAll(' ', '-').trim() === achievement.toLowerCase().trim()
                   );
                 }
               })) ||
@@ -1200,20 +1208,20 @@ export class ScenarioManager {
                 if (achievement.startsWith('!')) {
                   return this.game.party.buildings.find(
                     (buildingModel) =>
-                      buildingModel.name.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim() &&
+                      buildingModel.name.toLowerCase().trim() === achievement.substring(1, achievement.length).toLowerCase().trim() &&
                       buildingModel.level > 0
                   );
                 } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
                   const level = +achievement.split(':')[1];
                   return !this.game.party.buildings.find(
                     (buildingModel) =>
-                      buildingModel.name.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim() &&
+                      buildingModel.name.toLowerCase().trim() === achievement.substring(1, achievement.length).toLowerCase().trim() &&
                       buildingModel.level >= level
                   );
                 } else {
                   return !this.game.party.buildings.find(
                     (buildingModel) =>
-                      buildingModel.name.toLowerCase().trim() == achievement.toLowerCase().trim() && buildingModel.level > 0
+                      buildingModel.name.toLowerCase().trim() === achievement.toLowerCase().trim() && buildingModel.level > 0
                   );
                 }
               })) ||
@@ -1223,11 +1231,11 @@ export class ScenarioManager {
                   return gameManager.game.figures.find(
                     (figure) =>
                       figure instanceof Character &&
-                      figure.name.toLowerCase().trim() == character.substring(1, character.length).toLowerCase().trim()
+                      figure.name.toLowerCase().trim() === character.substring(1, character.length).toLowerCase().trim()
                   );
                 } else {
                   return !gameManager.game.figures.find(
-                    (figure) => figure instanceof Character && figure.name.toLowerCase().trim() == character.toLowerCase().trim()
+                    (figure) => figure instanceof Character && figure.name.toLowerCase().trim() === character.toLowerCase().trim()
                   );
                 }
               })) ||
@@ -1236,14 +1244,14 @@ export class ScenarioManager {
                 scenarios.some(
                   (index) =>
                     this.game.party.scenarios.find(
-                      (model) => model.index == index && model.edition == scenarioData.edition && model.group == scenarioData.group
-                    ) == undefined
+                      (model) => model.index === index && model.edition === scenarioData.edition && model.group === scenarioData.group
+                    ) === undefined
                 )
               ))
         )) ||
       (scenarioData.solo &&
         !this.game.figures.find(
-          (figure) => figure instanceof Character && figure.name == scenarioData.solo && (gameManager.bbRules() || figure.level >= 5)
+          (figure) => figure instanceof Character && figure.name === scenarioData.solo && (gameManager.bbRules() || figure.level >= 5)
         )) ||
       false
     );
@@ -1262,7 +1270,7 @@ export class ScenarioManager {
               if (
                 all ||
                 gameManager.game.party.globalAchievementsList.find(
-                  (globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.toLowerCase().trim()
+                  (globalAchievement) => globalAchievement.toLowerCase().trim() === achievement.toLowerCase().trim()
                 )
               ) {
                 missingRequirement.globalAchievementsMissing.push(achievement);
@@ -1271,7 +1279,7 @@ export class ScenarioManager {
             } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
               let count = +achievement.split(':')[1];
               gameManager.game.party.globalAchievementsList.forEach((partyAchievement) => {
-                if (partyAchievement.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim()) {
+                if (partyAchievement.toLowerCase().trim() === achievement.split(':')[0].toLowerCase().trim()) {
                   count--;
                 }
               });
@@ -1286,7 +1294,7 @@ export class ScenarioManager {
             } else if (
               all ||
               !gameManager.game.party.globalAchievementsList.find(
-                (globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.toLowerCase().trim()
+                (globalAchievement) => globalAchievement.toLowerCase().trim() === achievement.toLowerCase().trim()
               )
             ) {
               missingRequirement.globalAchievements.push(achievement);
@@ -1302,7 +1310,7 @@ export class ScenarioManager {
               if (
                 all ||
                 gameManager.game.party.achievementsList.find(
-                  (partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.toLowerCase().trim()
+                  (partyAchievement) => partyAchievement.toLowerCase().trim() === achievement.toLowerCase().trim()
                 )
               ) {
                 missingRequirement.partyAchievementsMissing.push(achievement);
@@ -1311,7 +1319,7 @@ export class ScenarioManager {
             } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
               let count = +achievement.split(':')[1];
               gameManager.game.party.achievementsList.forEach((partyAchievement) => {
-                if (partyAchievement.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim()) {
+                if (partyAchievement.toLowerCase().trim() === achievement.split(':')[0].toLowerCase().trim()) {
                   count--;
                 }
               });
@@ -1326,7 +1334,7 @@ export class ScenarioManager {
             } else if (
               all ||
               !gameManager.game.party.achievementsList.find(
-                (partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.toLowerCase().trim()
+                (partyAchievement) => partyAchievement.toLowerCase().trim() === achievement.toLowerCase().trim()
               )
             ) {
               missingRequirement.partyAchievements.push(achievement);
@@ -1342,7 +1350,7 @@ export class ScenarioManager {
               if (
                 all ||
                 gameManager.game.party.campaignStickers.find(
-                  (campaignSticker) => campaignSticker.toLowerCase().trim() == achievement.toLowerCase().trim()
+                  (campaignSticker) => campaignSticker.toLowerCase().trim() === achievement.toLowerCase().trim()
                 )
               ) {
                 missingRequirement.campaignStickersMissing.push(achievement);
@@ -1351,7 +1359,7 @@ export class ScenarioManager {
             } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
               let count = +achievement.split(':')[1];
               gameManager.game.party.campaignStickers.forEach((campaignSticker) => {
-                if (campaignSticker.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim()) {
+                if (campaignSticker.toLowerCase().trim() === achievement.split(':')[0].toLowerCase().trim()) {
                   count--;
                 }
               });
@@ -1366,7 +1374,7 @@ export class ScenarioManager {
             } else if (
               all ||
               !gameManager.game.party.campaignStickers.find(
-                (campaignSticker) => campaignSticker.toLowerCase().trim() == achievement.toLowerCase().trim()
+                (campaignSticker) => campaignSticker.toLowerCase().trim() === achievement.toLowerCase().trim()
               )
             ) {
               missingRequirement.campaignStickers.push(achievement);
@@ -1385,7 +1393,8 @@ export class ScenarioManager {
                   all ||
                   gameManager.game.party.buildings.find(
                     (buildingModel) =>
-                      buildingModel.name.toLowerCase().trim() == building.split(':')[0].toLowerCase().trim() && buildingModel.level >= level
+                      buildingModel.name.toLowerCase().trim() === building.split(':')[0].toLowerCase().trim() &&
+                      buildingModel.level >= level
                   )
                 ) {
                   missingRequirement.buildingsLevel.push({ name: building.split(':')[0], level: level });
@@ -1394,7 +1403,7 @@ export class ScenarioManager {
               } else if (
                 all ||
                 gameManager.game.party.buildings.find(
-                  (buildingModel) => buildingModel.name.toLowerCase().trim() == building.toLowerCase().trim() && buildingModel.level > 0
+                  (buildingModel) => buildingModel.name.toLowerCase().trim() === building.toLowerCase().trim() && buildingModel.level > 0
                 )
               ) {
                 missingRequirement.buildingsMissing.push(building);
@@ -1406,7 +1415,7 @@ export class ScenarioManager {
                 all ||
                 !gameManager.game.party.buildings.find(
                   (buildingModel) =>
-                    buildingModel.name.toLowerCase().trim() == building.split(':')[0].toLowerCase().trim() && buildingModel.level >= level
+                    buildingModel.name.toLowerCase().trim() === building.split(':')[0].toLowerCase().trim() && buildingModel.level >= level
                 )
               ) {
                 missingRequirement.buildingsLevel.push({ name: building.split(':')[0], level: level });
@@ -1415,7 +1424,7 @@ export class ScenarioManager {
             } else if (
               all ||
               !gameManager.game.party.buildings.find(
-                (buildingModel) => buildingModel.name.toLowerCase().trim() == building.toLowerCase().trim() && buildingModel.level > 0
+                (buildingModel) => buildingModel.name.toLowerCase().trim() === building.toLowerCase().trim() && buildingModel.level > 0
               )
             ) {
               missingRequirement.buildings.push(building);
@@ -1431,7 +1440,7 @@ export class ScenarioManager {
               if (
                 all ||
                 gameManager.game.figures.find(
-                  (figure) => figure instanceof Character && figure.name.toLowerCase().trim() == character.toLowerCase().trim()
+                  (figure) => figure instanceof Character && figure.name.toLowerCase().trim() === character.toLowerCase().trim()
                 )
               ) {
                 missingRequirement.charactersMissing.push(character);
@@ -1440,7 +1449,7 @@ export class ScenarioManager {
             } else if (
               all ||
               !gameManager.game.figures.find(
-                (figure) => figure instanceof Character && figure.name.toLowerCase().trim() == character.toLowerCase().trim()
+                (figure) => figure instanceof Character && figure.name.toLowerCase().trim() === character.toLowerCase().trim()
               )
             ) {
               missingRequirement.characters.push(character);
@@ -1455,8 +1464,8 @@ export class ScenarioManager {
             scenarios.forEach((index) => {
               if (
                 this.game.party.scenarios.find(
-                  (model) => model.index == index && model.edition == scenarioData.edition && model.group == scenarioData.group
-                ) == undefined ||
+                  (model) => model.index === index && model.edition === scenarioData.edition && model.group === scenarioData.group
+                ) === undefined ||
                 all
               ) {
                 missingScenarios[i] = missingScenarios[i] || [];
@@ -1465,7 +1474,7 @@ export class ScenarioManager {
             });
           });
 
-          if (all || (missingScenarios.length == scenarioData.requires.length && missingScenarios.every((value) => value.length))) {
+          if (all || (missingScenarios.length === scenarioData.requires.length && missingScenarios.every((value) => value.length))) {
             missingRequirement.scenarios = missingScenarios;
             add = true;
           }
@@ -1485,7 +1494,7 @@ export class ScenarioManager {
       .sectionData()
       .filter(
         (sectionData) =>
-          sectionData.edition == scenario.edition && sectionData.parent == scenario.index && sectionData.group == scenario.group
+          sectionData.edition === scenario.edition && sectionData.parent === scenario.index && sectionData.group === scenario.group
       );
   }
 
@@ -1502,17 +1511,18 @@ export class ScenarioManager {
           // filter already active
           (includeActive ||
             !this.game.sections.find(
-              (active) => active.edition == sectionData.edition && active.index == sectionData.index && active.parent == sectionData.parent
+              (active) =>
+                active.edition === sectionData.edition && active.index === sectionData.index && active.parent === sectionData.parent
             )) &&
           // match parent sections
           (!sectionData.parentSections ||
             sectionData.parentSections.some((parentSections) =>
-              parentSections.every((parentSection) => this.game.sections.find((active) => active.index == parentSection))
+              parentSections.every((parentSection) => this.game.sections.find((active) => active.index === parentSection))
             )) &&
           // filter blocked
           !this.game.sections.find(
             (active) =>
-              active.edition == sectionData.edition && sectionData.blockedSections && sectionData.blockedSections.includes(active.index)
+              active.edition === sectionData.edition && sectionData.blockedSections && sectionData.blockedSections.includes(active.index)
           )
       )
       .sort(this.sortScenarios);
@@ -1523,11 +1533,11 @@ export class ScenarioManager {
           this.game.scenario &&
           gameManager
             .sectionData(this.game.scenario.edition, true)
-            .find((sectionData) => sectionData.group == 'randomMonsterCard' && sectionData.index == index)
+            .find((sectionData) => sectionData.group === 'randomMonsterCard' && sectionData.index === index)
       )
       .filter(
         (sectionData) =>
-          sectionData && !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index)
+          sectionData && !this.game.sections.find((active) => active.edition === sectionData.edition && active.index === sectionData.index)
       )
       .map((sectionData) => sectionData as ScenarioData);
 
@@ -1545,7 +1555,7 @@ export class ScenarioManager {
         });
       } else if (scenario.revealedRooms) {
         scenario.revealedRooms.forEach((roomNumber) => {
-          const room = scenario.rooms.find((room) => room.roomNumber == roomNumber);
+          const room = scenario.rooms.find((room) => room.roomNumber === roomNumber);
           if (room && room.treasures) {
             treasures.push(...room.treasures);
           }
@@ -1563,7 +1573,7 @@ export class ScenarioManager {
           });
         } else if (section.revealedRooms) {
           section.revealedRooms.forEach((roomNumber) => {
-            const room = section.rooms.find((room) => room.roomNumber == roomNumber);
+            const room = section.rooms.find((room) => room.roomNumber === roomNumber);
             if (room && room.treasures) {
               treasures.push(...room.treasures);
             }
@@ -1583,7 +1593,9 @@ export class ScenarioManager {
     if (unlooted) {
       treasures = treasures.filter(
         (treasure) =>
-          !gameManager.game.party.treasures.find((identifier) => identifier.name == '' + treasure && identifier.edition == scenario.edition)
+          !gameManager.game.party.treasures.find(
+            (identifier) => identifier.name === '' + treasure && identifier.edition === scenario.edition
+          )
       );
     }
 
@@ -1649,13 +1661,13 @@ export class ScenarioManager {
         .sectionData(scenario.edition)
         .filter(
           (sectionData) =>
-            sectionData.group == scenario.group &&
-            sectionData.parent == scenario.index &&
+            sectionData.group === scenario.group &&
+            sectionData.parent === scenario.index &&
             (allSections ||
               this.game.sections.find(
                 (section) =>
-                  section.edition == sectionData.edition && section.group == sectionData.group && section.index == sectionData.index
-              ) != undefined)
+                  section.edition === sectionData.edition && section.group === sectionData.group && section.index === sectionData.index
+              ) !== undefined)
         )
     );
 
@@ -1669,8 +1681,8 @@ export class ScenarioManager {
               (allSections ||
                 this.game.sections.find(
                   (section) =>
-                    section.edition == sectionData.edition && section.group == sectionData.group && section.index == sectionData.index
-                ) != undefined)
+                    section.edition === sectionData.edition && section.group === sectionData.group && section.index === sectionData.index
+                ) !== undefined)
           )
       );
     }
@@ -1683,8 +1695,8 @@ export class ScenarioManager {
             .monstersData()
             .find(
               (monsterData) =>
-                monsterData.name == name.split(':')[0] &&
-                (monsterData.edition == scenario.edition || gameManager.editionExtensions(scenario.edition).includes(monsterData.edition))
+                monsterData.name === name.split(':')[0] &&
+                (monsterData.edition === scenario.edition || gameManager.editionExtensions(scenario.edition).includes(monsterData.edition))
             );
           if (monster && !monsters.includes(monster)) {
             monsters.push(monster);
@@ -1704,7 +1716,7 @@ export class ScenarioManager {
       data.push(
         ...gameManager
           .sectionData(scenario.edition)
-          .filter((sectionData) => sectionData.group == scenario.group && sectionData.parent == scenario.index)
+          .filter((sectionData) => sectionData.group === scenario.group && sectionData.parent === scenario.index)
       );
 
       if (scenario.additionalSections) {
@@ -1726,8 +1738,8 @@ export class ScenarioManager {
                 .monstersData()
                 .find(
                   (monsterData) =>
-                    monsterData.name == spawn.monster.name.split(':')[0] &&
-                    (monsterData.edition == scenario.edition ||
+                    monsterData.name === spawn.monster.name.split(':')[0] &&
+                    (monsterData.edition === scenario.edition ||
                       gameManager.editionExtensions(scenario.edition).includes(monsterData.edition))
                 );
               if (monster && !monsters.includes(monster)) {
@@ -1743,7 +1755,7 @@ export class ScenarioManager {
   }
 
   sortScenarios(a: ScenarioData, b: ScenarioData): number {
-    if (a.conclusion != b.conclusion) {
+    if (a.conclusion !== b.conclusion) {
       return a.conclusion ? 1 : -1;
     }
 
@@ -1804,7 +1816,7 @@ export class ScenarioManager {
   getPredecessor(scenarioData: ScenarioData, all: boolean): ScenarioData | undefined {
     let predecessor: ScenarioData | undefined = this.scenarioData(scenarioData.edition, all).find(
       (other) =>
-        other.group == scenarioData.group && other.unlocks && other.unlocks.includes(scenarioData.index) && (!all || this.isSuccess(other))
+        other.group === scenarioData.group && other.unlocks && other.unlocks.includes(scenarioData.index) && (!all || this.isSuccess(other))
     );
 
     if (!predecessor) {
@@ -1813,15 +1825,15 @@ export class ScenarioManager {
         .find(
           (sectionData) =>
             sectionData.conclusion &&
-            sectionData.group == scenarioData.group &&
+            sectionData.group === scenarioData.group &&
             sectionData.unlocks &&
             sectionData.unlocks.includes(scenarioData.index) &&
             (!all ||
               gameManager.game.party.conclusions.find(
                 (conclusion) =>
-                  conclusion.edition == sectionData.edition &&
-                  conclusion.group == sectionData.group &&
-                  conclusion.index == sectionData.index
+                  conclusion.edition === sectionData.edition &&
+                  conclusion.group === sectionData.group &&
+                  conclusion.index === sectionData.index
               ))
         );
       if (conclusion) {
@@ -1833,7 +1845,7 @@ export class ScenarioManager {
       for (const requireGroup of scenarioData.requires) {
         if (requireGroup.length === 1) {
           const requiredScenario = this.scenarioData(scenarioData.edition, all).find(
-            (other) => other.index == requireGroup[0] && (!all || this.isSuccess(other))
+            (other) => other.index === requireGroup[0] && (!all || this.isSuccess(other))
           );
           if (requiredScenario) {
             predecessor = requiredScenario;
@@ -1860,7 +1872,7 @@ export class ScenarioManager {
 
     if (section.parent) {
       const parentScenario = this.scenarioData(edition, all).find(
-        (other) => other.index == section.parent && other.group == section.group && (!all || this.isSuccess(other))
+        (other) => other.index === section.parent && other.group === section.group && (!all || this.isSuccess(other))
       );
       if (parentScenario) {
         return parentScenario;
@@ -1870,8 +1882,8 @@ export class ScenarioManager {
     const predecessorViaScenario = this.scenarioData(edition, all).find(
       (other) =>
         other.rewards &&
-        ((other.rewards.calendarSection && other.rewards.calendarSection.some((value) => section.index == value.split('-')[0])) ||
-          (other.rewards.calendarSectionManual && other.rewards.calendarSectionManual.some((value) => section.index == value.section))) &&
+        ((other.rewards.calendarSection && other.rewards.calendarSection.some((value) => section.index === value.split('-')[0])) ||
+          (other.rewards.calendarSectionManual && other.rewards.calendarSectionManual.some((value) => section.index === value.section))) &&
         (!all || this.isSuccess(other))
     );
 
@@ -1885,9 +1897,9 @@ export class ScenarioManager {
         (sectionData) =>
           sectionData.rewards &&
           ((sectionData.rewards.calendarSection &&
-            sectionData.rewards.calendarSection.some((value) => section.index == value.split('-')[0])) ||
+            sectionData.rewards.calendarSection.some((value) => section.index === value.split('-')[0])) ||
             (sectionData.rewards.calendarSectionManual &&
-              sectionData.rewards.calendarSectionManual.some((value) => section.index == value.section)))
+              sectionData.rewards.calendarSectionManual.some((value) => section.index === value.section)))
       );
 
     if (predecessorSection) {
@@ -1897,7 +1909,7 @@ export class ScenarioManager {
     if (section.parentSections && section.parentSections.length > 0) {
       for (const parentSectionGroup of section.parentSections) {
         for (const parentSectionIndex of parentSectionGroup) {
-          const parentSection = gameManager.sectionData(edition).find((s) => s.index == parentSectionIndex);
+          const parentSection = gameManager.sectionData(edition).find((s) => s.index === parentSectionIndex);
           if (parentSection) {
             const result = this.findScenarioPredecessorForSection(parentSection, edition, all, visited);
             if (result) {
@@ -1919,9 +1931,9 @@ export class ScenarioManager {
           scenarioData.random &&
           !gameManager.game.party.manualScenarios.find(
             (scenarioModel) =>
-              scenarioModel.index == scenarioData.index &&
-              scenarioModel.edition == scenarioData.edition &&
-              scenarioModel.group == scenarioData.group &&
+              scenarioModel.index === scenarioData.index &&
+              scenarioModel.edition === scenarioData.edition &&
+              scenarioModel.group === scenarioData.group &&
               !scenarioModel.custom
           ) &&
           !this.isSuccess(scenarioData)
@@ -1942,16 +1954,16 @@ export class ScenarioManager {
           scenarioData.random &&
           !gameManager.game.party.conclusions.find(
             (scenarioModel) =>
-              scenarioModel.index == scenarioData.index &&
-              scenarioModel.edition == scenarioData.edition &&
-              scenarioModel.group == scenarioData.group &&
+              scenarioModel.index === scenarioData.index &&
+              scenarioModel.edition === scenarioData.edition &&
+              scenarioModel.group === scenarioData.group &&
               !scenarioModel.custom
           ) &&
           !gameManager.game.party.scenarios.find(
             (scenarioModel) =>
-              scenarioModel.index == scenarioData.index &&
-              scenarioModel.edition == scenarioData.edition &&
-              scenarioModel.group == scenarioData.group &&
+              scenarioModel.index === scenarioData.index &&
+              scenarioModel.edition === scenarioData.edition &&
+              scenarioModel.group === scenarioData.group &&
               !scenarioModel.custom
           )
       );
@@ -2000,7 +2012,7 @@ export class ScenarioManager {
     const scenarioData = gameManager
       .scenarioData()
       .find(
-        (scenarioData) => scenarioData.index == model.index && scenarioData.edition == model.edition && scenarioData.group == model.group
+        (scenarioData) => scenarioData.index === model.index && scenarioData.edition === model.edition && scenarioData.group === model.group
       );
     if (!scenarioData) {
       console.warn('Invalid scenario data:', model);
@@ -2013,7 +2025,9 @@ export class ScenarioManager {
   sectionDataForModel(model: GameScenarioModel): ScenarioData | undefined {
     const sectionData = gameManager
       .sectionData()
-      .find((sectionData) => sectionData.index == model.index && sectionData.edition == model.edition && sectionData.group == model.group);
+      .find(
+        (sectionData) => sectionData.index === model.index && sectionData.edition === model.edition && sectionData.group === model.group
+      );
     if (!sectionData) {
       console.warn('Invalid section data:', model);
       return undefined;

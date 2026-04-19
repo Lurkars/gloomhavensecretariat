@@ -53,7 +53,7 @@ export class EventCardConditionComponent implements OnInit {
         this.labelArgs = [this.labelArgs.map((c) => '%game.characterIcon.' + c + '%').join('')];
       }
 
-      if (type == EventCardConditionType.building) {
+      if (type === EventCardConditionType.building) {
         let concat = '';
         this.conditionObject.values
           .filter((v) => typeof v === 'string')
@@ -73,7 +73,7 @@ export class EventCardConditionComponent implements OnInit {
         this.labelArgs = [concat];
       }
 
-      if (type == EventCardConditionType.traits || type == EventCardConditionType.traitsAll) {
+      if (type === EventCardConditionType.traits || type === EventCardConditionType.traitsAll) {
         let concat = '';
         this.conditionObject.values
           .filter((v) => typeof v === 'string')
@@ -90,7 +90,7 @@ export class EventCardConditionComponent implements OnInit {
               if (index < values.length - 2) {
                 concat += ', ';
               } else if (index < values.length - 1) {
-                if (type == EventCardConditionType.traits) {
+                if (type === EventCardConditionType.traits) {
                   concat += ' %or% ';
                 } else {
                   concat += ' %and% ';

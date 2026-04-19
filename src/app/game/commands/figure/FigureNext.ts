@@ -16,7 +16,7 @@ export class FigureNextCommand extends CommandImpl {
   }
 
   executeWithParameters(reverse: boolean) {
-    if (gameManager.game.state != GameState.next) {
+    if (gameManager.game.state !== GameState.next) {
       this.executionError('invalid game state');
     }
     const figures = gameManager.game.figures.filter((figure) => gameManager.gameplayFigure(figure));
@@ -30,10 +30,10 @@ export class FigureNextCommand extends CommandImpl {
     } else if (activeFigure && reverse && figures.indexOf(activeFigure) > 0) {
       if (activeFigure instanceof Character) {
         const summons = activeFigure.summons.filter(
-          (summon) => gameManager.entityManager.isAlive(summon) && summon.state != SummonState.new
+          (summon) => gameManager.entityManager.isAlive(summon) && summon.state !== SummonState.new
         );
         const activeSummon = summons.find((summon) => summon.active);
-        if (!activeSummon || (activeSummon && summons.indexOf(activeSummon) == 0)) {
+        if (!activeSummon || (activeSummon && summons.indexOf(activeSummon) === 0)) {
           activeFigure.summons.forEach((summon) => (summon.active = false));
           activeFigure = figures[figures.indexOf(activeFigure) - 1];
         }
@@ -59,7 +59,7 @@ export class FigureNextCommand extends CommandImpl {
       } else if (activeFigure instanceof Monster) {
         let toggleFigure = true;
         const entities = activeFigure.entities.filter(
-          (entity) => gameManager.entityManager.isAlive(entity) && entity.summon != SummonState.new
+          (entity) => gameManager.entityManager.isAlive(entity) && entity.summon !== SummonState.new
         );
         if (settingsManager.settings.activeStandees) {
           let activeEntity = entities.find((entity) => entity.active);

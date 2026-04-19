@@ -40,7 +40,7 @@
         <div class="row base">
           <div class="name">
             <label><span [ghs-label]="'character.progress.name'"></span>:</label>
-            @if (titles.length == 0 || !settingsManager.settings.characterIdentities) {
+            @if (titles.length === 0 || !settingsManager.settings.characterIdentities) {
               <input #charactertitle type="text" [value]="character.title" (change)="titleChange()" />
             }
             @if (titles.length > 0 && settingsManager.settings.characterIdentities) {
@@ -106,8 +106,8 @@
                 <span [ghs-label]="'character.progress.donate'"></span>:
                 <a
                   (click)="donate()"
-                  [ngClass]="{ disabled: character.progress.gold < (donations == 'fh' ? 5 : 10) || gameManager.game.round > 0 }"
-                  ><span class="price"><img src="./assets/images/loot.svg" />{{ donations == 'fh' ? 5 : 10 }}</span></a
+                  [ngClass]="{ disabled: character.progress.gold < (donations === 'fh' ? 5 : 10) || gameManager.game.round > 0 }"
+                  ><span class="price"><img src="./assets/images/loot.svg" />{{ donations === 'fh' ? 5 : 10 }}</span></a
                 >
               </span>
             }
@@ -317,7 +317,7 @@
                       [ngClass]="{
                         checked: character.progress.perks[i] && character.progress.perks[i] > count,
                         disabled:
-                          (!forceEdit && (gameManager.game.state != GameState.draw || gameManager.game.round > 0)) ||
+                          (!forceEdit && (gameManager.game.state !== GameState.draw || gameManager.game.round > 0)) ||
                           (character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1)
                       }"
                       ghs-pointer-input
@@ -332,9 +332,9 @@
                   (doubleClick)="togglePerk(i, true)"
                   [ngClass]="{
                     disabled:
-                      gameManager.game.state != GameState.draw ||
+                      gameManager.game.state !== GameState.draw ||
                       gameManager.game.round > 0 ||
-                      (availablePerks == 0 && !character.progress.perks[i])
+                      (availablePerks === 0 && !character.progress.perks[i])
                   }"
                   [perk]="perk"
                 ></ghs-perk-label>
@@ -362,7 +362,7 @@
           }
           <div class="battlegoals-grid">
             @for (item of [] | ghsRange: 18; track item) {
-              @if (item % 3 == 0) {
+              @if (item % 3 === 0) {
                 <span class="checkmark">
                   <img [src]="'./assets/images/' + (gh2eSheet || fhSheet ? 'checkmark' : 'check') + '.svg'" />:</span
                 >
@@ -406,7 +406,7 @@
         <div class="column column-right notes">
           <div class="name">
             @if (
-              character.number == 0 ||
+              character.number === 0 ||
               character.number > gameManager.game.party.players.length ||
               !gameManager.game.party.players[character.number - 1]
             ) {
@@ -449,7 +449,7 @@
                 @if (personalQuest) {
                   <span class="personal-quest-name">
                     <span [ghs-label]="'data.personalQuest.' + personalQuest.edition + '.' + personalQuest.cardId"></span>
-                    @if (personalQuest.altId && personalQuest.altId != personalQuest.cardId) {
+                    @if (personalQuest.altId && personalQuest.altId !== personalQuest.cardId) {
                       <span>&nbsp;({{ personalQuest.altId }})</span>
                     }
                   </span>
