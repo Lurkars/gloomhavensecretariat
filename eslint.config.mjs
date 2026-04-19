@@ -10,7 +10,7 @@ export default defineConfig(
     processor: angular.processInlineTemplates,
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.json', './tsconfig.app.json', './tsconfig.spec.json'],
+        projectService: true,
         tsconfigRootDir: import.meta.dirname
       }
     },

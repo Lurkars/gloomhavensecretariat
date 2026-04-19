@@ -39,6 +39,7 @@ interface Token {
   value: string;
 }
 
+const THREE_CHAR_OPS = new Set(['===', '!==', '>==', '<==']);
 const TWO_CHAR_OPS = new Set(['==', '!=', '>=', '<=', '&&', '||']);
 const SINGLE_CHAR_OPS = new Set(['+', '-', '*', '/', '%', '>', '<']);
 
@@ -65,15 +66,10 @@ function tokenize(expression: string): Token[] {
       continue;
     }
 
-    // 'x' as multiplication shorthand (e.g. "2x3" means "2*3", "Cx2" means "C*2")
+    // 'x' as multiplication shorthand (e.g. "2x3" means "2*3", "Cx2" means "C*2", "5xC" means "5*C")
     if (
       ch === 'x' &&
-      (i + 1 >= expression.length ||
-        !(
-          (expression[i + 1] >= 'a' && expression[i + 1] <= 'z') ||
-          (expression[i + 1] >= 'A' && expression[i + 1] <= 'Z') ||
-          expression[i + 1] === '_'
-        ))
+      (i + 1 >= expression.length || !((expression[i + 1] >= 'a' && expression[i + 1] <= 'z') || expression[i + 1] === '_'))
     ) {
       tokens.push({ type: TokenType.Operator, value: '*' });
       i++;
@@ -90,13 +86,27 @@ function tokenize(expression: string): Token[] {
           (expression[i] >= '0' && expression[i] <= '9') ||
           expression[i] === '_')
       ) {
-        // break before 'x' followed by a digit so it gets parsed as multiplication (e.g. "Cx2" → C * 2)
-        if (expression[i] === 'x' && i > start && i + 1 < expression.length && expression[i + 1] >= '0' && expression[i + 1] <= '9') {
+        // break before 'x' followed by a digit, uppercase letter, or '(' so it gets parsed as multiplication (e.g. "Cx2" → C * 2, "CxL" → C * L, "Cx(..." → C * (...))
+        if (
+          expression[i] === 'x' &&
+          i > start &&
+          i + 1 < expression.length &&
+          ((expression[i + 1] >= '0' && expression[i + 1] <= '9') ||
+            (expression[i + 1] >= 'A' && expression[i + 1] <= 'Z') ||
+            expression[i + 1] === '(')
+        ) {
           break;
         }
         i++;
       }
       tokens.push({ type: TokenType.Identifier, value: expression.slice(start, i) });
+      continue;
+    }
+
+    // three-character operators
+    if (i + 2 < expression.length && THREE_CHAR_OPS.has(expression.slice(i, i + 3))) {
+      tokens.push({ type: TokenType.Operator, value: expression.slice(i, i + 3) });
+      i += 3;
       continue;
     }
 
@@ -218,16 +228,18 @@ class ExpressionParser {
     return left;
   }
 
-  // comparison: addition (('==' | '!=' | '>' | '<' | '>=' | '<=') addition)?
+  // comparison: addition (('==' |'===' | '!=' | '!==' | '>' | '<' | '>=' | '>==' | '<=' | '<==') addition)?
   private parseComparison(): number {
     const left = this.parseAddition();
     const op = this.peek();
     if (op.type === TokenType.Operator) {
       switch (op.value) {
         case '==':
+        case '===':
           this.consume();
           return left === this.parseAddition() ? 1 : 0;
         case '!=':
+        case '!==':
           this.consume();
           return left !== this.parseAddition() ? 1 : 0;
         case '>':
@@ -237,9 +249,11 @@ class ExpressionParser {
           this.consume();
           return left < this.parseAddition() ? 1 : 0;
         case '>=':
+        case '>==':
           this.consume();
           return left >= this.parseAddition() ? 1 : 0;
         case '<=':
+        case '<==':
           this.consume();
           return left <= this.parseAddition() ? 1 : 0;
       }
