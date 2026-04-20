@@ -922,12 +922,12 @@ ghs-pointer-input {
     }
   }
 
-  &:not(.no-open-animation) .cdk-dialog-container {
+  &:not(.no-dialog-animations) .cdk-dialog-container {
     transform-origin: center center;
     animation: dialog-open calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
   }
 
-  &.dialog-closing {
+  &.dialog-closing:not(.no-dialog-animations) {
     .cdk-dialog-container {
       animation: dialog-close calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
       opacity: 0;
@@ -939,17 +939,15 @@ ghs-pointer-input {
 .fullscreen-panel {
   max-height: 100vh;
 
-  .cdk-dialog-container {
+  &:not(.no-dialog-animations) .cdk-dialog-container {
     transform-origin: center center;
     animation: dialog-open calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
   }
 
-  &.dialog-closing {
-    .cdk-dialog-container {
-      animation: dialog-close calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
-      opacity: 0;
-      transform: translateY(calc(var(--ghs-unit) * 10));
-    }
+  &.dialog-closing:not(.no-dialog-animations) .cdk-dialog-container {
+    animation: dialog-close calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
+    opacity: 0;
+    transform: translateY(calc(var(--ghs-unit) * 10));
   }
 
   .scroll-container {
@@ -978,7 +976,10 @@ ghs-pointer-input {
   cursor: pointer;
   pointer-events: initial;
   z-index: 5000;
-  animation: dialog-open calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
+
+  &:not(.no-dialog-animations) {
+    animation: dialog-open calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
+  }
 
   img {
     filter: var(--ghs-filter-red);

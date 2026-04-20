@@ -139,7 +139,7 @@ export class CampaignMenuComponent implements OnInit {
 
   openMap() {
     this.dialog.open(WorldMapComponent, {
-      panelClass: ['fullscreen-panel'],
+      panelClass: ['fullscreen-panel', 'no-dialog-animations'],
       backdropClass: ['fullscreen-backdrop'],
       data: { edition: gameManager.game.edition }
     });
@@ -148,7 +148,7 @@ export class CampaignMenuComponent implements OnInit {
 
   openFlowChart() {
     this.dialog.open(ScenarioChartDialogComponent, {
-      panelClass: ['fullscreen-panel'],
+      panelClass: ['fullscreen-panel', 'no-dialog-animations'],
       backdropClass: ['fullscreen-backdrop'],
       data: {
         edition: gameManager.game.edition

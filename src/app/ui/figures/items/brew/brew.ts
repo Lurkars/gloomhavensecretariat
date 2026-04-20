@@ -401,13 +401,13 @@ export class ItemsBrewDialog implements OnInit {
       this.characterSpent = {};
       this.fhSupportSpent = {};
       this.forced = [];
-      this.receipe = [undefined, undefined, undefined];
+      this.receipe = herb3 ? [undefined, undefined, undefined] : [undefined, undefined];
       this.updateItem();
     } else if (force || !this.isGridCombinationDisabled(herb1, herb2, herb3)) {
       this.characterSpent = {};
       this.fhSupportSpent = {};
       this.forced = [];
-      this.receipe = [undefined, undefined, undefined];
+      this.receipe = herb3 ? [undefined, undefined, undefined] : [undefined, undefined];
       this.addHerb(herb1, false, 0, force);
       this.addHerb(herb2, false, 1, force);
       if (herb3) {

@@ -265,7 +265,7 @@ export class PartySheetDialogComponent implements OnInit {
     if (this.worldMap) {
       this.dialogRef.close();
       this.dialog.open(WorldMapComponent, {
-        panelClass: ['fullscreen-panel'],
+        panelClass: ['fullscreen-panel', 'no-dialog-animations'],
         backdropClass: ['fullscreen-backdrop'],
         data: { edition: this.partyEdition }
       });

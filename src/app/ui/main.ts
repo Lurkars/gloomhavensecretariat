@@ -166,13 +166,16 @@ export class MainComponent implements OnInit {
       this.loading = false;
       if (evt.type === 'VERSION_READY') {
         gameManager.stateManager.hasUpdate = true;
+        gameManager.triggerUiChange();
       } else if (evt.type === 'VERSION_INSTALLATION_FAILED') {
         console.error(`Failed to install version '${evt.version.hash}': ${evt.error}`);
       }
+      this.cdr.markForCheck();
     });
 
     this.swUpdate.unrecoverable.subscribe(() => {
       this.loading = false;
+      this.cdr.markForCheck();
     });
 
     if (this.swUpdate.isEnabled) {

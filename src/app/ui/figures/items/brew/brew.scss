@@ -276,11 +276,23 @@
     .grid-head {
       z-index: 2;
 
-      .ghs-svg {
-        width: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
-        height: auto;
-        filter: var(--ghs-filter-white);
+      .label.icon {
         position: absolute;
+        color: var(--ghs-color-white);
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .ghs-svg {
+          width: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+          height: auto;
+          filter: var(--ghs-filter-white);
+        }
+
+        .value {
+          margin-right: calc(var(--ghs-unit) * -0.6 * var(--ghs-dialog-factor));
+        }
       }
 
       &.disabled .ghs-svg {
@@ -291,9 +303,9 @@
         border-bottom: calc(var(--ghs-unit) * 0.6 * var(--ghs-dialog-factor)) solid rgba(var(--ghs-brew-grid-color), 1);
         height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
 
-        .ghs-svg {
+        .label.icon {
           top: 0;
-          left: 40%;
+          left: 50%;
           transform: translateX(-50%);
         }
       }
@@ -302,8 +314,8 @@
         border-right: calc(var(--ghs-unit) * 0.6 * var(--ghs-dialog-factor)) solid rgba(var(--ghs-brew-grid-color), 1);
         width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
 
-        .ghs-svg {
-          left: 0;
+        .label.icon {
+          left: -20%;
           top: 50%;
           transform: translateY(-50%);
         }
@@ -316,22 +328,23 @@
       padding: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
       border-bottom: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) solid rgba(var(--ghs-brew-grid-color), 1);
       border-right: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) solid rgba(var(--ghs-brew-grid-color), 1);
-      background-color: rgba(var(--ghs-brew-grid-color), 0.1);
+      background-color: rgba(var(--ghs-brew-grid-color), 0.3);
       font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
       text-align: center;
       z-index: 1;
 
       &:hover {
-        border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-darkgray);
+        background-color: rgba(var(--ghs-brew-grid-color), 0.6);
       }
 
       &.active {
-        border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-white);
+        background-color: rgba(var(--ghs-brew-grid-color), 0.6);
       }
 
       &.disabled {
         cursor: initial;
         border-color: rgba(var(--ghs-brew-grid-color), 1);
+        background-color: rgba(var(--ghs-brew-grid-color), 0.1);
 
         &:hover {
           border-width: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));

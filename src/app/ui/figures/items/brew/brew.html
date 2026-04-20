@@ -149,14 +149,24 @@
           <span class="grid-corner"></span>
           @for (herb of herbs; track herb; let hi = $index) {
             <span class="grid-head grid-head-top" [ngClass]="{ disabled: herbTotals[hi] === 0 }">
-              <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herb + '.svg'" />
+              <span class="label icon">
+                @if (herbTotals[hi]) {
+                  <span class="value">{{ herbTotals[hi] }}</span>
+                }
+                <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herb + '.svg'" />
+              </span>
             </span>
           }
         </div>
         @for (i of [] | ghsRange: herbs.length; track i) {
           <div class="grid-row">
             <span class="grid-head grid-head-left" [ngClass]="{ disabled: herbTotals[herbs.length - 1 - i] === 0 }">
-              <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herbs[herbs.length - 1 - i] + '.svg'" />
+              <span class="label icon">
+                @if (herbTotals[herbs.length - 1 - i]) {
+                  <span class="value">{{ herbTotals[herbs.length - 1 - i] }}</span>
+                }
+                <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herbs[herbs.length - 1 - i] + '.svg'" />
+              </span>
             </span>
             @for (j of [] | ghsRange: herbs.length - i; track j) {
               <span
@@ -197,14 +207,24 @@
                 </span>
                 @for (ti of [] | ghsRange: ci + 1; track ti) {
                   <span class="grid-head grid-head-top" [ngClass]="{ disabled: herbTotals[ti] === 0 }">
-                    <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herbs[ti] + '.svg'" />
+                    <span class="label icon">
+                      @if (herbTotals[ti]) {
+                        <span class="value">{{ herbTotals[ti] }}</span>
+                      }
+                      <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herbs[ti] + '.svg'" />
+                    </span>
                   </span>
                 }
               </div>
               @for (li of [] | ghsRange: ci + 1; track li) {
                 <div class="grid-row">
                   <span class="grid-head grid-head-left" [ngClass]="{ disabled: herbTotals[ci + 1 - li] === 0 }">
-                    <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herbs[ci + 1 - li] + '.svg'" />
+                    <span class="label icon">
+                      @if (herbTotals[ci + 1 - li]) {
+                        <span class="value">{{ herbTotals[ci + 1 - li] }}</span>
+                      }
+                      <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herbs[ci + 1 - li] + '.svg'" />
+                    </span>
                   </span>
                   @for (ti of [] | ghsRange: ci + 1 - li; track ti) {
                     <span

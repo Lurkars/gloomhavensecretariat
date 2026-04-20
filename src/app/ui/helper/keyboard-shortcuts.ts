@@ -423,7 +423,7 @@ export class KeyboardShortcuts implements OnInit {
                 this.dialog.closeAll();
               }
               this.dialog.open(WorldMapComponent, {
-                panelClass: ['fullscreen-panel'],
+                panelClass: ['fullscreen-panel', 'no-dialog-animations'],
                 backdropClass: ['fullscreen-backdrop'],
                 data: { edition: gameManager.game.edition }
               });
@@ -443,7 +443,7 @@ export class KeyboardShortcuts implements OnInit {
             this.dialog.closeAll();
           }
           this.dialog.open(ScenarioChartDialogComponent, {
-            panelClass: ['fullscreen-panel'],
+            panelClass: ['fullscreen-panel', 'no-dialog-animations'],
             backdropClass: ['fullscreen-backdrop'],
             data: {
               edition: gameManager.game.edition

@@ -50,11 +50,11 @@ export class PartyResourcesDialogComponent implements OnInit {
     this.dialogRef.close();
     if (this.edit) {
       this.dialog.open(PartyResourcesDialogComponent, {
-        panelClass: ['dialog', 'no-open-animation']
+        panelClass: ['dialog', 'no-dialog-animations']
       });
     } else {
       this.dialog.open(PartyResourcesDialogComponent, {
-        panelClass: ['dialog', 'no-open-animation'],
+        panelClass: ['dialog', 'no-dialog-animations'],
         disableClose: true
       });
     }

@@ -162,7 +162,8 @@ export class WorldMapComponent implements AfterViewInit {
     }
     if (this.worldMap) {
       this.initializing = true;
-      const L = await import('leaflet');
+      const leafletModule = await import('leaflet');
+      const L = 'default' in leafletModule ? leafletModule.default : leafletModule;
       this.L = L;
       const width = this.worldMap.width;
       const height = this.worldMap.height;
@@ -518,7 +519,7 @@ export class WorldMapComponent implements AfterViewInit {
     this.dialogRef.close();
     setTimeout(() => {
       this.dialog.open(ScenarioChartDialogComponent, {
-        panelClass: ['fullscreen-panel'],
+        panelClass: ['fullscreen-panel', 'no-dialog-animations'],
         backdropClass: ['fullscreen-backdrop'],
         data: { edition: this.edition }
       });

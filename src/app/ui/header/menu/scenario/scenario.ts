@@ -330,7 +330,7 @@ export class ScenarioMenuComponent implements OnInit {
 
   scenarioChart(group: string | undefined = undefined) {
     this.dialog.open(ScenarioChartDialogComponent, {
-      panelClass: ['fullscreen-panel'],
+      panelClass: ['fullscreen-panel', 'no-dialog-animations'],
       backdropClass: ['fullscreen-backdrop'],
       data: {
         edition: this.edition,

@@ -61,8 +61,9 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
           useMaxWidth: true,
           htmlLabels: true,
           curve: 'linear',
+          padding: 10,
           subGraphTitleMargin: {
-            bottom: 10
+            bottom: 15
           }
         },
         theme: 'base',
@@ -98,7 +99,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
       'classDef locked stroke:#eca610;',
       'classDef success-blocked fill:#7da82a,stroke:#e2421f;',
       'classDef success-locked fill:#7da82a,stroke:#eca610;',
-      'linkStyle default stroke-width:5'
+      'linkStyle default stroke-width:5;'
     ];
 
     const pad = '000';
@@ -149,21 +150,15 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         }
 
         if (scenarioData.flowChartGroup) {
-          if (scenarios.find((other) => other !== scenarioData && other.flowChartGroup === scenarioData.flowChartGroup)) {
-            const subgraphId =
-              '' + settingsManager.getLabel('data.custom.' + this.edition + '.flowChartGroup.' + scenarioData.flowChartGroup) + '';
-            this.flow.push('subgraph ' + subgraphId);
-            subgraph = scenarioData.flowChartGroup;
-          } else {
-            subgraph = undefined;
-          }
+          this.flow.push(
+            'subgraph "' + settingsManager.getLabel('data.custom.' + this.edition + '.flowChartGroup.' + scenarioData.flowChartGroup) + '"'
+          );
+          subgraph = scenarioData.flowChartGroup;
+        } else if (scenarios.find((other) => other !== scenarioData && !other.flowChartGroup && other.group === scenarioData.group)) {
+          this.flow.push('subgraph "' + settingsManager.getLabel('data.scenario.group.' + scenarioData.group) + '"');
+          subgraph = scenarioData.group;
         } else {
-          if (scenarios.find((other) => other !== scenarioData && !other.flowChartGroup && other.group === scenarioData.group)) {
-            this.flow.push('subgraph "' + settingsManager.getLabel('data.scenario.group.' + scenarioData.group) + '"');
-            subgraph = scenarioData.group;
-          } else {
-            subgraph = undefined;
-          }
+          subgraph = undefined;
         }
       }
 
@@ -186,13 +181,13 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
       if (visible) {
         if (scenarioData.unlocks) {
           scenarioData.unlocks.forEach((index) => {
-            let arrow: string | false = ' --> ';
+            let arrow: string | false = ' --- ';
             const unlockScenarioData = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
             if (unlockScenarioData) {
               if (this.campaignMode && gameManager.scenarioManager.isBlocked(unlockScenarioData)) {
-                arrow = ' --x ';
+                arrow = ' --- ';
               } else if (this.campaignMode && gameManager.scenarioManager.isLocked(unlockScenarioData)) {
-                arrow = ' --o ';
+                arrow = ' --- ';
               } else if (!unlocks.find((unlock) => unlock.a === scenarioData.index && unlock.b === unlockScenarioData.index)) {
                 unlocks.push({ a: scenarioData.index, b: unlockScenarioData.index });
               } else {
@@ -232,7 +227,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
         if (scenarioData.links) {
           scenarioData.links.forEach((index) => {
-            let arrow = ' .->|🔗| ';
+            const arrow = ' ---|🔗| ';
             const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
             if (
               other &&
@@ -242,12 +237,6 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 (unlocked) => unlocked.edition === other.edition && unlocked.group === other.group && unlocked.index === other.index
               )
             ) {
-              if (gameManager.scenarioManager.isBlocked(other)) {
-                arrow = ' .-x|🔗| ';
-              } else if (gameManager.scenarioManager.isLocked(other)) {
-                arrow = ' .-o|🔗| ';
-              }
-
               this.flow.push('\t' + scenarioData.index + arrow + index);
               links.push(index);
             }
@@ -256,19 +245,13 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
         if (scenarioData.forcedLinks) {
           scenarioData.forcedLinks.forEach((index) => {
-            let arrow = ' .->|❗🔗| ';
+            const arrow = ' ---|❗🔗| ';
             const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
             if (
               other &&
               !collectedLinks.some((value) => value.a === scenarioData.index && value.b === other.index) &&
               !forcedLinks.includes(index)
             ) {
-              if (gameManager.scenarioManager.isBlocked(other)) {
-                arrow = ' .-x|❗🔗| ';
-              } else if (gameManager.scenarioManager.isLocked(other)) {
-                arrow = ' .-o|❗🔗| ';
-              }
-
               this.flow.push('\t' + scenarioData.index + arrow + index);
               forcedLinks.push(index);
             }
@@ -291,7 +274,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
             if (visible && sectionData.unlocks) {
               sectionData.unlocks.forEach((index) => {
-                let arrow = ' --> ';
+                let arrow = ' --- ';
                 const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                 if (other) {
                   if (!unlocks.find((unlock) => unlock.a === scenarioData.index && unlock.b === other.index)) {
@@ -332,19 +315,13 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
               if (sectionData.links) {
                 sectionData.links.forEach((index) => {
-                  let arrow = ' .->|🔗| ';
+                  const arrow = ' ---|🔗| ';
                   const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                   if (
                     other &&
                     !collectedLinks.some((value) => value.a === scenarioData.index && value.b === other.index) &&
                     !links.includes(index)
                   ) {
-                    if (gameManager.scenarioManager.isBlocked(other)) {
-                      arrow = ' .-x|🔗| ';
-                    } else if (gameManager.scenarioManager.isLocked(other)) {
-                      arrow = ' .-o|🔗| ';
-                    }
-
                     this.flow.push('\t' + scenarioData.index + arrow + index);
                     links.push(index);
                   }
@@ -353,19 +330,13 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
               if (sectionData.forcedLinks) {
                 sectionData.forcedLinks.forEach((index) => {
-                  let arrow = ' .->|❗🔗| ';
+                  const arrow = ' ---|❗🔗| ';
                   const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                   if (
                     other &&
                     !collectedLinks.some((value) => value.a === scenarioData.index && value.b === other.index) &&
                     !forcedLinks.includes(index)
                   ) {
-                    if (gameManager.scenarioManager.isBlocked(other)) {
-                      arrow = ' .-x|❗🔗| ';
-                    } else if (gameManager.scenarioManager.isLocked(other)) {
-                      arrow = ' .-o|❗🔗| ';
-                    }
-
                     this.flow.push('\t' + scenarioData.index + arrow + index);
                     forcedLinks.push(index);
                   }
@@ -501,15 +472,12 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     const parser = new DOMParser();
     const svgElement = parser.parseFromString(svg, 'image/svg+xml').lastChild as SVGElement;
 
-    const subgraphs: HTMLCollectionOf<SVGRectElement> | undefined[] = svgElement.getElementsByClassName('clusters').length
-      ? svgElement.getElementsByClassName('clusters')[0].getElementsByTagName('rect')
-      : [];
-
-    for (let i = 0; i < subgraphs.length; i++) {
-      const subgraph = subgraphs[i];
-      if (subgraph) {
-        subgraph.setAttribute('rx', '20');
-        subgraph.setAttribute('ry', '20');
+    const clusters = svgElement.getElementsByClassName('cluster');
+    for (let i = 0; i < clusters.length; i++) {
+      const rects = clusters[i].getElementsByTagName('rect');
+      for (let j = 0; j < rects.length; j++) {
+        rects[j].setAttribute('rx', '20');
+        rects[j].setAttribute('ry', '20');
       }
     }
 
@@ -521,7 +489,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     const boundHeight = Math.max(height, 600);
     const offsetX = boundWidth > width ? (boundWidth - width) / 2 : 0;
     const offsetY = boundHeight > height ? boundHeight - height : 0;
-    const L = await import('leaflet');
+    const leafletModule = await import('leaflet');
+    const L = 'default' in leafletModule ? leafletModule.default : leafletModule;
     this.chart = L.map('chart', {
       crs: L.CRS.Simple,
       maxBounds: [
@@ -553,34 +522,38 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     svgElement.addEventListener('pointerdown', (event) => {
       if (event.pointerType === 'mouse' && event.button !== 0) return;
       let element = event.target as HTMLElement;
-      if (element.tagName.toUpperCase() === 'P' && element.parentElement) {
+
+      if (!!element && element.tagName.toUpperCase() === 'P' && element.parentElement) {
         element = element.parentElement;
       }
-      if (element && element.classList.contains('nodeLabel')) {
-        let parent = element.parentElement;
+
+      let parent = element.parentElement;
+
+      if (!!element && element.classList.contains('nodeLabel')) {
         while (parent && !parent.classList.contains('node')) {
           parent = parent.parentElement;
         }
-        if (parent && 'id' in parent) {
-          const scenarioId = parent.id.split('-').length > 2 ? parent.id.split('-')[2] : '';
-          if (scenarioId) {
-            const scenarioData = gameManager
-              .scenarioData(this.edition)
-              .find((scenarioData) => parent && scenarioData.group === this.group && scenarioData.index === scenarioId);
-            if (scenarioData) {
-              this.dialog
-                .open(ScenarioChartPopupDialog, {
-                  panelClass: ['dialog'],
-                  data: { scenarioData: scenarioData, forceAll: !this.campaignMode }
-                })
-                .closed.subscribe({
-                  next: (result) => {
-                    if (result) {
-                      this.dialogRef.close();
-                    }
+      }
+
+      if (!!parent && 'id' in parent && parent.classList.contains('node')) {
+        const scenarioId = parent.id.split('-').length > 2 ? parent.id.split('-')[2] : '';
+        if (scenarioId) {
+          const scenarioData = gameManager
+            .scenarioData(this.edition)
+            .find((scenarioData) => parent && scenarioData.group === this.group && scenarioData.index === scenarioId);
+          if (scenarioData) {
+            this.dialog
+              .open(ScenarioChartPopupDialog, {
+                panelClass: ['dialog'],
+                data: { scenarioData: scenarioData, forceAll: !this.campaignMode }
+              })
+              .closed.subscribe({
+                next: (result) => {
+                  if (result) {
+                    this.dialogRef.close();
                   }
-                });
-            }
+                }
+              });
           }
         }
       }
@@ -626,7 +599,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
       this.dialogRef.close();
       setTimeout(() => {
         this.dialog.open(WorldMapComponent, {
-          panelClass: ['fullscreen-panel'],
+          panelClass: ['fullscreen-panel', 'no-dialog-animations'],
           backdropClass: ['fullscreen-backdrop'],
           data: { edition: this.edition }
         });

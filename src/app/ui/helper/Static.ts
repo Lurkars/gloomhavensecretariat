@@ -120,7 +120,11 @@ export function ghsModulo(n: number, m: number): number {
 }
 
 export function ghsDialogClosingHelper(dialogRef: DialogRef, result: any = undefined) {
-  if (settingsManager.settings.animations && dialogRef.overlayRef.overlayElement) {
+  if (
+    settingsManager.settings.animations &&
+    !!dialogRef.overlayRef.overlayElement &&
+    !dialogRef.overlayRef.overlayElement.classList.contains('no-dialog-animations')
+  ) {
     dialogRef.overlayRef.overlayElement.classList.add('dialog-closing');
     if (dialogRef.overlayRef.hostElement && dialogRef.overlayRef.hostElement.getElementsByClassName('dialog-close-button')[0]) {
       dialogRef.overlayRef.hostElement.getElementsByClassName('dialog-close-button')[0].classList.add('closing');
