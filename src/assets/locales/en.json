@@ -228,8 +228,14 @@
         },
         "unlockCharacter": {
           "": "Open Box %game.characterIcon.{0}%",
-          "itemDesign": "Gain \"%data.items.{1}-{0}%\" design (Item {0})",
-          "randomScenario": "Unlock \"{1}\" %data.scenarioNumber:{0}%"
+          "itemDesign": {
+            "": "Gain \"%data.items.{1}-{0}%\" design (Item {0})",
+            "gold": "Item Design Deck deplected, gain 15 collective gold instead"
+          },
+          "randomScenario": {
+            "": "Unlock \"{1}\" %data.scenarioNumber:{0}%",
+            "gold": "Random Scenario Design Deck deplected, gain 15 collective gold instead"
+          }
         },
         "unlockPQ": "Unlock Personal Quest {0}"
       },
@@ -243,9 +249,9 @@
       "retirement": {
         "": "Retire Character",
         "additionalPQ": {
-          "": "Spend 15 inspiration for additional PQ",
+          "": "Spend {0} inspiration for additional PQ",
           "cancel": "Cancel additional PQ",
-          "inspiration": "-15 inspiration"
+          "inspiration": "-{0} inspiration"
         },
         "apply": "Apply",
         "conclusion": "Open Section %data.section:{0}%",

@@ -34,7 +34,7 @@
       <tbody>
         @if (!scenario) {
           <tr>
-            <th><span [ghs-label]="'scenario.stats.scenarios'"></span></th>
+            <th><span [ghs-label]="'scenario.stats.scenarios'"></span> ({{ gameManager.game.party.scenarios.length }})</th>
             @for (character of characters | trackUUID; track character._trackUUID; let i = $index) {
               <td>
                 @if (scenarios[i] && scenarios[i].length > 2) {

@@ -51,14 +51,14 @@
         }
       </div>
       @if (
-        (gameManager.itemManager.buyingDisabled() && !!character && !character.tags.includes('new-character')) ||
+        (gameManager.itemManager.buyingDisabled(false) && !!character && !character.tags.includes('new-character')) ||
         gameManager.itemManager.craftingDisabled()
       ) {
         <div class="shop-disabled">
-          @if (gameManager.itemManager.buyingDisabled() && !!character && !character.tags.includes('new-character')) {
+          @if (!craftOnly && gameManager.itemManager.buyingDisabled() && !!character && !character.tags.includes('new-character')) {
             <img src="./assets/images/close.svg" /> <span [ghs-label]="'game.items.shop.buyingDisabled'"></span>
           }
-          @if (gameManager.itemManager.craftingDisabled()) {
+          @if (!buyOnly && gameManager.itemManager.craftingDisabled()) {
             <img src="./assets/images/close.svg" /> <span [ghs-label]="'game.items.shop.craftingDisabled'"></span>
           }
         </div>

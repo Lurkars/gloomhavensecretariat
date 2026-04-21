@@ -237,9 +237,9 @@
       "retirement": {
         "": "退隐角色",
         "additionalPQ": {
-          "": "花费15点激励值来完成额外的个人使命",
+          "": "花费{0}点激励值来完成额外的个人使命",
           "cancel": "取消额外的个人任务",
-          "inspiration": "-15 激励值"
+          "inspiration": "-{0} 激励值"
         },
         "apply": "应用",
         "conclusion": "查看段落 %data.section:{0}%",

@@ -519,7 +519,7 @@
             }
           </div>
           <div class="campaign-stickers">
-            <form class="header" (submit)="addCampaignSticker(campaignStickerEl)">
+            <div class="header">
               <label><span [ghs-label]="'party.campaign.sheet.campaignStickers'"></span></label>
               <input
                 type="text"
@@ -531,7 +531,7 @@
                 (keyup.enter)="addCampaignSticker(campaignStickerEl)"
               />
               <img src="./assets/images/plus.svg" (click)="addCampaignSticker(campaignStickerEl)" />
-            </form>
+            </div>
             <div
               class="stickers ignore-denied"
               [ngClass]="{ denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party }"
@@ -865,20 +865,22 @@
               }
             </div>
           </div>
-          <div
-            class="retirement-note"
-            ghs-pointer-input
-            (singleClick)="isConclusion('68.4', 'gh2e') ? conclusionRewards('68.4') : finishConclusion('68.4')"
-            (doubleClick)="removeConclusion('68.4', 'gh2e')"
-          >
-            <span class="checkbox" [ngClass]="{ checked: isConclusion('68.4', 'gh2e') }"></span>
-            <span [ghs-label]="'data.section.rewards.gh2e.68-4.2'"></span>
-          </div>
         </div>
       }
 
       @if (!campaign) {
         <div class="bottom-menu">
+          @if (gh2eSheet) {
+            <div
+              class="retirement-note"
+              ghs-pointer-input
+              (singleClick)="isConclusion('68.4', 'gh2e') ? conclusionRewards('68.4') : finishConclusion('68.4')"
+              (doubleClick)="removeConclusion('68.4', 'gh2e')"
+            >
+              <span class="checkbox" [ngClass]="{ checked: isConclusion('68.4', 'gh2e') }"></span>
+              <span [ghs-label]="'data.section.rewards.gh2e.68-4.2'"></span>
+            </div>
+          }
           <span class="event-effects ignore-denied" (click)="openEventEffects()">
             <img class="ghs-svg" src="./assets/images/event.svg" /> <span [ghs-label]="'scenario.eventEffects'"></span>
           </span>

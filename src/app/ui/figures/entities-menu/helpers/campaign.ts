@@ -74,7 +74,7 @@ export class CampaignHelper {
 
   drawRandomItem(blueprint: boolean = false) {
     const itemData = gameManager.itemManager.drawRandomItem(gameManager.currentEdition(), blueprint);
-    if (itemData) {
+    if (itemData || blueprint) {
       this.component.dialog
         .open(EventRandomItemDialogComponent, {
           panelClass: ['dialog'],
@@ -83,20 +83,24 @@ export class CampaignHelper {
         .closed.subscribe({
           next: (result: unknown) => {
             if (result) {
-              const itemData = result as ItemData;
-              gameManager.stateManager.before(
-                'eventEffect.drawRandomItem' + (blueprint ? 'Blueprint' : ''),
-                itemData.id,
-                itemData.edition,
-                itemData.name
-              );
-              gameManager.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
-              gameManager.stateManager.after();
+              if (result == true) {
+                gameManager.stateManager.before('eventEffect.inspiration', ghsValueSign(1));
+                gameManager.game.party.inspiration += 1;
+                gameManager.stateManager.after();
+              } else {
+                const itemData = result as ItemData;
+                gameManager.stateManager.before(
+                  'eventEffect.drawRandomItem' + (blueprint ? 'Blueprint' : ''),
+                  itemData.id,
+                  itemData.edition,
+                  itemData.name
+                );
+                gameManager.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
+                gameManager.stateManager.after();
+              }
             }
           }
         });
-    } else if (blueprint) {
-      this.inspiration++;
     }
   }
 
@@ -104,7 +108,8 @@ export class CampaignHelper {
     const scenarioData = section
       ? gameManager.scenarioManager.drawRandomScenarioSection(gameManager.currentEdition())
       : gameManager.scenarioManager.drawRandomScenario(gameManager.currentEdition());
-    if (scenarioData) {
+
+    if (scenarioData || section) {
       this.component.dialog
         .open(EventRandomScenarioDialogComponent, {
           panelClass: ['dialog'],
@@ -113,39 +118,43 @@ export class CampaignHelper {
         .closed.subscribe({
           next: (result: unknown) => {
             if (result) {
-              const scenarioData = result as ScenarioData;
-              if (section) {
-                const unlocks = scenarioData.unlocks
-                  ? scenarioData.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ')
-                  : '';
-                gameManager.stateManager.before(
-                  'eventEffect.drawRandomScenarioSection',
-                  scenarioData.index,
-                  scenarioData.edition,
-                  scenarioData.name,
-                  unlocks
-                );
-                gameManager.game.party.conclusions.push(
-                  new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group)
-                );
+              if (result == true) {
+                gameManager.stateManager.before('eventEffect.inspiration', ghsValueSign(1));
+                gameManager.game.party.inspiration += 1;
                 gameManager.stateManager.after();
               } else {
-                gameManager.stateManager.before(
-                  'eventEffect.drawRandomScenario',
-                  scenarioData.index,
-                  scenarioData.edition,
-                  scenarioData.name
-                );
-                gameManager.game.party.manualScenarios.push(
-                  new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group)
-                );
-                gameManager.stateManager.after();
+                const scenarioData = result as ScenarioData;
+                if (section) {
+                  const unlocks = scenarioData.unlocks
+                    ? scenarioData.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ')
+                    : '';
+                  gameManager.stateManager.before(
+                    'eventEffect.drawRandomScenarioSection',
+                    scenarioData.index,
+                    scenarioData.edition,
+                    scenarioData.name,
+                    unlocks
+                  );
+                  gameManager.game.party.conclusions.push(
+                    new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group)
+                  );
+                  gameManager.stateManager.after();
+                } else {
+                  gameManager.stateManager.before(
+                    'eventEffect.drawRandomScenario',
+                    scenarioData.index,
+                    scenarioData.edition,
+                    scenarioData.name
+                  );
+                  gameManager.game.party.manualScenarios.push(
+                    new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group)
+                  );
+                  gameManager.stateManager.after();
+                }
               }
             }
           }
         });
-    } else if (section) {
-      this.inspiration++;
     }
   }
 

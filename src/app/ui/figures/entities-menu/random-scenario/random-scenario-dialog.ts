@@ -19,16 +19,19 @@ export class EventRandomScenarioDialogComponent {
 
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
-  scenario: ScenarioData;
+  scenario: ScenarioData | undefined;
   section: boolean = false;
   unlocks: string = '';
 
-  data: { scenario: ScenarioData; section: boolean } = inject(DIALOG_DATA);
+  data: { scenario: ScenarioData | undefined; section: boolean } = inject(DIALOG_DATA);
 
   constructor() {
+    if (!this.data.scenario && !this.data.section) {
+      this.dialogRef.close();
+    }
     this.scenario = this.data.scenario;
     this.section = this.data.section;
-    if (this.section) {
+    if (this.section && this.scenario) {
       this.unlocks = this.scenario.unlocks ? this.scenario.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ') : '';
     }
   }
@@ -38,6 +41,6 @@ export class EventRandomScenarioDialogComponent {
   }
 
   apply() {
-    ghsDialogClosingHelper(this.dialogRef, this.scenario);
+    ghsDialogClosingHelper(this.dialogRef, this.scenario || true);
   }
 }

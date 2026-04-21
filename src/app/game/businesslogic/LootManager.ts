@@ -316,6 +316,9 @@ export class LootManager {
               gameManager.scenarioManager.scenarioTitle(sectionData, true),
               sectionData.unlocks ? sectionData.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ') : ''
             );
+          } else {
+            gameManager.game.party.inspiration += 1;
+            result.push('otther');
           }
         }
         break;

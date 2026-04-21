@@ -1,8 +1,14 @@
 <div class="buildings-container">
-  <form class="header" (submit)="unlockBuilding(building)">
+  <div class="header">
     <label><img src="./assets/images/fh/buildings/build.svg" /><span [ghs-label]="'party.campaign.sheet.buildings'"></span></label>
-    <input type="text" #building [ghs-label]="'party.campaign.sheet.buildings.unlock'" [ghs-label-attribute]="'placeholder'" />
+    <input
+      type="text"
+      #building
+      [ghs-label]="'party.campaign.sheet.buildings.unlock'"
+      [ghs-label-attribute]="'placeholder'"
+      (keydown.enter)="unlockBuilding(building)"
+    />
     <img src="./assets/images/plus.svg" (click)="unlockBuilding(building)" />
-  </form>
+  </div>
   <ghs-buildings-list [buildings]="buildings" (change)="updateBuildings()"></ghs-buildings-list>
 </div>

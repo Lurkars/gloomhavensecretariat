@@ -263,7 +263,11 @@ export class CharacterRetirementDialog {
     }
 
     if (this.additional) {
-      gameManager.game.party.inspiration -= 15;
+      if (gameManager.fhRules()) {
+        gameManager.game.party.inspiration -= 15;
+      } else if (gameManager.gh2eRules()) {
+        gameManager.game.party.inspiration -= 12;
+      }
       gameManager.game.party.prosperity += 2;
       if (
         this.additionalPQ &&

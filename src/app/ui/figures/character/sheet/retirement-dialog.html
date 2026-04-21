@@ -48,6 +48,9 @@
           [ghs-label-args]="[characterScenario.index, characterScenario.name]"
         ></div>
       }
+      @if (characterAlreadyUnlocked && !characterScenario && gameManager.gh2eRules()) {
+        <div class="text-white" [ghs-label]="'character.progress.personalQuest.randomScenario.gold'"></div>
+      }
       @if (!!characterItemDesign) {
         <div
           class="text-white link"
@@ -55,6 +58,9 @@
           [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign'"
           [ghs-label-args]="[characterItemDesign.id, characterItemDesign.edition]"
         ></div>
+      }
+      @if (characterAlreadyUnlocked && !characterItemDesign && gameManager.gh2eRules()) {
+        <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign.gold'"></div>
       }
       @if (unlockEvent) {
         <div class="event">
@@ -131,10 +137,18 @@
     </div>
   }
 
-  @if (gameManager.fhRules(true) && gameManager.game.party.inspiration > 14) {
+  @if (gameManager.fhRules() && gameManager.game.party.inspiration > 14) {
     <div class="additional">
       <a (click)="additional = !additional"
-        ><span [ghs-label]="'character.progress.retirement.additionalPQ' + (additional ? '.cancel' : '')"></span
+        ><span [ghs-label]="'character.progress.retirement.additionalPQ' + (additional ? '.cancel' : '')" [ghs-label-args]="[15]"></span
+      ></a>
+    </div>
+  }
+
+  @if (gameManager.gh2eRules() && gameManager.game.party.inspiration > 11) {
+    <div class="additional">
+      <a (click)="additional = !additional"
+        ><span [ghs-label]="'character.progress.retirement.additionalPQ' + (additional ? '.cancel' : '')" [ghs-label-args]="[12]"></span
       ></a>
     </div>
   }
@@ -154,7 +168,13 @@
           </span>
         }
       </div>
-      <span [ghs-label]="'character.progress.retirement.additionalPQ.inspiration'"></span>
+      @if (gameManager.fhRules()) {
+        <span [ghs-label]="'character.progress.retirement.additionalPQ.inspiration'" [ghs-label-args]="[15]"></span>
+      }
+
+      @if (gameManager.gh2eRules()) {
+        <span [ghs-label]="'character.progress.retirement.additionalPQ.inspiration'" [ghs-label-args]="[12]"></span>
+      }
       <span [ghs-label]="'character.progress.retirement.prosperity'" [ghs-label-args]="['2']"></span>
       @if (!!additionalPQ && additionalPQ.unlockCharacter) {
         <div
@@ -171,6 +191,9 @@
           [ghs-label-args]="[additionalCharacterScenario.index, additionalCharacterScenario.name]"
         ></div>
       }
+      @if (additionalCharacterAlreadyUnlocked && !additionalCharacterScenario && gameManager.gh2eRules()) {
+        <div class="text-white" [ghs-label]="'character.progress.personalQuest.randomScenario.gold'"></div>
+      }
       @if (!!additionalCharacterItemDesign) {
         <div
           class="text-white link"
@@ -178,6 +201,9 @@
           [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign'"
           [ghs-label-args]="[additionalCharacterItemDesign.id, additionalCharacterItemDesign.edition]"
         ></div>
+      }
+      @if (additionalCharacterAlreadyUnlocked && !additionalCharacterItemDesign && gameManager.gh2eRules()) {
+        <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign.gold'"></div>
       }
       @if (additionalUnlockEvent) {
         <div class="event">

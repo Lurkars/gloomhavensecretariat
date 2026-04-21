@@ -228,8 +228,14 @@
         },
         "unlockCharacter": {
           "": "Schachtel %game.characterIcon.{0}% öffnen",
-          "itemDesign": "Erhalte Gegenstanddesign \"%data.items.{1}-{0}%\" (Gegenstand {0})",
-          "randomScenario": "\"{1}\" %data.scenarioNumber:{0}% freischalten"
+          "itemDesign": {
+            "": "Erhalte Gegenstanddesign \"%data.items.{1}-{0}%\" (Gegenstand {0})",
+            "gold": "Gegenstanddesign Karten aufgebraucht, erhaltet stattdessen kollektiv 15 Gold"
+          },
+          "randomScenario": {
+            "": "\"{1}\" %data.scenarioNumber:{0}% freischalten",
+            "gold": "Zufällige Szenarien Karten aufgebraucht, erhaltet stattdessen kollektiv 15 Gold"
+          }
         },
         "unlockPQ": "Persönliche Quest {0} freischalten"
       },
@@ -243,9 +249,9 @@
       "retirement": {
         "": "Ruhestand für Charakter",
         "additionalPQ": {
-          "": "15 Inspiration für zusätzliche PQ ausgeben",
+          "": "{0} Inspiration für zusätzliche PQ ausgeben",
           "cancel": "Zusätzliche PQ abbrechen",
-          "inspiration": "-15 Inspiration"
+          "inspiration": "-{0} Inspiration"
         },
         "apply": "Anwenden",
         "conclusion": "Öffne Sektion %data.section:{0}%",

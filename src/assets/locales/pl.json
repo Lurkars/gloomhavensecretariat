@@ -237,9 +237,9 @@
       "retirement": {
         "": "Przejdź na emeryturę",
         "additionalPQ": {
-          "": "Wydaj 15 inspiracji na dodatkowe zadanie osobiste",
+          "": "Wydaj {0} inspiracji na dodatkowe zadanie osobiste",
           "cancel": "Anuluj dodatkowe zadanie",
-          "inspiration": "-15 inspiracji"
+          "inspiration": "-{0} inspiracji"
         },
         "apply": "Zastosuj",
         "conclusion": "Otwórz sekcję %data.section:{0}%",

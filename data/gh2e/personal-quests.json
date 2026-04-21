@@ -67,6 +67,16 @@
                 "requires": [
                     1
                 ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.04.3%",
+                "counter": 1,
+                "autotrack": "scenario:63",
+                "hidden": true,
+                "requires": [
+                    1,
+                    2
+                ]
             }
         ]
     },
@@ -160,6 +170,27 @@
                 "requires": [
                     1
                 ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.08.3%",
+                "counter": 1,
+                "autotrack": "scenario:59",
+                "hidden": true,
+                "requires": [
+                    1,
+                    2
+                ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.08.4%",
+                "counter": 1,
+                "autotrack": "scenario:60",
+                "hidden": true,
+                "requires": [
+                    1,
+                    2,
+                    3
+                ]
             }
         ]
     },
@@ -188,6 +219,27 @@
                 "requires": [
                     1
                 ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.09.10%",
+                "counter": 1,
+                "autotrack": "scenario:61",
+                "hidden": true,
+                "requires": [
+                    1,
+                    2
+                ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.09.11%",
+                "counter": 1,
+                "autotrack": "scenario:62",
+                "hidden": true,
+                "requires": [
+                    1,
+                    2,
+                    3
+                ]
             }
         ]
     },
@@ -207,6 +259,16 @@
                 "requires": [
                     1
                 ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.10.3%",
+                "counter": 1,
+                "autotrack": "scenario:64",
+                "hidden": true,
+                "requires": [
+                    1,
+                    2
+                ]
             }
         ]
     },
@@ -225,6 +287,16 @@
                 "counter": 1,
                 "requires": [
                     1
+                ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.11.3%",
+                "counter": 1,
+                "autotrack": "scenario:66",
+                "hidden": true,
+                "requires": [
+                    1,
+                    2
                 ]
             }
         ]

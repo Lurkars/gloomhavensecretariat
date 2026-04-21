@@ -237,9 +237,9 @@
       "retirement": {
         "": "캐릭터 은퇴",
         "additionalPQ": {
-          "": "영감 수치 15점을 소모하여 개인 퀘스트 하나를 추가로 완수할 수 있습니다",
+          "": "영감 수치 {0} 소모하여 개인 퀘스트 하나를 추가로 완수할 수 있습니다",
           "cancel": "추가 개인 퀘스트 취소",
-          "inspiration": "영감 -15"
+          "inspiration": "영감 -{0}"
         },
         "apply": "적용",
         "conclusion": "%data.section:{0}% 섹션 열기",

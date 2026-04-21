@@ -31,6 +31,7 @@ export class SettingMenuComponent implements OnInit {
   @Input() step: number = 0.1;
   @Input() default: number = 1;
   @Input() hint: boolean = true;
+  @Input() hintAbove: boolean = true;
   @Input() additionalHint: string = '';
   @Input('labelSuffix') suffix: string = '';
   @Input() column: boolean = false;

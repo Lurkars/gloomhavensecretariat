@@ -403,6 +403,21 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       value
     );
     this.character.progress.personalQuestProgress[index] = value;
+
+    if (!!this.personalQuest) {
+      this.personalQuest.requirements.forEach((requirement, i) => {
+        if (
+          !!requirement.requires &&
+          requirement.requires.some(
+            (j) =>
+              !!this.personalQuest &&
+              this.character.progress.personalQuestProgress[j - 1] < EntityValueFunction(this.personalQuest.requirements[j - 1].counter)
+          )
+        ) {
+          this.character.progress.personalQuestProgress[i] = 0;
+        }
+      });
+    }
     gameManager.stateManager.after();
 
     if (!gameManager.game.scenario) {

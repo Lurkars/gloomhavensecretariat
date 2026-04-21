@@ -22,12 +22,15 @@ export class EventRandomItemDialogComponent {
 
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
-  item: ItemData;
+  item: ItemData | undefined;
   blueprint: boolean = false;
 
-  data: { item: ItemData; blueprint: boolean } = inject(DIALOG_DATA);
+  data: { item: ItemData | undefined; blueprint: boolean } = inject(DIALOG_DATA);
 
   constructor() {
+    if (!this.data.item && !this.data.blueprint) {
+      this.dialogRef.close();
+    }
     this.item = this.data.item;
     this.blueprint = this.data.blueprint;
   }
@@ -45,6 +48,6 @@ export class EventRandomItemDialogComponent {
   }
 
   apply() {
-    ghsDialogClosingHelper(this.dialogRef, this.item);
+    ghsDialogClosingHelper(this.dialogRef, this.item || true);
   }
 }

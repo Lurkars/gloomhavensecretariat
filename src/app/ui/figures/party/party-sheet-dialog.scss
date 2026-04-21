@@ -1927,19 +1927,6 @@
             }
           }
         }
-
-        .retirement-note {
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          position: absolute;
-          top: calc(var(--ghs-unit) * 94 * var(--ghs-dialog-factor));
-          left: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-
-          .checkbox {
-            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-          }
-        }
       }
     }
 
@@ -1957,6 +1944,16 @@
       width: 100%;
       justify-content: space-between;
       align-items: center;
+
+      .retirement-note {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        .checkbox {
+          margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        }
+      }
 
       .event-effects {
         cursor: pointer;

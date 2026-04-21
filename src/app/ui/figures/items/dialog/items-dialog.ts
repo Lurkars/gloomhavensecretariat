@@ -8,7 +8,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { Character } from 'src/app/game/model/Character';
 import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData, ItemSlot } from 'src/app/game/model/data/ItemData';
-import { LootType, materialResourceLootTypes, resourceLootTypes } from 'src/app/game/model/data/Loot';
+import { LootType, resourceLootTypes } from 'src/app/game/model/data/Loot';
 import { GameState } from 'src/app/game/model/Game';
 import { ItemsBrewDialog } from 'src/app/ui/figures/items/brew/brew';
 import { ItemDistillDialogComponent } from 'src/app/ui/figures/items/character/item-distill';
@@ -86,9 +86,6 @@ export class ItemsDialogComponent implements OnInit {
     this.editions = this.edition ? gameManager.itemManager.itemEditions(this.edition) : gameManager.itemManager.itemEditions();
     this.all = this.edition === undefined;
     this.currentEdition = this.edition || this.editions[0];
-    if (this.craftOnly) {
-      this.lootTypes = [...materialResourceLootTypes];
-    }
     if (this.buyOnly) {
       this.lootTypes = [];
     }
@@ -144,14 +141,9 @@ export class ItemsDialogComponent implements OnInit {
           !this.affordable ||
           (this.character &&
             gameManager.itemManager.canAdd(itemData, this.character) &&
-            gameManager.itemManager.canBuy(itemData, this.character)) ||
-          gameManager.itemManager.canCraft(itemData, this.character)
+            (gameManager.itemManager.canBuy(itemData, this.character) || gameManager.itemManager.canCraft(itemData, this.character)))
       )
-      .filter(
-        (itemData) =>
-          (!this.craftOnly || (itemData.resources && (itemData.resources.metal || itemData.resources.hide || itemData.resources.lumber))) &&
-          (!this.buyOnly || itemData.cost)
-      );
+      .filter((itemData) => (!this.craftOnly || itemData.requiredBuilding === 'craftsman') && (!this.buyOnly || itemData.cost));
 
     if (this.character && this.edition && this.campaignMode && !this.all && !this.affordable) {
       this.character.progress.items.forEach((identifier) => {
@@ -165,6 +157,10 @@ export class ItemsDialogComponent implements OnInit {
           }
         }
       });
+
+      this.items = this.items.filter(
+        (itemData) => (!this.craftOnly || itemData.requiredBuilding === 'craftsman') && (!this.buyOnly || itemData.cost)
+      );
     }
 
     this.items = this.items.filter(

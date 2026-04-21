@@ -189,13 +189,18 @@ export class ItemManager {
     return (item.cost && item.cost + this.pricerModifier() + cost <= character.progress.gold && this.canAdd(item, character)) || false;
   }
 
-  buyingDisabled(): boolean {
+  buyingDisabled(warning: boolean = true): boolean {
     return (
       gameManager.fhRules() &&
       gameManager.game.party.campaignMode &&
-      gameManager.game.party.buildings.find(
-        (buildingModel) => buildingModel.name === 'trading-post' && buildingModel.level > 0 && buildingModel.state !== 'wrecked'
-      ) === undefined
+      ((warning &&
+        gameManager.game.party.buildings.find(
+          (buildingModel) => buildingModel.name === 'trading-post' && buildingModel.level > 0 && buildingModel.state !== 'wrecked'
+        ) === undefined) ||
+        (!warning &&
+          gameManager.game.party.buildings.find(
+            (buildingModel) => buildingModel.name === 'trading-post' && buildingModel.level > 0 && buildingModel.state === 'wrecked'
+          ) !== undefined))
     );
   }
 

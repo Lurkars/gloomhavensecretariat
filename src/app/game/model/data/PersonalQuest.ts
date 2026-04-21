@@ -20,4 +20,5 @@ export class PersonalQuestRequirement {
   checkbox: string[] = [];
   autoautotrack: string | undefined;
   requires: number[] = [];
+  hidden: boolean = false;
 }

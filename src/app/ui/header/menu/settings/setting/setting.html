@@ -12,7 +12,7 @@
     @if (hint) {
       <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
     }
-    <span class="hint above">
+    <span class="hint" [ngClass]="{ above: hintAbove }">
       <div class="text">
         <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
         <br />
@@ -99,7 +99,7 @@
     @if (hint) {
       <img src="./assets/images/warning.svg" class="hint-trigger ghs-svg" />
     }
-    <div class="hint above">
+    <div class="hint" [ngClass]="{ above: hintAbove }">
       <div class="text">
         <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
         <br />
@@ -168,7 +168,7 @@
       />
     </label>
     <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
-    <span class="hint above">
+    <span class="hint" [ngClass]="{ above: hintAbove }">
       <div class="text">
         <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
         <br />
