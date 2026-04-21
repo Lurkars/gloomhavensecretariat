@@ -237,9 +237,9 @@
       "retirement": {
         "": "Retirar Personaje",
         "additionalPQ": {
-          "": "Gasta 15 de inspiración para una nueva misión personal",
+          "": "Gasta {0} de inspiración para una nueva misión personal",
           "cancel": "Cancelar misión personal adicional",
-          "inspiration": "-15 inspiración"
+          "inspiration": "-{0} inspiración"
         },
         "apply": "Aplicar",
         "conclusion": "Abrir Sección %data.section:{0}%",

@@ -234,9 +234,9 @@
       "retirement": {
         "": "Retirer le personnage",
         "additionalPQ": {
-          "": "Dépensez 15 d’inspiration pour une nouvelle Quête Personnelle",
+          "": "Dépensez {0} d’inspiration pour une nouvelle Quête Personnelle",
           "cancel": "Annuler la Quête Personnelle additionnelle",
-          "inspiration": "-15 inspiration"
+          "inspiration": "-{0} inspiration"
         },
         "apply": "Appliquer",
         "conclusion": "Ouvrir la section %data.section:{0}%",

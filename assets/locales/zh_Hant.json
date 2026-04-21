@@ -233,9 +233,9 @@
       "retirement": {
         "": "退休角色",
         "additionalPQ": {
-          "": "花費15點激勵值來完成額外的個人使命",
+          "": "花費{0}點激勵值來完成額外的個人使命",
           "cancel": "取消額外的個人使命",
-          "inspiration": "-15 激勵值"
+          "inspiration": "-{0} 激勵值"
         },
         "apply": "應用",
         "conclusion": "查看段落 %data.section:{0}%",

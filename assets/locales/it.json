@@ -237,9 +237,9 @@
       "retirement": {
         "": "Ritira personaggio",
         "additionalPQ": {
-          "": "Spendi 15 di ispirazione per ulteriore MP",
+          "": "Spendi {0} di ispirazione per ulteriore MP",
           "cancel": "Annulla MP aggiuntiva",
-          "inspiration": "-15 ispirazione"
+          "inspiration": "-{0} ispirazione"
         },
         "apply": "Applica",
         "conclusion": "Apri la sezione %data.section:{0}%",
