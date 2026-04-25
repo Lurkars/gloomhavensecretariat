@@ -100,7 +100,9 @@
       filter: var(--ghs-filter-shadow);
       top: 1em;
       left: 0.5em;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 1em;
     }
 

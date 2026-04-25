@@ -10,6 +10,16 @@
     "resourceful"
   ],
   "color": "#edbc47",
+  "specialActions": [
+    {
+      "name": "banner-of-strength",
+      "expire": true
+    },
+    {
+      "name": "banner-of-hope",
+      "expire": true
+    }
+  ],
   "stats": [
     {
       "level": 1,

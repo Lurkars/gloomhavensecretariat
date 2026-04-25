@@ -405,7 +405,6 @@ export class EntitiesMenuDialogComponent {
   }
 
   close(): void {
-    this.healthHelper.close();
     this.campaignHelper.close();
     this.characterHelper.close();
     this.characterProgressHelper.close();
@@ -415,6 +414,7 @@ export class EntitiesMenuDialogComponent {
     this.markerHelper.close();
     this.objectiveHelper.close();
     this.conditionHelper.close();
+    this.healthHelper.close();
     this.specialActionsHelper.close();
   }
 

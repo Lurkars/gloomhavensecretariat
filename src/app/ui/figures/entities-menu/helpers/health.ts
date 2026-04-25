@@ -105,7 +105,6 @@ export class HealthHelper {
         this.component.trackDamage || settingsManager.settings.damageHP ? 'changeDamage' : 'changeHP',
         ghsValueSign(this.component.health)
       );
-      const deadEntities: (MonsterEntity | Summon | ObjectiveEntity)[] = [];
       this.component.entities.forEach((entity) => {
         const figure = this.component.figureForEntity(entity);
 
@@ -123,63 +122,10 @@ export class HealthHelper {
             ? -this.component.health
             : this.component.health
         );
-
-        if (
-          (entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) &&
-          ((EntityValueFunction(entity.maxHealth) > 0 && entity.health <= 0) || entity.dead)
-        ) {
-          entity.dead =
-            entity.entityConditions.length === 0 ||
-            entity.entityConditions.every(
-              (entityCondition) =>
-                !entityCondition.highlight ||
-                entityCondition.types.includes(ConditionType.hidden) ||
-                (!entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply))
-            );
-          deadEntities.push(entity);
-        }
       });
 
       this.component.health = 0;
-
-      if (deadEntities.length > 0) {
-        setTimeout(
-          () => {
-            deadEntities.forEach((entity) => {
-              const figure = this.component.figureForEntity(entity);
-              if (entity.dead) {
-                if (figure instanceof Monster && entity instanceof MonsterEntity) {
-                  gameManager.monsterManager.removeMonsterEntity(figure, entity);
-                } else if (figure instanceof Character && entity instanceof Summon) {
-                  gameManager.characterManager.removeSummon(figure, entity);
-                } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
-                  gameManager.objectiveManager.removeObjectiveEntity(figure, entity);
-                }
-              }
-            });
-
-            this.component.figures.forEach((figure) => {
-              if (
-                figure instanceof Monster &&
-                figure.active &&
-                (figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure.entities.length === 0)
-              ) {
-                gameManager.roundManager.toggleFigure(figure);
-              } else if (
-                figure instanceof ObjectiveContainer &&
-                (figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure.entities.length === 0)
-              ) {
-                gameManager.objectiveManager.removeObjective(figure);
-              }
-            });
-
-            gameManager.stateManager.after();
-          },
-          settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0
-        );
-      } else {
-        gameManager.stateManager.after();
-      }
+      gameManager.stateManager.after();
     }
 
     if (this.component.maxHealth !== 0) {

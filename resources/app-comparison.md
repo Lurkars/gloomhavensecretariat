@@ -72,6 +72,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 | support Satire's Extended Battle Goals                                          | ✅[^3.1]      | ⛔         | ⛔        | ✅        | ⛔       |
 | Skulls in the Snow (FH Mini Campaign)                                           | ✅[^3]        | ⛔         | ⛔        | ✅        | ⛔       |
 | Button & Bugs - Promotional Content                                             | ✅[^3]        | ⛔         | ⛔        | ⛔        | ⛔       |
+| CCUG classes                                                                    | ✅[^3]        | ✅         | ⛔        | ✅        | ⛔       |
 |                                                                                 |              |           |          |          |         |
 | **Additional Features**                                                         | *GHS*        | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
 | Synchronize multiple clients                                                    | ✅[^4]        | ✅         | ✅        | ✅        | ✅       |
@@ -84,6 +85,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Inspect/Reorder Monster Ability Cards                                           | ✅            | ✅         | ⛔        | ✅        | ✅       |
 | Update Elements                                                                 | ✅            | ✅         | ✅        | ✅        | ✅       |
 | Consume Elements by Monsters                                                    | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
+| Advanced Element Tracking (Turn created, consumed)                              | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Expire Conditions                                                               | ✅            | ✅         | ⛔        | ✅        | ✅       |
 | Automatic Advantage/Disadvantage Draw for AM Decks                              | ✅            | ⛔         | ⛔        | ⛔        | ⛔       |
 | Automaitc apply Conditions  (like wound, regenarate etc.)                       | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
@@ -97,8 +99,8 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Apply Special Scenario Rules                                                    | ✅            | ✅❗[^16.2] | ⛔        | ✅        | ⛔       |
 | Support Frosthaven Building 81 Mechanics                                        | ✅[^1]        | ⛔         | ⛔        | ✅        | ⛔       |
 | Support Frosthaven Building 90 Mechanics                                        | ✅[^1]        | ⛔         | ⛔        | ✅        | ⛔       |
-| Support for Gloomhaven 2nd Edition Appendix F                                   | ✅[^1]        | ✅         | ⛔        | ⛔        | ⛔       |
-| Support for GH2E Faction Envelope Content                                       | ✅            | ✅         | ⛔        | ⛔        | ⛔       |
+| Support for Gloomhaven 2nd Edition Appendix F                                   | ✅[^1]        | ✅         | ⛔        | ✅[^21]   | ⛔       |
+| Support for GH2E Faction Envelope Content                                       | ✅            | ✅         | ⛔        | ✅        | ⛔       |
 | Automatic Standees                                                              | ✅            | ✅         | ✅        | ✅        | ⛔       |
 | Assign Standee Numbers                                                          | ✅            | ✅         | ✅        | ✅        | ✅       |
 | Sort Standees                                                                   | ✅            | ✅         | ✅        | ✅        | ✅       |
@@ -122,9 +124,11 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Absent Characters                                                               | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Scenario Statistics                                                             | ✅[^1]        | ⛔         | ⛔        | ✅        | ⛔       |
 | Scenario Recaps                                                                 | ✅            | ⛔         | ⛔        | ⛔        | ⛔       |
+| Forteller Links                                                                 | ⛔            | ⛔         | ⛔        | ✅        | ⛔       |
 | Localization                                                                    | ✅[^5]        | ⛔         | ⛔        | ⛔        | ✅❗[^6]  |
-| Keyboard Shortcuts                                                              | ✅            | ⛔         | ⛔        | ⛔        | ✅       |
+| Keyboard Shortcuts                                                              | ✅            | ❗         | ⛔        | ⛔        | ✅       |
 | Offline Support                                                                 | ✅[^10]       | ✅         | ✅        | ⛔        | ✅       |
+| Push and Audio Notifications                                                    | ⛔            | ⛔         | ⛔        | ✅        | ⛔       |
 |                                                                                 |              |           |          |          |         |
 | **Devices**                                                                     | *GHS*        | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
 | Web                                                                             | ✅            | ⛔         | ⛔        | ✅        | ⛔[^8]   |
@@ -201,3 +205,5 @@ There are a few other apps that are specialised or niche and therefore not taken
 [^19]: Since no perks or any advanced character management support, there is no need to support those Crossover Characters!
 
 [^20]: See README for details
+
+[^21]: Unlocked during gameplay

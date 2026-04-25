@@ -212,8 +212,8 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.fh.flame-demon.2%",
+              "type": "damage",
+              "value": 1,
               "small": true,
               "subActions": [
                 {
