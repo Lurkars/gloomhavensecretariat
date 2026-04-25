@@ -1388,6 +1388,9 @@
         "122": {
           "": "Podczas waszych podróży napotkaliście starszą Kwatrylkę, która pielęgnowała wyśmienicie pachnące papryczki. Nazwała je „ognistymi papryczkami” - i opowiedziała wam historię o bestii zwanej Głodną Paszczą, która żyje pod Górami Miedzianej Turni. Podobno pożera ona całe wioski, ale można ją nasycić jedynie gulaszem z ognistej papryczki. Zapytała, czy jesteście gotowi na wyzwanie."
         },
+        "128": {
+          "": "Pewnego letniego dnia znaleźliście na poboczu drogi dwóch pijanych braci, Nitsa i Narba. Atakowali zarówno siebie nawzajem, jak i śnieg – prawdopodobnie mieli halucynacje. Próbowaliście pomóc – być może z powodzeniem – a następnie zdecydowaliście się rozegrać scenariusz, którego autorem jest Matthew G. Somers."
+        },
         "13": {
           "7": "Ścigaliście ich do brzegu Kąsającego Morza, gdzie natknęliście się na Czychaczy w jaskini wykutej w klifie. W czaszce Ożywionych Zwłok znaleźliście osobliwy Odłamek Koralowca; przekazał wam on, że chce, abyście zabrali go na północ, daleko w morze, z dala od klifów. Uznaliście, że to właśnie tego szukali Czychacze. Zanim wypłynęliście na otwarte morze, postanowiliście podążyć za przyciąganiem odłamka drogą lądową wzdłuż północnego wybrzeża."
         },
@@ -1490,7 +1493,7 @@
           "46": "Odzyskaliście zarówno odłamek żywego lodu lodowcowego, jak i świeży śnieg, i przynieśliście je z powrotem na świętą polanę, aby je połączyć."
         },
         "55": {
-          "52": "<strong>%ui.tooltip:data.scenario.recap.fh.character.marogh%</strong> otworzył dziwny portal, aby ukończyć rytuał. Nic jednak nie jest aż tak proste; odkryliście, że musicie pokonać istoty lodu i śniegu i wykorzystać ich esencję do uformowania [glyph]. Gdy to się stało, dwaj emisariusze dokończyli rytuał, łącząc lód i śnieg, by stworzyć [Unyielding Shard]. W jego wnętrzu odnaleźli prawdziwe słowa <strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong> i dowiedzieli się, że Algoksi zostali zwiedzeni przez jakąś inną moc. Musieliście wrócić na Śnieżnicę, aby osadzić Odłamek w [Heart of Ice], usunąć ciemność, która spadła na Algoksów, i przywrócić ich Geryuu."
+          "52": "<strong>%ui.tooltip:data.scenario.recap.fh.character.marogh%</strong> otworzył dziwny portal, aby ukończyć rytuał. Nic jednak nie jest aż tak proste; odkryliście, że musicie pokonać istoty lodu i śniegu i wykorzystać ich esencję do uformowania glif. Gdy to się stało, dwaj emisariusze dokończyli rytuał, łącząc lód i śnieg, by stworzyć [Unyielding Shard]. W jego wnętrzu odnaleźli prawdziwe słowa <strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong> i dowiedzieli się, że Algoksi zostali zwiedzeni przez jakąś inną moc. Musieliście wrócić na Śnieżnicę, aby osadzić Odłamek w Sercu z Lodu, usunąć ciemność, która spadła na Algoksów, i przywrócić ich Geryuu."
         },
         "6": {
           "4": "Opowiedzieliście się po stronie Lodomówców w ich walce przeciwko Śniegomówcom, zabijając wodza Śniegomówców. Lodomówcy wierzą, że mogą komunikować się ze swoim bogiem <strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong> poprzez lód wyłaniający się z głębi ziemi. Toczą oni wojnę ze Śniegomówcami, którzy wierzą, że mogą komunikować się ze swoim bogiem Geryuu poprzez padający śnieg. Szczyt Śnieżnicy jest świętym miejscem dla obu grup.<br>Wódz Lodomówców, <strong>%ui.tooltip:data.scenario.recap.fh.character.chief-elland%</strong>, wierzy, że to Geryuu sprowadził was, byście pomogli pokonać Śniegomówców, i obiecał tymczasowo zaprzestać wrogich działań przeciwko Frosthaven.<br>Potężny Śniegomówca dotarł na wierzchołek Szczytu Śnieżnicy i grozi zawaleniem całej góry. Elland zasugerował, abyście udowodnili swoją siłę i przyjaźń, pokonując tego Śniegomówcę."
@@ -1513,6 +1516,9 @@
         "7": {
           "4": "Po zażegnaniu bezpośredniego zagrożenia ze strony Algoksów wiszącego nad Frosthaven, <strong>%ui.tooltip:data.scenario.recap.fh.character.mayor-satha%</strong> wspomniała, że na obrzeżach terytorium Frosthaven dostrzeżono Czychaczy. Zostaliście poproszeni o sprawdzenie tej sytuacji."
         },
+        "70": {
+          "69": "Tutejszy Sawas botanik, <strong>%ui.tooltip:data.scenario.recap.fh.character.listerius%</strong>, badał te próbki drewna. Wysłał was do Promiennego Lasu, abyście zebrali również próbki gleby. Mając je do dyspozycji, był pewien, że zdoła wyznaczyć lokalizację. Po ich dostarczeniu, Listerius rozpoczął analizę.<br>Kilka tygodni później zastaliście chatę Listeriusa splądrowaną. Promienisty Zakon z Białego Dębu usłyszał o jego \"bluźnierstwie\", ukradł notatki i wyruszył, by zniszczyć Prawdziwy Dąb, którego szukaliście."
+        },
         "8": {
           "4": "Po zażegnaniu bezpośredniego zagrożenia ze strony Algoksów, <strong>%ui.tooltip:data.scenario.recap.fh.character.mayor-satha%</strong> wspomniała, że przez pustkowia maszerują dziwne metalowe konstrukty. Zwiadowcy tropili je przez Las Białego Ognia, a następnie do zamarzniętej doliny. Poprosiła was, abyście przyjrzeli się tej sprawie."
         },
@@ -1533,6 +1539,9 @@
           "denpang": {
             "tooltip": "Gniewna, młoda Algokska nawołująca do wojny.<br>Pierwsze pojawienie się: %game.scenarioNumber:18% %game.section:13.1%"
           },
+          "dinah-snapclaw": {
+            "tooltip": "Karczmarka rasy Szczurok."
+          },
           "eddica": {
             "": "Eddika",
             "tooltip": "Valradzka bibliotekarka."
@@ -1546,6 +1555,9 @@
           "lanprul": {
             "": "Lanprul",
             "tooltip": "Algoks, Kapłanka Śniegomówców.<br>Pierwsze pojawienie się: %game.scenarioNumber:2% %game.section:77.3%"
+          },
+          "listerius": {
+            "tooltip": "Sawas botanik.<br>Pierwsze pojawienie się: %game.scenarioNumber:69%"
           },
           "marogh": {
             "tooltip": "Starożytna wyrocznia w Lesie Białego Ognia."

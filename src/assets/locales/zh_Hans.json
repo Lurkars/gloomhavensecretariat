@@ -4,8 +4,14 @@
     "forceUpdate": "强制更新",
     "ip": "幽港迷城及其所有相关产权、图像和文字内容均归 {0} 所有。",
     "license": "依据 {0} 许可。",
-    "sourceCode": "源代码",
-    "support": "帮助开发",
+    "sourceCode": {
+      "": "源代码",
+      "author": "原始源代码"
+    },
+    "support": {
+      "": "支持开发人员",
+      "author": "支持原始开发者"
+    },
     "version": {
       "latest": "最新版本",
       "unknown": "无法获取到最新版本",
@@ -508,17 +514,31 @@
     }
   },
   "entities": {
+    "event": {
+      "entities": "实体菜单",
+      "menu": "事件效果菜单"
+    },
     "filter": {
       "all": "所有",
       "allies": "盟友",
       "character": "角色",
       "enemies": "敌人",
       "monster": "怪物",
-      "objectives": "目标点"
+      "objectives": "目标点",
+      "select": {
+        "all": "选择所有",
+        "none": "去除选择"
+      }
     },
     "migrate": {
       "new": "返回新实体菜单！",
-      "old": "回退到旧实体菜单"
+      "newEvent": "返回新的事件效果菜单！",
+      "old": "回退到旧实体菜单",
+      "oldEvent": "回退到旧的事件效果菜单"
+    },
+    "title": {
+      "character": "{0}",
+      "monster": "{0}"
     }
   },
   "errata": "勘误",

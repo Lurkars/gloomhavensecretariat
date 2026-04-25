@@ -12,7 +12,8 @@
   "custom": {
     "gh2e": {
       "flowChartGroup": {
-        "hail": "헤일"
+        "hail": "헤일",
+        "intro": "서막"
       }
     }
   },

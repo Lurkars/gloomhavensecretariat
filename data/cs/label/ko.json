@@ -427,6 +427,7 @@
     "cs": {
       "flowChartGroup": {
         "city-events": "도시 이벤트",
+        "intro": "서막",
         "road-events": "여로 이벤트"
       }
     }

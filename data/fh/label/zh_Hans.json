@@ -1232,10 +1232,14 @@
       "blinkblade": {
         "": "烁刃客",
         "fast": "快速",
+        "overdrive": {
+          "": "超频驱动",
+          "hint": "%game.characterIconIdentityColored.blinkblade.0%时获得%game.action.shield%1"
+        },
         "slow": "慢速",
         "time_tokens": {
           "": "%data.characterToken.blinkblade.time% 时间指示物",
-          "hint": "在轮次开始时且在决定慢速/快速之后自动添加/移除时间指示物"
+          "hint": "在轮次开始时且在决定%game.characterIconIdentityColored.blinkblade.0%/%game.characterIconIdentityColored.blinkblade.1%之后自动添加/移除时间指示物"
         },
         "tokens": {
           "time": "时间标记"
