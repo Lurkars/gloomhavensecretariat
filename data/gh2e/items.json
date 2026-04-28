@@ -2552,12 +2552,6 @@
         "value": "%data.items.gh2e-120.1%",
         "small": true
       }
-    ],
-    "effects": [
-      {
-        "type": "condition",
-        "value": "strengthen"
-      }
     ]
   },
   {
