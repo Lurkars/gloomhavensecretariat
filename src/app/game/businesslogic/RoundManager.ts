@@ -553,6 +553,17 @@ export class RoundManager {
       ) {
         figure.tokenValues[0] += 1;
       }
+
+      if (settingsManager.settings.characterItemsApply) {
+        figure.progress.equippedItems.forEach((identifier) => {
+          if (identifier.tags) {
+            const item = gameManager.itemManager.getItem(identifier.name, identifier.edition, true);
+            if (item && item.id == 120 && item.edition === 'gh2e') {
+              gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.strengthen));
+            }
+          }
+        });
+      }
     }
 
     if (
