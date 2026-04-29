@@ -53,12 +53,12 @@ export class FooterComponent implements OnInit {
   private cdr = inject(ChangeDetectorRef);
 
   readonly nextButton = viewChild.required<ElementRef>('nextButton');
-  readonly monsterDeck = viewChild.required<ElementRef>('monsterDeck');
-  readonly ghsLevel = viewChild.required<LevelComponent>('ghsLevel');
-  readonly ghsScenario = viewChild.required<ScenarioComponent>('ghsScenario');
-  readonly monsterAttackModifierDeck = viewChild.required<AttackModifierDeckComponent>('monsterAttackModifierDeck');
-  readonly allyAttackModifierDeck = viewChild.required<AttackModifierDeckComponent>('allyAttackModifierDeck');
-  readonly lootDeck = viewChild.required<LootDeckComponent>('lootDeck');
+  readonly monsterDeck = viewChild<ElementRef>('monsterDeck');
+  readonly ghsLevel = viewChild<LevelComponent>('ghsLevel');
+  readonly ghsScenario = viewChild<ScenarioComponent>('ghsScenario');
+  readonly monsterAttackModifierDeck = viewChild<AttackModifierDeckComponent>('monsterAttackModifierDeck');
+  readonly allyAttackModifierDeck = viewChild<AttackModifierDeckComponent>('allyAttackModifierDeck');
+  readonly lootDeck = viewChild<LootDeckComponent>('lootDeck');
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -144,13 +144,13 @@ export class FooterComponent implements OnInit {
 
     setTimeout(() => {
       const monsterDeck = this.monsterDeck();
-      this.compact = monsterDeck && monsterDeck.nativeElement.clientWidth > this.elementRef.nativeElement.clientWidth * 0.3;
+      this.compact = !!monsterDeck && monsterDeck.nativeElement.clientWidth > this.elementRef.nativeElement.clientWidth * 0.3;
       this.cdr.markForCheck();
     }, 100);
 
     window.addEventListener('resize', () => {
       const monsterDeck = this.monsterDeck();
-      this.compact = monsterDeck && monsterDeck.nativeElement.clientWidth > this.elementRef.nativeElement.clientWidth * 0.3;
+      this.compact = !!monsterDeck && monsterDeck.nativeElement.clientWidth > this.elementRef.nativeElement.clientWidth * 0.3;
     });
   }
 
