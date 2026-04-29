@@ -1,15 +1,5 @@
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  HostListener,
-  inject,
-  Input,
-  OnInit,
-  Output
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, inject, input, OnInit, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -37,21 +27,43 @@ export class ConditionsComponent implements OnInit {
 
   private cdr = inject(ChangeDetectorRef);
 
-  @Input() entityConditions!: EntityCondition[];
-  @Input() immunities!: ConditionName[];
-  @Input() entity: Entity | undefined;
-  @Input() entities!: Entity[];
-  @Input() figure: Figure | undefined;
-  @Input() type!: string;
-  @Input() columns: number = 3;
-  @Input() empower: boolean = false;
-  @Input() enfeeble: boolean = false;
-  @Output('conditionChange') conditionChange: EventEmitter<EntityCondition[]> = new EventEmitter<EntityCondition[]>();
+  readonly inputEntityConditions = input<EntityCondition[]>([], { alias: 'entityConditions' });
+  get entityConditions(): EntityCondition[] {
+    return this.inputEntityConditions();
+  }
+
+  readonly inputImmunities = input<ConditionName[]>([], { alias: 'immunities' });
+  get immunities(): ConditionName[] {
+    return this.inputImmunities();
+  }
+
+  readonly inputEntity = input<Entity>(undefined, { alias: 'entity' });
+  get entity(): Entity | undefined {
+    return this.inputEntity();
+  }
+
+  readonly inputFigure = input<Figure>(undefined, { alias: 'figure' });
+  get figure(): Figure | undefined {
+    return this.inputFigure();
+  }
+
+  readonly inputEntities = input<Entity[]>([], { alias: 'entities' });
+  get entities(): Entity[] {
+    return this.inputEntities();
+  }
+
+  readonly inputType = input<string>('', { alias: 'type' });
+
+  readonly columns = input<number>(3);
+  readonly empower = input<boolean>(false);
+  readonly enfeeble = input<boolean>(false);
+  readonly conditionChange = output<EntityCondition[]>({ alias: 'conditionChange' });
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   ConditionType = ConditionType;
 
+  type: string = '';
   conditions: Condition[] = [];
   conditionSeparator: number[] = [];
 
@@ -69,6 +81,7 @@ export class ConditionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.type = this.inputType();
     this.initializeConditions();
     if (this.entities) {
       const types = this.entities
@@ -180,11 +193,11 @@ export class ConditionsComponent implements OnInit {
     if (this.immunityEnabled) {
       this.conditionSeparator.push(this.conditions.length - 1);
       this.conditions.push(new Condition(ConditionName.curse));
-      if (this.enfeeble) {
+      if (this.enfeeble()) {
         this.conditions.push(new Condition(ConditionName.enfeeble));
       }
       this.conditions.push(new Condition(ConditionName.bless));
-      if (this.empower) {
+      if (this.empower()) {
         this.conditions.push(new Condition(ConditionName.empower));
       }
     }

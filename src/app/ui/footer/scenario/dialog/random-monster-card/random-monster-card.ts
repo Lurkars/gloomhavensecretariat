@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Element } from 'src/app/game/model/data/Element';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
@@ -16,8 +16,12 @@ import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RandomMonsterCardComponent implements OnInit {
-  @Input() section!: ScenarioData;
-  @Input() flipped: boolean = false;
+  readonly inputSection = input.required<ScenarioData>({ alias: 'section' });
+  get section(): ScenarioData {
+    return this.inputSection();
+  }
+
+  readonly flipped = input<boolean>(false);
 
   standees: MonsterStandeeData[] = [];
   monster: MonsterData[] = [];

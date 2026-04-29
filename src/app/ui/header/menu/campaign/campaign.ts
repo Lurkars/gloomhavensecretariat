@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -32,7 +32,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 export class CampaignMenuComponent implements OnInit {
   private dialog = inject(Dialog);
 
-  @Output() closed = new EventEmitter();
+  readonly closed = output();
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;

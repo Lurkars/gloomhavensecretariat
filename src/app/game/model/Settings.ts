@@ -187,6 +187,7 @@ export class Settings {
   scenarioStats: boolean = false;
   serverAutoconnect: boolean = true;
   serverCode: string | undefined;
+  serverExportCode: boolean = true;
   serverPassword: string | undefined;
   serverPing: number = 0;
   serverPort: number | undefined;
@@ -295,6 +296,7 @@ export const localSettings: string[] = [
   'pressDoubleClick',
   'serverAutoconnect',
   'serverCode',
+  'serverExportCode',
   'serverPassword',
   'serverPing',
   'serverPort',

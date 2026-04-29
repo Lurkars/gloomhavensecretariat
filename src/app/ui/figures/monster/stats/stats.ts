@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit, inject, input, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -32,11 +32,15 @@ export class MonsterStatsComponent implements OnInit {
   private element = inject(ElementRef);
   private ghsManager = inject(GhsManager);
 
-  @Input() monster!: Monster;
-  @Input() forceStats: boolean = false;
-  @Input() relative: boolean = false;
-  @Input() noClick: boolean = false;
-  @Input() disablePoup: boolean = false;
+  readonly inputMonster = input.required<Monster>({ alias: 'monster' });
+  get monster(): Monster {
+    return this.inputMonster();
+  }
+
+  readonly forceStats = input<boolean>(false);
+  readonly relative = input<boolean>(false);
+  readonly noClick = input<boolean>(false);
+  readonly disablePoup = input<boolean>(false);
   MonsterType = MonsterType;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -55,7 +59,7 @@ export class MonsterStatsComponent implements OnInit {
   statEffect: MonsterStatEffect | undefined;
   monsterCopy!: Monster;
 
-  @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
+  readonly levelButton = viewChild.required('levelButton', { read: ElementRef });
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
@@ -90,20 +94,20 @@ export class MonsterStatsComponent implements OnInit {
     if (this.monster.boss) {
       this.stats = gameManager.monsterManager.getStat(this.monster, MonsterType.boss);
       this.hideStats =
-        !this.forceStats &&
+        !this.forceStats() &&
         settingsManager.settings.hideStats &&
         this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type !== MonsterType.boss);
     } else {
       const statsType = !this.monster.bb || !this.monster.tags.includes('bb-elite') ? MonsterType.normal : MonsterType.elite;
       this.stats = gameManager.monsterManager.getStat(this.monster, statsType);
       this.hideStats =
-        !this.forceStats &&
+        !this.forceStats() &&
         settingsManager.settings.hideStats &&
         this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type !== statsType);
       if (!this.monster.bb) {
         this.eliteStats = gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
         this.hideEliteStats =
-          !this.forceStats &&
+          !this.forceStats() &&
           settingsManager.settings.hideStats &&
           this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type !== MonsterType.elite);
       }
@@ -128,7 +132,7 @@ export class MonsterStatsComponent implements OnInit {
     const levelDialog = this.dialog.open(MonsterLevelDialogComponent, {
       panelClass: ['dialog'],
       data: this.monster,
-      positionStrategy: this.overlay.position().flexibleConnectedTo(this.levelButton).withPositions(ghsDefaultDialogPositions())
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.levelButton()).withPositions(ghsDefaultDialogPositions())
     });
     levelDialog.closed.subscribe({
       next: (level) => {
@@ -140,28 +144,28 @@ export class MonsterStatsComponent implements OnInit {
   }
 
   openStatsPopup() {
-    if (!this.noClick && !this.monster.bb) {
+    if (!this.noClick() && !this.monster.bb) {
       this.dialog.open(MonsterStatsDialogComponent, {
         panelClass: ['dialog'],
         data: this.monster
       });
-    } else if (!this.disablePoup) {
+    } else if (!this.disablePoup()) {
       this.openStatPopup();
     }
   }
 
   openStatPopup() {
-    if (!this.noClick && !this.disablePoup) {
+    if (!this.noClick() && !this.disablePoup()) {
       this.dialog.open(MonsterStatDialogComponent, {
         panelClass: ['fullscreen-panel'],
         disableClose: true,
-        data: { monster: this.monster, forceStats: this.forceStats }
+        data: { monster: this.monster, forceStats: this.forceStats() }
       });
     }
   }
 
   openEntityMenu(): void {
-    if (!this.noClick) {
+    if (!this.noClick()) {
       this.dialog.open(EntitiesMenuDialogComponent, {
         panelClass: ['dialog'],
         data: {

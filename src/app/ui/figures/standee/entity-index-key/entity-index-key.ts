@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DoCheck, Input, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck, OnInit, inject, input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { Entity } from 'src/app/game/model/Entity';
@@ -16,8 +16,11 @@ export class EntityIndexKeyComponent implements OnInit, DoCheck {
   private ghsManager = inject(GhsManager);
 
   gameManager: GameManager = gameManager;
-  @Input() entity!: Entity;
-  @Input() show: boolean = false;
+  readonly inputEntity = input.required<Entity>({ alias: 'entity' });
+  get entity(): Entity {
+    return this.inputEntity();
+  }
+  readonly show = input<boolean>(false);
 
   entityIndex: number = -1;
   isKeyboardSelecting: 's' | 'w' | false = false;

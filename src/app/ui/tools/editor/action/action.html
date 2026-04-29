@@ -3,18 +3,18 @@
     <span class="type" [ghs-label]="'editor.action.type'"></span>
 
     <label class="small">
-      @if (!hideValues) {
+      @if (!hideValues()) {
         <input type="checkbox" [(ngModel)]="action.small" (change)="change()" />
       }
-      @if (!hideValues) {
+      @if (!hideValues()) {
         <span [ghs-label]="'editor.action.small'"></span>
       }
     </label>
 
     <span class="spacer"></span>
 
-    @if (subactionIndex || subactionIndex === 0) {
-      <a class="remove" (click)="subActionRemoved.emit(subactionIndex)">
+    @if (subactionIndex() || subactionIndex() === 0) {
+      <a class="remove" (click)="subActionRemoved.emit(subactionIndex() || 0)">
         <img class="ghs-icon" src="./assets/images/minus.svg" />
         <span [ghs-label]="'editor.action.removeSubAction'"></span>
       </a>
@@ -27,7 +27,7 @@
     }
   </select>
 
-  @if (!hideValues && ![ActionType.jump].includes(action.type)) {
+  @if (!hideValues() && ![ActionType.jump].includes(action.type)) {
     <label><span [ghs-label]="'editor.action.value'"></span></label>
   }
 
@@ -45,7 +45,7 @@
   }
 
   @if (
-    !hideValues &&
+    !hideValues() &&
     ![
       ActionType.area,
       ActionType.card,
@@ -62,7 +62,7 @@
     <input type="text" [ngModel]="action.value" (ngModelChange)="action.value = valueChange($event)" (change)="change()" />
   }
 
-  @if (!hideValues && action.type === ActionType.custom) {
+  @if (!hideValues() && action.type === ActionType.custom) {
     <textarea [ngModel]="action.value" (ngModelChange)="action.value = valueChange($event)" (change)="change()"> </textarea>
   }
 
@@ -75,7 +75,7 @@
           (clickCallback)="toggleHex($event)"
           (doubleclickCallback)="removeHex($event)"
           [character]="character"
-          [cardId]="cardId"
+          [cardId]="cardId()"
         >
         </ghs-action-hex>
       </div>
@@ -117,7 +117,7 @@
       }
       @if (!!summon) {
         <div class="summon-form">
-          <ghs-action-summon [action]="action" [additional]="true" [character]="character" [cardId]="cardId"></ghs-action-summon>
+          <ghs-action-summon [action]="action" [additional]="true" [character]="character" [cardId]="cardId()"></ghs-action-summon>
           <input class="summon-name" [(ngModel)]="summon.name" (change)="changeSummon()" />
           <div class="grid">
             <span class="item">
@@ -215,7 +215,7 @@
   }
 
   @if (
-    !hideValues &&
+    !hideValues() &&
     ![
       ActionType.area,
       ActionType.card,
@@ -244,7 +244,7 @@
     </select>
   }
 
-  @if (!hideValues) {
+  @if (!hideValues()) {
     <div class="enhancements">
       <div class="header">
         <label [ghs-label]="'editor.action.enhancements'"></label>

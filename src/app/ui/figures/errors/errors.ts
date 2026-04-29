@@ -1,5 +1,5 @@
 import { Dialog, DIALOG_DATA } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, OnInit } from '@angular/core';
 import { Character } from 'src/app/game/model/Character';
 import { Monster } from 'src/app/game/model/Monster';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -15,7 +15,10 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 export class FigureErrorsComponent implements OnInit {
   private dialog = inject(Dialog);
 
-  @Input() figure!: Monster | Character;
+  readonly inputFigure = input.required<Monster | Character>({ alias: 'figure' });
+  get figure(): Monster | Character {
+    return this.inputFigure();
+  }
 
   ngOnInit(): void {
     if (!this.figure.errors) {

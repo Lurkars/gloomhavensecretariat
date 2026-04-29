@@ -1,8 +1,8 @@
-@if (highlightedConditions.length > 0) {
-  <div class="highlight-conditions">
+@if (highlightedConditions.length > 0 || highlightedActions.length > 0 || highlightedActionsPersistent.length > 0) {
+  <div class="highlights">
     @for (entityCondition of highlightedConditions | trackUUID; track entityCondition._trackUUID) {
       <span
-        class="condition"
+        class="item"
         [conditionHighlight]="entityCondition"
         [ngClass]="{
           apply:
@@ -71,6 +71,34 @@
             <img class="ghs-svg" src="./assets/images/check.svg" />
           </a>
         }
+      </span>
+    }
+
+    @for (action of highlightedActions | trackUUID; track action._trackUUID) {
+      <span class="item apply">
+        <a class="close" ghs-pointer-input (singleClick)="changeAction(action, false, false)">
+          <img class="ghs-svg" src="./assets/images/close_dialog.svg" />
+        </a>
+
+        <ghs-action [action]="action"></ghs-action>
+
+        <a class="check" ghs-pointer-input (singleClick)="changeAction(action, true, false)">
+          <img class="ghs-svg" src="./assets/images/check.svg" />
+        </a>
+      </span>
+    }
+
+    @for (action of highlightedActionsPersistent | trackUUID; track action._trackUUID) {
+      <span class="item apply">
+        <a class="close" ghs-pointer-input (singleClick)="changeAction(action, false, true)">
+          <img class="ghs-svg" src="./assets/images/close_dialog.svg" />
+        </a>
+
+        <ghs-action [action]="action"></ghs-action>
+
+        <a class="check" ghs-pointer-input (singleClick)="changeAction(action, true, true)">
+          <img class="ghs-svg" src="./assets/images/check.svg" />
+        </a>
       </span>
     }
   </div>

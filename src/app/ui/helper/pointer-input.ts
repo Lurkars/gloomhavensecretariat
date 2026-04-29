@@ -1,4 +1,6 @@
-import { DestroyRef, Directive, ElementRef, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { DestroyRef, Directive, ElementRef, inject, input, OnInit, output } from '@angular/core';
+import { outputFromObservable } from '@angular/core/rxjs-interop';
+import { Subject } from 'rxjs';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { PointerInputService } from 'src/app/ui/helper/pointer-input-service';
 
@@ -20,22 +22,25 @@ export class PointerInputDirective implements OnInit {
 
   private destroyRef = inject(DestroyRef);
 
-  @Input() clickBehind: boolean = false;
-  @Input() relative: boolean = false;
-  @Input() screenWidth: boolean = false;
-  @Input() repeat: boolean = false;
-  @Input() disabled: boolean = false;
-  @Input() draggingDisabled: boolean = false;
-  @Input() forcePress: boolean = false;
-  @Input() forceDoubleClick: boolean = false;
-  @Input() onRelease: boolean = false;
-  @Input() fastShift: boolean = false;
-  @Output() dragMove = new EventEmitter<number>();
-  @Output() dragEnd = new EventEmitter<number>();
-  @Output() dragCancel = new EventEmitter<number>();
+  readonly clickBehind = input<boolean>(false);
+  readonly relative = input<boolean>(false);
+  readonly screenWidth = input<boolean>(false);
+  readonly repeat = input<boolean>(false);
+  readonly disabled = input<boolean>(false);
+  readonly draggingDisabled = input<boolean>(false);
+  readonly forcePress = input<boolean>(false);
+  readonly forceDoubleClick = input<boolean>(false);
+  readonly onRelease = input<boolean>(false);
+  readonly fastShift = input<boolean>(false);
+  private _dragMove$ = new Subject<number>();
+  readonly dragMove = outputFromObservable(this._dragMove$);
+  private _dragEnd$ = new Subject<number>();
+  readonly dragEnd = outputFromObservable(this._dragEnd$);
+  readonly dragCancel = output<number>();
 
-  @Output() singleClick: EventEmitter<any> = new EventEmitter<any>();
-  @Output() doubleClick: EventEmitter<any> = new EventEmitter<any>();
+  readonly singleClick = output<any>();
+  private _doubleClick$ = new Subject<any>();
+  readonly doubleClick = outputFromObservable(this._doubleClick$);
 
   timeout: any = null;
   relativeValue: number = -1;
@@ -73,20 +78,20 @@ export class PointerInputDirective implements OnInit {
     this.down = true;
     this.startX = event.clientX;
     this.startY = event.clientY;
-    if (!this.move && this.repeat && !this.doubleClick.observed) {
+    if (!this.move && this.repeat() && !this._doubleClick$.observed) {
       this.repeats = -1;
       this.repeatTimeout(event);
     } else if (
-      this.forcePress ||
+      this.forcePress() ||
       (settingsManager.settings.pressDoubleClick &&
-        !this.forceDoubleClick &&
-        this.doubleClick.observed &&
+        !this.forceDoubleClick() &&
+        this._doubleClick$.observed &&
         !this.move &&
         event.pointerType === 'touch')
     ) {
       this.timeout = setTimeout(() => {
-        if (event.pointerType === 'mouse' || !this.onRelease) {
-          this.doubleClick.emit(event);
+        if (event.pointerType === 'mouse' || !this.onRelease()) {
+          this._doubleClick$.next(event);
         }
         this.timeout = null;
         this.clicks = 2;
@@ -118,32 +123,35 @@ export class PointerInputDirective implements OnInit {
           this.timeout = null;
         }
       } else if (!this.move) {
-        if (!this.forcePress && (event.pointerType === 'mouse' || !settingsManager.settings.pressDoubleClick || this.forceDoubleClick)) {
+        if (
+          !this.forcePress() &&
+          (event.pointerType === 'mouse' || !settingsManager.settings.pressDoubleClick || this.forceDoubleClick())
+        ) {
           this.clicks++;
           if (this.timeout) {
             clearTimeout(this.timeout);
             this.timeout = null;
           }
-          if (this.clicks === 2 && this.doubleClick.observed) {
-            this.doubleClick.emit(event);
+          if (this.clicks === 2 && this._doubleClick$.observed) {
+            this._doubleClick$.next(event);
             this.clicks = 0;
           } else {
             this.timeout = setTimeout(
               () => {
-                if (this.clicks > 0 && (!this.repeat || this.doubleClick.observed)) {
+                if (this.clicks > 0 && (!this.repeat() || this._doubleClick$.observed)) {
                   this.singleClick.emit(event);
                 }
                 this.clicks = 0;
                 this.timeout = null;
               },
-              this.doubleClick.observed ? doubleClickTreshhold : 0
+              this._doubleClick$.observed ? doubleClickTreshhold : 0
             );
           }
-        } else if (event.pointerType === 'touch' && this.onRelease && this.clicks === 2) {
-          this.doubleClick.emit(event);
+        } else if (event.pointerType === 'touch' && this.onRelease() && this.clicks === 2) {
+          this._doubleClick$.next(event);
           this.clicks = 0;
         } else {
-          if (this.clicks < 2 && (!this.repeat || this.doubleClick.observed)) {
+          if (this.clicks < 2 && (!this.repeat() || this._doubleClick$.observed)) {
             this.singleClick.emit(event);
           }
           if (this.timeout) {
@@ -161,10 +169,10 @@ export class PointerInputDirective implements OnInit {
 
   panstart() {
     if (
-      !this.disabled &&
-      !this.draggingDisabled &&
+      !this.disabled() &&
+      !this.draggingDisabled() &&
       settingsManager.settings.dragValues &&
-      (this.dragMove.observed || this.dragEnd.observed)
+      (this._dragMove$.observed || this._dragEnd$.observed)
     ) {
       this.elementRef.nativeElement.classList.add('dragging');
     }
@@ -177,14 +185,15 @@ export class PointerInputDirective implements OnInit {
 
   panmove(event: PointerEvent) {
     if (
-      !this.disabled &&
-      !this.draggingDisabled &&
+      !this.disabled() &&
+      !this.draggingDisabled() &&
       settingsManager.settings.dragValues &&
-      (this.dragMove.observed || this.dragEnd.observed)
+      (this._dragMove$.observed || this._dragEnd$.observed)
     ) {
       const rect = this.elementRef.nativeElement.getBoundingClientRect();
       const x = event.clientX;
-      if (this.screenWidth) {
+      const relative = this.relative();
+      if (this.screenWidth()) {
         if (document.body.clientWidth > dragWidthThreshold) {
           this.value = Math.min(
             99,
@@ -192,34 +201,34 @@ export class PointerInputDirective implements OnInit {
           );
         } else {
           this.value = Math.min(99, Math.max(0, (x / document.body.clientWidth) * 100));
-          if (this.relative) {
+          if (relative) {
             this.value = this.value * dragWidthFactor;
           }
         }
       } else {
         this.value = Math.min(99, Math.max(0, ((x - rect.left) / rect.width) * 100));
       }
-      if (this.relative && this.relativeValue === -1) {
+      if (relative && this.relativeValue === -1) {
         this.relativeValue = this.value;
       }
       if (this.fast) {
         this.fastOffset += x - this.lastX < 0 ? -1 : 1;
       }
-      this.value = Math.floor(this.relative ? this.value - this.relativeValue : this.value) + this.fastOffset;
+      this.value = Math.floor(relative ? this.value - this.relativeValue : this.value) + this.fastOffset;
       this.lastX = x;
-      this.dragMove.emit(this.value);
+      this._dragMove$.next(this.value);
     }
   }
 
   panend() {
     if (
-      !this.disabled &&
-      !this.draggingDisabled &&
+      !this.disabled() &&
+      !this.draggingDisabled() &&
       settingsManager.settings.dragValues &&
-      (this.dragMove.observed || this.dragEnd.observed) &&
-      (this.value >= 0 || this.relative)
+      (this._dragMove$.observed || this._dragEnd$.observed) &&
+      (this.value >= 0 || this.relative())
     ) {
-      this.dragEnd.emit(this.value);
+      this._dragEnd$.next(this.value);
     }
     this.reset();
   }

@@ -1,4 +1,4 @@
-<div class="actions" [ngClass]="{ inline: inline, right: right, fh: settingsManager.settings.fhStyle }">
+<div class="actions" [ngClass]="{ inline: inline(), right: right(), fh: settingsManager.settings.fhStyle }">
   @for (action of actions | trackUUID; track action._trackUUID; let index = $index) {
     @if (divider[index]) {
       <div class="divider"></div>
@@ -6,24 +6,23 @@
     <ghs-action
       [action]="action"
       [monster]="monster"
-      [monsterType]="monsterType"
+      [monsterType]="monsterType()"
       [objective]="objective"
-      [inline]="inline"
-      [right]="right"
-      [textBlack]="textBlack"
-      [hexSize]="hexSize"
-      [relative]="relative"
-      [statsCalculation]="statsCalculation"
-      [shieldStats]="shieldStats"
-      [highlight]="highlightActions.includes(action.type)"
-      [interactiveAbilities]="interactiveAbilities"
-      [interactiveActions]="interactiveActions"
-      (interactiveActionsChange)="onInteractiveActionsChange($event)"
-      [index]="(actionIndex ? actionIndex + '-' : '') + index"
-      [style]="style"
+      [inline]="inline()"
+      [right]="right()"
+      [textBlack]="textBlack()"
+      [hexSize]="hexSize()"
+      [relative]="relative()"
+      [statsCalculation]="statsCalculation()"
+      [shieldStats]="shieldStats()"
+      [highlight]="highlightActions().includes(action.type)"
+      [interactiveAbilities]="interactiveAbilities()"
+      [(interactiveActions)]="interactiveActions"
+      [index]="(actionIndex() ? actionIndex() + '-' : '') + index"
+      [style]="style()"
       [character]="character"
-      [cardId]="cardId"
-      [ngClass]="{ spacing: !noDivider && !inline && index > 0 && !divider[index] && spacing[index] }"
+      [cardId]="cardId()"
+      [ngClass]="{ spacing: !noDivider() && !inline() && index > 0 && !divider[index] && spacing[index] }"
     >
     </ghs-action>
   }

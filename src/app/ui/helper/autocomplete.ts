@@ -1,4 +1,4 @@
-import { Directive, ElementRef, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
+import { Directive, ElementRef, OnInit, inject, input, output } from '@angular/core';
 import autocomplete, { AutocompleteEvent } from 'autocompleter';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 
@@ -22,24 +22,24 @@ export class AutocompleteItem {
 export class AutocompleteDirective implements OnInit {
   private el = inject(ElementRef);
 
-  @Input('autocomplete') values: AutocompleteItem[] = [];
-  @Input() spoiler: boolean = false;
-  @Input() emptyLabel: string = '';
-  @Output('keyup.enter') selected: EventEmitter<string> = new EventEmitter<string>();
+  readonly values = input<AutocompleteItem[]>([], { alias: 'autocomplete' });
+  readonly spoiler = input<boolean>(false);
+  readonly emptyLabel = input<string>('');
+  readonly selected = output<string>({ alias: 'keyup.enter' });
 
   ngOnInit(): void {
     const container = document.createElement('div');
     this.el.nativeElement.after(container);
-    const select = this.selected;
+    const emptyLabel = this.emptyLabel();
     autocomplete({
       input: this.el.nativeElement,
       container: container,
-      emptyMsg: this.emptyLabel ? settingsManager.getLabel(this.emptyLabel) : '',
+      emptyMsg: emptyLabel ? settingsManager.getLabel(emptyLabel) : '',
       minLength: 3,
       disableAutoSelect: true,
       fetch: (text: string, update: (items: AutocompleteItem[] | false) => void) => {
         update(
-          this.values
+          this.values()
             .filter((value) => value.label && value.label.toLowerCase().startsWith(text.toLowerCase()))
             .sort((a, b) => {
               if (a.revelead && !b.revelead) {
@@ -53,7 +53,7 @@ export class AutocompleteDirective implements OnInit {
       },
       onSelect: (item: AutocompleteItem) => {
         this.el.nativeElement.value = item.label || '';
-        select.emit(item.label);
+        this.selected.emit(item.label);
       },
       render: (item: AutocompleteItem): HTMLDivElement | undefined => {
         const itemElement = document.createElement('div');
@@ -64,7 +64,7 @@ export class AutocompleteDirective implements OnInit {
         return itemElement;
       },
       customize: () => {
-        if (this.spoiler && (container.children.length > 1 || this.el.nativeElement.value.length < 6)) {
+        if (this.spoiler() && (container.children.length > 1 || this.el.nativeElement.value.length < 6)) {
           for (let i = 0; i < container.children.length; i++) {
             const child = container.children[i] as HTMLElement;
             if (child.classList.contains('selected')) {
@@ -104,7 +104,7 @@ export class AutocompleteDirective implements OnInit {
           case 'ArrowDown':
           case 'Escape':
           case 'Backspace':
-            if (this.spoiler && (container.children.length > 1 || this.el.nativeElement.value.length < 6)) {
+            if (this.spoiler() && (container.children.length > 1 || this.el.nativeElement.value.length < 6)) {
               for (let i = 0; i < container.children.length; i++) {
                 const child = container.children[i] as HTMLElement;
                 if (child.classList.contains('selected')) {

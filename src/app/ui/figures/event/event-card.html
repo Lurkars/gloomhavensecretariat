@@ -1,7 +1,7 @@
 <div class="event-card-container" #container>
   <div
     class="card vertical reverse event {{ selected }}"
-    [ngClass]="{ flipped: selected !== -1 || (flipped && !spoilerFree), disabled: disabled, 'show-debug': showDebug }"
+    [ngClass]="{ flipped: selected !== -1 || (flipped && !spoilerFree), disabled: disabled(), 'show-debug': showDebug }"
     [style.fontSize]="container.offsetWidth * 0.07 + 'px'"
   >
     <div
@@ -106,7 +106,7 @@
                       [eventType]="event.type"
                       [light]="light"
                       [selected]="(selected === -1 && flipped) || (selected === i && subSelections.includes(outcomeIndex))"
-                      [debug]="debug"
+                      [debug]="debug()"
                     ></ghs-event-card-condition>
                   }
                   @if (outcome.condition) {
@@ -134,8 +134,8 @@
                           [selected]="(selected === -1 && flipped) || (selected === i && subSelections.includes(outcomeIndex))"
                           [inline]="outcome.inlineEffects || false"
                           [checks]="(!!checks && checks[effectIndex]) || 0"
-                          (checked)="onCheck(effectIndex, $event)"
-                          [debug]="debug"
+                          (checksChange)="onCheck(effectIndex, $event)"
+                          [debug]="debug()"
                         ></ghs-event-card-effect>
                       }
                     </div>
@@ -147,8 +147,8 @@
                       [eventType]="event.type"
                       [light]="light"
                       [selected]="attack"
-                      (toggled)="toggleAttack($event)"
-                      [debug]="debug"
+                      (selectedChange)="toggleAttack($event)"
+                      [debug]="debug()"
                     ></ghs-event-card-attack>
                   }
                   @if (

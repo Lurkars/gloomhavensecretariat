@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, inject, Input, OnChanges, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, model, OnChanges } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -40,21 +40,36 @@ import { ValueCalcDirective } from 'src/app/ui/helper/valueCalc';
 export class ActionSummonComponent implements OnChanges {
   private ghsManager = inject(GhsManager);
 
-  @Input() monster: Monster | undefined;
-  @Input() monsterType: MonsterType | undefined;
-  @Input() objective: ObjectiveContainer | undefined;
-  @Input() action!: Action;
-  @Input() textBlack: boolean = false;
-  @Input() right: boolean = false;
-  @Input('spawn') isSpawn: boolean = false;
-  @Input() additional: boolean = false;
-  @Input() interactiveAbilities: boolean = false;
-  @Input() interactiveActions: InteractiveAction[] = [];
-  @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
-  @Input('index') actionIndex: string = '';
-  @Input() style: 'gh' | 'fh' | false = false;
-  @Input() character: Character | undefined;
-  @Input() cardId: number | undefined;
+  readonly inputMonster = input<Monster>(undefined, { alias: 'monster' });
+  get monster(): Monster | undefined {
+    return this.inputMonster();
+  }
+
+  readonly inputCharacter = input<Character>(undefined, { alias: 'character' });
+  get character(): Character | undefined {
+    return this.inputCharacter();
+  }
+
+  readonly inputObjective = input<ObjectiveContainer>(undefined, { alias: 'objective' });
+  get objective(): ObjectiveContainer | undefined {
+    return this.inputObjective();
+  }
+
+  readonly inputAction = input.required<Action>({ alias: 'action' });
+  get action(): Action {
+    return this.inputAction();
+  }
+
+  readonly monsterType = input<MonsterType>();
+  readonly textBlack = input<boolean>(false);
+  readonly right = input<boolean>(false);
+  readonly isSpawn = input<boolean>(false, { alias: 'spawn' });
+  readonly additional = input<boolean>(false);
+  readonly interactiveAbilities = input<boolean>(false);
+  interactiveActions = model<InteractiveAction[]>([]);
+  readonly actionIndex = input<string>('', { alias: 'index' });
+  readonly style = input<'gh' | 'fh' | false>(false);
+  readonly cardId = input<number>();
   spawners: Entity[] = [];
   monsters: MonsterSpawnData[] = [];
   objectives: ObjectiveSpawnData[] = [];
@@ -81,7 +96,10 @@ export class ActionSummonComponent implements OnChanges {
       this.spawners = gameManager.entityManager
         .entities(this.monster, true)
         .map((entity) => entity as MonsterEntity)
-        .filter((entity) => !this.monsterType || entity.type === this.monsterType);
+        .filter((entity) => {
+          const monsterType = this.monsterType();
+          return !monsterType || entity.type === monsterType;
+        });
     } else if (this.objective instanceof ObjectiveContainer) {
       this.spawners = gameManager.entityManager.entities(this.objective, true).map((entity) => entity as ObjectiveEntity);
     }
@@ -95,7 +113,7 @@ export class ActionSummonComponent implements OnChanges {
         this.spawners.length
       ) {
         const spawner = this.spawners.find((entity) =>
-          gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)
+          gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex())
         );
         if (spawner) {
           spawn.count = EntityValueFunction(
@@ -112,7 +130,7 @@ export class ActionSummonComponent implements OnChanges {
     if (this.action && (this.action.value === 'summonData' || this.action.value === 'summonDataItem')) {
       this.summonData = this.action.valueObject as SummonData;
       if (!this.summonData.edition) {
-        if (this.character && this.cardId) {
+        if (this.character && this.cardId()) {
           this.summonData.edition = this.character.edition;
         } else if (this.monster) {
           this.summonData.edition = this.monster.edition;
@@ -170,19 +188,19 @@ export class ActionSummonComponent implements OnChanges {
   }
 
   highlightAction(): boolean {
-    return this.interactiveActions.find((interactiveAction) => interactiveAction.index === this.actionIndex) !== undefined || false;
+    return this.interactiveActions().find((interactiveAction) => interactiveAction.index === this.actionIndex()) !== undefined || false;
   }
 
   isInteractiveApplicableAction(): boolean {
     return (
-      (this.interactiveAbilities &&
+      (this.interactiveAbilities() &&
         this.monster &&
         this.monster.entities.some(
-          (entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)
+          (entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex())
         )) ||
       (this.objective &&
         this.objective.entities.some(
-          (entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)
+          (entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex())
         )) ||
       false
     );
@@ -191,11 +209,12 @@ export class ActionSummonComponent implements OnChanges {
   toggleHighlight(event: PointerEvent) {
     if (this.isInteractiveApplicableAction()) {
       if (this.highlightAction()) {
-        this.interactiveActions = this.interactiveActions.filter((interactiveAction) => interactiveAction.index !== this.actionIndex);
+        this.interactiveActions.set(
+          this.interactiveActions().filter((interactiveAction) => interactiveAction.index !== this.actionIndex())
+        );
       } else if (this.action) {
-        this.interactiveActions.push({ action: this.action, index: this.actionIndex });
+        this.interactiveActions.update((arr) => [...arr, { action: this.action, index: this.actionIndex() }]);
       }
-      this.interactiveActionsChange.emit(this.interactiveActions);
       event.preventDefault();
       event.stopPropagation();
     }

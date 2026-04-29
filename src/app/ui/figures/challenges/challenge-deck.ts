@@ -5,12 +5,11 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  EventEmitter,
   inject,
-  Input,
+  input,
   OnChanges,
   OnInit,
-  Output,
+  output,
   SimpleChanges
 } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -51,13 +50,17 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
 
   private cdr = inject(ChangeDetectorRef);
 
-  @Input() deck!: ChallengeDeck;
-  @Input() bottom: boolean = false;
-  @Input() fullscreen: boolean = true;
-  @Input() vertical: boolean = false;
-  @Output() before: EventEmitter<ChallengeDeckChange> = new EventEmitter<ChallengeDeckChange>();
-  @Output() after: EventEmitter<ChallengeDeckChange> = new EventEmitter<ChallengeDeckChange>();
-  @Input() initTimeout: number = 1500;
+  readonly inputChallengeDeck = input.required<ChallengeDeck>({ alias: 'deck' });
+  get deck(): ChallengeDeck {
+    return this.inputChallengeDeck();
+  }
+
+  readonly bottom = input<boolean>(false);
+  readonly fullscreen = input<boolean>(true);
+  readonly vertical = input<boolean>(false);
+  readonly before = output<ChallengeDeckChange>();
+  readonly after = output<ChallengeDeckChange>();
+  readonly initTimeout = input<number>(1500);
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   current: number = -1;
@@ -119,7 +122,7 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
           this.init = true;
           this.cdr.markForCheck();
         },
-        settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0
+        settingsManager.settings.animations ? this.initTimeout() * settingsManager.settings.animationSpeed : 0
       );
     }
 
@@ -230,7 +233,7 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
   }
 
   draw(event: any) {
-    if (this.compact && this.fullscreen) {
+    if (this.compact && this.fullscreen()) {
       this.openFullscreen(event);
     } else if (!this.drawDisabled && this.deck.cards.length > 0) {
       if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue === 0 ? 0 : 1)) {
@@ -257,7 +260,7 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
   }
 
   openFullscreen(event: any) {
-    if (this.fullscreen) {
+    if (this.fullscreen()) {
       this.dialog.open(ChallengeDeckFullscreenComponent, {
         panelClass: ['fullscreen-panel'],
         backdropClass: ['fullscreen-backdrop'],
@@ -292,7 +295,7 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
   open(event: any) {
     if (
       this.deck.cards.length > 0 &&
-      this.fullscreen &&
+      this.fullscreen() &&
       settingsManager.settings.automaticAttackModifierFullscreen &&
       settingsManager.settings.portraitMode &&
       (window.innerWidth < 800 || window.innerHeight < 400)

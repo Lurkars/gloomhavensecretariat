@@ -1,5 +1,5 @@
 <div class="menu-container data">
-  @if (!editionsOnly) {
+  @if (!editionsOnly()) {
     <div class="columns columns-break">
       <div class="column">
         <div class="line">
@@ -44,6 +44,7 @@
             >&lt;<span [ghs-label]="'datamanagement.resetSettings'"></span>(!)&gt;</a
           >
         </div>
+        <div class="line" ghs-setting-menu="serverExportCode"></div>
       </div>
       <div class="column">
         <div class="line">
@@ -288,11 +289,11 @@
     </div>
   }
 
-  @if (!editionsOnly) {
+  @if (!editionsOnly()) {
     <div class="separator"></div>
   }
   <div class="columns columns-break">
-    @if (!editionsOnly) {
+    @if (!editionsOnly()) {
       <div class="column">
         <div
           class="line title sticky"
@@ -449,7 +450,7 @@
       }
     </div>
 
-    @if (!editionsOnly) {
+    @if (!editionsOnly()) {
       <div class="column">
         @if (backups > 0) {
           <div class="line title">

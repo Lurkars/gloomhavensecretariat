@@ -1,6 +1,6 @@
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -8,13 +8,14 @@ import { storageManager } from 'src/app/game/businesslogic/StorageManager';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { GameModel } from 'src/app/game/model/Game';
 import { Settings } from 'src/app/game/model/Settings';
+import { SettingMenuComponent } from 'src/app/ui/header/menu/settings/setting/setting';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { ghsInputFullScreenCheck } from 'src/app/ui/helper/Static';
 import { TabClickDirective } from 'src/app/ui/helper/tabclick';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  imports: [NgClass, DragDropModule, GhsLabelDirective, TabClickDirective, TrackUUIDPipe],
+  imports: [NgClass, DragDropModule, GhsLabelDirective, TabClickDirective, TrackUUIDPipe, SettingMenuComponent],
   selector: 'ghs-datamanagement-menu',
   templateUrl: 'datamanagement.html',
   styleUrls: ['../menu.scss', 'datamanagement.scss'],
@@ -25,7 +26,7 @@ export class DatamanagementMenuComponent implements OnInit {
 
   private cdr = inject(ChangeDetectorRef);
 
-  @Input() editionsOnly: boolean = false;
+  readonly editionsOnly = input<boolean>(false);
 
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
@@ -306,6 +307,9 @@ export class DatamanagementMenuComponent implements OnInit {
     try {
       const settings = await storageManager.read<Settings>('settings', 'default');
       if (settings) {
+        if (!settingsManager.settings.serverExportCode) {
+          settings['serverCode'] = '';
+        }
         const downloadButton = document.createElement('a');
         downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(settings)));
         downloadButton.setAttribute('download', 'ghs-settings.json');

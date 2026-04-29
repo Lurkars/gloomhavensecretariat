@@ -1,5 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation, inject, input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ItemData } from 'src/app/game/model/data/ItemData';
@@ -22,18 +22,32 @@ export class TreasureLabelComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
 
-  @Input() treasure: TreasureData | undefined;
-  @Input() index!: number;
-  @Input() edition!: string;
-  @Input() rewardResults!: string[][];
-  @Input() itemCards: boolean = false;
+  readonly inputTreasure = input<TreasureData>(undefined, { alias: 'treasure' });
 
+  readonly inputEdition = input.required<string>({ alias: 'edition' });
+  get edition(): string {
+    return this.inputEdition();
+  }
+
+  readonly inputIndex = input<number>(-1, { alias: 'index' });
+
+  readonly inputRewardResults = input<string[][]>([], { alias: 'rewardResults' });
+  get rewardResults(): string[][] {
+    return this.inputRewardResults();
+  }
+
+  readonly itemCards = input<boolean>(false);
+
+  treasure: TreasureData | undefined;
+  index: number = -1;
   items: ItemData[] = [];
   rewardLabel: string[][] = [];
 
   labelPrefix = 'game.loot.treasures.rewards.';
 
   ngOnInit() {
+    this.treasure = this.inputTreasure();
+    this.index = this.inputIndex();
     if (!this.treasure) {
       const editionData = gameManager.editionData.find((editionData) => editionData.edition === this.edition);
       if (editionData && editionData.treasures) {
@@ -57,7 +71,7 @@ export class TreasureLabelComponent implements OnInit {
         this.rewardLabel[index] = this.calcRewardLabel(reward);
       });
 
-      if (this.itemCards) {
+      if (this.itemCards()) {
         this.treasure.rewards.forEach((reward, index) => {
           if (
             [TreasureRewardType.item, TreasureRewardType.itemBlueprint, TreasureRewardType.itemDesign, TreasureRewardType.itemFh].includes(

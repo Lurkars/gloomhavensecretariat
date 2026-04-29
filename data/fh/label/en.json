@@ -1228,7 +1228,17 @@
   },
   "character": {
     "fh": {
-      "banner-spear": "Banner Spear",
+      "banner-spear": {
+        "": "Banner Spear",
+        "banner-of-hope": {
+          "": "Banner of Hope",
+          "hint": "Automatically ask for %game.action.heal%1 on start of turn of allies"
+        },
+        "banner-of-strength": {
+          "": "Banner of Strength",
+          "hint": "Automatically ask to add %game.action.attack%+1 on start of turn of allies"
+        }
+      },
       "blinkblade": {
         "": "Blinkblade",
         "fast": "Fast",

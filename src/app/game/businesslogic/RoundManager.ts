@@ -1,5 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { SpecialActionsManager } from 'src/app/game/businesslogic/SpecialActionsManager';
 import { Character } from 'src/app/game/model/Character';
 import { ScenarioStats } from 'src/app/game/model/CharacterProgress';
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -22,8 +23,11 @@ export class RoundManager {
   working: boolean = false;
   firstRound: boolean = false;
 
+  specialActionsManager: SpecialActionsManager;
+
   constructor(game: Game) {
     this.game = game;
+    this.specialActionsManager = new SpecialActionsManager(game);
   }
 
   drawAvailable(): boolean {
@@ -281,6 +285,8 @@ export class RoundManager {
         if (settingsManager.settings.expireConditions) {
           gameManager.entityManager.restoreConditions(entity);
         }
+
+        this.specialActionsManager.beforeTurn(entity);
       });
 
       if (figure instanceof Character && !figure.absent) {
@@ -350,6 +356,7 @@ export class RoundManager {
       figure.entities.forEach((monsterEntity) => {
         if (!figure.off && monsterEntity.summon !== SummonState.new && gameManager.entityManager.isAlive(monsterEntity)) {
           monsterEntity.active = true;
+          this.specialActionsManager.turn(monsterEntity, figure);
         }
       });
     }
@@ -375,6 +382,11 @@ export class RoundManager {
       }
       if (!skipSummons && settingsManager.settings.activeSummons) {
         const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
+
+        if (activeSummon) {
+          this.specialActionsManager.afterTurn(activeSummon);
+        }
+
         const nextSummon = figure.summons.find(
           (summon, index, self) =>
             (!activeSummon || index > self.indexOf(activeSummon)) &&
@@ -411,6 +423,9 @@ export class RoundManager {
           if (settingsManager.settings.scenarioRules) {
             gameManager.scenarioRulesManager.applyScenarioRulesTurn(nextSummon);
           }
+
+          this.specialActionsManager.turn(nextSummon, figure);
+
           if (nextSummon.dead) {
             this.turn(figure);
           }
@@ -424,6 +439,7 @@ export class RoundManager {
             if (summon.active) {
               summon.active = false;
             }
+            this.specialActionsManager.afterTurn(summon);
           });
 
           if (figure.name === 'lightning' && figure.tags.includes('blood-pact')) {
@@ -442,6 +458,8 @@ export class RoundManager {
           if (settingsManager.settings.scenarioRules) {
             gameManager.scenarioRulesManager.applyScenarioRulesTurn(summon);
           }
+
+          this.specialActionsManager.afterTurn(summon);
         });
 
         if (figure.name === 'lightning' && figure.tags.includes('blood-pact')) {
@@ -495,6 +513,8 @@ export class RoundManager {
           figure.tags.push('roundAction-spider_mode');
         }
       }
+
+      this.specialActionsManager.turn(figure, figure);
     }
 
     if (
@@ -552,6 +572,7 @@ export class RoundManager {
         figure.entities.forEach((monsterEntity) => {
           monsterEntity.active = false;
           monsterEntity.off = true;
+          this.specialActionsManager.afterTurn(monsterEntity);
         });
       }
 
@@ -564,6 +585,8 @@ export class RoundManager {
       }
 
       if (figure instanceof Character) {
+        this.specialActionsManager.afterTurn(figure);
+
         figure.summons.forEach((summon) => {
           if (!settingsManager.settings.activeSummons) {
             summon.active = false;
@@ -580,6 +603,8 @@ export class RoundManager {
               }
             }
           }
+
+          this.specialActionsManager.afterTurn(summon);
         });
 
         if (figure.name === 'skull' && !figure.absent && figure.tags.includes('spirits')) {
@@ -758,10 +783,8 @@ export class RoundManager {
         figure.tokenValues[figure.primaryToken] = 0;
         figure.battleGoal = false;
         figure.battleGoals = [];
-        figure.shield = undefined;
-        figure.shieldPersistent = undefined;
-        figure.retaliate = [];
-        figure.retaliatePersistent = [];
+        figure.extraActions = [];
+        figure.extraActionsPersistent = [];
         figure.scenarioStats = new ScenarioStats();
 
         if (gameManager.fhRules() && figure.tags.includes('new-character')) {

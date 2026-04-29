@@ -2,7 +2,7 @@
   @if (selected !== -1) {
     <div class="recap">
       @if (scenarios[selected]) {
-        <ghs-scenario-recap [scenario]="scenarios[selected]" [forceAll]="forceAll"></ghs-scenario-recap>
+        <ghs-scenario-recap [scenario]="scenarios[selected]" [forceAll]="forceAll()"></ghs-scenario-recap>
         <span class="scenario">
           <span class="text-white" [ghs-label]="'%game.scenarioNumber:' + scenarios[selected]?.index + '%'"></span>
           @if (recaps[selected].type !== 'section' || !recaps[selected].value) {

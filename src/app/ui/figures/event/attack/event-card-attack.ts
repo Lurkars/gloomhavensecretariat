@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, model } from '@angular/core';
 import { EventCardAttack } from 'src/app/game/model/data/EventCard';
 import { EventCardEffectComponent } from 'src/app/ui/figures/event/effect/event-card-effect';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -13,24 +13,34 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   styleUrls: ['./event-card-attack.scss']
 })
 export class EventCardAttackComponent {
-  @Input() attack!: EventCardAttack;
-  @Input() edition!: string;
-  @Input() eventType!: string;
-  @Input() selected: boolean = false;
-  @Input() targetDescription: boolean = true;
-  @Input() narrative: boolean = true;
-  @Input() effects: boolean = true;
-  @Input() disabled: boolean = false;
-  @Input() light: boolean = false;
+  readonly inputAttack = input.required<EventCardAttack>({ alias: 'attack' });
+  get attack(): EventCardAttack {
+    return this.inputAttack();
+  }
 
-  @Output('toggled') toggled: EventEmitter<boolean> = new EventEmitter<boolean>();
+  readonly inputEdition = input<string>('', { alias: 'edition' });
+  get edition(): string {
+    return this.inputEdition();
+  }
 
-  @Input() debug: boolean = false;
+  readonly inputEventType = input<string>('', { alias: 'eventType' });
+  get eventType(): string {
+    return this.inputEventType();
+  }
+
+  readonly targetDescription = input<boolean>(true);
+  readonly narrative = input<boolean>(true);
+  readonly effects = input<boolean>(true);
+  readonly disabled = input<boolean>(false);
+  readonly light = input<boolean>(false);
+
+  selected = model<boolean>(false);
+
+  readonly debug = input<boolean>(false);
 
   toggleSelected() {
-    if (!this.disabled) {
-      this.selected = !this.selected;
-      this.toggled.emit(this.selected);
+    if (!this.disabled()) {
+      this.selected.set(!this.selected());
     }
   }
 }

@@ -1,25 +1,25 @@
 @if (!!attackModifier) {
-  <div class="attack-modifier {{ attackModifier.type }}" [ngClass]="{ 'town-guard': townGuard }">
+  <div class="attack-modifier {{ attackModifier.type }}" [ngClass]="{ 'town-guard': townGuard() }">
     <div
       class="card"
-      [ngClass]="{ flipped: flipped || attackModifier.revealed, 'no-animations': !animate }"
+      [ngClass]="{ flipped: flipped() || attackModifier.revealed, 'no-animations': !animate }"
       card-reveal
       (changed)="onChange($event)"
-      [disabled]="!reveal"
+      [disabled]="!reveal()"
       #card
     >
       <div class="card-back back">
         <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
       </div>
       <div class="card-front front">
-        @if (!townGuard) {
+        @if (!townGuard()) {
           @if ((!mixedElement && !multipe) || wildElement) {
             <div class="type {{ effectClasses }}" [ngClass]="{ 'new-style': newStyle, fh: settingsManager.settings.fhStyle }">
               <img
                 [src]="
                   './assets/images/attackmodifier/' +
                   (defaultType &&
-                  !townGuard &&
+                  !townGuard() &&
                   !csOak &&
                   !imbue &&
                   (!newStyle ||
@@ -161,16 +161,16 @@
             <img class="rolling" src="./assets/images/attackmodifier/rolling.svg" />
           }
           @if (
-            ((!characterIcon && !ally) || (!attackModifier.character && attackModifier.type !== AttackModifierType.curse)) &&
+            ((!characterIcon && !ally()) || (!attackModifier.character && attackModifier.type !== AttackModifierType.curse)) &&
             attackModifier.type !== AttackModifierType.bless &&
+            attackModifier.type !== AttackModifierType.minus1extra &&
             !csOak &&
-            !imbue &&
-            attackModifier.type !== AttackModifierType.minus1extra
+            !imbue
           ) {
-            <span class="numeration">{{ numeration }}</span>
+            <span class="numeration">{{ numeration() }}</span>
           }
           @if (
-            ((characterIcon || ally) && attackModifier.type === AttackModifierType.curse) ||
+            ((characterIcon || ally()) && attackModifier.type === AttackModifierType.curse) ||
             attackModifier.type === AttackModifierType.minus1extra
           ) {
             <span class="numeration character-curse-icon"> * </span>
@@ -227,7 +227,7 @@
               ></ghs-attackmodifier-effect>
             </div>
           }
-          @if (bbIndex > -1 && bbIndex < 3) {
+          @if (bbIndex() > -1 && bbIndex() < 3) {
             <div class="bb-index" [ngClass]="{ character: characterIcon }">
               <img [src]="'./assets/images/bb/attackmodifier/' + bbIndex + '.svg'" />
             </div>
@@ -238,7 +238,7 @@
             </span>
           }
         }
-        @if (townGuard) {
+        @if (townGuard()) {
           <div class="type" [ngClass]="{ 'new-style': newStyle, fh: settingsManager.settings.fhStyle }">
             <img
               [src]="

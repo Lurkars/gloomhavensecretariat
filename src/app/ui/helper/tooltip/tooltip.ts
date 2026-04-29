@@ -10,7 +10,7 @@ import {
   ElementRef,
   HostListener,
   inject,
-  Input,
+  input,
   OnInit
 } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -18,19 +18,19 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 
 @Component({
   imports: [NgClass, GhsLabelDirective],
-  selector: 'ghs-tooltip',
+  selector: 'ghs-tooltip-component',
   styleUrls: ['./tooltip.scss'],
   templateUrl: './tooltip.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GhsTooltipComponent {
-  @Input() value = '';
-  @Input('ghs-label-args') args: string[] = [];
-  @Input('ghs-label-args-replace') argLabel: boolean = true;
-  @Input() style: 'gh' | 'fh' | false = false;
-  @Input() relative: boolean = false;
-  @Input() size: 'small' | 'large' | undefined;
-  @Input() hint: boolean = false;
+  value = '';
+  args: string[] = [];
+  argLabel: boolean = true;
+  style: 'gh' | 'fh' | false = false;
+  relative: boolean = false;
+  size: 'small' | 'large' | undefined;
+  hint: boolean = false;
 }
 
 @Directive({
@@ -43,34 +43,34 @@ export class GhsTooltipDirective implements OnInit {
 
   private destroyRef = inject(DestroyRef);
 
-  @Input('ghs-tooltip') value = '';
-  @Input('ghs-label-args') args: (string | number | boolean)[] = [];
-  @Input('ghs-label-args-replace') argLabel: boolean = true;
-  @Input() style: 'gh' | 'fh' | false = false;
-  @Input() relative: boolean = false;
-  @Input() size: 'small' | 'large' | undefined;
-  @Input() hint: boolean = false;
-  @Input() toggable: boolean = true;
-  @Input() originX: 'start' | 'center' | 'end' | undefined;
-  @Input() originY: 'top' | 'center' | 'bottom' | undefined;
-  @Input() overlayX: 'start' | 'center' | 'end' | undefined;
-  @Input() overlayY: 'top' | 'center' | 'bottom' | undefined;
-  @Input() offsetX: number = 0;
-  @Input() offsetY: number = 0;
-  @Input() delay: number = 0;
-  @Input() disabled: boolean = false;
+  readonly value = input('', { alias: 'ghs-tooltip' });
+  readonly args = input<(string | number | boolean)[]>([], { alias: 'ghs-label-args' });
+  readonly argLabel = input<boolean>(true, { alias: 'ghs-label-args-replace' });
+  readonly style = input<'gh' | 'fh' | false>(false);
+  readonly relative = input<boolean>(false);
+  readonly size = input<'small' | 'large'>();
+  readonly hint = input<boolean>(false);
+  readonly toggable = input<boolean>(true);
+  readonly originX = input<'start' | 'center' | 'end'>();
+  readonly originY = input<'top' | 'center' | 'bottom'>();
+  readonly overlayX = input<'start' | 'center' | 'end'>();
+  readonly overlayY = input<'top' | 'center' | 'bottom'>();
+  readonly offsetX = input<number>(0);
+  readonly offsetY = input<number>(0);
+  readonly delay = input<number>(0);
+  readonly disabled = input<boolean>(false);
   private overlayRef!: OverlayRef;
   private timeout: any;
 
   ngOnInit(): void {
     const positionStrategy = this.overlayPositionBuilder.flexibleConnectedTo(this.elementRef).withPositions([
       {
-        originX: this.originX || 'start',
-        originY: this.originY || 'bottom',
-        overlayX: this.overlayX || (this.hint ? 'center' : 'start'),
-        overlayY: this.overlayY || 'top',
-        offsetX: this.offsetX,
-        offsetY: this.offsetY
+        originX: this.originX() || 'start',
+        originY: this.originY() || 'bottom',
+        overlayX: this.overlayX() || (this.hint() ? 'center' : 'start'),
+        overlayY: this.overlayY() || 'top',
+        offsetX: this.offsetX(),
+        offsetY: this.offsetY()
       }
     ]);
 
@@ -86,24 +86,24 @@ export class GhsTooltipDirective implements OnInit {
   @HostListener('mouseover')
   show() {
     if (
-      !this.disabled &&
-      (settingsManager.settings.tooltips || !this.toggable) &&
-      this.value &&
+      !this.disabled() &&
+      (settingsManager.settings.tooltips || !this.toggable()) &&
+      this.value() &&
       !this.overlayRef.hasAttached() &&
       !this.timeout
     ) {
       this.timeout = setTimeout(
         () => {
           const tooltipRef: ComponentRef<GhsTooltipComponent> = this.overlayRef.attach(new ComponentPortal(GhsTooltipComponent));
-          tooltipRef.instance.value = this.value;
-          tooltipRef.instance.args = this.args.map((arg) => '' + arg);
-          tooltipRef.instance.argLabel = this.argLabel;
-          tooltipRef.instance.style = this.style;
-          tooltipRef.instance.relative = this.relative;
-          tooltipRef.instance.size = this.size;
-          tooltipRef.instance.hint = this.hint;
+          tooltipRef.instance.value = this.value();
+          tooltipRef.instance.args = this.args().map((arg) => '' + arg);
+          tooltipRef.instance.argLabel = this.argLabel();
+          tooltipRef.instance.style = this.style();
+          tooltipRef.instance.relative = this.relative();
+          tooltipRef.instance.size = this.size();
+          tooltipRef.instance.hint = this.hint();
         },
-        this.delay || (!this.hint && 500) || 1
+        this.delay() || (!this.hint() && 500) || 1
       );
     }
   }

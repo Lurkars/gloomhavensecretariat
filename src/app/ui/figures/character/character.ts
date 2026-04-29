@@ -7,10 +7,10 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  Input,
   OnInit,
-  ViewChild,
-  inject
+  inject,
+  input,
+  viewChild
 } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -88,11 +88,13 @@ export class CharacterComponent implements OnInit {
   protected ghsManager = inject(GhsManager);
   protected cdr = inject(ChangeDetectorRef);
 
-  @Input() character!: Character;
+  readonly inputCharacter = input.required<Character>({ alias: 'character' });
+  get character(): Character {
+    return this.inputCharacter();
+  }
 
-  @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
-  @ViewChild('characterName') characterName!: ElementRef;
-  @ViewChild('summonButton') summonButton!: ElementRef;
+  readonly characterName = viewChild.required<ElementRef>('characterName');
+  readonly summonButton = viewChild.required<ElementRef>('summonButton');
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -124,10 +126,10 @@ export class CharacterComponent implements OnInit {
   summonCount: number = 0;
   skullSpiritCount: number = 0;
   activeConditions: EntityCondition[] = [];
+  extraActions: Action[] = [];
+  extraActionsPersistent: Action[] = [];
   specialActions: CharacterSpecialAction[] = [];
-  exhausted: boolean = false;
   off: boolean = false;
-  absent: boolean = false;
   battleGoalSelected: boolean = false;
   identityIcon: string = '';
 
@@ -171,14 +173,14 @@ export class CharacterComponent implements OnInit {
     this.shortMenu = false;
     this.bb = gameManager.bbRules() || this.character.bb;
     this.specialActions = this.character.specialActions.filter((specialAction) => this.character.tags.includes(specialAction.name));
-    this.exhausted = this.character.exhausted;
-    this.off = this.character.off || this.exhausted || this.character.health <= 0;
-    this.absent = this.character.absent;
+    this.off = this.character.off || this.character.exhausted || this.character.health <= 0;
     this.battleGoalSelected = this.character.battleGoal && this.character.battleGoals.length > 0;
     this.identityIcon =
       this.character.identities && this.character.identities.length
         ? gameManager.characterManager.characterIdentityIcon(this.character.name, this.character.identity)
         : '';
+    this.extraActions = [...this.character.extraActions.filter((action) => action.type !== ActionType.extra)];
+    this.extraActionsPersistent = [...this.character.extraActionsPersistent.filter((action) => action.type !== ActionType.extra)];
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
@@ -480,9 +482,9 @@ export class CharacterComponent implements OnInit {
       data: {
         entity: this.character,
         figure: this.character,
-        positionElement: this.characterName
+        positionElement: this.characterName()
       },
-      positionStrategy: this.overlay.position().flexibleConnectedTo(this.characterName).withPositions(ghsDefaultDialogPositions())
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.characterName()).withPositions(ghsDefaultDialogPositions())
     });
   }
 
@@ -508,7 +510,7 @@ export class CharacterComponent implements OnInit {
     this.dialog.open(CharacterSummonDialog, {
       panelClass: ['dialog'],
       data: this.character,
-      positionStrategy: this.overlay.position().flexibleConnectedTo(this.summonButton).withPositions(ghsDefaultDialogPositions('left'))
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.summonButton()).withPositions(ghsDefaultDialogPositions('left'))
     });
   }
 
@@ -680,83 +682,26 @@ export class CharacterComponent implements OnInit {
     });
   }
 
-  removeShield() {
-    gameManager.entityManager.before(this.character, this.character, 'changeShield', 0);
-    this.character.shield = undefined;
-    gameManager.stateManager.after();
-  }
+  removeExtraAction(action: Action, persistent: boolean = false) {
+    const actions = persistent
+      ? this.character.extraActionsPersistent.filter((other) => other != action)
+      : this.character.extraActions.filter((other) => other != action);
 
-  removeShieldPersistent() {
-    gameManager.entityManager.before(this.character, this.character, 'changeShieldPersistent', 0);
-    this.character.shieldPersistent = undefined;
-    gameManager.stateManager.after();
-  }
+    gameManager.entityManager.before(
+      this.character,
+      this.character,
+      persistent ? 'changeExtraActionsPersistent' : 'changeExtraActions',
+      actions.length
+        ? actions.map((action) => gameManager.actionsManager.extraActionLabel(action)).join(', ')
+        : gameManager.actionsManager.extraActionLabel(action)
+    );
 
-  removeRetaliate(index: number) {
-    const retaliate: Action[] = JSON.parse(JSON.stringify(this.character.retaliate));
-    const remove = retaliate.splice(index, 1)[0];
-    if (retaliate.length > 0) {
-      gameManager.entityManager.before(
-        this.character,
-        this.character,
-        'changeRetaliate',
-        retaliate
-          .map(
-            (action) =>
-              '%game.action.retaliate% ' +
-              EntityValueFunction(action.value) +
-              (action.subActions &&
-              action.subActions[0] &&
-              action.subActions[0].type === ActionType.range &&
-              EntityValueFunction(action.subActions[0].value) > 1
-                ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value)
-                : '')
-          )
-          .join(', ')
-      );
+    if (persistent) {
+      this.character.extraActionsPersistent = actions;
     } else {
-      gameManager.entityManager.before(
-        this.character,
-        this.character,
-        'changeRetaliate',
-        '%game.action.retaliate% ' + EntityValueFunction(remove.value)
-      );
+      this.character.extraActions = actions;
     }
-    this.character.retaliate = retaliate;
-    gameManager.stateManager.after();
-  }
 
-  removeRetaliatePersistent(index: number) {
-    const retaliatePersistent: Action[] = JSON.parse(JSON.stringify(this.character.retaliatePersistent));
-    const remove = retaliatePersistent.splice(index, 1)[0];
-    if (retaliatePersistent.length > 0) {
-      gameManager.entityManager.before(
-        this.character,
-        this.character,
-        'changeRetaliatePersistent',
-        retaliatePersistent
-          .map(
-            (action) =>
-              '%game.action.retaliate% ' +
-              EntityValueFunction(action.value) +
-              (action.subActions &&
-              action.subActions[0] &&
-              action.subActions[0].type === ActionType.range &&
-              EntityValueFunction(action.subActions[0].value) > 1
-                ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value)
-                : '')
-          )
-          .join(', ')
-      );
-    } else {
-      gameManager.entityManager.before(
-        this.character,
-        this.character,
-        'changeRetaliate',
-        '%game.action.retaliate% ' + EntityValueFunction(remove.value)
-      );
-    }
-    this.character.retaliatePersistent = retaliatePersistent;
     gameManager.stateManager.after();
   }
 

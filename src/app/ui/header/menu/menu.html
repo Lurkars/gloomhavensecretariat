@@ -191,16 +191,16 @@
       </div>
     }
     @case (SubMenu.scenario) {
-      <ghs-scenario-menu (close)="close()"></ghs-scenario-menu>
+      <ghs-scenario-menu (closed)="close()"></ghs-scenario-menu>
     }
     @case (SubMenu.section) {
       <ghs-section-menu></ghs-section-menu>
     }
     @case (SubMenu.character_add) {
-      <ghs-character-menu (close)="close()"></ghs-character-menu>
+      <ghs-character-menu (closed)="close()"></ghs-character-menu>
     }
     @case (SubMenu.campaign) {
-      <ghs-campaign-menu (close)="close()"></ghs-campaign-menu>
+      <ghs-campaign-menu (closed)="close()"></ghs-campaign-menu>
     }
     @case (SubMenu.character_remove) {
       <div class="menu-container character-remove">
@@ -297,7 +297,7 @@
       <ghs-settings-menu (setMenu)="setActive($event)"></ghs-settings-menu>
     }
     @case (SubMenu.debug) {
-      <ghs-debug-menu (close)="close()"></ghs-debug-menu>
+      <ghs-debug-menu (closed)="close()"></ghs-debug-menu>
     }
     @case (SubMenu.server) {
       <ghs-server-menu></ghs-server-menu>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -26,7 +26,7 @@ export class CharacterEditorComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
 
-  @ViewChild('inputCharacterData', { static: true }) inputCharacterData!: ElementRef;
+  readonly inputCharacterData = viewChild.required<ElementRef>('inputCharacterData');
 
   gameManager: GameManager = gameManager;
   encodeURIComponent = encodeURIComponent;
@@ -58,7 +58,7 @@ export class CharacterEditorComponent implements OnInit {
   async ngOnInit() {
     await settingsManager.init(!environment.production);
     this.characterDataToJson();
-    this.inputCharacterData.nativeElement.addEventListener('change', () => {
+    this.inputCharacterData().nativeElement.addEventListener('change', () => {
       this.characterDataFromJson();
     });
 
@@ -118,14 +118,15 @@ export class CharacterEditorComponent implements OnInit {
 
     const compactData: any = JSON.parse(JSON.stringify(this.characterData));
 
-    this.inputCharacterData.nativeElement.value = JSON.stringify(compactData, null, 2);
+    this.inputCharacterData().nativeElement.value = JSON.stringify(compactData, null, 2);
   }
 
   characterDataFromJson() {
     this.characterError = '';
-    if (this.inputCharacterData.nativeElement.value) {
+    const inputCharacterData = this.inputCharacterData();
+    if (inputCharacterData.nativeElement.value) {
       try {
-        this.characterData = JSON.parse(this.inputCharacterData.nativeElement.value);
+        this.characterData = JSON.parse(inputCharacterData.nativeElement.value);
         return;
       } catch (e) {
         this.characterData = new CharacterData();

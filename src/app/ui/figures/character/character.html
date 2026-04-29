@@ -24,7 +24,7 @@
   class="character"
   [style.--ghs-character-color]="character.color"
   [ngClass]="{
-    off: off || absent,
+    off: off || character.absent,
     denied: !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition],
     absent: character.absent,
     dimmed:
@@ -77,6 +77,7 @@
       <div class="attack-modifierdeck-container" [ngClass]="{ active: character.attackModifierDeckVisible }">
         <div class="scroll-container">
           <ghs-attackmodifier-deck
+            [deck]="character.attackModifierDeck"
             [character]="character"
             (before)="beforeAttackModifierDeck($event)"
             (after)="afterAttackModifierDeck($event)"
@@ -151,45 +152,31 @@
               }
               <span class="name" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="compact && openCharacterSheet()">
                 {{ characterTitle }}
-                @if (exhausted) {
+                @if (character.exhausted) {
                   <img class="ghs-svg exhausted" src="./assets/images/status/exhausted.svg" />
                 }
               </span>
             </span>
-            @if (settingsManager.settings.characterShieldRetaliate) {
-              <span class="actions">
-                @if (character.shield) {
-                  <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeShield()">
-                    <ghs-action [action]="character.shield" [style]="'fh'"></ghs-action>
+            <span class="actions">
+              @for (action of extraActions | trackUUID; track action._trackUUID; let i = $index) {
+                <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeExtraAction(action)">
+                  <ghs-action [action]="action" [style]="'fh'"></ghs-action>
+                </span>
+              }
+              @for (persistentAction of extraActionsPersistent | trackUUID; track persistentAction._trackUUID; let i = $index) {
+                <span
+                  class="action"
+                  ghs-pointer-input
+                  (singleClick)="openEntityMenu()"
+                  (doubleClick)="removeExtraAction(persistentAction, true)"
+                >
+                  <span class="action-overlay">
+                    <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
                   </span>
-                }
-                @for (retaliate of character.retaliate | trackUUID; track retaliate._trackUUID; let i = $index) {
-                  <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeRetaliate(i)">
-                    <ghs-action [action]="retaliate" [style]="'fh'"></ghs-action>
-                  </span>
-                }
-                @if (character.shieldPersistent) {
-                  <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeShieldPersistent()">
-                    <span class="action-overlay">
-                      <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
-                    </span>
-                    <ghs-action [action]="character.shieldPersistent" [style]="'fh'"></ghs-action>
-                  </span>
-                }
-                @for (
-                  retaliatePersistent of character.retaliatePersistent | trackUUID;
-                  track retaliatePersistent._trackUUID;
-                  let i = $index
-                ) {
-                  <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeRetaliatePersistent(i)">
-                    <span class="action-overlay">
-                      <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
-                    </span>
-                    <ghs-action [action]="retaliatePersistent" [style]="'fh'"></ghs-action>
-                  </span>
-                }
-              </span>
-            }
+                  <ghs-action [action]="persistentAction" [style]="'fh'"></ghs-action>
+                </span>
+              }
+            </span>
             <span class="token-container">
               @if (character.token + (character.primaryToken < 0 ? token : 0) > 0) {
                 <span
@@ -323,7 +310,7 @@
           <img [src]="character.iconUrl" />
         </span>
         {{ gameManager.characterManager.characterName(character, character.absent) }}
-        @if (exhausted) {
+        @if (character.exhausted) {
           <img class="ghs-svg exhausted" src="./assets/images/status/exhausted.svg" />
         }
       </div>
@@ -638,6 +625,7 @@
   >
     <div class="scroll-container">
       <ghs-attackmodifier-deck
+        [deck]="character.attackModifierDeck"
         [character]="character"
         (before)="beforeAttackModifierDeck($event)"
         (after)="afterAttackModifierDeck($event)"

@@ -97,26 +97,17 @@ export class ActionsManager {
       }
     }
 
-    if (entity.shield) {
-      const existingShield = actionHints.find((actionHint) => actionHint.type === ActionType.shield);
-      if (existingShield) {
-        existingShield.value += EntityValueFunction(entity.shield.value);
-      } else {
-        actionHints.push(new ActionHint(ActionType.shield, EntityValueFunction(entity.shield.value)));
-      }
-    }
-
-    if (entity.shieldPersistent) {
-      const existingShield = actionHints.find((actionHint) => actionHint.type === ActionType.shield);
-      if (existingShield) {
-        existingShield.value += EntityValueFunction(entity.shieldPersistent.value);
-      } else {
-        actionHints.push(new ActionHint(ActionType.shield, EntityValueFunction(entity.shieldPersistent.value)));
-      }
-    }
-
-    if (entity.retaliate) {
-      entity.retaliate.forEach((action) => {
+    entity.extraActions.forEach((action) => {
+      if (action.type === ActionType.shield) {
+        const existingShield = actionHints.find((actionHint) => actionHint.type === ActionType.shield);
+        const actionValue =
+          action.valueType === ActionValueType.minus ? -EntityValueFunction(action.value) : EntityValueFunction(action.value);
+        if (existingShield) {
+          existingShield.value += actionValue;
+        } else {
+          actionHints.push(new ActionHint(ActionType.shield, actionValue));
+        }
+      } else if (action.type === ActionType.retaliate) {
         const rangeSubAction = action.subActions.find((subAction) => subAction.type === ActionType.range);
         const existingRetaliate = actionHints.find((actionHint) => {
           if (!rangeSubAction || (EntityValueFunction(rangeSubAction.value) === 1 && (!actionHint.range || actionHint.range === 1))) {
@@ -125,22 +116,29 @@ export class ActionsManager {
             return actionHint.type === ActionType.retaliate && actionHint.range === EntityValueFunction(rangeSubAction.value);
           }
         });
+        const actionValue =
+          action.valueType === ActionValueType.minus ? -EntityValueFunction(action.value) : EntityValueFunction(action.value);
         if (existingRetaliate) {
-          existingRetaliate.value += EntityValueFunction(action.value);
+          existingRetaliate.value += actionValue;
         } else {
           actionHints.push(
-            new ActionHint(
-              ActionType.retaliate,
-              EntityValueFunction(action.value),
-              rangeSubAction ? EntityValueFunction(rangeSubAction.value) : 0
-            )
+            new ActionHint(ActionType.retaliate, actionValue, rangeSubAction ? EntityValueFunction(rangeSubAction.value) : 0)
           );
         }
-      });
-    }
+      }
+    });
 
-    if (entity.retaliatePersistent) {
-      entity.retaliatePersistent.forEach((action) => {
+    entity.extraActionsPersistent.forEach((action) => {
+      if (action.type === ActionType.shield) {
+        const existingShield = actionHints.find((actionHint) => actionHint.type === ActionType.shield);
+        const actionValue =
+          action.valueType === ActionValueType.minus ? -EntityValueFunction(action.value) : EntityValueFunction(action.value);
+        if (existingShield) {
+          existingShield.value += actionValue;
+        } else {
+          actionHints.push(new ActionHint(ActionType.shield, actionValue));
+        }
+      } else if (action.type === ActionType.retaliate) {
         const rangeSubAction = action.subActions.find((subAction) => subAction.type === ActionType.range);
         const existingRetaliate = actionHints.find((actionHint) => {
           if (!rangeSubAction || (EntityValueFunction(rangeSubAction.value) === 1 && (!actionHint.range || actionHint.range === 1))) {
@@ -149,19 +147,17 @@ export class ActionsManager {
             return actionHint.type === ActionType.retaliate && actionHint.range === EntityValueFunction(rangeSubAction.value);
           }
         });
+        const actionValue =
+          action.valueType === ActionValueType.minus ? -EntityValueFunction(action.value) : EntityValueFunction(action.value);
         if (existingRetaliate) {
-          existingRetaliate.value += EntityValueFunction(action.value);
+          existingRetaliate.value += actionValue;
         } else {
           actionHints.push(
-            new ActionHint(
-              ActionType.retaliate,
-              EntityValueFunction(action.value),
-              rangeSubAction ? EntityValueFunction(rangeSubAction.value) : 0
-            )
+            new ActionHint(ActionType.retaliate, actionValue, rangeSubAction ? EntityValueFunction(rangeSubAction.value) : 0)
           );
         }
-      });
-    }
+      }
+    });
 
     return actionHints.sort((a, b) => {
       if (a.type === ActionType.shield && b.type !== ActionType.shield) {
@@ -332,6 +328,8 @@ export class ActionsManager {
         return hasSelfSubAction && action.subActions.length === 1;
       case ActionType.sufferDamage:
         return !action.subActions || action.subActions.length === 0 || (hasSelfSubAction && action.subActions.length === 1);
+      case ActionType.damage:
+        return hasSelfSubAction && action.subActions.length === 1;
       case ActionType.switchType:
       case ActionType.element:
         return true;
@@ -390,6 +388,7 @@ export class ActionsManager {
           }
         }
         return false;
+      case ActionType.damage:
       case ActionType.sufferDamage:
       case ActionType.spawn:
       case ActionType.summon:
@@ -568,6 +567,7 @@ export class ActionsManager {
           gameManager.entityManager.addCondition(entity, figure, new Condition('' + action.value));
         }
         break;
+      case ActionType.damage:
       case ActionType.sufferDamage:
         entity.health -= EntityValueFunction(action.value, figure.level);
         if (entity.health <= 0) {
@@ -835,6 +835,21 @@ export class ActionsManager {
       !!action.subActions ? action.subActions.map((subAction) => this.copyAction(subAction)) : [],
       action.small,
       action.hidden
+    );
+  }
+
+  extraActionLabel(action: Action): string {
+    return (
+      '%game.action.' +
+      action.type +
+      '% ' +
+      EntityValueFunction(action.value) +
+      (action.subActions &&
+      action.subActions[0] &&
+      action.subActions[0].type === ActionType.range &&
+      EntityValueFunction(action.subActions[0].value) > 1
+        ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value)
+        : '')
     );
   }
 }

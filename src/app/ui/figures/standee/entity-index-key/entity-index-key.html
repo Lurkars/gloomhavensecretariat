@@ -1,4 +1,4 @@
-@if (isKeyboardSelecting || show) {
+@if (isKeyboardSelecting || show()) {
   <span class="key-container">
     @if (entityIndex >= 10) {
       <kbd [ngClass]="{ highlight: (entityIndex / 10 | ghsFloor) === keyboardSelect }"

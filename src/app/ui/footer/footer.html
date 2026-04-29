@@ -84,6 +84,7 @@
     >
       <ghs-attackmodifier-deck
         #characterAttackModifierDeckElement
+        [deck]="activeCharacter.attackModifierDeck"
         [character]="activeCharacter"
         (before)="beforeCharacterAttackModifierDeck(activeCharacter, $event)"
         (after)="afterCharacterAttackModifierDeck(activeCharacter, $event)"

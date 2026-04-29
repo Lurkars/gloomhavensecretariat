@@ -1,7 +1,8 @@
 <div
   class="initiative"
   [ngClass]="{
-    empty: initiative <= 0 && figure.initiative <= 0 && (!settingsManager.settings.initiativeRequired || (character && character.exhausted))
+    empty:
+      initiative() <= 0 && figure.initiative <= 0 && (!settingsManager.settings.initiativeRequired || (character && character.exhausted))
   }"
   [ghs-label]="'game.figure.setInitiative'"
   [ghs-label-attribute]="'title'"

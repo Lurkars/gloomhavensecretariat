@@ -7,9 +7,9 @@
     class="container"
     [ngClass]="{
       denied:
-        (!forceEdit && (!editable || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])) ||
+        (!forceEdit() && (!editable() || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])) ||
         settingsManager.settings.characterSheetLocked,
-      'view-only': (!forceEdit && !editable) || settingsManager.settings.characterSheetLocked
+      'view-only': (!forceEdit() && !editable()) || settingsManager.settings.characterSheetLocked
     }"
   >
     <div class="columns">
@@ -129,107 +129,38 @@
             ></a>
             <div class="resource-table">
               <div class="materials">
-                <div class="resource lumber">
-                  <img src="./assets/images/fh/loot/lumber.svg" />
-                  <input
-                    [value]="
-                      settingsManager.settings.fhShareResources ? gameManager.game.party.loot.lumber : character.progress.loot.lumber
-                    "
-                    type="number"
-                    min="0"
-                    (change)="setResource(LootType.lumber, $event)"
-                  />
-                </div>
-                <div class="resource metal">
-                  <img src="./assets/images/fh/loot/metal.svg" />
-                  <input
-                    [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.metal : character.progress.loot.metal"
-                    type="number"
-                    min="0"
-                    (change)="setResource(LootType.metal, $event)"
-                  />
-                </div>
-                <div class="resource hide">
-                  <img src="./assets/images/fh/loot/hide.svg" />
-                  <input
-                    [value]="settingsManager.settings.fhShareResources ? gameManager.game.party.loot.hide : character.progress.loot.hide"
-                    type="number"
-                    min="0"
-                    (change)="setResource(LootType.hide, $event)"
-                  />
-                </div>
+                @for (resource of materialResourceLootTypes; track resource) {
+                  <div class="resource {{ resource }}" [ghs-tooltip]="'game.loot.' + resource">
+                    <img [src]="'./assets/images/fh/loot/' + resource + '.svg'" />
+                    <input
+                      [value]="
+                        settingsManager.settings.fhShareResources
+                          ? gameManager.game.party.loot[resource] || 0
+                          : character.progress.loot[resource] || 0
+                      "
+                      type="number"
+                      min="0"
+                      (change)="setResource(resource, $event)"
+                    />
+                  </div>
+                }
               </div>
               <div class="herbs">
-                <div class="resource arrowvine">
-                  <img src="./assets/images/fh/loot/arrowvine.svg" />
-                  <input
-                    [value]="
-                      settingsManager.settings.fhShareResources ? gameManager.game.party.loot.arrowvine : character.progress.loot.arrowvine
-                    "
-                    type="number"
-                    min="0"
-                    (change)="setResource(LootType.arrowvine, $event)"
-                  />
-                </div>
-                <div class="resource axenut">
-                  <img src="./assets/images/fh/loot/axenut.svg" />
-                  <input
-                    [value]="
-                      settingsManager.settings.fhShareResources ? gameManager.game.party.loot.axenut : character.progress.loot.axenut
-                    "
-                    type="number"
-                    min="0"
-                    (change)="setResource(LootType.axenut, $event)"
-                  />
-                </div>
-                <div class="resource corpsecap">
-                  <img src="./assets/images/fh/loot/corpsecap.svg" />
-                  <input
-                    [value]="
-                      settingsManager.settings.fhShareResources ? gameManager.game.party.loot.corpsecap : character.progress.loot.corpsecap
-                    "
-                    type="number"
-                    min="0"
-                    (change)="setResource(LootType.corpsecap, $event)"
-                  />
-                </div>
-                <div class="resource flamefruit">
-                  <img src="./assets/images/fh/loot/flamefruit.svg" />
-                  <input
-                    [value]="
-                      settingsManager.settings.fhShareResources
-                        ? gameManager.game.party.loot.flamefruit
-                        : character.progress.loot.flamefruit
-                    "
-                    type="number"
-                    min="0"
-                    (change)="setResource(LootType.flamefruit, $event)"
-                  />
-                </div>
-                <div class="resource rockroot">
-                  <img src="./assets/images/fh/loot/rockroot.svg" />
-                  <input
-                    [value]="
-                      settingsManager.settings.fhShareResources ? gameManager.game.party.loot.rockroot : character.progress.loot.rockroot
-                    "
-                    type="number"
-                    min="0"
-                    (change)="setResource(LootType.rockroot, $event)"
-                  />
-                </div>
-                <div class="resource snowthistle">
-                  <img src="./assets/images/fh/loot/snowthistle.svg" />
-                  <input
-                    [value]="
-                      settingsManager.settings.fhShareResources
-                        ? gameManager.game.party.loot.snowthistle
-                        : character.progress.loot.snowthistle
-                    "
-                    type="number"
-                    min="0"
-                    (change)="setResource(LootType.snowthistle, $event)"
-                  />
-                </div>
+                @for (resource of herbResourceLootTypes; track resource) {
+                  <div class="resource {{ resource }}" [ghs-tooltip]="'game.loot.' + resource">
+                    <img [src]="'./assets/images/fh/loot/' + resource + '.svg'" />
+                    <input
+                      [value]="
+                        settingsManager.settings.fhShareResources
+                          ? gameManager.game.party.loot[resource] || 0
+                          : character.progress.loot[resource] || 0
+                      "
+                      type="number"
+                      min="0"
+                      (change)="setResource(resource, $event)"
+                    />
+                  </div>
+                }
               </div>
             </div>
           </div>
@@ -302,10 +233,10 @@
             class="list ignore-denied"
             [ngClass]="{
               denied:
-                !editable ||
+                !editable() ||
                 settingsManager.settings.characterSheetLocked ||
                 !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition],
-              'view-only': !editable || settingsManager.settings.characterSheetLocked
+              'view-only': !editable() || settingsManager.settings.characterSheetLocked
             }"
           >
             @for (perk of character.perks | trackUUID; track perk._trackUUID; let i = $index) {
@@ -317,7 +248,7 @@
                       [ngClass]="{
                         checked: character.progress.perks[i] && character.progress.perks[i] > count,
                         disabled:
-                          (!forceEdit && (gameManager.game.state !== GameState.draw || gameManager.game.round > 0)) ||
+                          (!forceEdit() && (gameManager.game.state !== GameState.draw || gameManager.game.round > 0)) ||
                           (character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1)
                       }"
                       ghs-pointer-input
@@ -434,7 +365,7 @@
               <label><span [ghs-label]="'character.progress.personalQuest'"></span>:</label>
               <div class="personal-quest-card">
                 <input class="card-id" [value]="character.progress.personalQuest" type="text" (change)="setPersonalQuest($event)" />
-                @if (editable && !personalQuest) {
+                @if (editable() && !personalQuest) {
                   <label
                     class="retire-button"
                     ghs-pointer-input
@@ -563,7 +494,7 @@
                   }
                 </div>
               }
-              @if (editable && personalQuest) {
+              @if (editable() && personalQuest) {
                 <label
                   class="retire-button"
                   ghs-pointer-input
@@ -599,7 +530,7 @@
               (keyup)="setExtraPerks($event)"
             />
           </div>
-          @if (editable && settingsManager.settings.partySheet && !gameManager.game.scenario) {
+          @if (editable() && settingsManager.settings.partySheet && !gameManager.game.scenario) {
             <div class="set-aside">
               <label (click)="setAside()">
                 <img src="./assets/images/long-rest.svg" /><span [ghs-label]="'character.setAside'"></span>

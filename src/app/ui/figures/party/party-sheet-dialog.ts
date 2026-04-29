@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass, SlicePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, inject, OnInit, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -17,7 +17,7 @@ import {
 } from 'src/app/game/model/data/EditionData';
 import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
-import { LootType } from 'src/app/game/model/data/Loot';
+import { herbResourceLootTypes, LootType, materialResourceLootTypes } from 'src/app/game/model/data/Loot';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Party } from 'src/app/game/model/Party';
 import { GameScenarioModel, Scenario, ScenarioCache } from 'src/app/game/model/Scenario';
@@ -87,6 +87,8 @@ export class PartySheetDialogComponent implements OnInit {
   party: Party;
   prosperitySteps = GH_PROSPERITY_STEPS;
   prosperityHighlightSteps = GH_PROSPERITY_STEPS;
+  materialResourceLootTypes = materialResourceLootTypes;
+  herbResourceLootTypes = herbResourceLootTypes;
   prosperitySections: Record<number, string> = {};
   imbuementSections: Record<number, string> = {};
 
@@ -134,8 +136,8 @@ export class PartySheetDialogComponent implements OnInit {
   lowMoraleSolved: number = 0;
   highMoraleSolved: number = 0;
 
-  @ViewChild('itemIndex') itemIndex!: ElementRef;
-  @ViewChild('treasureIndex') treasureIndex!: ElementRef;
+  readonly itemIndex = viewChild.required<ElementRef>('itemIndex');
+  readonly treasureIndex = viewChild.required<ElementRef>('treasureIndex');
 
   data: { campaign: boolean; partySheet: boolean; disableShortcuts: boolean } = inject(DIALOG_DATA);
 
@@ -1257,7 +1259,7 @@ export class PartySheetDialogComponent implements OnInit {
           gameManager.stateManager.before('addUnlockedItem', edition, itemId, itemData.name);
           this.party.unlockedItems = this.party.unlockedItems || [];
           this.party.unlockedItems.push(new CountIdentifier(itemId, edition));
-          this.itemIndex.nativeElement.value = '';
+          this.itemIndex().nativeElement.value = '';
           indexElement.classList.remove('error');
           gameManager.stateManager.after();
           this.update();
@@ -1338,7 +1340,7 @@ export class PartySheetDialogComponent implements OnInit {
             gameManager.stateManager.before('addTreasure', edition, treasure);
             this.party.treasures = this.party.treasures || [];
             this.party.treasures.push(new Identifier(treasure, edition));
-            this.treasureIndex.nativeElement.value = '';
+            this.treasureIndex().nativeElement.value = '';
             indexElement.classList.remove('error');
             gameManager.stateManager.after();
           }

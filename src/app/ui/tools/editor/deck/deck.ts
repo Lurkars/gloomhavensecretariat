@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, inject, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, inject, input, OnInit, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -81,12 +81,22 @@ export class DeckEditorComponent implements OnInit {
   private router = inject(Router);
   private ghsManager = inject(GhsManager);
 
-  @ViewChild('inputDeckData', { static: true }) inputDeckData!: ElementRef;
-  @Input() character: Character | undefined;
-  @Input() monster: Monster | undefined;
-  @Input() edition: string | undefined;
-  @Input() standalone: boolean = true;
+  readonly inputDeckData = viewChild.required<ElementRef>('inputDeckData');
 
+  readonly inputCharacter = input<Character>(undefined, { alias: 'character' });
+  get character(): Character | undefined {
+    return this.inputCharacter();
+  }
+
+  readonly inputMonster = input<Monster>(undefined, { alias: 'monster' });
+  get monster(): Monster | undefined {
+    return this.inputMonster();
+  }
+
+  readonly inputEdition = input<string | undefined>(undefined, { alias: 'edition' });
+  readonly standalone = input<boolean>(true);
+
+  edition: string | undefined;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   ActionType = ActionType;
@@ -106,7 +116,8 @@ export class DeckEditorComponent implements OnInit {
   }
 
   async ngOnInit() {
-    if (this.standalone) {
+    this.edition = this.inputEdition();
+    if (this.standalone()) {
       await settingsManager.init(!environment.production);
     }
 
@@ -115,7 +126,7 @@ export class DeckEditorComponent implements OnInit {
     }
     this.deckDataToJson();
     this.updateDecksData();
-    this.inputDeckData.nativeElement.addEventListener('change', () => {
+    this.inputDeckData().nativeElement.addEventListener('change', () => {
       this.deckDataFromJson();
     });
 
@@ -223,14 +234,15 @@ export class DeckEditorComponent implements OnInit {
       });
     }
 
-    this.inputDeckData.nativeElement.value = JSON.stringify(compactData, null, 2);
+    this.inputDeckData().nativeElement.value = JSON.stringify(compactData, null, 2);
   }
 
   deckDataFromJson() {
     this.deckError = '';
-    if (this.inputDeckData.nativeElement.value) {
+    const inputDeckData = this.inputDeckData();
+    if (inputDeckData.nativeElement.value) {
       try {
-        this.deckData = JSON.parse(this.inputDeckData.nativeElement.value);
+        this.deckData = JSON.parse(inputDeckData.nativeElement.value);
         return;
       } catch (e) {
         this.deckData = new DeckData();

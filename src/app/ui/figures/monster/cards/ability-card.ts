@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -23,8 +23,12 @@ export class MonsterAbilityCardComponent implements OnInit {
   private dialog = inject(Dialog);
   private ghsManager = inject(GhsManager);
 
-  @Input() monster!: Monster;
-  @Input() index: number = -1;
+  readonly inputMonster = input.required<Monster>({ alias: 'monster' });
+  get monster(): Monster {
+    return this.inputMonster();
+  }
+
+  readonly index = input<number>(-1);
 
   ability: Ability | undefined = undefined;
   secondAbility: Ability | undefined = undefined;
@@ -53,10 +57,11 @@ export class MonsterAbilityCardComponent implements OnInit {
       return false;
     }
 
-    if (this.index === -1) {
+    const indexValue = this.index();
+    if (indexValue === -1) {
       this.ability = gameManager.monsterManager.getAbility(this.monster);
     } else {
-      this.ability = gameManager.abilities(this.monster)[this.index];
+      this.ability = gameManager.abilities(this.monster)[indexValue];
     }
 
     if (!this.ability) {

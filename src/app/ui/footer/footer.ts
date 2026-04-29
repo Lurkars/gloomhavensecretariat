@@ -1,7 +1,7 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -52,13 +52,13 @@ export class FooterComponent implements OnInit {
 
   private cdr = inject(ChangeDetectorRef);
 
-  @ViewChild('nextButton', { static: false }) nextButton!: ElementRef;
-  @ViewChild('monsterDeck', { static: false }) monsterDeck!: ElementRef;
-  @ViewChild('ghsLevel', { static: false }) ghsLevel!: LevelComponent;
-  @ViewChild('ghsScenario', { static: false }) ghsScenario!: ScenarioComponent;
-  @ViewChild('monsterAttackModifierDeck', { static: false }) monsterAttackModifierDeck!: AttackModifierDeckComponent;
-  @ViewChild('allyAttackModifierDeck', { static: false }) allyAttackModifierDeck!: AttackModifierDeckComponent;
-  @ViewChild('lootDeck', { static: false }) lootDeck!: LootDeckComponent;
+  readonly nextButton = viewChild.required<ElementRef>('nextButton');
+  readonly monsterDeck = viewChild.required<ElementRef>('monsterDeck');
+  readonly ghsLevel = viewChild.required<LevelComponent>('ghsLevel');
+  readonly ghsScenario = viewChild.required<ScenarioComponent>('ghsScenario');
+  readonly monsterAttackModifierDeck = viewChild.required<AttackModifierDeckComponent>('monsterAttackModifierDeck');
+  readonly allyAttackModifierDeck = viewChild.required<AttackModifierDeckComponent>('allyAttackModifierDeck');
+  readonly lootDeck = viewChild.required<LootDeckComponent>('lootDeck');
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -124,16 +124,33 @@ export class FooterComponent implements OnInit {
         gameManager.stateManager.saveLocal();
       }
 
+      if (
+        gameManager.lootManager.easter &&
+        !!gameManager.game.scenario &&
+        gameManager.game.state === GameState.draw &&
+        gameManager.game.playSeconds >= 300
+      ) {
+        const waitingSteps = [300, 600, 840, 1020, 1140, 1200];
+        if (
+          waitingSteps.includes(gameManager.game.playSeconds) ||
+          (gameManager.game.playSeconds > waitingSteps[waitingSteps.length - 1] && gameManager.game.playSeconds % 60 === 0)
+        ) {
+          new Audio('assets/media/waiting.ogg').play();
+        }
+      }
+
       this.cdr.detectChanges();
     }, 1000);
 
     setTimeout(() => {
-      this.compact = this.monsterDeck && this.monsterDeck.nativeElement.clientWidth > this.elementRef.nativeElement.clientWidth * 0.3;
+      const monsterDeck = this.monsterDeck();
+      this.compact = monsterDeck && monsterDeck.nativeElement.clientWidth > this.elementRef.nativeElement.clientWidth * 0.3;
       this.cdr.markForCheck();
     }, 100);
 
     window.addEventListener('resize', () => {
-      this.compact = this.monsterDeck && this.monsterDeck.nativeElement.clientWidth > this.elementRef.nativeElement.clientWidth * 0.3;
+      const monsterDeck = this.monsterDeck();
+      this.compact = monsterDeck && monsterDeck.nativeElement.clientWidth > this.elementRef.nativeElement.clientWidth * 0.3;
     });
   }
 
@@ -241,7 +258,7 @@ export class FooterComponent implements OnInit {
         panelClass: ['dialog'],
         positionStrategy: this.overlay
           .position()
-          .flexibleConnectedTo(this.nextButton)
+          .flexibleConnectedTo(this.nextButton())
           .withPositions([new ConnectionPositionPair({ originX: 'end', originY: 'bottom' }, { overlayX: 'start', overlayY: 'bottom' })])
           .withDefaultOffsetX(10)
           .withDefaultOffsetY(-10)

@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
+import { Directive, ElementRef, OnChanges, SimpleChanges, inject, input } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Figure } from 'src/app/game/model/Figure';
@@ -9,7 +9,7 @@ import { Figure } from 'src/app/game/model/Figure';
 export class AutoscrollDirective implements OnChanges {
   private el = inject(ElementRef);
 
-  @Input('autoscroll') active: boolean = false;
+  readonly active = input<boolean>(false, { alias: 'autoscroll' });
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['active'] && changes['active'].currentValue && changes['active'].currentValue !== changes['active'].previousValue) {
@@ -31,23 +31,24 @@ export class FigureAutoscrollDirective {
   private el = inject(ElementRef);
   private ghsManager = inject(GhsManager);
 
-  @Input('figure-autoscroll') figure!: Figure;
-  @Input() block: ScrollLogicalPosition = 'center';
-  @Input() inline: ScrollLogicalPosition = 'center';
+  readonly figure = input.required<Figure>({ alias: 'figure-autoscroll' });
+  readonly block = input<ScrollLogicalPosition>('center');
+  readonly inline = input<ScrollLogicalPosition>('center');
   active: boolean = false;
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => {
       setTimeout(
         () => {
-          if (settingsManager.settings.autoscroll && !this.active && this.figure.active) {
+          const figure = this.figure();
+          if (settingsManager.settings.autoscroll && !this.active && figure.active) {
             this.el.nativeElement.scrollIntoView({
               behavior: !settingsManager.settings.animations ? 'auto' : 'smooth',
-              block: this.block,
-              inline: this.inline
+              block: this.block(),
+              inline: this.inline()
             });
           }
-          this.active = this.figure.active;
+          this.active = figure.active;
         },
         settingsManager.settings.animations ? 300 * settingsManager.settings.animationSpeed : 5
       );

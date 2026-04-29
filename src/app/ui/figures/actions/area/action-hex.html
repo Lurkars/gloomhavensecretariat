@@ -1,4 +1,4 @@
-<div class="hex-grid" [style.--ghs-hex-size]="size" [ngClass]="{ small: action.small, edit: edit }">
+<div class="hex-grid" [style.--ghs-hex-size]="size()" [ngClass]="{ small: !!action && action.small, edit: edit }">
   @for (hex of hexes | trackUUID; track hex._trackUUID) {
     <div
       class="hex"
@@ -12,13 +12,13 @@
       @if (hex.type !== 'enhance' || editMode) {
         <img class="icon" [src]="'./assets/images/action/hex/' + (hex.type === 'custom' ? 'custom/' + hex.value : hex.type) + '.svg'" />
       }
-      @if (!editMode && hex.type === 'enhance') {
+      @if (!editMode && !!action && hex.type === 'enhance') {
         <ghs-action-enhancements
           class="enhance"
           [action]="action"
-          [index]="actionIndex"
+          [index]="actionIndex()"
           [character]="character"
-          [cardId]="cardId"
+          [cardId]="cardId()"
           [slot]="enhanceHexes.indexOf(hex)"
         ></ghs-action-enhancements>
       }

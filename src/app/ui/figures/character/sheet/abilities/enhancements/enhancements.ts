@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -17,8 +17,8 @@ import { EditorActionComponent } from 'src/app/ui/tools/editor/action/action';
 
 @Component({
   imports: [
-    ActionComponent,
-    EditorActionComponent,
+    forwardRef(() => ActionComponent),
+    forwardRef(() => EditorActionComponent),
     GhsCeilPipe,
     GhsLabelDirective,
     GhsRangePipe,
@@ -34,15 +34,24 @@ import { EditorActionComponent } from 'src/app/ui/tools/editor/action/action';
 export class EnhancementsComponent implements OnInit {
   private ghsManager = inject(GhsManager);
 
-  @Input('action') inputAction: Action | undefined;
-  @Input('actionIndex') inputActionIndex: string | undefined;
-  @Input('enhancementIndex') inputEnhancementIndex: number | undefined;
-  @Input('cardId') inputCardId: number | undefined;
-  @Input('character') inputCharacter: Character | undefined;
-  @Input('summon') inputSummon: SummonData | undefined;
-  @Input() standalone: boolean = false;
+  inputAction = input<Action>(undefined, { alias: 'action' });
 
-  @Output() triggerClose: EventEmitter<void> = new EventEmitter<void>();
+  readonly inputCharacterSignal = input<Character>(undefined, { alias: 'character' });
+  get inputCharacter(): Character | undefined {
+    return this.inputCharacterSignal();
+  }
+
+  readonly inputSummonSignal = input<SummonData>(undefined, { alias: 'summon' });
+  get inputSummon(): SummonData | undefined {
+    return this.inputSummonSignal();
+  }
+
+  readonly inputActionIndex = input<string>(undefined, { alias: 'actionIndex' });
+  readonly inputEnhancementIndex = input<number>(undefined, { alias: 'enhancementIndex' });
+  readonly inputCardId = input<number>(undefined, { alias: 'cardId' });
+  readonly standalone = input<boolean>(false);
+
+  readonly triggerClose = output<void>();
 
   gameManager: GameManager = gameManager;
   ActionType = ActionType;
@@ -69,28 +78,34 @@ export class EnhancementsComponent implements OnInit {
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => {
-      if (this.inputCharacter && this.inputCardId) {
+      if (this.inputCharacter && this.inputCardId()) {
         this.enhancements =
           (this.inputCharacter.progress.enhancements &&
-            this.inputCharacter.progress.enhancements.filter(
-              (enhancement) =>
-                enhancement.cardId === this.inputCardId &&
-                this.inputActionIndex &&
-                enhancement.actionIndex.indexOf('bottom') === this.inputActionIndex.indexOf('bottom')
-            ).length) ||
+            this.inputCharacter.progress.enhancements.filter((enhancement) => {
+              const inputActionIndex = this.inputActionIndex();
+              return (
+                enhancement.cardId === this.inputCardId() &&
+                inputActionIndex &&
+                enhancement.actionIndex.indexOf('bottom') === inputActionIndex.indexOf('bottom')
+              );
+            }).length) ||
           0;
         this.enhancedCards =
           this.inputCharacter.progress.enhancements &&
           this.inputCharacter.progress.enhancements
             .filter((e) => !e.inherited)
             .map((enhancement) => enhancement.cardId)
-            .filter((cardId, index, self) => (!this.inputCardId || this.inputCardId !== cardId) && index === self.indexOf(cardId)).length;
+            .filter((cardId, index, self) => {
+              const inputCardId = this.inputCardId();
+              return (!inputCardId || inputCardId !== cardId) && index === self.indexOf(cardId);
+            }).length;
       }
     });
   }
 
   ngOnInit(): void {
-    this.action = this.inputAction ? JSON.parse(JSON.stringify(this.inputAction)) : new Action(ActionType.attack, 1);
+    const inputAction = this.inputAction();
+    this.action = inputAction ? JSON.parse(JSON.stringify(inputAction)) : new Action(ActionType.attack, 1);
     this.rootAction = this.action;
     this.action.small = false;
     this.character = this.inputCharacter ? JSON.parse(JSON.stringify(this.inputCharacter)) : undefined;
@@ -105,12 +120,14 @@ export class EnhancementsComponent implements OnInit {
     this.wipSpecial =
       this.action !== undefined && this.action.type === ActionType.custom && this.action.value === '%character.abilities.wip%';
 
-    if (this.inputAction && this.inputActionIndex && this.inputCardId && this.inputEnhancementIndex !== undefined && this.inputCharacter) {
-      const ability = gameManager.deckData(this.inputCharacter).abilities.find((ability) => ability.cardId === this.inputCardId);
-      const rootIndex = +this.inputActionIndex.replace('bottom-', '').split('-')[0];
+    const inputActionIndex = this.inputActionIndex();
+    const inputEnhancementIndex = this.inputEnhancementIndex();
+    if (inputAction && inputActionIndex && this.inputCardId() && inputEnhancementIndex !== undefined && this.inputCharacter) {
+      const ability = gameManager.deckData(this.inputCharacter).abilities.find((ability) => ability.cardId === this.inputCardId());
+      const rootIndex = +inputActionIndex.replace('bottom-', '').split('-')[0];
       if (ability) {
         this.level = typeof ability.level === 'number' ? ability.level : 1;
-        if (this.inputActionIndex.includes('bottom')) {
+        if (inputActionIndex.includes('bottom')) {
           if (
             ability.bottomLost ||
             ability.bottomActions.find((action) => action.type === ActionType.card && action.value.toString().includes('lost'))
@@ -125,7 +142,7 @@ export class EnhancementsComponent implements OnInit {
           }
           this.rootAction = ability.bottomActions[rootIndex];
           if (!this.rootAction) {
-            console.warn('invalid root action', ability.bottomActions, this.inputActionIndex, rootIndex);
+            console.warn('invalid root action', ability.bottomActions, inputActionIndex, rootIndex);
             this.rootAction = this.action;
           }
         } else {
@@ -143,7 +160,7 @@ export class EnhancementsComponent implements OnInit {
           }
           this.rootAction = ability.actions[rootIndex];
           if (!this.rootAction) {
-            console.warn('invalid root action', ability.actions, this.inputActionIndex, rootIndex);
+            console.warn('invalid root action', ability.actions, inputActionIndex, rootIndex);
             this.rootAction = this.action;
           }
         }
@@ -155,12 +172,14 @@ export class EnhancementsComponent implements OnInit {
 
       this.enhancements =
         (this.inputCharacter.progress.enhancements &&
-          this.inputCharacter.progress.enhancements.filter(
-            (enhancement) =>
-              enhancement.cardId === this.inputCardId &&
-              this.inputActionIndex &&
-              enhancement.actionIndex.indexOf('bottom') === this.inputActionIndex.indexOf('bottom')
-          ).length) ||
+          this.inputCharacter.progress.enhancements.filter((enhancement) => {
+            const inputActionIndexValue = this.inputActionIndex();
+            return (
+              enhancement.cardId === this.inputCardId() &&
+              inputActionIndexValue &&
+              enhancement.actionIndex.indexOf('bottom') === inputActionIndexValue.indexOf('bottom')
+            );
+          }).length) ||
         0;
 
       this.enhancedCards =
@@ -168,15 +187,14 @@ export class EnhancementsComponent implements OnInit {
         this.inputCharacter.progress.enhancements
           .filter((e) => !e.inherited)
           .map((e) => e.cardId)
-          .filter((cardId, index, self) => (!this.inputCardId || this.inputCardId !== cardId) && index === self.indexOf(cardId)).length;
+          .filter((cardId, index, self) => {
+            const inputCardId = this.inputCardId();
+            return (!inputCardId || inputCardId !== cardId) && index === self.indexOf(cardId);
+          }).length;
 
-      if (
-        [ActionType.custom, ActionType.specialTarget].includes(this.inputAction.type) &&
-        this.inputAction.enhancementTypes &&
-        !this.wipSpecial
-      ) {
+      if ([ActionType.custom, ActionType.specialTarget].includes(inputAction.type) && inputAction.enhancementTypes && !this.wipSpecial) {
         this.customSpecial = true;
-        const enhancementType = this.inputAction.enhancementTypes[this.inputEnhancementIndex];
+        const enhancementType = inputAction.enhancementTypes[inputEnhancementIndex];
         switch (enhancementType) {
           case EnhancementType.square:
             this.actionTypes = gameManager.enhancementsManager.squareActions;
@@ -228,6 +246,7 @@ export class EnhancementsComponent implements OnInit {
 
     const oldEnhancementType = this.enhancementType;
 
+    const inputEnhancementIndex = this.inputEnhancementIndex();
     if (!this.action.enhancementTypes || !this.action.enhancementTypes.length || this.wipSpecial) {
       if (gameManager.enhancementsManager.squareActions.includes(this.action.type)) {
         this.enhancementType = EnhancementType.square;
@@ -250,8 +269,8 @@ export class EnhancementsComponent implements OnInit {
       if (gameManager.enhancementsManager.hexActions.includes(this.action.type)) {
         this.enhancementType = EnhancementType.hex;
       }
-    } else if (this.inputEnhancementIndex !== undefined) {
-      this.enhancementType = this.action.enhancementTypes[this.inputEnhancementIndex];
+    } else if (inputEnhancementIndex !== undefined) {
+      this.enhancementType = this.action.enhancementTypes[inputEnhancementIndex];
     }
 
     if (this.special === 'summon') {
@@ -259,14 +278,16 @@ export class EnhancementsComponent implements OnInit {
       this.enhancementAction = 'plus1';
     }
 
-    if (this.inputAction && (this.enhancementAction === 'plus1' || this.enhancementAction === 'hex')) {
+    const inputAction = this.inputAction();
+
+    if (inputAction && (this.enhancementAction === 'plus1' || this.enhancementAction === 'hex')) {
       if (this.wipSpecial || this.customSpecial) {
         this.enhanceAction = this.action;
-        this.enhanceAction.enhancementTypes = this.inputAction.enhancementTypes;
+        this.enhanceAction.enhancementTypes = inputAction.enhancementTypes;
       } else {
-        this.enhanceAction = new Action(this.inputAction.type, this.inputAction.value, this.inputAction.valueType);
+        this.enhanceAction = new Action(inputAction.type, inputAction.value, inputAction.valueType);
       }
-      this.enhanceAction.multiTarget = this.inputAction.multiTarget;
+      this.enhanceAction.multiTarget = inputAction.multiTarget;
     } else if (Object.values(ConditionName).includes(this.enhancementAction as ConditionName)) {
       this.enhanceAction = new Action(ActionType.condition, this.enhancementAction);
     } else if (Object.values(Element).includes(this.enhancementAction as Element)) {
@@ -286,7 +307,9 @@ export class EnhancementsComponent implements OnInit {
       this.enhancementAction = 'plus1';
     }
 
-    if (this.inputActionIndex && this.inputCardId && this.inputEnhancementIndex !== undefined && this.character) {
+    const inputCardId = this.inputCardId();
+    const inputActionIndex = this.inputActionIndex();
+    if (inputActionIndex && inputCardId && inputEnhancementIndex !== undefined && this.character) {
       this.character.tags = [];
       this.character.progress.enhancements =
         (this.inputCharacter &&
@@ -295,7 +318,7 @@ export class EnhancementsComponent implements OnInit {
         [];
 
       this.character.progress.enhancements.push(
-        new Enhancement(this.inputCardId, this.inputActionIndex, this.inputEnhancementIndex, this.enhancementAction)
+        new Enhancement(inputCardId, inputActionIndex, inputEnhancementIndex, this.enhancementAction)
       );
     }
 
@@ -323,6 +346,7 @@ export class EnhancementsComponent implements OnInit {
   }
 
   close() {
+    // TODO: The 'emit' function requires a mandatory void argument
     this.triggerClose.emit();
   }
 
@@ -334,10 +358,13 @@ export class EnhancementsComponent implements OnInit {
       this.special,
       this.enhancements
     );
+    const inputCardId = this.inputCardId();
+    const inputActionIndex = this.inputActionIndex();
+    const inputEnhancementIndex = this.inputEnhancementIndex();
     if (
-      this.inputActionIndex &&
-      this.inputCardId &&
-      this.inputEnhancementIndex !== undefined &&
+      inputActionIndex &&
+      inputCardId &&
+      inputEnhancementIndex !== undefined &&
       this.inputCharacter &&
       ((this.inputCharacter.progress.gold >= costs &&
         (gameManager.enhancementsManager.fh || this.enhancedCards < gameManager.prosperityLevel())) ||
@@ -346,7 +373,7 @@ export class EnhancementsComponent implements OnInit {
       gameManager.stateManager.before(
         'enhanceCard',
         gameManager.characterManager.characterName(this.inputCharacter, true, true),
-        this.inputCardId
+        inputCardId
       );
 
       if (!this.inputCharacter.progress.enhancements) {
@@ -354,7 +381,7 @@ export class EnhancementsComponent implements OnInit {
       }
 
       this.inputCharacter.progress.enhancements.push(
-        new Enhancement(this.inputCardId, this.inputActionIndex, this.inputEnhancementIndex, this.enhancementAction)
+        new Enhancement(inputCardId, inputActionIndex, inputEnhancementIndex, this.enhancementAction)
       );
 
       if (!force) {
@@ -362,6 +389,7 @@ export class EnhancementsComponent implements OnInit {
       }
 
       gameManager.stateManager.after();
+      // TODO: The 'emit' function requires a mandatory void argument
       this.triggerClose.emit();
     }
   }

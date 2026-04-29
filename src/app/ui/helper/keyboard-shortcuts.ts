@@ -1,5 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { DestroyRef, Directive, inject, Input, OnInit } from '@angular/core';
+import { DestroyRef, Directive, inject, input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -51,9 +51,17 @@ export class KeyboardShortcuts implements OnInit {
 
   private destroyRef = inject(DestroyRef);
 
-  @Input() header: HeaderComponent | undefined;
-  @Input() footer: FooterComponent | undefined;
-  @Input() allowed: KEYBOARD_SHORTCUT_EVENTS[] = ['undo', 'zoom', 'menu'];
+  readonly inputHeader = input<HeaderComponent>(undefined, { alias: 'header' });
+  get header(): HeaderComponent | undefined {
+    return this.inputHeader();
+  }
+
+  readonly inputFooter = input<FooterComponent>(undefined, { alias: 'footer' });
+  get footer(): FooterComponent | undefined {
+    return this.inputFooter();
+  }
+
+  readonly allowed = input<KEYBOARD_SHORTCUT_EVENTS[]>(['undo', 'zoom', 'menu']);
   scrollTimeout: any = null;
   zoomInterval: any = null;
   currentZoom: number = 0;
@@ -108,6 +116,10 @@ export class KeyboardShortcuts implements OnInit {
     this.keydown = (event: KeyboardEvent) => {
       const ctrlOrMeta = event.ctrlKey || event.metaKey;
       if (settingsManager.settings.keyboardShortcuts && ghsFilterInputFocus()) {
+        const lootDeck = this.footer ? this.footer.lootDeck() : undefined;
+        const ghsLevel = this.footer ? this.footer.ghsLevel() : undefined;
+        const ghsScenario = this.footer ? this.footer.ghsScenario() : undefined;
+        const allowed = this.allowed();
         if (gameManager.stateManager.keyboardSelecting) {
           if (event.key === 'Escape' || event.key === 'Backspace' || event.key === 's' || event.key === 'w') {
             gameManager.stateManager.keyboardSelect = -1;
@@ -147,7 +159,7 @@ export class KeyboardShortcuts implements OnInit {
           ghsDialogClosingHelper(this.dialog.openDialogs[this.dialog.openDialogs.length - 1]);
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('undo')) &&
+          (!this.dialogOpen || allowed.includes('undo')) &&
           ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -156,13 +168,13 @@ export class KeyboardShortcuts implements OnInit {
           gameManager.stateManager.undo();
           event.preventDefault();
         } else if (
-          ((!this.dialogOpen || this.allowed.includes('undo')) && ctrlOrMeta && !event.altKey && !event.shiftKey && event.key === 'y') ||
+          ((!this.dialogOpen || allowed.includes('undo')) && ctrlOrMeta && !event.altKey && !event.shiftKey && event.key === 'y') ||
           (ctrlOrMeta && event.shiftKey && event.key.toLowerCase() === 'z')
         ) {
           gameManager.stateManager.redo();
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('zoom')) &&
+          (!this.dialogOpen || allowed.includes('zoom')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -175,7 +187,7 @@ export class KeyboardShortcuts implements OnInit {
           }, 30);
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('zoom')) &&
+          (!this.dialogOpen || allowed.includes('zoom')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -188,7 +200,7 @@ export class KeyboardShortcuts implements OnInit {
           }, 30);
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('zoom')) &&
+          (!this.dialogOpen || allowed.includes('zoom')) &&
           ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -200,7 +212,7 @@ export class KeyboardShortcuts implements OnInit {
           document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('round')) &&
+          (!this.dialogOpen || allowed.includes('round')) &&
           this.footer &&
           !ctrlOrMeta &&
           !event.altKey &&
@@ -210,7 +222,7 @@ export class KeyboardShortcuts implements OnInit {
         ) {
           this.footer.next();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('am')) &&
+          (!this.dialogOpen || allowed.includes('am')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -311,7 +323,7 @@ export class KeyboardShortcuts implements OnInit {
           }
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('loot')) &&
+          (!this.dialogOpen || allowed.includes('loot')) &&
           gameManager.game.state === GameState.next &&
           !ctrlOrMeta &&
           !event.altKey &&
@@ -321,12 +333,12 @@ export class KeyboardShortcuts implements OnInit {
           settingsManager.settings.lootDeck &&
           gameManager.game.lootDeck.cards.length > 0 &&
           this.footer &&
-          this.footer.lootDeck
+          lootDeck
         ) {
-          if (!this.footer.lootDeck.deck.active) {
+          if (!lootDeck.deck.active) {
             this.footer.toggleLootDeck();
           }
-          this.footer.lootDeck.draw(event, true);
+          lootDeck.draw(event, true);
           event.preventDefault();
         } else if (!this.dialogOpen && !ctrlOrMeta && !event.altKey && event.key === 'Tab' && gameManager.game.figures.length > 0) {
           if (gameManager.game.state === GameState.next) {
@@ -351,31 +363,32 @@ export class KeyboardShortcuts implements OnInit {
           }
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('level')) &&
+          (!this.dialogOpen || allowed.includes('level')) &&
           this.footer &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
           event.key.toLowerCase() === 'x' &&
-          this.footer.ghsLevel
+          ghsLevel
         ) {
-          this.footer.ghsLevel.open();
+          ghsLevel.open();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('scenario')) &&
+          (!this.dialogOpen || allowed.includes('scenario')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
           event.key.toLowerCase() === 'e'
         ) {
           if (settingsManager.settings.partySheet || gameManager.characterManager.characterCount(true) > 0) {
+            const ghsScenario = this.footer ? this.footer.ghsScenario() : undefined;
             if (gameManager.game.scenario && this.header) {
               this.header.openEventEffects();
-            } else if (!gameManager.game.scenario && this.footer && this.footer.ghsScenario) {
-              this.footer.ghsScenario.open();
+            } else if (!gameManager.game.scenario && this.footer && ghsScenario) {
+              ghsScenario.open();
             }
           }
         } else if (
-          (!this.dialogOpen || this.allowed.includes('scenario')) &&
+          (!this.dialogOpen || allowed.includes('scenario')) &&
           this.footer &&
           !ctrlOrMeta &&
           !event.altKey &&
@@ -384,18 +397,18 @@ export class KeyboardShortcuts implements OnInit {
         ) {
           settingsManager.toggle('fullscreen');
         } else if (
-          (!this.dialogOpen || this.allowed.includes('scenario')) &&
+          (!this.dialogOpen || allowed.includes('scenario')) &&
           this.footer &&
           !ctrlOrMeta &&
           !event.altKey &&
           event.shiftKey &&
           event.key.toLowerCase() === 'f' &&
-          this.footer.ghsScenario &&
+          ghsScenario &&
           gameManager.game.scenario
         ) {
-          this.footer.ghsScenario.open();
+          ghsScenario.open();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('party')) &&
+          (!this.dialogOpen || allowed.includes('party')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -409,7 +422,7 @@ export class KeyboardShortcuts implements OnInit {
           event.stopPropagation();
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('map')) &&
+          (!this.dialogOpen || allowed.includes('map')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -432,7 +445,7 @@ export class KeyboardShortcuts implements OnInit {
             }
           }
         } else if (
-          (!this.dialogOpen || this.allowed.includes('chart')) &&
+          (!this.dialogOpen || allowed.includes('chart')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -463,7 +476,7 @@ export class KeyboardShortcuts implements OnInit {
           event.stopPropagation();
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('element')) &&
+          (!this.dialogOpen || allowed.includes('element')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -477,7 +490,7 @@ export class KeyboardShortcuts implements OnInit {
           gameManager.stateManager.after();
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('absent')) &&
+          (!this.dialogOpen || allowed.includes('absent')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -486,7 +499,7 @@ export class KeyboardShortcuts implements OnInit {
           settingsManager.toggle('hideAbsent');
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('handSize')) &&
+          (!this.dialogOpen || allowed.includes('handSize')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           event.shiftKey &&
@@ -495,7 +508,7 @@ export class KeyboardShortcuts implements OnInit {
           settingsManager.toggle('characterHandSize');
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('traits')) &&
+          (!this.dialogOpen || allowed.includes('traits')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -503,11 +516,11 @@ export class KeyboardShortcuts implements OnInit {
         ) {
           settingsManager.toggle('characterTraits');
           event.preventDefault();
-        } else if ((!this.dialogOpen || this.allowed.includes('playerNumber')) && !ctrlOrMeta && !event.altKey && event.key === '#') {
+        } else if ((!this.dialogOpen || allowed.includes('playerNumber')) && !ctrlOrMeta && !event.altKey && event.key === '#') {
           settingsManager.toggle('playerNumber');
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('damageHP')) &&
+          (!this.dialogOpen || allowed.includes('damageHP')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&
@@ -516,7 +529,7 @@ export class KeyboardShortcuts implements OnInit {
           settingsManager.toggle('damageHP');
           event.preventDefault();
         } else if (
-          (!this.dialogOpen || this.allowed.includes('select')) &&
+          (!this.dialogOpen || allowed.includes('select')) &&
           !ctrlOrMeta &&
           !event.altKey &&
           !event.shiftKey &&

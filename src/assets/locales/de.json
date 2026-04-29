@@ -3007,6 +3007,10 @@
       "": "Szenario Statistiken",
       "hint": "Sammle Statistiken über Schaden, Tötungen, Erfahrung, Beute und Heilung während eines Scenarios"
     },
+    "serverExportCode": {
+      "": "Spielcode exportieren",
+      "hint": "Export von Eintellungen oder Datenauszug beinhaltet den Spielcode"
+    },
     "showExpandedAbilityCard": {
       "": "Alle Fertigkeiten auf Fertigkeitskarten anzeigen",
       "hint": "Zeigt die alle Fertigkeiten einer Fertigkeitskarten auf einmal (inklusive Titel) an."

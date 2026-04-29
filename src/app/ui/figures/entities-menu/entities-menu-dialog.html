@@ -1025,12 +1025,7 @@
               <span class="text-white" [ghs-label]="'%game.card.round%'"></span>
             </span>
             <span class="item">
-              <ghs-pointer-input
-                class="button"
-                [ngClass]="{ disabled: !!entity && !entityShield.value }"
-                tabclick
-                (singleClick)="shieldRetaliateHelper.changeShield(-1)"
-              >
+              <ghs-pointer-input class="button" tabclick (singleClick)="shieldRetaliateHelper.changeShield(-1)">
                 <img class="ghs-svg" src="./assets/images/minus.svg" />
               </ghs-pointer-input>
             </span>
@@ -1044,12 +1039,7 @@
             </span>
             @for (realiate of entityRetaliate | trackUUID; track realiate._trackUUID; let i = $index) {
               <span class="item column">
-                <ghs-pointer-input
-                  class="button"
-                  [ngClass]="{ disabled: !!entity && !realiate.value }"
-                  tabclick
-                  (singleClick)="shieldRetaliateHelper.changeRetaliate(i, -1, 0)"
-                >
+                <ghs-pointer-input class="button" tabclick (singleClick)="shieldRetaliateHelper.changeRetaliate(i, -1, 0)">
                   <img class="ghs-svg" src="./assets/images/minus.svg" />
                 </ghs-pointer-input>
                 <ghs-pointer-input
@@ -1098,12 +1088,7 @@
               <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
             </span>
             <span class="item">
-              <ghs-pointer-input
-                class="button"
-                [ngClass]="{ disabled: !!entity && !entityShieldPersistent.value }"
-                tabclick
-                (singleClick)="shieldRetaliateHelper.changeShieldPersistent(-1)"
-              >
+              <ghs-pointer-input class="button" tabclick (singleClick)="shieldRetaliateHelper.changeShieldPersistent(-1)">
                 <img class="ghs-svg" src="./assets/images/minus.svg" />
               </ghs-pointer-input>
             </span>
@@ -1117,12 +1102,7 @@
             </span>
             @for (realiatePermanent of entityRetaliatePersistent | trackUUID; track realiatePermanent._trackUUID; let i = $index) {
               <span class="item column">
-                <ghs-pointer-input
-                  class="button"
-                  [ngClass]="{ disabled: !!entity && !realiatePermanent.value }"
-                  tabclick
-                  (singleClick)="shieldRetaliateHelper.changeRetaliatePersistent(i, -1, 0)"
-                >
+                <ghs-pointer-input class="button" tabclick (singleClick)="shieldRetaliateHelper.changeRetaliatePersistent(i, -1, 0)">
                   <img class="ghs-svg" src="./assets/images/minus.svg" />
                 </ghs-pointer-input>
                 <ghs-pointer-input

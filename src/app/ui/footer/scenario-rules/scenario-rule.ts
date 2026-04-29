@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -29,8 +29,15 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioRuleComponent implements OnInit {
-  @Input() rule!: ScenarioRule;
-  @Input() identifier!: ScenarioRuleIdentifier;
+  readonly inputRule = input.required<ScenarioRule>({ alias: 'rule' });
+  get rule(): ScenarioRule {
+    return this.inputRule();
+  }
+
+  readonly inputIdentifier = input.required<ScenarioRuleIdentifier>({ alias: 'identifier' });
+  get identifier(): ScenarioRuleIdentifier {
+    return this.inputIdentifier();
+  }
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;

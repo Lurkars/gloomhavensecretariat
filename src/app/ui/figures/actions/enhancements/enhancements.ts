@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -26,12 +26,25 @@ export class ActionEnhancementsComponent implements OnInit {
   private dialog = inject(Dialog);
   private ghsManager = inject(GhsManager);
 
-  @Input() action!: Action;
-  @Input('index') actionIndex: string = '';
-  @Input() cardId: number | undefined;
-  @Input() character: Character | undefined;
-  @Input('slot') slotIndex: number | undefined;
-  @Input() summon: SummonData | undefined;
+  readonly inputAction = input.required<Action>({ alias: 'action' });
+  get action(): Action {
+    return this.inputAction();
+  }
+
+  readonly inputCharacter = input<Character>(undefined, { alias: 'character' });
+  get character(): Character | undefined {
+    return this.inputCharacter();
+  }
+
+  readonly inputSummon = input<SummonData>(undefined, { alias: 'summon' });
+  get summon(): SummonData | undefined {
+    return this.inputSummon();
+  }
+
+  readonly actionIndex = input<string>('', { alias: 'index' });
+  readonly cardId = input<number>();
+  readonly slot = input<number | undefined>(undefined);
+  slotIndex: number | undefined;
 
   Elements: EnhancementAction[] = Object.values(Element);
   Conditions: EnhancementAction[] = Object.values(ConditionName);
@@ -54,17 +67,18 @@ export class ActionEnhancementsComponent implements OnInit {
 
   update() {
     this.slots = [];
+    this.slotIndex = this.slot();
     if (this.action.enhancementTypes) {
       this.slots = this.slotIndex !== undefined ? [this.action.enhancementTypes[this.slotIndex]] : [...this.action.enhancementTypes];
       this.wipSpecialIndex =
-        this.slots[0] === EnhancementType.any ? (!this.actionIndex.includes('bottom') ? 'custom' : 'custom-bottom') : '';
+        this.slots[0] === EnhancementType.any ? (!this.actionIndex().includes('bottom') ? 'custom' : 'custom-bottom') : '';
       this.enhancements = [];
-      if (this.character && this.cardId && this.character.progress && this.character.progress.enhancements) {
+      if (this.character && this.cardId() && this.character.progress && this.character.progress.enhancements) {
         this.character.progress.enhancements
           .filter(
             (e) =>
-              e.cardId === this.cardId &&
-              ((!this.wipSpecialIndex && e.actionIndex === this.actionIndex) ||
+              e.cardId === this.cardId() &&
+              ((!this.wipSpecialIndex && e.actionIndex === this.actionIndex()) ||
                 (this.wipSpecialIndex && e.actionIndex === this.wipSpecialIndex))
           )
           .forEach((e) => {
@@ -89,8 +103,8 @@ export class ActionEnhancementsComponent implements OnInit {
           panelClass: ['dialog'],
           data: {
             action: this.action,
-            actionIndex: this.wipSpecialIndex || this.actionIndex,
-            cardId: this.cardId,
+            actionIndex: this.wipSpecialIndex || this.actionIndex(),
+            cardId: this.cardId(),
             enhancementIndex: index,
             character: this.character,
             summon: this.summon
@@ -104,11 +118,12 @@ export class ActionEnhancementsComponent implements OnInit {
 
   removeEnhancement(index: number, event: any) {
     if (this.edit) {
-      if (this.character && this.cardId && this.enhancements[this.slotIndex !== undefined ? this.slotIndex : index]) {
+      const cardId = this.cardId();
+      if (this.character && cardId && this.enhancements[this.slotIndex !== undefined ? this.slotIndex : index]) {
         const enhancement = this.character.progress.enhancements.find(
           (e) =>
-            e.cardId === this.cardId &&
-            ((!this.wipSpecialIndex && e.actionIndex === this.actionIndex) ||
+            e.cardId === this.cardId() &&
+            ((!this.wipSpecialIndex && e.actionIndex === this.actionIndex()) ||
               (this.wipSpecialIndex && e.actionIndex === this.wipSpecialIndex)) &&
             e.index === index
         );
@@ -116,7 +131,7 @@ export class ActionEnhancementsComponent implements OnInit {
           gameManager.stateManager.before(
             'removeEnhancement',
             gameManager.characterManager.characterName(this.character, true, true),
-            this.cardId
+            cardId
           );
           this.character.progress.enhancements = this.character.progress.enhancements.filter((e) => e !== enhancement);
           gameManager.stateManager.after();

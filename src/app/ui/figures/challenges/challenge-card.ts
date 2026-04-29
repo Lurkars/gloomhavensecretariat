@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnChanges, SimpleChanges } from '@angular/core';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ChallengeCard } from 'src/app/game/model/data/Challenges';
 import { CardRevealDirective } from 'src/app/ui/helper/CardReveal';
@@ -14,11 +14,15 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChallengeCardComponent implements OnChanges {
-  @Input() challenge: ChallengeCard | undefined;
-  @Input() keep: boolean = false;
-  @Input() flipped: boolean = false;
-  @Input() reveal: boolean = false;
-  @Input() disableFlip: boolean = false;
+  readonly inputChallenge = input<ChallengeCard | undefined>(undefined, { alias: 'challenge' });
+  get challenge(): ChallengeCard | undefined {
+    return this.inputChallenge();
+  }
+
+  readonly keep = input<boolean>(false);
+  readonly flipped = input<boolean>(false);
+  readonly reveal = input<boolean>(false);
+  readonly disableFlip = input<boolean>(false);
 
   revealed: boolean = false;
   animate: boolean = false;
@@ -31,7 +35,7 @@ export class ChallengeCardComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const flipped = changes['flipped'];
-    if (flipped && !this.disableFlip && flipped.currentValue && flipped.currentValue !== flipped.previousValue) {
+    if (flipped && !this.disableFlip() && flipped.currentValue && flipped.currentValue !== flipped.previousValue) {
       this.animate = true;
     }
   }

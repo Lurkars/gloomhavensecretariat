@@ -4,12 +4,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
   ViewEncapsulation,
-  inject
+  inject,
+  input
 } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -34,21 +35,28 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit {
+export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
   elementRef = inject(ElementRef);
   private ghsManager = inject(GhsManager);
 
-  @Input() attackModifier!: AttackModifier;
-  @Input() characterIcon!: string;
-  @Input() ally: boolean = false;
-  @Input() numeration: string = '';
-  @Input() number: number = 0;
-  @Input() reveal: boolean = false;
-  @Input() disableFlip: boolean = false;
-  @Input() flipped: boolean = false;
-  @Input() newStyle: boolean = false;
-  @Input() townGuard: boolean = false;
-  @Input() bbIndex: number = -1;
+  readonly inputAttackModifier = input.required<AttackModifier>({ alias: 'attackModifier' });
+  get attackModifier(): AttackModifier {
+    return this.inputAttackModifier();
+  }
+
+  readonly inputCharacterIcon = input<string>('', { alias: 'characterIcon' });
+
+  readonly ally = input<boolean>(false);
+  readonly numeration = input<string>('');
+  readonly number = input<number>(0);
+  readonly reveal = input<boolean>(false);
+  readonly disableFlip = input<boolean>(false);
+  readonly flipped = input<boolean>(false);
+  readonly inputNewStyle = input<boolean>(false, { alias: 'newStyle' });
+  readonly townGuard = input<boolean>(false);
+  readonly bbIndex = input<number>(-1);
+  newStyle: boolean = false;
+  characterIcon: string = '';
   effectClasses: string = '';
   AttackModifierType = AttackModifierType;
   AttackModifierValueType = AttackModifierValueType;
@@ -65,18 +73,25 @@ export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit
   townGuardEffectIcon: AttackModifierEffect | undefined;
 
   settingsManager: SettingsManager = settingsManager;
+  private resizeObserver: ResizeObserver | undefined;
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.adjustFontSize());
   }
 
   ngOnInit(): void {
-    this.animate = !this.disableFlip;
+    this.animate = !this.disableFlip();
     this.init();
   }
 
   ngAfterViewInit(): void {
     this.adjustFontSize();
+    this.resizeObserver = new ResizeObserver(() => this.adjustFontSize());
+    this.resizeObserver.observe(this.elementRef.nativeElement);
+  }
+
+  ngOnDestroy(): void {
+    this.resizeObserver?.disconnect();
   }
 
   adjustFontSize() {
@@ -84,81 +99,80 @@ export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit
   }
 
   init() {
-    if (this.attackModifier) {
-      this.csOak = (this.attackModifier.id && this.attackModifier.id.startsWith('cs-oak')) || false;
-      this.imbue = this.attackModifier.type === AttackModifierType.imbue || this.attackModifier.type === AttackModifierType.advancedImbue;
-      this.newStyle =
-        this.newStyle ||
-        this.attackModifier.type === AttackModifierType.empower ||
-        this.attackModifier.type === AttackModifierType.enfeeble ||
-        this.imbue;
-      this.multipe = false;
-      this.wildElement = false;
-      this.mixedElement = undefined;
-      this.orTypeEffect = undefined;
+    this.characterIcon = this.inputCharacterIcon();
+    this.csOak = (this.attackModifier.id && this.attackModifier.id.startsWith('cs-oak')) || false;
+    this.imbue = this.attackModifier.type === AttackModifierType.imbue || this.attackModifier.type === AttackModifierType.advancedImbue;
+    this.newStyle =
+      this.inputNewStyle() ||
+      this.attackModifier.type === AttackModifierType.empower ||
+      this.attackModifier.type === AttackModifierType.enfeeble ||
+      this.imbue;
+    this.multipe = false;
+    this.wildElement = false;
+    this.mixedElement = undefined;
+    this.orTypeEffect = undefined;
 
-      if (!this.characterIcon && this.attackModifier.character && this.attackModifier.id.startsWith('challenge-fh-1503-')) {
-        this.characterIcon = gameManager.characterManager.characterIcon(
-          this.attackModifier.id.replace('challenge-fh-1503-', '').split('-')[0]
+    if (!this.characterIcon && this.attackModifier.character && this.attackModifier.id.startsWith('challenge-fh-1503-')) {
+      this.characterIcon = gameManager.characterManager.characterIcon(
+        this.attackModifier.id.replace('challenge-fh-1503-', '').split('-')[0]
+      );
+    }
+
+    if (this.attackModifier.effects) {
+      if (
+        this.attackModifier.effects.find((effect) => effect.type === AttackModifierEffectType.element) &&
+        this.attackModifier.effects.some((effect) => effect.type !== AttackModifierEffectType.element)
+      ) {
+        this.mixedElement = this.attackModifier.effects.find((effect) => effect.type === AttackModifierEffectType.element);
+      }
+
+      if (this.townGuard()) {
+        this.townGuardEffectIcon = this.attackModifier.effects.find(
+          (effect) => effect.type === AttackModifierEffectType.custom && effect.icon
         );
       }
 
-      if (this.attackModifier.effects) {
-        if (
-          this.attackModifier.effects.find((effect) => effect.type === AttackModifierEffectType.element) &&
-          this.attackModifier.effects.some((effect) => effect.type !== AttackModifierEffectType.element)
-        ) {
-          this.mixedElement = this.attackModifier.effects.find((effect) => effect.type === AttackModifierEffectType.element);
-        }
+      this.effects = (
+        this.mixedElement ? this.attackModifier.effects.filter((effect) => effect !== this.mixedElement) : this.attackModifier.effects
+      ).filter((effect) => !this.townGuard() || effect.type !== AttackModifierEffectType.custom || !effect.icon);
 
-        if (this.townGuard) {
-          this.townGuardEffectIcon = this.attackModifier.effects.find(
-            (effect) => effect.type === AttackModifierEffectType.custom && effect.icon
-          );
-        }
-
-        this.effects = (
-          this.mixedElement ? this.attackModifier.effects.filter((effect) => effect !== this.mixedElement) : this.attackModifier.effects
-        ).filter((effect) => !this.townGuard || effect.type !== AttackModifierEffectType.custom || !effect.icon);
-
-        this.multipe =
-          (this.effects.length > 1 && this.effects.every((effect) => effect.type === AttackModifierEffectType.element)) ||
-          (this.effects.length > 1 &&
-            this.effects.every(
-              (effect) =>
-                effect.type === AttackModifierEffectType.condition ||
-                effect.type === AttackModifierEffectType.pierce ||
-                effect.type === AttackModifierEffectType.pull ||
-                effect.type === AttackModifierEffectType.push
-            )) ||
-          (this.effects.length === 1 && this.effects.every((effect) => effect.type === AttackModifierEffectType.elementHalf)) ||
-          false;
-
-        this.wildElement =
-          this.effects.length === 1 &&
+      this.multipe =
+        (this.effects.length > 1 && this.effects.every((effect) => effect.type === AttackModifierEffectType.element)) ||
+        (this.effects.length > 1 &&
           this.effects.every(
             (effect) =>
-              (effect.type === AttackModifierEffectType.element || effect.type === AttackModifierEffectType.elementConsume) &&
-              effect.value === 'wild'
-          );
+              effect.type === AttackModifierEffectType.condition ||
+              effect.type === AttackModifierEffectType.pierce ||
+              effect.type === AttackModifierEffectType.pull ||
+              effect.type === AttackModifierEffectType.push
+          )) ||
+        (this.effects.length === 1 && this.effects.every((effect) => effect.type === AttackModifierEffectType.elementHalf)) ||
+        false;
 
-        this.orTypeEffect = this.effects.find((effect) => effect.type === AttackModifierEffectType.or);
+      this.wildElement =
+        this.effects.length === 1 &&
+        this.effects.every(
+          (effect) =>
+            (effect.type === AttackModifierEffectType.element || effect.type === AttackModifierEffectType.elementConsume) &&
+            effect.value === 'wild'
+        );
 
-        this.effects.forEach((effect) => {
-          if (effect.type !== AttackModifierEffectType.heal && effect.type !== AttackModifierEffectType.shield) {
-            this.defaultType = false;
-          }
-          if (
-            effect.type === AttackModifierEffectType.condition ||
-            effect.type === AttackModifierEffectType.element ||
-            effect.type === AttackModifierEffectType.elementHalf
-          ) {
-            this.effectClasses += ' ' + effect.value.replaceAll('|', '-').replaceAll(':', '-');
-          } else {
-            this.effectClasses += ' ' + effect.type;
-          }
-        });
-      }
+      this.orTypeEffect = this.effects.find((effect) => effect.type === AttackModifierEffectType.or);
+
+      this.effects.forEach((effect) => {
+        if (effect.type !== AttackModifierEffectType.heal && effect.type !== AttackModifierEffectType.shield) {
+          this.defaultType = false;
+        }
+        if (
+          effect.type === AttackModifierEffectType.condition ||
+          effect.type === AttackModifierEffectType.element ||
+          effect.type === AttackModifierEffectType.elementHalf
+        ) {
+          this.effectClasses += ' ' + effect.value.replaceAll('|', '-').replaceAll(':', '-');
+        } else {
+          this.effectClasses += ' ' + effect.type;
+        }
+      });
     }
   }
 
@@ -168,7 +182,7 @@ export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit
 
   ngOnChanges(changes: SimpleChanges): void {
     const flipped = changes['flipped'];
-    if (flipped && !this.disableFlip && flipped.currentValue && flipped.currentValue !== flipped.previousValue) {
+    if (flipped && !this.disableFlip() && flipped.currentValue && flipped.currentValue !== flipped.previousValue) {
       this.animate = true;
     }
     const amChange = changes['attackModifier'];

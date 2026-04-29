@@ -1,28 +1,28 @@
 @if (type === 'checkbox') {
   <div class="hint-container">
-    <label [ngClass]="{ disabled: disabled || isDisabled }">
+    <label [ngClass]="{ disabled: disabled() || isDisabled }">
       <input
         tabclick
         type="checkbox"
-        [checked]="(!disabled && !isDisabled && settingsManager.settings[setting]) || checked"
-        (change)="settingsManager.toggle(setting)"
+        [checked]="(!disabled() && !isDisabled && settingsManager.settings[setting()]) || checked()"
+        (change)="settingsManager.toggle(setting())"
       />
-      <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
+      <span [ghs-label]="'settings.' + setting() + (suffix() ? '.' + suffix() : '')"></span>
     </label>
-    @if (hint) {
+    @if (hint()) {
       <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
     }
-    <span class="hint" [ngClass]="{ above: hintAbove }">
+    <span class="hint" [ngClass]="{ above: hintAbove() }">
       <div class="text">
-        <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
+        <span [ghs-label]="'settings.' + setting() + (suffix() ? '.' + suffix() : '') + '.hint'"></span>
         <br />
-        @if (additionalHint) {
-          <div [ghs-label]="additionalHint"></div>
+        @if (additionalHint()) {
+          <div [ghs-label]="additionalHint()"></div>
         }
-        @if (requires.length) {
+        @if (requires().length) {
           <div class="requires">
             <span class="title" [ghs-label]="'settings.requires'"></span>
-            @for (require of requires; track require) {
+            @for (require of requires(); track require) {
               <span
                 class="require"
                 [ngClass]="{
@@ -37,10 +37,10 @@
             }
           </div>
         }
-        @if (requiresOne.length) {
+        @if (requiresOne().length) {
           <div class="requires">
             <span class="title" [ghs-label]="'settings.requiresOne'"></span>
-            @for (require of requiresOne; track require) {
+            @for (require of requiresOne(); track require) {
               <span
                 class="require"
                 [ngClass]="{
@@ -60,20 +60,20 @@
   </div>
 }
 @if (type === 'radio') {
-  @for (value of values; track value) {
+  @for (value of values(); track value) {
     <div
       class="line"
-      [ghs-tooltip]="setting === 'locale' ? 'settings.locale.help.stats' : ''"
+      [ghs-tooltip]="setting() === 'locale' ? 'settings.locale.help.stats' : ''"
       [ghs-label-args]="[value.replaceAll('-', '_')]"
     >
-      <label [ngClass]="{ disabled: settingsManager.settings[setting] === value || disabled || isDisabled }">
+      <label [ngClass]="{ disabled: settingsManager.settings[setting()] === value || disabled() || isDisabled }">
         <input
           tabclick
           type="checkbox"
-          [checked]="settingsManager.settings[setting] === value"
-          (change)="settingsManager.set(setting, value)"
+          [checked]="settingsManager.settings[setting()] === value"
+          (change)="settingsManager.set(setting(), value)"
         />
-        <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.' + value"></span>
+        <span [ghs-label]="'settings.' + setting() + (suffix() ? '.' + suffix() : '') + '.' + value"></span>
       </label>
     </div>
   }
@@ -81,35 +81,35 @@
 
 @if (type === 'number') {
   <div class="hint-container">
-    <label class="label" [ngClass]="{ disabled: disabled || isDisabled }">
-      <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
+    <label class="label" [ngClass]="{ disabled: disabled() || isDisabled }">
+      <span [ghs-label]="'settings.' + setting() + (suffix() ? '.' + suffix() : '')"></span>
       <input
         tabclick
         type="number"
         #numberInput
-        [value]="settingsManager.get(setting)"
-        [min]="min"
-        [max]="max"
+        [value]="settingsManager.get(setting())"
+        [min]="min()"
+        [max]="max()"
         (keyup)="(0)"
-        (change)="settingsManager.set(setting, +numberInput.value)"
+        (change)="settingsManager.set(setting(), +numberInput.value)"
         [size]="numberInput.value.length"
-        [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"
+        [ghs-label]="'settings.' + setting() + (suffix() ? '.' + suffix() : '')"
         [ghs-label-attribute]="'placeholder'"
     /></label>
-    @if (hint) {
+    @if (hint()) {
       <img src="./assets/images/warning.svg" class="hint-trigger ghs-svg" />
     }
-    <div class="hint" [ngClass]="{ above: hintAbove }">
+    <div class="hint" [ngClass]="{ above: hintAbove() }">
       <div class="text">
-        <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
+        <span [ghs-label]="'settings.' + setting() + (suffix() ? '.' + suffix() : '') + '.hint'"></span>
         <br />
-        @if (additionalHint) {
-          <div [ghs-label]="additionalHint"></div>
+        @if (additionalHint()) {
+          <div [ghs-label]="additionalHint()"></div>
         }
-        @if (requires.length) {
+        @if (requires().length) {
           <div class="requires">
             <span class="title" [ghs-label]="'settings.requires'"></span>
-            @for (require of requires; track require) {
+            @for (require of requires(); track require) {
               <span
                 class="require"
                 [ngClass]="{
@@ -124,10 +124,10 @@
             }
           </div>
         }
-        @if (requiresOne.length) {
+        @if (requiresOne().length) {
           <div class="requires">
             <span class="title" [ghs-label]="'settings.requiresOne'"></span>
-            @for (require of requiresOne; track require) {
+            @for (require of requiresOne(); track require) {
               <span
                 class="require"
                 [ngClass]="{
@@ -149,36 +149,36 @@
 
 @if (type === 'range') {
   <div class="hint-container">
-    <label [ngClass]="{ disabled: disabled || isDisabled }">
+    <label [ngClass]="{ disabled: disabled() || isDisabled }">
       <span
         ghs-pointer-input
-        (doubleClick)="settingsManager.set(setting, default)"
-        [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"
+        (doubleClick)="settingsManager.set(setting(), default())"
+        [ghs-label]="'settings.' + setting() + (suffix() ? '.' + suffix() : '')"
       ></span>
       <input
         tabclick
         #rangeInput
         type="range"
-        [min]="min"
-        [step]="step"
-        [max]="max"
-        [value]="settingsManager.get(setting)"
-        (change)="settingsManager.set(setting, +rangeInput.value)"
-        (input)="settingsManager.apply(setting, +rangeInput.value)"
+        [min]="min()"
+        [step]="step()"
+        [max]="max()"
+        [value]="settingsManager.get(setting())"
+        (change)="settingsManager.set(setting(), +rangeInput.value)"
+        (input)="settingsManager.apply(setting(), +rangeInput.value)"
       />
     </label>
     <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
-    <span class="hint" [ngClass]="{ above: hintAbove }">
+    <span class="hint" [ngClass]="{ above: hintAbove() }">
       <div class="text">
-        <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
+        <span [ghs-label]="'settings.' + setting() + (suffix() ? '.' + suffix() : '') + '.hint'"></span>
         <br />
-        @if (additionalHint) {
-          <div [ghs-label]="additionalHint"></div>
+        @if (additionalHint()) {
+          <div [ghs-label]="additionalHint()"></div>
         }
-        @if (requires.length) {
+        @if (requires().length) {
           <div class="requires">
             <span class="title" [ghs-label]="'settings.requires'"></span>
-            @for (require of requires; track require) {
+            @for (require of requires(); track require) {
               <span
                 class="require"
                 [ngClass]="{
@@ -193,10 +193,10 @@
             }
           </div>
         }
-        @if (requiresOne.length) {
+        @if (requiresOne().length) {
           <div class="requires">
             <span class="title" [ghs-label]="'settings.requiresOne'"></span>
-            @for (require of requiresOne; track require) {
+            @for (require of requiresOne(); track require) {
               <span
                 class="require"
                 [ngClass]="{

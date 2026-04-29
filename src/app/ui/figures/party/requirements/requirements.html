@@ -132,7 +132,7 @@
     }
   }
 
-  @if (allToggle && !hideAll) {
+  @if (allToggle() && !hideAll) {
     <label class="checkbox">
       <input type="checkbox" [(ngModel)]="all" (change)="update()" /><span [ghs-label]="'scenario.requirements.all'"></span>
     </label>

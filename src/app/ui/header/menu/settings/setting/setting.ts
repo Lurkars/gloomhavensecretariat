@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewEncapsulation, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewEncapsulation, inject, input } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -19,22 +19,24 @@ export class SettingMenuComponent implements OnInit {
   elementRef = inject(ElementRef);
   private ghsManager = inject(GhsManager);
 
-  @Input('ghs-setting-menu') setting!: string;
-  @Input() checked: boolean = false;
-  @Input() disabled: boolean = false;
-  @Input() requires: string[] = [];
-  @Input() requiresOne: string[] = [];
-  @Input() type: 'checkbox' | 'radio' | 'number' | 'range' | 'condition-list' = 'checkbox';
-  @Input() values: string[] = [];
-  @Input() min: number | '' = '';
-  @Input() max: number | '' = '';
-  @Input() step: number = 0.1;
-  @Input() default: number = 1;
-  @Input() hint: boolean = true;
-  @Input() hintAbove: boolean = true;
-  @Input() additionalHint: string = '';
-  @Input('labelSuffix') suffix: string = '';
-  @Input() column: boolean = false;
+  readonly setting = input.required<string>({ alias: 'ghs-setting-menu' });
+  readonly checked = input<boolean>(false);
+  readonly disabled = input<boolean>(false);
+  readonly requires = input<string[]>([]);
+  readonly requiresOne = input<string[]>([]);
+  readonly inputType = input<'checkbox' | 'radio' | 'number' | 'range' | 'condition-list'>('checkbox', { alias: 'type' });
+  readonly values = input<string[]>([]);
+  readonly min = input<number | ''>('');
+  readonly max = input<number | ''>('');
+  readonly step = input<number>(0.1);
+  readonly default = input<number>(1);
+  readonly hint = input<boolean>(true);
+  readonly hintAbove = input<boolean>(true);
+  readonly additionalHint = input<string>('');
+  readonly suffix = input<string>('', { alias: 'labelSuffix' });
+  readonly column = input<boolean>(false);
+
+  type: 'checkbox' | 'radio' | 'number' | 'range' | 'condition-list' = 'checkbox';
   isDisabled: boolean = false;
 
   settingsManager: SettingsManager = settingsManager;
@@ -44,7 +46,8 @@ export class SettingMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.type === 'checkbox' && this.values.length > 0) {
+    this.type = this.inputType();
+    if (this.type === 'checkbox' && this.values().length > 0) {
       this.type = 'radio';
     }
 
@@ -53,12 +56,12 @@ export class SettingMenuComponent implements OnInit {
 
   update() {
     this.isDisabled =
-      (this.requires.length > 0 &&
-        this.requires.some((require) =>
+      (this.requires().length > 0 &&
+        this.requires().some((require) =>
           require.startsWith('!') ? settingsManager.get(require.replace('!', '')) : !settingsManager.get(require)
         )) ||
-      (this.requiresOne.length > 0 &&
-        this.requiresOne.every((require) =>
+      (this.requiresOne().length > 0 &&
+        this.requiresOne().every((require) =>
           require.startsWith('!') ? settingsManager.get(require.replace('!', '')) : !settingsManager.get(require)
         ));
   }
@@ -75,6 +78,6 @@ export class SettingMenuComponent implements OnInit {
 export class SettingMenuTitleComponent {
   settingsManager: SettingsManager = settingsManager;
 
-  @Input('ghs-setting-title-menu') setting!: string;
-  @Input() sync: boolean = false;
+  readonly setting = input.required<string>({ alias: 'ghs-setting-title-menu' });
+  readonly sync = input<boolean>(false);
 }

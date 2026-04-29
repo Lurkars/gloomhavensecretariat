@@ -1,7 +1,7 @@
 @if (!!effect) {
   <span
     class="effect-wrapper {{ effect.type }}"
-    [ngClass]="{ fh: settingsManager.settings.fhStyle, 'new-style': newStyle, 'town-guard': townGuard }"
+    [ngClass]="{ fh: settingsManager.settings.fhStyle, 'new-style': newStyle(), 'town-guard': townGuard() }"
   >
     <span class="effect">
       @switch (effect.type) {
@@ -22,7 +22,7 @@
                 class="target-value text-white"
                 [ghs-label]="targetString.split(':')[0]"
                 [ghs-label-args]="targetString.split(':').slice(1)"
-                [style]="newStyle ? 'fh' : false"
+                [style]="newStyle() ? 'fh' : false"
               ></span>
             </span>
           }
@@ -34,7 +34,7 @@
           }
           @if (rangeValue) {
             <span class="target-value-container range">
-              <span class="target-value text-white" [ghs-label]="rangeValue" [style]="newStyle ? 'fh' : false"></span>
+              <span class="target-value text-white" [ghs-label]="rangeValue" [style]="newStyle() ? 'fh' : false"></span>
             </span>
           }
         }
@@ -50,7 +50,7 @@
                 [attackModifier]="attackModifier"
                 [effect]="subEffect"
                 [offsetWidth]="offsetWidth"
-                [newStyle]="newStyle"
+                [newStyle]="newStyle()"
               ></ghs-attackmodifier-effect>
             </div>
           }
@@ -84,7 +84,7 @@
                 [attackModifier]="attackModifier"
                 [effect]="subEffect"
                 [offsetWidth]="offsetWidth"
-                [newStyle]="newStyle"
+                [newStyle]="newStyle()"
               ></ghs-attackmodifier-effect>
             </div>
           }
@@ -105,7 +105,7 @@
                   class="target-value text-white"
                   [ghs-label]="targetString.split(':')[0]"
                   [ghs-label-args]="targetString.split(':').slice(1)"
-                  [style]="newStyle ? 'fh' : false"
+                  [style]="newStyle() ? 'fh' : false"
                 ></span>
               </span>
             }
@@ -116,7 +116,7 @@
                   class="target-value text-white"
                   [ghs-label]="targetString"
                   [ghs-label-args]="[]"
-                  [style]="newStyle ? 'fh' : false"
+                  [style]="newStyle() ? 'fh' : false"
                 ></span>
               </span>
             }
@@ -128,7 +128,7 @@
             }
             @if (rangeValue) {
               <span class="target-value-container range">
-                <span class="target-value text-white" [ghs-label]="rangeValue" [style]="newStyle ? 'fh' : false"></span>
+                <span class="target-value text-white" [ghs-label]="rangeValue" [style]="newStyle() ? 'fh' : false"></span>
               </span>
             }
             <div class="sub-effects">
@@ -138,7 +138,7 @@
                   [attackModifier]="attackModifier"
                   [effect]="subEffect"
                   [offsetWidth]="offsetWidth"
-                  [newStyle]="newStyle"
+                  [newStyle]="newStyle()"
                 ></ghs-attackmodifier-effect>
               }
             </div>
@@ -163,7 +163,7 @@
                   class="target-value text-white"
                   [ghs-label]="targetString.split(':')[0]"
                   [ghs-label-args]="targetString.split(':').slice(1)"
-                  [style]="newStyle ? 'fh' : false"
+                  [style]="newStyle() ? 'fh' : false"
                 ></span>
               </span>
             }
@@ -175,7 +175,7 @@
             }
             @if (rangeValue) {
               <span class="target-value-container range">
-                <span class="target-value text-white" [ghs-label]="rangeValue" [style]="newStyle ? 'fh' : false"></span>
+                <span class="target-value text-white" [ghs-label]="rangeValue" [style]="newStyle() ? 'fh' : false"></span>
               </span>
             }
             <div class="sub-effects">
@@ -184,7 +184,7 @@
                   [attackModifier]="attackModifier"
                   [effect]="subEffect"
                   [offsetWidth]="offsetWidth"
-                  [newStyle]="newStyle"
+                  [newStyle]="newStyle()"
                 ></ghs-attackmodifier-effect>
               }
             </div>
@@ -209,7 +209,7 @@
                   class="target-value text-white"
                   [ghs-label]="targetString.split(':')[0]"
                   [ghs-label-args]="targetString.split(':').slice(1)"
-                  [style]="newStyle ? 'fh' : false"
+                  [style]="newStyle() ? 'fh' : false"
                 ></span>
               </span>
             }
@@ -221,7 +221,7 @@
             }
             @if (rangeValue) {
               <span class="target-value-container range">
-                <span class="target-value text-white" [ghs-label]="rangeValue" [style]="newStyle ? 'fh' : false"></span>
+                <span class="target-value text-white" [ghs-label]="rangeValue" [style]="newStyle() ? 'fh' : false"></span>
               </span>
             }
             <div class="sub-effects">
@@ -230,7 +230,7 @@
                   [attackModifier]="attackModifier"
                   [effect]="subEffect"
                   [offsetWidth]="offsetWidth"
-                  [newStyle]="newStyle"
+                  [newStyle]="newStyle()"
                 ></ghs-attackmodifier-effect>
               }
             </div>
@@ -245,7 +245,7 @@
                   [attackModifier]="attackModifier"
                   [effect]="subEffect"
                   [offsetWidth]="offsetWidth"
-                  [newStyle]="newStyle"
+                  [newStyle]="newStyle()"
                 ></ghs-attackmodifier-effect>
               }
             </div>
@@ -260,7 +260,7 @@
                   [attackModifier]="attackModifier"
                   [effect]="subEffect"
                   [offsetWidth]="offsetWidth"
-                  [newStyle]="newStyle"
+                  [newStyle]="newStyle()"
                 ></ghs-attackmodifier-effect>
               }
             </div>
@@ -278,7 +278,7 @@
                   [attackModifier]="attackModifier"
                   [effect]="subEffect"
                   [offsetWidth]="offsetWidth"
-                  [newStyle]="newStyle"
+                  [newStyle]="newStyle()"
                 ></ghs-attackmodifier-effect>
               }
             </div>
@@ -298,7 +298,7 @@
                     [attackModifier]="attackModifier"
                     [effect]="subEffect"
                     [offsetWidth]="offsetWidth"
-                    [newStyle]="newStyle"
+                    [newStyle]="newStyle()"
                   ></ghs-attackmodifier-effect>
                 }
               </div>
@@ -317,7 +317,7 @@
                   [attackModifier]="attackModifier"
                   [effect]="subEffect"
                   [offsetWidth]="offsetWidth"
-                  [newStyle]="newStyle"
+                  [newStyle]="newStyle()"
                 ></ghs-attackmodifier-effect>
               }
             </div>
@@ -328,7 +328,7 @@
             <span class="custom-value-container">
               <span
                 class="custom-value"
-                [ngClass]="{ 'text-white': !settingsManager.settings.fhStyle || townGuard }"
+                [ngClass]="{ 'text-white': !settingsManager.settings.fhStyle || townGuard() }"
                 [ghs-label]="effect.value + ''"
               ></span>
             </span>
@@ -345,20 +345,20 @@
                   [attackModifier]="attackModifier"
                   [effect]="subEffect"
                   [offsetWidth]="offsetWidth"
-                  [newStyle]="newStyle"
+                  [newStyle]="newStyle()"
                 ></ghs-attackmodifier-effect>
               }
             </div>
           }
         }
         @case (AttackModifierEffectType.or) {
-          <span class="or-label" [ngClass]="{ 'new-style': newStyle }"><span [ghs-label]="'or'"></span></span>
+          <span class="or-label" [ngClass]="{ 'new-style': newStyle() }"><span [ghs-label]="'or'"></span></span>
           @for (subEffect of effect.effects | trackUUID; track subEffect._trackUUID) {
             <ghs-attackmodifier-effect
               [attackModifier]="attackModifier"
               [effect]="subEffect"
               [offsetWidth]="offsetWidth"
-              [newStyle]="newStyle"
+              [newStyle]="newStyle()"
             ></ghs-attackmodifier-effect>
           }
         }
@@ -371,7 +371,7 @@
                   [attackModifier]="attackModifier"
                   [effect]="subEffect"
                   [offsetWidth]="offsetWidth"
-                  [newStyle]="newStyle"
+                  [newStyle]="newStyle()"
                 ></ghs-attackmodifier-effect>
               }
             </div>
@@ -391,7 +391,7 @@
                   [attackModifier]="attackModifier"
                   [effect]="subEffect"
                   [offsetWidth]="offsetWidth"
-                  [newStyle]="newStyle"
+                  [newStyle]="newStyle()"
                 ></ghs-attackmodifier-effect>
               }
             </div>

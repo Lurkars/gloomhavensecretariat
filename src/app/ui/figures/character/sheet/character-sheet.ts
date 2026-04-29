@@ -5,11 +5,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  Input,
+  inject,
+  input,
   OnInit,
-  ViewChild,
-  ViewEncapsulation,
-  inject
+  viewChild,
+  ViewEncapsulation
 } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -17,7 +17,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { Character, GameCharacterModel } from 'src/app/game/model/Character';
 import { CharacterProgress } from 'src/app/game/model/CharacterProgress';
 import { Identifier } from 'src/app/game/model/data/Identifier';
-import { LootType } from 'src/app/game/model/data/Loot';
+import { herbResourceLootTypes, LootType, materialResourceLootTypes } from 'src/app/game/model/data/Loot';
 import { PerkType } from 'src/app/game/model/data/Perks';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -58,13 +58,17 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   private dialog = inject(Dialog);
   private ghsManager = inject(GhsManager);
 
-  @Input() character!: Character;
-  @Input() editable: boolean = true;
-  @Input() forceEdit: boolean = false;
-  @Input() standalone: boolean = false;
-  @Input() dialogRef: DialogRef | undefined;
+  readonly inputCharacter = input.required<Character>({ alias: 'character' });
+  get character(): Character {
+    return this.inputCharacter();
+  }
 
-  @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
+  readonly editable = input<boolean>(true);
+  readonly forceEdit = input<boolean>(false);
+  readonly standalone = input<boolean>(false);
+  readonly dialogRef = input<DialogRef>();
+
+  readonly titleInput = viewChild<ElementRef>('charactertitle');
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -89,6 +93,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   donations: boolean | 'fh' = true;
 
   titles: string[] = [];
+
+  materialResourceLootTypes = materialResourceLootTypes;
+  herbResourceLootTypes = herbResourceLootTypes;
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => {
@@ -215,8 +222,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   applyValues() {
     let title = '';
 
-    if (this.titleInput) {
-      title = this.titleInput.nativeElement.value;
+    const titleInput = this.titleInput();
+    if (titleInput) {
+      title = titleInput.nativeElement.value;
     }
 
     if (this.titles.length > 0) {
@@ -248,14 +256,15 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   titleChange() {
-    if (this.standalone) {
+    if (this.standalone()) {
       this.applyValues();
     }
   }
 
   ngAfterViewInit(): void {
-    if (this.titleInput) {
-      this.titleInput.nativeElement.value =
+    const titleInput = this.titleInput();
+    if (titleInput) {
+      titleInput.nativeElement.value =
         this.character.title ||
         settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
     }
@@ -470,14 +479,16 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
           })
           .closed.subscribe({
             next: (retired) => {
-              if (retired && this.dialogRef) {
-                ghsDialogClosingHelper(this.dialogRef);
+              const dialogRef = this.dialogRef();
+              if (retired && dialogRef) {
+                ghsDialogClosingHelper(dialogRef);
               }
             }
           });
       } else if (!dialogOnly) {
-        if (this.dialogRef) {
-          ghsDialogClosingHelper(this.dialogRef);
+        const dialogRef = this.dialogRef();
+        if (dialogRef) {
+          ghsDialogClosingHelper(dialogRef);
         }
         gameManager.stateManager.before(
           this.character.progress.retired ? 'setRetired' : 'unsetRetired',
@@ -613,10 +624,10 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   addPerk(index: number, value: number, force: boolean = false) {
     const disabled: boolean =
-      (!this.forceEdit && (gameManager.game.state !== GameState.draw || gameManager.game.round > 0)) ||
+      (!this.forceEdit() && (gameManager.game.state !== GameState.draw || gameManager.game.round > 0)) ||
       (this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index]);
 
-    if (!disabled || (force && !settingsManager.settings.characterSheetLocked && this.editable)) {
+    if (!disabled || (force && !settingsManager.settings.characterSheetLocked && this.editable())) {
       gameManager.stateManager.before('setPerk', gameManager.characterManager.characterName(this.character, true, true), index, value);
       const lowerShacklesHP =
         this.character.name === 'shackles' && this.character.edition === 'fh' && index === 11 && this.character.progress.perks[index] === 2;
@@ -653,8 +664,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   moveResources() {
     if (settingsManager.settings.fhShareResources) {
-      if (this.dialogRef) {
-        this.dialogRef.close();
+      const dialogRef = this.dialogRef();
+      if (dialogRef) {
+        dialogRef.close();
       }
       this.dialog.open(PartySheetDialogComponent, {
         panelClass: ['dialog-invert']
@@ -717,8 +729,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     gameManager.game.party.availableCharacters.push(this.character.toModel());
     gameManager.characterManager.removeCharacter(this.character);
     gameManager.stateManager.after();
-    if (this.dialogRef) {
-      ghsDialogClosingHelper(this.dialogRef);
+    const dialogRef = this.dialogRef();
+    if (dialogRef) {
+      ghsDialogClosingHelper(dialogRef);
     }
   }
 
@@ -745,8 +758,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       });
       gameManager.game.figures.push(this.character);
       gameManager.stateManager.after();
-      if (this.dialogRef) {
-        ghsDialogClosingHelper(this.dialogRef);
+      const dialogRef = this.dialogRef();
+      if (dialogRef) {
+        ghsDialogClosingHelper(dialogRef);
       }
     }
   }

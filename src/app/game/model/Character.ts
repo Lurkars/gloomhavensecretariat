@@ -44,6 +44,8 @@ export class Character extends CharacterData implements Entity, Figure {
   shieldPersistent: Action | undefined;
   retaliate: Action[] = [];
   retaliatePersistent: Action[] = [];
+  extraActions: Action[] = [];
+  extraActionsPersistent: Action[] = [];
 
   // from figure
   level: number;
@@ -160,6 +162,8 @@ export class Character extends CharacterData implements Entity, Figure {
       this.shieldPersistent,
       this.retaliate,
       this.retaliatePersistent,
+      this.extraActions,
+      this.extraActionsPersistent,
       this.fullview
     );
   }
@@ -304,6 +308,29 @@ export class Character extends CharacterData implements Entity, Figure {
     if (model.fullView) {
       this.fullview = model.fullView;
     }
+
+    this.extraActions = (model.extraActions || []).map((value) => JSON.parse(value) as Action);
+    this.extraActionsPersistent = (model.extraActionsPersistent || []).map((value) => JSON.parse(value) as Action);
+
+    if (this.shield) {
+      this.extraActions.push(this.shield);
+      this.shield = undefined;
+    }
+
+    if (this.retaliate.length) {
+      this.extraActions.push(...this.retaliate);
+      this.retaliate = [];
+    }
+
+    if (this.shieldPersistent) {
+      this.extraActionsPersistent.push(this.shieldPersistent);
+      this.shieldPersistent = undefined;
+    }
+
+    if (this.retaliatePersistent.length) {
+      this.extraActionsPersistent.push(...this.retaliatePersistent);
+      this.retaliatePersistent = [];
+    }
   }
 }
 
@@ -348,6 +375,8 @@ export class GameCharacterModel {
   shieldPersistent: string;
   retaliate: string[];
   retaliatePersistent: string[];
+  extraActions: string[];
+  extraActionsPersistent: string[];
   fullView: boolean;
 
   constructor(
@@ -391,6 +420,8 @@ export class GameCharacterModel {
     shieldPersistent: Action | undefined,
     retaliate: Action[],
     retaliatePersistent: Action[],
+    extraActions: Action[],
+    extraActionsPersistent: Action[],
     fullView: boolean
   ) {
     this.name = name;
@@ -433,6 +464,8 @@ export class GameCharacterModel {
     this.shieldPersistent = shieldPersistent ? JSON.stringify(shieldPersistent) : '';
     this.retaliate = retaliate.map((action) => JSON.stringify(action));
     this.retaliatePersistent = retaliatePersistent.map((action) => JSON.stringify(action));
+    this.extraActions = extraActions.map((action) => JSON.stringify(action));
+    this.extraActionsPersistent = extraActionsPersistent.map((action) => JSON.stringify(action));
     this.fullView = fullView;
   }
 }

@@ -4,13 +4,12 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  EventEmitter,
   forwardRef,
   inject,
-  Input,
+  input,
+  model,
   OnInit,
-  Output,
-  ViewChild
+  viewChild
 } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -72,29 +71,46 @@ export const ActionTypesCombine: ActionType[] = [ActionType.push, ActionType.pul
 export class ActionComponent implements OnInit, AfterViewInit {
   private ghsManager = inject(GhsManager);
 
-  @Input() monster: Monster | undefined;
-  @Input('monsterType') forcedMonsterType: MonsterType | undefined;
-  @Input() objective: ObjectiveContainer | undefined;
-  @Input('action') origAction!: Action | undefined;
-  @Input() relative: boolean = false;
-  @Input() inline: boolean = false;
-  @Input() textBlack: boolean = false;
-  @Input() right: boolean = false;
-  @Input() highlight: boolean = false;
-  @Input() interactiveAbilities: boolean = false;
-  @Input() interactiveActions: InteractiveAction[] = [];
-  @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
-  @Input() statsCalculation: boolean = false;
-  @Input() shieldStats: boolean = false;
-  @Input() hexSize!: number;
-  @Input('index') actionIndex: string = '';
-  @Input() style: 'gh' | 'fh' | false = false;
-  @Input() character: Character | undefined;
-  @Input() cardId: number | undefined;
+  readonly inputMonster = input<Monster>(undefined, { alias: 'monster' });
+  get monster(): Monster | undefined {
+    return this.inputMonster();
+  }
 
-  @ViewChild('enhancementContainer') enhancementContainer: ElementRef | undefined;
+  readonly inputCharacter = input<Character>(undefined, { alias: 'character' });
+  get character(): Character | undefined {
+    return this.inputCharacter();
+  }
 
-  action!: Action | undefined;
+  readonly inputObjective = input<ObjectiveContainer>(undefined, { alias: 'objective' });
+  get objective(): ObjectiveContainer | undefined {
+    return this.inputObjective();
+  }
+
+  readonly inputOrigAction = input<Action>(undefined, { alias: 'action' });
+  get origAction(): Action | undefined {
+    return this.inputOrigAction();
+  }
+
+  readonly forcedMonsterType = input<MonsterType>(undefined, { alias: 'monsterType' });
+  readonly inputRelative = input<boolean>(false, { alias: 'relative' });
+  readonly statsCalculation = input<boolean>(false);
+  readonly inline = input<boolean>(false);
+  readonly textBlack = input<boolean>(false);
+  readonly right = input<boolean>(false);
+  readonly highlight = input<boolean>(false);
+  readonly interactiveAbilities = input<boolean>(false);
+  readonly shieldStats = input<boolean>(false);
+  readonly hexSize = input<number>();
+  readonly actionIndex = input<string>('', { alias: 'index' });
+  readonly style = input<'gh' | 'fh' | false>(false);
+  readonly cardId = input<number | undefined>(undefined);
+
+  interactiveActions = model<InteractiveAction[]>([]);
+
+  readonly enhancementContainer = viewChild<ElementRef>('enhancementContainer');
+
+  action: Action | undefined;
+  relative: boolean = false;
   normalValue: number | string = '';
   eliteValue: number | string = '';
   values: string[] = [];
@@ -140,7 +156,9 @@ export class ActionComponent implements OnInit, AfterViewInit {
   }
 
   update() {
-    this.fhStyle = (settingsManager.settings.fhStyle && !this.style) || this.style === 'fh';
+    const style = this.style();
+    this.relative = this.inputRelative();
+    this.fhStyle = (settingsManager.settings.fhStyle && !style) || style === 'fh';
     if (this.origAction) {
       this.action = JSON.parse(JSON.stringify(this.origAction));
     } else {
@@ -159,7 +177,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       this.action.value = '';
     }
 
-    this.monsterType = this.forcedMonsterType;
+    this.monsterType = this.forcedMonsterType();
 
     if (this.action && this.action.type === ActionType.monsterType) {
       this.monsterType = this.action.value as MonsterType;
@@ -205,18 +223,20 @@ export class ActionComponent implements OnInit, AfterViewInit {
     }
 
     this.isInteractiveApplicableAction =
-      (this.interactiveAbilities &&
+      (this.interactiveAbilities() &&
         this.monster &&
         this.monster.entities.some(
-          (entity) => this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex)
+          (entity) =>
+            this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex())
         )) ||
       (this.objective &&
         this.objective.entities.some(
-          (entity) => this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex)
+          (entity) =>
+            this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex())
         )) ||
       false;
 
-    if (this.enhancementContainer) {
+    if (this.enhancementContainer()) {
       this.enhancmenetElementReplace();
     }
 
@@ -234,13 +254,14 @@ export class ActionComponent implements OnInit, AfterViewInit {
       return this.hasEntities(MonsterType.boss);
     }
 
+    const forcedMonsterType = this.forcedMonsterType();
     return (
       !settingsManager.settings.calculate ||
       (this.monster &&
-        (!this.forcedMonsterType || !type || this.forcedMonsterType === type) &&
+        (!forcedMonsterType || !type || forcedMonsterType === type) &&
         this.monster.entities.some(
           (monsterEntity) =>
-            (!type || this.forcedMonsterType === type || monsterEntity.type === type) && gameManager.entityManager.isAlive(monsterEntity)
+            (!type || this.forcedMonsterType() === type || monsterEntity.type === type) && gameManager.entityManager.isAlive(monsterEntity)
         )) ||
       false
     );
@@ -392,7 +413,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       }
     }
 
-    if (settingsManager.settings.calculateStats && this.shieldStats && !this.relative && !this.forceRelative && !this.statRelative) {
+    if (settingsManager.settings.calculateStats && this.shieldStats() && !this.relative && !this.forceRelative && !this.statRelative) {
       const stat = this.getStat(type);
       let statValue: number = 0;
       if (this.action.type === ActionType.shield || this.action.type === ActionType.retaliate) {
@@ -971,40 +992,40 @@ export class ActionComponent implements OnInit, AfterViewInit {
   }
 
   highlightAction(): boolean {
-    return this.interactiveActions.find((interactiveAction) => interactiveAction.index === this.actionIndex) !== undefined || false;
+    return this.interactiveActions().find((interactiveAction) => interactiveAction.index === this.actionIndex()) !== undefined || false;
   }
 
   toggleHighlight(event: PointerEvent) {
     if (this.isInteractiveApplicableAction) {
       if (this.highlightAction()) {
-        this.interactiveActions = this.interactiveActions.filter(
-          (interactiveAction) => !interactiveAction.index.startsWith(this.actionIndex)
+        this.interactiveActions.set(
+          this.interactiveActions().filter((interactiveAction) => !interactiveAction.index.startsWith(this.actionIndex()))
         );
       } else if (this.origAction) {
-        this.interactiveActions.push({ action: this.origAction, index: this.actionIndex });
+        const added: InteractiveAction[] = [{ action: this.origAction, index: this.actionIndex() }];
         if (this.origAction.subActions) {
           let interactiveSubActions: InteractiveAction[] = [];
           if (this.monster) {
             interactiveSubActions = gameManager.actionsManager.getAllInteractiveActions(
               this.monster,
               this.origAction.subActions,
-              this.actionIndex
+              this.actionIndex()
             );
           } else if (this.objective) {
             interactiveSubActions = gameManager.actionsManager.getAllInteractiveActions(
               this.objective,
               this.origAction.subActions,
-              this.actionIndex
+              this.actionIndex()
             );
           }
           interactiveSubActions.forEach((interactiveSubAction) => {
-            if (!this.interactiveActions.some((interactiveAction) => interactiveAction.index === interactiveSubAction.index)) {
-              this.interactiveActions.push(interactiveSubAction);
+            if (!this.interactiveActions().some((interactiveAction) => interactiveAction.index === interactiveSubAction.index)) {
+              added.push(interactiveSubAction);
             }
           });
         }
+        this.interactiveActions.set([...this.interactiveActions(), ...added]);
       }
-      this.interactiveActionsChange.emit(this.interactiveActions);
       event.preventDefault();
       event.stopPropagation();
     }
@@ -1021,14 +1042,11 @@ export class ActionComponent implements OnInit, AfterViewInit {
     return -1;
   }
 
-  onInteractiveActionsChange(change: InteractiveAction[]) {
-    this.interactiveActionsChange.emit(change);
-  }
-
   enhancmenetElementReplace() {
-    if (this.origAction && this.origAction.enhancementTypes && this.origAction.enhancementTypes.length && this.enhancementContainer) {
-      const enhancementElements = this.enhancementContainer.nativeElement.getElementsByClassName('placeholder-enhancement');
-      const ghsEnhancements = this.enhancementContainer.nativeElement.getElementsByTagName('ghs-action-enhancements');
+    const enhancementContainer = this.enhancementContainer();
+    if (this.origAction && this.origAction.enhancementTypes && this.origAction.enhancementTypes.length && enhancementContainer) {
+      const enhancementElements = enhancementContainer.nativeElement.getElementsByClassName('placeholder-enhancement');
+      const ghsEnhancements = enhancementContainer.nativeElement.getElementsByTagName('ghs-action-enhancements');
       for (let i = 0; i < ghsEnhancements.length; i++) {
         if (enhancementElements[0] && enhancementElements[0].parentElement !== ghsEnhancements[i].parentElement) {
           enhancementElements[0].parentElement.replaceChild(ghsEnhancements[i], enhancementElements[0]);

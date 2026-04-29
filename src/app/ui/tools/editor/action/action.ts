@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
-import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, inject, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -40,14 +40,26 @@ export class EditorActionComponent implements OnInit {
   private dialog = inject(Dialog);
   private ghsManager = inject(GhsManager);
 
-  @Input() action!: Action;
-  @Input() actionTypes: ActionType[] = Object.values(ActionType);
-  @Input() hideValues: boolean = false;
-  @Input() subactionIndex: number | undefined;
-  @Input() character: Character | undefined;
-  @Input() cardId: number | undefined;
-  @Output() actionChange = new EventEmitter<Action>();
-  @Output() subActionRemoved = new EventEmitter<number>();
+  readonly inputAction = input.required<Action>({ alias: 'action' });
+  get action(): Action {
+    return this.inputAction();
+  }
+
+  readonly inputActionTypes = input<ActionType[]>(Object.values(ActionType), { alias: 'actionTypes' });
+  get actionTypes(): ActionType[] {
+    return this.inputActionTypes();
+  }
+
+  readonly inputCharacter = input<Character>(undefined, { alias: 'character' });
+  get character(): Character | undefined {
+    return this.inputCharacter();
+  }
+
+  readonly hideValues = input<boolean>(false);
+  readonly subactionIndex = input<number | undefined>(undefined);
+  readonly cardId = input<number>();
+  readonly actionChange = output<Action>();
+  readonly subActionRemoved = output<number>();
   conditionNames: ConditionName[] = Object.values(ConditionName);
   ActionType = ActionType;
   ActionSpecialTarget: ActionSpecialTarget[] = Object.values(ActionSpecialTarget);

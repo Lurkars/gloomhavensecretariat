@@ -1,17 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnInit,
-  ViewChild,
-  inject
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, OnInit, inject, input } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -71,9 +61,10 @@ export class ObjectiveContainerComponent implements OnInit {
   private ghsManager = inject(GhsManager);
   private cdr = inject(ChangeDetectorRef);
 
-  @Input() objective!: ObjectiveContainer;
-
-  @ViewChild('objectiveTitle', { static: false }) titleInput!: ElementRef;
+  readonly inputObjective = input.required<ObjectiveContainer>({ alias: 'objective' });
+  get objective(): ObjectiveContainer {
+    return this.inputObjective();
+  }
 
   characterManager: CharacterManager = gameManager.characterManager;
 
@@ -301,78 +292,41 @@ export class ObjectiveContainerComponent implements OnInit {
     this.interactiveActions = change;
   }
 
-  removeShield() {
-    if (this.entity) {
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, 'removeEntityShield'));
-      this.entity.shield = undefined;
-      gameManager.stateManager.after();
-    }
+  actionLabel(action: Action): string {
+    return (
+      '%game.action.' +
+      action.type +
+      '% ' +
+      EntityValueFunction(action.value) +
+      (action.subActions &&
+      action.subActions[0] &&
+      action.subActions[0].type === ActionType.range &&
+      EntityValueFunction(action.subActions[0].value) > 1
+        ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value)
+        : '')
+    );
   }
 
-  removeShieldPersistent() {
+  removeExtraAction(index: number, persistent: boolean = false) {
     if (this.entity) {
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, 'removeEntityShieldPersistent'));
-      this.entity.shieldPersistent = undefined;
-      gameManager.stateManager.after();
-    }
-  }
+      const actions = JSON.parse(JSON.stringify(persistent ? this.entity.extraActionsPersistent : this.entity.extraActions)) as Action[];
+      const removed = actions.splice(index, 1)[0];
 
-  removeRetaliate(index: number) {
-    if (this.entity) {
-      const retaliate: Action[] = JSON.parse(JSON.stringify(this.entity.retaliate));
-      retaliate.splice(index, 1);
-      if (retaliate.length > 0) {
-        gameManager.stateManager.before(
-          ...gameManager.entityManager.undoInfos(this.entity, this.objective, 'setEntityRetaliate'),
-          retaliate
-            .map(
-              (action) =>
-                '%game.action.retaliate% ' +
-                EntityValueFunction(action.value) +
-                (action.subActions &&
-                action.subActions[0] &&
-                action.subActions[0].type === ActionType.range &&
-                EntityValueFunction(action.subActions[0].value) > 1
-                  ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + ''
-                  : '')
-            )
-            .join(', ')
-        );
+      gameManager.stateManager.before(
+        ...gameManager.entityManager.undoInfos(
+          this.entity,
+          this.objective,
+          persistent ? 'changeEntityExtraActionsPersistent' : 'changeEntityExtraActions'
+        ),
+        actions.length ? actions.map((action) => this.actionLabel(action)).join(', ') : this.actionLabel(removed)
+      );
+
+      if (persistent) {
+        this.entity.extraActionsPersistent = actions;
       } else {
-        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, 'removeEntityRetaliate'));
+        this.entity.extraActions = actions;
       }
-      this.entity.retaliate = retaliate;
-      gameManager.stateManager.after();
-    }
-  }
 
-  removeRetaliatePersistent(index: number) {
-    if (this.entity) {
-      const retaliatePersistent: Action[] = JSON.parse(JSON.stringify(this.entity.retaliatePersistent));
-      retaliatePersistent.splice(index, 1);
-      if (retaliatePersistent.length > 0) {
-        gameManager.stateManager.before(
-          ...gameManager.entityManager.undoInfos(this.entity, this.objective, 'setEntityRetaliatePersistent'),
-          retaliatePersistent
-            .map(
-              (action) =>
-                '%game.action.retaliate% ' +
-                EntityValueFunction(action.value) +
-                (action.subActions &&
-                action.subActions[0] &&
-                action.subActions[0].type === ActionType.range &&
-                EntityValueFunction(action.subActions[0].value) > 1
-                  ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + ''
-                  : '')
-            )
-            .join(', ')
-        );
-      } else {
-        gameManager.stateManager.before(
-          ...gameManager.entityManager.undoInfos(this.entity, this.objective, 'removeEntityRetaliatePersistent')
-        );
-      }
-      this.entity.retaliatePersistent = retaliatePersistent;
       gameManager.stateManager.after();
     }
   }

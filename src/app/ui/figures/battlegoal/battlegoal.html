@@ -2,15 +2,15 @@
   <div
     class="card vertical reverse battlegoal"
     [ngClass]="{
-      flipped: flipped,
-      selected: selected,
-      disabled: disabled,
-      filtered: filtered,
+      flipped: flipped(),
+      selected: selected(),
+      disabled: disabled(),
+      filtered: filtered(),
       fh: !!battleGoal && battleGoal.edition === 'fh'
     }"
     [style.fontSize]="container.offsetWidth * 0.072 + 'px'"
     card-reveal
-    [disabled]="!reveal"
+    [disabled]="!reveal()"
   >
     <div class="card-back">
       <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>

@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -41,7 +41,11 @@ export class MonsterComponent implements OnInit {
   private overlay = inject(Overlay);
   private ghsManager = inject(GhsManager);
 
-  @Input() monster!: Monster;
+  readonly inputMonster = input.required<Monster>({ alias: 'monster' });
+  get monster(): Monster {
+    return this.inputMonster();
+  }
+
   MonsterType = MonsterType;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;

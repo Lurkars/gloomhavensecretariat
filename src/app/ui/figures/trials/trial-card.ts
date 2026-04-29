@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { TrialCard } from 'src/app/game/model/data/Trials';
@@ -15,12 +15,20 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrialCardComponent implements OnInit, OnChanges {
-  @Input() trial!: number;
-  @Input() edition!: string;
-  @Input() keep: boolean = false;
-  @Input() flipped: boolean = false;
-  @Input() reveal: boolean = false;
-  @Input() disableFlip: boolean = false;
+  readonly inputTrial = input.required<number>({ alias: 'trial' });
+  get trial(): number {
+    return this.inputTrial();
+  }
+
+  readonly inputEdition = input.required<string>({ alias: 'edition' });
+  get edition(): string {
+    return this.inputEdition();
+  }
+
+  readonly keep = input<boolean>(false);
+  readonly flipped = input<boolean>(false);
+  readonly reveal = input<boolean>(false);
+  readonly disableFlip = input<boolean>(false);
   trialCard: TrialCard | undefined;
 
   revealed: boolean = false;
@@ -42,7 +50,7 @@ export class TrialCardComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const flipped = changes['flipped'];
-    if (flipped && !this.disableFlip && flipped.currentValue && flipped.currentValue !== flipped.previousValue) {
+    if (flipped && !this.disableFlip() && flipped.currentValue && flipped.currentValue !== flipped.previousValue) {
       this.animate = true;
     }
   }

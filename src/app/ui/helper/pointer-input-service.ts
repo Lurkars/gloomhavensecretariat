@@ -43,7 +43,8 @@ export class PointerInputService {
       if (event.isPrimary) {
         this.active = this.find(event.target as HTMLElement);
         if (this.active) {
-          if (this.active.clickBehind) {
+          const clickBehind = this.active.clickBehind();
+          if (clickBehind) {
             this.behindActive = this.find(this.active.elementRef.nativeElement.parentElement);
             if (!this.behindActive) {
               const elements = document.elementsFromPoint(event.clientX, event.clientY);
@@ -58,7 +59,7 @@ export class PointerInputService {
               }
             }
           }
-          if (this.behindActive && this.active.clickBehind) {
+          if (this.behindActive && clickBehind) {
             this.behindActive.pointerdown(event);
           }
           this.active.pointerdown(event);
@@ -132,7 +133,7 @@ export class PointerInputService {
           this.behindActive.pointerup(event);
           this.behindActive = undefined;
         }
-        if (!this.active.clickBehind && !this.active.isDragElement) {
+        if (!this.active.clickBehind() && !this.active.isDragElement) {
           event.preventDefault();
           event.stopPropagation();
         }

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, inject, Input, OnChanges, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, inject, input, OnChanges, OnInit } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -24,16 +24,32 @@ export class AbilityComponent implements OnInit, OnChanges {
   elementRef = inject(ElementRef);
   private ghsManager = inject(GhsManager);
 
-  @Input() ability: Ability | undefined;
-  @Input() abilities!: Ability[];
-  @Input() monster: Monster | undefined;
-  @Input() character: Character | undefined;
-  @Input() flipped: boolean = false;
-  @Input() reveal: boolean = false;
-  @Input() relative: boolean = false;
-  @Input() interactiveAbilities: boolean = false;
-  @Input() statsCalculation: boolean = true;
-  @Input() activeActions: 'top' | 'bottom' | false = false;
+  readonly inputAbility = input<Ability>(undefined, { alias: 'ability' });
+  get ability(): Ability | undefined {
+    return this.inputAbility();
+  }
+
+  readonly inputAbilities = input<Ability[]>([], { alias: 'abilities' });
+  get abilities(): Ability[] {
+    return this.inputAbilities();
+  }
+
+  readonly inputMonster = input<Monster>(undefined, { alias: 'monster' });
+  get monster(): Monster | undefined {
+    return this.inputMonster();
+  }
+
+  readonly inputCharacter = input<Character>(undefined, { alias: 'character' });
+  get character(): Character | undefined {
+    return this.inputCharacter();
+  }
+
+  readonly flipped = input<boolean>(false);
+  readonly reveal = input<boolean>(false);
+  readonly relative = input<boolean>(false);
+  readonly interactiveAbilities = input<boolean>(false);
+  readonly statsCalculation = input<boolean>(true);
+  readonly activeActions = input<'top' | 'bottom' | false>(false);
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -124,14 +140,14 @@ export class AbilityComponent implements OnInit, OnChanges {
   }
 
   onInteractiveActionsChange(change: InteractiveAction[]) {
-    if (this.interactiveAbilities) {
+    if (this.interactiveAbilities()) {
       this.interactiveActionsChange.emit(change);
       this.interactiveActions = change;
     }
   }
 
   onInteractiveBottomActionsChange(change: InteractiveAction[]) {
-    if (this.interactiveAbilities) {
+    if (this.interactiveAbilities()) {
       this.interactiveBottomActionsChange.emit(change);
       this.interactiveBottomActions = change;
     }

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation, inject, input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Element, ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -15,26 +15,32 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 export class ElementIconComponent implements OnInit {
   private sanitizer = inject(DomSanitizer);
 
-  @Input() type: string | undefined;
-  @Input() element!: ElementModel;
+  readonly inputElement = input<ElementModel>(undefined, { alias: 'element' });
+
+  readonly type = input<string>();
+  element: ElementModel | undefined;
   ElementState = ElementState;
   svg: SafeHtml = '';
 
   ngOnInit(): void {
-    if (this.type && !this.element) {
-      this.element = new ElementModel(this.type as Element);
+    this.element = this.inputElement();
+    const type = this.type();
+    if (type && !this.element) {
+      this.element = new ElementModel(type as Element);
       this.element.state = ElementState.strong;
     }
 
-    fetch('./assets/images/element/' + this.element.type + '.svg')
-      .then((response) => {
-        return response.text();
-      })
-      .then((data) => {
-        this.svg = this.sanitizer.bypassSecurityTrustHtml(data);
-      })
-      .catch(() => {
-        console.error('Invalid src: ' + './assets/images/element/' + this.element.type + '.svg');
-      });
+    if (!!this.element) {
+      fetch('./assets/images/element/' + this.element.type + '.svg')
+        .then((response) => {
+          return response.text();
+        })
+        .then((data) => {
+          this.svg = this.sanitizer.bypassSecurityTrustHtml(data);
+        })
+        .catch(() => {
+          if (!!this.element) console.error('Invalid src: ' + './assets/images/element/' + this.element.type + '.svg');
+        });
+    }
   }
 }

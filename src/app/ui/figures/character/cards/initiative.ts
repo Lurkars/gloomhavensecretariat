@@ -7,12 +7,12 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  Input,
   OnChanges,
   OnInit,
   SimpleChanges,
-  ViewChild,
-  inject
+  inject,
+  input,
+  viewChild
 } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -39,9 +39,13 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   private ghsManager = inject(GhsManager);
   private cdr = inject(ChangeDetectorRef);
 
-  @Input() figure!: Character | ObjectiveContainer;
-  @Input() initiative: number = -1;
-  @ViewChild('initiativeInput', { static: false }) initiativeInput!: ElementRef;
+  readonly inputFigure = input.required<Character | ObjectiveContainer>({ alias: 'figure' });
+  get figure(): Character | ObjectiveContainer {
+    return this.inputFigure();
+  }
+
+  readonly initiative = input<number>(-1);
+  readonly initiativeInput = viewChild.required<ElementRef>('initiativeInput');
 
   characterManager: CharacterManager = gameManager.characterManager;
   gameManager: GameManager = gameManager;
@@ -86,8 +90,9 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   }
 
   ngAfterViewInit(): void {
-    if (this.initiativeInput) {
-      this.initiativeInput.nativeElement.addEventListener('keydown', (event: KeyboardEvent) => {
+    const initiativeInput = this.initiativeInput();
+    if (initiativeInput) {
+      initiativeInput.nativeElement.addEventListener('keydown', (event: KeyboardEvent) => {
         if (settingsManager.settings.keyboardShortcuts) {
           const tabindex = this.tabindex();
           if ((event.key === 'Tab' || event.key === 'Enter') && gameManager.game.state === GameState.draw) {
@@ -146,20 +151,21 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   }
 
   private formatInitiative(): string {
-    if (this.initiative !== -1) {
-      return this.initiative > 0 ? (this.initiative < 10 ? '0' + this.initiative : '' + this.initiative) : '';
+    const initiative = this.initiative();
+    if (initiative !== -1) {
+      return initiative > 0 ? (initiative < 10 ? '0' + initiative : '' + initiative) : '';
     }
 
     return this.figure.initiative > 0 ? (this.figure.initiative < 10 ? '0' + this.figure.initiative : '' + this.figure.initiative) : '';
   }
 
   enableReveal(event: any) {
-    if (this.initiativeInput) {
+    if (this.initiativeInput()) {
       this.reveal = this.figure.initiative;
       this.figure.initiative = 0;
       this.initiativeValue = this.formatInitiative();
       setTimeout(() => {
-        this.initiativeInput.nativeElement.focus();
+        this.initiativeInput().nativeElement.focus();
       }, 1);
       event.preventDefault();
       event.stopPropagation();

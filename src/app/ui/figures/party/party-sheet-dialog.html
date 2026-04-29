@@ -337,44 +337,20 @@
             </div>
             <div class="resource-table">
               <div class="materials">
-                <div class="resource lumber">
-                  <img src="./assets/images/fh/loot/lumber.svg" />
-                  <input [value]="party.loot.lumber || 0" type="number" min="0" (change)="setResource(LootType.lumber, $event)" />
-                </div>
-                <div class="resource metal">
-                  <img src="./assets/images/fh/loot/metal.svg" />
-                  <input [value]="party.loot.metal || 0" type="number" min="0" (change)="setResource(LootType.metal, $event)" />
-                </div>
-                <div class="resource hide">
-                  <img src="./assets/images/fh/loot/hide.svg" />
-                  <input [value]="party.loot.hide || 0" type="number" min="0" (change)="setResource(LootType.hide, $event)" />
-                </div>
+                @for (resource of materialResourceLootTypes; track resource) {
+                  <div class="resource {{ resource }}" [ghs-tooltip]="'game.loot.' + resource">
+                    <img [src]="'./assets/images/fh/loot/' + resource + '.svg'" />
+                    <input [value]="party.loot[resource] || 0" type="number" min="0" (change)="setResource(resource, $event)" />
+                  </div>
+                }
               </div>
               <div class="herbs">
-                <div class="resource arrowvine">
-                  <img src="./assets/images/fh/loot/arrowvine.svg" />
-                  <input [value]="party.loot.arrowvine || 0" type="number" min="0" (change)="setResource(LootType.arrowvine, $event)" />
-                </div>
-                <div class="resource axenut">
-                  <img src="./assets/images/fh/loot/axenut.svg" />
-                  <input [value]="party.loot.axenut || 0" type="number" min="0" (change)="setResource(LootType.axenut, $event)" />
-                </div>
-                <div class="resource corpsecap">
-                  <img src="./assets/images/fh/loot/corpsecap.svg" />
-                  <input [value]="party.loot.corpsecap || 0" type="number" min="0" (change)="setResource(LootType.corpsecap, $event)" />
-                </div>
-                <div class="resource flamefruit">
-                  <img src="./assets/images/fh/loot/flamefruit.svg" />
-                  <input [value]="party.loot.flamefruit || 0" type="number" min="0" (change)="setResource(LootType.flamefruit, $event)" />
-                </div>
-                <div class="resource rockroot">
-                  <img src="./assets/images/fh/loot/rockroot.svg" />
-                  <input [value]="party.loot.rockroot || 0" type="number" min="0" (change)="setResource(LootType.rockroot, $event)" />
-                </div>
-                <div class="resource snowthistle">
-                  <img src="./assets/images/fh/loot/snowthistle.svg" />
-                  <input [value]="party.loot.snowthistle || 0" type="number" min="0" (change)="setResource(LootType.snowthistle, $event)" />
-                </div>
+                @for (resource of herbResourceLootTypes; track resource) {
+                  <div class="resource {{ resource }}" [ghs-tooltip]="'game.loot.' + resource">
+                    <img [src]="'./assets/images/fh/loot/' + resource + '.svg'" />
+                    <input [value]="party.loot[resource] || 0" type="number" min="0" (change)="setResource(resource, $event)" />
+                  </div>
+                }
               </div>
             </div>
           </div>

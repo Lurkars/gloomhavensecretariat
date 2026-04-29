@@ -1,8 +1,8 @@
 <div
   class="deck"
   [ngClass]="{
-    disabled: !standalone && gameManager.game.state === GameState.draw,
-    vertical: vertical,
+    disabled: !standalone() && gameManager.game.state === GameState.draw,
+    vertical: vertical(),
     denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.lootDeck
   }"
 >
@@ -12,32 +12,32 @@
       #card
       [style.fontSize]="card.offsetWidth * 0.08 + 'px'"
       (click)="draw($event)"
-      [ngClass]="{ disabled: disabled }"
+      [ngClass]="{ disabled: disabled || deck.current + 1 >= deck.cards.length - (queue === 0 ? 0 : 1) }"
     >
       <span class="number">{{
         deck.current < deck.cards.length - 1 ? deck.cards.length - deck.current - 1 + '/' + deck.cards.length : 0
       }}</span>
     </div>
 
-    @if (fullscreen && !compact) {
+    @if (fullscreen() && !compact) {
       <span
         class="fullscreen"
         [ghs-label]="'game.cards.fullscreen'"
         [ghs-label-attribute]="'title'"
         (click)="openFullscreen($event)"
-        [ngClass]="{ vertical: vertical, minimize: !deck.active }"
+        [ngClass]="{ vertical: vertical(), minimize: !deck.active }"
       >
         <img src="./assets/images/fullscreen.svg" />
       </span>
     }
 
-    @if (!compact || vertical) {
+    @if (!compact || vertical()) {
       <span
         class="settings"
         [ghs-label]="'game.cards.openDialog'"
         [ghs-label-attribute]="'title'"
         (click)="open($event)"
-        [ngClass]="{ vertical: vertical, 'without-fullscreen': !fullscreen, minimize: !deck.active }"
+        [ngClass]="{ vertical: vertical(), 'without-fullscreen': !fullscreen(), minimize: !deck.active }"
       >
         <img class="ghs-svg" src="./assets/images/settings.svg" />
       </span>
@@ -50,7 +50,7 @@
         class="loot-container"
         (click)="clickCard(index, $event)"
         [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"
-        [ngClass]="{ discarded: index < current - 1, current: index === current, last: index === current - 1, bottom: bottom }"
+        [ngClass]="{ discarded: index < current - 1, current: index === current, last: index === current - 1, bottom: bottom() }"
       >
         <ghs-loot
           class="loot-card"
@@ -60,7 +60,7 @@
           [index]="index"
           [disableFlip]="!drawing || index !== current"
           [character]="getCharacter(index)"
-          [apply]="!standalone"
+          [apply]="!standalone()"
           [ngClass]="{ disabled: disabled }"
         ></ghs-loot>
       </div>

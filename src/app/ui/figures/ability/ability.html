@@ -3,16 +3,16 @@
   [ngClass]="{
     fh: settingsManager.settings.fhStyle,
     bb: settingsManager.settings.theme === 'bb',
-    expand: flipped || (ability && ability.revealed)
+    expand: flipped() || (ability && ability.revealed)
   }"
   [style.--ghs-ability-color]="character && character.color"
 >
   <div
     class="card"
-    [ngClass]="{ flipped: flipped || (ability && ability.revealed) }"
+    [ngClass]="{ flipped: flipped() || (ability && ability.revealed) }"
     card-reveal
     (changed)="onChange($event)"
-    [disabled]="!reveal || !ability"
+    [disabled]="!reveal() || !ability"
     #card
     [style.fontSize]="fontsize"
   >
@@ -50,18 +50,17 @@
           {{ ability.initiative }}
         </div>
         <span class="name">{{ abilityLabel }}</span>
-        <div class="ability-actions-container" [ngClass]="{ disabled: activeActions && activeActions === 'bottom' }">
+        <div class="ability-actions-container" [ngClass]="{ disabled: activeActions() && activeActions() === 'bottom' }">
           <div class="ability-actions">
             <ghs-actions
               [actions]="ability.actions"
               [monster]="monster"
               [character]="character"
-              [statsCalculation]="statsCalculation"
+              [statsCalculation]="statsCalculation()"
               [shieldStats]="settingsManager.settings.calculateShieldStats"
-              [relative]="relative"
-              [interactiveAbilities]="interactiveAbilities"
-              [interactiveActions]="interactiveActions"
-              (interactiveActionsChange)="onInteractiveActionsChange($event)"
+              [relative]="relative()"
+              [interactiveAbilities]="interactiveAbilities()"
+              [(interactiveActions)]="interactiveActions"
               [cardId]="ability.cardId"
             >
             </ghs-actions>
@@ -72,7 +71,7 @@
             <div class="bottom-spacer"></div>
           }
         </div>
-        @if (interactiveAbilities && !!monster && (!activeActions || (activeActions && activeActions === 'top'))) {
+        @if (interactiveAbilities() && !!monster && (!activeActions() || (activeActions() && activeActions() === 'top'))) {
           <ghs-interactive-actions
             [ngClass]="{ 'interactive-actions-top': (ability.bottomActions && ability.bottomActions.length > 0) || character }"
             [figure]="monster"
@@ -84,25 +83,24 @@
           <span class="level">
             <span class="text" [ghs-label]="ability.level || 0"></span>
           </span>
-          <div class="ability-actions-container" [ngClass]="{ disabled: activeActions && activeActions === 'top' }">
+          <div class="ability-actions-container" [ngClass]="{ disabled: activeActions() && activeActions() === 'top' }">
             <div class="ability-actions ability-bottom-actions">
               <ghs-actions
                 [actions]="ability.bottomActions"
                 [monster]="monster"
                 [character]="character"
-                [statsCalculation]="statsCalculation"
+                [statsCalculation]="statsCalculation()"
                 [shieldStats]="shieldStats"
-                [relative]="relative"
-                [interactiveAbilities]="interactiveAbilities"
-                [interactiveActions]="interactiveBottomActions"
-                (interactiveActionsChange)="onInteractiveBottomActionsChange($event)"
+                [relative]="relative()"
+                [interactiveAbilities]="interactiveAbilities()"
+                [(interactiveActions)]="interactiveBottomActions"
                 [index]="'bottom'"
                 [cardId]="ability.cardId"
               >
               </ghs-actions>
             </div>
           </div>
-          @if (interactiveAbilities && !!monster && (!activeActions || (activeActions && activeActions === 'bottom'))) {
+          @if (interactiveAbilities() && !!monster && (!activeActions() || (activeActions() && activeActions() === 'bottom'))) {
             <ghs-interactive-actions
               class="interactive-actions-bottom"
               [figure]="monster"

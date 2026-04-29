@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -37,7 +37,7 @@ export class ScenarioDialogComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
-  @ViewChild('setupComponent') setupComponent!: ScenarioSetupComponent;
+  readonly setupComponent = viewChild.required<ScenarioSetupComponent>('setupComponent');
 
   setup: boolean = false;
   openRooms: RoomData[] = [];
@@ -148,8 +148,9 @@ export class ScenarioDialogComponent {
     );
     gameManager.scenarioManager.openRoom(roomData, this.scenario, false);
     gameManager.stateManager.after();
-    if (!!this.setupComponent) {
-      this.setupComponent.updateMonster();
+    const setupComponent = this.setupComponent();
+    if (!!setupComponent) {
+      setupComponent.updateMonster();
     }
   }
 

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -20,11 +20,19 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 export class CharacterItemComponent {
   private ghsManager = inject(GhsManager);
 
-  @Input() character!: Character;
-  @Input() item!: ItemData;
-  @Input() flipped: boolean = true;
-  @Input() setup: boolean = false;
-  @Input() dialog: boolean = false;
+  readonly inputCharacter = input.required<Character>({ alias: 'character' });
+  get character(): Character {
+    return this.inputCharacter();
+  }
+
+  readonly inputItem = input.required<ItemData>({ alias: 'item' });
+  get item(): ItemData {
+    return this.inputItem();
+  }
+
+  readonly flipped = input<boolean>(true);
+  readonly setup = input<boolean>(false);
+  readonly dialog = input<boolean>(false);
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -62,7 +70,7 @@ export class CharacterItemComponent {
       this.character.progress.items.find(
         (identifier) => identifier.name === '' + this.item.id && identifier.edition === this.item.edition
       ) !== undefined;
-    if ((this.setup || force) && (owned || !this.bbBlocked() || force)) {
+    if ((this.setup() || force) && (owned || !this.bbBlocked() || force)) {
       gameManager.stateManager.before(
         this.equipped() ? 'unequipItem' : 'equipItem',
         gameManager.characterManager.characterName(this.character, true, true),
@@ -105,7 +113,7 @@ export class CharacterItemComponent {
       return;
     }
 
-    if ((!this.setup && gameManager.game.state === GameState.next) || force) {
+    if ((!this.setup() && gameManager.game.state === GameState.next) || force) {
       const equipped = this.equipped();
       if (equipped && (gameManager.itemManager.itemUsable(this.item) || force)) {
         equipped.tags = equipped.tags || [];
@@ -153,7 +161,7 @@ export class CharacterItemComponent {
   }
 
   toggleFlagCount(index: number, flag: string) {
-    if (!this.setup && gameManager.game.state === GameState.next) {
+    if (!this.setup() && gameManager.game.state === GameState.next) {
       const equipped = this.equipped();
       if (equipped) {
         equipped.tags = equipped.tags || [];

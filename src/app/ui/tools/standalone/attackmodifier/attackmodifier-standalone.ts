@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -47,7 +47,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
   init: boolean = false;
   activeDeckIndex: number = -1;
 
-  @ViewChild('header') header!: HeaderComponent;
+  readonly header = viewChild.required<HeaderComponent>('header');
 
   private destroyRef = inject(DestroyRef);
 
@@ -160,7 +160,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
   }
 
   addCharacter() {
-    this.header.openMenu(SubMenu.character_add);
+    this.header().openMenu(SubMenu.character_add);
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {

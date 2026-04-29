@@ -1,10 +1,10 @@
 <div class="trial" #container>
   <div
     class="card"
-    [ngClass]="{ flipped: flipped || revealed, 'no-animations': !animate }"
+    [ngClass]="{ flipped: flipped() || revealed, 'no-animations': !animate }"
     [style.fontSize]="container.offsetWidth * 0.1 + 'px'"
     card-reveal
-    [disabled]="!reveal"
+    [disabled]="!reveal()"
     (changed)="onChange($event)"
   >
     <div class="card-back">

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, effect, inject, Injectable } from '@angular/core';
+import { ChangeDetectorRef, effect, inject, Injectable, untracked } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 
@@ -12,7 +12,7 @@ export class GhsManager {
   constructor() {
     effect(() => {
       gameManager.uiChangeSignal();
-      this.onUiChangeUpdate();
+      untracked(() => this.onUiChangeUpdate());
     });
   }
 
@@ -46,17 +46,12 @@ export class GhsManager {
     gameManager.triggerUiChange(fromServer);
   }
 
-  /**
-   * Sets up a signal-based effect that runs on every uiChange.
-   * Must be called from a component constructor (injection context required).
-   * Automatically calls markForCheck() for zoneless change detection compatibility.
-   * The effect auto-cleans up when the component is destroyed.
-   */
   uiChangeEffect(callback: (fromServer: boolean) => void): void {
     const cdr = inject(ChangeDetectorRef);
     effect(() => {
       gameManager.uiChangeSignal();
-      callback(gameManager.uiChangeFromServer());
+      const fromServer = gameManager.uiChangeFromServer();
+      untracked(() => callback(fromServer));
       cdr.markForCheck();
     });
   }

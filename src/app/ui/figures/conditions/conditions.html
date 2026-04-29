@@ -1,4 +1,4 @@
-<div [style.--condition-columns]="columns" [ngClass]="{ fh: settingsManager.settings.fhStyle }">
+<div [style.--condition-columns]="columns()" [ngClass]="{ fh: settingsManager.settings.fhStyle }">
   <div class="condition-container">
     @for (condition of conditions | trackUUID; track condition._trackUUID; let i = $index) {
       <a

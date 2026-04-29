@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, OnChanges, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, input, OnChanges, output } from '@angular/core';
 import { ActionHex, ActionHexFromString, ActionHexToString, ActionHexType } from 'src/app/game/model/ActionHex';
 import { Character } from 'src/app/game/model/Character';
 import { Action } from 'src/app/game/model/data/Action';
@@ -15,14 +15,23 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   styleUrls: ['./action-hex.scss']
 })
 export class ActionHexComponent implements OnChanges {
-  @Input() action!: Action;
-  @Input() value!: string;
-  @Input() size!: number;
-  @Input('index') actionIndex: string = '';
-  @Input() cardId: number | undefined;
-  @Input() character: Character | undefined;
-  @Output() clickCallback: EventEmitter<ActionHex> = new EventEmitter<ActionHex>();
-  @Output() doubleclickCallback: EventEmitter<ActionHex> = new EventEmitter<ActionHex>();
+  readonly inputAction = input<Action>(undefined, { alias: 'action' });
+  get action(): Action | undefined {
+    return this.inputAction();
+  }
+
+  readonly inputCharacter = input<Character>(undefined, { alias: 'character' });
+  get character(): Character | undefined {
+    return this.inputCharacter();
+  }
+
+  readonly inputValue = input<string>('', { alias: 'value' });
+
+  readonly size = input<number>();
+  readonly actionIndex = input<string>('', { alias: 'index' });
+  readonly cardId = input<number>();
+  readonly clickCallback = output<ActionHex>();
+  readonly doubleclickCallback = output<ActionHex>();
   hexes: ActionHex[] = [];
   enhanceHexes: ActionHex[] = [];
   enhancedHexes: ActionHex[] = [];
@@ -32,12 +41,14 @@ export class ActionHexComponent implements OnChanges {
   ActionHexToString = ActionHexToString;
 
   doubleClick: any = null;
+  value: string = '';
 
   ngOnChanges() {
     this.hexes = [];
     this.enhanceHexes = [];
     this.enhancedHexes = [];
-    if (!this.value) {
+    this.value = this.inputValue();
+    if (!this.value && this.action) {
       this.value = '' + this.action.value;
     }
     this.value.split('|').forEach((hexValue) => {
@@ -48,13 +59,13 @@ export class ActionHexComponent implements OnChanges {
           this.enhanceHexes.push(hex);
           if (
             this.character &&
-            this.cardId &&
-            this.actionIndex &&
+            this.cardId() &&
+            this.actionIndex() &&
             this.character.progress.enhancements &&
             this.character.progress.enhancements.find(
               (e) =>
-                e.cardId === this.cardId &&
-                e.actionIndex === this.actionIndex &&
+                e.cardId === this.cardId() &&
+                e.actionIndex === this.actionIndex() &&
                 e.index === this.enhanceHexes.length - 1 &&
                 e.action === 'hex'
             )

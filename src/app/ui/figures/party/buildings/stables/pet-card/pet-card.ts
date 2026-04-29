@@ -1,15 +1,5 @@
 import { NgClass } from '@angular/common';
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  EventEmitter,
-  inject,
-  Input,
-  Output
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, input, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -32,11 +22,15 @@ export class PetCardComponent implements AfterViewInit {
 
   private cdr = inject(ChangeDetectorRef);
 
-  @Input() petCard!: PetCard | undefined;
-  @Input() flipped: boolean = false;
-  @Input() reveal: boolean = false;
-  @Input() name: string = '';
-  @Output() revealed = new EventEmitter<boolean>();
+  readonly inputPetCard = input.required<PetCard>({ alias: 'petCard' });
+  get petCard(): PetCard {
+    return this.inputPetCard();
+  }
+
+  readonly flipped = input<boolean>(false);
+  readonly reveal = input<boolean>(false);
+  readonly name = input<string>('');
+  readonly revealed = output<void>();
 
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;

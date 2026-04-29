@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnChanges, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { BattleGoal } from 'src/app/game/model/data/BattleGoal';
@@ -19,17 +19,24 @@ export class BattleGoalComponent implements OnChanges {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
-  @Input() battleGoal: BattleGoal | undefined;
-  @Input() identifier: Identifier | undefined | false;
-  @Input() flipped: boolean = false;
-  @Input() selected: boolean = false;
-  @Input() disabled: boolean = false;
-  @Input() filtered: boolean = false;
-  @Input() reveal: boolean = false;
+  readonly inputBattleGoal = input<BattleGoal>(undefined, { alias: 'battleGoal' });
 
+  readonly inputIdentifier = input<Identifier | undefined | false>(undefined, { alias: 'identifier' });
+  get identifier(): Identifier | undefined | false {
+    return this.inputIdentifier();
+  }
+
+  readonly flipped = input<boolean>(false);
+  readonly selected = input<boolean>(false);
+  readonly disabled = input<boolean>(false);
+  readonly filtered = input<boolean>(false);
+  readonly reveal = input<boolean>(false);
+
+  battleGoal: BattleGoal | undefined;
   winterIcon: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.battleGoal = this.inputBattleGoal();
     if (changes['identifier'] && changes['identifier'].previousValue !== changes['identifier'].currentValue) {
       if (!this.battleGoal && this.identifier) {
         this.battleGoal = gameManager.battleGoalManager.getBattleGoal(this.identifier);

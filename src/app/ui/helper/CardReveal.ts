@@ -1,4 +1,4 @@
-import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, inject } from '@angular/core';
+import { Directive, ElementRef, HostListener, inject, input, output } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 
 @Directive({
@@ -7,17 +7,17 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 export class CardRevealDirective {
   private el = inject(ElementRef);
 
-  @Input() disabled: boolean = false;
+  readonly disabled = input<boolean>(false);
   clicked: boolean = false;
 
-  @Output() changed = new EventEmitter<boolean>();
+  readonly changed = output<boolean>();
 
   constructor() {
     this.el.nativeElement.classList.add('reveal');
   }
 
   @HostListener('pointerdown') onClick() {
-    if (!this.disabled) {
+    if (!this.disabled()) {
       if (this.el.nativeElement.classList.contains('flipped')) {
         this.el.nativeElement.classList.remove('flipped');
         setTimeout(
@@ -47,7 +47,7 @@ export class CardRevealDirective {
   }
 
   @HostListener('mouseleave') onMouseLeave() {
-    if (!this.disabled || this.clicked) {
+    if (!this.disabled() || this.clicked) {
       this.clicked = false;
       this.el.nativeElement.classList.remove('confirm');
     }

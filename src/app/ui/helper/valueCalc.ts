@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, OnInit, inject } from '@angular/core';
+import { Directive, ElementRef, OnChanges, OnInit, inject, input } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -65,9 +65,9 @@ export class ValueCalcDirective implements OnInit, OnChanges {
   private el = inject(ElementRef);
   private ghsManager = inject(GhsManager);
 
-  @Input('value-calc') value!: string | number;
-  @Input() level: number | undefined;
-  @Input() empty: boolean = false;
+  readonly value = input.required<string | number>({ alias: 'value-calc' });
+  readonly level = input<number>();
+  readonly empty = input<boolean>(false);
 
   private C: number;
   private L: number;
@@ -83,7 +83,7 @@ export class ValueCalcDirective implements OnInit, OnChanges {
         this.C = Math.max(2, gameManager.characterManager.characterCount());
         this.L = gameManager.game.level;
         this.calc = settingsManager.settings.calculate;
-        this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
+        this.el.nativeElement.innerHTML = valueCalc(this.value(), this.level(), this.empty());
       }
     });
     this.C = Math.max(2, gameManager.characterManager.characterCount());
@@ -92,10 +92,10 @@ export class ValueCalcDirective implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
+    this.el.nativeElement.innerHTML = valueCalc(this.value(), this.level(), this.empty());
   }
 
   ngOnInit(): void {
-    this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
+    this.el.nativeElement.innerHTML = valueCalc(this.value(), this.level(), this.empty());
   }
 }

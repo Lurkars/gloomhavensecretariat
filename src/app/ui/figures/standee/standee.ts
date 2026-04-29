@@ -1,12 +1,12 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit, inject, input, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { ActionHint } from 'src/app/game/model/data/Action';
+import { Action, ActionHint, ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
@@ -17,6 +17,7 @@ import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
+import { ActionComponent } from 'src/app/ui/figures/actions/action';
 import { HighlightConditionsComponent } from 'src/app/ui/figures/conditions/highlight';
 import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { HealthbarComponent } from 'src/app/ui/figures/healthbar/healthbar';
@@ -44,7 +45,8 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
     EntityIndexKeyComponent,
     HealthbarComponent,
     HighlightConditionsComponent,
-    SummonSheetComponent
+    SummonSheetComponent,
+    ActionComponent
   ],
   selector: 'ghs-standee',
   templateUrl: './standee.html',
@@ -57,12 +59,21 @@ export class StandeeComponent implements OnInit {
   private overlay = inject(Overlay);
   private ghsManager = inject(GhsManager);
 
-  @ViewChild('standee') standee!: ElementRef;
+  readonly standee = viewChild.required<ElementRef>('standee');
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
-  @Input() figure!: Monster | Character | ObjectiveContainer;
-  @Input() entity!: MonsterEntity | Summon | ObjectiveEntity;
+
+  readonly inputFigure = input.required<Monster | Character | ObjectiveContainer>({ alias: 'figure' });
+  get figure(): Monster | Character | ObjectiveContainer {
+    return this.inputFigure();
+  }
+
+  readonly inputEntity = input.required<MonsterEntity | Summon | ObjectiveEntity>({ alias: 'entity' });
+  get entity(): MonsterEntity | Summon | ObjectiveEntity {
+    return this.inputEntity();
+  }
+
   Conditions = Condition;
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
@@ -82,6 +93,8 @@ export class StandeeComponent implements OnInit {
   activeTurn: boolean = false;
   marker: string = '';
   specialActionsMarker: string[] = [];
+  extraActions: Action[] = [];
+  extraActionsPersistent: Action[] = [];
   objectiveData: ObjectiveData | undefined;
   entityBorderClasses: Record<string, boolean> = {};
   entityTypeClass: string = '';
@@ -254,6 +267,17 @@ export class StandeeComponent implements OnInit {
         new: me.summon === SummonState.new
       };
     }
+
+    this.extraActions = [
+      ...this.entity.extraActions.filter(
+        (action) => action.type !== ActionType.extra && action.type !== ActionType.shield && action.type !== ActionType.retaliate
+      )
+    ];
+    this.extraActionsPersistent = [
+      ...this.entity.extraActionsPersistent.filter(
+        (action) => action.type !== ActionType.extra && action.type !== ActionType.shield && action.type !== ActionType.retaliate
+      )
+    ];
   }
 
   dragHpMove(value: number) {
@@ -301,6 +325,75 @@ export class StandeeComponent implements OnInit {
 
   dragHpCancel() {
     this.health = 0;
+  }
+
+  normalizedRetaliateRange(action: Action): number {
+    const rangeSubAction = action.subActions.find((subAction) => subAction.type === ActionType.range);
+    const range = rangeSubAction ? EntityValueFunction(rangeSubAction.value) : 1;
+    return range <= 1 ? 1 : range;
+  }
+
+  actionHintLabel(actionHint: ActionHint): string {
+    return (
+      '%game.action.' + actionHint.type + '% ' + actionHint.value + (actionHint.range > 1 ? ' %game.action.range% ' + actionHint.range : '')
+    );
+  }
+
+  removeActionHint(actionHint: ActionHint) {
+    const actions = this.entity.extraActions.filter((action) => {
+      if (action.type !== actionHint.type) {
+        return true;
+      }
+
+      if (actionHint.type === ActionType.retaliate) {
+        return this.normalizedRetaliateRange(action) !== (actionHint.range > 1 ? actionHint.range : 1);
+      }
+
+      return false;
+    });
+
+    const persistentActions = this.entity.extraActionsPersistent.filter((action) => {
+      if (action.type !== actionHint.type) {
+        return true;
+      }
+
+      if (actionHint.type === ActionType.retaliate) {
+        return this.normalizedRetaliateRange(action) !== (actionHint.range > 1 ? actionHint.range : 1);
+      }
+
+      return false;
+    });
+
+    gameManager.stateManager.before(
+      ...gameManager.entityManager.undoInfos(this.entity, this.figure, 'changeEntityExtraActions'),
+      this.actionHintLabel(actionHint)
+    );
+    this.entity.extraActions = actions;
+    this.entity.extraActionsPersistent = persistentActions;
+    gameManager.stateManager.after();
+  }
+
+  removeExtraAction(action: Action, persistent: boolean = false) {
+    const actions = persistent
+      ? this.entity.extraActionsPersistent.filter((other) => other != action)
+      : this.entity.extraActions.filter((other) => other != action);
+
+    gameManager.entityManager.before(
+      this.entity,
+      this.figure,
+      persistent ? 'changeExtraActionsPersistent' : 'changeExtraActions',
+      actions.length
+        ? actions.map((action) => gameManager.actionsManager.extraActionLabel(action)).join(', ')
+        : gameManager.actionsManager.extraActionLabel(action)
+    );
+
+    if (persistent) {
+      this.entity.extraActionsPersistent = actions;
+    } else {
+      this.entity.extraActions = actions;
+    }
+
+    gameManager.stateManager.after();
   }
 
   removeCondition(entityCondition: EntityCondition) {
@@ -402,7 +495,7 @@ export class StandeeComponent implements OnInit {
             entity: this.entity,
             entities: this.figure.entities
           },
-          positionStrategy: this.overlay.position().flexibleConnectedTo(this.standee).withPositions(ghsDefaultDialogPositions())
+          positionStrategy: this.overlay.position().flexibleConnectedTo(this.standee()).withPositions(ghsDefaultDialogPositions())
         });
       }
     } else {
@@ -411,9 +504,9 @@ export class StandeeComponent implements OnInit {
         data: {
           entity: this.entity,
           figure: this.figure,
-          positionElement: this.standee
+          positionElement: this.standee()
         },
-        positionStrategy: this.overlay.position().flexibleConnectedTo(this.standee).withPositions(ghsDefaultDialogPositions())
+        positionStrategy: this.overlay.position().flexibleConnectedTo(this.standee()).withPositions(ghsDefaultDialogPositions())
       });
 
       dialogRef.closed.subscribe({

@@ -4,7 +4,7 @@
       <img class="ghs-svg" src="./assets/images/menu.svg" />
     </a>
   </div>
-  @if (!standalone || connection) {
+  @if (!standalone() || connection()) {
     @if (gameManager.stateManager.serverError) {
       <img
         src="./assets/images/warning.svg"
@@ -85,7 +85,7 @@
     }
   }
 
-  @if (!standalone) {
+  @if (!standalone()) {
     @if (syncing) {
       <img src="./assets/images/shuffle.svg" class="server-connection syncing" />
     }

@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, input, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -33,11 +33,15 @@ export class BuildingsListComponent {
 
   private cdr = inject(ChangeDetectorRef);
 
-  @Input() buildings: Building[] = [];
-  @Input() short: boolean = false;
-  @Input() invert: boolean = false;
+  readonly inputBuildings = input.required<Building[]>({ alias: 'buildings' });
+  get buildings(): Building[] {
+    return this.inputBuildings();
+  }
 
-  @Output() changed: EventEmitter<void> = new EventEmitter<void>();
+  readonly short = input<boolean>(false);
+  readonly invert = input<boolean>(false);
+
+  readonly changed = output<void>();
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -452,6 +456,7 @@ export class BuildingsListComponent {
         }
         gameManager.stateManager.after();
       }
+      // TODO: The 'emit' function requires a mandatory void argument
       this.changed.emit();
     }
   }

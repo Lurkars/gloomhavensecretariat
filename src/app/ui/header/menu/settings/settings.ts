@@ -1,6 +1,6 @@
 import { Platform } from '@angular/cdk/platform';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Output, QueryList, ViewChildren, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, output, viewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -48,8 +48,8 @@ export type SettingsTab =
 export class SettingsMenuComponent {
   platform = inject(Platform);
 
-  @ViewChildren(SettingMenuComponent) settingMenus!: QueryList<SettingMenuComponent>;
-  @Output() setMenu: EventEmitter<SubMenu> = new EventEmitter<SubMenu>();
+  readonly settingMenus = viewChildren(SettingMenuComponent);
+  readonly setMenu = output<SubMenu>();
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -107,28 +107,29 @@ export class SettingsMenuComponent {
   }
 
   updateFilter() {
-    this.settingMenus.forEach((item) => {
+    this.settingMenus().forEach((item) => {
       const host: HTMLElement = item.elementRef.nativeElement;
       if (!this.filter) {
         host.classList.remove('filter-hidden');
         host.querySelectorAll('.line').forEach((el) => el.classList.remove('filter-hidden'));
       } else {
+        const setting = item.setting();
         const labelMatch =
-          ghsTextSearch(item.setting, this.filter) ||
-          ghsTextSearch(settingsManager.getLabel('settings.' + item.setting), this.filter) ||
-          ghsTextSearch(settingsManager.getLabel('settings.' + item.setting + '.hint'), this.filter);
+          ghsTextSearch(setting, this.filter) ||
+          ghsTextSearch(settingsManager.getLabel('settings.' + setting), this.filter) ||
+          ghsTextSearch(settingsManager.getLabel('settings.' + setting + '.hint'), this.filter);
 
-        if (item.values.length > 0) {
+        if (item.values().length > 0) {
           // Radio-type: filter individual value rows
           const childLines = host.querySelectorAll('.line');
           let anyVisible = false;
           childLines.forEach((el, index) => {
-            const value = item.values[index];
+            const value = item.values()[index];
             const valueMatch =
               labelMatch ||
               (value !== undefined &&
                 (ghsTextSearch(value, this.filter) ||
-                  ghsTextSearch(settingsManager.getLabel('settings.' + item.setting + '.' + value), this.filter)));
+                  ghsTextSearch(settingsManager.getLabel('settings.' + item.setting() + '.' + value), this.filter)));
             el.classList.toggle('filter-hidden', !valueMatch);
             if (valueMatch) {
               anyVisible = true;

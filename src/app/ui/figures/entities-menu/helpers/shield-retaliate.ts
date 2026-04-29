@@ -1,7 +1,7 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Action, ActionType } from 'src/app/game/model/data/Action';
+import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
@@ -9,6 +9,113 @@ import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-me
 
 export class ShieldRetaliateHelper {
   constructor(private component: EntitiesMenuDialogComponent) {}
+
+  private actionList(persistent: boolean) {
+    return persistent ? 'extraActionsPersistent' : 'extraActions';
+  }
+
+  private createRangeAction(value: string | number = 1): Action {
+    const rangeAction = new Action(ActionType.range, value);
+    rangeAction.small = true;
+    return rangeAction;
+  }
+
+  private createRetaliateAction(value: string | number, range: string | number = 1): Action {
+    const numericValue = EntityValueFunction(value);
+    const retaliateAction = new Action(ActionType.retaliate, Math.abs(numericValue));
+    if (numericValue < 0) {
+      retaliateAction.valueType = ActionValueType.minus;
+    }
+    retaliateAction.subActions = [];
+
+    if (EntityValueFunction(range) !== 1) {
+      retaliateAction.subActions.push(this.createRangeAction(range));
+    }
+
+    return retaliateAction;
+  }
+
+  private shieldAction(entity: any, persistent: boolean): Action | undefined {
+    return entity[this.actionList(persistent)].find((action: Action) => action.type === ActionType.shield);
+  }
+
+  private retaliateActions(entity: any, persistent: boolean): Action[] {
+    return entity[this.actionList(persistent)].filter((action: Action) => action.type === ActionType.retaliate);
+  }
+
+  private rangeValue(action: Action): string | number {
+    const rangeSubAction = action.subActions.find((subAction) => subAction.type === ActionType.range);
+    return rangeSubAction ? rangeSubAction.value : 1;
+  }
+
+  private sameRetaliateProfile(first: Action, second: Action): boolean {
+    return JSON.stringify(first.subActions) === JSON.stringify(second.subActions);
+  }
+
+  private effectiveActionValue(action: Action | undefined): number {
+    if (!action) return 0;
+    const val = EntityValueFunction(action.value);
+    return action.valueType === ActionValueType.minus ? -val : val;
+  }
+
+  private setShieldAction(entity: any, persistent: boolean, value: string | number, additive: boolean) {
+    const actionList = this.actionList(persistent);
+    const shieldAction = this.shieldAction(entity, persistent);
+    const numericValue = EntityValueFunction(value);
+
+    if (additive && shieldAction) {
+      const newEffective = this.effectiveActionValue(shieldAction) + numericValue;
+      if (newEffective < 0) {
+        shieldAction.valueType = ActionValueType.minus;
+        shieldAction.value = -newEffective;
+      } else {
+        shieldAction.valueType = ActionValueType.fixed;
+        shieldAction.value = newEffective;
+      }
+    } else {
+      entity[actionList] = entity[actionList].filter((action: Action) => action.type !== ActionType.shield);
+      if (numericValue !== 0) {
+        const newAction = new Action(ActionType.shield, Math.abs(numericValue));
+        if (numericValue < 0) {
+          newAction.valueType = ActionValueType.minus;
+        }
+        entity[actionList].push(gameManager.actionsManager.copyAction(newAction));
+      }
+    }
+
+    entity[actionList] = entity[actionList].filter(
+      (action: Action) => action.type !== ActionType.shield || this.effectiveActionValue(action) !== 0
+    );
+  }
+
+  private setRetaliateActions(entity: any, persistent: boolean, retaliateActions: Action[], additive: boolean) {
+    const actionList = this.actionList(persistent);
+
+    if (additive) {
+      retaliateActions.forEach((retaliateAction) => {
+        const existing = this.retaliateActions(entity, persistent).find((action) => this.sameRetaliateProfile(action, retaliateAction));
+        if (existing) {
+          const newEffective = this.effectiveActionValue(existing) + this.effectiveActionValue(retaliateAction);
+          if (newEffective < 0) {
+            existing.valueType = ActionValueType.minus;
+            existing.value = -newEffective;
+          } else {
+            existing.valueType = ActionValueType.fixed;
+            existing.value = newEffective;
+          }
+        } else {
+          entity[actionList].push(gameManager.actionsManager.copyAction(retaliateAction));
+        }
+      });
+    } else {
+      entity[actionList] = entity[actionList].filter((action: Action) => action.type !== ActionType.retaliate);
+      retaliateActions.forEach((retaliateAction) => entity[actionList].push(gameManager.actionsManager.copyAction(retaliateAction)));
+    }
+
+    entity[actionList] = entity[actionList].filter(
+      (action: Action) => action.type !== ActionType.retaliate || EntityValueFunction(action.value) !== 0
+    );
+  }
 
   update() {
     this.component.shieldAndRetaliate =
@@ -18,49 +125,24 @@ export class ShieldRetaliateHelper {
       (settingsManager.settings.standeeShieldRetaliate && this.component.figures.find((figure) => figure instanceof Monster) !== undefined);
 
     if (this.component.shieldAndRetaliate && this.component.entity) {
-      if (this.component.entity.shield) {
-        this.component.entityShield.value = this.component.entity.shield.value;
-      }
+      this.component.entityShield.value = this.effectiveActionValue(this.shieldAction(this.component.entity, false));
+      this.component.entityShieldPersistent.value = this.effectiveActionValue(this.shieldAction(this.component.entity, true));
 
-      if (this.component.entity.shieldPersistent) {
-        this.component.entityShieldPersistent.value = this.component.entity.shieldPersistent.value;
-      }
+      const retaliate = this.retaliateActions(this.component.entity, false);
+      this.component.entityRetaliate = retaliate.length
+        ? retaliate.map((action) => new Action(ActionType.retaliate, this.effectiveActionValue(action)))
+        : [new Action(ActionType.retaliate, 0)];
+      this.component.entityRetaliateRange = retaliate.length
+        ? retaliate.map((action) => this.createRangeAction(this.rangeValue(action)))
+        : [this.createRangeAction()];
 
-      this.component.entity.retaliate.forEach((retaliate, index) => {
-        if (!this.component.entityRetaliate[index]) {
-          this.component.entityRetaliate[index] = new Action(ActionType.retaliate, retaliate.value);
-        } else {
-          this.component.entityRetaliate[index].value = retaliate.value;
-        }
-
-        if (!this.component.entityRetaliateRange[index]) {
-          this.component.entityRetaliateRange[index] = new Action(ActionType.range, 1);
-          this.component.entityRetaliateRange[index].small = true;
-        }
-
-        const rangeSubAction = retaliate.subActions.find((subAction) => subAction.type === ActionType.range);
-        if (rangeSubAction) {
-          this.component.entityRetaliateRange[index].value = rangeSubAction.value;
-        }
-      });
-
-      this.component.entity.retaliatePersistent.forEach((retaliate, index) => {
-        if (!this.component.entityRetaliatePersistent[index]) {
-          this.component.entityRetaliatePersistent[index] = new Action(ActionType.retaliate, retaliate.value);
-        } else {
-          this.component.entityRetaliatePersistent[index].value = retaliate.value;
-        }
-
-        if (!this.component.entityRetaliateRangePersistent[index]) {
-          this.component.entityRetaliateRangePersistent[index] = new Action(ActionType.range, 1);
-          this.component.entityRetaliateRangePersistent[index].small = true;
-        }
-
-        const rangeSubAction = retaliate.subActions.find((subAction) => subAction.type === ActionType.range);
-        if (rangeSubAction) {
-          this.component.entityRetaliateRangePersistent[index].value = rangeSubAction.value;
-        }
-      });
+      const retaliatePersistent = this.retaliateActions(this.component.entity, true);
+      this.component.entityRetaliatePersistent = retaliatePersistent.length
+        ? retaliatePersistent.map((action) => new Action(ActionType.retaliate, this.effectiveActionValue(action)))
+        : [new Action(ActionType.retaliate, 0)];
+      this.component.entityRetaliateRangePersistent = retaliatePersistent.length
+        ? retaliatePersistent.map((action) => this.createRangeAction(this.rangeValue(action)))
+        : [this.createRangeAction()];
     }
   }
 
@@ -117,67 +199,51 @@ export class ShieldRetaliateHelper {
   }
 
   close() {
+    const shieldValue = this.component.entityShield.value;
     if (
       this.component.entities.some(
         (entity) =>
-          (EntityValueFunction(this.component.entityShield.value) > 0 && !entity.shield) ||
-          (entity.shield && EntityValueFunction(entity.shield.value) !== EntityValueFunction(this.component.entityShield.value))
+          (EntityValueFunction(shieldValue) !== 0 && !this.shieldAction(entity, false)) ||
+          (this.shieldAction(entity, false) &&
+            this.effectiveActionValue(this.shieldAction(entity, false)) !== EntityValueFunction(shieldValue))
       )
     ) {
-      this.component.before('changeShield', this.component.entityShield.value);
+      this.component.before('changeShield', shieldValue);
       this.component.entities.forEach((entity) => {
         if (
           (entity instanceof Character && settingsManager.settings.characterShieldRetaliate) ||
           (!(entity instanceof Character) && settingsManager.settings.standeeShieldRetaliate)
         ) {
-          if (!this.component.entity && entity.shield) {
-            entity.shield.value = EntityValueFunction(entity.shield.value) + EntityValueFunction(this.component.entityShield.value);
-          } else {
-            entity.shield = gameManager.actionsManager.copyAction(this.component.entityShield);
-          }
-          if (EntityValueFunction(entity.shield.value) <= 0) {
-            entity.shield = undefined;
-          }
-        }
-      });
-      gameManager.stateManager.after();
-    }
-    if (
-      this.component.entities.some(
-        (entity) =>
-          (EntityValueFunction(this.component.entityShieldPersistent.value) > 0 && !entity.shieldPersistent) ||
-          (entity.shieldPersistent &&
-            EntityValueFunction(entity.shieldPersistent.value) !== EntityValueFunction(this.component.entityShieldPersistent.value))
-      )
-    ) {
-      this.component.before('changeShieldPersistent', this.component.entityShieldPersistent.value);
-      this.component.entities.forEach((entity) => {
-        if (
-          (entity instanceof Character && settingsManager.settings.characterShieldRetaliate) ||
-          (!(entity instanceof Character) && settingsManager.settings.standeeShieldRetaliate)
-        ) {
-          if (!this.component.entity && entity.shieldPersistent) {
-            entity.shieldPersistent.value =
-              EntityValueFunction(entity.shieldPersistent.value) + EntityValueFunction(this.component.entityShieldPersistent.value);
-          } else {
-            entity.shieldPersistent = gameManager.actionsManager.copyAction(this.component.entityShieldPersistent);
-          }
-          if (EntityValueFunction(entity.shieldPersistent.value) <= 0) {
-            entity.shieldPersistent = undefined;
-          }
+          this.setShieldAction(entity, false, shieldValue, !this.component.entity && !!this.shieldAction(entity, false));
         }
       });
       gameManager.stateManager.after();
     }
 
-    const retaliate = this.component.entityRetaliate.map((action, index) => {
-      const retaliateAction = new Action(ActionType.retaliate, action.value);
-      retaliateAction.subActions = action.subActions || [];
-      if (this.component.entityRetaliateRange[index] && this.component.entityRetaliateRange[index].value !== 1) {
-        retaliateAction.subActions.unshift(this.component.entityRetaliateRange[index]);
-      }
-      return retaliateAction;
-    });
+    const shieldPersistentValue = this.component.entityShieldPersistent.value;
+    if (
+      this.component.entities.some(
+        (entity) =>
+          (EntityValueFunction(shieldPersistentValue) !== 0 && !this.shieldAction(entity, true)) ||
+          (this.shieldAction(entity, true) &&
+            this.effectiveActionValue(this.shieldAction(entity, true)) !== EntityValueFunction(shieldPersistentValue))
+      )
+    ) {
+      this.component.before('changeShieldPersistent', shieldPersistentValue);
+      this.component.entities.forEach((entity) => {
+        if (
+          (entity instanceof Character && settingsManager.settings.characterShieldRetaliate) ||
+          (!(entity instanceof Character) && settingsManager.settings.standeeShieldRetaliate)
+        ) {
+          this.setShieldAction(entity, true, shieldPersistentValue, !this.component.entity && !!this.shieldAction(entity, true));
+        }
+      });
+      gameManager.stateManager.after();
+    }
+
+    const retaliate = this.component.entityRetaliate.map((action, index) =>
+      this.createRetaliateAction(action.value, this.component.entityRetaliateRange[index]?.value || 1)
+    );
 
     if (
       retaliate.length > 0 &&
@@ -185,9 +251,9 @@ export class ShieldRetaliateHelper {
         this.component.entities.some(
           (entity) =>
             (EntityValueFunction(retaliateAction.value) > 0 &&
-              !entity.retaliate.some((action) => JSON.stringify(retaliateAction) === JSON.stringify(action))) ||
-            (entity.retaliate.length &&
-              entity.retaliate.some(
+              !this.retaliateActions(entity, false).some((action) => JSON.stringify(retaliateAction) === JSON.stringify(action))) ||
+            (this.retaliateActions(entity, false).length &&
+              this.retaliateActions(entity, false).some(
                 (action) =>
                   JSON.stringify(action.subActions) === JSON.stringify(retaliateAction.subActions) &&
                   EntityValueFunction(action.value) !== EntityValueFunction(retaliateAction.value)
@@ -216,36 +282,16 @@ export class ShieldRetaliateHelper {
           (entity instanceof Character && settingsManager.settings.characterShieldRetaliate) ||
           (!(entity instanceof Character) && settingsManager.settings.standeeShieldRetaliate)
         ) {
-          if (!this.component.entity && entity.retaliate) {
-            retaliate.forEach((retaliateAction) => {
-              const existing = entity.retaliate.find(
-                (action) => JSON.stringify(action.subActions) === JSON.stringify(retaliateAction.subActions)
-              );
-              if (existing) {
-                existing.value = EntityValueFunction(existing.value) + EntityValueFunction(retaliateAction.value);
-              } else {
-                entity.retaliate.push(gameManager.actionsManager.copyAction(retaliateAction));
-              }
-            });
-          } else {
-            entity.retaliate = retaliate.map((retaliateAction) => gameManager.actionsManager.copyAction(retaliateAction));
-          }
-
-          entity.retaliate = entity.retaliate.filter((action) => EntityValueFunction(action.value) > 0);
+          this.setRetaliateActions(entity, false, retaliate, !this.component.entity && this.retaliateActions(entity, false).length > 0);
         }
       });
 
       gameManager.stateManager.after();
     }
 
-    const retaliatePersistent = this.component.entityRetaliatePersistent.map((action, index) => {
-      const retaliateAction = new Action(ActionType.retaliate, action.value);
-      retaliateAction.subActions = [];
-      if (this.component.entityRetaliateRangePersistent[index] && this.component.entityRetaliateRangePersistent[index].value !== 1) {
-        retaliateAction.subActions.push(this.component.entityRetaliateRangePersistent[index]);
-      }
-      return retaliateAction;
-    });
+    const retaliatePersistent = this.component.entityRetaliatePersistent.map((action, index) =>
+      this.createRetaliateAction(action.value, this.component.entityRetaliateRangePersistent[index]?.value || 1)
+    );
 
     if (
       retaliatePersistent.length > 0 &&
@@ -253,9 +299,9 @@ export class ShieldRetaliateHelper {
         this.component.entities.some(
           (entity) =>
             (EntityValueFunction(retaliatePersitentAction.value) > 0 &&
-              !entity.retaliatePersistent.some((action) => JSON.stringify(retaliatePersitentAction) === JSON.stringify(action))) ||
-            (entity.retaliatePersistent.length &&
-              entity.retaliatePersistent.some(
+              !this.retaliateActions(entity, true).some((action) => JSON.stringify(retaliatePersitentAction) === JSON.stringify(action))) ||
+            (this.retaliateActions(entity, true).length &&
+              this.retaliateActions(entity, true).some(
                 (action) =>
                   JSON.stringify(action.subActions) === JSON.stringify(retaliatePersitentAction.subActions) &&
                   EntityValueFunction(action.value) !== EntityValueFunction(retaliatePersitentAction.value)
@@ -284,24 +330,12 @@ export class ShieldRetaliateHelper {
           (entity instanceof Character && settingsManager.settings.characterShieldRetaliate) ||
           (!(entity instanceof Character) && settingsManager.settings.standeeShieldRetaliate)
         ) {
-          if (!this.component.entity && entity.retaliatePersistent) {
-            retaliatePersistent.forEach((retaliateAction) => {
-              const existing = entity.retaliatePersistent.find(
-                (action) => JSON.stringify(action.subActions) === JSON.stringify(retaliateAction.subActions)
-              );
-              if (existing) {
-                existing.value = EntityValueFunction(existing.value) + EntityValueFunction(retaliateAction.value);
-              } else {
-                entity.retaliatePersistent.push(gameManager.actionsManager.copyAction(retaliateAction));
-              }
-            });
-          } else {
-            entity.retaliatePersistent = retaliatePersistent.map((retaliateAction) =>
-              gameManager.actionsManager.copyAction(retaliateAction)
-            );
-          }
-
-          entity.retaliatePersistent = entity.retaliatePersistent.filter((action) => EntityValueFunction(action.value) > 0);
+          this.setRetaliateActions(
+            entity,
+            true,
+            retaliatePersistent,
+            !this.component.entity && this.retaliateActions(entity, true).length > 0
+          );
         }
       });
 

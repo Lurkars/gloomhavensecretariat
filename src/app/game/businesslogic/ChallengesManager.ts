@@ -294,9 +294,9 @@ export class ChallengesManager {
               if (entity.health === entity.maxHealth && (!entity.tags || !entity.tags.includes('challenge-fh-1492'))) {
                 entity.tags = entity.tags || [];
                 entity.tags.push('challenge-fh-1492');
-                entity.retaliatePersistent.push(new Action(ActionType.retaliate, 2));
+                entity.extraActionsPersistent.push(new Action(ActionType.retaliate, 2));
               } else if (entity.health < entity.maxHealth && entity.tags && entity.tags.includes('challenge-fh-1492')) {
-                const retaliateAction = entity.retaliatePersistent.find(
+                const retaliateAction = entity.extraActionsPersistent.find(
                   (action) =>
                     action.type === ActionType.retaliate &&
                     action.value === 2 &&
@@ -304,7 +304,7 @@ export class ChallengesManager {
                     (!action.subActions || !action.subActions.length)
                 );
                 if (retaliateAction) {
-                  entity.retaliatePersistent.splice(entity.retaliatePersistent.indexOf(retaliateAction), 1);
+                  entity.extraActionsPersistent.splice(entity.extraActionsPersistent.indexOf(retaliateAction), 1);
                 }
                 entity.tags.splice(entity.tags.indexOf('challenge-fh-1492'));
               }
@@ -335,17 +335,19 @@ export class ChallengesManager {
               if (elitePresent && entity.type === MonsterType.normal && (!entity.tags || !entity.tags.includes('challenge-fh-1515'))) {
                 entity.tags = entity.tags || [];
                 entity.tags.push('challenge-fh-1515');
-                if (!entity.shieldPersistent) {
-                  entity.shieldPersistent = new Action(ActionType.shield, 1);
+                const challengeShield1515 = entity.extraActionsPersistent.find((action) => action.type === ActionType.shield);
+                if (!challengeShield1515) {
+                  entity.extraActionsPersistent.push(new Action(ActionType.shield, 1));
                 } else {
-                  entity.shieldPersistent.value = EntityValueFunction(entity.shieldPersistent.value) + 1;
+                  challengeShield1515.value = EntityValueFunction(challengeShield1515.value) + 1;
                 }
               } else if (!elitePresent && entity.tags && entity.tags.includes('challenge-fh-1515')) {
-                if (entity.shieldPersistent) {
-                  if (entity.shieldPersistent.value === 1) {
-                    entity.shieldPersistent = undefined;
+                const challengeShield1515Remove = entity.extraActionsPersistent.find((action) => action.type === ActionType.shield);
+                if (challengeShield1515Remove) {
+                  if (EntityValueFunction(challengeShield1515Remove.value) <= 1) {
+                    entity.extraActionsPersistent = entity.extraActionsPersistent.filter((action) => action.type !== ActionType.shield);
                   } else {
-                    entity.shieldPersistent.value = EntityValueFunction(entity.shieldPersistent.value) - 1;
+                    challengeShield1515Remove.value = EntityValueFunction(challengeShield1515Remove.value) - 1;
                   }
                 }
                 entity.tags.splice(entity.tags.indexOf('challenge-fh-1515'));
@@ -359,17 +361,19 @@ export class ChallengesManager {
               if (!negativeConditions.length && (!entity.tags || !entity.tags.includes('challenge-fh-1524'))) {
                 entity.tags = entity.tags || [];
                 entity.tags.push('challenge-fh-1524');
-                if (!entity.shieldPersistent) {
-                  entity.shieldPersistent = new Action(ActionType.shield, 1);
+                const challengeShield1524 = entity.extraActionsPersistent.find((action) => action.type === ActionType.shield);
+                if (!challengeShield1524) {
+                  entity.extraActionsPersistent.push(new Action(ActionType.shield, 1));
                 } else {
-                  entity.shieldPersistent.value = EntityValueFunction(entity.shieldPersistent.value) + 1;
+                  challengeShield1524.value = EntityValueFunction(challengeShield1524.value) + 1;
                 }
               } else if (negativeConditions.length && entity.tags && entity.tags.includes('challenge-fh-1524')) {
-                if (entity.shieldPersistent) {
-                  if (entity.shieldPersistent.value === 1) {
-                    entity.shieldPersistent = undefined;
+                const challengeShield1524Remove = entity.extraActionsPersistent.find((action) => action.type === ActionType.shield);
+                if (challengeShield1524Remove) {
+                  if (EntityValueFunction(challengeShield1524Remove.value) <= 1) {
+                    entity.extraActionsPersistent = entity.extraActionsPersistent.filter((action) => action.type !== ActionType.shield);
                   } else {
-                    entity.shieldPersistent.value = EntityValueFunction(entity.shieldPersistent.value) - 1;
+                    challengeShield1524Remove.value = EntityValueFunction(challengeShield1524Remove.value) - 1;
                   }
                 }
                 entity.tags.splice(entity.tags.indexOf('challenge-fh-1524'));

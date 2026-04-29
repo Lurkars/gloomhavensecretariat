@@ -79,7 +79,8 @@ export class EventCardDeckComponent {
       .filter((id) => deck.find((e) => e.edition === id.edition && e.type === id.type && e.cardId === id.cardId))
       .map((id) => {
         return { identifier: id, card: deck.find((card) => card.cardId === id.cardId) };
-      });
+      })
+      .reverse();
   }
 
   selectType(type: string) {

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, inject, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, model, OnInit } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -22,26 +22,41 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 export class ActionsComponent implements OnInit {
   private ghsManager = inject(GhsManager);
 
-  @Input() monster: Monster | undefined;
-  @Input() monsterType: MonsterType | undefined;
-  @Input() objective: ObjectiveContainer | undefined;
-  @Input() actions!: Action[];
-  @Input() relative: boolean = false;
-  @Input() inline: boolean = false;
-  @Input() textBlack: boolean = false;
-  @Input() right: boolean = false;
-  @Input() statsCalculation: boolean = false;
-  @Input() shieldStats: boolean = false;
-  @Input() interactiveAbilities: boolean = false;
-  @Input() interactiveActions: InteractiveAction[] = [];
-  @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
-  @Input() highlightActions: ActionType[] = [];
-  @Input() hexSize!: number;
-  @Input('index') actionIndex: string = '';
-  @Input() style: 'gh' | 'fh' | false = false;
-  @Input() noDivider: boolean = false;
-  @Input() character: Character | undefined;
-  @Input() cardId: number | undefined;
+  readonly inputMonster = input<Monster>(undefined, { alias: 'monster' });
+  get monster(): Monster | undefined {
+    return this.inputMonster();
+  }
+
+  readonly inputCharacter = input<Character>(undefined, { alias: 'character' });
+  get character(): Character | undefined {
+    return this.inputCharacter();
+  }
+
+  readonly inputObjective = input<ObjectiveContainer>(undefined, { alias: 'objective' });
+  get objective(): ObjectiveContainer | undefined {
+    return this.inputObjective();
+  }
+
+  readonly actionsInout = input<Action[]>([], { alias: 'actions' });
+  get actions(): Action[] {
+    return this.actionsInout();
+  }
+
+  readonly monsterType = input<MonsterType>();
+  readonly relative = input<boolean>(false);
+  readonly inline = input<boolean>(false);
+  readonly textBlack = input<boolean>(false);
+  readonly right = input<boolean>(false);
+  readonly statsCalculation = input<boolean>(false);
+  readonly shieldStats = input<boolean>(false);
+  readonly interactiveAbilities = input<boolean>(false);
+  interactiveActions = model<InteractiveAction[]>([]);
+  readonly highlightActions = input<ActionType[]>([]);
+  readonly hexSize = input<number>();
+  readonly actionIndex = input<string>('', { alias: 'index' });
+  readonly style = input<'gh' | 'fh' | false>(false);
+  readonly noDivider = input<boolean>(false);
+  readonly cardId = input<number>();
 
   divider: boolean[] = [];
   spacing: boolean[] = [];
@@ -107,7 +122,7 @@ export class ActionsComponent implements OnInit {
       }
     }
 
-    if (!this.noDivider && this.actions) {
+    if (!this.noDivider() && this.actions) {
       this.actions.forEach((action, index) => {
         this.divider[index] = this.calcDivider(action, index);
         this.spacing[index] = this.calcSpacing(action, index);
@@ -116,7 +131,7 @@ export class ActionsComponent implements OnInit {
   }
 
   calcDivider(action: Action, index: number): boolean {
-    if (index < 1 || this.inline || action.noDivider) {
+    if (index < 1 || this.inline() || action.noDivider) {
       return false;
     }
 
@@ -160,7 +175,7 @@ export class ActionsComponent implements OnInit {
   }
 
   calcSpacing(action: Action, index: number): boolean {
-    if (index < 1 || this.inline) {
+    if (index < 1 || this.inline()) {
       return false;
     }
 
@@ -176,9 +191,5 @@ export class ActionsComponent implements OnInit {
     }
 
     return true;
-  }
-
-  onInteractiveActionsChange(change: InteractiveAction[]) {
-    this.interactiveActionsChange.emit(change);
   }
 }

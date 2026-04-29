@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -19,7 +19,10 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 export class CharacterImageComponent {
   private ghsManager = inject(GhsManager);
 
-  @Input() character!: Character;
+  readonly inputCharacter = input.required<Character>({ alias: 'character' });
+  get character(): Character {
+    return this.inputCharacter();
+  }
 
   characterManager: CharacterManager = gameManager.characterManager;
   gameManager: GameManager = gameManager;

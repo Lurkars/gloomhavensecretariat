@@ -1,7 +1,7 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, CdkDragRelease, CdkDragStart, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, isDevMode, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, isDevMode, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { Subscription } from 'rxjs';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -94,8 +94,6 @@ export class MainComponent implements OnInit {
 
   serverPing: number = 0;
   serverPingInterval: any;
-
-  @ViewChild('footer') footer!: FooterComponent;
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => {
@@ -304,7 +302,9 @@ export class MainComponent implements OnInit {
 
     if (settingsManager.settings.wakeLock && 'wakeLock' in navigator) {
       try {
-        gameManager.stateManager.wakeLock = await navigator.wakeLock.request('screen');
+        if (document.visibilityState === 'visible') {
+          gameManager.stateManager.wakeLock = await navigator.wakeLock.request('screen');
+        }
       } catch (e) {
         console.error(e);
       }

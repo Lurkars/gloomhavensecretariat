@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -14,7 +14,7 @@ import { TabClickDirective } from 'src/app/ui/helper/tabclick';
 export class SettingsDebugMenuComponent {
   settingsManager: SettingsManager = settingsManager;
 
-  @Output() closed = new EventEmitter();
+  readonly closed = output();
 
   setServerPing(event: any) {
     settingsManager.settings.serverPing = event.target.value;

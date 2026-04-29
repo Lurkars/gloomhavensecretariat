@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
-import { ChangeDetectionStrategy, Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -19,7 +19,7 @@ export class LevelComponent {
   private overlay = inject(Overlay);
   private ghsManager = inject(GhsManager);
 
-  @ViewChild('levelButton') levelButton!: ElementRef;
+  readonly levelButton = viewChild.required<ElementRef>('levelButton');
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -43,7 +43,7 @@ export class LevelComponent {
 
     this.dialog.open(LevelDialogComponent, {
       panelClass: ['dialog'],
-      positionStrategy: this.overlay.position().flexibleConnectedTo(this.levelButton).withPositions(positions).withDefaultOffsetY(-10)
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.levelButton()).withPositions(positions).withDefaultOffsetY(-10)
     });
   }
 

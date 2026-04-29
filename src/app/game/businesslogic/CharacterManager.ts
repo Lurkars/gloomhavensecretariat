@@ -488,10 +488,13 @@ export class CharacterManager {
           gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.regenerate));
         }
 
-        if (!figure.absent && figure.name === 'blinkblade' && figure.tags.includes('roundAction-overdrive') && figure.shieldPersistent) {
-          figure.shieldPersistent.value = EntityValueFunction(figure.shieldPersistent.value) - 1;
-          if (figure.shieldPersistent.value <= 0) {
-            figure.shieldPersistent = undefined;
+        if (!figure.absent && figure.name === 'blinkblade' && figure.tags.includes('roundAction-overdrive')) {
+          const blinkbladeShield = figure.extraActionsPersistent.find((action) => action.type === ActionType.shield);
+          if (blinkbladeShield) {
+            blinkbladeShield.value = EntityValueFunction(blinkbladeShield.value) - 1;
+            if (blinkbladeShield.value <= 0) {
+              figure.extraActionsPersistent = figure.extraActionsPersistent.filter((action) => action.type !== ActionType.shield);
+            }
           }
         }
 
@@ -549,10 +552,11 @@ export class CharacterManager {
           figure.identity === 0
         ) {
           figure.tags.push('roundAction-overdrive');
-          if (!figure.shieldPersistent) {
-            figure.shieldPersistent = new Action(ActionType.shield, 1);
+          const existingShield = figure.extraActionsPersistent.find((action) => action.type === ActionType.shield);
+          if (!existingShield) {
+            figure.extraActionsPersistent.push(new Action(ActionType.shield, 1));
           } else {
-            figure.shieldPersistent.value = EntityValueFunction(figure.shieldPersistent.value) + 1;
+            existingShield.value = EntityValueFunction(existingShield.value) + 1;
           }
         }
 

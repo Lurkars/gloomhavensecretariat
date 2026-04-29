@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EventCard, EventCardConditionType, EventCardEffectType, EventCardIdentifier } from 'src/app/game/model/data/EventCard';
@@ -29,22 +29,30 @@ export class EventCardComponent implements OnInit, OnChanges {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
-  @Input() event: EventCard | undefined;
-  @Input() identifier: EventCardIdentifier | undefined | false;
-  @Input() select: number = -1;
-  @Input() subSelect: number[] = [];
-  @Input() checks: number[] = [];
-  @Input() flipped: boolean = false;
-  @Input() disabled: boolean = false;
-  @Input() spoiler: boolean = false;
+  readonly inputEventCard = input<EventCard>(undefined, { alias: 'event' });
 
-  @Input() debug: boolean = false;
+  readonly inputIdentifier = input<EventCardIdentifier | undefined | false>(undefined, { alias: 'identifier' });
+  get identifier(): EventCardIdentifier | undefined | false {
+    return this.inputIdentifier();
+  }
 
-  @Output() selectCard: EventEmitter<EventCardIdentifier> = new EventEmitter<EventCardIdentifier>();
+  readonly select = input<number>(-1);
+  readonly subSelect = input<number[]>([]);
+  readonly inputChecks = input<number[]>([], { alias: 'checks' });
+  readonly inputFlipped = input<boolean>(false, { alias: 'flipped' });
+  readonly disabled = input<boolean>(false);
+  readonly spoiler = input<boolean>(false);
 
+  readonly debug = input<boolean>(false);
+
+  readonly selectCard = output<EventCardIdentifier>();
+
+  event: EventCard | undefined;
   selected: number = -1;
   subSelections: number[] = [];
+  checks: number[] = [];
   attackIndex: number = -1;
+  flipped: boolean = false;
   attack: boolean = false;
   light: boolean = false;
   spoilerFree: boolean = false;
@@ -54,6 +62,9 @@ export class EventCardComponent implements OnInit, OnChanges {
   showDebug: boolean = false;
 
   ngOnInit(): void {
+    this.event = this.inputEventCard();
+    this.checks = this.inputChecks();
+    this.flipped = this.inputFlipped();
     if (this.event) {
       this.event.options.forEach((option, optionIndex) => {
         if (option.outcomes) {
@@ -78,12 +89,16 @@ export class EventCardComponent implements OnInit, OnChanges {
         this.checks = [...model.checks];
       }
     }
-    this.spoilerFree = this.spoiler;
-    this.selected = this.select;
-    this.subSelections = this.subSelect;
+    this.spoilerFree = this.spoiler();
+    this.selected = this.select();
+    this.subSelections = this.subSelect();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.event = this.inputEventCard();
+    this.checks = this.inputChecks();
+    this.flipped = this.inputFlipped();
+    const select = this.select();
     if (changes['identifier'] && changes['identifier'].previousValue !== changes['identifier'].currentValue) {
       if (!this.event && this.identifier) {
         this.event = gameManager.eventCardManager.getEventCardForEdition(
@@ -99,10 +114,10 @@ export class EventCardComponent implements OnInit, OnChanges {
           this.checks = [...this.identifier.checks];
         }
       }
-    } else if (changes['select'] && changes['select'].previousValue !== changes['select'].currentValue && this.selected !== this.select) {
-      this.selectOption(this.select, true);
+    } else if (changes['select'] && changes['select'].previousValue !== changes['select'].currentValue && this.selected !== select) {
+      this.selectOption(select, true);
     } else if (changes['spoiler'] && changes['spoiler'].previousValue !== changes['spoiler'].currentValue) {
-      this.spoilerFree = this.spoiler;
+      this.spoilerFree = this.spoiler();
     }
     this.light = (this.event && ['city'].includes(this.event.type)) || false;
   }
@@ -111,7 +126,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     if (this.attackIndex !== -1 && this.attackIndex === index) {
       return;
     }
-    if (this.event && !this.disabled && this.selected !== index) {
+    if (this.event && !this.disabled() && this.selected !== index) {
       this.attack = this.attackIndex !== -1;
       this.selected = index;
       this.subSelections = [];
@@ -173,7 +188,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     if (this.attackIndex !== -1 && this.attackIndex === index) {
       return;
     }
-    if (this.event && !this.disabled && this.selected === optionIndex) {
+    if (this.event && !this.disabled() && this.selected === optionIndex) {
       if (this.subSelections.includes(index)) {
         this.subSelections.splice(this.subSelections.indexOf(index), 1);
       } else if ((this.resolvable[this.selected] && this.resolvable[this.selected][index]) || force) {

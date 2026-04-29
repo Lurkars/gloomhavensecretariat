@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, model, OnInit } from '@angular/core';
 import { GhsValueSignPipe } from 'src/app/ui/helper/Pipes';
 import { TabClickDirective } from 'src/app/ui/helper/tabclick';
 
@@ -11,33 +11,29 @@ import { TabClickDirective } from 'src/app/ui/helper/tabclick';
   templateUrl: './number-input.html'
 })
 export class GhsNumberInput implements OnInit {
-  @Input()
-  model: number = 0;
-  @Output()
-  modelChange = new EventEmitter<number>();
+  modelNumber = model<number>(0, { alias: 'model' });
 
-  @Input()
-  steps: number[] = [1, 2];
+  readonly steps = input<number[]>([1, 2]);
 
-  @Input()
-  negative: boolean = true;
+  readonly negative = input<boolean>(true);
 
-  @Input()
-  min: number | undefined = 0;
+  readonly min = input<number>(0);
 
-  @Input()
-  max: number | undefined = undefined;
+  readonly max = input<number>(0);
 
-  @Input()
-  relative: boolean = false;
+  readonly relative = input<boolean>(false);
 
-  stepsNegative: number[] = this.steps.map((value) => value).reverse();
+  stepsNegative: number[] = this.steps()
+    .map((value) => value)
+    .reverse();
 
   ngOnInit(): void {
-    this.stepsNegative = this.steps.map((value) => value).reverse();
+    this.stepsNegative = this.steps()
+      .map((value) => value)
+      .reverse();
   }
 
   change(value: number) {
-    this.modelChange.emit(this.model + value);
+    this.modelNumber.set(this.modelNumber() + value);
   }
 }

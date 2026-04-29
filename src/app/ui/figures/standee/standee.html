@@ -78,7 +78,7 @@
       <div class="conditions actions">
         @for (actionHint of actionHints | trackUUID; track actionHint._trackUUID; let i = $index) {
           <span class="condition-container" [ngClass]="{ center: actionHints.length % 2 === 1 && i === actionHints.length - 1 }">
-            <span class="condition action-hint">
+            <span class="condition action-hint" ghs-pointer-input (doubleClick)="removeActionHint(actionHint)">
               <img
                 [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/hint/' + actionHint.type + '.svg'"
               />
@@ -89,6 +89,32 @@
                   <span class="value">{{ actionHint.range }}</span>
                 </span>
               }
+            </span>
+          </span>
+        }
+
+        @for (action of extraActions | trackUUID; track action._trackUUID; let i = $index) {
+          <span class="condition-container" [ngClass]="{ center: extraActions.length % 2 === 1 && i === extraActions.length - 1 }">
+            <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeExtraAction(action)">
+              <ghs-action [action]="action" [style]="'fh'"></ghs-action>
+            </span>
+          </span>
+        }
+        @for (persistentAction of extraActionsPersistent | trackUUID; track persistentAction._trackUUID; let i = $index) {
+          <span
+            class="condition-container"
+            [ngClass]="{ center: extraActionsPersistent.length % 2 === 1 && i === extraActionsPersistent.length - 1 }"
+          >
+            <span
+              class="action"
+              ghs-pointer-input
+              (singleClick)="openEntityMenu()"
+              (doubleClick)="removeExtraAction(persistentAction, true)"
+            >
+              <span class="action-overlay">
+                <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
+              </span>
+              <ghs-action [action]="persistentAction" [style]="'fh'"></ghs-action>
             </span>
           </span>
         }

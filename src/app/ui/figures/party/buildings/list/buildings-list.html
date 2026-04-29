@@ -1,17 +1,17 @@
 <div
   class="buildings"
   [ngClass]="{
-    short: short,
-    'visible-effects': !short && settingsManager.settings.buildingEffectsVisible,
-    'visible-interactions': !short && settingsManager.settings.buildingInteractionsVisible,
-    invert: invert
+    short: short(),
+    'visible-effects': !short() && settingsManager.settings.buildingEffectsVisible,
+    'visible-interactions': !short() && settingsManager.settings.buildingInteractionsVisible,
+    invert: invert()
   }"
 >
   <div class="building head">
     <span class="name"><span [ghs-label]="'party.campaign.sheet.buildings.name'"></span></span>
     <span class="id"><span [ghs-label]="'party.campaign.sheet.buildings.id'"></span></span>
     <span class="level"><span [ghs-label]="'party.campaign.sheet.buildings.level'"></span></span>
-    @if (!short) {
+    @if (!short()) {
       <span class="effects">
         <span [ghs-label]="'party.campaign.sheet.buildings.effects'"></span>
         <a class="toggle" (click)="settingsManager.toggle('buildingEffectsVisible')">
@@ -54,7 +54,7 @@
         [originY]="'bottom'"
         >{{ building.model.level || '-' }}</span
       >
-      @if (!short) {
+      @if (!short()) {
         <span class="effects">
           @if (
             building.model.state === 'normal' &&
@@ -215,7 +215,7 @@
             [originY]="'bottom'"
             [overlayX]="'end'"
           >
-            @if (!short) {
+            @if (!short()) {
               <span [ghs-label]="'party.campaign.sheet.buildings.' + (building.model.level > 0 ? 'upgrade' : 'build')"></span>
             }
             <img [src]="'./assets/images/fh/buildings/' + (building.model.level > 0 ? 'upgrade' : 'build') + '.svg'" />
@@ -233,7 +233,7 @@
             [originY]="'bottom'"
             [overlayX]="'end'"
           >
-            @if (!short) {
+            @if (!short()) {
               <span [ghs-label]="'party.campaign.sheet.buildings.repair'"></span>
             }
             <img src="./assets/images/fh/buildings/repair.svg" />
@@ -251,7 +251,7 @@
             [originY]="'bottom'"
             [overlayX]="'end'"
           >
-            @if (!short) {
+            @if (!short()) {
               <span [ghs-label]="'party.campaign.sheet.buildings.rebuild'"></span>
             }
             <img src="./assets/images/fh/buildings/rebuild.svg" />

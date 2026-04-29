@@ -5,7 +5,7 @@
       [ngClass]="{ flipped: flipped, random: item.random, fh: fhStyle, craft: craft, bb: bb }"
       [style.fontSize]="fontsize"
       card-reveal
-      [disabled]="!reveal"
+      [disabled]="!reveal()"
       (changed)="emitRevealed($event)"
     >
       @if (!item.actionsBack || item.actionsBack.length === 0) {
@@ -53,16 +53,16 @@
                 @for (slot of slotsBack | trackUUID; track slot._trackUUID; let i = $index) {
                   <span
                     class="slot-action"
-                    [ngClass]="{ interactive: clickedSlotBack.observed, usable: usable }"
+                    [ngClass]="{ interactive: interactive(), usable: usable }"
                     ghs-pointer-input
                     (singleClick)="clickedSlotBack.emit(i)"
                   >
                     <ghs-action [action]="slot" [style]="fhStyle || bb ? 'fh' : 'gh'"></ghs-action>
-                    @if (slotsBackMarked.length >= i - 1 && slotsBackMarked[i]) {
+                    @if (slotsBackMarked().length >= i - 1 && slotsBackMarked()[i]) {
                       <span
                         class="marker"
                         [ngClass]="{ fh: settingsManager.settings.fhStyle }"
-                        [ghs-label]="'%game.characterToken.' + slotsBackMarked[i] + '%'"
+                        [ghs-label]="'%game.characterToken.' + slotsBackMarked()[i] + '%'"
                       ></span>
                     }
                   </span>
@@ -71,7 +71,7 @@
             }
           </div>
           @if (item.count) {
-            <div class="count">{{ count }}/{{ item.count }}</div>
+            <div class="count">{{ count() }}/{{ item.count }}</div>
           }
           @if (!!item.actionsBack && item.actionsBack.length > 0) {
             <div class="flip" ghs-pointer-input (singleClick)="flipped = !flipped">
@@ -129,16 +129,16 @@
               @for (slot of slots | trackUUID; track slot._trackUUID; let i = $index) {
                 <span
                   class="slot-action"
-                  [ngClass]="{ interactive: clickedSlot.observed, usable: usable }"
+                  [ngClass]="{ interactive: interactive(), usable: usable }"
                   ghs-pointer-input
                   (singleClick)="clickedSlot.emit(i)"
                 >
                   <ghs-action [action]="slot" [style]="fhStyle || bb ? 'fh' : 'gh'"></ghs-action>
-                  @if (slotsMarked.length >= i - 1 && slotsMarked[i]) {
+                  @if (slotsMarked().length >= i - 1 && slotsMarked()[i]) {
                     <span
                       class="marker"
                       [ngClass]="{ fh: settingsManager.settings.fhStyle }"
-                      [ghs-label]="'%game.characterToken.' + slotsMarked[i] + '%'"
+                      [ghs-label]="'%game.characterToken.' + slotsMarked()[i] + '%'"
                     ></span>
                   }
                 </span>
@@ -147,7 +147,7 @@
           }
         </div>
         @if (item.count && (!bb || item.count > 1)) {
-          <div class="count">{{ count }}/{{ item.count }}</div>
+          <div class="count">{{ count() }}/{{ item.count }}</div>
         }
         @if (craft) {
           <div class="craft">
@@ -186,9 +186,9 @@
         @if (item.consumed) {
           <div
             class="consumed"
-            [ngClass]="{ interactive: clickedConsumed.observed, usable: usable }"
+            [ngClass]="{ interactive: interactive(), usable: usable }"
             ghs-pointer-input
-            (singleClick)="clickedConsumed.emit()"
+            (singleClick)="clickedConsumed.emit(false)"
             (doubleClick)="clickedConsumed.emit(true)"
           >
             <span class="placeholder text-white" [ghs-label]="'%game.card.lost%'"></span>
@@ -197,9 +197,9 @@
         @if (item.spent) {
           <div
             class="spent"
-            [ngClass]="{ interactive: clickedSpent.observed, usable: usable }"
+            [ngClass]="{ interactive: interactive(), usable: usable }"
             ghs-pointer-input
-            (singleClick)="clickedSpent.emit()"
+            (singleClick)="clickedSpent.emit(false)"
             (doubleClick)="clickedSpent.emit(true)"
           >
             <span class="placeholder text-white" [ghs-label]="'%game.card.spent%'"></span>
@@ -208,9 +208,9 @@
         @if (!!item.actionsBack && item.actionsBack.length > 0) {
           <div
             class="flip"
-            [ngClass]="{ interactive: clickedFlip.observed, usable: usable }"
+            [ngClass]="{ interactive: interactive(), usable: usable }"
             ghs-pointer-input
-            (singleClick)="flipped = !flipped; clickedFlip.emit()"
+            (singleClick)="flipped = !flipped; clickedFlip.emit(false)"
             (doubleClick)="clickedFlip.emit(true)"
           >
             <span class="placeholder text-white" [ghs-label]="'%game.card.flipItem%'"></span>
@@ -219,9 +219,9 @@
         @if (item.persistent) {
           <div
             class="persistent"
-            [ngClass]="{ interactive: clickedPersistent.observed, usable: usable }"
+            [ngClass]="{ interactive: interactive(), usable: usable }"
             ghs-pointer-input
-            (singleClick)="clickedPersistent.emit()"
+            (singleClick)="clickedPersistent.emit(false)"
             (doubleClick)="clickedPersistent.emit(true)"
           >
             <span class="placeholder text-white" [ghs-label]="'%game.card.persistent%'"></span>

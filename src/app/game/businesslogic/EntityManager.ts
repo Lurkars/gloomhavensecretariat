@@ -776,6 +776,12 @@ export class EntityManager {
       }
 
       if (condition.name === ConditionName.heal) {
+        const apply = condition.state == EntityConditionState.new && condition.lastState == EntityConditionState.new;
+
+        if (apply) {
+          entity.health += condition.value;
+        }
+
         const preventHeal = entity.entityConditions.find(
           (condition) =>
             condition.types.includes(ConditionType.preventHeal) &&
@@ -1378,8 +1384,7 @@ export class EntityManager {
             });
         }
 
-        entity.shield = undefined;
-        entity.retaliate = [];
+        entity.extraActions = [];
       });
     });
   }

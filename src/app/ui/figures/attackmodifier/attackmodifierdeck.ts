@@ -5,14 +5,12 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  EventEmitter,
   inject,
-  Input,
+  input,
   OnChanges,
   OnInit,
-  Output,
-  SimpleChanges,
-  ViewChild
+  output,
+  SimpleChanges
 } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -53,21 +51,34 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
 
   private cdr = inject(ChangeDetectorRef);
 
-  @Input() deck!: AttackModifierDeck;
-  @Input() character: Character | undefined;
-  @Input() ally: boolean = false;
-  @Input() numeration: string = '';
-  @Input() bottom: boolean = false;
-  @Output() before: EventEmitter<AttackModiferDeckChange> = new EventEmitter<AttackModiferDeckChange>();
-  @Output() after: EventEmitter<AttackModiferDeckChange> = new EventEmitter<AttackModiferDeckChange>();
-  @ViewChild('menu') menuElement!: ElementRef;
-  @Input() fullscreen: boolean = true;
-  @Input() vertical: boolean = false;
-  @Input() townGuard: boolean = false;
-  @Input() battleGoals: boolean = true;
-  @Input() standalone: boolean = false;
-  @Input() edition!: string;
-  @Input() initTimeout: number = 1500;
+  readonly inputDeck = input.required<AttackModifierDeck>({ alias: 'deck' });
+
+  get deck(): AttackModifierDeck {
+    return this.inputDeck();
+  }
+
+  readonly inputCharacter = input<Character>(undefined, { alias: 'character' });
+  get character(): Character | undefined {
+    return this.inputCharacter();
+  }
+
+  readonly inputEdition = input<string>('', { alias: 'edition' });
+
+  readonly ally = input<boolean>(false);
+  readonly inputNumeration = input<string>('', { alias: 'numeration' });
+  readonly bottom = input<boolean>(false);
+  readonly before = output<AttackModiferDeckChange>();
+  readonly after = output<AttackModiferDeckChange>();
+  readonly fullscreen = input<boolean>(true);
+  readonly vertical = input<boolean>(false);
+  readonly townGuard = input<boolean>(false);
+  readonly inputBattleGoals = input<boolean>(true, { alias: 'battleGoals' });
+  readonly standalone = input<boolean>(false);
+  readonly initTimeout = input<number>(1500);
+
+  numeration: string = '';
+  edition: string = '';
+  battleGoals: boolean = true;
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -98,8 +109,6 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
   bbRows: number = 0;
   activeAMs: AttackModifier[] = [];
 
-  @ViewChild('drawCard') drawCard!: ElementRef;
-
   constructor() {
     this.ghsManager.uiChangeEffect((fromServer: boolean) => {
       this.update(fromServer);
@@ -113,8 +122,10 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.edition = this.inputEdition();
+    this.numeration = this.inputNumeration();
+    this.battleGoals = this.inputBattleGoals();
     if (this.character) {
-      this.deck = this.character.attackModifierDeck;
       this.edition = this.character.edition;
       this.numeration = '' + this.character.number;
       this.characterIcon = this.character.iconUrl;
@@ -126,7 +137,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     this.lastVisible = this.deck.lastVisible;
     this.compact =
       !this.drawing &&
-      this.fullscreen &&
+      this.fullscreen() &&
       settingsManager.settings.automaticAttackModifierFullscreen &&
       settingsManager.settings.portraitMode &&
       (window.innerWidth < 800 || window.innerHeight < 400);
@@ -145,7 +156,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
           this.init = true;
           this.cdr.markForCheck();
         },
-        settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0
+        settingsManager.settings.animations ? this.initTimeout() * settingsManager.settings.animationSpeed : 0
       );
     }
 
@@ -157,9 +168,10 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
       this.newStyle = true;
     }
 
+    const townGuard = this.townGuard();
     this.disabled =
-      !this.standalone &&
-      ((!this.townGuard && gameManager.game.state === GameState.draw) || (this.townGuard && gameManager.game.scenario !== undefined));
+      !this.standalone() &&
+      ((!townGuard && gameManager.game.state === GameState.draw) || (townGuard && gameManager.game.scenario !== undefined));
 
     window.addEventListener('resize', () => {
       this.compact =
@@ -186,7 +198,6 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
 
   initCharacter() {
     if (this.character) {
-      this.deck = this.character.attackModifierDeck;
       this.edition = this.character.edition;
       this.numeration = '' + this.character.number;
       this.characterIcon = this.character.iconUrl;
@@ -198,8 +209,10 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
   }
 
   update(fromServer: boolean = false) {
+    this.edition = this.inputEdition();
+    this.numeration = this.inputNumeration();
+    this.battleGoals = this.inputBattleGoals();
     if (this.character) {
-      this.deck = this.character.attackModifierDeck;
       this.edition = this.character.edition;
       this.numeration = '' + this.character.number;
       this.characterIcon = this.character.iconUrl;
@@ -207,13 +220,10 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
       this.battleGoals = false;
       this.characterIcon = '';
     }
+    const townGuard = this.townGuard();
     this.disabled =
-      !this.standalone &&
-      ((!this.townGuard && gameManager.game.state === GameState.draw) || (this.townGuard && gameManager.game.scenario !== undefined));
-
-    if (this.character && this.deck !== this.character.attackModifierDeck) {
-      this.deck = this.character.attackModifierDeck;
-    }
+      !this.standalone() &&
+      ((!townGuard && gameManager.game.state === GameState.draw) || (townGuard && gameManager.game.scenario !== undefined));
 
     if (this.initServer && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
       this.initServer = false;
@@ -306,7 +316,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
   }
 
   draw(event: any, state: 'advantage' | 'disadvantage' | undefined = undefined) {
-    if (this.compact && this.fullscreen) {
+    if (this.compact && this.fullscreen()) {
       this.openFullscreen(event);
     } else if (!this.disabled) {
       if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue === 0 ? 0 : 1)) {
@@ -330,10 +340,10 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
         data: {
           deck: this.deck,
           character: this.character,
-          ally: this.ally,
+          ally: this.ally(),
           numeration: this.numeration,
           newStyle: this.newStyle,
-          townGuard: this.townGuard,
+          townGuard: this.townGuard(),
           before: this.before,
           after: this.after
         }
@@ -348,10 +358,10 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
       data: {
         deck: this.deck,
         character: this.character,
-        ally: this.ally,
+        ally: this.ally(),
         numeration: this.numeration,
         newStyle: this.newStyle,
-        townGuard: this.townGuard,
+        townGuard: this.townGuard(),
         before: this.before,
         after: this.after
       }
@@ -387,7 +397,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
   open(event: any) {
     if (
       gameManager.game.state === GameState.next &&
-      this.fullscreen &&
+      this.fullscreen() &&
       settingsManager.settings.automaticAttackModifierFullscreen &&
       settingsManager.settings.portraitMode &&
       (window.innerWidth < 800 || window.innerHeight < 400)
@@ -399,10 +409,10 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
         data: {
           deck: this.deck,
           character: this.character,
-          ally: this.ally,
+          ally: this.ally(),
           numeration: this.numeration,
           newStyle: this.newStyle,
-          townGuard: this.townGuard,
+          townGuard: this.townGuard(),
           before: this.before,
           after: this.after
         }

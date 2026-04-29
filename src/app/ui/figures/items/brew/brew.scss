@@ -354,6 +354,13 @@
         }
       }
 
+      .item-name,
+      .item-number {
+        &.disabled {
+          filter: brightness(0.5);
+        }
+      }
+
       .item-name {
         word-break: break-word;
       }
@@ -509,6 +516,10 @@
       margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
       height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
+
+      &.disabled {
+        filter: grayscale(0.5);
+      }
     }
   }
 

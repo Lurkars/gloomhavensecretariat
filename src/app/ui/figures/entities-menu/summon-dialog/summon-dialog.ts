@@ -1,7 +1,7 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, inject, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -28,7 +28,7 @@ export class SummonDialogComponent implements AfterViewInit {
   settingsManager: SettingsManager = settingsManager;
   EntityValueFunction = EntityValueFunction;
 
-  @ViewChild('summonTitle', { static: false }) summonTitleInput!: ElementRef;
+  readonly summonTitleInput = viewChild.required<ElementRef>('summonTitle');
 
   character: Character;
   summon: Summon;
@@ -56,8 +56,9 @@ export class SummonDialogComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.summonTitleInput) {
-      this.summonTitleInput.nativeElement.value = this.summon.title;
+    const summonTitleInput = this.summonTitleInput();
+    if (summonTitleInput) {
+      summonTitleInput.nativeElement.value = this.summon.title;
     }
   }
 
@@ -140,11 +141,12 @@ export class SummonDialogComponent implements AfterViewInit {
   }
 
   private closeEdit() {
-    if (this.summonTitleInput) {
-      if (this.summonTitleInput.nativeElement.value && this.summonTitleInput.nativeElement.value !== this.summon.title) {
-        if (this.summon.title !== this.summonTitleInput.nativeElement.value) {
-          gameManager.entityManager.before(this.summon, this.character, 'setTitle', this.summonTitleInput.nativeElement.value);
-          this.summon.title = this.summonTitleInput.nativeElement.value;
+    const summonTitleInput = this.summonTitleInput();
+    if (summonTitleInput) {
+      if (summonTitleInput.nativeElement.value && summonTitleInput.nativeElement.value !== this.summon.title) {
+        if (this.summon.title !== summonTitleInput.nativeElement.value) {
+          gameManager.entityManager.before(this.summon, this.character, 'setTitle', summonTitleInput.nativeElement.value);
+          this.summon.title = summonTitleInput.nativeElement.value;
           gameManager.stateManager.after();
         }
       } else if (this.summon.title !== '') {

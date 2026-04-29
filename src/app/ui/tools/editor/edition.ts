@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -20,7 +20,7 @@ import { environment } from 'src/environments/environment';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditionEditorComponent implements OnInit {
-  @ViewChild('inputEditionData', { static: true }) inputEditionData!: ElementRef;
+  readonly inputEditionData = viewChild.required<ElementRef>('inputEditionData');
 
   gameManager: GameManager = gameManager;
   encodeURIComponent = encodeURIComponent;
@@ -49,7 +49,7 @@ export class EditionEditorComponent implements OnInit {
       }
     });
 
-    this.inputEditionData.nativeElement.value = JSON.stringify(compactData, null, 2);
+    this.inputEditionData().nativeElement.value = JSON.stringify(compactData, null, 2);
   }
 
   jsonDownload(): string {

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import packageJson from 'src/../package.json';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { environment } from 'src/environments/environment';
@@ -13,7 +13,6 @@ import { environment } from 'src/environments/environment';
 export class AboutMenuComponent implements OnInit {
   private cdr = inject(ChangeDetectorRef);
 
-  @Output() closed = new EventEmitter();
   version = packageJson.version;
   branded = environment.branded;
   updateVersion: { latest: boolean; version: string; url: string } | undefined;

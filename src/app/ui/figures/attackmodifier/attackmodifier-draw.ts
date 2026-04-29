@@ -4,14 +4,12 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  EventEmitter,
   inject,
-  Input,
+  input,
   OnChanges,
   OnInit,
-  Output,
-  SimpleChanges,
-  ViewChild
+  output,
+  SimpleChanges
 } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -34,9 +32,13 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
 
   private cdr = inject(ChangeDetectorRef);
 
-  @Input() character!: Character;
-  @Output('drawing') drawingEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Input() initTimeout: number = 1500;
+  readonly inputCharacter = input.required<Character>({ alias: 'character' });
+  get character(): Character {
+    return this.inputCharacter();
+  }
+
+  readonly drawingEmitter = output<boolean>({ alias: 'drawing' });
+  readonly initTimeout = input<number>(1500);
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -53,8 +55,6 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
   queueTimeout: any = null;
   newStyle: boolean = false;
 
-  @ViewChild('drawCard') drawCard!: ElementRef;
-
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
@@ -66,12 +66,10 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    if (this.character) {
-      this.deck = this.character.attackModifierDeck;
-      this.characterIcon = this.character.iconUrl;
-      this.numeration = '' + this.character.number;
-      this.newStyle = gameManager.newAmStyle(this.character.edition);
-    }
+    this.deck = this.character.attackModifierDeck;
+    this.characterIcon = this.character.iconUrl;
+    this.numeration = '' + this.character.number;
+    this.newStyle = gameManager.newAmStyle(this.character.edition);
 
     if (settingsManager.settings.fhStyle) {
       this.newStyle = true;
@@ -87,10 +85,6 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
   }
 
   update() {
-    if (this.character && this.deck !== this.character.attackModifierDeck) {
-      this.deck = this.character.attackModifierDeck;
-    }
-
     if (this.current < this.deck.current) {
       this.queue = Math.max(0, this.deck.current - this.current);
       if (!this.queueTimeout) {

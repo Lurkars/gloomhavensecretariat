@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, input, model } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -24,11 +24,18 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 export class InteractiveActionsComponent implements OnInit {
   private ghsManager = inject(GhsManager);
 
-  @Input() actions!: Action[];
-  @Input() figure!: Monster | ObjectiveContainer;
-  @Input() preIndex: string = '';
-  @Input() interactiveActions: InteractiveAction[] = [];
-  @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
+  readonly inputActions = input<Action[]>([], { alias: 'actions' });
+  get actions(): Action[] {
+    return this.inputActions();
+  }
+
+  readonly inputFigure = input.required<Monster | ObjectiveContainer>({ alias: 'figure' });
+  get figure(): Monster | ObjectiveContainer {
+    return this.inputFigure();
+  }
+
+  readonly preIndex = input<string>('');
+  interactiveActions = model<InteractiveAction[]>([]);
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -47,17 +54,12 @@ export class InteractiveActionsComponent implements OnInit {
   }
 
   update() {
-    let change = this.interactiveActions.length > 0;
-    this.interactiveActions = [];
-    this.interactiveActionEntities = [];
     if (settingsManager.settings.interactiveAbilities && this.figure.active) {
-      this.interactiveActions = gameManager.actionsManager.getAllInteractiveActions(this.figure, this.actions, this.preIndex);
-
       this.chooseElementAction = undefined;
       this.chooseElementValues = [];
 
       this.interactiveActionEntities = this.figure.entities.filter(
-        (entity) => gameManager.actionsManager.getInteractiveActions(entity, this.figure, this.actions, this.preIndex).length
+        (entity) => gameManager.actionsManager.getInteractiveActions(entity, this.figure, this.actions, this.preIndex()).length
       );
 
       if (this.figure instanceof Monster) {
@@ -69,13 +71,11 @@ export class InteractiveActionsComponent implements OnInit {
       this.interactiveActionEntities = this.interactiveActionEntities.filter(
         (entity, index) => settingsManager.settings.combineInteractiveAbilities || index === 0
       );
-      change = true;
-    }
 
-    if (change) {
-      setTimeout(() => {
-        this.interactiveActionsChange.emit(this.interactiveActions);
-      }, 1);
+      this.interactiveActions.set(gameManager.actionsManager.getAllInteractiveActions(this.figure, this.actions, this.preIndex()));
+    } else {
+      this.interactiveActionEntities = [];
+      this.interactiveActions.set([]);
     }
   }
 
@@ -90,7 +90,7 @@ export class InteractiveActionsComponent implements OnInit {
       this.chooseElementValues = [];
       return;
     } else {
-      this.chooseElementAction = this.interactiveActions.find(
+      this.chooseElementAction = this.interactiveActions().find(
         (interactiveAction) =>
           interactiveAction.action.type === ActionType.element &&
           gameManager.actionsManager.getValues(interactiveAction.action).includes(Element.wild)
@@ -123,10 +123,10 @@ export class InteractiveActionsComponent implements OnInit {
 
       const interactiveActionsLabel = (
         settingsManager.settings.combineInteractiveAbilities
-          ? this.interactiveActions
-          : gameManager.actionsManager.getInteractiveActions(this.interactiveActionEntities[0], this.figure, this.actions, this.preIndex)
+          ? this.interactiveActions()
+          : gameManager.actionsManager.getInteractiveActions(this.interactiveActionEntities[0], this.figure, this.actions, this.preIndex())
       )
-        .filter((interactiveAction) => this.interactiveActions.find((other) => other.index === interactiveAction.index))
+        .filter((interactiveAction) => this.interactiveActions().find((other) => other.index === interactiveAction.index))
         .map((interactiveAction) => {
           let type: ActionType | string = interactiveAction.action.type;
           let values = gameManager.actionsManager.getValues(interactiveAction.action);
@@ -166,15 +166,15 @@ export class InteractiveActionsComponent implements OnInit {
         .join(', ');
 
       gameManager.stateManager.before(
-        this.interactiveActions.length ? 'applyInteractiveActions' : 'skipInteractiveActions',
+        this.interactiveActions().length ? 'applyInteractiveActions' : 'skipInteractiveActions',
         interactiveActionsLabel,
         entitiesLabel,
         this.figure instanceof Monster ? 'data.monster.' + this.figure.name : gameManager.objectiveManager.objectiveName(this.figure)
       );
       this.interactiveActionEntities.forEach((entity) => {
         let interactiveActions = gameManager.actionsManager
-          .getInteractiveActions(entity, this.figure, this.actions, this.preIndex)
-          .filter((interactiveAction) => this.interactiveActions.find((other) => other.index === interactiveAction.index));
+          .getInteractiveActions(entity, this.figure, this.actions, this.preIndex())
+          .filter((interactiveAction) => this.interactiveActions().find((other) => other.index === interactiveAction.index));
         let interactiveAction = interactiveActions[0] || undefined;
         while (interactiveAction) {
           gameManager.actionsManager.applyInteractiveAction(entity, this.figure, interactiveAction, this.chooseElementValues);
@@ -182,8 +182,8 @@ export class InteractiveActionsComponent implements OnInit {
             this.chooseElementValues = [];
           }
           interactiveActions = gameManager.actionsManager
-            .getInteractiveActions(entity, this.figure, this.actions, this.preIndex)
-            .filter((interactiveAction) => this.interactiveActions.find((other) => other.index === interactiveAction.index));
+            .getInteractiveActions(entity, this.figure, this.actions, this.preIndex())
+            .filter((interactiveAction) => this.interactiveActions().find((other) => other.index === interactiveAction.index));
 
           if (interactiveActions.some((newInteractiveAction) => newInteractiveAction.index === interactiveAction.index)) {
             console.warn('Interactive Action already processed, should not happen', interactiveAction);
@@ -194,8 +194,8 @@ export class InteractiveActionsComponent implements OnInit {
         }
 
         const disabledInteractiveActions = gameManager.actionsManager
-          .getInteractiveActions(entity, this.figure, this.actions, this.preIndex)
-          .filter((interactiveAction) => !this.interactiveActions.find((other) => other.index === interactiveAction.index));
+          .getInteractiveActions(entity, this.figure, this.actions, this.preIndex())
+          .filter((interactiveAction) => !this.interactiveActions().find((other) => other.index === interactiveAction.index));
         disabledInteractiveActions.forEach((interactiveAction) => {
           const tag = gameManager.actionsManager.roundTag(interactiveAction.action, interactiveAction.index);
           if (!entity.tags.includes(tag)) {
@@ -249,7 +249,7 @@ export class InteractiveActionsComponent implements OnInit {
           element.state !== ElementState.consumed &&
           !this.chooseElementValues.includes(element.type) &&
           (!this.chooseElementAction || !gameManager.actionsManager.getValues(this.chooseElementAction.action).includes(element.type)) &&
-          !this.interactiveActions.find(
+          !this.interactiveActions().find(
             (interactiveAction) =>
               interactiveAction.action.type === ActionType.element &&
               interactiveAction.action.valueType === ActionValueType.minus &&
@@ -280,6 +280,6 @@ export class InteractiveActionsComponent implements OnInit {
   }
 
   onInteractiveActionsChange(change: InteractiveAction[]) {
-    this.interactiveActionsChange.emit(change);
+    this.interactiveActions.set(change);
   }
 }

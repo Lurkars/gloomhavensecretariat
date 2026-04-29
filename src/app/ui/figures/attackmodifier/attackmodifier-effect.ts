@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, inject, input, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -26,12 +26,24 @@ export class AttackModifierEffectComponent implements OnInit {
   elementRef = inject(ElementRef);
   private ghsManager = inject(GhsManager);
 
-  @Input() offsetWidth!: number;
-  @Input() attackModifier!: AttackModifier;
-  @Input() effect!: AttackModifierEffect;
-  @Input() newStyle: boolean = false;
-  @Input() townGuard: boolean = false;
-  @Input() length: number = 1;
+  readonly inputAttackModifier = input.required<AttackModifier>({ alias: 'attackModifier' });
+  get attackModifier(): AttackModifier {
+    return this.inputAttackModifier();
+  }
+
+  readonly inputAttackModifierEffect = input.required<AttackModifierEffect>({ alias: 'effect' });
+  get effect(): AttackModifierEffect {
+    return this.inputAttackModifierEffect();
+  }
+
+  readonly inputOffsetWidth = input.required<number>({ alias: 'offsetWidth' });
+  get offsetWidth(): number {
+    return this.inputOffsetWidth();
+  }
+
+  readonly newStyle = input<boolean>(false);
+  readonly townGuard = input<boolean>(false);
+  readonly length = input<number>(1);
 
   targetValue: number = 0;
   targetString: string = '';

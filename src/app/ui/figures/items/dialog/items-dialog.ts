@@ -247,6 +247,8 @@ export class ItemsDialogComponent implements OnInit {
               return -1;
             } else if (!A.owned && B.owned) {
               return 1;
+            } else if (A.owned && B.owned && a.slot && b.slot) {
+              return Object.values(ItemSlot).indexOf(a.slot) - Object.values(ItemSlot).indexOf(b.slot);
             } else if ((A.canBuy || A.canCraft) && !B.canBuy && !B.canCraft) {
               return -1;
             } else if ((B.canBuy || B.canCraft) && !A.canBuy && !A.canCraft) {

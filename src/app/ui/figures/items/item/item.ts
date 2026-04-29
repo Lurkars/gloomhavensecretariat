@@ -4,12 +4,12 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  effect,
   ElementRef,
-  EventEmitter,
   inject,
-  Input,
+  input,
   OnInit,
-  Output
+  output
 } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -46,21 +46,30 @@ export class ItemComponent implements OnInit, AfterViewInit {
 
   private cdr = inject(ChangeDetectorRef);
 
-  @Input() item!: ItemData | undefined;
-  @Input() identifier: Identifier | undefined | false;
-  @Input() flipped: boolean = false;
-  @Input() reveal: boolean = false;
-  @Input() count: number | '-' = 1;
-  @Input() slotsMarked: string[] = [];
-  @Input() slotsBackMarked: string[] = [];
-  @Input() editionLabel: string = '';
-  @Output() revealed = new EventEmitter<boolean>();
-  @Output() clickedConsumed = new EventEmitter<boolean>();
-  @Output() clickedSpent = new EventEmitter<boolean>();
-  @Output() clickedFlip = new EventEmitter<boolean>();
-  @Output() clickedSlot = new EventEmitter<number>();
-  @Output() clickedSlotBack = new EventEmitter<number>();
-  @Output() clickedPersistent = new EventEmitter<boolean>();
+  readonly inputItem = input<ItemData>(undefined, { alias: 'item' });
+
+  readonly inputIdentifier = input<Identifier | undefined | false>(undefined, { alias: 'identifier' });
+  get identifier(): Identifier | undefined | false {
+    return this.inputIdentifier();
+  }
+
+  readonly inputFlipped = input<boolean>(false, { alias: 'flipped' });
+  readonly reveal = input<boolean>(false);
+  readonly count = input<number | '-'>(1);
+  readonly slotsMarked = input<string[]>([]);
+  readonly slotsBackMarked = input<string[]>([]);
+  readonly editionLabel = input<string>('');
+  readonly revealed = output<boolean>();
+  readonly interactive = input<boolean>(false);
+  readonly clickedConsumed = output<boolean>();
+  readonly clickedSpent = output<boolean>();
+  readonly clickedFlip = output<boolean>();
+  readonly clickedSlot = output<number>();
+  readonly clickedSlotBack = output<number>();
+  readonly clickedPersistent = output<boolean>();
+
+  item: ItemData | undefined;
+  flipped: boolean = false;
   fhStyle: boolean = false;
   bb: boolean = false;
   craft: boolean = false;
@@ -75,21 +84,33 @@ export class ItemComponent implements OnInit, AfterViewInit {
   fontsize: string = '1em';
 
   constructor() {
-    this.ghsManager.uiChangeEffect(() => {
-      this.fontsize = this.elementRef.nativeElement.offsetWidth * 0.072 + 'px';
-      if (this.item) {
-        this.usable = gameManager.itemManager.itemUsable(this.item);
-      }
+    this.ghsManager.uiChangeEffect(() => this.update());
+    effect(() => {
+      this.initItem();
+      this.cdr.markForCheck();
     });
   }
 
   ngOnInit(): void {
+    this.initItem();
+  }
+
+  initItem(): void {
+    this.fhStyle = false;
+    this.bb = false;
+    this.craft = false;
+    this.edition = '';
+    this.slots = [];
+    this.slotsBack = [];
+
+    this.item = this.inputItem();
+    this.flipped = this.inputFlipped();
     if (!this.item && this.identifier) {
       this.item = gameManager.itemManager.getItem(this.identifier.name, this.identifier.edition, true);
     }
 
     if (this.item) {
-      if (this.item.edition !== this.editionLabel) {
+      if (this.item.edition !== this.editionLabel()) {
         this.edition = this.item.edition;
       }
 
@@ -135,6 +156,13 @@ export class ItemComponent implements OnInit, AfterViewInit {
       this.fontsize = this.elementRef.nativeElement.offsetWidth * 0.072 + 'px';
       this.cdr.markForCheck();
     }, 1);
+  }
+
+  update() {
+    this.fontsize = this.elementRef.nativeElement.offsetWidth * 0.072 + 'px';
+    if (this.item) {
+      this.usable = gameManager.itemManager.itemUsable(this.item);
+    }
   }
 
   applySlots(slotCount: number, actions: Action[]) {

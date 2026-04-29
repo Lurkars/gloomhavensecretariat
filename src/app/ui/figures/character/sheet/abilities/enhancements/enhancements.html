@@ -1,8 +1,8 @@
 <div class="header">
-  @if (!gameManager.fhRules(true) && !standalone) {
+  @if (!gameManager.fhRules(true) && !standalone()) {
     <div ghs-setting-menu="alwaysFhEnhancements"></div>
   }
-  @if (standalone) {
+  @if (standalone()) {
     <div class="editions">
       <a (click)="setEdition('gh')" [ngClass]="{ active: gameManager.game.edition === 'gh' }" [ghs-label]="'data.edition.gh'"></a>
       <a (click)="setEdition('fh')" [ngClass]="{ active: gameManager.game.edition === 'fh' }" [ghs-label]="'data.edition.fh'"></a>
@@ -16,8 +16,8 @@
       [action]="action"
       [relative]="false"
       [character]="character"
-      [index]="inputActionIndex || ''"
-      [cardId]="inputCardId"
+      [index]="inputActionIndex() || ''"
+      [cardId]="inputCardId()"
     ></ghs-action>
     @if (customAction || wipSpecial || customSpecial) {
       <ghs-editor-action

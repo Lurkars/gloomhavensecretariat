@@ -1,5 +1,5 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
@@ -17,18 +17,24 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScenarioRequirementsComponent implements OnInit, OnChanges {
-  @Input() scenarioData!: ScenarioData;
-  @Input() highlight: boolean = false;
-  @Input() all: boolean = false;
-  @Input() allToggle: boolean = true;
+  readonly inputScenarioData = input.required<ScenarioData>({ alias: 'scenarioData' });
+  get scenarioData(): ScenarioData {
+    return this.inputScenarioData();
+  }
+
+  readonly highlight = input<boolean>(false);
+  readonly inputAll = input<boolean>(false, { alias: 'all' });
+  readonly allToggle = input<boolean>(true);
   gameManager: GameManager = gameManager;
 
+  all: boolean = false;
   solo: string = '';
   requirements: ScenarioMissingRequirements[] = [];
   missingRequirements: ScenarioMissingRequirements[] = [];
   hideAll: boolean = false;
 
   ngOnInit(): void {
+    this.all = this.inputAll();
     this.update();
   }
 

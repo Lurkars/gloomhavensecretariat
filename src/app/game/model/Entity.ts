@@ -20,6 +20,8 @@ export interface Entity {
   shieldPersistent: Action | undefined;
   retaliate: Action[];
   retaliatePersistent: Action[];
+  extraActions: Action[];
+  extraActionsPersistent: Action[];
 }
 
 export type EntityCounter = { identifier: AdditionalIdentifier; total: number; killed: number };

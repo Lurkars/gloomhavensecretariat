@@ -1,4 +1,4 @@
-.highlight-conditions {
+.highlights {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -7,7 +7,7 @@
   height: 0;
   overflow: visible;
 
-  .condition {
+  .item {
     position: relative;
     display: flex;
     justify-content: center;
@@ -15,7 +15,7 @@
     transform: scale(0);
     margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
 
-    @keyframes condition-highlight {
+    @keyframes highlight-animation {
       0% {
         transform: scale(0) translateY(0);
       }
@@ -31,7 +31,7 @@
     }
 
     &.animation {
-      animation: condition-highlight calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
+      animation: highlight-animation calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
     }
 
     &.apply {
@@ -69,6 +69,10 @@
         text-shadow: none;
         transform: translateX(-50%);
       }
+    }
+
+    ghs-action {
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
     }
 
     .close,

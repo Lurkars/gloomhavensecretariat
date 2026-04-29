@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnInit, ViewEncapsulation } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import {
@@ -20,7 +20,11 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PerkLabelComponent implements OnInit {
-  @Input() perk!: Perk;
+  readonly inputPerk = input.required<Perk>({ alias: 'perk' });
+  get perk(): Perk {
+    return this.inputPerk();
+  }
+
   PerkType = PerkType;
   perkLabel: string[] = [];
 

@@ -1,7 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -39,7 +39,7 @@ export class AbiltiesDialogComponent implements OnInit {
 
   monster: Monster = inject(DIALOG_DATA);
 
-  @ViewChild('menu') menuElement!: ElementRef;
+  readonly menuElement = viewChild.required<ElementRef>('menu');
   reveal: number = 0;
 
   gameManager: GameManager = gameManager;
@@ -59,8 +59,9 @@ export class AbiltiesDialogComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(
       () => {
-        if (this.menuElement) {
-          this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+        const menuElement = this.menuElement();
+        if (menuElement) {
+          this.maxHeight = 'calc(80vh - ' + menuElement.nativeElement.offsetHeight + 'px)';
         }
         this.cdr.markForCheck();
       },
@@ -74,7 +75,7 @@ export class AbiltiesDialogComponent implements OnInit {
   toggleEdit() {
     this.edit = !this.edit;
     setTimeout(() => {
-      this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+      this.maxHeight = 'calc(80vh - ' + this.menuElement().nativeElement.offsetHeight + 'px)';
       this.cdr.markForCheck();
     }, 0);
   }

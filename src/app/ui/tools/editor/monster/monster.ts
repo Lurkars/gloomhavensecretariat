@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -51,9 +51,9 @@ export class MonsterEditorComponent implements OnInit {
   private router = inject(Router);
   private ghsManager = inject(GhsManager);
 
-  @ViewChild('inputMonsterData', { static: true }) inputMonsterData!: ElementRef;
-  @ViewChild('monsterStats') monsterStats!: MonsterStatsComponent;
-  @ViewChild('deckEditor') deckEditor!: DeckEditorComponent;
+  readonly inputMonsterData = viewChild.required<ElementRef>('inputMonsterData');
+  readonly monsterStats = viewChild.required<MonsterStatsComponent>('monsterStats');
+  readonly deckEditor = viewChild.required<DeckEditorComponent>('deckEditor');
 
   gameManager: GameManager = gameManager;
   MonsterType = MonsterType;
@@ -79,7 +79,7 @@ export class MonsterEditorComponent implements OnInit {
   async ngOnInit() {
     await settingsManager.init(!environment.production);
     this.monsterDataToJson();
-    this.inputMonsterData.nativeElement.addEventListener('change', () => {
+    this.inputMonsterData().nativeElement.addEventListener('change', () => {
       this.monsterDataFromJson();
     });
 
@@ -251,14 +251,15 @@ export class MonsterEditorComponent implements OnInit {
       });
     }
 
-    this.inputMonsterData.nativeElement.value = JSON.stringify(compactData, null, 2);
+    this.inputMonsterData().nativeElement.value = JSON.stringify(compactData, null, 2);
   }
 
   monsterDataFromJson() {
     this.monsterError = '';
-    if (this.inputMonsterData.nativeElement.value) {
+    const inputMonsterData = this.inputMonsterData();
+    if (inputMonsterData.nativeElement.value) {
       try {
-        this.monsterData = JSON.parse(this.inputMonsterData.nativeElement.value);
+        this.monsterData = JSON.parse(inputMonsterData.nativeElement.value);
         if (this.monsterData) {
           this.updateType(false);
         }
@@ -301,7 +302,7 @@ export class MonsterEditorComponent implements OnInit {
   }
 
   setLevel(level: number) {
-    this.monsterStats.setLevel(level);
+    this.monsterStats().setLevel(level);
   }
 
   getMonsterForLevel(level: number): Monster {

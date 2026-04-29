@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -28,7 +28,7 @@ export class ScenarioMenuComponent implements OnInit {
   private dialog = inject(Dialog);
   private ghsManager = inject(GhsManager);
 
-  @Output() closed = new EventEmitter();
+  readonly closed = output();
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;

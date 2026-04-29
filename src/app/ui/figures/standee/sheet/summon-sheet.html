@@ -1,19 +1,19 @@
 @if (hasSummon) {
   <div
     class="summon-container"
-    [ngClass]="{ action: summon.action, additional: summon.additionalAction || additional, item: item, fh: fhStyle }"
+    [ngClass]="{ action: summon.action, additional: summon.additionalAction || additional(), item: item(), fh: fhStyle }"
   >
     @if (!!summonData && summonData.thumbnail) {
       <span class="thumbnail">
         @if (!fhStyle) {
           <img
-            [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'"
+            [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail/' + summonData.edition + '-' + summonData.name + '.png'"
           />
         }
         @if (fhStyle) {
           <span class="thumbnail-border">
             <img
-              [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'"
+              [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail/' + summonData.edition + '-' + summonData.name + '.png'"
             />
           </span>
         }
@@ -21,14 +21,14 @@
     }
     <span class="name">
       @if (!summonData) {
-        @if (!!action) {
-          <span class="summon-label"><span [ghs-label]="'game.action.summon'" [style]="style"></span>&nbsp;</span>
+        @if (!!action()) {
+          <span class="summon-label"><span [ghs-label]="'game.action.summon'" [style]="style()"></span>&nbsp;</span>
         }
         @if (summon.title) {
-          <span [ngClass]="{ 'text-white': !right }">{{ summon.title }}</span>
+          <span [ngClass]="{ 'text-white': !right() }">{{ summon.title }}</span>
         }
         @if (!summon.title) {
-          <span [ghs-label]="'data.summon.' + summon.name" [style]="style" [ngClass]="{ 'text-white': !right }"></span>
+          <span [ghs-label]="'data.summon.' + summon.name" [style]="style()" [ngClass]="{ 'text-white': !right() }"></span>
         }
         @if (summon.flying) {
           <span class="flying"><img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
@@ -53,9 +53,9 @@
           <ghs-action-enhancements
             class="enhance"
             [action]="enhancementActions[0]"
-            [index]="actionIndex"
-            [character]="character"
-            [cardId]="cardId"
+            [index]="actionIndex()"
+            [character]="character()"
+            [cardId]="cardId()"
             [slot]="0"
             [summon]="summonData"
           ></ghs-action-enhancements>
@@ -69,9 +69,9 @@
           <ghs-action-enhancements
             class="enhance"
             [action]="enhancementActions[2]"
-            [index]="actionIndex"
-            [character]="character"
-            [cardId]="cardId"
+            [index]="actionIndex()"
+            [character]="character()"
+            [cardId]="cardId()"
             [slot]="2"
             [summon]="summonData"
           ></ghs-action-enhancements>
@@ -86,7 +86,7 @@
         <img class="ghs-svg" [src]="'./assets/images/' + (fhStyle ? 'fh/' : '') + 'action/attack.svg'" />
         <span>:</span>
         @if (summon.attack !== '') {
-          <span [ghs-label]="'' + summon.attack" [style]="style"></span>
+          <span [ghs-label]="'' + summon.attack" [style]="style()"></span>
         }
         @if (summon.attack === '') {
           <span>-</span>
@@ -95,9 +95,9 @@
           <ghs-action-enhancements
             class="enhance"
             [action]="enhancementActions[1]"
-            [index]="actionIndex"
-            [character]="character"
-            [cardId]="cardId"
+            [index]="actionIndex()"
+            [character]="character()"
+            [cardId]="cardId()"
             [slot]="1"
             [summon]="summonData"
           ></ghs-action-enhancements>
@@ -111,9 +111,9 @@
           <ghs-action-enhancements
             class="enhance"
             [action]="enhancementActions[3]"
-            [index]="actionIndex"
-            [character]="character"
-            [cardId]="cardId"
+            [index]="actionIndex()"
+            [character]="character()"
+            [cardId]="cardId()"
             [slot]="3"
             [summon]="summonData"
           ></ghs-action-enhancements>

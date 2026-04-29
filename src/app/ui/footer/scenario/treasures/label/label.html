@@ -9,7 +9,7 @@
         <span>,&nbsp;</span>
       }
     }
-    @if (!!itemCards && items.length > 0) {
+    @if (!!itemCards() && items.length > 0) {
       <div class="items">
         @for (item of items | trackUUID; track item._trackUUID) {
           <ghs-item

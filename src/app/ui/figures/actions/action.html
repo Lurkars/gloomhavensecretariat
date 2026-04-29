@@ -1,7 +1,7 @@
 @if (!!action && !!origAction) {
   <span
     class="action"
-    [ngClass]="{ highlight: highlight, inline: inline, right: right, 'text-black': textBlack || right, fh: fhStyle, aoe: hasAOE }"
+    [ngClass]="{ highlight: highlight(), inline: inline(), right: right(), 'text-black': textBlack() || right(), fh: fhStyle, aoe: hasAOE }"
   >
     @switch (action.type) {
       @case (ActionType.area) {
@@ -9,9 +9,9 @@
           <ghs-action-hex
             [action]="action"
             [value]="'' + action.value"
-            [size]="hexSize"
-            [index]="actionIndex"
-            [cardId]="cardId"
+            [size]="hexSize()"
+            [index]="actionIndex()"
+            [cardId]="cardId()"
             [character]="character"
           ></ghs-action-hex>
         </span>
@@ -33,7 +33,7 @@
               <span
                 [ghs-label]="'game.condition.' + getConditionName(values[0])"
                 [ghs-label-args]="values.length > 1 ? [values[1]] : []"
-                [style]="style"
+                [style]="style()"
               ></span>
             </span>
             <span class="condition-image">
@@ -51,12 +51,12 @@
               }
             </span>
 
-            @if (!!origAction.enhancementTypes && origAction.enhancementTypes.length && !!character && cardId) {
+            @if (!!origAction.enhancementTypes && origAction.enhancementTypes.length && !!character && cardId()) {
               <ghs-action-enhancements
                 [action]="origAction"
-                [index]="actionIndex"
+                [index]="actionIndex()"
                 [character]="character"
-                [cardId]="cardId"
+                [cardId]="cardId()"
               ></ghs-action-enhancements>
             }
           </span>
@@ -71,19 +71,18 @@
                   [action]="subAction"
                   [monster]="monster"
                   [objective]="objective"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [statsCalculation]="statsCalculation"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [statsCalculation]="statsCalculation()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -130,19 +129,18 @@
                   [monster]="monster"
                   [objective]="objective"
                   [relative]="relative || forceRelative"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
-                  [statsCalculation]="statsCalculation"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -197,19 +195,18 @@
                   [monster]="monster"
                   [objective]="objective"
                   [relative]="relative || forceRelative"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
-                  [statsCalculation]="statsCalculation"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -222,7 +219,7 @@
         @if (relative || (monsterType && hasEntitiesCache[monsterType])) {
           <span class="action-monster-type" [ngClass]="{ small: action.small }">
             <span class="monster-type small" [ngClass]="'monster-type-' + action.value"
-              ><span [ghs-label]="'monster.' + action.value" [style]="style"></span>:</span
+              ><span [ghs-label]="'monster.' + action.value" [style]="style()"></span>:</span
             >
             @if (subActions.length > 0) {
               <div class="monster-type-subactions">
@@ -236,17 +233,16 @@
                     [monster]="monster"
                     [objective]="objective"
                     [relative]="relative"
-                    [inline]="inline"
-                    [right]="right"
-                    [textBlack]="textBlack"
-                    [hexSize]="hexSize"
-                    [interactiveAbilities]="interactiveAbilities"
-                    [interactiveActions]="interactiveActions"
-                    (interactiveActionsChange)="onInteractiveActionsChange($event)"
-                    [statsCalculation]="statsCalculation"
-                    [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                    [inline]="inline()"
+                    [right]="right()"
+                    [textBlack]="textBlack()"
+                    [hexSize]="hexSize()"
+                    [interactiveAbilities]="interactiveAbilities()"
+                    [(interactiveActions)]="interactiveActions"
+                    [statsCalculation]="statsCalculation()"
+                    [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                     [monsterType]="getMonsterType('' + action.value)"
-                    [style]="style"
+                    [style]="style()"
                   >
                   </ghs-action>
                 }
@@ -267,20 +263,19 @@
                     [action]="subAction"
                     [monster]="monster"
                     [objective]="objective"
-                    [inline]="inline"
-                    [right]="right"
-                    [textBlack]="textBlack"
-                    [hexSize]="hexSize"
-                    [interactiveAbilities]="interactiveAbilities"
-                    [interactiveActions]="interactiveActions"
-                    (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                    [inline]="inline()"
+                    [right]="right()"
+                    [textBlack]="textBlack()"
+                    [hexSize]="hexSize()"
+                    [interactiveAbilities]="interactiveAbilities()"
+                    [(interactiveActions)]="interactiveActions"
                     [relative]="relative || forceRelative"
-                    [statsCalculation]="statsCalculation"
-                    [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                    [statsCalculation]="statsCalculation()"
+                    [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                     [monsterType]="monsterType"
                     [character]="character"
-                    [cardId]="cardId"
-                    [style]="style"
+                    [cardId]="cardId()"
+                    [style]="style()"
                   >
                   </ghs-action>
                 }
@@ -298,8 +293,8 @@
               [ghs-label]="'game.specialTarget.' + values[0]"
               [ghs-label-args]="values.slice(1)"
               [relative]="relative || forceRelative"
-              [style]="style"
-              [ngClass]="{ 'text-white': !textBlack && !right, small: action.small }"
+              [style]="style()"
+              [ngClass]="{ 'text-white': !textBlack() && !right(), small: action.small }"
             ></span>
             @if (
               ['alliesRange:', 'alliesRangeAffect:', 'allyAffectRange:', 'enemiesRange:', 'enemiesRangeAffect:', 'enemyRange:'].includes(
@@ -319,14 +314,14 @@
 
             @for (
               i of []
-                | ghsRange: (character && cardId && origAction && origAction.enhancementTypes && origAction.enhancementTypes.length) || 0;
+                | ghsRange: (character && cardId() && origAction && origAction.enhancementTypes && origAction.enhancementTypes.length) || 0;
               track i
             ) {
               <ghs-action-enhancements
                 [action]="origAction"
-                [index]="actionIndex"
+                [index]="actionIndex()"
                 [character]="character"
-                [cardId]="cardId"
+                [cardId]="cardId()"
                 [slot]="i"
               ></ghs-action-enhancements>
             }
@@ -343,20 +338,19 @@
                   [action]="subAction"
                   [monster]="monster"
                   [objective]="objective"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
                   [relative]="relative || forceRelative"
-                  [statsCalculation]="statsCalculation"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -373,20 +367,21 @@
                 class="custom-value"
                 [ghs-label]="action.value + ''"
                 [relative]="relative || forceRelative"
-                [style]="style"
-                [ngClass]="{ small: action.small, 'text-white': !textBlack && !right }"
+                [style]="style()"
+                [ngClass]="{ small: action.small, 'text-white': !textBlack() && !right() }"
               ></span>
 
               @for (
                 i of []
-                  | ghsRange: (character && cardId && origAction && origAction.enhancementTypes && origAction.enhancementTypes.length) || 0;
+                  | ghsRange
+                    : (character && cardId() && origAction && origAction.enhancementTypes && origAction.enhancementTypes.length) || 0;
                 track i
               ) {
                 <ghs-action-enhancements
                   [action]="origAction"
-                  [index]="actionIndex"
+                  [index]="actionIndex()"
                   [character]="character"
-                  [cardId]="cardId"
+                  [cardId]="cardId()"
                   [slot]="i"
                 ></ghs-action-enhancements>
               }
@@ -398,16 +393,16 @@
               class="custom-value"
               [ghs-label]="action.value + ''"
               [relative]="relative || forceRelative"
-              [style]="style"
-              [ngClass]="{ small: action.small, 'text-white': !textBlack && !right }"
+              [style]="style()"
+              [ngClass]="{ small: action.small, 'text-white': !textBlack() && !right() }"
             ></span>
 
-            @if (!!origAction.enhancementTypes && origAction.enhancementTypes.length && !!character && cardId) {
+            @if (!!origAction.enhancementTypes && origAction.enhancementTypes.length && !!character && cardId()) {
               <ghs-action-enhancements
                 [action]="origAction"
-                [index]="actionIndex"
+                [index]="actionIndex()"
                 [character]="character"
-                [cardId]="cardId"
+                [cardId]="cardId()"
               ></ghs-action-enhancements>
             }
           }
@@ -420,20 +415,19 @@
                   [action]="subAction"
                   [monster]="monster"
                   [objective]="objective"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
                   [relative]="relative || forceRelative"
-                  [statsCalculation]="statsCalculation"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -457,8 +451,8 @@
             class="custom-value"
             [ghs-label]="action.value + ''"
             [relative]="relative || forceRelative"
-            [style]="style"
-            [ngClass]="{ small: action.small, 'text-white': !textBlack && !right }"
+            [style]="style()"
+            [ngClass]="{ small: action.small, 'text-white': !textBlack() && !right() }"
           ></span>
           @if (subActions.length > 0) {
             <div class="custom-subactions">
@@ -468,20 +462,19 @@
                   [action]="subAction"
                   [monster]="monster"
                   [objective]="objective"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
                   [relative]="true"
-                  [statsCalculation]="statsCalculation"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -500,20 +493,19 @@
                   [action]="subAction"
                   [monster]="monster"
                   [objective]="objective"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
                   [relative]="true"
-                  [statsCalculation]="statsCalculation"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -537,8 +529,8 @@
             class="custom-value"
             [ghs-label]="'game.sufferDamage'"
             [relative]="relative || forceRelative"
-            [style]="style"
-            [ngClass]="{ small: action.small, 'text-white': !textBlack && !right }"
+            [style]="style()"
+            [ngClass]="{ small: action.small, 'text-white': !textBlack() && !right() }"
             [ghs-label-args]="[monster ? '%data.monster.' + monster.name + '%' : '', action.value]"
           ></span>
           @if (subActions.length > 0) {
@@ -549,20 +541,19 @@
                   [action]="subAction"
                   [monster]="monster"
                   [objective]="objective"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
                   [relative]="relative || forceRelative"
-                  [statsCalculation]="statsCalculation"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -577,8 +568,8 @@
             class="custom-value"
             [ghs-label]="action.value + ''"
             [relative]="relative || forceRelative"
-            [style]="style"
-            [ngClass]="{ small: action.small, 'text-white': !textBlack && !right }"
+            [style]="style()"
+            [ngClass]="{ small: action.small, 'text-white': !textBlack() && !right() }"
           ></span>
           @if (subActions.length > 0) {
             <div class="custom-subactions">
@@ -588,20 +579,19 @@
                   [action]="subAction"
                   [monster]="monster"
                   [objective]="objective"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
                   [relative]="relative || forceRelative"
-                  [statsCalculation]="statsCalculation"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -620,20 +610,19 @@
                   [action]="subAction"
                   [monster]="monster"
                   [objective]="objective"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
                   [relative]="relative || forceRelative"
-                  [statsCalculation]="statsCalculation"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -652,8 +641,8 @@
             class="grant-value"
             [ghs-label]="action.value + ''"
             [relative]="relative || forceRelative"
-            [style]="style"
-            [ngClass]="{ small: action.small, 'text-white': !textBlack && !right }"
+            [style]="style()"
+            [ngClass]="{ small: action.small, 'text-white': !textBlack() && !right() }"
           ></span>
           @if (subActions.length > 0) {
             <div class="grant-subactions">
@@ -663,20 +652,19 @@
                   [action]="subAction"
                   [monster]="monster"
                   [objective]="objective"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
                   [relative]="true"
                   [statsCalculation]="false"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + index"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + index"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -689,20 +677,19 @@
         <span class="action-summon" [ngClass]="{ small: action.small }">
           <ghs-action-summon
             [action]="action"
-            [right]="right"
-            [textBlack]="textBlack"
+            [right]="right()"
+            [textBlack]="textBlack()"
             [monster]="monster"
             [objective]="objective"
-            [interactiveAbilities]="interactiveAbilities"
-            [interactiveActions]="interactiveActions"
-            (interactiveActionsChange)="onInteractiveActionsChange($event)"
-            [index]="actionIndex"
+            [interactiveAbilities]="interactiveAbilities()"
+            [(interactiveActions)]="interactiveActions"
+            [index]="actionIndex()"
             [character]="character"
-            [cardId]="cardId"
+            [cardId]="cardId()"
             [monsterType]="monsterType"
             [character]="character"
-            [cardId]="cardId"
-            [style]="style"
+            [cardId]="cardId()"
+            [style]="style()"
           ></ghs-action-summon>
           @if (subActions.length > 0) {
             @for (index of [] | ghsRange: subActions.length; track index) {
@@ -711,20 +698,19 @@
                 [action]="subActions[index + (hasAOE ? 1 : 0)]"
                 [monster]="monster"
                 [objective]="objective"
-                [inline]="inline"
-                [right]="right"
-                [textBlack]="textBlack"
-                [hexSize]="hexSize"
-                [interactiveAbilities]="interactiveAbilities"
-                [interactiveActions]="interactiveActions"
-                (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                [inline]="inline()"
+                [right]="right()"
+                [textBlack]="textBlack()"
+                [hexSize]="hexSize()"
+                [interactiveAbilities]="interactiveAbilities()"
+                [(interactiveActions)]="interactiveActions"
                 [relative]="relative || forceRelative"
-                [statsCalculation]="statsCalculation"
-                [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subActions[index + (hasAOE ? 1 : 0)])"
+                [statsCalculation]="statsCalculation()"
+                [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subActions[index + (hasAOE ? 1 : 0)])"
                 [monsterType]="monsterType"
                 [character]="character"
-                [cardId]="cardId"
-                [style]="style"
+                [cardId]="cardId()"
+                [style]="style()"
               >
               </ghs-action>
             }
@@ -736,21 +722,20 @@
         <span class="action-summon" [ngClass]="{ small: action.small }">
           <ghs-action-summon
             [action]="action"
-            [right]="right"
-            [textBlack]="textBlack"
+            [right]="right()"
+            [textBlack]="textBlack()"
             [monster]="monster"
             [objective]="objective"
             [spawn]="true"
-            [interactiveAbilities]="interactiveAbilities"
-            [interactiveActions]="interactiveActions"
-            (interactiveActionsChange)="onInteractiveActionsChange($event)"
-            [index]="actionIndex"
+            [interactiveAbilities]="interactiveAbilities()"
+            [(interactiveActions)]="interactiveActions"
+            [index]="actionIndex()"
             [character]="character"
-            [cardId]="cardId"
+            [cardId]="cardId()"
             [monsterType]="monsterType"
             [character]="character"
-            [cardId]="cardId"
-            [style]="style"
+            [cardId]="cardId()"
+            [style]="style()"
           ></ghs-action-summon>
           @if (subActions.length > 0) {
             @for (subAction of subActions | trackUUID; track subAction._trackUUID; let index = $index) {
@@ -759,20 +744,19 @@
                 [action]="subAction"
                 [monster]="monster"
                 [objective]="objective"
-                [inline]="inline"
-                [right]="right"
-                [textBlack]="textBlack"
-                [hexSize]="hexSize"
-                [interactiveAbilities]="interactiveAbilities"
-                [interactiveActions]="interactiveActions"
-                (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                [inline]="inline()"
+                [right]="right()"
+                [textBlack]="textBlack()"
+                [hexSize]="hexSize()"
+                [interactiveAbilities]="interactiveAbilities()"
+                [(interactiveActions)]="interactiveActions"
                 [relative]="relative || forceRelative"
-                [statsCalculation]="statsCalculation"
-                [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                [statsCalculation]="statsCalculation()"
+                [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                 [monsterType]="monsterType"
                 [character]="character"
-                [cardId]="cardId"
-                [style]="style"
+                [cardId]="cardId()"
+                [style]="style()"
               >
               </ghs-action>
             }
@@ -786,8 +770,8 @@
             class="custom-value"
             [ghs-label]="action.value + ''"
             [relative]="relative || forceRelative"
-            [style]="style"
-            [ngClass]="{ small: action.small, 'text-white': !textBlack && !right }"
+            [style]="style()"
+            [ngClass]="{ small: action.small, 'text-white': !textBlack() && !right() }"
           ></span>
           @if (subActions.length > 0) {
             @for (subAction of subActions | trackUUID; track subAction._trackUUID; let index = $index) {
@@ -796,20 +780,19 @@
                 [action]="subAction"
                 [monster]="monster"
                 [objective]="objective"
-                [inline]="inline"
-                [right]="right"
-                [textBlack]="textBlack"
-                [hexSize]="hexSize"
-                [interactiveAbilities]="interactiveAbilities"
-                [interactiveActions]="interactiveActions"
-                (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                [inline]="inline()"
+                [right]="right()"
+                [textBlack]="textBlack()"
+                [hexSize]="hexSize()"
+                [interactiveAbilities]="interactiveAbilities()"
+                [(interactiveActions)]="interactiveActions"
                 [relative]="relative || forceRelative"
-                [statsCalculation]="statsCalculation"
-                [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                [statsCalculation]="statsCalculation()"
+                [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                 [monsterType]="monsterType"
                 [character]="character"
-                [cardId]="cardId"
-                [style]="style"
+                [cardId]="cardId()"
+                [style]="style()"
               >
               </ghs-action>
             }
@@ -830,24 +813,23 @@
                 [action]="subAction"
                 [monster]="monster"
                 [objective]="objective"
-                [inline]="inline"
-                [right]="right"
-                [textBlack]="textBlack"
-                [hexSize]="hexSize"
-                [interactiveAbilities]="interactiveAbilities"
-                [interactiveActions]="interactiveActions"
-                (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                [inline]="inline()"
+                [right]="right()"
+                [textBlack]="textBlack()"
+                [hexSize]="hexSize()"
+                [interactiveAbilities]="interactiveAbilities()"
+                [(interactiveActions)]="interactiveActions"
                 [relative]="relative || forceRelative"
-                [statsCalculation]="statsCalculation"
-                [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                [statsCalculation]="statsCalculation()"
+                [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                 [monsterType]="monsterType"
                 [character]="character"
-                [cardId]="cardId"
-                [style]="style"
+                [cardId]="cardId()"
+                [style]="style()"
               >
               </ghs-action>
               @if (
-                !inline &&
+                !inline() &&
                 ((values.length > 1 && +values[1] > 0 && index < +values[1] - 1) || (values.length < 2 && index < subActions.length - 1)) &&
                 subAction.type !== ActionType.concatenationSpacer
               ) {
@@ -855,7 +837,7 @@
                   @if (values.length > 0) {
                     <span>
                       @if (!fhStyle) {
-                        <span [ghs-label]="values[0]" [relative]="relative || forceRelative" [style]="style"></span>
+                        <span [ghs-label]="values[0]" [relative]="relative || forceRelative" [style]="style()"></span>
                       }
                       @if (fhStyle) {
                         <span>,</span>
@@ -881,20 +863,19 @@
                   [action]="subAction"
                   [monster]="monster"
                   [objective]="objective"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
                   [relative]="relative || forceRelative"
-                  [statsCalculation]="statsCalculation"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -923,20 +904,19 @@
                   [action]="subAction"
                   [monster]="monster"
                   [objective]="objective"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
                   [relative]="relative || forceRelative"
-                  [statsCalculation]="statsCalculation"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -946,9 +926,12 @@
       }
 
       @case (ActionType.box) {
-        <span class="action-box-container" [ngClass]="{ small: action.small, empty: subActions.length === 0, first: actionIndex === '0' }">
+        <span
+          class="action-box-container"
+          [ngClass]="{ small: action.small, empty: subActions.length === 0, first: actionIndex() === '0' }"
+        >
           @if (action.value) {
-            <span class="action-box-label" [ghs-label]="'' + action.value" [relative]="relative || forceRelative" [style]="style"></span>
+            <span class="action-box-label" [ghs-label]="'' + action.value" [relative]="relative || forceRelative" [style]="style()"></span>
           }
           <span class="action-box">
             @for (subAction of subActions | trackUUID; track subAction._trackUUID; let index = $index) {
@@ -957,20 +940,19 @@
                 [action]="subAction"
                 [monster]="monster"
                 [objective]="objective"
-                [inline]="inline"
-                [right]="right"
-                [textBlack]="textBlack"
-                [hexSize]="hexSize"
-                [interactiveAbilities]="interactiveAbilities"
-                [interactiveActions]="interactiveActions"
-                (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                [inline]="inline()"
+                [right]="right()"
+                [textBlack]="textBlack()"
+                [hexSize]="hexSize()"
+                [interactiveAbilities]="interactiveAbilities()"
+                [(interactiveActions)]="interactiveActions"
                 [relative]="relative || forceRelative"
-                [statsCalculation]="statsCalculation"
-                [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                [statsCalculation]="statsCalculation()"
+                [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                 [monsterType]="monsterType"
                 [character]="character"
-                [cardId]="cardId"
-                [style]="style"
+                [cardId]="cardId()"
+                [style]="style()"
               >
               </ghs-action>
             }
@@ -981,7 +963,7 @@
       @case (ActionType.boxFhSubActions) {
         <span class="action-box-fh-subactions-container" [ngClass]="{ small: action.small }">
           @if (action.value) {
-            <span class="action-box-label" [ghs-label]="'' + action.value" [relative]="relative || forceRelative" [style]="style"></span>
+            <span class="action-box-label" [ghs-label]="'' + action.value" [relative]="relative || forceRelative" [style]="style()"></span>
           }
           <span class="action-box">
             @for (subAction of subActions | trackUUID; track subAction._trackUUID; let index = $index) {
@@ -990,20 +972,19 @@
                 [action]="subAction"
                 [monster]="monster"
                 [objective]="objective"
-                [inline]="inline"
-                [right]="right"
-                [textBlack]="textBlack"
-                [hexSize]="hexSize"
-                [interactiveAbilities]="interactiveAbilities"
-                [interactiveActions]="interactiveActions"
-                (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                [inline]="inline()"
+                [right]="right()"
+                [textBlack]="textBlack()"
+                [hexSize]="hexSize()"
+                [interactiveAbilities]="interactiveAbilities()"
+                [(interactiveActions)]="interactiveActions"
                 [relative]="relative || forceRelative"
-                [statsCalculation]="statsCalculation"
-                [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                [statsCalculation]="statsCalculation()"
+                [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                 [monsterType]="monsterType"
                 [character]="character"
-                [cardId]="cardId"
-                [style]="style"
+                [cardId]="cardId()"
+                [style]="style()"
               >
               </ghs-action>
             }
@@ -1014,7 +995,7 @@
       @case (ActionType.forceBox) {
         <span class="action-box-container-forced" [ngClass]="{ small: action.small }">
           @if (action.value) {
-            <span class="action-box-label" [ghs-label]="'' + action.value" [relative]="relative || forceRelative" [style]="style"></span>
+            <span class="action-box-label" [ghs-label]="'' + action.value" [relative]="relative || forceRelative" [style]="style()"></span>
           }
           @if (!action.value) {
             <span class="action-box-label"><span class="value">!</span></span>
@@ -1026,20 +1007,19 @@
                 [action]="subAction"
                 [monster]="monster"
                 [objective]="objective"
-                [inline]="inline"
-                [right]="right"
-                [textBlack]="textBlack"
-                [hexSize]="hexSize"
-                [interactiveAbilities]="interactiveAbilities"
-                [interactiveActions]="interactiveActions"
-                (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                [inline]="inline()"
+                [right]="right()"
+                [textBlack]="textBlack()"
+                [hexSize]="hexSize()"
+                [interactiveAbilities]="interactiveAbilities()"
+                [(interactiveActions)]="interactiveActions"
                 [relative]="relative || forceRelative"
-                [statsCalculation]="statsCalculation"
-                [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                [statsCalculation]="statsCalculation()"
+                [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                 [monsterType]="monsterType"
                 [character]="character"
-                [cardId]="cardId"
-                [style]="style"
+                [cardId]="cardId()"
+                [style]="style()"
               >
               </ghs-action>
             }
@@ -1085,25 +1065,24 @@
 
       @case (ActionType.special) {
         <span class="action-default action-special" [ngClass]="{ small: action.small }">
-          <span class="special-type"><span [ghs-label]="'game.action.' + action.type" [style]="style"></span> {{ action.value }}:</span>
+          <span class="special-type"><span [ghs-label]="'game.action.' + action.type" [style]="style()"></span> {{ action.value }}:</span>
           <ghs-actions
             class="special-subactions"
             [actions]="specialActions"
             [monster]="monster"
             [objective]="objective"
-            [inline]="inline"
-            [right]="right"
-            [textBlack]="textBlack"
-            [hexSize]="hexSize"
-            [interactiveAbilities]="interactiveAbilities"
-            [interactiveActions]="interactiveActions"
-            (interactiveActionsChange)="onInteractiveActionsChange($event)"
+            [inline]="inline()"
+            [right]="right()"
+            [textBlack]="textBlack()"
+            [hexSize]="hexSize()"
+            [interactiveAbilities]="interactiveAbilities()"
+            [(interactiveActions)]="interactiveActions"
             [relative]="relative || forceRelative"
-            [statsCalculation]="statsCalculation"
-            [index]="actionIndex"
+            [statsCalculation]="statsCalculation()"
+            [index]="actionIndex()"
             [character]="character"
-            [cardId]="cardId"
-            [style]="style"
+            [cardId]="cardId()"
+            [style]="style()"
           >
           </ghs-actions>
         </span>
@@ -1126,7 +1105,7 @@
             [disabled]="!isInteractiveApplicableAction"
           >
             @if (action.valueType !== ActionValueType.add && action.valueType !== ActionValueType.subtract) {
-              <span class="type"><span [ghs-label]="'game.action.' + action.type" [style]="style"></span></span>
+              <span class="type"><span [ghs-label]="'game.action.' + action.type" [style]="style()"></span></span>
 
               <span class="action-icon">
                 @if (action.type !== ActionType.move || !flying) {
@@ -1161,7 +1140,7 @@
                 @if (relative || forceRelative || statRelative) {
                   <span class="relative">
                     @if (hasEntitiesCache.normal || !monster || forceRelative) {
-                      <span [ghs-label]="normalValue" [relative]="relative || forceRelative" [style]="style"></span>
+                      <span [ghs-label]="normalValue" [relative]="relative || forceRelative" [style]="style()"></span>
                     }
                     @if (hasEntitiesCache.normal && hasEntitiesCache.elite && normalValue !== eliteValue) {
                       <span>/</span>
@@ -1171,7 +1150,7 @@
                         [ngClass]="{ elite: hasEntitiesCache.normal }"
                         [ghs-label]="eliteValue"
                         [relative]="relative || forceRelative"
-                        [style]="style"
+                        [style]="style()"
                       ></span>
                     }
                     @if (!fhStyle) {
@@ -1197,10 +1176,10 @@
                   </span>
                 }
                 @if (relative || forceRelative) {
-                  <span [ghs-label]="normalValue + ''" [relative]="relative || forceRelative" [style]="style">
+                  <span [ghs-label]="normalValue + ''" [relative]="relative || forceRelative" [style]="style()">
                     @if (normalValue !== eliteValue) {
                       <span
-                        >/<span class="elite" [ghs-label]="eliteValue + ''" [relative]="relative || forceRelative" [style]="style"></span>
+                        >/<span class="elite" [ghs-label]="eliteValue + ''" [relative]="relative || forceRelative" [style]="style()"></span>
                       </span>
                     }
                   </span>
@@ -1211,12 +1190,12 @@
               </span>
 
               @if (action.type === ActionType.target && EntityValueFunction(action.value) > 1) {
-                <span class="type"> <span [ghs-label]="'game.action.targets'" [style]="style"></span></span>
+                <span class="type"> <span [ghs-label]="'game.action.targets'" [style]="style()"></span></span>
               }
 
               @if (action.type !== ActionType.target || EntityValueFunction(action.value) < 2) {
                 <span class="type">
-                  <span [ghs-label]="'game.action.' + action.type" [style]="style"></span>
+                  <span [ghs-label]="'game.action.' + action.type" [style]="style()"></span>
                 </span>
               }
 
@@ -1236,22 +1215,23 @@
               }
             }
 
-            @if (!!origAction.enhancementTypes && origAction.enhancementTypes.length && !!character && cardId) {
+            @if (!!origAction.enhancementTypes && origAction.enhancementTypes.length && !!character && cardId()) {
               <ghs-action-enhancements
                 [action]="origAction"
-                [index]="actionIndex"
+                [index]="actionIndex()"
                 [character]="character"
-                [cardId]="cardId"
+                [cardId]="cardId()"
               ></ghs-action-enhancements>
             }
           </span>
 
           @if (
-            ((statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions) | slice: (hasAOE ? 1 : 0)).length > 0
+            ((statsCalculation() && additionalSubActions.length > 0 ? additionalSubActions : subActions) | slice: (hasAOE ? 1 : 0)).length >
+            0
           ) {
             <div class="subactions">
               @for (
-                subAction of (statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions)
+                subAction of (statsCalculation() && additionalSubActions.length > 0 ? additionalSubActions : subActions)
                   | slice: (hasAOE ? 1 : 0)
                   | trackUUID;
                 track subAction._trackUUID;
@@ -1265,20 +1245,19 @@
                   [action]="subAction"
                   [monster]="monster"
                   [objective]="objective"
-                  [inline]="inline"
-                  [right]="right"
-                  [textBlack]="textBlack"
-                  [hexSize]="hexSize"
-                  [interactiveAbilities]="interactiveAbilities"
-                  [interactiveActions]="interactiveActions"
-                  (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
                   [relative]="relative || forceRelative"
-                  [statsCalculation]="statsCalculation"
-                  [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                   [monsterType]="monsterType"
                   [character]="character"
-                  [cardId]="cardId"
-                  [style]="style"
+                  [cardId]="cardId()"
+                  [style]="style()"
                 >
                 </ghs-action>
               }
@@ -1292,20 +1271,19 @@
                     [action]="subAction"
                     [monster]="monster"
                     [objective]="objective"
-                    [inline]="inline"
-                    [right]="right"
-                    [textBlack]="textBlack"
-                    [hexSize]="hexSize"
-                    [interactiveAbilities]="interactiveAbilities"
-                    [interactiveActions]="interactiveActions"
-                    (interactiveActionsChange)="onInteractiveActionsChange($event)"
+                    [inline]="inline()"
+                    [right]="right()"
+                    [textBlack]="textBlack()"
+                    [hexSize]="hexSize()"
+                    [interactiveAbilities]="interactiveAbilities()"
+                    [(interactiveActions)]="interactiveActions"
                     [relative]="relative || forceRelative"
-                    [statsCalculation]="statsCalculation"
-                    [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+                    [statsCalculation]="statsCalculation()"
+                    [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
                     [monsterType]="monsterType"
                     [character]="character"
-                    [cardId]="cardId"
-                    [style]="style"
+                    [cardId]="cardId()"
+                    [style]="style()"
                   >
                   </ghs-action>
                 }
@@ -1320,26 +1298,25 @@
       <div class="aoe-value" [ngClass]="{ small: action.small }">
         <ghs-action
           [ngClass]="'subaction-area'"
-          [action]="(statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions)[0]"
+          [action]="(statsCalculation() && additionalSubActions.length > 0 ? additionalSubActions : subActions)[0]"
           [monster]="monster"
           [objective]="objective"
-          [inline]="inline"
-          [right]="right"
-          [textBlack]="textBlack"
-          [hexSize]="hexSize"
-          [interactiveAbilities]="interactiveAbilities"
-          [interactiveActions]="interactiveActions"
-          (interactiveActionsChange)="onInteractiveActionsChange($event)"
+          [inline]="inline()"
+          [right]="right()"
+          [textBlack]="textBlack()"
+          [hexSize]="hexSize()"
+          [interactiveAbilities]="interactiveAbilities()"
+          [(interactiveActions)]="interactiveActions"
           [relative]="relative || forceRelative"
-          [statsCalculation]="statsCalculation"
+          [statsCalculation]="statsCalculation()"
           [index]="
-            (actionIndex ? actionIndex + '-' : '') +
-            getOrigIndex((statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions)[0])
+            (actionIndex() ? actionIndex() + '-' : '') +
+            getOrigIndex((statsCalculation() && additionalSubActions.length > 0 ? additionalSubActions : subActions)[0])
           "
           [monsterType]="monsterType"
           [character]="character"
-          [cardId]="cardId"
-          [style]="style"
+          [cardId]="cardId()"
+          [style]="style()"
         >
         </ghs-action>
       </div>
@@ -1353,20 +1330,19 @@
             [action]="subAction"
             [monster]="monster"
             [objective]="objective"
-            [inline]="inline"
-            [right]="right"
-            [textBlack]="textBlack"
-            [hexSize]="hexSize"
-            [interactiveAbilities]="interactiveAbilities"
-            [interactiveActions]="interactiveActions"
-            (interactiveActionsChange)="onInteractiveActionsChange($event)"
+            [inline]="inline()"
+            [right]="right()"
+            [textBlack]="textBlack()"
+            [hexSize]="hexSize()"
+            [interactiveAbilities]="interactiveAbilities()"
+            [(interactiveActions)]="interactiveActions"
             [relative]="relative || forceRelative"
-            [statsCalculation]="statsCalculation"
-            [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+            [statsCalculation]="statsCalculation()"
+            [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
             [monsterType]="monsterType"
             [character]="character"
-            [cardId]="cardId"
-            [style]="style"
+            [cardId]="cardId()"
+            [style]="style()"
           >
           </ghs-action>
         }

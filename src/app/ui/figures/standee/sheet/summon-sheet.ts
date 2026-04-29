@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -28,16 +28,24 @@ import { ValueCalcDirective } from 'src/app/ui/helper/valueCalc';
 export class SummonSheetComponent implements OnInit {
   private ghsManager = inject(GhsManager);
 
-  @Input() summon!: Summon;
-  @Input() summonData: SummonData | undefined;
-  @Input() action: boolean = false;
-  @Input() additional: boolean = false;
-  @Input() item: boolean = false;
-  @Input() right: boolean = false;
-  @Input() style: 'gh' | 'fh' | false = false;
-  @Input('index') actionIndex: string = '';
-  @Input() cardId: number | undefined;
-  @Input() character: Character | undefined;
+  readonly inputSummon = input.required<Summon>({ alias: 'summon' });
+  get summon(): Summon {
+    return this.inputSummon();
+  }
+
+  readonly inputSummonData = input<SummonData>(undefined, { alias: 'summonData' });
+  get summonData(): SummonData | undefined {
+    return this.inputSummonData();
+  }
+
+  readonly action = input<boolean>(false);
+  readonly additional = input<boolean>(false);
+  readonly item = input<boolean>(false);
+  readonly right = input<boolean>(false);
+  readonly style = input<'gh' | 'fh' | false>(false);
+  readonly actionIndex = input<string>('', { alias: 'index' });
+  readonly cardId = input<number>();
+  readonly character = input<Character>();
   fhStyle: boolean = false;
 
   settingsManager: SettingsManager = settingsManager;
@@ -54,7 +62,8 @@ export class SummonSheetComponent implements OnInit {
 
   update() {
     this.hasSummon = this.summon !== undefined;
-    this.fhStyle = (settingsManager.settings.fhStyle && !this.style) || this.style === 'fh';
+    const style = this.style();
+    this.fhStyle = (settingsManager.settings.fhStyle && !style) || style === 'fh';
     this.enhancementActions = [];
     if (this.summonData) {
       this.enhancementActions.push(new Action(ActionType.heal, this.summonData.health));

@@ -5,12 +5,11 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  EventEmitter,
   inject,
-  Input,
+  input,
   OnChanges,
   OnInit,
-  Output,
+  output,
   SimpleChanges
 } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -56,15 +55,19 @@ export class LootDeckComponent implements OnInit, OnChanges {
 
   private cdr = inject(ChangeDetectorRef);
 
-  @Input() deck!: LootDeck;
-  @Input() bottom: boolean = false;
-  @Input() characters: boolean = true;
-  @Input() fullscreen: boolean = true;
-  @Input() vertical: boolean = false;
-  @Input() standalone: boolean = false;
-  @Output() before: EventEmitter<LootDeckChange> = new EventEmitter<LootDeckChange>();
-  @Output() after: EventEmitter<LootDeckChange> = new EventEmitter<LootDeckChange>();
-  @Input() initTimeout: number = 1500;
+  readonly inputLootDeck = input.required<LootDeck>({ alias: 'deck' });
+  get deck(): LootDeck {
+    return this.inputLootDeck();
+  }
+
+  readonly bottom = input<boolean>(false);
+  readonly characters = input<boolean>(true);
+  readonly fullscreen = input<boolean>(true);
+  readonly vertical = input<boolean>(false);
+  readonly standalone = input<boolean>(false);
+  readonly before = output<LootDeckChange>();
+  readonly after = output<LootDeckChange>();
+  readonly initTimeout = input<number>(1500);
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   lootManager: LootManager = gameManager.lootManager;
@@ -101,7 +104,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
       settingsManager.settings.automaticAttackModifierFullscreen &&
       settingsManager.settings.portraitMode &&
       (window.innerWidth < 800 || window.innerHeight < 400);
-    this.disabled = !this.standalone && gameManager.game.state === GameState.draw;
+    this.disabled = !this.standalone() && gameManager.game.state === GameState.draw;
 
     if (!this.init) {
       this.drawTimeout = setTimeout(
@@ -111,7 +114,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
           this.init = true;
           this.cdr.markForCheck();
         },
-        settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0
+        settingsManager.settings.animations ? this.initTimeout() * settingsManager.settings.animationSpeed : 0
       );
     }
 
@@ -139,13 +142,13 @@ export class LootDeckComponent implements OnInit, OnChanges {
   }
 
   update(fromServer: boolean = false) {
-    this.disabled = !this.standalone && gameManager.game.state === GameState.draw;
+    this.disabled = !this.standalone() && gameManager.game.state === GameState.draw;
 
     if (this.initServer && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
       this.initServer = false;
     }
 
-    if (!this.deck.active && !this.standalone) {
+    if (!this.deck.active && !this.standalone()) {
       if (this.queueTimeout) {
         clearTimeout(this.queueTimeout);
         this.queueTimeout = null;
@@ -194,28 +197,41 @@ export class LootDeckComponent implements OnInit, OnChanges {
         const currentIndex = this.current;
         const loot = this.deck.cards[currentIndex];
 
-        if (gameManager.lootManager.easter && loot && loot.type === LootType.metal) {
-          new Audio('assets/media/metal.ogg').play();
-        }
+        let queueDelay = 0;
 
-        if (this.queue > 0) {
-          this.queue--;
-          this.current++;
-          this.drawQueue(fromServer);
-        } else {
-          this.element.nativeElement.getElementsByClassName('deck')[0].classList.remove('drawing');
-          if (this.queue < 0) {
-            this.queue = 0;
+        if (settingsManager.settings.animations && gameManager.lootManager.easter && loot) {
+          if (loot.type === LootType.metal) {
+            new Audio('assets/media/metal.ogg').play();
+          } else if (loot.type === LootType.money || loot.type === LootType.special1 || loot.type === LootType.special2) {
+            new Audio('assets/media/gold.ogg').play();
+            queueDelay = 2200;
+          } else {
+            new Audio('assets/media/loot.ogg').play();
+            queueDelay = 4000;
           }
         }
+
+        this.queueTimeout = setTimeout(() => {
+          if (this.queue > 0) {
+            this.queue--;
+            this.current++;
+            this.drawQueue(fromServer);
+          } else {
+            this.element.nativeElement.getElementsByClassName('deck')[0].classList.remove('drawing');
+            if (this.queue < 0) {
+              this.queue = 0;
+            }
+          }
+          this.queueTimeout = null;
+        }, queueDelay);
 
         if (
           !fromServer &&
           loot &&
           appliableLootTypes.indexOf(loot.type) !== null &&
           settingsManager.settings.applyLoot &&
-          !this.standalone &&
-          this.fullscreen &&
+          !this.standalone() &&
+          this.fullscreen() &&
           gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) &&
           gameManager.game.figures.every((figure) => !(figure instanceof Character) || !figure.lootCards.includes(currentIndex))
         ) {
@@ -302,10 +318,10 @@ export class LootDeckComponent implements OnInit, OnChanges {
   }
 
   draw(event: any, forceDraw: boolean = false) {
-    if (this.compact && this.fullscreen && !forceDraw) {
+    if (this.compact && this.fullscreen() && !forceDraw) {
       this.openFullscreen(event);
     } else if (!this.disabled && this.deck.cards.length > 0) {
-      if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue === 0 ? 0 : 1)) {
+      if (!this.drawTimeout && this.deck.current + 1 < this.deck.cards.length - (this.queue === 0 ? 0 : 1)) {
         const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
         this.drawTimeout = setTimeout(
           () => {
@@ -373,17 +389,17 @@ export class LootDeckComponent implements OnInit, OnChanges {
         panelClass: ['dialog'],
         data: {
           deck: this.deck,
-          characters: this.characters,
+          characters: this.characters(),
           before: this.before,
           after: this.after,
-          apply: !this.standalone
+          apply: !this.standalone()
         }
       });
     }
   }
 
   openFullscreen(event: any) {
-    if (this.fullscreen) {
+    if (this.fullscreen()) {
       this.dialog.open(LootDeckFullscreenComponent, {
         panelClass: ['fullscreen-panel'],
         backdropClass: ['fullscreen-backdrop'],
@@ -405,7 +421,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
   }
 
   getCharacter(index: number): string {
-    if (this.characters) {
+    if (this.characters()) {
       const character = gameManager.game.figures.find(
         (figure) => figure instanceof Character && figure.lootCards && figure.lootCards.includes(index)
       );
@@ -420,7 +436,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
     if (
       this.deck.cards.length > 0 &&
       gameManager.game.state === GameState.next &&
-      this.fullscreen &&
+      this.fullscreen() &&
       settingsManager.settings.automaticAttackModifierFullscreen &&
       settingsManager.settings.portraitMode &&
       (window.innerWidth < 800 || window.innerHeight < 400)
@@ -431,10 +447,10 @@ export class LootDeckComponent implements OnInit, OnChanges {
         panelClass: ['dialog'],
         data: {
           deck: this.deck,
-          characters: this.characters,
+          characters: this.characters(),
           before: this.before,
           after: this.after,
-          apply: !this.standalone
+          apply: !this.standalone()
         }
       });
     }

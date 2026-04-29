@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -23,8 +23,6 @@ export class TreasuresDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);
   private dialog = inject(Dialog);
   private ghsManager = inject(GhsManager);
-
-  @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
   gameManager: GameManager = gameManager;
   edition: string;

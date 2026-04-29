@@ -359,7 +359,8 @@
         }
 
         .condition,
-        .summon {
+        .summon,
+        .action {
           position: relative;
           display: flex;
           align-items: center;
@@ -407,7 +408,8 @@
 
         &:nth-child(even) {
           .condition,
-          .summon {
+          .summon,
+          .action {
             &:hover {
               transform: scale(2) translateY(-25%);
             }
@@ -416,7 +418,8 @@
 
         &:nth-child(odd) {
           .condition,
-          .summon {
+          .summon,
+          .action {
             &:hover {
               transform: scale(2) translateY(25%);
             }
@@ -427,7 +430,8 @@
           grid-row: span 2;
 
           .condition,
-          .summon {
+          .summon,
+          .action {
             &:hover {
               transform: scale(2);
             }
@@ -486,6 +490,11 @@
               }
             }
           }
+        }
+
+        .action {
+          margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+          font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
         }
       }
 

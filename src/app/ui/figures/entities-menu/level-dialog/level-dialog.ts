@@ -1,7 +1,7 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -18,7 +18,7 @@ import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsValueSign } from 
   styleUrls: ['../entities-menu-dialog.scss', './level-dialog.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CharacterLevelDialogComponent {
+export class CharacterLevelDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);
   private dialog = inject(Dialog);
   overlay = inject(Overlay);
@@ -28,7 +28,7 @@ export class CharacterLevelDialogComponent {
   EntityValueFunction = EntityValueFunction;
   Math = Math;
 
-  @ViewChild('charactertitle', { static: false }) characterTitleInput!: ElementRef;
+  readonly characterTitleInput = viewChild.required<ElementRef>('charactertitle');
 
   character: Character;
   bb: boolean;
@@ -44,12 +44,6 @@ export class CharacterLevelDialogComponent {
     this.bb = this.character.bb;
     this.level = this.character.level;
     this.identities = settingsManager.settings.characterIdentities ? [...this.character.identities] : [];
-
-    if (this.characterTitleInput) {
-      this.characterTitleInput.nativeElement.value =
-        this.character.title ||
-        settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
-    }
 
     this.titles = [];
     if (this.character.identities && this.character.identities.length > 1 && settingsManager.settings.characterIdentities) {
@@ -73,6 +67,15 @@ export class CharacterLevelDialogComponent {
         }
       }
     });
+  }
+
+  ngOnInit(): void {
+    const characterTitleInput = this.characterTitleInput();
+    if (characterTitleInput) {
+      characterTitleInput.nativeElement.value =
+        this.character.title ||
+        settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
+    }
   }
 
   setLevel(level: number) {
@@ -122,8 +125,9 @@ export class CharacterLevelDialogComponent {
 
     let title = this.character.title;
 
-    if (this.characterTitleInput) {
-      title = this.characterTitleInput.nativeElement.value;
+    const characterTitleInput = this.characterTitleInput();
+    if (characterTitleInput) {
+      title = characterTitleInput.nativeElement.value;
     }
 
     if (this.titles.length > 0) {

@@ -3006,6 +3006,10 @@
       "": "Scenario Statistics",
       "hint": "Collect statistics about damage, kills, loot, xp and heals during a scenario"
     },
+    "serverExportCode": {
+      "": "Export Server Code",
+      "hint": "Include the Server Code in Exports of Settings and Data Dump"
+    },
     "showExpandedAbilityCard": {
       "": "Show expanded ability cards",
       "hint": "Show all abilities on ability cards at once (automatically also show card title)."

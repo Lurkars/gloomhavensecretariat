@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit, inject, input } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -26,11 +26,19 @@ export class MonsterNumberPicker implements OnInit {
   private overlay = inject(Overlay);
   private ghsManager = inject(GhsManager);
 
-  @Input() monster!: Monster;
-  @Input() type!: MonsterType;
-  @Input() range: number[] = [];
-  @Input() nonDead: number = 0;
-  @Input() count: number = 0;
+  readonly inputMonster = input.required<Monster>({ alias: 'monster' });
+  get monster(): Monster {
+    return this.inputMonster();
+  }
+
+  readonly inputMonsterType = input.required<MonsterType>({ alias: 'type' });
+  get type(): MonsterType {
+    return this.inputMonsterType();
+  }
+
+  readonly range = input<number[]>([]);
+  readonly nonDead = input<number>(0);
+  readonly count = input<number>(0);
 
   settingsManager: SettingsManager = settingsManager;
 
@@ -68,12 +76,13 @@ export class MonsterNumberPicker implements OnInit {
       return;
     }
 
-    if (this.nonDead >= this.count) {
+    if (this.nonDead() >= this.count()) {
       return;
     }
 
-    if (this.maxStandees === this.count && this.nonDead === this.count - 1 && this.monster.entities.every((me) => me.number > 0)) {
-      for (let i = 0; i < this.count; i++) {
+    const count = this.count();
+    if (this.maxStandees === count && this.nonDead() === count - 1 && this.monster.entities.every((me) => me.number > 0)) {
+      for (let i = 0; i < count; i++) {
         if (!this.monster.entities.some((me) => gameManager.entityManager.isAlive(me) && me.number === i + 1)) {
           this.pickNumber(i + 1);
         }
@@ -86,7 +95,7 @@ export class MonsterNumberPicker implements OnInit {
         data: {
           monster: this.monster,
           type: this.type,
-          range: this.range
+          range: this.range()
         },
         positionStrategy: this.overlay
           .position()

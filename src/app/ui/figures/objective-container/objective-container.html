@@ -47,7 +47,7 @@
   }
 
   @if (!!entity) {
-    <ghs-highlight-conditions [entity]="entity"></ghs-highlight-conditions>
+    <ghs-highlight-conditions [entity]="entity" [figure]="objective"></ghs-highlight-conditions>
   }
   <div class="stats">
     @if (!!entity) {
@@ -71,36 +71,21 @@
               }
               <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
             </div>
-            @if (settingsManager.settings.characterShieldRetaliate) {
-              <span class="actions">
-                @if (entity.shield) {
-                  <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeShield()">
-                    <ghs-action [action]="entity.shield" [style]="'fh'"></ghs-action>
+            <span class="actions">
+              @for (action of entity.extraActions | trackUUID; track action._trackUUID; let i = $index) {
+                <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeExtraAction(i)">
+                  <ghs-action [action]="action" [style]="'fh'"></ghs-action>
+                </span>
+              }
+              @for (persistentAction of entity.extraActionsPersistent | trackUUID; track persistentAction._trackUUID; let i = $index) {
+                <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeExtraAction(i, true)">
+                  <span class="action-overlay">
+                    <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
                   </span>
-                }
-                @for (retaliate of entity.retaliate | trackUUID; track retaliate._trackUUID; let i = $index) {
-                  <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeRetaliate(i)">
-                    <ghs-action [action]="retaliate" [style]="'fh'"></ghs-action>
-                  </span>
-                }
-                @if (entity.shieldPersistent) {
-                  <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeShieldPersistent()">
-                    <span class="action-overlay">
-                      <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
-                    </span>
-                    <ghs-action [action]="entity.shieldPersistent" [style]="'fh'"></ghs-action>
-                  </span>
-                }
-                @for (retaliatePersistent of entity.retaliatePersistent | trackUUID; track retaliatePersistent._trackUUID; let i = $index) {
-                  <span class="action" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeRetaliatePersistent(i)">
-                    <span class="action-overlay">
-                      <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
-                    </span>
-                    <ghs-action [action]="retaliatePersistent" [style]="'fh'"></ghs-action>
-                  </span>
-                }
-              </span>
-            }
+                  <ghs-action [action]="persistentAction" [style]="'fh'"></ghs-action>
+                </span>
+              }
+            </span>
           </div>
           <div class="status-bar">
             <div
@@ -233,12 +218,7 @@
     <div class="actions-container">
       @if (!!objectiveData && objectiveData.actions) {
         <div class="actions" ghs-pointer-input (singleClick)="openEntityMenu()">
-          <ghs-actions
-            [objective]="objective"
-            [actions]="objectiveData.actions"
-            [interactiveActions]="interactiveActions"
-            (interactiveActionsChange)="onInteractiveActionsChange($event)"
-          ></ghs-actions>
+          <ghs-actions [objective]="objective" [actions]="objectiveData.actions" [(interactiveActions)]="interactiveActions"></ghs-actions>
         </div>
       }
       @if (interactiveActions.length) {

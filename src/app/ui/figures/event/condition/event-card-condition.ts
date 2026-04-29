@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { CharacterClass } from 'src/app/game/model/data/CharacterData';
 import { EventCardCondition, EventCardConditionType } from 'src/app/game/model/data/EventCard';
@@ -13,17 +13,29 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventCardConditionComponent implements OnInit {
-  @Input() condition: string | EventCardCondition | undefined;
-  @Input() edition!: string;
-  @Input() eventType!: string;
-  @Input() disabled: boolean = false;
-  @Input() narrative: boolean = false;
-  @Input() light: boolean = true;
-  @Input() inline: boolean = false;
-  @Input() lowercase: boolean = false;
-  @Input() selected: boolean = false;
+  readonly inputCondition = input<string | EventCardCondition | undefined>(undefined, { alias: 'condition' });
+  get condition(): string | EventCardCondition | undefined {
+    return this.inputCondition();
+  }
 
-  @Input() debug: boolean = false;
+  readonly inputEdition = input<string>('', { alias: 'edition' });
+  get edition(): string {
+    return this.inputEdition();
+  }
+
+  readonly inputEventType = input<string>('', { alias: 'eventType' });
+  get eventType(): string {
+    return this.inputEventType();
+  }
+
+  readonly disabled = input<boolean>(false);
+  readonly narrative = input<boolean>(false);
+  readonly light = input<boolean>(true);
+  readonly inline = input<boolean>(false);
+  readonly lowercase = input<boolean>(false);
+  readonly selected = input<boolean>(false);
+
+  readonly debug = input<boolean>(false);
 
   conditionString: string | undefined;
   conditionObject: EventCardCondition | undefined;

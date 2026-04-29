@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -25,10 +25,14 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 export class ScenarioSetupComponent implements OnInit {
   private dialog = inject(Dialog);
 
-  @Input() scenario!: Scenario;
-  @Input() spoiler: boolean = false;
-  @Input() title: boolean = true;
-  @Input() details: boolean = true;
+  readonly inputScenario = input.required<Scenario>({ alias: 'scenario' });
+  get scenario(): Scenario {
+    return this.inputScenario();
+  }
+
+  readonly inputSpoiler = input<boolean>(false, { alias: 'spoiler' });
+  readonly title = input<boolean>(true);
+  readonly details = input<boolean>(true);
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -36,10 +40,12 @@ export class ScenarioSetupComponent implements OnInit {
   monsters: Monster[] = [];
   lootConfig: { type: LootType; value: number }[] = [];
   lootRandomItem: boolean = false;
+  spoiler: boolean = false;
   hasSpoiler: boolean = false;
   detailed: boolean = false;
 
   ngOnInit(): void {
+    this.spoiler = this.inputSpoiler();
     this.updateMonster();
     if (this.scenario.lootDeckConfig) {
       for (const value in LootType) {

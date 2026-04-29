@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -29,16 +29,20 @@ export class LootComponent implements OnInit, OnChanges {
   private dialog = inject(Dialog);
   private ghsManager = inject(GhsManager);
 
-  @Input() loot!: Loot;
-  @Input() index: number = -1;
-  @Input() disableFlip: boolean = false;
-  @Input() flipped: boolean = false;
-  @Input() reveal: boolean = false;
-  @Input() edit: boolean = false;
-  @Input() looted: boolean = false;
-  @Input() highlight: boolean = true;
-  @Input() apply: boolean = true;
-  @Input() character: string = '';
+  readonly inputLoot = input.required<Loot>({ alias: 'loot' });
+  get loot(): Loot {
+    return this.inputLoot();
+  }
+
+  readonly index = input<number>(-1);
+  readonly disableFlip = input<boolean>(false);
+  readonly flipped = input<boolean>(false);
+  readonly reveal = input<boolean>(false);
+  readonly edit = input<boolean>(false);
+  readonly looted = input<boolean>(false);
+  readonly highlight = input<boolean>(true);
+  readonly apply = input<boolean>(true);
+  readonly character = input<string>('');
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -58,7 +62,7 @@ export class LootComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.animate = !this.disableFlip;
+    this.animate = !this.disableFlip();
     if ((this.loot.type === LootType.special1 || this.loot.type === LootType.special2) && this.loot.value) {
       this.sections = this.loot.value.split('|');
     }
@@ -70,7 +74,7 @@ export class LootComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const flipped = changes['flipped'];
-    if (flipped && !this.disableFlip && flipped.currentValue && flipped.currentValue !== flipped.previousValue) {
+    if (flipped && !this.disableFlip() && flipped.currentValue && flipped.currentValue !== flipped.previousValue) {
       this.animate = true;
     }
     if ((this.loot.type === LootType.special1 || this.loot.type === LootType.special2) && this.loot.value) {
@@ -112,9 +116,9 @@ export class LootComponent implements OnInit, OnChanges {
               if (this.hasSection(section)) {
                 gameManager.stateManager.before('setLootCardSection', section);
                 gameManager.game.lootDeckSections.push(section);
-                if (this.character && conclusion.rewards) {
+                if (this.character() && conclusion.rewards) {
                   const character = gameManager.game.figures.find(
-                    (figure) => figure instanceof Character && figure.name === this.character
+                    (figure) => figure instanceof Character && figure.name === this.character()
                   );
                   if (character instanceof Character) {
                     if (conclusion.rewards.lootingGold) {
@@ -155,18 +159,19 @@ export class LootComponent implements OnInit, OnChanges {
   }
 
   changeCharacter(event: any) {
-    if (settingsManager.settings.applyLoot && (this.edit || !this.character)) {
+    const edit = this.edit();
+    if (settingsManager.settings.applyLoot && (edit || !this.character())) {
       event.preventDefault();
       event.stopPropagation();
       const dialog = this.dialog.open(LootApplyDialogComponent, {
         panelClass: ['dialog'],
-        data: { loot: this.loot, selected: this.character, edit: this.edit }
+        data: { loot: this.loot, selected: this.character(), edit: edit }
       });
 
       dialog.closed.subscribe({
         next: (name) => {
           if (typeof name === 'string') {
-            const charBefore = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name === this.character);
+            const charBefore = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name === this.character());
             let randomItemIdentifier: AdditionalIdentifier | undefined;
             if (charBefore instanceof Character && charBefore.name !== name) {
               if (this.loot.type === LootType.random_item && name) {
@@ -178,7 +183,7 @@ export class LootComponent implements OnInit, OnChanges {
                   'game.loot.' + this.loot.type,
                   gameManager.lootManager.getValue(this.loot)
                 );
-                charBefore.lootCards = charBefore.lootCards.filter((index) => index !== this.index);
+                charBefore.lootCards = charBefore.lootCards.filter((index) => index !== this.index());
                 if (this.loot.type === LootType.money || this.loot.type === LootType.special1 || this.loot.type === LootType.special2) {
                   charBefore.loot -= gameManager.lootManager.getValue(this.loot);
                 }
@@ -212,14 +217,14 @@ export class LootComponent implements OnInit, OnChanges {
                     'game.loot.' + this.loot.type,
                     gameManager.lootManager.getValue(this.loot)
                   );
-                  gameManager.lootManager.applyLoot(this.loot, character, this.index);
+                  gameManager.lootManager.applyLoot(this.loot, character, this.index());
                   gameManager.stateManager.after();
                 } else {
                   let result: ItemData | undefined = randomItemIdentifier
                     ? gameManager.itemManager.getItem(randomItemIdentifier.name, randomItemIdentifier.edition, true)
                     : undefined;
                   if (!result) {
-                    result = gameManager.lootManager.applyLoot(this.loot, character, this.index);
+                    result = gameManager.lootManager.applyLoot(this.loot, character, this.index());
                   }
                   if (result) {
                     this.dialog
@@ -240,8 +245,9 @@ export class LootComponent implements OnInit, OnChanges {
                             );
                             const itemIdentifier: Identifier = new Identifier(item.id, item.edition);
                             gameManager.itemManager.addItemCount(item);
-                            if (!character.lootCards.includes(this.index)) {
-                              character.lootCards.push(this.index);
+                            const indexValue = this.index();
+                            if (!character.lootCards.includes(indexValue)) {
+                              character.lootCards.push(indexValue);
                               character.lootCards.sort((a, b) => a - b);
                             }
                             if (
@@ -258,7 +264,7 @@ export class LootComponent implements OnInit, OnChanges {
                             }
 
                             if (randomItemIdentifier && charBefore instanceof Character) {
-                              charBefore.lootCards = charBefore.lootCards.filter((index) => index !== this.index);
+                              charBefore.lootCards = charBefore.lootCards.filter((index) => index !== this.index());
                               charBefore.progress.items = charBefore.progress.items.filter(
                                 (value) =>
                                   randomItemIdentifier &&
@@ -270,7 +276,7 @@ export class LootComponent implements OnInit, OnChanges {
                             }
                             gameManager.stateManager.after();
                           } else {
-                            character.lootCards = character.lootCards.filter((index) => index !== this.index);
+                            character.lootCards = character.lootCards.filter((index) => index !== this.index());
                           }
                         }
                       });

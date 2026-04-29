@@ -1,8 +1,8 @@
 <div
   class="attack-modifiers"
   [ngClass]="{
-    disabled: !standalone && ((!townGuard && gameManager.game.state === GameState.draw) || (townGuard && gameManager.game.scenario)),
-    vertical: vertical,
+    disabled: !standalone() && ((!townGuard() && gameManager.game.state === GameState.draw) || (townGuard() && gameManager.game.scenario)),
+    vertical: vertical(),
     character: !!character
   }"
 >
@@ -45,10 +45,10 @@
       class="am"
       (click)="draw($event)"
       [ghs-label]="
-        compact && fullscreen ? 'game.cards.fullscreen' : deck.current >= deckLength - 1 ? 'game.cards.shuffle' : 'game.cards.draw'
+        compact && fullscreen() ? 'game.cards.fullscreen' : deck.current >= deckLength - 1 ? 'game.cards.shuffle' : 'game.cards.draw'
       "
       [ghs-label-attribute]="'title'"
-      [ngClass]="{ 'town-guard': townGuard, disabled: disabled }"
+      [ngClass]="{ 'town-guard': townGuard(), disabled: disabled }"
     >
       <span class="number" [ngClass]="{ 'has-shuffle': deck.current >= deckLength + (deck.bb ? -3 : -1) }">
         @if (!deck.bb) {
@@ -62,49 +62,49 @@
         <img class="shuffle" [ghs-label]="'game.cards.shuffle'" [ghs-label-attribute]="'title'" src="./assets/images/shuffle.svg" />
       }
 
-      @if (!characterIcon && !townGuard && !bottom) {
+      @if (!characterIcon && !townGuard() && !bottom()) {
         <span class="numeration">{{ numeration }}</span>
       }
-      @if (characterIcon && !bottom) {
+      @if (characterIcon && !bottom()) {
         <span class="character-icon">
           <img [src]="characterIcon" />
         </span>
       }
     </div>
 
-    @if (fullscreen && !compact) {
+    @if (fullscreen() && !compact) {
       <span
         class="fullscreen"
         [ghs-label]="'game.cards.fullscreen'"
         [ghs-label-attribute]="'title'"
-        [ngClass]="{ vertical: vertical, minimize: !deck.active }"
+        [ngClass]="{ vertical: vertical(), minimize: !deck.active }"
         (click)="openFullscreen($event)"
       >
         <img class="ghs-svg" src="./assets/images/fullscreen.svg" />
       </span>
     }
 
-    @if (!compact || vertical) {
+    @if (!compact || vertical()) {
       <span
         class="settings"
         [ghs-label]="'game.cards.openDialog'"
         [ghs-label-attribute]="'title'"
         (click)="open($event)"
-        [ngClass]="{ vertical: vertical, 'without-fullscreen': !fullscreen, minimize: !deck.active }"
+        [ngClass]="{ vertical: vertical(), 'without-fullscreen': !fullscreen(), minimize: !deck.active }"
       >
         <img class="ghs-svg" src="./assets/images/settings.svg" />
       </span>
     }
 
-    @if ((deck.bb || settingsManager.settings.amAdvantage) && (!compact || vertical)) {
+    @if ((deck.bb || settingsManager.settings.amAdvantage) && (!compact || vertical())) {
       <span
         class="advantage"
         [ghs-label]="'game.cards.drawAdvantage'"
         [ghs-label-attribute]="'title'"
         (click)="draw($event, 'advantage')"
         [ngClass]="{
-          vertical: vertical,
-          'without-fullscreen': !fullscreen,
+          vertical: vertical(),
+          'without-fullscreen': !fullscreen(),
           minimize: !deck.active,
           'has-shuffle': deck.current >= deckLength - 1
         }"
@@ -113,15 +113,15 @@
       </span>
     }
 
-    @if ((deck.bb || settingsManager.settings.amAdvantage) && (!compact || vertical)) {
+    @if ((deck.bb || settingsManager.settings.amAdvantage) && (!compact || vertical())) {
       <span
         class="disadvantage"
         [ghs-label]="'game.cards.drawDisadvantage'"
         [ghs-label-attribute]="'title'"
         (click)="draw($event, 'disadvantage')"
         [ngClass]="{
-          vertical: vertical,
-          'without-fullscreen': !fullscreen,
+          vertical: vertical(),
+          'without-fullscreen': !fullscreen(),
           minimize: !deck.active,
           'has-shuffle': deck.current >= deckLength - 1
         }"
@@ -140,7 +140,7 @@
             discarded: index < current - 1,
             current: index === current,
             last: index === current - 1,
-            bottom: bottom,
+            bottom: bottom(),
             rolling: attackModifier.rolling && index <= current,
             active: attackModifier.active && index <= current && !deck.discarded.includes(index),
             'discard-active': deck.discarded.includes(index),
@@ -155,7 +155,7 @@
               attackModifier.rolling
           }"
           [style.left]="
-            !vertical && index < current && (index >= lastVisible || (attackModifier.active && !deck.discarded.includes(index)))
+            !vertical() && index < current && (index >= lastVisible || (attackModifier.active && !deck.discarded.includes(index)))
               ? 'calc(75% + ' +
                 (current -
                   index -
@@ -165,7 +165,7 @@
               : ''
           "
           [style.top]="
-            vertical && index < current && (index >= lastVisible || (attackModifier.active && !deck.discarded.includes(index)))
+            vertical() && index < current && (index >= lastVisible || (attackModifier.active && !deck.discarded.includes(index)))
               ? 'calc(' +
                 (current -
                   index -
@@ -184,11 +184,11 @@
             [attackModifier]="attackModifier"
             [numeration]="numeration"
             [characterIcon]="characterIcon"
-            [ally]="ally"
+            [ally]="ally()"
             [flipped]="index <= current"
             [disableFlip]="!drawing || index !== current"
             [newStyle]="newStyle"
-            [townGuard]="townGuard"
+            [townGuard]="townGuard()"
             [bbIndex]="deck.bb ? index % 3 : -1"
           >
           </ghs-attackmodifier>
@@ -202,7 +202,7 @@
         <div
           class="am-container current animate"
           [style.z-index]="deckLength + 2"
-          [ngClass]="{ bottom: bottom, disabled: disabled }"
+          [ngClass]="{ bottom: bottom(), disabled: disabled }"
           [ghs-label]="'game.cards.openDialog'"
           [ghs-label-attribute]="'title'"
           (click)="clickCard(index, $event)"
@@ -212,11 +212,11 @@
             [attackModifier]="attackModifier"
             [numeration]="numeration"
             [characterIcon]="characterIcon"
-            [ally]="ally"
+            [ally]="ally()"
             [flipped]="true"
             [disableFlip]="!drawing"
             [newStyle]="newStyle"
-            [townGuard]="townGuard"
+            [townGuard]="townGuard()"
             [bbIndex]="deck.bb ? index % 3 : -1"
           >
           </ghs-attackmodifier>
@@ -228,7 +228,7 @@
         <div
           class="am-container discarded animate"
           [style.z-index]="deckLength + 1"
-          [ngClass]="{ bottom: bottom, disabled: disabled }"
+          [ngClass]="{ bottom: bottom(), disabled: disabled }"
           [ghs-label]="'game.cards.openDialog'"
           [ghs-label-attribute]="'title'"
           (click)="clickCard(index, $event)"
@@ -238,11 +238,11 @@
             [attackModifier]="attackModifier"
             [numeration]="numeration"
             [characterIcon]="characterIcon"
-            [ally]="ally"
+            [ally]="ally()"
             [flipped]="true"
             [disableFlip]="!drawing"
             [newStyle]="newStyle"
-            [townGuard]="townGuard"
+            [townGuard]="townGuard()"
             [bbIndex]="deck.bb ? index % 3 : -1"
           >
           </ghs-attackmodifier>

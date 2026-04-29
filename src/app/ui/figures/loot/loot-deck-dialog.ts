@@ -1,7 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, OnInit, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -41,7 +41,7 @@ export class LootDeckDialogComponent implements OnInit {
 
   private cdr = inject(ChangeDetectorRef);
 
-  @ViewChild('menu') menuElement!: ElementRef;
+  readonly menuElement = viewChild.required<ElementRef>('menu');
   gameManager: GameManager = gameManager;
   GameState = GameState;
   reveal: number = 0;
@@ -84,7 +84,7 @@ export class LootDeckDialogComponent implements OnInit {
     this.currentConfig();
     setTimeout(
       () => {
-        this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+        this.maxHeight = 'calc(80vh - ' + this.menuElement().nativeElement.offsetHeight + 'px)';
         this.cdr.markForCheck();
       },
       settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0
@@ -141,7 +141,7 @@ export class LootDeckDialogComponent implements OnInit {
       this.enhancements = false;
     }
     setTimeout(() => {
-      this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+      this.maxHeight = 'calc(80vh - ' + this.menuElement().nativeElement.offsetHeight + 'px)';
       this.cdr.markForCheck();
     }, 0);
   }

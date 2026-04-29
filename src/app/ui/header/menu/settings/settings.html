@@ -287,15 +287,19 @@
         <div class="line" ghs-setting-menu="automaticPassTime"></div>
         <div class="line" ghs-setting-menu="applyBuildingRewards"></div>
         <div class="line" ghs-setting-menu="unlockEnvelopeBuildings"></div>
-        <div class="line" ghs-setting-menu="fhGhItems" [requiresOne]="['characterItems', 'characterSheet']"></div>
         @if (gameManager.challengesManager.available) {
           <div class="line" ghs-setting-menu="fhChallenges"></div>
+          <div class="line" ghs-setting-menu="fhChallengesApply" [requires]="['fhChallenges']"></div>
         }
         @if (gameManager.trialsManager.available) {
           <div class="line" ghs-setting-menu="fhTrials" [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''"></div>
-        }
-        @if (gameManager.buildingsManager.petsAvailable) {
-          <div class="line" ghs-setting-menu="fhPets"></div>
+          <div
+            class="line"
+            ghs-setting-menu="fhTrialsApply"
+            [disabled]="!gameManager.fhRules() || (!gameManager.trialsManager.trialsEnabled && !gameManager.trialsManager.favorsEnabled)"
+            [requires]="['fhTrials']"
+            [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''"
+          ></div>
         }
       </div>
 
@@ -334,18 +338,10 @@
           [checked]="settingsManager.settings.amAdvantage && gameManager.fhRules()"
         ></div>
         <div class="line" ghs-setting-menu="amAdvantageHouseRule" [requires]="['amAdvantage']"></div>
+        <div class="line" ghs-setting-menu="fhGhItems" [requiresOne]="['characterItems', 'characterSheet']"></div>
         <div class="line" ghs-setting-menu="fhShareResources"></div>
-        @if (gameManager.challengesManager.available) {
-          <div class="line" ghs-setting-menu="fhChallengesApply" [requires]="['fhChallenges']"></div>
-        }
-        @if (gameManager.trialsManager.available) {
-          <div
-            class="line"
-            ghs-setting-menu="fhTrialsApply"
-            [disabled]="!gameManager.fhRules() || (!gameManager.trialsManager.trialsEnabled && !gameManager.trialsManager.favorsEnabled)"
-            [requires]="['fhTrials']"
-            [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''"
-          ></div>
+        @if (gameManager.buildingsManager.petsAvailable) {
+          <div class="line" ghs-setting-menu="fhPets"></div>
         }
       </div>
 

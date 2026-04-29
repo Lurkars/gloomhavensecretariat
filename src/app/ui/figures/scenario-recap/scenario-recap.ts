@@ -1,5 +1,5 @@
 import { DIALOG_DATA } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ScenarioData, ScenarioRecap } from 'src/app/game/model/data/ScenarioData';
@@ -33,8 +33,12 @@ export class ScenarioRecapDialogComponent {
   styleUrls: ['./scenario-recap.scss']
 })
 export class ScenarioRecapComponent implements OnInit {
-  @Input() scenario: ScenarioData | undefined;
-  @Input() forceAll: boolean = false;
+  readonly inputScenario = input<ScenarioData>(undefined, { alias: 'scenario' });
+  get scenario(): ScenarioData | undefined {
+    return this.inputScenario();
+  }
+
+  readonly forceAll = input<boolean>(false);
 
   gameManager: GameManager = gameManager;
 
@@ -53,17 +57,18 @@ export class ScenarioRecapComponent implements OnInit {
           if (recap.type === 'scenario' && recap.value) {
             const scenarioData =
               gameManager.scenarioManager.getScenario(recap.value, this.scenario.edition, this.scenario.group) || undefined;
-            if (scenarioData && (gameManager.scenarioManager.isSuccess(scenarioData) || this.forceAll)) {
+            if (scenarioData && (gameManager.scenarioManager.isSuccess(scenarioData) || this.forceAll())) {
               return true;
             }
           } else if (recap.type === 'section' && recap.value) {
             const sectionData =
               gameManager.scenarioManager.getSection(recap.value, this.scenario.edition, this.scenario.group) || undefined;
             if (sectionData) {
+              const forceAll = this.forceAll();
               if (sectionData.parent) {
                 const scenarioData =
                   gameManager.scenarioManager.getScenario(sectionData.parent, this.scenario.edition, this.scenario.group) || undefined;
-                if (scenarioData && (gameManager.scenarioManager.isSuccess(scenarioData) || this.forceAll)) {
+                if (scenarioData && (gameManager.scenarioManager.isSuccess(scenarioData) || forceAll)) {
                   return true;
                 }
               }
@@ -75,7 +80,7 @@ export class ScenarioRecapComponent implements OnInit {
                     conclusion.index === sectionData.index &&
                     conclusion.group === sectionData.group
                 ) ||
-                  this.forceAll)
+                  forceAll)
               ) {
                 return true;
               }
@@ -114,7 +119,7 @@ export class ScenarioRecapComponent implements OnInit {
               }
             }
 
-            if (this.label) {
+            if (!this.label) {
               this.label = settingsManager.labelExists(prefix + this.scenario.index) ? prefix + this.scenario.index : false;
             }
           } else {

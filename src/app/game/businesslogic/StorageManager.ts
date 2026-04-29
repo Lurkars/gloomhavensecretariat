@@ -1,5 +1,6 @@
 import { GameModel } from 'src/app/game/model/Game';
 import { Settings } from 'src/app/game/model/Settings';
+import { settingsManager } from './SettingsManager';
 
 export class StorageManager {
   db: IDBDatabase | undefined;
@@ -340,6 +341,10 @@ export class StorageManager {
           }
         }
       }
+    }
+
+    if (!settingsManager.settings.serverExportCode) {
+      datadump['settings']['serverCode'] = '';
     }
 
     return Promise.resolve(datadump);

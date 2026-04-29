@@ -47,13 +47,16 @@ export class ItemsBrewDialog implements OnInit {
   characters: Character[] = [];
   selectedCharacter: Character | undefined;
   applied: boolean = false;
+  countAvailable: number = 0;
   forced: boolean[] = [];
 
   herbTotals: number[] = [];
   gridItems2: (ItemData | undefined)[][] = [];
+  gridItemsCount2: number[][] = [];
   gridCellActive2: boolean[][] = [];
   gridCellDisabled2: boolean[][] = [];
   gridItems3: (ItemData | undefined)[][][] = [];
+  gridItemsCount3: number[][][] = [];
   gridCellActive3: boolean[][][] = [];
   gridCellDisabled3: boolean[][][] = [];
   gridItemSpecial3: ItemData | undefined;
@@ -105,6 +108,9 @@ export class ItemsBrewDialog implements OnInit {
       });
     this.selectedCharacter = this.characters.length ? this.characters[0] : undefined;
     this.applied = false;
+    if (this.item) {
+      this.countAvailable = gameManager.itemManager.countAvailable(this.item);
+    }
     this.computeGridState();
   }
 
@@ -114,10 +120,12 @@ export class ItemsBrewDialog implements OnInit {
     );
 
     this.gridItems2 = [];
+    this.gridItemsCount2 = [];
     this.gridCellActive2 = [];
     this.gridCellDisabled2 = [];
     for (let i = 0; i < this.herbs.length; i++) {
       this.gridItems2[i] = [];
+      this.gridItemsCount2[i] = [];
       this.gridCellActive2[i] = [];
       this.gridCellDisabled2[i] = [];
       const leftIdx = this.herbs.length - 1 - i;
@@ -127,21 +135,28 @@ export class ItemsBrewDialog implements OnInit {
         this.gridCellActive2[i][j] = this.isGridCombinationActive(leftHerb, topHerb);
         this.gridCellDisabled2[i][j] =
           leftIdx === j ? this.herbTotals[leftIdx] < 2 : this.herbTotals[leftIdx] < 1 || this.herbTotals[j] < 1;
-        this.gridItems2[i][j] = this.getGridCombinationItem(leftHerb, topHerb);
+        const item = this.getGridCombinationItem(leftHerb, topHerb);
+        this.gridItems2[i][j] = item;
+        if (!!item) {
+          this.gridItemsCount2[i][j] = gameManager.itemManager.countAvailable(item);
+        }
       }
     }
 
     this.gridItems3 = [];
+    this.gridItemsCount3 = [];
     this.gridCellActive3 = [];
     this.gridCellDisabled3 = [];
     for (let ci = 0; ci < 4; ci++) {
       this.gridItems3[ci] = [];
+      this.gridItemsCount3[ci] = [];
       this.gridCellActive3[ci] = [];
       this.gridCellDisabled3[ci] = [];
       const cornerIdx = ci + 2;
       const cornerHerb = this.herbs[cornerIdx];
       for (let li = 0; li <= ci; li++) {
         this.gridItems3[ci][li] = [];
+        this.gridItemsCount3[ci][li] = [];
         this.gridCellActive3[ci][li] = [];
         this.gridCellDisabled3[ci][li] = [];
         const leftIdx = ci + 1 - li;
@@ -150,7 +165,11 @@ export class ItemsBrewDialog implements OnInit {
           const topHerb = this.herbs[ti];
           this.gridCellActive3[ci][li][ti] = this.isGridCombinationActive(topHerb, leftHerb, cornerHerb);
           this.gridCellDisabled3[ci][li][ti] = this.herbTotals[cornerIdx] < 1 || this.herbTotals[leftIdx] < 1 || this.herbTotals[ti] < 1;
-          this.gridItems3[ci][li][ti] = this.getGridCombinationItem(topHerb, leftHerb, cornerHerb);
+          const item = this.getGridCombinationItem(topHerb, leftHerb, cornerHerb);
+          this.gridItems3[ci][li][ti] = item;
+          if (!!item) {
+            this.gridItemsCount3[ci][li][ti] = gameManager.itemManager.countAvailable(item);
+          }
         }
       }
     }
@@ -413,6 +432,7 @@ export class ItemsBrewDialog implements OnInit {
       if (herb3) {
         this.addHerb(herb3, false, 2, force);
       }
+      this.updateItem();
     } else {
       const item = this.getGridCombinationItem(herb1, herb2, herb3);
       if (item) {

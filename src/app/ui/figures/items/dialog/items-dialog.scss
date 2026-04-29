@@ -403,13 +403,13 @@
         position: absolute;
         display: flex;
         cursor: pointer;
-        bottom: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        bottom: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
         left: calc(var(--ghs-unit) * 11.8 * var(--ghs-dialog-factor));
         justify-content: center;
         align-items: center;
         width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-        opacity: 0.6;
+        opacity: 0.4;
         z-index: 4;
 
         .ghs-svg {
@@ -419,7 +419,7 @@
         }
 
         &.equipped {
-          opacity: 1;
+          opacity: 0.6;
 
           .ghs-svg {
             filter: var(--ghs-filter-green);
@@ -427,7 +427,7 @@
         }
 
         &:hover {
-          opacity: 0.6;
+          opacity: 1;
 
           .ghs-svg {
             filter: var(--ghs-filter-green);

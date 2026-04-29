@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, input, model, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
@@ -23,18 +23,28 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   styleUrls: ['./event-card-effect.scss']
 })
 export class EventCardEffectComponent implements OnInit {
-  @Input() effect: string | EventCardEffect | undefined;
-  @Input() edition!: string;
-  @Input() eventType!: string;
-  @Input() light: boolean = true;
-  @Input() concatenated: boolean = false;
-  @Input() inline: boolean = false;
-  @Input() selected: boolean = false;
-  @Input() checks: number = 0;
+  readonly inputEffect = input<string | EventCardEffect | undefined>(undefined, { alias: 'effect' });
+  get effect(): string | EventCardEffect | undefined {
+    return this.inputEffect();
+  }
 
-  @Input() debug: boolean = false;
+  readonly inputEdition = input<string>('', { alias: 'edition' });
+  get edition(): string {
+    return this.inputEdition();
+  }
 
-  @Output() checked: EventEmitter<number> = new EventEmitter<number>();
+  readonly inputEventType = input<string>('', { alias: 'eventType' });
+  get eventType(): string {
+    return this.inputEventType();
+  }
+
+  readonly light = input<boolean>(true);
+  readonly concatenated = input<boolean>(false);
+  readonly inline = input<boolean>(false);
+  readonly selected = input<boolean>(false);
+  readonly checks = model<number>(0);
+
+  readonly debug = input<boolean>(false);
 
   effectString: string | undefined;
   effectObject: EventCardEffect | undefined;
@@ -113,13 +123,12 @@ export class EventCardEffectComponent implements OnInit {
   }
 
   check(index: number) {
-    if (this.selected) {
-      if (this.checks === index + 1) {
-        this.checks = index;
+    if (this.selected()) {
+      if (this.checks() === index + 1) {
+        this.checks.set(index);
       } else {
-        this.checks = index + 1;
+        this.checks.set(index + 1);
       }
-      this.checked.emit(this.checks);
     }
   }
 }

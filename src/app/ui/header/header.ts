@@ -8,9 +8,9 @@ import {
   DestroyRef,
   ElementRef,
   inject,
-  Input,
+  input,
   OnInit,
-  ViewChild
+  viewChild
 } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -55,10 +55,9 @@ export class HeaderComponent implements OnInit {
   private cdr = inject(ChangeDetectorRef);
   private destroyRef = inject(DestroyRef);
 
-  @Input() standalone: boolean = false;
-  @Input() connection: boolean = false;
-  @ViewChild('mainMenuButton') mainMenuButton!: ElementRef;
-  @ViewChild('partySheet') partySheet!: PartySheetComponent;
+  readonly standalone = input<boolean>(false);
+  readonly connection = input<boolean>(false);
+  readonly mainMenuButton = viewChild.required<ElementRef>('mainMenuButton');
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
@@ -159,11 +158,11 @@ export class HeaderComponent implements OnInit {
   openMenu(menu: SubMenu | undefined = undefined) {
     this.dialog.open(MainMenuComponent, {
       panelClass: ['dialog'],
-      data: { subMenu: menu !== undefined ? menu : SubMenu.main, standalone: this.standalone },
+      data: { subMenu: menu !== undefined ? menu : SubMenu.main, standalone: this.standalone() },
       maxWidth: '90vw',
       positionStrategy: this.overlay
         .position()
-        .flexibleConnectedTo(this.mainMenuButton)
+        .flexibleConnectedTo(this.mainMenuButton())
         .withPositions([new ConnectionPositionPair({ originX: 'end', originY: 'top' }, { overlayX: 'start', overlayY: 'top' })])
         .withDefaultOffsetX(10)
     });

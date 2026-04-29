@@ -1,12 +1,12 @@
 <div class="setup">
-  @if (title) {
+  @if (title()) {
     <span class="title">
       <span><span [ghs-label]="'scenario.setup'"></span></span>
     </span>
   }
 
   <div class="setup-container">
-    @if (details) {
+    @if (details()) {
       <label class="checkbox">
         <input tabclick type="checkbox" [(ngModel)]="detailed" /><span [ghs-label]="'scenario.setup.detailed'"></span>
       </label>

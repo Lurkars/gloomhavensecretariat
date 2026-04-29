@@ -24,10 +24,7 @@
     </div>
 
     @if (!settingsManager.settings.fhBrewGrid) {
-      <div
-        class="table"
-        [style.--ghs-summary-columns]="2 + brewing + (settingsManager.settings.fhShareResources ? -1 : 0) + (!character ? -1 : 0)"
-      >
+      <div class="table" [style.--ghs-summary-columns]="2 + brewing + (!character || settingsManager.settings.fhShareResources ? -1 : 0)">
         @for (i of [] | ghsRange: brewing; track i) {
           <span class="head-col first">{{ i + 1 }}.</span>
         }
@@ -44,6 +41,7 @@
         @for (herb of herbs; track herb) {
           <span
             class="head-col calc-col toggle"
+            [ghs-tooltip]="'game.loot.' + herb"
             [ngClass]="{
               active: receipe.length > 0 && receipe[0] === herb,
               disabled:
@@ -65,6 +63,7 @@
           </span>
           <span
             class="head-col calc-col toggle"
+            [ghs-tooltip]="'game.loot.' + herb"
             [ngClass]="{
               active: receipe.length > 1 && receipe[1] === herb,
               disabled:
@@ -87,6 +86,7 @@
           @if (brewing === 3) {
             <span
               class="head-col calc-col toggle"
+              [ghs-tooltip]="'game.loot.' + herb"
               [ngClass]="{
                 active: receipe.length > 2 && receipe[2] === herb,
                 disabled:
@@ -149,7 +149,7 @@
           <span class="grid-corner"></span>
           @for (herb of herbs; track herb; let hi = $index) {
             <span class="grid-head grid-head-top" [ngClass]="{ disabled: herbTotals[hi] === 0 }">
-              <span class="label icon">
+              <span class="label icon" [ghs-tooltip]="'game.loot.' + herb">
                 @if (herbTotals[hi]) {
                   <span class="value">{{ herbTotals[hi] }}</span>
                 }
@@ -161,7 +161,7 @@
         @for (i of [] | ghsRange: herbs.length; track i) {
           <div class="grid-row">
             <span class="grid-head grid-head-left" [ngClass]="{ disabled: herbTotals[herbs.length - 1 - i] === 0 }">
-              <span class="label icon">
+              <span class="label icon" [ghs-tooltip]="'game.loot.' + herbs[herbs.length - 1 - i]">
                 @if (herbTotals[herbs.length - 1 - i]) {
                   <span class="value">{{ herbTotals[herbs.length - 1 - i] }}</span>
                 }
@@ -177,8 +177,16 @@
                 (doubleClick)="selectGridCombo(herbs[herbs.length - 1 - i], herbs[j], undefined, true)"
               >
                 @if (gridItems2[i][j]; as gridItem) {
-                  <span class="item-name text-white" [ghs-label]="'%data.items.' + gridItem.edition + '-' + gridItem.id + '%'"></span>
-                  <span class="item-number text-white" [ghs-label]="'%game.itemFh.' + gridItem.id + '%'"></span>
+                  <span
+                    class="item-name text-white"
+                    [ngClass]="{ disabled: gridItemsCount2[i][j] === 0 }"
+                    [ghs-label]="'%data.items.' + gridItem.edition + '-' + gridItem.id + '%'"
+                  ></span>
+                  <span
+                    class="item-number text-white"
+                    [ngClass]="{ disabled: gridItemsCount2[i][j] === 0 }"
+                    [ghs-label]="'%game.itemFh.' + gridItem.id + '%'"
+                  ></span>
                 }
               </span>
             }
@@ -195,7 +203,7 @@
               <div class="grid-row">
                 <span class="grid-corner">
                   <span class="grid-corner-container">
-                    <span class="corner-herb">
+                    <span class="corner-herb" [ghs-tooltip]="'game.loot.' + herbs[ci + 2]">
                       <span
                         class="corner-herb-icon"
                         [style.mask-image]="'url(/assets/images/fh/loot/' + herbs[ci + 2] + '.svg)'"
@@ -207,7 +215,7 @@
                 </span>
                 @for (ti of [] | ghsRange: ci + 1; track ti) {
                   <span class="grid-head grid-head-top" [ngClass]="{ disabled: herbTotals[ti] === 0 }">
-                    <span class="label icon">
+                    <span class="label icon" [ghs-tooltip]="'game.loot.' + herbs[ti]">
                       @if (herbTotals[ti]) {
                         <span class="value">{{ herbTotals[ti] }}</span>
                       }
@@ -219,7 +227,7 @@
               @for (li of [] | ghsRange: ci + 1; track li) {
                 <div class="grid-row">
                   <span class="grid-head grid-head-left" [ngClass]="{ disabled: herbTotals[ci + 1 - li] === 0 }">
-                    <span class="label icon">
+                    <span class="label icon" [ghs-tooltip]="'game.loot.' + herbs[ci + 1 - li]">
                       @if (herbTotals[ci + 1 - li]) {
                         <span class="value">{{ herbTotals[ci + 1 - li] }}</span>
                       }
@@ -238,8 +246,16 @@
                       (doubleClick)="selectGridCombo(herbs[ti], herbs[ci + 1 - li], herbs[ci + 2], true)"
                     >
                       @if (gridItems3[ci][li][ti]; as gridItem) {
-                        <span class="item-name text-white" [ghs-label]="'%data.items.' + gridItem.edition + '-' + gridItem.id + '%'"></span>
-                        <span class="item-number text-white" [ghs-label]="'%game.itemFh.' + gridItem.id + '%'"></span>
+                        <span
+                          class="item-name text-white"
+                          [ngClass]="{ disabled: gridItemsCount3[ci][li][ti] === 0 }"
+                          [ghs-label]="'%data.items.' + gridItem.edition + '-' + gridItem.id + '%'"
+                        ></span>
+                        <span
+                          class="item-number text-white"
+                          [ngClass]="{ disabled: gridItemsCount3[ci][li][ti] === 0 }"
+                          [ghs-label]="'%game.itemFh.' + gridItem.id + '%'"
+                        ></span>
                       }
                     </span>
                   }
@@ -279,7 +295,7 @@
         @for (herb of receipe; track '' + herb + i; let i = $index) {
           <span class="herb" ghs-pointer-input (singleClick)="removeHerb(herb, false)" (doubleClick)="removeHerb(herb, false, i)">
             @if (!!herb) {
-              <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herb + '.svg'" />
+              <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + herb + '.svg'" [ghs-tooltip]="'game.loot.' + herb" />
             }
             @if (!herb) {
               <img class="ghs-svg" src="./assets/images/fh/loot/unknown.svg" />
@@ -316,7 +332,13 @@
 
     @if (!!brewed || !!item) {
       <div class="brewed">
-        <ghs-item [item]="brewed || item" [flipped]="true" (click)="openItemDialog()"></ghs-item>
+        <ghs-item
+          [item]="brewed || item"
+          [ngClass]="{ disabled: !brewed && !!item && countAvailable === 0 }"
+          [count]="countAvailable"
+          [flipped]="true"
+          (click)="openItemDialog()"
+        ></ghs-item>
       </div>
     }
 
@@ -362,7 +384,14 @@
       <a
         class="apply"
         [ngClass]="{
-          disabled: !selectedCharacter || characters.length === 0 || applied || receipe.length < 2 || !receipe[0] || !receipe[1],
+          disabled:
+            (!!item && countAvailable === 0) ||
+            !selectedCharacter ||
+            characters.length === 0 ||
+            applied ||
+            receipe.length < 2 ||
+            !receipe[0] ||
+            !receipe[1],
           unavailable: forced.includes(true) || gameManager.itemManager.brewingDisabled()
         }"
         ghs-pointer-input

@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -21,7 +21,11 @@ export class MonsterImageComponent {
   private dialog = inject(Dialog);
   private ghsManager = inject(GhsManager);
 
-  @Input() monster!: Monster;
+  readonly inputMonster = input.required<Monster>({ alias: 'monster' });
+  get monster(): Monster {
+    return this.inputMonster();
+  }
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
