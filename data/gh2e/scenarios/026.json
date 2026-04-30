@@ -2,6 +2,7 @@
   "index": "26",
   "name": "Gloomhaven Battlements B",
   "flowChartGroup": "demons",
+  "errata": "scenario26",
   "edition": "gh2e",
   "unlocks": [
     "23"

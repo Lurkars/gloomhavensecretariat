@@ -1,6 +1,7 @@
 {
   "index": "80",
   "name": "Lost Temple",
+  "errata": "scenario80",
   "edition": "gh2e",
   "eventType": "road",
   "rewards": {
@@ -14,7 +15,7 @@
     }
   },
   "monsters": [
-    "stone-construct"
+    "stone-construct-scenario-80"
   ],
   "objectives": [
     {
@@ -30,24 +31,24 @@
       "initial": true,
       "monster": [
         {
-          "name": "stone-construct",
+          "name": "stone-construct-scenario-80",
           "type": "normal"
         },
         {
-          "name": "stone-construct",
+          "name": "stone-construct-scenario-80",
           "type": "elite"
         },
         {
-          "name": "stone-construct",
+          "name": "stone-construct-scenario-80",
           "type": "elite"
         },
         {
-          "name": "stone-construct",
+          "name": "stone-construct-scenario-80",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "stone-construct",
+          "name": "stone-construct-scenario-80",
           "player4": "elite"
         }
       ],
