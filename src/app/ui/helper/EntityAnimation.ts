@@ -15,8 +15,8 @@ export class EntityAnimationDirective implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes && changes['entityAnimation']) {
-      const change = changes['entityAnimation'];
+    if (changes && changes['inputElement']) {
+      const change = changes['inputElement'];
       if (change.currentValue !== change.previousValue) {
         if (change.currentValue) {
           this.el.nativeElement.classList.add('entity-dead');

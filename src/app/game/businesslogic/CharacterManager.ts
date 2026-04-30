@@ -462,7 +462,8 @@ export class CharacterManager {
         figure.lootCardsVisible = false;
         figure.longRest = false;
 
-        figure.summons = figure.summons.filter((summon) => gameManager.entityManager.isAlive(summon));
+        const summonsToRemove = figure.summons.filter((summon) => !gameManager.entityManager.isAlive(summon));
+        summonsToRemove.forEach((summon) => this.removeSummon(figure, summon));
 
         figure.summons.forEach((summon) => {
           if (summon.state === SummonState.new) {

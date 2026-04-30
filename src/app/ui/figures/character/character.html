@@ -10,13 +10,11 @@
       <img class="icon" [src]="character.iconUrl" />
       <img class="menu" src="./assets/images/up.svg" />
     </span>
-    @if (summonCount) {
-      <div class="summons">
-        @for (summon of summons | trackUUID; track summon._trackUUID) {
-          <ghs-standee [figure]="character" [entity]="summon"> </ghs-standee>
-        }
-      </div>
-    }
+    <div class="summons">
+      @for (summon of summons | trackUUID; track summon._trackUUID) {
+        <ghs-standee [figure]="character" [entity]="summon"> </ghs-standee>
+      }
+    </div>
   </div>
 }
 

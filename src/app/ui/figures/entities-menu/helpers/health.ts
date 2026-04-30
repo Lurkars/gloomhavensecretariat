@@ -125,7 +125,35 @@ export class HealthHelper {
       });
 
       this.component.health = 0;
-      gameManager.stateManager.after();
+
+      if (
+        this.component.entities.some(
+          (entity) => (entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && entity.dead
+        )
+      ) {
+        gameManager.triggerUiChange(false);
+
+        setTimeout(
+          () => {
+            this.component.entities.forEach((entity) => {
+              if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && entity.dead) {
+                const figure = this.component.figureForEntity(entity);
+                if (figure instanceof Monster && entity instanceof MonsterEntity) {
+                  gameManager.monsterManager.removeMonsterEntity(figure, entity);
+                } else if (figure instanceof Character && entity instanceof Summon) {
+                  gameManager.characterManager.removeSummon(figure, entity);
+                } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
+                  gameManager.objectiveManager.removeObjectiveEntity(figure, entity);
+                }
+              }
+            });
+            gameManager.stateManager.after();
+          },
+          settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0
+        );
+      } else {
+        gameManager.stateManager.after();
+      }
     }
 
     if (this.component.maxHealth !== 0) {

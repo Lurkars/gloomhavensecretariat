@@ -28,7 +28,7 @@ export class CharacterLevelDialogComponent implements OnInit {
   EntityValueFunction = EntityValueFunction;
   Math = Math;
 
-  readonly characterTitleInput = viewChild.required<ElementRef>('charactertitle');
+  readonly characterTitleInput = viewChild<ElementRef>('charactertitle');
 
   character: Character;
   bb: boolean;

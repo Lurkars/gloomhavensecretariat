@@ -881,9 +881,8 @@ export class MonsterManager {
           }
         }
 
-        figure.entities = figure.entities.filter(
-          (monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) || monsterEntity.dormant
-        );
+        const entitiesToRemove = figure.entities.filter((entity) => !gameManager.entityManager.isAlive(entity) && !entity.dormant);
+        entitiesToRemove.forEach((entity) => this.removeMonsterEntity(figure, entity));
 
         figure.entities.forEach((entity) => {
           if (entity.tags) {

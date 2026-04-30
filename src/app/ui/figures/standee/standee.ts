@@ -318,7 +318,24 @@ export class StandeeComponent implements OnInit {
         }
       }
 
-      gameManager.stateManager.after();
+      if (this.entity.dead) {
+        gameManager.triggerUiChange(false);
+        setTimeout(
+          () => {
+            if (this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
+              gameManager.monsterManager.removeMonsterEntity(this.figure, this.entity);
+            } else if (this.figure instanceof Character && this.entity instanceof Summon) {
+              gameManager.characterManager.removeSummon(this.figure, this.entity);
+            } else if (this.figure instanceof ObjectiveContainer && this.entity instanceof ObjectiveEntity) {
+              gameManager.objectiveManager.removeObjectiveEntity(this.figure, this.entity);
+            }
+            gameManager.stateManager.after();
+          },
+          settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0
+        );
+      } else {
+        gameManager.stateManager.after();
+      }
     }
     this.health = 0;
   }
@@ -511,7 +528,10 @@ export class StandeeComponent implements OnInit {
 
       dialogRef.closed.subscribe({
         next: () => {
-          if ((this.entity instanceof MonsterEntity || this.entity instanceof ObjectiveEntity) && this.entity.dead) {
+          if (
+            (this.entity instanceof MonsterEntity || this.entity instanceof ObjectiveEntity || this.entity instanceof Summon) &&
+            this.entity.dead
+          ) {
             this.element.nativeElement.classList.add('dead');
             this.ghsManager.triggerUiChange();
           }

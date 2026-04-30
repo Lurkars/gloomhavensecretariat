@@ -36,7 +36,9 @@ export class SpecialActionsManager {
           f instanceof Character &&
           gameManager.entityManager.isAlive(f) &&
           f.name === 'banner-spear' &&
-          f.tags.includes('banner-of-strength')
+          f.tags.includes('banner-of-strength') &&
+          !!f.summons &&
+          f.summons.some((summon) => summon.name === 'banner-of-strength' && gameManager.entityManager.isAlive(summon))
       )
     ) {
       const attackAction = new Action(ActionType.extra, '', ActionValueType.fixed, [
@@ -55,7 +57,12 @@ export class SpecialActionsManager {
         )) &&
       this.game.figures.find(
         (f) =>
-          f instanceof Character && gameManager.entityManager.isAlive(f) && f.name === 'banner-spear' && f.tags.includes('banner-of-hope')
+          f instanceof Character &&
+          gameManager.entityManager.isAlive(f) &&
+          f.name === 'banner-spear' &&
+          f.tags.includes('banner-of-hope') &&
+          !!f.summons &&
+          f.summons.some((summon) => summon.name === 'banner-of-hope' && gameManager.entityManager.isAlive(summon))
       )
     ) {
       const healCondition = new EntityCondition(ConditionName.heal, 1);

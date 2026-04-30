@@ -181,12 +181,6 @@ export class EntityManager {
         entity.exhausted = true;
       } else if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && !entity.dead) {
         entity.dead = true;
-        setTimeout(
-          () => {
-            gameManager.triggerUiChange(false);
-          },
-          settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0
-        );
       }
     }
 

@@ -214,6 +214,9 @@ export class ObjectiveManager {
   next() {
     this.game.figures.forEach((figure) => {
       if (figure instanceof ObjectiveContainer) {
+        const entitiesToRemove = figure.entities.filter((entity) => !gameManager.entityManager.isAlive(entity) && !entity.dormant);
+        entitiesToRemove.forEach((entity) => this.removeObjectiveEntity(figure, entity));
+
         figure.off = false;
         this.setInitiativeShare(figure);
       }
