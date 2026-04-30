@@ -22,7 +22,24 @@
       "name": "Chereth",
       "escort": true,
       "health": "6+2xL",
-      "initiative": 99
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "move",
+          "value": "to starting location"
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "all adjacent enemies",
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rooms": [

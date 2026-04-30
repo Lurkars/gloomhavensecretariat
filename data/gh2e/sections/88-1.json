@@ -1,0 +1,63 @@
+{
+  "index": "88.1",
+  "edition": "gh2e",
+  "parent": "80",
+  "marker": "1",
+  "monsters": [
+    "giant-viper",
+    "the-betrayer"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Chereth"
+          },
+          "type": "remove"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "giant-viper",
+            "type": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "giant-viper",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "treasures": [
+        14
+      ],
+      "monster": [
+        {
+          "name": "the-betrayer",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

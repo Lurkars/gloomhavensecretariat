@@ -791,7 +791,8 @@
         "scenario26": "Monsters on tiles 2-D and 10-B should not be set up at the start of the scenario, with the exception of the City Archers located adjacent to the wall section overlays. (Fixed in GHS!)",
         "scenario56": "The Gloom treats all %game.attackmodifier.null% cards as %game.attackmodifier.plus0%, not as %game.attackmodifier.null%. The Gloom's Boss Specials 1 and 2 should say \"a viable attack hex\" instead of \"an empty hex,\" choosing a non-negative hex when possible.",
         "scenario62": "The map layout has Tile 06 with only slots and no tabs. The flat side should be laid adjacent to the other tiles, with the tab side facing out.",
-        "scenario80": "There aren't enough Stone Colossus standees for a 4-player setup. Proxy another standee for the 5th."
+        "scenario80": "There aren't enough Stone Colossus standees for a 4-player setup. Proxy another standee for the 5th.",
+        "section112-3": "The Gloom treats all %game.attackmodifier.null% cards as %game.attackmodifier.plus0%, not as %game.attackmodifier.null%."
       },
       "flame-demon": {
         "1": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",

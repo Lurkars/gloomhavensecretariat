@@ -19,13 +19,88 @@
       [
         {
           "type": "custom",
-          "value": "See monster stat sheet."
+          "value": "Focus on the lowest hit point character with a viable attack hex adjacent to them"
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "C+3",
+              "valueType": "plus"
+            },
+            {
+              "type": "custom",
+              "value": "%game.damage% suffered from this attack is divided evenly between the target and all allies adjacent to them",
+              "small": true
+            }
+          ]
         }
       ],
       [
         {
           "type": "custom",
-          "value": "See monster stat sheet."
+          "value": "Focus on the highest hit point character with a viable attack hex adjacent to them"
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "custom",
+              "value": "Add %game.condition.wound%, %game.condition.poison%, and %game.condition.immobilize% if you have %game.condition.ward%.",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "jump",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "Move as far from the focus as possible",
+              "small": true
+            }
+          ]
         }
       ]
     ]

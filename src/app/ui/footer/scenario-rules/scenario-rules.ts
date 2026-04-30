@@ -156,7 +156,12 @@ export class ScenarioRulesComponent {
             return false;
           }
 
-          if (figureRule.type === 'gainCondition' || figureRule.type === 'permanentCondition' || figureRule.type === 'loseCondition') {
+          if (
+            figureRule.type === 'gainCondition' ||
+            figureRule.type === 'permanentCondition' ||
+            figureRule.type === 'loseCondition' ||
+            figureRule.type === 'losePermanentCondition'
+          ) {
             return figures.some((figure) => {
               if (figureRule.type === 'gainCondition') {
                 const entities: Entity[] = gameManager.entityManager.entities(figure);
@@ -174,6 +179,12 @@ export class ScenarioRulesComponent {
                 const entities: Entity[] = gameManager.entityManager.entities(figure);
                 const loseCondition = new Condition(figureRule.value);
                 if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, loseCondition))) {
+                  return false;
+                }
+              } else if (figureRule.type === 'losePermanentCondition') {
+                const entities: Entity[] = gameManager.entityManager.entities(figure);
+                const losePermanentCondition = new Condition(figureRule.value);
+                if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, losePermanentCondition, true))) {
                   return false;
                 }
               }
