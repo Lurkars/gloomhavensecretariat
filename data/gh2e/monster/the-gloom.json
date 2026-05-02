@@ -43,7 +43,7 @@
             },
             {
               "type": "custom",
-              "value": "%game.damage% suffered from this attack is divided evenly between the target and all allies adjacent to them",
+              "value": "%game.damage% suffered from this attack is divided evenly between the target and all enemies adjacent to them",
               "small": true
             }
           ]
@@ -76,7 +76,7 @@
             },
             {
               "type": "custom",
-              "value": "Add %game.condition.wound%, %game.condition.poison%, and %game.condition.immobilize% if you have %game.condition.ward%.",
+              "value": "Add %game.condition.wound%, %game.condition.poison%, and %game.condition.immobilize% if The Gloom has %game.condition.ward%.",
               "small": true
             }
           ]
