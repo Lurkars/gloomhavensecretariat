@@ -1,6 +1,7 @@
 {
   "index": "80",
   "name": "Lost Temple",
+  "errata": "scenario80",
   "edition": "gh2e",
   "eventType": "road",
   "rewards": {
@@ -10,18 +11,35 @@
       "133"
     ],
     "hints": {
-      "gold": "This money must immediately be spent on enhancements"
+      "gold": "%data.scenario.rewards.gh2e.80.1%"
     }
   },
   "monsters": [
-    "stone-construct"
+    "stone-construct-scenario-80"
   ],
   "objectives": [
     {
       "name": "Chereth",
       "escort": true,
       "health": "6+2xL",
-      "initiative": 99
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "move",
+          "value": "%data.scenario.rules.gh2e.80.1%"
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rooms": [
@@ -30,24 +48,24 @@
       "initial": true,
       "monster": [
         {
-          "name": "stone-construct",
+          "name": "stone-construct-scenario-80",
           "type": "normal"
         },
         {
-          "name": "stone-construct",
+          "name": "stone-construct-scenario-80",
           "type": "elite"
         },
         {
-          "name": "stone-construct",
+          "name": "stone-construct-scenario-80",
           "type": "elite"
         },
         {
-          "name": "stone-construct",
+          "name": "stone-construct-scenario-80",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "stone-construct",
+          "name": "stone-construct-scenario-80",
           "player4": "elite"
         }
       ],

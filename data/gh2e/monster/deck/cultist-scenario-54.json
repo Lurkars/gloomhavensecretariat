@@ -19,7 +19,7 @@
         },
         {
           "type": "custom",
-          "value": "If Cultist dies this round, first remove all negative conditions and perform:",
+          "value": "%data.custom.gh2e.cultist.1%",
           "small": true,
           "subActions": [
             {
@@ -52,7 +52,7 @@
         },
         {
           "type": "custom",
-          "value": "If Cultist dies this round, first remove all negative conditions and perform:",
+          "value": "%data.custom.gh2e.cultist.1%",
           "small": true,
           "subActions": [
             {
@@ -100,7 +100,7 @@
             },
             {
               "type": "custom",
-              "value": "where X is the amount of damage suffered by the target of the attack ability.",
+              "value": "%data.custom.gh2e.cultist.2%",
               "small": true
             }
           ]
@@ -139,7 +139,7 @@
             },
             {
               "type": "custom",
-              "value": "where X is the amount of damage suffered by the target of the attack ability.",
+              "value": "%data.custom.gh2e.cultist.2%",
               "small": true
             }
           ]
@@ -154,7 +154,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The highest health enemy within %game.action.range:5% and within line-of-sight suffers Damage X."
+          "value": "%data.custom.gh2e.cultist.3%"
         },
         {
           "type": "grid",
@@ -165,15 +165,15 @@
               "value": "X",
               "subActions": [
                 {
-                  "type": "specialTarget",
-                  "value": "self",
+                  "type": "range",
+                  "value": 5,
                   "small": true
                 }
               ]
             },
             {
               "type": "custom",
-              "value": "where X is equal to hazardous terrain %game.damage%.",
+              "value": "%data.custom.gh2e.cultist.4%",
               "small": true
             }
           ]
@@ -188,7 +188,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The highest health enemy within %game.action.range:5% and within line-of-sight suffers Damage X."
+          "value": "%data.custom.gh2e.cultist.3%"
         },
         {
           "type": "grid",
@@ -207,7 +207,7 @@
             },
             {
               "type": "custom",
-              "value": "where X is equal to hazardous terrain %game.damage%.",
+              "value": "%data.custom.gh2e.cultist.4%",
               "small": true
             }
           ]

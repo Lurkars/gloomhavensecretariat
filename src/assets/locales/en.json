@@ -2077,6 +2077,7 @@
         "gainCondition": "{0} gain %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
         "loseCondition": "{0} lose %game.condition.{1}%",
+        "losePermanentCondition": "{0} lose permanent %game.condition.{1}%",
         "permanentCondition": "{0} gain permanent %game.condition.{1}%",
         "remove": "Remove {0}",
         "removeAbility": "Remove ability card '{1}' of {0}",

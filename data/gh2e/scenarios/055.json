@@ -20,12 +20,20 @@
       "name": "Hail",
       "escort": true,
       "health": "4+(2xL)",
-      "initiative": 99
+      "initiative": 99,
+      "marker": "a",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.scenario.rules.gh2e.55.1%"
+        }
+      ]
     },
     {
-      "name": "Stone Pillar H",
+      "name": "Stone Pillar",
       "health": "8+CxL",
-      "initiative": 99
+      "initiative": 99,
+      "marker": "h"
     }
   ],
   "rules": [

@@ -780,11 +780,21 @@
       },
       "cultist": {
         "1": "If Cultist dies this round, first remove all negative conditions and perform:",
-        "2": "where X is the amount of damage suffered by the target of the attack ability."
+        "2": "where X is the amount of damage suffered by the target of the attack ability.",
+        "3": "The highest health enemy within %game.action.range:5% and within line-of-sight suffers %game.damage:X%.",
+        "4": "where X is equal to hazardous terrain %game.damage%."
       },
       "deep-terror": {
         "1": "If the attack ability was performed",
         "2": "in an empty hex adjacent to the target<br>of the attack ability"
+      },
+      "errata": {
+        "scenario8": "Scenario Goals should read, \"The scenario is complete when the Bandit Commander and all revealed enemies are dead\"",
+        "scenario26": "Monsters on tiles 2-D and 10-B should not be set up at the start of the scenario, with the exception of the City Archers located adjacent to the wall section overlays. (Fixed in GHS!)",
+        "scenario56": "The Gloom treats all %game.attackmodifier.null% cards as %game.attackmodifier.plus0%, not as %game.attackmodifier.null%. The Gloom's Boss Specials 1 and 2 should say \"a viable attack hex\" instead of \"an empty hex,\" choosing a non-negative hex when possible.",
+        "scenario62": "The map layout has Tile 06 with only slots and no tabs. The flat side should be laid adjacent to the other tiles, with the tab side facing out.",
+        "scenario80": "There aren't enough Stone Colossus standees for a 4-player setup. Proxy another standee for the 5th.",
+        "section112-3": "The Gloom treats all %game.attackmodifier.null% cards as %game.attackmodifier.plus0%, not as %game.attackmodifier.null%."
       },
       "flame-demon": {
         "1": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
@@ -1109,6 +1119,13 @@
       "stone-construct": {
         "1": "If the move ability was performed, Stone Construct suffers %game.damage:1%.",
         "2": "If the attack ability was performed, Stone Construct suffers %game.damage:1%."
+      },
+      "the-gloom": {
+        "1": "Focus on the lowest hit point character with a viable attack hex adjacent to them",
+        "2": "%game.damage% suffered from this attack is divided evenly between the target and all enemies adjacent to them",
+        "3": "Focus on the highest hit point character with a viable attack hex adjacent to them",
+        "4": "Add %game.condition.wound%, %game.condition.poison%, and %game.condition.immobilize% if The Gloom has %game.condition.ward%.",
+        "5": "Move as far from the focus as possible"
       },
       "tinkerer": {
         "1": "Once each scenario, one adjacent ally may use one of your <i>potion</i> %game.itemSlot:small% items during their turn without it becoming %game.card.lost%",
@@ -1465,16 +1482,29 @@
     }
   },
   "scenario": {
+    "rewards": {
+      "gh2e": {
+        "80": {
+          "1": "This money must immediately be spent on enhancements"
+        }
+      }
+    },
     "rules": {
       "gh2e": {
         "10": {
           "1": "Each Character occupying tile 01-D, 02-H, or any corridor tiles connecting those two tiles suffers hazardous terrain damage."
+        },
+        "55": {
+          "1": "Remove one damage token from the pile next to the map."
         },
         "8": {
           "1": "At the end of his turn the Bandit Commander Performs %game.action.move:20% %game.action.jump% to end on door %game.mapMarker.2% opening it.",
           "2": "At the end of his turn the Bandit Commander Performs %game.action.move:20% %game.action.jump% to end on door %game.mapMarker.3% opening it.",
           "3": "At the end of his turn the Bandit Commander Performs %game.action.move:20% %game.action.jump% to end on door %game.mapMarker.4% opening it.",
           "4": "At the end of his turn the Bandit Commander Performs %game.action.move:20% %game.action.jump% to end on door %game.mapMarker.5% opening it."
+        },
+        "80": {
+          "1": "to starting location"
         },
         "9": {
           "1": "Draw a token and spawn the monster on %game.mapMarker.b%.",

@@ -19,13 +19,88 @@
       [
         {
           "type": "custom",
-          "value": "See monster stat sheet."
+          "value": "%data.custom.gh2e.the-gloom.1%"
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "C+3",
+              "valueType": "plus"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.the-gloom.2%",
+              "small": true
+            }
+          ]
         }
       ],
       [
         {
           "type": "custom",
-          "value": "See monster stat sheet."
+          "value": "%data.custom.gh2e.the-gloom.3%"
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.the-gloom.4%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "jump",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.the-gloom.5%",
+              "small": true
+            }
+          ]
         }
       ]
     ]
